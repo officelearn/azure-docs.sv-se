@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: spelluru
-ms.openlocfilehash: 293cde00e53171e848263df8564ec85f273c1a40
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 7d4b4a98c38757eb33c3f8713f662ed52a686924
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166341"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978663"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Service Bus-mått i Azure Monitor (förhandsversion)
 
@@ -80,6 +80,8 @@ Följande två typer av fel är klassificerade som användarfel:
 | ------------------- | ----------------- |
 |Inkommande meddelanden (förhandsversion)|Antal händelser eller meddelanden som skickas till Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
 |Utgående meddelanden (förhandsversion)|Antal händelser eller meddelanden som tas emot från Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+| Meddelanden (förhandsversion) | Antal meddelanden i kö/ämne. <br/><br/> Enhet: antal <br/> Sammansättningstyp: genomsnittlig <br/> Dimensionen: EntityName |
+| ActiveMessages (förhandsversion) | Antal aktiva meddelanden i kö/ämne. <br/><br/> Enhet: antal <br/> Sammansättningstyp: genomsnittlig <br/> Dimensionen: EntityName |
 
 ## <a name="connection-metrics"></a>Anslutningsmått
 

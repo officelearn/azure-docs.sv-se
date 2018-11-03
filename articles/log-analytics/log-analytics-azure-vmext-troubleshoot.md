@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 845bc46ec56bfd6681c4fb318a57de19f66c0edf
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f1ca7abc867df25d37093cb777f35216b5ee5a30
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403887"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957989"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>Felsökning av Log Analytics VM-tillägget
 Du får hjälp med att felsöka fel som du kan uppleva med Log Analytics VM-tillägg för Windows och Linux-datorer som körs på Microsoft Azure och ger förslag på lösningar för att lösa dem.
@@ -58,7 +58,7 @@ Om den *Microsoft Monitoring Agent* VM-tillägget inte installera eller rapporte
 6. Visa status för Microsoft Monitoring Agent genom att skriva följande i en upphöjd PowerShell-kommandotolk på den virtuella datorn `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
 7. Granska loggfilerna Microsoft Monitoring Agent i `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
 
-Mer information finns i [felsökning av Windows-tillägg](../virtual-machines/windows/extensions-oms.md).
+Mer information finns i [felsökning av Windows-tillägg](../virtual-machines/extensions/oms-windows.md).
 
 ## <a name="troubleshooting-linux-vm-extension"></a>Felsökning av Linux VM-tillägg
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
@@ -70,7 +70,7 @@ Om den *Log Analytics-agenten för Linux* VM-tillägget inte installera eller ra
 2. För andra felaktiga statusar granska Log Analytics-agenten för Linux VM-tillägget loggfiler `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` och `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
 3. Om tilläggsstatusen är felfri, men data överförs inte granska Log Analytics-agenten för Linux-loggfiler i `/var/opt/microsoft/omsagent/log/omsagent.log`
 
-Mer information finns i [felsökning av Linux-tillägg](../virtual-machines/linux/extensions-oms.md).
+Mer information finns i [felsökning av Linux-tillägg](../virtual-machines/extensions/oms-linux.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

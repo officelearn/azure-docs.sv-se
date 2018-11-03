@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/08/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4c35f4366b2290164036316be8de730e20aa99bf
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 99ace7be05f186ac920aa9671946389e95e3a3a6
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092670"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958125"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Utforska mått i Application Insights
 Mått i [Programinsikter] [ start] är mätvärden och antalet händelser som skickas i telemetri från ditt program. De hjälper dig att identifiera problem med prestanda och se trender i hur ditt program används. Det finns en mängd olika standardmått och du kan också skapa egna anpassade mått och händelser.
@@ -194,14 +194,14 @@ Du kan klicka på ikonen Analytics för att komma direkt till motsvarande Analyt
 
     Om du vill definiera olika filter för olika diagram, skapa dem i olika bladen kan du spara dem som separata Favoriter. Om du vill kan fästa du dem på instrumentpanelen så att du kan se dem tillsammans med varandra.
 * Om du grupperar ett diagram av en egenskap som inte har definierats för måttet kan sedan debiteras ingenting i diagrammet. Försök rensa ”Gruppera efter” eller välj en egenskap för olika grupperingsnivåer.
-* Prestandadata (CPU, IO-frekvens och så vidare) är tillgängligt för Java-webbtjänster, Windows-skrivbordsappar, [IIS webbprogram och tjänster om du installerar statusövervakaren](app-insights-monitor-performance-live-website-now.md), och [Azure Cloud Services](app-insights-azure.md). Det är inte tillgängligt för Azure-webbplatser.
+* Prestandadata (CPU, IO-frekvens och så vidare) är tillgängligt för Java-webbtjänster, Windows-skrivbordsappar, [IIS webbprogram och tjänster om du installerar statusövervakaren](app-insights-monitor-performance-live-website-now.md), och [Azure Cloud Services](app-insights-overview.md). Det är inte tillgängligt för Azure-webbplatser.
 
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Nästa steg
-* [Övervakning med Application Insights](app-insights-web-track-usage.md)
+* [Övervakning med Application Insights](app-insights-usage-overview.md)
 * [Med hjälp av Diagnostiksökning](app-insights-diagnostic-search.md)
 
 <!--Link references-->

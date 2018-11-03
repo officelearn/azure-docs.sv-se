@@ -13,19 +13,19 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 533aa505c38d3cbfb46d70acecd43cc66614b13d
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: c8e4e84d7ae0defdb053108dc668956062c47ea5
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378144"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962392"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Liveuppspelning med Azure Media Services v3
 
 När du ska leverera liveuppspelningshändelser med Azure Media Services ingår oftast följande komponenter:
 
 * En kamera som används för att sända en händelse.
-* En live-videokodare som konverterar signaler från kameran (eller en annan enhet, till exempel bärbara datorer) till dataströmmar som skickas till tjänsten Lös strömning. Signalerna också innefatta annonsbaserad SCTE 35 och Ad-tips. 
+* En live-videokodare som konverterar signaler från kameran (eller en annan enhet, till exempel bärbara datorer) till dataströmmar som skickas till tjänsten Live Streaming. Signalerna också innefatta annonsbaserad SCTE 35 och Ad-tips. 
 * Media Services Live Streaming-tjänsten kan du mata in, förhandsgranska, paket, registrera, kryptera och skicka innehållet till dina kunder eller till ett nätverk för Innehållsleverans för vidare distribution.
 
 Den här artikeln ger en detaljerad översikt och inkluderar diagram över viktiga komponenter som ingår i direktsänd strömning med Media Services.

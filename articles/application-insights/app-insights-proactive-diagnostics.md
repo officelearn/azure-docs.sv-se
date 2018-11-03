@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: fe1fe5d270dd8eb871301a8ec81375f35b2568da
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 0083c157eab489943f94ed1453c66a5c8d2f291a
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096590"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960318"
 ---
 # <a name="smart-detection-in-application-insights"></a>Smart identifiering i Application Insights
  Smart identifiering varnar automatiskt dig om potentiella prestandaproblem i ditt webbprogram. Den utför proaktiv analys av telemetrin som appen skickar till [Application Insights](app-insights-overview.md). Om det finns en plötslig i Felfrekvens eller onormala mönster i klient- eller prestanda, får du en avisering. Ingen konfiguration krävs för den här funktionen. Det fungerar om ditt program skickar så mycket telemetri.
@@ -57,7 +57,7 @@ Dessa diagnostiska verktyg hjälper dig att inspektera telemetrin från din app:
 
 * [Metric explorer](app-insights-metrics-explorer.md)
 * [Sökutforskaren](app-insights-diagnostic-search.md)
-* [Analytics – kraftfullt frågespråk](app-insights-analytics-tour.md)
+* [Analytics – kraftfullt frågespråk](../log-analytics/query-language/get-started-analytics-portal.md)
 
 Smart identifiering är helt automatisk. Men kanske du vill ställa in några fler aviseringar?
 

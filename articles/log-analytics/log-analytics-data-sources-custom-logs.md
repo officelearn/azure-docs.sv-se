@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 5eab8e4bf6b1aa90a9eef3e26dfc3020e3e3179b
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 9a902aef0f4605c51e8dbbab49639997066be705
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423520"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961067"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Anpassade loggar i Log Analytics
 Datakälla för anpassade loggar i Log Analytics kan du samla in händelser från textfiler på både Windows och Linux-datorer. Många program logga information till textfiler i stället för standardtjänster loggning, till exempel Windows händelselogg eller Syslog.  När samlats in, kan du parsa varje post i inloggningen till enskilda fält med hjälp av den [anpassade fält](log-analytics-custom-fields.md) funktion i Log Analytics.
@@ -140,7 +140,7 @@ Poster från anpassade loggar lagras i Log Analytics-arbetsytan precis som poste
 
 I följande tabell innehåller olika exempel på sökningar i loggen som hämtar poster från anpassade loggar.
 
-| Fråga | Beskrivning |
+| Söka i data | Beskrivning |
 |:--- |:--- |
 | MyApp_CL |Alla händelser från en anpassad logga namngivna MyApp_CL. |
 | MyApp_CL &#124; där Severity_CF == ”error” |Alla händelser från en anpassad logga namngivna MyApp_CL med värdet *fel* i ett anpassat fält med namnet *Severity_CF*. |
@@ -182,4 +182,4 @@ Vi använder anpassade fält för att definiera den *EventTime*, *kod*, *Status*
 
 ## <a name="next-steps"></a>Nästa steg
 * Använd [anpassade fält](log-analytics-custom-fields.md) att parsa posterna i anpassade inloggningen till enskilda fält.
-* Lär dig mer om [loggsökningar](log-analytics-log-searches.md) att analysera data som samlas in från datakällor och lösningar.
+* Lär dig mer om [loggsökningar](log-analytics-log-search.md) att analysera data som samlas in från datakällor och lösningar.

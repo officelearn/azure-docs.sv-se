@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 76c8421286633dc3c81a073423a7d9f9ca1e1d85
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: df87f1ab1ba639ad874aa8bd353362913355cf8d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420854"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964024"
 ---
 # <a name="service-connectivity-monitor"></a>Övervakare av tjänstanslutning
 
@@ -131,4 +131,4 @@ Om du upptäcker en avvikelse, gör du följande:
 
 
 ## <a name="next-steps"></a>Nästa steg
-[Söka loggarna](log-analytics-log-searches.md) att visa detaljerad nätverk prestanda dataposter.
+[Söka loggarna](log-analytics-log-search.md) att visa detaljerad nätverk prestanda dataposter.

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: dfa0a4b637153d6fa3cce5c9b402587950686341
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ad5721ff7304629ba786b1fed308ccb05b4a5211
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418083"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962732"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Anslut Konfigurationshanteraren till Log Analytics
 Du kan ansluta din miljö för System Center Configuration Manager till Azure Log Analytics att synkronisera enheten samlingsdata och referera till dessa samlingar i Log Analytics och Azure Automation.  
@@ -69,7 +69,7 @@ För att lägga till Log Analytics-anslutning, Configuration Manager-miljön må
    
 2. På den **Allmänt** skärmen, bekräfta att du har gjort följande åtgärder och att du har informationen om varje objekt och välj sedan **nästa**.
 
-   1. I Azure-portalen, du har registrerat Configuration Manager som en Webbapp och/eller webb-API-app och som du har den [klient-ID från registreringen](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
+   1. I Azure-portalen, du har registrerat Configuration Manager som en Webbapp och/eller webb-API-app och som du har den [klient-ID från registreringen](../active-directory/develop/quickstart-v1-add-azure-ad-app.md).
    2. Du har skapat en app hemlig nyckel för registrerad app i Azure Active Directory i Azure-portalen.  
    3. Du har angett den registrerade webbappen med behörighet att komma åt Log Analytics i Azure-portalen.  
       ![Anslutning till Log Analytics guiden fliken Allmänt](./media/log-analytics-sccm/sccm-console-general01.png)
@@ -113,7 +113,7 @@ När samlingarna har importerats kan du se hur många datorer med samlingsmedlem
 
 ![Datorgrupper - SCCM-fliken](./media/log-analytics-sccm/sccm-computer-groups02.png)
 
-När du klickar på någon öppnas sökning och visar antingen alla importerade grupper eller alla datorer som ingår i varje grupp. Med hjälp av [Loggsökning](log-analytics-log-searches.md), du kan starta djupgående analys av data för Configuration Manager.
+När du klickar på någon öppnas sökning och visar antingen alla importerade grupper eller alla datorer som ingår i varje grupp. Med hjälp av [Loggsökning](log-analytics-log-search.md), du kan starta djupgående analys av data för Configuration Manager.
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd [Loggsökning](log-analytics-log-searches.md) att visa detaljerad information om dina data för Configuration Manager.
+* Använd [Loggsökning](log-analytics-log-search.md) att visa detaljerad information om dina data för Configuration Manager.

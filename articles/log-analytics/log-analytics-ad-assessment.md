@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c56a0239209f5c71130c9dd8173eed48f60a3b0a
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 92d456ae4db1b4016c1a3676b5adfd7cbc2e7867
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042078"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962783"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimera din Active Directory-miljö med kontroll av Active Directory hälsotillstånd lösningen i Log Analytics
 
@@ -53,7 +53,7 @@ När du har lagt till lösningen och en kontroll är slutförd, sammanfattande i
 
 Om du vill utföra hälsokontroll mot domänkontrollanter som är medlemmar i domänen som ska utvärderas kräver de en agent och en anslutning till Log Analytics med någon av följande metoder:
 
-1. Installera den [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) om domänkontrollanten inte redan övervakas av System Center 2016 – Operations Manager eller Operations Manager 2012 R2.
+1. Installera den [Microsoft Monitoring Agent (MMA)](log-analytics-agent-windows.md) om domänkontrollanten inte redan övervakas av System Center 2016 – Operations Manager eller Operations Manager 2012 R2.
 2. Om den är övervakad med System Center 2016 – Operations Manager eller Operations Manager 2012 R2 och hanteringsgruppen är inte integrerat med Log Analytics-tjänsten, domänkontrollanten kan ha flera värdar med Log Analytics för att samla in data och vidarebefordra dem till den tjänsten och fortfarande att övervakas av Operations Manager.  
 3. I annat fall om Operations Manager-hanteringsgrupp är integrerad med tjänsten, du måste lägga till domänkontrollanterna för insamling av tjänsten anvisningarna under [lägga till datorer som hanteras med agent](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) när du har aktiverat lösningen i din arbetsyta.  
 
@@ -186,4 +186,4 @@ I nästa schemalagda hälsotillstånd kontroll körs som standard var sjunde dag
 * Ja, se [Ignorera rekommendationer](#ignore-recommendations) ovan.
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd [Loggsökningar i Log Analytics](log-analytics-log-searches.md) och lär dig att analysera detaljerad AD-hälsokontroll data och rekommendationer.
+* Använd [Loggsökningar i Log Analytics](log-analytics-log-search.md) och lär dig att analysera detaljerad AD-hälsokontroll data och rekommendationer.

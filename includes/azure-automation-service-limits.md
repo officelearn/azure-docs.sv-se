@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/05/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 34cae9172d9b024bd6866742d39d82ad496bfc52
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
-ms.translationtype: MT
+ms.openlocfilehash: abe7668ed16ddd5cc1b247207d3e80f7c1118137
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45570438"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50964615"
 ---
 | Resurs | Övre gräns |Anteckningar|
 | --- | --- |---|
@@ -25,11 +25,12 @@ ms.locfileid: "45570438"
 | Högsta mängd diskutrymme som tillåts per sandbox  **<sup>1</sup>** |1 GB |Gäller för Azure sandboxar|
 | Högsta mängd minne som tilldelas en sandbox  **<sup>1</sup>** |400 MB |Gäller för Azure sandboxar|
 | Maxantal nätverk sockets tillåts per sandbox  **<sup>1</sup>** |1000 |Gäller för Azure sandboxar|
-| Maximala körtid som tillåts per runbook  **<sup>1</sup>** |tre timmar |Gäller för Azure sandboxar|
+| Maximala körtid som tillåts per runbook  **<sup>1</sup>** |3 timmar |Gäller för Azure sandboxar|
 | Maxantal Automation-konton i en prenumeration |Obegränsat ||
 |Maximalt antal samtidiga jobb som ska köras på en enda Hybrid Runbook Worker|50 ||
 | Max Runbook-jobbet parametrar storlek   | 512 kb||
 | Max Runbook-parametrar   | 50|Du kan skicka en JSON- eller XML-sträng till en parameter och parsa den med runbook om du har nått gränsen för 50 parametern|
 | Maxstorlek för webhook-nyttolasten |  512 kb|
+| Maximalt antal dagar som jobbdata sparas|30 dagar|
 
 **<sup>1</sup>**  en Sandbox-miljön är en delad miljö som kan användas av flera jobb, jobb med hjälp av samma sandlåda är bundna av resursbegränsningar av sandbox-miljön.

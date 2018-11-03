@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 995e93290e7c305e217c1f44609d383f69d83a9a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 49012c69a6dacaf76c95ea4c760e5951ecb6a9fb
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420565"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958856"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Avancerad automatisk skalning med Resource Manager-mallar för VM Scale Sets
 Du kan skala in och ut på Virtual Machine Scale Sets baserat på prestanda tröskelmått, genom ett återkommande schema eller genom att ett visst datum. Du kan också konfigurera e-post och webhook meddelanden om skalningsåtgärder. Den här genomgången visar ett exempel på hur du konfigurerar dessa objekt med en Resource Manager-mall för VM-Skalningsuppsättningen.
 
 > [!NOTE]
-> Även om den här genomgången beskriver stegen för VM Scale Sets, samma information som gäller för automatisk skalning [molntjänster](https://azure.microsoft.com/services/cloud-services/), [App Service – Web Apps](https://azure.microsoft.com/services/app-service/web/), och [API Management-tjänster](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) För en enkel skala in/ut inställningen på VM Scale Sets baserat på en enkel prestandamått som CPU, referera till den [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) och [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) dokument
+> Även om den här genomgången beskriver stegen för VM Scale Sets, samma information som gäller för automatisk skalning [molntjänster](https://azure.microsoft.com/services/cloud-services/), [App Service – Web Apps](https://azure.microsoft.com/services/app-service/web/), och [API Management-tjänster](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) För en enkel skala in/ut inställningen på VM Scale Sets baserat på en enkel prestandamått som CPU, referera till den [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) och [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell.md) dokument
 >
 >
 

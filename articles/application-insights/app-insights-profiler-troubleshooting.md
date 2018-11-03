@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 28de0f8bdcaa730c5beea0c630d4e86e15642809
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 6013c0a1b404336ad7cca21edafb7adec5c7f7ca
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142564"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978850"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Felsöka problem med att aktivera och visa Application Insights Profiler
 
@@ -46,16 +46,16 @@ Profiler skriver spårningsmeddelanden och anpassade händelser till application
 
 1. Om det finns begäranden under tidsperioden profiler kördes, se till att begäranden hanteras av en del av ditt program som har aktiverat profiler. Program består ibland av flera komponenter men Profiler är endast aktiverad i vissa fall inte alla, komponenter. Konfigurera Application Insights Profiler-sidan visas de komponenter som har överfört spårningar.
 
-### <a name="net-core-21-bug"></a>**.NET core 2.1 bugg** 
+### <a name="net-core-21-bug"></a>.NET core 2.1 bugg
 Det finns en bugg i profiler-agent som förhindrar att ladda upp spårningar som kommer från program som körs på ASP.NET Core 2.1. Vi arbetar på att lösa och har klar snart. Korrigering för den här buggen kommer att distribueras i slutet av oktober.
 
-### <a name="other-things-to-check"></a>**Annat att kontrollera:**
+### <a name="other-things-to-check"></a>Annat att kontrollera:
 * Din app körs på .NET Framework 4.6.
 * Om din webbapp är ett ASP.NET Core-program, måste den köra minst ASP.NET Core 2.0.
 * Om de data som du vill visa är äldre än ett par veckor, försök att begränsa din tidsfiltret och försök igen. Spårningar tas bort efter sju dagar.
 * Se till att proxyservrar eller en brandvägg inte har blockerat åtkomsten till https://gateway.azureserviceprofiler.net.
 
-### <a id="double-counting"></a>**Dubbel inventering i parallella trådar**
+### <a id="double-counting"></a>Dubbel inventering i parallella trådar
 
 I vissa fall kan är stack visningsprogrammet måttet total tid större än varaktigheten för begäran.
 
@@ -63,11 +63,11 @@ Den här situationen kan uppstå när två eller flera trådar som är associera
 
 När du ser parallella trådar i dina spårningar avgör vilka trådar som väntar på, så du kan fastställa den kritiska vägen för begäran. I de flesta fall tråden som snabbt försätts i vänteläge helt enkelt att vänta på de andra trådarna. Koncentrera dig på de andra trådarna och ignorera tiden att vänta på trådar.
 
-### <a name="error-report-in-the-profiling-viewer"></a>**Felrapport i visningsprogrammet för profilering**
+### <a name="error-report-in-the-profile-viewer"></a>Felrapport i visningsprogrammet för profil
 Skicka in ett supportärende i portalen. Glöm inte att ta Korrelations-ID från felmeddelandet.
 
 ## <a name="troubleshooting-profiler-on-app-services"></a>Felsökning av Profiler på App Services
-### <a name="for-the-profiler-to-work-properly"></a>**För profiler ska fungera korrekt:**
+### <a name="for-the-profiler-to-work-properly"></a>För profiler ska fungera korrekt:
 * Web app service-planen måste vara Basic-nivån eller högre.
 * Din webbapp måste ha Application Insights-tillägget för App Services (2.6.5) installerat.
 * Din webbapp måste ha den **APPINSIGHTS_INSTRUMENTATIONKEY** appinställningen som konfigurerats med samma instrumenteringsnyckeln som används av Application Insights SDK.
@@ -82,7 +82,7 @@ Skicka in ett supportärende i portalen. Glöm inte att ta Korrelations-ID från
     
     ![profiler-webjob-log]
 
-### <a name="manual-installation"></a>**Manuell installation**
+### <a name="manual-installation"></a>Manuell installation
 
 När du konfigurerar Profiler görs uppdateringar till webbappens inställningar. Du kan aktivera uppdateringar manuellt om miljön kräver den. Ett exempel kan vara att ditt program körs i en miljö med Web Apps för PowerApps.
 
@@ -97,9 +97,9 @@ När du konfigurerar Profiler görs uppdateringar till webbappens inställningar
 1. Installera **Programinsikter** från Azure Web Apps-galleriet.
 1. Starta om webbappen.
 
-### <a name="too-many-active-profiling-sessions"></a>**För många aktiva sessioner för profilering**
+### <a name="too-many-active-profiling-sessions"></a>För många aktiva sessioner för profilering
 
-För närvarande kan du aktivera Profiler på upp till fyra Azure web apps och distributionsplatser som körs i samma service-abonnemang. Om Profiler webbjobb rapporterar för många aktiva profilering sessioner, flytta webbappar till en annan service-planen.
+För närvarande kan du aktivera Profiler på upp till fyra Azure web apps och distributionsplatser som körs i samma service-abonnemang. Om du har fler web apps än som körs i en app service-plan kan du se en Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionException som utlöses av profiler. Profiler körs separat för varje webbapp och försöker starta en ETW-session för varje app. Men det finns ett begränsat antal ETW-sessioner som kan vara aktiv i taget. Om Profiler webbjobb rapporterar för många aktiva profilering sessioner, flytta webbappar till en annan service-planen.
 
 ### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Distributionsfel: katalogen är inte tom ”D:\\home\\plats\\wwwroot\\App_Data\\Jobbens
 

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 28344ac7c50b48b472ba6f907b116b3b202de454
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: ebf5a23743d1fdd9553b391bb0518c2887ddb096
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238805"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959995"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Hur du planerar din hybrid Azure Active Directory join-implementering
 
@@ -49,6 +49,7 @@ Om du vill planera hybridimplementeringen Azure AD, bör du bekanta dig med:
 |---|---|
 |![Markera][1]|Granska stöd för enheter|
 |![Markera][1]|Saker du bör känna till granskning|
+|![Markera][1]|Läs om hur du styr hybrid Azure AD-anslutning av dina enheter|
 |![Markera][1]|Välj ditt scenario|
 
 
@@ -112,6 +113,11 @@ Om din organisation kräver Internetåtkomst via en autentiserad proxyserver fö
 Hybrid Azure AD-anslutning är en process för att automatiskt registrera dina lokala domänanslutna enheter med Azure AD. Det finns fall där du inte vill att alla dina enheter att registrera automatiskt. Om det här gäller för dig, se [hur du styr hybrid Azure AD-anslutning av dina enheter](hybrid-azuread-join-control.md).
 
 
+## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Läs om hur du styr hybrid Azure AD-anslutning av dina enheter
+
+Hybrid Azure AD-anslutning är en process för att automatiskt registrera dina lokala domänanslutna enheter med Azure AD. Det finns fall där du inte vill att alla dina enheter att registrera automatiskt. Det här är för exempel SANT under den inledande distributionen för att kontrollera att allt fungerar som förväntat.
+
+Mer information finns i [hur du styr hybrid Azure AD-anslutning av dina enheter](hybrid-azuread-join-control.md)
 
 ## <a name="select-your-scenario"></a>Välj ditt scenario
 

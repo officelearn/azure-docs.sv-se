@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: e8af84467c008f5c576142fa094b2757cfd30387
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 6e5bbdf0d43b642816a58419c2ce1c186fd44acb
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248086"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960760"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Aktivera diagnostikinställningar automatiskt när en resurs skapas med en Resource Manager-mall
 I den här artikeln visar vi hur du kan använda en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-authoring-templates.md) att konfigurera diagnostikinställningar på en resurs när den skapas. På så sätt kan du automatiskt starta direktuppspelning av dina diagnostikloggar och mått till Event Hubs, arkivera dem i ett Lagringskonto eller skicka dem till Log Analytics när en resurs skapas.
@@ -263,7 +263,7 @@ Om du vill aktivera diagnostik på en beräkningsresurs, till exempel en virtuel
 > 
 > 
 
-Hela processen, inklusive exempel beskrivs [i det här dokumentet](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Hela processen, inklusive exempel beskrivs [i det här dokumentet](../virtual-machines/extensions/diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Läs mer om Azure-diagnostikloggar](monitoring-overview-of-diagnostic-logs.md)

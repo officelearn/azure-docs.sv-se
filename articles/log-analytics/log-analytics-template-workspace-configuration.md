@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a715c300cc5490eef9dbe7971dabe1733fd47f49
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 833bb6838733395d83468be3d2960c7c237aa3fc
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402226"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957683"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Hantera Log Analytics med hjälp av Azure Resource Manager-mallar
 Du kan använda [Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md) du skapar och konfigurerar Log Analytics-arbetsytor. Exempel på de uppgifter du kan utföra med mallar:
@@ -521,6 +521,6 @@ Azure Snabbstart mallgalleriet innehåller ett antal mallar för Log Analytics, 
 * [Lägg till ett befintligt lagringskonto i Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>Nästa steg
-* [Distribuera Windows-agenten till Azure virtuella datorer med Resource Manager-mall](../virtual-machines/windows/extensions-oms.md).
-* [Distribuera Linux-agenten till Azure virtuella datorer med Resource Manager-mall](../virtual-machines/linux/extensions-oms.md).
+* [Distribuera Windows-agenten till Azure virtuella datorer med Resource Manager-mall](../virtual-machines/extensions/oms-windows.md).
+* [Distribuera Linux-agenten till Azure virtuella datorer med Resource Manager-mall](../virtual-machines/extensions/oms-linux.md).
 

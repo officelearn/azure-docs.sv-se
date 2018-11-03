@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3b06ec3b10edc39d770e5a724125e70afd5e5477
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 46c05c7c6568a967aae8e50a5da9ae70779a6060
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783606"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959026"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights för Azure Cloud Services
 Du kan övervaka [Microsoft Azure Cloud-tjänstapparnas](https://azure.microsoft.com/services/cloud-services/) tillgänglighet, prestanda, fel och användning med [Application Insights][start] genom att kombinera data från Application Insights SDK:er med data från [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) från Cloud Services. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
@@ -96,7 +96,7 @@ Om du har valt att använda en separat Application Insights-resurs för varje ve
 
 Detta gör att dina Application Insights-instrumenteringsnycklar infogas i filerna med namnet `ServiceConfiguration.*.cscfg`. ([Exempelkod](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg)).
 
-Om du vill ändra nivån för hur mycket diagnostikinformation som skickas till Application Insights kan du göra det [genom att redigera `.cscfg`-filerna direkt](app-insights-azure-diagnostics.md).
+Om du vill ändra nivån för hur mycket diagnostikinformation som skickas till Application Insights kan du göra det [genom att redigera `.cscfg`-filerna direkt](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
 
 ## <a name="sdk"></a>Installera SDK i varje projekt
 Det här alternativet gör det möjligt att lägga till anpassad telemetri till valfri roll för en närmare analys av hur programmet används och fungerar.
@@ -151,7 +151,7 @@ Om du vill visa prestandaräknare och antalet händelser öppnar du [Metrics Exp
 
 ![Azure-diagnostikdata](./media/app-insights-cloudservices/23-wad.png)
 
-Använd [Sök](app-insights-diagnostic-search.md) eller en [Analytics-fråga](app-insights-analytics-tour.md) för att söka igenom de olika spårningsloggarna som skickas av Azure Diagnostics. Anta exempelvis att du har ett ohanterat undantag som gjorde att en roll kraschade och återanvändes. Den här informationen skulle visas i kanalen Program i Windows-händelseloggen. Du kan använda Sök för att granska felet i Windows-händelseloggen och visa den fullständiga stackspårningen för undantaget. Detta hjälper dig att hitta den bakomliggande orsaken till problemet.
+Använd [Sök](app-insights-diagnostic-search.md) eller en [Analytics-fråga](../log-analytics/query-language/get-started-analytics-portal.md) för att söka igenom de olika spårningsloggarna som skickas av Azure Diagnostics. Anta exempelvis att du har ett ohanterat undantag som gjorde att en roll kraschade och återanvändes. Den här informationen skulle visas i kanalen Program i Windows-händelseloggen. Du kan använda Sök för att granska felet i Windows-händelseloggen och visa den fullständiga stackspårningen för undantaget. Detta hjälper dig att hitta den bakomliggande orsaken till problemet.
 
 ![Söka i Azure Diagnostics](./media/app-insights-cloudservices/25-wad.png)
 
@@ -231,7 +231,7 @@ Utvecklade du för .NET 4.6? 4.6 stöds inte automatiskt i Azure Cloud Services-
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Nästa steg
-* [Konfigurera Azure Diagnostics-överföring till Application Insights](app-insights-azure-diagnostics.md)
+* [Konfigurera Azure Diagnostics-överföring till Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
 * [Automatisera genereringen av Application Insights-resurser](app-insights-powershell.md)
 * [Automatisera Azure-diagnostik](app-insights-powershell-azure-diagnostics.md)
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)

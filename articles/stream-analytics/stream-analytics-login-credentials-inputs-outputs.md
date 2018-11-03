@@ -3,18 +3,18 @@ title: Rotera autentiseringsuppgifter för inloggning i Azure Stream Analytics-j
 description: Den här artikeln beskriver hur du uppdaterar autentiseringsuppgifterna för indata och utdata egenskaperna i Azure Stream Analytics jobb.
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 2dd5721ad0f45080a73172e150891cfb5f48d329
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 362fdca3b9a54ea0a8785ae37b32b88cbe0f67ba
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025777"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978782"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Rotera autentiseringsuppgifter för inloggning för indata och utdata för ett Stream Analytics-jobb
 

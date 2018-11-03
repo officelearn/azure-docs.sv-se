@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 10/30/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7f5e1f2141a58f666367d253d5fc313499e64c9f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 8b12e3cdc53b926f660e12b7cf4b79a8cb6f40c2
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239398"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960165"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Felsöka en RDP-Allmänt fel i Azure VM
 
@@ -65,7 +65,7 @@ Du löser problemet, [säkerhetskopiera operativsystemdisken](../windows/snapsho
 
 ### <a name="serial-console"></a>Seriekonsol
 
-#### <a name="step-1-turn-on-remote-deskop"></a>Steg 1: Aktivera Remote stationärt
+#### <a name="step-1-turn-on-remote-desktop"></a>Steg 1: Aktivera Fjärrskrivbord
 
 1. Åtkomst till den [Seriekonsolen](serial-console-windows.md) genom att välja **Support och felsökning** > **seriekonsol (förhandsversion)**. Om funktionen är aktiverad på den virtuella datorn, kan du ansluta den virtuella datorn.
 
@@ -76,94 +76,91 @@ Du löser problemet, [säkerhetskopiera operativsystemdisken](../windows/snapsho
    ```
    ch -si 1
    ```
-4. Kontrollera värdena för registernycklarna på följande sätt:
 
-   1. Se till att RDP-komponenten är aktiverad.
+#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>Steg 2: Kontrollera värdena för RDP-registernycklar:
+
+1. Kontrollera om RDP har inaktiverats av principer.
 
       ```
-      REM Get the local policy
+      REM Get the local policy 
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server " /v fDenyTSConnections
 
       REM Get the domain policy if any
       reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
       ```
 
-      Om domänprincipen som finns, över installationen på den lokala principen.
+      - Om domänprincipen som finns, över installationen på den lokala principen.
+      - Om domänprincipen som anger att RDP är inaktiverad (1) och sedan AD-uppdateringsprincip från en domänkontrollant.
+      - Om domänprincipen som anger att RDP är aktiverad (0), krävs ingen uppdatering.
+      - Om domänprincipen som inte finns och den lokala principen anger att RDP är inaktiverat (1), aktiverar du RDP med hjälp av följande kommando: 
+      
+            reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+                  
 
-         - Om domänprincipen som anger att RDP är inaktiverad (1) och sedan AD-uppdateringsprincip från en domänkontrollant.
-         - Om domänprincipen som anger att RDP är aktiverad (0), krävs ingen uppdatering.
-
-      Om domänprincipen som inte finns och den lokala principen anger att RDP är inaktiverat (1), aktiverar du RDP med hjälp av följande kommando:
-
-         ```
-         reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-         ```
-
-   2. Kontrollera den aktuella konfigurationen av terminal-servern.
+2. Kontrollera den aktuella konfigurationen av terminal-servern.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled
       ```
 
-   3. Om kommandot returnerar 0, inaktiveras terminalservern. Aktivera sedan terminalservern på följande sätt:
+      Om kommandot returnerar 0, inaktiveras terminalservern. Aktivera sedan terminalservern på följande sätt:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f
       ```
 
-   4. Terminal Server-modulen är inställd på att tömma läge om servern är i en terminal server (Fjärrskrivbordstjänster eller Citrix). Kontrollera det aktuella läget för Terminal Server-modulen.
+3. Terminal Server-modulen är inställd på att tömma läge om servern är i en terminal server (Fjärrskrivbordstjänster eller Citrix). Kontrollera det aktuella läget för Terminal Server-modulen.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSServerDrainMode
       ```
 
-   5. Om kommandot returnerar 1, sätts Terminal Server-modulen att tömma läge. Ställ sedan modulen till fungerande läge på följande sätt:
+      Om kommandot returnerar 1, sätts Terminal Server-modulen att tömma läge. Ställ sedan modulen till fungerande läge på följande sätt:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f
       ```
 
-   6. Kontrollera om du kan ansluta till servern.
+4. Kontrollera om du kan ansluta till servern.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSUserEnabled
       ```
 
-   7. Om kommandot returnerar 1, kan du inte ansluta till servern. Aktivera sedan anslutningen enligt följande:
+      Om kommandot returnerar 1, kan du inte ansluta till servern. Aktivera sedan anslutningen enligt följande:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f
       ```
-
-   8. Kontrollera den aktuella konfigurationen av RDP-lyssnaren.
+5. Kontrollera den aktuella konfigurationen av RDP-lyssnaren.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation
       ```
 
-   9. Om kommandot returnerar 0, inaktiveras RDP-lyssnaren. Aktivera sedan lyssnaren på följande sätt:
+      Om kommandot returnerar 0, inaktiveras RDP-lyssnaren. Aktivera sedan lyssnaren på följande sätt:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f
       ```
 
-   10. Kontrollera om du kan ansluta till RDP-lyssnaren.
+6. Kontrollera om du kan ansluta till RDP-lyssnaren.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled
       ```
 
-   11. Om kommandot returnerar 1, kan du inte ansluta till RDP-lyssnaren. Aktivera sedan anslutningen enligt följande:
+   Om kommandot returnerar 1, kan du inte ansluta till RDP-lyssnaren. Aktivera sedan anslutningen enligt följande:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f
       ```
 
-6. Starta om den virtuella datorn.
+7. Starta om den virtuella datorn.
 
-7. Avsluta från CMD-instans genom att skriva `exit`, och tryck sedan på **RETUR** två gånger.
+8. Avsluta från CMD-instans genom att skriva `exit`, och tryck sedan på **RETUR** två gånger.
 
-8. Starta om den virtuella datorn genom att skriva `restart`.
+9. Starta om den virtuella datorn genom att skriva `restart`, och sedan ansluta till den virtuella datorn.
 
 Om problemet inträffar fortfarande kan gå vidare till steg 2.
 
@@ -177,13 +174,13 @@ Mer information finns i [fjärrskrivbord kopplar bort ofta i Azure VM](troublesh
 
 ### <a name="offline-repair"></a>Offlinereparation
 
-#### <a name="step-1-turn-on-remote-deskop"></a>Steg 1: Aktivera Remote stationärt
+#### <a name="step-1-turn-on-remote-desktop"></a>Steg 1: Aktivera Fjärrskrivbord
 
 1. [Koppla OS-disk till virtuell återställningsdator](../windows/troubleshoot-recovery-disks-portal.md).
 2. Starta en fjärrskrivbordsanslutning till den Virtuella återställningsdatorn.
 3. Kontrollera att disken flaggas som **Online** i konsolen Diskhantering. Observera den enhetsbeteckning som är tilldelad till den anslutna OS-disken.
-3. Starta en fjärrskrivbordsanslutning till den Virtuella återställningsdatorn.
-4. Öppna en upphöjd kommandotolk-session (**kör som administratör**). Kör följande skript. I det här skriptet förutsätter vi att den enhetsbeteckning som är tilldelad till den anslutna OS-disken är F. Ersätt enhetsbeteckningen med lämpligt värde för den virtuella datorn.
+4. Starta en fjärrskrivbordsanslutning till den Virtuella återställningsdatorn.
+5. Öppna en upphöjd kommandotolk-session (**kör som administratör**). Kör följande skript. I det här skriptet förutsätter vi att den enhetsbeteckning som är tilldelad till den anslutna OS-disken är F. Ersätt enhetsbeteckningen med lämpligt värde för den virtuella datorn.
 
       ```
       reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv 
@@ -219,21 +216,21 @@ Mer information finns i [fjärrskrivbord kopplar bort ofta i Azure VM](troublesh
       reg unload HKLM\BROKENSOFTWARE 
       ```
 
-3. Om den virtuella datorn är ansluten till en domän, kontrollerar du följande registernyckel för att se om det finns en grupprincip som inaktiverar RDP. 
+6. Om den virtuella datorn är ansluten till en domän, kontrollerar du följande registernyckel för att se om det finns en grupprincip som inaktiverar RDP. 
 
-   ```
-   HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\fDenyTSConnectionS
-   ```
-
+      ```
+      HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\fDenyTSConnectionS
+      ```
 
       Om värdet för nyckeln anges till 1 som innebär att RDP har inaktiverats av principen. Ändra följande princip från en domänkontrollant om du vill aktivera Fjärrskrivbord genom GPO-principen:
 
-   ```
-   Computer Configuration\Policies\Administrative Templates: Policy definitions\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections\Allow users to connect remotely by using Remote Desktop Services
-   ```
+   
+      **Datorn Datorkonfiguration\Principer\Administrativa mallar:**
 
-4. Koppla bort disken från Räddade VM.
-5. [Skapa en ny virtuell dator från disken](../windows/create-vm-specialized.md).
+      Principen definitions\Windows komponenter\Fjärrskrivbordstjänster\Värdserver Desktop för Desktop Session Host\Connections\Allow användare för fjärranslutning med hjälp av Fjärrskrivbordstjänster
+  
+7. Koppla bort disken från Räddade VM.
+8. [Skapa en ny virtuell dator från disken](../windows/create-vm-specialized.md).
 
 Om problemet inträffar fortfarande kan gå vidare till steg 2.
 

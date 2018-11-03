@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/18/2018
 ms.author: dacoulte
 ms.custom: include file
-ms.openlocfilehash: c3365450c90c4fda37884e8998fad70f5d164244
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: 0a54dfdb810ea578c1e7c8fcc7ca0343e72164ae
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47006529"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50964646"
 ---
 Det finns ett maxantal för varje objekttyp för Azure Policy. En post av typen _Omfång_ betyder antingen prenumerationen eller [hanteringsgruppen](../articles/governance/management-groups/overview.md).
 
@@ -26,5 +26,5 @@ Det finns ett maxantal för varje objekttyp för Azure Policy. En post av typen 
 | Principdefinition | Parametrar | 20 |
 | Initiativdefinition | Principer | 100 |
 | Initiativdefinition | Parametrar | 100 |
-| Princip-/initiativtilldelningar | Undantag (notScopes) | 100 |
+| Princip-/initiativtilldelningar | Undantag (notScopes) | 250 |
 | Principregel | Kapslade villkor | 512 |

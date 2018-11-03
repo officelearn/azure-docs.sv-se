@@ -1,6 +1,6 @@
 ---
-title: Om du använder Azure Digital Twins Swagger | Microsoft Docs
-description: Hur du använder Azure Digital Twins Swagger
+title: Förstå hur du använder Azure Digital Twins Swagger | Microsoft Docs
+description: Använd Azure Digital Twins Swagger
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
@@ -8,36 +8,36 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: adgera
-ms.openlocfilehash: 3bc365c204ab75a2f136c3e26c4b598b25f66114
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 69b8f64574427a6b3d3d2cf0312eac88d86e5907
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093497"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960215"
 ---
-# <a name="how-to-use-azure-digital-twins-swagger"></a>Hur du använder Azure Digital Twins Swagger
+# <a name="use-azure-digital-twins-swagger"></a>Använd Azure Digital Twins Swagger
 
 Varje etablerade Azure Digital Twins-instans innehåller en egen automatiskt genererade Swagger-referensdokumentation.
 
-[Swagger](https://swagger.io/) (eller [OpenAPI](https://www.openapis.org/)) unites komplex API-information till en resurs för interaktiva och språkoberoende referens. Mer specifikt innehåller Swagger viktiga referensmaterial om vilken JSON-nyttolaster, HTTP-metoder och slutpunkter du använder för att utföra åtgärder mot ett API.
+[Swagger](https://swagger.io/), eller [OpenAPI](https://www.openapis.org/), unites komplex API-information till en resurs för interaktiva och språkoberoende referens. Swagger innehåller viktiga referensmaterial om vilken JSON-nyttolaster, HTTP-metoder och slutpunkter du använder för att utföra åtgärder mot ett API.
 
 ## <a name="swagger-summary"></a>Swagger-sammanfattning
 
-Swagger innehåller en interaktiv sammanfattning av dina API: et, till exempel:
+Swagger innehåller en interaktiv sammanfattning av ditt API, vilket innefattar:
 
-* Information om API: et och objektmodell.
-* REST API-slutpunkter som du anger måste begäran nyttolaster, rubriker, parametrar, kontext sökvägar och HTTP-metoder.
+* Information om modellen API och objekt.
+* REST API-slutpunkter som anger nödvändiga begäran nyttolaster, rubriker, parametrar, kontext sökvägar och HTTP-metoder.
 * Testning av API-funktioner.
-* Exempel Svarsinformation för validering och bekräftar HTTP-svar.
+* Exempel Svarsinformation som används för att validera och bekräfta HTTP-svar.
 * Information om felet.
 
-Swagger är därför ett praktiskt verktyg som hjälper till med utveckling och testning anrop till API Management.
+Swagger är ett praktiskt verktyg som hjälper till med utveckling och testning anrop till API Management.
 
 > [!TIP]
-> För referens tillhandahåller en Swagger-förhandstitt att demonstrera API-funktionen.
+> En Swagger-förhandstitt tillhandahålls för att demonstrera API-funktionen.
 > Den finns på [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
 
-Du kan komma åt dina egna, genererade, Management API Swagger-dokumentationen på:
+Du kan komma åt dina egna genererade Management API Swagger-dokumentationen på:
 
 ```plaintext
 https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
@@ -52,25 +52,25 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 
 Automatiskt genererade referensmaterial förklarar viktiga begrepp och objektmodeller.
 
-En kortfattad sammanfattning beskriver API: et:
+En kortfattad sammanfattning beskriver API: et.
 
 ![Swagger upp][1]
 
-Core API-objektmodeller visas också:
+Core API-objektmodeller visas också.
 
 ![Swagger-modeller][2]
 
-Du kan klicka i varje listad objektmodell för en mer detaljerad översikt över viktiga punkter:
+Du kan välja varje listad objektmodell för en mer detaljerad översikt över nyckelattribut.
 
 ![Swagger-modell][3]
 
-Den genererade Swagger objektmodeller bekvämt att se alla tillgängliga Azure Digital Twins [objekt och API: er](./concepts-objectmodel-spatialgraph.md). Det är en fantastisk resurs för utvecklare att använda när du skapar lösningar på Azure Digital Twins.
+De genererade Swagger-objektmodellerna bekvämt att se alla tillgängliga Azure Digital Twins [objekt och API: er](./concepts-objectmodel-spatialgraph.md). Utvecklare kan tillgängliggöra användning av den här resursen när de skapar lösningar på Azure Digital Twins.
 
 ## <a name="endpoint-summary"></a>Sammanfattning av slutpunkt
 
 Swagger innehåller också en omfattande översikt över alla slutpunkter som ska utgöra API: et.
 
-Varje listad slutpunkt innehåller också informationen krävs till exempel:
+Varje listad slutpunkt innehåller också nödvändiga informationen, till exempel den:
 
 * Obligatoriska parametrar.
 * Den begärda parameterdatatyper.
@@ -78,25 +78,25 @@ Varje listad slutpunkt innehåller också informationen krävs till exempel:
 
 ![Swagger-slutpunkter][4]
 
-Klicka på varje resurs om du vill se en mer detaljerad översikt.
+Välj varje resurs om du vill se en mer detaljerad översikt.
 
-## <a name="using-swagger-to-test-endpoints"></a>Använd Swagger för att testa slutpunkter
+## <a name="use-swagger-to-test-endpoints"></a>Använd Swagger för att testa slutpunkter
 
-En av de kraftfulla funktioner som Swagger innehåller är möjligheten att **prova** eller testa en API-slutpunkt direkt via i UI-dokumentationen.
+En av kraftfulla funktioner som innehåller Swagger är möjligheten att testa en API-slutpunkt direkt via i UI-dokumentationen.
 
-När du klickar på i en viss slutpunkt, ser du en **prova** knappen:
+När du har valt en viss slutpunkt kan du se **prova**.
 
 ![Swagger-försök][5]
 
-Expandera avsnittet öppnar inmatningsfält för alla obligatoriska och valfria parametrar. Därefter anger du värden och klickar på **kör**:
+Expandera avsnittet att ta fram inmatningsfält för alla obligatoriska och valfria parametrar. Ange värden i enlighet med detta och väljer **kör**.
 
 ![Ett försök gjordes att swagger][6]
 
-Du kan validera svarsdata efter att testet skulle köras.
+När du kör testet kan verifiera du svarsdata.
 
 ## <a name="swagger-response-data"></a>Svarsdata för swagger
 
-Varje listad slutpunkt innehåller också svarsdata för brödtexten för att verifiera din utveckling och tester. De här exemplen omfattar önskade statuskoder och JSON för lyckade HTTP-begäranden.
+Varje listad slutpunkt innehåller också svarsdata för brödtexten för att verifiera din utveckling och tester. De här exemplen omfattar statuskoder och JSON som du vill se för lyckade HTTP-begäranden.
 
 ![Swagger-svar][7]
 
@@ -108,9 +108,9 @@ För att interaktivt testa förfrågningar mot API-resurserna som skyddas av OAu
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läsa mer om Azure Digital Twins objektmodeller och rumsliga intelligence graph läsa [i den här artikeln](./concepts-objectmodel-spatialgraph.md).
+Läs mer om Azure Digital Twins objektmodeller och rumsliga intelligence diagrammet, läsa [förstå Azure Digital Twins objekt modeller](./concepts-objectmodel-spatialgraph.md).
 
-Läs hur du autentiserar med ditt API Management, [autentisering med API: er](./security-authenticating-apis.md).
+Läs hur du autentiserar med ditt API Management, [autentisera med API: er](./security-authenticating-apis.md).
 
 <!-- Images -->
 [1]: media/how-to-use-swagger/swagger_management_top.PNG

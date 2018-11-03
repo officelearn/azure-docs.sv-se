@@ -7,17 +7,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: oslake
-ms.author: moslake
+author: srdan-bozovic-msft
+ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/24/2018
-ms.openlocfilehash: ca1ef9c402b370a8d1228e13d7fe3e13fd225f79
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.date: 11/02/2018
+ms.openlocfilehash: 11133a24f4446478dcc7f38ed50eb36de8843442
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986329"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978409"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database Connectivity-arkitektur
 
@@ -31,19 +31,30 @@ Följande diagram ger en översikt över arkitekturen för Azure SQL Database-an
 
 Följande steg beskriver hur upprättas en anslutning till en Azure SQL database via Azure SQL Database-belastningsutjämnaren för programvara (SLB) och Azure SQL Database-gateway.
 
-- Klienterna i Azure eller utanför Azure ansluter till SLB, som har en offentlig IP-adress och lyssnar på port 1433.
-- SLB dirigerar trafik till Azure SQL Database-gateway.
-- Gatewayen dirigerar trafiken till rätt proxy mellanprogram.
-- Proxy-mellanprogram dirigerar trafiken till lämplig Azure SQL-databasen.
+- Klienterna ansluter till SLB, som har en offentlig IP-adress och lyssnar på port 1433.
+- SLB vidarebefordrar trafik till Azure SQL Database-gateway.
+- Gatewayen, beroende på effektiva anslutningsprincip, omdirigeringar eller proxyservrar trafiken till rätt proxy mellanprogram.
+- Proxy-mellanprogram vidarebefordrar trafiken till lämplig Azure SQL-databasen.
 
 > [!IMPORTANT]
 > Var och en av dessa komponenter har distribuerats med DOS-(DDoS) skydd inbyggda på nätverket och appnivån.
 
+## <a name="connection-policy"></a>Anslutningsprincip för
+
+Azure SQL Database stöder följande tre alternativ för den här inställningen för anslutning av en SQL Database-server:
+
+- **Omdirigering (rekommenderas):** klienterna ansluta direkt till den nod som värd för databasen. Om du vill aktivera anslutningen klienter måste tillåta utgående brandväggsregler till alla Azure-IP-adresser i regionen (prova med Nätverkssäkerhetsgrupper (NSG) med [tjänsttaggar](../virtual-network/security-overview.md#service-tags)), inte bara Azure SQL Database Gateway IP-adresser. Eftersom paket går direkt till databasen, har svarstid och dataflöde bättre prestanda.
+- **Proxy:** i detta läge gäller alla anslutningar är via proxy via Azure SQL Database-gatewayer. Om du vill aktivera anslutning, måste klienten ha utgående brandväggsregler som tillåter endast Azure SQL Database Gateway IP-adresser (vanligtvis två IP-adresser per region). Om du väljer det här läget kan resultera i högre svarstider och lägre dataflöde, beroende på typen av arbetsbelastning. Vi rekommenderar starkt att principen för omdirigering över principen Proxy för lägsta svarstid och högsta dataflöde.
+- **Standard:** detta tillämpas principen på alla servrar när du har skapat, såvida inte du uttryckligen ändrar anslutningsprincip till Proxy eller omdirigering. Principen som beror på om anslutningar kommer från i Azure (omdirigering) eller utanför Azure (Proxy).
+
 ## <a name="connectivity-from-within-azure"></a>Anslutningen från i Azure
 
-Om du ansluter från inom Azure, dina anslutningar har en princip för **omdirigera** som standard. En princip av **omdirigera** innebär att anslutningar när TCP-sessionen har upprättats till Azure SQL-databas klientsessionen sedan omdirigeras till proxy mellanprogram en ändring av den virtuella mål-IP från den för Azure SQL Database-gateway med proxy mellanprogram. Alla efterföljande paket som flödar därefter direkt via proxy-middleware, vilket kringgår Azure SQL Database-gateway. Följande diagram illustrerar det här flödet i nätverkstrafiken.
+Om du ansluter från inom Azure på en server som skapats efter den 10 November 2018 dina anslutningar har en princip för **omdirigera** som standard. En princip av **omdirigera** innebär att anslutningar när TCP-sessionen har upprättats till Azure SQL-databas klientsessionen sedan omdirigeras till proxy mellanprogram en ändring av den virtuella mål-IP från den för Azure SQL Database-gateway med proxy mellanprogram. Alla efterföljande paket som flödar därefter direkt via proxy-middleware, vilket kringgår Azure SQL Database-gateway. Följande diagram illustrerar det här flödet i nätverkstrafiken.
 
 ![Översikt över arkitekturen](./media/sql-database-connectivity-architecture/connectivity-from-within-azure.png)
+
+> [!IMPORTANT]
+> Om du har skapat SQL-databasserver innan den 10 November 2018 anslutningsprincipen har angetts uttryckligen till **Proxy**. När du använder Tjänsteslutpunkter, vi rekommenderar starkt att ändra anslutningsprincipen till **omdirigera** för att förbättra prestanda. Om du ändrar din anslutningsprincip till **omdirigera**, det är tillräckligt för att tillåta utgående på din NSG till Azure SQL Database-gateway IP-adresser som anges nedan, måste du tillåta utgående trafik till alla Azure SQL Database IP-adresser. Detta kan åstadkommas med hjälp av Tjänsttaggar för NSG (Nätverkssäkerhetsgrupper). Mer information finns i [Tjänsttaggar](../virtual-network/security-overview.md#service-tags).
 
 ## <a name="connectivity-from-outside-of-azure"></a>Anslutningen från utanför Azure
 
@@ -51,19 +62,11 @@ Om du ansluter från platser utanför Azure, dina anslutningar har en princip f�
 
 ![Översikt över arkitekturen](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
-> [!IMPORTANT]
-> När du använder Tjänsteslutpunkter med Azure SQL Database principen är **Proxy** som standard. Om du vill aktivera anslutningen från i det virtuella nätverket måste du tillåta utgående anslutningar till Azure SQL Database Gateway IP-adresser som anges i listan nedan.
-
-När du använder Tjänsteslutpunkter vi rekommenderar starkt att ändra anslutningsprincipen till **omdirigera** för att förbättra prestanda. Om du ändrar din anslutningsprincip till **omdirigera** det inte blir tillräckliga för att tillåta utgående på din NSG till Azure SQL Database-gateway IP-adresser som anges nedan, måste du tillåta utgående trafik till alla Azure SQL Database IP-adresser. Detta kan åstadkommas med hjälp av Tjänsttaggar för NSG (Nätverkssäkerhetsgrupper). Mer information finns i [Tjänsttaggar](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
-
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database gateway IP-adresser
 
 Om du vill ansluta till en Azure SQL database från lokala resurser, som du vill tillåta utgående trafik till Azure SQL Database-gatewayen för din Azure-region. Dina anslutningar kan bara gå via gatewayen när du ansluter i Proxy-läge, vilket är standard när du ansluter från lokala resurser.
 
 I följande tabell visas de primära och sekundära IP-adresserna för Azure SQL Database-gateway för alla dataområden. Det finns två IP-adresser för vissa regioner. Den primära IP-adressen är den aktuella IP-adressen till gatewayen i dessa regioner och den andra IP-adressen är en IP-adress för redundans. Redundans-adressen är den adress som vi kan också flytta din server för att hålla hög tjänsternas tillgänglighet. För dessa regioner rekommenderar vi att du tillåter utgående trafik till båda IP-adresserna. Den andra IP-adressen ägs av Microsoft och lyssnar inte på alla tjänster förrän den aktiveras genom Azure SQL Database för att acceptera anslutningar.
-
-> [!IMPORTANT]
-> Om du ansluter från inom Azure anslutningsprincipen blir **omdirigera** som standard (utom om du använder Tjänsteslutpunkter). Det räcker inte att tillåta följande IP-adresser. Du måste tillåta alla Azure SQL Database IP-adresser. Om du ansluter från inom ett virtuellt nätverk, kan detta åstadkommas med hjälp av Tjänsttaggar för NSG (Nätverkssäkerhetsgrupper). Mer information finns i [Tjänsttaggar](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 | Regionsnamn | Primär IP-adress | Sekundär IP-adress |
 | --- | --- |--- |

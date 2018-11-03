@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 75faceb641382df29a93c44803af48dcfed142d4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 796e10053df79f8f7106d98dd9c9be6083d9f719
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421177"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964160"
 ---
 # <a name="manage-workspaces"></a>Hantera arbetsytor
 
@@ -52,7 +52,7 @@ Från förbrukning synsätt rekommenderar vi att du skapar så få arbetsytor so
 * Du är leverantör av hanterade tjänster och behöver Log Analytics-data för varje kund du hanterar isolerade från andra kunders data.
 * Du hanterar flera kunder och vill att varje kund / avdelning / affärsgrupp ska se sina egna data, men inte data från andra.
 
-När du använder Windows-agenter för att samla in data måste du [konfigurera varje agent så att den rapporterar till en eller flera arbetsytor](log-analytics-windows-agents.md).
+När du använder Windows-agenter för att samla in data måste du [konfigurera varje agent så att den rapporterar till en eller flera arbetsytor](log-analytics-agent-windows.md).
 
 Om du använder System Center Operations Manager kan varje hanteringsgrupp för Operations Manager endast anslutas till en arbetsyta. Du kan installera Microsoft Monitoring Agent på datorer som hanteras av Operations Manager och låta agenten rapporten till både Operations Manager och en annan Log Analytics-arbetsyta.
 
@@ -73,7 +73,7 @@ Du kan visa information om din arbetsyta på Azure Portal.
     ![Information om arbetsytan](./media/log-analytics-manage-access/workspace-overview-page.png)  
 
 ## <a name="manage-accounts-and-users"></a>Hantera konton och användare
-Varje arbetsyta kan ha flera associerade konton, och varje konto kan ha åtkomst till flera arbetsytor. Åtkomst hanteras [Azure rollbaserad åtkomst](../active-directory/role-based-access-control-configure.md). Dessa behörigheter gäller både på Azure portal och API-åtkomst.
+Varje arbetsyta kan ha flera associerade konton, och varje konto kan ha åtkomst till flera arbetsytor. Åtkomst hanteras [Azure rollbaserad åtkomst](../role-based-access-control/role-assignments-portal.md). Dessa behörigheter gäller både på Azure portal och API-åtkomst.
 
 
 Följande aktiviteter kräver även Azure-behörigheter:
@@ -87,7 +87,7 @@ Följande aktiviteter kräver även Azure-behörigheter:
 
 
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Hantera åtkomst till Log Analytics med Azure-behörighet
-Om du vill bevilja åtkomst till Log Analytics-arbetsytan med Azure-behörigheter följer du stegen i [Använda rolltilldelningar för att hantera åtkomsten till dina Azure-prenumerationsresurser](../active-directory/role-based-access-control-configure.md).
+Om du vill bevilja åtkomst till Log Analytics-arbetsytan med Azure-behörigheter följer du stegen i [Använda rolltilldelningar för att hantera åtkomsten till dina Azure-prenumerationsresurser](../role-based-access-control/role-assignments-portal.md).
 
 Azure har två inbyggda användarroller för Log Analytics:
 - Log Analytics Reader
@@ -146,7 +146,7 @@ Använd de här rollerna för att ge användare åtkomst med olika omfång:
 - Resursgrupp: åtkomst till alla arbetsytor i resursgruppen
 - Resurs: endast åtkomst till en angiven arbetsyta
 
-Vi rekommenderar att du utför tilldelningar på resursnivå (arbetsyta) för att garantera korrekt åtkomstkontroll.  Använd [anpassade roller](../active-directory/role-based-access-control-custom-roles.md) för att skapa roller med specifik behörighet.
+Vi rekommenderar att du utför tilldelningar på resursnivå (arbetsyta) för att garantera korrekt åtkomstkontroll.  Använd [anpassade roller](../role-based-access-control/custom-roles.md) för att skapa roller med specifik behörighet.
 
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Länka en befintlig arbetsyta till en Azure-prenumeration
 Alla arbetsytor som skapats efter den 26 september 2016 måste kopplas till en Azure-prenumeration vid tidpunkten för skapandet. Arbetsytor som skapats innan det här datumet måste kopplas till en arbetsyta när du loggar in. När du skapar arbetsytan från Azure Portal eller när du länkar arbetsytan till en Azure-prenumeration länkas din Azure Active Directory som ditt organisationskonto.
@@ -241,5 +241,5 @@ Den nya dataplanen visas på menyfliken i OMS-portalen längst upp på webbsidan
 ## <a name="next-steps"></a>Nästa steg
 * Om du vill samla in data från datorer i ditt datacenter eller annan molnmiljö går du till [Samla in data från datorer i din miljö med Log Analytics](log-analytics-concept-hybrid.md).
 * Om du vill konfigurera datainsamling från virtuella Azure-datorer läser du [Samla in data om Azure Virtual Machines](log-analytics-quick-collect-azurevm.md).  
-* [Lägg till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md) för att lägga till funktioner och samla in data.
+* [Lägg till Log Analytics-lösningar från lösningsgalleriet](../monitoring/monitoring-solutions.md) för att lägga till funktioner och samla in data.
 

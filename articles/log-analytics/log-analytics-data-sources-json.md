@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 69338e438ced8871de1e994ee8b816f9dc40b13a
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: ce9e31da878e100465b0ce6c4de722a5cbea4e80
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402360"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957950"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-log-analytics"></a>Samla in anpassade JSON-datakällor med Log Analytics-agenten för Linux i Log Analytics
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
@@ -106,5 +106,5 @@ Kapslad JSON-data källor som stöds, men indexeras baserat på överordnad fäl
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [loggsökningar](log-analytics-log-searches.md) att analysera data som samlas in från datakällor och lösningar. 
+* Lär dig mer om [loggsökningar](log-analytics-log-search.md) att analysera data som samlas in från datakällor och lösningar. 
  

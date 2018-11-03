@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f5f8ed885791a648f30790434be56d966bbf2e47
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8201e1569bd3030a205ab0ec5adb8a1f39a0ecc3
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989302"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960743"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook-åtgärder för loggaviseringsregler
 När en [log aviseringen har skapats i Azure](alert-log.md), har möjlighet att [konfigurera med åtgärdsgrupper](monitoring-action-groups.md) att utföra en eller flera åtgärder.  Den här artikeln beskrivs olika webhook-åtgärder som är tillgängliga och information om hur du konfigurerar anpassade JSON-baserade webhooken.
@@ -201,4 +201,4 @@ Följande är ett exempel på en nyttolast för en anpassad webhook-åtgärd fö
 - Förstå [managaing loggaviseringar i Azure](alert-log.md)
 - Skapa och hantera [åtgärdsgrupper i Azure](monitoring-action-groups.md)
 - Läs mer om [Application Insights](../application-insights/app-insights-analytics.md)
-- Läs mer om [Log Analytics](../log-analytics/log-analytics-overview.md). 
+- Läs mer om [Log Analytics](../log-analytics/log-analytics-queries.md). 

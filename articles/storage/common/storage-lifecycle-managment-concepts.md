@@ -1,36 +1,36 @@
 ---
 title: Hantera Azure Storage-livscykel
-description: Lär dig mer om att skapa livscykel principregler övergången againg data från frekvent till lågfrekvent lagring och arkivlagring nivåer.
+description: Lär dig mer om att skapa livscykel principregler övergången föråldras data från frekvent till lågfrekvent nivå eller arkivnivå.
 services: storage
 author: yzheng-msft
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 11/01/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: 05e7a7e3c2824a9b47ff723e91103611871d7ed2
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: c6647ff97b078ca5afa5c66833a1617f6b3ec0f1
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429566"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978816"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Hantera Azure Blob Storage livscykel (förhandsversion)
 
-Datauppsättningar har unika livscykler. Vissa data används ofta tidigt i livscykeln, men behov av åtkomst sjunker drastiskt som data registrerar dig. Vissa data förblir inaktiva i molnet och används sällan lagras en gång. Vissa data upphör att gälla av dagar eller månader när du har skapat, medan andra datauppsättningar läses aktivt och ändras under hela sin livslängd. Livscykelhantering för Azure Blob Storage (förhandsversion) erbjuder en omfattande, regel-baserad princip som du kan använda för att överföra data till bästa åtkomstnivå och för att ta bort data i slutet av livscykeln.
+Datauppsättningar har unika livscykler. Vissa data används ofta tidigt i livscykeln, men behov av åtkomst sjunker drastiskt som data registrerar dig. Vissa data förblir inaktiva i molnet och används sällan lagras en gång. Vissa data upphör att gälla av dagar eller månader när du har skapat, medan andra datauppsättningar läses aktivt och ändras under hela sin livslängd. Livscykelhantering för Azure Blob Storage (förhandsversion) erbjuder en omfattande, regelbaserad princip som du kan använda på GPv2 och Blob storage-konton för att överföra dina data till sina lämplig åtkomstnivåerna eller upphör att gälla i slutet av livscykeln.
 
 Princip för livscykelhantering hjälper dig att:
 
 - Överföra BLOB-och en mer lågfrekvent lagringsnivå (frekvent till lågfrekvent, frekvent till Arkiv, eller lågfrekvent till Arkiv) till att optimera prestanda och kostnader
 - Ta bort blobar i slutet av deras livscykler
-- Definiera regler som ska köras en gång om dagen på lagringskontonivån (stöds både GPv2 och Blob storage-konton)
+- Definiera regler som ska köras en gång per dag på nivån för storage-konto
 - Tillämpa regler på behållare eller en delmängd av BLOB-objekt (med prefix som filter)
 
-Överväg att en uppsättning data som används ofta under tidigt under livscykeln, krävs bara ibland efter två veckor, och används sällan efter en månad och mycket mer. I det här scenariot frekvent lagring är bäst under de tidiga stadierna lågfrekvent lagring är mest lämplig för tillfällig åtkomst och archive storage är det bästa alternativet nivå när du registrerar dig data över en månad. Du kan utforma de billigaste lagringsalternativ för dina behov genom att justera lagringsnivåer i jämfört med åldern på data. För att uppnå den här ändringen finns principer för hantering av livscykeln för att flytta föråldras data till mer lågfrekvent nivå.
+Överväg att en uppsättning data som används ofta under tidigt under livscykeln, krävs bara ibland efter två veckor, och används sällan efter en månad och mycket mer. I det här scenariot frekvent lagring är bäst under de tidiga stadierna lågfrekvent lagring är mest lämplig för tillfällig åtkomst och archive storage är det bästa alternativet nivå när du registrerar dig data över en månad. Du kan utforma de billigaste lagringsalternativ för dina behov genom att justera lagringsnivåer i jämfört med åldern på data. Livscykeln för hantering av principregler är tillgängliga att flytta föråldras data till mer lågfrekvent nivå för att uppnå den här ändringen.
 
 ## <a name="storage-account-support"></a>Stöd för Storage-konton
 
-Princip för livscykelhantering är tillgängligt med både generell användning v2 (GPv2)-konto och Blob Storage-konto. Du kan konvertera ett befintligt konto för generell användning (GPv1) till ett GPv2-konto via en enkel process för ett klick i Azure-portalen. Mer information om lagringskonton finns i [översikt över Azure storage-konton](../common/storage-account-overview.md) vill veta mer.  
+Princip för livscykelhantering är tillgängligt med både generell användning v2 (GPv2)-konto och Blob Storage-konto. Du kan uppgradera ett befintligt konto för generell användning (GPv1) till ett GPv2-konto via en enkel process för ett klick i Azure-portalen utan avbrott. Mer information om lagringskonton finns i [översikt över Azure storage-konton](../common/storage-account-overview.md) vill veta mer.  
 
 ## <a name="pricing"></a>Prissättning 
 
@@ -67,9 +67,9 @@ az feature show --namespace Microsoft.Storage --name DLM
 Om funktionen är godkänd och registrerats korrekt, bör du få ”Registered” tillstånd. 
 
 
-## <a name="add-or-remove-policies"></a>Lägga till eller ta bort principer 
+## <a name="add-or-remove-a-policy"></a>Lägg till eller ta bort en princip 
 
-Du kan lägga till, redigera eller ta bort en princip med hjälp av Azure-portalen [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [REST API: er](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/managementpolicies_createorupdate), eller klientverktyg på följande språk: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+Du kan lägga till, redigera eller ta bort en princip med hjälp av Azure-portalen [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [REST API: er](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/createorupdate), eller klientverktyg på följande språk: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](  https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -77,7 +77,7 @@ Du kan lägga till, redigera eller ta bort en princip med hjälp av Azure-portal
 
 2. Gå till ditt lagringskonto genom att välja Alla resurser och välj sedan ditt lagringskonto.
 
-3. I bladet inställningar klickar du på **livscykelhantering** grupperade under Blob-tjänsten för att visa och/eller ändra principer.
+3. I bladet inställningar klickar du på **livscykelhantering** grupperade under Blob-tjänsten för att visa och/eller ändra din princip.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -92,7 +92,7 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
 > [!NOTE]
 Om du aktiverar brandväggsregler för ditt lagringskonto, blockeras livscykeln för hantering av begäranden. Du kan låsa upp den genom att ange undantag. Mer information finns i avsnittet undantag vid [konfigurera brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
-## <a name="policies"></a>Principer
+## <a name="policy"></a>Princip
 
 En princip för livscykelhantering är en samling regler i ett JSON-dokument:
 
@@ -122,20 +122,23 @@ I en princip krävs två parametrar:
 | version        | En sträng som är uttryckt i `x.x` | Versionsnumret för förhandsversionen är 0,5 |
 | regler          | En matris med regelobjekt | Du måste minst en regel i varje princip. Du kan ange upp till 4 regler per princip för förhandsversionen. |
 
-Parametrar som krävs i en regel är:
+Inom varje regel krävs tre parametrar:
 
 | Parameternamn | Parametertyp | Anteckningar |
 |----------------|----------------|-------|
 | Namn           | Sträng | Ett regelnamn kan innehålla en kombination av alfanumeriska tecken. Regelnamnet är skiftlägeskänsligt. Det måste vara unika inom en princip. |
 | typ           | Ett uppräkningsvärde | Det giltiga värdet för förhandsversionen är `Lifecycle` |
-| definition     | Ett objekt som definierar regeln för livscykel | Varje definition består med en filteruppsättning och en uppsättning åtgärder. |
+| definition     | Ett objekt som definierar regeln för livscykel | Varje definition består med en uppsättning filter och en uppsättning åtgärder. |
 
 ## <a name="rules"></a>Regler
 
-Varje Regeldefinitionen innehåller en filteruppsättning och en uppsättning åtgärder. Följande Exempelregel ändrar nivån för grundläggande blockblob-objekt med prefixet `container1/foo`. Dessa regler har definierats som i principen:
+Varje Regeldefinitionen innehåller en uppsättning filter och en uppsättning åtgärder. Den [filtrera set](#rule-filters) används för att begränsa regelåtgärder för att en viss uppsättning objekt i en behållare och objekt som namn. Den [åtgärd set](#rule-actions) gäller nivån eller ta bort åtgärder för att en filtrerad uppsättning objekt.
 
-- Nivå-blob till lågfrekvent lagring 30 dagar efter senaste ändring
-- Nivå-blob till arkivlagring 90 dagar efter senaste ändringen
+### <a name="sample-rule"></a>Exempelregel
+Följande Exempelregel filtrerar konto för att köra åtgärderna som bara på `container1/foo`. För alla objekt som finns inuti `container1` **AND** börjar med `foo`, dessa följande åtgärder utförs: 
+
+- Nivå-blob till den lågfrekventa nivån 30 dagar efter senaste ändring
+- Nivå-blob till arkivnivån i 90 dagar efter senaste ändringen
 - Ta bort blob 2,555 dagar (7 år) efter senaste ändring
 - Ta bort blobögonblicksbilderna 90 dagar efter ögonblicksbilder skapas
 
@@ -177,7 +180,7 @@ I förhandsversionen är giltiga filter:
 | Filternamn | Filtertyp | Anteckningar | Krävs |
 |-------------|-------------|-------|-------------|
 | blobTypes   | En matris med fördefinierade enum-värden. | I förhandsversionen endast `blockBlob` stöds. | Ja |
-| prefixMatch | En matris med strängar för prefix som ska matcha. En sträng med prefixet måste börja med ett behållarnamn. Exempel: om alla BLOB-objekt ”https://myaccount.blob.core.windows.net/mycontainer/mydir/..”. som ska matchas för en regel är prefixet ”mycontainer/MinMapp”. | Om det inte är definierad gäller med den här regeln för alla blobbar i kontot. | Nej |
+| prefixMatch | En matris med strängar för prefix som ska matcha. En sträng med prefixet måste börja med ett behållarnamn. Exempel: om alla BLOB-objekt ”https://myaccount.blob.core.windows.net/container1/foo/..”. som ska matchas för en regel i prefixMatch skulle vara ”container1/foo”. | Om prefixMatch inte är definierad gäller reglerna för alla blobbar i kontot. | Nej |
 
 ### <a name="rule-actions"></a>Regelåtgärder
 

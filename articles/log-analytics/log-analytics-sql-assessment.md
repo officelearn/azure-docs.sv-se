@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 4f9882ce94827e490b676fdf421095eae40420d5
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: be2fd826ffa658ec04bd937036e37bf55cbf65a4
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407732"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964143"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimera din SQL-miljö med lösningen för hälsokontroll för SQL Server i Log Analytics
 
@@ -53,7 +53,7 @@ När du har lagt till lösningen och en utvärdering är klar, sammanfattande in
 
 Om du vill utföra hälsokontroll mot din SQL Server-servrar, kräver de en agent och en anslutning till Log Analytics med någon av följande metoder:
 
-1. Installera den [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) om servern inte är redan övervakas av System Center 2016 – Operations Manager eller Operations Manager 2012 R2.
+1. Installera den [Microsoft Monitoring Agent (MMA)](log-analytics-agent-windows.md) om servern inte är redan övervakas av System Center 2016 – Operations Manager eller Operations Manager 2012 R2.
 2. Om den är övervakad med System Center 2016 – Operations Manager eller Operations Manager 2012 R2 och hanteringsgruppen är inte integrerat med Log Analytics-tjänsten, kan servern ha flera värdar med Log Analytics för att samla in data och vidarebefordra till tjänsten och fortfarande övervakas av Operations Manager.  
 3. I annat fall om Operations Manager-hanteringsgrupp är integrerad med tjänsten, du måste lägga till domänkontrollanterna för insamling av tjänsten anvisningarna under [lägga till datorer som hanteras med agent](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) när du har aktiverat lösningen i din arbetsyta.  
 
@@ -184,7 +184,7 @@ Om du har synpunkter som du vill ignorera kan du skapa en textfil som Log Analyt
     ```
 
     >[!NOTE]
-    > Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md), och sedan frågan ovan skulle ändras till följande.
+    > Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search.md), och sedan frågan ovan skulle ändras till följande.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -209,7 +209,7 @@ Om du har synpunkter som du vill ignorera kan du skapa en textfil som Log Analyt
     ```
 
     >[!NOTE]
-    > Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md), och sedan frågan ovan skulle ändras till följande.
+    > Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search.md), och sedan frågan ovan skulle ändras till följande.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -265,4 +265,4 @@ Om du har synpunkter som du vill ignorera kan du skapa en textfil som Log Analyt
 * Ja, se [Ignorera rekommendationer](#ignore-recommendations) ovan.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Söka loggarna](log-analytics-log-searches.md) att lära dig hur du analyserar detaljerade SQL-hälsokontroll data och rekommendationer.
+* [Söka loggarna](log-analytics-log-search.md) att lära dig hur du analyserar detaljerade SQL-hälsokontroll data och rekommendationer.

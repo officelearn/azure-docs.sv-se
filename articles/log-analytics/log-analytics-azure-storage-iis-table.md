@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9f4aae578606e14711deaac87e232bad0158bfe9
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: f88290043f750122327ddb1fd9b381b6bc24110c
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041500"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959332"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Använda Azure blob storage för IIS och Azure table storage för händelser med Log Analytics
 
@@ -53,7 +53,7 @@ Att samla in dessa Azure-diagnostikloggar för logganalys, finnas loggarna på f
 >
 >
 
-För virtuella datorer, har du möjlighet att installera den [Log Analytics-agenten](log-analytics-azure-vm-extension.md) till din virtuella dator för att aktivera ytterligare insikter. Förutom att kunna analysera IIS-loggar och händelseloggar, kan du utföra ytterligare analys, inklusive konfiguration av ändringsspårning, SQL-bedömning och kontroll av uppdateringar.
+För virtuella datorer, har du möjlighet att installera den [Log Analytics-agenten](log-analytics-quick-collect-azurevm.md) till din virtuella dator för att aktivera ytterligare insikter. Förutom att kunna analysera IIS-loggar och händelseloggar, kan du utföra ytterligare analys, inklusive konfiguration av ändringsspårning, SQL-bedömning och kontroll av uppdateringar.
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection"></a>Aktivera Azure-diagnostik på en virtuell dator för händelseloggen och IIS logga samling
 Du kan använda följande procedur för att aktivera Azure-diagnostik i en virtuell dator för händelseloggen och IIS Logginsamling med hjälp av Microsoft Azure-portalen.
@@ -151,7 +151,7 @@ Du ska kunna visa data från storage-konto i Log Analytics i cirka 30 minuter. D
 Följ stegen i [konfigurerar Log Analytics för att indexera Azure-diagnostik](log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) du använder PowerShell för att läsa från Azure-diagnostik som skrivs till table storage.
 
 Med Azure PowerShell kan du mer exakt ange de händelser som skrivs till Azure Storage.
-Mer information finns i [hur du aktiverar diagnostik i Azure Virtual Machines](../virtual-machines-dotnet-diagnostics.md).
+Mer information finns i [hur du aktiverar diagnostik i Azure Virtual Machines](../virtual-machines/virtual-machines-dotnet-diagnostics.md).
 
 Du kan aktivera och uppdatera Azure-diagnostik med hjälp av följande PowerShell-skript.
 Du kan också använda det här skriptet med en konfiguration för anpassad loggning.
@@ -194,5 +194,5 @@ Granska följande skriptexempel, kopiera, ändra det efter behov, spara exemplet
 
 ## <a name="next-steps"></a>Nästa steg
 * [Samla in loggar och mått för Azure-tjänster](log-analytics-azure-storage.md) för Azure-tjänster som stöds.
-* [Aktivera lösningar](log-analytics-add-solutions.md) att ge insikter i data.
-* [Använda sökfrågor](log-analytics-log-searches.md) att analysera data.
+* [Aktivera lösningar](../monitoring/monitoring-solutions.md) att ge insikter i data.
+* [Använda sökfrågor](log-analytics-log-search.md) att analysera data.

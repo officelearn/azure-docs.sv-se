@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 10cd05bd40262815e3b27c861982debc18e5b4f3
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 152632c55fc21d2b49f6dfd8ae734833ea870898
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142497"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978374"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-virtual-machine-scale-set-with-application-insights-profiler"></a>Profil för web apps som körs på en virtuell Azure-dator eller en VM-skalningsuppsättning med Application Insights Profiler
 Du kan också distribuera Application Insights profiler på de här tjänsterna:
@@ -63,11 +63,8 @@ Den här sidan vägleder dig igenom steg som behövs för att hämta Application
 
 1. Distribuera ditt program.
 
-## <a name="enable-profiler-on-on-premises-servers"></a>Aktivera Profiler på lokala servrar
-
-Att aktivera Profiler på en lokal server kallas även köra Application Insights Profiler i fristående läge. Den är inte kopplad till Azure Diagnostics-tillägget ändringar.
-
-Vi har inga planer på att officiellt ge support till Profiler för lokala servrar. Om du är intresserad av att experimentera med det här scenariot kan du [hämta supportkod](https://github.com/ramach-msft/AIProfiler-Standalone). Vi kan *inte* ansvarar för att underhålla koden eller för att svara på problem och vilka funktionsförfrågningar som är relaterade till koden.
+## <a name="can-profiler-run-on-on-premises-servers"></a>Profiler kan köras på lokala servrar?
+Vi har inga planer på att stöd för hemsidan Insights Profiler för lokala servrar. 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,5 +1,5 @@
 ---
-title: Utöka aviseringar från Log Analytcs till Azure
+title: Utöka aviseringar från Log Analytics till Azure
 description: 'Den här artikeln beskrivs de verktyg och API: et som du kan utöka aviseringar från Log Analytics till Azure-aviseringar.'
 author: msvijayn
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: ed6b2fafbb3329e20985b75f55d29b52dcc5da57
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a470299df86f6b8f7fd61279af0334d01ef94f8d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415711"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957429"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Utöka aviseringar från Log Analytics till Azure-aviseringar
 Funktionen för säkerhetsvarningar i Azure Log Analytics ersätts av Azure-aviseringar. Som en del av denna övergång utökas aviseringar som du ursprungligen konfigurerades i Log Analytics till Azure. Om du inte vill vänta tills de flyttas automatiskt till Azure, kan du starta processen:
@@ -470,7 +470,7 @@ Här följer anvisningarna för reparation för varje fel:
 
 - **Fel: Principen finns på gruppnivå/resursgrupp**: ![Skärmbild av i Operations Management Suite aviseringsinställningar portalsidan felmeddelande princip markerat](media/monitoring-alerts-extend-tool/ErrorPolicy.png)
 
-    När [Azure Policy](../azure-policy/azure-policy-introduction.md) är tillämpas, begränsar alla nya resurser i en prenumeration eller resursgrupp grupp som innehåller arbetsytan Log Analytics (Operations Management Suite). Systemet kan inte utöka aviseringarna till Azure och skapa nödvändiga åtgärdsgrupper.
+    När [Azure Policy](../governance/policy/overview.md) är tillämpas, begränsar alla nya resurser i en prenumeration eller resursgrupp grupp som innehåller arbetsytan Log Analytics (Operations Management Suite). Systemet kan inte utöka aviseringarna till Azure och skapa nödvändiga åtgärdsgrupper.
     
     Lös genom att redigera principen som orsakar den *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* fel, vilket förhindrar att skapa nya resurser i din prenumeration eller resursgrupp grupp som innehåller arbetsytan. Du kan göra detta med hjälp av Azure portal, PowerShell, Azure CLI eller API: et. Du kan granska åtgärder för att hitta lämplig princip som orsakar fel. Mer information finns i [visa aktivitetsloggar för att granska åtgärder](../azure-resource-manager/resource-group-audit.md). 
     

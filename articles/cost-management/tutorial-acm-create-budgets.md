@@ -5,21 +5,21 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/01/2018
+ms.date: 11/02/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 50bd22559c3695ac4161932652eb191084e2b46e
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 338035014cb8e34caa7aea688028a96d039b028c
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017373"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50977676"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Självstudie: Skapa och hantera budgetar för Azure
 
-Budgetar i Cost Management hjälper dig att planera för och redovisningen för enheten. Med budgetar, kan du ta hänsyn till de Azure-tjänster du förbrukar eller prenumerera på under en viss period. De hjälper dig att informera andra om sina utgifter att proaktivt hantera kostnader och övervaka hur utgifter fortskrider över tid. Du kan se hur utgiftsgränsen utvecklas över tid. När budgetgränser som du har skapat överskrids utlöses endast meddelanden. Ingen av dina resurser som påverkas och förbrukning stoppats inte. Du kan använda budgetar för att jämföra och spåra utgifter som du analysera kostnaderna.
+Budgetar i Cost Management hjälper dig att planera och öka organisationsansvar. Med budgetar kan du ta hänsyn till de Azure-tjänster du förbrukar eller prenumererar på under en viss period. De hjälper dig att informera andra om sina utgifter att proaktivt hantera kostnader och övervaka hur utgifter fortskrider över tid. Du kan se hur utgiftsgränsen utvecklas över tid. När budgetgränser som du har skapat överskrids utlöses endast meddelanden. Ingen av dina resurser som påverkas och förbrukning stoppats inte. Du kan använda budgetar för att jämföra och spåra utgifter som du analysera kostnaderna.
 
 Budgetar återställa automatiskt i slutet av en viss (månadsvis, Kvartalsvis eller årligen) för samma budgetbelopp när du väljer ett förfallodatum i framtiden. Eftersom de återställa med samma budgetbelopp, måste du skapa separata budgetar när budgeterade valutabelopp skiljer sig åt för framtida perioder.
 
@@ -33,13 +33,13 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Budgetar är tillgängliga för alla Azure EA-kunder. Du måste ha läsbehörighet till en Azure EA-prenumeration för att skapa och hantera budgetar. Fakturering EA-konton stöds inte av din budget.
+Budgetar är tillgängliga för alla Azure EA-kunder. Du måste ha läsbehörighet till en Azure-EA-prenumeration för att kunna skapa och hantera budgetar. Du kan skapa enskilda budgetar för EA-prenumerationer och resursgrupper. Du kan dock skapa budgetar för EA fakturering konton.
 
-Budgetar skapas på den prenumeration eller resursgruppsnivå, individuellt. Följande Azure-behörigheter stöds per prenumeration för budgetar för användare och grupp:
+Följande Azure-behörigheter stöds per prenumeration för budgetar för användare och grupp:
 
-- Ägare – kan skapa, ändra eller ta bort budgetar för en prenumeration.
-- Deltagare – kan skapa, ändra eller ta bort egna budgetar. Ändra budgetbeloppet för budgetar som skapats av andra.
-- Läsare – kan visa dig som de har behörighet att.
+- Ägare – Kan skapa, ändra och ta bort budgetar för en prenumeration.
+- Deltagare – Kan skapa, ändra och ta bort sina egna budgetar. Kan ändra budgetbeloppet för budgetar som skapats av andra.
+- Läsare – Kan visa budgetar som de har behörighet till.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 

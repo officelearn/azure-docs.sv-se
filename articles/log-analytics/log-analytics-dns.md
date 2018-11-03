@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9ac8d876e9c79e5aadfcf834e18e94f6ac8b3a30
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a621cba2eda0156cbe191f330c805d2cca64b3ba
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408480"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960896"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Samla in information om DNS-infrastrukturen med förhandsversionen av DNS Analytics-lösning
 
@@ -44,8 +44,8 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 
 | **Ansluten källa** | **Support** | **Beskrivning** |
 | --- | --- | --- |
-| [Windows-agenter](log-analytics-windows-agent.md) | Ja | Lösningen samlar in DNS-information från Windows-agenter. |
-| [Linux-agenter](log-analytics-linux-agents.md) | Nej | Lösningen samlar inte in DNS-information från direkt Linux-agenter. |
+| [Windows-agenter](log-analytics-agent-windows.md) | Ja | Lösningen samlar in DNS-information från Windows-agenter. |
+| [Linux-agenter](log-analytics-quick-collect-linux-computer.md) | Nej | Lösningen samlar inte in DNS-information från direkt Linux-agenter. |
 | [System Center Operations Manager-hanteringsgrupp](log-analytics-om-agents.md) | Ja | Lösningen samlar in DNS-information från agenter i en ansluten hanteringsgrupp för Operations Manager. En direktanslutning från Operations Manager-agenten till Log Analytics krävs inte. Data vidarebefordras från hanteringsgruppen till Log Analytics-arbetsytan. |
 | [Azure Storage-konto](log-analytics-azure-storage.md) | Nej | Azure storage används inte av lösningen. |
 
@@ -57,8 +57,8 @@ Lösningen samlar in DNS-inventering och DNS-händelse-relaterade data från DNS
 
 Använd följande information för att konfigurera lösningen:
 
-- Du måste ha en [Windows](log-analytics-windows-agent.md) eller [Operations Manager](log-analytics-om-agents.md) agenten på varje DNS-server som du vill övervaka.
-- Du kan lägga till DNS Analytics-lösningen i Log Analytics-arbetsytan från den [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). Du kan också använda metoden som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md).
+- Du måste ha en [Windows](log-analytics-agent-windows.md) eller [Operations Manager](log-analytics-om-agents.md) agenten på varje DNS-server som du vill övervaka.
+- Du kan lägga till DNS Analytics-lösningen i Log Analytics-arbetsytan från den [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). Du kan också använda metoden som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](../monitoring/monitoring-solutions.md).
 
 Lösningen börjar samla in data utan behov av ytterligare konfiguration. Du kan dock använda följande konfiguration för att anpassa datainsamling.
 
@@ -190,4 +190,4 @@ Det finns två sätt som du kan ge feedback:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Söka loggarna](log-analytics-log-searches.md) att visa detaljerad DNS-poster.
+[Söka loggarna](log-analytics-log-search.md) att visa detaljerad DNS-poster.

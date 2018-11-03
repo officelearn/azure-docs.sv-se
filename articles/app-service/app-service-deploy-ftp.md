@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 11/02/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: f82a01f3a2b88e66988717eb008a65c8f2aecf28
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 8f32e84e5381a548ada2c5ad393e16c65b17379e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900333"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957190"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Distribuera din app till Azure App Service med FTP/S
 
@@ -45,7 +45,7 @@ Vi rekommenderar att du använder **App autentiseringsuppgifter** att distribuer
 
 ## <a name="deploy-files-to-azure"></a>Distribuera filer till Azure
 
-1. Från FTP-klienten (till exempel [Visual Studio](https://www.visualstudio.com/vs/community/) eller [FileZilla](https://filezilla-project.org/download.php?type=client)), Använd den information du samlade in för att ansluta till din app.
+1. Från FTP-klienten (till exempel [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/), eller [WinSCP](https://winscp.net/index.php)), Använd den information du samlade in för att ansluta till din app.
 3. Kopiera filerna med respektive katalogstruktur till den [ **/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) i Azure (eller **/site/wwwroot/App_Data/jobb/** katalogen för WebJobs).
 4. Gå till appens URL för att verifiera appen körs korrekt. 
 

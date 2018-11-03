@@ -3,18 +3,18 @@ title: Förstå utdata från Azure Stream Analytics
 description: Den här artikeln beskriver data utdata alternativen som finns i Azure Stream Analytics, inklusive Power BI för analysresultat.
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 396b843ecd17c15e9476bacb5e96545f963f0c4e
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: abf581430f7cf7020145b0217c387b8c2fc4f795
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747855"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979411"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 Den här artikeln beskrivs de olika typerna av utdata som är tillgängliga för Azure Stream Analytics-jobb. Utdata kan du lagra och spara resultatet av Stream Analytics-jobb. Med utdata kan du göra ytterligare affärsanalys och datalager för dina data. 
@@ -323,10 +323,11 @@ I följande tabell beskrivs några av överväganden för att mata ut batchbearb
 | Azure Service Bus-kö   | 256 KB per meddelande</br> Se även [begränsar Service Bus](../service-bus-messaging/service-bus-quotas.md) | Enskild händelse per meddelande |
 | Azure Service Bus-ämne | 256 KB per meddelande</br> Se även [begränsar Service Bus](../service-bus-messaging/service-bus-quotas.md) | Enskild händelse per meddelande |
 | Azure Cosmos DB   | Se [Azure Cosmos DB begränsar](../azure-subscription-service-limits.md#azure-cosmos-db-limits) | Batch storlek och frekvens är justerade dynamiskt utifrån CosmosDB-svar. </br> Inga förinställt begränsningar från Stream Analytics. |
-| Azure Functions   | | Standardstorleken för batch är 246 KB. </br> Standardvärdet för händelseantal per batch är 100. </br> Batchstorlek är konfigurerbar och kan ökas eller minskas i Stream Analytics [Utdataalternativ](#azure-functions). 
+| Azure Functions   | | Batch standardstorleken är 256 KB. </br> Standardvärdet för händelseantal per batch är 100. </br> Batchstorlek är konfigurerbar och kan ökas eller minskas i Stream Analytics [Utdataalternativ](#azure-functions). 
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
+
 > [Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure portal](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->

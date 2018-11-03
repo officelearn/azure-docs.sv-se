@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: 9152733e189aec25a5c024de7f9a3582c29218a3
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 20c1606d4d6a1ddd43426731e5498d1bee47f2e3
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406542"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962545"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Uppgradera till säkerhetskopiering för Azure stack V2
 
@@ -28,8 +28,8 @@ Resource Manager-distributionsmodellen för uppgradering till säkerhetskopierin
 
 * Möjlighet att använda en ohanterad virtuell dator ursprungliga lagringskonton, när du återställer. Denna möjlighet finns även när den virtuella datorn har diskar som är fördelade på storage-konton. Det går snabbare återställningsåtgärder för en mängd olika VM-konfigurationer.
     > [!NOTE]
-    > Den här möjligheten är inte samma som ersätter den virtuella datorn diskar med data från återställningspunkten. 
-    
+    > Den här möjligheten är inte samma som ersätter den virtuella datorn diskar med data från återställningspunkten.
+
 
 ## <a name="whats-changing-in-the-new-stack"></a>Vad ändras om den nya stacken?
 För närvarande består säkerhetskopieringsjobbet av två faser:
@@ -55,7 +55,7 @@ Som standard hålls ögonblicksbilder i sju dagar. Den här funktionen möjligg�
 * Ögonblicksbilder som tas för omedelbar återställningspunkter count mot gränsen på 10 TB allokerat utrymme för premium storage-konton.
 
 > [!NOTE]
-> Uppgradera till säkerhetskopiering för Azure stack V2 kan få support för Azure Backup för den [Standard SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/) och virtuella datorer med upp till 32 datadiskar.
+> Uppgradera till säkerhetskopiering för Azure stack V2 kan få support för Azure Backup för den [Standard SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
 
 ## <a name="upgrade"></a>Uppgradera
 ### <a name="the-azure-portal"></a>Azure Portal
@@ -119,4 +119,4 @@ Varje dag som en ny ögonblicksbild tas. Det finns sju enskilda ögonblicksbilde
 Inkrementella ögonblicksbilder används för ohanterade diskar. För hanterade diskar återställningspunkt samling som skapats av Azure Backup använder blob-ögonblicksbilder och därför är inkrementell.
 
 ### <a name="how-to-get-standard-ssd-managed-disk-support-for-a-virtual-machine"></a>Så här hämtar du standard SSD hanterade diskar som stöd för en virtuell dator?
-Uppgradera till säkerhetskopiering för Azure stack V2 kan få support för Azure Backup för den [Standard SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). Du kan också säkerhetskopiera virtuella datorer med upp till 32 datadiskar när uppgraderats.
+Uppgradera till säkerhetskopiering för Azure stack V2 kan få support för Azure Backup för den [Standard SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).

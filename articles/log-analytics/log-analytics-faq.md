@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 08a85cea75d692573f9e9e6c4bcd8bb61e03867f
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 403ac2fd0ab497239350c8b4a68a6b6f53bb24b4
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041977"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963922"
 ---
 # <a name="log-analytics-faq"></a>Vanliga frågor och svar om Log Analytics
 Den här Microsoft-FAQ är en lista över vanliga frågor om Log Analytics i Microsoft Azure. Om du har ytterligare frågor om Log Analytics kan du gå till den [diskussionsforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) och ställa frågor. När en fråga är vanliga vi lägga till det i den här artikeln så att den finns snabbt och enkelt.
@@ -88,7 +88,7 @@ S: det här området är i tillfälligt kapacitetsgränsen. Gränsen är planera
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>F. Använder Log Analytics samma agent som Azure Security Center?
 
-S: med tidig juni 2017 började Azure Security Center använder Microsoft Monitoring Agent för att samla in och lagra data. Mer information finns i [Azure Security Center-plattformen migrering vanliga frågor och svar](../security-center/security-center-platform-migration-faq.md).
+S: med tidig juni 2017 började Azure Security Center använder Microsoft Monitoring Agent för att samla in och lagra data. Mer information finns i [Azure Security Center-plattformen migrering vanliga frågor och svar](../security-center/security-center-enable-data-collection.md).
 
 ### <a name="q-what-checks-are-performed-by-the-ad-and-sql-assessment-solutions"></a>F. Vilka kontroller som utförs av AD och SQL-bedömning lösningar?
 
@@ -135,7 +135,7 @@ Log Analytics använder UTC-tid och varje dag startas normalt vid midnatt UTC. O
 
 ### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>F. Hur kan jag bli meddelad när datainsamlingen slutar?
 
-S: med stegen som beskrivs i [skapa en ny log-avisering](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) meddelas när datainsamlingen slutar.
+S: med stegen som beskrivs i [skapa en ny log-avisering](../monitoring-and-diagnostics/alert-metric.md) meddelas när datainsamlingen slutar.
 
 Ange när du skapar aviseringen för när datainsamlingen slutar den:
 
@@ -231,4 +231,4 @@ Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* [Kom igång med Log Analytics](log-analytics-get-started.md) vill veta mer om Log Analytics och kom igång på bara några minuter.
+* [Kom igång med Log Analytics](../azure-monitor/overview.md) vill veta mer om Log Analytics och kom igång på bara några minuter.

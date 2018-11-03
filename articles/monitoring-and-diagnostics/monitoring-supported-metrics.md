@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 15cac40e743f44ea7e0954c94683674ad9372a7a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5f6140b582b2412a164593bd2aa99bfbde5fb688
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962955"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964194"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mått som stöds med Azure Monitor
 Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inklusive diagram dem i portalen, få åtkomst till dem via REST API eller frågor till dem med PowerShell eller CLI. Nedan visas en fullständig lista över alla mått som är tillgänglig med Azure Monitor mått pipeline. Andra mått kan finnas i portalen eller med äldre API: er. Listan nedan innehåller endast mått som är tillgängliga med hjälp av konsoliderade pipelinen för Azure Monitor-mått. Fråga efter och komma åt de här måtten Använd den [2018-01-01 api-versionen](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -366,16 +366,16 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |Skrivåtgärder på disk/sek|Skrivåtgärder på disk/sek|CountPerSecond|Medel|Skrivna IOPS på disk|Inga dimensioner|
 |Återstående CPU-krediter|Återstående CPU-krediter|Antal|Medel|Totalt antal krediter tillgängliga för plötsliga toppar|Inga dimensioner|
 |Förbrukade CPU-krediter|Förbrukade CPU-krediter|Antal|Medel|Totalt antal krediter som använts av den virtuella datorn|Inga dimensioner|
-|Lästa byte per disk/sek|Lästa byte på datadisk/sek (förhandsversion)|CountPerSecond|Medel|Totala byte/sek lästa från en enskild disk under övervakningsperioden|SlotId|
-|Skrivna byte per disk/sek|Skrivna byte på datadisk/sek (förhandsversion)|CountPerSecond|Medel|Totala byte/sek skrivna till en enskild disk under övervakningsperioden|SlotId|
+|Lästa byte per disk/sek|Lästa byte på datadisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt antal byte/sek lästa från en enskild disk under övervakningsperioden|SlotId|
+|Skrivna byte per disk/sek|Skrivna byte på datadisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt antal byte/sek skrivna till en enskild disk under övervakningsperioden|SlotId|
 |Läsåtgärder per disk/sek|Läsåtgärder per datadisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt IOPS utfört under läsning från en enskild disk under övervakningsperioden|SlotId|
 |Skrivåtgärder per disk/sek|Skrivåtgärder per datadisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt IOPS utfört under skrivning till en enskild disk under övervakningsperioden|SlotId|
-|Ködjup per disk|Datadisks ködjup (förhandsversion)|Antal|Medel|Datadiskködjup (eller kölängd)|SlotId|
-|Lästa byte per operativsystemdisk/sek|Lästa byte per operativsystemdisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt byte/sek lästa från en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
-|Skrivna byte per operativsystemdisk/sek|Skrivna byte per operativsystemdisk/sek (förhandsversion)|CountPerSecond|Medel|Totala byte/sek skrivna till en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
-|Läsåtgärder per operativsystemdisk/sek|Läsåtgärder på operativsystemdisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt IOPS utfört under läsning från en enstaka disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
+|Ködjup per disk|Datadiskködjup (förhandsversion)|Antal|Medel|Datadiskködjup (eller kölängd)|SlotId|
+|Lästa byte per operativsystemdisk/sek|Lästa byte per operativsystemdisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt antal byte/sek lästa från en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
+|Skrivna byte per operativsystemdisk/sek|Skrivna byte per operativsystemdisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt antal byte/sek skrivna till en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
+|Läsåtgärder per operativsystemdisk/sek|Läsåtgärder på operativsystemdisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt IOPS utfört under läsning från en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
 |Skrivåtgärder per operativsystemdisk/sek|Skrivåtgärder på operativsystemdisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt IOPS utfört under skrivning till en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
-|Ködjup per operativsystemdisk|Operativsystemdisks ködjup (förhandsversion)|Antal|Medel|Operativsystemdisks ködjup (eller kölängd)|Inga dimensioner|
+|Ködjup per operativsystemdisk|Operativsystemdisks Ködjup (förhandsversion)|Antal|Medel|Operativsystemdisks ködjup (eller kölängd)|Inga dimensioner|
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
@@ -390,16 +390,16 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |Skrivåtgärder på disk/sek|Skrivåtgärder på disk/sek|CountPerSecond|Medel|Skrivna IOPS på disk|Inga dimensioner|
 |Återstående CPU-krediter|Återstående CPU-krediter|Antal|Medel|Totalt antal krediter tillgängliga för plötsliga toppar|Inga dimensioner|
 |Förbrukade CPU-krediter|Förbrukade CPU-krediter|Antal|Medel|Totalt antal krediter som använts av den virtuella datorn|Inga dimensioner|
-|Lästa byte per disk/sek|Lästa byte på datadisk/sek (förhandsversion)|CountPerSecond|Medel|Totala byte/sek lästa från en enskild disk under övervakningsperioden|SlotId|
-|Skrivna byte per disk/sek|Skrivna byte på datadisk/sek (förhandsversion)|CountPerSecond|Medel|Totala byte/sek skrivna till en enskild disk under övervakningsperioden|SlotId|
+|Lästa byte per disk/sek|Lästa byte på datadisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt antal byte/sek lästa från en enskild disk under övervakningsperioden|SlotId|
+|Skrivna byte per disk/sek|Skrivna byte på datadisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt antal byte/sek skrivna till en enskild disk under övervakningsperioden|SlotId|
 |Läsåtgärder per disk/sek|Läsåtgärder per datadisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt IOPS utfört under läsning från en enskild disk under övervakningsperioden|SlotId|
 |Skrivåtgärder per disk/sek|Skrivåtgärder per datadisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt IOPS utfört under skrivning till en enskild disk under övervakningsperioden|SlotId|
-|Ködjup per disk|Datadisks ködjup (förhandsversion)|Antal|Medel|Datadiskködjup (eller kölängd)|SlotId|
-|Lästa byte per operativsystemdisk/sek|OS-Disk-lästa byte/sek|CountPerSecond|Medel|Totalt byte/sek lästa från en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
-|Skrivna byte per operativsystemdisk/sek|Skrivna byte per operativsystemdisk/sek (förhandsversion)|CountPerSecond|Medel|Totala byte/sek skrivna till en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
-|Läsåtgärder per operativsystemdisk/sek|Läsåtgärder på operativsystemdisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt IOPS utfört under läsning från en enstaka disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
+|Ködjup per disk|Datadiskködjup (förhandsversion)|Antal|Medel|Datadiskködjup (eller kölängd)|SlotId|
+|Lästa byte per operativsystemdisk/sek|OS-Disk-lästa byte/sek|CountPerSecond|Medel|Totalt antal byte/sek lästa från en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
+|Skrivna byte per operativsystemdisk/sek|Skrivna byte per operativsystemdisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt antal byte/sek skrivna till en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
+|Läsåtgärder per operativsystemdisk/sek|Läsåtgärder på operativsystemdisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt IOPS utfört under läsning från en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
 |Skrivåtgärder per operativsystemdisk/sek|Skrivåtgärder på operativsystemdisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt IOPS utfört under skrivning till en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
-|Ködjup per operativsystemdisk|Operativsystemdisks ködjup (förhandsversion)|Antal|Medel|Operativsystemdisks ködjup (eller kölängd)|Inga dimensioner|
+|Ködjup per operativsystemdisk|Operativsystemdisks Ködjup (förhandsversion)|Antal|Medel|Operativsystemdisks ködjup (eller kölängd)|Inga dimensioner|
 
 ## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 
@@ -414,16 +414,16 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |Skrivåtgärder på disk/sek|Skrivåtgärder på disk/sek|CountPerSecond|Medel|Skrivna IOPS på disk|Inga dimensioner|
 |Återstående CPU-krediter|Återstående CPU-krediter|Antal|Medel|Totalt antal krediter tillgängliga för plötsliga toppar|Inga dimensioner|
 |Förbrukade CPU-krediter|Förbrukade CPU-krediter|Antal|Medel|Totalt antal krediter som använts av den virtuella datorn|Inga dimensioner|
-|Lästa byte per disk/sek|Lästa byte på datadisk/sek (förhandsversion)|CountPerSecond|Medel|Totala byte/sek lästa från en enskild disk under övervakningsperioden|SlotId|
-|Skrivna byte per disk/sek|Skrivna byte på datadisk/sek (förhandsversion)|CountPerSecond|Medel|Totala byte/sek skrivna till en enskild disk under övervakningsperioden|SlotId|
+|Lästa byte per disk/sek|Lästa byte på datadisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt antal byte/sek lästa från en enskild disk under övervakningsperioden|SlotId|
+|Skrivna byte per disk/sek|Skrivna byte på datadisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt antal byte/sek skrivna till en enskild disk under övervakningsperioden|SlotId|
 |Läsåtgärder per disk/sek|Läsåtgärder per datadisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt IOPS utfört under läsning från en enskild disk under övervakningsperioden|SlotId|
 |Skrivåtgärder per disk/sek|Skrivåtgärder per datadisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt IOPS utfört under skrivning till en enskild disk under övervakningsperioden|SlotId|
-|Ködjup per disk|Datadisks ködjup (förhandsversion)|Antal|Medel|Datadiskködjup (eller kölängd)|SlotId|
-|Lästa byte per operativsystemdisk/sek|Lästa byte per operativsystemdisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt byte/sek lästa från en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
-|Skrivna byte per operativsystemdisk/sek|Skrivna byte per operativsystemdisk/sek (förhandsversion)|CountPerSecond|Medel|Totala byte/sek skrivna till en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
-|Läsåtgärder per operativsystemdisk/sek|Läsåtgärder på operativsystemdisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt IOPS utfört under läsning från en enstaka disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
+|Ködjup per disk|Datadiskködjup (förhandsversion)|Antal|Medel|Datadiskködjup (eller kölängd)|SlotId|
+|Lästa byte per operativsystemdisk/sek|Lästa byte per operativsystemdisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt antal byte/sek lästa från en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
+|Skrivna byte per operativsystemdisk/sek|Skrivna byte per operativsystemdisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt antal byte/sek skrivna till en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
+|Läsåtgärder per operativsystemdisk/sek|Läsåtgärder på operativsystemdisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt IOPS utfört under läsning från en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
 |Skrivåtgärder per operativsystemdisk/sek|Skrivåtgärder på operativsystemdisk/sek (förhandsversion)|CountPerSecond|Medel|Totalt IOPS utfört under skrivning till en enskild disk under övervakningsperioden för operativsystemdisken|Inga dimensioner|
-|Ködjup per operativsystemdisk|Operativsystemdisks ködjup (förhandsversion)|Antal|Medel|Operativsystemdisks ködjup (eller kölängd)|Inga dimensioner|
+|Ködjup per operativsystemdisk|Operativsystemdisks Ködjup (förhandsversion)|Antal|Medel|Operativsystemdisks ködjup (eller kölängd)|Inga dimensioner|
 
 ## <a name="microsoftcontainerinstancecontainergroups"></a>Microsoft.ContainerInstance/containerGroups
 
@@ -431,8 +431,8 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |---|---|---|---|---|---|
 |CpuUsage|CPU-användning|Antal|Medel|CPU-användning på alla kärnor i millicores.|containerName|
 |MemoryUsage|Minnesanvändning|Byte|Medel|Total minnesanvändning i byte.|containerName|
-|NetworkBytesReceivedPerSecond|Mottagna nätverksbyte Per sekund|Byte|Medel|Nätverksbyte per sekund.|Inga dimensioner|
-|NetworkBytesTransmittedPerSecond|Nätverks-byte skickas Per sekund|Byte|Medel|Nätverks-byte skickas per sekund.|Inga dimensioner|
+|NetworkBytesReceivedPerSecond|Mottagna nätverksbyte per sekund|Byte|Medel|Nätverksbyte som mottagits per sekund.|Inga dimensioner|
+|NetworkBytesTransmittedPerSecond|Överförda nätverksbyte per sekund|Byte|Medel|Nätverksbyte som överförts per sekund.|Inga dimensioner|
 
 ## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
 
@@ -587,8 +587,8 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |devices.totalDevices|Totalt antal enheter (inaktuell)|Antal|Totalt|Antalet enheter som registrerats till din IoT hub|Inga dimensioner|
 |devices.connectedDevices.allProtocol|Anslutna enheter (inaktuell) |Antal|Totalt|Antalet enheter som är anslutna till din IoT hub|Inga dimensioner|
 |d2c.telemetry.egress.Success|Routning: telemetrimeddelanden som levereras|Antal|Totalt|Antal gånger som meddelanden levereras till alla slutpunkter med hjälp av IoT Hub routning. Om ett meddelande skickas till flera slutpunkter, ökar detta värde med ett för varje lyckad leverans. Om ett meddelande skickas till samma slutpunkt flera gånger, ökar detta värde med ett för varje lyckad leverans.|Inga dimensioner|
-|d2c.telemetry.egress.dropped|Routning: telemetrimeddelanden som tas bort |Antal|Totalt|Antal gånger som meddelanden har tagits bort av IoT Hub routning på grund av döda slutpunkter. Det här värdet räknas inte meddelanden som levereras till återställningsplats väg som utelämnade meddelanden inte levereras det.|Inga dimensioner|
-|d2c.telemetry.egress.orphaned|Routning: telemetrimeddelanden som överblivna |Antal|Totalt|Antal gånger som meddelanden frånkopplade genom IoT Hub routning eftersom de inte matchar några regler för routning (inklusive återställningsplats regeln). |Inga dimensioner|
+|d2c.telemetry.egress.dropped|Routning: telemetrimeddelanden som tas bort |Antal|Totalt|Antal gånger som meddelanden har tagits bort av IoT Hub routning på grund av döda slutpunkter. Det här värdet räknas inte meddelanden som levereras till återställningsplats väg som utelämnade meddelanden inte levereras det.|Inga dimensioner|
+|d2c.telemetry.egress.orphaned|Routning: telemetrimeddelanden som överblivna |Antal|Totalt|Antal gånger som meddelanden frånkopplade genom IoT Hub routning eftersom de inte matchar några regler för routning (inklusive återställningsplats regeln). |Inga dimensioner|
 |d2c.telemetry.egress.invalid|Routning: telemetrimeddelanden inkompatibla|Antal|Totalt|Antal gånger som IoT Hub routning inte kunde skicka meddelanden på grund av inkompatibilitet med slutpunkten. Det här värdet inkluderar inte återförsök.|Inga dimensioner|
 |d2c.telemetry.egress.fallback|Routning: skicka meddelanden till återställningsplats|Antal|Totalt|Antal gånger som IoT Hub routning levererade meddelanden till slutpunkten som är associerade med återställningsplats vägen.|Inga dimensioner|
 |d2c.endpoints.egress.eventHubs|Routning: skicka meddelanden till Event Hub|Antal|Totalt|Antal gånger som IoT Hub routning har levererade meddelanden till Event Hub-slutpunkter.|Inga dimensioner|
@@ -711,7 +711,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |Storlek|Storlek (förhandsversion)|Byte|Medel|Storlek på en EventHub i byte. (Förhandsversion)|EntityName|
 |INREQS|Inkommande förfrågningar|Antal|Totalt|Totat antal inkommande sändningsförfrågningar för ett namnområde|Inga dimensioner|
 |SUCCREQ|Slutförda förfrågningar|Antal|Totalt|Totalt antal slutförda begäranden för ett namnområde|Inga dimensioner|
-|FAILREQ|Misslyckade begäranden|Antal|Totalt|Totalt antal misslyckade begäranden för ett namnområde|Inga dimensioner|
+|FAILREQ|Misslyckade förfrågningar|Antal|Totalt|Totalt antal misslyckade begäranden för ett namnområde|Inga dimensioner|
 |SVRBSY|Upptagen server|Antal|Totalt|Totalt antal fel med upptagen server för ett namnområde|Inga dimensioner|
 |INTERR|Interna serverfel|Antal|Totalt|Totalt antal interna serverfel för ett namnområde|Inga dimensioner|
 |MISCERR|Övriga fel|Antal|Totalt|Totalt antal misslyckade begäranden för ett namnområde|Inga dimensioner|
@@ -794,7 +794,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |performanceCounters/memoryAvailableBytes|Ledigt minne|Byte|Medel|Fysiskt minne som är omedelbart tillgängligt för att tilldelas en process eller för att användas av systemet.|molnet/Rollinstans|
 |performanceCounters/processPrivateBytes|Privata byte för process|Byte|Medel|Minne som har tilldelats exklusivt för att övervaka programprocesser.|molnet/Rollinstans|
 |begäranden/varaktighet|Serversvarstid |Millisekunder|Medel|Tid från det att en HTTP-förfrågning mottagits till dess att svaret har skickats.|begäran/performanceBucket, begäran/Resultatkod, åtgärden/syntetiska, molnet/Rollinstans, begäran/lyckades, molnet/roleName|
-|antal och tjänstbegäranden|Serverförfrågningar|Antal|Antal|Antal slutförda HTTP-förfrågningar.|begäran/performanceBucket, begäran/Resultatkod, åtgärden/syntetiska, molnet/Rollinstans, begäran/lyckades, molnet/roleName|
+|antal och tjänstbegäranden|Serverbegäranden|Antal|Antal|Antal slutförda HTTP-förfrågningar.|begäran/performanceBucket, begäran/Resultatkod, åtgärden/syntetiska, molnet/Rollinstans, begäran/lyckades, molnet/roleName|
 |begäranden/misslyckades|Misslyckade förfrågningar|Antal|Antal|Antal HTTP-begäranden markeras som misslyckat. I de flesta fall är detta förfrågningar med svarskoden > = 400 och inte lika med 401.|begäran/performanceBucket, begäran/Resultatkod, åtgärden/syntetiska, molnet/Rollinstans, molnet/roleName|
 |undantag/antal|Undantag|Antal|Totalt|Kombinerat antal undantagsfel utan felhantering.|molnet/roleName, molnet/Rollinstans, klient/typ|
 |undantag/webbläsare|Webbläsarundantag|Antal|Totalt|Antal undantagsfel utan felhantering som har utlösts i webbläsaren.|Inga dimensioner|
@@ -976,7 +976,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |UnhealthyHostCount|Defekt antal värdar per Backendpool|Antal|Medel|Antalet felaktiga backend-värdar|BackendSettingsPool|
 |HealthyHostCount|Felfri värd-antal|Antal|Medel|Antalet felfri backend-värdar|BackendSettingsPool|
 |TotalRequests|Totalt antal begäranden|Antal|Totalt|Antal lyckade begäranden som Application Gateway har hämtats|BackendSettingsPool|
-|FailedRequests|Misslyckade begäranden|Antal|Totalt|Antal misslyckade begäranden som Application Gateway har hämtats|BackendSettingsPool|
+|FailedRequests|Misslyckade förfrågningar|Antal|Totalt|Antal misslyckade begäranden som Application Gateway har hämtats|BackendSettingsPool|
 |ResponseStatus|Svarsstatus|Antal|Totalt|HTTP-svarsstatus som returneras av Application Gateway|HttpStatusGroup|
 |CurrentConnections|Aktuella anslutningar|Antal|Totalt|Antal aktuella anslutningar som upprättats via Application Gateway|Inga dimensioner|
 
@@ -1570,6 +1570,6 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |MemoryPercentage|Minnesprocent|Procent|Medel|Minnesprocent|Instans|
 
 ## <a name="next-steps"></a>Nästa steg
-* [Läs mer om mätvärden i Azure Monitor](monitoring-overview-metrics.md)
-* [Skapa aviseringar för mått](insights-receive-alert-notifications.md)
+* [Läs mer om mätvärden i Azure Monitor](../monitoring/monitoring-data-collection.md)
+* [Skapa aviseringar för mått](monitoring-overview-alerts.md)
 * [Exportera mått till lagring, Event Hub eller Log Analytics](monitoring-overview-of-diagnostic-logs.md)

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: bwren
 ms.comopnent: ''
-ms.openlocfilehash: 7b44c0712c4d88ec0bbb7a94f574c2a12faf3550
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6670b6648a0f38879b57b05cb3c6c6e15ca832b4
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040684"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958227"
 ---
 # <a name="iis-logs-in-log-analytics"></a>IIS-loggar i Log Analytics
 Internet Information Services (IIS) lagrar användarnas aktivitet i loggfiler som kan samlas in av Log Analytics.  
@@ -70,7 +70,7 @@ IIS-loggposter har en typ av **W3CIISLog** och har egenskaperna i följande tabe
 ## <a name="log-searches-with-iis-logs"></a>Loggsökningar med IIS-loggar
 I följande tabell innehåller olika exempel på loggfrågor som hämtar IIS-loggposter.
 
-| Fråga | Beskrivning |
+| Söka i data | Beskrivning |
 |:--- |:--- |
 | W3CIISLog |Alla IIS-loggposter. |
 | W3CIISLog &#124; där scStatus == 500 |Alla IIS-loggposter med returstatus 500. |
@@ -80,5 +80,5 @@ I följande tabell innehåller olika exempel på loggfrågor som hämtar IIS-log
 
 ## <a name="next-steps"></a>Nästa steg
 * Konfigurera Log Analytics för att samla in andra [datakällor](log-analytics-data-sources.md) för analys.
-* Lär dig mer om [loggsökningar](log-analytics-log-searches.md) att analysera data som samlas in från datakällor och lösningar.
+* Lär dig mer om [loggsökningar](log-analytics-log-search.md) att analysera data som samlas in från datakällor och lösningar.
 * Konfigurera aviseringar i Log Analytics för att informera dig om viktiga villkor finns i IIS-loggar.

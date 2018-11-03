@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6832f6f9d09cbbfea6ccaa69160ad93209c7ac8c
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 1e5782ce3421cc5f0d2e0e51484d4bbe6b9eb6ab
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741189"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978646"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>Förhandsversion: Azure AD lösenord protection övervakning, rapportering och felsökning
 
@@ -24,13 +24,15 @@ ms.locfileid: "50741189"
 | Azure AD-lösenordsskydd är en funktion i offentliga förhandsversionen av Azure Active Directory. Mer information om förhandsversioner finns [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
-Är viktiga uppgifter efter distributionen av Azure AD-lösenordsskydd övervakning och rapportering. Den här artikeln innehåller information för att du förstår där varje tjänst loggar information och rapportera om användning av Azure AD-lösenordsskydd.
+Är viktiga uppgifter efter distribution av Azure AD-lösenordsskydd, övervakning och rapportering. Den här artikeln innehåller information för att du förstår där varje tjänst loggar information och rapportera om användning av Azure AD-lösenordsskydd.
 
 ## <a name="on-premises-logs-and-events"></a>Lokala loggar och händelser
 
-### <a name="dc-agent-service"></a>DC-agenttjänsten
+### <a name="dc-agent-admin-log"></a>DC-agentloggen admin
 
-På varje domänkontrollant skriver DC service Agentprogrammet som är resultatet av sitt lösenord verifieringar (och andra status) till en lokal händelselogg: \Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Admin
+På varje domänkontrollant skriver DC service Agentprogrammet som är resultatet av sitt lösenord verifieringar (och andra status) till en lokal händelselogg:
+
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Admin`
 
 Händelser som loggas av olika DC agent-komponenter med hjälp av följande intervall:
 
@@ -62,101 +64,153 @@ Viktiga lösenord-verifiering-relaterade händelser är följande:
 > [!TIP]
 > Inkommande lösenord verifieras mot listan Microsoft global lösenord först. Om det misslyckas, utförs ingen ytterligare bearbetning. Det här är samma beteende som utförs på ändringar av lösenord i Azure.
 
-#### <a name="sample-event-log-message-for-event-id-10014-successful-password-set"></a>Exemplet händelseloggmeddelande för händelse-ID 10014 lösenord
+#### <a name="sample-event-log-message-for-event-id-10014-successful-password-set"></a>Exemplet händelseloggmeddelande för händelse-ID 10014 (lösenord set)
 
-Lösenordet för den angivna användaren har verifierats som kompatibel med den aktuella lösenord för Azure-principen.
+```
+The changed password for the specified user was validated as compliant with the current Azure password policy.
 
- Användarnamn: BPL_02885102771 FullName:
+ UserName: BPL_02885102771
+ FullName:
+```
 
-#### <a name="sample-event-log-message-for-event-id-10017-and-30003-failed-password-set"></a>Exemplet händelseloggmeddelande för händelse-ID 10017 och 30003 misslyckades lösenord
+#### <a name="sample-event-log-message-for-event-id-10017-and-30003-failed-password-set"></a>Exemplet händelseloggmeddelande för händelse-ID 10017 och 30003 (misslyckade lösenord set)
 
 10017:
 
-Återställning av lösenord för den angivna användaren avvisades eftersom den inte uppfyller den aktuella lösenord för Azure-principen. Se korrelerad händelseloggmeddelande för mer information.
+```
+The reset password for the specified user was rejected because it did not comply with the current Azure password policy. Please see the correlated event log message for more details.
 
- Användarnamn: BPL_03283841185 FullName:
+ UserName: BPL_03283841185
+ FullName:
+```
 
 30003:
 
-Återställning av lösenord för den angivna användaren avvisades eftersom den matchade minst en av token i per klient-förbjudna lösenord lista över aktuella lösenord för Azure.
+```
+The reset password for the specified user was rejected because it matched at least one of the tokens present in the per-tenant banned password list of the current Azure password policy.
 
- Användarnamn: BPL_03283841185 FullName:
+ UserName: BPL_03283841185
+ FullName:
+```
 
-Vissa andra viktiga meddelanden känna till är:
+#### <a name="sample-event-log-message-for-event-id-30001-password-accepted-due-to-no-policy-available"></a>Exemplet händelseloggmeddelande för händelse-ID 30001 (lösenord accepteras på grund av någon princip som är tillgänglig)
 
-#### <a name="sample-event-log-message-for-event-id-30001"></a>Exemplet händelseloggmeddelande för händelse-ID 30001
+```
+The password for the specified user was accepted because an Azure password policy is not available yet
 
-Lösenordet för den angivna användaren godkändes eftersom en princip för lösenord för Azure inte är tillgänglig än
+UserName: SomeUser
+FullName: Some User
 
-Användarnamn: SomeUser FullName: vissa användare
+This condition may be caused by one or more of the following reasons:%n
 
-Det här tillståndet kan ha orsakats av en eller flera av följande orsaker: % n
+1. The forest has not yet been registered with Azure.
 
-1. Skogen har ännu inte har registrerats med Azure.
+   Resolution steps: an administrator must register the forest using the Register-AzureADPasswordProtectionForest cmdlet.
 
-   Lösningssteg: en administratör måste registrera skogen med hjälp av cmdleten Register-AzureADPasswordProtectionForest.
+2. An Azure AD password protection Proxy is not yet available on at least one machine in the current forest.
 
-2. En Azure AD-lösenordsskydd Proxy ännu inte finns tillgänglig på minst en dator i den aktuella skogen.
+   Resolution steps: an administrator must install and register a proxy using the Register-AzureADPasswordProtectionProxy cmdlet.
 
-   Lösningssteg: en administratör måste installera och registrera en proxy med hjälp av cmdleten Register-AzureADPasswordProtectionProxy.
+3. This DC does not have network connectivity to any Azure AD password protection Proxy instances.
 
-3. Den här domänkontrollanten har inte nätverksanslutning till alla Azure AD lösenord protection Proxy-instanser.
+   Resolution steps: ensure network connectivity exists to at least one Azure AD password protection Proxy instance.
 
-   Lösningssteg: se till att det finns en nätverksanslutning till minst en Azure AD lösenord protection Proxy-instans.
+4. This DC does not have connectivity to other domain controllers in the domain.
 
-4. Den här domänkontrollanten har inte anslutning till andra domänkontrollanter i domänen.
+   Resolution steps: ensure network connectivity exists to the domain.
+```
 
-   Lösningssteg: se till att det finns en nätverksanslutning till domänen.
+#### <a name="sample-event-log-message-for-event-id-30006-new-policy-being-enforced"></a>Exemplet händelseloggmeddelande för händelse-ID 30006 (ny princip tillämpas)
 
-#### <a name="sample-event-log-message-for-event-id-30006"></a>Exemplet händelseloggmeddelande för händelse-ID 30006
+```
+The service is now enforcing the following Azure password policy.
 
-Tjänsten är nu tillämpa följande Azure lösenordsprincip.
-
+ Enabled: 1
  AuditOnly: 1
+ Global policy date: ‎2018‎-‎05‎-‎15T00:00:00.000000000Z
+ Tenant policy date: ‎2018‎-‎06‎-‎10T20:15:24.432457600Z
+ Enforce tenant policy: 1
+```
 
- Global princip datum: 2018-05-15T00:00:00.000000000Z
+#### <a name="dc-agent-operational-log"></a>DC-agenten arbetslogg
 
- Klient-princip datum: 2018-06-10T20:15:24.432457600Z
+DC-agenttjänsten loggar även operativa händelser in i följande:
 
- Framtvinga princip för klient: 1
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Operational`
 
-#### <a name="dc-agent-log-locations"></a>DC-agenten loggfilernas placering
+#### <a name="dc-agent-trace-log"></a>DC-agenten spårningsloggen
 
-DC-agenttjänsten loggar även operativa händelser in i följande: \Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Operational
+DC-Agenttjänsten kan också logga utförliga felsökningsnivå spårningshändelser in i följande:
 
-DC-Agenttjänsten kan också logga utförliga felsökningsnivå spårningshändelser in i följande: \Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Trace
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Trace`
+
+Spårningsloggning är inaktiverad som standard.
 
 > [!WARNING]
-> Spårningsloggen är inaktiverad som standard. När aktiverat den här loggfilen tar emot ett stort antal händelser och kan påverka domänkontrollantens prestanda. Den här förbättrade loggfilen ska därför bara aktiveras när ett problem som kräver mer ingående undersökning och sedan endast för kortast möjliga tid.
+>  När aktiverad, tar emot ett stort antal händelser i spårningsloggen och kan påverka domänkontrollantens prestanda. Den här förbättrade loggfilen ska därför bara aktiveras när ett problem som kräver mer ingående undersökning och sedan endast för kortast möjliga tid.
+
+#### <a name="dc-agent-text-logging"></a>DC-agenten textloggning
+
+DC-agent-tjänsten kan konfigureras för att skriva till en textlogg genom att ange följande registervärde:
+
+HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionDCAgent\Parameters! EnableTextLogging = registernyckelvärdet 1 (REG_DWORD)
+
+Textloggning är inaktiverad som standard. En omstart av DC-agenttjänsten måste anges för ändringar i det här värdet ska börja gälla. När aktiverat domänkontrollanten agent-tjänsten skriver till en loggfil som finns under:
+
+`%ProgramFiles%\Azure AD Password Protection DC Agent\Logs`
+
+> [!TIP]
+> Textlogg får samma felsökningsnivå poster som kan loggas till spårningsloggen, men är vanligtvis i ett format som är enklare att granska och analysera.
+
+> [!WARNING]
+> När aktiverat den här loggfilen tar emot ett stort antal händelser och kan påverka domänkontrollantens prestanda. Den här förbättrade loggfilen ska därför bara aktiveras när ett problem som kräver mer ingående undersökning och sedan endast för kortast möjliga tid.
 
 ### <a name="azure-ad-password-protection-proxy-service"></a>Azure AD lösenord protection proxy-tjänst
 
-Lösenordsskydd Proxy-tjänsten genererar en minimal uppsättning händelser till händelseloggen i följande: \Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Operational
+#### <a name="proxy-service-event-logs"></a>Händelseloggar för proxy-tjänsten
 
-Lösenordsskydd Proxy-tjänsten kan också logga utförliga felsökningsnivå spårningshändelser in i följande: \Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Trace
+Proxy-tjänsten genererar en minimal uppsättning händelser till följande händelseloggar:
+
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Admin`
+
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Operational`
+
+Proxy-tjänsten kan också logga utförliga felsökningsnivå spårningshändelser in i följande:
+
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Trace`
+
+Spårningsloggning är inaktiverad som standard.
 
 > [!WARNING]
-> Spårningsloggen är inaktiverad som standard. När aktiverat den här loggfilen tar emot ett stort antal händelser och detta kan påverka prestanda för proxy-värden. Den här loggfilen ska därför bara aktiveras när ett problem som kräver mer ingående undersökning och sedan endast för kortast möjliga tid.
+> När aktiverad spårningsloggen tar emot ett stort antal händelser och detta kan påverka prestanda för proxy-värden. Den här loggfilen ska därför bara aktiveras när ett problem som kräver mer ingående undersökning och sedan endast för kortast möjliga tid.
 
-### <a name="dc-agent-discovery"></a>Identifiering av DC-Agent
+#### <a name="proxy-service-text-logging"></a>Textloggning för proxy-tjänsten
 
-Den `Get-AzureADPasswordProtectionDCAgent` cmdlet kan användas för att visa grundläggande information om de olika DC-agenter som körs i en domän eller skog. Den här informationen hämtas från serviceConnectionPoint-objekt som har registrerats av körs DC agenten tjänster. Ett exempel på utdata från denna cmdlet är följande:
+Proxy-tjänsten kan konfigureras för att skriva till en textlogg genom att ange följande registervärde:
 
-```
-PS C:\> Get-AzureADPasswordProtectionDCAgent
-ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
-Domain                : bplchild.bplRootDomain.com
-Forest                : bplRootDomain.com
-Heartbeat             : 2/16/2018 8:35:01 AM
-```
+HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionProxy\Parameters! EnableTextLogging = registernyckelvärdet 1 (REG_DWORD)
 
-De olika egenskaperna uppdateras med varje DC-agenttjänsten ungefärliga timme. Data kan fortfarande komma replikeringsfördröjning för Active Directory.
+Textloggning är inaktiverad som standard. En omstart av Proxy-tjänsten krävs för ändringar i det här värdet ska börja gälla. När aktiverat proxyn skriver till en loggfil som finns under:
 
-Omfånget för cmdletens fråga kan påverkas med hjälp av antingen parametrarna – skog eller -domän.
+`%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
+
+> [!TIP]
+> Textlogg får samma felsökningsnivå poster som kan loggas till spårningsloggen, men är vanligtvis i ett format som är enklare att granska och analysera.
+
+> [!WARNING]
+> När aktiverat den här loggfilen tar emot ett stort antal händelser och kan påverka domänkontrollantens prestanda. Den här förbättrade loggfilen ska därför bara aktiveras när ett problem som kräver mer ingående undersökning och sedan endast för kortast möjliga tid.
+
+#### <a name="powershell-cmdlet-logging"></a>PowerShell-cmdlet-loggning
+
+De flesta av Azure AD-lösenordsskydd Powershell-cmdlets skriver till en textlogg som finns under:
+
+`%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
+
+Om en cmdlet-fel inträffar inte och orsak ut lösningen gång, kan även dessa textloggar samråda.
 
 ### <a name="emergency-remediation"></a>Vid akutfall reparation
 
-Om en olycklig situation uppstår där DC-agenttjänsten orsakar problem, kan DC agent-tjänsten vara stängs omedelbart. DLL-filen DC agenten lösenord filter försöker anropa tjänsten inte körs och loggar händelser (10012, 10013), men alla inkommande lösenord godkänns under den tiden. DC-Agenttjänsten kan sedan också konfigureras via Windows Service Control Manager med en starttyp ”inaktiverad” efter behov.
+Om en situation där DC-agenttjänsten orsakar problem visas kan DC agent-tjänsten vara stängs omedelbart. DLL-filen DC agenten lösenord filtret fortfarande försöker anropa tjänsten inte körs och loggar händelser (10012, 10013), men alla inkommande lösenord godkänns under den tiden. DC-Agenttjänsten kan sedan också konfigureras via Windows Service Control Manager med en starttyp ”inaktiverad” efter behov.
 
 ### <a name="performance-monitoring"></a>Prestandaövervakning
 
@@ -182,6 +236,7 @@ Om domänkontrollanten startas i reparationsläge för katalogtjänster, DC-agen
 ## <a name="domain-controller-demotion"></a>Degraderingen av domänkontrollanten
 
 Det går för att degradera en domänkontrollant som fortfarande kör DC-agentprogramvaran. Administratörer bör vara medveten men att DC-agentprogramvaran körs och fortsätter att tillämpa principen aktuella lösenord under degraderingen proceduren. Nya lokala administratörslösenordet (anges som en del av degraderingen) verifieras som andra lösenord. Microsoft rekommenderar att väljas säkra lösenord för lokala administratörskonton som en del av en DC degradering procedur; men verifiering av ny lokala administratörslösenordet av DC-agentprogramvaran kan vara söndrande för befintlig degradering operativa procedurer.
+
 När degraderingen har slutförts och domänkontrollanten har startats och körs igen som en normal medlemsserver, återgår DC-agentprogramvaran till som körs i passivt läge. Det kan sedan att avinstallera när som helst.
 
 ## <a name="removal"></a>Borttagning
@@ -189,35 +244,36 @@ När degraderingen har slutförts och domänkontrollanten har startats och körs
 Om det är valt att avinstallera den allmänna förhandsversionen av programvaran och rensa alla relaterade tillstånd från de domäner och skog, kan den här uppgiften utföras med hjälp av följande steg:
 
 > [!IMPORTANT]
-> Det är viktigt att utföra dessa steg i ordning. Om en instans av lösenordsskydd proxytjänsten lämnas kommer köra det regelbundet återskapa dess serviceConnectionPoint objekt samt regelbundet återskapar sysvol-status.
+> Det är viktigt att utföra dessa steg i ordning. Om valfri instans av tjänsten Proxy lämnas körs skapas med jämna mellanrum igen dess serviceConnectionPoint-objektet. Om valfri instans av DC-agenttjänsten lämnas körs skapas med jämna mellanrum igen dess serviceConnectionPoint-objektet och sysvol-status.
 
 1. Avinstallera lösenordsskydd proxyprogrammet från alla datorer. Det här steget har **inte** kräver en omstart.
 2. Avinstallera klientprogrammet DC från alla domänkontrollanter. Det här steget **kräver** en omstart.
-3. Ta manuellt bort alla tjänstanslutningspunkter för proxy i varje domännamngivningskontexten. Platsen för de här objekten kan identifieras med följande Active Directory Powershell-kommando:
-   ```
+3. Ta manuellt bort alla tjänstanslutningspunkter för Proxy i varje domännamngivningskontexten. Platsen för de här objekten kan identifieras med följande Active Directory Powershell-kommando:
+
+   ```Powershell
    $scp = "serviceConnectionPoint"
-   $keywords = "{EBEFB703-6113-413D-9167-9F8DD4D24468}*"
+   $keywords = "{ebefb703-6113-413d-9167-9f8dd4d24468}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
    Utelämna inte asterisken (”*”) i slutet av $keywords variabelvärdet.
 
-   Det resulterande objektet för att hitta den `Get-ADObject` kommando kan sedan skickas till `Remove-ADObject`, eller tagits bort manuellt. 
+   De resulterande objekten som hittades den `Get-ADObject` kommando kan sedan skickas till `Remove-ADObject`, eller tagits bort manuellt. 
 
 4. Ta bort alla anslutningspunkter för DC-agenten manuellt i varje domännamngivningskontexten. Det kan finnas en dessa objekt per domänkontrollant i skogen, beroende på hur mycket den allmänna förhandsversionen av programvaran har distribuerats. Platsen för det objektet kan identifieras med följande Active Directory Powershell-kommando:
 
-   ```
+   ```Powershell
    $scp = "serviceConnectionPoint"
-   $keywords = "{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*"
+   $keywords = "{2bac71e6-a293-4d5b-ba3b-50b995237946}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
-   Det resulterande objektet för att hitta den `Get-ADObject` kommando kan sedan skickas till `Remove-ADObject`, eller tagits bort manuellt.
+   De resulterande objekten som hittades den `Get-ADObject` kommando kan sedan skickas till `Remove-ADObject`, eller tagits bort manuellt.
 
 5. Ta manuellt bort Konfigurationsstatus för skogsnivå. Konfigurationsstatus för skogen underhålls i en behållare i Active Directory konfigurationsnamngivningen. Den kan identifieras och tas bort enligt följande:
 
-   ```
-   $passwordProtectonConfigContainer = "CN=Azure AD password protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
+   ```Powershell
+   $passwordProtectonConfigContainer = "CN=Azure AD Password Protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
    Remove-ADObject $passwordProtectonConfigContainer
    ```
 

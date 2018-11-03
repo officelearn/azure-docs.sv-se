@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: ffb355b4471bd8455f67e657d9557c3f372c3f4e
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fa73062cc2fdfa3704088f37b2e4856e134a6dfe
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470328"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979037"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Felsökningsguide för Azure Storage Explorer
 
@@ -143,6 +143,12 @@ Om proxyinställningarna är korrekta, du kan behöva kontakta din serveradminis
 ## <a name="unable-to-retrieve-children-error-message"></a>”Det gick inte att hämta underordnade” felmeddelande
 
 Om du är ansluten till Azure via en proxyserver, kontrollerar du att proxyinställningarna är korrekta. Om du har beviljats åtkomst till en resurs från ägaren av prenumerationen eller konto, kontrollera att du har läst eller lista över behörigheter för den resursen.
+
+## <a name="connection-string-does-not-have-complete-configuration-settings"></a>Anslutningssträngen har inte slutförts konfigurationsinställningar
+
+Om du får detta felmeddelande är det möjligt att du inte har behörigheten som krävs för att få nycklarna för ditt lagringskonto. Gå till portalen för att bekräfta om så är fallet, och leta upp ditt Storage-konto. Du kan snabbt göra detta genom att högerklicka på noden för ditt lagringskonto och klicka på ”Öppna i portalen”. När du gör det, går du till bladet ”åtkomstnycklar”. Om du inte har behörighet att visa nycklar sedan visas en sida med meddelandet ”du inte har åtkomst”. Lösa det här problemet kan du antingen hämta kontonyckeln från någon annan och bifoga med namn och nyckel, eller du kan be någon för en SAS för lagringskontot och använda den för att ansluta till Storage-kontot.
+
+Om du ser nycklar för kontot, sedan du rapportera problemet på GitHub så att vi kan hjälpa dig att lösa problemet.
 
 ## <a name="issues-with-sas-url"></a>Problem med SAS-URL
 Om du vill ansluta till en tjänst med hjälp av en SAS-URL och upplever det här felet:

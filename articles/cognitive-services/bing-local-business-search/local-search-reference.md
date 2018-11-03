@@ -10,16 +10,16 @@ ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: dc394093e9e2db223defe61229832ce5448bdfaa
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 100d2a6163c6b2b7a7bf8a557e69e1082b48eaee
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748739"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979224"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Lokala företag i Bing v7-referens
 
-De lokala företag API: et Search skickar en sökning frågar för att Bing för att få resultat som innehåller omfattar restauranger, hotell eller andra lokala företag. För platser ange frågan namnet på det lokala företaget eller en kategori (exempelvis restauranger i närheten). Entitetsresultat omfattar personer, platser eller saker. Plats i det här sammanhanget är affärsentiteter, tillstånd, länder osv.  
+Lokala företag Search API: et skickar en sökfråga till Bing för att få resultat som innehåller restauranger, hotell eller andra lokala företag. För platser ange frågan namnet på det lokala företaget eller en kategori (exempelvis restauranger i närheten). Entitetsresultat omfattar personer, platser eller saker. Plats i det här sammanhanget är affärsentiteter, tillstånd, länder osv.  
 
 Det här avsnittet innehåller teknisk information om svar-objekt och frågeparametrar och rubriker som påverkar sökresultaten. Exempel som visar hur du begär finns [lokala företag Sök C# snabbstarten](quickstarts/local-quickstart.md) eller [lokala företag Search-Java-quickstart](quickstarts/local-search-java-quickstart.md). 
   
@@ -37,7 +37,7 @@ Information om tillåtna användning och visning av resultat finns i [använder 
 Skicka en GET-begäran för att begära lokala affärsresultat: 
 
 ``` 
-https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search
+https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 
 ```
   

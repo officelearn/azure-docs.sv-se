@@ -5,15 +5,15 @@ services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 03/11/2018
+ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 89d35197567c4bd44c5867dbb120d07e9f99d1e9
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 73273447bcf534f6ffd4584673756c40e8509e21
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50746804"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50974001"
 ---
 När du skapar en virtuell Azure-dator (VM) måste du skapa ett [virtuellt nätverk](../articles/virtual-network/virtual-networks-overview.md) (VNet) eller använda ett befintligt VNet. Du måste också bestämma hur dina virtuella datorer är avsedda att användas på VNet. Det är viktigt att [planera innan du skapar resurser](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) och att säkerställa att du förstår [begränsningarna för nätverksresurser](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -36,9 +36,7 @@ Utöver dessa grundläggande resurser bör du även överväga dessa valfria res
 
 Ett [nätverksgränssnitt (NIC)](../articles/virtual-network/virtual-network-network-interface.md) är gränssnittet mellan en virtuell dator och ett virtuellt nätverk (VNet). En virtuell dator måste ha minst ett NIC, men kan ha flera, beroende på storleken på den virtuella dator som du skapar. Lär dig mer om hur många NICs varje VM-storleken stöder för [Windows](../articles/virtual-machines/windows/sizes.md) eller [Linux](../articles/virtual-machines/linux/sizes.md).
 
-Du kan skapa en virtuell dator med flera nätverkskort och lägga till eller ta bort nätverkskort i livscykeln för en virtuell dator. Flera nätverkskort kan en virtuell dator att ansluta till olika undernät och skicka eller ta emot trafik över det lämpligaste gränssnittet.
-
-Om den virtuella datorn läggs till i en tillgänglighetsuppsättning måste alla virtuella datorer inom tillgänglighetsuppsättningen ha antingen ett enda NIC eller flera NICs. Virtuella datorer med mer än ett NIC måste inte ha samma antal NICs, men de måste ha minst två.
+Du kan skapa en virtuell dator med flera nätverkskort och lägga till eller ta bort nätverkskort i livscykeln för en virtuell dator. Flera nätverkskort kan en virtuell dator att ansluta till olika undernät och skicka eller ta emot trafik över det lämpligaste gränssnittet. Virtuella datorer med valfritt antal nätverksgränssnitt kan finnas i samma tillgänglighetsuppsättning, upp till det antal som stöds av VM-storleken. 
 
 Varje NIC som är kopplat till en virtuell dator måste befinna sig på samma plats och prenumeration som den virtuella datorn. Varje NIC måste anslutas till ett VNet som finns på samma Azure-plats och i samma Azure-prenumeration som denna NIC. Du kan ändra det undernät som en virtuell dator är ansluten till när den har skapats, men du kan inte ändra det virtuella nätverket. Varje NIC som är kopplad till en virtuell dator är tilldelad en MAC-adress som inte ändras förrän den virtuella datorn tas bort.
 

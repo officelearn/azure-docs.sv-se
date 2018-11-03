@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 10/03/2018
-ms.openlocfilehash: c2248f185c5c1c5dd8c4e1d4a24e6145a82ec5cb
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.date: 11/01/2018
+ms.openlocfilehash: 0796ab0a0923d9a04e07542c576883c004c63263
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091563"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957760"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Övervakning i Azure Database for MySQL
 Övervakning av data om dina servrar kan du felsöka och optimera din arbetsbelastning. Azure Database for MySQL tillhandahåller olika mått som ger inblick i beteendet för din server.
@@ -41,9 +41,10 @@ De här måtten är tillgängliga för Azure Database for MySQL:
 |seconds_behind_master|Replikeringsfördröjning i sekunder|Antal|Hur många sekunder som replikservern släpar mot huvudservern.|
 |network_bytes_egress|Nätverk ut|Byte|Nätverk ut över aktiva anslutningar.|
 |network_bytes_ingress|Nätverk in|Byte|Nätverk i över aktiva anslutningar.|
+|backup_storage_used|Används för lagring av säkerhetskopior|Byte|Mängden lagring av säkerhetskopior används.|
 
 ## <a name="server-logs"></a>Serverloggar
-Du kan aktivera långsamma fråga loggning på servern. Dessa loggar är också tillgängliga via Azure-diagnostikloggar i OMS Log Analytics, Event Hubs och Storage-konto. Mer information om loggning finns i [serverloggar](concepts-server-logs.md) sidan.
+Du kan aktivera långsamma fråga loggning på servern. Dessa loggar är också tillgängliga via Azure-diagnostikloggar i OMS Log Analytics, Event Hubs och Storage-konto. Mer information om loggning finns i [serverloggar](concepts-server-logs.md) sidan.
 
 ## <a name="next-steps"></a>Nästa steg
 - Se [hur du konfigurerar aviseringar](howto-alert-on-metric.md) anvisningar om hur du skapar en avisering på ett mått.

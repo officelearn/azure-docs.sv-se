@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 85cf55b4117208266e247316b1050e3988a2ce23
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 5effed58ea0fab9051470a44be30fbb3a7fd7feb
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409160"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962664"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Skapa och hantera Varningsregler i Log Analytics med REST API
 Log Analytics avisering REST-API kan du skapa och hantera aviseringar i Log Analytics.  Den här artikeln innehåller information om API: et och flera exempel för att utföra olika åtgärder.
@@ -28,7 +28,7 @@ Log Analytics avisering REST-API kan du skapa och hantera aviseringar i Log Anal
 Log Analytics Search REST API är RESTful och kan nås via Azure Resource Manager REST API. I det här dokumentet hittar du exempel där API: T hämtas från en PowerShell från kommandoraden med hjälp av [ARMClient](https://github.com/projectkudu/ARMClient), ett kommandoradsverktyg för öppen källkod som förenklar anropar API: et för Azure Resource Manager. Användning av ARMClient och PowerShell är ett av många alternativ för att få åtkomst till Log Analytics Search-API. Du kan använda RESTful Azure Resource Manager-API för att göra anrop till Log Analytics-arbetsytor och utföra sökkommandon i dem med de här verktygen. API: et kommer mata ut sökresultat till dig i JSON-format, så att du kan använda sökresultaten på många olika sätt programmässigt.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Aviseringar kan för närvarande kan bara skapas med en sparad sökning i Log Analytics.  Du kan referera till den [Log Search REST API](log-analytics-log-search-api.md) för mer information.
+Aviseringar kan för närvarande kan bara skapas med en sparad sökning i Log Analytics.  Du kan referera till den [Log Search REST API](log-analytics-log-search.md) för mer information.
 
 ## <a name="schedules"></a>Scheman
 En sparad sökning kan ha ett eller flera scheman. Schemat definierar hur ofta sökningen är kör och det tidsintervall som villkoren har identifierats.
@@ -188,8 +188,8 @@ Log Analytics kan du klassificera aviseringar i kategorier så att enklare hante
 
 |Allvarlighetsgrad för log Analytics  |Allvarlighetsgrad för Azure-aviseringar  |
 |---------|---------|
-|Kritiska |Sev 0|
-|Varning |Sev 1|
+|kritisk |Sev 0|
+|varning |Sev 1|
 |Informationsmeddelande | Sev 2|
 
 Följande är ett exempelsvar för en åtgärd med ett tröskelvärde och allvarlighetsgrad. 
@@ -451,8 +451,7 @@ Följande är ett komplett exempel att skapa en ny e-postavisering.  Detta skapa
     $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' }"
     armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/?api-version=2015-03-20 $scheduleJson
 
-    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Severity':'Warning', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
-    armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/actions/$actionId/?api-version=2015-03-20 $emailJson
+    $emailJson = ”{” egenskaper ”: {” Name ”: 'MyEmailAction', 'Version': 1, allvarlighetsgrad:” varning ”,” typ ”:” varningströskel',' ': {'Operator': gt, 'Value': 10}, 'EmailNotification': {'Mottagare': ['recipient1@contoso.com','recipient2@contoso.com'], ”ämne” ”: Det här är ämne ”,” bifogade filer ”:” ingen ”}}” armclient placera /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/ åtgärder / $actionId /? api-version = 2015-03-20 $emailJson
 
 #### <a name="webhook-actions"></a>Webhook-åtgärder
 Webhook-åtgärder kan du starta en process genom att anropa en URL och att du kan också tillhandahålla en nyttolast som ska skickas.  De liknar åtgärder förutom de är avsedda för webhooks som kan anropa processer än Azure Automation-runbooks.  Användaren kan även ange ytterligare alternativ för att tillhandahålla en nyttolast som ska levereras till fjärr-processen.
@@ -511,6 +510,6 @@ Använda Put-metoden med en befintlig åtgärds-ID om du vill ändra en webhook-
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd den [REST API för att utföra sökningar i loggen](log-analytics-log-search-api.md) i Log Analytics.
+* Använd den [REST API för att utföra sökningar i loggen](log-analytics-log-search.md) i Log Analytics.
 * Lär dig mer om [loggaviseringar i azure-aviseringar](../monitoring-and-diagnostics/monitor-alerts-unified-log.md)
 

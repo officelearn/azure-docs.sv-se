@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 61ceea60962acc2e1ec032df49683e8a28381dd7
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7f2ced1d6e5a7368fbf136d31889a763b3306e37
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405369"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964075"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Wire Data 2.0-lösning (förhandsversion) i Log Analytics
 
@@ -33,7 +33,7 @@ Förutom att Log Analytics-agenten använder Wire Data-lösningen Microsoft Bero
 >[!NOTE]
 >Om du redan har distribuerat Service Map eller överväger Service Map eller [Azure Monitor för virtuella datorer](../monitoring/monitoring-vminsights-overview.md), det finns en ny anslutning mått datauppsättning de samla in och lagra i Log Analytics som ger jämförbara information till Wire-Data.
 
-Som standard loggar Log Analytics data för CPU, minne, disk och nätverksprestanda från räknare som är inbyggda i Windows och Linux, samt från andra prestandaräknare som du kan ange. Nätverks- och annan datainsamling är klar i realtid för varje agent, inklusive de undernät och protokoll på programnivå som används av datorn.  Wire Data granskar nätverksdata på programnivå, inte ned på TCP-transportnivå.  Lösningen granskar inte enskilda ACK:er och SYN-förfrågningar.  När handskakningen har slutförts anses det finnas en live-anslutning, vilken markeras med Ansluten. Anslutningen finns så länge båda sidorna är överens om att socketen är öppen och data kan överföras fram och tillbaka.  När någon av sidorna stänger anslutningen, markeras den som Frånkopplad.  Därför räknar den bara bandbredden för paket som har slutförts, den rapporterar inte om återsända eller misslyckade paket.
+Som standard loggar Log Analytics data för CPU, minne, disk och nätverksprestanda från räknare som är inbyggda i Windows och Linux, samt från andra prestandaräknare som du kan ange. Nätverks- och annan datainsamling är klar i realtid för varje agent, inklusive de undernät och protokoll på programnivå som används av datorn.  Wire Data granskar nätverksdata på programnivå, inte ned på TCP-transportnivå.  Lösningen granskar inte enskilda ACK:er och SYN-förfrågningar.  När handskakningen har slutförts anses det finnas en live-anslutning, vilken markeras med Ansluten. Anslutningen finns så länge båda sidorna är överens om att socketen är öppen och data kan överföras fram och tillbaka.  När någon av sidorna stänger anslutningen, markeras den som Frånkopplad.  Därför räknar den bara bandbredden för paket som har slutförts, den rapporterar inte om återsända eller misslyckade paket.
 
 Om du har använt [sFlow](http://www.sflow.org/) eller annan programvara med [Ciscos NetFlow-protokoll](http://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html), kommer du att känna igen statistik och data i Wire Data.
 
@@ -60,7 +60,7 @@ Wire Data hämtar sina data från Microsofts beroendeagent. Beroendeagenten bero
 
 | **Ansluten källa** | **Stöds** | **Beskrivning** |
 | --- | --- | --- |
-| Windows-agenter | Ja | Wire Data analyserar och samlar in data från Windows-agentdatorer. <br><br> Förutom den [Log Analytics-agenten för Windows](log-analytics-windows-agent.md), Windows-agenter kräver Microsofts Beroendeagent. Se [Operativsystem som stöds](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) för en fullständig lista med operativsystemversioner. |
+| Windows-agenter | Ja | Wire Data analyserar och samlar in data från Windows-agentdatorer. <br><br> Förutom den [Log Analytics-agenten för Windows](log-analytics-agent-windows.md), Windows-agenter kräver Microsofts Beroendeagent. Se [Operativsystem som stöds](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) för en fullständig lista med operativsystemversioner. |
 | Linux-agenter | Ja | Wire Data analyserar och samlar in data från Linux-agentdatorer.<br><br> Förutom den [Log Analytics-agenten för Linux](log-analytics-quick-collect-linux-computer.md), Linux-agenter kräver Microsofts Beroendeagent. Se [Operativsystem som stöds](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems) för en fullständig lista med operativsystemversioner. |
 | System Center Operations Manager-hanteringsgrupp | Ja | Wire Data analyserar och samlar in data från Windows- och Linux-agenter i en ansluten [System Center Operations Manager-hanteringsgrupp](log-analytics-om-agents.md). <br><br> En direktanslutning från System Center Operations Manager-agentdatorn till Log Analytics krävs. |
 | Azure Storage-konto | Nej | Wire Data samlar in data från agentdatorer, så det finns inte några data att samla in från Azure Storage. |
@@ -197,7 +197,7 @@ I följande avsnitt visas vilka operativsystem som stöds för beroendeagenten. 
 
 Utför följande steg när du konfigurerar Wire Data-lösningen för dina arbetsytor.
 
-1. Aktivera Aktivitetslogganalys från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) eller använd processen som beskrivs i [Lägg till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md).
+1. Aktivera Aktivitetslogganalys från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) eller använd processen som beskrivs i [Lägg till Log Analytics-lösningar från lösningsgalleriet](../monitoring/monitoring-solutions.md).
 2. Installera beroendeagenten på varje dator som du vill hämta data från. Beroendeagenten kan övervaka anslutningar till omedelbara grannar, så du behöver kanske inte ha en agent på varje dator.
 
 > [!NOTE]
@@ -211,7 +211,7 @@ Beroendeagenten installeras på Windows-datorer med InstallDependencyAgent-Windo
 
 Använd följande steg för att installera beroendeagenten på varje dator som kör Windows:
 
-1. Installera Log Analytics-agenten följa stegen i [samla in data från Windows-datorer i din miljö](log-analytics-windows-agent.md).
+1. Installera Log Analytics-agenten följa stegen i [samla in data från Windows-datorer i din miljö](log-analytics-agent-windows.md).
 2. Hämta Windows beroendeagent med hjälp av länken i föregående avsnitt och kör den sedan med hjälp av följande kommando: `InstallDependencyAgent-Windows.exe`
 3. Följ guiden för att installera agenten.
 4. Om beroendeagenten inte startar kan du se om det finns detaljerad felinformation i loggarna. Loggkatalogen för Windows-agenter är %Programfiles%\Microsoft Dependency Agent\logs.
@@ -373,7 +373,7 @@ Använd följande information för att installera och konfigurera lösningen.
 
 - Wire Data-lösningen hämtar data från datorer som kör operativsystemen Windows Server 2012 R2, Windows 8.1 och senare.
 - Microsoft .NET Framework 4.0 eller senare krävs på de datorer som du vill hämta wire-data från.
-- Lägg till Wire Data på din Log Analytics-arbetsyta med hjälp av processen som beskrivs i [Lägga till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md). Det krävs ingen ytterligare konfiguration.
+- Lägg till Wire Data på din Log Analytics-arbetsyta med hjälp av processen som beskrivs i [Lägga till Log Analytics-lösningar från lösningsgalleriet](../monitoring/monitoring-solutions.md). Det krävs ingen ytterligare konfiguration.
 - Om du vill se kommunikationsdata för en viss lösning måste du redan ha lagt till lösningen på din arbetsyta.
 
 När du har installerade agenter och du installerar lösningen, visas Wire Data 2.0-panelen på arbetsytan.
@@ -451,4 +451,4 @@ En post av typen _WireData_ skapas för varje typ av indata. WireData-poster har
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Sök i loggar](log-analytics-log-searches.md) för att se detaljerade sökposter för wire-data.
+- [Sök i loggar](log-analytics-log-search.md) för att se detaljerade sökposter för wire-data.

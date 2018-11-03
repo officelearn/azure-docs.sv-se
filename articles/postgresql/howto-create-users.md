@@ -7,12 +7,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/16/2018
-ms.openlocfilehash: 05bdc841108bf1fb909375b6f2c6399f8121ceeb
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 45d1f55e60763724aeb1b1685c5c69696475a424
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344659"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958108"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>Skapa användare i Azure Database for PostgreSQL-server 
 Den här artikeln beskrivs hur du kan skapa användare i en Azure Database for PostgreSQL-server.
@@ -36,7 +36,7 @@ Användarkontot för server-administratör kan användas för att skapa ytterlig
    Du behöver det fullständiga servernamnet och inloggningsuppgifterna för administratör för att ansluta till databasservern. Hittar du enkelt servernamnet och inloggningsuppgifter från servern **översikt** sidan eller **egenskaper** sidan på Azure portal. 
 
 2. Använda administratörskonto och lösenord för att ansluta till databasservern. Använd din önskade klientverktyg, till exempel pgAdmin eller psql.
-   Om du är osäker på hur du ansluter kan du läsa [Anslut till PostgreSQL-databasen med psql i Cloud Shell](./quickstart-create-server-database-portal.md#connect-to-the-postgresql-database-by-using-psql-in-cloud-shell)
+   Om du är osäker på hur du ansluter kan du läsa [snabbstarten](./quickstart-create-server-database-portal.md)
 
 3. Redigera och kör följande SQL-kod. Ersätt ditt nya användarnamn för värdet för platshållaren < new_user > och ersätter du platshållaren lösenordet med din egen starkt lösenord. 
 

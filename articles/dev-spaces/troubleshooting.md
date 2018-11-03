@@ -4,19 +4,18 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: ghogen
-ms.author: ghogen
+author: iainfoulds
+ms.author: iainfou
 ms.date: 09/11/2018
 ms.topic: article
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-manager: douge
-ms.openlocfilehash: 3f30a62a2f351aecabc37206607c3e28ec5e3ab5
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: bca818cb4e13066f8a631111b75f50384e521ac1
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353366"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978901"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -231,6 +230,16 @@ Det här felet uppstår om Helm-klienten kan inte längre kommunicera med din Ti
 
 ### <a name="try"></a>Prova:
 Starta om agentnoder i klustret vanligtvis löser problemet.
+
+## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>Azure Dev blanksteg proxy kan störa andra poddar som körs i en dev-utrymme
+
+### <a name="reason"></a>Orsak
+När du aktiverar Dev blanksteg för ett namnområde i AKS-kluster kan ytterligare en behållare kallas _mindaro proxy_ är installerat i var och en av poddarna som körs i det här namnområdet. Den här behållaren spärras anrop till tjänsterna i pod, som är väsentlig Dev blanksteg team utvecklingsmöjligheter.
+
+Tyvärr kan det påverka vissa tjänster som körs i de poddarna. Mer specifikt kan störa det poddar som kör Redis-cache, orsaka anslutningsfel och misslyckade begäranden i master/slave kommunikation.
+
+### <a name="try"></a>Prova:
+Du kan flytta den berörda pod(s) till ett namnområde i det kluster som har _inte_ har Dev blanksteg aktiverat när du fortsätter att köra resten av ditt program i ett namnområde för Dev blanksteg-aktiverade. Dev blanksteg kan inte installeras på _mindaro proxy_ behållare i Dev blanksteg aktiverade namnområden.
 
 ## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure Dev blanksteg verkar inte använda min befintliga Dockerfile för att skapa en behållare 
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: bc16b71ad20e2cf2bc61a046336fe6a3618bc403
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 43713cd4d217f2b43a0966f4de4f3573d4ef9b09
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269572"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979547"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Funktionsreferens för Definitionsspråk för arbetsflödet i Azure Logic Apps
 
@@ -451,7 +451,7 @@ Och returnerar resultatet: `"Succeeded"`
 
 <a name="add"></a>
 
-### <a name="add"></a>lägg till
+### <a name="add"></a>add
 
 Returnera resultatet från att lägga till två tal.
 
@@ -1751,7 +1751,7 @@ De här exemplen hittar det första objektet i de här samlingarna:
 
 ```
 first('hello')
-first([0, 1, 2])
+first(createArray(0, 1, 2))
 ```
 
 Och returnera följande resultat: 
@@ -2312,7 +2312,7 @@ intersection('<collection1>', '<collection2>', ...)
 Det här exemplet hittar vanliga objekt över dessa matriser:  
 
 ```
-intersection([1, 2, 3], [101, 2, 1, 10], [6, 8, 1, 2])
+intersection(createArray(1, 2, 3), createArray(101, 2, 1, 10), createArray(6, 8, 1, 2))
 ```
 
 Och returnerar en matris med *endast* dessa objekt: `[1, 2]`
@@ -2343,7 +2343,7 @@ join([<collection>], '<delimiter>')
 Det här exemplet skapar en sträng från alla objekt i den här matrisen med det angivna tecknet som avgränsare:
 
 ```
-join([a, b, c], '.')
+join(createArray('a', 'b', 'c'), '.')
 ```
 
 Och returnerar resultatet: `"a.b.c"`
@@ -2375,7 +2375,7 @@ De här exemplen hitta det sista objektet i de här samlingarna:
 
 ```
 last('abcd')
-last([0, 1, 2, 3])
+last(createArray(0, 1, 2, 3))
 ```
 
 Och returnerar följande resultat: 
@@ -2441,7 +2441,7 @@ De här exemplen räkna antalet objekt i de här samlingarna:
 
 ```
 length('abcd')
-length([0, 1, 2, 3])
+length(createArray(0, 1, 2, 3))
 ```
 
 Och returnera resultatet: `4`
@@ -2569,7 +2569,7 @@ De här exemplen hämta det högsta värdet från en uppsättning siffror och ma
 
 ```
 max(1, 2, 3)
-max([1, 2, 3])
+max(createArray(1, 2, 3))
 ```
 
 Och returnera resultatet: `3`
@@ -2602,7 +2602,7 @@ De här exemplen hämta det lägsta värdet i en uppsättning siffror och matris
 
 ```
 min(1, 2, 3)
-min([1, 2, 3])
+min(createArray(1, 2, 3))
 ```
 
 Och returnera resultatet: `1`
@@ -3007,7 +3007,7 @@ skip([<collection>], <count>)
 Det här exemplet tar bort en artikel, hur många 0, från början av den angivna matrisen: 
 
 ```
-skip([0, 1, 2, 3], 1)
+skip(createArray(0, 1, 2, 3), 1)
 ```
 
 Och returnerar den här matrisen med de återstående objekt: `[1,2,3]`
@@ -3351,7 +3351,7 @@ De här exemplen hämta det angivna antalet objekt från början av de här saml
 
 ```
 take('abcde`, 3)
-take([0, 1, 2, 3, 4], 3)
+take(createArray(0, 1, 2, 3, 4), 3)
 ```
 
 Och returnera följande resultat:
@@ -3626,7 +3626,7 @@ union([<collection1>], [<collection2>], ...)
 Det här exemplet hämtar *alla* objekt från de här samlingarna: 
 
 ```
-union([1, 2, 3], [1, 2, 10, 101])
+union(createArray(1, 2, 3), createArray(1, 2, 10, 101))
 ```
 
 Och returnerar resultatet: `[1, 2, 3, 10, 101]`

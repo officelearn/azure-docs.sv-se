@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: ae02868500329763ea459f8fb81be17598fac4ec
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 0c85b65e9b6eabcb5c74e1d178c0f26235cdf624
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914540"
+ms.locfileid: "50961831"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stream Azure-övervakningsdata till en händelsehubb för användning av något externt verktyg
 
@@ -27,8 +27,8 @@ Det finns flera ”nivåer” för övervakning av data inom Azure-miljön, och 
 
 - **Programmet övervakningsdata:** Data om prestanda och funktioner i den kod som du har skrivit och körs på Azure. Exempel på program övervakningsdata är prestandaspårningar, programloggar och telemetri för användaren. Programövervakning data samlas vanligtvis på något av följande sätt:
   - Genom att instrumentera din kod med ett SDK som den [Application Insights SDK](../application-insights/app-insights-overview.md).
-  - Genom att köra en övervakningsagent som lyssnar efter nya program loggar in på datorn köra ditt program, till exempel den [Windows Azure-Diagnostikagenten](./azure-diagnostics.md) eller [Linux Azure-Diagnostikagenten](../virtual-machines/linux/diagnostic-extension.md).
-- **Gäst-OS övervakningsdata:** Data om operativsystemet där programmet körs. Exempel på övervakningsdata för gäst-OS är Linux syslog eller Windows-systemhändelser. Om du vill samla in den här typen av data, måste du installera en agent som den [Windows Azure-Diagnostikagenten](./azure-diagnostics.md) eller [Linux Azure-Diagnostikagenten](../virtual-machines/linux/diagnostic-extension.md).
+  - Genom att köra en övervakningsagent som lyssnar efter nya program loggar in på datorn köra ditt program, till exempel den [Windows Azure-Diagnostikagenten](./azure-diagnostics.md) eller [Linux Azure-Diagnostikagenten](../virtual-machines/extensions/diagnostics-linux.md).
+- **Gäst-OS övervakningsdata:** Data om operativsystemet där programmet körs. Exempel på övervakningsdata för gäst-OS är Linux syslog eller Windows-systemhändelser. Om du vill samla in den här typen av data, måste du installera en agent som den [Windows Azure-Diagnostikagenten](./azure-diagnostics.md) eller [Linux Azure-Diagnostikagenten](../virtual-machines/extensions/diagnostics-linux.md).
 - **Azure-resurs övervakningsdata:** Data om användningen av en Azure-resurs. För vissa typer av Azure-resurser, till exempel virtuella datorer, finns ett gäst-OS och programmen för att övervaka inuti den Azure-tjänsten. För andra Azure-resurser, till exempel Nätverkssäkerhetsgrupperna, är resurs-övervakningsdata den högsta nivån av tillgängliga data (eftersom det finns ingen gäst-OS eller program som körs i dessa resurser). Dessa data kan samlas in med [resursdiagnostikinställningar](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
 - **Azure-prenumeration övervakningsdata:** Data om driften och hanteringen av en Azure-prenumeration, samt data om klientens hälsotillstånd och driften av Azure själva. Den [aktivitetsloggen](./monitoring-overview-activity-logs.md) innehåller de flesta prenumerationen övervakning av data, till exempel service health incidenter och Azure Resource Manager granskningar. Du kan samla in dessa data med en profil för loggen.
 - **Azure-klient övervakningsdata:** Data om användningen av Azure på klientnivå-tjänster, till exempel Azure Active Directory. Azure Active Directory revisioner och inloggningar är exempel på klient övervakningsdata. Dessa data kan samlas in med hjälp av en diagnostikinställning för klienten.
@@ -54,7 +54,7 @@ Azure-klient övervakningsdata är för närvarande endast tillgängliga för Az
 
 ### <a name="azure-active-directory-data"></a>Azure Active Directory-data
 
-Om du vill skicka data från Azure Active Directory-loggen i ett Event Hubs-namnområde måste konfigurera du en diagnostikinställning för klient på din AAD-klient. [Den här guiden](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md) att ställa in en diagnostikinställning för klienten.
+Om du vill skicka data från Azure Active Directory-loggen i ett Event Hubs-namnområde måste konfigurera du en diagnostikinställning för klient på din AAD-klient. [Den här guiden](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) att ställa in en diagnostikinställning för klienten.
 
 ## <a name="azure-subscription-monitoring-data"></a>Azure-prenumeration övervakningsdata
 
@@ -71,7 +71,7 @@ Om du vill skicka data från Azure-aktivitetsloggen till Event Hubs-namnområdet
 
 Azure-resurser genererar två typer av övervakning av data:
 1. [Resursdiagnostikloggar](./monitoring-overview-of-diagnostic-logs.md)
-2. [Mått](monitoring-overview-metrics.md)
+2. [Mått](../monitoring/monitoring-data-collection.md)
 
 Båda typerna av data skickas till en händelsehubb med en resursdiagnostikinställning. [Den här guiden](./monitoring-stream-diagnostic-logs-to-event-hubs.md) att ställa in en resursdiagnostikinställning på en viss resurs. Ange en resursdiagnostikinställning för varje resurs som du vill samla in loggar.
 
@@ -119,5 +119,5 @@ Routning övervakningsdata till en event hub med Azure Monitor kan du lätt kan 
 ## <a name="next-steps"></a>Nästa steg
 * [Arkivera aktivitetsloggen till ett lagringskonto](monitoring-archive-activity-log.md)
 * [Läs en översikt över Azure-aktivitetsloggen](monitoring-overview-activity-logs.md)
-* [Konfigurera en avisering baserat på en händelse i aktivitetsloggen](insights-auditlog-to-webhook-email.md)
+* [Konfigurera en avisering baserat på en händelse i aktivitetsloggen](monitor-alerts-unified-log-webhook.md)
 

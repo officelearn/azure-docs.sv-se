@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 19f066bea9de580cf1245aec74fbe563bf8ba449
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d178041a420c49480c6043869f139eb3a09c91fd
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996561"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959281"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Stream, Azure-diagnostikloggar till en händelsehubb
 **[Azure diagnostikloggar](monitoring-overview-of-diagnostic-logs.md)**  kan strömmas i nära realtid för program med hjälp av alternativet inbyggda ”exportera till Event Hubs” i portalen eller genom att aktivera Event Hub auktorisering regel-ID i en diagnostikinställning via Azure PowerShell-cmdletar eller Azure CLI.
@@ -44,7 +44,7 @@ Här är några sätt som du kan använda den strömmande kapaciteten för diagn
 Du kan aktivera strömning av diagnostikloggar programmässigt, via portalen, eller med hjälp av den [Azure Monitor REST API: er](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). Oavsett hur du skapar en diagnostikinställning där du anger ett namnområde för Event Hubs och loggkategorier och mått som du vill skicka namnområdet. En händelsehubb skapas i namnområdet för varje loggkategori som du aktiverar. En diagnostik **loggkategori** är en typ av logg som en resurs kan samla in.
 
 > [!WARNING]
-> Aktivera och strömma diagnostikloggar från beräkningsresurser (till exempel virtuella datorer eller Service Fabric) [kräver en annan uppsättning steg](../event-hubs/event-hubs-streaming-azure-diags-data.md).
+> Aktivera och strömma diagnostikloggar från beräkningsresurser (till exempel virtuella datorer eller Service Fabric) [kräver en annan uppsättning steg](azure-diagnostics-streaming-event-hubs.md).
 
 Event Hubs namnområde inte har finnas i samma prenumeration som resursen loggarna så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till både prenumerationer och båda prenumerationerna är en del av samma AAD-klient.
 
@@ -191,10 +191,10 @@ Du kan visa en lista över alla resursprovidrar som har stöd för direktuppspel
 
 ## <a name="stream-data-from-compute-resources"></a>Stream-data från beräkningsresurser
 
-Du kan också strömma diagnostikloggar från Compute-resurser med hjälp av Windows Azure Diagnostics-agenten. [Se den här artikeln](../event-hubs/event-hubs-streaming-azure-diags-data.md) för hur du konfigurerar som.
+Du kan också strömma diagnostikloggar från Compute-resurser med hjälp av Windows Azure Diagnostics-agenten. [Se den här artikeln](azure-diagnostics-streaming-event-hubs.md) för hur du konfigurerar som.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Stream Azure Active Directory-loggar med Azure Monitor](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
+* [Stream Azure Active Directory-loggar med Azure Monitor](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [Läs mer om Azure-diagnostikloggar](monitoring-overview-of-diagnostic-logs.md)
-* [Kom igång med Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+* [Kom igång med Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)

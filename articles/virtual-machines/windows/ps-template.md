@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: df1cada5e730189546f65d9799926807390db083
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: b61ee3c3baa4590dc8a2fbf91b1ff941626a01e4
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432264"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959838"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Skapa en Windows-dator från en Resource Manager-mall
 
@@ -53,9 +53,9 @@ Alla resurser måste distribueras i en [resursgrupp](../../azure-resource-manage
 
 ## <a name="create-the-files"></a>Skapa filer
 
-I det här steget skapar du en mallfil som distribuerar resurserna och en fil med parametrar som tillhandahåller parametervärden för mallen. Du kan också skapa en auktorisering-fil som används för att utföra åtgärder för Azure Resource Manager.
+I det här steget skapar du en mallfil som distribuerar resurserna och en fil med parametrar som tillhandahåller parametervärden för mallen. Du kan också skapa en auktorisering-fil som används för att utföra åtgärder för Azure Resource Manager. 
 
-1. Skapa en fil med namnet *CreateVMTemplate.json* och lägga till det här JSON-kod:
+1. Skapa en fil med namnet *CreateVMTemplate.json* och Lägg till JSON-koden. Ersätt värdet för `domainNameLabel` med ditt eget unika namn.
 
     ```json
     {

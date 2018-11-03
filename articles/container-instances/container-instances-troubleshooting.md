@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: d2e4491f2ee21deedd674a5a8a64e4dd99149924
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 41e3f38817abbdd0cab9ab2c72d39cb6f3f69531
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079369"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978186"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Felsöka vanliga problem i Azure Container Instances
 
@@ -102,7 +102,7 @@ az container create -g MyResourceGroup --name myapp --image ubuntu --command-lin
 
 ```azurecli-interactive 
 ## Deploying a Windows container
-az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image windowsservercore:ltsc2016
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image microsoft/windowsservercore:ltsc2016
  --command-line "ping -t localhost"
 ```
 
@@ -187,7 +187,7 @@ För att säkerställa den snabbaste starttiden för Windows-behållare, Använd
 
 ### <a name="windows-containers-slow-network-readiness"></a>Beredskap för Windows-behållare långsamt nätverk
 
-Windows-behållare kan tillkomma ingen inkommande eller utgående anslutning för upp till 5 sekunder på Skapa. Efter den första konfigurationen återupptas nätverk för behållare på rätt sätt.
+Inledande skapats har Windows-behållare ingen inkommande eller utgående anslutning för upp till 30 sekunder (eller längre i sällsynta fall). Om ditt behållarprogram behöver en Internetanslutning, lägga till en förskjutning och logik för omprövning för att tillåta 30 sekunder för att upprätta en Internet-anslutning. Efter den första konfigurationen återupptas nätverk för behållare på rätt sätt.
 
 ## <a name="resource-not-available-error"></a>Resursen inte tillgänglig fel
 

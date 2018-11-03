@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 449a6274b67f3eb72ea6d8bd19f555fc59158d7e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 60605e7bdeeef32889bc0ac104fa34bd66d4444d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299108"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962885"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatisera Azure Application Insights processer med anslutningsappen för Microsoft Flow
 
@@ -47,7 +47,7 @@ I den här självstudien får du lära dig hur du skapar ett flöde som använde
 ### <a name="step-3-add-an-application-insights-action"></a>Steg 3: Lägg till en Application Insights-åtgärd
 1. Klicka på **nytt steg**, och klicka sedan på **Lägg till en åtgärd**.
 1. Sök efter **Azure Application Insights**.
-1. Klicka på **Azure Application Insights – visualisera Analytics fråga förhandsversion**.
+1. Klicka på **Azure Application Insights - visualisera Analytics fråga förhandsversion**.
 
     ![Kör Analytics frågefönster](./media/app-insights-automate-with-flow/flow2.png)
 
@@ -125,7 +125,7 @@ När flödet körs postmeddelande de mottagare som du har angett i listan över 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om hur du skapar [analysfrågor](app-insights-analytics-using.md).
+- Läs mer om hur du skapar [analysfrågor](../log-analytics/query-language/get-started-queries.md).
 - Läs mer om [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

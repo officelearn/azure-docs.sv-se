@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: b0256e899d47e3b6f8141218c11e1a7a62ca8e1a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 099e597982172bcea39fedd0fd1445f466eb2bc1
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419732"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960828"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Smart identifiering – Prestandaavvikelser
 
@@ -161,7 +161,7 @@ Observera att du:
 
 Application Insights söker efter prestandaproblem som kan påverka endast en del av användarna eller påverkar endast användare i vissa fall. Till exempel om sidor är långsammare för en typ av webbläsare än på andra typer av webbläsare, eller om levereras långsammare från en viss server. Problem med kombinationer av egenskaperna kan också identifieras som långsamma sidinläsningar i ett geografiskt område för klienter som använder specifika operativsystem.  
 
-Avvikelser som dessa är mycket svårt att identifiera bara genom att granska data, men är vanligare än du tror. Ofta de endast att visa upp när kunderna börjar klaga. Efter den tid det s för sent: de berörda användarna redan byter till dina konkurrenter!
+Avvikelser som dessa är mycket svårt att identifiera bara genom att granska data, men är vanligare än du tror. Ofta de endast att visa upp när kunderna börjar klaga. Efter den tid det är för sent: de berörda användarna redan byter till dina konkurrenter!
 
 För närvarande kan titta våra algoritmer på sidans belastning, svarstider för begäran på servern och beroende svarstider.  
 
@@ -185,8 +185,8 @@ Dessa diagnostiska verktyg hjälper dig att inspektera telemetrin från din app:
 
 * [Profiler](app-insights-profiler.md) 
 * [Felsökning av ögonblicksbild](app-insights-snapshot-debugger.md)
-* [Analys](app-insights-analytics-tour.md)
-* [Analytics smart diagnostik](app-insights-analytics-diagnostics.md)
+* [Analys](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Analytics smart diagnostik](app-insights-analytics.md)
 
 Smart identifieringar är helt automatisk. Men kanske du vill ställa in några fler aviseringar?
 

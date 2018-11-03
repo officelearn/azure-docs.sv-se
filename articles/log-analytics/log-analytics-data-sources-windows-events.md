@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/11/2017
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 4e21c011f54382466bf614dc01fb9d51b514d998
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 0285b9208247aa84f56d127e734e8a5e87048ac6
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044254"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961372"
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Windows-händelseloggen datakällor i Log Analytics
 Windows-händelseloggar är en av de vanligaste [datakällor](log-analytics-data-sources.md) för att samla in data med hjälp av Windows-agenter eftersom många program skriva till händelseloggen i Windows.  Du kan samla in händelser från standard loggarna, t.ex System- och förutom att ange några anpassade loggar som skapats av program som du behöver övervaka.
@@ -40,7 +40,7 @@ När du skriver namnet på en händelselogg tillhandahåller Log Analytics förs
 Log Analytics samlar in varje händelse som matchar en vald allvarlighetsgrad från en övervakade händelseloggen när händelsen skapas.  Agenten registrerar transformeringsfilen i varje händelseloggen som det samlar in från.  Om agenten kopplas från för en viss tidsperiod, sedan Log Analytics samlar in händelser från där den senast slutade, även om de händelserna som skapades när agenten var offline.  Finns det risk för dessa händelser som inte ska samlas in om händelseloggen radbryts med obetalda händelser att skrivas över när agenten är offline.
 
 >[!NOTE]
->Log Analytics samlar inte in granskningshändelser som skapats av SQL Server från källa *MSSQLSERVER* med händelse-ID 18453 som innehåller nyckelord - *klassiska* eller *granska lyckade* och nyckelordet *0xa0000000000000*.
+>Log Analytics samlar inte in granskningshändelser som skapats av SQL Server från källa *MSSQLSERVER* med händelse-ID 18453 som innehåller nyckelord - *klassiska* eller *granska lyckade* och nyckelordet *0xa0000000000000*.
 >
 
 ## <a name="windows-event-records-properties"></a>Egenskaper för Windows händelse-poster
@@ -66,7 +66,7 @@ Windows-händelseposter har en typ av **händelse** och har egenskaperna i följ
 ## <a name="log-searches-with-windows-events"></a>Loggsökningar med Windows-händelser
 I följande tabell innehåller olika exempel på sökningar i loggen som hämtar Windows händelseposter.
 
-| Fråga | Beskrivning |
+| Söka i data | Beskrivning |
 |:---|:---|
 | Händelse |Alla Windows-händelser. |
 | Händelsen &#124; där EventLevelName == ”error” |Alla Windows-händelser med allvarlighetsgrad för fel. |
@@ -76,6 +76,6 @@ I följande tabell innehåller olika exempel på sökningar i loggen som hämtar
 
 ## <a name="next-steps"></a>Nästa steg
 * Konfigurera Log Analytics för att samla in andra [datakällor](log-analytics-data-sources.md) för analys.
-* Lär dig mer om [loggsökningar](log-analytics-log-searches.md) att analysera data som samlas in från datakällor och lösningar.  
+* Lär dig mer om [loggsökningar](log-analytics-log-search.md) att analysera data som samlas in från datakällor och lösningar.  
 * Använd [anpassade fält](log-analytics-custom-fields.md) att parsa händelseposter till enskilda fält.
 * Konfigurera [insamling av prestandaräknare](log-analytics-data-sources-performance-counters.md) från din Windows-agenter.

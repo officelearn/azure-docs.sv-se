@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 88285ea658b194daf69b12116649e2389374c349
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: d166d490c00a9805ec9cecae6509acc531d8d711
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025539"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959876"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Anslut en Windows IoT Core-enhet till din Azure IoT Central program
 
@@ -23,7 +23,7 @@ Den här artikeln beskrivs hur du som utvecklare enheten att ansluta en Windows 
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
-1. Ett Azure IoT Central program som skapats från den **exempel Devkits** mall för program. Mer information finns i [skapa Azure IoT Central programmet](howto-create-application.md).
+1. Ett Azure IoT Central program som skapats från den **exempel Devkits** mall för program. Mer information finns i den [en program-snabbstarten för att skapa](quick-deploy-iot-central.md).
 2. En enhet som kör operativsystemet Windows 10 IoT Core. Den här genomgången använder vi en Raspberry Pi.
 
 

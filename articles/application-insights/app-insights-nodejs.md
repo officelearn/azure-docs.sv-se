@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: 28be3a1734639ac175e4d18d9e9f21b83b9a7e7c
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: c8a15e8d609624ff22a831c832e48ef59c640a1b
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094010"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958210"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Övervaka dina Node-js-tjänster och -appar med Application Insights
 
@@ -212,7 +212,7 @@ server.on("listening", () => {
 ## <a name="next-steps"></a>Nästa steg
 
 * [Övervaka din telemetri i portalen](app-insights-dashboards.md)
-* [Skriv Analytics-frågor via din telemetri](app-insights-analytics-tour.md)
+* [Skriv Analytics-frågor via din telemetri](../log-analytics/query-language/get-started-analytics-portal.md)
 
 <!--references-->
 

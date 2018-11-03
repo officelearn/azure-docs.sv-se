@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 81eacf464c90d56c4ebeae1d1cefbd6f2f0fdab8
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: bb95caf7f50b52d2c423de31d4fda701f4c16b40
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408548"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963790"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Datorgrupper i Log Analytics loggsökningar
 
-Datorgrupper i Log Analytics kan du även agera omfång [loggsökningar](log-analytics-log-search-new.md) till en viss uppsättning datorer.  Varje grupp har fyllts i med datorer som antingen med hjälp av en fråga som du definierar eller genom att importera grupper från olika källor.  När gruppen ingår i en loggsökning, är resultatet begränsade till poster som matchar datorerna i gruppen.
+Datorgrupper i Log Analytics kan du även agera omfång [loggsökningar](log-analytics-log-search.md) till en viss uppsättning datorer.  Varje grupp har fyllts i med datorer som antingen med hjälp av en fråga som du definierar eller genom att importera grupper från olika källor.  När gruppen ingår i en loggsökning, är resultatet begränsade till poster som matchar datorerna i gruppen.
 
 ## <a name="creating-a-computer-group"></a>Skapa en datorgrupp
 Du kan skapa en datorgrupp i Log Analytics med hjälp av någon av metoderna i följande tabell.  Information om varje metod finns i avsnitten nedan. 
@@ -50,7 +50,7 @@ I följande tabell beskrivs de egenskaper som definierar en datorgrupp.
 |:---|:---|
 | Visningsnamn   | Namn på sökningen ska visas i portalen. |
 | Kategori       | Kategori för att organisera sökningar i portalen. |
-| Fråga          | Fråga för datorgruppen. |
+| Söka i data          | Fråga för datorgruppen. |
 | Funktionsalias | Ett unikt alias som används för att identifiera datorgruppen i en fråga. |
 
 Använd följande procedur för att skapa en datorgrupp från en loggsökning i Azure-portalen.
@@ -136,5 +136,5 @@ En post skapas i Log Analytics-arbetsyta för varje datorgruppmedlemskap som ska
 | TimeGenerated |Datum och tid i datorgruppen skapades eller uppdaterades. |
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [loggsökningar](log-analytics-log-searches.md) att analysera data som samlas in från datakällor och lösningar.  
+* Lär dig mer om [loggsökningar](log-analytics-log-search.md) att analysera data som samlas in från datakällor och lösningar.  
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: aa1891ecec139746d6051dcabdb3c9db4f6062c6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 44b0f8b3d11b737ad88f7d33b036b52d24b70e33
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996357"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960335"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installera och konfigurera Fjärrskrivbord för att ansluta till en Linux-VM i Azure
 Linux-datorer (VM) i Azure hanteras vanligtvis från kommandoraden med hjälp av en secure shell (SSH)-anslutning. När nya till Linux, eller för snabb felsökning scenarier kan det vara enklare användning av fjärrskrivbord. Den här artikeln beskriver hur du installerar och konfigurerar en Skrivbordsmiljö ([xfce](https://www.xfce.org)) och fjärrskrivbord ([xrdp](http://www.xrdp.org)) för din Linux-VM med hjälp av Resource Manager-distributionsmodellen.
@@ -57,6 +57,7 @@ Nu när du har en Skrivbordsmiljö installerad kan du konfigurera Fjärrskrivbor
 
 ```bash
 sudo apt-get install xrdp
+sudo systemctl enable xrdp
 ```
 
 Berätta xrdp vilka Skrivbordsmiljö ska användas när du startar din session. Konfigurera xrdp för att använda xfce som skrivbordsmiljön på följande sätt:

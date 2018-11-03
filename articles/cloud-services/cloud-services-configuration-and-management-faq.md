@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 30a23010f326189ffd5886407d70e357abb9c53e
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 81e41ce6818a6f56ba5e6e888480f8b25979fb81
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42058459"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979207"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problem med konfiguration och hantering för Azure Cloud Services: vanliga frågor (FAQ)
 
@@ -142,7 +142,7 @@ Mer information finns i följande dokument:
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Hur aktiverar jag WAD loggning för Cloud Services?
 Du kan aktivera loggning för Windows Azure Diagnostics SÄKERHETSSPECIFIKA med följande alternativ:
-1. [Aktivera från Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+1. [Aktivera från Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 2. [Aktivera med hjälp av .net-kod](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
 3. [Aktivera via Powershell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
 
@@ -248,7 +248,7 @@ Läs mer om hur du integrerar Azure Diagnostics med Application Insights för Cl
 
 Läs mer om att aktivera Application Insights för Cloud Services [Application Insights för Azure Cloud Services](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
 
-Läs mer om hur du aktiverar Azure Diagnostics-loggning för Cloud Services, [konfigurera diagnostik för Azure Cloud Services och virtuella datorer](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+Läs mer om hur du aktiverar Azure Diagnostics-loggning för Cloud Services, [konfigurera diagnostik för Azure Cloud Services och virtuella datorer](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
 ## <a name="generic"></a>Generisk
 

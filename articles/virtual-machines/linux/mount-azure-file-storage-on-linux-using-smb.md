@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 7cd7f0f37f0d351d1d50d4c15e7132f072b5125d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fde8892f7a32d7b5405eef6661bbf29098325178
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982213"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958686"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montera Azure File storage på virtuella Linux-datorer med SMB
 
@@ -100,6 +100,7 @@ Montera Azure-filresursen till den lokala katalogen.
 sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFileShare -o vers=3.0,username=$STORAGEACCT,password=$STORAGEKEY,dir_mode=0777,file_mode=0777,serverino
 ```
 
+Ovanstående kommando använder de [montera](https://linux.die.net/man/8/mount) kommando för att montera Azure-filresurs och alternativ som är specifika för [cifs](https://linux.die.net/man/8/mount.cifs). Mer specifikt file_mode och dir_mode alternativ uppsättning filer och kataloger till behörigheten `0777`. Den `0777` behörigheten ger läsa, skriva och körbehörighet till alla användare. Du kan ändra behörigheterna genom att ersätta värdena med andra [chmod behörigheter](https://en.wikipedia.org/wiki/Chmod). Du kan också använda andra [cifs](https://linux.die.net/man/8/mount.cifs) alternativ, till exempel gid eller uid. 
 
 
 ## <a name="persist-the-mount"></a>Spara monterings

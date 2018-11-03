@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: cfcdf13f8aa4dfab9b361ccbb82ea4b2c3e2ca0d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 5550bbb95b24e12510c69bc3952c346250786994
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42059575"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960012"
 ---
 # <a name="import-data-into-analytics"></a>Importera data till Analytics
 
@@ -122,8 +122,8 @@ Varje kolumn har identifierats av plats, namn och typ.
 
 * Plats – är för avgränsad fil formatera den positionen för det mappade värdet. JSON-format är det jpath den mappade nyckeln.
 * Namn – visningsnamnet för kolumnen.
-* Typ – datatypen för kolumnen.
- 
+* Typ - datatypen för kolumnen.
+
 > [!NOTE]
 > Om exempeldata har använts och formatet är avgränsat, schemadefinitionen Mappa alla kolumner och lägga till nya datakolumner i slutet.
 > 
@@ -137,7 +137,7 @@ För att importera data, överföra den till Azure storage, skapa en åtkomstnyc
 
 Du kan utföra följande process manuellt eller konfigurera automatiserade system att göra det med jämna mellanrum. Du måste följa de här stegen för varje datablock som du vill importera.
 
-1. Ladda upp data till [Azure blobblagring](../storage/blobs/storage-dotnet-how-to-use-blobs.md). 
+1. Ladda upp data till [Azure blobblagring](../storage/blobs/storage-quickstart-blobs-dotnet.md). 
 
  * Blobar kan vara en storlek på upp till 1GB okomprimerad. Stora blobbar hundratals MB är idealiska ur prestandaperspektiv.
  * Du kan komprimera den med Gzip att förbättra tid och svarstid för data som ska vara tillgängliga för frågor. Använd den `.gz` filnamnstillägg.
@@ -369,5 +369,5 @@ Använd den här koden för varje blob.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Genomgång av Log Analytics-frågespråket](app-insights-analytics-tour.md)
+* [Genomgång av Log Analytics-frågespråket](../log-analytics/query-language/get-started-analytics-portal.md)
 * Om du använder Logstash kan använda den [Logstash plugin-programmet att skicka data till Application Insights](https://github.com/Microsoft/logstash-output-application-insights)

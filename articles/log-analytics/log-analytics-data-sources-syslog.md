@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 3b1724853b4c874a1482a13c4de0ccb179f52f98
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 5247edc02a62f67755ce818645f66f616c5266ce
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041111"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962409"
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Syslog-datakällor i Log Analytics
 Syslog är ett protokoll för loggning av händelse som är gemensamma för Linux.  Program skickar meddelanden som kan lagras på den lokala datorn eller levereras till en Syslog-insamlare.  När OMS-agenten för Linux installeras konfigurerar den lokala Syslog-daemon för att vidarebefordra meddelanden till agenten.  Agenten skickar sedan meddelandet till Log Analytics där en motsvarande post skapas i OMS-databasen.  
@@ -45,7 +45,7 @@ Du kan lägga till en ny resurs genom att skriva dess namn och klicka på **+**.
 Som standard skickas automatiskt alla konfigurationsändringar till alla agenter.  Om du vill konfigurera Syslog manuellt på varje Linux-agent och avmarkerar sedan kryssrutan *Använd konfigurationen nedan för Mina Linux-datorer*.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Konfigurera Syslog på Linux-agenten
-När den [OMS-agenten är installerad på en Linux-klient](log-analytics-linux-agents.md), installeras en standard syslog-konfigurationsfil som definierar anläggning och allvarlighetsgraden för de meddelanden som samlas in.  Du kan ändra den här filen om du vill ändra konfigurationen.  Konfigurationsfilen är olika beroende på Syslog-daemon som klienten har installerats.
+När den [OMS-agenten är installerad på en Linux-klient](log-analytics-quick-collect-linux-computer.md), installeras en standard syslog-konfigurationsfil som definierar anläggning och allvarlighetsgraden för de meddelanden som samlas in.  Du kan ändra den här filen om du vill ändra konfigurationen.  Konfigurationsfilen är olika beroende på Syslog-daemon som klienten har installerats.
 
 > [!NOTE]
 > Om du redigerar systemloggkonfigurationen, måste du starta om syslog-daemon för att ändringarna ska börja gälla.
@@ -199,7 +199,7 @@ Syslog-poster har en typ av **Syslog** och har egenskaperna i följande tabell.
 ## <a name="log-queries-with-syslog-records"></a>Loggfrågor med Syslog-poster
 I följande tabell innehåller olika exempel på loggfrågor som hämtar Syslog-poster.
 
-| Fråga | Beskrivning |
+| Söka i data | Beskrivning |
 |:--- |:--- |
 | Syslog |Alla Syslog-poster. |
 | Syslog &#124; där SeverityLevel == ”error” |Alla Syslog-poster med allvarlighetsgrad för fel. |
@@ -207,6 +207,6 @@ I följande tabell innehåller olika exempel på loggfrågor som hämtar Syslog-
 | Syslog &#124; sammanfatta AggregatedValue = antal() efter lokal |Räkna Syslog-poster efter anläggning. |
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [loggsökningar](log-analytics-log-searches.md) att analysera data som samlas in från datakällor och lösningar.
+* Lär dig mer om [loggsökningar](log-analytics-log-search.md) att analysera data som samlas in från datakällor och lösningar.
 * Använd [anpassade fält](log-analytics-custom-fields.md) att parsa data från syslog-poster i enskilda fält.
-* [Konfigurera Linux-agenter](log-analytics-linux-agents.md) att samla in andra typer av data.
+* [Konfigurera Linux-agenter](log-analytics-quick-collect-linux-computer.md) att samla in andra typer av data.

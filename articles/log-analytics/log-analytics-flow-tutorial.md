@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 6f09e523b70e541c724ea53d0bd47215ad44d623
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 224d5673b374b9b30237d25113e07aaf6dd4feaf
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041994"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960985"
 ---
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Automatisera processer för Log Analytics med anslutningsappen för Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) kan du skapa automatiserade arbetsflöden med hundratals åtgärder för en mängd olika tjänster. Utdata från en åtgärd kan användas som indata till en annan så att du kan skapa integrering mellan olika tjänster.  Azure Log Analytics-anslutningsappen för Microsoft Flow kan du skapa arbetsflöden som innehåller data som hämtats av loggsökningar i Log Analytics.
@@ -79,7 +79,7 @@ Självstudie i den här artikeln visar hur du skapar ett flöde som automatiskt 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [loggsökningar i Log Analytics](log-analytics-log-search-new.md).
+- Läs mer om [loggsökningar i Log Analytics](log-analytics-log-search.md).
 - Läs mer om [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

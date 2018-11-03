@@ -6,14 +6,14 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 47773f9375927e4d8dfbfec922e4cf11e42ade04
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 359ada08f1d9df6b60fc27ca385f6003af498e17
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634538"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958618"
 ---
-# <a name="deploy-the-vfxt-cluster"></a>Distribuera vFXT-kluster
+# <a name="deploy-the-vfxt-cluster"></a>Distribuera vFXT-klustret
 
 Om du vill skapa ett vFXT kluster är det enklaste sättet att använda en kluster-controller som en virtuell dator som har de nödvändiga skripten, mallar och programvaruinfrastruktur för att skapa och hantera vFXT-kluster.
 
@@ -30,7 +30,7 @@ Mer information om distributionssteg för klustret och planera [planera datorn A
 
 När du har följt anvisningarna i det här dokumentet har du ett virtuellt nätverk, ett undernät, en domänkontrollant och ett vFXT kluster som du ser i följande diagram:
 
-![diagram över virtuellt nätverk som innehåller valfri blob-lagring och ett undernät som innehåller tre grupperade virtuella datorer med etiketten vFXT noder/vFXT kluster och en virtuell dator taggade kluster kontrollenhet](media/avere-vfxt-deployment-500px.png)
+![diagram över virtuellt nätverk som innehåller valfri blob-lagring och ett undernät som innehåller tre grupperade virtuella datorer med etiketten vFXT noder/vFXT kluster och en virtuell dator taggade kluster kontrollenhet](media/avere-vfxt-deployment.png)
 
 Kontrollera att du har åtgärdat förutsättningarna innan du börjar:  
 
@@ -198,9 +198,7 @@ Du kan också hitta saknas information genom att gå till sidan controller VM in
 
 Du hittar den här informationen från Resource Manager mallutdata genom att följa den här proceduren:
 
-1. Klicka på meddelandeikonen i det översta fältet i Azure Portal, **går du till resursgruppen**. Detta visar den nya resursgruppen som innehåller din domänkontrollant och vnet.
-
-   ![Meddelanden på portal med ”distribueringen lyckades” meddelande och ”gå till resursgruppen” och ”fäst på instrumentpanelen” knappar](media/avere-vfxt-browse-to-rg.png)
+1. Gå till resursgruppen för din kluster-styrenhet.
 
 1. På vänster sida klickar du på **distributioner**, och sedan **Microsoft.Template**.
 

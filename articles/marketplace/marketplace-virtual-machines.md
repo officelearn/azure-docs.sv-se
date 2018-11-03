@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: b8caeab7f08ffeee81492b01750cbb255e172872
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: d2ff854d291f65848c7e87b88d8020a835b3bdaa
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144530"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958669"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Erbjudande för virtuell dator publicerar Guide
 
@@ -29,18 +29,18 @@ Det här är transaktionen erbjudanden som distribueras och faktureras via Marke
 
 ## <a name="free-trial"></a>Kostnadsfri utvärderingsversion 
 
-Du kan ordna för användare att testa ditt erbjudande genom att öppna programvarulicenser för begränsad tid när du använder modellen blling Bring Your Own License (BYOL). Nedan visas kraven för att distribuera det här erbjudandet. 
+Du kan ordna för användare att testa ditt erbjudande genom att öppna programvarulicenser för begränsad tid när du använder faktureringsmodellen Bring Your Own License (BYOL). Nedan visas kraven för att distribuera det här erbjudandet. 
 
 |Krav  |Information  |
 |---------|---------|
-|Kostnadsfria utvärderingsperioden och utvärderingsmiljö     |   Kunderna kan testa din app kostnadsfritt under en begränsad tid. Kunden behöver inte betala alla avgifter licens eller prenumeration för ditt erbjudande. Dina kunder behöver inte betala för de underliggande Microsoft från första part produkt eller tjänst. Alla utvärderingsversionsalternativ som distribueras till din Azure-prenumeration. Du har ensam kontroll över kostnadsoptimeringar och hantering. Du kan välja en kostnadsfri utvärderingsversion eller en interaktiv demonstration. Oavsett vad du väljer, ger din kostnadsfria utvärderingsversion kunden en förinställda lång tid att testa ditt erbjudande utan extra kostnad.|
+|Kostnadsfria utvärderingsperioden och utvärderingsmiljö     |   Dina kunder kan testa din app kostnadsfritt under en begränsad tid. Dina kunder är Obs krävs för att betala alla avgifter licens eller prenumeration för ditt erbjudande. Dina kunder behöver inte betala för de underliggande Microsoft från första part produkt eller tjänst. Alla utvärderingsversionsalternativ som distribueras till din Azure-prenumeration. Du har ensam kontroll över kostnadsoptimeringar och hantering. Du kan välja en kostnadsfri utvärderingsversion eller en interaktiv demonstration. Oavsett vad du väljer, ger din kostnadsfria utvärderingsversion kunder en förinställda lång tid att testa ditt erbjudande utan extra kostnad.|
 |Enkelt att konfigurera och färdiga att använda lösning    |  Din app måste vara enkelt och snabbt att göra inställningar.       |
 |Tillgänglighet / drifttid    |    Din SaaS-app eller en plattform måste ha en drifttid på minst 99,9%.     |
 |Azure Active Directory     |    Erbjudandet måste tillåta Azure Active Directory (Azure AD) federerad enkel inloggning (SSO) (Azure AD-federerad enkel inloggning) med medgivande aktiverat.     |
 
-## <a name="test-drive"></a>Provkör
+## <a name="test-drive"></a>Test Drive
 
-Du distribuerar en eller flera virtuella datorer via infrastructure-as-a-service(IaaS) eller SaaS-appar. En fördel med test drive publiceringsalternativ är automatiserad etablering av en virtuell dator eller hela lösningen som leds av en värdpartner guidad visning. Testa ger en utvärdering utan extra kostnad till kunden. Kunden behöver inte vara en befintlig Azure-kund för att öka interaktionen med utvärderingen. 
+Du distribuerar en eller flera virtuella datorer via infrastructure-as-a-service (IaaS) eller software-as-a-service (SaaS)-appar. En fördel med test drive publiceringsalternativ är automatiserad etablering av en virtuell dator eller hela lösningen som leds av en värdpartner guidad visning. Testa ger en utvärdering utan extra kostnad till kunden. Kunden behöver inte vara en befintlig Azure-kund för att öka interaktionen med utvärderingen. 
 
 Kontakta oss på [amp testdrive](mailto:amp-testdrive@microsoft.com) att komma igång. 
 

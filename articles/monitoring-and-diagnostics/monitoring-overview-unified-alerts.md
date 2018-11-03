@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: mamit
 ms.component: alerts
-ms.openlocfilehash: c4c8279a1d4638a1c5d889b53e2d9e89e458cc37
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 30b2d60868702c6113612668b8e4cf9975aa2c40
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117618"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962205"
 ---
 # <a name="unified-alerts-in-azure-monitor"></a>Enhetlig aviseringar i Azure Monitor
 
@@ -82,9 +82,9 @@ Du kan skapa en ny aviseringsregel med följande tre steg:
  
 Förenklad redigering processen kräver inte längre att du enkelt se övervakningen käll- eller signaler som stöds innan du väljer en Azure-resurs. Listan över tillgängliga signaler filtreras automatiskt baserat på vilken resurs som du väljer och det hjälper dig att definiera logiken i regeln.
 
-Du kan lära dig mer om hur du skapar aviseringsregler i [skapa, visa och hantera aviseringar med hjälp av Azure Monitor](monitor-alerts-unified-usage.md).
+Du kan lära dig mer om hur du skapar aviseringsregler i [skapa, visa och hantera aviseringar med hjälp av Azure Monitor](alert-metric.md).
 
-Aviseringar är tillgängliga i flera Azure-övervakningstjänster. Information om hur och när du ska använda var och en av dessa tjänster finns i [övervakning av Azure-program och resurser](./monitoring-overview.md). I följande tabell innehåller en lista över typerna av Varningsregler som är tillgängliga i Azure. Den visar också vad stöds för närvarande av enhetlig avisering upplevelse.
+Aviseringar är tillgängliga i flera Azure-övervakningstjänster. Information om hur och när du ska använda var och en av dessa tjänster finns i [övervakning av Azure-program och resurser](../azure-monitor/overview.md). I följande tabell innehåller en lista över typerna av Varningsregler som är tillgängliga i Azure. Den visar också vad stöds för närvarande av enhetlig avisering upplevelse.
 
 | **Övervaka källan** | **Signaltyp**  | **Beskrivning** | 
 |-------------|----------------|-------------|
@@ -120,7 +120,7 @@ Alla prenumerationer som du har åtkomst till registreras när du aktiverar den 
 
 Att aktivera den nya upplevelsen för aviseringen påverkar inte konfigurationen av åtgärdsgrupper eller meddelanden i dina aviseringsregler. Detta ändrar bara hur du visa och hantera aktiverade instanser av aviseringar i Azure-portalen.
 
-### <a name="smart-groups"></a>Smart grupper
+### <a name="smart-groups"></a>Smarta grupper
 Smart grupper minska bruset genom att låta dig hantera relaterade aviseringar som en enhet i stället för enskilda aviseringar. Du kan visa information om smart grupper och ställa in tillståndet på samma sätt till hur du kan med aviseringar. Varje avisering är medlem i en smart gruppen.
 
 Smart grupper skapas automatiskt med hjälp av maskininlärning att kombinera relaterade aviseringar som representerar ett enda problem. När en avisering skapas, läggs algoritmen det till en ny smart grupp eller en befintlig smart grupp baserat på information som historiska mönster, liknande egenskaper och liknande struktur. 
@@ -170,7 +170,7 @@ Välj följande värden överst på sidan aviseringar för att öppna en annan s
 | Värde | Beskrivning |
 |:---|:---|
 | Totalt antal aviseringar | Det totala antalet aviseringar som matchar de valda villkoren. Välj det här värdet för att öppna vyn alla aviseringar med inget filter. |
-| Smart grupper | Det totala antalet smart grupper som har skapats från de aviseringar som matchar de valda villkoren. Välj det här värdet för att öppna listan över smart i vyn alla aviseringar.
+| Smarta grupper | Det totala antalet smart grupper som har skapats från de aviseringar som matchar de valda villkoren. Välj det här värdet för att öppna listan över smart i vyn alla aviseringar.
 | Totalt antal aviseringsregler | Det totala antalet Varningsregler i den valda prenumerationen och resursgruppen. Välj det här värdet för att öppna vyn regler filtreras på den valda prenumerationen och resursgruppen.
 
 
@@ -189,7 +189,7 @@ Du kan filtrera vyn genom att välja följande värden i listrutorna överst på
 | Resurs | Välj en resurs. Endast aviseringar med den här resursen som ett mål som ingår i vyn. Den här kolumnen är endast tillgänglig när du har angett en resurstyp. |
 | Severity | Välj en allvarlighetsgrad för avisering, eller välj *alla* att inkludera aviseringar för alla allvarlighetsgrader. |
 | Övervakningsvillkor | Välj ett övervakningsvillkor eller välj *alla* att inkludera aviseringar av villkor. |
-| Tillstånd för avisering | Väljer du en aviseringstillståndet eller *alla* att inkludera aviseringar av tillstånd. |
+| Aviseringstillstånd | Väljer du en aviseringstillståndet eller *alla* att inkludera aviseringar av tillstånd. |
 | Övervaka tjänsten | Välj en tjänst, eller välj *alla* att inkludera alla tjänster. Det ingår bara aviseringar som har skapats av regler som använder tjänsten som mål. |
 | Tidsintervall | Bara de aviseringar som utlösts inom det valda tidsfönstret ingår i vyn. Värden som stöds är den senaste timmen, de senaste 24 timmarna, de senaste 7 dagarna och de senaste 30 dagarna. |
 
@@ -224,7 +224,7 @@ Sidan med smarta grupp innehåller följande avsnitt.
 | Historik | Visar en lista över varje åtgärd som gruppen smart och eventuella ändringar som görs till den. Det här är för närvarande begränsad till tillståndsändringar och avisering Medlemskapsändringar. |
 
 ## <a name="next-steps"></a>Nästa steg
-- [Lär dig hur du använder det nya aviseringsgränssnittet för att skapa, visa och hantera aviseringar](monitor-alerts-unified-usage.md)
+- [Lär dig hur du använder det nya aviseringsgränssnittet för att skapa, visa och hantera aviseringar](alert-metric.md)
 - [Lär dig mer om aviseringar i aviseringarna](monitor-alerts-unified-log.md)
 - [Lär dig mer om måttaviseringar i aviseringarna](monitoring-near-real-time-metric-alerts.md)
-- [Lär dig mer om aviseringar för aktivitetsloggar i aviseringarna](monitoring-activity-log-alerts-new-experience.md)
+- [Lär dig mer om aviseringar för aktivitetsloggar i aviseringarna](alert-activity-log.md)

@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: ef1422db799db6d635ad9f03908e3a34f312e408
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 752a0262503550b9995ac76f648a132429203cce
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974246"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961440"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Vad är Azure Diagnostics-tillägget
-Azure Diagnostics-tillägget är en agent i Azure som aktiverar insamlingen av diagnostikdata på ett distribuerat program. Du kan använda diagnostiktillägget från ett antal olika källor. För närvarande är Azure-molntjänst (klassisk) rollerna Web och Worker, virtuella datorer, Virtual Machine Scale sets och Service Fabric. Andra Azure-tjänster har olika diagnostik metoder. Se [översikt över övervakning i Azure](monitoring-overview.md).
+Azure Diagnostics-tillägget är en agent i Azure som aktiverar insamlingen av diagnostikdata på ett distribuerat program. Du kan använda diagnostiktillägget från ett antal olika källor. För närvarande är Azure-molntjänst (klassisk) rollerna Web och Worker, virtuella datorer, Virtual Machine Scale sets och Service Fabric. Andra Azure-tjänster har olika diagnostik metoder. Se [översikt över övervakning i Azure](../azure-monitor/overview.md).
 
 ## <a name="linux-agent"></a>Linux-agent
-En [Linux-versionen av tillägget](../virtual-machines/linux/diagnostic-extension.md) är tillgänglig för virtuella datorer som kör Linux. Statistik som samlas in och beteende skilja sig från den Windows-versionen.
+En [Linux-versionen av tillägget](../virtual-machines/extensions/diagnostics-linux.md) är tillgänglig för virtuella datorer som kör Linux. Statistik som samlas in och beteende skilja sig från den Windows-versionen.
 
 ## <a name="data-you-can-collect"></a>Du kan samla in data
 Azure Diagnostics-tillägget kan samla in följande typer av data:
@@ -42,7 +42,7 @@ Azure Diagnostics-tillägget kan samla in följande typer av data:
 ## <a name="data-storage"></a>Datalagring
 Tillägget lagrar data i en [Azure Storage-konto](azure-diagnostics-storage.md) som du anger.
 
-Du kan också skicka den till [Application Insights](../application-insights/app-insights-cloudservices.md). Ett annat alternativ är att strömma det till [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md), som sedan kan du skicka den till övervakning i Azure-tjänster.
+Du kan också skicka den till [Application Insights](../application-insights/app-insights-cloudservices.md). Ett annat alternativ är att strömma det till [Event Hub](../event-hubs/event-hubs-about.md), som sedan kan du skicka den till övervakning i Azure-tjänster.
 
 ### <a name="azure-monitor"></a>Azure Monitor
 Du har också valet av skickar du data till Azure Monitor. Den här mottagare är för tillfället endast gäller för prestandaräknare. Det kan du skicka prestandaräknare som samlats in på den virtuella datorn, VMSS, eller molntjänster till Azure Monitor som anpassade mått. Azure Monitor-mellanlagringsplatsen har stöd för:
@@ -53,7 +53,7 @@ Du har också valet av skickar du data till Azure Monitor. Den här mottagare ä
 Om du vill veta mer om hur du konfigurerar den här mottagare kan se den [Azure diagnostics schema-dokumentationen.](azure-diagnostics-schema-1dot3-and-later.md)
 
 ## <a name="versioning-and-configuration-schema"></a>Schema för versionshantering och konfiguration
-Se [versionshistorik för Azure-diagnostik och Schema](azure-diagnostics-versioning-history.md).
+Se [versionshistorik för Azure-diagnostik och Schema](azure-diagnostics-schema.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -68,16 +68,16 @@ Läs mer avancerade ämnen
 
 * [Med hjälp av Azure-diagnostik med Application Insights för Cloud Services](../application-insights/app-insights-cloudservices.md)
 * [Spåra flödet för en Cloud Services-program med Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
-* [Använd PowerShell för att konfigurera diagnostik på molntjänster](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Använd PowerShell för att konfigurera diagnostik på molntjänster](../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="virtual-machines"></a>Virtuella datorer
 * Om du använder Visual Studio finns i [Använd Visual Studio för att spåra Azure Virtual Machines](../vs-azure-tools-debug-cloud-services-virtual-machines.md) att komma igång. Annars läser
-* [Konfigurera Azure Diagnostics på en Azure-dator](../virtual-machines-dotnet-diagnostics.md)
+* [Konfigurera Azure Diagnostics på en Azure-dator](../virtual-machines/virtual-machines-dotnet-diagnostics.md)
 
 Läs mer avancerade ämnen
 
-* [Använd PowerShell för att konfigurera diagnostik på Azure Virtual Machines](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Skapa en virtuell Windows-dator med övervakning och diagnostik med Azure Resource Manager-mall](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Använd PowerShell för att konfigurera diagnostik på Azure Virtual Machines](../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Skapa en virtuell Windows-dator med övervakning och diagnostik med Azure Resource Manager-mall](../virtual-machines/extensions/diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="service-fabric"></a>Service Fabric
 Kom igång på [övervaka ett Service Fabric-program](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Många andra Service Fabric diagnostik artiklar är tillgängliga i navigeringsträdet till vänster när du har hämtat den här artikeln.

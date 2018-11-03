@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 97fa3e9cf043037bf2fe4b0ba198bbdf68de9fa4
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: d042033981cba4e9d56b48543a7c6016a38efb53
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044696"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958562"
 ---
 # <a name="log-analytics-data-security"></a>Logga Analytics-datasäkerhet
 Det här dokumentet är avsedd att ge specifik information till Log Analytics, som är en funktion i Azure Monitor för att komplettera informationen på [Azure Trust Center](../security/security-microsoft-trust-center.md).  
@@ -158,7 +158,7 @@ För Operations Manager upprättar Operations Manager-hanteringsgrupp en anslutn
 
 All kommunikation mellan anslutna system och Log Analytics-tjänsten är krypterad. TLS (HTTPS)-protokollet används för kryptering.  Microsoft SDL-processen följs för att kontrollera Log Analytics är uppdaterade med de senaste utvecklingen av kryptografiska protokoll.
 
-Varje typ av agenten samlar in data för Log Analytics. Vilken typ av data som samlas in beror på vilka typer av lösningar som används. Du kan se en sammanfattning av insamling av data på [lägga till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md). Dessutom finns mer detaljerad samlingsinformation för de flesta lösningar. En lösning är ett paket med fördefinierade vyer, loggsökningsfrågor, regler för insamling av data och bearbetning av dataströmmar. Endast administratörer kan använda Log Analytics för att importera en lösning. När lösningen har importerats, flyttas den till Operations Manager-hanteringsservrar (om det används) och sedan till alla eventuella agenter som du har valt. Därefter agenterna samla in data.
+Varje typ av agenten samlar in data för Log Analytics. Vilken typ av data som samlas in beror på vilka typer av lösningar som används. Du kan se en sammanfattning av insamling av data på [lägga till Log Analytics-lösningar från lösningsgalleriet](../monitoring/monitoring-solutions.md). Dessutom finns mer detaljerad samlingsinformation för de flesta lösningar. En lösning är ett paket med fördefinierade vyer, loggsökningsfrågor, regler för insamling av data och bearbetning av dataströmmar. Endast administratörer kan använda Log Analytics för att importera en lösning. När lösningen har importerats, flyttas den till Operations Manager-hanteringsservrar (om det används) och sedan till alla eventuella agenter som du har valt. Därefter agenterna samla in data.
 
 ## <a name="2-send-data-from-agents"></a>2. Skicka data från agenter
 Du registrerar alla typer av agenten med en nyckel som registrering och en säker anslutning har upprättats mellan agenten och tjänsten Log Analytics med hjälp av certifikatbaserad autentisering och SSL med port 443. Log Analytics använder en lagringsplats för hemligheter för att skapa och underhålla nycklar. Privata nycklar roteras var 90: e dag och lagras i Azure och som hanteras av Azure-åtgärder som följer strikta regelverks- och efterlevnadskrav metoder.

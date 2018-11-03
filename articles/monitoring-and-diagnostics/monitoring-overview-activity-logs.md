@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 7538951b1ac8290b574180779b83c6b8e79fcf1f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 40d1f73f4aed3f3f35f3f5c9de951e9b9fd271bc
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094371"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963327"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Övervaka aktivitet om prenumeration med Azure-aktivitetsloggen
 
@@ -33,7 +33,7 @@ Aktivitetsloggen skiljer sig från [diagnostikloggar](monitoring-overview-of-dia
 Du kan hämta händelser från din aktivitetslogg med Azure portal, CLI, PowerShell-cmdletar och REST-API för Azure Monitor.
 
 > [!NOTE]
->  [Nyare aviseringar](monitoring-overview-unified-alerts.md) erbjuder en förbättrad upplevelse när skapa och hantera aktivitet loggar Varningsregler.  [Läs mer](monitoring-activity-log-alerts-new-experience.md).
+>  [Nyare aviseringar](monitoring-overview-unified-alerts.md) erbjuder en förbättrad upplevelse när skapa och hantera aktivitet loggar Varningsregler.  [Läs mer](alert-activity-log.md).
 
 Visa följande videoklipp introduktion till aktivitetsloggen.
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]

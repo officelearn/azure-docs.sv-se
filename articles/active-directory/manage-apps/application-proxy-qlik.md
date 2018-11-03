@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 5f103e9fe410374a551eb43d456d5993bdd36627
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 55e262e1855eb6ab50c2d32e7e8cd4bb9175a593
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057162"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962562"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Programproxy och Qlik Sense 
 Azure Active Directory-programproxy och Qlik Sense samarbetar tillsammans för att kontrollera att du enkelt kan använda Application Proxy för att tillhandahålla fjärråtkomst för din Qlik Sense-distribution.  
@@ -58,7 +58,11 @@ Följ samma steg för programmet #1, med följande undantag:
 ## <a name="testing"></a>Testning 
 Programmet är nu redo att testa. Åtkomst till den externa URL: en som du använde för att publicera QlikSense i programmet nr 1 och logga in som en användare som tilldelats båda programmen.  
 
+## <a name="additional-references"></a>Ytterligare referenser
+Mer information om publicering Qlik Sense med Application Proxy i Community-artikeln Qlik: [Azure AD med integrerad Windows-autentisering med hjälp av en Kerberos-begränsad delegering med Qlik Sense](https://community.qlik.com/docs/DOC-20183).
+
 ## <a name="next-steps"></a>Nästa steg
 
 - [Publicera program med Application Proxy](application-proxy-publish-azure-portal.md)
-- [Arbeta med programproxyanslutningar](application-proxy-connector-groups.md).
+- [Arbeta med programproxyanslutningar](application-proxy-connector-groups.md)
+

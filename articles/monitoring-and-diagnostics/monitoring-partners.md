@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 8ffeac78b809ea19163360e85d1c841c55b2364a
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: eb60afc21b7f8e21c4573e46165696c3461d3613
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914626"
+ms.locfileid: "50963871"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Partnerintegrering i Azure Monitor
 | Partner |  |  |
@@ -164,7 +164,7 @@ Turbonomic levererar arbetsbelastningsautomatisering för hybridmoln genom att s
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Läs mer om Azure Monitor](monitoring-overview.md)
+* [Läs mer om Azure Monitor](../azure-monitor/overview.md)
 * [Mått för åtkomst med hjälp av REST-API](monitoring-rest-api-walkthrough.md)
 * [Stream aktivitetsloggen till en icke-Microsoft-tjänst](monitoring-stream-activity-logs-event-hubs.md)
 * [Stream diagnostikloggar till en icke-Microsoft-tjänst](monitoring-stream-diagnostic-logs-to-event-hubs.md)

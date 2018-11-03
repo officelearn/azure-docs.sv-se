@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 08ba5e7cbdc041a41f1d006d69980bf6efc00101
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 0f08e63d6cbf5be8667b1fd61556e3f33e31d06f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380306"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957666"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Har en klassisk måttavisering meddela en icke-Azure-system med en webhook
 Du kan använda webhooks för att dirigera Azure aviseringsmeddelanden till andra system för efterbearbetning eller anpassade åtgärder. Du kan använda en webhook på en avisering och dirigerar den till tjänster som skickar SMS-meddelanden, logga buggar, för att meddela ett team via chatt eller meddelandetjänster eller för olika åtgärder. 
 
-Den här artikeln beskriver hur du anger en webhook för en Azure metrisk varning. Den visar även hur nyttolast för HTTP-POST till en webhook som ser ut. Information om installation och schemat för en Azure aktivitet log avisering (varning vid händelser), finns i [anropa en webhook i en Azure aktivitetsloggavisering](insights-auditlog-to-webhook-email.md).
+Den här artikeln beskriver hur du anger en webhook för en Azure metrisk varning. Den visar även hur nyttolast för HTTP-POST till en webhook som ser ut. Information om installation och schemat för en Azure aktivitet log avisering (varning vid händelser), finns i [anropa en webhook i en Azure aktivitetsloggavisering](monitor-alerts-unified-log-webhook.md).
 
 Azure-aviseringar använder HTTP POST för att skicka aviseringar innehållet i JSON-format till en webhook-URI som du anger när du skapar aviseringen. Schemat har definierats senare i den här artikeln. URI: N måste vara en giltig HTTP eller HTTPS-slutpunkt. Azure skickar en post per begäran när en avisering har aktiverats.
 
@@ -69,12 +69,12 @@ POST-åtgärd innehåller följande JSON-nyttolast och schemat för alla mått-b
 ```
 
 
-| Fält | Obligatorisk | Fast uppsättning värden | OBS! |
+| Fält | Obligatorisk | Fast uppsättning värden | Anteckningar |
 |:--- |:--- |:--- |:--- |
 | status |Y |Aktiverat, löst |Status för aviseringen baserat på villkor du anger. |
 | Kontext |Y | |I aviseringssammanhanget. |
 | tidsstämpel |Y | |Den tid då aviseringen utlöstes. |
-| ID |Y | |Varje varningsregeln har ett unikt ID. |
+| id |Y | |Varje varningsregeln har ett unikt ID. |
 | namn |Y | |Aviseringens namn. |
 | beskrivning |Y | |En beskrivning av aviseringen. |
 | conditionType |Y |Mått, händelse |Två typer av aviseringar som stöds: mått- och. Måttaviseringar baseras på en måttvillkor. Aviseringar baseras på en händelse i aktivitetsloggen. Använd det här värdet om du vill kontrollera om aviseringen är baserad på ett mått eller på en händelse. |
@@ -93,7 +93,7 @@ POST-åtgärd innehåller följande JSON-nyttolast och schemat för alla mått-b
 | resourceId |Y | |Resurs-ID för resursen som påverkas. |
 | resourceRegion |Y | |Den region eller plats för resurser som påverkas. |
 | portalLink |Y | |En direktlänk till sammanfattningssidan portal resurs. |
-| properties |N |Valfritt |En uppsättning nyckel/värde-par som innehåller information om händelsen. Till exempel `Dictionary<String, String>`. För egenskapsfältet är valfritt. I ett anpassat gränssnitt eller logic app-baserade arbetsflödet, kan användarna ange nyckel/värde-par som kan skickas via nyttolasten. Ett annat sätt att skicka anpassade egenskaper till webhooken är via webhooken URI (som frågeparametrar). |
+| properties |N |Valfri |En uppsättning nyckel/värde-par som innehåller information om händelsen. Till exempel `Dictionary<String, String>`. För egenskapsfältet är valfritt. I ett anpassat gränssnitt eller logic app-baserade arbetsflödet, kan användarna ange nyckel/värde-par som kan skickas via nyttolasten. Ett annat sätt att skicka anpassade egenskaper till webhooken är via webhooken URI (som frågeparametrar). |
 
 > [!NOTE]
 > Du kan ange den **egenskaper** fältet genom att använda [Azure Monitor REST API: er](https://msdn.microsoft.com/library/azure/dn933805.aspx).

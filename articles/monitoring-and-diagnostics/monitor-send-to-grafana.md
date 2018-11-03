@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: ''
-ms.openlocfilehash: 75b1edf80f1dad5f0db48c11329effe080760820
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 533fbfc42939299f99699a13513cd3b55c89cabc
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413153"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957292"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Övervaka dina Azure-tjänster i Grafana
 Du kan nu också övervaka Azure-tjänster och program från [Grafana](https://grafana.com/) med hjälp av den [Azure Monitor-plugin-programmet för datakällans](https://grafana.com/plugins/grafana-azure-monitor-datasource). Plugin-programmet samlar in prestandadata för program som samlas in av Application Insights SDK samt infrastrukturdata tillhandahålls av Azure Monitor. Du kan sedan visa dessa data på din Grafana-instrumentpanel.
@@ -128,4 +128,4 @@ Du debiteras när virtuella datorer körs om du använder dem eller inte. Rensa 
 2. På sidan med resursgrupper, klickar du på **ta bort**, typ **Grafana** i textrutan och klicka sedan på **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Översikt över Azure Monitor-mått](monitoring-overview-metrics.md)
+* [Översikt över Azure Monitor-mått](../monitoring/monitoring-data-collection.md)

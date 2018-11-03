@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1a46564c324edb1999a2e1b1d482817685df2893
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 3fa41f894e3228310bae6a9407cfcc426c27bfdc
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205994"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963726"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Felsökning utan data, Application Insights för .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Några av Mina telemetri saknas
@@ -158,7 +158,7 @@ Data kommer från skript i webbsidor.
 Se [beroendetelemetri](app-insights-asp-net-dependencies.md) och [undantagstelemetri](app-insights-asp-net-exceptions.md).
 
 ## <a name="no-performance-data"></a>Inga prestandadata
-Prestandadata (CPU, IO-frekvens och så vidare) är tillgänglig för [Java webbtjänster](app-insights-java-collectd.md), [Windows-skrivbordsappar](app-insights-windows-desktop.md), [IIS webbprogram och tjänster om du installerar statusövervakaren](app-insights-monitor-performance-live-website-now.md), och [Azure Cloud Services](app-insights-azure.md). Du hittar det under inställningar för servrar.
+Prestandadata (CPU, IO-frekvens och så vidare) är tillgänglig för [Java webbtjänster](app-insights-java-collectd.md), [Windows-skrivbordsappar](app-insights-windows-desktop.md), [IIS webbprogram och tjänster om du installerar statusövervakaren](app-insights-monitor-performance-live-website-now.md), och [Azure Cloud Services](app-insights-overview.md). Du hittar det under inställningar för servrar.
 
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>Inga (server) data eftersom jag har publicerat appen till Min server
 * Kontrollera att du faktiskt kopieras alla Microsoft. ApplicationInsights DLL-filer till servern, tillsammans med Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll

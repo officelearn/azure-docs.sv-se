@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: f0a982e8a0cb358e29375e05c1752a33b15ec255
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: cedebbe1ba0dcf40af0f2f001f022ffaad175c70
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319718"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959638"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Skicka data till Log Analytics med HTTP Data Collector API (förhandsversion)
 Den här artikeln visar hur du använder HTTP Data Collector API för att skicka data till Log Analytics från en REST API-klient.  Den beskriver hur du formatera data som samlas in från dina skript eller ett program, inkludera den i en begäran och få den begäran som auktoriserats av Log Analytics.  Exempel tillhandahålls för PowerShell, C# och Python.
@@ -197,11 +197,11 @@ Den här tabellen innehåller en fullständig uppsättning med statuskoder som k
 | 500 |Internt serverfel |UnspecifiedError |Ett internt fel inträffade i tjänsten. Försök med förfrågan. |
 | 503 |Tjänsten är inte tillgänglig |ServiceUnavailable |Tjänsten är för närvarande inte ta emot begäranden. Försök igen. |
 
-## <a name="query-data"></a>Frågedata
+## <a name="query-data"></a>Söka i data
 Att köra frågor mot data som skickats av den Log Analytics HTTP Data Collector API, söka efter poster med **typ** som är lika med den **LogType** värde som du angav läggas till med **_CL**. Exempel: Om du använde **MyCustomLog**, och du kommer att returnera alla poster med **typ = MyCustomLog_CL**.
 
 >[!NOTE]
-> Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md), och sedan frågan ovan skulle ändras till följande.
+> Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search.md), och sedan frågan ovan skulle ändras till följande.
 
 > `MyCustomLog_CL`
 
@@ -470,6 +470,6 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- Använd den [Loggsöknings-API](log-analytics-log-search-api.md) att hämta data från Log Analytics-databasen.
+- Använd den [Loggsöknings-API](log-analytics-log-search.md) att hämta data från Log Analytics-databasen.
 
 - Läs mer om hur [skapa en datapipeline med Data Collector API](log-analytics-create-pipeline-datacollector-api.md) med Logic Apps-arbetsflöde till Log Analytics.

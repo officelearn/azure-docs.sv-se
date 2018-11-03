@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: fd183b5776f30b12d577a94be147eabef05d258f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 43ff945747915edb76da8b593b232e86778374ce
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419375"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958516"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar med Azure Monitor  
 
@@ -57,7 +57,7 @@ Detaljerad nästa är stegvis guide till med hjälp av aviseringar i Azure porta
 
    > [!NOTE]
 
-   > Aviseringar listor importera analytics-fråga som signaltyp - **Log (sparad fråga)** enligt ovan bild. Så att användarna kan förbättrar din fråga i Analytics och spara dem för framtida användning i aviseringar – mer information om hur du använder för att spara frågan som är tillgängliga på [med hjälp av loggsökning i log analytics](../log-analytics/log-analytics-log-searches.md) eller [delade fråga i application insights Analytics](../log-analytics/log-analytics-overview.md). 
+   > Aviseringar listor importera analytics-fråga som signaltyp - **Log (sparad fråga)** enligt ovan bild. Så att användarna kan förbättrar din fråga i Analytics och spara dem för framtida användning i aviseringar – mer information om hur du använder för att spara frågan som är tillgängliga på [med hjälp av loggsökning i log analytics](../log-analytics/log-analytics-log-searches.md) eller [delade fråga i application insights Analytics](../log-analytics/log-analytics-queries.md). 
 
 1.  *Loggaviseringar*: när du valt, fråga aviseringar kan anges i **sökfråga** fältet; om frågesyntaxen är felaktigt fältet visar fel i rött. Om frågesyntaxen är korrekt - referens visas historiska data för den angivna frågan som ett diagram med alternativet för att justera tidsfönster från senaste sex timmar att förra veckan.
 
@@ -132,7 +132,7 @@ Därför i avsnittet nedan innehåller information om hur du använder Resource-
 ### <a name="azure-resource-template-for-log-analytics"></a>Azure-resursmall för Log Analytics
 Loggaviseringar för Log Analytics skapas från Varningsregler som kör en sparad sökning med regelbundna intervall. Om resultatet av frågan matchar de angivna villkoren, skapas en aviseringspost och en eller flera åtgärder körs. 
 
-Resursmall för sökning och Log analytics-aviseringar den sparade Log analytics är tillgängliga i Log Analytics i dokumentationen för. Mer information finns i, [att lägga till Log Analytics sparade sökningar och aviseringar](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md); som innehåller färgkodats exempel samt information om schemat.
+Resursmall för sökning och Log analytics-aviseringar den sparade Log analytics är tillgängliga i Log Analytics i dokumentationen för. Mer information finns i, [att lägga till Log Analytics sparade sökningar och aviseringar](../monitoring/monitoring-solutions-resources-searches-alerts.md); som innehåller färgkodats exempel samt information om schemat.
 
 ### <a name="azure-resource-template-for-application-insights"></a>Azure-resursmall för Application Insights
 Log avisering för Application Insights-resurser har en typ av `Microsoft.Insights/scheduledQueryRules/`. Mer information om den här resurstypen finns [Azure Monitor - schemalagda fråga regler API-referens](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
@@ -246,5 +246,5 @@ Lyckade åtgärder 201 återgår till tillståndet skapandet av ny regel för va
 * Lär dig mer om [Loggaviseringar i Azure-aviseringar](monitor-alerts-unified-log.md)
 * Förstå [Webhook-åtgärder för loggaviseringar](monitor-alerts-unified-log-webhook.md)
 * Läs mer om [Application Insights](../application-insights/app-insights-analytics.md)
-* Läs mer om [Log Analytics](../log-analytics/log-analytics-overview.md). 
+* Läs mer om [Log Analytics](../log-analytics/log-analytics-queries.md). 
 

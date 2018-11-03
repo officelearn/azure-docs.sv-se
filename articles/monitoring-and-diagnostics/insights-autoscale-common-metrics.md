@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 48c53b1b0c037e6bcfea3be49fdd2110e1e694b3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c2a231de3eaa67a656fb90d6498d36a226ff8622
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970710"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963072"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor autoskalning vanliga mått
 Automatisk skalning med Azure Monitor kan du skala antalet instanser som körs upp eller ned, baserat på dessa data (mått). Det här dokumentet beskriver vanliga mått som du kanske vill använda. Du kan välja mått på resursen att skala genom att i Azure-portalen. Du kan också välja vilka mått som helst från en annan resurs kan skala med.
@@ -29,7 +29,7 @@ Om du använder VM-skalningsuppsättningar och du inte ser ett viss mått anges 
 
 Om ett visst mått inte håller på att samplas eller överföras på hur ofta du vill, kan du uppdatera diagnostikkonfigurationen.
 
-Om båda föregående fallen är sant, granskar [Använd PowerShell för att aktivera Azure Diagnostics i en virtuell dator med Windows](../virtual-machines/windows/ps-extensions-diagnostics.md) om PowerShell för att konfigurera och uppdatera din Azure VM Diagnostics-tillägg om du vill aktivera måttet. Den här artikeln innehåller också en exempelfil diagnostik konfiguration.
+Om båda föregående fallen är sant, granskar [Använd PowerShell för att aktivera Azure Diagnostics i en virtuell dator med Windows](../virtual-machines/extensions/diagnostics-windows.md) om PowerShell för att konfigurera och uppdatera din Azure VM Diagnostics-tillägg om du vill aktivera måttet. Den här artikeln innehåller också en exempelfil diagnostik konfiguration.
 
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Värdmått för Resource Manager-baserade Windows och Linux-datorer
 Följande värdnivå mått genereras som standard för virtuella Azure-datorer och VMSS i både Windows och Linux-instanser. De här måtten beskrivs Azure VM, men har samlats in från Virtuella Azure-värd i stället för via agent installeras på den Virtuella gästdatorn. Du kan använda de här måtten i reglerna för automatisk skalning.

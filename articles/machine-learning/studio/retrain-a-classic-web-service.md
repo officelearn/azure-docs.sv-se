@@ -1,6 +1,6 @@
 ---
-title: Träna om en klassisk webbtjänst | Microsoft Docs
-description: Lär dig mer om att träna om en modell och uppdatera webbtjänsten för att använda den nya tränade modellen i Azure Machine Learning programmässigt.
+title: Omtrimma en klassisk webbtjänst | Microsoft Docs
+description: Lär dig hur du tränar en modell och uppdatera webbtjänsten för att använda den nyligen tränade modellen i Azure Machine Learning programmässigt.
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
@@ -15,66 +15,66 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 6fc03865185b97fb1f34028239f647f97d5bd315
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3de17375670d7697a298023dc79ffc2418cb7e42
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836882"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963784"
 ---
 # <a name="retrain-a-classic-web-service"></a>Omtrimma en klassisk webbtjänst
-Förutsägande webbtjänsten som du har distribuerat är standard bedömningsslutpunkten. Slutpunkter hålls synkroniserade med den ursprungliga utbildningen och bedömningen experiment och därför den tränade modellen för standardslutpunkten kan inte ersättas. För att träna om webbtjänsten måste du lägga till en ny slutpunkt till webbtjänsten. 
+Förutsägande webbtjänsten som du har distribuerat är standardinställningen bedömningsslutpunkten. Standardslutpunkterna hålls synkroniserade med den ursprungliga träningen och bedömning experiment och därför den tränade modellen för standardslutpunkten kan inte ersättas. För att träna om webbtjänsten, måste du lägga till en ny slutpunkt för webbtjänsten. 
 
 ## <a name="prerequisites"></a>Förutsättningar
-Du måste ha konfigurerat en träningsexperiment och prediktivt experiment som visas i [träna om Machine Learning-modeller via programmering](retrain-models-programmatically.md). 
+Du måste har ställt in ett träningsexperiment och ett förutsägelseexperiment som visas i [träna om Machine Learning-modeller via programmering](retrain-models-programmatically.md). 
 
 > [!IMPORTANT]
-> Prediktivt experiment måste distribueras som klassisk machine learning-webbtjänst. 
+> Förutsägbart experiment måste distribueras som en klassisk machine learning-webbtjänst. 
 > 
 > 
 
-Ytterligare information om distribuera webbtjänster finns [distribuera en Azure Machine Learning-webbtjänst](publish-a-machine-learning-web-service.md).
+Ytterligare information om distribuera webbtjänster finns i [distribuera en Azure Machine Learning-webbtjänst](publish-a-machine-learning-web-service.md).
 
 ## <a name="add-a-new-endpoint"></a>Lägg till en ny slutpunkt
-Den förutsägande webbtjänst som du har distribuerat innehåller en bedömningsslutpunkten som hålls synkroniserade med den ursprungliga utbildningen och bedömningen experiment tränade modellen. Om du vill uppdatera webbtjänsten till med en ny tränad modell, måste du skapa en ny bedömningsprofil slutpunkt. 
+Förutsägande webbtjänsten som du har distribuerat innehåller en bedömningsslutpunkten som hålls synkroniserad med den ursprungliga utbildningen och bedömning experiment tränade modellen. Om du vill uppdatera webbtjänsten till med en ny tränad modell, måste du skapa en ny bedömnings-slutpunkt. 
 
-Skapa en ny bedömningsprofil slutpunkt på den förutsägande webbtjänst som kan uppdateras med den tränade modellen:
+Skapa en ny bedömnings-slutpunkt på den förebyggande webbtjänst som kan uppdateras med den tränade modellen:
 
 > [!NOTE]
-> Var noga med att du lägger till slutpunkten förutsägande webbtjänsten inte utbildning-webbtjänsten. Om du har distribuerat en utbildnings- och en förutsägbar webbtjänst korrekt, bör du se två separata webbtjänster som anges. Förutsägande webbtjänsten ska avslutas med ”[förutsägande exp.]”.
+> Var noga med att du lägger till slutpunkten för förutsägande Web Service, inte webbtjänsten utbildning. Om du har distribuerat både ett utbildnings- och en förutsägbar webbtjänst korrekt, bör du se två separata webbtjänster som visas. Förutsägande webbtjänsten ska sluta med ”[förutsägande exp.]”.
 > 
 > 
 
 Det finns två sätt som du kan lägga till en ny slutpunkt till en webbtjänst:
 
 1. Programmässigt
-2. Webbtjänster för Microsoft Azure-portalen
+2. Använda portalen för Microsoft Azure-webbtjänster
 
 ### <a name="programmatically-add-an-endpoint"></a>Lägga till en slutpunkt
-Du kan lägga till bedömningsprofil slutpunkter som använder exempelkoden i den här [github-lagringsplatsen](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
+Du kan lägga till bedömnings slutpunkter med hjälp av exempelkoden i den här [github-lagringsplatsen](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint).
 
-### <a name="use-the-microsoft-azure-web-services-portal-to-add-an-endpoint"></a>Använda webbtjänster för Microsoft Azure-portalen för att lägga till en slutpunkt
-1. Klicka på webbtjänster på kolumnen navigeringen till vänster i Machine Learning Studio.
-2. Längst ned i web service instrumentpanelen klickar du på **hantera slutpunkter preview**.
+### <a name="use-the-microsoft-azure-web-services-portal-to-add-an-endpoint"></a>Använda Microsoft Azure Web Services-portalen för att lägga till en slutpunkt
+1. Klicka på webbtjänster i Machine Learning Studio, på den vänstra kolumnen.
+2. Längst ned i instrumentpanelen för webbtjänsten klickar du på **hantera slutpunkter förhandsversion**.
 3. Klicka på **Lägg till**.
-4. Skriv ett namn och beskrivning för den nya slutpunkten. Välj loggningsnivån och om exempeldata är aktiverad. Mer information om loggning finns [aktivera loggning för Machine Learning-webbtjänster](web-services-logging.md).
+4. Skriv ett namn och beskrivning för den nya slutpunkten. Välj loggningsnivån och om exempeldata är aktiverad. Mer information om loggning finns i [aktivera loggning för Machine Learning web services](web-services-logging.md).
 
-## <a name="update-the-added-endpoints-trained-model"></a>Uppdatera tillagda slutpunkten tränade modellen
-Om du vill slutföra omtränings, måste du uppdatera den tränade modellen för den nya slutpunkt som du har lagt till.
+## <a name="update-the-added-endpoints-trained-model"></a>Uppdatera har lagts till slutpunkten tränade modellen
+Om du vill slutföra omtränings, måste du uppdatera den tränade modellen för den nya slutpunkten som du har lagt till.
 
-Om du har lagt till slutpunkten med exempelkoden inkluderar plats för hjälp-URL som identifieras av den *HelpLocationURL* värdet i utdata.
+Om du har lagt till slutpunkten med exempelkoden som inkluderar platsen för hjälp-URL som identifieras av den *HelpLocationURL* värdet i utdata.
 
-Att hämta sökvägen-URL:
+Att hämta sökvägen URL: en:
 
-1. Kopiera och klistra in Webbadressen i webbläsaren.
-2. Klicka på länken Update resurs.
-3. Kopiera URL-Adressen för POST till PATCH-begäran. Exempel:
+1. Kopiera och klistra in URL: en i webbläsaren.
+2. Klicka på länken resursuppdatering.
+3. Kopiera POST-URL: en för PATCH-begäran. Exempel:
    
      PATCH-URL: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
 
-Du kan nu använda den tränade modellen för att uppdatera bedömningsprofil slutpunkten som du skapade tidigare.
+Du kan nu använda den tränade modellen för att uppdatera bedömnings slutpunkten som du skapade tidigare.
 
-Följande exempelkod visar hur du använder den *BaseLocation*, *RelativeLocation*, *SasBlobToken*, och KORRIGERA URL för att uppdatera slutpunkten.
+Följande exempelkod visar hur du använder den *BaseLocation*, *RelativeLocation*, *SasBlobToken*, och KORRIGERA URL: en att uppdatera slutpunkten.
 
     private async Task OverwriteModel()
     {
@@ -114,28 +114,28 @@ Följande exempelkod visar hur du använder den *BaseLocation*, *RelativeLocatio
         }
     }
 
-Den *apiKey* och *endpointUrl* för anropet kan hämtas från slutpunkten instrumentpanelen.
+Den *apiKey* och *endpointUrl* för anropet kan hämtas från slutpunkt-instrumentpanelen.
 
-Värdet för den *namn* parameter i *resurser* ska matcha namnet på den sparade tränade modellen i prediktivt experiment resurs. Hämta resursnamnet:
+Värdet för den *namn* parameter i *resurser* ska matcha resursnamnet för den sparade tränade modellen i förutsägbart experiment. Hämta resursnamnet:
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. I den vänstra menyn klickar du på **Maskininlärning**.
-3. Klicka på arbetsytan under namn och klicka sedan på **Web Services**.
-4. Under namn, klickar du på **inventering modellen [förutsägande exp].** .
-5. Klicka på ny slutpunkt som du har lagt till.
-6. Klicka på infopanelen endpoint **uppdatering resurs**.
-7. På sidan uppdatera resurs API-dokumentationen för webbtjänsten hittar du den **resursnamnet** under **uppdateras resurser**.
+3. Under namn klickar du på din arbetsyta och klicka sedan på **webbtjänster**.
+4. Under namn, klickar du på **insamlade modell [förutsägande exp.]** .
+5. Klicka på den nya slutpunkten som du har lagt till.
+6. På endpoint-instrumentpanelen klickar du på **resursuppdatering**.
+7. På sidan Update Resource API-dokumentation för webbtjänsten som du kan hitta den **resursnamn** under **uppdateras resurser**.
 
-Om din SAS-token upphör att gälla innan du har uppdaterat slutpunkten, måste du utföra GET med jobb-Id för att få en ny token.
+Om din SAS-token upphör att gälla innan du har uppdaterat slutpunkten, måste du utföra en hämtning med jobb-Id för att hämta en ny token.
 
-När koden har körts, ska ny slutpunkt börja använda retrained modellen cirka 30 sekunder.
+När koden har körts, ska den nya slutpunkten börja använda retrained modellen i ungefär 30 sekunder.
 
 ## <a name="summary"></a>Sammanfattning
-Du kan använda Omtränings-API för att uppdatera den tränade modellen av en förutsägbar webbtjänsten för att aktivera scenarier som:
+Med API: erna Retraining kan uppdatera du den tränade modellen av en förutsägbar webbtjänst att aktivera scenarier som:
 
-* Periodiska modell via programmering med nya data.
-* Distribution av en modell för kunder med målet att låta dem träna om modellen med sina egna data.
+* Periodiska modell träna med nya data.
+* Distribution av en modell för kunder med målet att så att de kan träna modellen med sina egna data.
 
 ## <a name="next-steps"></a>Nästa steg
-[Felsökning av omtränings av en klassisk Azure Machine Learning-webbtjänst](troubleshooting-retraining-models.md)
+[Felsöka omtrimning av en klassisk Azure Machine Learning-webbtjänst](troubleshooting-retraining-models.md)
 

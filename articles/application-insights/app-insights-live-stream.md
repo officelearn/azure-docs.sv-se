@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: a7953781776fa4d7c9ae47901bb5f0c28a87ff2b
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9105b7f44a9677b2b843305c30fec30c74dd8be5
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091199"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958499"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Övervaka och diagnostisera med en svarstid på 1 sekund
 
@@ -203,7 +203,7 @@ Ser du inga data? Om programmet är i ett skyddat nätverk: Live Metrics Stream 
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Övervakning med Application Insights](app-insights-web-track-usage.md)
+* [Övervakning med Application Insights](app-insights-usage-overview.md)
 * [Med hjälp av Diagnostiksökning](app-insights-diagnostic-search.md)
 * [Profiler](app-insights-profiler.md)
 * [Felsökning av ögonblicksbild](app-insights-snapshot-debugger.md)

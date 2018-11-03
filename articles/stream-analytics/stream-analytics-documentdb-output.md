@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 95cfc7e6d9515274aa7a3c5fde382244f3b33fab
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 8dc85c55dd67d8acd394d7922e947c91234ef23b
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42058259"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957156"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Stream Analytics-utdata till Azure Cosmos DB  
 Stream Analytics kan riktas mot [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) att aktivera arkivering och låg latens datafrågor för Ostrukturerade JSON-data för JSON-utdata. Det här dokumentet beskriver några av metodtipsen för att implementera den här konfigurationen.
@@ -38,6 +38,13 @@ Stream Analytics-integrering med Azure Cosmos DB kan du infoga eller uppdatera p
 
 Stream Analytics använder en optimistisk upsert-metod, där uppdateringar utförs endast när insert misslyckas med ett dokument-ID-konflikt. Den här uppdateringen utförs som en uppdatering, så att den kan deluppdateringar till dokumentet, det vill säga, Lägg till nya egenskaper eller ersätta en befintlig egenskap utförs inkrementellt. Ändringar i värdena för matris egenskaper i JSON-dokument-resultat i hela matrisen komma över, det vill säga matrisen inte slagit samman.
 
+Om inkommande JSON-dokumentet har ett befintligt ID-fält att fältet används automatiskt som dokument-ID-kolumn i Cosmos DB och alla efterföljande skrivningar hanteras därför leder till någon av dessa situationer:
+- unika ID: N leda till att infoga
+- dubbla ID: N och ”dokument-ID” inställd på ”ID” leder till upsert
+- dubbla ID: N och dokument-ID inte set leder till fel, efter det första dokumentet
+
+Om du vill spara <i>alla</i> dokument, inklusive som med en dubblett-ID, byta namn på ID-fältet i din fråga (med nyckelordet AS) och låt Cosmos DB skapa ID-fältet eller ersätta ID med en annan kolumn värde (med hjälp av nyckelordet AS eller med inställningen dokument-ID).
+
 ## <a name="data-partitioning-in-cosmos-db"></a>Datapartitionering i Cosmos DB
 Azure Cosmos DB [obegränsad](../cosmos-db/partition-data.md) är den rekommenderade metoden för att partitionera dina data, som Azure Cosmos DB automatiskt skalar partitioner baserat på din arbetsbelastning. Vid skrivning till obegränsade behållare, använder Stream Analytics så många parallella skrivare som tidigare frågesteg eller indata som partitioneringsschema.
 > [!Note]
@@ -60,4 +67,4 @@ Kontonamn    | Namn eller slutpunkt URI: N för Azure Cosmos DB-konto
 Kontonyckel     | Den delade åtkomstnyckeln för Azure Cosmos DB-konto
 Databas        | Azure Cosmos DB-databasnamn
 Samlingsnamn | Samlingsnamn för samlingen som ska användas. `MyCollection` är en giltig inmatning för exemplet – en samling som heter `MyCollection` måste finnas.  
-Dokument-ID     | Valfri. Kolumnnamnet i utdatahändelserna används som den unika nyckeln åtgärder måste baseras på vilken insert eller update. Om fältet lämnas tomt kommer alla händelser att infogas, där du inte uppdateringen.
+Dokument-id     | Valfri. Kolumnnamnet i utdatahändelserna används som den unika nyckeln åtgärder måste baseras på vilken insert eller update. Om fältet lämnas tomt kommer alla händelser att infogas, där du inte uppdateringen.

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 38537f3e2884160a99d333f1414d3f45755cd4f9
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9b0a9b8c976ce5ef9fb57a6f8bcfd076f370bb10
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404621"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964006"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware Monitoring (förhandsversion) lösningen i Log Analytics
 
@@ -42,7 +42,7 @@ Använd följande information för att installera och konfigurera lösningen.
 vSphere ESXi-värd 5.5, 6.0 och 6.5
 
 #### <a name="prepare-a-linux-server"></a>Förbereda en Linux-server
-Skapa en Linux-operativsystem virtuell dator tar emot alla syslog-data från ESXi-värdar. Den [Log Analytics Linux-agenten](log-analytics-linux-agents.md) är den samling för alla ESXi-värd syslog-data. Du kan använda flera ESXi-värdar för att vidarebefordra loggar till en enda Linux-server, som i följande exempel.
+Skapa en Linux-operativsystem virtuell dator tar emot alla syslog-data från ESXi-värdar. Den [Log Analytics Linux-agenten](log-analytics-quick-collect-linux-computer.md) är den samling för alla ESXi-värd syslog-data. Du kan använda flera ESXi-värdar för att vidarebefordra loggar till en enda Linux-server, som i följande exempel.
 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]  
 
@@ -131,7 +131,7 @@ I den **VMware** instrumentpanelsvyn blad är ordnade efter:
 
 Klicka på ett blad för att öppna Log Analytics search fönstret som visar detaljerad information för bladet.
 
-Härifrån kan redigera du frågan om du vill ändra det efter något mer specifikt. Mer information om hur du skapar loggsökningar, finns i [hitta data med loggsökningar i Log Analytics](log-analytics-log-searches.md).
+Härifrån kan redigera du frågan om du vill ändra det efter något mer specifikt. Mer information om hur du skapar loggsökningar, finns i [hitta data med loggsökningar i Log Analytics](log-analytics-log-search.md).
 
 #### <a name="find-esxi-host-events"></a>Hitta händelser för ESXi-värd
 En enda ESXi-värd genererar flera loggar, utifrån sina processer. VMware Monitoring-lösningen centraliserar dem och sammanfattar antalet händelser. Den här centraliserade vyn hjälper dig att förstå vilka ESXi-värden har ett stort antal händelser och vilka händelser inträffar oftast i din miljö.
@@ -165,7 +165,7 @@ Spara sökfrågor är en funktion som standard i Log Analytics och hjälper dig 
 ![DockerDashboardView](./media/log-analytics-vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Skapa aviseringar från frågor
-När du har skapat dina frågor, kanske du vill använda frågorna för att meddela dig när specifika händelser äger rum. Se [aviseringar i Log Analytics](log-analytics-alerts.md) information om hur du skapar aviseringar. Exempel på aviseringar frågor och andra fråga-exempel finns i [övervaka VMware med Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blogginlägg.
+När du har skapat dina frågor, kanske du vill använda frågorna för att meddela dig när specifika händelser äger rum. Se [aviseringar i Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) information om hur du skapar aviseringar. Exempel på aviseringar frågor och andra fråga-exempel finns i [övervaka VMware med Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blogginlägg.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>Vad behöver jag göra på ESXi värd inställningen? Vilken effekt det har på min aktuella miljön?
@@ -206,6 +206,6 @@ Det kan finnas flera anledningar:
     d. Om filen inte finns eller är fel, användare och grupp-inställning vidta åtgärder med [förbereda en Linux-server](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd [Loggsökningar](log-analytics-log-searches.md) ha data i Log Analytics för att visa detaljerad VMware.
+* Använd [Loggsökningar](log-analytics-log-search.md) ha data i Log Analytics för att visa detaljerad VMware.
 * [Skapa dina egna instrumentpaneler](log-analytics-dashboards.md) som visar data för VMware-värd.
-* [Skapa aviseringar](log-analytics-alerts.md) när specifika händelser för VMware-värd inträffar.
+* [Skapa aviseringar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) när specifika händelser för VMware-värd inträffar.

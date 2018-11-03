@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 7c6d91da0634e7f847af01d1c057607ab095cdf6
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7f3a90bf0dad2d0e9c6d51e942d88fb933b8ed1f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408216"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961338"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Lösning för Application Insights-Anslutningsapp (förhandsversion)
 
@@ -44,8 +44,8 @@ Till skillnad från de flesta andra Log Analytics-lösningar, inte som samlas in
 
 | Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
-| [Windows-agenter](log-analytics-windows-agent.md) | Nej | Lösningen samlar inte in information från Windows-agenter. |
-| [Linux-agenter](log-analytics-linux-agents.md) | Nej | Lösningen samlar inte in information från Linux-agenter. |
+| [Windows-agenter](log-analytics-agent-windows.md) | Nej | Lösningen samlar inte in information från Windows-agenter. |
+| [Linux-agenter](log-analytics-quick-collect-linux-computer.md) | Nej | Lösningen samlar inte in information från Linux-agenter. |
 | [SCOM-hanteringsgrupp](log-analytics-om-agents.md) | Nej | Lösningen samlar inte in information från agenter i en ansluten SCOM-hanteringsgrupp. |
 | [Azure Storage-konto](log-analytics-azure-storage.md) | Nej | Lösningen gör inte samlingsinformation från Azure storage. |
 
@@ -57,7 +57,7 @@ Till skillnad från de flesta andra Log Analytics-lösningar, inte som samlas in
 
 ## <a name="configuration"></a>Konfiguration
 
-1. Aktivera Azure Web Apps Analytics-lösningen från den [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) eller genom att använda processen som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md).
+1. Aktivera Azure Web Apps Analytics-lösningen från den [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) eller genom att använda processen som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](../monitoring/monitoring-solutions.md).
 2. Bläddra till [Azure-portalen](https://portal.azure.com). Välj **alla tjänster** att öppna Application Insights. Sök sedan efter Application Insights. 
 3. Under **prenumerationer**, Välj en prenumeration med Application Insights-resurser och sedan under **namn**, Välj ett eller flera program.
 4. Klicka på **Spara**.
@@ -267,4 +267,4 @@ Den här lösningen har inte en uppsättning exempel på loggsökningar visas p�
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Använd [Loggsökning](log-analytics-log-searches.md) att visa detaljerad information för Application Insights-appar.
+- Använd [Loggsökning](log-analytics-log-search.md) att visa detaljerad information för Application Insights-appar.

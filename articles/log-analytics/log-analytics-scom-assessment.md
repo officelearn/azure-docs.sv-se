@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 39e11f35870fa3a3573e5f1af467cfbd898a1563
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 5f5bfe6c730f569f0cc902b0e0a132bfca645a45
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182152"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961695"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimera din miljö med lösningen för System Center Operations Manager hälsokontroll (förhandsversion)
 
@@ -212,7 +212,7 @@ Varje rekommendation innehåller information om varför det är viktigt. Använd
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Använd hälsokontrollen fokus området rekommendationer
 
-Innan du kan använda en lösning för kontroll av hälsotillstånd i Log Analytics, måste du ha installerat lösningen. Läsa mer om hur du installerar lösningar, se [installera en lösning för](log-analytics-add-solutions.md). När den har installerats, du kan visa en sammanfattning av rekommendationer med hjälp av System Center Operations Manager Health Check-panel på den **översikt** för din arbetsyta i Azure-portalen.
+Innan du kan använda en lösning för kontroll av hälsotillstånd i Log Analytics, måste du ha installerat lösningen. Läsa mer om hur du installerar lösningar, se [installera en lösning för](../monitoring/monitoring-solutions.md). När den har installerats, du kan visa en sammanfattning av rekommendationer med hjälp av System Center Operations Manager Health Check-panel på den **översikt** för din arbetsyta i Azure-portalen.
 
 Visa de sammanfattade efterlevnad utvärderingarna för din infrastruktur och sedan gå till rekommendationer.
 
@@ -238,7 +238,7 @@ Om du har synpunkter som du vill ignorera kan du skapa en textfil som Log Analyt
     ```
 
     >[!NOTE]
-    > Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md), och sedan frågan ovan skulle ändras till följande.
+    > Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search.md), och sedan frågan ovan skulle ändras till följande.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -263,7 +263,7 @@ Om du har synpunkter som du vill ignorera kan du skapa en textfil som Log Analyt
     ```
 
     >[!NOTE]
-    > Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md), och sedan frågan ovan skulle ändras till följande.
+    > Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search.md), och sedan frågan ovan skulle ändras till följande.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -304,4 +304,4 @@ Om du har synpunkter som du vill ignorera kan du skapa en textfil som Log Analyt
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Söka loggarna](log-analytics-log-searches.md) och lär dig att analysera detaljerad information för System Center Operations Manager hälsokontrollen och rekommendationer.
+- [Söka loggarna](log-analytics-log-search.md) och lär dig att analysera detaljerad information för System Center Operations Manager hälsokontrollen och rekommendationer.

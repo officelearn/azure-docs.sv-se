@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 756417ee2f98549d648386c2471baa74889245a4
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 904387def0fd8842f196e80cfcf72d9dd1639458
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914031"
+ms.locfileid: "50957716"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Fjärrskrivbordstjänster är inte startar på en Azure VM
 
@@ -58,6 +58,7 @@ Det här problemet uppstår eftersom Remote Desktop Services inte körs på den 
 
 - TermService-tjänsten är inställd på **inaktiverad**. 
 - TermService tjänsten kraschar eller hängande. 
+- TermService startas inte grund av att en felaktig konfiguration.
 
 ## <a name="solution"></a>Lösning
 
@@ -98,16 +99,17 @@ Använd Seriekonsolen för att felsöka problemet. Eller [reparera den virtuella
 
     |  Fel |  Förslag |
     |---|---|
-    |5 – ÅTKOMST NEKAD |Se [TermService tjänsten har stoppats på grund av ett felmeddelande om nekad](#termService-service-is-stopped-because-of-an-access-denied-error). |
-    |1058 - ERROR_SERVICE_DISABLED  |Se [TermService tjänsten inaktiveras](#termService-service-is-disabled).  |
+    |5 – ÅTKOMST NEKAD |Se [TermService tjänsten har stoppats på grund av ett felmeddelande om nekad](#termService-service-is-stopped-because-of-an-access-denied-problem). |   |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Se [TermService tjänsten inaktiveras](#termService-service-is-disabled).  |  
+    |1058 - ERROR_SERVICE_DISABLED  |Se [TermService tjänsten kraschar eller låser sig](#termService-service-crashes-or-hangs).  |
     |1059 - ERROR_CIRCULAR_DEPENDENCY |[Kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.|
+    |1067 - ERROR_PROCESS_ABORTED  |Se [TermService tjänsten kraschar eller låser sig](#termService-service-crashes-or-hangs).  |
     |1068 - ERROR_SERVICE_DEPENDENCY_FAIL|[Kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.|
-    |1069 - ERROR_SERVICE_LOGON_FAILED  |[Kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.    |
-    |1070 - ERROR_SERVICE_START_HANG   | [Kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.  |
+    |1069 - ERROR_SERVICE_LOGON_FAILED  |Se [TermService tjänsten misslyckas på grund av inloggningsfel](#termService-service-fails-because-of-logon-failure) |
+    |1070 - ERROR_SERVICE_START_HANG   | Se [TermService tjänsten kraschar eller låser sig](#termService-service-crashes-or-hangs). |
     |1077 - ERROR_SERVICE_NEVER_STARTED   | Se [TermService tjänsten inaktiveras](#termService-service-is-disabled).  |
     |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt. |
-    |1753   |[Kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.   |
-
+    |1753   |[Kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.   |   |5 – ÅTKOMST NEKAD |Se [TermService tjänsten har stoppats på grund av ett felmeddelande om nekad](#termService-service-is-stopped-because-of-an-access-denied-error). |
+    
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>TermService tjänsten har stoppats på grund av ett problem med åtkomst nekad
 
 1. Ansluta till [Seriekonsolen](serial-console-windows.md#) och öppna en PowerShell-instans.
@@ -139,7 +141,14 @@ Använd Seriekonsolen för att felsöka problemet. Eller [reparera den virtuella
    procmon /Terminate 
    ```
 
-5. Samla in filen **c:\temp\ProcMonTrace.PML**. Öppna den med hjälp av **procmon**. Sedan filtrera efter **resultatet är NEKAD**, enligt följande skärmbild:
+5. Samla in filen **c:\temp\ProcMonTrace.PML**:
+
+    1. [Anslut en datadisk till den virtuella datorn](../windows/attach-managed-disk-portal.md
+).
+    2. Använd Seriekonsol som du kan kopiera filen till den nya enheten. Till exempel `copy C:\temp\ProcMonTrace.PML F:\`. I det här kommandot är F enhetsbokstaven för den anslutna disken.
+    3. Koppla från dataenheten och koppla den på en aktiv virtuell dator som har Övervakare för processen ubstakke installerad.
+
+6. Öppna **ProcMonTrace.PML** med hjälp av Övervakare för processen fungerande virtuell dator. Sedan filtrera efter **resultatet är NEKAD**, enligt följande skärmbild:
 
     ![Filtrera efter resultat i Övervakare för processen](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
@@ -168,6 +177,27 @@ Använd Seriekonsolen för att felsöka problemet. Eller [reparera den virtuella
 
 4. Försök att ansluta till virtuell dator med hjälp av fjärrskrivbord.
 
+#### <a name="termservice-service-fails-because-of-logon-failure"></a>Tjänsten TermService misslyckas på grund av inloggningsfel
+
+1. Det här problemet uppstår om konto för tjänststart för den här tjänsten har ändrats. Ändra det här till standardvärdet: 
+
+        sc config TermService obj= 'NT Authority\NetworkService'
+2. Starta tjänsten:
+
+        sc start TermService
+3. Försök att ansluta till virtuell dator med hjälp av fjärrskrivbord.
+
+#### <a name="termservice-service-crashes-or-hangs"></a>TermService kraschar eller låser sig
+1. Om status för tjänsten har fastnat i **startar** eller **stoppar**, försök att stoppa tjänsten: 
+
+        sc stop TermService
+2. Isolera tjänsten på sin egen 'svchost ”-behållaren:
+
+        sc config TermService type= own
+3. Starta tjänsten:
+
+        sc start TermService
+4. Om tjänsten fortfarande misslyckas med att starta, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="repair-the-vm-offline"></a>Reparera den virtuella datorn offline
 

@@ -8,33 +8,32 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 21464ccfbd5712b18e46a271a93232dc3ba7d3c8
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 656742727b2bd85ac93211c74d82fe11d0bc0f46
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244082"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963905"
 ---
-# <a name="global-distribution---under-the-hood"></a>Global distribution – under huven
+# <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Azure global distribution Cosmos DB – under huven
 
-Azure Cosmos DB är en grundläggande tjänst i Azure, så att den har distribuerats i alla Azure-regioner över hela världen, inklusive offentlig, suveräna, Department of Defense (DoD) och government-moln. Inom ett datacenter, vi distribuera och hantera Azure Cosmos DB-tjänsten på enorma ”stämplar” av datorer, var och en med dedikerad lokal lagring. Inom ett datacenter, är Azure Cosmos DB distribuerade över många kluster vart och ett potentiellt körs flera generationer av maskinvara. Datorer i ett kluster är vanligtvis fördelade på 10-20-feldomäner.
+Azure Cosmos DB är en grundläggande tjänst i Azure, så att den har distribuerats i alla Azure-regioner över hela världen, inklusive offentlig, suveräna, Department of Defense (DoD) och government-moln. Inom ett datacenter, vi distribuera och hantera Azure Cosmos DB på enorma stämplar av datorer, var och en med dedikerad lokal lagring. Inom ett datacenter, är Azure Cosmos DB distribuerade över många kluster vart och ett potentiellt körs flera generationer av maskinvara. Datorer i ett kluster är vanligtvis fördelade på 10-20-feldomäner. Följande bild visar Cosmos DB globalt system topologin:
 
 ![System-topologi](./media/global-dist-under-the-hood/distributed-system-topology.png)
-**System-topologi**
 
-Global distribution i Azure Cosmos DB är nyckelfärdig: när som helst, med några få klick, eller programmässigt med ett enda API-anrop kunden kan lägga till eller ta bort de geografiska regioner som associeras med sin Cosmos-databas. En Cosmos-databas består i sin tur av en uppsättning Cosmos-behållare. I Cosmos DB kan fungera behållare som de logiska enheterna för distribution och skalbarhet. Samlingar, tabeller och diagram som du skapar är (internt) bara Cosmos-behållare. Behållare är fullständigt schemaoberoende och ange en omfattning för en fråga. Alla data i en Cosmos-behållare indexeras automatiskt vid inmatning. Automatisk indexering kan du fråga data utan att behöva hantera scheman eller besvär indexhantering, särskilt i en global konfiguration.  
-
-I följande bild visas data i en behållare som distribueras i två dimensioner:  
+**Global distribution i Azure Cosmos DB är nyckelfärdig:** när som helst, med några få klick, eller programmässigt med ett enda API-anrop, kan du lägga till eller ta bort geografiska områden som är associerade med sin Cosmos-databas. En Cosmos-databas består i sin tur av en uppsättning Cosmos-behållare. I Cosmos DB kan fungera behållare som de logiska enheterna för distribution och skalbarhet. Samlingar, tabeller och diagram som du skapar är (internt) bara Cosmos-behållare. Behållare är fullständigt schemaoberoende och ange en omfattning för en fråga. Data i en Cosmos-behållare indexeras automatiskt vid inmatning. Automatisk indexering kan du fråga data utan att behöva hantera scheman eller besvär indexhantering, särskilt i en global konfiguration.  
 
 - Data i en behållare som distribueras i en viss region med hjälp av en partitionsnyckel, som du anger och hanteras transparent av underliggande resurspartitioner (lokal distribution).  
+
 - Varje resurspartition replikeras också över geografiska regioner (global distribution). 
 
 När en app med Cosmos DB Elastiskt skala dataflödet och hantera (eller förbrukar mer lagringsutrymme) på en Cosmos-behållare, Cosmos DB transparent hanterar partition hanteringsåtgärder (dela, klona och ta bort) i alla regioner. Oberoende av skala, distribution eller fel, fortsätter Cosmos DB att tillhandahålla en enskild systemavbildning av data i behållare som distribueras globalt över flera regioner.  
 
-![Resurspartitioner](./media/global-dist-under-the-hood/distribution-of-resource-partitions.png)
-**Distribution av Resurspartitioner**
+I följande bild visas data i en behållare som distribueras i två dimensioner:  
 
-En resurspartition är fysiskt, implementeras av en grupp av repliker, kallas en replikuppsättning. Varje dator är värd för hundratals repliker som motsvarar olika resurspartitioner inom en fast uppsättning processer som visas i föregående bild. Repliker som motsvarar resurspartitioner placeras dynamiskt och belastningsutjämnas mellan datorer inom ett kluster och datacenter inom en region.  
+![Resurspartitioner](./media/global-dist-under-the-hood/distribution-of-resource-partitions.png)
+
+En resurspartition implementeras av en grupp av repliker, kallas en replikuppsättning. Varje dator är värd för hundratals repliker som motsvarar olika resurspartitioner inom en fast uppsättning processer som visas i föregående bild. Repliker som motsvarar resurspartitioner placeras dynamiskt och belastningsutjämnas mellan datorer inom ett kluster och datacenter inom en region.  
 
 En replik tillhör unikt en Azure Cosmos DB-klient. Varje replik har en instans av Cosmos DB [databasmotorn](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), som hanterar resurserna som de associera index. Cosmos DB database engine fungerar på ett atom-postsekvensbaserad (ARS) utifrån typen. Motorn är oberoende av konceptet med ett schema och göra dem suddiga gränsen mellan värdena struktur och instans för poster. Cosmos DB ger fullständig schemat agnosticism genom att automatiskt indexera allt vid inmatning på ett effektivt sätt, där användarna kan fråga efter deras globalt distribuerade data utan att behöva bry dig om schema- eller indexhantering.
 

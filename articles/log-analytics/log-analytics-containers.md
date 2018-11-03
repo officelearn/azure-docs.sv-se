@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d8f2701ca62eee261beaa49fe2a0719be7423a5b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 824be21623892b8810ca4af5b885daf65bfb1594
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408497"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959162"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Lösning för övervakning av behållare i Log Analytics
 
@@ -36,7 +36,7 @@ Lösningen visar vilka behållare som körs, vilka behållaravbildning de körs 
 - Service Fabric
 - Red Hat OpenShift
 
-Om du vill övervaka prestanda för dina arbetsbelastningar som distribueras till Kubernetes-miljöer finns på Azure Kubernetes Service (AKS), se [övervaka Azure Kubernetes Service](../monitoring/monitoring-container-health.md). Övervakningslösningen för behållaren omfattar inte support för att övervaka den plattformen.  
+Om du vill övervaka prestanda för dina arbetsbelastningar som distribueras till Kubernetes-miljöer finns på Azure Kubernetes Service (AKS), se [övervaka Azure Kubernetes Service](../monitoring/monitoring-container-insights-overview.md). Övervakningslösningen för behållaren omfattar inte support för att övervaka den plattformen.  
 
 Följande diagram visar relationerna mellan olika behållare-värdar och -agenter med Log Analytics.
 
@@ -97,11 +97,11 @@ I följande tabell beskrivs Docker orchestration och operativsystemet övervakni
 ## <a name="installing-and-configuring-the-solution"></a>Installera och konfigurera lösningen
 Använd följande information för att installera och konfigurera lösningen.
 
-1. Lägg till lösning för övervakning av behållare till Log Analytics-arbetsytan från [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) eller genom att använda processen som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md).
+1. Lägg till lösning för övervakning av behållare till Log Analytics-arbetsytan från [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) eller genom att använda processen som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](../monitoring/monitoring-solutions.md).
 
 2. Installera och använda Docker med en Log Analytics-agenten. Baserat på ditt operativsystem och Docker orchestrator kan använda du följande metoder för att konfigurera ditt ombud.
   - För fristående värdar:
-    - Installera på Linux operativsystem som stöds och kör Docker och sedan installera och konfigurera den [Log Analytics-agenten för Linux](log-analytics-agent-linux.md).  
+    - Installera på Linux operativsystem som stöds och kör Docker och sedan installera och konfigurera den [Log Analytics-agenten för Linux](log-analytics-quick-collect-linux-computer.md).  
     - På CoreOS, kan du inte köra Log Analytics-agenten för Linux. I stället kan du köra en behållare version av Log Analytics-agenten för Linux. Granska [Linux behållare-värdar, inklusive CoreOS](#for-all-linux-container-hosts-including-coreos) eller [Azure Government Linux behållare-värdar, inklusive CoreOS](#for-all-azure-government-linux-container-hosts-including-coreos) om du arbetar med behållare i Azure Government-molnet.
     - Installera Docker-motorn och klienten i Windows Server 2016 och Windows 10, sedan en agent för att samla in information och skicka den till Log Analytics. Granska [installera och konfigurera Windows behållarvärdar](#install-and-configure-windows-container-hosts) om du har en Windows-miljö.
   - För dirigering av Docker flera värden:
@@ -117,7 +117,7 @@ Använd följande information för att installera och konfigurera lösningen.
 Granska den [Docker-motorn på Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) artikeln för mer information om hur du installerar och konfigurerar Docker-motorer på datorer som kör Windows.
 
 > [!IMPORTANT]
-> Docker måste köras **innan** du installerar den [Log Analytics-agenten för Linux](log-analytics-agent-linux.md) på behållare-värdar. Om du redan har installerat agenten innan du installerar Docker måste du installera om Log Analytics-agenten för Linux. Mer information om Docker finns i den [Docker webbplats](https://www.docker.com).
+> Docker måste köras **innan** du installerar den [Log Analytics-agenten för Linux](log-analytics-quick-collect-linux-computer.md) på behållare-värdar. Om du redan har installerat agenten innan du installerar Docker måste du installera om Log Analytics-agenten för Linux. Mer information om Docker finns i den [Docker webbplats](https://www.docker.com).
 
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Installera och konfigurera Linux-behållare-värdar
@@ -146,7 +146,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 **Växla från att använda en installerad agent för Linux till någon i en behållare**
 
-Om du tidigare använde direkt installerade agenten och vill använda i stället för en agent som körs i en behållare, måste du först ta bort Log Analytics-agenten för Linux. Se [avinstallera Log Analytics-agenten för Linux](log-analytics-agent-linux.md) vill lära dig att avinstallera agenten.  
+Om du tidigare använde direkt installerade agenten och vill använda i stället för en agent som körs i en behållare, måste du först ta bort Log Analytics-agenten för Linux. Se [avinstallera Log Analytics-agenten för Linux](log-analytics-quick-collect-linux-computer.md) vill lära dig att avinstallera agenten.  
 
 #### <a name="configure-a-log-analytics-agent-for-docker-swarm"></a>Konfigurera en Log Analytics-agenten för Docker Swarm
 
@@ -190,8 +190,8 @@ För Docker Swarm, när hemligheten för arbetsyte-ID och den primärnyckeln har
 #### <a name="configure-a-log-analytics-agent-for-red-hat-openshift"></a>Konfigurera en Log Analytics-agenten för Red Hat OpenShift
 Det finns tre sätt att lägga till Log Analytics-agenten i Red Hat OpenShift börjar samla in övervakningsdata för behållaren.
 
-* [Installera Log Analytics-agenten för Linux](log-analytics-agent-linux.md) direkt på varje nod för OpenShift  
-* [Aktivera VM-tillägg för Log Analytics](log-analytics-azure-vm-extension.md) på varje nod för OpenShift som finns i Azure  
+* [Installera Log Analytics-agenten för Linux](log-analytics-quick-collect-linux-computer.md) direkt på varje nod för OpenShift  
+* [Aktivera VM-tillägg för Log Analytics](log-analytics-quick-collect-azurevm.md) på varje nod för OpenShift som finns i Azure  
 * Installera Log Analytics-agenten som en daemon-uppsättning OpenShift  
 
 I det här avsnittet beskriver vi de steg som krävs för att installera Log Analytics-agenten som en daemon-set OpenShift.  
@@ -476,15 +476,15 @@ Om du vill använda helm för att distribuera Log Analytics-agenten på Linux Ku
     LAST DEPLOYED: Tue Sep 19 20:37:46 2017
     NAMESPACE: default
     STATUS: DEPLOYED
- 
+ 
     RESOURCES:
     ==> v1/Secret
-    NAME            TYPE    DATA  AGE
-    omsagent-msoms  Opaque  3     17m
- 
+    NAME            TYPE    DATA  AGE
+    omsagent-msoms  Opaque  3     17m
+ 
     ==> v1beta1/DaemonSet
-    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
-    omsagent-msoms  3        3        3      3           3          <none>         17m
+    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
+    omsagent-msoms  3        3        3      3           3          <none>         17m
     ```
 Mer information finns på [behållare lösning Helm-diagrammet](https://aka.ms/omscontainerhelm).
 
@@ -524,9 +524,9 @@ Mer information om konfigurationen av Docker-daemon med Windows-behållare finns
 
 #### <a name="install-windows-agents"></a>Installera Windows-agenter
 
-Om du vill aktivera behållarövervakning för Windows och Hyper-V, installera Microsoft Monitoring Agent (MMA) på Windows-datorer som är behållare-värdar. Datorer som kör Windows i din lokala miljö, se [ansluta Windows-datorer till Log Analytics](log-analytics-windows-agent.md). För virtuella datorer som körs i Azure och Anslut dem till Log Analytics med hjälp av den [tillägg för virtuell dator](log-analytics-azure-vm-extension.md).
+Om du vill aktivera behållarövervakning för Windows och Hyper-V, installera Microsoft Monitoring Agent (MMA) på Windows-datorer som är behållare-värdar. Datorer som kör Windows i din lokala miljö, se [ansluta Windows-datorer till Log Analytics](log-analytics-agent-windows.md). För virtuella datorer som körs i Azure och Anslut dem till Log Analytics med hjälp av den [tillägg för virtuell dator](log-analytics-quick-collect-azurevm.md).
 
-Du kan övervaka Windows-behållare som körs på Service Fabric. Dock endast [virtuella datorer som körs i Azure](log-analytics-azure-vm-extension.md) och [datorer som kör Windows i din lokala miljö](log-analytics-windows-agent.md) stöds för närvarande för Service Fabric.
+Du kan övervaka Windows-behållare som körs på Service Fabric. Dock endast [virtuella datorer som körs i Azure](log-analytics-quick-collect-azurevm.md) och [datorer som kör Windows i din lokala miljö](log-analytics-agent-windows.md) stöds för närvarande för Service Fabric.
 
 Du kan kontrollera att övervakningslösningen för behållare är korrekt inställda för Windows. Du kan kontrollera om det management pack var download korrekt genom att leta efter *ContainerManagement.xxx*. Filerna måste vara i mappen C:\Program Files\Microsoft Monitoring Agent\Agent\Health State\Management servicepack.
 
@@ -542,9 +542,9 @@ Behållarövervakning lösningen samlar in olika mått och loggfiler prestandada
 
 Data samlas in var tredje minut av följande typer av agenten.
 
-- [Log Analytics-agenten för Linux](log-analytics-linux-agents.md)
-- [Windows-agenten](log-analytics-windows-agent.md)
-- [Log Analytics VM-tillägg](log-analytics-azure-vm-extension.md)
+- [Log Analytics-agenten för Linux](log-analytics-quick-collect-linux-computer.md)
+- [Windows-agenten](log-analytics-agent-windows.md)
+- [Log Analytics VM-tillägg](log-analytics-quick-collect-azurevm.md)
 
 
 ### <a name="container-records"></a>Behållarposter
@@ -604,7 +604,7 @@ Loggsökning öppnas och visar information om tillståndet för dina behållare.
 
 ![Loggsökning för behållare](./media/log-analytics-containers/containers-log-search.png)
 
-Härifrån kan redigera du frågan om du vill ändra den för att hitta informationen du är intresserad av. Läs mer om Loggsökningar [Loggsökningar i Log Analytics](log-analytics-log-searches.md).
+Härifrån kan redigera du frågan om du vill ändra den för att hitta informationen du är intresserad av. Läs mer om Loggsökningar [Loggsökningar i Log Analytics](log-analytics-log-search.md).
 
 ## <a name="troubleshoot-by-finding-a-failed-container"></a>Felsöka genom att söka efter en misslyckad behållare
 
@@ -672,4 +672,4 @@ Spara frågor är en standard funktion i Log Analytics. Genom att spara dem, har
 När du skapar en fråga som användbara kan du spara det genom att klicka på **Favoriter** överst på sidan Log Search. Du kan enkelt använda det senare från den **min instrumentpanel** sidan.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Söka loggarna](log-analytics-log-searches.md) att visa detaljerade data behållarposter.
+* [Söka loggarna](log-analytics-log-search.md) att visa detaljerade data behållarposter.

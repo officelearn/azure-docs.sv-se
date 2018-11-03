@@ -6,14 +6,14 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: f5b91329f5287c1d8f76c98f27d9bc2fd464a11a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 9eba9eef315f1ec6eb25ea21c1d4747ab002d078
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634568"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958924"
 ---
-# <a name="manage-the-avere-vfxt-cluster"></a>Hantera Avere vFXT kluster
+# <a name="manage-the-avere-vfxt-cluster"></a>Hantera Avere vFXT-klustret
 
 När du har skapat klustret, kan du behöva lägga till noder eller stoppa eller starta om klustret. Och när projektet är klar måste du veta hur du stoppar och permanent ta bort klustret. 
 
@@ -83,7 +83,7 @@ Vfxt.py operations försöker kontrollera ändrade data lagras permanent på bac
 
 vfxt.PY förinstallerats på kontrollanten kluster VM. <!-- (If you want to install it on another system, refer to http://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
-En fullständig vfxt.py användningsguiden finns på GitHub: <https://github.com/AvereSystems/vFXT.py/blob/master/docs/README.md> 
+En fullständig vfxt.py användningsguiden finns på GitHub: [klusterhantering med vfxt.py i molnet](https://github.com/azure/averesdk/blob/master/docs/README.md)
 
 ### <a name="add-cluster-nodes-with-vfxtpy"></a>Lägg till noder med vfxt.py
 
@@ -115,7 +115,7 @@ Om du inte använder prototypen, måste du skapa ett kommando som i följande, i
    --log ~/vfxt.log
 ```
 
-Mer information finns i [lägga till noder i ett kluster](https://github.com/AvereSystems/vFXT.py/blob/master/docs/using_vfxt_py.md#add-nodes-to-a-cluster) i guiden vfxt.py användning.
+Mer information finns i [lägga till noder i ett kluster](https://github.com/Azure/AvereSDK/blob/master/docs/using_vfxt_py.md#add-nodes-to-a-cluster) i guiden vfxt.py användning.
 
 ### <a name="stop-a-cluster-with-vfxtpy"></a>Stoppa ett kluster med vfxt.py
 
@@ -129,7 +129,7 @@ vfxt.py --cloud-type azure --from-environment --stop --resource-group GROUPNAME 
 vfxt.py --cloud-type azure --from-environment --start --resource-group GROUPNAME --admin-password PASSWORD --management-address ADMIN_IP --location LOCATION --azure-network NETWORK --azure-subnet SUBNET --instances INSTANCE1_ID INSTANCE2_ID INSTANCE3_ID ...
 ```    
 
-Eftersom klustret har stoppats, måste du ange instans-ID: n för att ange klusternoderna. Läs [anger vilka kluster för att ändra](https://github.com/AvereSystems/vFXT.py/blob/master/docs/using_vfxt_py.md#specifying-which-cluster-to-modify) i guiden vfxt.py användning om du vill veta mer.
+Eftersom klustret har stoppats, måste du ange instans-ID: n för att ange klusternoderna. Läs [anger vilka kluster för att ändra](https://github.com/Azure/AvereSDK/blob/master/docs/using_vfxt_py.md#specifying-which-cluster-to-modify) i guiden vfxt.py användning om du vill veta mer.
 
 ### <a name="destroy-a-cluster-with-vfxtpy"></a>Ta bort ett kluster med vfxt.py
 
@@ -139,8 +139,7 @@ vfxt.py --cloud-type azure --from-environment --destroy --resource-group GROUPNA
 
 Alternativet ``--quick-destroy`` kan användas om du inte vill skriva ändrade data från kluster-cachen.
 
-Läs den [vfxt.py användningsguiden](<https://github.com/AvereSystems/vFXT.py/blob/master/docs/README.md>) för ytterligare information.  
-<!-- change to final location when available -->
+Läs den [vfxt.py användningsguiden](<https://github.com/Azure/AvereSDK/blob/master/docs/README.md>) för ytterligare information.  
 
 ## <a name="manage-cluster-vms-from-the-azure-portal"></a>Hantera kluster virtuella datorer från Azure portal 
 

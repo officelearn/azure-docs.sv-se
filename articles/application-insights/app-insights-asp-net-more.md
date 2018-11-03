@@ -1,6 +1,6 @@
 ---
 title: Få ut mer av Azure Application Insights | Microsoft Docs
-description: Här är en sammanfattning av de funktioner som du kan utforska efter komma igång med Application Insights.
+description: Efter att komma igång med Application Insights, är här en sammanfattning av de funktioner som du kan utforska.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 2f03083367de4e818bdc953ab76c28ff687f0a48
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 5d46b446a71d75a20cc4771b651fbf107db31358
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294344"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958449"
 ---
-# <a name="more-telemetry-from-application-insights"></a>Flera telemetri från Application Insights
-När du har [lagt till Application Insights ASP.NET-koden](app-insights-asp-net.md), det finns några saker du kan göra för att få ännu mer telemetri. 
+# <a name="more-telemetry-from-application-insights"></a>Mer telemetri från Application Insights
+När du har [lagt till Application Insights för ASP.NET-koden](app-insights-asp-net.md), det finns några saker som du kan göra för att få ännu mer telemetri. 
 
 | Åtgärd | Vad du får|
 |---|---|
-|(IIS-servrar) [Installera statusövervakaren](http://go.microsoft.com/fwlink/?LinkId=506648) på varje server-dator.<br/>(Azure-webbappar) Öppna bladet Application Insights i Azure på Kontrollpanelen för webbprogrammet.| [**Prestandaräknare**](app-insights-performance-counters.md)<br/>[**Undantag** ](app-insights-asp-net-exceptions.md) – detaljerad Stacka spårningar<br/>[**Beroenden**](app-insights-asp-net-dependencies.md)|
-|[Lägg till JavaScript-kodfragment på webbsidor](app-insights-javascript.md)|[Sidan prestanda](app-insights-web-track-usage.md), webbläsarundantag, AJAX-prestanda. Anpassad telemetri för klientsidan.|
-|[Skapa tillgänglighetstester för webbprogram](app-insights-monitor-web-app-availability.md)|Få aviseringar om webbplatsen inte är tillgänglig|
-|[Se till att buildinfo.config](https://msdn.microsoft.com/library/dn449058.aspx) genereras av MSBuild|[Skapa anteckningar i mått diagram](https://blogs.msdn.microsoft.com/visualstudioalm/2013/11/14/implementing-deployment-markers-in-application-insights/)
+|(IIS-servrar) [Installera Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648) på varje server-datorn.<br/>(Azure-webbappar) Öppna Application Insights-bladet i Azure på Kontrollpanelen för webbappen.| [**Prestandaräknare**](app-insights-performance-counters.md)<br/>[**Undantag** ](app-insights-asp-net-exceptions.md) – detaljerad Stacka spårningar<br/>[**Beroenden**](app-insights-asp-net-dependencies.md)|
+|[Lägg till JavaScript-kodavsnitt till dina webbsidor](app-insights-javascript.md)|[Sidan prestanda](app-insights-usage-overview.md), webbläsarundantag, prestanda för AJAX. Anpassad telemetri för klientsidan.|
+|[Skapa webbtester för tillgänglighet](app-insights-monitor-web-app-availability.md)|Få aviseringar om din webbplats blir otillgänglig|
+|[Se till att buildinfo.config](https://msdn.microsoft.com/library/dn449058.aspx) genereras av MSBuild|[Skapa anteckningar i måttdiagram](https://blogs.msdn.microsoft.com/visualstudioalm/2013/11/14/implementing-deployment-markers-in-application-insights/)
 |[Skriva anpassade händelser och mått](app-insights-api-custom-events-metrics.md)|Antal företag händelser och mått, spåra detaljerad användning och mycket mer.|
-|[Webbplatsen live-profil](https://aka.ms/AIProfilerPreview)|Detaljerad funktionen tidsinställningar från livewebbappar|
+|[Profilera live-webbplatsen](https://aka.ms/AIProfilerPreview)|Detaljerad funktionen tidsinställningar från live-webbapp|
 
 
 

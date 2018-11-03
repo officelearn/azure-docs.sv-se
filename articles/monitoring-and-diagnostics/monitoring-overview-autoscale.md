@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: autoscale
-ms.openlocfilehash: fe63ce931da9fbe94b47d00805820affddfb1bc1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7a3083bd757a7aa5625799724d601f99fd7e2b14
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946994"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961304"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Översikt över automatisk skalning i Microsoft Azure Virtual Machines, Cloud Services och Web Apps
 Den här artikeln beskriver vilka Microsoft Azure automatisk skalning är, dess fördelar, och hur du kommer igång med hjälp av den.  
@@ -96,7 +96,7 @@ Mer information finns i [lodrätt skalning av Azure-dator med Azure Automation](
 ## <a name="methods-of-access"></a>Åtkomstmetoder
 Du kan ställa in automatisk skalning via
 
-* [Azure Portal](insights-how-to-scale.md)
+* [Azure Portal](monitoring-autoscale-get-started.md)
 * [PowerShell](insights-powershell-samples.md#create-and-manage-autoscale-settings)
 * [Plattformsoberoende kommandoradsgränssnitt (CLI):](insights-cli-samples.md#autoscale)
 * [Azure Monitor REST-API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
@@ -104,11 +104,11 @@ Du kan ställa in automatisk skalning via
 ## <a name="supported-services-for-autoscale"></a>Tjänster som stöds för autoskalning
 | Tjänst | Schemat och dokument |
 | --- | --- |
-| Web Apps |[Skalning av Webbappar](insights-how-to-scale.md) |
+| Web Apps |[Skalning av Webbappar](monitoring-autoscale-get-started.md) |
 | Cloud Services |[Skala en molntjänst](../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Virtuella datorer: klassisk |[Skala Tillgänglighetsuppsättningar för klassiska virtuella datorer](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
-| Virtuella datorer: Skalningsuppsättningar Windows |[Skala VM scale anger i Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
-| Virtuella datorer: Skalningsuppsättningar för Linux |[Skala VM scale anger i Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
+| Virtuella datorer: Skalningsuppsättningar Windows |[Skala VM scale anger i Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell.md) |
+| Virtuella datorer: Skalningsuppsättningar för Linux |[Skala VM scale anger i Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) |
 | Virtuella datorer: Windows-exempel |[Avancerad automatisk skalning med Resource Manager-mallar för VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
 | API Management-tjänst|[Skala automatiskt en Azure API Management-instans](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 

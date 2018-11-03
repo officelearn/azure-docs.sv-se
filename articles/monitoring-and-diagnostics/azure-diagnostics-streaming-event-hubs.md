@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: c87a4acb8ca333af73643a38ae1338c9c8769d13
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 123005a32315ba3972ed4f1c1784d3ac9460b101
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341250"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958958"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Azure Diagnostics-data i den heta sökvägen för direktuppspelning med Event Hubs
 Azure-diagnostik tillhandahåller flexibelt sätt att samla in mått och loggar från cloud services-datorer (VM) och överför resultatet till Azure Storage. Från och med mars 2016 (SDK 2.9) tidsram, kan du skickar diagnostik till anpassade datakällor och överföra heta sökvägen data på några sekunder med hjälp av [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -42,7 +42,7 @@ Event Hubs receieving data från Azure Diagnostics stöds i molntjänster, virtu
 * Befintliga konfigurationer av Azure Diagnostics-data i ett program med hjälp av en *.wadcfgx* fil- och en av följande metoder:
   * Visual Studio: [konfigurera diagnostik för Azure-molntjänster och virtuella datorer](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
   * Windows PowerShell: [aktivera diagnostik i Azure Cloud Services med hjälp av PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)
-* Event Hubs-namnområde etablerat per artikel, [Kom igång med Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+* Event Hubs-namnområde etablerat per artikel, [Kom igång med Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Ansluta Azure Diagnostics-data till Event Hubs-mottagare
 Som standard skickar Azure Diagnostics alltid loggar och mått till ett Azure Storage-konto. Ett program kan också skicka data till Event Hubs genom att lägga till en ny **egenskaperna** avsnittet den **PublicConfig** / **WadCfg** elementet i den *. wadcfgx* fil. I Visual Studio i *.wadcfgx* lagras i följande sökväg: **Molntjänstprojekt** > **roller** > **() RoleName)** > **diagnostics.wadcfgx** fil.
@@ -220,7 +220,7 @@ I följande bild visar Event Hubs-instrumentpanelen felfria sändning av diagnos
 ## <a name="view-hot-path-data"></a>Visa frekvent sökväg data
 Som beskrivs tidigare kan finns det många användningsområden för att lyssna på och bearbeta data i Händelsehubbar.
 
-En enkel metod är att skapa ett litet test-konsolprogram för att lyssna på händelsehubben och skriva ut utdataströmmen. Du kan placera följande kod, vilket förklaras i detalj i [Kom igång med Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)), i ett konsolprogram.  
+En enkel metod är att skapa ett litet test-konsolprogram för att lyssna på händelsehubben och skriva ut utdataströmmen. Du kan placera följande kod, vilket förklaras i detalj i [Kom igång med Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)), i ett konsolprogram.  
 
 Observera att konsolprogrammet måste innehålla den [Event Processor Host NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).  
 
@@ -508,7 +508,7 @@ Inställningarna för replikeringsskyddade:
 ## <a name="next-steps"></a>Nästa steg
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
-* [Event Hubs-översikt](../event-hubs/event-hubs-what-is-event-hubs.md)
+* [Event Hubs-översikt](../event-hubs/event-hubs-about.md)
 * [Skapa en Event Hub](../event-hubs/event-hubs-create.md)
 * [Vanliga frågor och svar om Event Hubs](../event-hubs/event-hubs-faq.md)
 

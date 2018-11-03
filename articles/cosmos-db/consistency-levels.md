@@ -11,23 +11,22 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5cb439f7fe6461fcef0d010535179e16e28c294a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 2611c25764503551c4da918d06bcaabe315cbf7c
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239178"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963089"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Konsekvensnivåer i Azure Cosmos DB
 
-Distribuerade databaser som förlitar sig på replikering för hög tillgänglighet, svarstider, eller båda, se grundläggande förhållandet mellan läsningskontinuitet jämfört med tillgänglighet, svarstid och dataflöde. De flesta kommersiellt distribuerade databaser Ställ utvecklare kan välja mellan två extrem konsekvensmodeller: stark konsekvens och slutlig konsekvens. Medan den [linjärbarhetsgaranti](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) eller stark konsekvensmodell är data programmabilitys guld skyddsnivå och levereras med högre svarstid (i stabilt tillstånd) brant priset till minskad tillgänglighet (vid fel). Å andra sidan, eventuell konsekvens ger högre tillgänglighet och bättre prestanda, men är mycket svårt att programmera mot.
+Distribuerade databaser som förlitar sig på replikering för hög tillgänglighet, svarstider, eller båda, se grundläggande förhållandet mellan läsningskontinuitet jämfört med tillgänglighet, svarstid och dataflöde. De flesta kommersiellt distribuerade databaser Ställ utvecklare kan välja mellan två extrem konsekvensmodeller: stark konsekvens och slutlig konsekvens. Medan den [linjärbarhetsgaranti](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) eller stark konsekvensmodell är guld-standard i data programmabilitys, läggs en brant priset för högre svarstid (i stabilt tillstånd) och minskad tillgänglighet (vid fel). Å andra sidan, eventuell konsekvens ger högre tillgänglighet och bättre prestanda, men är svåra att programmerar program.
 
-Cosmos DB närmar sig datakonsekvens som ett spektrum av alternativ i stället för två extremval. Stark konsekvens och slutlig konsekvens är det två upphört att gälla å, finns men det många konsekvensval längs konsekvensspektrumet. De här alternativen för konsekvenskontroll att utvecklare kan se exakt alternativ och mer kornighet nackdelar med avseende på hög tillgänglighet eller prestanda. Cosmos DB gör det möjligt för utvecklare att välja mellan fem väldefinierade konsekvensmodeller från konsekvensspektrumet (starkast till svagast) – **stark**, **begränsad föråldring**, **session** , **konsekvent prefix**, och **eventuell**. Var och en av dessa konsekvensmodeller är väldefinierade, intuitivt och kan användas för den specifika verkliga scenarier. Var och en av de fem konsekvensmodeller ger tydliga tillgänglighet och prestanda kompromisser och backas upp av omfattande serviceavtal.
+Cosmos DB närmar sig datakonsekvens som ett spektrum av alternativ i stället för två extremval. Stark konsekvens och slutlig konsekvens är det två upphört att gälla å, finns men det många konsekvensval längs spektrumet. De här alternativen för konsekvenskontroll att utvecklare kan se exakt val och detaljerade nackdelar med avseende på hög tillgänglighet eller prestanda. Cosmos DB aktiverat utvecklare kan välja mellan fem väldefinierade konsekvensmodeller från konsekvensspektrumet (starkast till svagast) – **stark**, **begränsad föråldring**, **session** , **konsekvent prefix**, och **eventuell**. Var och en av dessa konsekvensmodeller är väldefinierade, intuitivt och kan användas för den specifika verkliga scenarier. Var och en av de fem konsekvensmodeller ger [tillgänglighet och prestanda kompromisser](consistency-levels-tradeoffs.md) och backas upp av omfattande serviceavtal.
 
-![Konsekvens är ett spektrum](./media/consistency-levels/five-consistency-levels.png)
-**konsekvens är ett spektrum**
+![Konsekvens som ett spektrum](./media/consistency-levels/five-consistency-levels.png)
 
-Observera att konsekvensnivåerna regionsoberoende. Konsekvens nivå (och de motsvarande konsekvensgarantier) för ditt Cosmos DB-konto är korrekt för alla läsåtgärder oavsett följande:
+Konsekvensnivåerna är regionsoberoende. Konsekvensnivå på ditt Cosmos DB-konto är korrekt för alla läsåtgärder oavsett följande egenskaper:
 
 - Regionen där läsningar och skrivningar behandlas
 - Antalet regioner som associeras med ditt Cosmos-konto
@@ -35,32 +34,41 @@ Observera att konsekvensnivåerna regionsoberoende. Konsekvens nivå (och de mot
 
 ## <a name="scope-of-the-read-consistency"></a>Omfånget för Läs-konsekvens
 
-Läs-konsekvens gäller för en enda Läsåtgärd begränsade inom partitionsnyckel intervallet (kallas även, en logisk partition). Läsåtgärden kan utfärdas av en fjärransluten klient eller en lagrad procedur.
+Läs-konsekvens gäller för en enda Läsåtgärd begränsade inom ett intervall av partitionsnyckel (det vill säga en logisk partition). Läsåtgärden kan utfärdas av en fjärransluten klient eller en lagrad procedur.
 
 ## <a name="configuring-the-default-consistency-level"></a>Konfigurera standard-konsekvensnivå
 
-Du kan konfigurera den **standard konsekvensnivå** på ditt Cosmos DB-konto när som helst. Standard-konsekvensnivå som konfigurerats på ditt konto gäller för alla Cosmos-databaser (och behållare) med det kontot. Alla läsningar och frågor som utfärdas mot en behållare eller en databas används den konsekvensnivå som standard. Se här för att [konfigurera standard-konsekvensnivå](how-to-manage-consistency.md#configure-the-default-consistency-level).
+Du kan konfigurera den **standard konsekvensnivå** på ditt Cosmos DB-konto när som helst. Standard-konsekvensnivå som konfigurerats på ditt konto gäller för alla Cosmos-databaser (och behållare) med det kontot. Alla läsningar och frågor som utfärdas mot en behållare eller en databas använder den angivna konsekvensnivån som standard. Mer information finns i så här [konfigurera standard-konsekvensnivå](how-to-manage-consistency.md#configure-the-default-consistency-level) artikeln.
 
 ## <a name="guarantees-associated-with-consistency-levels"></a>Garantier som är associerade med konsekvensnivåer
 
-Omfattande serviceavtal tillhandahålls av Azure Cosmos DB garanterar att 100% av läsbegäranden uppfyller konsekvens garanti för alla konsekvensnivå som du väljer. En läsbegäran anses uppfyller konsekvens SLA, om de konsekvensgarantier som som är associerade med konsekvensnivån är uppfyllda. De exakta definitionerna av de fem konsekvensnivåerna i Cosmos DB med hjälp av den [TLA +-språket (TLA +)](http://lamport.azurewebsites.net/tla/tla.html) finns i den [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) GitHub-lagringsplatsen. Semantiken för de fem konsekvensnivåerna beskrivs nedan:
+Omfattande serviceavtal som tillhandahålls av Azure Cosmos DB-garanti att 100% av läsbegäranden uppfyller konsekvens garanti för alla konsekvensnivå som du väljer. En läsbegäran anses uppfylla konsekvens SLA, om de konsekvensgarantier som som är associerade med konsekvensnivån är uppfyllda. De exakta definitionerna av de fem konsekvensnivåerna i Cosmos DB med hjälp av den [TLA + språket](http://lamport.azurewebsites.net/tla/tla.html) finns i den [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) GitHub-lagringsplatsen. Semantiken för de fem konsekvensnivåerna beskrivs nedan:
 
-- **Konsekvensnivå = ”strong”**: stark konsekvens erbjuder en [linjärbarhetsgaranti](https://aphyr.com/posts/313-strong-consistency-models) garanterar med läsningar garanterat returneras den senaste dedicerade versionen av ett objekt. En klient kan aldrig se en ogenomförda eller partiella skrivs och alltid är säkert att läsa den senaste allokerade skrivningen.
-- **Konsekvensnivå = ”begränsad föråldring”**: läsningar är garanterade att respektera konsekvent prefix-garantin. Läsningar kan släpar efter skrivningar med högst K versioner eller prefix (t.ex, uppdateringar) på en artikel eller 't' tidsintervallet. Därför när välja begränsad föråldring, ”föråldring” kan konfigureras på två sätt: antal versioner (K) av objektet eller det tidsintervall (t) som kan läsningar släpar efter skrivningar. Bunden föråldring erbjudanden totala globala ordning förutom i ”föråldring fönstret”. Monoton Läs garantier som finns inom en region både inuti och utanför ”föråldring fönstret”. Stark konsekvens har samma semantik som begränsad föråldring, men med ”föråldring fönstret” lika med noll. Begränsad föråldring kallas även ”time-fördröjd linjärbarhetsgaranti”. När en klient utför läsåtgärder inom en region som tar emot skrivningar, är garantier som begränsad föråldring, konsekvens identiska med de med stark konsekvens.
+- **Konsekvensnivå = ”strong”**: stark konsekvens erbjuder en [linjärbarhetsgaranti](https://aphyr.com/posts/313-strong-consistency-models) garanterar med läsningar garanterat returneras den senaste dedicerade versionen av ett objekt. En klient kommer aldrig att se en ogenomförda eller partiella skrivs. Användare garanterat alltid att läsa den senaste allokerade skrivningen.
+
+- **Konsekvensnivå = ”begränsad föråldring”**: läsningar är garanterade att respektera konsekvent prefix-garantin. Läsningar kan släpar efter skrivningar med högst K-versioner (det vill säga ”uppdateringar” för ett objekt) eller genom att 't' tidsintervallet. När du väljer begränsad föråldring, kan ”föråldring” konfigureras på två sätt: 
+
+  * Antal versioner (K) av objektet eller
+  * Tidsintervallet (t) som kan läsningar släpar efter skrivningar. 
+
+  Bunden föråldring erbjudanden totala globala ordning förutom i ”föråldring fönstret”. Monoton Läs garantier som finns inom en region både inuti och utanför ”föråldring fönstret”. Stark konsekvens har samma semantik som de som erbjuds av begränsad föråldring och med ett ”föråldring fönster” lika med noll. Begränsad föråldring också kallas **tid fördröjd linjärbarhetsgaranti**. När en klient utför läsåtgärder inom en region som accepterar skrivningar, är garantier som begränsad föråldring, konsekvens identiska med de med stark konsekvens.
+
 - **Konsekvensnivå = ”session”**: läsningar garanterat respektera konsekvens-prefix, monotoniska läsningar, monotona skrivningar, Läs-dina-skrivningar, skrivning-följer-läsning garanterar. Sessionskonsekvens är begränsad till en klientsession.
-- **Konsekvensnivå = ”konsekvent prefix”**: uppdateringar som returneras är något prefix av alla uppdateringar, utan några mellanrum. Konsekvent prefix garanterar att läsningar aldrig ser skrivningar i oordning.
+
+- **Konsekvensnivå = ”konsekvent prefix”**: uppdateringar som returneras innehåller något prefix av alla uppdateringar, utan några mellanrum. Konsekvent prefix vi garanterar att läsningar aldrig ser skrivningar i oordning.
+
 - **Konsekvensnivå = ”eventuell”**: det finns ingen skrivordning garanti för läsningar. I avsaknad av eventuella ytterligare skrivningar konvergerar replikerna så småningom.
 
 ## <a name="consistency-levels-explained-through-baseball"></a>Konsekvensnivåer baseboll
 
-Som den [replikerade Data konsekvens via basket](https://www.microsoft.com/en-us/research/wp-content/uploads/2011/10/ConsistencyAndBaseballReport.pdf) papper illustrerar, imagine en sekvens med skrivningar som representerar in resultatet från en baseboll-spel med inning av inning resultat. Hypotetiskt basket spelet är för närvarande mitt sjunde inning (de mest sjunde--inning Sträck ut) och home-teamet är vann 2 – 5.
+Låt oss ta basket spel scenariot som exempel, imagine en sekvens med skrivningar som representerar in resultatet från en baseboll-spel med resultat inning av inning enligt beskrivningen i den [replikerade datakonsekvens med basket](https://www.microsoft.com/en-us/research/wp-content/uploads/2011/10/ConsistencyAndBaseballReport.pdf) dokumentet. Hypotetiskt basket spelet är för närvarande mitt sjunde inning (de mest sjunde--inning Sträck ut) och home-teamet är vann 2 – 5.
 
 | | **1** | **2** | **3** | **4** | **5** | **6** | **7** | **8** | **9** | **Körningar** |
 | - | - | - | - | - | - | - | - | - | - | - |
-| **Besökare** | 0 | 0 | 1 | 0 | 5 | 0 | 0 |  |  | 2 |
+| **Besökare** | 0 | 0 | 1 | 0 | 1 | 0 | 0 |  |  | 2 |
 | **Startsida** | 1 | 0 | 1 | 1 | 0 | 2 |  |  |  | 5 |
 
-En Cosmos DB-behållare innehåller besökare och home team kör summor. När spelet pågår, läsa olika garantier kan leda till klienter som läser olika resultat. I följande tabell visas en fullständig uppsättning med resultat som kan returneras genom att läsa besökare och home poäng med var och en av de fem konsekvensgarantier. Observera att den besökare poäng visas först och olika möjliga returvärden avgränsas med kommatecken.
+En Cosmos DB-behållare innehåller besökare och home team kör summor. När spelet pågår, läsa olika garantier kan leda till klienter som läser olika resultat. I följande tabell visas en fullständig uppsättning med resultat som kan returneras genom att läsa besökare och home poäng med var och en av de fem konsekvensgarantier. Den besökare poäng visas först och olika möjliga returvärden avgränsas med kommatecken.
 
 | **Konsekvensnivå** | **Poäng** |
 | - | - |

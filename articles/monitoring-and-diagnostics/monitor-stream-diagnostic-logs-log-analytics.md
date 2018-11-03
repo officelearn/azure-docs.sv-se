@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 057ce4b93be27c27e27d49e61a89a7c2b9e46dc8
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e9f082b795325349001b5231304588e5297a1443
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421075"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960726"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Stream Azure diagnostikloggar till Log Analytics
 
@@ -96,7 +96,7 @@ Den `--resource-group` argumentet är bara krävs om `--workspace` är inte ett 
 
 ## <a name="how-do-i-query-the-data-in-log-analytics"></a>Hur jag för att fråga data i Log Analytics?
 
-På bladet Loggsökning i portalen eller Advanced Analytics-upplevelse som en del av Log Analytics kan du fråga diagnostikloggar som en del av Log Management-lösningen under tabellen AzureDiagnostics. Det finns även [flera lösningar för Azure-resurser](../log-analytics/log-analytics-add-solutions.md) du kan installera för att få omedelbar insyn i loggdata som skickas till Log Analytics.
+På bladet Loggsökning i portalen eller Advanced Analytics-upplevelse som en del av Log Analytics kan du fråga diagnostikloggar som en del av Log Management-lösningen under tabellen AzureDiagnostics. Det finns även [flera lösningar för Azure-resurser](../monitoring/monitoring-solutions.md) du kan installera för att få omedelbar insyn i loggdata som skickas till Log Analytics.
 
 ## <a name="next-steps"></a>Nästa steg
 

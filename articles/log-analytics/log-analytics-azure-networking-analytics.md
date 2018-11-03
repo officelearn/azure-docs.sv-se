@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
 ms.component: ''
-ms.openlocfilehash: bc2b93312ed005154aa7d2530fb5493278a15c67
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 2ba921a45619c74af230b282c23adff502ae5b6d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418610"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961457"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Azure-nätverk övervakningslösningar i Log Analytics
 
@@ -86,7 +86,7 @@ Följande mått stöds för Programgatewayer: igen
 ### <a name="install-and-configure-the-solution"></a>Installera och konfigurera lösningen
 Använd följande instruktioner för att installera och konfigurera Azure Application Gateway analytics-lösningen:
 
-1. Aktivera Azure Application Gateway analytics-lösningen från [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) eller genom att använda processen som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md).
+1. Aktivera Azure Application Gateway analytics-lösningen från [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) eller genom att använda processen som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](../monitoring/monitoring-solutions.md).
 2. Aktivera diagnostik loggning för den [Programgatewayer](../application-gateway/application-gateway-diagnostics.md) du vill övervaka.
 
 #### <a name="enable-azure-application-gateway-diagnostics-in-the-portal"></a>Aktivera Azure Application Gateway-diagnostik i portalen
@@ -157,7 +157,7 @@ Följande loggar har stöd för nätverkssäkerhetsgrupper:
 ### <a name="install-and-configure-the-solution"></a>Installera och konfigurera lösningen
 Använd följande instruktioner för att installera och konfigurera Azure Networking Analytics-lösningen:
 
-1. Aktivera Azure Network Security Group analytics-lösningen från [Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureNSGAnalyticsOMS?tab=Overview) eller genom att använda processen som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md).
+1. Aktivera Azure Network Security Group analytics-lösningen från [Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureNSGAnalyticsOMS?tab=Overview) eller genom att använda processen som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](../monitoring/monitoring-solutions.md).
 2. Aktivera diagnostik loggning för den [Nätverkssäkerhetsgrupp](../virtual-network/virtual-network-nsg-manage-log.md) resurser som du vill övervaka.
 
 ### <a name="enable-azure-network-security-group-diagnostics-in-the-portal"></a>Aktivera Azure network security group diagnostik i portalen
@@ -215,7 +215,7 @@ Att använda de uppdaterade lösningarna:
 
 1. [Konfigurera diagnostik skickas direkt till Log Analytics från Azure Application Gateway](#enable-azure-application-gateway-diagnostics-in-the-portal)
 2. [Konfigurera diagnostik skickas direkt till Log Analytics från Azure-Nätverkssäkerhetsgrupper](#enable-azure-network-security-group-diagnostics-in-the-portal)
-2. Aktivera den *Azure Application Gateway Analytics* och *Azure Network Security Group Analytics* lösning med hjälp av metoden som beskrivs i [lägga till Log Analytics-lösningar från den Lösningsgalleriet](log-analytics-add-solutions.md)
+2. Aktivera den *Azure Application Gateway Analytics* och *Azure Network Security Group Analytics* lösning med hjälp av metoden som beskrivs i [lägga till Log Analytics-lösningar från den Lösningsgalleriet](../monitoring/monitoring-solutions.md)
 3. Uppdatera alla sparade frågor, instrumentpaneler eller aviseringar att använda den nya datatypen
   + Typen är att AzureDiagnostics. Du kan använda resurstypens för att filtrera till Azures nätverksloggar.
 
@@ -236,4 +236,4 @@ Data som samlas in innan ändringen inte visas i den nya lösningen. Du kan fort
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd [Loggsökningar i Log Analytics](log-analytics-log-searches.md) att visa detaljerad Azure diagnostics-data.
+* Använd [Loggsökningar i Log Analytics](log-analytics-log-search.md) att visa detaljerad Azure diagnostics-data.

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 8653056c5c4b0e5b6831d3cc2b0006e89ac01bdd
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 8a661c94ecc660e0ebd0e9818acef81b8a7b819b
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251150"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978623"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Styrning av infrastruktur för Azure DevTest Labs - programmigreringen och integration
-När din miljö för utveckling/test lab har upprättats, måste du tänka på följande frågor: 
+När din miljö för utveckling/test lab har upprättats, måste du tänka på följande frågor:
 
-- Hur du för att använda miljön i gruppen? 
+- Hur du för att använda miljön i gruppen?
 - Hur undviker du att du följa alla nödvändiga organisationens principer och underhålla flexibilitet för att lägga till värdet för ditt program?
 
 ## <a name="azure-marketplace-images-vs-custom-images"></a>Azure Marketplace-avbildningar och anpassade avbildningar
@@ -60,10 +60,10 @@ Hur ställer jag in ett enkelt repeterbar process att ta med min organisations a
 ### <a name="answer"></a>Svar
 Se [den här videon på Immage Factory mönster](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/). Det här scenariot är ett avancerat scenario och skript som angetts är bara exempel på skript. Om några förändringar krävs, måste du hantera och underhålla de skript som används i din miljö.
 
-Använda labb för att skapa en anpassad avbildning pipeline i Visual Studio Team Services (VSTS):
+Med labb för att skapa en anpassad avbildning pipeline i Azure Pipelines:
 
 - [Introduktion: Förbereda virtuella datorer på några minuter genom att ställa in en avbildning datafabrik i Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/)
-- [Bild fabriken – del 2! Konfigurera VSTS och Factory labb för att skapa virtuella datorer](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
+- [Bild fabriken – del 2! Konfigurera Azure Pipelines och Factory labb för att skapa virtuella datorer](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
 - [Bild fabriken – del 3: Spara anpassade avbildningar och distribuera till flera Labs](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/)
 - [Video: Anpassad avbildning Factory med Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)
 
@@ -79,7 +79,7 @@ Ja. Det finns två aspekter att tänka på – inkommande och utgående trafik.
 
 **Utgående trafik** – om du vill förhindra att virtuella datorer som kommer direkt att offentliga internet och tvinga trafik via en företagsbrandvägg, och du kan dirigera trafik lokalt via expressroute eller VPN, med hjälp av framtvingad routning.
 
-> [!NOTE] 
+> [!NOTE]
 > Glöm inte att lägga till undantag för den testmiljön artefaktlagringskonto, om du har en proxyserver som blockerar trafik utan proxy-inställningar.
 
 Du kan också använda nätverkssäkerhetsgrupper för virtuella datorer eller undernät. Det här steget lägger till ytterligare ett lager för att tillåta / blockera trafik.
@@ -100,9 +100,9 @@ I annat fall kan varje labb-miljö ha sitt eget virtuella nätverk. Observera do
 När ska jag använda en delad IP och offentlig IP-adress jämfört med privata IP?
 
 ### <a name="answer"></a>Svar
-Om du använder en plats-till-plats VPN eller Express Route kan du använda privata IP-adresser så att dina datorer är tillgängliga via det interna nätverket, och kan inte användas via offentliga internet. 
+Om du använder en plats-till-plats VPN eller Express Route kan du använda privata IP-adresser så att dina datorer är tillgängliga via det interna nätverket, och kan inte användas via offentliga internet.
 
-> [!NOTE] 
+> [!NOTE]
 > Labbägare kan ändra den här principen för undernätet för att säkerställa att ingen råkar skapar offentliga IP-adresser för sina virtuella datorer. Prenumerationsägaren ska skapa en prenumerationsprincip som förhindrar att offentliga IP-adresser som skapas.
 
 När du använder delade offentliga IP-adresser kan dela en offentlig IP-adress i de virtuella datorerna i ett labb. Den här metoden kan vara användbart när du behöver att undvika att tränga in begränsningar i den offentliga IP-adresser för en viss prenumeration.
@@ -125,7 +125,7 @@ När du överväger hur många virtuella datorer per användare eller per labb, 
 Hur kan jag använda Resource Manager-mallar i min DevTest Labs-miljö?
 
 ### <a name="answer"></a>Svar
-Du distribuera dina Resource Manager-mallar i en labb med hjälp av stegen i den [miljöer funktionen i DevTest labs](devtest-lab-test-env.md) artikeln. I princip du checka in Resource Manager-mallar i en Git-lagringsplats (Visual Studio Team Services eller GitHub) och lägga till en [privat lagringsplats för dina mallar](devtest-lab-test-env.md) till labbet.
+Du distribuera dina Resource Manager-mallar i en labb med hjälp av stegen i den [miljöer funktionen i DevTest labs](devtest-lab-test-env.md) artikeln. I princip du checka in Resource Manager-mallar i en Git-lagringsplats (Azure-databaser eller GitHub) och lägga till en [privat lagringsplats för dina mallar](devtest-lab-test-env.md) till labbet.
 
 Det här scenariot kanske inte användbart om du använder labb till värddatorerna för utveckling, men kan vara användbart om du skapar en mellanlagringsmiljö, som är representativ för produktion.
 

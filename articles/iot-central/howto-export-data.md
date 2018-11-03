@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 86128abd82ee41459a84fc7d9169042179807793
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3231a956648b80d88059b7b0fc8f790e0e58be99
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034917"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962800"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Exportera dina data i Azure IoT Central
 
@@ -26,10 +26,10 @@ Den här artikeln beskriver hur du använder funktionen löpande export i Azure 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En utökad 30-dagars utvärderingsversion IoT Central eller en betald program.
-- Ett Azure-konto med en Azure-prenumeration.
-- Samma Azure-konto är en administratör i din IoT Central-App.
-- Samma Azure-konto har behörighet att skapa ett lagringskonto eller få åtkomst till ett befintligt lagringskonto i samma Azure-prenumeration.
+- Ett program för betala per användning.
+- En administratör i din IoT Central-App med:
+    - ett Azure-konto i Azure-prenumeration IoT Central-programmet
+    - behörighet att skapa en lagrings-konto eller få åtkomst till ett befintligt lagringskonto i den här Azure-prenumeration
 
 ## <a name="types-of-data-to-export"></a>Typer av data som ska exporteras
 

@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: e77389411e52853efb52252a17c8612f0480fa61
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ae033b944e93fe90392af9b17de883d791d3e4dc
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298650"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958612"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Djup diagnostik för webbappar och tjänster med Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Varför behöver jag Application Insights?
@@ -172,7 +172,7 @@ När en avisering utlöses kan Application Insights automatiskt skapa ett arbets
 ## <a name="next-steps"></a>Nästa steg
 Det är enkelt att komma igång med Application Insights. De viktigaste alternativen är:
 
-* Instrumentera en webbapp redan körs. Detta ger dig all den inbyggda telemetrin. Det finns för [Java](app-insights-java-live.md) och [IIS-servrar](app-insights-monitor-performance-live-website-now.md), och även för [Azure-webbappar](app-insights-azure.md).
+* Instrumentera en webbapp redan körs. Detta ger dig all den inbyggda telemetrin. Det finns för [Java](app-insights-java-live.md) och [IIS-servrar](app-insights-monitor-performance-live-website-now.md), och även för [Azure-webbappar](app-insights-overview.md).
 * Instrumentera ditt projekt under utveckling. Du kan göra detta för [ASP.NET](app-insights-asp-net.md) eller [Java](app-insights-java-get-started.md) appar, samt [Node.js](app-insights-nodejs.md) och en mängd [andra typer](app-insights-platforms.md). 
 * Instrumentera [en webbsida](app-insights-javascript.md) genom att lägga till ett kort kodfragment.
 

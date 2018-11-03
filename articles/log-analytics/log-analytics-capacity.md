@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 0244673d50e22124e8a0678e202004f06b0bca00
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: e1f33551c02562bbd8b7cc6a4187f7135a06c60f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182628"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961950"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planera kapacitet för Hyper-V-virtuella datorer med kapacitet och prestanda lösningen (förhandsversion)
 
@@ -50,8 +50,8 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 
 | Ansluten källa | Support | Beskrivning |
 |---|---|---|
-| [Windows-agenter](log-analytics-windows-agent.md) | Ja | Lösningen samlar in information om kapacitet och prestanda från Windows-agenter. |
-| [Linux-agenter](log-analytics-linux-agents.md) | Nej    | Lösningen samlar inte in information om kapacitet och prestanda från direkt Linux-agenter.|
+| [Windows-agenter](log-analytics-agent-windows.md) | Ja | Lösningen samlar in information om kapacitet och prestanda från Windows-agenter. |
+| [Linux-agenter](log-analytics-quick-collect-linux-computer.md) | Nej    | Lösningen samlar inte in information om kapacitet och prestanda från direkt Linux-agenter.|
 | [SCOM-hanteringsgrupp](log-analytics-om-agents.md) | Ja |Lösningen samlar in data för kapacitet och prestanda från agenter i en ansluten SCOM-hanteringsgrupp. En direktanslutning från SCOM-agenten till Log Analytics krävs inte.|
 | [Azure Storage-konto](log-analytics-azure-storage.md) | Nej | Azure storage inkluderar inte kapacitet och prestanda.|
 
@@ -64,7 +64,7 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 
 Utför följande steg för att lägga till lösning för kapacitet och prestanda för din arbetsyta.
 
-- Lägga till lösning för kapacitet och prestanda för Log Analytics-arbetsytan med processen som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md).
+- Lägga till lösning för kapacitet och prestanda för Log Analytics-arbetsytan med processen som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](../monitoring/monitoring-solutions.md).
 
 ## <a name="management-packs"></a>Hanteringspaket
 
@@ -126,7 +126,7 @@ Sammanfattningsvis lösningen samlar in kapacitet och prestandadata från olika 
 Följande tabell innehåller exempel på loggsökningar för kapacitet och prestanda Mina data som samlas in och beräknas genom att den här lösningen.
 
 
-| Fråga | Beskrivning |
+| Söka i data | Beskrivning |
 |:--- |:--- |
 | Alla värdminnen | Perf &#124; där ObjectName == ”kapacitet och prestanda” och CounterName == ”värd tilldelat minne MB” &#124; sammanfatta MB = avg(CounterValue) av instansnamn |
 | Alla konfigurationer av minnen för virtuell dator | Perf &#124; där ObjectName == ”kapacitet och prestanda” och CounterName == ”VM tilldelat minne MB” &#124; sammanfatta MB = avg(CounterValue) av instansnamn |
@@ -138,4 +138,4 @@ Följande tabell innehåller exempel på loggsökningar för kapacitet och prest
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd [Loggsökningar i Log Analytics](log-analytics-log-search.md) att visa detaljerad information om kapacitet och prestanda.
+* Använd [Loggsökningar i Log Analytics](log-analytics-queries.md) att visa detaljerad information om kapacitet och prestanda.

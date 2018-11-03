@@ -15,12 +15,12 @@ ms.topic: conceptal
 ms.date: 09/18/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: b7b8734e648e79ab22a6783e7fab31e942f08eb4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 11307e3c0dbf831a03b5f7685b8e44f03f8d242e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418440"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957238"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Skapa en Log Analytics-arbetsyta med Azure PowerShell
 
@@ -131,4 +131,4 @@ Nu när du har en arbetsyta som är tillgängliga kan du konfigurera insamling a
 * Om du vill aktivera insamling av data från Azure-resurser med Azure Diagnostics eller Azure storage, se [samla in Azure-tjänsteloggar och mått för användning i Log Analytics](log-analytics-azure-storage.md).  
 * Lägg till [System Center Operations Manager som en datakälla](log-analytics-om-agents.md) att samla in data från agenter som rapporterar Operations Manager-hanteringsgrupp och lagra den i Log Analytics-arbetsytan.  
 * Ansluta [Configuration Manager](log-analytics-sccm.md) att importera datorer som är medlemmar i samlingar i hierarkin.  
-* Granska den [hanteringslösningar](log-analytics-add-solutions.md) tillgängliga och hur du lägger till eller ta bort en lösning från din arbetsyta.
+* Granska den [hanteringslösningar](../monitoring/monitoring-solutions.md) tillgängliga och hur du lägger till eller ta bort en lösning från din arbetsyta.

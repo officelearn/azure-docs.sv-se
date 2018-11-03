@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: caa8f1a10652c16e181c47fbbe4f9f0c815cfd67
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ab7689cb18dcd11926abc2e9806885b1072e3886
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983692"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960182"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arkivera Azure diagnostikloggar
 
@@ -26,7 +26,7 @@ I den här artikeln visar vi hur du kan använda Azure portal, PowerShell-Cmdlet
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du börjar måste du [skapa ett lagringskonto](../storage/storage-create-storage-account.md) som du kan arkivera dina diagnostikloggar. Vi rekommenderar starkt att du inte använder ett befintligt lagringskonto som har andra, icke-övervakning av data som lagras i den så att du kan få bättre kontroll över åtkomsten till övervakningsdata. Om du också arkivera din aktivitetslogg och diagnostikmått till ett lagringskonto, men kan det vara klokt du använder att lagringskonto för diagnostikloggar samt så att alla övervakningsdata på en central plats.
+Innan du börjar måste du [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md) som du kan arkivera dina diagnostikloggar. Vi rekommenderar starkt att du inte använder ett befintligt lagringskonto som har andra, icke-övervakning av data som lagras i den så att du kan få bättre kontroll över åtkomsten till övervakningsdata. Om du också arkivera din aktivitetslogg och diagnostikmått till ett lagringskonto, men kan det vara klokt du använder att lagringskonto för diagnostikloggar samt så att alla övervakningsdata på en central plats.
 
 > [!NOTE]
 >  Du kan inte arkivera data till en storage-konto som bakom ett skyddat virtuellt nätverk.
@@ -74,7 +74,7 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 
 | Egenskap  | Krävs | Beskrivning |
 | --- | --- | --- |
-| ResourceId |Ja |Resurs-ID för den resurs som du vill ange en diagnostikinställning. |
+| Resurs-ID |Ja |Resurs-ID för den resurs som du vill ange en diagnostikinställning. |
 | StorageAccountId |Nej |Resurs-ID för det Lagringskonto där diagnostikloggar ska sparas. |
 | Kategorier |Nej |Kommaavgränsad lista över loggkategorier för att aktivera. |
 | Enabled |Ja |Booleskt värde som anger om diagnostik är aktiverade eller inaktiverade på den här resursen. |
@@ -161,7 +161,7 @@ Varje händelse som lagras i filen pt1h.JSON i matrisen ”poster” efter det h
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Ladda ned blobar för analys](../storage/storage-dotnet-how-to-use-blobs.md)
+* [Ladda ned blobar för analys](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 * [Stream diagnostikloggar till Event Hubs-namnområdet](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Arkivera loggar för Azure Active Directory med Azure Monitor](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Läs mer om diagnostikloggar](monitoring-overview-of-diagnostic-logs.md)

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/09/2017
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: b566b204ca9cf13b412d750740836db8bf8930a5
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 8394584b2b4f8cbc47a6fdaadd754e8649c3f794
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093993"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960930"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Smart identifiering – Felavvikelser
 [Application Insights](app-insights-overview.md) meddelar i nära realtid om din webbapp upplever en onormal ökning av antalet misslyckade förfrågningar. Den identifierar en onormal ökning av HTTP-begäranden eller beroendeanrop som rapporteras som misslyckad. För begäranden är misslyckade förfrågningar vanligtvis de med svarskoder på 400 eller högre. För att hjälpa dig att hantera och diagnostisera problemet, finns en analys av egenskaperna för fel och relaterad telemetri i meddelandet. Det finns också länkar till Application Insights-portalen för ytterligare diagnos. Funktionen behöver ingen installation eller konfiguration, eftersom den använder machine learning-algoritmer för att förutsäga normalt felintervall.
@@ -40,7 +40,7 @@ Här är en exempel-avisering.
 Observera att du:
 
 * Den felintervall jämfört med normala appbeteendet.
-* Hur många användare påverkas – så att du vet hur mycket oroa dig.
+* Hur många användare påverkas - så att du vet hur mycket oroa dig.
 * En karakteristisk mönster som är associerade med felen. I det här exemplet finns en viss svarskod, namnet på begäran (åtgärd) och programversion. Som informerar du omedelbart var du vill börja söka i din kod. Andra möjligheter kan vara ett specifikt operativsystem webbläsare eller klient.
 * De undantag, loggspårningar och beroendefel (databaser eller andra externa komponenter) som visas som ska associeras med utmärkande felen.
 * Länkar direkt till relevanta sökningar på telemetri i Application Insights.
@@ -147,7 +147,7 @@ Dessa diagnostiska verktyg hjälper dig att inspektera telemetrin från din app:
 
 * [Metric explorer](app-insights-metrics-explorer.md)
 * [Sökutforskaren](app-insights-diagnostic-search.md)
-* [Analytics – kraftfullt frågespråk](app-insights-analytics-tour.md)
+* [Analytics – kraftfullt frågespråk](../log-analytics/query-language/get-started-analytics-portal.md)
 
 Smart identifieringar är helt automatisk. Men kanske du vill ställa in några fler aviseringar?
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c14013121517267445e89f43e228b03ba184f013
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0ca9cf0ff75ea76cd2dc203fbdb37162ed1ace34
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415270"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962766"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analysera dataanvändning i Log Analytics
 
@@ -58,7 +58,7 @@ Instrumentpanelen **Log Analytics usage** (Log Analytics-användning) innehålle
 3. Välj en arbetsyta som du skapade tidigare i listan med Log Analytics-arbetsytor.
 4. Välj **Användning och beräknade kostnader** i listan i det vänstra fönstret.
 5. På instrumentpanelen för **användning och beräknade kostnader** kan du ändra tidsintervallet genom att välja **Time: Last 24 hours** (Tid: Senaste 24 timmarna) och ändra tidsintervallet.<br><br> ![tidsintervall](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
-6. Öppna de blad för användningskategori som visar de områden som du är intresserad av. Välj ett blad och klicka sedan på ett objekt på det om du vill visa mer information i [Loggsökning](log-analytics-log-searches.md).<br><br> ![KPI för exempeldataanvändning](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
+6. Öppna de blad för användningskategori som visar de områden som du är intresserad av. Välj ett blad och klicka sedan på ett objekt på det om du vill visa mer information i [Loggsökning](log-analytics-log-search.md).<br><br> ![KPI för exempeldataanvändning](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
 7. Granska resultaten som returneras från sökningen på instrumentpanelen Loggsökning.<br><br> ![exempel på loggsökning för användning](./media/log-analytics-usage/usage-log-search-01.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Skapa en avisering när datainsamlingen är högre än väntat
@@ -78,7 +78,7 @@ Följande fråga använder en enkel formel för att förutsäga när mer än 100
 
 Ändra 100 i frågan till antalet GB som du vill ange som gräns för att skicka en datavolymavisering.
 
-Använd stegen som beskrivs i [skapa en ny loggavisering](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) om du vill meddelas när datainsamlingen är högre än förväntat.
+Använd stegen som beskrivs i [skapa en ny loggavisering](../monitoring-and-diagnostics/alert-metric.md) om du vill meddelas när datainsamlingen är högre än förväntat.
 
 När du skapar aviseringen för den första frågan--när det finns fler än 100 GB data på 24 timmar, ange:  
 
@@ -163,19 +163,19 @@ Använd följande steg för att minska mängden på de loggar som samlats in:
 | Händelseloggar                 | Ändra [händelseloggens konfiguration](log-analytics-data-sources-windows-events.md) för att: <br> - Minska antalet händelseloggar som samlas in <br> - Endast samla in obligatoriska händelsenivåer. Till exempel, samla inte in händelser på *Informationsnivå* |
 | Syslog                     | Ändra [systemloggkonfigurationen](log-analytics-data-sources-syslog.md) för att: <br> - Minska antalet anläggningar som samlas in <br> - Endast samla in obligatoriska händelsenivåer. Till exempel, samla inte in händelser på *Informations-* eller *Felsökningsnivå* |
 | AzureDiagnostics           | Ändra logginsamlingen för resurser för att: <br> – Minska antalet resursloggar som skickas till Log Analytics <br> – Endast samla in nödvändiga loggar |
-| Lösningsdata från datorer som inte behöver lösningen | Använd [lösningsriktning](../operations-management-suite/operations-management-suite-solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer. |
+| Lösningsdata från datorer som inte behöver lösningen | Använd [lösningsriktning](../monitoring/monitoring-solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Kontrollera om det finns fler noder än förväntat
 Om du använder den *per nod (Log Analytics)* prisnivå, därefter debiteras du baserat på antalet noder och lösningar som du använder. Du kan se hur många noder i varje erbjudande som används i avsnittet *erbjudanden* på instrumentpanelen för användning.<br><br> ![instrumentpanelen användning](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 Klicka på **Visa alla...**  för att visa en fullständig lista över datorer som skickar data för det valda erbjudandet.
 
-Använd [lösningsriktning](../operations-management-suite/operations-management-suite-solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer.
+Använd [lösningsriktning](../monitoring/monitoring-solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer.
 
 ## <a name="next-steps"></a>Nästa steg
-* Se [Loggsökningar i Log analytics](log-analytics-log-searches.md) för information om hur du använder sökspråket. Du kan använda sökfrågor för att utföra ytterligare analys på användningsdata.
-* Använd stegen som beskrivs i [Skapa en ny loggavisering](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) om du vill meddelas när ett sökvillkor har uppfyllts.
-* Använd [lösningsriktning](../operations-management-suite/operations-management-suite-solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer.
+* Se [Loggsökningar i Log analytics](log-analytics-log-search.md) för information om hur du använder sökspråket. Du kan använda sökfrågor för att utföra ytterligare analys på användningsdata.
+* Använd stegen som beskrivs i [Skapa en ny loggavisering](../monitoring-and-diagnostics/alert-metric.md) om du vill meddelas när ett sökvillkor har uppfyllts.
+* Använd [lösningsriktning](../monitoring/monitoring-solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer.
 * Om du vill konfigurera en effektiv princip för insamling av säkerhetshändelse kan du läsa [filtreringsprincipen för Azure Security Center](../security-center/security-center-enable-data-collection.md).
 * Ändra [prestandaräknarens konfiguration](log-analytics-data-sources-performance-counters.md).
 * Om du vill ändra inställningarna för insamling av händelser kan du läsa [händelseloggens konfiguration](log-analytics-data-sources-windows-events.md).

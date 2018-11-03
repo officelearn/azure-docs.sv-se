@@ -8,23 +8,23 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: adgera
-ms.openlocfilehash: a17fe8ed47384ed248b339643be11269b8b9cdc0
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 6ca01523744dbce15f8fdb3bbe2d5a9b44510f3f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092193"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959485"
 ---
-# <a name="security-best-practices"></a>Rekommenderade säkerhetsmetoder
+# <a name="security-best-practices"></a>Metodtips för säkerhet
 
-Azure Digital Twins security kan exakt åtkomst till specifika resurser och åtgärder i din IoT-graf. Detta sker genom detaljerade rollen och behörighet för hantering som kallas rollbaserad åtkomstkontroll.
+Azure Digital Twins security kan exakt åtkomst till specifika resurser och åtgärder i din IoT-graf. Detta sker via detaljerade roll- och behörighetshantering som kallas rollbaserad åtkomstkontroll.
 
-Azure Digital Twins utnyttjar också andra säkerhetsfunktioner som finns på Azure IoT, inklusive Azure Active Directory. Därför finns när du konfigurerar Azure Digital Twins appen inkluderar använder många av samma [säkerhetsrutiner för Azure IoT](https://docs.microsoft.com/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/) rekommenderas.
+Azure Digital Twins använder även andra säkerhetsfunktioner som finns på Azure IoT, inklusive Azure Active Directory (AD Azure). Därför finns när du konfigurerar Azure Digital Twins appen inkluderar använder många av samma [säkerhetsrutiner för Azure IoT](https://docs.microsoft.com/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/) rekommenderas.
 
 Den här artikeln sammanfattas viktiga metodtips att följa.
 
 > [!IMPORTANT]
-> Granska ytterligare säkerhetsresurser (inklusive din enhetsleverantörer) för att säkerställa maximal säkerhet för din IoT-sida.
+> Granska resurser för ytterligare säkerhet för att säkerställa maximal säkerhet för din IoT-sida. Se till att inkludera din enhetsleverantörer.
 
 ## <a name="iot-security-best-practices"></a>Metodtips för IoT-säkerhet
 
@@ -33,29 +33,29 @@ Vissa viktiga metoder för att på ett säkert sätt skydda dina IoT-enheter är
 > [!div class="checklist"]
 > * Skydda varje enhet som är ansluten till din IoT-sida på ett manipuleringssäker sätt.
 > * Begränsa rollen för varje enhet, sensor och person i din IoT-sida. Om de komprometteras, minimeras effekten.
-> * Möjliga användning av enhetens IP-adress filtrering och porten begränsning.
+> * Överväg att potentiella användning av enhetens IP adressen filtrering och porten begränsning.
 > * Begränsa bandbredden för i/o och enheten att förbättra prestanda. Hastighetsbegränsande kan öka säkerheten genom att förhindra denial of service-attacker.
-> * Håll enhetens inbyggda programvara uppdaterad.
+> * Kontinuerligt enhetens inbyggda programvara.
 
 Vissa viktiga metoder för att på ett säkert sätt skydda en IoT-utrymme är:
 
 > [!div class="checklist"]
 > * Kryptera data som sparas, lagrad eller beständig.
 > * Kräv lösenord eller nycklar regelbundet ändras eller uppdateras.
-> * Tänk på att begränsa åtkomst och behörighet genom rollen (se Role-Based Access Control metodtips nedan).
-> * Använda kraftfulla kryptering. Det innebär att kräva långa lösenord, med hjälp av säkert protokoll och tvåfaktorsautentisering.
+> * Noggrant begränsa åtkomst och behörighet genom rollen. Se avsnittet ”Role-based access control metodtips”.
+> * Använda kraftfulla kryptering. Kräva långa lösenord och använder säkert protokoll och tvåfaktorsautentisering.
 
-Övervakning av IoT-resurser kan du titta på för extremvärden, hot eller Resursparametrar som faller utanför intervallet för vanligt åtgärden hanteras via Azure Analytics.
+Övervaka IoT-resurser för att bevaka avvikare eller hot Resursparametrar som faller utanför intervallet för vanligt igen. Använda Azure Analytics för att hantera övervakning.
 
 > [!NOTE]
-> Mer information om händelsen bearbetning och övervakning, se vår artikel på [händelse > routning](./concepts-events-routing.md).
+> Läs mer på händelsebearbetning och övervakning, [dirigera händelser och meddelanden med Azure Digital Twins](./concepts-events-routing.md).
 
 ## <a name="azure-active-directory-best-practices"></a>Metodtips för Azure Active Directory
 
-Azure Digital Twins använder Azure Active Directory för att autentisera användare och skydda program. Azure Active Directory stöder autentisering för en mängd olika moderna arkitekturer alla baserat på branschstandardprotokoll som OAuth 2.0 eller OpenID Connect. Några viktiga metoder för att skydda din IoT-sida för Azure Active Directory är:
+Azure Digital Twins använder Azure AD för att autentisera användare och skydda program. Azure AD stöder autentisering för en mängd olika moderna arkitekturer. De är alla baserade på branschstandardprotokoll som OAuth 2.0 eller OpenID Connect. Några viktiga metoder för att skydda din IoT-sida för Azure AD är:
 
 > [!div class="checklist"]
-> * Store Azure Active Directory apphemligheter och nycklar på en säker plats som [Key Vault](https://azure.microsoft.com/services/key-vault/).
+> * Store Azure AD apphemligheter och nycklar på en säker plats som [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 > * Använda ett certifikat som utfärdats av en betrodd [certifikatutfärdare](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started) i stället för apphemligheter för autentisering.
 > * Begränsa omfånget för OAuth 2.0 för en token.
 > * Kontrollera hur lång tid som en token är giltig och om en token förblir giltigt.
@@ -70,6 +70,6 @@ Azure Digital Twins använder Azure Active Directory för att autentisera använ
 
 Mer information om metodtips för Azure IoT [IoT säkerhetsmetoder](https://docs.microsoft.com/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/).
 
-Mer information om rollbaserad åtkomstkontroll, läsa [Role-Based Access Control](./security-role-based-access-control.md).
+Mer information om rollbaserad åtkomstkontroll, läsa [rollbaserad åtkomstkontroll](./security-role-based-access-control.md).
 
-Autentisering, läsa [autentisering med API: er](./security-authenticating-apis.md).
+Mer information om autentisering, läsa [autentisera med API: er](./security-authenticating-apis.md).

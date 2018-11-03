@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: ce8946e5a022eea9281898d1518cc3e8bfb50ee5
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 1951f001de1b9d0667e5d4430454b32b5a3c890e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092513"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957496"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Utforska HockeyApp-data i Application Insights
 
@@ -61,7 +61,7 @@ Analytics är ett kraftfullt verktyg för ad hoc-frågor över dina data, så at
 
 ![Analytics](./media/app-insights-hockeyapp-bridge-app/05.png)
 
-* [Läs mer om Analytics](app-insights-analytics-tour.md)
+* [Läs mer om Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
 
 ## <a name="continuous-export"></a>Löpande export
 Löpande Export kan du exportera data till en Azure Blob Storage-behållare. Detta är användbart om du behöver att förvara dina data under längre tid än kvarhållningsperioden för närvarande erbjuds av Application Insights. Du kan behålla data i blob storage, bearbeta dem i en SQL-databas eller din önskade datalagerlösning.
@@ -69,5 +69,5 @@ Löpande Export kan du exportera data till en Azure Blob Storage-behållare. Det
 [Mer information om löpande Export](app-insights-export-telemetry.md)
 
 ## <a name="next-steps"></a>Nästa steg
-* [Använda Analytics på data](app-insights-analytics-tour.md)
+* [Använda Analytics på data](../log-analytics/query-language/get-started-analytics-portal.md)
 

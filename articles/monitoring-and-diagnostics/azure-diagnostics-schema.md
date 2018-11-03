@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 2c3b2ecc1467a09ae490d23c45e7a000f4afe49a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 603ed12bf74f2d75543fd7e60834e695138c991d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976915"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963809"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure Diagnostics-tillägget configuration schemat versioner och historik
 Den här sidan index Azure Diagnostics-tillägg-schemat versioner levereras som en del av Microsoft Azure SDK.  
@@ -29,7 +29,7 @@ Den här sidan index Azure Diagnostics-tillägg-schemat versioner levereras som 
 >
 > Den här sidan gäller endast om du använder någon av dessa tjänster.
 
-Azure Diagnostics-tillägget används med andra Microsoft-produkter för diagnostik som Azure Monitor, Application Insights och Log Analytics. Mer information finns i [övervakning verktyg översikt över Microsoft](monitoring-overview.md).
+Azure Diagnostics-tillägget används med andra Microsoft-produkter för diagnostik som Azure Monitor, Application Insights och Log Analytics. Mer information finns i [övervakning verktyg översikt över Microsoft](../azure-monitor/overview.md).
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Azure SDK och diagnostik versioner leverans diagram  
 

@@ -13,25 +13,27 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/09/2017
+ms.date: 10/23/2018
 ms.author: cynthn
-ms.openlocfilehash: cca9adb40557cf7bf9e1d4129fc6bd61cbf0df4f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 373003eb8be0482ed96d7d11ecd879237f69b47a
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38618247"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957173"
 ---
-# <a name="how-to-set-up-endpoints-on-a-classic-windows-virtual-machine-in-azure"></a>Så här konfigurerar du slutpunkter på en klassisk Windows-dator i Azure
-Alla Windows virtuella datorer som du skapar i Azure med hjälp av den klassiska distributionsmodellen kan automatiskt kommunicerar via ett privat nätverk kanal med andra virtuella datorer i samma molntjänst eller virtuella nätverk. Datorer på Internet eller andra virtuella nätverk kräver dock slutpunkter dirigera inkommande trafik till en virtuell dator. Den här artikeln är också tillgängligt för [Linux-datorer](../../linux/classic/setup-endpoints.md).
+# <a name="set-up-endpoints-on-a-windows-virtual-machine-by-using-the-classic-deployment-model"></a>Konfigurerar du slutpunkter på en Windows-dator med hjälp av den klassiska distributionsmodellen
+Windows-datorer (VM) som du skapar i Azure med hjälp av den klassiska distributionsmodellen kan kommunicera automatiskt via en kanal för privata nätverk med andra virtuella datorer i samma molntjänst eller virtuella nätverk. Datorer på internet eller andra virtuella nätverk kräver dock slutpunkter dirigera inkommande trafik till en virtuell dator. 
+
+Du kan också ställa in slutpunkter på [Linux-datorer](../../linux/classic/setup-endpoints.md).
 
 > [!IMPORTANT]
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../../../resource-manager-deployment-model.md). Den här artikeln beskriver hur du gör om du använder den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.  
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 I den **Resource Manager** distributionsmodellen slutpunkter konfigureras med hjälp av **Nätverkssäkerhetsgrupper (NSG)**. Mer information finns i [Tillåt extern åtkomst till den virtuella datorn med hjälp av Azure portal](../nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-När du skapar en virtuell Windows-dator i Azure-portalen, är vanliga slutpunkter som de för fjärrskrivbord och Windows PowerShell-fjärrkommunikation vanligtvis skapas automatiskt. Du kan konfigurera ytterligare slutpunkter när du skapar den virtuella datorn eller efteråt vid behov.
+När du skapar en virtuell Windows-dator i Azure-portalen, skapas vanliga slutpunkter, till exempel slutpunkter för fjärrskrivbord och Windows PowerShell-fjärrkommunikation, vanligtvis åt dig automatiskt. Du kan konfigurera ytterligare slutpunkter vid ett senare tillfälle.
 
 [!INCLUDE [virtual-machines-common-classic-setup-endpoints](../../../../includes/virtual-machines-common-classic-setup-endpoints.md)]
 

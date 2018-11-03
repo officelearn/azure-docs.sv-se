@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: ''
-ms.openlocfilehash: 3c80007a8188fb239a13aaa0ccc9ef2237a2d8d1
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: f43db05cac03d090116d227536e343c4a7bb0df4
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025679"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958882"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Övervaka Azure SQL Database med Azure SQL Analytics (förhandsversion)
 
@@ -46,8 +46,8 @@ Lösningen inte använder agenter för att ansluta till tjänsten Log Analytics,
 | --- | --- | --- |
 | **[Azure-diagnostik](log-analytics-azure-storage.md)** | **Ja** | Azure mått och loggfiler data skickas till Log Analytics direkt av Azure. |
 | [Azure Storage-konto](log-analytics-azure-storage.md) | Nej | Log Analytics läsa inte data från ett lagringskonto. |
-| [Windows-agenter](log-analytics-windows-agent.md) | Nej | Direkta Windows-agenter används inte av lösningen. |
-| [Linux-agenter](log-analytics-linux-agents.md) | Nej | Direct Linux-agenter används inte av lösningen. |
+| [Windows-agenter](log-analytics-agent-windows.md) | Nej | Direkta Windows-agenter används inte av lösningen. |
+| [Linux-agenter](log-analytics-quick-collect-linux-computer.md) | Nej | Direct Linux-agenter används inte av lösningen. |
 | [SCOM-hanteringsgrupp](log-analytics-om-agents.md) | Nej | En direktanslutning till Log Analytics från SCOM-agenten används inte av lösningen. |
 
 ## <a name="configuration"></a>Konfiguration
@@ -121,8 +121,8 @@ Den nedan tabellen beskriver perspektiv som stöds för två versioner av instru
 | Resursen efter typ | Perspektiv som räknar alla resurser som övervakas. | Ja | Ja | 
 | Insikter | Tillhandahåller hierarkisk nedåt till smarta insikter i prestanda. | Ja | Ja |
 | Fel | Tillhandahåller hierarkisk nedåt till SQL-fel som inträffat på databaserna. | Ja | Ja |
-| Tidsgränser | Tillhandahåller hierarkisk nedåt till SQL-timeouter som inträffat på databaserna. | Ja | Nej |
-| Blockings | Tillhandahåller hierarkisk nedåt till SQL-blockings som inträffat på databaserna. | Ja | Nej |
+| Timeouter | Tillhandahåller hierarkisk nedåt till SQL-timeouter som inträffat på databaserna. | Ja | Nej |
+| Blockeringar | Tillhandahåller hierarkisk nedåt till SQL-blockings som inträffat på databaserna. | Ja | Nej |
 | Databasen väntar | Tillhandahåller hierarkisk nedåt till SQL vänta statistik på databasnivå. Omfattar sammanfattningar av total Väntetid och väntetiden per typ av vänta. |Ja | Ja |
 | Frågevaraktighet | Tillhandahåller hierarkisk detaljnivå om frågestatistik för körning som frågevaraktigheten, CPU-användning, Data-i/o-användning, logg-i/o-användning. | Ja | Ja |
 | Frågan väntar | Tillhandahåller hierarkisk detaljnivå om vänta frågestatistik efter vänta kategori. | Ja | Ja |
@@ -192,7 +192,7 @@ Automatiserade aviseringar i lösningen baseras på skriva en Log Analytics-frå
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Skapa aviseringar för Azure SQL Database
 
-Du kan enkelt [skapa aviseringar](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) med data från Azure SQL Database-resurser. Här är några användbara [loggsökning](log-analytics-log-searches.md) frågor som du kan använda med en logg-avisering:
+Du kan enkelt [skapa aviseringar](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) med data från Azure SQL Database-resurser. Här är några användbara [loggsökning](log-analytics-log-search.md) frågor som du kan använda med en logg-avisering:
 
 *Hög CPU i Azure SQL-databas*
 
@@ -289,6 +289,6 @@ Medan lösningen kostar ingenting att använda gäller förbrukning av diagnosti
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Använd [Loggsökningar](log-analytics-log-searches.md) i Log Analytics för att visa detaljerad Azure SQL-data.
+- Använd [Loggsökningar](log-analytics-log-search.md) i Log Analytics för att visa detaljerad Azure SQL-data.
 - [Skapa dina egna instrumentpaneler](log-analytics-dashboards.md) visar Azure SQL-data.
-- [Skapa aviseringar](log-analytics-alerts.md) när specifika Azure SQL-händelser inträffar.
+- [Skapa aviseringar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) när specifika Azure SQL-händelser inträffar.

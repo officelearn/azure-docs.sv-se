@@ -5,15 +5,15 @@ services: iot-central
 ms.service: iot-central
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 07/09/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: d32e05e99543b30ee92ea455ae2f800b09d83661
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 5db215a3bf87ac42ac832a59ce39f7e72c45527f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009296"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963361"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Som en Kryptografiprovider, skapa och hantera en Azure IoT Central-App för din kunds räkning 
 
@@ -35,13 +35,13 @@ Du hamnar på sidan Programhanterare för Azure IoT Central. Azure IoT Central b
 
 Om du vill skapa ett Azure IoT Central program klickar du på den **nytt program** panelen. Detta kommer att läsa in sidan Skapa program. Du måste fylla i alla fält på den här sidan och välj sedan **skapa**. Du hittar mer information om vart och ett av fälten nedan.
 
-![Skapa program sida för CSP: er](media\howto-create-application-asCSP\image4-1.png)
+![Skapa program sida för CSP: er](media\howto-create-application-asCSP\image4.png)
 
-![Skapa program sida för CSP: er](media\howto-create-application-asCSP\image4-2.png)
+![Skapa program sida för CSP: er](media\howto-create-application-asCSP\image4-1.png)
 
 ## <a name="payment-plan"></a>Betalningsplan
 
-Du kan skapa bara skapa betalprogram som en Kryptografiprovider. Om du vill visa Azure IoT Central till kunden, kan du skapa en utvärderingsprogram separat. Läs mer om testversion och betald program på den [Azure IoT Central prissättningssidan](https://azure.microsoft.com/pricing/details/iot-central/).
+Du kan bara skapa betala per användning-program som en Kryptografiprovider. Om du vill visa Azure IoT Central till kunden, kan du skapa en utvärderingsprogram separat. Läs mer om utvärderingsversionen och betala per användning på den [Azure IoT Central prissättningssidan](https://azure.microsoft.com/pricing/details/iot-central/).
 
 ## <a name="application-name"></a>Programnamn
 

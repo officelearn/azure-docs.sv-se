@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: cc54a3a375fa2780e289a20b699df5d65aaf08cc
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: c06939ccb920954c08ef02f38e6d12471ac267db
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155583"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959298"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Skapa arbetsflöden med IoT Central-connector i Microsoft Flow
 
@@ -21,8 +21,10 @@ ms.locfileid: "50155583"
 
 Använd Microsoft Flow för att automatisera arbetsflöden i många program och tjänster som företagsanvändare förlitar sig på. Använder IoT Central-connector i Microsoft Flow kan utlösa du arbetsflöden när en regel utlöses i IoT Central. I ett arbetsflöde som utlöses av IoT Central eller något annat program, kan du använda åtgärderna i IoT Central-anslutningsappen skapar en enhet, uppdatera enhetens egenskaper och inställningar eller ta bort en enhet. Kolla in [mallarna Microsoft Flow](https://aka.ms/iotcentralflowtemplates) som ansluta IoT Central till andra tjänster, till exempel mobila meddelanden och Microsoft Teams.
 
-> [!NOTE] 
-> Du måste logga in på Microsoft Flow med ett Microsoft-personal eller arbets- eller skolkonto. Läs mer om Microsoft Flow prenumerationsavtal [här](https://aka.ms/microsoftflowplans).
+## <a name="prerequisites"></a>Förutsättningar
+
+- Ett program för betala per användning
+- Ett Microsoft personlig eller arbets eller skolkonto för att logga in på Flow ([Läs mer om Microsoft Flow prenumerationsavtal](https://aka.ms/microsoftflowplans))
 
 ## <a name="trigger-a-workflow-when-a-rule-is-triggered"></a>Utlös ett arbetsflöde när en regel utlöses
 

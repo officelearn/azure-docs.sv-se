@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6d826702d8302246a225ebfcdf0a5987cf9d2045
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 46939e15100468eab0d5575546eb6bd58df4aacd
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167060"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961083"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
 Visa prestanda och användning för webbsidor eller appar. Om du lägger till [Application Insights](app-insights-overview.md) i webbsidans skript så visas information om tider för sidinläsningar och AJAX-anrop, information om och antalet webbläsarundantag och AJAX-fel, samt information om antalet användare och sessioner. Allt detta kan visas efter sida, klientoperativsystem- och webbläsarversion, geografisk plats och andra dimensioner. Du kan ställa in varningar för antal fel eller långsam sidinläsning. Och genom att infoga spårning av anrop i JavaScript-kod kan du spåra hur olika funktioner i ditt webbsideprogram används.
@@ -230,7 +230,7 @@ Sidans namn kan innehålla samma tecken som en URL, men allt efter ”#” eller
 ## <a name="usage-tracking"></a>Användningsspårning
 Vill du veta vad användarna gör med din app?
 
-* [Lär dig mer om analysverktyg som användaren beteende](app-insights-web-track-usage.md)
+* [Lär dig mer om analysverktyg som användaren beteende](app-insights-usage-overview.md)
 * [Lär dig mer om API:er för mätvärden och anpassade händelser](app-insights-api-custom-events-metrics.md).
 
 ## <a name="video"></a> Video
@@ -241,7 +241,7 @@ Vill du veta vad användarna gör med din app?
 
 
 ## <a name="next"></a>Nästa steg
-* [Spåra användning](app-insights-web-track-usage.md)
+* [Spåra användning](app-insights-usage-overview.md)
 * [Anpassade händelser och mätvärden](app-insights-api-custom-events-metrics.md)
-* [Skapa – mät – lär](app-insights-web-track-usage.md)
+* [Skapa – mät – lär](app-insights-usage-overview.md)
 

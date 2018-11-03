@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4f063299a0bb454c8eaf3d38a0cb0a5fb20abcc8
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 60195f135b8b0e102a36c3573a341432f2e0c784
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094095"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959315"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Vanliga frågor och svar
 
@@ -27,7 +27,7 @@ ms.locfileid: "47094095"
 
 * [.NET-app](app-insights-asp-net-troubleshoot-no-data.md)
 * [Övervaka en app redan körs](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
-* [Azure-diagnostik](app-insights-azure-diagnostics.md)
+* [Azure-diagnostik](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
 * [Java-webbapp](app-insights-java-troubleshoot.md)
 
 *Jag får inga data från Min server*
@@ -111,7 +111,7 @@ Från server web apps:
 
 Från [klienten webbsidor](app-insights-javascript.md):
 
-* [Antal sidvisningar](app-insights-web-track-usage.md)
+* [Antal sidvisningar](app-insights-usage-overview.md)
 * [AJAX-anrop](app-insights-asp-net-dependencies.md) begäranden som görs från ett skript som körs.
 * Läs in data om sidvisningar
 * Antal användare och sessioner
@@ -119,7 +119,7 @@ Från [klienten webbsidor](app-insights-javascript.md):
 
 Från andra källor, om du konfigurerar dem:
 
-* [Azure-diagnostik](app-insights-azure-diagnostics.md)
+* [Azure-diagnostik](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
 * [Docker-behållare](app-insights-docker.md)
 * [Importera tabellerna till Analytics](app-insights-analytics-import.md)
 * [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)

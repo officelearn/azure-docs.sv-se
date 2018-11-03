@@ -1,6 +1,6 @@
 ---
-title: Skapa en klassisk mått i Azure med en Resource Manager-mall
-description: Lär dig hur du använder en Resource Manager-mall för att skapa en klassisk mått om du vill få meddelanden via e-post eller webhook.
+title: Skapa en klassisk måttavisering i Azure med en Resource Manager-mall
+description: Lär dig hur du använder Resource Manager-mall för att skapa en klassisk måttavisering för att ta emot meddelanden med e-post eller webhook.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,31 +8,31 @@ ms.topic: conceptual
 ms.date: 4/27/2018
 ms.author: johnkem
 ms.component: metric
-ms.openlocfilehash: 67dac4f8d9b66f4b5f2654ffb16d9829387fc060
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 3cdf2371ccdaca5573c088c33527985f98ef2f90
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263304"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957132"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Skapa en klassisk måttavisering med en Resource Manager-mall
-Den här artikeln visar hur du kan använda en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-authoring-templates.md) att konfigurera Azure mått aviseringar. På så sätt kan du ställa in aviseringar på dina resurser automatiskt när de skapas så att alla resurser övervakas på rätt sätt.
+Den här artikeln visar hur du kan använda en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-authoring-templates.md) att konfigurera Azure måttaviseringar. På så sätt kan du automatiskt konfigurera aviseringar för dina resurser när de har skapats för att se till att alla resurser är korrekt.
 
 > [!NOTE]
 > 
-> Den här artikeln beskriver hur du skapar **klassiska mått aviseringar** med hjälp av Resource Manager-mallar. Om du behöver för att skapa [nyare mått aviseringar](monitoring-near-real-time-metric-alerts.md) med hjälp av mallar, [i den här artikeln](monitoring-create-metric-alerts-with-templates.md) visar information.
+> Den här artikeln beskrivs hur du skapar **klassiska måttaviseringar** med hjälp av Resource Manager-mallar. Om du behöver för att skapa [nyare måttaviseringar](monitoring-near-real-time-metric-alerts.md) med hjälp av mallar, [i den här artikeln](monitoring-create-metric-alerts-with-templates.md) ger detaljerad information.
 >
 
 
-Stegen är följande:
+De grundläggande stegen är följande:
 
-1. Skapa en mall som en JSON-fil som beskriver hur du skapar en avisering.
-2. [Distribuera mallen med hjälp av en distributionsmetod](../azure-resource-manager/resource-group-template-deploy.md).
+1. Skapa en mall som en JSON-fil som beskriver hur du skapar aviseringen.
+2. [Distribuera mallen med hjälp av valfri distributionsmetod](../azure-resource-manager/resource-group-template-deploy.md).
 
-Nedan vi beskriver hur du skapar en Resource Manager-mall först för en avisering ensamt och sedan för en varning under genereringen av en annan resurs.
+Nedan beskrivs hur du Resource Manager-mall först skapa en avisering ensamt och sedan för en varning under genereringen av en annan resurs.
 
-## <a name="resource-manager-template-for-a-classic-metric-alert"></a>Resource Manager-mall för en avisering om klassiska mått
-När du skapar en avisering med en Resource Manager-mall kan du skapa en resurs av typen `Microsoft.Insights/alertRules` och Fyll i alla relaterade egenskaper. Nedan finns en mall som skapar en aviseringsregel.
+## <a name="resource-manager-template-for-a-classic-metric-alert"></a>Resource Manager-mall för en klassisk måttavisering
+Om du vill skapa en avisering med en Resource Manager-mall, skapar du en resurs av typen `Microsoft.Insights/alertRules` och Fyll i alla relaterade egenskaper. Nedan visas en mall som skapar en aviseringsregel.
 
 ```json
 {
@@ -179,10 +179,10 @@ När du skapar en avisering med en Resource Manager-mall kan du skapa en resurs 
 }
 ```
 
-En förklaring av schemat och egenskaperna för en aviseringsregel [finns här](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+En förklaring av schemat och egenskaper för en varningsregel [finns här](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
-## <a name="resource-manager-template-for-a-resource-with-a-classic-metric-alert"></a>Resource Manager-mall för en resurs med en avisering om klassiska mått
-Aviseringar i en Resource Manager-mall är mest användbart när du skapar en avisering när du skapar en resurs. Du kanske exempelvis vill se till att en ”CPU % > 80” regeln ställs in varje gång du distribuerar en virtuell dator. Om du vill göra detta måste du lägger till varningsregeln som en resurs i matrisen resurs för VM-mall och lägga till ett beroende som använder den `dependsOn` egenskapen till VM-resurs-ID. Här är ett fullständigt exempel som skapar en virtuell Windows-dator och lägger till en avisering som meddelar prenumerationsadministratörer när processoranvändningen går över 80%.
+## <a name="resource-manager-template-for-a-resource-with-a-classic-metric-alert"></a>Resource Manager-mall för en resurs med en klassisk måttavisering
+En avisering på en Resource Manager-mallen är mest användbart när du skapar en avisering när du skapar en resurs. Du kan till exempel vill se till att en ”CPU % > 80” regeln ställs in varje gång du distribuerar en virtuell dator. Detta gör du lägger till varningsregeln som en resurs i matrisen resurs för VM-mallen och lägga till ett beroende med hjälp av den `dependsOn` egenskapen till VM-resurs-ID. Här är ett fullständigt exempel som skapar en virtuell Windows-dator och lägger till en avisering som meddelar prenumerationsadministratörer när processoranvändningen går över 80%.
 
 ```json
 {
@@ -402,6 +402,6 @@ Aviseringar i en Resource Manager-mall är mest användbart när du skapar en av
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* [Läs mer om aviseringar](insights-receive-alert-notifications.md)
+* [Läs mer om aviseringar](monitoring-overview-alerts.md)
 * [Lägg till diagnostikinställningar](monitoring-enable-diagnostic-logs-using-template.md) till Resource Manager-mall
 

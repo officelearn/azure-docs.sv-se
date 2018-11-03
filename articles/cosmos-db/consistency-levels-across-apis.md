@@ -9,22 +9,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: mjbrown
-ms.openlocfilehash: ed08b90b9e216ee8713bfe445e98144bf2ba02d4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 974531cd5907e4f69e7d064125d3e51fa4974949
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244194"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50956391"
 ---
-# <a name="consistency-levels-and-cosmos-db-apis"></a>Konsekvensnivåer och Cosmos DB API: er
+# <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Konsekvensnivåer och Azure Cosmos DB API: er
 
-Fem konsekvensmodeller stöds internt av SQL-API som är standard-API: et när du använder Cosmos DB. Förutom SQL-API finns Cosmos DB även inbyggt stöd för protokollet kompatibla API: er för populära databaser, till exempel MongoDB, Apache Cassandra, Gremlin och Azure-tabeller. De här databaserna erbjuder varken exakt definierade konsekvensmodeller eller SLA-reglerad garantier för konsekvensnivåerna och ges vanligtvis med endast en delmängd av de fem konsekvensmodeller som Cosmos DB erbjuder. Standard-konsekvensnivå som konfigurerats för Cosmos-kontot används för SQL-API, Gremlin-API och tabell-API.
+De fem konsekvensmodeller erbjuds av Azure Cosmos DB stöds internt av Cosmos DB SQL API, vilket är standard-API: et när du använder Cosmos DB. Förutom SQL-API finns Cosmos DB även inbyggt stöd för protokollet kompatibla API: er för populära databaser, till exempel MongoDB, Apache Cassandra, Gremlin och Azure-tabeller. Dessa databaser som varken erbjuder exakt definierade konsekvensmodeller och inte heller garantierna som omfattas av serviceavtalet för konsekvensnivåerna. De här databaserna tillhandahåller vanligtvis endast en delmängd av de fem konsekvensmodeller erbjuds av Cosmos DB. Standard-konsekvensnivå som du konfigurerar för Cosmos-kontot används för SQL-API, Gremlin-API och tabell-API.
 
-Följande tabell visar mappningen mellan den datakonsekvens som begärts av en klient OSS-drivrutinen för Apache Cassandra 4.x och MongoDB 3.4 när du använder Cassandra API och MongoDB API respektive och motsvarande Cosmos DB-konsekvensnivåer.
+I följande avsnitt visas mappningen mellan den datakonsekvens som begärts av en klient OSS-drivrutinen för Apache Cassandra 4.x och MongoDB 3.4 när du använder Cassandra API och MongoDB API respektive och motsvarande Cosmos DB-konsekvensnivåer.
 
-## <a id="cassandra-mapping"></a>Mappning av Apache Cassandra och Cosmos DB-konsekvensnivåer
+## <a id="cassandra-mapping"></a>Mappning mellan Apache Cassandra och Cosmos DB-konsekvensnivåer
 
-Tabellen nedan visar mappningen av läsningskontinuitet mellan Apache Cassandra 4.x-klienten och Cosmos DB ”standard” konsekvensnivå för både en flera regioner och en region distribution.
+I följande tabell visas ”läsningskontinuitet” mappningen mellan Apache Cassandra 4.x klient- och standard-konsekvensnivå i Cosmos DB för både i flera regioner och en region.
 
 | **Apache Cassandra 4.x** | **Cosmos DB (flera region)** | **Cosmos DB (en region)** |
 | - | - | - |
@@ -36,7 +36,7 @@ Tabellen nedan visar mappningen av läsningskontinuitet mellan Apache Cassandra 
 
 ## <a id="mongo-mapping"></a>Mappning mellan MongoDB 3.4 och Cosmos DB-konsekvensnivåer
 
-Tabellen nedan visar mappningen av ”skrivskyddade frågor” av MongoDB 3.4 och Cosmos DB ”standard” konsekvensnivå för både en flera regioner och en region distribution.
+I följande tabell visas ”Läs funderingar” mappningen mellan MongoDB 3.4 och standard-konsekvensnivå i Cosmos DB för både i flera regioner och en region.
 
 | **MongoDB 3.4** | **Cosmos DB (flera region)** | **Cosmos DB (en region)** |
 | - | - | - |

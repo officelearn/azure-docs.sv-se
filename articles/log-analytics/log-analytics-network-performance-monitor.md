@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: fc5ab802b39597d72f01f756c9bdb16597862e3c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: d49360fe39b0df7fc1172c3927e8725af10f927d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638227"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963888"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor-lösning i Azure
 
@@ -103,7 +103,7 @@ Använd basic-processer för att installera agenter på [ansluta Windows-datorer
 
 ### <a name="configure-the-solution"></a>Konfigurera lösningen 
 
-1. Lägga till Network Performance Monitor-lösning för din arbetsyta från den [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Du kan också använda metoden som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md). 
+1. Lägga till Network Performance Monitor-lösning för din arbetsyta från den [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Du kan också använda metoden som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](../monitoring/monitoring-solutions.md). 
 2. Öppna Log Analytics-arbetsytan och välj den **översikt** panelen. 
 3. Välj den **Övervakare av nätverksprestanda** panelen med meddelandet *ytterligare konfiguration krävs för lösningen*.
 
@@ -251,7 +251,7 @@ Topologin visas på kartan är layer 3-topologi och innehåller inte nivå 2-enh
 
 ## <a name="log-analytics-search"></a>Log Analytics-sökningen 
 
-Alla data som är exponerade grafiskt via instrumentpanelen för övervakning av nätverksprestanda och nedåt sidor är också tillgängligt internt i [Log Analytics Sök](log-analytics-log-search-new.md). Du kan utföra interaktiva analyser av data i databasen och korrelera data från olika källor. Du kan också skapa anpassade aviseringar och vyer och exportera data till Excel, Power BI eller en delbart länk. Den **vanliga frågor om** område i instrumentpanelen har vissa användbara frågor som du kan använda som startpunkt för att skapa egna frågor och rapporter. 
+Alla data som är exponerade grafiskt via instrumentpanelen för övervakning av nätverksprestanda och nedåt sidor är också tillgängligt internt i [Log Analytics Sök](log-analytics-log-search.md). Du kan utföra interaktiva analyser av data i databasen och korrelera data från olika källor. Du kan också skapa anpassade aviseringar och vyer och exportera data till Excel, Power BI eller en delbart länk. Den **vanliga frågor om** område i instrumentpanelen har vissa användbara frågor som du kan använda som startpunkt för att skapa egna frågor och rapporter. 
 
 ## <a name="alerts"></a>Aviseringar
 

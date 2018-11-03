@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 7a5372174fcc7cd9552c00c9d283772c9863b815
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: af8248bb68068c20d62a2d8cc1e86fd9997a740c
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258006"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962971"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Stream Azure-aktivitetsloggen till Event Hubs
 Du kan strömma den [Azure-aktivitetsloggen](monitoring-overview-activity-logs.md) i nära realtid för program genom att antingen:
@@ -101,5 +101,5 @@ Schemat för aktivitetsloggen finns i [övervaka prenumeration med Azure-aktivit
 ## <a name="next-steps"></a>Nästa steg
 * [Arkivera aktivitetsloggen till ett lagringskonto](monitoring-archive-activity-log.md)
 * [Läs en översikt över Azure-aktivitetsloggen](monitoring-overview-activity-logs.md)
-* [Konfigurera en avisering baserat på en händelse i aktivitetsloggen](insights-auditlog-to-webhook-email.md)
+* [Konfigurera en avisering baserat på en händelse i aktivitetsloggen](monitor-alerts-unified-log-webhook.md)
 

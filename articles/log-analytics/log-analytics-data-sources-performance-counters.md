@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/19/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5822d32906419e8b0615dd8686ec47de28deb38f
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: d03af1398f8fd714246c88308ba615ae17010b39
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182237"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962035"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Windows- och Linux prestanda datakällor i Log Analytics
 Prestandaräknare i Windows och Linux ger information om prestanda för maskinvarukomponenter, operativsystem och program.  Log Analytics kan samla in prestandaräknare med återkommande intervall för analys i nära realtid (NRT) utöver sammanställa prestandadata för längre sikt analys och rapportering.
@@ -208,7 +208,7 @@ Prestandaposter har en typ av **Perf** och har egenskaperna i följande tabell.
 ## <a name="log-searches-with-performance-records"></a>Loggsökningar med prestandaposter
 I följande tabell innehåller olika exempel på sökningar i loggen som hämtar prestandaposter.
 
-| Fråga | Beskrivning |
+| Söka i data | Beskrivning |
 |:--- |:--- |
 | Perf |Alla prestandadata |
 | Perf &#124; där dator == ”den här datorn” |Alla prestandadata från en viss dator |
@@ -227,5 +227,5 @@ I följande tabell innehåller olika exempel på sökningar i loggen som hämtar
 
 ## <a name="next-steps"></a>Nästa steg
 * [Samla in prestandaräknare från Linux-program](log-analytics-data-sources-linux-applications.md) inklusive MySQL och Apache HTTP Server.
-* Lär dig mer om [loggsökningar](log-analytics-log-searches.md) att analysera data som samlas in från datakällor och lösningar.  
+* Lär dig mer om [loggsökningar](log-analytics-log-search.md) att analysera data som samlas in från datakällor och lösningar.  
 * Exportera insamlade data [Power BI](log-analytics-powerbi.md) för fler visualiseringar och analys.

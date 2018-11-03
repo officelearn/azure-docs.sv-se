@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 7c850eee67224d09ea2715a58c3cd8eca4ab07af
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: c248e126d99c7cb83895871ec24d41ffcfd84d29
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041910"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960692"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Övervaka status för Active Directory-replikering med Log Analytics
 
@@ -34,7 +34,7 @@ AD-replikeringsstatus-lösningspaket övervakar regelbundet Active Directory-mil
 Använd följande information för att installera och konfigurera lösningen.
 
 * Du måste installera agenter på domänkontrollanter som är medlemmar i domänen som ska utvärderas. Eller så du måste installera agenter på medlemsservrar och konfigurera agenter för att skicka data för AD-replikering till Log Analytics. Information om hur du ansluter Windows-datorer till Log Analytics finns i [ansluta Windows-datorer till Log Analytics](log-analytics-windows-agent.md). Om domänkontrollanten finns redan i en befintlig System Center Operations Manager-miljö som du vill ansluta till Log Analytics finns i [ansluta Operations Manager till Log Analytics](log-analytics-om-agents.md).
-* Lägga till Active Directory-replikeringsstatus-lösning för Log Analytics-arbetsytan med processen som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md).  Det krävs ingen ytterligare konfiguration.
+* Lägga till Active Directory-replikeringsstatus-lösning för Log Analytics-arbetsytan med processen som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](../monitoring/monitoring-solutions.md).  Det krävs ingen ytterligare konfiguration.
 
 ## <a name="ad-replication-status-data-collection-details"></a>AD-replikeringsstatus data samling information
 I följande tabell visas data samlingsmetoder och annan information om hur data samlas in för AD-replikeringsstatus.
@@ -110,7 +110,7 @@ När du klickar på ett objekt i någon av listor visas ytterligare information 
 
 ![AD-replikering status fel i sökresultaten](./media/log-analytics-ad-replication-status/oms-ad-replication-search-details.png)
 
-Härifrån kan du filtrera ytterligare, ändra sökfrågan och så vidare. Läs mer om hur du använder Log Search [Loggsökningar](log-analytics-log-searches.md).
+Härifrån kan du filtrera ytterligare, ändra sökfrågan och så vidare. Läs mer om hur du använder Log Search [Loggsökningar](log-analytics-log-search.md).
 
 Den **HelpLink** fältet visar Webbadressen till en TechNet-sida med ytterligare information om det specifika felet. Du kan kopiera och klistra in den här länken i webbläsarfönstret för att visa information om felsökning och åtgärda felet.
 
@@ -154,4 +154,4 @@ Om du behöver hjälp med att ansluta en av domänkontrollanterna kan du visa do
 Om du inte vill att någon av dina domänkontrollanter ansluta direkt till Log Analytics eller till System Center Operations Manager, se [att aktivera en icke-domänkontrollant att skicka AD-data till Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd [Loggsökningar i Log Analytics](log-analytics-log-searches.md) att visa detaljerad status för data för Active Directory-replikering.
+* Använd [Loggsökningar i Log Analytics](log-analytics-log-search.md) att visa detaljerad status för data för Active Directory-replikering.

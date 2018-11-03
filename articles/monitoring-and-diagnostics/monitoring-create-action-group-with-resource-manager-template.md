@@ -8,27 +8,27 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 9b49d21dad9bb1e48194cc31940c5cd53c909dc0
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 583a84fd943f6dab63f94e2811e21853e6e5f6a1
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263107"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959179"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Skapa en grupp med en Resource Manager-mall
-Den här artikeln visar hur du använder en [Azure Resource Manager-mall](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) så här konfigurerar du åtgärdsgrupper. Med hjälp av mallar kan du automatiskt konfigurera åtgärdsgrupper som kan återanvändas i vissa typer av aviseringar. Åtgärdsgrupperna se till att rätt parterna meddelas när en avisering utlöses.
+Den här artikeln visar hur du använder en [Azure Resource Manager-mall](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) konfigurera åtgärdsgrupper. Med hjälp av mallar kan du automatiskt konfigurera åtgärdsgrupper som kan återanvändas i vissa typer av aviseringar. Dessa åtgärdsgrupper se till att rätt parterna får ett meddelande när en avisering utlöses.
 
-Stegen är:
+De grundläggande stegen är:
 
 1. Skapa en mall som en JSON-fil som beskriver hur du skapar åtgärdsgruppen.
 
-2. Distribuera mallen med hjälp av [alla distributionsmetoden](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
+2. Distribuera mallen med hjälp av [alla distributionsmetod](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
 
-Först beskrivs hur du skapar en Resource Manager-mall för en grupp där definitionerna för åtgärden är hårdkodat i mallen. Därefter beskrivs hur du skapar en mall som tar webhook konfigurationsinformation som indataparametrar när mallen distribueras.
+Först beskrivs hur du skapar en Resource Manager-mall för en grupp där definitionerna för åtgärden är hårdkodad i mallen. Dessutom beskrivs hur du skapar en mall som tar en webhook-konfigurationsinformation som indataparametrar när mallen distribueras.
 
-## <a name="resource-manager-templates-for-an-action-group"></a>Resource Manager-mallar för en grupp
+## <a name="resource-manager-templates-for-an-action-group"></a>Resource Manager-mallar för en åtgärdsgrupp
 
-Om du vill skapa en grupp med en Resource Manager-mall som du skapar en resurs av typen `Microsoft.Insights/actionGroups`. Du fylla i alla relaterade egenskaper. Här är två exempelmallar som skapar en grupp.
+Om du vill skapa en grupp med en Resource Manager-mall, skapar du en resurs av typen `Microsoft.Insights/actionGroups`. Du fylla i alla relaterade egenskaper. Här följer två exempelmallar som skapar en åtgärdsgrupp.
 
 ```json
 {
@@ -164,6 +164,6 @@ Om du vill skapa en grupp med en Resource Manager-mall som du skapar en resurs a
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [åtgärdsgrupper](monitoring-action-groups.md).
-* Lär dig mer om [aviseringar](monitoring-overview-alerts.md).
-* Lär dig hur du lägger till [aviseringar med hjälp av en Resource Manager-mall](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
+* Läs mer om [åtgärdsgrupper](monitoring-action-groups.md).
+* Läs mer om [aviseringar](monitoring-overview-alerts.md).
+* Lär dig hur du lägger till [aviseringar med hjälp av Resource Manager-mall](alert-activity-log.md).

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 7610fcfc144e4337f8556c8824dc7d104265bcc4
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: c3e0494d813f625a23f55171953d9145411a7024
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044560"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960310"
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Importera Azure Log Analytics-data till Power BI
 
@@ -81,5 +81,5 @@ Den datauppsättning som skapats i Power BI har samma data som du såg tidigare 
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [loggsökningar](log-analytics-log-searches.md) att skapa frågor som kan exporteras till Power BI.
+* Lär dig mer om [loggsökningar](log-analytics-log-search.md) att skapa frågor som kan exporteras till Power BI.
 * Läs mer om [Power BI](http://powerbi.microsoft.com) att skapa visualiseringar baserade på Log Analytics-export.

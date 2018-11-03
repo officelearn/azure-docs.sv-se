@@ -1,6 +1,6 @@
 ---
-title: Migrera Azure aviseringar på management-händelser till aktivitetsloggen aviseringar
-description: Aviseringar om management-händelser tas bort på 1 oktober. Förbereda genom att migrera befintliga aviseringar.
+title: Migrera Azure aviseringar för av hanteringshändelser till aktivitetsloggsaviseringar
+description: Aviseringar för av hanteringshändelser tas bort den 1 oktober. Förbered genom att migrera befintliga aviseringar.
 author: johnkemnetz
 services: monitoring
 ms.service: azure-monitor
@@ -8,29 +8,29 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: 9e4302b780d0c08afbc791a0aec6bfd806aba161
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 21651c577dc6b519b139aa7bbfc6d03d8f2c6980
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263712"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962154"
 ---
-# <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Migrera Azure aviseringar på management-händelser till aktivitetsloggen aviseringar
+# <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Migrera Azure aviseringar för av hanteringshändelser till aktivitetsloggsaviseringar
 
 
 > [!WARNING]
-> Aviseringar om händelser för management inaktiveras från och med 1 oktober. Använd anvisningarna nedan för att förstå om du har dessa aviseringar och migrera dem i så fall.
+> Aviseringar för av hanteringshändelser kommer att inaktiveras på eller efter 1 oktober. Använd anvisningarna nedan för att förstå om du har dessa aviseringar och migrera dem fall i så.
 >
 > 
 
 ## <a name="what-is-changing"></a>Vad ändras
 
-Azure-Monitor (tidigare Azure insikter) erbjuder en möjlighet att skapa en avisering som aktiveras från management händelser och genererade aviseringar till en webhook URL eller e-postadresser. Du har skapat en av dessa aviseringar något av följande sätt:
-* I Azure-portalen för vissa typer av resurser under övervakning -> aviseringar -> Lägg till varning, där ”Varna om” är inställt på ”händelser”
+Azure Monitor (tidigare Azure Insights) erbjuds en funktion för att skapa en avisering som utlöses från hanteringshändelser och genereras aviseringar till en webhook-URL eller e-postadresser. Du kan ha skapat en av dessa aviseringar något av följande sätt:
+* I Azure-portalen för vissa typer av resurser under övervakning -> aviseringar -> Lägg till avisering, där ”Avisera om” anges till ”händelser”
 * Genom att köra cmdlet Add-AzureRmLogAlertRule PowerShell
-* Med hjälp av direkt [avisering REST API](http://docs.microsoft.com/rest/api/monitor/alertrules) med odata.type = ”ManagementEventRuleCondition” och dataSource.odata.type = ”RuleManagementEventDataSource”
+* Genom att använda direkt [avisering REST API](http://docs.microsoft.com/rest/api/monitor/alertrules) med OData.Type värdet = ”ManagementEventRuleCondition” och dataSource.odata.type = ”RuleManagementEventDataSource”
  
-Följande PowerShell-skript returnerar en lista över alla aviseringar för av hanteringshändelser som du har i din prenumeration, samt de villkor som anges på varje avisering.
+Följande PowerShell-skriptet returnerar en lista över alla aviseringar på management-händelser som du har i din prenumeration, samt villkoren på varje avisering.
 
 ```powershell
 Connect-AzureRmAccount
@@ -49,11 +49,11 @@ foreach ($alert in $alerts) {
 } 
 ```
 
-Om du har inga aviseringar om händelser för management PowerShell-cmdleten ovan kommer att skrivas ut en serie varningsmeddelanden som detta:
+Om du har inga aviseringar om händelser för management PowerShell-cmdleten ovan mata ut en serie varningsmeddelanden som den här:
 
 `WARNING: The output of this cmdlet will be flattened, i.e. elimination of the properties field, in a future release to improve the user experience.`
 
-Dessa varningar kan ignoreras. Om du har aviseringar om hanteringshändelser, ser resultatet av denna PowerShell-cmdlet ut så här:
+Dessa varningsmeddelanden kan ignoreras. Om du har aviseringar om hanteringshändelser, ser utdata från denna PowerShell-cmdlet ut så här:
 
 ```
 Alert Name: webhookEvent1
@@ -90,29 +90,29 @@ ResourceUri          : /subscriptions/<subscription-id>/resourceGroups/<resource
 ---------------------------------
 ```
 
-Varje avisering avgränsas med en streckad linje och innehåller resurs-ID för aviseringen och den specifika regeln som övervakas.
+Varje avisering avgränsas med en streckad linje och informationen innehåller resurs-ID för aviseringen och den specifika regeln som övervakas.
 
-Den här funktionen har gått över till [Azure övervaka aktiviteten loggen aviseringar](monitoring-activity-log-alerts.md). Dessa nya aviseringar kan du ange ett villkor på aktivitetsloggen händelser och ett meddelande när en ny händelse matchar villkoret. De erbjuder också flera förbättringar från aviseringar om hanteringshändelser:
-* Du kan återanvända din grupp meddelandemottagare (”åtgärder”) över flera aviseringar via [åtgärdsgrupper](monitoring-action-groups.md), minska komplexiteten vid ändring av vem som ska få en avisering.
-* Du kan få ett meddelande direkt på telefonen med hjälp av SMS med åtgärdsgrupper.
-* Du kan [Skapa aktivitet Logga varningar med Resource Manager-mallar](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
-* Du kan skapa villkor med större flexibilitet och komplexitet för att uppfylla dina specifika behov.
+Den här funktionen har övergått till [Azure Monitor Aktivitetsloggaviseringar](monitoring-activity-log-alerts.md). Dessa nya aviseringar kan du ange ett villkor för aktivitetslogghändelserna och får en avisering när en ny händelse matchar villkoret. De erbjuder även flera förbättringar från aviseringar för av hanteringshändelser:
+* Du kan återanvända gruppen med meddelandemottagare (”åtgärder”) mellan många aviseringar med hjälp av [åtgärdsgrupper](monitoring-action-groups.md), vilket minskar komplexiteten med att ändra vem som ska få en avisering.
+* Du kan ta emot ett meddelande direkt på din telefon med SMS med åtgärdsgrupper.
+* Du kan [skapa aviseringar för aktivitetsloggar med Resource Manager-mallar](alert-activity-log.md).
+* Du kan skapa villkor med större flexibilitet och komplexiteten för att uppfylla dina specifika behov.
 * Meddelanden levereras snabbare.
  
-## <a name="how-to-migrate"></a>Hur du migrerar
+## <a name="how-to-migrate"></a>Så här migrerar du
  
-Om du vill skapa en ny aktivitet loggen avisering, kan du antingen:
-* Följ [vår vägledning om hur du skapar en avisering i Azure-portalen](monitoring-activity-log-alerts.md)
-* Lär dig hur du [skapar en avisering med en Resource Manager-mall](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+Om du vill skapa en ny aktivitet Log avisering, kan du antingen:
+* Följ [vår guide om hur du skapar en avisering i Azure portal](monitoring-activity-log-alerts.md)
+* Lär dig hur du [skapar en avisering med en Resource Manager-mall](alert-activity-log.md)
  
-Aviseringar på management-händelser som du tidigare har skapat flyttas inte automatiskt till aktiviteten loggen aviseringar. Du måste använda föregående PowerShell-skript för att visa aviseringar för av hanteringshändelser att du har konfigurerat och manuellt återskapa dem som aktiviteten loggen aviseringar. Detta måste göras innan 1 oktober efter aviseringar om händelser för management kommer inte längre att synas i din Azure-prenumeration. Andra typer av Azure aviseringar, inklusive Azure övervaka mått aviseringar, Programinsikter aviseringar och logganalys aviseringar påverkas inte av den här ändringen. Om du har några frågor efter i kommentarerna nedan.
+Aviseringar för av hanteringshändelser som du tidigare har skapat flyttas inte automatiskt till Aktivitetsloggaviseringar. Du behöver använda föregående PowerShell-skriptet för att visa aviseringar för av hanteringshändelser att du har konfigurerat och manuellt återskapa dem som Aktivitetsloggaviseringar. Detta måste göras före 1 oktober efter aviseringar för av hanteringshändelser kommer inte längre att visas i din Azure-prenumeration. Andra typer av Azure-aviseringar, inklusive Azure Monitor måttaviseringar, Application Insights-aviseringar och Log Analytics-aviseringar påverkas inte av den här ändringen. Om du har några frågor kan du publicera i kommentarerna nedan.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [aktivitetsloggen](monitoring-overview-activity-logs.md)
-* Konfigurera [aktivitet loggen aviseringar via Azure-portalen](monitoring-activity-log-alerts.md)
-* Konfigurera [aktivitet loggen aviseringar via Hanteraren för filserverresurser](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
-* Granska de [avisering webhook för aktivitetslogg](monitoring-activity-log-alerts-webhook.md)
-* Lär dig mer om [tjänstmeddelanden](monitoring-service-notifications.md)
-* Lär dig mer om [åtgärdsgrupper](monitoring-action-groups.md)
+* Läs mer om [aktivitetsloggen](monitoring-overview-activity-logs.md)
+* Konfigurera [Aktivitetsloggaviseringar via Azure-portalen](monitoring-activity-log-alerts.md)
+* Konfigurera [Aktivitetsloggaviseringar via Resource Manager](alert-activity-log.md)
+* Granska den [avisering webhook för aktivitetslogg](monitoring-activity-log-alerts-webhook.md)
+* Läs mer om [tjänstmeddelanden](monitoring-service-notifications.md)
+* Läs mer om [åtgärdsgrupper](monitoring-action-groups.md)

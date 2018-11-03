@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: dd404bf8766082148a2c5a1ae55189f5f82f9021
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f5db8c4e8137d9758113210ad433278eb8f5a2ee
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404077"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962137"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Samla in och analysera Azure-aktivitetsloggar i Log Analytics
 
@@ -54,8 +54,8 @@ Till skillnad från de flesta andra Log Analytics-lösningar kan data samlas int
 
 | Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
-| [Windows-agenter](log-analytics-windows-agent.md) | Nej | Lösningen samlar inte in information från Windows-agenter. |
-| [Linux-agenter](log-analytics-linux-agents.md) | Nej | Lösningen samlar inte in information från Linux-agenter. |
+| [Windows-agenter](log-analytics-agent-windows.md) | Nej | Lösningen samlar inte in information från Windows-agenter. |
+| [Linux-agenter](log-analytics-quick-collect-linux-computer.md) | Nej | Lösningen samlar inte in information från Linux-agenter. |
 | [SCOM-hanteringsgrupp](log-analytics-om-agents.md) | Nej | Lösningen samlar inte in information från agenter i en ansluten SCOM-hanteringsgrupp. |
 | [Azure Storage-konto](log-analytics-azure-storage.md) | Nej | Lösningen samlar inte in information från Azure storage. |
 
@@ -67,7 +67,7 @@ Till skillnad från de flesta andra Log Analytics-lösningar kan data samlas int
 
 Utför följande steg för att konfigurera Activity Log Analytics-lösningen för dina arbetsytor.
 
-1. Aktivera Aktivitetslogganalys från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) eller använd processen som beskrivs i [Lägg till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md).
+1. Aktivera Aktivitetslogganalys från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) eller använd processen som beskrivs i [Lägg till Log Analytics-lösningar från lösningsgalleriet](../monitoring/monitoring-solutions.md).
 2. Konfigurera aktivitetsloggar för att gå till Log Analytics-arbetsytan.
     1. Välj din arbetsyta i Azure-portalen och klicka sedan på **Azure-aktivitetsloggen**.
     2. Klicka på prenumerationens namn för varje prenumeration.  
@@ -89,7 +89,7 @@ Klicka på den **Azure-aktivitetsloggar** panelen för att öppna den **Azure-ak
 
 Aktivitetsloggdata visas bara *när* du har konfigurerat din aktivitetsloggar för att öppna lösningen, så du inte kan visa data innan dess.
 
-| Blad | Beskrivning |
+| Bladet | Beskrivning |
 | --- | --- |
 | Azure-Aktivitetsloggposter | Visar ett liggande diagram över de Azure-aktivitetsloggar loggpost poster summor för datumintervall som du har valt och visar en lista över de översta 10 aktivitet anropare. Klicka på diagrammet för att köra en loggsökning för <code>AzureActivity</code>. Klicka på en anroparen objekt om du vill köra en loggsökning som returnerar alla aktivitetsloggposter för objektet. |
 | Aktivitetsloggar efter Status | Visar ett ringdiagram för Azure log aktivitetsstatus för datumintervall som du har valt. Visar en lista också en lista över de översta tio status-posterna. Klicka på diagrammet för att köra en loggsökning för <code>AzureActivity &#124; summarize AggregatedValue = count() by ActivityStatus</code>. Klicka på en statusobjekt om du vill köra en loggsökning som returnerar alla aktivitetsloggposter för status för posten. |
@@ -100,5 +100,5 @@ Aktivitetsloggdata visas bara *när* du har konfigurerat din aktivitetsloggar f�
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Skapa en [avisering](log-analytics-alerts-creating.md) när en specifik aktivitet inträffar.
-- Använd [Loggsökning](log-analytics-log-searches.md) att visa detaljerad information från din aktivitetsloggar.
+- Skapa en [avisering](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) när en specifik aktivitet inträffar.
+- Använd [Loggsökning](log-analytics-log-search.md) att visa detaljerad information från din aktivitetsloggar.

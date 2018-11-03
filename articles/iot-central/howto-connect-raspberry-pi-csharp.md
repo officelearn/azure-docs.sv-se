@@ -1,19 +1,19 @@
 ---
 title: Connnect en Raspberry Pi till Azure IoT Central programmet (C#) | Microsoft Docs
 description: Som utvecklare av enheten, hur du ansluter en Raspberry Pi till ditt Azure IoT Central-program med C#.
-author: dominicbetts
-ms.author: dobett
-ms.date: 01/22/2018
+author: viv-liu
+ms.author: viviali
+ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
-ms.openlocfilehash: a9390ac9046ad1e0ec5a1689052ee99bf76ec6f4
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+manager: peterpr
+ms.openlocfilehash: 489a644bd2d17e2be3232ec522b9ed7e37d246ad
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734243"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50956731"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Ansluta en Raspberry Pi till Azure IoT Central programmet (C#)
 
@@ -23,10 +23,10 @@ Den här artikeln beskrivs hur du som utvecklare enheten att ansluta en Raspberr
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Du behöver följande för att slutföra stegen i den här artikeln:
+För att slutföra stegen i den här artikeln, måste följande komponenter:
 
 * [.NET core 2](https://www.microsoft.com/net) installerat på utvecklingsdatorn. Du bör även ha en lämplig Kodredigerare som [Visual Studio Code](https://code.visualstudio.com/).
-* Ett Azure IoT Central program som skapats från den **exempel Devkits** mall för program. Mer information finns i [skapa Azure IoT Central programmet](howto-create-application.md).
+* Ett Azure IoT Central program som skapats från den **exempel Devkits** mall för program. Mer information finns i den [en program-snabbstarten för att skapa](quick-deploy-iot-central.md).
 * En Raspberry Pi-enhet som kör operativsystemet Raspbian.
 
 
@@ -34,10 +34,21 @@ Du behöver följande för att slutföra stegen i den här artikeln:
 
 Ett program som skapats från den **exempel Devkits** programmall innehåller en **Raspberry Pi** enheten mallen med följande egenskaper: 
 
-- Telemetri som innehåller mätningarna för enheten **fuktighet**, **temperatur**, **tryck**, **Magnometer** (mätt längs X Y, Z-axeln), **Accelorometer** (mätt längs X, Y, Z-axeln) och **gyroskop** (mätt längs X, Y, Z-axeln).
-- Inställningar som visar **Voltage**, **aktuella**,**fläkthastighet** och en **IR** växlingsknappen.
-- Egenskaper som innehåller enhetsegenskap **dör nummer** och **plats** egenskap i molnet.
-
+- Telemetri, vilket inkluderar följande mått som samlar in enheten:
+    - Fuktighet
+    - Temperatur
+    - Tryck
+    - Magnetometer (X, Y, Z)
+    - Accelerometer (X, Y, Z)
+    - Gyroskop (X, Y, Z)
+- Inställningar
+    - Spänning
+    - Aktuell
+    - Fläkthastighet
+    - IR växlingsknappen.
+- Egenskaper
+    - Dör nummer enhetsegenskap
+    - Platsegenskapen för molnet
 
 Fullständig information om konfigurationen av enheten mallen finns i [Raspberry PI enhetsinformation mall](howto-connect-raspberry-pi-csharp.md#raspberry-pi-device-template-details)
 

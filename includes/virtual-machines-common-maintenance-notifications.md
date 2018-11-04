@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: b3f71c4710bd9711a3209dd55f8e680f63627c1b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b8d759c7b55608be780389991e6bb393f4f3fe9f
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035387"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981774"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Visa virtuella datorer som har schemalagts för underhåll i portalen
 
@@ -49,17 +49,9 @@ Du kan använda Azure portal och leta efter virtuella datorer som är schemalagd
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Meddelanden och aviseringar i portalen
 
-Azure kommunicerar ett schema för planerat underhåll genom att skicka ett e-postmeddelande till gruppen prenumeration ägare och Medägare. Du kan lägga till ytterligare mottagare och kanaler denna kommunikation genom att skapa aviseringar för Azure-aktivitet. Mer information finns i [övervaka prenumeration med Azure-aktivitetsloggen](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Azure kommunicerar ett schema för planerat underhåll genom att skicka ett e-postmeddelande till gruppen prenumeration ägare och Medägare. Du kan lägga till ytterligare mottagare och kanaler denna kommunikation genom att skapa aviseringar för Azure-aktivitet. Mer information finns i [skapa aviseringar för aktivitetsloggen för tjänstmeddelanden](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. I menyn till vänster väljer **övervakaren**. 
-3. I den **övervaka – aviseringar (klassisk)** fönstret klickar du på **+ Lägg till aktivitetsloggavisering**.
-5. Fyll i den **Lägg till aktivitetsloggavisering** sidan och se till att ange följande **kriterier**:
-   - **Händelsekategori**: Tjänstehälsa
-   - **Tjänster**: Virtual Machine Scale Sets och virtuella datorer
-   - **Typ**: planerat underhåll 
-    
-Mer information om hur du konfigurerar aviseringar för aktivitetsloggar finns [skapa aviseringar för aktivitetsloggen](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md).
+Se till att ange den **händelsetyp** som **planerat underhåll** och **Services** som **Virtual Machine Scale Sets** och/eller **Virtuella datorer**
     
     
 ## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Starta Underhåll på den virtuella datorn från portalen

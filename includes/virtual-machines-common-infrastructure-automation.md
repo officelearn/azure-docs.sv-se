@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: bc273b8979b29057163e02dc9605e631aef173f1
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 28c943b2588270af823c0712d4e510a4f018da3e
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227074"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981775"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Använd verktyg för automatisering av infrastruktur med virtuella datorer i Azure
 Om du vill skapa och hantera virtuella Azure-datorer (VM) på ett konsekvent sätt i stor skala, önskas vanligtvis någon form av automatisering. Det finns många verktyg och lösningar som gör det möjligt att automatisera distributionen av hela Azure-infrastrukturen och livscykeln för hantering. Den här artikeln presenteras några av de verktyg för automatisering av infrastruktur som du kan använda i Azure. Dessa verktyg anpassa ofta till någon av följande metoder:
@@ -129,9 +129,9 @@ Lär dig att:
 ## <a name="azure-devops-services"></a>Azure DevOps Services
 [Azure DevOps-tjänster](https://www.visualstudio.com/team-services/) är en uppsättning med verktyg som hjälper dig att dela och spåra code, Använd automatiserade versioner och skapa en fullständig kontinuerlig integrering och utveckling (CI/CD) pipeline. Azure DevOps-tjänster som integreras med Visual Studio och andra redigerare för att förenkla användningen. Azure DevOps-tjänster kan också skapa och konfigurera virtuella Azure-datorer och distribuera kod till dem.
 
-Lär dig att:
+Läs mer om:
 
-- [Skapa en pipeline för kontinuerlig integrering med Azure DevOps-tjänsterna](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md).
+- [Azure DevOps-tjänsterna](https://docs.microsoft.com/azure/devops/user-guide/index?view=vsts).
 
 
 ## <a name="jenkins"></a>Jenkins

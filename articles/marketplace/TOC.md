@@ -86,7 +86,18 @@
 ### [SaaS-försäljning genom Azure](./cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md)
 ### [SaaS-API:er](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
 
-## [Containrar](./cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md)
+<!-- Legacy ## [Containers](./cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md) -->
+
+## [Containererbjudande](./cloud-partner-portal/containers/cpp-containers-offer.md)
+### [Förutsättningar](./cloud-partner-portal/containers/cpp-prerequisites.md)
+### [Erbjudande om att skapa containrar](./cloud-partner-portal/containers/cpp-create-offer.md)
+#### [fliken Erbjudandeinställningar](./cloud-partner-portal/containers/cpp-offer-settings-tab.md)
+#### [fliken SKU:er](./cloud-partner-portal/containers/cpp-skus-tab.md)
+#### [fliken Marketplace](./cloud-partner-portal/containers/cpp-marketplace-tab.md)
+#### [fliken Stöd](./cloud-partner-portal/containers/cpp-support-tab.md)
+### [Tekniska tillgångar för att skapa containrar](./cloud-partner-portal/containers/cpp-create-technical-assets.md)
+### [Erbjudande om att skapa containrar](./cloud-partner-portal/containers/cpp-publish-offer.md)
+### [Uppdatera befintligt erbjudande](./cloud-partner-portal/containers/cpp-update-existing-offer.md)
 
 ## [Erbjudande för IoT Edge-moduler](./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md)
 ### [Förutsättningar](./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md)

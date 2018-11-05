@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
 ms.component: alerts
-ms.openlocfilehash: 221434a391f963a764ef36b9533cc8cfd0e16c01
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a86a7188c488a634de7b0ac71657bea0105381c7
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123456"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961899"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Skapa aviseringar för aktivitetsloggen för tjänstmeddelanden
 ## <a name="overview"></a>Översikt
@@ -36,7 +36,7 @@ Du kan också konfigurera som aviseringen ska skickas till:
 
 Läs mer om åtgärdsgrupper i [Skapa och hantera åtgärdsgrupper](monitoring-action-groups.md).
 
-Information om hur du konfigurerar tjänsten hälsovarningar för meddelande med hjälp av Azure Resource Manager-mallar finns i [Resource Manager-mallar](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
+Information om hur du konfigurerar tjänsten hälsovarningar för meddelande med hjälp av Azure Resource Manager-mallar finns i [Resource Manager-mallar](alert-activity-log.md).
 
 ## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-portal"></a>Skapa en avisering på en avisering om tjänstens hälsa för en ny åtgärdsgrupp med hjälp av Azure portal
 1. I den [portal](https://portal.azure.com)väljer **Tjänstehälsa**.
@@ -70,7 +70,7 @@ Information om hur du konfigurerar tjänsten hälsovarningar för meddelande med
 
 1. Definiera en lista över mottagare genom att tillhandahålla mottagarens:
 
-    a. **Namn på**: Ange mottagarens namn, alias eller identifierare.
+    a. **Namn på**: Ange mottagarens s namn, alias eller identifierare.
 
     b. **Åtgärdstyp**: Välj SMS, e-post, webhook, Azure-app med mera.
 

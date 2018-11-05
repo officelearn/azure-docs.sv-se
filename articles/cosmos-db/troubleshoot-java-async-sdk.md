@@ -9,12 +9,12 @@ ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.openlocfilehash: ef1d2d0751bf1b1a7ee88fbf37e44e6316dee8f8
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: efa2b60ccfc6af6cfb4a46e17b13a426d4e8c9fe
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249885"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958822"
 ---
 # <a name="troubleshooting-issues-when-using-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Felsökning av problem när du använder Async-SDK för Java med Azure Cosmos DB SQL API-konton
 Den här artikeln beskriver vanliga problem, lösningar, diagnostik steg och verktyg när du använder [Java Async ADK](sql-api-sdk-async-java.md) med Azure Cosmos DB SQL API-konton.
@@ -48,7 +48,7 @@ Antal öppna filer (”nofile”) måste vara tillräckligt stor för (på minst
 
 ##### <a name="snat"></a>Portöverbelastning Azure SNAT (PAT)
 
-Om din app distribueras på Azure-dator, som standard [Azure SNAT portar](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) används för att upprätta anslutningar till valfri slutpunkt utanför den virtuella datorn. Antalet tillåtna anslutningar från den virtuella datorn till Cosmos DB-slutpunkten är begränsat av den [Azure SNAT configuration](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+Om din app distribueras på virtuella Azure-datorer utan en offentlig IP-adress som standard [Azure SNAT portar](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) används för att upprätta anslutningar till valfri slutpunkt utanför den virtuella datorn. Antalet tillåtna anslutningar från den virtuella datorn till Cosmos DB-slutpunkten är begränsat av den [Azure SNAT configuration](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
 
 Azure SNAT-portar används endast när den virtuella Azure-datorn har en privat IP-adress och en process från den virtuella datorn försöker upprätta en anslutning till en offentlig IP-adress. Det finns därför två lösningar för att undvika Azure SNAT begränsning:
     * Lägger till ditt Azure Cosmos DB-tjänstslutpunkt i undernät för ditt Azure VM-VNET som beskrivs i [aktiverar VNET-tjänstslutpunkt](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). När tjänsteslutpunkt har aktiverats kan begäranden inte längre skickas från en offentlig IP-adress till cosmos DB i stället det virtuella nätverket och undernätet identitet skickas. Den här ändringen kan resultera i brandväggen släpper om endast offentliga IP-adresser tillåts. Om du använder-brandväggen när du aktiverar tjänstslutpunkten, Lägg till undernät om du vill använda i brandväggen [VNET ACL: er](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).

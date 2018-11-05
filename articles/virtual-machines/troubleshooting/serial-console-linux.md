@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machine Serial Console | Microsoft Docs
+title: Seriekonsol för Azure-dator för Linux | Microsoft Docs
 description: Dubbelriktad seriekonsol för virtuella Azure-datorer.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 22128f027f0a218756e413653aa92ee097064587
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: a3d59d0e7575721dbb719944f27fd673ba41f469
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741716"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963826"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Seriekonsol för virtuell dator för Linux
 
@@ -33,17 +33,17 @@ Seriell konsol dokumentation för virtuella Windows-datorer finns i [seriekonsol
 
 ## <a name="prerequisites"></a>Förutsättningar 
 
-* Den virtuella datorn där du ansluter till en seriell konsol måste använda resource management-distributionsmodellen. Klassiska distributioner stöds inte. 
+- Den virtuella datorn som du försöker komma åt en seriell konsol måste använda resource management-distributionsmodellen. Klassiska distributioner stöds inte. 
 
-* Den virtuella datorn där du ansluter till en seriell konsol måste ha [startdiagnostik](boot-diagnostics.md) aktiverat. Välj **Startdiagnostik** från den **Support och felsökning** avsnittet.
+- Den virtuella datorn som du försöker komma åt en seriell konsol måste ha [startdiagnostik](boot-diagnostics.md) aktiverat. 
 
     ![Inställningarna för startdiagnostik](./media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
-Ett konto som använder en seriell konsol måste ha den [rollen virtuell Datordeltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) för den virtuella datorn och [startdiagnostik](boot-diagnostics.md) storage-konto: 
+- Ett konto som använder en seriell konsol måste ha den [rollen virtuell Datordeltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) för den virtuella datorn och [startdiagnostik](boot-diagnostics.md) storage-konto: 
 
-* Den virtuella datorn där du ansluter till en seriell konsol måste ha en lösenordsbaserad konto. Du kan skapa en med den [Återställ lösenord](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) funktion av access-tillägg för virtuell dator. Välj **Återställ lösenord** från den **Support och felsökning** avsnittet. 
+    - Den virtuella datorn som du försöker komma åt en seriell konsol måste ha en lösenordsbaserad konto. Du kan skapa en med den [Återställ lösenord](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) funktion av access-tillägg för virtuell dator. Välj **Återställ lösenord** från den **Support och felsökning** avsnittet. 
 
-* Inställningar som är specifika för Linux-distributioner, se [seriekonsolen tillgänglighet för Linux-distribution](#serial-console-linux-distribution-availability).
+    - Inställningar som är specifika för Linux-distributioner, se [seriekonsolen tillgänglighet för Linux-distribution](#serial-console-linux-distribution-availability).
 
 
 
@@ -51,12 +51,14 @@ Ett konto som använder en seriell konsol måste ha den [rollen virtuell Datorde
 Seriekonsol för virtuella datorer är bara tillgänglig via Azure portal:
 
   1. Öppna [Azure-portalen](https://portal.azure.com).
+
   1. På menyn till vänster väljer **virtuella datorer**.
+
   1. Välj en virtuell dator i listan. Översiktssidan för den virtuella datorn öppnas.
+
   1. Rulla ned till den **Support och felsökning** och väljer **seriekonsolen**. Ett nytt fönster med seriell konsol öppnas och börjar anslutningen.
 
-   ![Linux seriekonsolfönstret](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
-
+     ![Linux seriekonsolfönstret](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
 
 > [!NOTE] 

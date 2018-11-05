@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: bb1b1e2934de052479f39d40bfe143345e91bc26
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: e5915f18799386ae92019073fb50dac96da107ea
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094102"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960114"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Systemprestandaräknare i Application Insights
 Windows innehåller en mängd olika [prestandaräknare](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) , till exempel processor användandet, minne, disk och nätverksanvändning. Du kan också definiera egna. [Application Insights](app-insights-overview.md) kan visa dessa prestandaräknare om ditt program körs under IIS på en lokal värd eller virtuell dator som du har administrativ åtkomst. Diagrammen visar resurserna som är tillgängliga för ditt liveprogram och hjälper dig för att identifiera obalanserad belastning mellan server-instanser.
@@ -27,7 +27,7 @@ Prestandaräknare visas i bladet för servrar, som innehåller en tabell som seg
 
 ![Prestandaräknare som rapporteras i Application Insights](./media/app-insights-performance-counters/counters-by-server-instance.png)
 
-(Prestandaräknare är inte tillgängliga för Azure Web Apps. Men du kan [skicka Azure Diagnostics-data till Application Insights](app-insights-azure-diagnostics.md).)
+(Prestandaräknare är inte tillgängliga för Azure Web Apps. Men du kan [skicka Azure Diagnostics-data till Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).)
 
 ## <a name="view-counters"></a>Visa räknare
 Servrar bladet visar en standarduppsättning av prestandaräknare. 
@@ -96,7 +96,7 @@ Eller så kan du göra samma sak med anpassade mått som du skapade:
 ## <a name="performance-counters-in-analytics"></a>Prestandaräknare i Analytics
 Du kan söka efter och visa räknare prestandarapporter i [Analytics](app-insights-analytics.md).
 
-Den **performanceCounters** schemat exponerar den `category`, `counter` namn, och `instance` för varje prestandaräknare.  I telemetri för varje program visas endast räknarna för programmet. Till exempel om du vill se vilka räknare är tillgängliga: 
+Den **performanceCounters** schemat exponerar den `category`, `counter` namn, och `instance` för varje prestandaräknare.  I telemetri för varje program ser du lla räknarna för programmet. Till exempel om du vill se vilka räknare är tillgängliga: 
 
 ![Prestandaräknare i Application Insights analytics](./media/app-insights-performance-counters/analytics-performance-counters.png)
 

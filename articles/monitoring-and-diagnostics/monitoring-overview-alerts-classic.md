@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: 7046a0c6ac84ad5f156098a26dcef2b8accd50af
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c69a61f19b55cd325cd594173dbf3b5f2b4576b8
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987653"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962936"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Vad är klassiska aviseringar i Microsoft Azure?
 
@@ -29,7 +29,7 @@ I den senaste Azure Monitor hade Application Insights, logganalys och Tjänsteh�
 
 Du kan visa klassiska aviseringar endast på skärmen klassiska aviseringar om användaren i Azure Portal. Du får den här skärmen från den **Visa klassiska aviseringar** knappen på skärmen aviseringar. 
 
- ![Aviseringen val i Azure-portalen](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png) 
+ ![Aviseringen val i Azure-portalen](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png)�
 
 Nya aviseringar användarupplevelsen har följande fördelar över klassiska aviseringarna:
 -   **Bättre meddelandesystem** -alla nyare aviseringar använda åtgärdsgrupper som är namngivna grupper av meddelanden och åtgärder som kan återanvändas i flera aviseringar. Använd inte åtgärdsgrupper klassiska måttaviseringar och äldre Log Analytics-aviseringar.
@@ -89,14 +89,14 @@ Webhooks gör automation och åtgärder, till exempel med hjälp av:
 ## <a name="next-steps"></a>Nästa steg
 Hämta information om Varningsregler och konfigurera dem med hjälp av:
 
-* Läs mer om [mått](monitoring-overview-metrics.md)
-* Konfigurera [klassiska mått aviseringar via Azure-portalen](insights-alerts-portal.md)
-* Konfigurera [klassisk mått aviseringar PowerShell](insights-alerts-powershell.md)
-* Konfigurera [klassiska mått aviseringar kommandoradsgränssnittet (CLI)](insights-alerts-command-line-interface.md)
+* Läs mer om [mått](../monitoring/monitoring-data-collection.md)
+* Konfigurera [klassiska mått aviseringar via Azure-portalen](alert-metric-classic.md)
+* Konfigurera [klassisk mått aviseringar PowerShell](alert-metric-classic.md)
+* Konfigurera [klassiska mått aviseringar kommandoradsgränssnittet (CLI)](alert-metric-classic.md)
 * Konfigurera [klassiska mått aviseringar Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 * Läs mer om [aktivitetsloggen](monitoring-overview-activity-logs.md)
 * Konfigurera [Aktivitetsloggaviseringar via Azure-portalen](monitoring-activity-log-alerts.md)
-* Konfigurera [Aktivitetsloggaviseringar via Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+* Konfigurera [Aktivitetsloggaviseringar via Resource Manager](alert-activity-log.md)
 * Granska den [avisering webhook för aktivitetslogg](monitoring-activity-log-alerts-webhook.md)
 * Läs mer om [åtgärdsgrupper](monitoring-action-groups.md)
-* Konfigurera [nyare aviseringar](monitor-alerts-unified-usage.md)
+* Konfigurera [nyare aviseringar](alert-metric.md)

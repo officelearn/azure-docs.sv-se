@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: fc651b3bc28e59c5c5a195211d811e206eee3e42
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 71d5c26c8c41c470e188291dea4a4dab2811a67e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42059719"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963123"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Powerbi-flöde från Application Insights
 [Power BI](http://www.powerbi.com/) är en uppsättning verktyg för business som hjälper dig att analysera data och dela insikter. Omfattande instrumentpaneler är tillgängliga på varje enhet. Du kan kombinera data från många källor, inklusive Analytics-frågor från [Azure Application Insights](app-insights-overview.md).
@@ -41,7 +41,7 @@ För att importera din Application Insights-fråga måste använda du skrivbords
 Installera [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Exportera en Analytics-fråga
-1. [Öppna Analytics och Skriv din fråga](app-insights-analytics-tour.md).
+1. [Öppna Analytics och Skriv din fråga](../log-analytics/query-language/get-started-analytics-portal.md).
 2. Testa och förfina frågan tills du är nöjd med resultaten. Kontrollera att frågan fungerar korrekt i Analytics innan du exporterar den.
 3. På den **exportera** menyn, Välj **Power BI (M)**. Spara filen.
    
@@ -109,7 +109,7 @@ Om du minskar den datauppsättning som kommer från analysfråga som inte uppfyl
    * Ersätt  **https://management.azure.com/subscriptions/...**
    * med,  **https://api.applicationinsights.io/beta/apps/...**
 3. Slutligen uppdatera autentiseringsuppgifterna till basic och Använd din API-nyckel.
-  
+ �
 
 **Befintligt skript**
  ```
@@ -155,5 +155,5 @@ Efter den första importen fortsätter instrumentpanelen och rapporterna att upp
 
 ## <a name="next-steps"></a>Nästa steg
 * [Power BI – Lär dig](http://www.powerbi.com/learning/)
-* [Analytics-självstudier](app-insights-analytics-tour.md)
+* [Analytics-självstudier](../log-analytics/query-language/get-started-analytics-portal.md)
 

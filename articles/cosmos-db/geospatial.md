@@ -1,5 +1,5 @@
 ---
-title: Arbeta med geospatiala data i Azure Cosmos DB | Microsoft Docs
+title: Arbeta med geospatiala data i Azure Cosmos DB SQL API-konto | Microsoft Docs
 description: Förstå hur du skapar, index- och frågar rumsliga objekt med Azure Cosmos DB och SQL API.
 services: cosmos-db
 author: SnehaGunda
@@ -7,18 +7,18 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/20/2017
+ms.date: 11/01/2017
 ms.author: sngun
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b1dcd9ba428618e1b234d76d5ad459eab0662aa
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6ad59f14a0ade305bc9b1f9f125c21e9bdc39c0d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417573"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961916"
 ---
-# <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Arbeta med geospatiala och GeoJSON platsdata i Azure Cosmos DB
-Den här artikeln ger en introduktion till geospatiala funktioner i [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). När du har läst det här kommer du att kunna besvara följande frågor:
+# <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Använda geospatiala och GeoJSON platsdata med Azure Cosmos DB SQL API-konto
+
+Den här artikeln ger en introduktion till geospatiala funktionerna i Azure Cosmos DB. Lagra och komma åt geospatiala data för närvarande stöds av Cosmos DB SQL API-konton. När du har läst den här artikeln kommer du att kunna besvara följande frågor:
 
 * Hur jag för att lagra rumsliga data i Azure Cosmos DB?
 * Hur kan jag läsa geospatiala data i Azure Cosmos DB i SQL och LINQ?
@@ -133,9 +133,6 @@ public class UserProfile
     [JsonProperty("location")]
     public Point Location { get; set; }
 
-    [JsonProperty("profiletype")]
-    public string ProfileType { get; set; }
-
     // More properties
 }
 
@@ -197,7 +194,7 @@ Spatial funktioner kan användas för att utföra närhetsförfrågningar mot sp
       "id": "WakefieldFamily"
     }]
 
-Om du inkluderar rumslig indexering i indexprincip, sedan hanteras ”avståndet-frågor” effektivt via indexet. Mer information om rumslig indexering finns i avsnittet nedan. Om du inte har en spatialindexet för de angivna sökvägarna, kan du fortfarande utföra rumsliga förfrågningar genom att ange `x-ms-documentdb-query-enable-scan` begärandehuvudet med värdet ”true”. I .NET, detta kan göras genom att skicka det valfria **FeedOptions** argumentet för frågor med [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) inställd på Sant. 
+Om du inkluderar rumslig indexering i indexprincip, sedan hanteras ”avståndet-frågor” effektivt via indexet. Mer information om rumslig indexering, finns i avsnittet nedan. Om du inte har en spatialindexet för de angivna sökvägarna, kan du fortfarande utföra rumsliga förfrågningar genom att ange `x-ms-documentdb-query-enable-scan` begärandehuvudet med värdet ”true”. I .NET, detta kan göras genom att skicka det valfria **FeedOptions** argumentet för frågor med [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) inställd på Sant. 
 
 ST_WITHIN kan användas för att kontrollera om en punkten befinner sig inom en Polygon. Polygoner används ofta för att representera gränser som postnummer, tillstånd gränser eller naturlig buskmarker. Igen om du inkluderar rumslig indexering i indexprincip, sedan ”i” frågor hanteras effektivt via indexet. 
 
@@ -279,7 +276,7 @@ Här är ett exempel på en LINQ-fråga som söker efter alla dokument i Azure C
 **LINQ-frågan för avståndet**
 
     foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(UriFactory.CreateDocumentCollectionUri("db", "profiles"))
-        .Where(u => u.ProfileType == "Public" && u.Location.Distance(new Point(32.33, -4.66)) < 30000))
+        .Where(u => u.ProfileType == "Public" && a.Location.Distance(new Point(32.33, -4.66)) < 30000))
     {
         Console.WriteLine("\t" + user);
     }

@@ -3,18 +3,18 @@ title: Använda Apache Spark för att analysera data i Azure Data Lake Store
 description: Köra Spark-jobb för att analysera data som lagras i Azure Data Lake Store
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: aae63b06999c0b8eafa0d42608d32a4d467a900c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 9fe4b3e49f8e3270f58929a5708a83ab02e2486c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041069"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255258"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-store"></a>Använd HDInsight Spark-kluster för att analysera data i Data Lake Store
 
@@ -34,7 +34,7 @@ I den här självstudien använder du Jupyter-anteckningsbok som är tillgängli
 >
 >
 
-Om du har skapat ett HDInsight-kluster med Data Lake Store som ytterligare lagringsutrymme och Azure Storage Blob som standardlagringsutrymme, bör du först kopiera över exempeldata till Data Lake Store-konto. Du kan använda exemplet data från Azure Storage Blob som är associerade med HDInsight-klustret. Du kan använda den [ADLCopy verktyget](http://aka.ms/downloadadlcopy) att göra detta. Hämta och installera verktyget från länken.
+Om du har skapat ett HDInsight-kluster med Data Lake Store som ytterligare lagringsutrymme och Azure Storage Blob som standardlagringsutrymme, bör du först kopiera över exempeldata till Data Lake Store-konto. Du kan använda exemplet data från Azure Storage Blob som är associerade med HDInsight-klustret. Du kan använda den [ADLCopy verktyget](https://aka.ms/downloadadlcopy) att göra detta. Hämta och installera verktyget från länken.
 
 1. Öppna en kommandotolk och navigera till den katalog där AdlCopy är installerad, vanligtvis `%HOMEPATH%\Documents\adlcopy`.
 

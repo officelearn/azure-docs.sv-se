@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: cynthn
-ms.openlocfilehash: bbe8059b3a239570c2c9b25586dae9adbe25312d
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e91f75299dddf0ac173499a531ea959292082a9f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931386"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246556"
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-the-classic-deployment-model"></a>Så här återställer du Fjärrskrivbordstjänsten eller dess inloggningslösenord i en Windows VM som skapats med den klassiska distributionsmodellen
 > [!IMPORTANT]
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Du kan också [utför de här stegen för virtuella datorer som skapas med Resource Manager-distributionsmodellen](../reset-rdp.md).
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../../../resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Du kan också [utför de här stegen för virtuella datorer som skapas med Resource Manager-distributionsmodellen](../reset-rdp.md).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 
@@ -59,7 +59,7 @@ $vm = Get-AzureVM -ServiceName "myCloudService" -Name "myVM"
 write-host $vm.VM.ProvisionGuestAgent
 ```
 
-Om den **write-host** kommandot visar **SANT**, VM-agenten är installerad. Om den visar **FALSKT**, se instruktionerna och en länk för nedladdning i den [VM-agenten och tillägg – del 2](http://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409) Azure-blogginlägget.
+Om den **write-host** kommandot visar **SANT**, VM-agenten är installerad. Om den visar **FALSKT**, se instruktionerna och en länk för nedladdning i den [VM-agenten och tillägg – del 2](https://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409) Azure-blogginlägget.
 
 Om du har skapat den virtuella datorn med hjälp av portalen kontrollerar om `$vm.GetInstance().ProvisionGuestAgent` returnerar **SANT**. Om inte, du kan ange det med hjälp av det här kommandot:
 
@@ -108,7 +108,7 @@ Om access-tillägg för virtuella Azure-datorn svarar inte och det inte går att
 
 [Azure VM-tillägg och funktioner](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Ansluta till en Azure-dator med RDP eller SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
+[Ansluta till en Azure-dator med RDP eller SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx)
 
 [Felsöka fjärrskrivbordsanslutningar till en Windows-baserade Azure VM](../troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

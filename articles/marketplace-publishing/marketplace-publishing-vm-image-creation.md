@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 2a3c317dc9abdb861a007be9aaed714089e9f453
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 6469ff9c59c87bc6735e795195866b0aaf211246
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388202"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262139"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guiden för att skapa en avbildning av virtuell dator för Azure Marketplace
 Den här artikeln **steg 2**, beskriver hur du förbereder de virtuella hårddiskarna (VHD) som du distribuerar på Azure Marketplace. De virtuella hårddiskarna är grunden för din SKU. Processen skiljer sig beroende på om du erbjuder en Linux- eller Windows-baserad SKU. Den här artikeln tas båda scenarier upp. Den här processen kan utföras parallellt med [skapande och registrering][link-acct-creation].
@@ -148,11 +148,11 @@ Om du vill ladda ned en fjärrskrivbordsfil till en lokal dator genom att använ
 
         Get‐AzureRemoteDesktopFile ‐ServiceName “baseimagevm‐6820cq00” ‐Name “BaseImageVM” –LocalPath “C:\Users\Administrator\Desktop\BaseImageVM.rdp”
 
-Mer information om RDP finns på MSDN i artikeln [Anslut till en Azure-dator med RDP eller SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx).
+Mer information om RDP finns på MSDN i artikeln [Anslut till en Azure-dator med RDP eller SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
 **Konfigurera en virtuell dator och skapa din SKU**
 
-Efter att operativsystemet VHD hämtas, använder Hyper-v och konfigurerar en virtuell dator för att börja skapa din SKU. Detaljerade anvisningar finns på följande TechNet-länk: [installera Hyper-v och konfigurera en virtuell dator](http://technet.microsoft.com/library/hh846766.aspx).
+Efter att operativsystemet VHD hämtas, använder Hyper-v och konfigurerar en virtuell dator för att börja skapa din SKU. Detaljerade anvisningar finns på följande TechNet-länk: [installera Hyper-v och konfigurera en virtuell dator](https://technet.microsoft.com/library/hh846766.aspx).
 
 ### <a name="34-choose-the-correct-vhd-size"></a>3.4 Välj rätt VHD-storlek
 Windows-operativsystemet VHD i din avbildning av virtuell dator bör skapas som en 128 GB fast format virtuell Hårddisk.  
@@ -433,7 +433,7 @@ Nedan följer stegen för att generera SAS-Webbadressen genom att använda Azure
 
 [!INCLUDE [outdated-cli-content](../../includes/contains-classic-cli-content.md)]
 
-1.  Ladda ned den klassiska Azure CLI från [här](https://azure.microsoft.com/documentation/articles/xplat-cli-install/). Du kan också hitta olika länkar för **[Windows](http://aka.ms/webpi-azure-cli)** och  **[MAC OS](http://aka.ms/mac-azure-cli)**.
+1.  Ladda ned den klassiska Azure CLI från [här](https://azure.microsoft.com/documentation/articles/xplat-cli-install/). Du kan också hitta olika länkar för **[Windows](https://aka.ms/webpi-azure-cli)** och  **[MAC OS](https://aka.ms/mac-azure-cli)**.
 
 2.  När det har laddats ned, installera
 

@@ -3,19 +3,19 @@ title: Anslut till Azure HDInsight med hjälp av Data Lake Tools för Visual Stu
 description: Få reda på hur du installerar och använder Data Lake Tools för Visual Studio för att ansluta till ett Hadoop-kluster i Azure HDInsight och sedan köra en Hive-fråga.
 keywords: hadoop tools,hive query,visual studio,visual studio hadoop
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive, hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 0c90dfe0aa76bd4f27bbc6f9a5e7e30c76595ea1
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 281c3744dc311fdced20f810e0a9f2b233076472
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050155"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247151"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-hive-queries"></a>Använd Data Lake Tools för Visual Studio för att ansluta till Azure HDInsight och köra Hive-frågor
 
@@ -65,7 +65,7 @@ Om du inte har Visual Studio installerat kan du använda [installationsprogramme
 Du kan använda Data Lake Tools för Visual Studio för att ansluta till dina HDInsight-kluster, utföra vissa grundläggande hanteringsåtgärder och köra Hive-frågor.
 
 > [!NOTE]
-> Information om hur du ansluter till ett allmänt Hadoop-kluster finns i [Skriva och skicka Hive-frågor med Visual Studio](http://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx).
+> Information om hur du ansluter till ett allmänt Hadoop-kluster finns i [Skriva och skicka Hive-frågor med Visual Studio](https://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx).
 > 
 > 
 

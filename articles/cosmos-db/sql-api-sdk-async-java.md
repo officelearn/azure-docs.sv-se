@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 09/05/2018
-ms.author: sngun
-ms.openlocfilehash: 57172927011532af9b14fa7ff09d6aad9bac1e92
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 11/02/2018
+ms.author: moderakh
+ms.openlocfilehash: 80beeda607c83bc2a583c140779766952efcc568
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417607"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252878"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -52,6 +52,15 @@ SQL API Async Java SDK skiljer sig från SQL API Java-SDK: N genom att tillhanda
 </table></br>
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+* Ett NPE-fel har åtgärdats i sökvägen för skrivning försök igen.
+* Ett NPE-fel har åtgärdats i slutpunkten management.
+* Uppgraderas sårbara beroenden ([github #68](https://github.com/Azure/azure-cosmosdb-java/issues/68)).
+* Stöd har lagts till för Netty nätverk loggning för felsökning.
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+* Tillagt stöd för flera regioner skrivning.
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Stöd har lagts till för Proxy.
@@ -110,6 +119,8 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [2.2.1](#2.1.0) |Den 2 november 2018|--- |
+| [2.2.0](#2.2.1) |Den 22 september 2018|--- |
 | [2.1.0](#2.1.0) |Den 5 september 2018|--- |
 | [2.0.1](#2.0.1) |16 augusti 2018|--- |
 | [2.0.0](#2.0.0) |20 juni 2018|--- |

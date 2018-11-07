@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: ccompy
-ms.openlocfilehash: 5eab09d5dffe16517e8c18eb0281716618ca0286
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 5e7a2150757afeecb6b0b100f3259f1628f42074
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166249"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262088"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrera din app med Azure-nätverk
-Det här dokumentet beskriver funktionen Azure App Service-integrering för virtuellt nätverk och visar hur du konfigurerar den med appar i [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Om du inte känner till Azure-nätverk (Vnet) är en funktion som gör att du kan placera många av dina Azure-resurser i ett icke-internet-dirigerbara nätverk som du styr åtkomst till. Dessa nätverk kan sedan anslutas till ditt lokala nätverk med hjälp av VPN-teknik. Om du vill veta mer om Azure-nätverk kan du börja med informationen här: [Azure översikt över Virtual Network][VNETOverview]. 
+Det här dokumentet beskriver funktionen Azure App Service-integrering för virtuellt nätverk och visar hur du konfigurerar den med appar i [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Om du inte känner till Azure-nätverk (Vnet) är en funktion som gör att du kan placera många av dina Azure-resurser i ett icke-internet-dirigerbara nätverk som du styr åtkomst till. Dessa nätverk kan sedan anslutas till ditt lokala nätverk med hjälp av VPN-teknik. Om du vill veta mer om Azure-nätverk kan du börja med informationen här: [Azure översikt över Virtual Network][VNETOverview]. 
 
 Azure App Service har två typer. 
 
@@ -271,7 +271,7 @@ Du kan integrera App Service med Azure Virtual Network med hjälp av PowerShell.
 ## <a name="hybrid-connections-and-app-service-environments"></a>Hybridanslutningar och App Service-miljöer
 Det finns tre funktioner som ger åtkomst till virtuella nätverk finns resurser. De är:
 
-* VNet-integrering
+* VNET-integration
 * Hybridanslutningar
 * Apptjänstmiljöer
 

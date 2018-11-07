@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: f94a9d71dab4320e561d2de00af0e2af77ab4c3f
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: c3e0bd338c38165d3a372f60e12ff5ddaa05d2a0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42059907"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248290"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Komma igång med Azure Queue storage och Visual Studio-anslutna tjänster (WebJob-projekt)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -468,7 +468,7 @@ Utdata från konsolen metoder som anropas i en funktion eller i den **Main()** m
 
 Konsolens utdata kan inte länkas till en viss metodanropet eftersom konsolen är enkla trådar, även om många jobbfunktioner kanske körs på samma gång. Det är därför SDK innehåller varje funktionsanrop med en egen unik log-Skrivarobjektet.
 
-Att skriva [programloggarna för spårning av](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), använda **Console.Out** (skapar loggar som är märkta som information) och **Console.Error** (skapar loggar som är märkta som fel). Ett alternativ är att använda [spårningen eller TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), som innehåller utförlig, varning, och kritiska nivåer utöver information och fel. Spårningsloggar för program visas i web app loggfiler, Azure-tabeller, eller Azure BLOB-objekt beroende på hur du konfigurerar Azure-webbappen. Som gäller för alla konsolens utdata, visas de senaste 100 programloggarna också i instrumentpanelsidan för Webbjobbet, inte sidan för ett funktionsanrop.
+Att skriva [programloggarna för spårning av](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), använda **Console.Out** (skapar loggar som är märkta som information) och **Console.Error** (skapar loggar som är märkta som fel). Ett alternativ är att använda [spårningen eller TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), som innehåller utförlig, varning, och kritiska nivåer utöver information och fel. Spårningsloggar för program visas i web app loggfiler, Azure-tabeller, eller Azure BLOB-objekt beroende på hur du konfigurerar Azure-webbappen. Som gäller för alla konsolens utdata, visas de senaste 100 programloggarna också i instrumentpanelsidan för Webbjobbet, inte sidan för ett funktionsanrop.
 
 Konsolens utdata visas i instrumentpanelen bara om programmet körs i ett Azure WebJob inte om programmet körs lokalt eller i någon annan miljö.
 
@@ -511,5 +511,5 @@ Och i en Azure-tabell i **Console.Out** och **Console.Error** loggar ut så här
 ![Felloggen i tabellen](./media/vs-storage-webjobs-getting-started-queues/tableerror.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Den här artikeln har tillhandahållit exempel som visar hur du hanterar vanliga scenarier för att arbeta med Azure-köer. Mer information om hur du använder Azure WebJobs och WebJobs-SDK finns i [Azure WebJobs dokumentationsresurser](http://go.microsoft.com/fwlink/?linkid=390226).
+Den här artikeln har tillhandahållit exempel som visar hur du hanterar vanliga scenarier för att arbeta med Azure-köer. Mer information om hur du använder Azure WebJobs och WebJobs-SDK finns i [Azure WebJobs dokumentationsresurser](https://go.microsoft.com/fwlink/?linkid=390226).
 

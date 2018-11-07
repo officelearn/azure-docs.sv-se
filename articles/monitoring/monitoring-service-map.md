@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: ad696168674e0c04c457c06a81d4e723981eee47
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 0f3bc7302bc28a9bef288e5e5e0b9b891a08b8dd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914761"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252929"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Med lösningen Tjänstkarta i Azure
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Med Service Map, du kan visa dina servrar på det sätt som du tänker på dem: sammankopplat system som levererar viktiga tjänster. Service Map ser du anslutningarna mellan servrar, processer, svarstid för inkommande och utgående anslutningar, och portar i alla TCP-anslutna arkitekturer utan konfiguration måste installera en agent.
@@ -277,7 +277,7 @@ Den **uppdateringar för virtuella datorer** fönstret visar data från lösning
 ![Datorn ändringsspårning fönstret](media/monitoring-service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Log Analytics-poster
-Tjänstkarta-datorn och processen inventeringsdata är tillgänglig för [search](../log-analytics/log-analytics-log-search.md) i Log Analytics. Du kan använda dessa data för scenarier som omfattar planering av migreringsaktiviteter, kapacitetsanalys, identifiering och prestandafelsökning för på begäran.
+Tjänstkarta-datorn och processen inventeringsdata är tillgänglig för [search](../log-analytics/log-analytics-queries.md) i Log Analytics. Du kan använda dessa data för scenarier som omfattar planering av migreringsaktiviteter, kapacitetsanalys, identifiering och prestandafelsökning för på begäran.
 
 En post skapas per timme för varje unika datornamn och processen, förutom de poster som genereras när en process eller datorn startas inte eller är publicerat till Tjänstkarta. Dessa poster har egenskaper i följande tabeller. Fält och värden i ServiceMapComputer_CL händelserna mappar till fält i resursen för datorer i Azure Resource Manager-API för ServiceMap. Fält och värden i ServiceMapProcess_CL händelserna mappar till fälten för Process-resurs i ServiceMap Azure Resource Manager API. Fältet ResourceName_s matchar namnfältet i motsvarande Resource Manager-resurs. 
 
@@ -504,7 +504,7 @@ Mer information om insamling och användning finns i den [sekretesspolicyn för 
 
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om [loggsökningar](../log-analytics/log-analytics-log-search.md) i Log Analytics för att hämta data som samlas in av Tjänstkarta.
+Läs mer om [loggsökningar](../log-analytics/log-analytics-queries.md) i Log Analytics för att hämta data som samlas in av Tjänstkarta.
 
 
 ## <a name="troubleshooting"></a>Felsökning

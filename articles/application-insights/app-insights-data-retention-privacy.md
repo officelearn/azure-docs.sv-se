@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 86b7b87c8cc11be5c4f2c8892905bb6e6800e729
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1994c714f691177b526b44e277fea705d18b4335
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958890"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245706"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Datainsamling, kvarhållning och lagring i Application Insights
 
@@ -108,9 +108,9 @@ Microsoft använder informationen endast för att tillhandahålla tjänsten till
 * Nej. Ditt program kan köras var som helst, i din egen lokala värdar eller i molnet.
 
 ## <a name="how-secure-is-my-data"></a>Hur säker är Mina data?
-Application Insights är en Azure-tjänst. Säkerhetsprinciper beskrivs i den [Azure-säkerhet, sekretess och efterlevnad white paper om](http://go.microsoft.com/fwlink/?linkid=392408).
+Application Insights är en Azure-tjänst. Säkerhetsprinciper beskrivs i den [Azure-säkerhet, sekretess och efterlevnad white paper om](https://go.microsoft.com/fwlink/?linkid=392408).
 
-Data lagras i Microsoft Azure-servrar. För konton i Azure Portal, kontobegränsningar beskrivs i den [Azure-säkerhet, sekretess och efterlevnad dokumentet](http://go.microsoft.com/fwlink/?linkid=392408).
+Data lagras i Microsoft Azure-servrar. För konton i Azure Portal, kontobegränsningar beskrivs i den [Azure-säkerhet, sekretess och efterlevnad dokumentet](https://go.microsoft.com/fwlink/?linkid=392408).
 
 Åtkomst till dina data genom Microsofts personal är begränsad. Vi har åtkomst till dina data endast med ditt tillstånd och om det är nödvändigt att stödja din användning av Application Insights. 
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 03/06/2018
 ms.author: danlep
-ms.openlocfilehash: 7bb49e48f3777304aa6f40cee40e0b7147994201
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 52338cc21e46b544c2abb79cd7094615c837a2e8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345245"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233787"
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>Konfigurera ett Windows RDMA-kluster med HPC Pack för att köra MPI-program
 Konfigurera ett Windows RDMA-kluster i Azure med [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) och [RDMA-kompatibla HPC-VM-storlekar](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) att köra program med parallella Message Passing Interface (MPI). När du konfigurerar RDMA-kompatibla, Windows Server-baserad noder i ett HPC Pack-kluster, kommunicerar effektivt MPI-program via en låg latens, högt dataflöde nätverk i Azure som baseras på teknik för direkt fjärråtkomst till minne (RDMA).
@@ -51,19 +51,19 @@ Följande är information och anvisningar för att utöka till RDMA-kompatibelt 
     Hämta installationspaketet för HPC Pack från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922). Krav och anvisningar för att förbereda för distribution av Azure burst finns i [Burst to Azure Worker-instanser med Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 2. **Konfigurera ett certifikat i Azure-prenumeration**
    
-    Konfigurera ett certifikat för säker anslutning mellan huvudnoden och Azure. Alternativ och procedurer finns i [scenarier för att konfigurera Azure-Hanteringscertifikatet för HPC Pack](http://technet.microsoft.com/library/gg481759.aspx). HPC Pack installerar testdistributioner kan en standard Microsoft HPC Azure-Hanteringscertifikatet du snabbt kan överföra till din Azure-prenumeration.
+    Konfigurera ett certifikat för säker anslutning mellan huvudnoden och Azure. Alternativ och procedurer finns i [scenarier för att konfigurera Azure-Hanteringscertifikatet för HPC Pack](https://technet.microsoft.com/library/gg481759.aspx). HPC Pack installerar testdistributioner kan en standard Microsoft HPC Azure-Hanteringscertifikatet du snabbt kan överföra till din Azure-prenumeration.
 3. **Skapa en ny molntjänst och ett lagringskonto**
    
     Använd Azure-portalen för att skapa en molntjänst (klassisk) och ett lagringskonto (klassiskt) för distributionen. Skapa dessa resurser i en region där H-serien, A8 och A9-storlek som du vill använda är tillgänglig. Se [Azure-produkter per region](https://azure.microsoft.com/regions/services/).
 
 4. **Skapa en Azure-nod-mall**
    
-    Använd den noden guiden Skapa i HPC Cluster Manager. Anvisningar finns i [skapa en mall för Azure-nod](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) i ”steg för att distribuera Azure-noder med Microsoft HPC Pack”.
+    Använd den noden guiden Skapa i HPC Cluster Manager. Anvisningar finns i [skapa en mall för Azure-nod](https://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) i ”steg för att distribuera Azure-noder med Microsoft HPC Pack”.
    
     För inledande tester föreslår vi att du konfigurerar en princip för manuell tillgänglighet i mallen.
 5. **Lägga till noder i klustret**
    
-    Använd den guiden Lägg till noder i HPC Cluster Manager. Mer information finns i [lägga till Azure-noder i Windows HPC-klustret](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Add).
+    Använd den guiden Lägg till noder i HPC Cluster Manager. Mer information finns i [lägga till Azure-noder i Windows HPC-klustret](https://technet.microsoft.com/library/gg481758.aspx#BKMK_Add).
    
     När du anger storleken på noderna, Välj en av RDMA-kompatibla instansstorlekar.
    
@@ -76,7 +76,7 @@ Följande är information och anvisningar för att utöka till RDMA-kompatibelt 
     Markera noderna och använda den **starta** åtgärd i HPC Cluster Manager. När etableringen har slutförts, markera noderna och använda den **Anslut** åtgärd i HPC Cluster Manager. Noderna är redo att köra jobb.
 7. **Skicka jobb till klustret**
    
-   Använd verktygen i HPC Pack jobb skickas för att köra klustret jobb. Se [Microsoft HPC Pack: jobbhantering](http://technet.microsoft.com/library/jj899585.aspx).
+   Använd verktygen i HPC Pack jobb skickas för att köra klustret jobb. Se [Microsoft HPC Pack: jobbhantering](https://technet.microsoft.com/library/jj899585.aspx).
 8. **Stoppa (avetablering) noderna**
    
    När du är klar jobb som körs, koppla noderna och använda den **stoppa** åtgärd i HPC Cluster Manager.

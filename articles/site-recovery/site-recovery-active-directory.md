@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 51d435d9edea5e341127cac89bc96a71c7bc8bb4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f96ed8659fc2f49b89199a813f9fab9d5f4af5a1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211901"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232179"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Konfigurera haveriberedskap för Active Directory och DNS
 
@@ -44,7 +44,7 @@ Du kan använda Site Recovery för att skydda den virtuella dator som är värd 
 Den domänkontrollant som replikeras med hjälp av Site Recovery används för [redundanstest](#test-failover-considerations). Kontrollera att den uppfyller följande krav:
 
 1. Domänkontrollanten är en global katalogserver.
-2. Domänkontrollanten ska vara FSMO-rollägare för roller som krävs under ett redundanstest. I annat fall dessa roller måste vara [tagit](http://aka.ms/ad_seize_fsmo) efter redundansen.
+2. Domänkontrollanten ska vara FSMO-rollägare för roller som krävs under ett redundanstest. I annat fall dessa roller måste vara [tagit](https://aka.ms/ad_seize_fsmo) efter redundansen.
 
 ### <a name="configure-vm-network-settings"></a>Konfigurera nätverksinställningar för virtuella datorer
 För den virtuella datorn som är värd för domänkontrollanten eller DNS i Site Recovery, konfigurerar du nätverksinställningar under den **beräkning och nätverk** inställningarna för den replikerade virtuella datorn. Detta säkerställer att den virtuella datorn är ansluten till rätt nätverk efter redundansväxling.
@@ -93,7 +93,7 @@ De flesta programmen kräver förekomsten av en domänkontrollant eller en DNS-s
 
 
 ### <a name="remove-references-to-other-domain-controllers"></a>Ta bort referenser till andra domänkontrollanter
-När du initierar ett redundanstest innehåller inte alla domänkontrollanter i testnätverket. Om du vill ta bort referenser till andra domänkontrollanter som finns i produktionsmiljön, du kan behöva [överta FSMO Active Directory-roller](http://aka.ms/ad_seize_fsmo) och gör [metadataborttagning](https://technet.microsoft.com/library/cc816907.aspx) för domänkontrollanter som saknas .
+När du initierar ett redundanstest innehåller inte alla domänkontrollanter i testnätverket. Om du vill ta bort referenser till andra domänkontrollanter som finns i produktionsmiljön, du kan behöva [överta FSMO Active Directory-roller](https://aka.ms/ad_seize_fsmo) och gör [metadataborttagning](https://technet.microsoft.com/library/cc816907.aspx) för domänkontrollanter som saknas .
 
 
 ### <a name="issues-caused-by-virtualization-safeguards"></a>Problem som orsakas av skyddsmekanismerna för virtualisering
@@ -180,7 +180,7 @@ Om föregående villkor är uppfyllda är det troligt att domänkontrollanten fu
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 
-    Mer information finns i [inaktivera kravet på att en global katalogserver är tillgängliga för att validera användarinloggningar](http://support.microsoft.com/kb/241789).
+    Mer information finns i [inaktivera kravet på att en global katalogserver är tillgängliga för att validera användarinloggningar](https://support.microsoft.com/kb/241789).
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>DNS- och domänkontrollant på olika datorer
 

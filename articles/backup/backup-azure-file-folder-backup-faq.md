@@ -9,19 +9,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: saurse;trinadhk
-ms.openlocfilehash: 177e44bce7d8f159892d78c7003945ba55ef4b84
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: cf27848b6ca63f06c7d452ac67908cb85dbafd47
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577889"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239854"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Frågor om Azure Backup-agenten
 Den här artikeln innehåller svar på vanliga frågor så att du snabbt kan förstå Azure Backup-agentkomponenterna. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## <a name="configure-backup"></a>Konfigurera säkerhetskopiering
 ### <a name="where-can-i-download-the-latest-azure-backup-agent-br"></a>Var kan jag hämta den senaste Azure Backup-agenten? <br/>
-Du kan hämta den senaste agenten för säkerhetskopiering av Windows Server, System Center DPM eller Windows-klienten [här](http://aka.ms/azurebackup_agent). Om du vill säkerhetskopiera en virtuell dator använder du VM-agenten (som automatiskt installerar rätt tillägg). VM-agenten finns redan på virtuella datorer som skapats från Azure-galleriet.
+Du kan hämta den senaste agenten för säkerhetskopiering av Windows Server, System Center DPM eller Windows-klienten [här](https://aka.ms/azurebackup_agent). Om du vill säkerhetskopiera en virtuell dator använder du VM-agenten (som automatiskt installerar rätt tillägg). VM-agenten finns redan på virtuella datorer som skapats från Azure-galleriet.
 
 ### <a name="when-configuring-the-azure-backup-agent-i-am-prompted-to-enter-the-vault-credentials-do-vault-credentials-expire"></a>När jag konfigurerar Azure Backup-agenten uppmanas jag att ange valvautentiseringsuppgifter. Slutar valvautentiseringsuppgifterna att gälla?
 Ja, valvautentiseringsuppgifterna upphör att gälla efter 48 timmar. Om filen går ut, logga in på Azure portal och ladda ned filerna med valvautentiseringsuppgifterna från ditt valv.

@@ -1,8 +1,8 @@
 ## <a name="setting-up-powershell-for-resource-manager-templates"></a>Konfigurera PowerShell för Resource Manager-mallar
-Innan du kan använda Azure PowerShell med Resource Manager, behöver du ha behörigheten Windows PowerShell och Azure PowerShell-versioner.
+Innan du kan använda Azure PowerShell med Resource Manager, måste du har rätt Windows PowerShell och Azure PowerShell-versioner.
 
-### <a name="verify-powershell-versions"></a>Kontrollera att PowerShell-versioner
-Kontrollera att du har Windows PowerShell version 3.0 eller 4.0. Skriv följande kommando i Kommandotolken för Windows PowerShell för att hitta versionen av Windows PowerShell.
+### <a name="verify-powershell-versions"></a>Kontrollera PowerShell-versioner
+Kontrollera att du har Windows PowerShell version 3.0 eller 4.0. Skriv följande kommando i Kommandotolken Windows PowerShell för att hitta versionen av Windows PowerShell.
 
     $PSVersionTable
 
@@ -19,16 +19,16 @@ Du får följande typ av information:
     PSRemotingProtocolVersion      2.2
 
 
-Kontrollera att värdet för **PSVersion** 3.0 eller 4.0. Om inte, se [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) eller [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+Kontrollera att värdet för **PSVersion** 3.0 eller 4.0. Om den inte finns i [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) eller [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855).
 
 ### <a name="set-your-azure-account-and-subscription"></a>Konfigurera Azure-kontot och Azure-prenumerationen
-Om du inte redan har en Azure-prenumeration, kan du aktivera din [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
+Om du inte redan har en Azure-prenumeration kan du aktivera din [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
 
-Öppna en Azure PowerShell-kommandotolk och logga in på Azure med det här kommandot.
+Öppna en kommandotolk för Azure PowerShell och logga in på Azure med det här kommandot.
 
     Connect-AzureRmAccount
 
-Om du har flera Azure-prenumerationer, kan du visa din Azure-prenumerationer med det här kommandot.
+Om du har flera Azure-prenumerationer kan lista du dina Azure-prenumerationer med det här kommandot.
 
     Get-AzureRmSubscription
 
@@ -45,10 +45,10 @@ Du får följande typ av information:
     CurrentStorageAccountName :
     TenantId                  : 32fa88b4-86f1-419f-93ab-2d7ce016dba7
 
-Du kan ange den aktuella Azure-prenumerationen genom att köra dessa kommandon i Kommandotolken Azure PowerShell. Ersätt allt inom citattecken, inklusive den < och > tecken, med rätt namn.
+Du kan ange den aktuella Azure-prenumerationen genom att köra följande kommandon i Azure PowerShell-Kommandotolken. Ersätt allt inom citattecken, inklusive den < och > tecken, med rätt namn.
 
     $subscr="<SubscriptionName from the display of Get-AzureRmSubscription>"
     Select-AzureRmSubscription -SubscriptionName $subscr -Current
 
-Läs mer om Azure-prenumerationer och konton [så här: ansluta till din prenumeration](/powershell/azureps-cmdlets-docs#step-3-connect).
+Läs mer om Azure-prenumerationer och konton, [så här: ansluta till din prenumeration](/powershell/azureps-cmdlets-docs#step-3-connect).
 

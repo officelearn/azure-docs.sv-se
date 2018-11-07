@@ -14,17 +14,17 @@ ms.devlang: php
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: b0aa61c86b08a4fe2eddb5eb1fb5b33c4cb901a0
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 68754f85347fe6bc075af513580697d1e7a83c18
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386595"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247423"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Hur du använder Notification Hubs från Python
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Du kan komma åt alla funktioner i Meddelandehubbar från en Java/PHP/Python/Ruby-serverdel med Notification Hub REST-gränssnittet enligt beskrivningen i MSDN-artikeln [Notification Hubs REST API: er](http://msdn.microsoft.com/library/dn223264.aspx).
+Du kan komma åt alla funktioner i Meddelandehubbar från en Java/PHP/Python/Ruby-serverdel med Notification Hub REST-gränssnittet enligt beskrivningen i MSDN-artikeln [Notification Hubs REST API: er](https://msdn.microsoft.com/library/dn223264.aspx).
 
 > [!NOTE]
 > Detta är en referensimplementering för exemplet för att implementera meddelande skickar i Python och är inte stöds officiellt meddelanden Hub Python SDK.
@@ -47,7 +47,7 @@ Du kan följa den [komma igång-självstudiekurs](notification-hubs-windows-stor
 > 
 
 ## <a name="client-interface"></a>Klientgränssnitt
-Viktigaste användargränssnittet kan tillhandahålla samma metoder som är tillgängliga i den [.NET Notification Hubs SDK](http://msdn.microsoft.com/library/jj933431.aspx). Det här gränssnittet kan du direkt översätta alla självstudier och exempel som är för närvarande tillgängligt på den här platsen och som tillförts av communityn på internet.
+Viktigaste användargränssnittet kan tillhandahålla samma metoder som är tillgängliga i den [.NET Notification Hubs SDK](https://msdn.microsoft.com/library/jj933431.aspx). Det här gränssnittet kan du direkt översätta alla självstudier och exempel som är för närvarande tillgängligt på den här platsen och som tillförts av communityn på internet.
 
 Du kan hitta all kod som är tillgängliga i den [Python REST wrapper-exempel].
 
@@ -64,7 +64,7 @@ Skicka ett popup-meddelande för Windows:
 ## <a name="implementation"></a>Implementering
 Om du inte redan gjort det, följ den [Självstudier för att komma igång] upp till den senaste avsnitt där du måste implementera backend-server.
 
-All information du implementerar en fullständig REST-omslutning kan hittas på [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). Det här avsnittet beskrivs Python-implementeringen av de huvudsakliga steg som krävs för att få åtkomst till Notification Hubs REST-slutpunkter och skicka meddelanden
+All information du implementerar en fullständig REST-omslutning kan hittas på [MSDN](https://msdn.microsoft.com/library/dn530746.aspx). Det här avsnittet beskrivs Python-implementeringen av de huvudsakliga steg som krävs för att få åtkomst till Notification Hubs REST-slutpunkter och skicka meddelanden
 
 1. Parsa anslutningssträngen
 2. Generera autentiseringstoken
@@ -96,7 +96,7 @@ Här är den viktigaste klass som implementerar klienten, vars konstruktor Parsa
 
 
 ### <a name="create-security-token"></a>Skapa säkerhetstoken
-Information om säkerhet token skapas finns [här](http://msdn.microsoft.com/library/dn495627.aspx).
+Information om säkerhet token skapas finns [här](https://msdn.microsoft.com/library/dn495627.aspx).
 Lägga till följande metoder för att den **NotificationHub** klassen för att skapa en token baserat på URI: N för den aktuella begäran och de autentiseringsuppgifter som extraheras från anslutningssträngen.
 
     @staticmethod
@@ -148,7 +148,7 @@ Första bör du låta Använd definierar en klass som representerar ett meddelan
 
 Den här klassen är en behållare för en systemspecifika meddelanden text eller en uppsättning av egenskaperna hos ett mall-meddelande, en uppsättning rubriker, som innehåller format (interna plattform eller mall) och plattformsspecifika egenskaper (till exempel Apple förfalloegenskapen och WNS rubriker).
 
-Referera till den [dokumentation för Notification Hubs REST API: er](http://msdn.microsoft.com/library/dn495827.aspx) och specifika meddelande plattformar format för alla tillgängliga alternativ.
+Referera till den [dokumentation för Notification Hubs REST API: er](https://msdn.microsoft.com/library/dn495827.aspx) och specifika meddelande plattformar format för alla tillgängliga alternativ.
 
 Med den här klassen skriva skicka Meddelandemetoder inuti den **NotificationHub** klass.
 

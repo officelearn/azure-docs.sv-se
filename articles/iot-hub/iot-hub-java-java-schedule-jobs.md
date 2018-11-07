@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: 18e52fc9d924e4e9a12e6f8e5fb426c2b1f7f4cf
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6fb70f9d21b4d915d8951ad70c335df213553949
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417284"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257596"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Schemalägg och Sänd jobb (Java)
 
@@ -58,7 +58,7 @@ För att slutföra den här kursen behöver du:
 
 * [Maven 3](https://maven.apache.org/install.html)
 
-* Ett aktivt Azure-konto. (Om du inte har ett konto kan du skapa en [kostnadsfritt konto](http://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
+* Ett aktivt Azure-konto. (Om du inte har ett konto kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 

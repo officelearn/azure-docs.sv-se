@@ -12,15 +12,15 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 695da176d2bc86fd67608cc28d14cf15a7728980
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 58b109651408a51ca7505c92d3875de63aae2cc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161496"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261935"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Elastic Database-klientbibliotek med Entity Framework
-Det här dokumentet visar de ändringar i ett Entity Framework-program som behövs för att integrera med den [elastiska Databasverktyg](sql-database-elastic-scale-introduction.md). Fokus ligger på att skriva [fragmentkarthantering](sql-database-elastic-scale-shard-map-management.md) och [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md) med Entity Framework **Code First** metod. Den [Code först – ny databas](http://msdn.microsoft.com/data/jj193542.aspx) självstudien för EF fungerar som exemplet som körs i hela dokumentet. Exempelkoden som åtföljer det här dokumentet är en del av verktygen för elastiska databaser uppsättning exempel i Visual Studio-kodexempel.
+Det här dokumentet visar de ändringar i ett Entity Framework-program som behövs för att integrera med den [elastiska Databasverktyg](sql-database-elastic-scale-introduction.md). Fokus ligger på att skriva [fragmentkarthantering](sql-database-elastic-scale-shard-map-management.md) och [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md) med Entity Framework **Code First** metod. Den [Code först – ny databas](https://msdn.microsoft.com/data/jj193542.aspx) självstudien för EF fungerar som exemplet som körs i hela dokumentet. Exempelkoden som åtföljer det här dokumentet är en del av verktygen för elastiska databaser uppsättning exempel i Visual Studio-kodexempel.
 
 ## <a name="downloading-and-running-the-sample-code"></a>Ladda ned och kör exempelkoden
 Så här hämtar du koden för den här artikeln:
@@ -169,9 +169,9 @@ Följande kodexempel visar hur du kan använda en SQL-återförsöksprincip runt
             } 
         }); 
 
-**SqlDatabaseUtils.SqlRetryPolicy** i koden ovan definieras som en **SqlDatabaseTransientErrorDetectionStrategy** med ett återförsöksvärde på 10 och 5 sekunder väntetid mellan återförsök. Den här metoden liknar vägledning för EF och användarinitierad transaktioner (se [begränsningar i Körningsstrategier (EF6 och senare)](http://msdn.microsoft.com/data/dn307226). Båda situationer kräver att programmet styr omfattningen som tillfälligt undantag returnerar: antingen öppna transaktionen eller återskapa kontext från rätt konstruktorn (som du såg) som använder klientbiblioteket för elastiska databaser.
+**SqlDatabaseUtils.SqlRetryPolicy** i koden ovan definieras som en **SqlDatabaseTransientErrorDetectionStrategy** med ett återförsöksvärde på 10 och 5 sekunder väntetid mellan återförsök. Den här metoden liknar vägledning för EF och användarinitierad transaktioner (se [begränsningar i Körningsstrategier (EF6 och senare)](https://msdn.microsoft.com/data/dn307226). Båda situationer kräver att programmet styr omfattningen som tillfälligt undantag returnerar: antingen öppna transaktionen eller återskapa kontext från rätt konstruktorn (som du såg) som använder klientbiblioteket för elastiska databaser.
 
-Behovet av att styra där tillfälliga undantag ta oss tillbaka i omfånget utesluter även användningen av inbyggt **SqlAzureExecutionStrategy** som medföljer EF. **SqlAzureExecutionStrategy** ska öppna en anslutning utan inte använda **OpenConnectionForKey** och därför kringgå verifiering som utförs som en del av den **OpenConnectionForKey**anropa. I stället kodexemplet använder inbyggt **DefaultExecutionStrategy** som också medföljer EF. Inte **SqlAzureExecutionStrategy**, den fungerar korrekt i kombination med återförsöksprincipen från hantering av tillfälliga fel. Körningsprincipen har angetts i den **ElasticScaleDbConfiguration** klass. Observera att vi inte valt att använda **DefaultSqlExecutionStrategy** eftersom den föreslår med **SqlAzureExecutionStrategy** om tillfälliga undantag inträffar - som skulle leda till fel beteende enligt beskrivningen. Läs mer om olika återförsöksprinciper och EF [Anslutningsåterhämtning i EF](http://msdn.microsoft.com/data/dn456835.aspx).     
+Behovet av att styra där tillfälliga undantag ta oss tillbaka i omfånget utesluter även användningen av inbyggt **SqlAzureExecutionStrategy** som medföljer EF. **SqlAzureExecutionStrategy** ska öppna en anslutning utan inte använda **OpenConnectionForKey** och därför kringgå verifiering som utförs som en del av den **OpenConnectionForKey**anropa. I stället kodexemplet använder inbyggt **DefaultExecutionStrategy** som också medföljer EF. Inte **SqlAzureExecutionStrategy**, den fungerar korrekt i kombination med återförsöksprincipen från hantering av tillfälliga fel. Körningsprincipen har angetts i den **ElasticScaleDbConfiguration** klass. Observera att vi inte valt att använda **DefaultSqlExecutionStrategy** eftersom den föreslår med **SqlAzureExecutionStrategy** om tillfälliga undantag inträffar - som skulle leda till fel beteende enligt beskrivningen. Läs mer om olika återförsöksprinciper och EF [Anslutningsåterhämtning i EF](https://msdn.microsoft.com/data/dn456835.aspx).     
 
 #### <a name="constructor-rewrites"></a>Konstruktorn omskrivningar
 Kodexemplen ovan illustrerar de standard-konstruktorn skriver krävs för ditt program för att kunna använda databeroende routning med Entity Framework. I följande tabell generaliserar den här metoden till andra konstruktorer. 

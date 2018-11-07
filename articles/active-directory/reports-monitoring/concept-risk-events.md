@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 05/14/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: fe5bcce06ef02bae75bf9fdaf5702a99f485885c
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: e4aa4a87bec8f737405c90bb42bdb5fc60cb379a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42058451"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233005"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory-riskhändelser
 
@@ -155,7 +155,7 @@ Den här riskhändelsen identifierar IP-adresser, inte användarenheter. Om fler
 
 Vi rekommenderar att du kontakta användaren och genomsöka alla användarens enheter. Det går också att en användares personliga enhet har infekterats eller som tidigare nämnts som någon annan har använt en infekterad enhet från samma IP-adress som användaren. Infekterade enheter är ofta smittade av skadlig kod som ännu inte identifierats av antivirusprogram och kan också vara som felaktiga användaren vanor som kan ha orsakat enheten infekteras.
 
-Mer information om hur du adressen infekteras av skadlig kod finns i den [Malware Protection Center](http://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409).
+Mer information om hur du adressen infekteras av skadlig kod finns i den [Malware Protection Center](https://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409).
 
 
 ### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>Inloggningar från IP-adresser med misstänkt aktivitet

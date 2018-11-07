@@ -8,12 +8,12 @@ ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 4386f87b6986e6ab1742a8d3c14a100fea112182
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: dd3cb108844cd009d74de42630511073021d94b1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406319"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238496"
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Kom igång med Azure Data Catalog
 Azure Data Catalog är en helt hanterad molntjänst som fungerar som ett registrerings- och identifieringssystem för datatillgångar på ett företag. En detaljerad översikt finns i [Vad är Azure Data Catalog?](data-catalog-what-is-data-catalog.md)
@@ -96,7 +96,7 @@ Adventure Works-databasen stöder standardscenarier för webbaserad transaktions
 Så här installerar du Adventure Works-exempeldatabasen:
 
 1. Ladda ned [Adventure Works 2014 Full Database Backup.zip](https://msftdbprodsamples.codeplex.com/downloads/get/880661) på CodePlex.
-2. Om du vill återställa databasen på din dator följer du anvisningarna i [Återställa en säkerhetskopia av databasen med hjälp av SQL Server Management Studio](http://msdn.microsoft.com/library/ms177429.aspx). Du kan också följa dessa steg:
+2. Om du vill återställa databasen på din dator följer du anvisningarna i [Återställa en säkerhetskopia av databasen med hjälp av SQL Server Management Studio](https://msdn.microsoft.com/library/ms177429.aspx). Du kan också följa dessa steg:
    1. Öppna SQL Server Management Studio och anslut till SQL Server Database Engine.
    2. Högerklicka på **Databaser** och klicka på **Återställ databas**.
    3. Under **Återställ databas** klickar du på alternativet **Enhet** för **Källa** och klickar på **Bläddra**.

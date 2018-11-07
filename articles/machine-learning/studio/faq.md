@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-ms.openlocfilehash: 87695e6e7e1f1abce7204ebbbbed2b492297f177
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 77ae05c240dbb099528d7224a936d90416366816
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393306"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247780"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Vanliga frågor och svar om Azure Machine Learning: Fakturering, funktioner, begränsningar och support
 Här får du svar på vanliga frågor om molntjänsten Azure Machine Learning som tillhandahåller förutsägelsemodeller och operationaliseringslösningar genom webbtjänster. Avsnittet ger svar på frågor om hur du använder tjänsten, inklusive faktureringsmodellen, funktioner, begränsningar och support.
 
 **Har en fråga som du inte kan hitta här?**
 
-Azure Machine Learning har även ett forum på MSDN där datatekniker kan ställa frågor om Azure Machine Learning. Forumet övervakas av Azure Machine Learning-teamet. Gå till [Azure Machine Learning-forumet](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning)för att söka efter svar eller ställa en ny fråga.
+Azure Machine Learning har även ett forum på MSDN där datatekniker kan ställa frågor om Azure Machine Learning. Forumet övervakas av Azure Machine Learning-teamet. Gå till [Azure Machine Learning-forumet](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning)för att söka efter svar eller ställa en ny fråga.
 
 ## <a name="general-questions"></a>Allmänna frågor
 **Vad är Azure Machine Learning?**
@@ -123,7 +123,7 @@ Mer information om bildinmatningsfunktioner finns i referensen för [bildimport]
 ### <a name="modules"></a>Moduler
 **Algoritmen, datakällan, dataformatet eller datatransformeringsåtgärden som jag söker efter finns inte i Azure Machine Learning Studio. Vad har jag för alternativ?**
 
-I vårt [forum för användarfeedback](http://go.microsoft.com/fwlink/?LinkId=404231) ser du vilka funktionsförfrågningar som vi följer upp. Lägg din röst på en begäran om en funktion som du letar efter redan har begärts. Om funktionen som du letar efter inte finns skapar du en ny begäran. Du kan även visa statusen för din begäran i det här forumet. Vi följer noga den här listan och uppdaterar statusen för funktionstillgänglighet med jämna mellanrum. Du kan också använda det inbyggda stödet för R och Python för att skapa anpassade transformeringar vid behov.
+I vårt [forum för användarfeedback](https://go.microsoft.com/fwlink/?LinkId=404231) ser du vilka funktionsförfrågningar som vi följer upp. Lägg din röst på en begäran om en funktion som du letar efter redan har begärts. Om funktionen som du letar efter inte finns skapar du en ny begäran. Du kan även visa statusen för din begäran i det här forumet. Vi följer noga den här listan och uppdaterar statusen för funktionstillgänglighet med jämna mellanrum. Du kan också använda det inbyggda stödet för R och Python för att skapa anpassade transformeringar vid behov.
 
 **Kan jag använda min befintliga kod i Machine Learning Studio?**
 
@@ -182,7 +182,7 @@ För närvarande kan du bara använda R för att skapa nya anpassade moduler.
 ### <a name="r-module"></a>R-modulen
 **Vilka R-paket är tillgängliga i Machine Learning Studio?**
 
-För närvarande stöder Machine Learning Studio mer än 400 R CRAN-paket. Här är den [uppdaterade listan](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) över alla paket som ingår. Se även [Utöka ditt experiment med R](extend-your-experiment-with-r.md) om du vill lära dig hur du kan hämta den här listan själv. Om det paket som du behöver inte finns med i listan lägger du in namnet på paketet i vårt [forum för användarfeedback](http://go.microsoft.com/fwlink/?LinkId=404231).
+För närvarande stöder Machine Learning Studio mer än 400 R CRAN-paket. Här är den [uppdaterade listan](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) över alla paket som ingår. Se även [Utöka ditt experiment med R](extend-your-experiment-with-r.md) om du vill lära dig hur du kan hämta den här listan själv. Om det paket som du behöver inte finns med i listan lägger du in namnet på paketet i vårt [forum för användarfeedback](https://go.microsoft.com/fwlink/?LinkId=404231).
 
 **Går det att skapa en anpassad R-modul?**
 
@@ -312,7 +312,7 @@ Du kan också hitta kurser på [Microsoft Virtual Academy](http://www.microsoftv
 
 Om du behöver teknisk support för Azure Machine Learning går du till [Azure-support](https://azure.microsoft.com/support/options/) och väljer **Machine Learning**.
 
-Azure Machine Learning har även ett community-forum på MSDN där du kan ställa frågor om Azure Machine Learning. Forumet övervakas av Azure Machine Learning-teamet. Gå till [Azure-forumet](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
+Azure Machine Learning har även ett community-forum på MSDN där du kan ställa frågor om Azure Machine Learning. Forumet övervakas av Azure Machine Learning-teamet. Gå till [Azure-forumet](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 
 ## <a name="billing-questions"></a>Frågor om fakturering
 **Hur fungerar faktureringen av Machine Learning?**

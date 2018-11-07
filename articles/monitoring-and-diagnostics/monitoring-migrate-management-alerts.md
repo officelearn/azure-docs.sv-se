@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: 21651c577dc6b519b139aa7bbfc6d03d8f2c6980
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: fe854c6a33a950f9f937118b6048d547f1a2fe37
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962154"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245774"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Migrera Azure aviseringar för av hanteringshändelser till aktivitetsloggsaviseringar
 
@@ -28,7 +28,7 @@ ms.locfileid: "50962154"
 Azure Monitor (tidigare Azure Insights) erbjuds en funktion för att skapa en avisering som utlöses från hanteringshändelser och genereras aviseringar till en webhook-URL eller e-postadresser. Du kan ha skapat en av dessa aviseringar något av följande sätt:
 * I Azure-portalen för vissa typer av resurser under övervakning -> aviseringar -> Lägg till avisering, där ”Avisera om” anges till ”händelser”
 * Genom att köra cmdlet Add-AzureRmLogAlertRule PowerShell
-* Genom att använda direkt [avisering REST API](http://docs.microsoft.com/rest/api/monitor/alertrules) med OData.Type värdet = ”ManagementEventRuleCondition” och dataSource.odata.type = ”RuleManagementEventDataSource”
+* Genom att använda direkt [avisering REST API](https://docs.microsoft.com/rest/api/monitor/alertrules) med OData.Type värdet = ”ManagementEventRuleCondition” och dataSource.odata.type = ”RuleManagementEventDataSource”
  
 Följande PowerShell-skriptet returnerar en lista över alla aviseringar på management-händelser som du har i din prenumeration, samt villkoren på varje avisering.
 

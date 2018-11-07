@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: ded952ac6418ae3d9916b3ae8b8dbacb0c9c5a84
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 5320b8d5ca7456a6f1b0fdd1372c9f39ac1edfb0
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811513"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219417"
 ---
 # <a name="publish-a-solution-template-to-azure-marketplace"></a>Publicera en Lösningsmall Azure Marketplace
 
@@ -91,7 +91,9 @@ En SKU visas den under det överordnade erbjudandet på Azure Marketplace och vi
     - Erbjudandeinställningar
     - SKU:er
     - Marketplace
-    - Stöd för varje vy innehåller en uppsättning fält för att fylla. Obligatoriskt fält är markerade med en röd asterisk (\*)
+    - Support
+
+Varje vy innehåller en uppsättning fält för att fylla. Obligatoriskt fält är markerade med en röd asterisk (\*)
 
 ## <a name="to-configure-offer-settings"></a>Konfigurera inställningar för erbjudande
 

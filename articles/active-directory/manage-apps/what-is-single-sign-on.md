@@ -14,12 +14,12 @@ ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: db008953b9aa596a64aceccacc0e4632ebfff596
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 72665ed4c25d2719ac5030bce59157a3ccd9dec7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720131"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236014"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Vad är programåtkomst och enkel inloggning med Azure Active Directory?
 Enkel inloggning innebär det att kunna komma åt alla program och resurser som du behöver för att göra affärer, genom att logga in med ett enda användarkonto. När du har loggat in, du kan komma åt alla program som du behöver utan att behöva autentisera dig (exempel: Skriv ett lösenord) en andra gång.
@@ -84,7 +84,7 @@ När du konfigurerar enkel inloggning för ett program, innehåller Azure portal
 
 Om det finns ett program som är konfigurerad för att autentisera användare som använder Active Directory Federation Services 2.0, kan en administratör exempelvis använda alternativet ”länkade enkel inloggning” för att skapa en länk till den på åtkomstpanelen. När användarna använder länken kan autentiseras med hjälp av Active Directory Federation Services 2.0 eller den befintliga enkla inloggning lösningen tillhandahålls av programmet.
 
-### <a name="user-provisioning"></a>Etableringen av användare
+### <a name="user-provisioning"></a>Användaretablering
 Välj program aktiverar Azure AD för automatisk användaretablering och avetablering av konton i tredje parts SaaS-program från Azure Portal med din Windows Server Active Directory eller Azure AD-identitetsinformation. När en användare har behörighet i Azure AD för en av dessa program, kan ett konto skapas automatiskt (etablerade) i mål-SaaS-program.
 
 När en användare tas bort eller deras informationen ändras i Azure AD, visas ändringarna också i SaaS-program. Det innebär att konfigurera automatiserade identitetslivcykelhantering gör att administratörer kan styra och tillhandahålla Automatisk etablering och avetablering från SaaS-program. I Azure AD aktiveras den här automatisering av identitetslivcykelhantering som etableringen av användare.
@@ -102,7 +102,7 @@ Den [Azure Active Directory-Programgalleriet](https://azure.microsoft.com/market
 Här följer några tips för att hitta appar med vilka funktioner de stöder:
 
 * Azure AD stöder automatisk etablering och avetablering för alla ”aktuella” appar i den [Azure Active Directory-Programgalleriet](https://azure.microsoft.com/marketplace/active-directory/all/).
-* En lista över federerade program som specifikt stöder federerad enkel inloggning med ett protokoll, till exempel SAML, WS-Federation, eller OpenID Connect finns [här](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
+* En lista över federerade program som specifikt stöder federerad enkel inloggning med ett protokoll, till exempel SAML, WS-Federation, eller OpenID Connect finns [här](https://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
 
 När du har hittat ditt program, kan du komma igång genom att följa de stegvisa anvisningarna i appgalleriet och i Azure-portalen att aktivera enkel inloggning.
 

@@ -1,6 +1,6 @@
 ---
-title: Synkronisera innehåll från en mapp i molnet till Azure App Service
-description: Lär dig mer om att distribuera din app till Azure App Service via synkronisering av innehåll från en mapp i molnet.
+title: Synkronisera innehåll från en molnmapp till Azure App Service
+description: Lär dig mer om att distribuera din app till Azure App Service via innehållssynkronisering från en molnmapp.
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -13,42 +13,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: 3781010c74daa51c92813db85ee03eaa4c02a4cf
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 3796f5c8956b633a4789baaf31a439746dc96b96
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233595"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233770"
 ---
-# <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Synkronisera innehåll från en mapp i molnet till Azure App Service
-Den här artikeln visar hur du synkroniserar ditt innehåll till [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) från Dropbox och OneDrive. 
+# <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Synkronisera innehåll från en molnmapp till Azure App Service
+Den här artikeln visar hur du synkroniserar ditt innehåll till [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) från Dropbox och OneDrive. 
 
-Distributionen av innehåll på begäran-synkronisering drivs av App Service [Kudu-distributionsmotorn](https://github.com/projectkudu/kudu/wiki). Du kan arbeta med din app koden och innehållet i en mapp för angivna molnet och sedan synkronisera till App Service med klickar på en knapp. Synkronisering av innehåll använder Kudu build-servern. 
+På begäran innehållssynkronisering-distribution som drivs av App Service- [Kudu-distributionsmotorn](https://github.com/projectkudu/kudu/wiki). Du kan arbeta med din kod och innehållet i en avsedda molnmapp och sedan synkronisera till App Service genom att klicka på en knapp. Innehållssynkronisering använder Kudu build-servern. 
 
-## <a name="enable-content-sync-deployment"></a>Aktivera synkronisering av innehåll distribution
+## <a name="enable-content-sync-deployment"></a>Aktivera innehållssynkronisering distribution
 
-För att aktivera synkronisering av innehåll, gå till sidan Apptjänst-app i den [Azure-portalen](https://portal.azure.com).
+Om du vill aktivera innehållssynkronisering inloggningsinformationen för din App Service app i den [Azure-portalen](https://portal.azure.com).
 
 I den vänstra menyn klickar du på **Deployment Center** > **OneDrive** eller **Dropbox** > **auktorisera**. Följ anvisningarna för auktorisering. 
 
 ![](media/app-service-deploy-content-sync/choose-source.png)
 
-Du behöver bara godkänna med OneDrive eller Dropbox en gång. Om du redan är behörig bara på **Fortsätt**. Du kan ändra det behöriga OneDrive eller Dropbox-kontot genom att klicka på **ändra konto**.
+Du behöver bara en gång auktorisera med OneDrive eller Dropbox. Om du redan har auktoriserats kommer du bara på **Fortsätt**. Du kan ändra det auktoriserade OneDrive eller Dropbox-kontot genom att klicka på **ändra konto**.
 
 ![](media/app-service-deploy-content-sync/continue.png)
 
-I den **konfigurera** sidan, Välj den mapp som du vill synkronisera. Den här mappen skapas under följande avsedda sökväg till innehåll i OneDrive eller Dropbox. 
+I den **konfigurera** väljer du den mapp som du vill synkronisera. Den här mappen skapas under följande avsedda innehållssökvägen i OneDrive eller Dropbox. 
    
 * **OneDrive**: `Apps\Azure Web Apps`
 * **Dropbox**: `Apps\Azure`
 
 När du är klar klickar du på **Fortsätt**.
 
-I den **sammanfattning** , kontrollera alternativen och klickar på **Slutför**.
+I den **sammanfattning** kontrollerar du dina alternativ och klickar på **Slutför**.
 
 ## <a name="synchronize-content"></a>Synkronisera innehåll
 
-Om du vill synkronisera innehåll i mappen moln med Apptjänst kan gå tillbaka till den **Deployment Center** och klickar på **Sync**.
+När du vill synkronisera innehåll i mappen molnet med App Service går du tillbaka till den **Deployment Center** och klicka på **synkronisering**.
 
 ![](media/app-service-deploy-content-sync/synchronize.png)
    
@@ -57,11 +57,11 @@ Om du vill synkronisera innehåll i mappen moln med Apptjänst kan gå tillbaka 
    > 
    > 
 
-## <a name="disable-content-sync-deployment"></a>Inaktivera innehåll sync-distribution
+## <a name="disable-content-sync-deployment"></a>Inaktivera innehållssynkronisering användning
 
-Om du vill inaktivera synkronisering av innehåll, navigera till sidan Apptjänst-app i den [Azure-portalen](https://portal.azure.com).
+Om du vill inaktivera innehållssynkronisering inloggningsinformationen för din App Service app i den [Azure-portalen](https://portal.azure.com).
 
-I den vänstra menyn klickar du på **Deployment Center** > **OneDrive** eller **Dropbox** > **frånkoppling**.
+I den vänstra menyn klickar du på **Deployment Center** > **OneDrive** eller **Dropbox** > **Disconnect**.
 
 ![](media/app-service-deploy-content-sync/disable.png)
 
@@ -70,4 +70,4 @@ I den vänstra menyn klickar du på **Deployment Center** > **OneDrive** eller *
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Distribuera från lokal Git repo](app-service-deploy-local-git.md)
+> [Distribuera från lokal Git-lagringsplats](app-service-deploy-local-git.md)

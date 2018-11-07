@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.reviewer: jonfan, LADocs
 ms.suite: integration
-ms.openlocfilehash: 681cafc60661e16d70deb862da71f6baf80509fd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 38fe0e4901977637be22670d09dccffdfa274304
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856538"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253830"
 ---
 # <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>Migrera BizTalk Server EDI-lösningar till BizTalk Services: teknisk Guide
 
@@ -77,10 +77,10 @@ Se **scenarier/Message Flow** i den här artikeln för meddelandemönstret för 
 ## <a name="agreements"></a>Avtal
 Om du är bekant med BizTalk Server 2010 Trading Partner avtalen används för EDI-bearbetning kan sedan BizTalk Services handelspartneravtal Se bekant ut. De flesta avtal inställningarna är samma och Använd samma terminologi. I vissa fall kan avtal inställningarna är mycket enklare jämfört med samma inställningar i BizTalk Server. Microsoft Azure BizTalk Services stöder X12 och EDIFACT AS2 transport.
 
-Microsoft Azure BizTalk Services tillhandahåller också en **TPM datamigrering** verktyg för att migrera handelspartners och avtal från BizTalk Server Trading Partner-modulen till BizTalk Services-portalen. Datamigrering för TPM-verktyget är tillgängligt som en del av ett paket, som kan hämtas från den [MABS SDK](http://go.microsoft.com/fwlink/p/?LinkId=235057). Paketet innehåller också ett viktigt-fil som innehåller instruktioner om hur du använder verktyget och grundläggande felsökningsinformation för verktyget.
+Microsoft Azure BizTalk Services tillhandahåller också en **TPM datamigrering** verktyg för att migrera handelspartners och avtal från BizTalk Server Trading Partner-modulen till BizTalk Services-portalen. Datamigrering för TPM-verktyget är tillgängligt som en del av ett paket, som kan hämtas från den [MABS SDK](https://go.microsoft.com/fwlink/p/?LinkId=235057). Paketet innehåller också ett viktigt-fil som innehåller instruktioner om hur du använder verktyget och grundläggande felsökningsinformation för verktyget.
 
 ## <a name="schemas"></a>Scheman
-BizTalk Services får EDI-scheman som kan användas i BizTalk Services-lösningar.  Dessutom kan BizTalk Server EDI-scheman också användas med BizTalk Services eftersom rotnoden i EDI-schemat är samma för BizTalk Server, samt BizTalk Services. Därför kommer du att kunna direkt ta din BizTalk Server EDI-scheman och använda dem i EDI-lösningar som du utvecklar med hjälp av BizTalk Services. Du kan också hämta scheman från den [MABS SDK](http://go.microsoft.com/fwlink/p/?LinkId=235057).
+BizTalk Services får EDI-scheman som kan användas i BizTalk Services-lösningar.  Dessutom kan BizTalk Server EDI-scheman också användas med BizTalk Services eftersom rotnoden i EDI-schemat är samma för BizTalk Server, samt BizTalk Services. Därför kommer du att kunna direkt ta din BizTalk Server EDI-scheman och använda dem i EDI-lösningar som du utvecklar med hjälp av BizTalk Services. Du kan också hämta scheman från den [MABS SDK](https://go.microsoft.com/fwlink/p/?LinkId=235057).
 
 ## <a name="maps-transforms"></a>Maps (transformationer)
 Kartor i BizTalk Server kallas transformeringar i BizTalk Services. Migrera mappningar från BizTalk Server till BizTalk Services kan vara något av de mer avancerade aktiviteterna att uppnå (beroende på komplexiteten för kartan). Mappning av verktyget används för BizTalk Services skiljer sig från BizTalk-mappning. Även om mappningen ser ut huvudsakligen densamma, skiljer sig underliggande mappningsformat. Functoids (kallas **kartan Operations** i BizTalk Services) tillgängliga för användarna är också olika.  Du kan inte i praktiken direkt använda en BizTalk-karta i BizTalk Services. Inte alla functoids som är tillgängliga i BizTalk Server är också tillgängliga som kartan funktioner i BizTalk Services.
@@ -93,23 +93,23 @@ Ett annat exempel på nya funktioner i BizTalk Services omvandlar är den **Loop
 Men ett annat exempel är den **If-Then-Else** uttryck kartan igen.  Gör en if-then-else åtgärd var möjligt i BizTalk-mappning, men det krävs flera functoids att utföra en till synes enkla uppgift.
 
 ### <a name="migrating-biztalk-server-maps"></a>Migrera BizTalk Server-kartor
-Microsoft Azure BizTalk Services är ett verktyg för att migrera BizTalk Server mappar till BizTalk Services-transformeringar. Den **BTMMigrationTool** är tillgänglig som en del av den **verktyg** paket som medföljer den [BizTalk Services SDK-nedladdning](http://go.microsoft.com/fwlink/p/?LinkId=235057). Mer information om verktyget finns i [konvertera en BizTalk-karta att omvandla en BizTalk Services](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx).
+Microsoft Azure BizTalk Services är ett verktyg för att migrera BizTalk Server mappar till BizTalk Services-transformeringar. Den **BTMMigrationTool** är tillgänglig som en del av den **verktyg** paket som medföljer den [BizTalk Services SDK-nedladdning](https://go.microsoft.com/fwlink/p/?LinkId=235057). Mer information om verktyget finns i [konvertera en BizTalk-karta att omvandla en BizTalk Services](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx).
 
-Du kan också titta på ett exempel av Sandro Pereira, chef för BizTalk-MVP och om hur du [migrera BizTalk Server maps till BizTalk Services transformeringar](http://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx).
+Du kan också titta på ett exempel av Sandro Pereira, chef för BizTalk-MVP och om hur du [migrera BizTalk Server maps till BizTalk Services transformeringar](https://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx).
 
 ## <a name="orchestrations"></a>Orkestreringar
 Om du vill migrera BizTalk Server-dirigering av bearbetning till Microsoft Azure skulle orkestreringarna behöva skrivas eftersom Microsoft Azure inte stöder köra BizTalk Server-orkestreringar.  Du kan skriva om orchestration-funktioner i en tjänst i Windows Workflow Foundation 4.0 (WF4).  Detta är en fullständig omarbetning eftersom det inte finns för närvarande ingen migrering från BizTalk Server-orkestreringar till WF4. Här är några resurser för Windows-arbetsflödet:
 
 * [*Hur du integrerar en WCF-tjänst för arbetsflödet med Service Bus-köer och ämnen* ](https://blogs.msdn.microsoft.com/paolos/2013/04/09/how-to-integrate-a-wcf-workflow-service-with-service-bus-queues-and-topics/) av Paolo Salvatori. 
-* [*Skapa appar med Windows Workflow Foundation och Azure* session](http://go.microsoft.com/fwlink/p/?LinkId=237314) från Build 2011-konferensen.
-* [*Windows Workflow Foundation Developer Center* ](http://go.microsoft.com/fwlink/p/?LinkId=237315) på MSDN.
+* [*Skapa appar med Windows Workflow Foundation och Azure* session](https://go.microsoft.com/fwlink/p/?LinkId=237314) från Build 2011-konferensen.
+* [*Windows Workflow Foundation Developer Center* ](https://go.microsoft.com/fwlink/p/?LinkId=237315) på MSDN.
 * [*Dokumentation om Windows Workflow Foundation 4 (WF4)* ](https://msdn.microsoft.com/library/dd489441.aspx) på MSDN.
 
 ## <a name="other-considerations"></a>Annat att tänka på
 Här följer några saker som du måste utföra när du använder BizTalk Services.
 
 ### <a name="fallback-agreements"></a>Återställningsplats avtal
-BizTalk Server EDI-bearbetning har begreppet ”reserv avtal”.  BizTalk Services har **inte** har ett begrepp som reserv avtal hittills.  BizTalk-dokumentationen avsnitten [The rollen av avtal i EDI-bearbetning](http://go.microsoft.com/fwlink/p/?LinkId=237317) och [reserv avtal egenskaper eller konfigurera globala](https://msdn.microsoft.com/library/bb245981.aspx) information om hur används reserv avtal i BizTalk Server.
+BizTalk Server EDI-bearbetning har begreppet ”reserv avtal”.  BizTalk Services har **inte** har ett begrepp som reserv avtal hittills.  BizTalk-dokumentationen avsnitten [The rollen av avtal i EDI-bearbetning](https://go.microsoft.com/fwlink/p/?LinkId=237317) och [reserv avtal egenskaper eller konfigurera globala](https://msdn.microsoft.com/library/bb245981.aspx) information om hur används reserv avtal i BizTalk Server.
 
 ### <a name="routing-to-multiple-destinations"></a>Routning till flera mål
 BizTalk Services-bryggor, i det aktuella tillståndet stöder inte vidarebefordra meddelanden till flera destinationer med ett Publicera-prenumerera modellen. I stället kan du vidarebefordra meddelanden från en brygga med BizTalk Services till ett Service Bus-ämne som sedan kan ha flera prenumerationer att ta emot meddelandet vid mer än en slutpunkt.

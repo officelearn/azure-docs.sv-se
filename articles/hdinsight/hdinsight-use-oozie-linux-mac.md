@@ -9,12 +9,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.openlocfilehash: 052afbe185f9c66af3759775b38b6bf0f2c2e6b2
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: a2b209dc0204c390b16039ed1cf58b47f29629f1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783329"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252113"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Använda Oozie med Hadoop för att definiera och köra ett arbetsflöde på Linux-baserade Azure HDInsight
 
@@ -30,12 +30,12 @@ Lär dig använda Apache Oozie med Hadoop i Azure HDInsight. Oozie är ett arbet
 Du kan också använda Oozie för att schemalägga jobb som är specifika för ett system, t.ex. Java-program eller kommandoskript.
 
 > [!NOTE]
-> Ett annat alternativ att definiera arbetsflöden med HDInsight är att använda Azure Data Factory. Mer information om Data Factory finns [Använd Pig och Hive med Data Factory][azure-data-factory-pig-hive].
+> Ett annat alternativ att definiera arbetsflöden med HDInsight är att använda Azure Data Factory. Mer information om Data Factory finns [Använd Pig och Hive med Data Factory][azure-data-factory-pig-hive]. Använda Oozie i kluster med Enterprise Security Package finns [kör Apache Oozie i HDInsight Hadoop-kluster med Enterprise Security Package](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **Ett HDInsight-kluster**: se [Kom igång med HDInsight på Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* **En vanlig HDInsight-kluster**: se [Kom igång med HDInsight på Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
 > [!IMPORTANT]
 > Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Linux. Linux är det enda operativsystem som används på HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).

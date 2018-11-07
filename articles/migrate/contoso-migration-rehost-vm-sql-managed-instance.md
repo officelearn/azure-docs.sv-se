@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 0e4576ad4f7eece543ef572073919bcf3ca3a4e9
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: ae719e6daa3c07ffe298cfefcc5a0a2846a49032
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116150"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231829"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Contoso-migrering: byta Appvärd ett lokalt på en virtuell dator i Azure och SQL Database Managed Instance
 
@@ -366,7 +366,7 @@ Contoso vill kunna ansluta till de replikerade virtuella datorerna i Azure efter
 Contoso-administratörer måste också kontrollera de här objekten när de kör en redundans:
 
 - Det bör finnas inga Windows-uppdateringar som väntar på den virtuella datorn när en redundansväxling har utlösts. Om Windows-uppdateringar är väntande användare Contoso kan inte logga in till den virtuella datorn förrän uppdateringen är klar.
-- Efter redundansväxlingen administratörer bör kontrollera **Startdiagnostik** visar en skärmbild av den virtuella datorn. Om de inte kan visa startdiagnostiken kan de bör kontrollera att den virtuella datorn körs, och granska sedan [felsökningstips](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- Efter redundansväxlingen administratörer bör kontrollera **Startdiagnostik** visar en skärmbild av den virtuella datorn. Om de inte kan visa startdiagnostiken kan de bör kontrollera att den virtuella datorn körs, och granska sedan [felsökningstips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 ## <a name="step-5-replicate-the-on-premises-vms-to-azure"></a>Steg 5: Replikera lokala virtuella datorer till Azure
 

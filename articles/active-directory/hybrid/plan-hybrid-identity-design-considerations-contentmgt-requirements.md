@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a3e5ae61fcefcb65d08288a2ddc2dd239e68b211
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 60d4501257bf79d1846e62010bf7b336c1b18f19
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312258"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250874"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Fastställa krav för innehållshantering för din hybrididentitetslösning
 Förstå kraven för innehållshantering för ditt företag kan direkt påverka ditt beslut om vilken hybrididentitetslösning att använda. Genom spridningen av flera enheter och göra att användare kan ha sina egna enheter ([BYOD](https://aka.ms/byodcg)), företaget måste skydda sina egna data men den måste behålla användarens integritet intakta. Vanligtvis när en användare har sina egna enheter, kan de också ha flera autentiseringsuppgifter som ska alternerande beroende på program som de använder. Det är viktigt att skilja vilket innehåll skapades med personliga autentiseringsuppgifter från sådana som skapats med företagets autentiseringsuppgifter. ID-lösning bör kunna interagera med cloud services för att ge en sömlös upplevelse för slutanvändaren samtidigt se till att deras integritet och öka skyddet mot dataläckage. 
@@ -38,7 +38,7 @@ I allmänhet att innehållshantering krav utnyttja dina identitetshanteringssyst
 * Data Leakage Protection: säkerhetskontroller som ansvarar för att skydda data för att undvika läckage måste interagera med ID-system för att verifiera användarens identitet. Detta är också viktigt för revision för spårning.
 
 > [!NOTE]
-> Läs [dataklassificering för användning i molnet](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) för mer information om metodtips och riktlinjer för klassificering av data.
+> Läs [dataklassificering för användning i molnet](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) för mer information om metodtips och riktlinjer för klassificering av data.
 > 
 > 
 

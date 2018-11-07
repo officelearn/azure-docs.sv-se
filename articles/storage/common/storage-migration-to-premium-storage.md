@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.component: common
-ms.openlocfilehash: c6256fc209a4ffa5308dc3b24794f8295c57f4ef
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4ec0d4058c512ce420cd6e1bdc393b8043dbf1b6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521786"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232570"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrera till Azure Premium Storage (ohanterade diskar)
 
@@ -54,10 +54,10 @@ Specifikationer för Azure VM-storleken anges i [storlekar för virtuella datore
 #### <a name="disk-sizes"></a>Diskstorlekar
 Det finns fem typer av diskar som kan användas med den virtuella datorn och alla har specifika IOPs och dataflöde gränser. Ta hänsyn till dessa gränser när välja typ av disk för den virtuella datorn baserat på dina behov för ditt program när det gäller kapacitet, prestanda, skalbarhet och högsta läses in.
 
-| Typen för Premium-diskar  | P10   | P20   | P30            | P40            | P50            | 
+| Typen för Premium-diskar  | P10   | P20   | P30            | P40            | P50            | 
 |:-------------------:|:-----:|:-----:|:--------------:|:--------------:|:--------------:|
-| Diskstorlek           | 128 GB| 512 GB| 1 024 GB (1 TB) | 2 048 GB (2 TB) | 4 095 GB (4 TB) | 
-| IOPS per disk       | 500   | 2 300  | 5000           | 7500           | 7500           | 
+| Diskstorlek           | 128 GB| 512 GB| 1 024 GB (1 TB) | 2 048 GB (2 TB) | 4 095 GB (4 TB) | 
+| IOPS per disk       | 500   | 2 300  | 5000           | 7500           | 7500           | 
 | Dataflöde per disk | 100 MB per sekund | 150 MB per sekund | 200 MB per sekund | 250 MB per sekund | 250 MB per sekund |
 
 Beroende på arbetsbelastningen, avgör du om det krävs ytterligare datadiskar för den virtuella datorn. Du kan koppla flera beständiga datadiskar till den virtuella datorn. Om det behövs kan du stripe över diskar att öka kapaciteten och prestandan för volymen. (Se vad som är Disk Striping [här](../../virtual-machines/windows/premium-storage-performance.md#disk-striping).) Om du stripe-datadiskar i Premium Storage med hjälp av [lagringsutrymmen][4], bör du konfigurera den med en kolumn för varje disk som används. Annars vara prestandan stripe-volym lägre än förväntat pga en ojämn fördelning av trafik på diskarna. För virtuella Linux-datorer kan du använda den *mdadm* verktyg för att göra samma sak. Se artikeln [konfigurera programvaru-RAID på Linux](../../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) mer information.
@@ -94,14 +94,14 @@ Om du vill förbereda de virtuella hårddiskarna för migrering behöver du:
 
 * En Azure-prenumeration, ett lagringskonto och en behållare i det lagringskontot som du kan kopiera en virtuell Hårddisk. Observera att mållagringskontot kan vara ett Standard- eller Premium Storage-konto utifrån dina behov.
 * Ett verktyg för att generalisera den virtuella Hårddisken om du planerar att skapa flera VM-instanser från den. Till exempel sysprep för Windows eller virt-sysprep för Ubuntu.
-* Ett verktyg för att ladda upp VHD-filen till lagringskontot. Se [överföra data med kommandoradsverktyget Azcopy](storage-use-azcopy.md) eller Använd en [Azure Lagringsutforskaren](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx). Den här guiden beskriver kopierar en virtuell Hårddisk med hjälp av AzCopy-verktyget.
+* Ett verktyg för att ladda upp VHD-filen till lagringskontot. Se [överföra data med kommandoradsverktyget Azcopy](storage-use-azcopy.md) eller Använd en [Azure Lagringsutforskaren](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx). Den här guiden beskriver kopierar en virtuell Hårddisk med hjälp av AzCopy-verktyget.
 
 > [!NOTE]
 > Om du väljer alternativet för synkron kopia med AzCopy, kopierar du en virtuell Hårddisk genom att köra ett av dessa verktyg från en Azure virtuell dator som är i samma region som mållagringskontot för optimala prestanda. Om du kopierar en virtuell Hårddisk från en Azure virtuell dator i en annan region, gå din långsammare.
 >
 > Kopiera en stor mängd data över begränsad bandbredd, Överväg [med Azure Import/Export-tjänsten för att överföra data till Blob Storage](../storage-import-export-service.md); detta kan du överföra dina data genom att skicka hårddiskenheter till ett Azure-datacenter. Du kan använda Azure Import/Export-tjänsten för att kopiera data till ett standardlagringskonto endast. När data finns i standard storage-konto, du kan använda antingen den [kopiera Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx) eller AzCopy för att överföra data till premium storage-konto.
 >
-> Observera att Microsoft Azure bara stöder VHD-filer med fast storlek. VHDX-filer eller dynamiska virtuella hårddiskar stöds inte. Om du har en dynamisk virtuell Hårddisk kan du konvertera den till fast storlek med hjälp av den [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) cmdlet.
+> Observera att Microsoft Azure bara stöder VHD-filer med fast storlek. VHDX-filer eller dynamiska virtuella hårddiskar stöds inte. Om du har en dynamisk virtuell Hårddisk kan du konvertera den till fast storlek med hjälp av den [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) cmdlet.
 >
 >
 
@@ -123,7 +123,7 @@ Nedan går vi igenom dessa 3 scenarier för att förbereda en virtuell Hårddisk
 Om du överför en virtuell Hårddisk som används för att skapa flera allmänna Azure VM-instanser måste du först generalisera virtuell Hårddisk med en sysprep-verktyget. Detta gäller för en virtuell Hårddisk som finns lokalt eller i molnet. Sysprep tar bort datorspecifik information från den virtuella Hårddisken.
 
 > [!IMPORTANT]
-> Ta en ögonblicksbild eller säkerhetskopiera den virtuella datorn innan du generalisera den. Köra sysprep ska stoppa och frigöra den Virtuella datorinstansen. Följ stegen nedan för att sysprep en VHD för Windows-operativsystem. Observera att köra kommandot Sysprep måste du stänga av den virtuella datorn. Mer information om Sysprep finns i [Sysprep översikt](http://technet.microsoft.com/library/hh825209.aspx) eller [Teknisk referens för Sysprep](http://technet.microsoft.com/library/cc766049.aspx).
+> Ta en ögonblicksbild eller säkerhetskopiera den virtuella datorn innan du generalisera den. Köra sysprep ska stoppa och frigöra den Virtuella datorinstansen. Följ stegen nedan för att sysprep en VHD för Windows-operativsystem. Observera att köra kommandot Sysprep måste du stänga av den virtuella datorn. Mer information om Sysprep finns i [Sysprep översikt](https://technet.microsoft.com/library/hh825209.aspx) eller [Teknisk referens för Sysprep](https://technet.microsoft.com/library/cc766049.aspx).
 >
 >
 
@@ -163,7 +163,7 @@ Du behöver att hitta din behållare sökväg och lagringskontonyckeln att bearb
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>Alternativ 1: Kopiera en virtuell Hårddisk med AzCopy (asynkron copy)
 Med AzCopy kan överföra du enkelt den virtuella Hårddisken via Internet. Det kan ta tid beroende på storleken på de virtuella hårddiskarna. Kom ihåg att kontrollera lagringskontogränser för ingående/utgående trafik när du använder det här alternativet. Se [skalbarhet för lagring av Azure- och prestandamål](storage-scalability-targets.md) mer information.
 
-1. Ladda ned och installera AzCopy härifrån: [senaste versionen av AzCopy](http://aka.ms/downloadazcopy)
+1. Ladda ned och installera AzCopy härifrån: [senaste versionen av AzCopy](https://aka.ms/downloadazcopy)
 2. Öppna Azure PowerShell och gå till mappen där AzCopy är installerat.
 3. Använd följande kommando för att kopiera VHD-filen från ”källa” till ”mål”.
 
@@ -257,7 +257,7 @@ Ett exempel <Uri> kanske ***”https://storagesample.blob.core.windows.net/mycon
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>Alternativ 2: Använda AzCopy för att ladda upp VHD-filen
 Med AzCopy kan överföra du enkelt den virtuella Hårddisken via Internet. Det kan ta tid beroende på storleken på de virtuella hårddiskarna. Kom ihåg att kontrollera lagringskontogränser för ingående/utgående trafik när du använder det här alternativet. Se [skalbarhet för lagring av Azure- och prestandamål](storage-scalability-targets.md) mer information.
 
-1. Ladda ned och installera AzCopy härifrån: [senaste versionen av AzCopy](http://aka.ms/downloadazcopy)
+1. Ladda ned och installera AzCopy härifrån: [senaste versionen av AzCopy](https://aka.ms/downloadazcopy)
 2. Öppna Azure PowerShell och gå till mappen där AzCopy är installerat.
 3. Använd följande kommando för att kopiera VHD-filen från ”källa” till ”mål”.
 

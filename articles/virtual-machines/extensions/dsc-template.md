@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: e24353013110bfa95f23b75bbd81fd6d1048b95a
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: d55f6097e3e1eed508580676edcf008b0739034c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830849"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231008"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration-tillägget med Azure Resource Manager-mallar
 
@@ -167,7 +167,7 @@ En lista över de argument som är tillgängliga för standard-konfigurationsskr
 | settings.configurationArguments |Samling |Definierar de parametrar som du vill skicka till DSC-konfiguration. Den här egenskapen är inte krypterad. |
 | settings.configurationData.url |sträng |Anger den URL som du vill ladda ned konfigurationsdatafilen (.psd1) från att använda som indata för DSC-konfiguration. Om den URL som kräver en SAS-token för åtkomst, ange den **protectedSettings.configurationDataUrlSasToken** egenskapen till värdet för din SAS-token. |
 | settings.privacy.dataCollection |sträng |Aktiverar eller inaktiverar telemetriinsamling. Endast möjliga värden för den här egenskapen är **aktivera**, **inaktivera**, **''**, eller **$null**. Lämna den här egenskapen tom eller null kan telemetri. Standardvärdet är **''**. Mer information finns i [Azure DSC-tillägg-datainsamling](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
-| settings.advancedOptions.downloadMappings |Samling |Definierar alternativa platser som ska hämta WMF från. Mer information finns i [Azure DSC-tillägget 2.8 och mappa nedladdningar av beroenden för tillägg till din egen plats](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
+| settings.advancedOptions.downloadMappings |Samling |Definierar alternativa platser som ska hämta WMF från. Mer information finns i [Azure DSC-tillägget 2.8 och mappa nedladdningar av beroenden för tillägg till din egen plats](https://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
 | protectedSettings.configurationArguments |Samling |Definierar de parametrar som du vill skicka till DSC-konfiguration. Den här egenskapen är krypterad. |
 | protectedSettings.configurationUrlSasToken |sträng |Anger SAS-token för att få åtkomst till URL: en som **settings.configuration.url** definierar. Den här egenskapen är krypterad. |
 | protectedSettings.configurationDataUrlSasToken |sträng |Anger SAS-token för att få åtkomst till URL: en som **settings.configurationData.url** definierar. Den här egenskapen är krypterad. |

@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 1e74a0c915471fecb3b8e0662559eb5bfe189b3d
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 85c5ff33fbf5979dd07ab27ccf5993149151b38a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423025"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252419"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Distribuera och utforska en enda klient fristående program som använder Azure SQL Database
 
@@ -44,11 +44,11 @@ Ytterligare självstudier kommer att släppas. De kan du utforska olika scenarie
 Distribuera appen för de tre angivna innehavarna:
 
 1. Klicka på varje blå **distribuera till Azure** knappen för att öppna distributionsmallen i den [Azure-portalen](https://portal.azure.com). Varje mall kräver två parametervärden; ett namn för en ny resursgrupp och ett användarnamn som särskiljer den här distributionen från andra distributioner av appen. Nästa steg innehåller information för att ange dessa värden.<br><br>
-    <a href="http://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Contosos Konserthall**
+    <a href="https://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Contosos Konserthall**
 <br><br>
-    <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Skogskornell Dojo**
+    <a href="https://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Skogskornell Dojo**
 <br><br>
-    <a href="http://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Fabrikam Jazzklubb**
+    <a href="https://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Fabrikam Jazzklubb**
 
 2. Ange nödvändiga parametervärden för varje distribution.
 

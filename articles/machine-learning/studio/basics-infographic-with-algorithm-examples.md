@@ -1,7 +1,7 @@
 ---
-title: 'Infographic: Datorn learning grunderna - algoritmen exempel | Microsoft Docs'
-description: Översiktligt enkelt att förstå grunderna i machine learning innehåller algoritmen exempel. Nedladdningsbar infographic täcker de flesta frågor för maskininlärning.
-keywords: Machine learning grunderna algoritmen exempel maskininlärning för nybörjare, machine learning frågor, populära algoritmer, algoritmen infographic
+title: 'Infografik: Machine learning-grunder – algoritmexempel | Microsoft Docs'
+description: Översiktligt lätt att förstå grunderna i machine learning innehåller algoritmexempel. Nedladdningsbar infografik omfattar de flesta frågor för maskininlärning.
+keywords: Grunderna i Machine learning, algoritmexempel, machine learning för nybörjare, machine learning-frågor, populära algoritmer, algoritmen informationsgrafik
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
@@ -16,30 +16,30 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: a7d2d1e46847f6126ad2905e9f2d3ce52957dad5
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 8ef67add44428e08a1851a039e7e8c2c747e930d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833399"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253864"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Nedladdningsbar infografik: Machine Learning-grunder med algoritmexempel
-Hämta den här enkelt att förstå infographic översikt över machine learning grunderna för att lära dig om populära algoritmer som används för att besvara vanliga frågor för machine learning. Algoritmen exempel hjälper machine learning-nybörjare förstå vilka algoritmer som ska användas och hur de används.
+Ladda ned den här lätt att förstå informationsgrafik över grunderna i machine learning att lära dig om populära algoritmer som används för att besvara vanliga frågor för machine learning. Algoritmexempel hjälpa machine learning-nybörjare förstå vilka algoritmer som ska användas och vad de används för.
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Populära algoritmer i Machine Learning Studio
-[Azure Machine Learning Studio](https://studio.azureml.net/) medföljer stora biblioteket med algoritmer för förutsägelseanalys. Infographic identifierar fyra populära familjer av algoritmer - regression, avvikelseidentifiering, klustring och klassificering - och innehåller länkar till fungerande exemplen i den [Azure AI-galleriet](https://gallery.cortanaintelligence.com/). Galleriet innehåller exempel experiment och självstudier som visar hur dessa algoritmer kan användas i många verkliga lösningar.
+[Azure Machine Learning Studio](https://studio.azureml.net/) levereras med ett stort bibliotek med algoritmer för förutsägelseanalys. Informationsgrafiken identifierar fyra populära familjer av algoritmer - regression, avvikelseidentifiering, klustring och klassificering - och innehåller länkar till exempel i den [Azure AI-galleriet](https://gallery.cortanaintelligence.com/). Galleriet innehåller exempelexperiment och självstudier som demonstrerar hur dessa algoritmer kan användas i många verkliga lösningar.
 
-## <a name="download-the-infographic-with-algorithm-examples"></a>Hämta infographic med algoritmen-exempel
-**[Hämta: Infographic av machine learning grunderna med länkar till exempel algoritmen (PDF)](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
+## <a name="download-the-infographic-with-algorithm-examples"></a>Ladda ned informationsgrafik med algoritmexempel
+**[Hämtning: Informationsgrafiken av machine learning-grunder med länkar till algoritmexempel (PDF)](https://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
 
-![Infographic: Machine learning grunderna med algoritmen exempel. Populära algoritmer. Maskininlärning för nybörjare.](./media/basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
+![Infografik: Machine learning-grunder med algoritmexempel. Populära algoritmer. Maskininlärning för nybörjare.](./media/basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
 
 ## <a name="more-help-with-algorithms-for-beginners-and-advanced-users"></a>Mer hjälp med algoritmer för nybörjare och avancerade användare
-* En ingående beskrivning av de olika typerna av algoritmer för maskininlärning, hur de används och hur du väljer rätt typ för din lösning finns [så väljer du algoritmer för Microsoft Azure Machine Learning](algorithm-choice.md).
-* En lista efter kategori av alla de tillgängliga maskininlärningsalgoritmer i Machine Learning Studio finns [initiera modell] [ initialize-model] i Machine Learning Studio algoritmen modulen hjälpen och.
-* En fullständig alfabetisk lista över algoritmer och moduler i Machine Learning Studio finns [A-Ö-listan över Machine Learning Studio moduler] [ a-z-list] i Machine Learning Studio algoritmen och hjälpa till att modulen.
+* En djupare beskrivning av de olika typerna av machine learning-algoritmer, hur de används och hur du väljer rätt typ för din lösning finns i [så väljer du algoritmer för Microsoft Azure Machine Learning](algorithm-choice.md).
+* En lista efter kategori av alla de tillgängliga maskininlärningsalgoritmer i Machine Learning Studio finns i [initiera modell] [ initialize-model] i Machine Learning Studio-algoritmen och modulen hjälpa.
+* En fullständig alfabetisk lista över algoritmer och moduler i Machine Learning Studio finns i [A-Z-lista över Machine Learning Studio-moduler] [ a-z-list] i modulen hjälpen och Machine Learning Studio-algoritm.
 * Se [Översiktsdiagram över funktionerna i Azure Machine Learning Studio](studio-overview-diagram.md) om du vill ladda ned och skriva ut ett diagram med en översikt över funktionerna i Machine Learning Studio.
-* En översikt över Azure AI-galleriet och många community-genererad tillgängliga resurser där, se [resursen och identifiera resurser i Azure-galleriet AI](gallery-how-to-use-contribute-publish.md).
+* En översikt över Azure AI-galleriet och de användargenererat resurserna som finns där, se [resurs och identifiera resurser i Azure AI-galleriet](gallery-how-to-use-contribute-publish.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

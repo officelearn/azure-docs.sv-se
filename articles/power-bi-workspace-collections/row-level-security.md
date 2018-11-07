@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: ce1e3818edea6e0fdaedd33b6ec0c3214f475340
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 80208c83c96ba78db052017c2baa3bc0db63953f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048564"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258858"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Säkerhet på postnivå med Power BI-arbetsytesamlingar
 
@@ -35,7 +35,7 @@ För att kunna använda RLS är det viktigt att du förstå tre huvudsakliga kon
 
 ### <a name="example"></a>Exempel
 
-För resten av den här artikeln använder ge vi ett exempel på redigering RLS och förbrukar som i ett inbäddat program. Vårt exempel använder den [detaljhandelsanalys](http://go.microsoft.com/fwlink/?LinkID=780547) PBIX-fil.
+För resten av den här artikeln använder ge vi ett exempel på redigering RLS och förbrukar som i ett inbäddat program. Vårt exempel använder den [detaljhandelsanalys](https://go.microsoft.com/fwlink/?LinkID=780547) PBIX-fil.
 
 ![Exempel-försäljningsrapport](media/row-level-security/scenario-2.png)
 
@@ -87,7 +87,7 @@ Filter kan nu också flöda från tabellen Sales till den **objekt** tabell:
 1. **Filen** -> **alternativ och inställningar** -> **Förhandsversionsfunktioner** -> **aktivera korsfiltrering i båda riktningarna för DirectQuery** .
 2. **Filen** -> **alternativ och inställningar** -> **DirectQuery** -> **Tillåt obegränsade åtgärder i DirectQuery-läge**.
 
-Om du vill veta mer om dubbelriktad korsfiltrering kan hämta den [dubbelriktad korsfiltrering i SQL Server Analysis Services 2016 och Power BI Desktop](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional%20cross-filtering%20in%20Analysis%20Services%202016%20and%20Power%20BI.docx) White Paper.
+Om du vill veta mer om dubbelriktad korsfiltrering kan hämta den [dubbelriktad korsfiltrering i SQL Server Analysis Services 2016 och Power BI Desktop](https://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional%20cross-filtering%20in%20Analysis%20Services%202016%20and%20Power%20BI.docx) White Paper.
 
 Det här täcker allt arbete som måste göras i Power BI Desktop, men det finns en mer mängd arbete som behöver göras för att göra RLS-regler vi definierade arbete i Power BI Embedded. Användare autentiseras och auktoriseras av ditt program och apptoken som används för att bevilja användaråtkomst till en specifik rapport i Power BI Embedded. Power BI Embedded har inte någon specifik information om vem din användare är. För att RLS ska fungera måste du skicka ytterligare kontext som en del av din apptoken:
 

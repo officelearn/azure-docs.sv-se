@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/14/2017
 ms.author: wesmc
-ms.openlocfilehash: a6c3314a981b46aa6f1cbca1f34392d1e1ae6c9a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 6ea237c406a9d09b500a12755cd1fa99bb7d41cb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431652"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234433"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-redis-cache"></a>ASP.NET Utdatacacheprovider för Azure Redis-Cache
 Redis-Utdatacacheprovider är en molnlagringsmekanism för out-of-process för cache-utdata. Dessa data är specifikt för fullständig HTTP-svar (sidan cachelagring av utdata). Providern ansluts till den nya utökningsbarhet punkten för utdata cache-providern som introducerades i ASP.NET 4.
@@ -89,8 +89,8 @@ Konfigurera attribut med värden från din cachebladet i Microsoft Azure-portale
   * Observera att icke-SSL-porten är inaktiverad som standard för nya cacheminnen. Ange som SANT för den här inställningen för att använda SSL-porten. Mer information om hur du aktiverar icke-SSL-porten finns i den [Åtkomstportar](cache-configure.md#access-ports) i avsnittet den [konfigurera en cache](cache-configure.md) avsnittet.
 * **databaseId** – angivna vilken databas som ska användas för cache-utdata. Om den inte anges används standardvärdet 0.
 * **applicationName** – nycklar lagras i redis som `<AppName>_<SessionId>_Data`. Den här namngivningsschemat kan flera program delar samma nyckel. Den här parametern är valfri och om du inte anger den ett standardvärde används.
-* **connectionTimeoutInMilliseconds** – den här inställningen kan du åsidosätta inställningen connectTimeout i StackExchange.Redis-klienten. Om den inte anges används standardinställningen connectTimeout 5000. Mer information finns i [Konfigurationsmodell](http://go.microsoft.com/fwlink/?LinkId=398705).
-* **operationTimeoutInMilliseconds** – den här inställningen kan du åsidosätta inställningen syncTimeout i StackExchange.Redis-klienten. Om den inte anges används standardinställningen för syncTimeout på 1 000. Mer information finns i [Konfigurationsmodell](http://go.microsoft.com/fwlink/?LinkId=398705).
+* **connectionTimeoutInMilliseconds** – den här inställningen kan du åsidosätta inställningen connectTimeout i StackExchange.Redis-klienten. Om den inte anges används standardinställningen connectTimeout 5000. Mer information finns i [Konfigurationsmodell](https://go.microsoft.com/fwlink/?LinkId=398705).
+* **operationTimeoutInMilliseconds** – den här inställningen kan du åsidosätta inställningen syncTimeout i StackExchange.Redis-klienten. Om den inte anges används standardinställningen för syncTimeout på 1 000. Mer information finns i [Konfigurationsmodell](https://go.microsoft.com/fwlink/?LinkId=398705).
 
 Lägga till ett OutputCache-direktiv i varje sida som du vill cachelagra utdata.
 
@@ -98,7 +98,7 @@ Lägga till ett OutputCache-direktiv i varje sida som du vill cachelagra utdata.
 <%@ OutputCache Duration="60" VaryByParam="*" %>
 ```
 
-I föregående exempel cachelagrade siddata behålls på cacheplatsen i 60 sekunder och en annan version av sidan cachelagras för varje kombination av parametern. Läs mer om direktivet OutputCache [ @OutputCache ](http://go.microsoft.com/fwlink/?linkid=320837).
+I föregående exempel cachelagrade siddata behålls på cacheplatsen i 60 sekunder och en annan version av sidan cachelagras för varje kombination av parametern. Läs mer om direktivet OutputCache [ @OutputCache ](https://go.microsoft.com/fwlink/?linkid=320837).
 
 När dessa steg utförs har ditt program konfigurerats för att använda Redis Utdatacacheprovider.
 

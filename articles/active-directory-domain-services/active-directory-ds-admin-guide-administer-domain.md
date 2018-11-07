@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 031c609ee5dcd04fc461af74b7f49973fbd290c3
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: dab1547ca17acaeda3cb168d78b342661ebe4615
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157627"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230486"
 ---
 # <a name="administer-an-azure-active-directory-domain-services-managed-domain"></a>Administrera en Azure Active Directory Domain Services-hanterad domän
 Den här artikeln visar hur du administrerar en Azure Active Directory (AD) Domain Services-hanterad domän.
@@ -63,7 +63,7 @@ Det första steget är att konfigurera en Windows Server-dator som är ansluten 
 ### <a name="remotely-administer-the-managed-domain-from-a-client-computer-for-example-windows-10"></a>Fjärradministrera den hanterade domänen från en klientdator (till exempel Windows 10)
 Anvisningarna i den här artikeln används en Windows Server-dator för att administrera den AAD-DS-hanterade domän. Du kan också välja att använda en Windows-klienten (till exempel Windows 10) virtuell dator för att göra detta.
 
-Du kan [installera Remote verktyg för fjärrserveradministration (RSAT)](http://social.technet.microsoft.com/wiki/contents/articles/2202.remote-server-administration-tools-rsat-for-windows-client-and-windows-server-dsforum2wiki.aspx) på en Windows virtuella klientdatorn genom att följa anvisningarna på TechNet.
+Du kan [installera Remote verktyg för fjärrserveradministration (RSAT)](https://social.technet.microsoft.com/wiki/contents/articles/2202.remote-server-administration-tools-rsat-for-windows-client-and-windows-server-dsforum2wiki.aspx) på en Windows virtuella klientdatorn genom att följa anvisningarna på TechNet.
 
 ## <a name="task-2---install-active-directory-administration-tools-on-the-virtual-machine"></a>Uppgift 2 – Installera Active Directory-Administrationsverktyg på den virtuella datorn
 Utför följande steg för att installera administrationsverktygen för Active Directory på den domänanslutna virtuella datorn. Se Technet mer [information om att installera och använda Administrationsverktyg för fjärrserver](https://technet.microsoft.com/library/hh831501.aspx).

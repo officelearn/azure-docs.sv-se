@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d84df3e5e0b961b8a53044102f99205ee0fe9896
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: c4ab33f4d706eb677b2b790ff871c1fb900846ff
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914115"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235640"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Förstå utökade offlinefunktionerna för IoT Edge-enheter, moduler och underordnade enheter (förhandsversion)
 
@@ -46,7 +46,7 @@ I följande exempel visas hur en IoT Edge-scenariot fungerar i offline-läge:
 
 ## <a name="restrictions-and-limits"></a>Begränsningar och gränser
 
-De utökade offline funktioner som beskrivs i den här artikeln är tillgängliga i [IoT Edge version 1.0.2 eller högre](https://github.com/Azure/azure-iotedge/releases). Tidigare versioner har en delmängd av Offlinefunktioner. Befintliga IoT Edge-enheter som inte har utökat offlinefunktionerna kan inte uppgraderas genom att ändra körningsversion, men måste konfigureras med en ny enhetsidentitet i IoT Edge att få dessa funktioner. 
+De utökade offline funktioner som beskrivs i den här artikeln är tillgängliga i [IoT Edge version 1.0.4 eller högre](https://github.com/Azure/azure-iotedge/releases). Tidigare versioner har en delmängd av Offlinefunktioner. Befintliga IoT Edge-enheter som inte har utökat offlinefunktionerna kan inte uppgraderas genom att ändra körningsversion, men måste konfigureras med en ny enhetsidentitet i IoT Edge att få dessa funktioner. 
 
 Utökad offline support är tillgänglig i alla regioner där IoT Hub inte är tillgängligt, östra USA och Västeuropa. 
 
@@ -56,34 +56,7 @@ IoT Edge-enheter och deras tilldelade underordnade enheter kan fungera offline u
 
 ## <a name="set-up-an-edge-device"></a>Konfigurera en Edge-enhet
 
-Konfigurera IoT Edge-körningen att kommunicera över MQTT för alla IoT Edge-enheter som du vill utföra under en längre period som offline och. 
-
 För IoT Edge-enhet att utöka funktionerna för utökade offline underordnade IoT-enheter, måste du deklarera de överordnade och underordnade relationerna i Azure-portalen.
-
-### <a name="set-the-upstream-protocol-to-mqtt"></a>Ställ in överordnade protokollet till MQTT
-
-Konfigurera både Edge hub och Edge-agenten kan kommunicera med MQTT som överordnad protokoll. Det här protokollet deklareras med miljövariabler i manifestet distribution. 
-
-I Azure-portalen, du kan komma åt Edge hub- och moduldefinitioner för Edge-agenten genom att välja den **konfigurera avancerade Edge-körningsinställningar** knappen när du ställer in moduler för en distribution. Skapa en miljövariabel som heter för båda modulerna **UpstreamProtocol** och ange värdet **MQTT**. 
-
-I distributionsmallen JSON deklareras miljövariabler som visas i följande exempel: 
-
-```json
-"edgeHub": {
-    "type": "docker",
-    "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
-    },
-    "env": {
-        "UpstreamProtocol": {
-            "value": "MQTT"
-        }
-    },
-    "status": "running",
-    "restartPolicy": "always"
-}
-```
 
 ### <a name="assign-child-devices"></a>Tilldela underordnade enheter
 

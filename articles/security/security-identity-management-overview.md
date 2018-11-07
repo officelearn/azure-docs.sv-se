@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As a IT Pro or decision maker I am trying to learn about identity mangement capabilities in Azure
-ms.openlocfilehash: f15846f3de7162c61edce8aaf5c493bb1444df36
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 84ab35c269af66f58f3886a5dd0606ce69a11be9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498563"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255889"
 ---
 # <a name="azure-identity-management-security-overview"></a>Säkerhetsöversikt för Azure identity management
 
@@ -169,7 +169,7 @@ Läs mer:
 
 ## <a name="hybrid-identity-managementazure-ad-connect"></a>Hybrid identity management/Azure AD connect
 
-Microsofts identitetslösningar omfattar både lokala och molnbaserade funktioner, skapar en enda användaridentitet för autentisering och auktorisering till alla resurser, oavsett plats. Vi kallar det för hybrididentitet. Azure AD Connect är det Microsoft-verktyg som utformats för att uppfylla och uppnå dina mål för hybrid-identitet. På så sätt kan du erbjuda en gemensam identitet för dina användare för Office 365- och Azure SaaS-program som är integrerade med Azure AD. Den tillhandahåller följande funktioner:
+Microsofts identitetslösningar omfattar både lokala och molnbaserade funktioner, skapar en enda användaridentitet för autentisering och auktorisering till alla resurser, oavsett plats. Vi kallar det för hybrididentitet. Azure AD Connect är Microsoft-verktyget som har utformats för att uppfylla och uppnå dina hybrididentitetsmål. På så sätt kan du erbjuda en gemensam identitet för dina användare för Office 365- och Azure SaaS-program som är integrerade med Azure AD. Den tillhandahåller följande funktioner:
 
 * Synkronisering
 * AD FS och federation-integrering
@@ -178,7 +178,7 @@ Microsofts identitetslösningar omfattar både lokala och molnbaserade funktione
 
 Läs mer:
 
-* [Hybrid identity faktablad](http://download.microsoft.com/download/D/B/A/DBA9E313-B833-48EE-998A-240AA799A8AB/Hybrid_Identity_White_Paper.pdf)
+* [Hybrid identity faktablad](https://download.microsoft.com/download/D/B/A/DBA9E313-B833-48EE-998A-240AA799A8AB/Hybrid_Identity_White_Paper.pdf)
 * [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
 * [Azure AD-teamets blogg](https://blogs.technet.microsoft.com/ad/)
 

@@ -9,16 +9,16 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: e4eea3cb4b16460c7e17bb6575c4e6cf8dda5a0a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7a4aae87cd704cf94c89c308c0c056ae5b9a8b4d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047262"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251010"
 ---
 # <a name="export-a-u-sql-database"></a>Exportera en U-SQL-databas
 
-I den här artikeln lär du dig hur du använder [Azure Data Lake Tools för Visual Studio](http://aka.ms/adltoolsvs) du exporterar en U-SQL-databas som ett enda U-SQL-skript och hämtade resurser. Du kan importera den exporterade databasen till ett lokalt konto i samma process.
+I den här artikeln lär du dig hur du använder [Azure Data Lake Tools för Visual Studio](https://aka.ms/adltoolsvs) du exporterar en U-SQL-databas som ett enda U-SQL-skript och hämtade resurser. Du kan importera den exporterade databasen till ett lokalt konto i samma process.
 
 Kunder Underhåll vanligtvis flera miljöer för utveckling, testning och produktion. Dessa miljöer finns på både ett lokalt konto, på en utvecklare lokala datorn och på ett Azure Data Lake Analytics-konto i Azure. 
 
@@ -35,7 +35,7 @@ Alla Data Lake Analytics-konton som du har behörigheter för finns i Server Exp
    
     ![Server Explorer - Export en databas](./media/data-lake-analytics-data-lake-tools-export-database/export-database.png)
 
-     Om den **exportera** menyalternativet inte är tillgänglig, måste du [uppdatera verktyget till lasted versionen](http://aka.ms/adltoolsvs).
+     Om den **exportera** menyalternativet inte är tillgänglig, måste du [uppdatera verktyget till lasted versionen](https://aka.ms/adltoolsvs).
 
 ### <a name="step-2-configure-the-objects-that-you-want-to-export"></a>Steg 2: Konfigurera de objekt som du vill exportera
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: ergreenl
-ms.openlocfilehash: 751c9df8dc3826b54baab6166cd63a0dd8cff4f5
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 813d1d17f2d9b80c2e96f771fc346e553c59e95b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155957"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234212"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Aktivera lösenordssynkronisering med Azure Active Directory Domain Services
 I föregående uppgifter aktiverade du Azure Active Directory Domain Services för din Azure Active Directory-klient (Azure AD). Nästa uppgift är att aktivera synkronisering av autentiseringshasher som krävs för NT LAN Manager (NTLM)- och Kerberos-autentisering till Azure AD Domain Services. När du har konfigurerat synkroniseringen av autentiseringsuppgifter kan användarna logga in till den hanterade domänen med sina företagsuppgifter.
@@ -50,7 +50,7 @@ En synkroniserad Azure AD-klient konfigureras att synkronisera med din organisat
 ### <a name="install-or-update-azure-ad-connect"></a>Installera eller uppdatera Azure AD Connect
 Installera den senaste rekommenderade versionen av Azure AD Connect på en domänansluten dator. Om du har en befintlig instans av installationsprogrammet för Azure AD Connect måste du uppdatera den så att den använder den senaste versionen av Azure AD Connect. Använd alltid den senaste versionen av Azure AD Connect för att undvika kända problem/buggar som kanske redan har åtgärdats.
 
-**[Ladda ned Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
+**[Ladda ned Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)**
 
 Rekommenderad version: **1.1.614.0** – publicerad den 5 september 2017.
 

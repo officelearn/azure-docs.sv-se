@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: e6e2c0b82f306e399454c1672c56e2933e3f1158
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: eed970d46c8a895001ce0a6d7d7f37acf6c02a55
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040873"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249208"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Power BI-Arbetsytesamlingar vanliga frågor och svar
 
@@ -61,7 +61,7 @@ Se våra service-dokumentationen för mer information om hur du använder tjäns
 Ja. Du kan använda din befintliga Azure-prenumeration för att etablera och använda tjänsten Microsoft Power BI-Arbetsytesamlingar.
 
 ## <a name="does-my-application-end-user-need-a-power-bi-license"></a>Mina program slutanvändaren behöver ha en licens för Power BI?
-Nej. Slutanvändare för ditt program behöver inte köpa och Power BI-prenumeration separat för att komma åt i appen datavisualiseringar. I Power BI-Arbetsytesamlingar modellen debiteras du, som programprovider för tjänsten via Azure-förbrukning mätaren. Referera till den [priser och licensalternativ sidan](http://go.microsoft.com/fwlink/?LinkId=760527).
+Nej. Slutanvändare för ditt program behöver inte köpa och Power BI-prenumeration separat för att komma åt i appen datavisualiseringar. I Power BI-Arbetsytesamlingar modellen debiteras du, som programprovider för tjänsten via Azure-förbrukning mätaren. Referera till den [priser och licensalternativ sidan](https://go.microsoft.com/fwlink/?LinkId=760527).
 
 ## <a name="how-does-user-authentication-work-with-power-bi-workspace-collections"></a>Hur fungerar användarautentisering med Power BI-Arbetsytesamlingar?
 Power BI-Arbetsytesamlingar-tjänsten använder Apptoken för autentisering och auktorisering istället för explicit slutanvändarautentisering. I App-Token-modellen hanterar ditt program autentisering och auktorisering för dina slutanvändare. Sedan, om det behövs skapar din app
@@ -80,7 +80,7 @@ Utvecklare/anställda arbetar eller skapar ett program måste ha ett AAD-använd
 Du kan gå till den [dokumentationssidan för Power BI-Arbetsytesamlingar](get-started.md). Du kan hålla dig uppdaterad om den här tjänsten genom att besöka den [Power BI-bloggen](https://powerbi.microsoft.com/blog/) eller genom att besöka Power BI developer center på dev.powerbi.com. Du kan även ställa frågor på [Stackoverflow](http://stackoverflow.com/questions/tagged/powerbi).
 
 ## <a name="how-do-i-get-started"></a>Hur kommer jag igång?
-Du kan komma igång gratis nu! Om du har en Azure-prenumeration kan etablera du nu Power BI-Arbetsytesamlingar från Azure portal direkt. Du kan också skapa dina [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). När du har etablerat Power BI-Arbetsytesamlingar-tjänsten, du kan enkelt använda Power BI REST API: er direkt eller använda utvecklaren SDK på [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472). Exempel medföljer på hur man utnyttjar utvecklaren SDK.
+Du kan komma igång gratis nu! Om du har en Azure-prenumeration kan etablera du nu Power BI-Arbetsytesamlingar från Azure portal direkt. Du kan också skapa dina [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). När du har etablerat Power BI-Arbetsytesamlingar-tjänsten, du kan enkelt använda Power BI REST API: er direkt eller använda utvecklaren SDK på [GitHub](https://go.microsoft.com/fwlink/?LinkID=746472). Exempel medföljer på hur man utnyttjar utvecklaren SDK.
 
 ## <a name="see-also"></a>Se också
 

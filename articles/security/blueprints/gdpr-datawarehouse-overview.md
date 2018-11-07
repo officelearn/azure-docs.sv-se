@@ -8,19 +8,19 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: 84e26212b1102d693b84e5b66fbd606da2673934
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: d1099b813e84cd4885b011dec205a1e631fc6599
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405947"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250721"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-warehouse-for-gdpr"></a>Azure-säkerhet och efterlevnad skiss: Data Warehouse för GDPR
 
 ## <a name="overview"></a>Översikt
 Den allmänna Dataskyddsförordningen GDPR (Data Protection) innehåller många krav om att samla in, lagra och använda personliga information, inklusive hur organisationer identifiera och skydda personliga data, hantera krav, identifiera och rapportera personliga dataöverträdelser och träna sekretess personal och andra anställda. GDPR ger enskilda användare större kontroll över deras personliga data och inför många nya skyldigheter på organisationer som samlar in, hantera eller analysera personliga data. Dataskyddsförordningen inför nya regler för organisationer som erbjuder varor och tjänster till personer i Europeiska unionen (EU) eller att samla in och analysera data som EU invånare. Dataskyddsförordningen gäller oavsett var det finns en organisation.
 
-Microsoft har utformat Azure med branschledande säkerhetsåtgärder och sekretesspolicyer för att skydda data i molnet, inklusive kategorierna av personuppgifter som identifieras av GDPR. Microsofts [avtalsvillkor](http://aka.ms/Online-Services-Terms) genomför Microsoft till kraven i processorer.
+Microsoft har utformat Azure med branschledande säkerhetsåtgärder och sekretesspolicyer för att skydda data i molnet, inklusive kategorierna av personuppgifter som identifieras av GDPR. Microsofts [avtalsvillkor](https://aka.ms/Online-Services-Terms) genomför Microsoft till kraven i processorer.
 
 Den här Azure Blueprint för säkerhet och efterlevnad ger vägledning för att distribuera ett data warehouse-arkitektur i Azure som hjälper till med krav för GDPR. Den här lösningen visar sätt där kunder kan uppfylla specifika krav för säkerhet och efterlevnad och fungerar som en grund för kunder att skapa och konfigurera sina egna data warehouse-lösningar i Azure. Kunder kan använda denna Referensarkitektur och följa Microsofts [fyra steg](https://aka.ms/gdprebook) i sin resa till GDPR-efterlevnad:
 1. Identifiera: Identifiera vilka personliga data finns och var den finns.

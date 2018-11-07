@@ -1,25 +1,25 @@
 ---
-title: Hantera Hadoop-kluster i HDInsight med PowerShell - Azure
-description: Lär dig mer om att utföra administrativa uppgifter för Hadoop-kluster i HDInsight med Azure PowerShell.
+title: Hantera Apache Hadoop-kluster i HDInsight med PowerShell - Azure
+description: Lär dig mer om att utföra administrativa uppgifter för Apache Hadoop-kluster i HDInsight med Azure PowerShell.
 services: hdinsight
-ms.reviewer: jasonh
-author: jasonwhowell
+ms.reviewer: tyfox
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 7abd75347d7bd2673a9e6040ee15def6638de440
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/6/2018
+ms.author: tylerfox
+ms.openlocfilehash: 4bf46501a75b9dd5be7ae1b446a0db90c20be559
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43096590"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235266"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Hantera Hadoop-kluster i HDInsight med hjälp av Azure PowerShell
+# <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell kan användas för att styra och automatisera distributionen och hanteringen av dina arbetsbelastningar i Azure. I den här artikeln får du lära dig hur du hanterar Hadoop-kluster i Azure HDInsight med hjälp av Azure PowerShell. Listan över HDInsight PowerShell-cmdlets, se [cmdlet-referens för HDInsight](https://msdn.microsoft.com/library/azure/dn479228.aspx).
+Azure PowerShell kan användas för att styra och automatisera distributionen och hanteringen av dina arbetsbelastningar i Azure. I den här artikeln får du lära dig hur du hanterar Apache Hadoop-kluster i Azure HDInsight med hjälp av Azure PowerShell. Listan över HDInsight PowerShell-cmdlets, se [cmdlet-referens för HDInsight](https://msdn.microsoft.com/library/azure/dn479228.aspx).
 
 **Förutsättningar**
 
@@ -209,7 +209,7 @@ $resourceGroupName = $cluster.ResourceGroup
 ## <a name="submit-jobs"></a>Skicka jobb
 **Att skicka MapReduce-jobb**
 
-Se [kör Hadoop-MapReduce-exemplen i Windows-baserade HDInsight](hdinsight-run-samples.md).
+Se [kör MapReduce-exemplen som ingår i HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
 **Att skicka Hive-jobb**
 

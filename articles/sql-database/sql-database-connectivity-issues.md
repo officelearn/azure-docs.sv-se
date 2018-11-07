@@ -13,12 +13,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 08/01/2018
-ms.openlocfilehash: f381eaad61c98228ea9be2665ebed5878b666317
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: ee5542c72991a2aa8de94f5dc2e819eb5d311a27
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064245"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246811"
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Felsöka, diagnostisera och förhindra SQL-anslutningsfel och tillfälliga fel för SQL Database
 Den här artikeln beskriver hur du förhindrar, felsöka, diagnostisera och lösa anslutningsfel och tillfälliga fel som klientprogrammet som påträffar när det interagerar med Azure SQL Database. Lär dig hur du konfigurerar logik för omprövning, bygga anslutningssträngen och justera andra anslutningsinställningar.
@@ -63,7 +63,7 @@ När ditt program kommunicerar med SQL-databas via tredje parts mellanprogram ka
 ### <a name="interval-increase-between-retries"></a>Öka intervall mellan försök
 Vi rekommenderar att du väntar fem sekunder innan din första återförsöket. Försöker igen efter en fördröjning som är kortare än 5 sekunder risker överväldigande Molntjänsten. För varje efterföljande återförsök fördröjningen ska växa exponentiellt, upp till högst 60 sekunder.
 
-En beskrivning av den blockera perioden för klienter som använder ADO.NET finns [(ADO.NET) för SQL Server-anslutningspoolen](http://msdn.microsoft.com/library/8xx3tyca.aspx).
+En beskrivning av den blockera perioden för klienter som använder ADO.NET finns [(ADO.NET) för SQL Server-anslutningspoolen](https://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 Du kanske också vill ange ett högsta antal försök innan programmet själv avslutas.
 
@@ -115,13 +115,13 @@ Om du vill göra det här testet praktiska identifierar programmet en runtime-pa
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
 ## <a name="net-sqlconnection-parameters-for-connection-retry"></a>.NET SqlConnection parametrar för återförsök för anslutning
-Om klientprogrammet ansluter till SQL-databas med hjälp av .NET Framework-klassen **System.Data.SqlClient.SqlConnection**, använda .NET 4.6.1 eller senare (eller .NET Core) så att du kan använda funktionen för återförsök sin anslutning. Mer information om funktionen finns i [den här webbsidan](http://go.microsoft.com/fwlink/?linkid=393996).
+Om klientprogrammet ansluter till SQL-databas med hjälp av .NET Framework-klassen **System.Data.SqlClient.SqlConnection**, använda .NET 4.6.1 eller senare (eller .NET Core) så att du kan använda funktionen för återförsök sin anslutning. Mer information om funktionen finns i [den här webbsidan](https://go.microsoft.com/fwlink/?linkid=393996).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
 
-När du skapar den [anslutningssträngen](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) för din **SqlConnection** objekt, samordna värdena bland följande parametrar:
+När du skapar den [anslutningssträngen](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) för din **SqlConnection** objekt, samordna värdena bland följande parametrar:
 
 * **ConnectRetryCount**:&nbsp;&nbsp;standardvärdet är 1. Intervallet är 0 till 255.
 * **ConnectRetryInterval**:&nbsp;&nbsp;standard är 1 sekund. Intervallet är 1 till 60.
@@ -211,7 +211,7 @@ Om ditt program inte kan ansluta till SQL Database, är en diagnostik alternativ
 Du kan försöka verktygen på alla Windows-datorer:
 
 * SQL Server Management Studio (ssms.exe), som ansluter med hjälp av ADO.NET
-* SQLCMD.exe som ansluter med hjälp av [ODBC](http://msdn.microsoft.com/library/jj730308.aspx)
+* SQLCMD.exe som ansluter med hjälp av [ODBC](https://msdn.microsoft.com/library/jj730308.aspx)
 
 När ditt program är ansluten, testa om ett kort SQL SELECT-frågan fungerar.
 
@@ -226,7 +226,7 @@ På Linux, kan det vara bra att ange följande verktyg:
 * `nmap -sS -O 127.0.0.1`
   * Ändra exempelvärdet om du vill att din IP-adress.
 
-På Windows, den [PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148) verktyg kan vara till hjälp. Här är en exempel-körning som efterfrågas situationen port på en SQL Database-server och som kördes på en bärbar dator:
+På Windows, den [PortQry.exe](https://www.microsoft.com/download/details.aspx?id=17148) verktyg kan vara till hjälp. Här är en exempel-körning som efterfrågas situationen port på en SQL Database-server och som kördes på en bärbar dator:
 
 ```
 [C:\Users\johndoe\]
@@ -253,7 +253,7 @@ Ett tillfälligt problem är ibland bäst diagnostiserats av identifiering av et
 
 Klienten kan hjälpa en diagnos genom att logga alla fel som påträffas. Du kanske kan jämföra loggposterna med Feldata som SQL Database loggar sig internt.
 
-Enterprise Library 6 (EntLib60) erbjuder hanterade .NET-klasser som hjälper till med loggning. Mer information finns i [5 – lika enkelt som att falla en logg: använda Logging Application Block](http://msdn.microsoft.com/library/dn440731.aspx).
+Enterprise Library 6 (EntLib60) erbjuder hanterade .NET-klasser som hjälper till med loggning. Mer information finns i [5 – lika enkelt som att falla en logg: använda Logging Application Block](https://msdn.microsoft.com/library/dn440731.aspx).
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
@@ -262,8 +262,8 @@ Här följer några Transact-SQL SELECT-instruktioner som fråga felloggar och a
 
 | Fråga loggen | Beskrivning |
 |:--- |:--- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |Den [sys.event_log](http://msdn.microsoft.com/library/dn270018.aspx) vyn innehåller information om hur enskilda händelser som innehåller vissa som kan orsaka tillfälliga fel eller anslutningsfel.<br/><br/>Vi rekommenderar du kan jämföra de **starttid** eller **end_time** värden med information om när klientprogrammet stötte på problem.<br/><br/>Du måste ansluta till den *master* databasen för att köra den här frågan. |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |Den [sys.database_connection_stats](http://msdn.microsoft.com/library/dn269986.aspx) visa erbjuder aggregerade antalet händelsetyper för ytterligare diagnostik.<br/><br/>Du måste ansluta till den *master* databasen för att köra den här frågan. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |Den [sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) vyn innehåller information om hur enskilda händelser som innehåller vissa som kan orsaka tillfälliga fel eller anslutningsfel.<br/><br/>Vi rekommenderar du kan jämföra de **starttid** eller **end_time** värden med information om när klientprogrammet stötte på problem.<br/><br/>Du måste ansluta till den *master* databasen för att köra den här frågan. |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |Den [sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) visa erbjuder aggregerade antalet händelsetyper för ytterligare diagnostik.<br/><br/>Du måste ansluta till den *master* databasen för att köra den här frågan. |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
@@ -309,12 +309,12 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 <a id="l-enterprise-library-6" name="l-enterprise-library-6"></a>
 
 ## <a name="enterprise-library-6"></a>Enterprise Library 6
-Enterprise Library 6 (EntLib60) är ett ramverk med .NET-klasser som hjälper dig att implementera robust klienter för cloud services, ett av dem är SQL Database-tjänsten. Du hittar information för varje område där EntLib60 kan hjälpa [Enterprise Library 6 – April 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx).
+Enterprise Library 6 (EntLib60) är ett ramverk med .NET-klasser som hjälper dig att implementera robust klienter för cloud services, ett av dem är SQL Database-tjänsten. Du hittar information för varje område där EntLib60 kan hjälpa [Enterprise Library 6 – April 2013](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx).
 
-Logik för omprövning för hantering av tillfälliga fel är ett område som EntLib60 kan hjälpa dig. Mer information finns i [4 – Perseverance, hemligheten för alla framgångar: Använd den tillfälliga hantering av Programblocket för](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
+Logik för omprövning för hantering av tillfälliga fel är ett område som EntLib60 kan hjälpa dig. Mer information finns i [4 – Perseverance, hemligheten för alla framgångar: Använd den tillfälliga hantering av Programblocket för](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
 
 > [!NOTE]
-> Källkoden för EntLib60 är offentlig hämtas från den [Download Center](http://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft har inga planer på att göra ytterligare funktions- eller underhållsuppdateringar EntLib.
+> Källkoden för EntLib60 är offentlig hämtas från den [Download Center](https://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft har inga planer på att göra ytterligare funktions- eller underhållsuppdateringar EntLib.
 >
 >
 
@@ -341,7 +341,7 @@ I namnområdet **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Te
 
 Här följer några länkar till information om EntLib60:
 
-* Kostnadsfria hämtning: [Developer's Guide to Microsoft Enterprise Library, 2nd edition](http://www.microsoft.com/download/details.aspx?id=41145).
+* Kostnadsfria hämtning: [Developer's Guide to Microsoft Enterprise Library, 2nd edition](https://www.microsoft.com/download/details.aspx?id=41145).
 * Bästa praxis: [allmänna riktlinjer för återförsök](../best-practices-retry-general.md) har en utmärkt detaljerad beskrivning av logik för omprövning.
 * Ladda ned NuGet: [Enterprise Library - tillfälliga fel hantering av Application Block 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 

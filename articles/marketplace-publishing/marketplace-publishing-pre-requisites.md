@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: hascipio
-ms.openlocfilehash: 4f86d444a2f2b97fd8605d480db358813bc39fd3
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: ef19380372354b8f34343f9f94ebf6b384996f14
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714197"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261567"
 ---
 # <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>Allmänna krav för att skapa ett erbjudande för Azure Marketplace
 Förstå de krav för Allmänt, process-företagsanpassat som behövs för att gå vidare med erbjudandet skapandeprocessen.
@@ -70,7 +70,7 @@ Det här är den prenumeration som du använder för att skapa dina VM-avbildnin
 
 ## <a name="sell-from-countries"></a>”” Försäljningsländer
 > [!WARNING]
-> Kontrollera för att kunna sälja dina tjänster på Azure Marketplace, att registrerade entiteten är från en av de godkända ”” försäljningsländer. Den här begränsningen är payout och skatt skäl. Vi letar aktivt så Håll ögonen öppna om du vill expandera den här listan över länder inom en snar framtid. En fullständig lista finns i avsnittet 1b av den [deltagandepolicyer för Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
+> Kontrollera för att kunna sälja dina tjänster på Azure Marketplace, att registrerade entiteten är från en av de godkända ”” försäljningsländer. Den här begränsningen är payout och skatt skäl. Vi letar aktivt så Håll ögonen öppna om du vill expandera den här listan över länder inom en snar framtid. En fullständig lista finns i avsnittet 1b av den [deltagandepolicyer för Azure Marketplace](https://go.microsoft.com/fwlink/?LinkID=526833).
 > 
 > 
 

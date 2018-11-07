@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: cf0e94b859b49eddb8e2471d5319b3cc4a2c17ba
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: d8e390fc185c3cb0b63bcea56feb4b133652673d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720301"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258841"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Skriva uttryck för attributmappningar i Azure Active Directory
 När du konfigurerar etablering till ett SaaS-program, är en av typerna av attributmappningar som du kan ange mappningen för en uttryck. För dessa, måste du skriva ett skript-liknande uttryck som hjälper dig att omvandla dina användares data till format som kan användas mer för SaaS-program.
@@ -63,7 +63,7 @@ Syntaxen för uttryck för attributmappningar är påminner om Visual Basic för
 | Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
 | --- | --- | --- | --- |
 | **Källa** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet. |
-| **inputFormat** |Krävs |Sträng |Förväntade format för värdet för datakällan. Format som stöds, se [ http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx ](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **inputFormat** |Krävs |Sträng |Förväntade format för värdet för datakällan. Format som stöds, se [ http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx ](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Krävs |Sträng |Formatet för Utdatadatum. |
 
 - - -

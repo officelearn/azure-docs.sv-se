@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/22/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: edaff86531a9c40064d25a046bbbb70f48b75c84
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: b53f679f6f93dd5d4889fbe51f8b5caf62fc1a36
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027137"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236729"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Tjänsten Azure Import/Export: vanliga frågor och svar 
 Här följer frågor och svar som du kan ha när du använder Azure Import/Export-tjänsten för att överföra data till Azure storage. Frågor och svar är ordnade i följande kategorier:
@@ -131,7 +131,7 @@ Max Page Blob är 1TB.
 ### <a name="does-azure-importexport-support-aes-256-encryption"></a>Stöder AES-256-kryptering i Azure Import/Export?
 Azure Import/Export-tjänsten använder AES-128 bitlocker-kryptering som standard. Du kan ändra detta till AES-256 genom att manuellt krypteras med bitlocker innan data kopieras. 
 
-- Om du använder [WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), nedan visas ett exempel på kommando
+- Om du använder [WAImportExport V1](https://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), nedan visas ett exempel på kommando
     ```
     WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
     ```

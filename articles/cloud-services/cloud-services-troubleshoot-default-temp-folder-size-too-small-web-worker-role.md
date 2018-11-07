@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 5d60c5f2d759f3329997762270e9a0335ebbe1e9
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 4757b20e1a3d9830c2d52a5fbc85fd935b27fb62
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095973"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245043"
 ---
 # <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>TEMP-standardmappen är för liten för en cloud service web/worker-roll
 Tillfällig standardkatalogen för en worker eller web molntjänstroll har en maximal storlek på 100 MB, som kan bli fullständig vid en viss tidpunkt. Den här artikeln beskriver hur du undviker slut på utrymme för den tillfälliga katalogen.
@@ -71,8 +71,8 @@ namespace WorkerRole1
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Läser en blogg som beskriver [så här ökar du storleken på Azure Web-roll ASP.NET tillfälliga mappen](http://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx).
+Läser en blogg som beskriver [så här ökar du storleken på Azure Web-roll ASP.NET tillfälliga mappen](https://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx).
 
 Visa mer [felsökningsartiklar](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/vs-azure-tools-debugging-cloud-services-overview.md) för molntjänster.
 
-Om du vill lära dig mer om felsökning av problem med cloud service rollen genom att använda diagnostikdata för Azure PaaS-datorn, visa [Kevin Williamson bloggserie](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Om du vill lära dig mer om felsökning av problem med cloud service rollen genom att använda diagnostikdata för Azure PaaS-datorn, visa [Kevin Williamson bloggserie](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

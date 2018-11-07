@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: 5ff9d1cf76188ff38f59e8b74d4bfd380c8c88e1
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: d58e5816c3b0e7c951c7d6bcfc6bfe4d0789f47a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408718"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233804"
 ---
 # <a name="azure-active-directory-faq"></a>Vanliga frågor och svar om Azure Active Directory
 Azure Active Directory (Azure AD) är en omfattande IDaaS-lösning (Identity as a Service) som omfattar alla aspekter relaterade till identiteter, åtkomsthantering och säkerhet.
@@ -86,7 +86,7 @@ Mer information finns i [Integrera dina lokala identiteter med Azure Active Dire
 - - -
 **F: Tillhandahåller Azure AD en självbetjäningsportal för användare i organisationen?**
 
-**S:** Ja, Azure AD ger tillgång till [Azure AD-åtkomstpanelen](http://myapps.microsoft.com) för självbetjäning och programåtkomst. Om du är en Office 365-kund kan du hitta många av dessa funktioner på Office 365-portalen.
+**S:** Ja, Azure AD ger tillgång till [Azure AD-åtkomstpanelen](https://myapps.microsoft.com) för självbetjäning och programåtkomst. Om du är en Office 365-kund kan du hitta många av dessa funktioner på Office 365-portalen.
 
 Mer information finns i [Introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 60605e7bdeeef32889bc0ac104fa34bd66d4444d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 65909e13c75ae4d2577ea29f562b841a1eb20477
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962885"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256433"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatisera Azure Application Insights processer med anslutningsappen för Microsoft Flow
 
@@ -34,7 +34,7 @@ Du kan lägga till ytterligare åtgärder samt. Microsoft Flow tillgängliggör 
 I den här självstudien får du lära dig hur du skapar ett flöde som använder algoritmen Analytics automatiskt-kluster till attributen i data för ett webbprogram. Flödet skickar automatiskt resultaten via e-post, bara ett exempel på hur du kan använda Microsoft Flow och Application Insights Analytics tillsammans. 
 
 ### <a name="step-1-create-a-flow"></a>Steg 1: Skapa ett flöde
-1. Logga in på [Microsoft Flow](http://flow.microsoft.com), och välj sedan **Mina flöden**.
+1. Logga in på [Microsoft Flow](https://flow.microsoft.com), och välj sedan **Mina flöden**.
 1. Klicka på **skapa ett flöde från början**.
 
 ### <a name="step-2-create-a-trigger-for-your-flow"></a>Steg 2: Skapa en utlösare för flödet

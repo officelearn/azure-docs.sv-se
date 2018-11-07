@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: bddef08c6a3de15c1c156b4dc020d758b7cd0fc1
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 4a5f820c9e6d39c65ef0942091b247c5d52fe17f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912942"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253218"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Datakällor i Azure Monitor
 Den här artikeln beskrivs datakällorna som samlas in av Azure Monitor för att övervaka hälsotillstånd och prestanda för dina resurser och program som körs på dem. Dessa resurser kan vara i Azure i en annan molnet eller lokalt.  Se [Data som samlas in av Azure Monitor](monitoring-data-collection.md) mer information om hur dessa data lagras och hur du kan visa den.
@@ -66,7 +66,7 @@ Medan aktivitetsloggen innehåller information om åtgärder som utförs på en 
 Du kan inte visa diagnostikloggar direkt i Azure-portalen, men du kan [skicka dem till Azure storage för arkivering](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) och exportera dem till [Händelsehubb](../event-hubs/event-hubs-what-is-event-hubs.md) för omdirigering till andra tjänster eller [in Analytics](../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) för analys. Vissa resurser kan skriva direkt till Log Analytics medan andra innan du kan skriva till ett lagringskonto [importeras till Log Analytics](../log-analytics/log-analytics-azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 
 ### <a name="monitoring-solutions"></a>Övervakningslösningar
- [Övervakningslösningar](monitoring-solutions.md) samla in data för att ge ytterligare insikter i driften av en viss tjänst eller ett program. De samla in data till Log Analytics där det kan vara analyseras med hjälp av den [frågespråket](../log-analytics/log-analytics-log-search.md) eller [vyer](../log-analytics/log-analytics-view-designer.md) som vanligtvis ingår i lösningen.
+ [Övervakningslösningar](monitoring-solutions.md) samla in data för att ge ytterligare insikter i driften av en viss tjänst eller ett program. De samla in data till Log Analytics där det kan vara analyseras med hjälp av den [frågespråket](../log-analytics/log-analytics-queries.md) eller [vyer](../log-analytics/log-analytics-view-designer.md) som vanligtvis ingår i lösningen.
 
 ## <a name="guest-operating-system"></a>Gästoperativsystem
 Beräkningsresurser i Azure, i andra moln och lokala har ett gästoperativsystem som du övervakar. Med installationen av en eller flera agenter kan du samla in telemetri från gästen i samma övervakningsverktyg som Azure-tjänsterna själva.

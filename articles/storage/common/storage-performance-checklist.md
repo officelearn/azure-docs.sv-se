@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 32881f815a714e355adf05c07a3cf114933f3fe9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f865768e6ebfd9e01de1bd7e69c1224b66f2ea5e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531854"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231796"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Prestanda och skalbarhetschecklista för Microsoft Azure Storage
 ## <a name="overview"></a>Översikt
@@ -90,7 +90,7 @@ Varje Azure Storage-tjänsterna har skalbarhetsmål för kapacitet (GB), transak
 * [Kömeddelanden per sekund](#subheading39)  
 
 #### <a name="sub1bandwidth"></a>Bandbredd Skalbarhetsmålen för alla tjänster
-Vid tidpunkten som skrivs är bandbredd mål i USA för ett konto med geo-redundant lagring (GRS) 10 Gigabit per sekund (Gbps) för ingress (data som skickas till storage-kontot) och 20 Gbit/s för utgående trafik (data som skickas från storage-konto). För ett konto med lokalt redundant lagring (LRS) gränserna är högre – 20 Gbit/s för ingångshändelser och 30 Gbit/s för utgående trafik.  Internationella bandbreddsgränser kan vara lägre och finns på vår [skalbarhet mål sidan](http://msdn.microsoft.com/library/azure/dn249410.aspx).  Mer information om redundansalternativ för lagring finns i länkarna i [användbara resurser](#sub1useful) nedan.  
+Vid tidpunkten som skrivs är bandbredd mål i USA för ett konto med geo-redundant lagring (GRS) 10 Gigabit per sekund (Gbps) för ingress (data som skickas till storage-kontot) och 20 Gbit/s för utgående trafik (data som skickas från storage-konto). För ett konto med lokalt redundant lagring (LRS) gränserna är högre – 20 Gbit/s för ingångshändelser och 30 Gbit/s för utgående trafik.  Internationella bandbreddsgränser kan vara lägre och finns på vår [skalbarhet mål sidan](https://msdn.microsoft.com/library/azure/dn249410.aspx).  Mer information om redundansalternativ för lagring finns i länkarna i [användbara resurser](#sub1useful) nedan.  
 
 #### <a name="what-to-do-when-approaching-a-scalability-target"></a>Vad gör närmar sig ett mål för skalbarhet
 Om ditt program närmar sig det för skalbarhetsmål för ett enda lagringskonto, bör du börja använda någon av följande metoder:  
@@ -104,7 +104,7 @@ Om ditt program närmar sig det för skalbarhetsmål för ett enda lagringskonto
 Följande länkar ger ytterligare information på skalbarhetsmål:
 
 * Se [skalbarhet för lagring av Azure- och prestandamål](storage-scalability-targets.md) information om skalbarhetsmål.
-* Se [Azure Storage-replikering](storage-redundancy.md) och i blogginlägget [redundansalternativ för Azure Storage och Read Access Geo Redundant Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) information om alternativ för lagringsredundans.
+* Se [Azure Storage-replikering](storage-redundancy.md) och i blogginlägget [redundansalternativ för Azure Storage och Read Access Geo Redundant Storage](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) information om alternativ för lagringsredundans.
 * Aktuell information om priser för Azure-tjänster finns i [prissättning för Azure](https://azure.microsoft.com/pricing/overview/).  
 
 ### <a name="subheading47"></a>Namngivningskonventionen
@@ -149,7 +149,7 @@ Båda dessa tekniker kan hjälpa dig att undvika onödig belastning (och flaskha
 #### <a name="useful-resources"></a>Användbara resurser
 Mer information om SAS finns i [signaturer för delad åtkomst, del 1: Förstå SAS-modellen](../storage-dotnet-shared-access-signature-part-1.md).  
 
-Läs mer om CORS [Cross-Origin Resource Sharing (CORS) Support för Azure Storage-tjänster](http://msdn.microsoft.com/library/azure/dn535601.aspx).  
+Läs mer om CORS [Cross-Origin Resource Sharing (CORS) Support för Azure Storage-tjänster](https://msdn.microsoft.com/library/azure/dn535601.aspx).  
 
 ### <a name="caching"></a>Cachelagring
 #### <a name="subheading7"></a>Hämta Data
@@ -159,7 +159,7 @@ I vissa fall kan välja du att ditt program kan anta att blobben förblir giltig
 
 Konfiguration, sökning och andra data som används alltid av programmet är bra kandidater för cachelagring.  
 
-Ett exempel på hur du kan hämta en blob-egenskaper för att identifiera senaste ändringsdatum med hjälp av .NET finns i [Set och hämta egenskaper och Metadata](../blobs/storage-properties-metadata.md). Läs mer om villkorlig nedladdningar [villkorligt uppdatera en lokal kopia av en Blob](http://msdn.microsoft.com/library/azure/dd179371.aspx).  
+Ett exempel på hur du kan hämta en blob-egenskaper för att identifiera senaste ändringsdatum med hjälp av .NET finns i [Set och hämta egenskaper och Metadata](../blobs/storage-properties-metadata.md). Läs mer om villkorlig nedladdningar [villkorligt uppdatera en lokal kopia av en Blob](https://msdn.microsoft.com/library/azure/dd179371.aspx).  
 
 #### <a name="subheading8"></a>Ladda upp Data i batchar
 I vissa Programscenarier du aggregera data lokalt och sedan regelbundet ladda upp den i en grupp i stället för att ladda upp varje datadel omedelbart. Till exempel ett program kan hålla en loggfil av aktiviteter: programmet kan antingen ladda upp information om varje aktivitet, när det händer som en tabell och enhet (som kräver många lagringsåtgärder) eller Aktivitetsinformation bespara till en lokal loggfil och sedan ladda upp alla aktivitetsinformation regelbundet som en avgränsad fil till en blob. Om varje loggpost är 1KB i storlek, kan du ladda upp tusentals i en enda ”placera Blob”-transaktion (du kan ladda upp en blob med upp till 64MB i storlek i en enskild transaktion). Naturligtvis om den lokala datorn går sönder före överföringen potentiellt förlorar du vissa loggdata: programutvecklaren måste utforma möjlighet till klientenheten eller ladda upp fel.  Om aktivitetsdata ska hämtas för tidsintervallen (inte bara enkel aktivitet), bör blobar över tabeller.
@@ -178,7 +178,7 @@ Du måste ange anslutningsgränsen innan du öppnar några anslutningar.
 
 Andra programmeringsspråk, finns i dokumentationen för respektive språk att fastställa hur du ställer in anslutningsgränsen.  
 
-Mer information finns i bloggposten [webbtjänster: samtidiga anslutningar](http://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
+Mer information finns i bloggposten [webbtjänster: samtidiga anslutningar](https://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
 
 #### <a name="subheading10"></a>Öka ThreadPool Min Threads om använder synkron kod med asynkrona åtgärder
 Den här koden ökar tråd pool min trådar:  
@@ -187,12 +187,12 @@ Den här koden ökar tråd pool min trådar:
 ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 ```
 
-Mer information finns i [ThreadPool.SetMinThreads metoden](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads%28v=vs.110%29.aspx).  
+Mer information finns i [ThreadPool.SetMinThreads metoden](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads%28v=vs.110%29.aspx).  
 
 #### <a name="subheading11"></a>Dra nytta av .NET 4.5 skräpinsamling
 Använda .NET 4.5 eller senare för klientprogrammet för att dra nytta av prestandaförbättringar i server skräpinsamling.
 
-Mer information finns i artikeln [en översikt av prestandaförbättringar i .NET 4.5](http://msdn.microsoft.com/magazine/hh882452.aspx).  
+Mer information finns i artikeln [en översikt av prestandaförbättringar i .NET 4.5](https://msdn.microsoft.com/magazine/hh882452.aspx).  
 
 ### <a name="subheading12"></a>Obegränsade parallellitet
 Parallellitet kan vara bra för prestanda, var försiktig med obegränsade parallellitet (ingen gräns för antalet trådar och/eller parallella förfrågningar) för att överföra eller hämta data med flera arbetare för att få åtkomst till flera partitioner (behållare, köer, eller tabellpartitioner) i samma lagringskonto eller att få åtkomst till flera objekt i samma partition. Om parallellitet obundna, ditt program kan överstiga klienten enhetens funktioner eller lagringskontots skalbarhet riktar sig mot vilket resulterar i längre svarstider och begränsning.  
@@ -210,7 +210,7 @@ Observera att anslutningsfel kan göras direkt, eftersom de inte är resultatet 
 Klientbiblioteken är medvetna om vilka fel återförsök kan och som inte är. Men om du skriver din egen kod mot storage REST API, Kom ihåg att det finns några fel som du inte kan försöka: till exempel en 400 (felaktig begäran) som svaret anger att klientprogrammet har skickat en begäran som inte kunde bearbetas eftersom det inte i en förväntad form. Skicka den här begäran resulterar samma svar varje gång, så ingen finns det försöker den. Om du skriver din egen kod mot storage REST API, känna till vad de betyder och på rätt sätt och försök igen (eller inte) för var och en av dem.  
 
 #### <a name="useful-resources"></a>Användbara resurser
-Mer information om felkoder för lagring finns i [Status och felkoder](http://msdn.microsoft.com/library/azure/dd179382.aspx) på webbplatsen Microsoft Azure.  
+Mer information om felkoder för lagring finns i [Status och felkoder](https://msdn.microsoft.com/library/azure/dd179382.aspx) på webbplatsen Microsoft Azure.  
 
 ## <a name="blobs"></a>Blobar
 Förutom beprövade metoder för [alla tjänster](#allservices) som beskrivits tidigare följande metodtips som gäller specifikt för blob-tjänsten.  
@@ -236,7 +236,7 @@ En övervägande är dock att när du kopierar mellan lagringskonton, det finns 
 
 Observera att Allmänt kopior inom samma lagringskonto själva utförs snabbt.  
 
-Mer information finns i [kopiering av Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).  
+Mer information finns i [kopiering av Blob](https://msdn.microsoft.com/library/azure/dd894037.aspx).  
 
 #### <a name="subheading18"></a>Använda AzCopy
 Azure Storage-teamet har publicerat ett kommandoradsverktyg ”AzCopy” som är avsedd för att underlätta massinläsning överföra många blobar att från och över lagringskonton.  Det här verktyget är optimerad för det här scenariot och kan uppnå hög överföringshastighet.  Användning rekommenderas för bulköverföring, ladda ned och kopiera scenarier. Om du vill lära dig mer om den och ladda ned den, se [överföra data med kommandoradsverktyget Azcopy](storage-use-azcopy.md).  
@@ -266,7 +266,7 @@ Ladda upp blobar parallellt för att ladda upp många blobar snabbt. Det här ä
 ### <a name="subheading23"></a>Välja rätt typ av blob
 Azure Storage stöder två typer av blob: *sidan* blobar och *blockera* blobar. För en viss användningsscenariot påverkar ditt val av blobbtypen prestanda och skalbarhet för din lösning. Blockblobar är lämplig när du vill ladda upp stora datamängder effektivt: till exempel ett klientprogram kan behöva ladda upp foton eller video till blob storage. Sidblobar är lämpligt om programmet måste utföra slumpmässiga skrivningar på data: till exempel Azure VHD lagras som sidblobar.  
 
-Mer information finns i [förstå Blockblobbar, Tilläggsblobbar och Sidblobbar](http://msdn.microsoft.com/library/azure/ee691964.aspx).  
+Mer information finns i [förstå Blockblobbar, Tilläggsblobbar och Sidblobbar](https://msdn.microsoft.com/library/azure/ee691964.aspx).  
 
 ## <a name="tables"></a>Tabeller
 Förutom beprövade metoder för [alla tjänster](#allservices) som beskrivits tidigare följande metodtips som gäller specifikt för table service.  
@@ -286,12 +286,12 @@ Det här avsnittet innehåller flera snabb konfigurationsinställningar som du k
 #### <a name="subheading25"></a>Använd JSON
 Från och med storage service-version 2013-08-15, stöder table service användningen av JSON i stället för XML-baserade AtomPub-format för att överföra data från tabeller. Detta kan minska nyttolaststorlekar med så mycket som 75% och förbättrar programmets prestanda.
 
-Mer information finns i inlägget [Microsoft Azure Tables: introduktion till JSON](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) och [Nyttolastformatet för tabellen tjänståtgärder](http://msdn.microsoft.com/library/azure/dn535600.aspx).
+Mer information finns i inlägget [Microsoft Azure Tables: introduktion till JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) och [Nyttolastformatet för tabellen tjänståtgärder](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 #### <a name="subheading26"></a>Nagle av
 Nagles algoritmen implementeras över TCP/IP-nätverk som ett sätt att förbättra nätverkets prestanda. Det är dock inte optimal i samtliga fall (till exempel interaktiva miljöer). Nagles algoritmen har en negativ inverkan på prestanda för förfrågningar till tabell och kö-tjänster för Azure Storage, och bör du inaktivera den om möjligt.  
 
-Mer information finns i vår blogginlägget [Nagles algoritmen är inte eget för små begäranden](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx), som förklarar varför Nagles algoritmen interagerar dåligt med tabell och kö begäranden och visar hur du inaktiverar-klienten programmet.  
+Mer information finns i vår blogginlägget [Nagles algoritmen är inte eget för små begäranden](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx), som förklarar varför Nagles algoritmen interagerar dåligt med tabell och kö begäranden och visar hur du inaktiverar-klienten programmet.  
 
 ### <a name="schema"></a>Schema
 Hur du representerar och skicka frågor till dina data är den största enda faktor som påverkar prestanda för tabelltjänsten. Varje program är olika, beskrivs det här avsnittet vissa allmänna beprövade metoder som är relaterade till:  

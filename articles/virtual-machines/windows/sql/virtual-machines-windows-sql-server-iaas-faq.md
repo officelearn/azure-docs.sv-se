@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 906cec35c30c277ac1e8bc641d12fe37c29413dd
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: edddc40b17adde685f875dfaa6b20879c6e61b15
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427186"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259164"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Vanliga frågor om SQL Server som körs på Windows-datorer i Azure
 
@@ -79,7 +79,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Måste jag betala till SQL Server på en Azure VM-licens om den används endast för vänteläge/redundans?**
 
-   Om du har Software Assurance och använda License Mobility enligt beskrivningen i [VM vanliga frågor om licensiering](http://azure.microsoft.com/pricing/licensing-faq/) och du inte behöver betala för att licensiera en SQL-Server som deltar som en passiv sekundär replik i en distribution med hög tillgänglighet. I annat fall måste betala att licensiera den.
+   Om du har Software Assurance och använda License Mobility enligt beskrivningen i [VM vanliga frågor om licensiering](https://azure.microsoft.com/pricing/licensing-faq/) och du inte behöver betala för att licensiera en SQL-Server som deltar som en passiv sekundär replik i en distribution med hög tillgänglighet. I annat fall måste betala att licensiera den.
 
 
 ## <a name="administration"></a>Administration

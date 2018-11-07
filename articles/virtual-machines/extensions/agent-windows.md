@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: d93fc81241053418ea2ff0576d50cbaefa0df9fb
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bba03d8e62c481e9eb5cce8468a6a84f5e492d2f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428563"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254000"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Översikt över Azure VM-agenten
 Microsoft Azure VM-agenten (VM-agenten) är en säker och enkel process som hanterar kommunikation mellan virtuella datorer (VM) med Azure-Infrastrukturkontrollanten. VM-agenten har en primär roll i att aktivera och köra Azure virtual machine-tillägg. VM-tillägg aktivera efter distribution konfiguration av virtuell dator, till exempel installera och konfigurera programvara. VM-tillägg också aktivera funktioner, som att återställa lösenordet för administratörer av en virtuell dator. VM-tillägg kan inte köras utan Azure VM-agenten.
@@ -60,7 +60,7 @@ Om du vill starta en virtuell dator måste du ha Provideradress installerad på 
 Om du inte har de agenter som har installerats kan använda du inte vissa Azure-tjänster, till exempel Azure Backup eller Azure-säkerhet. De här tjänsterna kräver ett tillägg som ska installeras. Om du har distribuerat en virtuell dator utan WinGA, kan du installera den senaste versionen av agenten senare.
 
 ### <a name="manual-installation"></a>Manuell installation
-Windows VM-agenten kan installeras manuellt med en Windows installer-paketet. Manuell installation kan vara nödvändigt när du skapar en anpassad virtuell datoravbildning som distribueras till Azure. Installera Windows VM-agenten manuellt [ladda ned installationsprogrammet till VM-agenten](http://go.microsoft.com/fwlink/?LinkID=394789).
+Windows VM-agenten kan installeras manuellt med en Windows installer-paketet. Manuell installation kan vara nödvändigt när du skapar en anpassad virtuell datoravbildning som distribueras till Azure. Installera Windows VM-agenten manuellt [ladda ned installationsprogrammet till VM-agenten](https://go.microsoft.com/fwlink/?LinkID=394789).
 
 VM-agenten kan installeras genom att dubbelklicka på den Windows installer-fil. För en automatiserad eller obevakad installation av VM-agenten, kör du följande kommando:
 

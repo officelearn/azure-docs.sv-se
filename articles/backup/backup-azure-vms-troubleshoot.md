@@ -8,19 +8,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/7/2018
 ms.author: trinadhk
-ms.openlocfilehash: 8ef8241e9f0f6223b29fa29f7a5803f57f4d6203
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 90e03c66717cafc1cd33f4629e88aba8e76c2c3f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415006"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245755"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Felsöka säkerhetskopiering av virtuell Azure-dator
 Du kan felsöka fel vid användning av Azure Backup med information som anges i tabellen nedan.
 
 | Felinformation | Lösning |
 | --- | --- |
-| Det gick inte att utföra åtgärden eftersom den virtuella datorn inte finns längre. -Stoppa skydd av virtuell dator utan att ta bort säkerhetskopierade data. Mer information finns på http://go.microsoft.com/fwlink/?LinkId=808124 |Detta händer när den primära virtuella datorn tas bort, men säkerhetskopieringspolicyn fortsätter letar du efter en virtuell dator som säkerhetskopieras. Åtgärda det här felet: <ol><li> Återskapa den virtuella datorn med samma namn och samma resursgruppnamn [cloud service name]<br>(OR)</li><li> Sluta skydda virtuella datorer med eller utan att ta bort säkerhetskopierade data. [Mer information](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
+| Det gick inte att utföra åtgärden eftersom den virtuella datorn inte finns längre. -Stoppa skydd av virtuell dator utan att ta bort säkerhetskopierade data. Mer information finns på http://go.microsoft.com/fwlink/?LinkId=808124 |Detta händer när den primära virtuella datorn tas bort, men säkerhetskopieringspolicyn fortsätter letar du efter en virtuell dator som säkerhetskopieras. Åtgärda det här felet: <ol><li> Återskapa den virtuella datorn med samma namn och samma resursgruppnamn [cloud service name]<br>(OR)</li><li> Sluta skydda virtuella datorer med eller utan att ta bort säkerhetskopierade data. [Mer information](https://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | Ögonblicksbildsåtgärden misslyckades eftersom ingen nätverksanslutning på den virtuella datorn – se till att den virtuella datorn har nätverksåtkomst. Att det lyckas, antingen godkänd Azure datacenter IP-intervall eller konfigurera en proxyserver för nätverksåtkomst. Mer information finns i http://go.microsoft.com/fwlink/?LinkId=800034. Om du redan använder proxyserver, se till att proxyserverinställningarna är rätt konfigurerade | Inträffar när du neka utgående internet-anslutning på den virtuella datorn. Tillägget för ögonblicksbild av virtuell dator kräver Internetanslutning för att ta en ögonblicksbild av underliggande diskar. [Se avsnittet på att åtgärda ögonblicksbild fel som beror på blockerade nätverksåtkomst](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine). |
 | VM-agenten kan inte kommunicera med Azure Backup-tjänsten. – Se till att den virtuella datorn är ansluten till nätverket och VM-agenten är senaste och körs. Mer information finns i artikeln http://go.microsoft.com/fwlink/?LinkId=800034. |Det här felet returneras om det uppstår ett problem med VM-agenten eller nätverksåtkomst till Azure-infrastrukturen är blockerad på något sätt. [Läs mer](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup) ögonblicksbild problem om hur du felsöker virtuell dator.<br> Om den Virtuella datoragenten inte orsakar problem kan du starta om den virtuella datorn. Ett felaktigt tillstånd för virtuell dator kan orsaka problem och starta om den virtuella datorn återställer tillståndet. |
 | Virtuell dator är i felläge för etablering – starta om den virtuella datorn och kontrollera att Virtuellt datorn körs eller stänga av. | Det här felet uppstår när någon av tillägg fel leder tillstånd för virtuell dator vara etableringsstatusen misslyckades. Gå till listan över tillägg och se om det finns ett tillägg för misslyckade, ta bort den och försök att starta om den virtuella datorn. Om alla tillägg är körs för närvarande kan du kontrollera om VM-agenttjänsten körs. Annars kan du starta om tjänsten VM agent. |
@@ -28,7 +28,7 @@ Du kan felsöka fel vid användning av Azure Backup med information som anges i 
 | Det gick inte att kopiera ögonblicksbilden av den virtuella datorn, på grund av brist på utrymme i lagringskontot, se till att lagringskontot har tillräckligt med utrymme för data som finns på premium-lagringsdiskar som är kopplade till den virtuella datorn | När det gäller virtuella datorer i premium på säkerhetskopieringsstack för virtuell dator V1 kopiera vi ögonblicksbilden till storage-konto. Detta är att se till att av trafik, som fungerar på ögonblicksbild men inte begränsar antalet IOPS som är tillgängliga för programmet med premium-diskar. Microsoft rekommenderar att du endast allokera 50% (17,5 TB) för ett konto för det totala utrymmet så Azure Backup-tjänsten kan kopiera ögonblicksbilden till storage-konto och överför data från den här kopierade platsen i storage-konto till valvet. | 
 | Det går inte att utföra åtgärden eftersom den Virtuella datoragenten inte svarar |Det här felet returneras om det uppstår ett problem med VM-agenten eller nätverksåtkomst till Azure-infrastrukturen är blockerad på något sätt. Kontrollera Tjänststatus för VM-agenten i tjänster och om agenten ska visas i program på Kontrollpanelen för Windows-datorer. Försök att ta bort programmet från kontrollen panelen och installera om agenten som vi redan nämnt [nedan](#vm-agent). Utlös en ad hoc-säkerhetskopiering för att kontrollera efter att ha installerat agenten. |
 | Recovery services-tillägg-åtgärden misslyckades. – Kontrollera att den senaste VM-agenten finns på den virtuella datorn och agent-tjänsten körs. Försök att säkerhetskopiera igen. Om säkerhetskopieringen misslyckas, kan du kontakta Microsoft support. |Det här felet returneras när VM-agenten är inaktuell. Se ”uppdaterar VM-Agent” avsnittet nedan för att uppdatera VM-agenten. |
-| Virtuell dator finns inte. – Kontrollera att den virtuella datorn finns eller välj en annan virtuell dator. |Inträffar när den primära virtuella datorn tas bort, men säkerhetskopieringspolicyn fortsätter att leta efter en virtuell dator som säkerhetskopieras. Åtgärda det här felet: <ol><li> Återskapa den virtuella datorn med samma namn och samma resursgruppnamn [cloud service name]<br>(OR)<br></li><li>Sluta skydda den virtuella datorn utan att ta bort säkerhetskopierade data. [Mer information](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
+| Virtuell dator finns inte. – Kontrollera att den virtuella datorn finns eller välj en annan virtuell dator. |Inträffar när den primära virtuella datorn tas bort, men säkerhetskopieringspolicyn fortsätter att leta efter en virtuell dator som säkerhetskopieras. Åtgärda det här felet: <ol><li> Återskapa den virtuella datorn med samma namn och samma resursgruppnamn [cloud service name]<br>(OR)<br></li><li>Sluta skydda den virtuella datorn utan att ta bort säkerhetskopierade data. [Mer information](https://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | Det gick inte att köra. -En annan åtgärd pågår på det här objektet. Vänta tills den föregående åtgärden har slutförts och försök sedan igen. |Ett befintligt säkerhetskopieringsjobb körs och ett nytt jobb kan inte startas förrän det aktuella jobbet har slutförts. |
 | Kopiera virtuella hårddiskar från Recovery Services vault timeout - försök igen om några minuter. Kontakta Microsoft-supporten om problemet kvarstår. | Inträffar om det finns ett tillfälligt fel på lagringssidan, eller om Backup-tjänsten inte har fått tillräckligt med storage-konto IOPS för att överföra data till valvet, inom den angivna tiden. Se till att följa den [bästa praxis när du konfigurerar dina virtuella datorer](backup-azure-vms-introduction.md#best-practices). Flytta den virtuella datorn till ett annat lagringskonto som inte lästs in och försök säkerhetskopieringen igen.|
 | Säkerhetskopieringen misslyckades med ett internt fel – försök igen om några minuter. Om problemet kvarstår kontaktar du Microsoft Support |Du kan ta emot det här felet av två skäl: <ol><li> Det finns ett övergående problem vid VM-lagring. Kontrollera den [Azure statusen](https://azure.microsoft.com/status/) att se om det finns problem för beräkning, lagring och nätverk i regionen. När problemet är löst kan försöka att säkerhetskopiera igen. <li>Den ursprungliga virtuella datorn har tagits bort och återställningspunkten kan inte utföras. Hela säkerhetskopierade data för en borttagen virtuell dator, men ta bort backup fel: ta bort skyddet från den virtuella datorn och välja alternativet för att behålla data. Den här åtgärden stoppar schemalagda säkerhetskopieringsjobbet och återkommande felmeddelanden. |
@@ -82,18 +82,18 @@ Vanligtvis finns VM-agenten redan i virtuella datorer som skapas från Azure-gal
 
 För Windows-datorer:
 
-* Ladda ned och installera [agentens MSI-fil](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du måste ha administratörsbehörighet för att slutföra installationen.
-* För klassiska virtuella datorer, [uppdatera VM-egenskapen](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) att indikera att agenten är installerad. Det här steget krävs inte för Resource Manager-datorer.
+* Ladda ned och installera [agentens MSI-fil](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du måste ha administratörsbehörighet för att slutföra installationen.
+* För klassiska virtuella datorer, [uppdatera VM-egenskapen](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) att indikera att agenten är installerad. Det här steget krävs inte för Resource Manager-datorer.
 
 För virtuella Linux-datorer:
 
 * Installera den senaste versionen av agenten från lagringsplatsen för distribution. Mer information om paketnamnet finns den [Linux-agenten databasen](https://github.com/Azure/WALinuxAgent).
-* För klassiska virtuella datorer, [använder i blogginlägget för att uppdatera VM-egenskapen](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx), och verifiera agenten är installerad. Det här steget krävs inte för Resource Manager-datorer.
+* För klassiska virtuella datorer, [använder i blogginlägget för att uppdatera VM-egenskapen](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx), och verifiera agenten är installerad. Det här steget krävs inte för Resource Manager-datorer.
 
 ### <a name="updating-the-vm-agent"></a>Uppdatera VM-agenten
 För Windows-datorer:
 
-* Uppdatera VM-agenten genom att installera om den [binärfilerna för VM-agenten](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Innan du uppdaterar agenten, kontrollera att ingen säkerhetskopiering utförs under uppdateringen av VM-agenten.
+* Uppdatera VM-agenten genom att installera om den [binärfilerna för VM-agenten](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Innan du uppdaterar agenten, kontrollera att ingen säkerhetskopiering utförs under uppdateringen av VM-agenten.
 
 För virtuella Linux-datorer:
 
@@ -135,7 +135,7 @@ Som alla tillägg behöver säkerhetskopiera anknytning har åtkomst till det of
 * Säkerhetskopieringsåtgärder (till exempel ögonblicksbild) kan misslyckas
 * Visa status för säkerhetskopieringen kan misslyckas
 
-Behöver för att lösa offentliga internet-adresser har har uppvisat [här](http://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Du måste kontrollera DNS-konfigurationen för det virtuella nätverket och se till att URI: er för Azure kan lösas.
+Behöver för att lösa offentliga internet-adresser har har uppvisat [här](https://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Du måste kontrollera DNS-konfigurationen för det virtuella nätverket och se till att URI: er för Azure kan lösas.
 
 När namnmatchningen utförs korrekt måste åtkomst till Azure IP-adresser också anges. Om du vill avblockera åtkomst till Azure-infrastrukturen, gör du något av följande:
 

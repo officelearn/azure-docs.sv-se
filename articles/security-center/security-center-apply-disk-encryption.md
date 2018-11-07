@@ -3,7 +3,7 @@ title: Tillämpa diskkryptering i Azure Security Center | Microsoft Docs
 description: Det här dokumentet visar hur du implementerar Azure Security Center-rekommendationen **tillämpa diskkryptering**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 6cc7824a-8d6b-4a5f-ab40-e3bbaebc4a91
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
-ms.author: terrylan
-ms.openlocfilehash: 20b55f993e8a570c737d5849af957b4c40089f61
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: d78e5ba030a8b68b99a92be8a830a365c2870c1f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301639"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235895"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Tillämpa diskkryptering i Azure Security Center
 Azure Security Center rekommenderar att du installerar diskkryptering om du har Windows- eller Linux VM-diskar som inte är krypterade med Azure Disk Encryption. Diskkryptering kan du kryptera din Windows- och Linux IaaS VM-diskar.  Kryptering rekommenderas både för OS- och datavolymer på den virtuella datorn.
@@ -61,7 +61,7 @@ I följande avsnitt kan du lära dig mer om Security Center:
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md) – Lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
-* [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) --hittar du blogginlägg om Azure-säkerhet och regelefterlevnad.
+* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) --hittar du blogginlägg om Azure-säkerhet och regelefterlevnad.
 
 <!--Image references-->
 [1]: ./media/security-center-apply-disk-encryption/apply-disk-encryption.png

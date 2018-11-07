@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 754a06cc8bb9cc6e660e2ac5f01ef2c40176eb05
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: f483be5866715ddf253daefb197ae3dd87e02d99
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357604"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249106"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Ett oväntat program i listan över program
 
@@ -59,13 +59,13 @@ När filtrerat till **alla program**, **alla program** **lista** visar alla obje
 
 2.  När du registrerar dig för eller logga in på en 3<sup>rd</sup> partsprogram integrerad med Azure Active Directory. Ett exempel är [Smartsheet](https://app.smartsheet.com/b/home) eller [DocuSign](https://www.docusign.net/member/MemberLogin.aspx).
 
-3.  När registreringen eller att lägga till en licens till en användare eller grupp i ett partsprogram för första, som [Microsoft Office 365](http://products.office.com/)
+3.  När registreringen eller att lägga till en licens till en användare eller grupp i ett partsprogram för första, som [Microsoft Office 365](https://products.office.com/)
 
 4.  När du lägger till en ny programregistrering genom att skapa ett egenutvecklat program som använder den [programregistret](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration)
 
 5.  När du lägger till en ny programregistrering genom att skapa ett egenutvecklat program som använder den [V2.0 programregistreringsportalen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration#visit-the-microsoft-app-registration-portal)
 
-6.  När du lägger till ett program du håller på att utveckla med Visual Studio [ASP.net autentiseringsmetoder](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) eller [Connected Services](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
+6.  När du lägger till ett program du håller på att utveckla med Visual Studio [ASP.net autentiseringsmetoder](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) eller [Connected Services](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
 
 7.  När du skapar ett objekt med den [Azure AD PowerShell-modulen](/powershell/azure/install-adv2?view=azureadps-2.0)
 

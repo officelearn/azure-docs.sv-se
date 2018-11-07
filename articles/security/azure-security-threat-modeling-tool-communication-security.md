@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7e8afc02c738a2bba445b1d84b7cb899dfbb93a0
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: bc724f57a25e2ca12d334192d2171899345e72de
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301562"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247389"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Security ram: KOMMUNIKATIONSSÄKERHET | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -113,7 +113,7 @@ ms.locfileid: "43301562"
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | EnvironmentType - Azure |
 | **Referenser**              | [Använda HTTPS på Azure App Service](../app-service/app-service-web-tutorial-custom-ssl.md#enforce-https) |
-| **Steg** | <p>Även om Azure kan redan HTTPS för Azure app services med ett jokerteckencertifikat för domänen *. azurewebsites.net, det behöver inte använda HTTPS. Besökare kan fortfarande komma åt appen med HTTP, vilket kan äventyra säkerheten för appens och kan därför HTTPS måste tillämpas uttryckligen. ASP.NET MVC-program ska använda den [RequireHttps filter](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) som tvingar en osäker HTTP-förfrågan skickas igen via HTTPS.</p><p>Modulen Webbadressomskrivning som ingår i Azure App Service kan också användas för att använda HTTPS. Modulen för omarbetning för URL: en kan utvecklare definiera regler som tillämpas på inkommande begäranden innan begäranden ska lämnas i ditt program. URL-Omskrivningsregler regler har definierats i en web.config-fil som lagras i roten av programmet</p>|
+| **Steg** | <p>Även om Azure kan redan HTTPS för Azure app services med ett jokerteckencertifikat för domänen *. azurewebsites.net, det behöver inte använda HTTPS. Besökare kan fortfarande komma åt appen med HTTP, vilket kan äventyra säkerheten för appens och kan därför HTTPS måste tillämpas uttryckligen. ASP.NET MVC-program ska använda den [RequireHttps filter](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) som tvingar en osäker HTTP-förfrågan skickas igen via HTTPS.</p><p>Modulen Webbadressomskrivning som ingår i Azure App Service kan också användas för att använda HTTPS. Modulen för omarbetning för URL: en kan utvecklare definiera regler som tillämpas på inkommande begäranden innan begäranden ska lämnas i ditt program. URL-Omskrivningsregler regler har definierats i en web.config-fil som lagras i roten av programmet</p>|
 
 ### <a name="example"></a>Exempel
 I följande exempel innehåller en grundläggande URL-Omskrivningsregler regel som tvingar all inkommande trafik ska använda HTTPS
@@ -156,7 +156,7 @@ Den här regeln fungerar genom att returnera ett HTTP-statuskoden 301 (permanent
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | SQL Azure  |
 | **Attribut**              | SQL Version - V12 |
-| **Referenser**              | [Metodtips för att skriva säkra anslutningssträngar för SQL-databas](http://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
+| **Referenser**              | [Metodtips för att skriva säkra anslutningssträngar för SQL-databas](https://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
 | **Steg** | <p>All kommunikation mellan SQL-databas och ett klientprogram krypteras med hjälp av Secure Sockets Layer (SSL) hela tiden. SQL Database stöder inte okrypterad anslutningar. För att verifiera certifikat med programkod eller verktyg kan uttryckligen begära en krypterad anslutning och lita inte på servercertifikat. Om din programkod eller verktyg inte begär en krypterad anslutning, får de fortfarande krypterade anslutningar</p><p>Men de kan inte verifiera servercertifikatet och därför kommer vara sårbar för ”man in the middle”-attacker. För att verifiera certifikat med ADO.NET programkoden kan ange `Encrypt=True` och `TrustServerCertificate=False` i anslutningssträngen för databasen. Öppna i dialogrutan Anslut till servern för att verifiera certifikat via SQL Server Management Studio. Klicka på kryptera anslutningen på fliken Egenskaper för anslutning</p>|
 
 ## <a id="encrypted-sqlserver"></a>Framtvinga krypterad kommunikation till SQLServer

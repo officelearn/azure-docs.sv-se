@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: cbd8e6c1d12fe506e5c31c980b1ec13bb121e75e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 33d7322bfa3c6e6143dd2d945c5ed86c15da2fb8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958058"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249973"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Skapa och ladda upp en diskavbildning i OpenBSD till Azure
 Den här artikeln visar hur du skapar och laddar upp en virtuell hårddisk (VHD) som innehåller OpenBSD-operativsystem. När du har överfört kan du använda den som en egen avbildning för att skapa en virtuell dator (VM) i Azure med Azure CLI.
@@ -31,7 +31,7 @@ Den här artikeln förutsätter att du har följande objekt:
 
 * **En Azure-prenumeration** -om du inte har ett konto kan du skapa en på bara några minuter. Om du har en MSDN-prenumeration, se [månatliga Azure-kredit för Visual Studio-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). I annat fall Lär dig hur du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).  
 * **Azure CLI** – Kontrollera att du har senast [Azure CLI](/cli/azure/install-azure-cli) installerat och loggat in på Azure-kontot med [az-inloggning](/cli/azure/reference-index#az_login).
-* **OpenBSD operativsystem är installerat i en VHD-fil** – en stöds OpenBSD operativsystem ([version 6.1 AMD64](https://ftp.openbsd.org/pub/OpenBSD/6.1/amd64/)) måste vara installerad på en virtuell hårddisk. Det finns flera olika verktyg för att skapa VHD-filer. Du kan till exempel använda en virtualiseringslösning, till exempel Hyper-V för att skapa VHD-filen och installera operativsystemet. Anvisningar om hur du installerar och använder Hyper-V finns i [installera Hyper-V och skapa en virtuell dator](http://technet.microsoft.com/library/hh846766.aspx).
+* **OpenBSD operativsystem är installerat i en VHD-fil** – en stöds OpenBSD operativsystem ([version 6.1 AMD64](https://ftp.openbsd.org/pub/OpenBSD/6.1/amd64/)) måste vara installerad på en virtuell hårddisk. Det finns flera olika verktyg för att skapa VHD-filer. Du kan till exempel använda en virtualiseringslösning, till exempel Hyper-V för att skapa VHD-filen och installera operativsystemet. Anvisningar om hur du installerar och använder Hyper-V finns i [installera Hyper-V och skapa en virtuell dator](https://technet.microsoft.com/library/hh846766.aspx).
 
 
 ## <a name="prepare-openbsd-image-for-azure"></a>Förbered OpenBSD-avbildning för Azure
@@ -65,7 +65,7 @@ På den virtuella datorn där du installerade OpenBSD operativsystemet 6.1, som 
     ln -sf /usr/local/bin/python2.7 /usr/local/bin/python
     ln -sf /usr/local/bin/python2.7-2to3 /usr/local/bin/2to3
     ln -sf /usr/local/bin/python2.7-config /usr/local/bin/python-config
-    ln -sf /usr/local/bin/pydoc2.7  /usr/local/bin/pydoc
+    ln -sf /usr/local/bin/pydoc2.7  /usr/local/bin/pydoc
     ```
 
 6. Den senaste versionen av Azure-agenten finns på alltid [Github](https://github.com/Azure/WALinuxAgent/releases). Installera agenten på följande sätt:

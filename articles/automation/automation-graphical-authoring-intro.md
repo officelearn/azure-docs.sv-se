@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: afc1ec8e171bc602f2698b4a36f249bc454cbed9
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a4cd2cec56a15660a03ac111b1b8962d531479ad
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42057337"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233685"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafisk redigering i Azure Automation
 
@@ -48,7 +48,7 @@ Bibliotekskontrollen är här du väljer [aktiviteter](#activities) att lägga t
 |:--- |:--- |
 | Cmdlet: ar |Innehåller alla cmdletar som kan användas i din runbook. Cmdlet: ar är ordnade efter modulen. Alla moduler som du har installerat i ditt automation-konto är tillgängliga. |
 | Runbooks |Innehåller runbooks i ditt automation-konto. Dessa runbooks kan läggas till arbetsytan som ska användas som underordnade runbooks. Endast runbook-flöden av typen samma kärnor som den runbook som redigeras visas; för grafiska visas runbooks endast PowerShell-baserade runbooks, medan för grafiska PowerShell Workflow-runbooks endast PowerShell-arbetsflöde-baserade runbooks visas. |
-| Tillgångar |Innehåller den [automationstillgångar](http://msdn.microsoft.com/library/dn939988.aspx) i ditt automation-konto som kan användas i din runbook. När du lägger till en tillgång till en runbook, läggs en arbetsflödesaktivitet som hämtar den markerade tillgången. När det gäller variabler för tillgångar, kan du välja om du vill lägga till en aktivitet för att hämta variabeln eller Ställ in variabeln. |
+| Tillgångar |Innehåller den [automationstillgångar](https://msdn.microsoft.com/library/dn939988.aspx) i ditt automation-konto som kan användas i din runbook. När du lägger till en tillgång till en runbook, läggs en arbetsflödesaktivitet som hämtar den markerade tillgången. När det gäller variabler för tillgångar, kan du välja om du vill lägga till en aktivitet för att hämta variabeln eller Ställ in variabeln. |
 | Runbook-kontroll |Innehåller runbook kontrollaktiviteter som kan användas i din aktuella runbook. En *knutpunkt* tar flera inmatningar och väntar tills alla har slutförts innan du fortsätter arbetsflödet. En *kod* aktivitet kör en eller flera rader med PowerShell eller PowerShell-arbetsflöde kod beroende på vilken typ av grafisk runbook. Du kan använda den här aktiviteten för anpassad kod eller funktioner som är svåra att uppnå med andra aktiviteter. |
 
 ### <a name="configuration-control"></a>Konfigurationskontroll
@@ -336,7 +336,7 @@ Data som skapats av alla aktiviteter som inte har en utgående anslutning har sp
 
 ## <a name="powershell-expressions"></a>PowerShell-uttryck
 
-En av fördelarna med grafisk redigering är att ge dig möjlighet att skapa en runbook med minimal kunskap om PowerShell. För närvarande kan du behöver veta lite PowerShell även om för att fylla i vissa [parametervärden](#activities) och för inställningen [länka villkor](#links-and-workflow). Det här avsnittet ger en snabb introduktion till PowerShell-uttryck för de användare som inte kanske är bekant med den. Fullständig information om PowerShell finns på [med Windows PowerShell-skript](http://technet.microsoft.com/library/bb978526.aspx).
+En av fördelarna med grafisk redigering är att ge dig möjlighet att skapa en runbook med minimal kunskap om PowerShell. För närvarande kan du behöver veta lite PowerShell även om för att fylla i vissa [parametervärden](#activities) och för inställningen [länka villkor](#links-and-workflow). Det här avsnittet ger en snabb introduktion till PowerShell-uttryck för de användare som inte kanske är bekant med den. Fullständig information om PowerShell finns på [med Windows PowerShell-skript](https://technet.microsoft.com/library/bb978526.aspx).
 
 ### <a name="powershell-expression-data-source"></a>Datakälla för PowerShell-uttryck
 Du kan använda ett PowerShell-uttryck som en datakälla för att fylla i värdet för en [Aktivitetsparametern](#activities) med resultaten från vissa PowerShell-kod. Detta kan vara en enda rad kod som utför någon funktion som är enkla eller flera rader som utför komplex logik. Alla utdata från ett kommando som inte har tilldelats en variabel är utdata till parametervärdet.
@@ -414,7 +414,7 @@ Du kan ansluta till flera villkor med hjälp av en [logisk operator](https://tec
 
 ### <a name="hashtables"></a>Hash-tabeller
 
-[Hash-tabeller](http://technet.microsoft.com/library/hh847780.aspx) är namn/värde-par som är användbara för att returnera en uppsättning värden. Egenskaper för vissa aktiviteter kan förvänta dig en hash-tabell i stället för ett enkelt värde. Du kan också se som hash-tabell som kallas en ordlista.
+[Hash-tabeller](https://technet.microsoft.com/library/hh847780.aspx) är namn/värde-par som är användbara för att returnera en uppsättning värden. Egenskaper för vissa aktiviteter kan förvänta dig en hash-tabell i stället för ett enkelt värde. Du kan också se som hash-tabell som kallas en ordlista.
 
 Du kan skapa en hash-tabell med följande syntax. En hash-tabell kan innehålla valfritt antal poster, men varje definieras av ett namn och värde.
 

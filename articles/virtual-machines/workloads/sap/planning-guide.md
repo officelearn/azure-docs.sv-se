@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8b7d2620b5b972c9476332f2b662a891a0b3765
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 9edbb9d916840f348a7df589c6e7cb2110419cb3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430348"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262411"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuella datorer, planering och implementering av SAP NetWeaver
 
@@ -1259,7 +1259,7 @@ Upplevelse av SAP-distributioner under de senaste två åren undervisats oss vis
 >
 > * [Konfigurera programvaru-RAID på Linux][virtual-machines-linux-configure-raid]
 > * [Konfigurera LVM på en Linux-dator i Azure][virtual-machines-linux-configure-lvm]
-> * [Azure Storage-hemligheter och Linux-i/o-optimering](http://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
+> * [Azure Storage-hemligheter och Linux-i/o-optimering](https://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
 >
 >
 
@@ -1316,7 +1316,7 @@ Azure Geo-replikering fungerar lokalt på varje virtuell Hårddisk på en virtue
 > För att ange automount i dokumentationen för kommandorad körbara diskpart.exe här:
 >
 > * [DiskPart kommandoradsalternativ](https://technet.microsoft.com/library/bb490893.aspx)
-> * [Automount](http://technet.microsoft.com/library/cc753703.aspx)
+> * [Automount](https://technet.microsoft.com/library/cc753703.aspx)
 >
 > Ska öppnas fönstret för Windows-Kommandotolken som administratör.
 >

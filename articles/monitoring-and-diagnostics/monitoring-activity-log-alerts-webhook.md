@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: e989406c852b7c87123681dd875f9cd8229524c1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 147e67efa901c834afef8f0da2acf6f5b523f6ad
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971934"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254204"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks för aviseringar för Azure-aktivitetsloggar
 Som en del av definitionen av en åtgärdsgrupp kan konfigurera du webhook-slutpunkter för att få aviseringar för aktiviteten log. Du kan använda webhooks, för att vidarebefordra dessa meddelanden till andra system för efterbearbetning eller anpassade åtgärder. Den här artikeln visar hur nyttolast för HTTP-POST till en webhook som ser ut.
@@ -197,7 +197,7 @@ Information om specifika schemat på alla andra aktivitetsloggaviseringar, se [�
 
 ## <a name="next-steps"></a>Nästa steg
 * [Läs mer om aktivitetsloggen](monitoring-overview-activity-logs.md).
-* [Köra automatiseringsskript i Azure (Runbooks) på Azure-aviseringar](http://go.microsoft.com/fwlink/?LinkId=627081).
+* [Köra automatiseringsskript i Azure (Runbooks) på Azure-aviseringar](https://go.microsoft.com/fwlink/?LinkId=627081).
 * [Använd en logikapp för att skicka ett SMS via Twilio från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Det här exemplet är för måttaviseringar, men den kan ändras för att fungera med en aktivitetsloggavisering.
 * [Använd en logikapp för att skicka ett Slack-meddelande från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Det här exemplet är för måttaviseringar, men den kan ändras för att fungera med en aktivitetsloggavisering.
 * [Använd en logikapp för att skicka ett meddelande till en Azure-kö från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Det här exemplet är för måttaviseringar, men den kan ändras för att fungera med en aktivitetsloggavisering.

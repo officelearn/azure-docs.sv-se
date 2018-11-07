@@ -6,16 +6,16 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: snehaa
-ms.openlocfilehash: e39cf260cc4931fc0dddc4922479522cb521d08e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2f04fe103d010a64a77b7d80730cf80007c3c126
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407069"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256383"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate – och vanliga frågor svar (FAQ)
 
-Den här artikeln innehåller vanliga frågor och svar om Azure Migrate. Om du har några ytterligare frågor när du har läst den här artikeln, publicera dem på den [Azure Migrate forum](http://aka.ms/AzureMigrateForum).
+Den här artikeln innehåller vanliga frågor och svar om Azure Migrate. Om du har några ytterligare frågor när du har läst den här artikeln, publicera dem på den [Azure Migrate forum](https://aka.ms/AzureMigrateForum).
 
 ## <a name="general"></a>Allmänt
 
@@ -54,9 +54,9 @@ Azure Migrate stöder för närvarande USA, östra och USA, västra centrala som
 
 Anslutningen kan vara via internet eller använda ExpressRoute med offentlig peering.
 
-### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Kan jag skydda den virtuella datorn som konfigurerats med den. OVA mallen?
+### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Kan jag skydda den virtuella datorn som konfigurerats med OVA-mallen?
 
-Ytterligare komponenter (till exempel ett virusskyddsprogram) kan läggas till i den. OVA mallen är så länge lämnas kommunikation och brandväggen regler som krävs för Azure Migrate-installation för att fungera som.   
+Ytterligare komponenter (till exempel ett virusskyddsprogram) kan läggas till i OVA-mallen som kommunikation och brandväggen regler som krävs för Azure Migrate-installation för att arbeta lämnas skick.   
 
 ## <a name="discovery"></a>Identifiering
 
@@ -114,7 +114,7 @@ Insamlaren ansluter till vCenter-servern (port 443) med de autentiseringsuppgift
 
 Ja, en enda insamlingsprogrammet kan användas för att identifiera flera vCenter-servrar, men inte samtidigt. Du behöver köra identifieringar efter varandra.
 
-### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>Är den. OVA-mallen som används av Site Recovery integrerade med den. OVA som används av Azure Migrate?
+### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>OVA-mallen som används av Site Recovery är integrerad med ova-filen som används av Azure Migrate?
 
 Det finns för närvarande ingen integrering. Den. OVA-mallen i Site Recovery används för att ställa in en konfigurationsserver för Site Recovery för replikering av virtuella VMware-datorer/fysiska server. Den. OVA som används av Azure Migrate används för att identifiera virtuella VMware-datorer hanteras av en vCenter-server för migreringsutvärdering.
 
@@ -141,9 +141,23 @@ Azure Migrate stöder för närvarande inte kostnadsuppskattning för [erbjudand
 
 ## <a name="dependency-visualization"></a>Visualisering av beroenden
 
+### <a name="what-is-dependency-visualization"></a>Vad är beroendevisualisering?
+
+Beroendevisualisering gör det möjligt för dig att utvärdera grupper med virtuella datorer för migrering med större tillförlitlighet genom att dubbelkontrollera datorberoenden innan du kör en utvärdering. Beroendevisualisering hjälper dig att se till att inget kvar, undvika oväntade avbrott när du migrerar till Azure. Azure Migrate använder Tjänstkarta-lösningen i Log Analytics för att aktivera beroendevisualisering.
+
 ### <a name="do-i-need-to-pay-to-use-the-dependency-visualization-feature"></a>Behöver jag betala för att använda funktionen beroendevisualisering?
 
-Azure Migrate är tillgänglig utan extra kostnad. Mer information om priser för Azure Migrate finns [här](https://azure.microsoft.com/pricing/details/azure-migrate/).
+Nej. Mer information om priser för Azure Migrate finns [här](https://azure.microsoft.com/pricing/details/azure-migrate/).
+
+### <a name="do-i-need-to-install-anything-for-dependency-visualization"></a>Måste jag installera något för visualisering av beroenden?
+
+Om du vill använda visualisering av beroenden som du behöver hämta och installera agenter på varje lokal dator som du vill utvärdera. 
+
+- [Microsoft Monitoring agent(MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) måste installeras på varje dator.
+- Den [beroendeagenten](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) måste installeras på varje dator.
+- Dessutom om du har datorer som saknar Internetanslutning kan behöva du hämta och installera Log Analytics-gatewayen på dem.
+
+Du behöver inte dessa agenter på datorer som du vill utvärdera om du inte använder beroendevisualisering.
 
 ### <a name="can-i-use-an-existing-workspace-for-dependency-visualization"></a>Kan jag använda en befintlig arbetsyta för visualisering av beroenden?
 

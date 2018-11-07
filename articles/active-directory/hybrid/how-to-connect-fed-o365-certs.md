@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0205552c073bf03c40da4d108256fa09e71fbbe3
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 311c16ba0c6b3378fd743b77e263a5d91f8b6a37
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314757"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237103"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Förnya federationscertifikat för Office 365 och Azure Active Directory
 ## <a name="overview"></a>Översikt
@@ -51,9 +51,9 @@ Azure AD försöker övervaka federationsmetadata och uppdatera certifikaten fö
 > [!IMPORTANT]
 > Om du använder AD FS för att garantera kontinuitet för företag, kontrollerar du att dina servrar har följande uppdateringar så att inte sker autentiseringsförsök för kända problem. Detta minskar kända AD FS-proxy serverproblem för den här förnyelse och för framtida förnyelseperioder:
 >
-> Server 2012 R2 - [Windows Server maj 2014 Samlad](http://support.microsoft.com/kb/2955164)
+> Server 2012 R2 - [Windows Server maj 2014 Samlad](https://support.microsoft.com/kb/2955164)
 >
-> Server 2008 R2 och 2012 - [autentisering via proxy misslyckas i Windows Server 2012 eller Windows 2008 R2 SP1](http://support.microsoft.com/kb/3094446)
+> Server 2008 R2 och 2012 - [autentisering via proxy misslyckas i Windows Server 2012 eller Windows 2008 R2 SP1](https://support.microsoft.com/kb/3094446)
 >
 >
 

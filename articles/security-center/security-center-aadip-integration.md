@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 10/13/2018
 ms.author: yurid
-ms.openlocfilehash: 6ab3611d47b32eddd41736df69a3e7382c2b220d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 9c13bd671efee5bc07885320cbaa0bd090cc1390
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298769"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226368"
 ---
 # <a name="connecting-azure-active-directory-identity-protection-to-azure-security-center"></a>Ansluta Azure Active Directory Identity Protection till Azure Security Center
 Det här dokumentet hjälper dig att konfigurera integrering mellan Azure Active Directory (AD) Identity Protection och Azure Security Center.
@@ -55,6 +55,6 @@ I det här dokumentet har du lärt dig hur du ansluter Azure AD Identity Protect
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md) – Lär dig hur du övervakar dina partnerlösningars hälsostatus.
 - [Datasäkerhet i Azure Security Center](security-center-data-security.md) – Lär dig hur data hanteras och skyddas i Security Center.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
-* [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – senaste nytt i Azure-säkerhet och information.
+* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) – senaste nytt i Azure-säkerhet och information.
 
 

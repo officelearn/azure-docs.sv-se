@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
 ms.author: hascipio;
-ms.openlocfilehash: e1f90650e71345957c2d353774cb8bef62c1868b
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: d4c7dce1876e9838fe986aebb7e38a09e8a82baf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715023"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252980"
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Efter produktion guide för virtuell dator-erbjudanden på Azure Marketplace
 Den här artikeln förklarar hur du kan uppdatera en Direktmigrering av virtuell dator-erbjudande på Azure Marketplace. Den vägleder dig genom processen att lägga till en eller flera nya SKU: er till ett befintligt erbjudande. Även vägleder dig genom processen med att ta bort ett erbjudande för Direktmigrering av virtuell dator eller SKU: N från Marketplace.
@@ -30,7 +30,7 @@ När ett erbjudande/SKU mellanlagras i den [Azure-portalen](http://portal.azure.
 * **SKU-identifierare**: I den Publisher-portalen, gå till **virtuella datorer** och välj ditt erbjudande. Klicka sedan på **SKU: er** > **Lägg till en SKU**.
 * **Publisher-Namespace**: I den Publisher-portalen, gå till **virtuella datorer** > **genomgången** > **berätta för oss om ditt företag**(finns under ”steg 2 registrera ditt företag”) > **Publisher Namespace** > **Namespace**.
 
-När erbjudande/SKU har listats i den [Marketplace](http://azure.microsoft.com/marketplace), du kan inte ändra följande textrutor:
+När erbjudande/SKU har listats i den [Marketplace](https://azure.microsoft.com/marketplace), du kan inte ändra följande textrutor:
 
 * **Erbjuder identifierare**: I den Publisher-portalen, gå till **virtuella datorer** och välj ditt erbjudande. Klicka sedan på **VM-AVBILDNINGAR** > **erbjuder identifierare**.
 * **SKU-identifierare**: I den Publisher-portalen, gå till **virtuella datorer** och välj ditt erbjudande. Klicka sedan på **SKU: er** > **Lägg till en SKU**.
@@ -208,7 +208,7 @@ Följ dessa steg för att lägga till en ny SKU i erbjudandet live:
 1. Logga in på den [Publiceringsportal](https://publish.windowsazure.com).
 2. Gå till den **virtuella datorer** och sedan ditt erbjudande.
 3. I menyn till vänster, klickar du på den **SKU: er** fliken. Klicka sedan på **Lägg till en SKU**. 
-4. I dialogrutan anger du en **SKU-identifierare** med små bokstäver. Välj den **ta med din egen licens (BYOL) faktureringsmodellen** markerar du kryssrutan om du vill publicera den nya SKU: N med en fakturering BYOL-modell. Annars avmarkerar du kryssrutan. Klicka på skalstreck för att skapa en ny SKU. Om du inte väljer BYOL faktureringsmodellen måste anges automatiskt faktureringsmodellen till varje timme. Om du vill att en 30-dagars kostnadsfri utvärderingsversion för varje timme faktureringsmodellen Välj **en månad** för **finns en kostnadsfri utvärderingsversion?** Annars väljer **nr utvärderingsversion**. (**Finns en kostnadsfri utvärderingsversion? ** visas bara om du inte har valt BYOL när du skapar den nya SKU: N.)
+4. I dialogrutan anger du en **SKU-identifierare** med små bokstäver. Välj den **ta med din egen licens (BYOL) faktureringsmodellen** markerar du kryssrutan om du vill publicera den nya SKU: N med en fakturering BYOL-modell. Annars avmarkerar du kryssrutan. Klicka på skalstreck för att skapa en ny SKU. Om du inte väljer BYOL faktureringsmodellen måste anges automatiskt faktureringsmodellen till varje timme. Om du vill att en 30-dagars kostnadsfri utvärderingsversion för varje timme faktureringsmodellen Välj **en månad** för **finns en kostnadsfri utvärderingsversion?** Annars väljer **nr utvärderingsversion**. (**Finns en kostnadsfri utvärderingsversion?**  visas bara om du inte har valt BYOL när du skapar den nya SKU: N.)
 
    > [!IMPORTANT]
    > **Dölj den här SKU: N från Marketplace eftersom det alltid ska köpas via en lösningsmall** ska vara **Ja** *endast* om du har godkänt för att publicera en lösningsmall. Annars kan det här alternativet bör alltid vara **nr**.

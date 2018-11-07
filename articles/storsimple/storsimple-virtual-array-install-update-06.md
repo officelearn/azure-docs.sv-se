@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2017
 ms.author: alkohli
-ms.openlocfilehash: 111976cd684561f5bc63b92f09a20470fe3036d7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 89ca7a5fa13696856bed108e4cbf7462b536b4bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606654"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246624"
 ---
 # <a name="install-update-06-on-your-storsimple-virtual-array"></a>Installera uppdatering 0.6 på StorSimple Virtual Array
 
@@ -27,7 +27,7 @@ ms.locfileid: "38606654"
 
 Den här artikeln beskriver de steg som krävs för att installera uppdatering 0.6 på StorSimple Virtual Array via det lokala webbgränssnittet eller via Azure portal. Installation av uppdateringar eller snabbkorrigeringar att hålla din StorSimple Virtual Array uppdaterade.
 
-Innan du installerar en uppdatering, rekommenderar vi att du vidtar volymer eller resurser offline på värden första och sedan enheten. Detta minskar risk att data skadas. När volymer eller resurser är offline kan bör du också utföra en manuell säkerhetskopiering av enheten.
+Innan du installerar en uppdatering, rekommenderar vi att du vidtar volymer eller resurser offline på värden första och sedan enheten. Detta minskar risken för skadade data. När volymer eller resurser är offline kan bör du också utföra en manuell säkerhetskopiering av enheten.
 
 > [!IMPORTANT]
 > - Uppdatering 0.6 motsvarar **10.0.10293.0** programvaruversionen på din enhet. För information om vad som är nytt i den här uppdateringen, går du till [viktig information för uppdatering 0.6](storsimple-virtual-array-update-06-release-notes.md).
@@ -57,7 +57,7 @@ Utför följande steg för att hämta programuppdateringen från Microsoft Updat
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Ladda ned uppdateringen eller snabbkorrigeringen
 
-1. Starta Internet Explorer och navigera till [ http://catalog.update.microsoft.com ](http://catalog.update.microsoft.com).
+1. Starta Internet Explorer och navigera till [ http://catalog.update.microsoft.com ](https://catalog.update.microsoft.com).
 
 2. Om du använder Microsoft Update-katalogen för första gången på den här datorn, klickar du på **installera** när du uppmanas att installera tillägget för Microsoft Update-katalogen.
 
@@ -74,7 +74,7 @@ Utför följande steg för att hämta programuppdateringen från Microsoft Updat
 6. Öppna mappen där filerna finns.
     ![Filer i paketet](./media/storsimple-virtual-array-install-update-06/update06folder.png)
 
-    Du kan se:
+    Du ser:
     -  En paketfil för Microsoft Update fristående `WindowsTH-KB3011067-x64`. Den här filen används för att uppdatera enhetens programvara.
     - En paketfil Geneva Monitoring Agent `GenevaMonitoringAgentPackageInstaller`. Den här filen används för att uppdatera tjänsten (MDS)-agenten för övervakning och diagnostik. Dubbelklicka på cab-filen. En _.msi_ visas. Markera filen, högerklicka, och sedan **extrahera** filen. Du använder den _.msi_ fil som ska uppdateras agenten.
 
@@ -98,7 +98,7 @@ Använd den här metoden för att installera uppdateringar på en enhet som kör
    
     ![uppdatera enhet](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
-2. I **uppdatering filsökväg**, ange filnamnet för uppdateringen eller snabbkorrigeringen. Du kan också bläddra till installationsfilen för uppdateringen eller snabbkorrigeringen om placeras på en nätverksresurs. Klicka på **Använd**.
+2. I **uppdatering filsökväg**, ange filnamnet för uppdateringen eller snabbkorrigeringen. Du kan också bläddra till installationsfilen för uppdateringen eller snabbkorrigeringen om placeras på en nätverksresurs. Klicka på **Verkställ**.
    
     ![uppdatera enhet](./media/storsimple-virtual-array-install-update-05/update2m.png)
 

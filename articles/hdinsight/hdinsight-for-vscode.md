@@ -10,16 +10,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: 5cf3a18dc01ba5670e73aa93cb6c9aab2d5de660
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: f8bd1f1181cbd592782ce1126d5d61b5f257ca08
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378627"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234756"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Använd Azure HDInsight Tools för Visual Studio Code
 
-Lär dig hur du använder Azure HDInsight Tools för Visual Studio Code (VS Code) för att skapa och skicka Hive-batchjobb, interaktiva Hive-frågor och PySpark-skript. Azure HDInsight-verktyg kan installeras på de plattformar som stöds av VS Code. Dessa omfattar Windows, Linux och macOS. Du hittar kraven för olika plattformar.
+Lär dig hur du använder Azure HDInsight Tools för Visual Studio Code (VS Code) för att skapa och skicka Apache Hive-batchjobb, interaktiva Apache Hive-frågor och PySpark-skript. Azure HDInsight-verktyg kan installeras på de plattformar som stöds av VS Code. Dessa omfattar Windows, Linux och macOS. Du hittar kraven för olika plattformar.
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -83,7 +83,7 @@ Innan du kan skicka skript till HDInsight-kluster från VS Code, måste du anslu
 
         ![Inloggningsinstruktioner för andra miljöer](./media/hdinsight-for-vscode/hdi-azure-hdinsight-hdinsight-signin.png)
 
-    När du är ansluten, visas namnet på ditt Azure i statusfältet längst ned till vänster i VS Code-fönstret. 
+    När du är ansluten, visas namnet på ditt Azure i statusfältet längst ned till vänster i VS Code-fönstret. 
 
     > [!NOTE]
     > På grund av ett problem med kända Azure-autentisering måste du öppna en webbläsare i privat eller inkognito läge. Om ditt Azure-konto har två faktorer som är aktiverad, rekommenderar vi att använda phone autentisering i stället för PIN-autentisering.
@@ -102,7 +102,7 @@ Innan du kan skicka skript till HDInsight-kluster från VS Code, måste du anslu
 
 <h3 id="linkcluster">Länka ett kluster</h3>
 
-Du kan länka ett normalt kluster med Ambari hanteras användarnamn, också länka ett hadoop-kluster med säkerhet med hjälp av domänanvändarnamn (t.ex: user1@contoso.com).
+Du kan länka en normal kluster med hjälp av en Apache Ambari hanteras användarnamn eller länka ett Enterprise Security Pack säker Hadoop-kluster med hjälp av en domän-användarnamn (t.ex: user1@contoso.com).
 1. Öppna kommandopaletten genom att välja **CTRL + SKIFT + P**, och ange sedan **HDInsight: länka ett kluster**.
 
    ![länken cluster kommando](./media/hdinsight-for-vscode/link-cluster-command.png)
@@ -121,12 +121,12 @@ Du kan länka ett normalt kluster med Ambari hanteras användarnamn, också län
 4. Du kan också Avlänka ett kluster genom att mata in **HDInsight: ta bort länken till ett kluster** från kommandopaletten.
 
 
-### <a name="to-link-a-generic-livy-endpoint"></a>Länka en allmän livy-slutpunkt
+### <a name="to-link-a-generic-apache-livy-endpoint"></a>Länka en allmän Apache Livy-slutpunkt
 
 1. Öppna kommandopaletten genom att välja **CTRL + SKIFT + P**, och ange sedan **HDInsight: länka ett kluster**.
 2. Välj **allmän Livy Endpoint**.
-3. Ange allmänna livy slutpunkten, till exempel: http://10.172.41.42:18080.
-4. Välj **grundläggande** när behöver auktorisering för allmän livy slutpunkten, annars väljer **ingen**.
+3. Ange allmänna Livy slutpunkten, till exempel: http://10.172.41.42:18080.
+4. Välj **grundläggande** när behöver auktorisering för allmän Livy slutpunkten, annars väljer **ingen**.
 5. Inkommande användarnamn när du väljer **grundläggande** i step4.
 6. Lösenordet när du väljer **grundläggande** i step4.
 7. Allmän livy slutpunkten länkat.
@@ -142,7 +142,7 @@ Om du vill testa anslutningen, kan du lista dina HDInsight-kluster:
 
 2. Högerklicka på Skriptredigeraren och välj sedan **HDInsight: lista över kluster** på snabbmenyn. 
 
-3. Hive och Spark-kluster som visas i den **utdata** fönstret.
+3. HDInsight-kluster som visas i den **utdata** fönstret.
 
     ![Ange en standardkonfiguration för kluster](./media/hdinsight-for-vscode/list-cluster-result.png)
 
@@ -160,7 +160,7 @@ Om du vill testa anslutningen, kan du lista dina HDInsight-kluster:
 
 2. Ange **HDInsight: Ställ in Azure-miljön**.
 
-3. Välj ett sätt från Azure och AzureChina som din standardalternativet för inloggning.
+3. Välj en miljö, till exempel ”Azure” eller ”AzureChina” som din standardalternativet för inloggning.
 
 4. Under tiden kan verktyget redan har sparats din inloggning standardposten i **. VSCode\settings.json**. Du uppdatera också direkt den i den här konfigurationsfilen. 
 
@@ -181,7 +181,7 @@ Med HDInsight Tools för VS Code, kan du skicka interaktiva Hive-frågor, Hive b
     ```
 4. Högerklicka på Skriptredigeraren, Välj **HDInsight: Hive interaktiva** skicka frågan eller använder genvägen **Ctrl + Alt + I**. Välj **HDInsight: Hive Batch** skicka skriptet eller använder genvägen **Ctrl + Alt + H**. 
 
-5. Välj klustret när behöver. Med verktygen kan du dessutom skicka ett kodblock istället för hela skriptfilen med snabbmenyn. Strax därefter efter visas resultatet av frågan i en ny flik.
+5. Välj klustret om du inte har angett ett standardkluster. Med verktygen kan du dessutom skicka ett kodblock istället för hela skriptfilen med snabbmenyn. Efter en liten stund visas resultatet av frågan i en ny flik.
 
    ![Interaktiva Hive-resultat](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
@@ -191,7 +191,7 @@ Med HDInsight Tools för VS Code, kan du skicka interaktiva Hive-frågor, Hive b
 
 ## <a name="submit-interactive-pyspark-queries"></a>Köra en interaktiv PySpark-fråga
 
-### <a name="to-submit-interactive-pyspark-queries-to-spark-clusters"></a>Att skicka interaktiv PySpark-frågor till Spark-kluster.
+### <a name="to-submit-interactive-pyspark-queries-to-hdinsight-spark-clusters"></a>Att skicka interaktiv PySpark-frågor till HDInsight Spark-kluster.
 
 1. Skapa en ny arbetsmapp och en ny skriptfil med filnamnstillägget .py om inte redan har.
 
@@ -211,7 +211,7 @@ Med HDInsight Tools för VS Code, kan du skicka interaktiva Hive-frågor, Hive b
    for i in range(0, 5):
         print(sortedCollection[i])
    ```
-4. Markera dessa skript. Högerklicka Skriptredigeraren och välj **HDInsight: interaktiv PySpark**, eller använder genväg **Ctrl + Alt + I**.
+4. Markera det här skriptet. Högerklicka Skriptredigeraren och välj **HDInsight: interaktiv PySpark**, eller använder genväg **Ctrl + Alt + I**.
 
 5. Om du inte redan har installerat den **Python** tillägg i VS Code, Välj den **installera** knappen som du ser i följande bild:
 
@@ -314,7 +314,7 @@ Du kan också skicka en fil, läggs Observera mappen .vscode automatiskt till ma
 + De Livy-konfigurationerna som stöds:   
 
     **POST /batches**   
-    Brödtext i förfrågan
+    Begärandetext
 
     | namn | beskrivning | typ | 
     | :- | :- | :- | 
@@ -340,11 +340,11 @@ Du kan också skicka en fil, läggs Observera mappen .vscode automatiskt till ma
 
     | namn | beskrivning | typ | 
     | :- | :- | :- | 
-    | ID | Sessions-id | int | 
+    | id | Sessions-id | int | 
     | appId | Program-id för den här sessionen |  Sträng |
     | appInfo | Detaljerad programinformation | Karta över nyckel = värde |
     | log | Log-rader | lista med strängar |
-    | tillstånd |   Batch-tillstånd | sträng |
+    | state |   Batch-tillstånd | sträng |
 
 >[!NOTE]
 >Tilldelade livy konfig visas i utdatafönstret när skicka skript.

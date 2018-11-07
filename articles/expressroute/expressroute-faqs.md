@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3af2b2a1b35a290746007d7f486473162a055b99
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8cde172207717aca2af5dfa706f7d9c6d290c36e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211374"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239210"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -76,7 +76,7 @@ ExpressRoute stöder [tre routningsdomäner](expressroute-circuit-peerings.md) f
 
 ### <a name="microsoft-peering"></a>Microsoft-peering
 
-* [Office 365](http://aka.ms/ExpressRouteOffice365)
+* [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
 * Power BI
 * Azure Active Directory
@@ -199,11 +199,7 @@ Ja. Virtuella datorer som distribueras i virtuella nätverk som är anslutna til
 
 ### <a name="can-i-use-site-to-site-connectivity-for-virtual-networks-in-conjunction-with-expressroute"></a>Kan jag använda plats-till-plats-anslutning för virtuella nätverk tillsammans med ExpressRoute?
 
-Ja. ExpressRoute kan samexistera med plats-till-plats-VPN.
-
-### <a name="can-i-move-a-virtual-network-from-site-to-site--point-to-site-configuration-to-use-expressroute"></a>Kan jag flytta ett virtuellt nätverk från plats-till-plats / punkt-till-plats-konfiguration för att använda ExpressRoute?
-
-Ja. Du måste skapa en ExpressRoute-gateway i det virtuella nätverket. Det finns ett litet driftstopp som är associerade med processen.
+Ja. ExpressRoute kan samexistera med plats-till-plats-VPN. Se [konfigurera ExpressRoute och samexisterande anslutningar för plats-till-plats](expressroute-howto-coexist-resource-manager.md).
 
 ### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>Varför finns det en offentlig IP-adress som är associerade med ExpressRoute-gateway i ett virtuellt nätverk?
 
@@ -287,7 +283,7 @@ Ja. ExpressRoute premium-avgifter gäller utöver avgifterna för ExpressRoute-k
 
 1. Granska den [ExpressRoute förutsättningssidan](expressroute-prerequisites.md) att kontrollera att du uppfyller kraven.
 2. För att säkerställa att dina anslutningar behov uppfylls, granska listan över leverantörer och platser i den [ExpressRoute-partner och platser](expressroute-locations.md) artikeln.
-3. Planera dina kapacitetsbehov genom att granska [nätverksplanering och prestandajustering för Office 365](http://aka.ms/tune/).
+3. Planera dina kapacitetsbehov genom att granska [nätverksplanering och prestandajustering för Office 365](https://aka.ms/tune/).
 4. Följ stegen i arbetsflöden för att konfigurera anslutningen [ExpressRoute-arbetsflöden för kretsetablering och kretstillstånd](expressroute-workflows.md).
 
 > [!IMPORTANT]
@@ -297,11 +293,11 @@ Ja. ExpressRoute premium-avgifter gäller utöver avgifterna för ExpressRoute-k
 
 ### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services-and-dynamics-365"></a>Kan min befintliga ExpressRoute-kretsar stöd för anslutning till Office 365-tjänster och Dynamics 365?
 
-Ja. Befintliga ExpressRoute-kretsen kan konfigureras för att stödja anslutningen till Office 365-tjänster. Se till att du har tillräcklig kapacitet för att ansluta till Office 365-tjänster och att du har aktiverat premium-tillägget. [Nätverksplanering och prestandajustering för Office 365](http://aka.ms/tune/) hjälper dig att planera din anslutning behöver. Se även [skapa och ändra en ExpressRoute-krets](expressroute-howto-circuit-classic.md).
+Ja. Befintliga ExpressRoute-kretsen kan konfigureras för att stödja anslutningen till Office 365-tjänster. Se till att du har tillräcklig kapacitet för att ansluta till Office 365-tjänster och att du har aktiverat premium-tillägget. [Nätverksplanering och prestandajustering för Office 365](https://aka.ms/tune/) hjälper dig att planera din anslutning behöver. Se även [skapa och ändra en ExpressRoute-krets](expressroute-howto-circuit-classic.md).
 
 ### <a name="what-office-365-services-can-be-accessed-over-an-expressroute-connection"></a>Vilka Office 365 tjänster kan nås via en ExpressRoute-anslutning?
 
-Referera till [Office 365-URL: er och IP-adressintervall](http://aka.ms/o365endpoints) för en uppdaterad förteckning över tjänster som stöds via ExpressRoute.
+Referera till [Office 365-URL: er och IP-adressintervall](https://aka.ms/o365endpoints) för en uppdaterad förteckning över tjänster som stöds via ExpressRoute.
 
 ### <a name="how-much-does-expressroute-for-office-365-services-cost"></a>Hur mycket kostar ExpressRoute för Office 365-tjänster kostnad?
 

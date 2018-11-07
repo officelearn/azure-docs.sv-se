@@ -3,18 +3,18 @@ title: Hantera ML-Services-kluster i HDInsight - Azure
 description: Lär dig mer om att hantera ett kluster för ML-tjänster i Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/27/2018
-ms.openlocfilehash: 38a8366a586b032c3b11cbef8ee5f01ad2b822a5
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 11/06/2018
+ms.openlocfilehash: 35b80223552181e44beac011f5fb541158466acc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702409"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255412"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Hantera kluster för ML-tjänster på Azure HDInsight
 
@@ -80,7 +80,7 @@ Observera också att de nya användarna inte har rotbehörighet i Linux-systemet
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>Fjärransluta till Microsoft ML-tjänster
 
-Du kan konfigurera åtkomst till HDInsight Hadoop Spark-beräkningskontexten från en fjärrinstans av ML-klient som körs på skrivbordet. Om du vill göra det måste du ange alternativ (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches och sshProfileScript) när definierar RxSpark-beräkningskontext på skrivbordet: till exempel:
+Du kan konfigurera åtkomst till HDInsight Spark-beräkningskontexten från en fjärrinstans av ML-klienten som körs på skrivbordet. Om du vill göra det måste du ange alternativ (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches och sshProfileScript) när definierar RxSpark-beräkningskontext på skrivbordet: till exempel:
 
     myNameNode <- "default"
     myPort <- 0
@@ -226,16 +226,13 @@ Med en beräkningskontext kan du kontrollera om beräkningen utförs lokalt på 
         summary(modelSpark)
 
 
-   > [!NOTE]
-   > Du kan också använda MapReduce för att distribuera beräkning över klusternoder. Mer information om beräkningskontexter finns i [Compute alternativ för beräkningskontexter för ML-tjänster kluster i HDInsight](r-server-compute-contexts.md).
-
 ## <a name="distribute-r-code-to-multiple-nodes"></a>Distribuera R-kod till flera noder
 
 Med ML-tjänster på HDInsight, kan du ta befintlig R-kod och köra den mot flera noder i klustret med `rxExec`. Det här är praktiskt när du gör en parameterrensning eller simuleringar. Här följer ett kodexempel på hur du kan använda `rxExec`:
 
     rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
 
-Om du fortfarande använder Spark- eller MapReduce-kontexten returnerar det här kommandot nodnamnet för de arbetsnoder som koden `(Sys.info()["nodename"])` kördes på. Till exempel på ett kluster med fyra noder du förväntar dig att få utdata som liknar följande fragment:
+Om du fortfarande använder Spark-kontexten, det här kommandot returnerar värdet för nodnamnet för arbetsnoderna som koden `(Sys.info()["nodename"])` körs på. Till exempel på ett kluster med fyra noder du förväntar dig att få utdata som liknar följande fragment:
 
     $rxElem1
         nodename

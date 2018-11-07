@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: 2dca04cadd4c5b904c752ac8a01af8bcb7c6ae33
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: c519a3b71068570ff864ccc0eb0292cebd51173a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220116"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243734"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Skicka meddelanden från molnet till enheten med IoT Hub (.NET)
 
@@ -50,7 +50,7 @@ För att kunna genomföra den här kursen behöver du följande:
 
 * Visual Studio 2017
 
-* Ett aktivt Azure-konto. (Om du inte har ett konto kan du skapa en [kostnadsfritt konto](http://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
+* Ett aktivt Azure-konto. (Om du inte har ett konto kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
 ## <a name="receive-messages-in-the-device-app"></a>Ta emot meddelanden i enhetsappen
 

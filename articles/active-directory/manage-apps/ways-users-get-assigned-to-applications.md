@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 2301c2eee2853617251053713b50f9915962027b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d34671d4197735ea2c30aafc8fd01a5893427ff3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357451"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226860"
 ---
 # <a name="how-to-assign-users-to-applications"></a>Tilldela användare till program
 
@@ -51,9 +51,9 @@ För en användare att komma åt ett program, måste de först tilldelas till de
 
 6.  En administratör aktiverar [Self-service Group Management](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) så att en användare att ansluta till en grupp som ett program är tilldelad till, men endast **med förhandsgodkännande från en vald uppsättning företagsgodkännaren**
 
-7.  En administratör kopplar en licens till en användare direkt för en första partsprogram som [Microsoft Office 365](http://products.office.com/)
+7.  En administratör kopplar en licens till en användare direkt för en första partsprogram som [Microsoft Office 365](https://products.office.com/)
 
-8.  En administratör kopplar en licens till en grupp att användaren är medlem i en första partsprogram som [Microsoft Office 365](http://products.office.com/)
+8.  En administratör kopplar en licens till en grupp att användaren är medlem i en första partsprogram som [Microsoft Office 365](https://products.office.com/)
 
 9.  En [administratören godkänner ett program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) som ska användas av alla användare och sedan en användare loggar in till programmet
 

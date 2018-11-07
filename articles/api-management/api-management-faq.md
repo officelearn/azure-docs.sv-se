@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 7082edf43e53766d32bd967d0b894f6439eaa492
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 760feae2c9b58e162dae487e240dda72099ed91b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42055598"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227985"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management vanliga frågor och svar
 Få svar på vanliga frågor, mönster och metodtips för Azure API Management.
@@ -77,7 +77,7 @@ Du har flera alternativ om du vill kopiera en API Management-instans till en ny 
 Ja, kan du hantera API Management via programmering med hjälp av:
 
 * Den [API Management REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx).
-* Den [Microsoft Azure ApiManagement Service Management Library SDK](http://aka.ms/apimsdk).
+* Den [Microsoft Azure ApiManagement Service Management Library SDK](https://aka.ms/apimsdk).
 * Den [-tjänstdistribution](https://docs.microsoft.com/powershell/module/wds) och [Tjänstehantering](https://docs.microsoft.com/powershell/azure/servicemanagement/overview) PowerShell-cmdletar.
 
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>Hur gör jag för att lägga till en användare i gruppen Administratörer?
@@ -104,7 +104,7 @@ Om du vill konfigurera flera miljöer, till exempel en testmiljö och en produkt
 * Vara värd för samma API: er på olika klienter.
 
 ### <a name="can-i-use-soap-with-api-management"></a>Kan jag använda SOAP med API Management?
-[SOAP-direkt](http://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) stöd är nu tillgängligt. Administratörer kan importera WSDL av deras SOAP-tjänst och Azure API Management skapar en SOAP-klientdel. Portalen utvecklardokumentation, testkonsol, principer och analyser är tillgängliga för SOAP-tjänster.
+[SOAP-direkt](https://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) stöd är nu tillgängligt. Administratörer kan importera WSDL av deras SOAP-tjänst och Azure API Management skapar en SOAP-klientdel. Portalen utvecklardokumentation, testkonsol, principer och analyser är tillgängliga för SOAP-tjänster.
 
 ### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>Är API Management gateway IP-adress konstant? Kan jag använda den i brandväggsreglerna?
 Alla nivåer av API Management är offentliga IP-adress (VIP) för API Management-klienten statiska för livslängden för klienten, med vissa undantag. IP-adress ändras under dessa omständigheter:
@@ -126,7 +126,7 @@ Läs hur du konfigurerar en server för OAuth 2.0-auktorisering med Active Direc
 API Management används den [prestanda prestandatrafik](../traffic-manager/traffic-manager-routing-methods.md#performance) i distributioner till flera geografiska platser. Inkommande trafik dirigeras till närmaste API-gatewayen. Om en region kopplas från, dirigeras automatiskt inkommande trafik till nästa närmaste gatewayen. Mer information om metoder för trafikroutning i [routningsmetoder för Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>Kan jag använda en Azure Resource Manager-mall för att skapa en API Management-tjänstinstans?
-Ja. Se den [Azure API Management-tjänsten](http://aka.ms/apimtemplate) QuickStart-mallar.
+Ja. Se den [Azure API Management-tjänsten](https://aka.ms/apimtemplate) QuickStart-mallar.
 
 ### <a name="can-i-use-a-self-signed-ssl-certificate-for-a-back-end"></a>Kan jag använda ett självsignerat SSL-certifikat för en serverdel?
 Ja. Detta kan göras via PowerShell eller genom att skicka direkt till API: et. Detta kommer att inaktivera verifiering av certifikatkedjan och gör att du kan använda självsignerat eller privat-signerade certifikat vid kommunikation från API Management till backend-tjänster.

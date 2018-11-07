@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: 0243f6ca96b5e2c20b40bf6e0fc11e8d760db475
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 639293a1811c35d87bd705800b8ecf62f667c0e9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053371"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246726"
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>Komma igång med att distribuera och uppgradera program i det lokala klustret
 Azure Service Fabric SDK innehåller en fullständig lokal utvecklingsmiljö som du kan använda för att snabbt komma igång med att distribuera och hantera program i ett lokalt kluster. I den här artikeln skapar du ett lokalt kluster, distribuerar ett befintligt program till det och uppgraderar sedan programmet till en ny version, allt från Windows PowerShell.
@@ -71,7 +71,7 @@ I den här självstudiekursen ska du använda ett befintligt exempelprogram (kal
     mkdir c:\ServiceFabric\
     cd c:\ServiceFabric\
     ```
-4. [Ladda ned programmet WordCount](http://aka.ms/servicefabric-wordcountapp) till den plats som du har skapat.  Obs! Microsoft Edge-webbläsaren sparar filen med ett *.zip*-tillägg.  Ändra filnamnstillägget till *.sfpkg*.
+4. [Ladda ned programmet WordCount](https://aka.ms/servicefabric-wordcountapp) till den plats som du har skapat.  Obs! Microsoft Edge-webbläsaren sparar filen med ett *.zip*-tillägg.  Ändra filnamnstillägget till *.sfpkg*.
 5. Anslut till det lokala klustret:
    
     ```powershell
@@ -139,7 +139,7 @@ Service Fabric tillhandahåller uppgraderingar utan någon nedtid genom att öve
 
 Den nya versionen av programmet räknar bara ord som börjar med en vokal. När uppgraderingen distribueras ser vi två ändringar i programmets beteende. För det första bör antalet växa långsammare eftersom färre ord räknas. För det andra bör den första partitionen så småningom gå om de andra eftersom den har två vokaler (A och E) medan alla andra partitioner endast innehåller en var.
 
-1. [Hämta WordCount version 2-paketet](http://aka.ms/servicefabric-wordcountappv2) till samma plats som du hämtade version 1-paketet till.
+1. [Hämta WordCount version 2-paketet](https://aka.ms/servicefabric-wordcountappv2) till samma plats som du hämtade version 1-paketet till.
 2. Gå tillbaka till PowerShell-fönstret och använd SDK-uppgraderingskommandot för att registrera den nya versionen i klustret. Börja sedan uppgradera fabric:/WordCount-programmet.
    
     ```powershell

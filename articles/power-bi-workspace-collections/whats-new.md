@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 0fe3116934ac4ab9b1e3fd3b5efcd6627df0ed3d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 072fa8978bd4f08494191708d9a71c6c112a0629
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046937"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252061"
 ---
 # <a name="whats-new-in-power-bi-workspace-collections"></a>Vad är nytt i Power BI-arbetsytesamlingar?
 
@@ -72,5 +72,5 @@ Ingår i den här versionen:
 * Uppdatera exempelprogrammet för alla **v1.0** API-anrop.
 * Power BI-Arbetsytesamlingar stöd för Azure SDK, PowerShell och CLI.
 * Användare kan exportera data för sökvägsvisualisering till en **.csv**.
-* Power BI-Arbetsytesamlingar stöds nu i alla de samma/språk som Microsoft Azure. Mer information finns i [Azure – språk](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx).
+* Power BI-Arbetsytesamlingar stöds nu i alla de samma/språk som Microsoft Azure. Mer information finns i [Azure – språk](https://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx).
 

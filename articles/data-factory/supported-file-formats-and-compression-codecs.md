@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 844440d22bc0a524e9e61bde457ee9f43fd367b2
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 6cab6559cb38b7d6d1dc2105b694acbcac85108c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444620"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262054"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Filformat som stöds och komprimering codec-enheter i Azure Data Factory
 
@@ -434,7 +434,7 @@ Om du vill parsa ORC-filerna eller skriva data i ORC-format ange du egenskapen `
 ```
 
 > [!IMPORTANT]
-> För att kopiera möjligheter med lokal Integration Runtime t.ex. mellan lokala och molnbaserade datalager, om du inte kopierar ORC-filer **som-är**, måste du installera JRE 8 (Java Runtime Environment) på IR-datorn. En 64-bitars IR kräver 64-bitars JRE. Du hittar båda versionerna [här](http://go.microsoft.com/fwlink/?LinkId=808605).
+> För att kopiera möjligheter med lokal Integration Runtime t.ex. mellan lokala och molnbaserade datalager, om du inte kopierar ORC-filer **som-är**, måste du installera JRE 8 (Java Runtime Environment) på IR-datorn. En 64-bitars IR kräver 64-bitars JRE. Du hittar båda versionerna [här](https://go.microsoft.com/fwlink/?LinkId=808605).
 >
 
 Observera följande punkter:
@@ -478,7 +478,7 @@ Om du vill parsa Parquet-filer eller skriva data i Parquet-format anger du egens
 ```
 
 > [!IMPORTANT]
-> För att kopiera möjligheter med lokal Integration Runtime t.ex. mellan lokala och molnbaserade datalager, om du inte kopierar Parquet-filer **som-är**, måste du installera JRE 8 (Java Runtime Environment) på IR-datorn. En 64-bitars IR kräver 64-bitars JRE. Du hittar båda versionerna [här](http://go.microsoft.com/fwlink/?LinkId=808605).
+> För att kopiera möjligheter med lokal Integration Runtime t.ex. mellan lokala och molnbaserade datalager, om du inte kopierar Parquet-filer **som-är**, måste du installera JRE 8 (Java Runtime Environment) på IR-datorn. En 64-bitars IR kräver 64-bitars JRE. Du hittar båda versionerna [här](https://go.microsoft.com/fwlink/?LinkId=808605).
 >
 
 Observera följande punkter:

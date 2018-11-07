@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: d6b8341f16cca29fe5bedca34749f47053a14ebb
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: c88df7ba1a9a60ffcda9a5235197037088abca4e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666946"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249276"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Automatiserad Disaster Recovery-lösning med Azure Site Recovery för filresurser som finns på StorSimple
 ## <a name="overview"></a>Översikt
@@ -43,7 +43,7 @@ Implementera en lösning för katastrofåterställning med ett klick som använd
    - Filresurser på volymer som konfigurerats på StorSimple-lagringsenhet
    - [Azure Site Recovery services-valv](../site-recovery/site-recovery-vmm-to-vmm.md) skapas i en Microsoft Azure-prenumeration
 
-Dessutom, om du använder Azure som återställningsplats kör den [Azure VM gratisverktyget för utvärdering av](http://azure.microsoft.com/downloads/vm-readiness-assessment/) på virtuella datorer så att de är kompatibla med Azure virtuella datorer och Azure Site Recovery services.
+Dessutom, om du använder Azure som återställningsplats kör den [Azure VM gratisverktyget för utvärdering av](https://azure.microsoft.com/downloads/vm-readiness-assessment/) på virtuella datorer så att de är kompatibla med Azure virtuella datorer och Azure Site Recovery services.
 
 Att undvika fördröjning problem (vilket kan resultera i högre kostnader), se till att du skapar din StorSimple-Molninstallationen, automation-konto och lagring eller konton i samma region.
 
@@ -81,7 +81,7 @@ Det här steget måste du förbereda den lokala filen server-miljö, skapa och F
 
 1. Installera VM-agenten på varje filserver virtuella datorer. Detta krävs så att du kan köra Azure automatiseringsskript på den virtuella datorer.
    
-   1. [Ladda ned agenten](http://aka.ms/vmagentwin) till `C:\\Users\\<username>\\Downloads`.
+   1. [Ladda ned agenten](https://aka.ms/vmagentwin) till `C:\\Users\\<username>\\Downloads`.
    1. Öppna Windows PowerShell i administratörsläge (Kör som administratör) och ange sedan följande kommando för att navigera till nedladdningsplatsen:  
          `cd C:\\Users\\<username>\\Downloads\\WindowsAzureVmAgent.2.6.1198.718.rd\_art\_stable.150415-1739.fre.msi`
          
@@ -168,16 +168,16 @@ Du kan skapa en återställningsplan i ASR att automatisera redundansprocessen a
 1. I automation-konto klickar du på **variabler** &gt; **Lägg till en variabel** och Lägg till följande variabler. Du kan välja att kryptera dessa tillgångar. Dessa variabler finns specifika återställningsplan. Om din återställningsplanen är som du skapar i nästa steg namn TestPlan, dina variabler ska vara TestPlan-StorSimRegKey, TestPlan AzureSubscriptionName och så vidare.
 
    - **BaseUrl**: Resource Manager-url för Azure-molnet. Få med **Get-AzureRmEnvironment | Select-Object-namn, ResourceManagerUrl** cmdlet.
-   - *RecoveryPlanName* **- ResourceGroupName**: Resource Manager-grupp med StorSimple-resursen.
-   - *RecoveryPlanName* **- ManagerName**: The StorSimple-resurs som har StorSimple-enheten.
-   - *RecoveryPlanName* **- DeviceName**: The StorSimple-enhet som har växlas.
-   - *RecoveryPlanName* **- DeviceIpAddress**: IP-adressen för enheten (detta finns i den **enheter** fliken StorSimple Device Manager-avsnittet &gt; **inställningar** &gt; **Nätverk** &gt; **DNS-inställningarna** grupp).
-   - *RecoveryPlanName* **- VolumeContainers**: en kommaavgränsad sträng med volymbehållare på enheten som behöver att växlas över, till exempel: volcon1 volcon2, volcon3.
-   - *RecoveryPlanName* **- TargetDeviceName**: The StorSimple-Molninstallation som är behållarna som ska redundansväxlas.
-   - *RecoveryPlanName* **- TargetDeviceIpAddress**: IP-adressen för målenheten (detta finns i den **VM** avsnittet &gt; **inställningar** gruppen &gt; **nätverk** fliken).
-   - *RecoveryPlanName* **- StorageAccountName**: namnet på lagringskontot där skriptet (som måste köras på den redundansväxlade virtuella datorn) kommer att lagras. Detta kan vara ett storage-konto som har utrymme att lagra skriptet tillfälligt.
-   - *RecoveryPlanName* **- StorageAccountKey**: åtkomstnyckeln för lagringskontot ovan.
-   - *RecoveryPlanName* **- VMGUIDS**: när du skyddar en virtuell dator, Azure Site Recovery tilldelar varje virtuell dator ett unikt ID som ger information om den misslyckade VM. Om du vill ha VMGUID, Välj den **återställningstjänster** fliken och klicka på **skyddade objektet** &gt; **Skyddsgrupper** &gt;  **Datorer** &gt; **egenskaper**. Om du har flera virtuella datorer kan sedan lägga till GUID som en kommaavgränsad sträng.
+   - * RecoveryPlanName ***- ResourceGroupName**: Resource Manager-grupp med StorSimple-resursen.
+   - * RecoveryPlanName ***- ManagerName**: The StorSimple-resurs som har StorSimple-enheten.
+   - * RecoveryPlanName ***- DeviceName**: The StorSimple-enhet som har växlas.
+   - * RecoveryPlanName ***- DeviceIpAddress**: IP-adressen för enheten (detta finns i den **enheter** fliken StorSimple Device Manager-avsnittet &gt; **inställningar** &gt; **Nätverk** &gt; **DNS-inställningarna** grupp).
+   - * RecoveryPlanName ***- VolumeContainers**: en kommaavgränsad sträng med volymbehållare på enheten som behöver att växlas över, till exempel: volcon1 volcon2, volcon3.
+   - * RecoveryPlanName ***- TargetDeviceName**: The StorSimple-Molninstallation som är behållarna som ska redundansväxlas.
+   - * RecoveryPlanName ***- TargetDeviceIpAddress**: IP-adressen för målenheten (detta finns i den **VM** avsnittet &gt; **inställningar** gruppen &gt; **nätverk** fliken).
+   - * RecoveryPlanName ***- StorageAccountName**: namnet på lagringskontot där skriptet (som måste köras på den redundansväxlade virtuella datorn) kommer att lagras. Detta kan vara ett storage-konto som har utrymme att lagra skriptet tillfälligt.
+   - * RecoveryPlanName ***- StorageAccountKey**: åtkomstnyckeln för lagringskontot ovan.
+   - * RecoveryPlanName ***- VMGUIDS**: när du skyddar en virtuell dator, Azure Site Recovery tilldelar varje virtuell dator ett unikt ID som ger information om den misslyckade VM. Om du vill ha VMGUID, Välj den **återställningstjänster** fliken och klicka på **skyddade objektet** &gt; **Skyddsgrupper** &gt;  **Datorer** &gt; **egenskaper**. Om du har flera virtuella datorer kan sedan lägga till GUID som en kommaavgränsad sträng.
 
     Om namnet på återställningsplanen är fileServerpredayRP, till exempel sedan din **variabler**, **anslutningar** och **certifikat** fliken bör visas på följande sätt när du lägger till alla tillgångar.
 
@@ -289,7 +289,7 @@ Referera till den [Active Directory katastrofåterställningslösning](../site-r
 
 #### <a name="to-perform-a-planned-failover"></a>Att utföra en planerad redundans
 1. I Azure-portalen väljer du **återställningstjänster** vault &gt; **återställningsplaner (Site Recovery)** &gt; **recoveryplan_name** skapade för den filen server-dator.
-1. Klicka på bladet Recovery plan **mer** &gt; **planerad redundans**.  
+1. Klicka på bladet Recovery plan **mer** &gt; **planerad redundans**.
 
    ![Återställningsplan](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
 1. På den **bekräfta planerad redundans** bladet Välj käll- och målplatserna och väljer målnätverk och klicka på kryssikonen ✓ att starta redundansprocessen.
@@ -301,7 +301,7 @@ StorSimple-volymer växlas över till den virtuella enheten under en oplanerad r
 
 #### <a name="to-perform-a-failover"></a>Att utföra en redundansväxling
 1. I Azure-portalen väljer du **återställningstjänster** vault &gt; **återställningsplaner (Site Recovery)** &gt; **recoveryplan_name** skapade för den filen server-dator.
-1. Klicka på bladet Recovery plan **mer** &gt; **redundans**.  
+1. Klicka på bladet Recovery plan **mer** &gt; **redundans**.
 1. På den **bekräfta redundans** bladet Välj källa och mål platser.
 1. Välj **stänga av virtuella datorer och synkronisera senaste data** att ange att Site Recovery bör försöka att Stäng av den skyddade virtuella datorn och synkronisera data så att den senaste versionen av data kommer att redundansväxlas.
 1. Efter redundansen är de virtuella datorerna i ett åtagande väntetillstånd. Klicka på **Commit** att genomföra redundans.
@@ -312,7 +312,7 @@ Under en återställning efter fel växlas StorSimple volymbehållare över till
 
 #### <a name="to-perform-a-failback"></a>Att utföra en återställning efter fel
 1. I Azure-portalen väljer du **återställningstjänster** vault &gt; **återställningsplaner (Site Recovery)** &gt; **recoveryplan_name** skapade för den filen server-dator.
-1. Klicka på bladet Recovery plan **mer** &gt; **planerad redundans**.  
+1. Klicka på bladet Recovery plan **mer** &gt; **planerad redundans**.
 1. Välj käll- och målplatserna, väljer du lämplig datasynkronisering och alternativ för skapande av virtuell dator.
 1. Klicka på **OK** för att starta processen för återställning efter fel.
    
@@ -321,10 +321,10 @@ Under en återställning efter fel växlas StorSimple volymbehållare över till
 ## <a name="best-practices"></a>Metodtips
 ### <a name="capacity-planning-and-readiness-assessment"></a>Kapacitet planerings- och readiness assessment
 #### <a name="hyper-v-site"></a>Hyper-V-plats
-Använd den [användaren kapacitetsplaneringsverktyget](http://www.microsoft.com/download/details.aspx?id=39057) att designa den server, lagring och nätverksinfrastruktur för din miljö för Hyper-V-repliken.
+Använd den [användaren kapacitetsplaneringsverktyget](https://www.microsoft.com/download/details.aspx?id=39057) att designa den server, lagring och nätverksinfrastruktur för din miljö för Hyper-V-repliken.
 
 #### <a name="azure"></a>Azure
-Du kan köra den [Azure VM gratisverktyget för utvärdering av](http://azure.microsoft.com/downloads/vm-readiness-assessment/) på virtuella datorer så att de är kompatibla med Azure virtuella datorer och Azure Site Recovery Services. Verktyget för diagnostisk utvärdering kontrollerar VM-konfigurationer och varnar när konfigurationer som inte är kompatibla med Azure. Till exempel utfärdar den en varning om en enhet C: är större än 127 GB.
+Du kan köra den [Azure VM gratisverktyget för utvärdering av](https://azure.microsoft.com/downloads/vm-readiness-assessment/) på virtuella datorer så att de är kompatibla med Azure virtuella datorer och Azure Site Recovery Services. Verktyget för diagnostisk utvärdering kontrollerar VM-konfigurationer och varnar när konfigurationer som inte är kompatibla med Azure. Till exempel utfärdar den en varning om en enhet C: är större än 127 GB.
 
 Kapacitetsplanering består av minst två viktiga processer:
 

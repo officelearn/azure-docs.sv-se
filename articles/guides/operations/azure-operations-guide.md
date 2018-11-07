@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: c10e071100410f6d5d995d88657bdd85c08a9715
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 07faf5efd1c7eec3e209a5d971185655cc949bb9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423501"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250789"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Kom igång för Azure IT-operatörer
 
@@ -227,7 +227,7 @@ Mer information finns i [insyn i din Microsoft Azure-resursförbrukning](../../b
 
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>Prognoskostnad med priskalkylatorn
 
-Priser för varje tjänst i Azure är olika. Många Azure-tjänster ge nivåerna Basic, Standard och Premium. Varje nivå har vanligtvis flera nivåer för pris och prestanda. Med hjälp av den [priskalkylator](http://azure.microsoft.com/pricing/calculator), du kan skapa prissättning uppskattningar. Kalkylatorn omfattar flexibilitet för att beräkna kostnaden på en enskild resurs eller en grupp med resurser.
+Priser för varje tjänst i Azure är olika. Många Azure-tjänster ge nivåerna Basic, Standard och Premium. Varje nivå har vanligtvis flera nivåer för pris och prestanda. Med hjälp av den [priskalkylator](https://azure.microsoft.com/pricing/calculator), du kan skapa prissättning uppskattningar. Kalkylatorn omfattar flexibilitet för att beräkna kostnaden på en enskild resurs eller en grupp med resurser.
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -415,7 +415,7 @@ Det finns flera alternativ för att distribuera ett lagringskonto.
 
 #### <a name="portal"></a>Portalen
 
-Distribuera ett lagringskonto med hjälp av Azure-portalen kräver en aktiv Azure-prenumeration och åtkomst till en webbläsare. Du kan distribuera ett nytt lagringskonto i en ny eller befintlig resursgrupp. När du har skapat lagringskontot kan skapa du en blob-behållare eller filresurs med hjälp av portalen. Du kan skapa tabell och kö lagringsentiteter programmässigt. Mer information finns i [skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md).
+Distribuera ett lagringskonto med hjälp av Azure-portalen kräver en aktiv Azure-prenumeration och åtkomst till en webbläsare. Du kan distribuera ett nytt lagringskonto i en ny eller befintlig resursgrupp. När du har skapat lagringskontot kan skapa du en blob-behållare eller filresurs med hjälp av portalen. Du kan skapa tabell och kö lagringsentiteter programmässigt. Mer information finns i [Skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md).
 
 Förutom att distribuera ett lagringskonto från Azure-portalen kan distribuera du en Azure Resource Manager-mall från portalen. Detta distribuerar och konfigurerar alla resurser som definierats i mallen, inklusive eventuella lagringskonton. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure-portalen](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 

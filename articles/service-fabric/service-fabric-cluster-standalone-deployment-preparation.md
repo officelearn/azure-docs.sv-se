@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 7357577ea7aff467288578673110b1a6dda7ccef
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: c505feb20321d785a86cad0422470aa5c9a4311b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391055"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259096"
 ---
 <a id="preparemachines"></a>
 
@@ -74,7 +74,7 @@ Här är några rekommenderade specifikationer för varje dator som du vill läg
 Klusteradministratören som distribuerar och konfigurerar klustret måste ha [administratörsbehörighet](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) på varje dator. Du kan inte installera Service Fabric på en domänkontrollant.
 
 ## <a name="download-the-service-fabric-standalone-package-for-windows-server"></a>Ladda ned det fristående paketet för Service Fabric för Windows Server
-[Hämta länk - Service Fabric fristående Package - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) och packa upp paketet till en dator för distribution som inte ingår i klustret eller till en av de datorer som ska ingå i klustret.
+[Hämta länk - Service Fabric fristående Package - Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690) och packa upp paketet till en dator för distribution som inte ingår i klustret eller till en av de datorer som ska ingå i klustret.
 
 ## <a name="modify-cluster-configuration"></a>Ändra klusterkonfiguration
 Om du vill skapa ett fristående kluster som du behöver skapa en fristående kluster ClusterConfig.json konfigurationsfil, som beskriver specifikation av klustret. Du kan basera konfigurationsfilen om mallar finns i länken nedan. <br>

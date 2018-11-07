@@ -3,7 +3,7 @@ title: OS-Uppdateringsversion i Azure Security Center | Microsoft Docs
 description: Den här artikeln visar hur du implementerar Azure Security Center-rekommendationen **uppdatera OS-version**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: aa372492-ecdb-4368-8fdd-d8ed31e216ee
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
-ms.author: terrylan
-ms.openlocfilehash: cab773412005093f8acabe9bd6e93e8740b14ece
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 1898926e0488722d18a105697bead18e29e6a35d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298414"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254901"
 ---
 # <a name="update-os-version-in-azure-security-center"></a>Uppdatera OS-version i Azure Security Center
 För virtuella datorer (VM) i cloud services rekommenderar Azure Security Center att operativsystemet (OS) uppdateras om det finns en nyare version tillgänglig.  Endast molntjänster web och worker-roller som körs i produktionsmiljön fack övervakas.
@@ -49,7 +49,7 @@ I följande avsnitt kan du lära dig mer om Security Center:
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Här får du lära dig hur du övervakar dina partnerlösningars hälsostatus.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
-* [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – senaste nytt i Azure-säkerhet och information.
+* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) – senaste nytt i Azure-säkerhet och information.
 
 <!--Image references-->
 [1]: ./media/security-center-update-os-version/update-os-version.png

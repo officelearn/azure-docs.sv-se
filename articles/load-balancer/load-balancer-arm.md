@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: f972495fe1a5a0744cf6d7046b555349e5bc8c54
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 9d11a34c499029550de12e8a47f7de0b1beac7b6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416434"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235045"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Med stöd för Azure Resource Manager med Azure-belastningsutjämnare
 
@@ -50,9 +50,9 @@ Snabbstartsmallar som använder Azure Load Balancer, finns det [GitHub-lagringsp
 
 Exempel på mallar:
 
-* [2 virtuella datorer i Load Balancer och belastningsutjämningsregler](http://go.microsoft.com/fwlink/?LinkId=544799)
-* [2 virtuella datorer i ett virtuellt nätverk med en intern belastningsutjämnare och Load Balancer-regler](http://go.microsoft.com/fwlink/?LinkId=544800)
-* [2 virtuella datorer i en belastningsutjämnare och konfigurera NAT-regler på LB](http://go.microsoft.com/fwlink/?LinkId=544801)
+* [2 virtuella datorer i Load Balancer och belastningsutjämningsregler](https://go.microsoft.com/fwlink/?LinkId=544799)
+* [2 virtuella datorer i ett virtuellt nätverk med en intern belastningsutjämnare och Load Balancer-regler](https://go.microsoft.com/fwlink/?LinkId=544800)
+* [2 virtuella datorer i en belastningsutjämnare och konfigurera NAT-regler på LB](https://go.microsoft.com/fwlink/?LinkId=544801)
 
 ## <a name="setting-up-azure-load-balancer-with-a-powershell-or-cli"></a>Konfigurera Azure Load Balancer med en PowerShell eller CLI
 

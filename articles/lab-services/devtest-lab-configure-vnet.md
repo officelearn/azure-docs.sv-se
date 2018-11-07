@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 0141ea8a88c0322e6f56cbea56d3a43c923769af
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8fb3b4ac748fcae2e3aad5b3bfb2a893340dc61a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38687796"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256144"
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Konfigurera ett virtuellt nätverk i Azure DevTest Labs
 Enligt beskrivningen i artikeln [lägga till en virtuell dator i en labb](devtest-lab-add-vm.md), när du skapar en virtuell dator i ett labb, du kan ange ett virtuellt nätverk som är konfigurerade. Du kan behöva åtkomst till företagsnätets resurser från dina virtuella datorer med hjälp av det virtuella nätverk som har konfigurerats med ExpressRoute eller VPN för plats-till-plats.
@@ -29,7 +29,7 @@ Den här artikeln förklarar hur du lägger till det befintliga virtuella nätve
 ## <a name="configure-a-virtual-network-for-a-lab-using-the-azure-portal"></a>Konfigurera ett virtuellt nätverk för ett labb med hjälp av Azure portal
 I följande steg vägleder dig genom att lägga till ett befintligt virtuellt nätverk och undernät som ett labb så att den kan användas när du skapar en virtuell dator i samma labbet. 
 
-1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Välj **alla tjänster**, och välj sedan **DevTest Labs** i listan.
 1. Listan över labbar, Välj önskade labbet. 
 1. På den testmiljön huvudfönstret väljer **konfiguration och principer**.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 93b79b7adacdec18912d28bb9725e2dc77737d59
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 2190978b2583b2f5d8a1b10431c65fd24fe6842d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050771"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228155"
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>Uppgradera fristående Azure Service Fabric-kluster på Windows Server 
 > [!div class="op_single_selector"]
@@ -43,9 +43,9 @@ Du kan uppgradera klustret till den nya versionen bara om du använder en nodkon
 Två olika arbetsflöden kan uppgradera klustret till den senaste versionen eller en Service Fabric-version som stöds. Ett arbetsflöde är för kluster som är ansluten till den senaste versionen automatiskt. Andra arbetsflödet är för kluster som inte har någon anslutning till att hämta den senaste versionen av Service Fabric.
 
 ### <a name="upgrade-clusters-that-have-connectivity-to-download-the-latest-code-and-configuration"></a>Uppgradera kluster som har anslutning att hämta senaste kod och konfiguration
-Följ dessa steg för att uppgradera klustret till en version som stöds om klusternoderna är anslutna till internet till den [Microsoft Download Center](http://download.microsoft.com).
+Följ dessa steg för att uppgradera klustret till en version som stöds om klusternoderna är anslutna till internet till den [Microsoft Download Center](https://download.microsoft.com).
 
-För kluster som är ansluten till den [Microsoft Download Center](http://download.microsoft.com), Microsoft söker regelbundet efter tillgängligheten för nya Service Fabric-versioner.
+För kluster som är ansluten till den [Microsoft Download Center](https://download.microsoft.com), Microsoft söker regelbundet efter tillgängligheten för nya Service Fabric-versioner.
 
 När en ny Service Fabric-version är tillgänglig, har paketet laddat ned lokalt till klustret och etableras för uppgradering. Dessutom visar systemet för att informera kunden om den nya versionen, en explicit kluster hälsotillstånd varning som liknar följande:
 
@@ -106,7 +106,7 @@ När klustret hälsotillstånd varning visas gör du följande:
     När du har åtgärdat problemen som resulterade i återställningen kan du initiera uppgraderingen igen genom att följa samma steg som tidigare beskrivna.
 
 ### <a name="upgrade-clusters-that-have-no-connectivity-to-download-the-latest-code-and-configuration"></a>Uppgradera kluster som har *ingen anslutning* att ladda ned den senaste kod och konfiguration
-Följ dessa steg för att uppgradera klustret till en version som stöds om klusternoderna inte har Internetanslutning för att den [Microsoft Download Center](http://download.microsoft.com).
+Följ dessa steg för att uppgradera klustret till en version som stöds om klusternoderna inte har Internetanslutning för att den [Microsoft Download Center](https://download.microsoft.com).
 
 > [!NOTE]
 > Om du kör ett kluster som inte är ansluten till internet, måste du övervaka Service Fabric-teamets blogg vill veta mer om nya versioner. Systemet visar inte en varning visas hälsotillstånd kluster för att varna dig om nya versioner.  

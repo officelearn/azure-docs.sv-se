@@ -7,24 +7,24 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/27/2017
-ms.author: maxluk
-ms.openlocfilehash: 434b3ecf65aaa5ecea81f5a9773f1bc6e8f6f2be
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: arindamc
+ms.openlocfilehash: 727ecdb06f9a43bf3722f82fa10b7a3304cf4958
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092335"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255310"
 ---
 # <a name="monitor-cluster-performance"></a>Övervaka klusterprestanda
 
-Övervaka hälsotillstånd och prestanda för ett HDInsight-kluster är viktigt för att upprätthålla högsta prestanda och användning av resurser. Övervakning kan du också adress möjliga kodning eller konfigurationsfel i klustret.
+Övervaka hälsotillstånd och prestanda för ett HDInsight-kluster är viktigt för att upprätthålla optimala prestanda och användning av resurser. Övervakning kan också hjälpa dig att identifiera och åtgärda konfigurationsfel för klustret och kodfel för användaren.
 
-I följande avsnitt beskrivs hur du optimerar klustret läser in, YARN kö effektivitet och lagring hjälpmedel.
+I följande avsnitt beskrivs hur du övervakar och optimerar belastningen på dina kluster, YARN-köer och identifiera begränsning lagringsproblem.
 
-## <a name="cluster-loading"></a>Inläsning av kluster
+## <a name="monitor-cluster-load"></a>Övervaka kluster belastning
 
-Hadoop-kluster ska stämma överens läser in noder i klustret. Den här belastningsutjämning förhindrar bearbetningsaktiviteter begränsas av RAM-minne, CPU eller diskresurser.
+Hadoop-kluster kan leverera bästa möjliga prestanda när belastningen på klustret är jämnt fördelat över alla noder. På så sätt kan de bearbetningsuppgifter som ska köras utan begränsas av RAM-minne, CPU eller diskresurserna för enskilda noder.
 
 Om du vill titta på hög nivå på noderna i klustret och deras läser in, logga in på den [Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md)och välj sedan den **värdar** fliken. Dina värdar anges med sina fullständiga domännamn. Varje opererar värdstatus visas som en indikator för färgade hälsotillstånd:
 
@@ -47,11 +47,11 @@ Se [hantera HDInsight-kluster med hjälp av Ambari-Webbgränssnittet](hdinsight-
 
 ## <a name="yarn-queue-configuration"></a>Konfiguration för YARN-kö
 
-Hadoop har olika tjänster som körs i en distribuerad plattform. YARN (ännu en annan Resource Negotiator) samordnar dessa tjänster, allokerar klusterresurser och hanterar åtkomst till en gemensam uppsättning data.
+Hadoop har olika tjänster som körs i en distribuerad plattform. YARN (ännu en annan Resource Negotiator) samordnar de här tjänsterna och allokerar klusterresurser för att säkerställa att all belastning är jämnt fördelat över klustret.
 
-YARN delar in två ansvaret för JobTracker, resurshantering och schemaläggning/övervakning,-jobb i två daemons: en global ResourceManager och en programspecifika ApplicationMaster (AM).
+YARN delar in två ansvaret för JobTracker, resurshantering och schemaläggning/övervakning,-jobb i två daemons: en global Resource Manager och en programspecifika ApplicationMaster (AM).
 
-ResourceManager är en *ren scheduler*, och endast hanterar tillgängliga resurser mellan alla konkurrerande program. ResourceManager säkerställer att alla resurser som alltid är i användning, optimering för olika konstanter, till exempel serviceavtal, garantier för kapacitet och så vidare. ApplicationMaster förhandlar resurser från ResourceManager och fungerar med NodeManager(s) att köra och övervaka behållarna och deras resursförbrukning.
+Resource Manager är en *ren scheduler*, och endast hanterar tillgängliga resurser mellan alla konkurrerande program. Resource Manager ser till att alla resurser som alltid är i användning, optimering för olika konstanter, till exempel serviceavtal, garantier för kapacitet och så vidare. ApplicationMaster förhandlar resurser från Resource Manager och fungerar med NodeManager(s) att köra och övervaka behållarna och deras resursförbrukning.
 
 När flera klienter delar ett stort kluster, finns konkurrens om klustrets resurser. CapacityScheduler är en modulär scheduler som hjälper dig att resursdelning av jobbköer upp begäranden. Det stöder också CapacityScheduler *hierarkiska köer* att säkerställa att resurser som delas mellan de underordnade köerna för en organisation, innan andra program köer har tillåtelse att använda kostnadsfria resurser.
 
@@ -63,13 +63,13 @@ YARN köhanteraren sidan visar en lista över dina köer till vänster, tillsamm
 
 ![YARN köhanteraren informationssida](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png)
 
-För mer detaljerad information om din köer från Ambari-instrumentpanelen väljer du den **YARN** tjänsten från listan till vänster. Sedan under den **snabblänkar** listmenyn, väljer **ResourceManager UI** under din aktiva noden.
+För mer detaljerad information om din köer från Ambari-instrumentpanelen väljer du den **YARN** tjänsten från listan till vänster. Sedan under den **snabblänkar** listmenyn, väljer **Resource Manager UI** under din aktiva noden.
 
-![ResourceManager UI menyn länk](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+![Länk för Resource Manager UI-menyn](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
-Välj i ResourceManager UI, **Scheduler** på den vänstra menyn. Du ser en lista över dina köer under *köar programmet*. Här kan du se den kapacitet som används för var och en av dina köer, hur väl jobb som är fördelade mellan dem, och om alla jobb är begränsad av resursen.
+Välj i Resource Manager-UI **Scheduler** på den vänstra menyn. Du ser en lista över dina köer under *köar programmet*. Här kan du se den kapacitet som används för var och en av dina köer, hur väl jobb som är fördelade mellan dem, och om alla jobb är begränsad av resursen.
 
-![ResourceManager UI menyn länk](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
+![Länk för Resource Manager UI-menyn](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
 
 ## <a name="storage-throttling"></a>Begränsning av lagring
 

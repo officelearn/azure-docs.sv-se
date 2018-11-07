@@ -3,7 +3,7 @@ title: Begränsa åtkomst via Internet-riktade slutpunkter i Azure Security Cent
 description: Det här dokumentet visar hur du implementerar Azure Security Center-rekommendationen **begränsa åtkomst via slutpunkt mot Internet**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 727d88c9-163b-4ea0-a4ce-3be43686599f
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
-ms.author: terrylan
-ms.openlocfilehash: 0b7de1f63f765705a78535ae04c1b844e06c029c
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 8e404651fa315f630ff190c9e70ccdd3eec7f117
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301165"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230010"
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Begränsa åtkomst via Internet-riktade slutpunkter i Azure Security Center
 Azure Security Center rekommenderar att du begränsar åtkomst via Internet-riktade slutpunkter om någon av dina Nätverkssäkerhetsgrupper (NSG) har en eller flera inkommande regler som tillåter åtkomst från ”alla” källans IP-adress. Öppna åtkomst till ”alla” kan angripare får tillgång till dina resurser. Security Center rekommenderar att du redigerar dessa regler för inkommande trafik för att begränsa åtkomsten till källans IP-adresser som faktiskt behöver åtkomst.
@@ -66,7 +66,7 @@ I följande avsnitt kan du lära dig mer om Security Center:
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md): Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Här får du lära dig hur övervakar dina partnerlösningars hälsostatus.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md): Här finns vanliga frågor om tjänsten.
-* [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – Här kan du hitta de senaste nyheterna och aktuell information om säkerheten i Azure .
+* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) – Här kan du hitta de senaste nyheterna och aktuell information om säkerheten i Azure .
 
 <!--Image references-->
 [1]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/restrict-access-thru-internet-facing-endpoint.png

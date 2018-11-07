@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: a61f3572037b1c62ea5ed4e0ac4496b057e2b96d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 7ead955be3835f4ce3e602fe27a06c00d014195c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249059"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262207"
 ---
 # <a name="azure-database-security-overview"></a>Översikt över Azure database-säkerhet
 
@@ -35,7 +35,7 @@ Microsoft tillhandahåller ytterligare sätt att kryptera företagsdata:
 
 Azure SQL Database-granskning kan företag post i en granskningslogg händelselogg i Azure Storage. SQL Database Auditing är integrerat med Microsoft Power BI för att underlätta ingående rapporter och analyser.
 
-Azure SQL-databaser kan skyddas nära för att du uppfyller de flesta juridiska eller säkerhetskrav, inklusive HIPAA, ISO 27001/27002 och PCI DSS Level 1. En aktuell lista över security efterlevnadscertifieringar är tillgänglig på den [Microsoft Azure Trust Center plats](http://azure.microsoft.com/support/trust-center/services/).
+Azure SQL-databaser kan skyddas nära för att du uppfyller de flesta juridiska eller säkerhetskrav, inklusive HIPAA, ISO 27001/27002 och PCI DSS Level 1. En aktuell lista över security efterlevnadscertifieringar är tillgänglig på den [Microsoft Azure Trust Center plats](https://azure.microsoft.com/support/trust-center/services/).
 
 Den här artikeln beskriver grunderna för att skydda Microsoft Azure SQL-databaser för strukturerade, tabular och relationella data. Den här artikeln i synnerhet, hjälper dig att komma igång med resurser för att skydda data, kontrollera åtkomst och proaktiv övervakning.
 
@@ -44,7 +44,7 @@ Den här artikeln beskriver grunderna för att skydda Microsoft Azure SQL-databa
 SQL Database skyddar dina data genom att tillhandahålla kryptering:
 
 - För data i rörelse via [Transport Layer Security (TLS)](https://support.microsoft.com/kb/3135244).
-- För data i vila med [transparent datakryptering](http://go.microsoft.com/fwlink/?LinkId=526242).
+- För data i vila med [transparent datakryptering](https://go.microsoft.com/fwlink/?LinkId=526242).
 - För data som används via [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx).
 
 För andra sätt att kryptera dina data, kan du överväga:

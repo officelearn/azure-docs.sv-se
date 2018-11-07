@@ -10,22 +10,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: a805294ecb416d18f3ce13981d26a7d25cd5a204
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 3e724301d235db49ab9332dedc877d7315460ecc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432859"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256178"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Prestandatips för Azure Cosmos DB och .NET
 
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
-> * [.NET](performance-tips.md)
+> * [NET](performance-tips.md)
 > 
 
-Azure Cosmos DB är en snabb och flexibel distribuerad databas som kan skalas sömlöst med garanterad svarstid och dataflöde. Du behöver inte göra ändringar i större arkitekturen eller skriva komplex kod för att skala din databas med Azure Cosmos DB. Skala upp och ned är lika enkelt som att göra en enda API-anrop eller [SDK-anrop](set-throughput.md#set-throughput-sdk). Eftersom Azure Cosmos DB nås via nätverksanrop det finns dock klientsidan optimeringar som du kan göra för att uppnå högsta prestanda när du använder den [SQL .NET SDK](documentdb-sdk-dotnet.md).
+Azure Cosmos DB är en snabb och flexibel distribuerad databas som kan skalas sömlöst med garanterad svarstid och dataflöde. Du behöver inte göra ändringar i större arkitekturen eller skriva komplex kod för att skala din databas med Azure Cosmos DB. Skala upp och ned är lika enkelt som att göra en enda API-anrop. Mer information finns i [hur du etablerar dataflöden i behållare](how-to-provision-container-throughput.md) eller [hur du etablerar databasen dataflöde](how-to-provision-database-throughput.md). Eftersom Azure Cosmos DB nås via nätverksanrop det finns dock klientsidan optimeringar som du kan göra för att uppnå högsta prestanda när du använder den [SQL .NET SDK](documentdb-sdk-dotnet.md).
 
 Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg följande alternativ:
 
@@ -118,7 +118,7 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
     Minska frekvensen för skräpinsamling kan hjälpa att i vissa fall. I .NET, ställer du in [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) till true.
 6. **Implementera backoff med RetryAfter intervall**
 
-    Prestandatester, bör du öka belastningen tills en liten andel begäranden begränsas. Om prestandan för bör klientprogrammet backoff på begränsning för server angiven återförsöksintervallet. Följer backoff säkerställer att du ägnar kortast möjliga tid att vänta mellan försöken. Återförsök princip support ingår i versionen 1.8.0 och senare av SQL [.NET](sql-api-sdk-dotnet.md) och [Java](sql-api-sdk-java.md), version 1.9.0 och högre av de [Node.js](sql-api-sdk-node.md) och [Python](sql-api-sdk-python.md), och alla versioner av stöds i [.NET Core](sql-api-sdk-dotnet-core.md) SDK: er. Mer information finns i [Exceeding reserverade dataflödesbegränsningar](request-units.md#RequestRateTooLarge) och [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    Prestandatester, bör du öka belastningen tills en liten andel begäranden begränsas. Om prestandan för bör klientprogrammet backoff på begränsning för server angiven återförsöksintervallet. Följer backoff säkerställer att du ägnar kortast möjliga tid att vänta mellan försöken. Återförsök princip support ingår i versionen 1.8.0 och senare av SQL [.NET](sql-api-sdk-dotnet.md) och [Java](sql-api-sdk-java.md), version 1.9.0 och högre av de [Node.js](sql-api-sdk-node.md) och [Python](sql-api-sdk-python.md), och alla versioner av stöds i [.NET Core](sql-api-sdk-dotnet-core.md) SDK: er. Mer information [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
     
     Med version 1.19 och senare av .NET SDK finns en mekanism för att logga in ytterligare diagnostikinformation och felsöka svarstidsproblem enligt följande exempel. Du kan logga diagnostiska strängen för begäranden som har en högre lässvarstid. Hämtade diagnostiska strängen hjälper dig att förstå hur många gånger som du såg 429s för en viss begäran.
     ```csharp
@@ -159,7 +159,7 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
 
     - För ASP.NET-webbprogram distribueras på Azure, detta kan göras genom att välja den **plattform som 64-bitars** i den **programinställningar** på Azure portal.
 
-## <a name="indexing-policy"></a>Indexeringspolicy
+## <a name="indexing-policy"></a>Indexeringsprincip
  
 1. **Undanta oanvända sökvägar från indexering för snabbare skrivningar**
 

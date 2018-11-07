@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/25/2018
 ms.author: saurse
-ms.openlocfilehash: 2c8978cfba8fc56d4dbc565cb3a91c75d9d54679
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 168f8f859e04f9acf20f81d84edf4945c04a9f09
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700203"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249225"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent-issues"></a>Felsöka problem med agentens för Microsoft Azure Recovery Services (MARS)
 ## <a name="recommended-steps"></a>Rekommenderade åtgärder
@@ -40,13 +40,13 @@ I den här artikeln för att lösa fel under konfigurationen, registrering, säk
 
 | Felinformation | Möjliga orsaker | Rekommenderade åtgärder |
 |---------|---------|---------|
-|**Fel** </br><ol>*Aktiveringen slutfördes inte. Den aktuella åtgärden misslyckades på grund av ett internt tjänstfel [0x1FC07]. Försök igen efter en stund. Kontakta Microsoft-supporten om problemet kvarstår*     | <li> Den temporära mappen finns på en volym som har inte tillräckligt med utrymme. <li> Den temporära mappen har felaktigt flyttats till en annan plats. <li> Filen OnlineBackup.KEK saknas.         | <li>Uppgradera till den [senaste versionen](http://aka.ms/azurebackup_agent) av MARS-agenten.<li>Flytta den tillfälliga mapp eller cache-platsen till en volym med ledigt utrymme som motsvarar 5 – 10% av den totala mängden säkerhetskopierade data. Om du vill flytta cacheplatsen, läser du anvisningarna i [frågor om Azure Backup-agenten](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Kontrollera att filen OnlineBackup.KEK finns. <br>*Standardplatsen för den temporära mappen eller sökvägen till cache är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
+|**Fel** </br><ol>*Aktiveringen slutfördes inte. Den aktuella åtgärden misslyckades på grund av ett internt tjänstfel [0x1FC07]. Försök igen efter en stund. Kontakta Microsoft-supporten om problemet kvarstår*     | <li> Den temporära mappen finns på en volym som har inte tillräckligt med utrymme. <li> Den temporära mappen har felaktigt flyttats till en annan plats. <li> Filen OnlineBackup.KEK saknas.         | <li>Uppgradera till den [senaste versionen](https://aka.ms/azurebackup_agent) av MARS-agenten.<li>Flytta den tillfälliga mapp eller cache-platsen till en volym med ledigt utrymme som motsvarar 5 – 10% av den totala mängden säkerhetskopierade data. Om du vill flytta cacheplatsen, läser du anvisningarna i [frågor om Azure Backup-agenten](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Kontrollera att filen OnlineBackup.KEK finns. <br>*Standardplatsen för den temporära mappen eller sökvägen till cache är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
-## <a name="error-34506-the-encryption-passphrase-stored-on-this-computer-is-not-correctly-configured"></a>Fel vid 34506. Krypteringslösenfrasen lagras på den här datorn är inte korrekt konfigurerad
+## <a name="error-34506-the-encryption-passphrase-stored-on-this-computer-is-not-correctly-configured"></a>Fel vid 34506. Den krypterade lösenfrasen som sparats på den här datorn är inte korrekt konfigurerad
 
 | Felinformation | Möjliga orsaker | Rekommenderade åtgärder |
 |---------|---------|---------|
-|**Fel** </br><ol>*Fel vid 34506. Krypteringslösenfrasen lagras på den här datorn är inte korrekt konfigurerad*.    | <li> Den temporära mappen finns på en volym som har inte tillräckligt med utrymme. <li> Den temporära mappen har felaktigt flyttats till en annan plats. <li> Filen OnlineBackup.KEK saknas.        | <li>Uppgradera till den [senaste versionen](http://aka.ms/azurebackup_agent) av MARS-agenten.<li>Flytta den temporära mappen eller cacheplatsen till en volym med ledigt utrymme som motsvarar 5 – 10% av den totala mängden säkerhetskopierade data. Om du vill flytta cacheplatsen, läser du anvisningarna i [frågor om Azure Backup-agenten](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Kontrollera att filen OnlineBackup.KEK finns. <br>*Standardplatsen för den temporära mappen eller sökvägen till cache är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
+|**Fel** </br><ol>*Fel vid 34506. Krypteringslösenfrasen lagras på den här datorn är inte korrekt konfigurerad*.    | <li> Den temporära mappen finns på en volym som har inte tillräckligt med utrymme. <li> Den temporära mappen har felaktigt flyttats till en annan plats. <li> Filen OnlineBackup.KEK saknas.        | <li>Uppgradera till den [senaste versionen](https://aka.ms/azurebackup_agent) av MARS-agenten.<li>Flytta den temporära mappen eller cacheplatsen till en volym med ledigt utrymme som motsvarar 5 – 10% av den totala mängden säkerhetskopierade data. Om du vill flytta cacheplatsen, läser du anvisningarna i [frågor om Azure Backup-agenten](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Kontrollera att filen OnlineBackup.KEK finns. <br>*Standardplatsen för den temporära mappen eller sökvägen till cache är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
 
 ## <a name="backups-do-not-run-as-per-schedule"></a>Säkerhetskopieringar kör inte enligt schema
 Utför följande steg när schemalagda säkerhetskopieringar hämta inte aktiveras automatiskt, även om manuella säkerhetskopieringar fungera utan problem. 

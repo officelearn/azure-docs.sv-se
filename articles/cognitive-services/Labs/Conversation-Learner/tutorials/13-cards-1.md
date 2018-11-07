@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 988a2433f098f41bca4796299825293efd4de44b
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: da261beeec4f02dfa7c7cf9071e51dc17cf5c7cd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171149"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254391"
 ---
 # <a name="how-to-use-cards-part-1-of-2"></a>Hur du använder kort (del 1 av 2)
 
@@ -26,7 +26,7 @@ Den här självstudiekursen visar hur du lägger till och använda ett enkelt ko
 
 ## <a name="video"></a>Video
 
-[![Förhandsversion av självstudien 13](http://aka.ms/cl-tutorial-13-preview)](http://aka.ms/blis-tutorial-13)
+[![Förhandsversion av självstudien 13](https://aka.ms/cl-tutorial-13-preview)](https://aka.ms/blis-tutorial-13)
 
 ## <a name="requirements"></a>Krav
 Den här självstudien krävs att Allmänt självstudiekursen bot körs

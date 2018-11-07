@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c94fd0bb68a03c64935c20fef1fab7b68c9c2c9b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 83820440a6304886785a175b27614b45fdb98b13
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032996"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252232"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuera en Windows Hybrid Runbook Worker
 
@@ -132,7 +132,7 @@ Använd för att få detaljerad information om installationen av den **-utförli
 
 Runbooks kan använda någon av de aktiviteter och cmdlet: ar som definierats i de moduler som är installerade i din miljö för Azure Automation. Dessa moduler distribueras inte automatiskt till den lokala datorer, så du måste installera dem manuellt. Undantaget är Azure-modulen som installeras som standard och tillhandahåller åtkomst till cmdletar för alla Azure-tjänster och aktiviteter för Azure Automation.
 
-Eftersom det huvudsakliga syftet med funktionen Hybrid Runbook Worker är att hantera lokala resurser, måste du troligen att installera modulerna som har stöd för dessa resurser. Information om hur du installerar Windows PowerShell-moduler finns i [installerar moduler](http://msdn.microsoft.com/library/dd878350.aspx). 
+Eftersom det huvudsakliga syftet med funktionen Hybrid Runbook Worker är att hantera lokala resurser, måste du troligen att installera modulerna som har stöd för dessa resurser. Information om hur du installerar Windows PowerShell-moduler finns i [installerar moduler](https://msdn.microsoft.com/library/dd878350.aspx). 
 
 Moduler som är installerade måste finnas på en plats som refererar till den **PSModulePath** miljövariabeln så att hybrid worker automatiskt kan importera dem. Mer information finns i [ändra installationssökvägen PSModulePath](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx).
 

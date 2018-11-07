@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 27bec2b7fa53e7564841e6f89be7e4d81a9b9f1a
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: a0d543ebe435b616306690bfb5e3de63ecc1ff6c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913044"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259130"
 ---
 # <a name="views-in-management-solutions-preview"></a>Vyer i lösningar för hantering (förhandsversion)
 > [!NOTE]
@@ -90,7 +90,7 @@ Observera att du kan kopiera hela vyn resursen från den exporterade visa filen,
 * Variabler ska definieras i lösningen och används i egenskaperna.
 
 ### <a name="log-analytics-api-version"></a>Log Analytics-API-version
-Alla Log Analytics-resurser som definierats i en Resource Manager-mallen har en egenskap **apiVersion** som definierar versionen av API: et som resursen ska använda.  Den här versionen är olika för vyer med frågor som använder den [äldre system och det uppgraderade frågespråket](../log-analytics/log-analytics-log-search.md).  
+Alla Log Analytics-resurser som definierats i en Resource Manager-mallen har en egenskap **apiVersion** som definierar versionen av API: et som resursen ska använda.  Den här versionen är olika för vyer med frågor som använder den [äldre system och det uppgraderade frågespråket](../log-analytics/log-analytics-queries.md).  
 
  I följande tabell anger Log Analytics API-versioner för vyer i äldre och uppgraderade arbetsytor: 
 

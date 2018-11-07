@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.component: tables
-ms.openlocfilehash: 783522997a752c4eac575316983bc6ef853c3f43
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c5b18bce9d0cf78569d0c2fa02ad14c96ad09bd1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526920"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237782"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Utforma skalbara och högpresterande tabeller
 
@@ -121,7 +121,7 @@ I följande exempel visar en enkel tabelldesign för att lagra anställda och av
 </table>
 
 
-Dessa data visas hittills liknar en tabell i en relationsdatabas med de viktigaste skillnaderna är de obligatoriska kolumnerna och möjlighet att lagra flera typer av enheter i samma tabell. Dessutom var och en av de användardefinierade egenskaperna som **FirstName** eller **ålder** har en datatyp som heltal eller ett strängvärde, precis som en kolumn i en relationsdatabas. Men till skillnad från i en relationsdatabas, Table service utan schema natur innebär att en egenskap inte behöver ha samma datatyp för varje entitet. För att lagra komplexa datatyper i en enskild egenskap, måste du använda ett serialiserade format som JSON eller XML. Läs mer om tabelldatatyper för tjänsten som stöds, stöds datumintervall, namngivningsregler och begränsningar för storlek, [förstå den tabelltjänst-datamodellen](http://msdn.microsoft.com/library/azure/dd179338.aspx).
+Dessa data visas hittills liknar en tabell i en relationsdatabas med de viktigaste skillnaderna är de obligatoriska kolumnerna och möjlighet att lagra flera typer av enheter i samma tabell. Dessutom var och en av de användardefinierade egenskaperna som **FirstName** eller **ålder** har en datatyp som heltal eller ett strängvärde, precis som en kolumn i en relationsdatabas. Men till skillnad från i en relationsdatabas, Table service utan schema natur innebär att en egenskap inte behöver ha samma datatyp för varje entitet. För att lagra komplexa datatyper i en enskild egenskap, måste du använda ett serialiserade format som JSON eller XML. Läs mer om tabelldatatyper för tjänsten som stöds, stöds datumintervall, namngivningsregler och begränsningar för storlek, [förstå den tabelltjänst-datamodellen](https://msdn.microsoft.com/library/azure/dd179338.aspx).
 
 Ditt val av **PartitionKey** och **RowKey** är nyckeln till bra tabelldesign. Alla entiteter som lagras i en tabell måste ha en unik kombination av **PartitionKey** och **RowKey**. Precis som med nycklar i en relationsdatabas-tabell, den **PartitionKey** och **RowKey** värden indexeras för att skapa ett grupperat index om du vill aktivera snabb look-ups. Dock tabelltjänsten skapar inte sekundära index, så **PartitionKey** och **RowKey** är de enda indexerade egenskaperna. Några av de mönster som beskrivs i [tabell designmönster](table-storage-design-patterns.md) illustrerar hur du kan undvika den här tydligt begränsning.  
 
@@ -132,7 +132,7 @@ Kontonamn, tabell och **PartitionKey** tillsammans identifierar partitionen i la
 
 I Table service, en enskild nod tjänst eller mer Slutför partitioner och skalor för tjänsten genom att dynamiskt belastningsutjämning partitionerna mellan noder. Om en nod är under belastning, table service kan *dela* antal partitioner som underhålls av noden till andra noder; när trafik löst, kan tjänsten *merge* partitionsintervall från tyst noder tillbaka till en enda nod.  
 
-Mer information om de interna detaljerna för tabelltjänsten, särskilt hur tjänsten hanterar partitionerna, finns i dokumentet [Microsoft Azure Storage: A med hög Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+Mer information om de interna detaljerna för tabelltjänsten, särskilt hur tjänsten hanterar partitionerna, finns i dokumentet [Microsoft Azure Storage: A med hög Available Cloud Storage Service with Strong Consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
 
 ## <a name="entity-group-transactions"></a>Entitetsgrupptransaktioner
 I tabelltjänsten är Entitetsgrupptransaktioner (EGTs) bara inbyggd mekanism för att utföra atomiska uppdateringar i flera entiteter. EGTs ibland även kallas *batch transaktioner*. EGTs kan endast användas på entiteter som lagras i samma partition (det vill säga dela samma partitionsnyckel i en viss tabell). Så varje gång du behöver atomiska transaktionella beteende i flera entiteter kan du se till att dessa enheter finns i samma partition. Det här är ofta en orsak till att hålla flera typer av enheter i samma tabell (och partition) och inte använder flera tabeller för olika enhetstyper. En enda EGT tillämpas på högst 100 entiteter.  Om du skickar in flera samtidiga EGTs för bearbetning, är det viktigt att se till att dessa EGTs inte fungerar på entiteter som är gemensamma för EGTs; i annat fall kan bearbetning fördröjas.
@@ -152,7 +152,7 @@ I följande tabell beskrivs några av nyckelvärden känna till när du utformar
 | Storleken på den **RowKey** |En sträng upp till 1 KB stora |
 | Storleken på en Entitetsgrupp-transaktion |En transaktion får innehålla högst 100 entiteter och nyttolasten måste vara mindre än 4 MB i storlek. En entitet kan bara uppdatera en gång i en EGT. |
 
-Mer information finns i [Understanding the Table Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx) (Så här fungerar datamodellen för Table Storage).  
+Mer information finns i [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx) (Så här fungerar datamodellen för Table Storage).  
 
 ## <a name="cost-considerations"></a>Kostnadsöverväganden
 Table storage är relativt prisvärda, men du bör innehålla kostnadsuppskattningar för både kapacitetsförbrukning och antalet transaktioner som en del av utvärderingen av valfri lösning för tabellen. I många fall kan är lagra Avnormaliserade eller duplicerade data för att förbättra prestanda och skalbarhet för din lösning dock en giltig metod. Mer information om priser finns i [priser för Azure Storage](https://azure.microsoft.com/pricing/details/storage/).  

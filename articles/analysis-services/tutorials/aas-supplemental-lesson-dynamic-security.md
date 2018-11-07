@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3a62440b9fe44dfed14cfd9887d4d3cc2e4dbb92
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6a0c4158b85a6bc6c9276eff19466fb742c6f442
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430246"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235934"
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>Kompletterande lektion – Dynamisk säkerhet
 
@@ -21,7 +21,7 @@ I den här kompletterande lektionen skapar du en ytterligare roll som implemente
   
 Om du vill implementera dynamisk säkerhet lägger du till en tabell i din modell som innehåller användarnamnen för de användare som ska kunna ansluta till modellen och visa modellobjekt och data. Modellen du skapar i den här självstudiekursen finns i kontexten för Adventure Works. Men för att slutföra den här lektionen måste du lägga till en tabell som innehåller användare från din egen domän. Du behöver inte lösenorden för användarnamnen som läggs till. För att skapa en EmployeeSecurity-tabell med ett litet antal användare från din egen domän använder du funktionen Klistra in och klistrar in data från ett Excel-kalkylblad. I ett verkligt scenario skulle tabellen som innehåller användarnamn vanligtvis vara en tabell från en faktisk databas som en datakälla, till exempel en verklig DimEmployee-tabell.  
   
-När du implementerar dynamisk säkerhet använder du två DAX-funktioner: [USERNAME (DAX)](http://msdn.microsoft.com/22dddc4b-1648-4c89-8c93-f1151162b93f) och [LOOKUPVALUE (DAX)](http://msdn.microsoft.com/73a51c4d-131c-4c33-a139-b1342d10caab). Dessa funktioner, som tillämpas i en radfilterformel, definieras i en ny roll. Med hjälp av funktionen LOOKUPVALUE anger formeln ett värde från tabellen EmployeeSecurity. Formeln skickar sedan att värdet till funktionen USERNAME som anger användarnamnet för den inloggade användaren som tillhör den här rollen. Användaren kan sedan endast visa de data som anges av rollens radfilter. I det här scenariot anger du att säljpersonal endast ska kunna visa information om Internetförsäljning för de försäljningsområden som de är medlem i.  
+När du implementerar dynamisk säkerhet använder du två DAX-funktioner: [USERNAME (DAX)](https://msdn.microsoft.com/22dddc4b-1648-4c89-8c93-f1151162b93f) och [LOOKUPVALUE (DAX)](https://msdn.microsoft.com/73a51c4d-131c-4c33-a139-b1342d10caab). Dessa funktioner, som tillämpas i en radfilterformel, definieras i en ny roll. Med hjälp av funktionen LOOKUPVALUE anger formeln ett värde från tabellen EmployeeSecurity. Formeln skickar sedan att värdet till funktionen USERNAME som anger användarnamnet för den inloggade användaren som tillhör den här rollen. Användaren kan sedan endast visa de data som anges av rollens radfilter. I det här scenariot anger du att säljpersonal endast ska kunna visa information om Internetförsäljning för de försäljningsområden som de är medlem i.  
   
 De aktiviteter som är unika för det här Adventure Works-tabellmodellscenariot, men som inte nödvändigtvis skulle gälla för ett verkligt scenario identifieras som sådana. Varje aktivitet innehåller ytterligare information som beskriver syftet med aktiviteten.  
   

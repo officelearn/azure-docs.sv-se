@@ -8,12 +8,12 @@ ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 9aaba38b7dc0cd2bf659c9d91c9d7660bd17a6dd
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: f08825c17c1ba61fc09edc1d8f2c226af8d4266f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409192"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231472"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Vanliga och frågor svar om Azure Data Catalog
 Den här artikeln innehåller svar på vanliga frågor som rör Azure Data Catalog-tjänsten.
@@ -99,7 +99,7 @@ Du kan ta bort ett objekt från Data Catalog genom att markera objektet i portal
 En expert är en person som har en välgrundade perspektiv om ett dataobjekt. Ett objekt kan ha flera experter. En expert behöver inte vara ”ägare” för ett objekt, men är helt enkelt någon som vet hur data kan och bör användas.
 
 ## <a name="how-do-i-share-information-with-the-data-catalog-team-if-i-encounter-problems"></a>Hur gör jag dela information med Data Catalog-teamet om jag får problem?
-Att rapportera problem, dela information och ställa frågor, gå till den [Azure Data Catalog-forumet](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Att rapportera problem, dela information och ställa frågor, gå till den [Azure Data Catalog-forumet](https://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## <a name="does-the-catalog-work-with-another-data-source-that-im-interested-in"></a>Fungerar katalogen med en annan datakälla som jag är intresserad av?
 Vi arbetar aktivt med att lägga till fler datakällor i Data Catalog. Om du vill se en särskild datakälla som stöds, föreslå den (eller röst support om det redan har föreslagits) genom att gå till den [datakatalog på Azure Feedback-forum](https://feedback.azure.com/forums/906052-data-catalog).
@@ -127,4 +127,4 @@ Välj dataresurser i Data Catalog och klicka sedan på den **bli ägare** knappe
 För att uppdatera metadata för datatillgångar som redan har registrerats i katalogen, bara Omregistrera den datakälla som innehåller tillgångarna. Alla ändringar i datakällan, t.ex. kolumner läggs till eller tas bort från tabeller eller vyer, uppdateras i katalogen, men alla kommentarer som tillhandahålls av användare bevaras.
 
 ## <a name="my-question-isnt-answered-here-where-can-i-go-for-answers"></a>Min fråga besvaras inte här. Var kan jag få svar?
-Gå till den [Azure Data Catalog-forumet](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Frågor och svar det kommer fram här.
+Gå till den [Azure Data Catalog-forumet](https://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Frågor och svar det kommer fram här.

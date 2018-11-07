@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: e563c7000b600bed917f42d8ffb87df883564ef8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 28c9e342aec3eb3ba61b46f4f80c7d097b0653b6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979336"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258722"
 ---
 # <a name="using-the-azure-classic-cli-with-azure-storage"></a>Använda den klassiska Azure CLI med Azure Storage
 
@@ -122,7 +122,7 @@ export AZURE_STORAGE_CONNECTION_STRING=<connection_string>
 ```
 
 ## <a name="create-and-manage-blobs"></a>Skapa och hantera BLOB-objekt
-Azure Blob storage är en tjänst för att lagra stora mängder Ostrukturerade data, exempelvis text eller binära data som kan nås från var som helst i världen via HTTP eller HTTPS. Det här avsnittet förutsätter att du redan är bekant med principerna för Azure Blob storage. Detaljerad information finns i [komma igång med Azure Blob storage med hjälp av .NET](../blobs/storage-dotnet-how-to-use-blobs.md) och [Blob Service-koncept](http://msdn.microsoft.com/library/azure/dd179376.aspx).
+Azure Blob storage är en tjänst för att lagra stora mängder Ostrukturerade data, exempelvis text eller binära data som kan nås från var som helst i världen via HTTP eller HTTPS. Det här avsnittet förutsätter att du redan är bekant med principerna för Azure Blob storage. Detaljerad information finns i [komma igång med Azure Blob storage med hjälp av .NET](../blobs/storage-dotnet-how-to-use-blobs.md) och [Blob Service-koncept](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ### <a name="create-a-container"></a>Skapa en container
 Varje blobb i Azure storage måste vara i en behållare. Du kan skapa en privat behållaren med hjälp av den `azure storage container create` kommando:
@@ -137,7 +137,7 @@ azure storage container create mycontainer
 >
 
 ### <a name="upload-a-blob-into-a-container"></a>Ladda upp en blob till en container
-Azure Blob Storage stöder blockblobbar och sidblobbar. Mer information finns i [förstå Blockblobbar, Tilläggsblobbar och Sidblobbar](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+Azure Blob Storage stöder blockblobbar och sidblobbar. Mer information finns i [förstå Blockblobbar, Tilläggsblobbar och Sidblobbar](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 Om du vill ladda upp blobar i en behållare, du kan använda den `azure storage blob upload`. Som standard överför lokala filer till en blockblob i det här kommandot. Om du vill ange typen för blobben som du kan använda den `--blobtype` parametern.
 

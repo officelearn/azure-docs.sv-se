@@ -9,11 +9,11 @@ ms.date: 04/14/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: 2eb7fb82b358d4ec8628bfa546b572ee3cbe47fa
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414741"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51208295"
 ---
 När du skapar en virtuell dator (VM), starta om Stoppad (frigjord) virtuella datorer eller ändra storlek på en virtuell dator, allokerar Microsoft Azure beräkningsresurser till din prenumeration. Vi kontinuerligt investera i ytterligare infrastruktur och vilka funktioner du vill se till att vi alltid har alla VM-typer för att stödja kundernas efterfrågan. Det kan ibland uppstå Allokeringsfel för resursen på grund av en oöverträffad ökad efterfrågan på Azure-tjänster i vissa regioner. Det här problemet kan uppstå när du försöker skapa eller starta virtuella datorer i en region medan de virtuella datorerna visas följande felkod och meddelandet:
 

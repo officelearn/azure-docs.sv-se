@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 3aca6e29f7701a09fa54e778da180a0ead55deb2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 253a50f50e94888a5d764e51a4ff49cc0c1424c6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240740"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253541"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Distribuera en tjänst för dela / sammanslå som flyttar data mellan shardade databaser
 
@@ -63,7 +63,7 @@ Detaljerade anvisningar om hur du konfigurerar säkerheten för tjänsten som av
 För en enkel test-distribution för den här självstudiekursen blir en minimal uppsättning konfigurationssteg utförs att tjänsten komma igång och körs. Dessa steg aktiverar endast en/datorkontot körs kan kommunicera med tjänsten.
 
 ### <a name="create-a-self-signed-certificate"></a>Skapa ett självsignerat certifikat
-Skapa en ny katalog och från den här katalogen kör du följande kommando med en [Kommandotolken för utvecklare för Visual Studio](http://msdn.microsoft.com/library/ms229859.aspx) fönster:
+Skapa en ny katalog och från den här katalogen kör du följande kommando med en [Kommandotolken för utvecklare för Visual Studio](https://msdn.microsoft.com/library/ms229859.aspx) fönster:
 
    ```
     makecert ^

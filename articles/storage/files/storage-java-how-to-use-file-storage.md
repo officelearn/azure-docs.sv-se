@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: aa63a31f7f84502a29aad6b38f454ea1080127e0
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8a5a71fada190939abf638cd1b681adff7e80970
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531317"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244550"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Utveckla för Azure Files med Java
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -231,6 +231,6 @@ Om du vill lära dig mer om API: er för andra Azure storage kan du följa dessa
 * [Azure Storage SDK för Android](https://github.com/azure/azure-storage-android)
 * [Azure Storage Client SDK-referens](http://dl.windowsazure.com/storage/javadoc/)
 * [REST-API för Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Azure Storage Teamblogg](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Azure Storage Teamblogg](https://blogs.msdn.com/b/windowsazurestorage/)
 * [Överföra data med kommandoradsverktyget AzCopy](../common/storage-use-azcopy.md)
 * [Felsökning av problem i Azure Files – Windows](storage-troubleshoot-windows-file-connection-problems.md)

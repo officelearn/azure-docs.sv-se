@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 3bdd3f4d67fcaae37736022c3c59af19eb04bec7
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 5aa998ef7af157f84a3985fdb458c2800f2575f4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036657"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249378"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Förbered en virtuell SLES- eller openSUSE-dator för Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
-Den här artikeln förutsätter att du redan har installerat en SUSE- eller openSUSE Linux-operativsystem till en virtuell hårddisk. Det finns flera olika verktyg för att skapa VHD-filer, till exempel en virtualiseringslösning, till exempel Hyper-V. Anvisningar finns i [installera Hyper-V-rollen och konfigurera en virtuell dator](http://technet.microsoft.com/library/hh846766.aspx).
+Den här artikeln förutsätter att du redan har installerat en SUSE- eller openSUSE Linux-operativsystem till en virtuell hårddisk. Det finns flera olika verktyg för att skapa VHD-filer, till exempel en virtualiseringslösning, till exempel Hyper-V. Anvisningar finns i [installera Hyper-V-rollen och konfigurera en virtuell dator](https://technet.microsoft.com/library/hh846766.aspx).
 
 ### <a name="sles--opensuse-installation-notes"></a>SLES / openSUSE installationsinformation
 * Se även [allmän information för Linux-Installation](create-upload-generic.md#general-linux-installation-notes) fler tips om hur du förbereder Linux för Azure.

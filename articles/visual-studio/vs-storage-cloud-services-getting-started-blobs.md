@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 076dc58876afbe309e75373a78f84a79951ec2b9
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: d7f832164a41c2107a2cb9fdca3530b1f5d785cb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056772"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253609"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Kom igång med Azure Blob Storage och Visual Studio-anslutna tjänster (cloud services-projekt)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
@@ -64,7 +64,7 @@ Om du vill komma åt blobar i molntjänstprojekt via programmering, måste du l�
 
 ## <a name="create-a-container-in-code"></a>Skapa en behållare i kod
 > [!NOTE]
-> Vissa API: er som utför anrop ut till Azure Storage i ASP.NET är asynkrona. Se [asynkron programmering med Async och Await](http://msdn.microsoft.com/library/hh191443.aspx) för mer information. Koden i följande exempel förutsätter att du använder async programmeringsmetoder.
+> Vissa API: er som utför anrop ut till Azure Storage i ASP.NET är asynkrona. Se [asynkron programmering med Async och Await](https://msdn.microsoft.com/library/hh191443.aspx) för mer information. Koden i följande exempel förutsätter att du använder async programmeringsmetoder.
 > 
 > 
 

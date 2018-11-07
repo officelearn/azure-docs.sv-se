@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 6c2f20f74ce90f2876ff4040d34a2ede94c92fb1
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d193cfcd03eb4e686ba829e121fbf77e2e0c18a6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577345"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233022"
 ---
 # <a name="grow-your-business-in-the-marketplace"></a>Utöka verksamheten på marketplace 
 När du har publicerat ditt erbjudande i Azure Marketplace eller AppSource, kan du använda din registrering som en startplats för gemensamma (GTM) go-to-market-aktiviteter med Microsoft. Kör trafik till dina Marketplace-erbjudande- och köpet Marketplace leads, till exempel är bra sätt att snabba upp din verksamhet att växa. 
@@ -229,7 +229,7 @@ Att marknadsföra ditt erbjudande eller en app och komma åt fler förmåner och
 
 | Fördelar | Resurser |
 |:--- |:--- |
-| Använd dina förmåner för kärnor | Som en del av Microsoft Partner Network får du en uppsättning viktiga fördelar med kan du spara tid och pengar. Fördelarna kan också hjälpa dig att stärka din funktioner, bättre kundservice och skapa anslutningar för att nå verksamheten fullständig potentiella.<br>Mer information om viktiga fördelar finns [viktiga fördelar och krav](http://partner.microsoft.com/membership/core-benefits). |
+| Använd dina förmåner för kärnor | Som en del av Microsoft Partner Network får du en uppsättning viktiga fördelar med kan du spara tid och pengar. Fördelarna kan också hjälpa dig att stärka din funktioner, bättre kundservice och skapa anslutningar för att nå verksamheten fullständig potentiella.<br>Mer information om viktiga fördelar finns [viktiga fördelar och krav](https://partner.microsoft.com/membership/core-benefits). |
 | Tjäna din Molnplattformskompetens | Tjäna kompetens hjälper dig att särskilj dig bland andra Microsoft-partner. Tjäna kompetens hjälper dig också att visa teknisk expertis och kunden ska lyckas på marknaden. Molnplattformskompetens är en förutsättning för många viktiga partnerprogram, till exempel Medförsäljning.<br> Mer information om Cloud Platform-kompetensen finns [Molnplattformskompetens](https://partner.microsoft.com/membership/cloud-platform-competency). |
 | Bli redo för IP-Medförsäljning | Du kanske är berättigad för IP-Medförsäljning redo programmet, där du kan samarbeta direkt med Microsoft-säljare och andra partners på målet kundtillfällen och planera för kontot. Din lösning blir synliga för Microsoft-säljare i försäljning lösning katalogen. Microsoft-säljare är belönad samarbeta och vinna med dig.<br> Mer information om Medförsäljning redo programmet, inklusive krav för berättigande, på [marknadsföra ditt företag](https://partner.microsoft.com/reach-customers/promote-your-business). |
 

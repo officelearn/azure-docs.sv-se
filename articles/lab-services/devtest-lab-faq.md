@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 370700f8d146dd626e6e13deceb09dcaea34a9f3
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: b5ad6321a41c84928cbc6f8c51c4f5fe3567410f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983958"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262037"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs vanliga frågor och svar
 Få svar på några av de vanligaste frågorna om Azure DevTest Labs.
@@ -100,7 +100,7 @@ Följande blogginlägg erbjudandet vägledning och information om hur du använd
 * [Distribuera en ny virtuell dator i en befintlig labb i DevTest Labs från Azure DevOps-tjänster](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
 * [Med Azure DevOps-tjänsterna versionshantering för kontinuerlig distribution till DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
-För andra kontinuerlig integrering (CI) / kontinuerlig leverans (CD) verktygskedjor som du kan uppnå samma scenarier genom att distribuera [Azure Resource Manager-mallar](https://aka.ms/dtlquickstarttemplate) med hjälp av [Azure PowerShell-cmdlets](../azure-resource-manager/resource-group-template-deploy.md) och [.NET SDK: er](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). Du kan också använda [REST API: er för DevTest Labs](http://aka.ms/dtlrestapis) att integrera med din verktygskedja.  
+För andra kontinuerlig integrering (CI) / kontinuerlig leverans (CD) verktygskedjor som du kan uppnå samma scenarier genom att distribuera [Azure Resource Manager-mallar](https://aka.ms/dtlquickstarttemplate) med hjälp av [Azure PowerShell-cmdlets](../azure-resource-manager/resource-group-template-deploy.md) och [.NET SDK: er](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). Du kan också använda [REST API: er för DevTest Labs](https://aka.ms/dtlrestapis) att integrera med din verktygskedja.  
 
 
 **Virtuella datorer**
@@ -141,7 +141,7 @@ Om du vill automatisera överför VHD-filer för att skapa anpassade avbildninga
 
 Hitta mållagringskontot som är associerat med ditt Labb:
 
-1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. På menyn till vänster väljer **resursgrupper**.
 3. Hitta och välj den resursgrupp som är associerat med ditt labb.
 4. Under **översikt**, väljer du något av storage-konton.

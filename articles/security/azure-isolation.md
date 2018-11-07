@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 5710ebc1c52737e27aafa88eef5e9ae402f8e53f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a56d595ca88541779f5213c6b0ec88fc87913b6a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579865"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239057"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolering i det offentliga Azure-molnet
 ##  <a name="introduction"></a>Introduktion
@@ -91,7 +91,7 @@ RBAC i Azure har tre grundläggande roller som gäller för alla typer av resurs
 
 - **Läsare** kan visa befintliga Azure-resurser.
 
-![Azures rollbaserade åtkomstkontroll](./media/azure-isolation/azure-isolation-fig3.png)
+![Rollbaserad åtkomstkontroll i Azure](./media/azure-isolation/azure-isolation-fig3.png)
 
 Resten av RBAC-roller i Azure kan hanteringen av specifika Azure-resurser. Exempelvis kan gör rollen virtuell Datordeltagare att användaren att skapa och hantera virtuella datorer. Det ger dem åtkomst till Azure-nätverk eller undernät som den virtuella datorn ansluter till.
 
@@ -111,7 +111,7 @@ Vissa andra funktioner för Azure Active Directory är:
 - [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) är en tjänst för konsumentinriktade program med hög tillgänglighet globala Identitetshantering som kan skalas till hundratals miljoner identiteter. Den kan integreras över mobila plattformar och webbaserade plattformar. Konsumenterna kan logga in på alla dina program via anpassningsbara upplevelser med sina befintliga sociala konton eller genom att skapa autentiseringsuppgifter.
 
 ### <a name="isolation-from-microsoft-administrators--data-deletion"></a>Isolering från Microsoft-administratörer & Databorttagning
-Microsoft tar stark åtgärder för att skydda dina data från oönskad åtkomst eller använda av obehöriga personer. Dessa driftrutiner och säkerhetskontroller backas upp av den [villkoren för Online Services](http://aka.ms/Online-Services-Terms), som erbjuder avtalsenliga åtaganden som styr åtkomsten till dina data.
+Microsoft tar stark åtgärder för att skydda dina data från oönskad åtkomst eller använda av obehöriga personer. Dessa driftrutiner och säkerhetskontroller backas upp av den [villkoren för Online Services](https://aka.ms/Online-Services-Terms), som erbjuder avtalsenliga åtaganden som styr åtkomsten till dina data.
 
 -   Microsoft-tekniker har inte åtkomst till dina data i molnet. I stället ges de åtkomst till under hantering av tillsyn, vid behov. Att åtkomsten är noggrant kontrolleras loggas och återkallas när den inte längre behövs.
 
@@ -119,7 +119,7 @@ Microsoft tar stark åtgärder för att skydda dina data från oönskad åtkomst
 
 Företagstjänster med granskad certifieringar, till exempel ISO/IEC 27001 kontrolleras regelbundet av Microsoft och utomstående revisionsbyråer, vilket gör stickprov för att intyga att åtkomsten endast för legitima affärsändamål. Du kan alltid komma åt din egen kundinformation när som helst och av någon anledning.
 
-Om du tar bort alla data som Microsoft Azure tar bort data, inklusive alla cachelagrade eller sekundära kopior. För omfattade tjänster som borttagningen utförs inom 90 dagar efter slutet av kvarhållningsperioden. (Omfattade tjänster definieras under bearbetning av villkoren i vår [villkoren för Online Services](http://aka.ms/Online-Services-Terms).)
+Om du tar bort alla data som Microsoft Azure tar bort data, inklusive alla cachelagrade eller sekundära kopior. För omfattade tjänster som borttagningen utförs inom 90 dagar efter slutet av kvarhållningsperioden. (Omfattade tjänster definieras under bearbetning av villkoren i vår [villkoren för Online Services](https://aka.ms/Online-Services-Terms).)
 
 Om en diskenhet som används för lagring av drabbas av ett maskinvarufel, är det säkert [raderas eller förstörs](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) innan Microsoft tillbaka det till tillverkaren för ersättning eller reparation. Data på enheten över för att säkerställa att data inte kan återställas på något sätt.
 

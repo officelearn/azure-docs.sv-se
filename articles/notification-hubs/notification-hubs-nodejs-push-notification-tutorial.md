@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 49ee6b7fabe78c2328a2a772347c612ad38cfe7a
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 8e4c97a710cc9e6d3af4ebdd7dc97bda9f8d02ed
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091738"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228444"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Skicka push-meddelanden med Azure Notification Hub och Node.js
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -43,7 +43,7 @@ Scenarier som omfattas är att skicka push-meddelanden till program på följand
 Mer information om meddelandehubbar finns i den [nästa steg](#next) avsnittet.
 
 ## <a name="what-are-notification-hubs"></a>Vad är Notification Hub?
-Azure Meddelandehubbar ger en enkel att använda, flera plattformar, skalbara infrastruktur för att skicka push-meddelanden till mobila enheter. Mer information om infrastrukturen, finns det [Azure Notification Hubs](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx) sidan.
+Azure Meddelandehubbar ger en enkel att använda, flera plattformar, skalbara infrastruktur för att skicka push-meddelanden till mobila enheter. Mer information om infrastrukturen, finns det [Azure Notification Hubs](https://msdn.microsoft.com/library/windowsazure/jj927170.aspx) sidan.
 
 ## <a name="create-a-nodejs-application"></a>Skapa en Node.js-program
 Det första steget i den här självstudien är att skapa en ny tom Node.js-program. Anvisningar om hur du skapar ett Node.js-program finns i [skapa och distribuera ett Node.js-program till Azure Web Site][nodejswebsite], [Node.js molntjänst] [ Node.js Cloud Service] med hjälp av Windows PowerShell eller [webbplats med WebMatrix][webmatrix].
@@ -141,11 +141,11 @@ Den **MpnsService** objektet innehåller en **skicka** metod som kan användas f
 * **Taggar** -tagg-identifierare. Om ingen tagg har angetts, skickas meddelandet till alla klienter.
 * **Nyttolasten** -meddelandets nyttolast för XML.
 * **Målnamn**  -  `toast` för popup-meddelanden. `token` för sida vid sida-meddelanden.
-* **NotificationClass** -prioriteten för meddelandet. Se den **huvudelement som HTTP-** delen av den [Push-meddelanden från en server](http://msdn.microsoft.com/library/hh221551.aspx) dokumentet för giltiga värden.
+* **NotificationClass** -prioriteten för meddelandet. Se den **huvudelement som HTTP-** delen av den [Push-meddelanden från en server](https://msdn.microsoft.com/library/hh221551.aspx) dokumentet för giltiga värden.
 * **Alternativ** – valfritt rubriker i begäran.
 * **Motringning** -Återanropsfunktionen.
 
-En lista över giltiga **TargetName**, **NotificationClass** och Rubrikalternativ, Kolla in den [Push-meddelanden från en server](http://msdn.microsoft.com/library/hh221551.aspx) sidan.
+En lista över giltiga **TargetName**, **NotificationClass** och Rubrikalternativ, Kolla in den [Push-meddelanden från en server](https://msdn.microsoft.com/library/hh221551.aspx) sidan.
 
 Följande exempel på kod använder den **MpnsService** instans som exponeras av den **NotificationHubService** att skicka ett popup-push-meddelande:
 
@@ -165,7 +165,7 @@ Den **WnsService** objektet innehåller en **skicka** metod som kan användas f�
 * **Alternativ** – valfritt rubriker i begäran.
 * **Motringning** -Återanropsfunktionen.
 
-En lista över giltiga typer och begärandehuvuden finns i [Push notification service begärande- och svarshuvuden](http://msdn.microsoft.com/library/windows/apps/hh465435.aspx).
+En lista över giltiga typer och begärandehuvuden finns i [Push notification service begärande- och svarshuvuden](https://msdn.microsoft.com/library/windows/apps/hh465435.aspx).
 
 I följande kod används den **WnsService** instans som exponeras av den **NotificationHubService** att skicka ett popup-push-meddelande till en UWP-app:
 

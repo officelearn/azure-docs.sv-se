@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: a114833b40fe834aa0108d1a2f3821f0b7cbddbc
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 5234f5c82e98fcb402cadf9a8a469a15bbb7ac6d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321860"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250823"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Kom igång med Azure queue storage och Visual Studio anslutna tjänster (ASP.NET)
 
@@ -141,7 +141,7 @@ Följande steg illustrerar hur du skapar en kö:
   
     ![Skapa kö](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
-    Som nämnts tidigare i **CloudQueue.CreateIfNotExists** metoden returnerar **SANT** endast när kön inte finns och har skapats. Därför, om du kör appen när kön finns, returnerar metoden **FALSKT**. För att köra appen flera gånger, måste du ta bort kön innan du kör appen igen. Ta bort kön kan ske via den **CloudQueue.Delete** metod. Du kan också ta bort en kö med hjälp av den [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=525040) eller [Microsoft Azure Lagringsutforskaren](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+    Som nämnts tidigare i **CloudQueue.CreateIfNotExists** metoden returnerar **SANT** endast när kön inte finns och har skapats. Därför, om du kör appen när kön finns, returnerar metoden **FALSKT**. För att köra appen flera gånger, måste du ta bort kön innan du kör appen igen. Ta bort kön kan ske via den **CloudQueue.Delete** metod. Du kan också ta bort en kö med hjälp av den [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040) eller [Microsoft Azure Lagringsutforskaren](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## <a name="add-a-message-to-a-queue"></a>Lägg till ett meddelande till en kö
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 05/03/2018
-ms.openlocfilehash: e731f28ab416de7da30f41fe8a154108b8097b89
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 3269d38b691ec4dd9573a241c89dadc285787143
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041806"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254034"
 ---
 # <a name="install-data-lake-tools-for-visual-studio"></a>Installera Data Lake-verktyg för Visual Studio
 
@@ -26,7 +26,7 @@ Lär dig hur du använder Visual Studio för att skapa Azure Data Lake Analytics
     * Visual Studio 2017
     * Visual Studio 2015
     * Visual Studio 2013
-* **Microsoft Azure SDK för .NET** version 2.7.1 eller senare.  Installera den med hjälp av [installationsprogrammet för webbplattformen](http://www.microsoft.com/web/downloads/platform.aspx).
+* **Microsoft Azure SDK för .NET** version 2.7.1 eller senare.  Installera den med hjälp av [installationsprogrammet för webbplattformen](https://www.microsoft.com/web/downloads/platform.aspx).
 * Ett **Data Lake Analytics**-konto. Information om hur du skapar ett konto finns i [Kom igång med Azure Data Lake Analytics med hjälp av Azure Portal](data-lake-analytics-get-started-portal.md).
 
 ## <a name="install-azure-data-lake-tools-for-visual-studio-2017"></a>Installera Azure Data Lake Tools för Visual Studio 2017
@@ -39,7 +39,7 @@ Aktivera arbetsbelastningen **Azure Development** så här: ![Aktivera arbetsbel
 
 ## <a name="install-azure-data-lake-tools-for-visual-studio-2013-and-2015"></a>Installera Azure Data Lake Tools för Visual Studio 2013 och 2015
 
-Hämta och installera Azure Data Lake Tools för Visual Studio [från Download Center](http://aka.ms/adltoolsvs). Efter installationen kontrollerar du att:
+Hämta och installera Azure Data Lake Tools för Visual Studio [från Download Center](https://aka.ms/adltoolsvs). Efter installationen kontrollerar du att:
 * Noden **Server Explorer** > **Azure** innehåller en **Data Lake Analytics**-nod. 
 * Alternativet **Data Lake** finns på **Verktyg**-menyn.
 

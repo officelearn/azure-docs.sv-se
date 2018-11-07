@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: spelluru
-ms.openlocfilehash: adc9d64c4756e055b3ff9b772feebd80902d2c9f
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: ef1b8b2dd96a89a553239168d412d84e63a29f2a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857881"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254595"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus åtkomstkontroll med signaturer för delad åtkomst
 
@@ -57,7 +57,7 @@ När du skapar ett Service Bus-namnområde, en regel med namnet **RootManageShar
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>Konfiguration för autentisering med signatur för delad åtkomst
 
-Du kan konfigurera den [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) regel i Service Bus-namnområden, köer eller ämnen. Konfigurera en [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) på en Service Bus prenumeration stöds inte för närvarande, men du kan använda regler som konfigureras i ett namnområde eller avsnittet för att skydda åtkomsten till prenumerationer. Ett fungerande exempel som illustrerar den här proceduren, finns det [autentisering med signatur för delad åtkomst (SAS) med Service Bus-prenumerationer](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) exemplet.
+Du kan konfigurera den [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) regel i Service Bus-namnområden, köer eller ämnen. Konfigurera en [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) på en Service Bus prenumeration stöds inte för närvarande, men du kan använda regler som konfigureras i ett namnområde eller avsnittet för att skydda åtkomsten till prenumerationer. Ett fungerande exempel som illustrerar den här proceduren, finns det [autentisering med signatur för delad åtkomst (SAS) med Service Bus-prenumerationer](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) exemplet.
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
@@ -102,7 +102,7 @@ Om du vet eller misstänker att en nyckel har komprometterats och du behöver å
 
 De scenarier som beskrivs nedan omfattar konfiguration av auktoriseringsregler, generering av SAS-token och klientautentisering.
 
-För en fullständig fungerande exempel på ett Service Bus-program som visar konfiguration och använder SAS auktorisering finns i [autentisering med signatur för delad åtkomst med Service Bus](http://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Ett relaterade exempel som illustrerar användningen av SAS-auktoriseringsregler som konfigureras i namnområden eller avsnitt för att skydda Service Bus-prenumerationer finns här: [autentisering med signatur för delad åtkomst (SAS) med Service Bus-prenumerationer](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
+För en fullständig fungerande exempel på ett Service Bus-program som visar konfiguration och använder SAS auktorisering finns i [autentisering med signatur för delad åtkomst med Service Bus](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Ett relaterade exempel som illustrerar användningen av SAS-auktoriseringsregler som konfigureras i namnområden eller avsnitt för att skydda Service Bus-prenumerationer finns här: [autentisering med signatur för delad åtkomst (SAS) med Service Bus-prenumerationer](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Åtkomstregler för auktorisering för delad åtkomst på en entitet
 

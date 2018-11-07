@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e5414a7607c036f1d60f58e1eb047da1e54f4db9
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 07452a97ba16d7745d48e210dd90ce077be64683
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585348"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233447"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Inloggningstillgångar i Azure Automation
 
-En Automation-autentiseringsuppgiftstillgång innehåller ett objekt som innehåller säkerhetsreferenser, som ett användarnamn och lösenord. Runbooks och DSC-konfigurationer kan använda cmdlet: ar som accepterar ett PSCredential-objekt för autentisering eller de kan extrahera användarnamnet och lösenordet för PSCredential-objekt att förse vissa program eller tjänster som kräver autentisering. Egenskaperna för en autentiseringsuppgift lagras säkert i Azure Automation och kan nås i runbook eller DSC-konfiguration med den [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) aktivitet.
+En Automation-autentiseringsuppgiftstillgång innehåller ett objekt som innehåller säkerhetsreferenser, som ett användarnamn och lösenord. Runbooks och DSC-konfigurationer kan använda cmdlet: ar som accepterar ett PSCredential-objekt för autentisering eller de kan extrahera användarnamnet och lösenordet för PSCredential-objekt att förse vissa program eller tjänster som kräver autentisering. Egenskaperna för en autentiseringsuppgift lagras säkert i Azure Automation och kan nås i runbook eller DSC-konfiguration med den [Get-AutomationPSCredential](https://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) aktivitet.
 
 [!INCLUDE [gdpr-dsr-and-stp-note.md](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -53,7 +53,7 @@ Aktiviteterna i följande tabell används för att komma åt autentiseringsuppgi
 
 | Aktiviteter | Beskrivning |
 |:--- |:--- |
-| Get-AutomationPSCredential |Hämtar en autentiseringsuppgift som ska användas i en runbook eller DSC-konfiguration. Returnerar en [System.Management.Automation.PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) objekt. |
+| Get-AutomationPSCredential |Hämtar en autentiseringsuppgift som ska användas i en runbook eller DSC-konfiguration. Returnerar en [System.Management.Automation.PSCredential](https://msdn.microsoft.com/library/system.management.automation.pscredential) objekt. |
 
 > [!NOTE]
 > Du bör undvika att använda variabler i – Name-parametern i Get-AutomationPSCredential eftersom detta kan göra det svårare att hitta beroenden mellan runbooks eller DSC-konfigurationer och autentiseringstillgångar vid designtillfället.
@@ -94,7 +94,7 @@ New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name
 
 ## <a name="using-a-powershell-credential"></a>Med hjälp av en PowerShell-autentiseringsuppgift
 
-Du kan hämta en autentiseringstillgång i en runbook eller DSC-konfiguration med den **Get-AutomationPSCredential** aktivitet. Detta returnerar en [PSCredential-objekt](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) som du kan använda med en aktivitet eller cmdlet som kräver en PSCredential-parameter. Du kan också hämta egenskaperna för objektet för autentiseringsuppgifter för att använda individuellt. Objektet har en egenskap för användarnamnet och säkert lösenord eller använda den **GetNetworkCredential** metod för att returnera en [NetworkCredential](http://msdn.microsoft.com/library/system.net.networkcredential.aspx) objekt som ger en oskyddat version av den lösenordet.
+Du kan hämta en autentiseringstillgång i en runbook eller DSC-konfiguration med den **Get-AutomationPSCredential** aktivitet. Detta returnerar en [PSCredential-objekt](https://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) som du kan använda med en aktivitet eller cmdlet som kräver en PSCredential-parameter. Du kan också hämta egenskaperna för objektet för autentiseringsuppgifter för att använda individuellt. Objektet har en egenskap för användarnamnet och säkert lösenord eller använda den **GetNetworkCredential** metod för att returnera en [NetworkCredential](https://msdn.microsoft.com/library/system.net.networkcredential.aspx) objekt som ger en oskyddat version av den lösenordet.
 
 ### <a name="textual-runbook-sample"></a>Textbaserade runbook-exempel
 

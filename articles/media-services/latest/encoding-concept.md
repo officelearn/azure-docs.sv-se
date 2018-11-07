@@ -9,22 +9,22 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/05/2018
 ms.author: juliako
-ms.openlocfilehash: bee74f0399def142915aa26d15ecfa671925f405
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 0df13e3364cebe7cb5804b840889bca971b36be2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025590"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235062"
 ---
-# <a name="encoding-with-azure-media-services"></a>Kodning med Azure Media Services
+# <a name="encoding-with-media-services"></a>Encoding med Media Services
 
-Azure Media Services kan du koda din digitala mediefiler med hög kvalitet till format som kan spelas upp på en mängd olika webbläsare och enheter. Du kanske vill strömma ditt innehåll i Apples HLS- eller MPEG DASH-formaten. Media Services kan du analysera video- eller ljudinnehåll innehållet. Det här avsnittet ger vägledning om att koda ditt innehåll med Media Services v3.
+Azure Media Services kan du koda din digitala mediefiler med hög kvalitet till format som kan spelas upp på en mängd olika webbläsare och enheter. Du kanske vill strömma ditt innehåll i Apples HLS- eller MPEG DASH-formaten. Det här avsnittet ger vägledning om att koda ditt innehåll med Media Services v3.
 
 Om du vill koda med Media Services v3, måste du skapa en transformering och ett jobb. En transformering definierar receptet för kodning inställningar och utdata och jobbet är en instans av receptet. Mer information finns i [transformeringar och jobb](transform-concept.md)
 
-När kodning med Azure Media Services, använder du förinställningar som talar om kodaren hur inkommande mediefiler ska bearbetas. Du kan till exempel ange video upplösning och/eller antalet ljud kanaler som du vill i det kodade innehållet. 
+När encoding med Media Services, använder du förinställningar som talar om kodaren hur inkommande mediefiler ska bearbetas. Du kan till exempel ange video upplösning och/eller antalet ljud kanaler som du vill i det kodade innehållet. 
 
 Du kan komma igång snabbt med en av de rekommenderade inbyggda förinställningar baserat på branschens bästa praxis eller du kan välja att skapa en anpassad förinställning om du vill rikta in dina specifika krav för scenario eller enhet. Mer information finns i [koda med en anpassad transformering](customize-encoder-presets-how-to.md). 
 
@@ -34,8 +34,6 @@ Media Services stöder för närvarande följande inbyggda förinställningar f�
 
 |**Förinställda namnet**|**Scenario**|**Detaljer**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Analysera ljud|Förinställningen gäller en fördefinierad uppsättning AI-baserade analysis-åtgärder, inklusive taltranskription. Förinställningen stöder för närvarande, bearbetning av innehåll med en enda ljudspår.<br/>Du kan ange språket för ljud nyttolasten i indata i BCP-47 formatet för ”språk tagg-regioner” (till exempel ”en-US”). Listan över språk som stöds är ”en-US”, ”en-GB”, ”es-ES”, ”es-MX”, fr-FR, it-IT, ja-JP, pt-BR, zh-CN.|
-|**VideoAnalyzerPreset**|Analysera ljud och video|Extraherar insikter (omfattande metadata) från både ljud och video och matar ut en fil i JSON-format. Du kan ange om du bara vill lyfta ut kunskaper ljud vid bearbetning av en videofil. Mer information finns i [analysera video](analyze-videos-tutorial-with-api.md).|
 |**BuiltInStandardEncoderPreset**|Strömning|Används för att ange en inbyggd förinställning för encoding indatavideon med Standard-kodare. <br/>Följande förinställningar stöds för närvarande:<br/>**EncoderNamedPreset.AdaptiveStreaming** (rekommenderas). Mer information finns i [autogenerering en bithastighetsstege](autogen-bitrate-ladder.md).<br/>**EncoderNamedPreset.AACGoodQualityAudio** -producerar en enda MP4-fil som innehåller endast stereo ljud kodade med 192 kbit/s.<br/>**EncoderNamedPreset.H264MultipleBitrate1080p** -producerar en uppsättning 8 GOP-justerad MP4-filer, sträcker sig från 6000 kbit/s till 400 kbit/s och stereo AAC-ljud. Lösning startas vid 1080p och ned 360 p.<br/>**EncoderNamedPreset.H264MultipleBitrate720p** -producerar en uppsättning 6 GOP-justerad MP4-filer, sträcker sig från 3400 kbit/s till 400 kbit/s och stereo AAC-ljud. Lösning startas vid 720p och ned 360 p.<br/>**EncoderNamedPreset.H264MultipleBitrateSD** -producerar en uppsättning 5 GOP-justerad MP4-filer, sträcker sig från 1600 kbit/s till 400 kbit/s och stereo AAC-ljud. Lösning startas på 480 pixlar och ned 360 p.<br/><br/>Mer information finns i [överför, koda och strömma filer](stream-files-tutorial-with-api.md).|
 |**StandardEncoderPreset**|Strömning|Beskriver inställningarna som ska användas vid kodning indatavideon med Standard-kodare. <br/>Använd denna förinställning när du anpassar transformeringen förinställningar. Mer information finns i [hur du anpassar transformeringen förinställningar](customize-encoder-presets-how-to.md).|
 
@@ -45,16 +43,15 @@ Media Services stöder helt anpassa alla värden i förinställningar för att u
 
 ## <a name="scaling-encoding-in-v3"></a>Skala kodning i v3
 
-För närvarande kan kunder har du använder Azure portal eller AMS v2 API: er för att ange ru: er (enligt beskrivningen i [skala mediebearbetning](../previous/media-services-scale-media-processing-overview.md). 
+För närvarande kan kunder har du använder Azure portal eller Media Services v2 API: er för att ställa in enheter för programbegäran (enligt beskrivningen i [skala mediebearbetning](../previous/media-services-scale-media-processing-overview.md). 
 
 ## <a name="next-steps"></a>Nästa steg
 
 ### <a name="tutorials"></a>Självstudier
 
-Följande tutorals visar att koda ditt innehåll med Media Services:
+Följande självstudie visar hur du koda ditt innehåll med Media Services:
 
-* [Ladda upp, koda och strömma med Azure Media Services](stream-files-tutorial-with-api.md)
-* [Analysera videoklipp med Azure Media Services](analyze-videos-tutorial-with-api.md)
+* [Ladda upp, koda och strömma med Media Services](stream-files-tutorial-with-api.md)
 
 ### <a name="code-samples"></a>Kodexempel
 

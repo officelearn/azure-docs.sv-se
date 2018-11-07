@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/21/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: afcda23faf4e9f0999442fa91d3c016e446c04db
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 718a8fb82c3d85baf94e2e9c316f40b964749912
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524550"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231371"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Utforma högtillgängliga program med hjälp av RA-GRS
 
@@ -149,7 +149,7 @@ Ett annat övervägande är hur du hanterar flera instanser av ett program, och 
 
 Har du tre huvudsakliga alternativ för att övervaka frekvensen för återförsök i den primära regionen för att avgöra när du växlar över till den sekundära regionen och ändra programmet att köras i skrivskyddat läge.
 
-*   Lägger till en hanterare för den [ **försöker igen** ](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) händelse på den [ **OperationContext** ](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) objekt som du skickar till lagringen begär – det här är metoden visas i den här artikeln och används i den medföljande exemplet. Dessa händelser utlöses varje gång klienten försöker en begäran, så att du kan spåra hur ofta klienten påträffar återförsökbart fel på en primär slutpunkt.
+*   Lägger till en hanterare för den [ **försöker igen** ](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) händelse på den [ **OperationContext** ](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) objekt som du skickar till lagringen begär – det här är metoden visas i den här artikeln och används i den medföljande exemplet. Dessa händelser utlöses varje gång klienten försöker en begäran, så att du kan spåra hur ofta klienten påträffar återförsökbart fel på en primär slutpunkt.
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -160,7 +160,7 @@ Har du tre huvudsakliga alternativ för att övervaka frekvensen för återförs
     };
     ```
 
-*   I den [ **Evaluate** ](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) -metod i en egen återförsöksprincip, du kan köra anpassad kod varje gång ett nytt försök utförs. Förutom att registrera när ett nytt försök sker, detta ger dig också en möjlighet att ändra beteende för återförsök.
+*   I den [ **Evaluate** ](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) -metod i en egen återförsöksprincip, du kan köra anpassad kod varje gång ett nytt försök utförs. Förutom att registrera när ett nytt försök sker, detta ger dig också en möjlighet att ändra beteende för återförsök.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,

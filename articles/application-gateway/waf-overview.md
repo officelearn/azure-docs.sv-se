@@ -2,16 +2,16 @@
 title: Introduktion till Brandvägg för webbaserade program (WAF) för Azure Application Gateway
 description: Den här artikeln innehåller en översikt över Brandvägg för webbaserade program (WAF) för Application Gateway
 services: application-gateway
-author: amsriva
+author: vhorne
 ms.service: application-gateway
-ms.date: 10/11/2018
+ms.date: 11/7/2018
 ms.author: amsriva
-ms.openlocfilehash: 10a67eab142287cf9303e54005b6b167e9890df0
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4b03065c59eed8f0d72e2724e60b6d8908518727
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068459"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219536"
 ---
 # <a name="web-application-firewall-waf"></a>Brandvägg för webbaserade program (WAF)
 
@@ -39,7 +39,7 @@ Viktiga fördelar med Application Gateway och brandväggen för webbaserade prog
 
 * Övervaka om ditt webbprogram utsätts för angrepp med hjälp av en realtidslogg för brandväggen för webbaserade program. Den här loggen är integrerad med [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) så att du kan spåra varningar och loggar för brandväggen för webbaserade program och enkelt övervaka trender.
 
-* Brandväggen för webbaserade program kommer snart att integreras med Azure Security Center. I Azure Security Center finns en central vy som visar säkerhetsläget för alla dina Azure-resurser.
+* WAF är integrerad med Azure Security Center. I Azure Security Center finns en central vy som visar säkerhetsläget för alla dina Azure-resurser.
 
 ### <a name="customization"></a>Anpassning
 
@@ -47,11 +47,11 @@ Viktiga fördelar med Application Gateway och brandväggen för webbaserade prog
 
 ## <a name="features"></a>Funktioner
 
-- Skydd mot SQL-inmatning
-- Skydd mot skriptkörning över flera webbplatser
-- Skydd mot vanliga webbattacker, som kommandoinmatning, dold HTTP-begäran, delning av HTTP-svar och attack genom införande av fjärrfil
-- Skydd mot åtgärder som inte följer HTTP-protokollet
-- Skydd mot avvikelser i HTTP-protokollet som att användaragent för värden och accept-huvud saknas
+- Skydd av SQL-inmatning
+- Cross site scripting skydd
+- Skydd mot vanliga webbattacker, till exempel kommandot inmatning, HTTP-begäran som kommandoinmatning, HTTP-svar och attack för inkludering av fjärrfil
+- Skydd mot protokollbrott för HTTP
+- Användaragent för värden och accept-skydd mot avvikelser för HTTP-protokollet som saknas
 - Skydd mot robotar, crawlers och skannrar
 - Identifiering av vanliga felkonfigureringar för programmet (det vill säga Apache, IIS osv.)
 
@@ -74,13 +74,13 @@ Application Gateway stöder två regeluppsättningar: CRS 3.0 och CRS 2.2.9. Des
 
 Brandväggen för webbaserade program är förkonfigurerad med CRS 3.0 som standard. Du kan också välja att använda 2.2.9. I CRS 3.0 finns bättre möjligheter att eliminera falska positiva identifieringar än i 2.2.9. Du kan [anpassa regler så att de passar dina behov](application-gateway-customize-waf-rules-portal.md). Några vanliga säkerhetshot som brandväggen för webbaserade program skyddar mot:
 
-- Skydd mot SQL-inmatning
-- Skydd mot skriptkörning över flera webbplatser
-- Skydd mot vanliga webbattacker, som kommandoinmatning, dold HTTP-begäran, delning av HTTP-svar och attack genom införande av fjärrfil
-- Skydd mot åtgärder som inte följer HTTP-protokollet
-- Skydd mot avvikelser i HTTP-protokollet som att användaragent för värden och accept-huvud saknas
+- Skydd av SQL-inmatning
+- Cross site scripting skydd
+- Skydd mot vanliga webbattacker, till exempel kommandot inmatning, HTTP-begäran som kommandoinmatning, HTTP-svar och attack för inkludering av fjärrfil
+- Skydd mot protokollbrott för HTTP
+- Användaragent för värden och accept-skydd mot avvikelser för HTTP-protokollet som saknas
 - Skydd mot robotar, crawlers och skannrar
-- Identifiering av vanliga felkonfigureringar i program (t.ex. Apache, IIS osv.)
+- Identifiering av vanliga felkonfigureringar för programmet (t.ex. Apache, IIS osv.)
 
 En detaljerad lista över regler och deras skydd finns i [Core regeluppsättningar](#core-rule-sets).
 

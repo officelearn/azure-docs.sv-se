@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: b6f1185a94f865578d9a6514fb6841f8811b2230
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 58992c80344902674b2b21a71b07925c752911a4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056113"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230959"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Vanliga frågor och svar om Azure Multi-Factor Authentication
 
@@ -145,7 +145,7 @@ Om din organisation inte har äldre klienter, bör du inte tillåta användarna 
 
 Leverans av textmeddelanden och mottagande av svar i dubbelriktad SMS garanteras inte eftersom det inte finns fungerar faktorer som kan påverka tillförlitligheten för tjänsten. Dessa faktorer omfattar mål-land, mobiltelefon-operatör och signalstyrka.
 
-Om användarna ofta har problem med att på ett tillförlitligt sätt ta emot textmeddelanden, berätta för dem att använda metoden mobila app eller telefonsamtal i stället. Den mobila appen kan ta emot meddelanden både över mobilnät och Wi-Fi-anslutningar. Dessutom kan den mobila appen generera verfieringskoder även om enheten inte har någon signal alls. Microsoft Authenticator-appen är tillgänglig för [Android](http://go.microsoft.com/fwlink/?Linkid=825072), [IOS](http://go.microsoft.com/fwlink/?Linkid=825073), och [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
+Om användarna ofta har problem med att på ett tillförlitligt sätt ta emot textmeddelanden, berätta för dem att använda metoden mobila app eller telefonsamtal i stället. Den mobila appen kan ta emot meddelanden både över mobilnät och Wi-Fi-anslutningar. Dessutom kan den mobila appen generera verfieringskoder även om enheten inte har någon signal alls. Microsoft Authenticator-appen är tillgänglig för [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073), och [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071).
 
 Om du måste använda textmeddelanden, bör du använda envägs-SMS i stället för dubbelriktad SMS när det är möjligt. Enkelriktad SMS är mer tillförlitlig och det förhindrar att användare ska globala SMS från besvarar ett textmeddelande som skickats från ett annat land.
 

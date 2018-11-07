@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2fd0fe55b975010a1eaafeb455d61a6cb3ebff77
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8e13ba0bcbd24dcc3cd08a0d2886f1da9d85de79
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970932"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249922"
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Strukturera projekt med mallen Team Data Science Process
 
@@ -54,7 +54,7 @@ Granska följande *innan* du skapar ett nytt projekt:
 * Innehållet (annat än vad som redan finns i dokumentmappen ””) måste vara mindre än 25 MB i storlek. Se anmärkningen efter den här listan.
 * Exemplet\_datamapp är endast avsedd för små filer (mindre än 5 MB) som du kan använda för att testa din kod eller starta tidig utveckling.
 * Lagring av filer, till exempel Word och PowerPoint-filer, öka storleken på dokumentmappen ”” avsevärt. Vi rekommenderar att som du kan söka efter en samarbetsfunktioner Wiki [SharePoint](https://products.office.com/sharepoint/collaboration), eller annan samarbetsfunktioner resurs att lagra dessa filer.
-* Läs hur du hanterar stora filer och utdata i Machine Learning, [spara ändringar och ta itu med stora filer](http://aka.ms/aml-largefiles).
+* Läs hur du hanterar stora filer och utdata i Machine Learning, [spara ändringar och ta itu med stora filer](https://aka.ms/aml-largefiles).
 
 > [!NOTE]
 > Alla dokumentation-relaterat innehåll (text, markdowns, bilder och andra dokumentfiler) som är *inte* används under projektkörning, andra än readme.md-filen måste finnas i mappen med namnet ”docs” (endast gemener). Dokumentmappen ”” är en särskild mapp ignoreras av Machine Learning-körning så att innehållet i den här mappen inte får kopieras för att beräkna mål i onödan. Objekt i den här mappen räknas inte mot gränsen 25 MB för Projektstorlek. Dokumentmappen ”” är till exempel plats för att lagra stora bildfiler som behövs i dokumentationen. De här filerna spåras fortfarande med Git via körningshistoriken. 

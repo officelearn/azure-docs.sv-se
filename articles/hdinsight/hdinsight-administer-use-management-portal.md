@@ -1,24 +1,24 @@
 ---
-title: Hantera Windows-baserade Hadoop-kluster i HDInsight med Azure portal
-description: Lär dig hur du administrerar HDInsight Service. Skapa ett HDInsight-kluster, öppna den interaktiva JavaScript-konsolen och öppna kommandokonsolen Hadoop.
+title: Hantera Windows-baserade Apache Hadoop-kluster i HDInsight med Azure portal
+description: Lär dig hur du administrerar HDInsight Service. Skapa ett HDInsight-kluster, öppna den interaktiva JavaScript-konsolen och öppna konsolen Apache Hadoop-kommandot.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 130f684b69a9cfa1936c2a9aa5175f3d5a7631ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 67138b9e98818f5d106c73cef027d0eb2515e9a8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970285"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233923"
 ---
-# <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Windows-baserade Hadoop-kluster i HDInsight med hjälp av Azure-portalen
+# <a name="manage-windows-based-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Windows-baserade Apache Hadoop-kluster i HDInsight med hjälp av Azure-portalen
 
-Med hjälp av den [Azure-portalen][azure-portal], du kan skapa Windows-baserade Hadoop-kluster i Azure HDInsight, ändra lösenord för Hadoop-användare och aktivera Remote Desktop Protocol (RDP) så att du kan använda kommandot Hadoop -konsolen på klustret.
+Med hjälp av den [Azure-portalen][azure-portal], du kan skapa Windows-baserade Apache Hadoop-kluster i Azure HDInsight, ändra användarlösenord i Hadoop och aktivera Remote Desktop Protocol (RDP) så att du kan komma åt Hadoop kommandokonsolen i klustret.
 
 Informationen i den här artikeln gäller endast för Windows-baserad HDInsight-kluster. Information om hur du hanterar Linux-baserade kluster finns i [hantera Hadoop-kluster i HDInsight med hjälp av Azure portal](hdinsight-administer-use-portal-linux.md).
 
@@ -34,7 +34,7 @@ Innan du påbörjar den här artikeln måste du ha:
 * **Azure Storage-konto** – ett HDInsight-klustret använder en Azure Blob storage-behållare som standardfilsystemet. Mer information om hur Azure Blob storage ger en sömlös upplevelse med HDInsight-kluster finns i [använda Azure Blob Storage med HDInsight](hdinsight-hadoop-use-blob-storage.md). Mer information om hur du skapar ett Azure Storage-konto finns i [hur du skapar ett Lagringskonto](../storage/common/storage-create-storage-account.md).
 
 ## <a name="open-the-portal"></a>Öppna portalen
-1. Logga in på [ https://portal.azure.com ](https://portal.azure.com).
+1. Logga in på [https://portal.azure.com](https://portal.azure.com).
 2. När du öppnar portalen, kan du:
 
    * Klicka på **skapa en resurs** från den vänstra menyn för att skapa ett nytt kluster:
@@ -67,7 +67,7 @@ HDInsight fungerar med en bred Hadoop-komponenter. Lista över de komponenter so
 Installationen av anpassad programvara i klustret med hjälp av anslutning till fjärrskrivbord stöds inte. Du bör inte lagra filer på enheter för huvudnoden, eftersom de kommer att gå förlorade om du behöver återskapa klustren. Vi rekommenderar att du lagrar filer på Azure Blob storage. BLOB storage är permanent.
 
 ## <a name="list-and-show-clusters"></a>Lista och visa kluster
-1. Logga in på [ https://portal.azure.com ](https://portal.azure.com).
+1. Logga in på [https://portal.azure.com](https://portal.azure.com).
 2. Klicka på **HDInsight-kluster** menyn till vänster.
 3. Klicka på klusternamnet. Om listan över klustret är lång kan använda du filter överst på sidan.
 4. Dubbelklicka på ett kluster från listan om du vill visa information.
@@ -328,7 +328,7 @@ Autentiseringsuppgifterna för det kluster som du angav när den har skapandet g
     Standardvärden för upphör att gälla på är en vecka.
 
    > [!NOTE]
-   > Du kan också använda HDInsight .NET SDK för att aktivera Fjärrskrivbord i ett kluster. Använd den **EnableRdp** metoden på HDInsight-klientobjekt på följande sätt: **klienten. EnableRdp (klusternamn, plats, ”rdpuser”, ”rdppassword”, DateTime.Now.AddDays(6))**. På samma sätt för att inaktivera Fjärrskrivbord på klustret, du kan använda **klienten. DisableRdp (klusternamn, plats)**. Läs mer om dessa metoder, [HDInsight .NET SDK-referens](http://go.microsoft.com/fwlink/?LinkId=529017). Detta gäller endast för HDInsight-kluster som körs på Windows.
+   > Du kan också använda HDInsight .NET SDK för att aktivera Fjärrskrivbord i ett kluster. Använd den **EnableRdp** metoden på HDInsight-klientobjekt på följande sätt: **klienten. EnableRdp (klusternamn, plats, ”rdpuser”, ”rdppassword”, DateTime.Now.AddDays(6))**. På samma sätt för att inaktivera Fjärrskrivbord på klustret, du kan använda **klienten. DisableRdp (klusternamn, plats)**. Läs mer om dessa metoder, [HDInsight .NET SDK-referens](https://go.microsoft.com/fwlink/?LinkId=529017). Detta gäller endast för HDInsight-kluster som körs på Windows.
    >
    >
 

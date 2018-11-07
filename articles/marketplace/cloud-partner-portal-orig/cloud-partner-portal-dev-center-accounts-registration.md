@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: bdcd1d0cc9f9979d898410180d364716b344d641
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 8bfd4ca6a9bdac999653fa9448bf7e754e9e6180
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811545"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254476"
 ---
 <a name="create-a-microsoft-developer-account"></a>Skapa ett Microsoft Developer-konto
 ====================================
@@ -133,7 +133,7 @@ Microsoft Developer Center för att registrera företagsinformation en gång. Av
 
    ![Betalningsregistrering](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_09.png)
 
-10. Granska din kontoinformation och bekräfta att allt är korrekt. Läs och Godkänn villkoren i den [Publiceringsavtalet för Microsoft Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=699560). Markera rutan som indikerar att du har läst och godkänt villkoren.
+10. Granska din kontoinformation och bekräfta att allt är korrekt. Läs och Godkänn villkoren i den [Publiceringsavtalet för Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560). Markera rutan som indikerar att du har läst och godkänt villkoren.
 
 11. Välj **Slutför** att bekräfta din registrering. Ett bekräftelsemeddelande skickas till din e-postadress.
 

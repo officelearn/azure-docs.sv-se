@@ -15,57 +15,57 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: cherylmc
-ms.openlocfilehash: c2bef1d79d3133ea6306928a8c917e1bc3000a58
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 47c0db66889dae5d74e2fcf46a27ec1397930e53
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29874560"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256790"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Ansluta ett virtuellt nätverk till en ExpressRoute-krets med hjälp av portalen
 > [!div class="op_single_selector"]
 > * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
-> * [Video - Azure-portalen](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [Video - Azure-portalen](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (klassisk)](expressroute-howto-linkvnet-classic.md)
 > 
 
-Den här artikeln hjälper dig att skapa en anslutning för att länka ett virtuellt nätverk till en Azure ExpressRoute-krets med Azure-portalen. De virtuella nätverk som du ansluter till Azure ExpressRoute-kretsen kan antingen vara i samma prenumeration och de kan vara en del av en annan prenumeration.
+Den här artikeln hjälper dig att skapa en anslutning för att länka ett virtuellt nätverk till en Azure ExpressRoute-krets med Azure-portalen. De virtuella nätverk som du ansluter till din Azure ExpressRoute-krets kan antingen vara i samma prenumeration eller de kan vara en del av en annan prenumeration.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-* Granska de [krav](expressroute-prerequisites.md), [routningskrav](expressroute-routing.md), och [arbetsflöden](expressroute-workflows.md) innan du börjar konfigurera.
+* Granska den [krav](expressroute-prerequisites.md), [routningskrav](expressroute-routing.md), och [arbetsflöden](expressroute-workflows.md) innan du påbörjar konfigurationen.
 
 * Du måste ha en aktiv ExpressRoute-krets.
-  * Följ instruktionerna för att [skapar du en ExpressRoute-krets](expressroute-howto-circuit-portal-resource-manager.md) och ha kretsen aktiveras med anslutningsleverantören.
-  * Se till att du har privat Azure-peering konfigurerats för kretsen. Finns det [konfigurera routning](expressroute-howto-routing-portal-resource-manager.md) artikel routning anvisningar.
-  * Kontrollera att privat Azure-peering har konfigurerats och BGP-peering mellan ditt nätverk och Microsoft är igång så att du kan aktivera anslutning för slutpunkt till slutpunkt.
-  * Se till att du har ett virtuellt nätverk och en virtuell nätverksgateway skapas och helt etablerad. Följ instruktionerna för att [skapa en virtuell nätverksgateway för ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). En virtuell nätverksgateway expressroute använder GatewayType ExpressRoute, inte VPN.
+  * Följ anvisningarna för att [skapa en ExpressRoute-krets](expressroute-howto-circuit-portal-resource-manager.md) och aktivera kretsen av anslutningsprovidern.
+  * Kontrollera att du har Azure privat peering har konfigurerats för din krets. Se den [konfigurera routning](expressroute-howto-routing-portal-resource-manager.md) artikeln routning anvisningar.
+  * Se till att Azures privata peering har konfigurerats och BGP-peering mellan ditt nätverk och Microsoft är igång så att du kan aktivera anslutning för slutpunkt till slutpunkt.
+  * Kontrollera att du har ett virtuellt nätverk och en virtuell nätverksgateway skapas och helt etablerad. Följ anvisningarna för att [skapar en virtuell nätverksgateway för ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). En virtuell nätverksgateway för ExpressRoute använder GatewayType ExpressRoute, inte VPN.
 
-* Du kan länka upp till 10 virtuella nätverk till en standard ExpressRoute-krets. Alla virtuella nätverk måste vara i samma region geopolitiska när du använder en standard ExpressRoute-krets.
+* Du kan länka upp till 10 virtuella nätverk till en ExpressRoute-krets som standard. Alla virtuella nätverken måste finnas i samma geopolitiska region när du använder en standard ExpressRoute-krets.
 
-* Ett enda VNet kan länkas till upp till fyra ExpressRoute-kretsar. Använd anvisningarna nedan om du vill skapa ett nytt objekt för klientanslutning för varje ExpressRoute-krets du ansluter till. ExpressRoute-kretsar kan finnas i samma prenumeration, olika prenumerationer eller en blandning av båda.
+* Ett enskilt virtuellt nätverk kan länkas till upp till fyra ExpressRoute-kretsar. Använd de här processerna för att skapa ett nytt anslutningsobjekt för varje ExpressRoute-krets som du ansluter till. ExpressRoute-kretsar kan finnas i samma prenumeration, olika prenumerationer eller en blandning av båda.
 
-* Du kan länka ett virtuellt nätverk utanför ExpressRoute-kretsen geopolitiska regionen eller ansluta ett stort antal virtuella nätverk till ExpressRoute-krets om du har aktiverat ExpressRoute premium-tillägg. Kontrollera den [vanliga frågor och svar](expressroute-faqs.md) för mer information om premium-tillägg.
+* Du kan länka ett virtuellt nätverk utanför den geopolitiska regionen för ExpressRoute-kretsen eller ansluta ett stort antal virtuella nätverk till ExpressRoute-krets om du har aktiverat ExpressRoute premium-tillägget. Kontrollera den [vanliga frågor och svar](expressroute-faqs.md) för mer information om premium-tillägget.
 
-* Du kan [visa en video](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit) innan du börjar att bättre förstå stegen.
+* Du kan [visa en video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit) innan du börjar att bättre förstå den.
 
-## <a name="connect-a-vnet-to-a-circuit---same-subscription"></a>Ansluta ett virtuellt nätverk till en krets - samma prenumeration
+## <a name="connect-a-vnet-to-a-circuit---same-subscription"></a>Ansluta ett virtuellt nätverk till en krets – samma prenumeration
 
 > [!NOTE]
-> BGP-konfigurationsinformationen kommer inte att visas om nivå 3-providern konfigurerat din peerkopplingar. Om kretsen är i ett etablerat tillstånd, bör du kunna skapa anslutningar.
+> BGP-konfigurationsinformation visas inte om layer 3-providern konfigurerat din peerings. Om din krets är i ett etablerat tillstånd, bör du kunna skapa anslutningar.
 >
 
-### <a name="to-create-a-connection"></a>Att skapa en anslutning
+### <a name="to-create-a-connection"></a>Skapa en anslutning
 
-1. Se till att dina ExpressRoute-krets och privat Azure-peering har konfigurerats. Följ instruktionerna i [skapar du en ExpressRoute-krets](expressroute-howto-circuit-arm.md) och [konfigurera routning](expressroute-howto-routing-arm.md). ExpressRoute-krets bör se ut som följande bild:
+1. Se till att dina ExpressRoute-krets och Azures privata peering har konfigurerats. Följ instruktionerna i [skapa en ExpressRoute-krets](expressroute-howto-circuit-arm.md) och [konfigurera routning](expressroute-howto-routing-arm.md). ExpressRoute-kretsen bör se ut som på följande bild:
 
   ![Skärmbild för ExpressRoute-krets](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
-2. Du kan nu börja etablera en anslutning om du vill länka din virtuella nätverksgateway till ExpressRoute-krets. Klicka på **anslutning** > **Lägg till** att öppna den **Lägg till anslutning** sida och konfigurera värden.
+2. Du kan nu börja etablera en anslutning för att länka din virtuella nätverksgateway för ExpressRoute-kretsen. Klicka på **anslutning** > **Lägg till** att öppna den **Lägg till anslutning** sidan och sedan konfigurera värden.
 
   ![Lägg till anslutning skärmbild](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png)
-3. När anslutningen har konfigurerats, visas connection-objektet information för anslutningen.
+3. När anslutningen har konfigurerats, kommer din anslutningsobjektet visas information om anslutningen.
 
   ![Skärmbild av anslutningen objekt](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
 
@@ -73,69 +73,69 @@ Den här artikeln hjälper dig att skapa en anslutning för att länka ett virtu
 
 Du kan dela en ExpressRoute-krets över flera prenumerationer. Bilden nedan visar ett enkelt schema i så här fungerar för ExpressRoute-kretsar över flera prenumerationer.
 
-![Anslutning över prenumerationer](./media/expressroute-howto-linkvnet-portal-resource-manager/cross-subscription.png)
+![Anslutningen mellan prenumerationer](./media/expressroute-howto-linkvnet-portal-resource-manager/cross-subscription.png)
 
-- Var och en av mindre molnen i stora molnet används för att representera prenumerationer som hör till olika avdelningar inom en organisation.
-- Varje avdelning inom organisationen kan använda sina egna prenumeration för att distribuera sina tjänster, men de kan dela en enda ExpressRoute-krets att ansluta till ditt lokala nätverk.
-- En avdelning (i det här exemplet: IT) kan äga ExpressRoute-kretsen. Andra prenumerationer inom organisationen kan använda ExpressRoute-krets och tillstånd som är associerade med krets, inklusive prenumerationer som är länkade till andra Azure Active Directory-klienter och Enterprise-avtal registreringar.
+- Var och en av de mindre moln inom det stora molnet används för att representera prenumerationer som hör till olika avdelningar inom en organisation.
+- Var och en av avdelningarna i organisationen kan använda sin egen prenumeration för att distribuera sina tjänster, men de kan dela en enda ExpressRoute-krets för att ansluta till ditt lokala nätverk.
+- En avdelning (i det här exemplet: IT) kan äga ExpressRoute-kretsen. Andra prenumerationer i organisationen kan använda ExpressRoute-krets och auktoriseringar som är kopplad till kretsen, inklusive prenumerationer som är länkade till andra Azure Active Directory-klienter och Enterprise Agreement-registreringar.
 
   > [!NOTE]
-  > Anslutning och bandbredd kostnader för dedikerade kretsen tillämpas på ExpressRoute-kretsen ägare. Alla virtuella nätverk dela på samma bandbredd.
+  > Avgifter för anslutning och bandbredd för dedikerade kretsen tillämpas till ExpressRoute-krets ägare. Alla virtuella nätverk delar samma bandbredden.
   >
   >
 
-### <a name="administration---about-circuit-owners-and-circuit-users"></a>Administration - om krets ägare och krets användare
+### <a name="administration---about-circuit-owners-and-circuit-users"></a>Administration – om krets ägare och kretsanvändare
 
-Kretsägaren är en auktoriserad Power användare av resursen ExpressRoute-kretsen. Kretsägaren kan skapa tillstånd som kan lösas av krets-användare. Kretsen användare är ägare till virtuella nätverks-gateway som inte är inom samma prenumeration som ExpressRoute-kretsen. Kretsen användare kan lösa tillstånd (en auktorisering per virtuellt nätverk).
+Kretsen ägare är en behörig Power-användare i ExpressRoute-krets resursen. Kretsägaren kan skapa auktoriseringar som kan lösas genom att ”kretsanvändare”. Kretsanvändare är ägare till virtuella nätverksgatewayer som inte är inom samma prenumeration som ExpressRoute-kretsen. Kretsanvändare kan lösa in auktoriseringar (en auktorisering per virtuellt nätverk).
 
-Kretsägaren har behörighet att ändra och återkalla tillstånd när som helst. Återkalla ett tillstånd som resulterar i alla anslutningar tas bort från prenumerationen vars åtkomst har återkallats.
+Kretsägaren har rätt att ändra och återkalla auktoriseringar när som helst. Återkallar ett auktorisering resulterar i alla anslutningar tas bort från prenumerationen vars åtkomst har återkallats.
 
 ### <a name="circuit-owner-operations"></a>Kretsen ägare åtgärder
 
-**Så här skapar du en anslutningsverifiering**
+**Du skapar en anslutning auktoriseringsregler**
 
-Kretsägaren skapar tillstånd. Detta resulterar i att skapa auktoriseringsnyckel som kan användas av en kretsanvändare för att ansluta sina virtuella nätverksgatewayerna till ExpressRoute-kretsen. Ett tillstånd som är giltig för endast en anslutning.
+Kretsägaren skapar en auktorisering. Detta resulterar i att skapa en auktoriseringsnyckeln som kan användas av en kretsanvändare för att ansluta sina virtuella nätverksgatewayer för ExpressRoute-kretsen. En auktorisering är giltig för endast en anslutning.
 
-1. I ExpressRoute-sidan klickar du på **tillstånd** och skriv sedan ett **namn** för auktorisering och klickar på **spara**.
+1. I ExpressRoute-sidan klickar du på **auktoriseringar** och skriv sedan en **namn** för auktorisering och klicka på **spara**.
 
   ![Auktoriseringar](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
 2. När konfigurationen har sparats kan du kopiera den **resurs-ID** och **Auktoriseringsnyckeln**.
 
   ![Auktoriseringsnyckel](./media/expressroute-howto-linkvnet-portal-resource-manager/authkey.png)
 
-**Ta bort en anslutningsverifiering**
+**Att ta bort en anslutningsauktorisering**
 
-Du kan ta bort en anslutning genom att välja den **ta bort** ikon på sidan för anslutningen.
+Du kan ta bort en anslutning genom att välja den **ta bort** ikonen på sidan för din anslutning.
 
-### <a name="circuit-user-operations"></a>Kretsen användaren åtgärder
+### <a name="circuit-user-operations"></a>Kretsen användaråtgärder
 
-Kretsen användaren måste resurs-ID och auktoriseringsnyckel från kretsägaren.
+Kretsen användaren måste resurs-ID och en auktoriseringsnyckeln från kretsägaren.
 
-**Lösa in en anslutningsverifiering**
+**Att kunna lösa in en anslutningsauktorisering**
 
 1. Klicka på den **+ ny** knappen.
 
   ![Klicka på ny](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
-2. Sök efter **”anslutning”** i Marketplace, markerar du den och klickar på **skapa**.
+2. Sök efter **”anslutning”** på Marketplace, markerar du det och klicka på **skapa**.
 
   ![Sök efter anslutning](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
 3. Kontrollera att den **anslutningstypen** är inställd på ”ExpressRoute”.
-4. Fyll i informationen och klicka sedan på **OK** på sidan grunderna.
+4. Fyll i information och klicka sedan på **OK** på sidan grunderna.
 
-  ![Grunderna sida](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
-5. I den **inställningar** sidan, Välj den **virtuell nätverksgateway** och kontrollera den **lösa auktorisering** kryssrutan.
-6. Ange den **auktoriseringsnyckeln** och **Peer-krets URI** och namnge anslutningen. Klicka på **OK**.
+  ![Grunderna sidan](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
+5. I den **inställningar** markerar, den **virtuell nätverksgateway** och kontrollera den **Lös in auktorisering** markerar du kryssrutan.
+6. Ange den **auktoriseringsnyckeln** och **Peer-kretsens URI** och ge ett namn för anslutningen. Klicka på **OK**.
 
   ![Sidan Inställningar](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
-7. Granska informationen i den **sammanfattning** och klickar på **OK**.
+7. Granska informationen i den **sammanfattning** och klicka på **OK**.
 
-**Att släppa en anslutningsverifiering**
+**Att släppa en anslutningsauktorisering**
 
-Du kan släppa tillstånd genom att ta bort anslutningen som länkar ExpressRoute-kretsen till det virtuella nätverket.
+Du kan släppa en auktorisering genom att ta bort anslutningen som länkar ExpressRoute-kretsen till det virtuella nätverket.
 
-## <a name="delete-a-connection-to-unlink-a-vnet"></a>Ta bort en anslutning om du vill Avlänka ett virtuellt nätverk
+## <a name="delete-a-connection-to-unlink-a-vnet"></a>Ta bort en anslutning för att ta bort länken till ett virtuellt nätverk
 
-Du kan ta bort en anslutning och Avlänka ditt VNet till en ExpressRoute-krets genom att välja den **ta bort** ikon på sidan för anslutningen.
+Du kan ta bort en anslutning och ta bort länken till ditt VNet till en ExpressRoute-krets genom att välja den **ta bort** ikonen på sidan för din anslutning.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om ExpressRoute finns i [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).

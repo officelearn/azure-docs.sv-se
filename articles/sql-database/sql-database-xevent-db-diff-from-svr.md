@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 8852fc75658298a2c6887d8fef154d5a0b59affd
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 482faaea7089e095da13a2bae5f5937e20d50616
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159917"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246760"
 ---
 # <a name="extended-events-in-sql-database"></a>Utökade händelser i SQL-databas
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -32,15 +32,15 @@ Det här avsnittet förklarar hur implementeringen av utökade händelser i Azur
 
 Mer information om utökade händelser för Azure SQL Database och Microsoft SQL Server finns på:
 
-- [Snabbstart: Utökade händelser i SQL Server](http://msdn.microsoft.com/library/mt733217.aspx)
-- [Utökade händelser](http://msdn.microsoft.com/library/bb630282.aspx)
+- [Snabbstart: Utökade händelser i SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
+- [Utökade händelser](https://msdn.microsoft.com/library/bb630282.aspx)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Det här avsnittet förutsätter att du redan har viss erfarenhet av:
 
 - [Azure SQL Database-tjänsten](https://azure.microsoft.com/services/sql-database/).
-- [Utökade händelser](http://msdn.microsoft.com/library/bb630282.aspx) i Microsoft SQL Server.
+- [Utökade händelser](https://msdn.microsoft.com/library/bb630282.aspx) i Microsoft SQL Server.
 
 - Den största delen av vår dokumentation om utökade händelser gäller för både SQL Server och SQL-databas.
 
@@ -69,10 +69,10 @@ Relaterade avsnitt innehåller två kodexempel:
 ## <a name="transact-sql-differences"></a>Transact-SQL-skillnader
 
 
-- När du kör den [skapa EVENT SESSION](http://msdn.microsoft.com/library/bb677289.aspx) kommandot på SQL Server du använder den **på SERVER** satsen. Men i SQL-databas som du använder den **på databasen** satsen i stället.
+- När du kör den [skapa EVENT SESSION](https://msdn.microsoft.com/library/bb677289.aspx) kommandot på SQL Server du använder den **på SERVER** satsen. Men i SQL-databas som du använder den **på databasen** satsen i stället.
 
 
-- Den **på databasen** satsen gäller även för de [ALTER EVENT SESSION](http://msdn.microsoft.com/library/bb630368.aspx) och [släppa EVENT SESSION](http://msdn.microsoft.com/library/bb630257.aspx) Transact-SQL-kommandon.
+- Den **på databasen** satsen gäller även för de [ALTER EVENT SESSION](https://msdn.microsoft.com/library/bb630368.aspx) och [släppa EVENT SESSION](https://msdn.microsoft.com/library/bb630257.aspx) Transact-SQL-kommandon.
 
 
 - Ett bra tips är att inkludera alternativet event session av **STARTUP_STATE = ON** i din **skapa EVENT SESSION** eller **ALTER EVENT SESSION** instruktioner.
@@ -80,7 +80,7 @@ Relaterade avsnitt innehåller två kodexempel:
 
 ## <a name="new-catalog-views"></a>De nya katalogvyerna tas
 
-Utökade händelser-funktionen stöds av flera [catalog vyer](http://msdn.microsoft.com/library/ms174365.aspx). Katalogvyer berättar om *metadata eller definitioner* användarskapade event-sessioner i den aktuella databasen. Vyerna returnerar inte information om instanser av aktiva händelsesessioner.
+Utökade händelser-funktionen stöds av flera [catalog vyer](https://msdn.microsoft.com/library/ms174365.aspx). Katalogvyer berättar om *metadata eller definitioner* användarskapade event-sessioner i den aktuella databasen. Vyerna returnerar inte information om instanser av aktiva händelsesessioner.
 
 | Namnet på<br/>Katalogvy | Beskrivning |
 |:--- |:--- |
@@ -92,9 +92,9 @@ Utökade händelser-funktionen stöds av flera [catalog vyer](http://msdn.micros
 
 I Microsoft SQL Server, liknande katalogvyer har namn som innehåller *.server\_*  i stället för *.database\_*. Namnmönstret liknar **sys.server_event_%**.
 
-## <a name="new-dynamic-management-views-dmvshttpmsdnmicrosoftcomlibraryms188754aspx"></a>Nya dynamiska hanteringsvyer [(DMV)](http://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>Nya dynamiska hanteringsvyer [(DMV)](https://msdn.microsoft.com/library/ms188754.aspx)
 
-Azure SQL Database har [dynamiska hanteringsvyer (DMV)](http://msdn.microsoft.com/library/bb677293.aspx) som har stöd för utökade händelser. DMV: er berättar om *active* händelsesessioner.
+Azure SQL Database har [dynamiska hanteringsvyer (DMV)](https://msdn.microsoft.com/library/bb677293.aspx) som har stöd för utökade händelser. DMV: er berättar om *active* händelsesessioner.
 
 | Namnet på DMV | Beskrivning |
 |:--- |:--- |
@@ -149,11 +149,11 @@ SELECT
 
 Här följer mål som kan samla in resultaten från din event-sessioner på SQL-databas:
 
-- [Ringbuffertmål](http://msdn.microsoft.com/library/ff878182.aspx) -kort innehåller händelsedata i minnet.
-- [Räknaren händelsemål](http://msdn.microsoft.com/library/ff878025.aspx) -räknar alla händelser som inträffar under en session för utökade händelser.
-- [Händelsefilmål](http://msdn.microsoft.com/library/ff878115.aspx) -skriver fullständig buffertar till en Azure Storage-behållare.
+- [Ringbuffertmål](https://msdn.microsoft.com/library/ff878182.aspx) -kort innehåller händelsedata i minnet.
+- [Räknaren händelsemål](https://msdn.microsoft.com/library/ff878025.aspx) -räknar alla händelser som inträffar under en session för utökade händelser.
+- [Händelsefilmål](https://msdn.microsoft.com/library/ff878115.aspx) -skriver fullständig buffertar till en Azure Storage-behållare.
 
-Den [för Windows ETW (Event Tracing)](http://msdn.microsoft.com/library/ms751538.aspx) API: et är inte tillgänglig för utökade händelser i SQL-databas.
+Den [för Windows ETW (Event Tracing)](https://msdn.microsoft.com/library/ms751538.aspx) API: et är inte tillgänglig för utökade händelser i SQL-databas.
 
 ## <a name="restrictions"></a>Begränsningar
 
@@ -195,8 +195,8 @@ Den **händelsefil** mål kan uppleva nätverksfördröjning eller fel inträffa
 - [Azure Storage-cmdletar](https://docs.microsoft.com/powershell/module/Azure.Storage)
 - [Med Azure PowerShell med Azure Storage](../storage/common/storage-powershell-guide-full.md) -innehåller omfattande information om PowerShell och Azure Storage-tjänsten.
 - [Använda Blob storage från .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-- [Skapa autentiseringsuppgift (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
-- [Skapa HÄNDELSESESSIONEN (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
+- [Skapa autentiseringsuppgift (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
+- [Skapa HÄNDELSESESSIONEN (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
 - [Jonathan Kehayias blogginlägg om utökade händelser i Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
@@ -209,6 +209,6 @@ Andra exempel ämnen i koden för utökade händelser finns på följande länka
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
 -->

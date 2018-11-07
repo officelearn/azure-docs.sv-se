@@ -1,6 +1,6 @@
 ---
-title: Kundens godkännande fas i livscykeln Team datavetenskap Process - Azure | Microsoft Docs
-description: Mål, uppgifter och leveranser för kundens godkännande steg i datavetenskap projekt
+title: Kundens godkännande steget i Team Data Science Process-livscykel – Azure | Microsoft Docs
+description: Mål, uppgifter och mål för kundens godkännande steg i dina data science-projekt
 services: machine-learning
 documentationcenter: ''
 author: deguhath
@@ -15,53 +15,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 82819ab59d9bab6f256cd01a376f62ac8dac26b3
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 9dd3ab8c9451ecfe6b095b52f5af083a7c7e9550
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837148"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232767"
 ---
 # <a name="customer-acceptance"></a>Kundgodkännande
 
-Den här artikeln beskrivs mål, uppgifter och leveranser som är associerade med kundens godkännande fas av Team Data vetenskap processen (TDSP). Denna process tillhandahåller en rekommenderad livscykel som du kan använda för att strukturera datavetenskap projekt. Livscykeln beskrivs viktiga steg som projekt vanligtvis köra, ofta upprepade gånger:
+Den här artikeln beskrivs de mål, uppgifter och slutprodukter som är associerade med kundens godkännande scenen för Team Data Science Process (TDSP). Den här processen ger en rekommenderad livscykel som du kan använda för att strukturera dina data science-projekt. Livscykeln beskrivs de viktigaste stegen som projekt vanligtvis köra, ofta upprepade gånger:
 
-   1. **Så här fungerar för företag**
-   2. **Datainsamling och förstå**
-   3. **Modeling**
+   1. **Förståelse för verksamheten**
+   2. **Data förvärv och förståelse av**
+   3. **Modellering**
    4. **Distribution**
-   5. **Kundens godkännande**
+   5. **Kundgodkännande**
 
-Här är en bild av TDSP livscykeln: 
+Här är en visuell representation av TDSP-livscykeln: 
 
-![TDSP livscykel](./media/lifecycle/tdsp-lifecycle2.png) 
+![Livscykel för TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
 ## <a name="goal"></a>Mål
-**Slutför projektet leveranser**: Bekräfta att pipeline, modellen och deras distribution i en produktionsmiljö uppfyller kundens mål.
+**Slutför projektets slutprodukter**: Bekräfta att pipelinen modellen och deras distribution i en produktionsmiljö uppfyller kundens mål.
 
-## <a name="how-to-do-it"></a>Hur du gör det.
+## <a name="how-to-do-it"></a>Gör så
 Det finns två huvudsakliga uppgifter som beskrivs i det här steget:
 
-   * **Systemvalidering**: Bekräfta att den distribuerade modellen och pipeline uppfyller kundens behov.
-   * **Projektet hand av**: lämnar projektet till den enhet som ska köra den i produktion.
+   * **Systemverifiering**: Bekräfta att distribuerad modell och pipeline uppfyller kundens behov.
+   * **Projektet hand av**: lämnar projektet till den enhet som ska köras systemet i produktion.
 
-Kunden bör verifiera att systemet uppfyller sina affärsbehov och den svarar på frågor med acceptabel Precision att distribuera systemet till produktion för användning med sina klientprogram. All dokumentation är slutförd och granskas. Projektet är lämnas av till entitet som ansvarar för åtgärder. Den här entiteten kanske till exempel en IT- eller kunden datavetenskap team eller en agent på kundens som ansvarar för att köra systemet i produktion. 
+Kunden bör verifiera att systemet uppfyller sina affärsbehov och att den svarar på frågorna med godkända noggrannhet att distribuera systemet till produktion för användning av sina klientprogram. All dokumentation underkänts och granskas. Projektet är får av till entitet som ansvarar för åtgärder. Den här entiteten kan till exempel vara ett IT- eller kund data science team eller en agent till kunden som ansvarar för att systemet körs i produktion. 
 
 ## <a name="artifacts"></a>Artefakter
-Den huvudsakliga artefakt som skapas i det här sista steget är det **avsluta rapporten projektets för kunden**. Den tekniska rapporten innehåller information om projektet som är användbara för att lära dig mer om hur du använder systemet. TDSP ger en [avsluta rapporten](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Exit%20Report.md) mall. Du kan använda mallen som den är eller anpassa den för specifika kundens behov. 
+Den huvudsakliga artefakt som skapas i den här sista steget är det **avsluta rapporten projektets för kunden**. Den här tekniska rapporten innehåller information om projektet som är användbara för att lära dig mer om hur du använder systemet. TDSP ger en [avsluta rapporten](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Exit%20Report.md) mall. Du kan använda mallen som den är eller du kan anpassa den för specifika kundens behov. 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Här är länkar till varje steg i livscykeln för TDSP:
+Här finns länkar till varje steg i livscykeln för TDSP:
 
-   1. [Så här fungerar för företag](lifecycle-business-understanding.md)
-   2. [Datainsamling och förstå](lifecycle-data.md)
-   3. [Modeling](lifecycle-modeling.md)
+   1. [Förståelse för verksamheten](lifecycle-business-understanding.md)
+   2. [Data förvärv och förståelse av](lifecycle-data.md)
+   3. [Modellering](lifecycle-modeling.md)
    4. [Distribution](lifecycle-deployment.md)
-   5. [Kundens godkännande](lifecycle-acceptance.md)
+   5. [Kundgodkännande](lifecycle-acceptance.md)
 
-Vi ger fullständig slutpunkt till slutpunkt genomgång som visar alla steg i processen för specifika scenarier. Den [exempel genomgång](walkthroughs.md) artikeln innehåller en lista över scenarier med länkar och miniatyr beskrivningar. Genomgångar illustrerar hur du kombinerar moln, lokala verktyg och tjänster i ett arbetsflöde eller en rörledning för att skapa ett intelligent program. 
+Vi tillhandahåller fullständig från slutpunkt till slutpunkt genomgång som visar alla steg i processen för specifika scenarier. Den [exempel genomgångar](walkthroughs.md) artikeln innehåller en lista över scenarier med länkar och miniatyr beskrivningar. Genomgångar visar hur du kombinerar molnlösningar, lokala verktyg och tjänster i ett arbetsflöde eller en pipeline för att skapa ett intelligenta program. 
 
-Exempel på hur du utför stegen i TDSPs som använder Azure Machine Learning Studio finns [använder TDSP med Azure Machine Learning](http://aka.ms/datascienceprocess).
+Exempel på hur du utför stegen i TDSPs som använder Azure Machine Learning Studio finns [använder TDSP med Azure Machine Learning](https://aka.ms/datascienceprocess).

@@ -10,12 +10,12 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: facd9a98b2f2d866574dd1f9bf180fa2a9618f31
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: d004ad1f24448da0c7404761ca0865826b3000b3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301338"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261289"
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Designa extrahering, inläsning och transformering (ELT) för Azure SQL Data Warehouse
 
@@ -41,7 +41,7 @@ ELT läser in först och sedan omvandlar data, medan extrahering, transformering
 
 En självstudiekurs om inläsning finns i [använda PolyBase för att läsa in data från Azure blob storage till Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
 
-Mer information finns i [läser in mönster blogg](http://blogs.msdn.microsoft.com/sqlcat/2017/05/17/azure-sql-data-warehouse-loading-patterns-and-strategies/). 
+Mer information finns i [läser in mönster blogg](https://blogs.msdn.microsoft.com/sqlcat/2017/05/17/azure-sql-data-warehouse-loading-patterns-and-strategies/). 
 
 ## <a name="options-for-loading-with-polybase"></a>Alternativ för att läsa in med PolyBase
 

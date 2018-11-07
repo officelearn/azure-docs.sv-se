@@ -10,12 +10,12 @@ ms.component: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 9/24/2018
-ms.openlocfilehash: f221d160685dd12fb18a611432911baa60ebc6f7
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 4d25e147044053aa76afe2da482b71c24efc2325
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888163"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242882"
 ---
 # <a name="development-environment-for-azure-machine-learning"></a>Utvecklingsmiljö för Azure Machine Learning 
 
@@ -59,7 +59,7 @@ Vi rekommenderar att [Visual Studio Code](https://code.visualstudio.com/), efter
 
 ## <a name="data-science-virtual-machine"></a>Virtuell dator för datavetenskap
 
-Den virtuella datorn på datavetenskap (DSVM) är en kombination av de föregående miljöerna. Det är en virtuell dator på Azure-plattformen med Jupyter Notebooks, Visual Studio Code och Azure Machine Learning SDK förinstallerat. Skapa den virtuella datorn är mer komplexa än Azure Notebooks, men mindre komplex än att konfigurera en virtuell dator från grunden. Eftersom nödvändig programvara är förinstallerat i avbildningen, kan du börja experimentera med Azure Machine Learning snabbt när den virtuella datorn har skapats.
+Den virtuella datorn på datavetenskap (DSVM) är en kombination av de föregående miljöerna. Det är en virtuell dator på Azure-plattformen med Jupyter Notebooks, Visual Studio Code och Azure Machine Learning SDK förinstallerat. Eftersom nödvändig programvara är förinstallerat i avbildningen, kan du börja experimentera med Azure Machine Learning snabbt när den virtuella datorn har skapats.
 
 DSVM kan du välja beräkningsresurser som du behöver, till exempel CPU, GPU och minne. Det är också förinstallerat med andra redigerare som PyCharm samt populära machine learning-programvara som TensorFlow, Keras och PyTorch. Om programvara som måste inte installeras, kan du installera det själv.
 

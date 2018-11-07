@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 12dd93edce365509488631e4ca27462256abfca8
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 43e2101f413985974b964f2261d852692bcac61d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452674"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251448"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referens – IoT Hub-slutpunkter
 
@@ -57,7 +57,7 @@ I följande lista beskrivs slutpunkterna:
 
 * **Tjänstslutpunkter**. Varje IoT-hubb Exponerar en uppsättning slutpunkter för lösningens backend-servrar att kommunicera med dina enheter. Med ett undantag slutpunkterna är bara tillgängliga via den [AMQP](https://www.amqp.org/) protokoll. Metoden anrop slutpunkten exponeras via HTTPS-protokollet.
   
-  * *Ta emot meddelanden från enheten till molnet*. Den här slutpunkten är kompatibel med [Azure Event Hubs](http://azure.microsoft.com/documentation/services/event-hubs/). En backend tjänst kan använda den för att läsa den [meddelanden från enheten till molnet](iot-hub-devguide-messages-d2c.md) skickas av dina enheter. Du kan skapa anpassade slutpunkter i IoT-hubben förutom den här inbyggda slutpunkten.
+  * *Ta emot meddelanden från enheten till molnet*. Den här slutpunkten är kompatibel med [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). En backend tjänst kan använda den för att läsa den [meddelanden från enheten till molnet](iot-hub-devguide-messages-d2c.md) skickas av dina enheter. Du kan skapa anpassade slutpunkter i IoT-hubben förutom den här inbyggda slutpunkten.
   
   * *Skicka meddelanden från moln till enhet och ta emot bekräftelser för leverans*. De här slutpunkterna aktivera lösningens backend-servrar att skicka tillförlitlig [meddelanden från moln till enhet](iot-hub-devguide-messages-c2d.md), samt för att få motsvarande leverans- eller förfallodatum bekräftelser.
   

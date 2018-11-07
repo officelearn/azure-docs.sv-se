@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/06/2016
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 009f7ac2f7e614b7e07623e41888973f1a2b254d
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1d510f51ed28c28c698437f905c4911a8c32e5ce
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440996"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234994"
 ---
 # <a name="troubleshoot-creating-an-azure-active-directory-or-azure-active-directory-b2c-tenant"></a>Felsökning för att skapa en Azure Active Directory eller Azure Active Directory B2C-klient 
 
@@ -28,7 +28,7 @@ Om det uppstår problem när du [skapa en Azure Active Directory B2C (Azure AD B
 * Om Azure AD B2C-klient inte visas i din lista över klienter, försök igen att skapa klienten.
 * Om Azure AD B2C-klient visas i listan över klienter och du får ett felmeddelande, ta bort klienten och skapa det igen:
 
-    ”Det gick inte att slutföra skapandet av B2C-klient” contosob2c ”. Läs dessa [länken](http://go.microsoft.com/fwlink/?LinkID=624192&clcid=0x409) för mer information ”.
+    ”Det gick inte att slutföra skapandet av B2C-klient” contosob2c ”. Läs dessa [länken](https://go.microsoft.com/fwlink/?LinkID=624192&clcid=0x409) för mer information ”.
 * Det finns kända problem när du tar bort en befintlig Azure AD B2C-klient och skapa den igen med samma domännamn. När du skapar en ny Azure AD B2C-klient, måste du använda ett annat domännamn.
 * Om dessa lösningar inte fungerar kontaktar du supporten för Azure. Mer information finns i [filen supportbegäranden för Azure AD B2C](active-directory-b2c-support.md).
 

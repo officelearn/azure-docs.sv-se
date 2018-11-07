@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 98a7ae31aeeae29b81a1053b38992d3bc4e0e03f
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 4758c29d1cdb7e09c397524574ba1ab6701efeeb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085317"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238037"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Lägg till marketplace-objekt med Publiceringsverktyget
 
@@ -32,7 +32,7 @@ Att lägga till ditt innehåll till den [Azure Stack Marketplace](azure-stack-ma
 
  - Ladda ned den [Azure Stack-snabbstartmallar](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) och extrahera.
 
- - Ladda ned den [Azure-galleriet paketering verktyget](http://aka.ms/azurestackmarketplaceitem) (AzureGalleryPackage.exe). 
+ - Ladda ned den [Azure-galleriet paketering verktyget](https://aka.ms/azurestackmarketplaceitem) (AzureGalleryPackage.exe). 
 
  - Publicering på Marketplace kräver ikoner och en miniatyr fil. Du kan använda din egen eller spara den [exempel](azure-stack-marketplace-publisher.md#support-files) filer lokalt i det här exemplet.
 

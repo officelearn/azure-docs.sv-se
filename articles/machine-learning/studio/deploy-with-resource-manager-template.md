@@ -1,6 +1,6 @@
 ---
-title: Distribuera en Machine Learning-arbetsytan med Azure Resource Manager | Microsoft Docs
-description: Så här distribuerar du en arbetsyta för Azure Machine Learning med Azure Resource Manager-mall
+title: Distribuera en Machine Learning-arbetsyta med Azure Resource Manager | Microsoft Docs
+description: Så här distribuerar du en arbetsyta för Azure Machine Learning med hjälp av Azure Resource Manager-mall
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 2/05/2018
-ms.openlocfilehash: 82d2316b3f72fbb0c5c3ee1ea9424afcc7661361
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: fc19c77e90ffd2d300497fc496da02b2d2234d3a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833979"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244397"
 ---
 # <a name="deploy-machine-learning-workspace-using-azure-resource-manager"></a>Distribuera Machine Learning-arbetsyta med hjälp av Azure Resource Manager
 ## <a name="introduction"></a>Introduktion
-Med en Azure Resource Manager-mall för distribution av sparar du tid genom att ge ett skalbart sätt att distribuera sammankopplade komponenter med en verifiering och försök mekanism. Om du vill konfigurera Azure Machine Learning arbetsytor, till exempel behöver du först konfigurera en Azure storage-konto och sedan distribuera din arbetsyta. Anta att göra detta manuellt för hundratals arbetsytor. Ett enklare alternativ är att använda en Azure Resource Manager-mall för att distribuera en Azure Machine Learning-arbetsytan och alla dess beroenden. Den här artikeln tar dig igenom processen steg för steg. En bra översikt över Azure Resource Manager finns [översikt över Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+Med en Azure Resource Manager-mall för distribution av sparar du tid genom att ge ett skalbart sätt att distribuera sammankopplade komponenter med en verifiering och återförsöksmekanism. Om du vill konfigurera Azure Machine Learning-arbetsytor, till exempel behöver du du först konfigurera ett Azure storage-konto och sedan distribuerar din arbetsyta. Tänk dig att göra detta manuellt för hundratals arbetsytor. Ett enklare alternativ är att använda en Azure Resource Manager-mall för att distribuera en Azure Machine Learning-arbetsyta och alla dess beroenden. Den här artikeln tar dig igenom processen steg för steg. En bra översikt över Azure Resource Manager finns i [översikt över Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
-## <a name="step-by-step-create-a-machine-learning-workspace"></a>Steg för steg: skapa en Machine Learning-arbetsytan
-Vi ska skapa en Azure-resursgrupp och sedan distribuera ett nytt Azure storage-konto och en ny Azure Machine Learning-arbetsytan med hjälp av en Resource Manager-mall. När installationen är klar, ut vi viktig information om arbetsytor som har skapats (primärnyckel, workspaceID och URL: en till arbetsytan).
+## <a name="step-by-step-create-a-machine-learning-workspace"></a>Steg för steg: skapa en Machine Learning-arbetsyta
+Vi ska skapa en Azure-resursgrupp och sedan distribuera ett nytt Azure storage-konto och ett nytt Azure Machine Learning-arbetsyta med en Resource Manager-mall. När distributionen är klar kan ut vi viktig information om arbetsytor som har skapats (primärnyckel, workspaceID och URL: en till arbetsytan).
 
 ### <a name="create-an-azure-resource-manager-template"></a>Skapa en Azure Resource Manager-mall
-En Machine Learning-arbetsytan kräver ett Azure storage-konto för att lagra dataset som är länkade till den.
-Följande mall använder namnet på resursgruppen att generera lagringskontonamn och namnet på arbetsytan.  Dessutom används lagringskontonamn som en egenskap när du skapar arbetsytan.
+En Machine Learning-arbetsyta kräver ett Azure storage-konto för att lagra den datauppsättning som är länkad till den.
+Följande mall använder namnet på resursgruppen som ska generera lagringskontonamn och namnet på arbetsytan.  Den använder också namnet på lagringskontot som en egenskap när du skapar arbetsytan.
 
 ```
 {
@@ -78,11 +78,11 @@ Följande mall använder namnet på resursgruppen att generera lagringskontonamn
 }
 
 ```
-Spara den här mallen som mlworkspace.json fil under c:\temp\.
+Spara den här mallen som mlworkspace.json filen under c:\temp\.
 
-### <a name="deploy-the-resource-group-based-on-the-template"></a>Distribuera resursgrupp, baserat på mallen
+### <a name="deploy-the-resource-group-based-on-the-template"></a>Distribuera resursgruppen, baserat på mallen
 * Öppna PowerShell
-* Installera moduler för Azure Resource Manager och Azure-tjänsthantering  
+* Installera moduler för Azure Resource Manager och Azure Service Management  
 
 ```
 # Install the Azure Resource Manager modules from the PowerShell Gallery (press “A”)
@@ -92,7 +92,7 @@ Install-Module AzureRM -Scope CurrentUser
 Install-Module Azure -Scope CurrentUser
 ```
 
-   De här stegen hämta och installera modulerna som krävs för att slutföra stegen. Detta behöver bara göras en gång i miljön där du kör PowerShell-kommandon.   
+   De här stegen hämta och installera modulerna som krävs för att utföra stegen. Detta behöver bara göras en gång i miljön där du kör PowerShell-kommandon.   
 
 * Autentisera till Azure  
 
@@ -100,7 +100,7 @@ Install-Module Azure -Scope CurrentUser
 # Authenticate (enter your credentials in the pop-up window)
 Connect-AzureRmAccount
 ```
-Det här steget måste upprepas för varje session. När autentiseringen är ska din prenumerationsinformation visas.
+Det här steget måste du upprepa för varje session. När autentiseringen är klar visas din prenumerationsinformation.
 
 ![Azure-konto][1]
 
@@ -113,37 +113,37 @@ $rg = New-AzureRmResourceGroup -Name "uniquenamerequired523" -Location "South Ce
 $rg
 ```
 
-Kontrollera att resursgruppen har etablerats på rätt sätt. **ProvisioningState** ska vara ”lyckades”.
-Resursgruppens namn används av mallen för att generera lagringskontonamn. Lagringskontonamnet måste vara mellan 3 och 24 tecken långt och innehålla siffror och gemena bokstäver.
+Kontrollera att resursgruppen har etablerats korrekt. **ProvisioningState** ska vara ”lyckades”.
+Resursgruppens namn används av mallen för att generera lagringskontonamnet. Lagringskontonamnet måste vara mellan 3 och 24 tecken och siffror och gemener.
 
 ![Resursgrupp][2]
 
-* Med gruppdistributionen resurs kan distribuera en ny Machine Learning-arbetsytan.
+* Med distributionen av resursgrupper kan distribuera en ny Machine Learning-arbetsyta.
 
 ```
 # Create a Resource Group, TemplateFile is the location of the JSON template.
 $rgd = New-AzureRmResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\mlworkspace.json" -ResourceGroupName $rg.ResourceGroupName
 ```
 
-När distributionen är klar, är det enkelt komma åt egenskaper i arbetsytan som du har distribuerat. Du kan till exempel åtkomst till den primära nyckeln-Token.
+När distributionen är klar, är det enkelt att egenskaper i arbetsytan som du har distribuerat. Du kan till exempel komma åt den primära nyckeln-Token.
 
 ```
 # Access Azure ML Workspace Token after its deployment.
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
-Ett annat sätt att hämta token på befintlig arbetsyta är att använda kommandot Invoke-AzureRmResourceAction. Exempelvis kan du visa de primära och sekundära token av alla arbetsytor.
+Ett annat sätt att hämta token på befintlig arbetsyta är att använda kommandot Invoke-AzureRmResourceAction. Du kan exempelvis visa de primära och sekundära token för alla arbetsytor.
 
 ```  
 # List the primary and secondary tokens of all workspaces
 Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}  
 ```
-Efter att arbetsytan har etablerats kan du också automatisera många Azure Machine Learning Studio uppgifter med hjälp av den [PowerShell-modulen för Azure Machine Learning](http://aka.ms/amlps).
+När arbetsytan har etablerats, du kan även automatisera många Azure Machine Learning Studio-uppgifter med hjälp av den [PowerShell-modulen för Azure Machine Learning](https://aka.ms/amlps).
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [redigera Azure Resource Manager-mallar](../../azure-resource-manager/resource-group-authoring-templates.md). 
-* Ta en titt på den [Azure Quickstart mallar databasen](https://github.com/Azure/azure-quickstart-templates). 
-* Det här videoklippet om [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39). 
+* Läs mer om [skapa Azure Resource Manager-mallar](../../azure-resource-manager/resource-group-authoring-templates.md). 
+* En titt på de [Azure Snabbstartsmallarna på lagringsplatsen](https://github.com/Azure/azure-quickstart-templates). 
+* Den här videon om [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39). 
 
 <!--Image references-->
 [1]: ./media/deploy-with-resource-manager-template/azuresubscription.png

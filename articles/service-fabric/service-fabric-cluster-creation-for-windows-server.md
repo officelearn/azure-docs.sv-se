@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: dekapur
-ms.openlocfilehash: 3ce47d631e8a2ec7daf96ef95200001e5d4f8327
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: f91a6b305a3d531aa1c733685f6d896ed07054ae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818589"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257613"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Skapa ett fristående kluster som körs på Windows Server
 Du kan använda Azure Service Fabric för att skapa Service Fabric-kluster på några virtuella datorer eller datorer som kör Windows Server. Det innebär att du kan distribuera och köra Service Fabric-program i alla miljöer som innehåller en uppsättning sammankopplade Windows Server-datorer, oavsett om det är lokalt eller med någon annan molnleverantör. Service Fabric tillhandahåller ett konfigurationspaket för att skapa Service Fabric-kluster kallas det fristående paketet för Windows Server.
@@ -27,7 +27,7 @@ Du kan använda Azure Service Fabric för att skapa Service Fabric-kluster på n
 Den här artikeln vägleder dig genom stegen för att skapa fristående Service Fabric-kluster.
 
 > [!NOTE]
-> Det här fristående Windows Server-paketet är kommersiellt tillgängligt och kan användas för Produktionsdistribution. Det här paketet kan innehålla nya Service Fabric-funktioner som finns i ”förhandsversion”. Rulla ned till ”[Förhandsversionsfunktioner som ingår i det här paketet](#previewfeatures_anchor)”. avsnittet för förhandsfunktionerna i listan. Du kan [hämta en kopia av LICENSVILLKOREN](http://go.microsoft.com/fwlink/?LinkID=733084) nu.
+> Det här fristående Windows Server-paketet är kommersiellt tillgängligt och kan användas för Produktionsdistribution. Det här paketet kan innehålla nya Service Fabric-funktioner som finns i ”förhandsversion”. Rulla ned till ”[Förhandsversionsfunktioner som ingår i det här paketet](#previewfeatures_anchor)”. avsnittet för förhandsfunktionerna i listan. Du kan [hämta en kopia av LICENSVILLKOREN](https://go.microsoft.com/fwlink/?LinkID=733084) nu.
 > 
 > 
 
@@ -35,7 +35,7 @@ Den här artikeln vägleder dig genom stegen för att skapa fristående Service 
 
 ## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>Få support för Service Fabric för Windows Server-paket
 * Fråga communityn om det fristående paketet för Service Fabric för Windows Server i den [Azure Service Fabric-forumet](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
-* Öppna en biljett för [Professional Support för Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146).  Mer information om professionell Support från Microsoft [här](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
+* Öppna en biljett för [Professional Support för Service Fabric](https://support.microsoft.com/oas/default.aspx?prid=16146).  Mer information om professionell Support från Microsoft [här](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * Du kan också få support för det här paketet som en del av [Microsoft Premier Support](https://support.microsoft.com/en-us/premier).
 * Mer information finns i [supportalternativ för Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
 * Om du vill samla in loggar för supportärenden, kör den [logginsamlaren för Service Fabric fristående](service-fabric-cluster-standalone-package-contents.md).
@@ -44,7 +44,7 @@ Den här artikeln vägleder dig genom stegen för att skapa fristående Service 
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>Ladda ned Service Fabric för Windows Server-paketet
 Du kan skapa klustret med Service Fabric för Windows Server-paket (Windows Server 2012 R2 och senare) finns här: <br>
-[Hämta länk - Service Fabric fristående Package - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)
+[Hämta länk - Service Fabric fristående Package - Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690)
 
 Ha information om innehållet i paketet [här](service-fabric-cluster-standalone-package-contents.md).
 

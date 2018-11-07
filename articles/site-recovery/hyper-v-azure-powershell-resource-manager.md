@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: sutalasi
-ms.openlocfilehash: f8f690a4f94ee56cfaa5532fa090fada1a33bddf
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 4b008cc119951e50567218e332818585fb017e5a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214791"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229415"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Konfigurera katastrofåterställning till Azure för Hyper-V-datorer med PowerShell och Azure Resource Manager
 
@@ -24,7 +24,7 @@ Den här artikeln beskriver hur du använder Windows PowerShell, tillsammans med
 
 Azure PowerShell tillhandahåller cmdletar för att hantera Azure med hjälp av Windows PowerShell. Site Recovery PowerShell-cmdletar, tillgängliga med Azure PowerShell för Azure Resource Manager kan hjälpa dig att skydda och återställa dina servrar i Azure.
 
-Du behöver inte vara en expert PowerShell att använda den här artikeln, men du behöver att förstå grundläggande begrepp, t.ex moduler, cmdlets och sessioner. Läs [komma igång med Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx), och [med hjälp av Azure PowerShell med Azure Resource Manager](../powershell-azure-resource-manager.md).
+Du behöver inte vara en expert PowerShell att använda den här artikeln, men du behöver att förstå grundläggande begrepp, t.ex moduler, cmdlets och sessioner. Läs [komma igång med Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx), och [med hjälp av Azure PowerShell med Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 > [!NOTE]
 > Microsoft-partner i programmet Cloud Solution Provider (CSP) kan konfigurera och hantera skydd av kunden servrar till sina respektive CSP-prenumerationer (klient-prenumerationer).

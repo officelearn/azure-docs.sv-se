@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 26899ea62b8caa872b6c99b94976c87f84ba7176
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: b74f40c093ca4cc62330de321ea2b53315b903db
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091131"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247372"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Felsökning och vanliga frågor och svar för Application Insights för Java
 Frågor eller problem med [Azure Application Insights i Java][java]? Här följer några tips.
@@ -43,7 +43,7 @@ Frågor eller problem med [Azure Application Insights i Java][java]? Här följe
 * Se till att använda samma version av Application Insights core, webb-, agenten och loggning appenders för att undvika eventuella version konflikt problem.
 
 #### <a name="i-used-to-see-data-but-it-has-stopped"></a>Jag använde för att se data, men den har stoppats
-* Kontrollera den [status blogg](http://blogs.msdn.com/b/applicationinsights-status/).
+* Kontrollera den [status blogg](https://blogs.msdn.com/b/applicationinsights-status/).
 * Har du nått din månatliga kvot för datapunkter? Öppna inställningar/kvoter och priser för att ta reda på. I så fall kan du uppgradera din plan eller betala för ytterligare kapacitet. Se den [priser schema](https://azure.microsoft.com/pricing/details/application-insights/).
 * Har du nyligen uppgraderat din SDK? Se till att endast unika SDK JAR-filer finns i projektkatalogen. Det bör inte finnas två olika versioner av SDK: N finns.
 * Tittar du på rätt AI-resurs? . Matcha nyckeln för ditt program till den resurs där du förväntar dig telemetri. De bör vara identiska.

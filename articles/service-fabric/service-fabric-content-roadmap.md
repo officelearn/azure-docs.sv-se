@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: c55e67e24c8f5ff6e243c67b614592874b2cc459
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 6cf2aa31e8a7207b041b9789ddde23b616f47150
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870663"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258456"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Så att du vill lära dig om Service Fabric?
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster.  Service Fabric har ett stort utsatt område för dock och det är mycket mer.  Den här artikeln innehåller en sammanfattning av Service Fabric och beskriver grundläggande begrepp, programmeringsmodeller, programmets hela livscykel, testning, kluster och övervakning av hälsotillstånd. Läs den [översikt](service-fabric-overview.md) och [vad är mikrotjänster?](service-fabric-overview-microservices.md) för en introduktion och hur Service Fabric kan användas för att skapa mikrotjänster. Den här artikeln innehåller inte en omfattande innehållslistan, men länka till översikt och komma igång artiklar för alla områden i Service Fabric. 
@@ -218,7 +218,7 @@ Flera produkter är tillgängliga som täcker dessa tre områden och du kan väl
 * Lär dig hur du [övervaka och diagnostisera tjänster](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). 
 * Lär dig hur du [testa dina appar och tjänster](service-fabric-testability-overview.md).
 * Lär dig hur du [hantera och dirigera klusterresurser](service-fabric-cluster-resource-manager-introduction.md).
-* Titta igenom den [Service Fabric-exempel](http://aka.ms/servicefabricsamples).
+* Titta igenom den [Service Fabric-exempel](https://aka.ms/servicefabricsamples).
 * Lär dig mer om [Service Fabric-supportalternativ](service-fabric-support.md).
 * Läs den [teambloggen](https://blogs.msdn.microsoft.com/azureservicefabric/) för artiklar och meddelanden.
 

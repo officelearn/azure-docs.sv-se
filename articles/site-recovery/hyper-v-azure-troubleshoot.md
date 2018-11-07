@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: ramamill
-ms.openlocfilehash: 753f666c9ac0167f672353ff33e28d0f7e68b755
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c7626c6edceddcfbd4d95ff6efc4678836a4502c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212955"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248001"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Felsöka Hyper-V till Azure replikering och redundans
 
@@ -167,6 +167,6 @@ Alla Hyper-V-replikering händelse loggas i Hyper-V-VMMS\Admin loggen, finns i *
 
 Dessa verktyg kan hjälpa dig med avancerad felsökning:
 
--   VMM kan utföra i Site Recovery log en samling med hjälp av den [Support diagnostik plattformen (SDP) verktyget](http://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx).
+-   VMM kan utföra i Site Recovery log en samling med hjälp av den [Support diagnostik plattformen (SDP) verktyget](https://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx).
 -   För Hyper-V utan VMM, [hämta verktyget](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab), och kör den på Hyper-V-värden och samlar in loggarna.
 

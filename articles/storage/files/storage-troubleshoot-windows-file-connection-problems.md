@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 5e730e52d55f6c8c2dd02f69e3efa67017af152b
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 0496d9b3fde8b0194ddf57b3bbfec98eb7fda7fe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242984"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250857"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files-problem i Windows
 
@@ -46,7 +46,7 @@ Windows 8, Windows Server 2012 och senare versioner av varje system att förhand
 
 ### <a name="cause-2-port-445-is-blocked"></a>Orsak 2: Port 445 blockeras
 
-Systemfel 53 eller fel 67 kan inträffa om port 445 utgående kommunikation till ett datacenter för Azure Files är blockerad. Om du vill visa en sammanfattning av Internet-leverantörer som Tillåt eller neka åtkomst från port 445, gå till [TechNet](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
+Systemfel 53 eller fel 67 kan inträffa om port 445 utgående kommunikation till ett datacenter för Azure Files är blockerad. Om du vill visa en sammanfattning av Internet-leverantörer som Tillåt eller neka åtkomst från port 445, gå till [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
 För att förstå om det här är anledningen till meddelandet ”Systemfel 53”, kan du använda Portqry för att fråga TCP:445 slutpunkten. Om TCP:445 slutpunkten är visas som filtrerad är är TCP-port blockerad. Här är en exempelfråga:
 

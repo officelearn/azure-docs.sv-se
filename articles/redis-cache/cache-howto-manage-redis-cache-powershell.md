@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 11b399bdbbbe92d1e1544f4cbae0824140ce52c1
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: dabf3c7f98957a4b8ef0c59bdd80ca773f403912
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364514"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255991"
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Hantera Azure Redis Cache med Azure PowerShell
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Kör följande kommando för att ange prenumerationen. I följande exempel prenu
 
 Innan du kan använda Windows PowerShell med Azure Resource Manager, behöver du följande:
 
-* Windows PowerShell, Version 3.0 eller 4.0. Om du vill ta reda på vilken version av Windows PowerShell skriver du:`$PSVersionTable` och kontrollera värdet för `PSVersion` 3.0 eller 4.0. Om du vill installera en kompatibel version, se [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) eller [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+* Windows PowerShell, Version 3.0 eller 4.0. Om du vill ta reda på vilken version av Windows PowerShell skriver du:`$PSVersionTable` och kontrollera värdet för `PSVersion` 3.0 eller 4.0. Om du vill installera en kompatibel version, se [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) eller [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855).
 
 Använd cmdleten Get-Help för att få detaljerad hjälp för alla cmdletar som du ser i den här självstudien.
 
@@ -781,9 +781,9 @@ Följande kommando startar om båda noderna i den angivna cachen.
 Mer information om hur du använder Windows PowerShell med Azure finns i följande resurser:
 
 * [Azure Redis Cache-cmdlet-dokumentationen på MSDN](https://docs.microsoft.com/powershell/module/azurerm.rediscache/?view=azurermps-6.6.0)
-* [Azure Resource Manager-Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765): Lär dig att använda cmdletarna i modulen Azure Resource Manager.
+* [Azure Resource Manager-Cmdlets](https://go.microsoft.com/fwlink/?LinkID=394765): Lär dig att använda cmdletarna i modulen Azure Resource Manager.
 * [Hantera Azure-resurser med hjälp av resursgrupper](../azure-resource-manager/resource-group-template-deploy-portal.md): Lär dig hur du skapar och hanterar resursgrupper i Azure-portalen.
 * [Azure-bloggen](https://azure.microsoft.com/blog/): Lär dig mer om nya funktioner i Azure.
-* [Windows PowerShell-blogg](http://blogs.msdn.com/powershell): Lär dig mer om nya funktioner i Windows PowerShell.
+* [Windows PowerShell-blogg](https://blogs.msdn.com/powershell): Lär dig mer om nya funktioner i Windows PowerShell.
 * [”Hey, Scripting Guy”! Blogg](http://blogs.technet.com/b/heyscriptingguy/): få verkliga tips och tricks från Windows PowerShell-communityn.
 

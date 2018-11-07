@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 24ab8e5171ebb33a5f3be5c6bf08e361fff4e4cc
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 275eb5f32def94fa974f0cb180b9de9dcedf1a00
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959553"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230928"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentera webbappar vid körning med Application Insights
 
@@ -78,7 +78,7 @@ Application Insights JavaScript SDK infogas nu i alla webbsidor.
 Om din app finns på en IIS-server aktiverar du Application Insights med hjälp av Statusövervakaren.
 
 1. Logga in med administratörsbehörighet på IIS-webbservern.
-2. Om Application Insights Status Monitor inte redan är installerat laddar du ned och kör [installationsprogrammet för Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648) (eller kör [installationsprogrammet för webbplattform](https://www.microsoft.com/web/downloads/platform.aspx) och söker efter det i for Application Insights Status Monitor).
+2. Om Application Insights Status Monitor inte redan är installerat laddar du ned och kör [installationsprogrammet för Status Monitor](https://go.microsoft.com/fwlink/?LinkId=506648) (eller kör [installationsprogrammet för webbplattform](https://www.microsoft.com/web/downloads/platform.aspx) och söker efter det i for Application Insights Status Monitor).
 3. I statusövervakaren väljer du den installerade webbappen eller en webbplats som du vill övervaka. Logga in med dina Azure autentiseringsuppgifter.
 
     Konfigurera den resurs där du vill visa resultatet i Application Insights-portalen. (Normalt är det bäst att skapa en ny resurs. Välj en befintlig resurs om du redan har [webbtester][availability] eller [klientövervakning][client] för den här appen.) 

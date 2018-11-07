@@ -10,19 +10,19 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
-ms.openlocfilehash: 48555dc8d1cc027cb771e0ba0678c6cb12d6785f
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 233296a825653938da158fc70952c7fe7931498c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697983"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261833"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Prestandatips för Azure Cosmos DB och Async Java
 
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
-> * [.NET](performance-tips.md)
+> * [NET](performance-tips.md)
 > 
 
 Azure Cosmos DB är en snabb och flexibel distribuerad databas som kan skalas sömlöst med garanterad svarstid och dataflöde. Du behöver inte göra ändringar i större arkitekturen eller skriva komplex kod för att skala din databas med Azure Cosmos DB. Skala upp och ned är lika enkelt som att göra en enda API-anrop eller SDK-anrop. Eftersom Azure Cosmos DB nås via nätverksanrop det finns dock klientsidan optimeringar som du kan göra för att uppnå högsta prestanda när du använder den [SQL Async Java SDK](sql-api-sdk-async-java.md).
@@ -65,7 +65,7 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
 
 5. **Implementera backoff med getRetryAfterInMilliseconds intervall**
 
-    Prestandatester, bör du öka belastningen tills en liten andel begäranden begränsas. Om prestandan för bör klientprogrammet backoff för server angiven återförsöksintervallet. Följer backoff säkerställer att du ägnar kortast möjliga tid att vänta mellan försöken. Mer information finns i [Exceeding reserverade dataflödesbegränsningar](request-units.md#RequestRateTooLarge) och DocumentClientException.getRetryAfterInMilliseconds.
+    Prestandatester, bör du öka belastningen tills en liten andel begäranden begränsas. Om prestandan för bör klientprogrammet backoff för server angiven återförsöksintervallet. Följer backoff säkerställer att du ägnar kortast möjliga tid att vänta mellan försöken. 
 6. **Skala ut din klient-arbetsbelastning**
 
     Om du testar på hög genomströmning nivåer (> 50 000 RU/s), klientprogrammet kan bli en flaskhals på grund av den datorn tak som skall ut på CPU- eller användning. Om du når den här punkten kan fortsätta du att skicka ytterligare Azure Cosmos DB-kontot genom att skala ut dina klientprogram på flera servrar.

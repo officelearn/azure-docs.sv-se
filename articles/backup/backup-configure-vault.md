@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: markgal
-ms.openlocfilehash: fd988e2209d8a6547ec30edb4ee62fc8ff2c803d
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 8107af53a78960d29f506c77f8ba9697c7a49d1c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619963"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252912"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Säkerhetskopiera en Windows-server eller -klient till Azure med hjälp av Resource Manager-distributionsmodellen
 Den här artikeln förklarar hur du säkerhetskopierar Windows Server (eller Windows-klienten) filer och mappar till Azure med Azure Backup med hjälp av Resource Manager-distributionsmodellen.
@@ -250,7 +250,7 @@ När den första säkerhetskopieringen har slutförts visas statusen **Jobbet ha
 ![IR slutfört](./media/backup-configure-vault/ircomplete.png)
 
 ## <a name="questions"></a>Har du några frågor?
-Om du har frågor eller om du saknar en funktion är du välkommen att [lämna feedback](http://aka.ms/azurebackup_feedback).
+Om du har frågor eller om du saknar en funktion är du välkommen att [lämna feedback](https://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om hur du säkerhetskopierar virtuella datorer eller andra arbetsbelastningar finns i:

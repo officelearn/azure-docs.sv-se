@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 885258379e71ea945e41c4b43c34b35b16dd4a7a
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 91a2b112000e970b73420abaa26efc7de1caa626
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42060256"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261464"
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Så här skalar du Azure Redis Cache
 Azure Redis Cache har olika cachefunktioner som ger flexibilitet i valet av cachestorlek och funktioner. När en cache har skapats kan skala du storleken och prisnivå för cachen om kraven för ditt program ändrar. Den här artikeln visar hur du skalar cachen med hjälp av Azure-portalen och verktyg som Azure PowerShell och Azure CLI.
@@ -81,7 +81,7 @@ Om du vill skala dina Azure Redis Cache-instanser med Azure CLI, anropa den `azu
 Mer information om skalning med Azure CLI finns i [ändra inställningarna för en befintlig Redis-Cache](cache-manage-cli.md#scale).
 
 ### <a name="scale-using-maml"></a>Skala med MAML
-Att skala din Azure Redis Cache-instanser med hjälp av den [Microsoft Azure Management Libraries (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), anropa den `IRedisOperations.CreateOrUpdate` metoden samt skickar den nya storleken för den `RedisProperties.SKU.Capacity`.
+Att skala din Azure Redis Cache-instanser med hjälp av den [Microsoft Azure Management Libraries (MAML)](https://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), anropa den `IRedisOperations.CreateOrUpdate` metoden samt skickar den nya storleken för den `RedisProperties.SKU.Capacity`.
 
     static void Main(string[] args)
     {

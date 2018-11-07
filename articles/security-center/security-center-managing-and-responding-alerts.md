@@ -3,7 +3,7 @@ title: Hantera säkerhetsaviseringar i Azure Security Center | Microsoft Docs
 description: I det här dokumentet beskrivs hur du hanterar och åtgärdar säkerhetsaviseringar med hjälp av funktionerna i Azure Security Center.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: b88a8df7-6979-479b-8039-04da1b8737a7
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/3/2018
-ms.author: yurid
-ms.openlocfilehash: f139f2f967edc03419f41f8c903c71b9ab9e6fcb
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.author: rkarlin
+ms.openlocfilehash: f865a0a609422ae4938a9cccf15d9cd176a9400a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044441"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227798"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Hantera och åtgärda säkerhetsaviseringar i Azure Security Center
 Det här dokumentet beskriver hur du använder Azure Security Center för att hantera och svara på säkerhetsvarningar.
@@ -95,4 +95,4 @@ I det här avsnittet har vi berättat hur du ställer in säkerhetsprinciper i S
 * [Identifieringsfunktioner i Azure Security Center](security-center-detection-capabilities.md)
 * [Planerings- och bruksanvisning för Azure Security Center](security-center-planning-and-operations-guide.md)
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
-* [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
+* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.

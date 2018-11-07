@@ -9,13 +9,13 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 10/24/2018
-ms.openlocfilehash: 6c2d5a776f603161ef730028168b91844c120aec
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: MT
+ms.date: 11/6/2018
+ms.openlocfilehash: b95b62ab2c51fec93870e3f5593d53a599f3dad2
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50159000"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218958"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 
@@ -84,14 +84,32 @@ Azure Machine Learning SDK använder arbetsytan konfigurationsfilen för att kom
 
 Azure-anteckningsböcker och Azure virtuella datorer för datavetenskap (Dsvm) kommer konfigurerad för att arbeta med Azure Machine Learning-tjänsten. Dessa miljöer innehåller nödvändiga komponenter, till exempel Azure Machine Learning-SDK.
 
+### <a name="azure-notebooks"></a>Azure Notebooks
+
 - Azure-datorer är en Jupyter Notebook-tjänst i Azure-molnet.
-- Den virtuella datorn för datavetenskap är en anpassad virtuell dator (VM)-avbildning som utformats för data science fungerar. Det innehåller:
-  - Populära verktyg
-  - Integrated development Environment (IDE)
-  - Paket som till exempel Jupyter Notebooks, pycharm Tensorflow
 - Du måste fortfarande en konfigurationsfil för arbetsytan att använda dessa miljöer.
 
 Ett exempel på hur du använder Azure-datorer med Azure Machine Learning-tjänsten finns i [Kom igång med Azure Machine Learning-tjänsten](quickstart-get-started.md).
+
+### <a name="data-science-virtual-machines"></a>Datavetenskap – virtuella datorer
+
+- Den virtuella datorn för datavetenskap är en anpassad virtuell dator (VM)-avbildning som utformats för data science fungerar. Det innehåller:
+  - Populära verktyg för datavetenskap
+  - Integrated development Environment (IDE: er), till exempel PyCharm och RStudio
+  - Paket som till exempel Jupyter Notebooks och Tensorflow
+
+DSVM levereras med miljöer med flera Anaconda redan installerad. Om du vill använda Azure Machine Learning Python SDK utan att installera eventuella paket, öppna ett kommandotolksfönster och aktivera följande miljö.
+
+```shell
+conda activate AzureML
+```
+
+En gång i den här miljön kan du omedelbart importera SDK: T för Azure Machine Learning i build-verktyg som helst, utan att installera paketet.
+
+```python
+import azureml.core
+print(azureml.core.VERSION)
+```
 
 Läs mer på den virtuella datorer för datavetenskap, [virtuella datorer för datavetenskap](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 

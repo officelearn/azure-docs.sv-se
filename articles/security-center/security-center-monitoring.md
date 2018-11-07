@@ -1,6 +1,6 @@
 ---
-title: Resource security hygien i Azure Security Center | Microsoft Docs
-description: Den här artikeln hjälper dig att komma igång med övervakning av din resurs security hygien i Azure Security Center.
+title: Förbättra din säkerhetsposition med Azure Security Center | Microsoft Docs
+description: Den här artikeln hjälper dig förbättra din säkerhetsposition genom att övervaka dina resurser i Azure Security Center.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -12,22 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/21/2018
+ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 361fc2c6931dcfaed062bd39b75be7bef059b467
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 23369ac9f6cef74bac045017e8f956470e9a1159
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122082"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248868"
 ---
-# <a name="monitoring-resource-security-hygiene-in-azure-security-center"></a>Övervaka resource security hygien i Azure Security Center
-Den här artikeln får du använder övervakningsfunktionerna i Azure Security Center för att säkerställa att din säkerhet är så nära som möjligt och övervaka efterlevnaden med principer.
+# <a name="strengthen-your-security-posture-with-azure-security-center"></a>Förbättra din säkerhetsposition med Azure Security Center
+Den här artikeln hjälper dig förbättra din säkerhetsposition. Använd övervakningsfunktionerna i Azure Security Center för att säkerställa att din säkerhet är så nära som möjligt och övervaka efterlevnaden med principer.
 
-## <a name="what-is-resource-security-hygiene"></a>Vad är resource security hygien?
-Ofta tänker vi oss att övervakning är att sitta och titta och vänta på att något ska hända som vi sedan ska åtgärda. Resource security hygien avser ha en proaktiv strategi som granskar dina resurser för att identifiera system som inte uppfyller organisationens normer och bästa praxis.
+## <a name="how-do-you-strengthen-your-security-posture"></a>Hur du för att förbättra din säkerhetsposition?
+Ofta tänker vi oss att övervakning är att sitta och titta och vänta på att något ska hända som vi sedan ska åtgärda. Stärka din säkerhetsposition handlar om att ha en proaktiv strategi där granskar dina resurser för att identifiera system som inte uppfyller organisationens normer och bästa praxis.
 
-## <a name="resource-security-hygiene"></a>Resource security hygien
 När du har aktiverat [säkerhetsprinciper](security-center-policies.md) för resurser i en prenumeration analyserar Security Center resursernas säkerhet för upptäckt av eventuella säkerhetsrisker. Information om nätverkskonfigurationen är tillgänglig direkt. Beroende på antalet virtuella datorer och datorer som du har med agenten installerad kan det ta en timme eller mer att samla in information om de virtuella datorerna och datorns konfiguration, t.ex. status för säkerhetsuppdatering och operativsystemkonfiguration, så att informationen blir tillgänglig. Du kan visa en fullständig lista över problem och hur du kan förstärka nätverket och åtgärda risker i den **rekommendationer** panelen.
 
 Du kan se säkerhetsstatus för dina resurser och eventuella problem per resurstyp:
@@ -54,4 +53,4 @@ I den här artikeln har du fått lära dig hur du använder övervakningsfunktio
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md): Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Lär dig hur du övervakar dina partnerlösningars hälsostatus.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md): Här hittar du vanliga frågor och svar om tjänsten.
-* [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/): Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
+* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/): Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.

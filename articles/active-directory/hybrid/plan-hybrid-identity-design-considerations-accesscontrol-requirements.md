@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 8a40acda189507c1589373a48166ed1668e30650
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a92d3237300fcd29fecf49d78b2866f8bd7e6a6b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313665"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247712"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Fastställa krav på åtkomstkontroll för dina hybrididentitetslösning
 När en organisation utforma sina hybrididentitetslösning, kan de också använda denna möjlighet för att granska åtkomstkraven för de resurser som de planerar att göra den tillgänglig för användare. Åtkomst till data mellan alla fyra grundläggande faktorer för identitet, som är:
@@ -34,7 +34,7 @@ När en organisation utforma sina hybrididentitetslösning, kan de också använ
 Avsnitten som följer täcker autentisering och auktorisering i mer information, administration och granskning är en del av hybrid identitetslivscykel. Läs [fastställa hybrid identitetshanteringsaktiviteter](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) för mer information om dessa funktioner.
 
 > [!NOTE]
-> Läs [The fyra pelare med Identity - Identitetshantering i ålder Hybrid IT](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) för mer information om var och en av dessa pelare.
+> Läs [The fyra pelare med Identity - Identitetshantering i ålder Hybrid IT](https://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) för mer information om var och en av dessa pelare.
 > 
 > 
 

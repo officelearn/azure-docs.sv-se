@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/20/2018
 ms.author: terrylan
-ms.openlocfilehash: 3174f2d6562030702b14ef1fa3708a1a4e8e373b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 103e0e353efeaf493fb1d72f03eb6ce6469cd683
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301957"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235674"
 ---
 # <a name="managing-connected-partner-solutions-with-azure-security-center"></a>Hantera anslutna partnerlösningar med Azure Security Center
 Den här artikeln får du veta hur att hantera och övervaka anslutna säkerhetslösningar i Azure Security Center.
@@ -65,7 +65,7 @@ I den här artikeln lärde du dig att hantera och övervaka anslutna säkerhetsl
 * [Partnerintegrering](security-center-partner-integration.md) – få en översikt över integrering av andra säkerhetslösningar.
 * [Hantera och åtgärda säkerhetsaviseringar](security-center-managing-and-responding-alerts.md) – Lär dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
-* [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
+* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-partner-solutions/partner-solutions-tile.png

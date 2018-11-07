@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/18/2018
 ms.author: alkohli
-ms.openlocfilehash: e10bd04f37951f93db8af083692b7a2fe25ac9b7
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 9d1229084410b6fe7c500a22f8e1e1aed1b8107d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348618"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227356"
 ---
 # <a name="install-update-11-on-your-storsimple-virtual-array"></a>Installera uppdatering 1.1 på StorSimple Virtual Array
 
@@ -27,7 +27,7 @@ ms.locfileid: "39348618"
 
 Den här artikeln beskriver de steg som krävs för att installera uppdateringen 1.1 på StorSimple Virtual Array via det lokala webbgränssnittet eller via Azure portal.
 
-Installation av uppdateringar eller snabbkorrigeringar att hålla din StorSimple Virtual Array uppdaterade. Innan du installerar en uppdatering, rekommenderar vi att du vidtar volymer eller resurser offline på värden första och sedan enheten. Detta minskar risk att data skadas. När volymer eller resurser är offline kan bör du också utföra en manuell säkerhetskopiering av enheten.
+Installation av uppdateringar eller snabbkorrigeringar att hålla din StorSimple Virtual Array uppdaterade. Innan du installerar en uppdatering, rekommenderar vi att du vidtar volymer eller resurser offline på värden första och sedan enheten. Detta minskar risken för skadade data. När volymer eller resurser är offline kan bör du också utföra en manuell säkerhetskopiering av enheten.
 
 > [!IMPORTANT]
 > - Uppdatera 1.1 motsvarar **10.0.10307.0** programvaruversionen på din enhet. För information om vad som är nytt i den här uppdateringen, går du till [viktig information för uppdatera 1.1](storsimple-virtual-array-update-11-release-notes.md).
@@ -66,7 +66,7 @@ Utför följande steg för att ladda ned uppdateringen 1.1 från Microsoft Updat
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Ladda ned uppdateringen eller snabbkorrigeringen
 
-1. Starta Internet Explorer och navigera till [ http://catalog.update.microsoft.com ](http://catalog.update.microsoft.com).
+1. Starta Internet Explorer och navigera till [ http://catalog.update.microsoft.com ](https://catalog.update.microsoft.com).
 
 2. Om du använder Microsoft Update-katalogen för första gången på den här datorn, klickar du på **installera** när du uppmanas att installera tillägget för Microsoft Update-katalogen.
 

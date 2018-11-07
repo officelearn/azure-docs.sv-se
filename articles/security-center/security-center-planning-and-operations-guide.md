@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: b180acfb74f503447212044f0b6be5589e2dd452
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 454cfc97aa203d5de7b00f47e1f87fd0aed0d28a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158797"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255957"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Planerings- och användningsguide för Azure Security Center
 Den här guiden riktar sig till IT-tekniker, IT-arkitekter, informationssäkerhetsanalytiker och molnadministratörer i organisationer där man planerar att börja använda Azure Security Center.
@@ -126,7 +126,7 @@ En säkerhetsprincip definierar den önskade konfigurationen för arbetsbelastni
 
 Security Center-principer innehåller följande komponenter:
 - [Datainsamling](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): agentetablering och datainsamlingsinställningar.
-- [Säkerhetsprincip](https://docs.microsoft.com/azure/security-center/security-center-policies): en [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) som avgör vilka kontroller som övervakas och rekommenderas av Security Center eller använda Azure Policy för att skapa nya definitioner, definiera ytterligare principer och tilldela principer med hanteringsgrupper.
+- [Säkerhetsprincip](https://docs.microsoft.com/azure/security-center/security-center-policies): en [Azure Policy](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) som avgör vilka kontroller som övervakas och rekommenderas av Security Center eller använda Azure Policy för att skapa nya definitioner, definiera ytterligare principer och tilldela principer med hanteringsgrupper.
 - [E-postmeddelanden](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): säkerhetskontakter och inställningar för meddelanden.
 - [Prisnivå](https://docs.microsoft.com/azure/security-center/security-center-pricing): val av kostnadsfritt eller standardpris, som bestämmer vilka Security Center-funktioner som är tillgängliga för resurser i omfattningen (kan anges för prenumerationer, resursgrupper och arbetsytor).
 
@@ -262,5 +262,5 @@ I det här dokumentet har du lärt dig hur du planerar integreringen av Security
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md) – Lär dig hur du övervakar Azure-resursernas hälsa.
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md) – Lär dig hur du övervakar dina partnerlösningars hälsostatus.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
-* [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
+* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
 

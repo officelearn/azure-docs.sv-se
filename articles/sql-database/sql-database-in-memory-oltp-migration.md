@@ -12,12 +12,12 @@ ms.author: jodebrui
 ms.reviewer: MightyPen
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 8c683e86cd78f4c4ebe7a537c469c875b8ca07fe
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 4455e0c0f31c9026526820b50214efb83720da0d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159847"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228053"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Använda Minnesintern OLTP kan förbättra programprestanda i SQL-databas
 [In-Memory OLTP](sql-database-in-memory.md) kan användas för att förbättra prestandan för transaktionsbearbetning och datainmatning tillfälliga datascenarier i [Premium och affärskritisk nivå](sql-database-service-tiers-vcore.md) databaser utan att öka prisnivån. 
@@ -47,7 +47,7 @@ I SSMS för att generera rapporten:
 * I den **Object Explorer**, högerklicka på din databasnod.
 * Klicka på **rapporter** > **standardrapporter** > **transaktionsöversikt prestanda Analysis**.
 
-Mer information finns i [fastställa om en tabell eller en lagrad procedur ska flyttas till In-Memory OLTP](http://msdn.microsoft.com/library/dn205133.aspx).
+Mer information finns i [fastställa om en tabell eller en lagrad procedur ska flyttas till In-Memory OLTP](https://msdn.microsoft.com/library/dn205133.aspx).
 
 ## <a name="step-3-create-a-comparable-test-database"></a>Steg 3: Skapa en jämförbar testdatabas
 Anta att rapporten anger din databas har en tabell som skulle med fördel omvandlas till en minnesoptimerad tabell. Vi rekommenderar att du först testar för att bekräfta uppgifter genom att testa.
@@ -80,9 +80,9 @@ Använder det här alternativet för migrering:
    * Den **tabell minne optimering Advisor** guiden visas.
 3. I guiden klickar du på **verifiera migreringen** (eller **nästa** knappen) att se om tabellen innehåller alla funktioner som inte stöds i minnesoptimerade tabeller som inte stöds. Mer information finns i:
    
-   * Den *minne optimering checklista* i [minne optimering Advisor](http://msdn.microsoft.com/library/dn284308.aspx).
-   * [Transact-SQL-konstruktioner som inte stöds av In-Memory OLTP](http://msdn.microsoft.com/library/dn246937.aspx).
-   * [Migrera till In-Memory OLTP](http://msdn.microsoft.com/library/dn247639.aspx).
+   * Den *minne optimering checklista* i [minne optimering Advisor](https://msdn.microsoft.com/library/dn284308.aspx).
+   * [Transact-SQL-konstruktioner som inte stöds av In-Memory OLTP](https://msdn.microsoft.com/library/dn246937.aspx).
+   * [Migrera till In-Memory OLTP](https://msdn.microsoft.com/library/dn247639.aspx).
 4. Om tabellen har inga funktioner som inte stöds, kan advisor utföra den faktiska schema- och migrering av data för dig.
 
 #### <a name="manual-t-sql"></a>Manuell T-SQL
@@ -114,7 +114,7 @@ En internt kompilerad lagrad procedur måste ha följande alternativ på dess T-
 * NATIVE_COMPILATION
 * SCHEMABINDING: vilket innebär att tabeller som den lagrade proceduren inte kan ha sina kolumndefinitionerna ändras på något sätt som påverkar den lagrade proceduren, om inte du släpper den lagrade proceduren.
 
-En inbyggd modul måste använda en stor [ATOMIC-block](http://msdn.microsoft.com/library/dn452281.aspx) för transaktionshantering. Det finns ingen roll för en explicit BEGIN TRANSACTION eller ROLLBACK TRANSACTION. Om din kod identifierar en överträdelse av en affärsregel, det kan avsluta atomic-block med en [THROW](http://msdn.microsoft.com/library/ee677615.aspx) instruktionen.
+En inbyggd modul måste använda en stor [ATOMIC-block](https://msdn.microsoft.com/library/dn452281.aspx) för transaktionshantering. Det finns ingen roll för en explicit BEGIN TRANSACTION eller ROLLBACK TRANSACTION. Om din kod identifierar en överträdelse av en affärsregel, det kan avsluta atomic-block med en [THROW](https://msdn.microsoft.com/library/ee677615.aspx) instruktionen.
 
 ### <a name="typical-create-procedure-for-natively-compiled"></a>Vanliga CREATE PROCEDURE för internt kompilerade
 T-SQL för att skapa en internt kompilerad lagrad procedur är vanligtvis liknar följande mall:
@@ -145,7 +145,7 @@ Migreringssteg är:
 2. Skriv om huvudet för att matcha den tidigare mallen.
 3. Fastställa om den lagrade proceduren T-SQL-kod använder alla funktioner som inte stöds för internt kompilerade lagrade procedurer. Implementera lösningar om det behövs.
    
-   * Mer information finns i [migreringsproblem för internt kompilerade lagrade procedurer](http://msdn.microsoft.com/library/dn296678.aspx).
+   * Mer information finns i [migreringsproblem för internt kompilerade lagrade procedurer](https://msdn.microsoft.com/library/dn296678.aspx).
 4. Byt namn på den gamla lagrade proceduren med hjälp av SP_RENAME. Eller helt enkelt.
 5. Köra redigerade skapa proceduren T-SQL-skriptet.
 
@@ -168,7 +168,7 @@ Kör testet för att minimera Nätverksfördröjningen, i samma Azure geografisk
 * [Övervaka Azure SQL Database med dynamiska hanteringsvyer](sql-database-monitoring-with-dmvs.md)
 
 ## <a name="related-links"></a>Relaterade länkar
-* [Minnesintern OLTP (minnesoptimering)](http://msdn.microsoft.com/library/dn133186.aspx)
-* [Introduktion till internt kompilerade lagrade procedurer](http://msdn.microsoft.com/library/dn133184.aspx)
-* [Minne optimering Advisor](http://msdn.microsoft.com/library/dn284308.aspx)
+* [Minnesintern OLTP (minnesoptimering)](https://msdn.microsoft.com/library/dn133186.aspx)
+* [Introduktion till internt kompilerade lagrade procedurer](https://msdn.microsoft.com/library/dn133184.aspx)
+* [Minne optimering Advisor](https://msdn.microsoft.com/library/dn284308.aspx)
 

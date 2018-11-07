@@ -9,18 +9,18 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 54646a7d4962c5dfe255d28bdb91d272062530dd
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: b7befb46da8674e0bec7d3f73ad33a12529ffc3a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364282"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232389"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Designmönster för SaaS-program för flera innehavare och Azure Search
 Ett program för flera är en som innehåller samma tjänster och funktioner till valfritt antal klienter som inte kan se eller dela data med andra innehavare. Det här dokumentet beskriver innehavare isolering strategier för program för flera innehavare som skapats med Azure Search.
 
 ## <a name="azure-search-concepts"></a>Azure Search-begrepp
-Azure Search kan utvecklare kan lägga till avancerade sökupplevelser i program utan att hantera all infrastruktur eller bli expert på informationshämtning som en sökning som tjänst-lösning. Data har överförts till tjänsten och lagras sedan i molnet. Med hjälp av enkla begäranden till Azure Search-API, kan data sedan ändras och söks igenom. En översikt över tjänsten finns i [i den här artikeln](http://aka.ms/whatisazsearch). Innan vi diskuterar designmönster, är det viktigt att förstå vissa begrepp i Azure Search.
+Azure Search kan utvecklare kan lägga till avancerade sökupplevelser i program utan att hantera all infrastruktur eller bli expert på informationshämtning som en sökning som tjänst-lösning. Data har överförts till tjänsten och lagras sedan i molnet. Med hjälp av enkla begäranden till Azure Search-API, kan data sedan ändras och söks igenom. En översikt över tjänsten finns i [i den här artikeln](https://aka.ms/whatisazsearch). Innan vi diskuterar designmönster, är det viktigt att förstå vissa begrepp i Azure Search.
 
 ### <a name="search-services-indexes-fields-and-documents"></a>Söktjänster, index, fält och dokument
 När du använder Azure Search, en prenumererar på en *söktjänsten*. När data har överförts till Azure Search, den är lagrad i en *index* i söktjänsten. Det kan finnas flera index i en enskild tjänst. Om du vill använda välbekanta begreppet databaser kan söktjänsten liknas vid en databas medan index i en tjänst kan liknas vid tabeller i en databas.
@@ -126,7 +126,7 @@ Den här metoden kan användas för att möjliggöra funktioner av separata anv�
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-Azure Search är ett intressant alternativ för många program, [Läs mer om tjänstens robusta funktioner](http://aka.ms/whatisazsearch). När du utvärderar olika designmönster för program med flera klienter, Överväg att den [olika prisnivåer](https://azure.microsoft.com/pricing/details/search/) och motsvarande [tjänstbegränsningar](search-limits-quotas-capacity.md) bäst anpassa Azure Search för att passa program arbetsbelastningar och arkitekturer i alla storlekar.
+Azure Search är ett intressant alternativ för många program, [Läs mer om tjänstens robusta funktioner](https://aka.ms/whatisazsearch). När du utvärderar olika designmönster för program med flera klienter, Överväg att den [olika prisnivåer](https://azure.microsoft.com/pricing/details/search/) och motsvarande [tjänstbegränsningar](search-limits-quotas-capacity.md) bäst anpassa Azure Search för att passa program arbetsbelastningar och arkitekturer i alla storlekar.
 
 Frågor om Azure Search och scenarion med flera klientorganisationer kan dirigeras till azuresearch_contact@microsoft.com.
 

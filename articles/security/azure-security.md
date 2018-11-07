@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: ce2b4304ea53be7e9a7be42b8a7fb30f713d85f8
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f11012c90ab2b82e945fdb67e224783c3f05c6dd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405216"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237561"
 ---
 # <a name="introduction-to-azure-security"></a>Introduktion till Azure-säkerhet
 ## <a name="overview"></a>Översikt
@@ -62,7 +62,7 @@ De funktioner som visas i följande är funktioner som du kan granska för att t
 | [Obligatorisk säkerhetsutbildning, diagrammets kontroller](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Styra på plats](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Vanliga kontroller Hub](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Hur Microsoft hanterar plats i Azure-tjänster](http://azuredatacentermap.azurewebsites.net/)|
 | [Penetrationstester](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx), [intrångsidentifiering, DDoS](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement), [granskningar & loggning](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [Ge åtkomst till data på dina villkor](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [Molntjänster på grund av noggrannhet Checklista](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist) |[Som Microsoft kan komma åt dina data på vilka villkor](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
 | [Läget för konst Datacenter](https://www.microsoft.com/en-us/cloud-platform/global-datacenters), fysisk säkerhet [säkra nätverk](https://docs.microsoft.com/azure/security/security-network-overview) | [Svara till brottsbekämpande myndigheter](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [Efterlevnad av tjänst, plats & bransch](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) |[Hur Microsoft skyddar kundinformation i Azure-tjänster](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)|
-|  [Security Incident response](http://aka.ms/SecurityResponsepaper), [delat ansvar](http://aka.ms/sharedresponsibility) |[Strikta sekretesstandarder](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Granska certifiering för Azure-tjänster, transparens hub](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)|
+|  [Security Incident response](https://aka.ms/SecurityResponsepaper), [delat ansvar](https://aka.ms/sharedresponsibility) |[Strikta sekretesstandarder](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Granska certifiering för Azure-tjänster, transparens hub](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)|
 
 
 

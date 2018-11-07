@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: 554c575f338ebaa415ed21be8dc8b27eb79c3c0c
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: fea0a0dfd2e138fa4f33f4f489be74f5038b4ca6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634412"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244533"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Konfigurera datorer för hantering av Azure Automation State Configuration
 
@@ -150,9 +150,9 @@ Du kan enkelt integrera Amazon Web Services virtuella datorer för konfiguration
 
 Lokala Windows-datorer och Windows-datorer i Azure-moln (till exempel Amazon Web Services) kan du också vara har integrerats i Azure Automation State Configuration, så länge som de har utgående åtkomst till internet via några få enkla steg:
 
-1. Kontrollera att den senaste versionen av [WMF 5](http://aka.ms/wmf5latest) är installerat på datorer som du vill att publicera till Azure Automation State Configuration.
+1. Kontrollera att den senaste versionen av [WMF 5](https://aka.ms/wmf5latest) är installerat på datorer som du vill att publicera till Azure Automation State Configuration.
 1. Följ anvisningarna i följande avsnitt [ **generera DSC metaconfigurations** ](#generating-dsc-metaconfigurations) att generera en mapp som innehåller nödvändiga DSC-metaconfigurations.
-1. Via en fjärranslutning gäller PowerShell DSC-metaconfiguration för de datorer du vill publicera. **Den datorn som det här kommandot körs från måste ha den senaste versionen av [WMF 5](http://aka.ms/wmf5latest) installerat**:
+1. Via en fjärranslutning gäller PowerShell DSC-metaconfiguration för de datorer du vill publicera. **Den datorn som det här kommandot körs från måste ha den senaste versionen av [WMF 5](https://aka.ms/wmf5latest) installerat**:
 
    ```powershell
    Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2
@@ -190,7 +190,7 @@ Lokala Linux-datorer, Linux-datorer i Azure och Linux-datorer i Azure-moln kan d
     Set-DscLocalConfigurationManager -CimSession $Session -Path C:\Users\joe\Desktop\DscMetaConfigs
     ```
 
-Den datorn som det här kommandot körs från måste ha den senaste versionen av [WMF 5](http://aka.ms/wmf5latest) installerad.
+Den datorn som det här kommandot körs från måste ha den senaste versionen av [WMF 5](https://aka.ms/wmf5latest) installerad.
 
 1. Om du inte kan använda PowerShell DSC-metaconfigurations via fjärranslutning, för varje Linux-dator för att publicera, kopierar du metaconfiguration som motsvarar den datorn från mappen i steg 5 till Linux-dator. Anropa sedan `SetDscLocalConfigurationManager.py` lokalt på varje Linux-dator du vill att publicera till Azure Automation-Tillståndskonfiguration:
 
@@ -207,7 +207,7 @@ Att Allmänt publicera någon dator tillståndskonfigurationen för Azure Automa
 
 ### <a name="using-a-dsc-configuration"></a>Använda en DSC-konfiguration
 
-1. Öppna VSCode (eller redigeringsprogram du föredrar) som en administratör i en virtuell dator i din lokala miljö. Datorn måste ha den senaste versionen av [WMF 5](http://aka.ms/wmf5latest) installerad.
+1. Öppna VSCode (eller redigeringsprogram du föredrar) som en administratör i en virtuell dator i din lokala miljö. Datorn måste ha den senaste versionen av [WMF 5](https://aka.ms/wmf5latest) installerad.
 1. Kopiera följande skript lokalt. Det här skriptet innehåller en PowerShell DSC-konfiguration för att skapa metaconfigurations och ett kommando för att sätta igång metaconfiguration skapandet.
 
 > [!NOTE]

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c29a91a40df34ecd9270d5805209d361cf990754
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 855a046425f051739f61c74b551d4ffea7b9120a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638043"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252368"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>Använd PowerShell för att säkerhetskopiera och återställa virtuella datorer
 
@@ -62,7 +62,7 @@ Börja:
     Select-AzureRmSubscription -SubscriptionName $SubscriptionName
     ```
 
-5. Om du använder Azure Backup för första gången, måste du använda den **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet för att registrera Azure Recovery Services-providern med din prenumeration.
+5. Om du använder Azure Backup för första gången, måste du använda den **[Register-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet för att registrera Azure Recovery Services-providern med din prenumeration.
 
     ```powershell
     Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
@@ -72,7 +72,7 @@ Börja:
     ```powershell
     Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ``` 
-    I utdata från kommandot den **RegistrationState** bör ändras till **registrerad**. Om inte, kör bara det **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet igen.
+    I utdata från kommandot den **RegistrationState** bör ändras till **registrerad**. Om inte, kör bara det **[Register-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet igen.
 
 Följande aktiviteter kan automatiseras med PowerShell:
 

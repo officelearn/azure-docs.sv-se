@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4b48400920176055e7eb166c7502c06e67b29185
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 00f6f84a2065a67e999149e4b0f9e28f18e5e297
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436369"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239431"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Lära dig viktiga begrepp i Windows PowerShell-arbetsflöde för Automation-runbooks
 
@@ -22,7 +22,7 @@ Azure Automation-Runbooks implementeras som Windows PowerShell-arbetsflöden.  E
 
 Ett arbetsflöde är en sekvens med programmerade, nätverksanslutna steg som utför tidskrävande uppgifter eller kräver samordning av flera steg i flera enheter eller hanterade noder. Fördelarna med ett arbetsflöde jämfört med ett vanligt skript är möjligheten att samtidigt kunna utföra en åtgärd på flera enheter och möjligheten att automatisk återställning vid fel. Ett Windows PowerShell-arbetsflöde är ett Windows PowerShell-skript som använder Windows Workflow Foundation. När arbetsflödet skrivs med Windows PowerShell-syntax och startas också av Windows PowerShell, bearbetas det av Windows Workflow Foundation.
 
-Mer information om ämnena i den här artikeln finns [komma igång med Windows PowerShell-arbetsflöde](http://technet.microsoft.com/library/jj134242.aspx).
+Mer information om ämnena i den här artikeln finns [komma igång med Windows PowerShell-arbetsflöde](https://technet.microsoft.com/library/jj134242.aspx).
 
 ## <a name="basic-structure-of-a-workflow"></a>Grundstrukturen för ett arbetsflöde
 
@@ -45,9 +45,9 @@ PowerShell-arbetsflödeskod verkar nästan identiska med PowerShell-skriptkoden 
 
 ### <a name="activities"></a>Aktiviteter
 
-En aktivitet är en viss uppgift i ett arbetsflöde. Precis som ett skript består av ett eller flera kommandon, består ett arbetsflöde av en eller flera aktiviteter som utförs i en sekvens. Windows PowerShell-arbetsflöde konverterar automatiskt många av Windows PowerShell-cmdlets för aktiviteter när ett arbetsflöde körs. När du anger en av dessa cmdletar i din runbook körs motsvarande aktivitet av Windows Workflow Foundation. För cmdletar där en motsvarande aktivitet saknas, körs Windows PowerShell-arbetsflöde automatiskt cmdleten i en [InlineScript](#inlinescript) aktivitet. Det finns en uppsättning cmdletar som är undantagna och inte kan användas i ett arbetsflöde om du uttryckligen lägga till dem i ett InlineScript-block. Mer information om de här koncepten finns [med hjälp av aktiviteter i Skriptarbetsflöden](http://technet.microsoft.com/library/jj574194.aspx).
+En aktivitet är en viss uppgift i ett arbetsflöde. Precis som ett skript består av ett eller flera kommandon, består ett arbetsflöde av en eller flera aktiviteter som utförs i en sekvens. Windows PowerShell-arbetsflöde konverterar automatiskt många av Windows PowerShell-cmdlets för aktiviteter när ett arbetsflöde körs. När du anger en av dessa cmdletar i din runbook körs motsvarande aktivitet av Windows Workflow Foundation. För cmdletar där en motsvarande aktivitet saknas, körs Windows PowerShell-arbetsflöde automatiskt cmdleten i en [InlineScript](#inlinescript) aktivitet. Det finns en uppsättning cmdletar som är undantagna och inte kan användas i ett arbetsflöde om du uttryckligen lägga till dem i ett InlineScript-block. Mer information om de här koncepten finns [med hjälp av aktiviteter i Skriptarbetsflöden](https://technet.microsoft.com/library/jj574194.aspx).
 
-Arbetsflödesaktiviteter delar en uppsättning gemensamma parametrar för konfiguration av deras funktion. Mer information om arbetsflödets gemensamma parametrar finns [about_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx).
+Arbetsflödesaktiviteter delar en uppsättning gemensamma parametrar för konfiguration av deras funktion. Mer information om arbetsflödets gemensamma parametrar finns [about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx).
 
 ### <a name="positional-parameters"></a>Positionsparametrar
 
@@ -152,7 +152,7 @@ Medan InlineScript aktiviteter kan vara nödvändiga i vissa arbetsflöden, stö
 * Du kan inte använda [parallell körning](#parallel-processing) inuti en InlineScriptBlock.
 * InlineScript påverkar arbetsflödet skalbarhet eftersom den innehåller Windows PowerShell-sessionen för InlineScript-blockets hela längd.
 
-Läs mer om hur du använder InlineScript [som kör Windows PowerShell-kommandon i ett arbetsflöde](http://technet.microsoft.com/library/jj574197.aspx) och [about_InlineScript](http://technet.microsoft.com/library/jj649082.aspx).
+Läs mer om hur du använder InlineScript [som kör Windows PowerShell-kommandon i ett arbetsflöde](https://technet.microsoft.com/library/jj574197.aspx) och [about_InlineScript](https://technet.microsoft.com/library/jj649082.aspx).
 
 ## <a name="parallel-processing"></a>Parallell bearbetning
 
@@ -291,7 +291,7 @@ workflow CreateTestVms
 
 Detta är inte nödvändigt om du autentiserar med hjälp av ett kör som-konto konfigurerats med ett huvudnamn för tjänsten.
 
-Mer information om kontrollpunkter finns [att lägga till kontrollpunkter till ett arbetsflöde för skript](http://technet.microsoft.com/library/jj574114.aspx).
+Mer information om kontrollpunkter finns [att lägga till kontrollpunkter till ett arbetsflöde för skript](https://technet.microsoft.com/library/jj574114.aspx).
 
 ## <a name="next-steps"></a>Nästa steg
 

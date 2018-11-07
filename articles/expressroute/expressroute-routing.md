@@ -5,14 +5,14 @@ services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 11/05/2018
 ms.author: ganesr
-ms.openlocfilehash: 35644912da2b75009ba2b16f4a188011ba1f813e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9c9f216ee25cd74ac8bcb5521cad85d051422eb2
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650136"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219349"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute-routningskrav
 För att kunna ansluta till Microsofts molntjänster med ExpressRoute måste du konfigurera och hantera routning. Vissa anslutningsleverantörer erbjuder konfigurering och hantering av routning som en hanterad tjänst. Fråga din anslutningsleverantör om de erbjuder denna tjänst. Om inte måste du uppfylla följande krav:
@@ -100,7 +100,7 @@ Om dina prefixer och AS-nummer inte har tilldelats till dig i registren ovan må
 Ett privat AS-nummer tillåts med Microsoft-peering men kommer också att kräva manuell verifiering. Dessutom tar vi bort privata AS-nummer i AS PATH för de mottagna prefixen. Som ett resultat av detta kan du inte lägga till privata AS-nummer i AS PATH som [påverkar routningen för Microsoft-peering](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
-> Offentliga IP-adresser som skickas till Microsoft via ExpressRoute, får inte annonseras till Internet. Det kan bryta anslutningen till andra Microsoft-tjänster. Offentliga IP-adresser som används av servrar i ditt nätverk som kommunicerar med O365 slutpunkter inom Microsoft kan dock annonseras över ExpressRoute. 
+> Annonsera inte samma offentliga IP-flöde till det offentliga Internet och över ExpressRoute. Vi rekommenderar starkt du annonsera en mer specifik väg ExpressRoute och en mer allmän väg till Internet för [NAT](expressroute-nat.md). Utöver den offentliga vägen för NAT, du kan också annonsera via ExpressRoute den offentliga IP-adresser som används av servrar i ditt lokala nätverk som kommunicerar med Office 365-slutpunkter inom Microsoft. 
 > 
 > 
 

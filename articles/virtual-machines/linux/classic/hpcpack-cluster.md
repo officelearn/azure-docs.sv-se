@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-ms.openlocfilehash: 2d4091d8ad6a778405ee6bb916c399e0b144f21d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4156071c36b06be586b05ee98e9eeb0a9138e4bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441535"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246867"
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Kom igång med beräkningsnoder för Linux i ett HPC Pack-kluster i Azure
 Konfigurera en [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) kluster i Azure som innehåller en huvudnod som kör Windows Server och flera beräkningsnoder som kör en Linux-distribution som stöds. Utforska alternativ för att flytta data mellan noder för Linux och Windows huvudnod i klustret. Lär dig hur du skickar in Linux HPC-jobb i klustret.
@@ -186,7 +186,7 @@ Har du flera alternativ för att flytta data mellan noder för Linux och Windows
 ### <a name="azure-file-storage"></a>Azure-fillagring
 Den [Azure File](https://azure.microsoft.com/services/storage/files/) tjänsten exponerar filresurser som använder standard SMB 2.1-protokollet. Azure virtuella datorer och molntjänster kan dela fildata i programkomponenter via monterade resurser och lokala program kan komma åt fildata i en resurs via API: et för File storage. 
 
-Detaljerade anvisningar om hur du skapar en Azure-filresurs och montera den på huvudnoden finns i [Kom igång med Azure File storage i Windows](../../../storage/files/storage-how-to-use-files-windows.md). Om du vill montera Azure-filresursen på Linux-noder, se [hur du använder Azure File storage med Linux](../../../storage/files/storage-how-to-use-files-linux.md). Om du vill konfigurera spara anslutningar, se [Persisting anslutningar till Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
+Detaljerade anvisningar om hur du skapar en Azure-filresurs och montera den på huvudnoden finns i [Kom igång med Azure File storage i Windows](../../../storage/files/storage-how-to-use-files-windows.md). Om du vill montera Azure-filresursen på Linux-noder, se [hur du använder Azure File storage med Linux](../../../storage/files/storage-how-to-use-files-linux.md). Om du vill konfigurera spara anslutningar, se [Persisting anslutningar till Microsoft Azure Files](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
 I följande exempel skapar du en Azure-filresurs på ett lagringskonto. Öppna en kommandotolk för att montera filresursen på huvudnoden, och ange följande kommandon:
 
@@ -271,7 +271,7 @@ Det finns flera sätt att skicka jobb till HPC Pack-kluster:
 
 Jobböverföring till kluster i Azure via HPC Pack GUI-verktyg och HPC-webbportalens är desamma som för Windows-beräkningsnoder. Se [HPC Pack Job Manager](https://technet.microsoft.com/library/ff919691.aspx) och [hur du skickar in jobb från en klientdator för lokala](../../windows/hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-För att skicka jobb via REST API, som avser [skapa och skicka jobb med hjälp av REST-API i Microsoft HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). För att skicka jobb från en klient för Linux, även gå till Python-exemplet i den [HPC Pack SDK](https://www.microsoft.com/download/details.aspx?id=47756).
+För att skicka jobb via REST API, som avser [skapa och skicka jobb med hjälp av REST-API i Microsoft HPC Pack](https://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). För att skicka jobb från en klient för Linux, även gå till Python-exemplet i den [HPC Pack SDK](https://www.microsoft.com/download/details.aspx?id=47756).
 
 ## <a name="clusrun-for-linux-nodes"></a>Clusrun för Linux-noder
 HPC Pack [clusrun](https://technet.microsoft.com/library/cc947685.aspx) verktyget kan användas för att köra kommandon på Linux-noder antingen via en kommandotolk eller HPC Cluster Manager. Här följer några grundläggande exempel.

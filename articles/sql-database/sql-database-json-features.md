@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: dfbefd2ff4c2e99268c1e7e84154e93d58f542bb
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: c3f1cb7499be57be94cc387eb40d37c1710f2f75
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163638"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230537"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Komma igång med JSON-funktioner i Azure SQL Database
 Azure SQL Database kan du parsa och skicka frågor till data som visas i JavaScript Object Notation [(JSON)](http://www.json.org/) formatera och exportera din relationsdata som JSON-texten.
@@ -201,5 +201,5 @@ Kolla in dessa resurser om du vill veta hur du integrerar JSON i ditt program:
 * [MSDN-dokumentationen](https://msdn.microsoft.com/library/dn921897.aspx)
 * [Channel 9-video](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
 
-Mer information om olika scenarier för att integrera JSON i ditt program, se demonstrationer i det här [Channel 9-video](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) eller hitta ett scenario som passar ditt användningsområde i [JSON blogginlägg](http://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/).
+Mer information om olika scenarier för att integrera JSON i ditt program, se demonstrationer i det här [Channel 9-video](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) eller hitta ett scenario som passar ditt användningsområde i [JSON blogginlägg](https://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/).
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 212afbd605e3a16da7be2c04492ec41875ff5b75
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 378eb8c1f2070e8f4b28c221369938e2ff04e2f3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666847"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255190"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Hantera alla principer för ett labb i Azure DevTest Labs
 
@@ -27,7 +27,7 @@ Azure DevTest Labs kan du styra kostnader och minimera slöseri i dina labb geno
 ## <a name="set-allowed-virtual-machine-sizes"></a>Ange tillåtna storlekar för virtuella datorer
 Principen för att ställa in de tillåtna storlekarna hjälper till att minimera avfall lab genom att ange vilka VM-storlekar som tillåts i laboratoriet. Om den här principen är aktiverad kan användas endast de storlekar som gäller från den här listan för att skapa virtuella datorer.
 
-1. I den [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=525040), Välj ett labb och välj sedan **konfiguration och principer**.
+1. I den [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040), Välj ett labb och välj sedan **konfiguration och principer**.
 
     ![Använda testmiljön konfigurations- och principer](./media/devtest-lab-set-lab-policy/policies-menu.png)
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3b046022990e95e65ed02880bd3fefbd78bcad28
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d77dad52e75253de02fd079d791861356c4c5e1f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387369"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247083"
 ---
 # <a name="publish-a-virtual-machine-to-azure-marketplace"></a>Publicera en virtuell dator på Azure Marketplace
 
@@ -37,7 +37,7 @@ Följande tekniska och icke-tekniska krav som gäller för att publicera en virt
 
 -   [Skapa och testa en Linux VM från en avbildning](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
 
--   [Skapa och ladda upp en VHD för Windows ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
+-   [Skapa och ladda upp en VHD för Windows ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
 
 -   [Skapa och testa en virtuell Windows-dator från en avbildning](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
 
@@ -60,7 +60,7 @@ Följande tekniska och icke-tekniska krav som gäller för att publicera en virt
 
 -   Du samtycker till villkoren i Deltagandepolicyer för Azure Marketplace och avtalet för utgivare.
 
--   Du samtycker till att följa den [användningsvillkor](https://azure.microsoft.com/support/legal/website-terms-of-use/) , [Microsoft Privacy Statement](http://www.microsoft.com/privacystatement/default.aspx), och [Microsoft Azure Certified-programavtalet](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+-   Du samtycker till att följa den [användningsvillkor](https://azure.microsoft.com/support/legal/website-terms-of-use/) , [Microsoft Privacy Statement](https://www.microsoft.com/privacystatement/default.aspx), och [Microsoft Azure Certified-programavtalet](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -211,7 +211,7 @@ I den här prissättningen excel visas priserna för de olika regionerna i lokal
 
 >[!IMPORTANT]
 >-   Priserna kan inte ändras när ett erbjudande lanseras. Du kan dock fortfarande att kunna lägga till eller ta bort regioner som stöds.
->-   Detta är priset debiteras för användaren förutom [Azure\'s priser för virtuella datorer](http://aka.ms/vmpricingdetails).
+>-   Detta är priset debiteras för användaren förutom [Azure\'s priser för virtuella datorer](https://aka.ms/vmpricingdetails).
 >-   Priserna anges för alla regioner i lokal valuta, med hjälp av de tillgängliga valuta priserna vid tidpunkten för att ange priser.
 >-   För att ställa in eller visa priset för varje region individuellt, exportera prissättning kalkylbladet och importera med anpassad prissättning.
 
@@ -225,7 +225,7 @@ Nästa avsnitt för att slutföra kommer att avsnittet avbildningar av Virtuella
 
 -   [Skapa och testa en Linux VM från en avbildning](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
 
--   [Skapa och ladda upp en virtuell Windows-Hårddisk ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
+-   [Skapa och ladda upp en virtuell Windows-Hårddisk ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
 
 -   [Skapa och testa en virtuell Windows-dator från en avbildning](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
 

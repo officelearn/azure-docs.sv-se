@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 34652400acaf2efca3648bb4c7cde795861c3101
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: ada3210a59e0c3044551bee54b0a705b4b513594
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247937"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254442"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Koda en tillgång med Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "50247937"
 ## <a name="overview"></a>Översikt
 Om du vill leverera digital video via Internet, måste du komprimera mediet. Digitala videofiler är stora och kan vara för stort för att leverera via Internet eller för kundernas enheter att kunna visas korrekt. Kodning är processen för att komprimera video och ljud så att dina kunder kan visa dina media.
 
-Kodningsjobb är en av de vanligaste bearbetningsuppgifterna i Azure Media Services. Du skapar kodningsjobb för att konvertera mediefiler från en kodning till en annan. När du kodar kan du använda Media Services inbyggda kodaren (Media Encoder Standard). Du kan också använda en kodare som tillhandahålls av Media Services partner. Kodare från tredje part är tillgängliga via Azure Marketplace. Du kan ange information om kodning uppgifter med hjälp av förinställda strängarna som definierats för kodaren eller genom att använda förinställda konfigurationsfiler. Vilka typer av förinställningar som är tillgängliga finns i [uppgift förinställningar för Media Encoder Standard](http://msdn.microsoft.com/library/mt269960).
+Kodningsjobb är en av de vanligaste bearbetningsuppgifterna i Azure Media Services. Du skapar kodningsjobb för att konvertera mediefiler från en kodning till en annan. När du kodar kan du använda Media Services inbyggda kodaren (Media Encoder Standard). Du kan också använda en kodare som tillhandahålls av Media Services partner. Kodare från tredje part är tillgängliga via Azure Marketplace. Du kan ange information om kodning uppgifter med hjälp av förinställda strängarna som definierats för kodaren eller genom att använda förinställda konfigurationsfiler. Vilka typer av förinställningar som är tillgängliga finns i [uppgift förinställningar för Media Encoder Standard](https://msdn.microsoft.com/library/mt269960).
 
 Varje jobb kan ha en eller flera aktiviteter beroende på vilken typ av bearbetning som du vill utföra. Via REST-API kan du skapa jobb och deras relaterade uppgifter i ett av två sätt:
 
@@ -63,7 +63,7 @@ Information om hur du ansluter till AMS API finns i [åtkomst till Azure Media S
 >
 >
 
-I följande exempel visas hur du skapar och publicera ett jobb med en aktivitet som anger att koda en video med en viss upplösning och kvalitet. När du kodar med Media Encoder Standard kan du använda aktiviteten configuration förinställningar anges [här](http://msdn.microsoft.com/library/mt269960).
+I följande exempel visas hur du skapar och publicera ett jobb med en aktivitet som anger att koda en video med en viss upplösning och kvalitet. När du kodar med Media Encoder Standard kan du använda aktiviteten configuration förinställningar anges [här](https://msdn.microsoft.com/library/mt269960).
 
 Begäran:
 

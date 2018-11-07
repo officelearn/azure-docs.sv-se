@@ -1,6 +1,6 @@
 ---
-title: Skapa aviseringar med dynamiska tröskelvärden i Azure-Monitor
-description: Skapa aviseringar med maskininlärningsbaserade dynamiska tröskelvärden
+title: Skapa aviseringar med dynamiska tröskelvärden i Azure Monitor
+description: Skapa aviseringar med dynamiska tröskelvärden för maskininlärningsbaserade
 author: antonfrMSFT
 services: azure-monitor
 ms.service: azure-monitor
@@ -9,96 +9,96 @@ ms.date: 04/27/2018
 ms.author: mbullwin
 ms.reviewer: antonfr
 ms.component: alerts
-ms.openlocfilehash: 01f924e0b3a2976a3f537cb5acac842eeeaccb4b
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 1b47e3804d8be36e3c6c8c570fec06f542e8dbf2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263321"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233974"
 ---
-# <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-public-preview"></a>Aviseringar med dynamiska tröskelvärden i Azure-Monitor (begränsad förhandsversion)
+# <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-public-preview"></a>Aviseringar med dynamiska tröskelvärden i Azure Monitor (begränsad offentlig förhandsversion)
 
-Aviseringar med dynamiska tröskelvärden är en förbättring av Azure mått aviseringar i Azure-Monitor utnyttja avancerade funktioner i Machine Learning (ML) Läs mått historiska beteende för att automatiskt beräkna baslinjer och använda dem som tröskelvärden.
+Aviseringar med dynamiska tröskelvärden är en förbättring av Azure mått aviseringar i Azure Monitor kan utnyttja avancerade funktioner för Machine Learning (ML) Läs mått historiska beteende för att automatiskt beräkna baslinjer och använda dem som tröskelvärden.
 
 Fördelarna med att använda dynamiska tröskelvärden är:
 
-- Spara besväret som är associerade med att ange en fördefinierad hård gräns som övervakaren automatiskt lär sig historiska prestanda för måttet och tillämpar ML algoritmer för att fastställa tröskelvärden.
-- De kan identifiera säsongsbaserade beteende och avisering bara på avvikelser från den förväntade när funktionen. Mått aviseringar med dynamiska tröskelvärden utlöser inte om tjänsten är inaktiv regelbundet på helgerna och sedan ger spikar varje måndag i diagrammet. Stöds för närvarande: timvis dagliga och veckovisa säsongsvärdet.
-- Kontinuerligt lär sig mått prestanda och är anpassningsbar mått ändringar.
+- Spara arbetet som är associerade med att ange en fast fördefinierade gräns som övervakaren automatiskt lär sig historiska prestanda för måttet och tillämpar ML-algoritmer för att avgöra tröskelvärdena.
+- De kan identifiera säsongsbaserade beteenden och aviseringar endast om avvikelser från förväntat säsongens beteende. Måttaviseringar med dynamiska tröskelvärden utlöser inte om din tjänst är regelbundet inaktiv på helgerna och toppar varje måndag. För närvarande: per timme, dagliga och veckovisa säsongsberoende.
+- Lär sig hur mått och är anpassningsbara för metriska ändringar kontinuerligt.
 
-Dynamiska tröskelvärdesbaserad aviseringar är tillgängliga för alla Azure-monitor-baserad mått källor som anges i detta [artikel](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#what-resources-can-i-create-near-real-time-metric-alerts-for).
+Dynamisk tröskelbaserade aviseringar är tillgängliga för alla Azure monitor-baserad mått källor som anges i detta [artikeln](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#what-resources-can-i-create-near-real-time-metric-alerts-for).
 
-## <a name="sign-up-to-access-the-preview"></a>Registrera dig för att få åtkomst till förhandsgranskningen
+## <a name="sign-up-to-access-the-preview"></a>Registrera dig för att få åtkomst till förhandsversionen
 
-Göra den här funktionen för en rotationsrutan [registrera dig för förhandsversionen](http://aka.ms/DynamicThresholdMetricAlerts). Som alltid, vi vill gärna höra dina synpunkter, se till att den kommer på [azurealertsfeedback@microsoft.com](mailto:azurealertsfeedback@microsoft.com)
+Kan den här funktionen för en skapa [registrera dig för förhandsversionen av](https://aka.ms/DynamicThresholdMetricAlerts). Som alltid kan vi vill gärna höra dina synpunkter, hålla det kommer på [azurealertsfeedback@microsoft.com](mailto:azurealertsfeedback@microsoft.com)
 
-## <a name="how-to-configure-alerts-with-dynamic-thresholds"></a>Så här konfigurerar du aviseringar med dynamiska tröskelvärden
+## <a name="how-to-configure-alerts-with-dynamic-thresholds"></a>Konfigurera aviseringar med dynamiska tröskelvärden
 
-Aviseringar med dynamiska tröskelvärden kan konfigureras via aviseringar i Azure-Monitor
+Aviseringar med dynamiska tröskelvärden kan konfigureras via aviseringar i Azure Monitor
 
-![Aviseringar preview](./media/monitoring-alerts-dynamic-thresholds/0001.png)
+![Förhandsversion av aviseringar](./media/monitoring-alerts-dynamic-thresholds/0001.png)
 
 ## <a name="creating-an-alert-rule-with-dynamic-thresholds"></a>Skapa en aviseringsregel med dynamiska tröskelvärden
 
-1. I fönstret aviseringar under övervakaren väljer du den **ny Aviseringsregel** för att skapa en ny avisering i Azure.
+1. Fönstret aviseringar under Övervakare, Välj den **ny Aviseringsregel** för att skapa en ny avisering i Azure.
 
    ![Ny aviseringsregel](./media/monitoring-alerts-dynamic-thresholds/002.png)
 
-2. Avsnittet Skapa regeln visas med som består av tre delar: _definiera aviseringstillståndet_, _definiera aviseringsinformation_, och _definiera grupp_. Startar med den _definiera aviseringstillståndet_ avsnittet används den **Välj mål** länken för att ange mål, genom att välja en resurs. Klicka på klart när en lämplig resurs väljs.
+2. Avsnittet Skapa regeln visas med tre delar som består av: _definiera aviseringsvillkoret_, _definiera Aviseringsinformationen_, och _definiera åtgärdsgruppen_. Startar med den _definiera aviseringsvillkoret_ avsnittet används den **Välj mål** länk för att ange målet, genom att välja en resurs. Klicka på klart-knappen när en lämplig resurs väljs.
 
-   ![Välj mål](./media/monitoring-alerts-dynamic-thresholds/0003.png)
+   ![Välja mål](./media/monitoring-alerts-dynamic-thresholds/0003.png)
 
-3. Därefter använda den **lägga till villkor** för att visa en lista över signal alternativen för resursen och från listan över signal välja en lämplig **mått** alternativet. (Till exempel procent CPU.)
+3. Därefter använder den **lägga till villkor** för att visa en lista över signalen alternativ som är tillgängliga för resursen och signal listan Välj ett lämpligt **mått** alternativet. (Till exempel procent CPU.)
 
    ![Lägg till villkor](./media/monitoring-alerts-dynamic-thresholds/004.png)
 
-4. På skärmen Konfigurera signal logik har möjlighet att växla villkoret till en typ av dynamisk som automatiskt genererar dynamiska tröskelvärden (röda linjer) tillsammans med mått (blå linje) i avsnittet avisering logik.
+4. På skärmen Konfigurera signalen logic har möjlighet att ändra villkoret till en typ av dynamisk, som automatiskt genererar de dynamiska tröskelvärdena (röda linjer) tillsammans med måttet (blå linje) i avsnittet Alert logic.
 
    ![Dynamisk](./media/monitoring-alerts-dynamic-thresholds/005.png)
 
-5. De tröskelvärden som visas i diagrammet beräknas baserat på de senaste sju dagarna av historiska data när en avisering skapas dynamiskt trösklar skaffar ytterligare historiska data som är tillgängliga och kontinuerligt lära dig baserat på nya data att göra det tröskelvärden mer exakt.
+5. De tröskelvärden som visas i diagrammet beräknas baserat på de senaste sju dagarna av historiska data när en avisering har skapats kan de dynamiska tröskelvärdena skaffar ytterligare historiska data som är tillgängliga och kontinuerligt lära dig baserat på nya data att göra det tröskelvärden mer exakta.
 
-6. Ytterligare avisering logik inställningar:
-   - Villkor - du kan välja att aviseringen ska utlösas på något av följande tre villkor:
-       - Större än det övre tröskelvärdet eller lägre än det lägre tröskelvärdet (standard)
-       - Större än det övre tröskelvärdet
-       - Lägre än det lägre tröskelvärdet.
-   - Tid aggregering: genomsnittlig (standard), sum, min, max.
-   - Aviseringen känslighet:
+6. Ytterligare Alert logic-inställningar:
+   - Villkor - du kan välja aviseringen ska utlösas på någon av följande tre villkor:
+       - Större än det övre tröskelvärdet eller lägre än det nedre tröskelvärdet (standard)
+       - Större än det högsta tröskelvärdet
+       - Lägre än det nedre tröskelvärdet.
+   - Tidsmängd: genomsnittlig (standard), sum, min, max.
+   - Aviseringskänslighet:
        - Hög – fler aviseringar som ska utlösa aviseringen på minsta avvikelse.
-       - Med – mindre känslig än hög färre aviseringar än med hög känslighet (standard)
-       - Låg – minst känsliga tröskelvärdet.
+       - Med – mindre känslig än hög, färre aviseringar än med hög känslighet (standard)
+       - Med låg minst känsliga tröskelvärdet.
 
-    ![Logik aviseringsinställningar](./media/monitoring-alerts-dynamic-thresholds/00007.png)
+    ![Aviseringslogik inställningar](./media/monitoring-alerts-dynamic-thresholds/00007.png)
 
 7. Utvärderas baserat på:
-    -  Vilka varaktighet, aviseringen ska söka efter de angivna villkoren genom att välja den **Period**.
+    -  Vilka varaktighet, aviseringen bör se ut för det angivna villkoret genom att välja den **Period**.
 
     ![Utvärderas baserat på](./media/monitoring-alerts-dynamic-thresholds/007.png)
 
    > [!NOTE]
    > Period värden som stöds: 5 minuter, 10 minuter, 30 minuter och 1 timme.
 
-   Om du vill minska avisering bruset som genererats av tillfälliga toppar, bör du använda inställningarna för ”antal överträdelser ska utlösa aviseringen”. Den här funktionen kan du få en avisering om tröskelvärdet har överskridits X gånger i följd eller Y tider utanför den sista Z punkter. Exempel:
+   För att minska onödig avisering som genererats av övergående spikar, bör du använda inställningarna för ”antal överträdelser för att utlösa aviseringen”. Den här funktionen kan du få en avisering om tröskelvärdet har överskridits X gånger i följd eller Y-tider utanför den sista Z punkter. Exempel:
 
-    För att utlösa en avisering när problemet är kontinuerlig för 15 minuter, 3 gånger i följd under en viss period på 5 minuter, använder du följande inställningar:
+    Om du vill utlösa en avisering när problemet är kontinuerlig för 15 minuter, 3 på varandra följande gånger inom en viss period på 5 minuter, använder du följande inställningar:
 
    ![Utvärderas baserat på](./media/monitoring-alerts-dynamic-thresholds/0008.png)
 
-    För att utlösa en avisering när en överträdelse från en dynamisk tröskelvärdet 15 minuter från de senaste 30 minuterna med 5 minuter, använder du följande inställningar:
+    Om du vill utlösa en avisering när det har en överträdelse från en dynamiskt tröskelvärde i 15 minuter från de senaste 30 minuterna med period på fem minuter, använder du följande inställningar:
 
    ![Utvärderas baserat på](./media/monitoring-alerts-dynamic-thresholds/0009.png)
 
-8. För närvarande kan användare ha aviseringar med dynamiska tröskelvärdet kriterier som en enda villkor.
+8. Användare kan för närvarande har aviseringar med villkor för dynamiskt tröskelvärde som enskilt villkor.
 
    ![Skapa regel](./media/monitoring-alerts-dynamic-thresholds/010.png)
 
 ## <a name="q--a"></a>Frågor och svar
 
-- F: om måttet långsamt ändras med tiden kommer detta att utlösa en avisering med dynamiska tröskelvärden?
+- F: om måttet ändras långsamt över tid, kommer detta att utlösa en avisering med dynamiska tröskelvärden?
 
-- S: förmodligen inte. Dynamisk tröskelvärden är bra för identifiering av betydande avvikelser i stället för långsamt utvecklingen av problem.
+- S: förmodligen Nej. Dynamiska tröskelvärden är bra för identifiering av betydande avvikelser i stället för att långsamt utvecklas problem.
 
-- F: kan jag konfigurera dynamisk tröskelvärden via ett API?
+- F: kan jag konfigurera dynamiska tröskelvärden via ett API?
 
 - S: Vi arbetar på den.

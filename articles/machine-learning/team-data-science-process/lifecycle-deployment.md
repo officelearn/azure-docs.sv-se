@@ -1,6 +1,6 @@
 ---
-title: Distribution fas i livscykeln Team datavetenskap Process - Azure | Microsoft Docs
-description: Mål, uppgifter och leveranser för distribution av steg i datavetenskap projekt
+title: Distributionsstadium för Team Data Science Process-livscykel – Azure | Microsoft Docs
+description: Mål, uppgifter och slutprodukter för distribution steg i dina data science-projekt
 services: machine-learning
 documentationcenter: ''
 author: deguhath
@@ -15,64 +15,64 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 9c54e93eca181331117f2f7faad3e7d07274412d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: af53b876eff401c7ee3bb0fa52e3fc30ff721afc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837039"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232827"
 ---
 # <a name="deployment"></a>Distribution
 
-Den här artikeln beskrivs mål, uppgifter och leveranser som är associerade med distribution av Team Data vetenskap processen (TDSP). Denna process tillhandahåller en rekommenderad livscykel som du kan använda för att strukturera datavetenskap projekt. Livscykeln beskrivs viktiga steg som projekt vanligtvis köra, ofta upprepade gånger:
+Den här artikeln beskrivs de mål, uppgifter och slutprodukter som är kopplad till distributionen av Team Data Science Process (TDSP). Den här processen ger en rekommenderad livscykel som du kan använda för att strukturera dina data science-projekt. Livscykeln beskrivs de viktigaste stegen som projekt vanligtvis köra, ofta upprepade gånger:
 
-   1. **Så här fungerar för företag**
-   2. **Datainsamling och förstå**
-   3. **Modeling**
+   1. **Förståelse för verksamheten**
+   2. **Data förvärv och förståelse av**
+   3. **Modellering**
    4. **Distribution**
-   5. **Kundens godkännande**
+   5. **Kundgodkännande**
 
-Här är en bild av TDSP livscykeln: 
+Här är en visuell representation av TDSP-livscykeln: 
 
-![TDSP livscykel](./media/lifecycle/tdsp-lifecycle2.png) 
+![Livscykel för TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
 ## <a name="goal"></a>Mål
-Distribuera modeller med en rörledning för data till en produktionsmiljö eller produktions-liknande miljö för godkännande av slutanvändaren. 
+Distribuera modeller med en datapipeline till produktions- eller produktionsliknande miljö för godkännande av slutanvändaren. 
 
-## <a name="how-to-do-it"></a>Hur du gör det.
+## <a name="how-to-do-it"></a>Gör så
 Den huvudsakliga uppgift som beskrivs i det här steget:
 
-**Operationalisera modellen**: Distribuera modellen och pipeline i eller tillverkning eller produktions-liknande miljö för användning av programmet.
+**Operationalisera modellen**: Distribuera modellen och pipeline till produktions- eller produktionsliknande miljö för användning av programmet.
 
 ### <a name="operationalize-a-model"></a>Operationalisera en modell
-När du har en uppsättning modeller som utför väl operationalisera du dem för andra program för att använda. Beroende på företagets krav görs förutsägelser i realtid eller på grundval av batch. Om du vill distribuera modeller exponera du dem med ett öppet API-gränssnitt. Modellen för att enkelt förbrukas från olika program som gör att gränssnittet:
+När du har en uppsättning modeller som gör kan operationalisera du dem för andra program kan använda. Beroende på företagets krav görs förutsägelser i realtid eller på basis av batch. För att distribuera modeller måste du lägga upp dem med ett öppet API-gränssnitt. Gränssnittet gör det möjligt för modellen för att enkelt förbrukning från olika program, till exempel:
 
-   * Online webbplatser
+   * Online-webbplatser
    * Kalkylblad 
    * Instrumentpaneler
    * Line-of-business-program 
    * Backend-program 
 
-Exempel på modellen operationalization med en Azure Machine Learning-webbtjänst finns [distribuera en Azure Machine Learning-webbtjänst](../studio/publish-a-machine-learning-web-service.md). Det är en bra idé att skapa telemetri och övervakningen i modellen för produktion och pipeline data som du distribuerar. Det hjälper med efterföljande systemstatus rapportering och felsökning.  
+Exempel på modellen driftsättning i en Azure Machine Learning-webbtjänst finns [distribuera en Azure Machine Learning-webbtjänst](../studio/publish-a-machine-learning-web-service.md). Det är en bra idé att skapa telemetri och övervakningen i produktion-modellen och datapipeline som du distribuerar. Den här metoden hjälper med efterföljande systemstatus reporting och felsökning.  
 
 ## <a name="artifacts"></a>Artefakter
 
-* En status instrumentpanel som visar system hälso- och mått
-* En slutlig modellering rapport med detaljer distribution
+* En status-instrumentpanel som visar systemmått hälso- och nyckel
+* En slutlig modellering rapport med distributionsinformation
 * Ett dokument för slutlig lösning-arkitektur
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Här är länkar till varje steg i livscykeln för TDSP:
+Här finns länkar till varje steg i livscykeln för TDSP:
 
-   1. [Så här fungerar för företag](lifecycle-business-understanding.md)
-   2. [Datainsamling och förstå](lifecycle-data.md)
-   3. [Modeling](lifecycle-modeling.md)
+   1. [Förståelse för verksamheten](lifecycle-business-understanding.md)
+   2. [Data förvärv och förståelse av](lifecycle-data.md)
+   3. [Modellering](lifecycle-modeling.md)
    4. [Distribution](lifecycle-deployment.md)
-   5. [Kundens godkännande](lifecycle-acceptance.md)
+   5. [Kundgodkännande](lifecycle-acceptance.md)
 
-Vi ger fullständig slutpunkt till slutpunkt genomgång som visar alla steg i processen för specifika scenarier. Den [exempel genomgång](walkthroughs.md) artikeln innehåller en lista över scenarier med länkar och miniatyr beskrivningar. Genomgångar illustrerar hur du kombinerar moln, lokala verktyg och tjänster i ett arbetsflöde eller en rörledning för att skapa ett intelligent program. 
+Vi tillhandahåller fullständig från slutpunkt till slutpunkt genomgång som visar alla steg i processen för specifika scenarier. Den [exempel genomgångar](walkthroughs.md) artikeln innehåller en lista över scenarier med länkar och miniatyr beskrivningar. Genomgångar visar hur du kombinerar molnlösningar, lokala verktyg och tjänster i ett arbetsflöde eller en pipeline för att skapa ett intelligenta program. 
 
-Exempel på hur du utför stegen i TDSPs som använder Azure Machine Learning Studio finns [använder TDSP med Azure Machine Learning](http://aka.ms/datascienceprocess).
+Exempel på hur du utför stegen i TDSPs som använder Azure Machine Learning Studio finns [använder TDSP med Azure Machine Learning](https://aka.ms/datascienceprocess).

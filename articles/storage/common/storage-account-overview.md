@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: d7dbb808205c78b53277c6d916f5166a41c7e93d
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 227ef61ee4809d376c6ac5e8e8c1a7f9c364b7fc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638434"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255770"
 ---
 # <a name="azure-storage-account-overview"></a>Översikt över Azure storage-konto
 
@@ -107,7 +107,7 @@ Azure Storage tillhandahåller olika alternativ för åtkomst till block blob-da
 Tillgängliga åtkomstnivåer är:
 
 > [!NOTE]
-> Den [Premium åtkomstnivå](../blobs/storage-blob-storage-tiers.md#premium-access-tier) är tillgänglig i en begränsad förhandsversion som ett lokalt redundant lagring (LRS)-konto i Nordeuropa, USA, Öst 2, centrala USA och västra USA-regioner. Läs hur du registrera dig för förhandsversionen i [introduktion till Azure Premium-Bloblagring](http://aka.ms/premiumblob).
+> Den [Premium åtkomstnivå](../blobs/storage-blob-storage-tiers.md#premium-access-tier) är tillgänglig i en begränsad förhandsversion som ett lokalt redundant lagring (LRS)-konto i Nordeuropa, USA, Öst 2, centrala USA och västra USA-regioner. Läs hur du registrera dig för förhandsversionen i [introduktion till Azure Premium-Bloblagring](https://aka.ms/premiumblob).
 
 * Den **frekvent** åtkomstnivå, vilket är optimerad för frekvent åtkomst med objekt i lagringskontot. Åtkomst till data i den frekventa nivån är mest kostnadseffektiva, medan kostnader för lagring är något högre. Nya lagringskonton som skapas i frekvent nivå som standard.
 * Den **lågfrekvent** åtkomstnivå, vilket är optimerad för att lagra stora mängder data som används sällan och som lagras i minst 30 dagar. Lagra data i den lågfrekventa nivån är mer kostnadseffektivt, men åtkomsten till dessa data kan vara något dyrare än att komma åt data på frekvent lagringsnivå.
@@ -189,7 +189,7 @@ Läs mer om Azure Storage REST API, [Azure Storage Services REST API-referens](h
 > [!IMPORTANT]
 > Blobar som krypteras med kryptering på klientsidan lagrar krypteringsrelaterade metadata tillsammans med bloben. Om du kopierar en blob som är krypterad med kryptering på klientsidan bör du se till att kopieringen bevarar blobmetadata och framför allt krypteringsrelaterade metadata. Om du kopierar en blob utan krypteringsmetadata kan blobinnehållet inte hämtas igen. Mer information om krypteringsrelaterade metadata finns i [Azure Storage Client Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-### <a name="azure-importexport-service"></a>Azure Import/Export-tjänsten
+### <a name="azure-importexport-service"></a>Tjänsten Azure Import/Export
 
 Om du har en stor mängd data som ska importeras till ditt lagringskonto kan du tjänsten Azure Import/Export. Import/Export-tjänsten används för att importera stora mängder data på ett säkert sätt till Azure Blob storage och Azure Files genom att leverera diskenheter till en Azure-datacenter. 
 

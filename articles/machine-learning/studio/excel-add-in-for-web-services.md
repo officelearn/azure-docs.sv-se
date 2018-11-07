@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 2/1/2018
-ms.openlocfilehash: 8fade171095ff6a9f4c10925089452d8925e11fe
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 0d0274b88a15688106f185ede87f576443bdadb0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095816"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229363"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Excel-tillägget för Azure Machine Learning Studio-webbtjänster
 Excel gör det enkelt att anropa webbtjänster direkt utan att behöva skriva någon kod.
 
 ## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Steg för att använda en befintlig webbtjänst i arbetsboken
 
-1. Öppna den [Excel-exempelfilen](http://aka.ms/amlexcel-sample-2), som innehåller Excel-tillägg och data om passagerare på den på Titanic. 
+1. Öppna den [Excel-exempelfilen](https://aka.ms/amlexcel-sample-2), som innehåller Excel-tillägg och data om passagerare på den på Titanic. 
  
 > [!NOTE]
 > Du kan se listan över de webbtjänster relaterade till filen och längst ned på sidan en kryssruta för ”automatisk förutsäga”. Om du aktiverar automatisk-förutsäga förutsägelser för **alla** dina tjänster kommer att vara uppdaterade varje gång som har ändrats på indata. Om alternativet är avmarkerat måste du klicka på ”förutse alla” för uppdatering. För att aktivera automatisk-förutsäga på en tjänst på Gå till steg 6.
@@ -85,7 +85,7 @@ Hämta API-nyckel för webbtjänsten. Om du utför beror denna åtgärd på om d
 ## <a name="sharing-your-workbook"></a>Dela din arbetsbok
 Om du har sparat din arbetsbok kan sparas även API eller den primära nyckeln för webbtjänster som du har lagt till. Det innebär att du bör bara dela arbetsboken med personer som du litar på.
 
-Frågor i avsnittet nedan kommentar eller på vår [forum](http://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
+Frågor i avsnittet nedan kommentar eller på vår [forum](https://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
 
 [01]: ./media/excel-add-in-for-web-services/image1.png
 [02]: ./media/excel-add-in-for-web-services/image2.png

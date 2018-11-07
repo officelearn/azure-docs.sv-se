@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: fbfb52b758089acf65f89c62f716d46d62b0f289
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 794c2cf6c52ead465d35d3d551cfe76e87c06787
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233828"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237612"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Kom igång med att leverera innehåll på begäran med hjälp av REST
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -460,7 +460,7 @@ Följande kod begär den kodaren id.
 ### <a name="create-a-job"></a>Skapa ett jobb
 Varje jobb kan ha en eller flera aktiviteter beroende på vilken typ av bearbetning som du vill utföra. Via REST-API kan du skapa jobb och deras relaterade uppgifter i ett av två sätt: uppgifter kan vara definierats internt via navigeringsegenskapen uppgifter på jobbet entiteter eller OData-batch-bearbetning. Media Services SDK använder batch-bearbetning. För läsbarhet av kodexemplen i den här artikeln är dock uppgifter definierats internt. Information om batchbearbetning finns [Open Data Protocol (OData) gruppbearbetning](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-I följande exempel visas hur du skapar och publicerar ett jobb med en åtgärd ange för att koda en video med en viss upplösning och kvalitet. Avsnittet följande dokumentation innehåller listan över alla de [uppgift förinställningar](http://msdn.microsoft.com/library/mt269960) stöds av Media Encoder Standard processorn.  
+I följande exempel visas hur du skapar och publicerar ett jobb med en åtgärd ange för att koda en video med en viss upplösning och kvalitet. Avsnittet följande dokumentation innehåller listan över alla de [uppgift förinställningar](https://msdn.microsoft.com/library/mt269960) stöds av Media Encoder Standard processorn.  
 
 **HTTP-begäran**
 

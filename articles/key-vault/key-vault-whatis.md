@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: d1a6da5d599296a11678ee58cadc42d61296e8e7
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: d7de20e1de91e37b2437091e6d7503e2cb2a4590
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230309"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246539"
 ---
 # <a name="what-is-azure-key-vault"></a>Vad är Azure Key Vault?
 
@@ -75,18 +75,11 @@ Vem som helst med en Azure-prenumeration kan skapa och använda nyckelvalv. Key 
 
 Administratören kan sedan ge utvecklare URI:er som de kan anropa från sina program, och förse säkerhetsadministratören med logginformation om nyckelanvändningen. 
 
-![Översikt över Azure Key Vault][1]
+! [Översikt över Azure Key Vault] [1]
 
 Utvecklare kan också hantera nycklar direkt, med hjälp av API:er. Mer information finns i [guiden för Key Vault-utvecklare](key-vault-developers-guide.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-En självstudie som hjälp för administratörer finns i [Komma igång med Azure Key Vault](key-vault-get-started.md).
-
-Mer information om användningsloggning för Key Vault finns i avsnittet om [Azure Key Vault-loggning](key-vault-logging.md).
-
-Mer information om hur du använder nycklar och hemligheter med Azure Key Vault finns i [About Keys, Secrets, and Certificates](https://msdn.microsoft.com/library/azure/dn903623\(v=azure.1\).aspx) (Om nycklar, hemligheter och certifikat).
-
-<!--Image references-->
-[1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
-Azure Key Vault är tillgängligt i de flesta regioner. Mer information finns på sidan med [Key Vault-priser](https://azure.microsoft.com/pricing/details/key-vault/).
+Lär dig hur du [skydda ditt valv](key-vault-secure-your-key-vault.md) 
+ <!--Image references--> [1]:./media/key-vault-whatis/AzureKeyVault_overview.png Azure Key Vault finns i de flesta regioner. Mer information finns på sidan med [Key Vault-priser](https://azure.microsoft.com/pricing/details/key-vault/).

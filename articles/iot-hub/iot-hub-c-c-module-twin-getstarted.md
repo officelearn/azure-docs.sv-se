@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.author: menchi
-ms.openlocfilehash: 94c7bd50b9c331370aaac802e0a453c5cdd8b7c1
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 80d96bcb6b6073987f07ed6954f25023ab1133a4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42059216"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247525"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-c-backend-and-c-device"></a>Kom igång med IoT Hub identitets- och modulen modultvilling med hjälp av serverdelen i C och C-enheten
 
@@ -31,7 +31,7 @@ I slutet av den här självstudien har du två C-appar:
 
 För att kunna genomföra den här kursen behöver du följande:
 
-* Ett aktivt Azure-konto. (Om du inte har ett konto kan du skapa en [kostnadsfritt Azure-konto](http://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
+* Ett aktivt Azure-konto. (Om du inte har ett konto kan du skapa en [kostnadsfritt Azure-konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 * En IoT-hubb.
 * Senast [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 

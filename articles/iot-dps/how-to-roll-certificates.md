@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 51e96065f726fadd528323157609034b5bb3f151
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 8cf5f262a758efe08ad73e2d8066ad4b736e76d1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387896"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247729"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Hur du ska distribuera X.509-enhetscertifikat
 
 Under livscykeln för din IoT-lösning måste du distribuera certifikat. Två av de viktigaste skälen för löpande certifikat skulle vara en säkerhetsöverträdelse och förfallodatum för certifikat. 
 
-Löpande certifikat är en säkerhetsåtgärd för att skydda datorn i händelse av ett intrång. Som en del av [förutsätter intrång metod](http://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf), Microsoft representanter behovet av att reaktiv säkerhetsprocesser ha tillsammans med förebyggande åtgärder. Löpande dina enhetscertifikat ska vara med i dessa processer med security. Den frekvens som du distribuerar dina certifikat beror på säkerhetsbehoven hos din lösning. Kunder med lösningar som inbegriper mycket känsliga data kan distribuera certifikat varje dag, medan andra distribuera sina certifikat varje par år.
+Löpande certifikat är en säkerhetsåtgärd för att skydda datorn i händelse av ett intrång. Som en del av [förutsätter intrång metod](https://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf), Microsoft representanter behovet av att reaktiv säkerhetsprocesser ha tillsammans med förebyggande åtgärder. Löpande dina enhetscertifikat ska vara med i dessa processer med security. Den frekvens som du distribuerar dina certifikat beror på säkerhetsbehoven hos din lösning. Kunder med lösningar som inbegriper mycket känsliga data kan distribuera certifikat varje dag, medan andra distribuera sina certifikat varje par år.
 
 Löpande enhetscertifikat måste du uppdatera certifikat som lagras på enheten och IoT-hubben. Därefter kan enheten kan etablera om sig själv med IoT hub med normal [Automatisk etablering](concepts-auto-provisioning.md) med Device Provisioning-tjänsten.
 

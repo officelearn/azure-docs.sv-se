@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 5cd56abd02c55dbf72c92ed070f9988fae2b6762
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 7ab12c86e01a34e4ba2a9673364c0e1104f6cdba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365262"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231633"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för webbappar i Azure App Service
 ## <a name="overview"></a>Översikt
-Azure har inbyggd diagnostik som hjälper till med felsökning av en [App Service-webbapp](http://go.microsoft.com/fwlink/?LinkId=529714). I den här artikeln lär du dig hur du aktiverar diagnostikloggning och lägger till instrumentering i programmet, samt hur du kommer åt den information som loggas av Azure.
+Azure har inbyggd diagnostik som hjälper till med felsökning av en [App Service-webbapp](https://go.microsoft.com/fwlink/?LinkId=529714). I den här artikeln lär du dig hur du aktiverar diagnostikloggning och lägger till instrumentering i programmet, samt hur du kommer åt den information som loggas av Azure.
 
 Den här artikeln används den [Azure-portalen](https://portal.azure.com), Azure PowerShell och Azure-kommandoradsgränssnittet (Azure CLI) för att arbeta med diagnostikloggar. Information om hur du arbetar med diagnostikloggar med Visual Studio finns i [felsökning Azure i Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
@@ -37,10 +37,10 @@ Du kan aktivera eller inaktivera följande typer av loggar:
 
 * **Detaljerad felloggning** -detaljerad information om fel för HTTP-statuskoder som indikerar ett fel (statuskod 400 eller större). Den kan innehålla information som kan hjälpa dig att avgöra varför servern returnerade felkoden.
 * **Det gick inte att begäran om spårning av** -detaljerad information om misslyckade förfrågningar, inklusive en spårning av IIS-komponenter som används för att bearbeta begäran och den tid det tar i varje komponent. Det är användbart om du vill öka platsprestanda eller isolera vad som orsakar ett specifikt HTTP-fel som ska returneras.
-* **Web Server-loggning** -Information om HTTP-transaktioner med hjälp av den [W3C utökat loggfilsformat](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Det är användbart när du fastställer övergripande platsmått, till exempel antalet begäranden som hanteras eller hur många begäranden som kommer från en specifik IP-adress.
+* **Web Server-loggning** -Information om HTTP-transaktioner med hjälp av den [W3C utökat loggfilsformat](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Det är användbart när du fastställer övergripande platsmått, till exempel antalet begäranden som hanteras eller hur många begäranden som kommer från en specifik IP-adress.
 
 ### <a name="application-diagnostics"></a>Programdiagnostik
-Programdiagnostik kan du samla in information som genereras av ett webbprogram. ASP.NET-program kan använda den [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) klassen för att logga information till programloggen för diagnostik. Exempel:
+Programdiagnostik kan du samla in information som genereras av ett webbprogram. ASP.NET-program kan använda den [System.Diagnostics.Trace](https://msdn.microsoft.com/library/36hhw2t6.aspx) klassen för att logga information till programloggen för diagnostik. Exempel:
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -97,7 +97,7 @@ Katalogstrukturen som loggar lagras i är följande:
 * **Programloggar** -/LogFiles/program /. Den här mappen innehåller en eller flera textfiler som innehåller information som genereras av programloggning.
 * **Det gick inte begäran spårningar** -/ LogFiles/W3SVC ### /. Den här mappen innehåller en XSL-fil och en eller flera XML-filer. Se till att du hämtar XSL-fil i samma katalog som XML-filer eftersom XSL-filen innehåller funktioner för att formatera och filtrera innehållet i XML-filen när den visas i Internet Explorer.
 * **Detaljerade felloggar** -/LogFiles/DetailedErrors /. Den här mappen innehåller en eller flera .htm-filer som innehåller omfattande information för alla HTTP-fel som har inträffat.
-* **Web Server-loggar** -/LogFiles/http/RawLogs. Den här mappen innehåller en eller flera textfiler formaterade med hjälp av den [W3C utökat loggfilsformat](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
+* **Web Server-loggar** -/LogFiles/http/RawLogs. Den här mappen innehåller en eller flera textfiler formaterade med hjälp av den [W3C utökat loggfilsformat](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
 * **Distributionsloggar** -/ LogFiles/Git. Den här mappen innehåller loggar som genereras av de interna distributionsprocesser som används av Azure-webbappar samt loggar för Git-distributioner. Du kan också hitta distributionsloggar under D:\home\site\deployments.
 
 ### <a name="ftp"></a>FTP
@@ -171,7 +171,7 @@ För att filtrera specifika loggtyper, till exempel HTTP, använder den **-sökv
 Använd parametern - ListPath om du vill se en lista över tillgängliga sökvägar.
 
 > [!NOTE]
-> Om du inte har installerat Azure PowerShell eller inte har konfigurerat den att använda din Azure-prenumeration, se [hur du använder Azure PowerShell](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Om du inte har installerat Azure PowerShell eller inte har konfigurerat den att använda din Azure-prenumeration, se [hur du använder Azure PowerShell](https://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 >
 >
 
@@ -264,7 +264,7 @@ Spårning av misslyckade begäranden lagras i XML-filer med namnet **fr ### .xml
 Detaljerade felloggar är HTML-dokument som innehåller mer detaljerad information om HTTP-fel som har inträffat. Eftersom de är helt enkelt HTML-dokument, kan de granskas med en webbläsare.
 
 ### <a name="web-server-logs"></a>Webbserverloggar
-Webbserverloggarna är formaterade med hjälp av den [W3C utökat loggfilsformat](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Den här informationen kan läsas med hjälp av en textredigerare eller parsas med verktyg som [Loggparser](http://go.microsoft.com/fwlink/?LinkId=246619).
+Webbserverloggarna är formaterade med hjälp av den [W3C utökat loggfilsformat](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Den här informationen kan läsas med hjälp av en textredigerare eller parsas med verktyg som [Loggparser](https://go.microsoft.com/fwlink/?LinkId=246619).
 
 > [!NOTE]
 > Loggar som producerats av webbappar i Azure stöder inte den **s-computername**, **s-ip**, eller **cs-version** fält.
@@ -274,7 +274,7 @@ Webbserverloggarna är formaterade med hjälp av den [W3C utökat loggfilsformat
 ## <a name="nextsteps"></a>Nästa steg
 * [Övervaka Webbappar](web-sites-monitor.md)
 * [Felsöka Azure web apps i Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
-* [Analysera Webbprogramloggar i HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [Analysera Webbprogramloggar i HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
 > [!NOTE]
 > Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](https://azure.microsoft.com/try/app-service/). Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inga kreditkort krävs. Inga åtaganden.

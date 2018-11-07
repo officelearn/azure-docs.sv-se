@@ -40,6 +40,8 @@ items:
     href: security-center-onboarding.md
   - name: Serverskydd med Windows Defender ATP
     href: security-center-wdatp.md
+  - name: Skydda App Service
+    href: security-center-app-services.md
   - name: Ange säkerhetsprinciper
     href: security-center-azure-policy.md
   - name: Anpassa informationsskyddsprincipen
@@ -61,43 +63,35 @@ items:
       href: security-center-management-groups.md
   - name: Implementera säkerhetsrekommendationer
     href: security-center-recommendations.md
-  - name: Övervaka säkerhetshälsa
-    href: security-center-monitoring.md
     items:
-    - name: Säkerhet för Compute och appar
+    - name: Förbättra säkerheten
+      href: security-center-monitoring.md
+    - name: Skydda dina datorer och appar
       href: security-center-virtual-machine-protection.md
       items:
-      - name: Rekommendationer för datorer och virtuella datorer
-        href: security-center-virtual-machine-recommendations.md
-        items:
-        - name: Tillämpa diskkryptering
-          href: security-center-apply-disk-encryption.md
-        - name: Tillämpa systemuppdateringar
-          href: security-center-apply-system-updates.md
-        - name: Aktivera kryptering för lagringskonto
-          href: security-center-enable-encryption-for-storage-account.md
-        - name: Aktivera VM-Agent
-          href: security-center-enable-vm-agent.md
-        - name: Installera slutpunktsskydd
-          href: security-center-install-endpoint-protection.md
-        - name: Starta om datorn efter uppdateringarna
-          href: security-center-apply-system-updates.md#reboot-after-system-updates
-        - name: Åtgärda säkerhetskonfigurationer
-          href: security-center-remediate-os-vulnerabilities.md
-        - name: Uppdatera OS-versionen
-          href: security-center-update-os-version.md
-        - name: Sårbarhetsbedömning inte installerad
-          href: security-center-vulnerability-assessment-recommendations.md
-      - name: Rekommendationer för appar
+      - name: Tillämpa diskkryptering
+        href: security-center-apply-disk-encryption.md
+      - name: Tillämpa systemuppdateringar
+        href: security-center-apply-system-updates.md
+      - name: Aktivera kryptering för lagringskonto
+        href: security-center-enable-encryption-for-storage-account.md
+      - name: Aktivera VM-Agent
+        href: security-center-enable-vm-agent.md
+      - name: Installera slutpunktsskydd
+        href: security-center-install-endpoint-protection.md
+      - name: Starta om datorn efter uppdateringarna
+        href: security-center-apply-system-updates.md#reboot-after-system-updates
+      - name: Åtgärda säkerhetskonfigurationer
+        href: security-center-remediate-os-vulnerabilities.md
+      - name: Uppdatera OS-versionen
+        href: security-center-update-os-version.md
+      - name: Sårbarhetsbedömning inte installerad
+        href: security-center-vulnerability-assessment-recommendations.md
+      - name: Lägg till en brandvägg för webbappar
         href: security-center-add-web-application-firewall.md
-        items:
-        - name: Lägg till en brandvägg för webbappar
-          href: security-center-add-web-application-firewall.md
-        - name: Slutföra programskydd
-          href: security-center-add-web-application-firewall.md#finalize-application-protection
-      - name: Rekommendationer för containers
-        href: security-center-container-recommendations.md
-    - name: Nätverkssäkerhet
+      - name: Slutföra programskydd
+        href: security-center-add-web-application-firewall.md#finalize-application-protection
+    - name: Skydda nätverksresurser
       href: security-center-network-recommendations.md
       items:
       - name: Lägg till en nästa generations brandvägg
@@ -108,7 +102,7 @@ items:
         href: security-center-restrict-access-through-internet-facing-endpoints.md
       - name: Dirigera trafiken endast via NGFW
         href: security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only
-    - name: Data- och lagringssäkerhet
+    - name: Skydda SQL-tjänsten och data
       href: security-center-sql-service-recommendations.md
       items:
       - name: Aktivera granskning och hotidentifiering på SQL-databaser
@@ -225,9 +219,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=security-center
   - name: Regional tillgänglighet
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 60bb35519dec1dc08dd9ed82633c594c56fdd893
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 09d1086de03ddab3cf2aca54f201c86632ab4c83
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318086"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219451"

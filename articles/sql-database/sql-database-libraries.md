@@ -12,27 +12,27 @@ ms.author: genemi
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 40de6a93516a556958c1fd0cd3f861304e55a600
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d7c0a2060d1ec084e575edaf128d72495b1d7b85
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165525"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259656"
 ---
 # <a name="connectivity-libraries-and-frameworks-for-sql-server"></a>Anslutningsbibliotek och ramverk för SQL Server
 
-Kolla in våra [få igång Självstudier](http://aka.ms/sqldev) att snabbt komma igång med programmeringsspråk, till exempel C#, Java, Node.js, PHP och Python. Skapa sedan en app med hjälp av SQL Server på Linux eller Windows eller Docker på macOS.
+Kolla in våra [få igång Självstudier](https://aka.ms/sqldev) att snabbt komma igång med programmeringsspråk, till exempel C#, Java, Node.js, PHP och Python. Skapa sedan en app med hjälp av SQL Server på Linux eller Windows eller Docker på macOS.
 
 I följande tabell visas anslutningsbibliotek eller *drivrutiner* att klientprogram kan använda från en mängd olika språk för att ansluta till och använda SQL Server som körs lokalt eller i molnet. Du kan använda dem på Linux, Windows eller Docker och använda dem för att ansluta till Azure SQL Database och Azure SQL Data Warehouse. 
 
 | Språk | Plattform | Ytterligare resurser | Ladda ned | Kom igång |
 | :-- | :-- | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [Microsoft ADO.NET för SQLServer](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [Ladda ned](https://www.microsoft.com/net/download/) | [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
-| Java | Windows, Linux, macOS | [Microsoft JDBC-drivrutin för SQL Server](http://msdn.microsoft.com/library/mt484311.aspx) | [Ladda ned](https://go.microsoft.com/fwlink/?linkid=852460) |  [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
-| PHP | Windows, Linux, macOS| [PHP-SQL-drivrutin för SQL Server](http://msdn.microsoft.com/library/dn865013.aspx) | Operativsystem: <br/> \* [Windows](https://www.microsoft.com/download/details.aspx?id=55642) <br/> \* [Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \* [MacOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu)
-| Node.js | Windows, Linux, macOS | [Node.js-drivrutin för SQL Server](http://msdn.microsoft.com/library/mt652093.aspx) | [Installera](https://msdn.microsoft.com/library/mt652094.aspx) |  [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
-| Python | Windows, Linux, macOS | [SQL Python-drivrutinen](http://msdn.microsoft.com/library/mt652092.aspx) | Installera val: <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |  [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
-| Ruby | Windows, Linux, macOS | [Ruby-drivrutin för SQL Server](http://msdn.microsoft.com/library/mt691981.aspx) | [Installera](https://msdn.microsoft.com/library/mt711041.aspx) | [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
+| Java | Windows, Linux, macOS | [Microsoft JDBC-drivrutin för SQL Server](https://msdn.microsoft.com/library/mt484311.aspx) | [Ladda ned](https://go.microsoft.com/fwlink/?linkid=852460) |  [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
+| PHP | Windows, Linux, macOS| [PHP-SQL-drivrutin för SQL Server](https://msdn.microsoft.com/library/dn865013.aspx) | Operativsystem: <br/> \* [Windows](https://www.microsoft.com/download/details.aspx?id=55642) <br/> \* [Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \* [MacOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu)
+| Node.js | Windows, Linux, macOS | [Node.js-drivrutin för SQL Server](https://msdn.microsoft.com/library/mt652093.aspx) | [Installera](https://msdn.microsoft.com/library/mt652094.aspx) |  [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
+| Python | Windows, Linux, macOS | [SQL Python-drivrutinen](https://msdn.microsoft.com/library/mt652092.aspx) | Installera val: <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](https://msdn.microsoft.com/library/mt763257.aspx) |  [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
+| Ruby | Windows, Linux, macOS | [Ruby-drivrutin för SQL Server](https://msdn.microsoft.com/library/mt691981.aspx) | [Installera](https://msdn.microsoft.com/library/mt711041.aspx) | [Kom igång](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
 | C++ | Windows, Linux, macOS | [Microsoft ODBC-drivrutin för SQL Server](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) | [Ladda ned](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) |  
 
 I följande tabell visas exempel objektrelationell mappning (ORM) ramverk och webbramverk som klientprogram kan använda med SQL Server som körs lokalt eller i molnet. Du kan använda ramverk på Linux, Windows eller Docker och använda dem för att ansluta till SQL Database och SQL Data Warehouse. 
@@ -48,7 +48,7 @@ I följande tabell visas exempel objektrelationell mappning (ORM) ramverk och we
 ||||
 
 ## <a name="related-links"></a>Relaterade länkar
-- [SQL Server-drivrutiner](http://msdn.microsoft.com/library/mt654049.aspx) som används för att ansluta från klientprogram
+- [SQL Server-drivrutiner](https://msdn.microsoft.com/library/mt654049.aspx) som används för att ansluta från klientprogram
 - Anslut till SQL Database:
     - [Ansluta till SQL Database med .NET (C#)](sql-database-connect-query-dotnet.md)
     - [Ansluta till SQL Database med PHP](sql-database-connect-query-php.md)

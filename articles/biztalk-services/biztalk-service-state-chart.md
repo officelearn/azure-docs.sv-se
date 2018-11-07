@@ -1,6 +1,6 @@
 ---
-title: Uppgifter som tillåts i olika tillstånd eller status i BizTalk-tjänst | Microsoft Docs
-description: 'Åtgärder/operationer som tillåts i olika MABS status: stoppa, starta, starta om, pausa, återuppta, ta bort, skala, uppdatera konfigurationen och säkerhetskopiera upp'
+title: Uppgifter som tillåts i olika tillstånd eller statusar i BizTalk Services | Microsoft Docs
+description: 'Åtgärder/åtgärder som tillåts i olika MABS-status: stoppa, starta, starta om, pausa, återuppta, ta bort, skala och uppdatera konfiguration och säkerhetskopiering upp'
 services: biztalk-services
 documentationcenter: ''
 author: MandiOhlinger
@@ -14,34 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2016
 ms.author: mandia
-ms.openlocfilehash: 05470e75fc7b46603c8fce3a98c66ac6a24758a8
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: bbe1288a42db307001ac778394ac410206f1df21
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24102750"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228206"
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>Vad du kan och inte kan göra med BizTalk Service-tillstånd
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-Beroende på aktuell status för BizTalk-tjänst finns som du kan eller inte kan utföra på BizTalk-tjänst.
+Det finns åtgärder som du kan eller kan inte utföra på BizTalk-tjänst beroende på det aktuella tillståndet för BizTalk-tjänsten.
 
-Exempelvis kan du etablera en ny BizTalk-tjänst. När den har slutförts, BizTalk-tjänst finns i `active` tillstånd. I aktivt läge kan du stoppa, pausa och ta bort BizTalk-tjänst. Om du stoppar tjänsten BizTalk och stoppa misslyckas och BizTalk-tjänst går sedan till en `StopFailed` tillstånd. I den `StopFailed` tillståndet kan du starta om BizTalk-tjänst. Om du försöker en åtgärd som inte tillåts, t.ex. återuppta, inträffar följande fel:
+Exempelvis kan etablera du en ny BizTalk-tjänst. När processen är klar, BizTalk-tjänsten är i `active` tillstånd. Aktiv, kan du stoppa, pausa och ta bort BizTalk-tjänsten. Om du stoppar BizTalk-tjänsten och stoppa misslyckas och BizTalk-tjänst går sedan till en `StopFailed` tillstånd. I den `StopFailed` tillstånd, kan du starta om BizTalk-tjänsten. Om du försöker en åtgärd som inte är tillåtet, resume t.ex., inträffar följande fel:
 
 `Operation not allowed`
 
 ## <a name="view-the-possible-states"></a>Visa möjliga tillstånd
 
-I följande tabeller beskrivs åtgärder eller de åtgärder som kan göras när BizTalk Service är i ett visst tillstånd. En ✔ innebär åtgärden tillåts i det aktuella tillståndet. En tom post innebär inte att utföra åtgärden i det aktuella tillståndet.
+I tabellerna nedan listas åtgärder eller de åtgärder som kan göras när BizTalk Service finns i ett visst tillstånd. En ✔ innebär att åtgärden är tillåten i det aktuella tillståndet. Lämnas tomt innebär att det går inte att utföra åtgärden i det aktuella tillståndet.
 
-| Tillstånd för tjänsten | Start | Stoppa | Starta om | Pausa | Återuppta | Ta bort | Skala | Uppdatering <br/> Konfiguration | Säkerhetskopiering |
+| Tjänsttillstånd | Start | Stoppa | Starta om | Inaktivera | Återuppta | Ta bort | Skala | Uppdatering <br/> Konfiguration | Backup |
 | --- | --- | --- | --- | --- | --- | --- |--- | --- | --- |
 | Active |  | ✔ | ✔ | ✔ |  | ✔ |✔ |✔ |✔ |
 | Disabled |  |  |  |  |  | ✔ | |  |  | 
-| avbruten |  |  |  |  | ✔ | ✔ | |  | ✔ |
+| Tillfälligt avbruten |  |  |  |  | ✔ | ✔ | |  | ✔ |
 | Stoppad | ✔ |  | ✔ |  |  | ✔ | |  | ✔ |
-| Uppdatering av tjänsten misslyckades |  |  |  |  |  | ✔ | |  |  | 
+| Tjänstuppdateringen misslyckades |  |  |  |  |  | ✔ | |  |  | 
 | DisableFailed |  |  |  |  |  | ✔ | |  |  | 
 | EnableFailed |  |  |  |  |  | ✔ | |  |  | 
 | StartFailed <br/> StopFailed <br/> RestartFailed | ✔ | ✔ | ✔ |  |  | ✔ | | ✔ | |
@@ -53,10 +53,10 @@ I följande tabeller beskrivs åtgärder eller de åtgärder som kan göras när
 
 
 ## <a name="see-also"></a>Se även
-* [Vad du kan göra på instrumentpanelen, övervaka och skala flikar i BizTalk-tjänst](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [Vad du får med utvecklare, Basic, Standard och Premium-versioner i BizTalk-tjänst](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [Säkerhetskopiera och återställa en BizTalk Service](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-* [Begränsning förklaras i BizTalk-tjänst](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-* [Hämta Service Bus och åtkomstkontroll Utfärdarens namn och utfärdaren nyckelvärdena för BizTalk Service](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
-* [Hur gör jag för att börja använda Azure BizTalk Services SDK?](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [Vad du kan göra på flikarna instrumentpanel, Övervakare och skalning i BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [Vad du får med Developer, Basic, Standard och Premium-versionerna i BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [Hur du säkerhetskopierar och återställer en BizTalk Service](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [Begränsning förklaras i BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+* [Hämta Service Bus och Access Control Utfärdarens namn och nyckelvärdena för BizTalk Service](https://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+* [Hur gör jag för att börja använda Azure BizTalk Services SDK?](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 

@@ -12,12 +12,12 @@ ms.author: jodebrui
 ms.reviewer: ''
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: 8fd430aa710c7e36133b40c7079b9d727774c68f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d850aff8ddb2a8b6cdd68620ae823d582c527581
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166936"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229098"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimera prestanda med hjälp av minnesinterna tekniker i SQL-databas
 
@@ -57,11 +57,11 @@ Se följande resurser för mer information.
 Detaljerad information om tekniker:
 
 - [InMemory-OLTP-översikt och Användningsscenarier](https://msdn.microsoft.com/library/mt774593.aspx) (innehåller referenser till kundfallstudier och information för att komma igång)
-- [Dokumentation för Minnesintern OLTP](http://msdn.microsoft.com/library/dn133186.aspx)
+- [Dokumentation för Minnesintern OLTP](https://msdn.microsoft.com/library/dn133186.aspx)
 - [Guide för Kolumnlagringsindex](https://msdn.microsoft.com/library/gg492088.aspx)
 - Hybrid transaktionella/analytisk bearbetning (HTAP), även kallat [operativa analys i realtid](https://msdn.microsoft.com/library/dn817827.aspx)
 
-En snabb genomgång på In-Memory OLTP: [snabb Start 1: InMemory-OLTP-tekniker för snabbare prestanda med T-SQL](http://msdn.microsoft.com/library/mt694156.aspx) (en annan artikel som hjälper dig att komma igång)
+En snabb genomgång på In-Memory OLTP: [snabb Start 1: InMemory-OLTP-tekniker för snabbare prestanda med T-SQL](https://msdn.microsoft.com/library/mt694156.aspx) (en annan artikel som hjälper dig att komma igång)
 
 Djupgående videor om tekniker:
 
@@ -158,7 +158,7 @@ En mer förenklad, men mer visuellt tilltalande prestanda demo för In-Memory OL
 
 1. I den [Azure-portalen](https://portal.azure.com/), skapa en Premium- eller affärskritisk databas på en server. Ange den **källa** till AdventureWorksLT-exempeldatabasen. Detaljerade anvisningar finns i [skapa din första Azure SQL-databas](sql-database-get-started-portal.md).
 
-2. Ansluta till databasen med SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
+2. Ansluta till databasen med SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx).
 
 3. Kopiera den [InMemory-OLTP Transact-SQL-skript](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) till Urklipp. T-SQL-skript skapar nödvändiga InMemory-objekt i AdventureWorksLT-exempeldatabasen som du skapade i steg 1.
 
@@ -291,9 +291,9 @@ Vi rekommenderar att du skulle planerar att köra ostress.exe på en Azure-dator
 På den virtuella datorn eller på det värd som du väljer, installera verktyg för repetitionsattacker Markup Language (RML). Verktygen innehåller ostress.exe.
 
 Mer information finns i:
-- Ostress.exe diskussion i [exempeldatabasen för In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
-- [Exempel på databasen för In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
-- Den [blogg för att installera ostress.exe](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
+- Ostress.exe diskussion i [exempeldatabasen för In-Memory OLTP](https://msdn.microsoft.com/library/mt465764.aspx).
+- [Exempel på databasen för In-Memory OLTP](https://msdn.microsoft.com/library/mt465764.aspx).
+- Den [blogg för att installera ostress.exe](https://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
 
 
 
@@ -379,7 +379,7 @@ Vår minnesinterna tester har visat som prestanda förbättras av **nio gånger*
 I det här avsnittet jämför resultaten i/o och statistik när du använder ett columnstore-index jämfört med traditionella b-trädindex.
 
 
-För analys i realtid på en OLTP-arbetsbelastning är det ofta bäst att använda ett icke-grupperat columnstore-index. Mer information finns i [Columnstore-index beskrivs](http://msdn.microsoft.com/library/gg492088.aspx).
+För analys i realtid på en OLTP-arbetsbelastning är det ofta bäst att använda ett icke-grupperat columnstore-index. Mer information finns i [Columnstore-index beskrivs](https://msdn.microsoft.com/library/gg492088.aspx).
 
 
 
@@ -493,7 +493,7 @@ Du kan förvänta dig ungefär nio gånger prestandaökning för den här fråga
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Snabbstart 1: Minnesintern OLTP-tekniker för snabbare prestanda för T-SQL](http://msdn.microsoft.com/library/mt694156.aspx)
+- [Snabbstart 1: Minnesintern OLTP-tekniker för snabbare prestanda för T-SQL](https://msdn.microsoft.com/library/mt694156.aspx)
 
 - [Använda Minnesintern OLTP i ett befintligt Azure SQL-program](sql-database-in-memory-oltp-migration.md)
 
@@ -508,17 +508,17 @@ Du kan förvänta dig ungefär nio gånger prestandaökning för den här fråga
 
 - [Minnesintern OLTP i Azure SQL Database-blogginlägget](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
-- [Lär dig mer om Minnesintern OLTP](http://msdn.microsoft.com/library/dn133186.aspx)
+- [Lär dig mer om Minnesintern OLTP](https://msdn.microsoft.com/library/dn133186.aspx)
 
 - [Lär dig mer om columnstore-index](https://msdn.microsoft.com/library/gg492088.aspx)
 
-- [Lär dig mer om operativa analys i realtid](http://msdn.microsoft.com/library/dn817827.aspx)
+- [Lär dig mer om operativa analys i realtid](https://msdn.microsoft.com/library/dn817827.aspx)
 
-- Se [vanliga mönster för arbetsbelastningen och överväganden vid migrering](http://msdn.microsoft.com/library/dn673538.aspx) (som beskriver arbetsbelastningmönster där In-Memory OLTP ofta ger betydande prestandavinster)
+- Se [vanliga mönster för arbetsbelastningen och överväganden vid migrering](https://msdn.microsoft.com/library/dn673538.aspx) (som beskriver arbetsbelastningmönster där In-Memory OLTP ofta ger betydande prestandavinster)
 
 #### <a name="application-design"></a>Programmets design
 
-- [Minnesintern OLTP (minnesoptimering)](http://msdn.microsoft.com/library/dn133186.aspx)
+- [Minnesintern OLTP (minnesoptimering)](https://msdn.microsoft.com/library/dn133186.aspx)
 
 - [Använda Minnesintern OLTP i ett befintligt Azure SQL-program](sql-database-in-memory-oltp-migration.md)
 
@@ -528,4 +528,4 @@ Du kan förvänta dig ungefär nio gånger prestandaökning för den här fråga
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 
-- [SQL Server Data Tools (SSDT)](http://msdn.microsoft.com/library/mt204009.aspx)
+- [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)

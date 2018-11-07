@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: f25434814a7fb3d0f49cab539b394970c9bcfb3b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 79fe761bc6d8bb9561701fd11b06b010bf3454f6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023448"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260014"
 ---
 # <a name="quickstart-get-familiar-with-content-moderator"></a>Snabbstart: Bekanta dig med Content Moderator
 
@@ -26,7 +26,7 @@ I den här snabbstarten ska du använda online Content Moderator-Granskningsverk
 - En webbläsare
 
 ## <a name="set-up-the-review-tool"></a>Konfigurera granskningsverktyget
-Content Moderator-Granskningsverktyget är ett webbaserat verktyg som gör att mänsklig granskare för att fatta beslut enklare cognitive service. I den här guiden får du genomgå kort processen för att ställa in granskningsverktyget så att du kan se hur tjänsten Content Moderator fungerar. Gå till den [Content Moderator-Granskningsverktyget](http://contentmoderator.cognitive.microsoft.com/) plats och registrera dig.
+Content Moderator-Granskningsverktyget är ett webbaserat verktyg som gör att mänsklig granskare för att fatta beslut enklare cognitive service. I den här guiden får du genomgå kort processen för att ställa in granskningsverktyget så att du kan se hur tjänsten Content Moderator fungerar. Gå till den [Content Moderator-Granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) plats och registrera dig.
 
 ![Startsida för innehåll Moderator](images/homepage.PNG)
 
@@ -48,7 +48,7 @@ Skicka in ditt innehåll för moderering. Internt anropar granskningsverktyget m
 
 ## <a name="review-moderation-tags"></a>Granska moderering taggar
 
-Granska de tillämpade moderering taggarna. Du kan se vilka taggar har kopplats till ditt innehåll och vad poängen var i varje kategori.
+Granska de tillämpade moderering taggarna. Du kan se vilka taggar har kopplats till ditt innehåll och vad poängen var i varje kategori. Se den [bild](image-moderation-api.md), [Text](text-moderation-api.md), och [Video](video-moderation-api.md) moderering avsnitt mer information om olika innehåll taggar visas.
 
 ![Granska resultatet](images/reviewresults_text.png)
 
@@ -70,4 +70,4 @@ Eller Fortsätt med nästa steg för att komma igång med API: er för Modererin
 Lär dig hur du Moderering API: erna i själva i din app.
 - Implementera bildmoderering. Använd den [API-konsol](try-image-api.md) eller [ C# snabbstarten](image-moderation-quickstart-dotnet.md) Genomsök bilder och identifiera potentiellt vuxet eller olämpligt innehåll med hjälp av taggar, förtroende poäng och andra extraherade information.
 - Implementera textmoderering. Använd den [API-konsol](try-text-api.md) eller använda den [ C# snabbstarten](text-moderation-quickstart-dotnet.md) söker igenom textinnehåll för potentiella svordomar, datorstödd oönskad text klassificering (förhandsversion) och personligt identifierbar information (PII). 
-- Implementera videomoderering. Använd den [ C# snabbstarten](video-moderation-api.md) att söka igenom videor och identifiera potentiellt vuxet eller olämpligt innehåll. 
+- Implementera videomoderering. Följ den [Video moderering anvisningar guide för C# ](video-moderation-api.md) att söka igenom videor och identifiera potentiellt vuxet eller olämpligt innehåll. 

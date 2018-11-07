@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: cwatson
-ms.openlocfilehash: a037f4837be65eb7eac76977a3728c7357e09463
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 83891e1abdb58b4fdae65cee3689195b8f35df12
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394445"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230469"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Förstå villkoren på din Microsoft Azure användningsdebitering 
 
@@ -77,7 +77,7 @@ Avsnittet daglig användning i CSV-filen visar användningsinformation som påve
 |Förbrukad tjänst |Azure-plattformstjänster som du använde |
 |Resursgrupp |Resursgruppen där den distribuerade mätning körs i. <br/><br/>Mer information finns i [Översikt över Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
 |Instans-ID | Identifierare för mätaren. <br/><br/> Identifieraren innehåller namnet du anger för mätaren när den skapades. Det är antingen namnet på resursen eller det fullständigt kvalificerade resurs-ID. Mer information finns i [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources). |
-|Taggar | Tagg som du tilldelar till mätaren. Använd taggar om du vill gruppera faktureringsposter.<br/><br/>Du kan till exempel använda taggar för att fördela kostnader per avdelning som använder mätaren. Tjänster som stöder sändande taggar är virtuella datorer, lagring och nätverkstjänster som etablerats med hjälp av den [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources). Mer information finns i [ordna dina Azure-resurser med taggar](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
+|Taggar | Tagg som du tilldelar till mätaren. Använd taggar om du vill gruppera faktureringsposter.<br/><br/>Du kan till exempel använda taggar för att fördela kostnader per avdelning som använder mätaren. Tjänster som stöder sändande taggar är virtuella datorer, lagring och nätverkstjänster som etablerats med hjälp av den [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources). Mer information finns i [ordna dina Azure-resurser med taggar](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
 |Ytterligare info |Tjänstspecifik metadata. Till exempel detta en Avbildningstyp för en virtuell dator. |
 |Serviceinfo 1 |Det projektnamn som tillhör tjänsten för din prenumeration |
 |Serviceinfo 2 |Äldre fält som samlar in valfria tjänstspecifika metadata |

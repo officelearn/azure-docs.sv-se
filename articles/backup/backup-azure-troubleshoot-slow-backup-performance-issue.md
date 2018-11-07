@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: ab338964a67991c0e97bf218f8aa004e0e5dfe38
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: f24a60ab9bdcf1231085de4edeeb89ce1edf4e80
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418254"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248477"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Felsökning av långsam säkerhetskopiering av filer och mappar i Azure Backup
 Den här artikeln innehåller felsökningsinformation för att hjälpa dig att diagnostisera orsaken till långsamma prestanda vid säkerhetskopiering för filer och mappar när du använder Azure Backup. När du använder Azure Backup-agenten för säkerhetskopiering av filer, kan säkerhetskopieringen ta längre tid än förväntat. Den här fördröjningen kan orsakas av en eller flera av följande:
@@ -23,7 +23,7 @@ Den här artikeln innehåller felsökningsinformation för att hjälpa dig att d
 * [Backup-agenten körs på en Azure-dator (VM).](#cause3)  
 * [Du säkerhetskopierar ett stort antal (miljoner) filer.](#cause4)
 
-Innan du startar felsökning av problem, rekommenderar vi att du hämtar och installerar den [senaste Azure Backup-agenten](http://aka.ms/azurebackup_agent). Vi gör frekventa uppdateringar för Backup-agenten för att åtgärda problemen, lägga till funktioner och förbättra prestanda.
+Innan du startar felsökning av problem, rekommenderar vi att du hämtar och installerar den [senaste Azure Backup-agenten](https://aka.ms/azurebackup_agent). Vi gör frekventa uppdateringar för Backup-agenten för att åtgärda problemen, lägga till funktioner och förbättra prestanda.
 
 Vi rekommenderar också starkt att du läser den [Azure Backup service FAQ](backup-azure-backup-faq.md) att kontrollera att du inte har någon av de vanligaste konfigurationsproblemen som.
 

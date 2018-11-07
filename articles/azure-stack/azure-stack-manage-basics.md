@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 37b8eff2d4ed89c90f1fa6f128673ed5bacaaa90
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 5d3073c3ed499ecdb20243e6db2b217aec3e1448
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339958"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254527"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack administration grunder
 Det finns flera saker du behöver veta om du inte har använt Azure Stack-administration. Den här vägledningen ger en översikt över din roll som Azure Stack-operatör och vad du behöver att be användarna för dem att snabbt blir mer produktiv.
@@ -81,7 +81,7 @@ Det finns några överväganden för användarkonton som du bör känna till nä
  
 Du kan använda den [administratörsportalen](azure-stack-manage-portals.md) eller PowerShell för att hantera Azure Stack. Det enklaste sättet att lära dig de grundläggande principerna är via portalen. Om du vill använda PowerShell finns steg för förberedelse. Du måste [installera](azure-stack-powershell-install.md) PowerShell [hämta](azure-stack-powershell-download.md) ytterligare moduler och [konfigurera](azure-stack-powershell-configure-admin.md) PowerShell.
 
-Azure Stack använder Azure Resource Manager som dess underliggande mekanism för distribution, hantering och organisation. Om du planerar att hantera Azure Stack och att ge stöd för användare, bör du lära dig om Resource Manager. Se den [komma igång med Azure Resource Manager](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) White Paper.
+Azure Stack använder Azure Resource Manager som dess underliggande mekanism för distribution, hantering och organisation. Om du planerar att hantera Azure Stack och att ge stöd för användare, bör du lära dig om Resource Manager. Se den [komma igång med Azure Resource Manager](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) White Paper.
 
 ## <a name="your-typical-responsibilities"></a>Dina vanliga ansvarsområden
 

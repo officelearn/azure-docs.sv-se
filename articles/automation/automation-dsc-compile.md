@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fae415d158a9fced0c63078cd09c0cc070c88372
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: ca3c29101e17a7970ba782b5c49267bf9f18482e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630009"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257164"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Kompilera DSC-konfigurationer i Azure Automation State Configuration
 
@@ -171,7 +171,7 @@ Node ($AllNodes.Where{$_.Role -eq 'WebServer'}).NodeName
 
 ## <a name="configurationdata"></a>ConfigurationData
 
-**ConfigurationData** kan du avgränsa strukturella konfigurationen från miljöspecifika konfiguration när du använder PowerShell DSC. Se [att separera ”vad” från ”Where” i PowerShell DSC](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) mer information om **ConfigurationData**.
+**ConfigurationData** kan du avgränsa strukturella konfigurationen från miljöspecifika konfiguration när du använder PowerShell DSC. Se [att separera ”vad” från ”Where” i PowerShell DSC](https://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) mer information om **ConfigurationData**.
 
 > [!NOTE]
 > Du kan använda **ConfigurationData** vid kompilering i Azure Automation Tillståndskonfiguration med hjälp av Azure PowerShell, men inte i Azure-portalen.

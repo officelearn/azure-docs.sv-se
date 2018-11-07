@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 693fd7b80d69c20971315d8636f27daeb0cacaee
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 28be219c35d382cbd141bb050b35893da02ab775
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240893"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256464"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence, tävlingar, vanliga frågor och svar
 **Vad är Cortana Intelligence, tävlingar?**
 
-Microsoft Cortana Intelligence, tävlingar, unites en global community med dataentusiaster genom att lösa några av världens mest komplexa data science problem tillsammans. Cortana Intelligence, tävlingar, Tillåt dataentusiaster från över hela världen att konkurrera och skapa modeller för mycket exakta och intelligenta data science. De här värdbaserade tävlingar baseras på unika datauppsättningar som har gjorts tillgängliga offentligt för första gången. Deltagare kan vinna belöningar eller få erkännande via de översta 10 offentliga rankningslista. Du kan komma åt webbplatsen tävlingar på [aka.ms/CIComp](http://aka.ms/CIComp).
+Microsoft Cortana Intelligence, tävlingar, unites en global community med dataentusiaster genom att lösa några av världens mest komplexa data science problem tillsammans. Cortana Intelligence, tävlingar, Tillåt dataentusiaster från över hela världen att konkurrera och skapa modeller för mycket exakta och intelligenta data science. De här värdbaserade tävlingar baseras på unika datauppsättningar som har gjorts tillgängliga offentligt för första gången. Deltagare kan vinna belöningar eller få erkännande via de översta 10 offentliga rankningslista. Du kan komma åt webbplatsen tävlingar på [aka.ms/CIComp](https://aka.ms/CIComp).
 
 **Hur ofta kommer Microsoft att släppa nya tävlingar?**
 
@@ -37,7 +37,7 @@ För allmänna frågor kan du använda den [Microsoft Azure Machine Learning-for
 
 **Hur anger jag en tävling**
 
-Åtkomst till den [tävlingar](https://gallery.cortanaintelligence.com/competitions) startsida i den [Azure AI-galleriet](https://gallery.cortanaintelligence.com/), eller gå till [ http://aka.ms/CIComp ](http://aka.ms/CIComp). På sidan listar alla tävlingar som körs för närvarande. Varje tävling har detaljerade anvisningar och deltagande regler, priser och varaktighet för dess registreringssidan.
+Åtkomst till den [tävlingar](https://gallery.cortanaintelligence.com/competitions) startsida i den [Azure AI-galleriet](https://gallery.cortanaintelligence.com/), eller gå till [ http://aka.ms/CIComp ](https://aka.ms/CIComp). På sidan listar alla tävlingar som körs för närvarande. Varje tävling har detaljerade anvisningar och deltagande regler, priser och varaktighet för dess registreringssidan.
 
 1. Hitta den tävling som du vill delta i, läsa alla instruktioner och se självstudievideo. Klicka sedan på den **ange tävling** knappen och kopiera Starter experimentet till din befintliga Azure Machine Learning-arbetsyta. Om du inte redan har åtkomst till en arbetsyta, måste du skapa en i förväg. Kör experimentet Starter, se prestandamått och sedan använda din kreativitet för att förbättra prestandan för modellen. Du kommer troligen att tillbringa merparten av din tid i det här steget.   
 
@@ -98,7 +98,7 @@ Microsoft verifierar resultaten av den privata rankningslista och sedan vi konta
 
 **Hur får jag pris pengar om jag vinna en tävling?**
 
-Om du är en vinnare av tävling, behöver du logga en deklaration av behörighet och licens versionen från. Det här formuläret reiterates regler för Innovationstävling. Vinnare måste du fylla i ett formulär för oss skatt W-9 eller ett formulär W-8BEN om de inte är USA skattebetalare. Vi kommer att kontakta alla vinnare som en del av fördelarna utbetalning processen genom att använda sin e-post för registrering. Se våra [villkor](http://aka.ms/comptermsandconditions) för ytterligare information.
+Om du är en vinnare av tävling, behöver du logga en deklaration av behörighet och licens versionen från. Det här formuläret reiterates regler för Innovationstävling. Vinnare måste du fylla i ett formulär för oss skatt W-9 eller ett formulär W-8BEN om de inte är USA skattebetalare. Vi kommer att kontakta alla vinnare som en del av fördelarna utbetalning processen genom att använda sin e-post för registrering. Se våra [villkor](https://aka.ms/comptermsandconditions) för ytterligare information.
 
 **Vad händer om mer än en post får samma poäng?**
 
@@ -114,5 +114,5 @@ Stöder för närvarande plattformen konkurrensen bara poster som har skickats f
 
 **Håller vi användarnas tävlingar lösningar och -poster?**
 
-Användarposter behålls endast att identifiera de vinnande lösningarna i utvärderingssyfte. Se våra [villkor](http://aka.ms/comptermsandconditions) ge specifik information.
+Användarposter behålls endast att identifiera de vinnande lösningarna i utvärderingssyfte. Se våra [villkor](https://aka.ms/comptermsandconditions) ge specifik information.
 

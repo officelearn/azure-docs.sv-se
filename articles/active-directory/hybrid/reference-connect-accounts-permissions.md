@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 66585c495dfb46e51120ae3eef2685d634fd9606
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: a3bce69236586bcd0a250c47f1129ac0d94e8b26
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024978"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231490"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konton och behörigheter
 
@@ -241,7 +241,7 @@ Om du inte Läs i dokumentationen om [integrera dina lokala identiteter med Azur
 
 |Avsnitt |Länk|  
 | --- | --- |
-|Ladda ned Azure AD Connect | [Ladda ned Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|Ladda ned Azure AD Connect | [Ladda ned Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Installera med standardinställningar | [Snabbinstallation av Azure AD Connect](how-to-connect-install-express.md)|
 |Installera med anpassade inställningar | [Anpassad installation av Azure AD Connect](./how-to-connect-install-custom.md)|
 |Uppgradera från DirSync | [Uppgradera från Azure AD-synkroniseringsverktyg (DirSync)](how-to-dirsync-upgrade-get-started.md)|

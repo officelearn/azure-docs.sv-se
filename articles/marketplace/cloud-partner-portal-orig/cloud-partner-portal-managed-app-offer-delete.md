@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 02b4ad8aea3904ba0e99a5ea4d4d035f970e171a
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 5ad106d45c8bae2d41e0bde74b27f80f4d8ab79b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811758"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241284"
 ---
 <a name="delete-an-offersku-from-azure-marketplace"></a>Ta bort ett erbjudande/SKU från Azure Marketplace 
 ==========================================
 
 Av olika anledningar kan du bestämma dig för att ta bort erbjudandet från Marketplace. Nya kunder inte längre kan köpa eller distribuera ditt erbjudande, men befintliga kunder påverkas inte.
-Uppsägning av erbjudandet handlar om att säga upp tjänsten och/eller licensavtalet mellan dig och dina befintliga kunder. Vägledning och principer som relaterar till borttagning av erbjudande och uppsägning regleras av [Publiceringsavtalet för Microsoft Marketplace](http://go.microsoft.com/fwlink/?LinkID=699560) (se avsnittet
+Uppsägning av erbjudandet handlar om att säga upp tjänsten och/eller licensavtalet mellan dig och dina befintliga kunder. Vägledning och principer som relaterar till borttagning av erbjudande och uppsägning regleras av [Publiceringsavtalet för Microsoft Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) (se avsnittet
 7) och [Deltagandepolicyer](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (se avsnittet 6.2). De olika stöds ta bort scenarier och beskrivs de steg du kan vidta.
 
 <a name="delete-a-live-sku-from-azure-marketplace"></a>Ta bort en live-SKU från Azure Marketplace 

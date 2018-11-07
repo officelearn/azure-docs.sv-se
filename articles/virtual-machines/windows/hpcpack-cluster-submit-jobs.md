@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: f2cf26bc9f980729e74c4a4e0b4e3f4b311fd754
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ce8e2457c1d575e890174de3b9cf7faf6e16a7cb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421142"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258824"
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>Registrera HPC-jobb från lokala datorer till ett HPC Pack-kluster som distribuerats i Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -37,7 +37,7 @@ Konfigurera en lokal klientdator för att skicka jobb till en [Microsoft HPC Pac
 ## <a name="step-1-install-and-configure-the-web-components-on-the-head-node"></a>Steg 1: Installera och konfigurera webbkomponenterna på huvudnoden
 Se till att HPC Pack webbkomponenterna är konfigurerade på klustrets huvudnod i HPC Pack för att aktivera ett REST-gränssnitt att skicka jobb till klustret via HTTPS. Om de inte redan har installerats måste du först installera webbkomponenterna genom att köra installationsfilen HpcWebComponents.msi. Konfigurera sedan komponenterna genom att köra HPC PowerShell-skriptet **Set-HPCWebComponents.ps1**.
 
-Detaljerade anvisningar finns [installerar Microsoft HPC Pack Webbkomponenter](http://technet.microsoft.com/library/hh314627.aspx).
+Detaljerade anvisningar finns [installerar Microsoft HPC Pack Webbkomponenter](https://technet.microsoft.com/library/hh314627.aspx).
 
 > [!TIP]
 > Vissa Azure-snabbstartsmallar för HPC Pack-kluster installerar och konfigurerar webbkomponenterna automatiskt.
@@ -169,7 +169,7 @@ Du kan kontrollera konfigurationen, försök att köra jobb på klustret i Azure
 1. Om du vill visa resultatet av jobbet som du skickade, klickar du på jobb-ID och klicka sedan på **uppgiftsvyn** att visa kommandoutdata (under **utdata**).
 
 ## <a name="next-steps"></a>Nästa steg
-* Du kan också skicka jobb till Azure-kluster med den [HPC Pack REST API](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
+* Du kan också skicka jobb till Azure-kluster med den [HPC Pack REST API](https://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
 * Om du vill skicka kluster jobb från en klient för Linux finns i Python-exemplet i den [HPC Pack 2012 R2 SDK och exempelkod](https://www.microsoft.com/download/details.aspx?id=41633).
 
 <!--Image references-->

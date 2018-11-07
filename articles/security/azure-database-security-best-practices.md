@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: tomsh
-ms.openlocfilehash: 50cfc2e8420d9f427b02c739f497d8546d880d7c
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: bceccbfd0efb54db3e599ec737fe5df0c2a87acd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747770"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261663"
 ---
 # <a name="azure-database-security-best-practices"></a>Metodtips för Azure database-säkerhet
-Säkerhet är ett viktigt mål för hantering av databaser och den har alltid varit en prioritet för [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Dina databaser kan skyddas nära för att hjälpa uppfyller de flesta juridiska eller säkerhetskrav, inklusive HIPAA, ISO 27001/27002 och PCI DSS Level 1. En aktuell lista över security efterlevnadscertifieringar är tillgänglig på den [Microsoft Trust Center plats](http://azure.microsoft.com/support/trust-center/services/). Du kan också välja att placera dina databaser i specifika Azure-datacenter som baseras på myndighetskrav.
+Säkerhet är ett viktigt mål för hantering av databaser och den har alltid varit en prioritet för [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Dina databaser kan skyddas nära för att hjälpa uppfyller de flesta juridiska eller säkerhetskrav, inklusive HIPAA, ISO 27001/27002 och PCI DSS Level 1. En aktuell lista över security efterlevnadscertifieringar är tillgänglig på den [Microsoft Trust Center plats](https://azure.microsoft.com/support/trust-center/services/). Du kan också välja att placera dina databaser i specifika Azure-datacenter som baseras på myndighetskrav.
 
 I den här artikeln diskuterar vi en samling med Azure database säkerhetsmetoder. Dessa metodtips härleds från vår erfarenhet med Azure database-säkerhet och erfarenheter från kunder som dig själv.
 

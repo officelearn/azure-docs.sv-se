@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 43a75c31c0f094bdcb7008a39140226815bda163
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 3f45f062cabaf31a10f24b01583575f5066bdaaf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390303"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231540"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Cortana Intelligence Solution mallen Spelboken för prognostisering av efterfrågan på energi
 ## <a name="executive-summary"></a>Sammanfattning
@@ -43,7 +43,7 @@ Den tredje delen av dokumentet omfattar den **teknisk implementering** aspekt av
 
 Dokumentet innehåller dessutom referensmaterial som du kan använda för att få ytterligare förståelse för domänen och teknik.
 
-Det är viktigt att Observera att vi inte tänker upp i det här dokumentet djupare datavetenskapsprocess dess matematiska och tekniska aspekter. Dessa uppgifter finns i [dokumentation för Azure ML](http://azure.microsoft.com/services/machine-learning/) och [bloggar](http://blogs.microsoft.com/blog/tag/azure-machine-learning/).
+Det är viktigt att Observera att vi inte tänker upp i det här dokumentet djupare datavetenskapsprocess dess matematiska och tekniska aspekter. Dessa uppgifter finns i [dokumentation för Azure ML](https://azure.microsoft.com/services/machine-learning/) och [bloggar](https://blogs.microsoft.com/blog/tag/azure-machine-learning/).
 
 ### <a name="target-audience"></a>Målgrupp
 Målgruppen för det här dokumentet är både företags- och teknisk personal som vill få kunskap och förståelse för Machine Learning-baserade lösningar och hur de används specifikt inom domänen energi prognostisering.
@@ -176,7 +176,7 @@ En grundläggande formel för beräkning av finansiella fördelen med begäran P
 
 Eftersom Cortana Intelligence Suite tillhandahåller en prismodell som betalar per användning, finns det inget behov av att faktureras en fast kostnadskomponent formel. Den här formeln kan beräknas på grundval av varje dag, månad eller årlig.
 
-Aktuella Cortana Intelligence Suite och Azure ML prissättningsplaner finns [här](http://azure.microsoft.com/pricing/details/machine-learning/).
+Aktuella Cortana Intelligence Suite och Azure ML prissättningsplaner finns [här](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 ### <a name="solution-development-process"></a>Process för utveckling av lösning
 Utvecklingscykeln av en efterfrågan på energi prognoser lösningen omfattar vanligtvis 4 faser, som vi gör använda molnbaserad teknik och tjänster i Cortana Intelligence Suite.
@@ -187,7 +187,7 @@ Detta illustreras i följande diagram:
 
 Följande stycke beskrivs processen 4 steg:
 
-1. **Insamling av data** – alla avancerade baserat analyslösning förlitar sig på data (se **Data förstå**). Särskilt när det gäller förutsägelseanalys och prognoser, vi förlitar sig på pågående, dynamiska flödet av data. När det gäller energi prognoser för efterfrågan, dessa data kan hämtas direkt från smarta elmätare eller aggregeras redan i en lokal databas. Vi också beroende av andra externa datakällor, till exempel väder och temperatur. Den här pågående flödet av data måste samordnas, schemalagda och lagras. [Azure Data Factory](http://azure.microsoft.com/services/data-factory/) (ADF) är vår största bestämmer hög grad för att utföra den här uppgiften.
+1. **Insamling av data** – alla avancerade baserat analyslösning förlitar sig på data (se **Data förstå**). Särskilt när det gäller förutsägelseanalys och prognoser, vi förlitar sig på pågående, dynamiska flödet av data. När det gäller energi prognoser för efterfrågan, dessa data kan hämtas direkt från smarta elmätare eller aggregeras redan i en lokal databas. Vi också beroende av andra externa datakällor, till exempel väder och temperatur. Den här pågående flödet av data måste samordnas, schemalagda och lagras. [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) (ADF) är vår största bestämmer hög grad för att utföra den här uppgiften.
 2. **Modellering** – för korrekta och tillförlitliga energi prognoser, måste en utveckla (train) och underhålla en bra modell att gör använder av historiska data och extraherar meningsfulla och förutsägande mönster i data. Området för Machine Learning (ML) har växt snabbt med mer avancerade algoritmer som utvecklas regelbundet. Azure ML Studio ger en bra användarupplevelse som hjälper dig att använda de mest avancerade ML-algoritmerna i en fullständig arbetsflöde. Det här arbetsflödet illustreras i en intuitiv flödesdiagram tillsammans med förberedelse av data, extrahering av funktionen, modellering och utvärdering av modellen. Du kan hämta hundratals olika modeller som ingår i den här miljön. I slutet av den här fasen har inom data Science en aktiv-modell som är fullständigt utvärderade och klar för distribution.
    
    Följande diagram är en illustration av ett vanligt arbetsflöde:
@@ -387,7 +387,7 @@ Detta är de steg som äger rum som en del av prognoscykel för energi begäran:
 7. Prognostiserade data lagras i en databas som kan användas av klienten slutet förbrukning.
 8. Förbrukning klienten hämtar prognoserna, tillämpar den tillbaka till rutnätet och förbrukar i enlighet med det obligatoriska användningsfallet.
 
-Det är viktigt att Observera att den här hela livscykel helt automatiserad och körs enligt ett schema. Hela dirigering av den här cykeln data kan göras genom att använda verktyg som [Azure Data Factory](http://azure.microsoft.com/services/data-factory/).
+Det är viktigt att Observera att den här hela livscykel helt automatiserad och körs enligt ett schema. Hela dirigering av den här cykeln data kan göras genom att använda verktyg som [Azure Data Factory](https://azure.microsoft.com/services/data-factory/).
 
 ### <a name="end-to-end-deployment-architecture"></a>Distributionsarkitektur för slutpunkt till slutpunkt
 Vi måste se till att de nödvändiga komponenterna har upprättats och korrekt konfigurerad för att kunna distribuera en energi begäran prognoser lösning på Cortana Intelligence praktiskt taget.

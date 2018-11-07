@@ -2,18 +2,18 @@
 title: Utöka HDInsight med virtuellt nätverk – Azure
 description: Lär dig hur du använder Azure Virtual Network för att ansluta HDInsight till andra resurser i molnet eller resurser i ditt datacenter
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/08/2018
-ms.openlocfilehash: 5ee249aee5d95f22f2e1f52d6356f09ea41ccd68
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 11/06/2018
+ms.openlocfilehash: 62502e946922928b8b4179d38ce9f9ae55f9930d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945764"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238989"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Utöka Azure HDInsight med hjälp av Azure Virtual Network
 
@@ -25,7 +25,7 @@ Lär dig hur du använder HDInsight med en [Azure Virtual Network](../virtual-ne
 
 * Ansluta HDInsight till data som lagras i ett virtuellt Azure-nätverk.
 
-* Direkt åtkomst till Hadoop-tjänster som inte är tillgängliga offentligt över internet. Till exempel Kafka-API: er eller HBase Java-API.
+* Direkt åtkomst till Apache Hadoop-tjänster som inte är tillgängliga offentligt över internet. Till exempel Kafka-API: er eller HBase Java-API.
 
 > [!WARNING]
 > Informationen i det här dokumentet kräver kunskap om TCP/IP-nätverk. Om du inte är bekant med TCP/IP-nätverk, bör du samarbeta med någon som innan du gör ändringar i produktionsnätverk.
@@ -64,7 +64,7 @@ Använd stegen i det här avsnittet för att identifiera hur du lägger till en 
 
     När ansluten, kan HDInsight som installerats i Resource Manager-nätverk interagera med resurser i det klassiska nätverket.
 
-2. Använder du Tvingad tunneltrafik? Tvingad tunneltrafik är en undernätsinställning för som tvingar utgående Internet-trafik till en enhet för granskning och loggning. HDInsight stöder inte tvingande dirigering. Antingen bort Tvingad tunneltrafik innan du installerar HDInsight i ett undernät eller skapa ett nytt undernät för HDInsight.
+2. Använder du Tvingad tunneltrafik? Tvingad tunneltrafik är en undernätsinställning för som tvingar utgående Internet-trafik till en enhet för granskning och loggning. HDInsight stöder inte tvingande dirigering. Antingen bort Tvingad tunneltrafik innan du distribuerar HDInsight i ett befintligt undernät eller skapar ett nytt undernät ingen Tvingad tunneltrafik för HDInsight.
 
 3. Använder du nätverkssäkerhetsgrupper, användardefinierade vägar eller virtuella nätverksinstallationer för att begränsa trafik till eller från det virtuella nätverket?
 
@@ -121,7 +121,7 @@ Den största utmaningen med flera nätverkskonfigurationer är namnmatchning mel
 
 Azure ger namnmatchning för Azure-tjänster som är installerade i ett virtuellt nätverk. Den här inbyggda namnmatchning kan HDInsight att ansluta till följande resurser med hjälp av ett fullständigt kvalificerat domännamn (FQDN):
 
-* Alla resurser som är tillgänglig på internet. Till exempel microsoft.com, google.com.
+* Alla resurser som är tillgänglig på internet. Till exempel microsoft.com, windowsupdate.com.
 
 * Alla resurser som tillhör samma Azure Virtual Network, med hjälp av den __interna DNS-namnet__ för resursen. Till exempel när du använder standard-namnmatchning, är följande exempel interna DNS-namn som tilldelats till HDInsight-arbetsnoder:
 
@@ -173,7 +173,7 @@ Mer information finns i den [namnmatchning för virtuella datorer och Rollinstan
 
 ## <a name="directly-connect-to-hadoop-services"></a>Ansluta direkt till Hadoop-tjänster
 
-Du kan ansluta till klustret på https://CLUSTERNAME.azurehdinsight.net. Den här adressen använder en offentlig IP-adress som kanske inte är tillgängligt om du har använt NSG: er eller udr: er för att begränsa inkommande trafik från internet. Dessutom när du distribuerar klustret i ett virtuellt nätverk du har åtkomst till den med hjälp av privata slutpunkt https://CLUSTERNAME-int.azurehdinsight.net. Den här slutpunkten motsvarar en privat IP-adress i virtuellt nätverk för åtkomst till klustret.
+Du kan ansluta till klustret på https://CLUSTERNAME.azurehdinsight.net. Den här adressen använder en offentlig IP-adress som kanske inte kan nås om du har använt NSG: er för att begränsa inkommande trafik från internet. Dessutom när du distribuerar klustret i ett virtuellt nätverk du har åtkomst till den med hjälp av privata slutpunkt https://CLUSTERNAME-int.azurehdinsight.net. Den här slutpunkten motsvarar en privat IP-adress i virtuellt nätverk för åtkomst till klustret.
 
 Använd följande steg när du ansluter till Ambari och andra webbsidor via det virtuella nätverket:
 
@@ -213,13 +213,13 @@ Nätverkstrafik i en Azure-nätverk kan kontrolleras med hjälp av följande met
 * **Nätverkssäkerhetsgrupper** (NSG) du kan filtrera inkommande och utgående trafik till nätverket. Mer information finns i den [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) dokumentet.
 
     > [!WARNING]
-    > HDInsight har inte stöd för att begränsa utgående trafik.
+    > HDInsight har inte stöd för att begränsa utgående trafik. All utgående trafik ska tillåtas.
 
 * **Användardefinierade vägar** (UDR) definiera hur trafiken flödar mellan resurser i nätverket. Mer information finns i den [användardefinierade vägar och IP-vidarebefordring](../virtual-network/virtual-networks-udr-overview.md) dokumentet.
 
 * **Virtuella nätverksinstallationer** replikera funktionerna på enheter som brandväggar och routrar. Mer information finns i den [nätverksinstallationer](https://azure.microsoft.com/solutions/network-appliances) dokumentet.
 
-Som en hanterad tjänst kräver obegränsad åtkomst till Azure hälso- och management-tjänster i Azure-molnet i HDInsight. När du använder NSG: er och udr: er, måste du se till att HDInsight dessa tjänster kan fortfarande kommunicera med HDInsight.
+HDInsight kräver obegränsad åtkomst till HDinsight-hälsa och management services både inkommande och utgående trafik från det virtuella nätverket som en hanterad tjänst. När du använder NSG: er och udr: er, måste du kontrollera att dessa tjänster fortfarande kan kommunicera med HDInsight-kluster.
 
 HDInsight exponerar tjänster på flera portar. När du använder en virtuell installation brandvägg, måste du tillåta trafik på portarna som används för dessa tjänster. Mer information finns i avsnittet [nödvändiga portar].
 
@@ -233,8 +233,8 @@ Om du tänker använda **nätverkssäkerhetsgrupper** eller **användardefiniera
 
 3. Skapa eller ändra nätverkssäkerhetsgrupper eller användardefinierade vägar för det undernät som du planerar att installera HDInsight i.
 
-    * __Nätverkssäkerhetsgrupper__: Tillåt __inkommande__ trafik på port __443__ från IP-adresser.
-    * __Användardefinierade vägar__: skapa en väg till varje IP-adress och ange den __nästa hopptyp__ till __Internet__.
+    * __Nätverkssäkerhetsgrupper__: Tillåt __inkommande__ trafik på port __443__ från IP-adresser. Det säkerställer att HDI hanteringstjänster kan nå klustret från utanför VNET.
+    * __Användardefinierade vägar__: Om du planerar att använda udr: er, skapa en väg för varje IP-adress och ange den __nästa hopptyp__ till __Internet__. Du bör också tillåta all utgående trafik från det virtuella nätverket utan begränsning. Exempelvis kan du dirigera all trafik till din Azure firwall eller nätverks virtuella installation (installation i Azure) för övervakning, men den utgående trafiken inte ska blockeras.
 
 Mer information om nätverkssäkerhetsgrupper eller användardefinierade vägar finns i följande dokumentation:
 
@@ -242,9 +242,9 @@ Mer information om nätverkssäkerhetsgrupper eller användardefinierade vägar 
 
 * [Användardefinierade vägar](../virtual-network/virtual-networks-udr-overview.md)
 
-#### <a name="forced-tunneling"></a>Tvingad tunneltrafik
+#### <a name="forced-tunneling-to-on-premise"></a>Tvingad tunneltrafik till lokala
 
-Tvingad tunneltrafik är en användardefinierad konfiguration där all trafik från ett undernät tvingas att ett visst nätverk eller plats, till exempel ditt lokala nätverk. HDInsight har __inte__ support Tvingad tunneltrafik.
+Tvingad tunneltrafik är en användardefinierad konfiguration där all trafik från ett undernät tvingas att ett visst nätverk eller plats, till exempel ditt lokala nätverk. HDInsight har __inte__ support Tvingad tunneltrafik till lokala nätverk. Om du använder Azure brandvägg eller en virtuell installation för nätverk i Azure kan använda du udr: er att dirigera trafiken till den för övervakning och tillåter all utgående trafik.
 
 ## <a id="hdinsight-ip"></a> Den begärda IP-adresser
 

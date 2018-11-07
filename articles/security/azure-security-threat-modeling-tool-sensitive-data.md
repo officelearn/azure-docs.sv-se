@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bcd2b2199628a7f717a7ce1d8eba032f5778379b
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 7f1bb400650a223a9f0b4249c33f7c480a1bc009
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301469"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262377"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Security ram: Känsliga Data | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -141,7 +141,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
-| **Referenser**              | [MSDN: autocomplete attributet](http://msdn.microsoft.com/library/ms533486(VS.85).aspx), [med automatisk komplettering i HTML](http://msdn.microsoft.com/library/ms533032.aspx), [HTML gemensamt säkerhetsproblem](http://technet.microsoft.com/security/bulletin/MS10-071), [automatisk komplettering., igen?](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
+| **Referenser**              | [MSDN: autocomplete attributet](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [med automatisk komplettering i HTML](https://msdn.microsoft.com/library/ms533032.aspx), [HTML gemensamt säkerhetsproblem](https://technet.microsoft.com/security/bulletin/MS10-071), [automatisk komplettering., igen?](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
 | **Steg** | Automatisk komplettering attributet anger om ett formulär ska ha automatisk komplettering eller inaktivera. Om automatisk komplettering finns på måste slutföra värden baserat på värden som användaren har angett innan automatiskt i webbläsaren. Till exempel när ett nytt namn och lösenord har angetts i ett formulär och formuläret har skickats, så frågar webbläsaren om lösenordet ska sparas. Därefter när formuläret visas, namn och lösenord fylls i automatiskt eller har slutförts eftersom namnet har angetts. En angripare med lokal åtkomst kan hämta lösenordet i klartext från webbläsarens cache. Komplettera automatiskt är aktiverad som standard och det måste uttryckligen inaktiveras. |
 
 ### <a name="example"></a>Exempel

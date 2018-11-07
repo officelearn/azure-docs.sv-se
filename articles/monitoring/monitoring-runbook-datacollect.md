@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 2efaae7794cf5f12719d3d1420d9db6903592559
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: a0dc515bb6a4cbf0395dc1407ca65edd5d517d15
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913197"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261606"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Samla in data i Log Analytics med en Azure Automation-runbook
 Du kan samla in en betydande mängd data i Log Analytics från olika källor, inklusive [datakällor](../log-analytics/log-analytics-data-sources.md) på agenter och även [data som samlas in från Azure](../log-analytics/log-analytics-azure-storage.md).  Det finns en scenarier om när du behöver samla in data som inte är tillgängliga via dessa källor som standard.  I dessa fall kan du använda den [HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md) att skriva data till Log Analytics från en REST API-klient.  En vanlig metod att utföra den här Datasamlingen med hjälp av en runbook i Azure Automation.   
@@ -145,7 +145,7 @@ Azure Automation innehåller en miljö till [testet](../automation/automation-te
     ![Publicera utdata](media/monitoring-runbook-datacollect/post-output.png)
 
 ## <a name="5-verify-records-in-log-analytics"></a>5. Kontrollera posterna i Log Analytics
-När runbooken har slutförts i testet, och du har kontrollerat att utdata togs emot, kan du verifiera att posterna har skapats med en [loggsökning i Log Analytics](../log-analytics/log-analytics-log-search.md).
+När runbooken har slutförts i testet, och du har kontrollerat att utdata togs emot, kan du verifiera att posterna har skapats med en [loggsökning i Log Analytics](../log-analytics/log-analytics-queries.md).
 
 ![Loggutdata](media/monitoring-runbook-datacollect/log-output.png)
 

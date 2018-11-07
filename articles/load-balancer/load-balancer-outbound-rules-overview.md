@@ -4,8 +4,6 @@ description: Använd utgående regler för att definiera adressöversättningar 
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jpconnock
-tags: azure-resource-manager
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 0ba7ed902c6ecb7a328aa6db3d3855b88bed2813
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: ab09eb939d760a0f06be758fdf83591565aaf7d0
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637570"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219383"
 ---
 # <a name="load-balancer-outbound-rules"></a>Utgående regler för belastningsutjämnare
 
@@ -69,9 +67,9 @@ API-versionen ”2018-07-01” tillåter en utgående regeldefinition strukturer
 
 En utgående regel kan användas med bara en enda offentlig IP-adress, förenklar utgående regler arbetet konfiguration för att skala utgående NAT. Du kan använda flera IP-adresser för att planera för storskaliga scenarier och du kan använda utgående regler för att minimera [SNAT resursuttömning](load-balancer-outbound-connections.md#snatexhaust) felbenägna mönster.  
 
-Varje ytterligare IP-adress som tillhandahålls av en klientdel tillhandahåller 64 000 tillfälliga portar för belastningsutjämnaren ska användas som SNAT portar. Även om Utjämning av nätverksbelastning eller inkommande NAT-regler har en enda klientdel, utgående regel utökas frontend-notation och gör att flera klienter per regel.  Antalet tillgängliga portar för SNAT multipliceras med varje offentlig IP-adress med flera klienter per regel och mycket stora scenarier stöds.
+Varje ytterligare IP-adress som tillhandahålls av en klientdel tillhandahåller 64 000 tillfälliga portar för belastningsutjämnaren ska användas som SNAT portar. Även om Utjämning av nätverksbelastning eller inkommande NAT-regler har en enda klientdel, utgående regel utökas frontend-notation och gör att flera klienter per regel.  Antalet tillgängliga portar för SNAT multipliceras med varje offentlig IP-adress med flera klienter per regel och stora scenarier stöds.
 
-Du kan också använda en [offentliga IP-adressprefix](https://aka.ms/lbpublicipprefix) direkt med en utgående regel.  Detta ger för enklare skalning och förenklad vitlistning av flöden från din Azure-distribution. Du kan konfigurera en frontend IP-konfiguration i belastningsutjämnaren resursen att direkt referera till en offentlig IP-adressprefix.  På så sätt kan belastningsutjämnaren exklusiv kontroll över det offentliga IP-adressprefix och utgående regel används automatiskt alla offentliga IP-adresser som ingår i det offentliga IP-adressprefix för utgående anslutningar.  Var och en av IP-adresser inom intervallet för det offentliga IP-adressprefix tillhandahåller 64 000 tillfälliga portar per IP-adress för belastningsutjämnaren ska användas som SNAT portar.   
+Du kan också använda en [offentliga IP-adressprefix](https://aka.ms/lbpublicipprefix) direkt med en utgående regel.  Med hjälp av offentliga IP-Adressen ger prefix enklare skalning och förenklad vit-lista över flöden från din Azure-distribution. Du kan konfigurera en frontend IP-konfiguration i belastningsutjämnaren resursen att direkt referera till en offentlig IP-adressprefix.  På så sätt kan belastningsutjämnaren exklusiv kontroll över det offentliga IP-adressprefix och utgående regel används automatiskt alla offentliga IP-adresser som ingår i det offentliga IP-adressprefix för utgående anslutningar.  Var och en av IP-adresser inom intervallet för det offentliga IP-adressprefix tillhandahåller 64 000 tillfälliga portar per IP-adress för belastningsutjämnaren ska användas som SNAT portar.   
 
 Du kan inte ha enskilda offentliga IP-adressresurser som skapats från det offentliga IP-adressprefix när du använder det här alternativet som utgående regel måste ha fullständig kontroll över det offentliga IP-adressprefix.  Om du behöver mer bra störrre kontroll kan du skapa enskilda offentliga IP-adressresurs från det offentliga IP-adressprefix och tilldela flera offentliga IP-adresser individuellt till klientdelen av en utgående regel.
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 13ce074f8ec22bc80ee5c56f2127b3a5b4d788bf
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 4f4a61ad0c1b1fcab4773dcc16c5e22053c4158d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215403"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230894"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Konfigurera katastrofåterställning till Azure för lokala fysiska servrar
 
@@ -51,7 +51,7 @@ Innan du börjar kontrollerar du att:
 
 ### <a name="set-up-an-azure-account"></a>Konfigurera ett Azure-konto
 
-Skaffa en Microsoft [Azure-konto](http://azure.microsoft.com/).
+Skaffa en Microsoft [Azure-konto](https://azure.microsoft.com/).
 
 - Du kan börja med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
 - Lär dig mer om [priserna för Site Recovery](site-recovery-faq.md#pricing), och få [prisinformation](https://azure.microsoft.com/pricing/details/site-recovery/).
@@ -157,10 +157,10 @@ Välj och kontrollera målresurserna.
 
 ## <a name="create-a-replication-policy"></a>Skapa replikeringsprincip
 
-1. Klicka för att skapa en ny replikeringsprincip **Site Recovery-infrastruktur** > **replikeringsprinciper** > **+ replikeringsprincip**.
-2. I **skapa replikeringsprincip**, ange ett principnamn.
-3. I **tröskelvärde för Replikeringspunktmål**, ange objektiva (RPO) återställningspunktgränsen. Det här värdet anger hur ofta data återställningspunkter skapas. En avisering genereras när den kontinuerliga replikeringen överskrider den här gränsen.
-4. I **kvarhållning av återställningspunkt**, ange hur lång tid (i timmar) kvarhållningsperioden är för varje återställningspunkt. Replikerade virtuella datorer kan återställas till valfri punkt i ett fönster. Upp till 24 timmar kvarhållning stöds för datorer som har replikerats till premiumlagring och 72 timmar för standardlagring.
+1. Om du vill skapa en ny replikeringsprincip klickar du på **Site Recovery-infrastruktur** > **Replikeringsprinciper** > **+Replikeringsprincip**.
+2. I **Skapa replikeringsprincip** anger du ett principnamn.
+3. I **Tröskelvärde för replikeringspunktmål** anger du gränsen för replikeringspunktmålet (RPO). Det här värdet anger hur ofta data återställningspunkter skapas. En avisering genereras när den kontinuerliga replikeringen överskrider den här gränsen.
+4. I **Återställningspunkt för kvarhållning** anger du kvarhållningsperioden (i antal timmar) för varje återställningspunkt. Replikerade virtuella datorer kan återställas till valfri punkt i ett fönster. Upp till 24 timmars kvarhållning stöds för datorer replikerade till premiumlagring och 72 timmar för standardlagring.
 5. I **appkonsekvent ögonblicksbildsfrekvens**, ange hur ofta (i minuter) återställningspunkter som innehåller programkonsekventa ögonblicksbilder ska skapas. Klicka på **OK** för att skapa principen.
 
     ![Replikeringsprincip](./media/physical-azure-disaster-recovery/replication-policy.png)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: 932e7447c59c7e9d8322a0e85b0843b0e836b840
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 262d2511879047d1723d3b15c4c107b80ba1c297
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095521"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250349"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Skapa Application Insights-resurser med hjälp av PowerShell
 Den här artikeln visar hur du automatiskt skapa och uppdatera [Application Insights](app-insights-overview.md) resurser automatiskt med hjälp av Azure Resource Manager. Du kan till exempel göra det som en del av en build-process. Tillsammans med grundläggande Application Insights-resursen kan du skapa [webbtester för tillgänglighet](app-insights-monitor-web-app-availability.md), Ställ in [aviseringar](app-insights-alerts.md), ange den [priser schema](app-insights-pricing.md), och skapa andra Azure-resurser .
@@ -30,7 +30,7 @@ Om du inte har använt PowerShell med Azure-prenumerationen innan du:
 
 Installera Azure Powershell-modulen på datorn där du vill köra skripten:
 
-1. Installera [Microsoft Web Platform Installer (v5 eller högre)](http://www.microsoft.com/web/downloads/platform.aspx).
+1. Installera [Microsoft Web Platform Installer (v5 eller högre)](https://www.microsoft.com/web/downloads/platform.aspx).
 2. Du kan använda den för att installera Microsoft Azure Powershell.
 
 ## <a name="create-an-azure-resource-manager-template"></a>Skapa en Azure Resource Manager-mall
@@ -448,6 +448,6 @@ Andra automation-artiklar:
 * [Ställa in aviseringar](app-insights-powershell-alerts.md)
 * [Skapa webbtester](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Skicka Azure Diagnostics-data till Application Insights](app-insights-powershell-azure-diagnostics.md)
-* [Distribuera till Azure från GitHub](http://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
+* [Distribuera till Azure från GitHub](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [Skapa Versionsanteckningar](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 

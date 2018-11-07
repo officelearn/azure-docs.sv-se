@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: b4641c847db817df905f056847a26d003ac25fd1
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: ee7b403c2ebdc590bd428eff880769ae83632585
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43381803"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228223"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Konfigurera en eller flera Always On availability-grupplyssnare - Resource Manager
 Det här avsnittet visar hur du:
@@ -41,7 +41,7 @@ Relaterade ämnen innefattar:
 [!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
 
 ## <a name="configure-the-windows-firewall"></a>Konfigurera Windows-brandväggen
-Konfigurera Windows-brandväggen så att SQL Server-åtkomst. Brandväggsreglerna tillåta TCP-anslutningar till portar används av SQL Server-instansen och lyssnare-avsökning. Detaljerade anvisningar finns i [konfigurerar en Windows-brandvägg för Databasmotoråtkomst](http://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Skapa en regel för inkommande för SQL Server-porten och avsökningsporten.
+Konfigurera Windows-brandväggen så att SQL Server-åtkomst. Brandväggsreglerna tillåta TCP-anslutningar till portar används av SQL Server-instansen och lyssnare-avsökning. Detaljerade anvisningar finns i [konfigurerar en Windows-brandvägg för Databasmotoråtkomst](https://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Skapa en regel för inkommande för SQL Server-porten och avsökningsporten.
 
 Om du är att begränsa åtkomst med en Azure Network Security Group, se till att Tillåt-reglerna omfattar serverdel SQL Server VM IP-adresser och belastningsutjämnare flytande IP-adresser för AG-lyssnare och klustrets core IP-adress om det är tillämpligt.
 
@@ -110,7 +110,7 @@ Frontend-porten är den port som program använda för att ansluta till SQL Serv
 > För SQL Server-Tillgänglighetsgrupper kräver varje IP-adress en specifik avsökningsporten. Om en IP-adress för en belastningsutjämnare använder avsökningsporten 59999, kan inga andra IP-adresser på den belastningsutjämnaren använda avsökningsporten 59999.
 
 * Information om load balancer begränsningar finns i **privata IP klient per belastningsutjämnare** under [nätverksgränser – Azure Resource Manager](../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
-* Läs om hur tillgänglighet gruppgränser [begränsningar (Tillgänglighetsgrupper)](http://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
+* Läs om hur tillgänglighet gruppgränser [begränsningar (Tillgänglighetsgrupper)](https://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
 
 Följande skript lägger till en ny IP-adress till en befintlig belastningsutjämnare. Den interna Belastningsutjämnaren använder porten för lyssnare för frontend-porten för belastningsutjämning. Den här porten kan vara den port som SQL Server lyssnar på. För standardinstanser av SQL Server är porten 1433. Belastningsutjämningsregeln för en tillgänglighetsgrupp kräver en flytande IP (direkt serverreturnering) så backend-porten är samma som frontend-porten. Uppdatera variablerna för din miljö. 
 
@@ -188,7 +188,7 @@ Så här testar du anslutningen:
 SQLCMD-anslutning ansluter automatiskt till instansen av SQL Server är värd för den primära repliken. 
 
 > [!NOTE]
-> Se till att den port som du anger är öppen i brandväggen för både SQL-servrar. Båda servrarna kräver en regel för inkommande trafik för TCP-porten som du använder. Se [Lägg till eller redigera brandväggsregel](http://technet.microsoft.com/library/cc753558.aspx) för mer information. 
+> Se till att den port som du anger är öppen i brandväggen för både SQL-servrar. Båda servrarna kräver en regel för inkommande trafik för TCP-porten som du använder. Se [Lägg till eller redigera brandväggsregel](https://technet.microsoft.com/library/cc753558.aspx) för mer information. 
 > 
 > 
 
@@ -205,9 +205,9 @@ Mer information finns i [konfigurera Always On-tillgänglighetsgruppen i Azure V
 ## <a name="powershell-cmdlets"></a>PowerShell-cmdletar
 Använd följande PowerShell-cmdletar för att skapa en intern belastningsutjämnare för Azure-datorer.
 
-* [Ny-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt619450.aspx) skapar en belastningsutjämnare. 
-* [Ny AzureRMLoadBalancerFrontendIpConfig](http://msdn.microsoft.com/library/mt603510.aspx) skapar en frontend IP-konfiguration för en belastningsutjämnare. 
-* [Ny-AzureRmLoadBalancerRuleConfig](http://msdn.microsoft.com/library/mt619391.aspx) skapar en Regelkonfiguration för en belastningsutjämnare. 
-* [Ny AzureRmLoadBalancerBackendAddressPoolConfig](http://msdn.microsoft.com/library/mt603791.aspx) skapar en backend-pool-adresskonfiguration för en belastningsutjämnare. 
-* [Ny-AzureRmLoadBalancerProbeConfig](http://msdn.microsoft.com/library/mt603847.aspx) skapar en avsökningskonfiguration för en belastningsutjämnare.
-* [Remove-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt603862.aspx) tar bort en belastningsutjämnare från en Azure-resursgrupp.
+* [Ny-AzureRmLoadBalancer](https://msdn.microsoft.com/library/mt619450.aspx) skapar en belastningsutjämnare. 
+* [Ny AzureRMLoadBalancerFrontendIpConfig](https://msdn.microsoft.com/library/mt603510.aspx) skapar en frontend IP-konfiguration för en belastningsutjämnare. 
+* [Ny-AzureRmLoadBalancerRuleConfig](https://msdn.microsoft.com/library/mt619391.aspx) skapar en Regelkonfiguration för en belastningsutjämnare. 
+* [Ny AzureRmLoadBalancerBackendAddressPoolConfig](https://msdn.microsoft.com/library/mt603791.aspx) skapar en backend-pool-adresskonfiguration för en belastningsutjämnare. 
+* [Ny-AzureRmLoadBalancerProbeConfig](https://msdn.microsoft.com/library/mt603847.aspx) skapar en avsökningskonfiguration för en belastningsutjämnare.
+* [Remove-AzureRmLoadBalancer](https://msdn.microsoft.com/library/mt603862.aspx) tar bort en belastningsutjämnare från en Azure-resursgrupp.

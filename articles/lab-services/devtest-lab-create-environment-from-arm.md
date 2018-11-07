@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 4dc61258df2311c4e7ccd4c05ebe077b3e2343eb
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f2bf811bfb0856b7ceb2fca2fd84c0d9830fb65d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222292"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255634"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Skapa miljöer för flera virtuella datorer och PaaS-resurser med Azure Resource Manager-mallar
 
-Den [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=525040) kan du enkelt [lägga till en virtuell dator i taget till ett labb](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Men om miljön innehåller flera virtuella datorer kan måste varje virtuell dator individuellt skapas. För scenarier, till exempel en webbapp för flera nivåer eller en SharePoint-servergrupp krävs en mekanism för att tillåta för att skapa flera virtuella datorer i ett enda steg. Med hjälp av Azure Resource Manager-mallar kan du nu definierar infrastruktur och konfiguration av din Azure-lösning och upprepade gånger distribuera flera virtuella datorer i ett konsekvent tillstånd. Den här funktionen ger följande fördelar:
+Den [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040) kan du enkelt [lägga till en virtuell dator i taget till ett labb](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Men om miljön innehåller flera virtuella datorer kan måste varje virtuell dator individuellt skapas. För scenarier, till exempel en webbapp för flera nivåer eller en SharePoint-servergrupp krävs en mekanism för att tillåta för att skapa flera virtuella datorer i ett enda steg. Med hjälp av Azure Resource Manager-mallar kan du nu definierar infrastruktur och konfiguration av din Azure-lösning och upprepade gånger distribuera flera virtuella datorer i ett konsekvent tillstånd. Den här funktionen ger följande fördelar:
 
 - Azure Resource Manager-mallar har lästs in direkt från centrallagret för källkontroll (GitHub eller Azure DevOps Services Git).
 - När du konfigurerat dina användare kan skapa en miljö genom att välja en Azure Resource Manager-mall från Azure portal, precis som med andra typer av [VM-databaser](./devtest-lab-comparing-vm-base-image-types.md).
@@ -64,7 +64,7 @@ Det finns några regler för att följa för att organisera dina Azure Resource 
 
 Följande steg beskriver hur du lägger till en lagringsplats till ditt labb med hjälp av Azure portal. 
 
-1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Välj **alla tjänster**, och välj sedan **DevTest Labs** i listan.
 1. Listan över labbar, Välj önskade labbet.   
 1. På testmiljön **översikt** väljer **konfiguration och principer**.
@@ -94,7 +94,7 @@ Nästa avsnitt vägleder dig genom att skapa miljöer från en Azure Resource Ma
 
 När en lagringsplats för Azure Resource Manager-mallen har konfigurerats i labbet, kan labbanvändare skapa en miljö med Azure-portalen med följande steg:
 
-1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Välj **alla tjänster**, och välj sedan **DevTest Labs** i listan.
 1. Listan över labbar, Välj önskade labbet.   
 1. I den testmiljön rutan, väljer **Lägg till +**.

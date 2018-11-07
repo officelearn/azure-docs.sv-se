@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 302607df2292fe7a67a8b6860dab19eef7f391a9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 8577b6a1d0f57820cbdd4096b0e8412096ff3af3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160374"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232084"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Händelsefilens målkod för utökade händelser i SQL-databas
 
@@ -25,7 +25,7 @@ ms.locfileid: "47160374"
 
 Du vill ha ett komplett kodexempel för en robust sätt att avbilda och rapportera information för en utökad händelse.
 
-I Microsoft SQL Server, den [händelsefil target](http://msdn.microsoft.com/library/ff878115.aspx) används för att lagra händelsen utdata till en lokal hårddisk-fil. Men sådana filer är inte tillgängliga för Azure SQL Database. I stället använda vi Azure Storage-tjänsten för att stödja målfil för händelsen.
+I Microsoft SQL Server, den [händelsefil target](https://msdn.microsoft.com/library/ff878115.aspx) används för att lagra händelsen utdata till en lokal hårddisk-fil. Men sådana filer är inte tillgängliga för Azure SQL Database. I stället använda vi Azure Storage-tjänsten för att stödja målfil för händelsen.
 
 Det här avsnittet innehåller ett kodexempel i två faser:
 
@@ -44,9 +44,9 @@ Det här avsnittet innehåller ett kodexempel i två faser:
 * SQL Server Management Studio (ssms.exe), helst den senaste månatliga update-versionen. 
   Du kan hämta den senaste ssms.exe från:
   
-  * Avsnittet [Hämta SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
-  * [En direktlänk till nedladdningen.](http://go.microsoft.com/fwlink/?linkid=616025)
-* Du måste ha den [Azure PowerShell-moduler](http://go.microsoft.com/?linkid=9811175) installerad.
+  * Avsnittet [Hämta SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+  * [En direktlänk till nedladdningen.](https://go.microsoft.com/fwlink/?linkid=616025)
+* Du måste ha den [Azure PowerShell-moduler](https://go.microsoft.com/?linkid=9811175) installerad.
   
   * Modulerna ge kommandon som – **New-AzureStorageAccount**.
 
@@ -506,11 +506,11 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 Föregående Transact-SQL-skriptet används följande funktion i operativsystemet för att läsa event_file:
 
-* [sys.fn_xe_file_target_read_file (Transact-SQL)](http://msdn.microsoft.com/library/cc280743.aspx)
+* [sys.fn_xe_file_target_read_file (Transact-SQL)](https://msdn.microsoft.com/library/cc280743.aspx)
 
 En förklaring av avancerade alternativ för visning av data från utökade händelser finns på:
 
-* [Avancerade visning av måldata från utökade händelser](http://msdn.microsoft.com/library/mt752502.aspx)
+* [Avancerade visning av måldata från utökade händelser](https://msdn.microsoft.com/library/mt752502.aspx)
 
 
 ## <a name="converting-the-code-sample-to-run-on-sql-server"></a>Konvertera kodexemplet för att köra på SQL Server
@@ -528,10 +528,10 @@ Anta att du vill köra den föregående Transact-SQL-exemplet på Microsoft SQL 
 Mer information om konton och behållare i Azure Storage-tjänsten finns i:
 
 * [Använda Blob storage från .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-* [Namnge och referera till containrar, blobar och metadata](http://msdn.microsoft.com/library/azure/dd135715.aspx)
-* [Arbeta med Root-behållaren](http://msdn.microsoft.com/library/azure/ee395424.aspx)
-* [Lektion 1: Skapa en lagrad åtkomstprincip och en signatur för delad åtkomst på en Azure-behållare](http://msdn.microsoft.com/library/dn466430.aspx)
-  * [Lektion 2: Skapa en SQL Server-autentisering med signatur för delad åtkomst](http://msdn.microsoft.com/library/dn466435.aspx)
+* [Namnge och referera till containrar, blobar och metadata](https://msdn.microsoft.com/library/azure/dd135715.aspx)
+* [Arbeta med Root-behållaren](https://msdn.microsoft.com/library/azure/ee395424.aspx)
+* [Lektion 1: Skapa en lagrad åtkomstprincip och en signatur för delad åtkomst på en Azure-behållare](https://msdn.microsoft.com/library/dn466430.aspx)
+  * [Lektion 2: Skapa en SQL Server-autentisering med signatur för delad åtkomst](https://msdn.microsoft.com/library/dn466435.aspx)
 * [Utökade händelser för Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
 
 <!--

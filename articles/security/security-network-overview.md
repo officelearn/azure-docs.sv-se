@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 69818fdb8124b9afa176ccd4dfd74cf0f2f4b346
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: ad711fe998a3c250775c5d4f4d76305ffb7cf860
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233811"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244601"
 ---
 # <a name="azure-network-security-overview"></a>Översikt över Azure network security
 
@@ -144,7 +144,7 @@ Läs mer:
 
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>Skydda åtkomst och mellan lokala fjärranslutningar
 
-Installation, konfiguration och hantering av Azure-resurser behöver göras via en fjärranslutning. Dessutom kanske du vill distribuera [hybrid-IT](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) lösningar som har komponenter lokalt och i det offentliga Azure-molnet. De här scenarierna kräver säker fjärråtkomst.
+Installation, konfiguration och hantering av Azure-resurser behöver göras via en fjärranslutning. Dessutom kanske du vill distribuera [hybrid-IT](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) lösningar som har komponenter lokalt och i det offentliga Azure-molnet. De här scenarierna kräver säker fjärråtkomst.
 
 Azure-nätverk stöder de följande scenarierna för säker fjärråtkomst:
 
@@ -313,7 +313,7 @@ Läs mer:
 
 ## <a name="azure-ddos-protection"></a>Azure DDoS Protection
 
-Distribuerade attacker denial of service (DDoS) är några av de största tillgänglighet och säkerhet frågor mot kunder som migrerar sina program till molnet. DDoS-attacker försöker att få slut på ett programs resurser, som gör programmet tillgängligt för behöriga användare. DDoS-attacker kan riktas till valfri slutpunkt som kan nås offentligt via internet.
+Distribuerade överbelastningsattacker (DDoS) är några av de största tillgänglighets- och säkerhetsproblemen för kunder som flyttar sina program till molnet. En DDoS-attack syftar till att göra slut på ett programs resurser, så att programmet blir otillgängligt för behöriga användare. DDoS-attacker kan riktas mot valfri slutpunkt som kan nås offentligt via Internet.
 Microsoft tillhandahåller DDoS protection kallas **grundläggande** som en del av Azure-plattformen. Detta kommer utan kostnad och omfattar alltid på övervaknings- och i realtid minskning av vanliga på nätverksnivå. Förutom de skydd som ingår i DDoS protection **grundläggande** kan du aktivera den **Standard** alternativet. DDoS Protection standardfunktioner omfattar:
 
 * **Inbyggd plattformsintegrering:** internt integrerade i Azure. Innehåller konfiguration via Azure portal. DDoS Protection Standard förstår dina resurser och resurskonfigurationer.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell
-ms.openlocfilehash: a80895db8a89b8d9392d0ed067b95daa23474d8b
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 0f4bb3f32b264bd894341a8776d48eb9f8b061a2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113877"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258739"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Paketera och distribuera en befintlig körbar fil till Service Fabric
 När paketering en befintlig körbar fil som en [gästfil](service-fabric-guest-executables-introduction.md), kan du välja att använda en projektmall för Visual Studio eller [skapa programpaketet manuellt](#manually). Med Visual Studio skapas application package struktur och manifestfiler med den nya projektmallen för åt dig.
@@ -69,7 +69,7 @@ Manuellt Paketera en körbar gäst baseras på dessa allmänna steg:
 4. Redigera program-manifestfilen.
 
 <!--
->[AZURE.NOTE] We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](http://aka.ms/servicefabricpacktool).
+>[AZURE.NOTE] We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](https://aka.ms/servicefabricpacktool).
 -->
 
 ### <a name="create-the-package-directory-structure"></a>Skapa katalogstrukturen paket

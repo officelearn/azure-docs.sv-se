@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 56aa756230dc908157a5a3d244d379215935cd2f
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 0376f09d4d7d6c952cbef40751a2729045f68061
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124124"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255850"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Övervakning av filintegritet i Azure Security Center
 Lär dig hur du konfigurerar filen integritet övervakning (FIM) i Azure Security Center med den här genomgången.
@@ -211,7 +211,7 @@ I den här artikeln berättade om du använder filen integritet övervakning (FI
 * [Hantera och åtgärda säkerhetsaviseringar](security-center-managing-and-responding-alerts.md)– Lär dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Övervaka partnerlösningar](security-center-partner-solutions.md) – Lär dig hur du övervakar dina partnerlösningars hälsostatus.
 * [Security Center vanliga frågor och svar](security-center-faq.md)--finns vanliga frågor om tjänsten.
-* [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – Här kan du hitta de senaste nyheterna och aktuell information om säkerheten i Azure .
+* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) – Här kan du hitta de senaste nyheterna och aktuell information om säkerheten i Azure .
 
 <!--Image references-->
 [1]: ./media/security-center-file-integrity-monitoring/security-center-dashboard.png

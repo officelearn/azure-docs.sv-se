@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d7f9dfee447cddc771e0e88ca5be04018b51dba2
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: a4117b41700446770e10ef799967ae4a43db342d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431658"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227764"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Förbereda din IoT Edge-modul tekniska resurser
 
@@ -45,7 +45,7 @@ IoT Edge-modul måste ha stöd för något av följande alternativ för plattfor
 Stöd för alla nivå 1-plattformar som stöds av IoT Edge (mätt i [support för Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/support)). Vi rekommenderar det här alternativet eftersom det ger en bättre kundupplevelse. Moduler som uppfyller det här villkoret kommer att visas. En modul med det här alternativet om plattform måste:
 
 - Ange en `latest` tagg och en tagg för version (till exempel `1.0.1`) som är manifestet taggar som skapats med GitHub [manifest-verktyget](https://github.com/estesp/manifest-tool).
-- Använd den [fliken Marketplace](./cpp-marketplace-tab.md) att lägga till en länk till [kompatibla IoT Edge certifierade enheter](http://aka.ms/iot-edge-certified). Den här länken som motsvarar `http://aka.ms/iot-edge-certified`, en webbplats där kunder kan bläddra eller Sök efter certifierade enheter. Den här webbplatsen är även känd som den [Azure IoT Edge-certifierade](https://catalog.azureiotsolutions.com/) enhetskatalog.
+- Använd den [fliken Marketplace](./cpp-marketplace-tab.md) att lägga till en länk till [kompatibla IoT Edge certifierade enheter](https://aka.ms/iot-edge-certified). Den här länken som motsvarar `http://aka.ms/iot-edge-certified`, en webbplats där kunder kan bläddra eller Sök efter certifierade enheter. Den här webbplatsen är även känd som den [Azure IoT Edge-certifierade](https://catalog.azureiotsolutions.com/) enhetskatalog.
 
 #### <a name="a-subset-of-tier-1-platforms-supported-by-iot-edge"></a>En delmängd av nivå 1-plattformar som stöds av IoT Edge
   

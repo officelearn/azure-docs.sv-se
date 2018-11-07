@@ -2,25 +2,25 @@
 title: Använda Caffe på Azure HDInsight Spark för distribuerade djupinlärning
 description: Använda Caffe på Azure HDInsight Spark för distribuerade djupinlärning
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: a7873996d83dbc79b4d44c58bd964c274f9c7709
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 71322869eb9272fb59b98a0e21b1f639129572b7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622923"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255940"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Använda Caffe på Azure HDInsight Spark för distribuerade djupinlärning
 
 
 ## <a name="introduction"></a>Introduktion
 
-Djupinlärning påverkar allt från healthcare att transport till tillverkning och mycket mer. Företag byter till deep learning för att lösa tuffa problem som [bildklassificering](http://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [taligenkänning](http://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html)objekt erkännande och datorn översättning. 
+Djupinlärning påverkar allt från healthcare att transport till tillverkning och mycket mer. Företag byter till deep learning för att lösa tuffa problem som [bildklassificering](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [taligenkänning](http://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html)objekt erkännande och datorn översättning. 
 
 Det finns [många populära ramverk](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software), inklusive [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), MXNet, Theano, osv. Caffe är en av de mest berömda ramverken med icke-symboliska (viktigt) neuralt nätverk, och som används ofta i många områden, till exempel visuellt innehåll. Dessutom [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) kombinerar Caffe med Apache Spark, i vilket fall deep learning enkelt kan användas i ett befintligt Hadoop-kluster. Du kan använda djupinlärning tillsammans med Spark ETL-pipelines, minskar komplexiteten för system och svarstid för komplett lösning learning.
 

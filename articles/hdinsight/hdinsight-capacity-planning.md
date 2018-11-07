@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: 4438cff0dcf5e896f39729d9871d4deb3207b4b8
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c3bdad6f1c199dda867370126eb7dcf5c296a12d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108003"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230435"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapacitetsplanering för HDInsight-kluster
 
@@ -38,7 +38,7 @@ HDInsight är tillgängligt i många Azure-regioner. Den närmaste regionen finn
 
 ### <a name="location-of-default-storage"></a>Platsen för standardlagring
 
-Standardlagring, antingen ett Azure Storage-konto eller Azure Data Lake Store måste vara på samma plats som klustret. Azure Storage är tillgängligt på alla platser. Data Lake Store är tillgänglig i vissa regioner – finns i den aktuella Data Lake Store-tillgängligheten under *Storage* i [Azure-produkter tillgängliga efter Region](https://azure.microsoft.com/regions/services/).
+Standardlagring, antingen ett Azure Storage-konto eller Azure Data Lake Store måste vara på samma plats som klustret. Azure Storage är tillgängligt på alla platser. Data Lake Store Gen1 är tillgänglig i vissa regioner – finns i den aktuella Data Lake Store-tillgängligheten under *Storage* i [Azure-produkter tillgängliga efter Region](https://azure.microsoft.com/regions/services/).
 
 ### <a name="location-of-existing-data"></a>Platsen för befintliga data
 
@@ -48,7 +48,7 @@ Om du redan har ett lagringskonto eller Data Lake Store som innehåller dina dat
 
 När du har ett HDInsight-kluster som har distribuerats kan du koppla ytterligare Azure Storage-konton eller få åtkomst till andra Data Lake Stores. Alla lagringskonton måste finnas på samma plats som klustret. Ett Data Lake Store kan vara på en annan plats, men detta kan innebära att vissa data läsning och skrivning.
 
-Azure Storage har några [kapacitetsbegränsningar](../azure-subscription-service-limits.md#storage-limits), medan Data Lake Store är praktiskt taget obegränsade.
+Azure Storage har några [kapacitetsbegränsningar](../azure-subscription-service-limits.md#storage-limits), medan Data Lake Store Gen1 är praktiskt taget obegränsade.
 
 Ett kluster kan komma åt en kombination av olika lagringskonton. Vanliga exempel:
 

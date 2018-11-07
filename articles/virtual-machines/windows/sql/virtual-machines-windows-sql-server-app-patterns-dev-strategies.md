@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 18de5b3d71922effa72414a6a52b126a34076cf3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9ccf7d85b52759a3f2cd64facc6ee8d7255f0fac
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722137"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253184"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Programmönster och utvecklingsstrategier för SQL Server i Azure Virtual Machines
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -236,7 +236,7 @@ I Azure, kan du använda Active Directory som en fristående molnkatalog för di
 
 Du kan implementera följande arbetsflöde i den ordning som anges i n-nivå hybrid-programmönster:
 
-1. Identifiera databasprogram för företag som behöver flyttas till molnet med hjälp av den [Microsoft Assessment and Planning (MAP) Toolkit](http://microsoft.com/map). MAP Toolkit samlar in inventerings-och prestanda från datorer som du planerar för virtualisering och innehåller rekommendationer om kapacitet och planera för utvärdering.
+1. Identifiera databasprogram för företag som behöver flyttas till molnet med hjälp av den [Microsoft Assessment and Planning (MAP) Toolkit](https://microsoft.com/map). MAP Toolkit samlar in inventerings-och prestanda från datorer som du planerar för virtualisering och innehåller rekommendationer om kapacitet och planera för utvärdering.
 2. Planera resurser och konfigurering som krävs i Azure-plattformen, till exempel lagringskonton och virtuella datorer.
 3. Konfigurera nätverksanslutningen mellan företagsnätverket lokala platser och [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md). Använd någon av följande två metoder för att konfigurera anslutningen mellan företagsnätverket lokala platser och en virtuell dator i Azure:
    

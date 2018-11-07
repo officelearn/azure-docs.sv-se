@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e0cc8759de6e204ec419053a70d263e21ca0dcf6
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 75108853929ea514a6b8660388d71736e74013e0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868642"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234739"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Konfigurera och hantera Azure Active Directory-autentisering med SQL
 
@@ -202,7 +202,7 @@ Mer information om CLI-kommandon finns i [SQL - az sql](https://docs.microsoft.c
 På alla klientdatorer som ditt program eller en användare ansluter till Azure SQL Database eller Azure SQL Data Warehouse med hjälp av Azure AD-identiteter, måste du installera följande programvara:
 
 - .NET framework 4.6 eller senare från [ https://msdn.microsoft.com/library/5a4x27ek.aspx ](https://msdn.microsoft.com/library/5a4x27ek.aspx).
-- Azure Active Directory Authentication Library för SQLServer (**ADALSQL. DLL-filen**) är tillgänglig på flera språk (x86 och amd64) från download center på [Microsoft Active Directory Authentication Library för Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742).
+- Azure Active Directory Authentication Library för SQLServer (**ADALSQL. DLL-filen**) är tillgänglig på flera språk (x86 och amd64) från download center på [Microsoft Active Directory Authentication Library för Microsoft SQL Server](https://www.microsoft.com/download/details.aspx?id=48742).
 
 Du kan uppfylla dessa krav genom att:
 
@@ -249,14 +249,14 @@ CREATE USER [appName] FROM EXTERNAL PROVIDER;
 > [!TIP]
 > Du kan inte skapa en användare direkt från en Azure Active Directory än Azure Active Directory som är associerad med din Azure-prenumeration. Medlemmar i andra Active kataloger som är importerade användare i den associerade Active Directory (kallas externa användare) kan dock läggas till en Active Directory-grupp i Active Directory-klienten. Genom att skapa en oberoende databasanvändare för gruppen AD kan användare från den externa Active Directory få åtkomst till SQL-databas.
 
-Mer information om hur du skapar innehåller databasen användare baserat på Azure Active Directory-identiteter, se [skapa användare (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx).
+Mer information om hur du skapar innehåller databasen användare baserat på Azure Active Directory-identiteter, se [skapa användare (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx).
 
 > [!NOTE]
 > Tar bort Azure Active Directory-administratör för Azure SQL-server förhindrar alla Azure AD authentication-användare ansluter till servern. Vid behov går inte att använda Azure AD-användare kan tas bort manuellt av en administratör för SQL-databas.
 > [!NOTE]
 > Om du får en **anslutning tidsgränsen gick ut**, du kan behöva ange den `TransparentNetworkIPResolution` -parametern för anslutningssträngen till false. Mer information finns i [timeout anslutningsproblem med .NET Framework 4.6.1 - TransparentNetworkIPResolution](https://blogs.msdn.microsoft.com/dataaccesstechnologies/2016/05/07/connection-timeout-issue-with-net-framework-4-6-1-transparentnetworkipresolution/).
 
-När du skapar en databasanvändare som användaren tar emot den **CONNECT** behörighet och kan ansluta till databasen som en medlem i den **offentliga** roll. Inledningsvis endast tillgängligt för användaren behörigheter är alla behörigheter som beviljas den **offentliga** roll eller alla behörigheter som tilldelats några grupper i Azure AD att de är medlem i. När du etablerar en Azure AD-baserad innehöll databasanvändare, kan du bevilja användaren ytterligare behörighet på samma sätt som du vill ge behörighet till någon annan typ av användare. Normalt bevilja behörigheter till databasroller och lägga till användare till roller. Mer information finns i [Database Engine behörighet grunderna](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Läs mer om SQL Database specialroller [hantera databaser och inloggningar i Azure SQL Database](sql-database-manage-logins.md).
+När du skapar en databasanvändare som användaren tar emot den **CONNECT** behörighet och kan ansluta till databasen som en medlem i den **offentliga** roll. Inledningsvis endast tillgängligt för användaren behörigheter är alla behörigheter som beviljas den **offentliga** roll eller alla behörigheter som tilldelats några grupper i Azure AD att de är medlem i. När du etablerar en Azure AD-baserad innehöll databasanvändare, kan du bevilja användaren ytterligare behörighet på samma sätt som du vill ge behörighet till någon annan typ av användare. Normalt bevilja behörigheter till databasroller och lägga till användare till roller. Mer information finns i [Database Engine behörighet grunderna](https://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Läs mer om SQL Database specialroller [hantera databaser och inloggningar i Azure SQL Database](sql-database-manage-logins.md).
 En federerad domän-användarkonto som har importerats till en hanterad domän som en extern användare måste använda den hanterade domän identiteten.
 
 > [!NOTE]
@@ -354,7 +354,7 @@ Mer information finns i [SQL Server Security-bloggen](https://blogs.msdn.microso
 
 ### <a name="sqlcmd"></a>sqlcmd
 
-Följande instruktioner, Anslut med hjälp av version 13,1 av sqlcmd som är tillgänglig från den [Download Center](http://go.microsoft.com/fwlink/?LinkID=825643).
+Följande instruktioner, Anslut med hjälp av version 13,1 av sqlcmd som är tillgänglig från den [Download Center](https://go.microsoft.com/fwlink/?LinkID=825643).
 
 ```cmd
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G  

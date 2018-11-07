@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: terrylan
-ms.openlocfilehash: d5689e6b9b4d808c24bc4952f65904654b5e99f8
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 978ef8087665edb3f0bfaa0bd0a55f4d8ab9a12d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297374"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251516"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Använd Azure Security Center-rekommendationer för att förbättra säkerheten
 Du kan minska risken för en betydande säkerhetshändelse genom att konfigurera en säkerhetsprincip för och implementera rekommendationer som tillhandahålls av Azure Security Center. Den här artikeln visar hur du använder säkerhetsprinciper och säkerhetsrekommendationer i Security Center för att minska en säkerhetsangrepp.
@@ -117,7 +117,7 @@ Mer information om Security Center finns:
 * [Övervakning och bearbetning av säkerhetshändelser](security-center-events-dashboard.md) – Lär dig hur du övervakar och processen säkerhetshändelser som samlas in med tiden.
 * [Övervaka partnerlösningar](security-center-partner-solutions.md) – Lär dig hur du övervakar dina partnerlösningars hälsostatus.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
-* [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – senaste nytt i Azure-säkerhet och information.
+* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) – senaste nytt i Azure-säkerhet och information.
 
 <!--Image references-->
 [1]: ./media/security-center-using-recommendations/security-center-policy-inheritance.png

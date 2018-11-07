@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 04e0a694d3e8d978a21417e728feabf32f85299f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 28900c39e658a2a8c66b2ded6f2d70b50bf17e80
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394603"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231529"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Teknisk guide till lösningsmallen Cortana Intelligence för förebyggande underhåll i flygindustrin och andra företag
 
@@ -39,7 +39,7 @@ Målen för den här artikeln är att:
 - Visa hur du ändrar lösningsmallen.  
 
 > [!TIP]
-> Du kan hämta och skriva ut en [PDF-version av den här artikeln](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
+> Du kan hämta och skriva ut en [PDF-version av den här artikeln](https://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
 > 
 > 
 
@@ -47,7 +47,7 @@ Målen för den här artikeln är att:
 ![Arkitektur för förebyggande underhåll](./media/cortana-analytics-technical-guide-predictive-maintenance/predictive-maintenance-architecture.png)
 
 När du distribuerar lösningen, aktiverar Azure-tjänster inom Cortana Analytics Suite (inklusive Event Hub, Stream Analytics, HDInsight, Datafabrik och Machine Learning). I arkitekturdiagrammet visas hur Förutsägelseunderhåll för flyg lösningsmallen är uppbyggd. Du kan undersöka de här tjänsterna i Azure portal genom att klicka på dem i mallen lösningsdiagrammet skapat med distributionen av lösningen (med undantag för HDInsight som har etablerats på begäran när relaterade pipeline-aktiviteter som krävs för att köra och är ta bort efteråt).
-Ladda ned en [bilden version av diagrammet](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
+Ladda ned en [bilden version av diagrammet](https://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
 I följande avsnitt beskrivs delarna av lösningen.
 
@@ -67,7 +67,7 @@ Den [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) tjänste
 Använd [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) att tillhandahålla analys på Indataströmmen från nära realtid den [Azure Event Hub](#azure-event-hub) service. Du kan sedan publicera resultaten på en [Power BI](https://powerbi.microsoft.com) instrumentpanelen samt arkiverar alla inkommande råhändelser i [Azure Storage](https://azure.microsoft.com/services/storage/) för senare bearbetning av den [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)service.
 
 ### <a name="hdinsight-custom-aggregation"></a>Anpassade HDInsight-aggregering
-Kör [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript (som orkestreras via Azure Data Factory) använder HDInsight för att tillhandahålla sammansställningar av råhändelser som arkiverats med hjälp av Azure Stream Analytics-tjänsten.
+Kör [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript (som orkestreras via Azure Data Factory) använder HDInsight för att tillhandahålla sammansställningar av råhändelser som arkiverats med hjälp av Azure Stream Analytics-tjänsten.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 Göra förutsägelser kring återstående livslängd (RUL) för en viss flygplansmotor med hjälp av indata som tagits emot med [Azure Machine Learning-tjänsten](https://azure.microsoft.com/services/machine-learning/) (orkestreras via Azure Data Factory). 
@@ -122,22 +122,22 @@ Det här avsnittet beskrivs nödvändiga [pipelines och aktiviteter](../../data-
 
 ![Azure Data Factory](./media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
 
-Två av pipelines för den här fabriken innehåller [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript som används för att partitionera och aggregera data. När anges är skript som finns i den [Azure Storage](https://azure.microsoft.com/services/storage/) konto som skapades under konfigurationen. Var de är: maintenancesascript\\\\skriptet\\\\hive\\ \\ (eller https://[Your lösning name].blob.core.windows.net/maintenancesascript).
+Två av pipelines för den här fabriken innehåller [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript som används för att partitionera och aggregera data. När anges är skript som finns i den [Azure Storage](https://azure.microsoft.com/services/storage/) konto som skapades under konfigurationen. Var de är: maintenancesascript\\\\skriptet\\\\hive\\ \\ (eller https://[Your lösning name].blob.core.windows.net/maintenancesascript).
 
-Liknar [Azure Stream Analytics](#azure-stream-analytics-1) frågor, den [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript har implicit kunskap om dataformat för inkommande och måste ändras baserat på dataformat.
+Liknar [Azure Stream Analytics](#azure-stream-analytics-1) frågor, den [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript har implicit kunskap om dataformat för inkommande och måste ändras baserat på dataformat.
 
 #### <a name="aggregateflightinfopipeline"></a>*AggregateFlightInfoPipeline*
-Detta [pipeline](../../data-factory/concepts-pipelines-activities.md) innehåller en enda aktivitet – en [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) med en [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) som kör en [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript för att partitionera data placeras i [Azure Storage](https://azure.microsoft.com/services/storage/) under den [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) jobbet.
+Detta [pipeline](../../data-factory/concepts-pipelines-activities.md) innehåller en enda aktivitet – en [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) med en [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) som kör en [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript för att partitionera data placeras i [Azure Storage](https://azure.microsoft.com/services/storage/) under den [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) jobbet.
 
-Den [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript för detta partitionering är ***AggregateFlightInfo.hql***
+Den [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript för detta partitionering är ***AggregateFlightInfo.hql***
 
 #### <a name="mlscoringpipeline"></a>*MLScoringPipeline*
 Detta [pipeline](../../data-factory/concepts-pipelines-activities.md) innehåller flera aktiviteter vars slutresultatet är poängsatta förutsägelser från den [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experiment som är associerade med den här lösningsmallen.
 
 Aktiviteter som ingår är:
 
-* [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) med en [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) som kör en [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skriptet för att utföra aggregeringar och funktionstekniker som krävs för den [Azure-dator Learning](https://azure.microsoft.com/services/machine-learning/) experimentera.
-  Den [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript för detta partitionering är ***PrepareMLInput.hql***.
+* [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) med en [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) som kör en [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skriptet för att utföra aggregeringar och funktionstekniker som krävs för den [Azure-dator Learning](https://azure.microsoft.com/services/machine-learning/) experimentera.
+  Den [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript för detta partitionering är ***PrepareMLInput.hql***.
 * [Kopiera](https://msdn.microsoft.com/library/azure/dn835035.aspx) aktivitet som flyttar resultaten från den [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) aktivitet till en enda [Azure Storage](https://azure.microsoft.com/services/storage/) blob som nås av den [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) aktivitet.
 * [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) aktivitet anropar den [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experiment med resultat i en enda [Azure Storage](https://azure.microsoft.com/services/storage/) blob.
 
@@ -241,5 +241,5 @@ Se till att du stoppar datageneratorn när du inte aktivt använder lösningen s
 Följande två verktyg är tillgängliga för att bättre förstå totala kostnader för att köra förebyggande underhåll för flyg lösningsmallen i din prenumeration:
 
 * [Microsoft Azure Cost Estimator Tool (online)](https://azure.microsoft.com/pricing/calculator/)
-* [Microsoft Azure Cost Estimator Tool (skrivbord)](http://www.microsoft.com/download/details.aspx?id=43376)
+* [Microsoft Azure Cost Estimator Tool (skrivbord)](https://www.microsoft.com/download/details.aspx?id=43376)
 

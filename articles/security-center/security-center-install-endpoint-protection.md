@@ -3,7 +3,7 @@ title: Hantera problem med endpoint protection med Azure Security Center | Micro
 description: Lär dig hur du hanterar problem med endpoint protection i Azure Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 1599ad5f-d810-421d-aafc-892e831b403f
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/23/2017
-ms.author: terrylan
-ms.openlocfilehash: a3ac23f3874b85da9c0641264ca6f9c55a7b0515
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 834e6f2519fe745004894f3791591a3d0aa5757c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300011"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229449"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Hantera problem med endpoint protection med Azure Security Center
 Azure Security Center övervakar statusen för skydd mot skadlig kod och rapporterar detta under Endpoint protection problem-bladet. Security Center visar problem, till exempel identifierade hot och otillräckligt skydd, vilket kan göra att dina virtuella datorer (VM) och datorer sårbar för program mot skadlig kod hot. Med hjälp av informationen under **problem med Endpoint protection**, du kan identifiera en plan för att åtgärda eventuella problem som identifieras.
@@ -110,7 +110,7 @@ Mer information om Security Center finns i följande dokument:
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Här får du lära dig hur du övervakar dina partnerlösningars hälsostatus.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
-* [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) --hittar du blogginlägg om Azure-säkerhet och regelefterlevnad.
+* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) --hittar du blogginlägg om Azure-säkerhet och regelefterlevnad.
 
 <!--Image references-->
 [1]:./media/security-center-install-endpoint-protection/compute.png

@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 05/23/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5fe16ecb2725cf306b5b57c9d45d8601581a3ece
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 13d81e655b98771d985277974bd3081437e2a3e8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578911"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255787"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Åtgärda användare som flaggats för risk i Azure Active Directory-portalen
 
@@ -61,9 +61,9 @@ Läs informationen som visas. Du bör återställa lösenordet för konton som l
 
 Gör följande för att åtgärda de berörda kontona och göra miljön säker:
 
-1.  [Validera](http://aka.ms/MFAValid) rätt information för multifaktorautentisering och lösenordsåterställning via självbetjäning. 
-2.  [Aktivera](http://aka.ms/MFAuth) Multi-Factor Authentication för alla användare. 
-3.  Om du använder det här [åtgärdsskriptet](http://aka.ms/remediate) för alla berörda konton kan du utföra följande steg automatiskt: 
+1.  [Validera](https://aka.ms/MFAValid) rätt information för multifaktorautentisering och lösenordsåterställning via självbetjäning. 
+2.  [Aktivera](https://aka.ms/MFAuth) Multi-Factor Authentication för alla användare. 
+3.  Om du använder det här [åtgärdsskriptet](https://aka.ms/remediate) för alla berörda konton kan du utföra följande steg automatiskt: 
 
     a. Återställa lösenord för att göra kontot säkert och avsluta aktiva sessioner.
 
@@ -87,10 +87,10 @@ Gör följande för att åtgärda de berörda kontona och göra miljön säker:
 
 Dessutom bör du:
 
-- Läsa och implementera den här [vägledningen](http://aka.ms/fixaccount) om att uppmärksamma ovanliga aktiviteter. 
-- [Aktivera granskningspipelinen](http://aka.ms/improvesecurity) för att analysera klientorganisationens aktivitet. När det är klar börjar granskningsarkivet fyllas i med alla aktivitetsloggar. Du kan då även använda [Security and Compliance Centers sökning och undersökning](http://aka.ms/sccsearch). 
-- Använd det här [skriptet](http://aka.ms/mailboxaudit1) för att aktivera granskning av postlådan för alla konton. 
-- Granska reglerna för delegeringsbehörigheter och vidarebefordran av e-post för alla brevlådor. Du kan använda det här [PowerShell-skriptet](http://aka.ms/delegateforwardrules) för at utföra den här uppgiften. 
+- Läsa och implementera den här [vägledningen](https://aka.ms/fixaccount) om att uppmärksamma ovanliga aktiviteter. 
+- [Aktivera granskningspipelinen](https://aka.ms/improvesecurity) för att analysera klientorganisationens aktivitet. När det är klar börjar granskningsarkivet fyllas i med alla aktivitetsloggar. Du kan då även använda [Security and Compliance Centers sökning och undersökning](https://aka.ms/sccsearch). 
+- Använd det här [skriptet](https://aka.ms/mailboxaudit1) för att aktivera granskning av postlådan för alla konton. 
+- Granska reglerna för delegeringsbehörigheter och vidarebefordran av e-post för alla brevlådor. Du kan använda det här [PowerShell-skriptet](https://aka.ms/delegateforwardrules) för at utföra den här uppgiften. 
 
 
 

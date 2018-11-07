@@ -3,18 +3,18 @@ title: Distribuera och hantera Apache Storm-topologier i Azure HDInsight
 description: Lär dig mer om att distribuera, övervaka och hantera Apache Storm-topologier på Linux-baserade HDInsight Storm-instrumentpanelen. Använda Hadoop-verktyg för Visual Studio.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 486fcdfecf70b13d01c259f36b74676fb8e4d54f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6cb3102206174422a3d8b4a0fb18f989d875e093
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042964"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259062"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Distribuera och hantera Apache Storm-topologier i Azure HDInsight 
 
@@ -38,12 +38,12 @@ I det här dokumentet lär du dig grunderna för att hantera och övervaka Storm
 
   * Visual Studio 2012 med uppdatering 4
 
-  * Visual Studio 2013 med uppdatering 4 eller [Visual Studio Community 2013](http://go.microsoft.com/fwlink/?LinkId=517284)
+  * Visual Studio 2013 med uppdatering 4 eller [Visual Studio Community 2013](https://go.microsoft.com/fwlink/?LinkId=517284)
   * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
 
   * Visual Studio 2015 (alla versioner)
 
-  * Visual Studio 2017 (alla versioner). Data Lake Tools för Visual Studio 2017 installeras som en del av arbetsbelastningen i Azure.
+  * Visual Studio 2017 (vilken version som helst). Data Lake Tools för Visual Studio 2017 installeras som en del av arbetsbelastningen i Azure.
 
 ## <a name="submit-a-topology-visual-studio"></a>Skicka en topologi: Visual Studio
 

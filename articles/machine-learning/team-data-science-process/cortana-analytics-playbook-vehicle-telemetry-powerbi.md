@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: e6601093577eb9e3dfba4ed27e1e0510cad17de7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b703cb4d3ddd8b62895c9c40c7fa2fba728e884e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421057"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262292"
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Vehicle Telemetry Analytics-lösningen mall Power BI instrumentpanel, konfigurationsanvisningar
 Den här menyn länkar till kapitel i denna spelbok: 
@@ -30,7 +30,7 @@ Vehicle Telemetry Analytics-lösningen presenterar använda hur bilhandlare, bil
 
 ## <a name="prerequisites"></a>Förutsättningar
 * Distribuera den [analys av Fordonstelemetri](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) lösning. 
-* [Installera Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331).
+* [Installera Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=45331).
 * Hämta en [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/). Om du inte har en Azure-prenumeration kan komma igång med Azure-kostnadsfria prenumerationen.
 * Öppna en Power BI-konto.
 
@@ -68,7 +68,7 @@ När distributionen är klar följer du anvisningarna för manuell åtgärd.
 
    ![Power BI inloggningsfönstret](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/5-sign-into-powerbi.png)
    
-1. Välj **acceptera**. Appen startar.
+1. Välj **Acceptera**. Appen startar.
 
    ![Behörigheter för Power BI-instrumentpanel](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/6-powerbi-dashboard-permissions.png)
 
@@ -348,7 +348,7 @@ Du har skapat i realtid instrumentpanelen. När du fortsätter att köra CarEven
 
 ### <a name="configure-power-bi-reports"></a>Konfigurera Power BI-rapporter
 
-1. Öppna filen designer **ConnectedCarsPbiReport.pbix** med hjälp av Power BI Desktop. Om du inte redan har det kan du installera Power BI Desktop från den [Power BI Desktop-installationen](http://www.microsoft.com/download/details.aspx?id=45331) webbplats.
+1. Öppna filen designer **ConnectedCarsPbiReport.pbix** med hjälp av Power BI Desktop. Om du inte redan har det kan du installera Power BI Desktop från den [Power BI Desktop-installationen](https://www.microsoft.com/download/details.aspx?id=45331) webbplats.
 
 1. Välj **redigera frågor**.
 

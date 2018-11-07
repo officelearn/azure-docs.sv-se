@@ -16,16 +16,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 8e107c1721d5623239a694eba39b32e8a2a6089d
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 382027782044a5a1011976560b7460047544f521
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42060985"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237972"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Konfigurera SQL serverinstansen för Failover-kluster på Azure Virtual Machines
 
-Den här artikeln beskriver hur du skapar en SQL Server Failover Cluster instans (FCI) på Azure virtuella datorer i Resource Manager-modellen. Den här lösningen använder [Windows Server 2016 Datacenter edition Lagringsdirigering \(S2D\) ](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) som en programvarubaserad virtuellt SAN-nätverk som synkroniserar storage (datadiskar) mellan noder (Azure virtuella datorer) i en Windows-kluster. S2D är ny i Windows Server 2016.
+Den här artikeln beskriver hur du skapar en SQL Server Failover Cluster instans (FCI) på Azure virtuella datorer i Resource Manager-modellen. Den här lösningen använder [Windows Server 2016 Datacenter edition Lagringsdirigering \(S2D\) ](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) som en programvarubaserad virtuellt SAN-nätverk som synkroniserar storage (datadiskar) mellan noder (Azure virtuella datorer) i en Windows-kluster. S2D är ny i Windows Server 2016.
 
 Följande diagram visar den fullständiga lösningen på Azure virtual machines:
 
@@ -44,7 +44,7 @@ Det föregående diagrammet visar:
    >[!NOTE]
    >Alla Azure-resurser finns i diagrammet finns i samma resursgrupp.
 
-Mer information om S2D finns [Windows Server 2016 Datacenter edition Lagringsdirigering \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
+Mer information om S2D finns [Windows Server 2016 Datacenter edition Lagringsdirigering \(S2D\)](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
 
 S2D stöder två typer av arkitekturer - Konvergerad och hyperkonvergerade. Arkitekturen i det här dokumentet är hyperkonvergerade. En hyper-Konvergerad infrastruktur placerar lagringen på samma servrar som är värdar för klustrade programmet. I den här arkitekturen är lagringen på varje SQL Server FCI-nod.
 
@@ -52,13 +52,13 @@ S2D stöder två typer av arkitekturer - Konvergerad och hyperkonvergerade. Arki
 
 På Azure virtuella datorer som du kan licensiera SQL Server med användningsbaserad betalning (PAYG) eller använda din egen licens (BYOL) VM-avbildningar. Typ av bild som du väljer påverkar hur du debiteras.
 
-En redundansklusterinstans (FCI) av SQL Server på Azure Virtual Machines tillkommer avgifter för alla noder i FCI, inklusive de passiva noderna med PAYG licensiering. Mer information finns i [priser för SQL Server Enterprise virtuella datorer](http://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
+En redundansklusterinstans (FCI) av SQL Server på Azure Virtual Machines tillkommer avgifter för alla noder i FCI, inklusive de passiva noderna med PAYG licensiering. Mer information finns i [priser för SQL Server Enterprise virtuella datorer](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
 
-Kunder med Enterprise-avtal med Software Assurance har rätt att använda en kostnadsfri passiv FCI nod för varje aktiv nod. Om du vill dra nytta av den här förmånen i Azure, använda BYOL VM-avbildningar och sedan använda samma licens på både aktiva och passiva noder i Redundansklusterinstanser. Mer information finns i [Företagsavtal](http://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
+Kunder med Enterprise-avtal med Software Assurance har rätt att använda en kostnadsfri passiv FCI nod för varje aktiv nod. Om du vill dra nytta av den här förmånen i Azure, använda BYOL VM-avbildningar och sedan använda samma licens på både aktiva och passiva noder i Redundansklusterinstanser. Mer information finns i [Företagsavtal](https://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
 
 Jämföra PAYG och BYOL licens för SQL Server på Azure Virtual Machines finns i [Kom igång med virtuella datorer med SQL](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
 
-Fullständig information om SQL-licensieringsservern finns [priser](http://www.microsoft.com/sql-server/sql-server-2017-pricing).
+Fullständig information om SQL-licensieringsservern finns [priser](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
 ### <a name="example-azure-template"></a>Exemplet Azure-mall
 
@@ -71,12 +71,12 @@ Det finns några saker du behöver veta och några saker som du behöver på pla
 ### <a name="what-to-know"></a>Vad du behöver veta
 Du bör ha en operativ tolkning av följande tekniker:
 
-- [Windows-klusterteknik](http://technet.microsoft.com/library/hh831579.aspx)
-- [Redundanskluster för SQL Server-instanser](http://msdn.microsoft.com/library/ms189134.aspx).
+- [Windows-klusterteknik](https://technet.microsoft.com/library/hh831579.aspx)
+- [Redundanskluster för SQL Server-instanser](https://msdn.microsoft.com/library/ms189134.aspx).
 
 Du bör också ha en förståelse av följande tekniker:
 
-- [Hyperkonvergerad lösning med Lagringsdirigering i Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
+- [Hyperkonvergerad lösning med Lagringsdirigering i Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 - [Azure-resursgrupper](../../../azure-resource-manager/resource-group-portal.md)
 
 > [!IMPORTANT]
@@ -225,11 +225,11 @@ Nästa steg är att konfigurera failover-kluster med S2D. I det här steget ska 
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-Referens är nästa steg följer instruktionerna under steg3 i [en hyperkonvergerad lösning med Lagringsdirigering i Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
+Referens är nästa steg följer instruktionerna under steg3 i [en hyperkonvergerad lösning med Lagringsdirigering i Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
 
 ### <a name="validate-the-cluster"></a>Verifiera klustret
 
-Den här handboken refererar till instruktioner under [verifiera kluster](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-31-run-cluster-validation).
+Den här handboken refererar till instruktioner under [verifiera kluster](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-31-run-cluster-validation).
 
 Verifiera kluster i Användargränssnittet eller med PowerShell.
 
@@ -259,7 +259,7 @@ När du har validerat klustret skapa redundansklustret.
 
 ### <a name="create-the-failover-cluster"></a>Skapa redundansklustret
 
-Den här handboken refererar till [skapar redundansklustret](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
+Den här handboken refererar till [skapar redundansklustret](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
 
 Om du vill skapa redundansklustret, behöver du:
 - Namnen på de virtuella datorerna som blir noder i klustret.
@@ -276,19 +276,19 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 Molnvittne är en ny typ av kvorumvittne för kluster som lagras i en Azure Storage Blob. Detta eliminerar behovet av en separat virtuell dator som är värd för en resurs som vittne.
 
-1. [Skapa ett molnvittne för redundansklustret](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
+1. [Skapa ett molnvittne för redundansklustret](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
 
 1. Skapa en blobbehållare.
 
 1. Spara åtkomstnycklarna och behållarens Webbadress.
 
-1. Konfigurera kvorumvittne för failover-kluster. Se, [konfigurera kvorumvittnet i användargränssnittet](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) i Användargränssnittet.
+1. Konfigurera kvorumvittne för failover-kluster. Se, [konfigurera kvorumvittnet i användargränssnittet](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) i Användargränssnittet.
 
 ### <a name="add-storage"></a>Lägg till lagringsutrymme
 
-Diskarna för S2D måste vara tomma och utan partitioner eller andra data. För att rensa diskar följer [stegen i den här guiden](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks).
+Diskarna för S2D måste vara tomma och utan partitioner eller andra data. För att rensa diskar följer [stegen i den här guiden](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks).
 
-1. [Aktivera Store Lagringsdirigering \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
+1. [Aktivera Store Lagringsdirigering \(S2D\)](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
 
    Följande PowerShell aktiverar lagringsdirigering.  
 
@@ -298,7 +298,7 @@ Diskarna för S2D måste vara tomma och utan partitioner eller andra data. För 
 
    I **Klusterhanteraren**, kan du nu se lagringspoolen.
 
-1. [Skapa en volym](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
+1. [Skapa en volym](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
 
    En av funktionerna i S2D är att det automatiskt skapas en lagringspool när du aktiverar den. Du är nu redo att skapa en volym. PowerShell-kommandot `New-Volume` automatiserar skapandeprocessen volym, inklusive formatering, lägga till i klustret och skapa en klusterdelad volym (CSV). I följande exempel skapas en 800 gigabyte (GB) CSV.
 
@@ -343,7 +343,7 @@ När du har konfigurerat failover-kluster och alla komponenter i serverkluster i
 1. Klicka på **Lägg till nod till ett SQL Server-redundanskluster**. Följ instruktionerna i guiden för att installera SQLServer och lägga till den här servern i Redundansklusterinstanser.
 
    >[!NOTE]
-   >Om du använde ett galleri Azure Marketplace-avbildning med SQL Server, ingick SQL Server-verktyg i avbildningen. Om du inte använde den här bilden, installera SQL Server tools separat. Se [ladda ned SQL Server Management Studio (SSMS)](http://msdn.microsoft.com/library/mt238290.aspx).
+   >Om du använde ett galleri Azure Marketplace-avbildning med SQL Server, ingick SQL Server-verktyg i avbildningen. Om du inte använde den här bilden, installera SQL Server tools separat. Se [ladda ned SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
 ## <a name="step-5-create-azure-load-balancer"></a>Steg 5: Skapa en Azure load balancer
 
@@ -478,7 +478,7 @@ Testa redundans för FCI att validera klusterfunktionaliteten. Utför följande 
 Om du vill testa anslutningen för att logga in på en annan virtuell dator i samma virtuella nätverk. Öppna **SQL Server Management Studio** och Anslut till SQL Server FCI-namn.
 
 >[!NOTE]
->Om nödvändigt, kan du [ladda ned SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
+>Om nödvändigt, kan du [ladda ned SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -491,10 +491,10 @@ På Azure virtual machines stöds MSDTC inte på Windows Server 2016 och tidigar
 
 ## <a name="see-also"></a>Se även
 
-[Konfigurera S2D med fjärrskrivbord (Azure)](http://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
+[Konfigurera S2D med fjärrskrivbord (Azure)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 
-[Hyperkonvergerad lösning med storage spaces direct](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
+[Hyperkonvergerad lösning med storage spaces direct](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
 
-[Direct översikt över](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
+[Direct översikt över](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
 
 [SQL Server-stöd för S2D](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/)

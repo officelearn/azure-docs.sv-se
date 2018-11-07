@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: 43e2b2b7f398e8adce0760678c6f0a5208c24c34
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: d485195b868b6cbca587c736ac02663491742cdb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240536"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236882"
 ---
 # <a name="azure-media-services-error-codes"></a>Azure Media Services-felkoder
 När du använder Microsoft Azure Media Services får du HTTP-felkoder från tjänsten beroende på problem, till exempel autentiseringstoken upphör att gälla för åtgärder som inte stöds i Media Services. Följande är en lista över **HTTP-felkoder** som kan returneras av Media Services och möjliga orsaker för dessa.  
@@ -117,7 +117,7 @@ För att hantera det här felet, bör du använda exponentiell backoff-logik. De
 > 
 
 ## <a name="see-also"></a>Se även
-[Media Services Management felkoder](http://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
+[Media Services Management felkoder](https://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
 
 ## <a name="next-steps"></a>Nästa steg
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -9,18 +9,18 @@ ms.reviewer: jasonwhowell
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: 1fd1ce54dea672b19baea84bbf3a40b4365093b8
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 11587d5a0520d42d554c13a525c3b57db82326aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046226"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229483"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Felsöka en användardefinierad C#-kod för misslyckade U-SQL-jobb
 
 U-SQL ger en modell för utökningsbarhet med C#. I U-SQL-skript är det enkelt att anropa C#-funktioner och utför analysfunktioner som inte stöder SQL-liknande deklarativa språk. Mer information för utökningsbarhet i U-SQL finns [U-SQL-Programmeringsguide](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
 
-I praktiken kod kan behöva felsökning, men det är svårt att felsöka ett distribuerat jobb med anpassad kod i molnet med begränsad loggfiler. [Azure Data Lake Tools för Visual Studio](http://aka.ms/adltoolsvs) innehåller en funktion som kallas **misslyckades hörn felsöka**, som hjälper dig att du enkelt felsöka fel som inträffar i din anpassade kod. Om U-SQL-jobb misslyckas håller feltillstånd och verktyget hjälper dig att hämta fel molnmiljön till den lokala datorn för felsökning. Lokala nedladdningen fångar hela cloud-miljön, inklusive alla indata och användarkod.
+I praktiken kod kan behöva felsökning, men det är svårt att felsöka ett distribuerat jobb med anpassad kod i molnet med begränsad loggfiler. [Azure Data Lake Tools för Visual Studio](https://aka.ms/adltoolsvs) innehåller en funktion som kallas **misslyckades hörn felsöka**, som hjälper dig att du enkelt felsöka fel som inträffar i din anpassade kod. Om U-SQL-jobb misslyckas håller feltillstånd och verktyget hjälper dig att hämta fel molnmiljön till den lokala datorn för felsökning. Lokala nedladdningen fångar hela cloud-miljön, inklusive alla indata och användarkod.
 
 Följande videoklipp visar misslyckades hörn felsökning i Azure Data Lake Tools för Visual Studio.
 
@@ -64,7 +64,7 @@ Det finns två fall att C#-källkod hämtas:
 
 Om källkoden importeras till lösningen kan du använda felsökningsverktyg för Visual Studio (titta på, variabler, etc.) för att felsöka problemet:
 
-1. Tryck på **F5** att starta felsökningen. Koden körs tills den har stoppats av ett undantag.
+1. Starta felsökningen genom att trycka på **F5**. Koden körs tills den har stoppats av ett undantag.
 
 2. Öppna källfilen koden och ange brytpunkter, tryck på **F5** felsöka kod steg för steg.
 

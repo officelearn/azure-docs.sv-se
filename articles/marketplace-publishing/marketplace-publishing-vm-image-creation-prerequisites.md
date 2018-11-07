@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: af3e2ad623d8d7bfafe676411f9ae3fbee78aab8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 79fb9869b37e82df3f41a50e4425e7c0cd08c841
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714340"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255276"
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Tekniska krav för att skapa en avbildning av virtuell dator för Azure Marketplace
 Läs noggrant innan du börjar processen och förstå var och varför ett steg utförs. Så mycket som möjligt du ska förbereda företagets information och andra data, ladda ned nödvändiga verktyg och/eller skapa tekniska komponenter innan du börjar skapa erbjudandet. De här objekten ska rensa från granska den här artikeln.  
@@ -30,7 +30,7 @@ Du bör ha följande till hands innan du börjar:
 * Beroende på vilket operativsystem du vill skicka meddelanden, installera den [Azure PowerShell-cmdlets](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids) eller [Linux kommandoradsgränssnittet verktyget](https://go.microsoft.com/fwlink/?LinkId=253472&clcid=0x409) från den [Azure hämtar](https://azure.microsoft.com/downloads/) sidan.
 * Installera Azure Storage Explorer från CodePlex.
 * Hämta och installera verktyget för Test-certifiering för Azure Certified:
-  * [http://go.microsoft.com/fwlink/?LinkID=526913](http://go.microsoft.com/fwlink/?LinkID=526913). Behöver du en Windows-baserad dator att köra certification tool. Om du inte har en Windows-baserad dator som är tillgänglig, kan du köra verktyget med hjälp av en Windows-baserad virtuell dator i Azure.
+  * [http://go.microsoft.com/fwlink/?LinkID=526913](https://go.microsoft.com/fwlink/?LinkID=526913). Behöver du en Windows-baserad dator att köra certification tool. Om du inte har en Windows-baserad dator som är tillgänglig, kan du köra verktyget med hjälp av en Windows-baserad virtuell dator i Azure.
 
 ## <a name="platforms-supported"></a>Plattformar som stöds
 Du kan utveckla Azure-baserade virtuella datorer i Windows eller Linux. Vissa delar av publiceringsprocessen – till exempel skapa en Azure-kompatibel virtuell hårddisk (VHD) – Använd olika verktyg och steg beroende på vilket operativsystem du använder:  

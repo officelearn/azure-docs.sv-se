@@ -1,25 +1,25 @@
 ---
-title: Ladda upp data för Hadoop-jobb i HDInsight
-description: Lär dig mer om att ladda upp och komma åt data för Hadoop-jobb i HDInsight med hjälp av den klassiska Azure CLI, Azure Storage Explorer, Azure PowerShell, Hadoop-kommandoraden eller Sqoop.
+title: Överföra data för Apache Hadoop-jobb i HDInsight
+description: Lär dig hur du laddar upp och komma åt data för Apache Hadoop-jobb i HDInsight med hjälp av den klassiska Azure CLI, Azure Storage Explorer, Azure PowerShell, Hadoop-kommandoraden eller Sqoop.
 keywords: etl-hadoop, hämta data till hadoop, hadoop Läs in data
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
-ms.author: jasonh
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.openlocfilehash: 44aaccee436011bd7d27bec87515fde0e898732e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.openlocfilehash: 50e9162da5fda98d73ccfeea0776dc89ddd25dac
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985987"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256926"
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Ladda upp data för Hadoop-jobb i HDInsight
 
-Azure HDInsight ger en fullständig Hadoop distributed file system (HDFS) över Azure Storage och Azure Data Lake Store. Azure Storage och Data lake Store är utformade som ett HDFS-tillägg för att ge kunderna en sömlös upplevelse. De gör en fullständig uppsättning komponenter i Hadoop-ekosystemet att arbeta direkt på de data som den hanterar. Azure Storage och Data Lake Store är separata filsystem som är optimerade för lagring av data och beräkningar på dessa data. Information om fördelarna med Azure Storage finns i [använda Azure Storage med HDInsight] [ hdinsight-storage] och [Använd Data Lake Store med HDInsight](hdinsight-hadoop-use-data-lake-store.md).
+Azure HDInsight ger en fullständig Hadoop distributed file system (HDFS) över Azure Storage och Azure Data Lake Storage (Gen1 och Gen2). Azure Storage och Data lake Storage Gen1 och Gen2 är utformade som HDFS-tillägg för att ge kunderna en sömlös upplevelse. De gör en fullständig uppsättning komponenter i Hadoop-ekosystemet att arbeta direkt på de data som den hanterar. Azure Storage, Data Lake Storage Gen1 och Gen2 är distinkta filsystem som är optimerade för lagring av data och beräkningar på dessa data. Information om fördelarna med Azure Storage finns i [använda Azure Storage med HDInsight][hdinsight-storage], [Använd Data Lake Storage Gen1 med HDInsight](hdinsight-hadoop-use-data-lake-store.md) och [ Använda Data Lake Storage Gen2 med HDInsight](../storage/data-lake-storage/use-hdi-cluster.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -29,14 +29,15 @@ Observera följande krav innan du börjar:
 * Kunskap om de två följande artiklarna:
 
     - [Använda Azure Storage med HDInsight][hdinsight-storage]
-    - [Använd Data Lake Store med HDInsight](hdinsight-hadoop-use-data-lake-store.md)
+    - [Använda Data Lake Storage Gen1 med HDInsight](hdinsight-hadoop-use-data-lake-store.md)
+    - [Använda Data Lake Storage Gen2 med HDInsight](../storage/data-lake-storage/use-hdi-cluster.md)   
 
 ## <a name="upload-data-to-azure-storage"></a>Ladda upp data till Azure Storage
 
 ### <a name="command-line-utilities"></a>Kommandoradsverktyg
 Microsoft tillhandahåller följande verktyg att arbeta med Azure Storage:
 
-| Verktyg | Linux | OS X | Windows |
+| Verktyget | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [Klassisk Azure CLI][azurecli] |✔ |✔ |✔ |
 | [Azure PowerShell][azure-powershell] | | |✔ |
@@ -213,7 +214,7 @@ Innan du använder verktyget, vet du ditt Azure storage-konto och kontonyckeln. 
     När filen har överförts, kan du använda den från jobb i HDInsight-klustret.
 
 ### <a name="mount-azure-storage-as-local-drive"></a>Montera Azure Storage som lokal enhet
-Se [montera Azure Storage som lokala enhet](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
+Se [montera Azure Storage som lokala enhet](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
 
 ### <a name="upload-using-services"></a>Överför med hjälp av tjänster
 #### <a name="azure-data-factory"></a>Azure Data Factory
@@ -304,6 +305,8 @@ Nu när du vet hur du hämtar data till HDInsight kan du läsa följande artikla
 [hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
+[hdinsight-adls-gen1]: hdinsight-hadoop-use-data-lake-store.md
+[hdinsight-adls-gen2]: ../storage/data-lake-storage/use-hdi-cluster.md
 [hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: d75bb780a17653aaacbc74413fb4240a8052a983
-ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
+ms.openlocfilehash: 2d8a98e6ab38f4156b6e2f5bda81b44e1789a6ed
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43371493"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253082"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Slutför stegen för att skapa Always On-Tillgänglighetsgrupper på virtuella Azure-datorer
 
@@ -35,7 +35,7 @@ Följande diagram illustrerar vad du skapar under kursen.
 
 ## <a name="review-availability-group-documentation"></a>Granska availability group-dokumentationen
 
-Den här självstudien förutsätter att du har grundläggande kunskaper om SQL Server Always On-Tillgänglighetsgrupper. Om du inte är bekant med den här tekniken finns i [översikt över alltid på Tillgänglighetsgrupper (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
+Den här självstudien förutsätter att du har grundläggande kunskaper om SQL Server Always On-Tillgänglighetsgrupper. Om du inte är bekant med den här tekniken finns i [översikt över alltid på Tillgänglighetsgrupper (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
 
 ## <a name="create-an-azure-account"></a>Skapa ett Azure-konto
@@ -349,7 +349,7 @@ Nu när du har konfigurerat Active Directory och användarobjekt, skapa två SQL
 
 ## <a name="create-sql-server-vms"></a>Skapa SQL Server-datorer
 
-Skapa tre ytterligare virtuella datorer. Lösningen kräver två virtuella datorer med SQL Server-instanser. En tredje virtuell dator fungerar som ett vittne. Windows Server 2016 kan använda en [cloud vittne](http://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness), men för att få konsekvens med tidigare operativsystem det här dokumentet använder en virtuell dator för ett vittne.  
+Skapa tre ytterligare virtuella datorer. Lösningen kräver två virtuella datorer med SQL Server-instanser. En tredje virtuell dator fungerar som ett vittne. Windows Server 2016 kan använda en [cloud vittne](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness), men för att få konsekvens med tidigare operativsystem det här dokumentet använder en virtuell dator för ett vittne.  
 
 Överväg följande designbeslut innan du fortsätter.
 

@@ -9,12 +9,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 1c498bb857b717682f943af96b222d9712b5d389
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: ba2ce12fcfad14b0910144b1a95efd44be54811f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409228"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245655"
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Ansluta Azure SQL Database till Azure Search med indexerare
 
@@ -140,7 +140,7 @@ Svaret bör se ut ungefär så här:
     }
 
 Körningshistorik innehåller upp till 50 i den nyligen utförda körningar, sorteras i omvänd kronologisk ordning (så att den senaste körningen kommer först i svaret).
-Mer information om svaret finns i [hämta Status för indexerare](http://go.microsoft.com/fwlink/p/?LinkId=528198)
+Mer information om svaret finns i [hämta Status för indexerare](https://go.microsoft.com/fwlink/p/?LinkId=528198)
 
 ## <a name="run-indexers-on-a-schedule"></a>Kör indexerare enligt ett schema
 Du kan även ordna indexeraren ska köras regelbundet enligt ett schema. Gör detta genom att lägga till den **schema** egenskapen när du skapar eller uppdaterar indexeraren. Exemplet nedan visar en PUT-begäran för att uppdatera indexeraren:

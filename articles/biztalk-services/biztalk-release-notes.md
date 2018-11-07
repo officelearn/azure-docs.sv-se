@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: db79ee85c19e5f3cdced9b894aca48de4d7d1c42
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: f990aa086997d51e59df4285aabeccd31dcce822
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576478"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253439"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Viktig information om Azure BizTalk Services
 
@@ -188,7 +188,7 @@ Tänk dig ett scenario där du använder-namnbaserat beteenden för att identifi
 
 ### <a name="bridges-continue-to-process-messages-even-when-the-sql-database-is-offline"></a>Bryggor fortsätta att bearbeta meddelanden även om SQL-databasen är offline
 BizTalk Services-bryggor fortsätta att bearbeta meddelanden för ett tag, även om Microsoft Azure SQL Database (som lagras som körs som distribuerade artefakter och pipelines) är offline. Det beror på att BizTalk Services använder den cachelagrade artefakter och bryggkonfigurationen.
-Du kan använda BizTalk Services PowerShell-cmdlets för att stoppa eller inaktivera BizTalk Service om du inte vill att bryggor bearbeta några meddelanden när SQL-databasen är offline. Se [Azure BizTalk Service Management-exempel](http://go.microsoft.com/fwlink/p/?LinkID=329019) för Windows PowerShell-cmdletar för att hantera åtgärder.  
+Du kan använda BizTalk Services PowerShell-cmdlets för att stoppa eller inaktivera BizTalk Service om du inte vill att bryggor bearbeta några meddelanden när SQL-databasen är offline. Se [Azure BizTalk Service Management-exempel](https://go.microsoft.com/fwlink/p/?LinkID=329019) för Windows PowerShell-cmdletar för att hantera åtgärder.  
 
 ### <a name="reading-the-xml-message-within-a-bridges-custom-code-component-includes-an-extra-bom-character"></a>Läsa XML-meddelandet i en brygga anpassad kodkomponenten innehåller ett extra BOM tecken
 Tänk dig ett scenario där du vill läsa ett XML-meddelande i en brygga anpassad kod. Om du använder .NET API-System.Text.Encoding.UTF8.GetString(bytes) ett extra BOM tecken ingår i utdata i början av meddelandet. Så om du inte vill att utdata till innehåller något extra BOM tecken, måste du använda ```System.IO.StreamReader().ReadToEnd()```.

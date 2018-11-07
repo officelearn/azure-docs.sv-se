@@ -11,12 +11,12 @@ ms.date: 08/01/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
 keywords: säkerhetskopior. säkerhetskopiering av virtuella datorer
-ms.openlocfilehash: a30b4081bf01a76c6d89e7557fbb1b40baa86fbc
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: daa2355d028af9b61b0b14a453452c1a96487403
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985903"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233549"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Säkerhetskopiera virtuella Azure-datorer till Recovery Services-valv
 
@@ -324,8 +324,8 @@ Följande tabell innehåller ytterligare information om VM-agenten för virtuell
 
 | **Åtgärd** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Installera VM-agenten |<li>Ladda ned och installera [agentens MSI-fil](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du måste ha administratörsbehörighet för att slutföra installationen. <li>[Uppdatera VM-egenskapen](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) för att ange att agenten är installerad. |<li> Installera den senaste [Linux-agenten](https://github.com/Azure/WALinuxAgent) från GitHub. Du måste ha administratörsbehörighet för att slutföra installationen. <li> [Uppdatera VM-egenskapen](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) för att ange att agenten är installerad. |
-| Uppdatera VM-agenten |Det är enkelt att uppdatera VM-agenten. Du installerar bara om [binärfilerna för VM-agenten](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Kontrollera att ingen säkerhetskopieringsåtgärd körs medan VM-agenten uppdateras. |Följ anvisningarna för hur du [uppdaterar VM-agenten för Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <br>Kontrollera att ingen säkerhetskopieringsåtgärd körs medan VM-agenten uppdateras. |
+| Installera VM-agenten |<li>Ladda ned och installera [agentens MSI-fil](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du måste ha administratörsbehörighet för att slutföra installationen. <li>[Uppdatera VM-egenskapen](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) för att ange att agenten är installerad. |<li> Installera den senaste [Linux-agenten](https://github.com/Azure/WALinuxAgent) från GitHub. Du måste ha administratörsbehörighet för att slutföra installationen. <li> [Uppdatera VM-egenskapen](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) för att ange att agenten är installerad. |
+| Uppdatera VM-agenten |Det är enkelt att uppdatera VM-agenten. Du installerar bara om [binärfilerna för VM-agenten](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Kontrollera att ingen säkerhetskopieringsåtgärd körs medan VM-agenten uppdateras. |Följ anvisningarna för hur du [uppdaterar VM-agenten för Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <br>Kontrollera att ingen säkerhetskopieringsåtgärd körs medan VM-agenten uppdateras. |
 | Bekräfta installationen av VM-agenten |<li>Gå till mappen *C:\WindowsAzure\Packages* på den virtuella datorn i Azure. <li>Du bör hitta filen WaAppAgent.exe.<li> Högerklicka på filen, gå till **Egenskaper** och välj fliken **Information**. Fältet Produktversion ska vara 2.6.1198.718 eller högre. |Gäller inte |
 
 ### <a name="backup-extension"></a>Säkerhetskopieringstillägg
@@ -340,4 +340,4 @@ Om du har problem med att utföra vissa uppgifter i den här artikeln läser du 
 Kostnaden för att säkerhetskopiera virtuella datorer i Azure baseras på hur många instanser som skyddas. I [Vad är en skyddad instans](backup-introduction-to-azure-backup.md#what-is-a-protected-instance) definieras begreppet skyddad instans. I avsnittet om att [beräkna skyddade instanser](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances) ges ett exempel på hur du kan beräkna kostnaden för säkerhetskopiering av en virtuell dator. På sidan med prissättning för Azure-säkerhetskopiering finns information om [priser för säkerhetskopiering](https://azure.microsoft.com/pricing/details/backup/).
 
 ## <a name="questions"></a>Har du några frågor?
-Om du har frågor eller om du saknar en funktion är du välkommen att [lämna feedback](http://aka.ms/azurebackup_feedback).
+Om du har frågor eller om du saknar en funktion är du välkommen att [lämna feedback](https://aka.ms/azurebackup_feedback).

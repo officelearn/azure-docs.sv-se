@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 75d630b91a1380102fd285edfb11effa22f47859
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 29af7ad8b582682189320185c460597af53cf6d8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413243"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243921"
 ---
 # <a name="how-to-use-perfinsights"></a>Så här använder du PerfInsights
 
-[PerfInsights](http://aka.ms/perfinsightsdownload) är ett verktyg för självhjälp diagnostik som samlar in och analyserar diagnostiska data och ger en rapport för att felsöka prestandaproblem för Windows-dator i Azure. PerfInsights kan köras på virtuella datorer som ett fristående verktyg, direkt från portalen med hjälp av [Prestandadiagnostik för Azure virtual machines](performance-diagnostics.md), eller genom att installera [Azure prestanda diagnostik VM-tillägg ](performance-diagnostics-vm-extension.md).
+[PerfInsights](https://aka.ms/perfinsightsdownload) är ett verktyg för självhjälp diagnostik som samlar in och analyserar diagnostiska data och ger en rapport för att felsöka prestandaproblem för Windows-dator i Azure. PerfInsights kan köras på virtuella datorer som ett fristående verktyg, direkt från portalen med hjälp av [Prestandadiagnostik för Azure virtual machines](performance-diagnostics.md), eller genom att installera [Azure prestanda diagnostik VM-tillägg ](performance-diagnostics-vm-extension.md).
 
 Om du har problem med prestanda för virtuella datorer, innan du kontaktar support kan du köra det här verktyget.
 
@@ -190,7 +190,7 @@ Mer information om det här alternativet finns i [installera Azure prestanda VM-
 Följ dessa steg om du vill köra verktyget PerfInsights:
 
 
-1. Ladda ned [PerfInsights.zip](http://aka.ms/perfinsightsdownload).
+1. Ladda ned [PerfInsights.zip](https://aka.ms/perfinsightsdownload).
 
 2. Avblockera PerfInsights.zip-filen. Gör detta genom att högerklicka på filen PerfInsights.zip och välj **egenskaper**. I den **Allmänt** fliken **avblockera**, och välj sedan **OK**. Detta säkerställer att verktyget körs utan någon ytterligare säkerhetsmeddelanden.  
 

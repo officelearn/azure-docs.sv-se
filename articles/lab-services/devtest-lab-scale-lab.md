@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5a179c0c6b777ee6b2afdd0f2e9267d247665d8d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 00f64deaa5e02f9bb74baaf86bfdf71690a3345d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38675973"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248256"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Skala kvoter och begränsningar i DevTest Labs
 När du arbetar i labb kan kanske du märker att det finns vissa standardgränser till vissa Azure-resurser, vilket kan påverka tjänsten DevTest Labs. Dessa gränser kallas **kvoter**.
@@ -35,7 +35,7 @@ Till exempel har varje prenumeration en standardkvot på 20 kärnor. Så om du s
 ## <a name="view-your-usage-and-quotas"></a>Visa användning och kvoter
 De här stegen visar hur du visar de aktuella kvoterna i din prenumeration för specifika Azure-resurser och se vilken procentandel av varje kvot som du har använt.
 
-1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Välj **fler tjänster**, och välj sedan **fakturering** i listan.
 1. Välj en prenumeration på bladet fakturering.
 4. Välj **användning + kvoter**.
@@ -49,7 +49,7 @@ De här stegen visar hur du visar de aktuella kvoterna i din prenumeration för 
 ## <a name="requesting-more-resources-in-your-subscription"></a>Begär fler resurser i din prenumeration
 Om du uppnår ett kvottak Standardgränsen för en resurs i en prenumeration kan utökas upp till en övre gräns, enligt beskrivningen i [Azure-prenumeration och tjänstbegränsningar](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
-De här stegen visar hur du begära en kvot via den [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+De här stegen visar hur du begära en kvot via den [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Välj **fler tjänster**väljer **fakturering**, och välj sedan **användning + kvoter**.
 1. I användning + kvoter bladet och välja den **begär öka** knappen.

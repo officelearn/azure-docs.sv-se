@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: v-jansko
-ms.openlocfilehash: d01a5a8a9a60bef315327721b9f55345bc3d1361
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: bbfffe948080c87feaa8c9f0a46ef9afd90eae96
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645091"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229687"
 ---
 # <a name="customize-your-text-translations"></a>Anpassa dina textöversättningar
 
@@ -37,7 +37,7 @@ Anpassat system är sedan tillgängligt via ett reguljärt anrop till Microsoft 
 
 Beroende på rätt typ och mängden utbildningsdata som det är inte ovanligt att förvänta sig vinster mellan 5 och 10 eller ännu mer BLEU pekar på översättningen med hjälp av anpassade Translator.
 
-Mer information om de olika nivåerna på anpassning som är baserad på tillgänglig data finns i den [användarhandboken för anpassad Translator](http://aka.ms/CustomTranslatorDocs).
+Mer information om de olika nivåerna på anpassning som är baserad på tillgänglig data finns i den [användarhandboken för anpassad Translator](https://aka.ms/CustomTranslatorDocs).
 
 
 ## <a name="microsoft-translator-hub"></a>Microsoft Translator-Hub
@@ -53,7 +53,7 @@ Mer information om de olika nivåerna på anpassning som är baserad på tillgä
 | SMT anpassning | Ja   | Nej |
 | NMT anpassning | Nej    | Ja |
 | Nya enhetliga Speech services anpassning | Nej    | Ja |
-| [Ingen spårning](http://www.aka.ms/notrace) | Ja   | Ja |
+| [Ingen spårning](https://www.aka.ms/notrace) | Ja  | Ja |
 
 ## <a name="collaborative-translations-framework"></a>Samarbetsfunktioner översättningar Framework
 
@@ -65,4 +65,4 @@ Mer information om de olika nivåerna på anpassning som är baserad på tillgä
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Konfigurera ett anpassat språksystem med hjälp av anpassade Translator](http://aka.ms/CustomTranslatorDocs)
+> [Konfigurera ett anpassat språksystem med hjälp av anpassade Translator](https://aka.ms/CustomTranslatorDocs)

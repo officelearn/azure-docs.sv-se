@@ -10,18 +10,18 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: dcf31bd6b128115962e30dd6653364c4cd65047d
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b4a816c887d1cca78ff845858dce29049946b09f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243288"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235997"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench messaging integration
 
 Förutom att tillhandahålla ett REST-API, dessutom Azure Blockchain Workbench messaging-baserad integrering. Workbench publicerar ledger-centric händelser via Azure Event Grid, aktivera underordnade konsumenter att mata in data eller vidta åtgärder baserat på dessa händelser. För de klienter som kräver tillförlitlig meddelandehantering levererar meddelanden till en Azure Service Bus-slutpunkt i Azure Blockchain Workbench.
 
-Utvecklare har också uttryckt intresse möjlighet att aktivera externa system kommunicera initiera transaktioner för att skapa användare, skapa kontrakt och uppdatera kontrakt på ett transaktionsregister. Även om den här funktionen inte exponeras för närvarande i offentlig förhandsversion, ett exempel som ger den här funktionen finns på [ http://aka.ms/blockchain-workbench-integration-sample ](http://aka.ms/blockchain-workbench-integration-sample).
+Utvecklare har också uttryckt intresse möjlighet att aktivera externa system kommunicera initiera transaktioner för att skapa användare, skapa kontrakt och uppdatera kontrakt på ett transaktionsregister. Även om den här funktionen inte exponeras för närvarande i offentlig förhandsversion, ett exempel som ger den här funktionen finns på [ http://aka.ms/blockchain-workbench-integration-sample ](https://aka.ms/blockchain-workbench-integration-sample).
 
 ## <a name="event-notifications"></a>Händelseaviseringar
 
@@ -75,7 +75,7 @@ Anger att ett nytt konto har begärts som ska läggas till angivna kedjan.
 
 | Namn    | Beskrivning  |
 |----------|--------------|
-| UserId  | ID för den användare som har skapats. |
+| Användar-ID  | ID för den användare som har skapats. |
 | ChainIdentifier | Adress för den användare som har skapats i blockchain-nätverket. I Ethereum, skulle detta vara användarens **i kedjan** adress. |
 
 ``` csharp
@@ -166,7 +166,7 @@ Anger att en begäran har gjorts att uppdatera användaren balansen på en speci
 | Namn    | Beskrivning                              |
 |---------|------------------------------------------|
 | Adress | Adressen till den användare som har finansieras. |
-| Balans | Användaren balansen balans.         |
+| Saldo | Användaren balansen balans.         |
 | ChainID | Den unika identifieraren för kedjan.     |
 
 

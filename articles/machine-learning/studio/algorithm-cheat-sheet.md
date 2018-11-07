@@ -12,12 +12,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 56fadde5694dbd298c812db258105e03b7d23d45
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4a6fdfec4c4c95ba47f17efeb0dc87521a86c03c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996748"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244992"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Machine learning-algoritmfacit för Azure Machine Learning Studio
 
@@ -27,7 +27,7 @@ Den **Azure Machine Learning-algoritm facit blad** hjälper dig att välja rätt
 
 ## <a name="download-machine-learning-algorithm-cheat-sheet"></a>Hämtning: Machine learning-algoritmfacit
 
-**Ladda ned här facit: [Machine Learning-algoritm facit blad (11 x 17 tum)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
+**Ladda ned här facit: [Machine Learning-algoritm facit blad (11 x 17 tum)](https://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
 
 ![Machine learning-algoritmfacit: Lär dig hur du väljer en Machine Learning-algoritm.][cheat-sheet]
 

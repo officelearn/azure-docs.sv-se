@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: ccompy
-ms.openlocfilehash: 5f2dd31488ae61bec061a81986a208bd328bf39b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ce0123528b3fb2454d8b83d59b5916363ae0e944
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093628"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251584"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Låsa en App Service Environment
 
@@ -28,7 +28,7 @@ Det finns ett antal inkommande beroenden som har en ase-miljö. Inkommande hante
 
 De utgående ASE-beroendena definieras nästan helt och hållet med FQDN: er som inte har statiska adresser bakom dem. Bristen på statiska adresser innebär att Nätverkssäkerhetsgrupper (NSG) inte kan användas för att låsa den utgående trafiken från en ase-miljö. Adresserna ändras tillräckligt ofta att det går inte att ställa in regler baserat på aktuell upplösning och använda den för att skapa NSG: er. 
 
-Lösning för att skydda utgående adresser ligger i att en brandväggsenhet som kan styra utgående trafik baserat på domännamn. Azure Networking-teamet har placera en ny nätverksenhet i förhandsversion som kallas Azure-brandvägg. Azure-brandväggen kan begränsa utgående HTTP och HTTPS-trafik baserat på DNS-namnet på målet.  
+Lösning för att skydda utgående adresser ligger i att en brandväggsenhet som kan styra utgående trafik baserat på domännamn. Azure-brandväggen kan begränsa utgående HTTP och HTTPS-trafik baserat på det fullständiga Domännamnet för målet.  
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>Konfigurera Brandvägg för Azure med din ASE 
 
@@ -36,11 +36,11 @@ Stegen för att låsa utgående trafik från din ASE med Brandvägg för Azure �
 
 1. Skapa en Azure-brandvägg i det virtuella nätverket där din ASE är eller blir. [Azure brandväggen documenation](https://docs.microsoft.com/azure/firewall/)
 2. Välj App Service Environment FQDN-tagg i Användargränssnittet för Azure-brandväggen
-3. Skapa en routningstabell med hanteringsadresserna från [hanteringsadresser för App Service Environment]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) med ett nexthop för Internet. Tabellen routningsposterna krävs för att undvika problem med asymmetrisk routning. 
-4. Lägg till vägar för IP-adress-beroenden som anges nedan i beroenden för IP-adress med ett nexthop för Internet. 
-5. Lägg till en väg i ditt routningstabellen för 0.0.0.0/0 med nästa hopp som din nätverksinstallation för Brandvägg för Azure
-6. Skapa tjänstslutpunkter för ditt ASE-undernät till Azure SQL och Azure Storage
-7. Tilldela routningstabellen som du skapade till ditt ASE-undernät  
+3. Skapa en routningstabell med hanteringsadresserna från [hanteringsadresser för App Service Environment]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) med ett nexthop för Internet. Tabellen routningsposterna krävs för att undvika problem med asymmetrisk routning.
+4. Lägg till vägar för IP-adress-beroenden som anges nedan i beroenden för IP-adress med ett nexthop för Internet.
+5. Lägga till en väg till din routningstabellen för 0.0.0.0/0 med nästa hopp som din Azure-brandvägg.
+6. Skapa tjänstslutpunkter för ditt ASE-undernät till Azure SQL och Azure Storage.
+7. Tilldela routningstabellen som du skapade till ditt ASE-undernät.
 
 ## <a name="application-traffic"></a>Programtrafik 
 

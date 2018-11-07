@@ -11,21 +11,21 @@ Pay attention to spacing and indents. They affect formatting.
 <!--replace this with Properties and Tags sections. These are required sections. See "article-metadata.md" in under the "contributor-guide" folder in your repo. Attributes in each section can be placed on separate lines to make them easier to read and check-->
 
 # <a name="use-azure-powershell-to-task"></a>Använda Azure PowerShell för att [aktivitet]
-Den här artikeln visar hur du [uppgift] med hjälp av kommandon från både Azure-modulen och Azure Resource Manager-modulen. Detta är avsedda att hjälpa dig att lära dig de nya kommandona samt migrera befintliga skript till de nya kommandona.
+Den här artikeln visar hur du [uppgift] med hjälp av kommandon från både Azure-modulen och Azure Resource Manager-modulen. Detta är avsett för att lära dig de nya kommandona också migrera befintliga skript till de nya kommandona.
 
-## <a name="prerequisite-install-a-recent-version-of-azure-powershell"></a>Förutsättning: Installera den senaste versionen av Azure PowerShell
-Om du inte redan gjort det, installera på minst [versionsnummer]-versionen av Azure PowerShell på den lokala datorn. Om du använder en tidigare version kan den inte Azure Resource Manager-cmdlets som beskrivs i den här artikeln. Mer information finns i:
+## <a name="prerequisite-install-a-recent-version-of-azure-powershell"></a>Förutsättning: Installera en ny Version av Azure PowerShell
+Om du inte redan har gjort du minst installera [versionsnumret]-versionen av Azure PowerShell på den lokala datorn. Om du använder en tidigare version, inte den Azure Resource Manager-cmdletar som beskrivs i den här artikeln. Mer information finns i:
 
-* [Installera och konfigurera Azure PowerShell](install-configure-powershell.md) anvisningar om hur du konfigurerar Azure PowerShell.
-* [Med hjälp av Windows PowerShell med Resource Manager](powershell-azure-resource-manager.md) för grunderna om hur du använder Resource Manager.
+* [Hur du installerar och konfigurerar du Azure PowerShell](install-configure-powershell.md) anvisningar om hur du konfigurerar Azure PowerShell.
+* [Med hjälp av Windows PowerShell med Resource Manager](powershell-azure-resource-manager.md) för hur du använder Resource Manager.
 
 > [!NOTE]
-> De flesta aktiviteter måste du använda en administratörsnivå Azure PowerShell-kommandotolk.
+> De flesta uppgifter kräver att du kan använda en behörighet på Azure PowerShell-kommandotolk.
 > 
 > 
 
 ## <a name="command-comparison"></a>Kommandot jämförelse
-Detta [tabellen | avsnittet] Visar kommandosyntaxen.
+Detta [tabell | avsnittet] Visar kommandosyntaxen.
 
 <!--[optional image - to use an image in this article, add a folder with the same name as the article file name without extension, inside the Media folder of the repo. Use only this folder to store the images. Don't attempt to use a common folder to share images you want to use in more than 1 file.]
 Then, use the following syntax to add a reference to the image in your article:
@@ -46,17 +46,17 @@ $FriendlyName ”<Describe value>”
 
 <!--if it makes more sense to present this one command block after the other instead of a table, use this. Otherwise, delete-->
 
-[Kort intro mening om kommandot. Utelämna om det finns egentligen inget att säga. Men om det använder metoder sådana en pipeline, förklarar som]:
+[Kort introduktion mening om kommandot. Utelämna om det finns ingenting att säga. Men om metoder sådana används en pipeline, förklarar som]:
 
     [command string]
 
-## <a name="script-examples"></a>Exempel på skript
-Här är ett exempel som använder [cmdlet-namnen)] till [aktivitet]. Innehåller kommandon som:
+## <a name="script-examples"></a>Exempelskript
+Här är ett exempel som använder [cmdlet-namnen)] till [aktivitet]. Det inkluderar kommandon som:
 
 * [kort verb, använder, har, är osv]
 * [nästa kort verb] 
 
-<!--include this statement if it uses variables that weren't introduced earlier--> It includes the following variables:
+<!--include this statement if it uses variables that weren't introduced earlier--> Det innehåller följande variabler:
 
 * [variabel 1]
 * [variabel 2]
@@ -94,8 +94,8 @@ Här är ett exempel som använder [cmdlet-namnen)] till [aktivitet]. Innehålle
 
 <!--To link to an ACOM page outside the /documentation/ subdomain (such as a pricing page, SLA page or anything else that is not a documentation article), use an absolute URL, but omit the locale:
 
-    [link text](http://azure.microsoft.com/pricing/details/virtual-machines/)-->
+    [link text](https://azure.microsoft.com/pricing/details/virtual-machines/)-->
 
 <!--use this for URLs outside of ACOM. Be sure to locale, and if you're linking to the Azure library on MSDN, include the '/azure/' part of the URL-->
-[Dokumentation för virtuella datorer](https://msdn.microsoft.com/library/azure/jj156003.aspx)
+[Dokumentation om Virtual machines](https://msdn.microsoft.com/library/azure/jj156003.aspx)
 

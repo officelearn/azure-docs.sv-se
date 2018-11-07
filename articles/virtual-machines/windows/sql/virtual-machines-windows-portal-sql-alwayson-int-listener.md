@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: e87b58ecd72291365f9eba70c807e3018c02ae07
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 5e665cd0bcfdea436c2f493187c5bbea756f8f09
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382747"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248322"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Konfigurera en belastningsutjämnare för en Always On-tillgänglighetsgrupp i Azure
 Den här artikeln förklarar hur du skapar en belastningsutjämnare för en SQL Server Always On-tillgänglighetsgrupp i Azure virtuella datorer som körs med Azure Resource Manager. En tillgänglighetsgrupp kräver en belastningsutjämnare när SQL Server-instanserna är på Azure virtual machines. Belastningsutjämnaren lagrar IP-adressen för tillgänglighetsgruppens lyssnare. Om en tillgänglighetsgrupp sträcker sig över flera regioner, måste en belastningsutjämnare i varje region.
@@ -120,7 +120,7 @@ Avsökningen definierar hur Azure verifierar som SQL Server-instanserna för nä
 4.  Klicka på **OK**. 
 
 > [!NOTE]
-> Se till att den port som du anger är öppen i brandväggen för både SQL Server-instanser. Båda instanserna kräver en regel för inkommande trafik för TCP-porten som du använder. Mer information finns i [Lägg till eller redigera brandväggsregel](http://technet.microsoft.com/library/cc753558.aspx). 
+> Se till att den port som du anger är öppen i brandväggen för både SQL Server-instanser. Båda instanserna kräver en regel för inkommande trafik för TCP-porten som du använder. Mer information finns i [Lägg till eller redigera brandväggsregel](https://technet.microsoft.com/library/cc753558.aspx). 
 > 
 > 
 
@@ -276,7 +276,7 @@ När du har konfigurerat tillgänglighetsgruppen om du vill använda den nya IP-
 Om en tillgänglighetsgrupp deltar i en distribuerad tillgänglighetsgrupp, måste belastningsutjämnaren en ytterligare regel. Den här regeln lagrar den port som används av distribuerade tillgänglighetsgruppens lyssnare.
 
 >[!IMPORTANT]
->Det här steget gäller endast om tillgänglighetsgruppen deltar i en [distribuerad tillgänglighetsgrupp](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups). 
+>Det här steget gäller endast om tillgänglighetsgruppen deltar i en [distribuerad tillgänglighetsgrupp](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups). 
 
 1. Skapa en regel för inkommande på distribuerade tillgänglighetsgruppslyssnaren TCP-port på varje server som ingår i den distribuerade tillgänglighetsgruppen. I många exemplen använder dokumentation 5022. 
 
@@ -289,7 +289,7 @@ Om en tillgänglighetsgrupp deltar i en distribuerad tillgänglighetsgrupp, mås
    |**Namn** |Ett namn som identifierar belastningsutjämningsregeln för den distribuerade tillgänglighetsgruppen. 
    |**Frontend-IP-adress** |Använd samma IP-adress för klientdel som tillgänglighetsgruppen.
    |**Protokoll** |TCP
-   |**Port** |5022 - porten för den [distribuerade slutpunkten för tillgänglighetsgruppslyssnaren](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Kan vara alla tillgängliga portar.  
+   |**Port** |5022 - porten för den [distribuerade slutpunkten för tillgänglighetsgruppslyssnaren](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Kan vara alla tillgängliga portar.  
    |**Serverdelsport** | 5022 – Använd samma värde som **Port**.
    |**Serverdelspool** |Den pool som innehåller virtuella datorer med SQL Server-instanserna. 
    |**Hälsoavsökning** |Välj avsökningen som du skapade.

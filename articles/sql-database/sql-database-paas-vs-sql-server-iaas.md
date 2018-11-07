@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: ff6b535b67608d9331e134ff3b3d943601e73a48
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 90427402d348fdbcec9f573848ed7cc0c5b03e2d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364497"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254663"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Välj ett molnbaserat SQL Server-alternativ: Azure SQL (PaaS) Database eller SQL Server på Azure Virtual Machines (IaaS)
 
@@ -90,7 +90,7 @@ Följande tabell sammanfattar de huvudsakliga egenskaperna för SQL Database och
 | **Resurser:** | Du vill inte anställa IT-resurser för konfiguration och hantering av underliggande den infrastrukturen utan vill fokusera på programnivån. | Samma som SQL-databas. | Du har några IT-resurser som ansvarar för konfiguration och hantering. Vissa automatiserade funktioner kan avsevärt förenkla detta arbete. |
 | **Totalkostnad för ägarskap:** | Eliminerar kostnaderna för maskinvara och reducerar de administrativa kostnaderna. | Samma som SQL-databas. | Eliminerar maskinvarukostnaderna. |
 | **Verksamhetskontinuitet:** |Förutom [inbyggda infrastruktur för feltolerans](sql-database-high-availability.md), Azure SQL Database tillhandahåller funktioner, till exempel [automatiska säkerhetskopior](sql-database-automated-backups.md), [Point-In-Time-återställning](sql-database-recovery-using-backups.md#point-in-time-restore), [geo-återställning](sql-database-recovery-using-backups.md#geo-restore), och [redundans grupper och aktiv geo-replikering](sql-database-geo-replication-overview.md) att öka verksamhetskontinuiteten. Mer information finns i [översikt över verksamhetskontinuitet i SQL Database](sql-database-business-continuity.md). | Samma som SQL-databas, plus användarinitierad, endast kopiering säkerhetskopieringar är tillgängliga. | Med SQL Server på Azure Virtual Machines kan du konfigurera en lösning med hög tillgänglighet och haveriberedskap för din databas specifika behov. Du kan därmed få ett system som är höggradigt optimerat för just ditt program. Du kan själv testa och köra felväxling vid behov. Mer information finns i [Hög tillgänglighet och haveriberedskap för SQL Server på Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md). |
-| **Hybridmoln:** |Ditt lokala program har åtkomst till data i Azure SQL Database. | [Intern implementering](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration) och vara ansluten till din lokala miljö med hjälp av Azure Express Route eller VPN-Gateway. | Med SQL Server på virtuella Azure-datorer kan du ha program som kör delvis i molnet och delvis lokalt. Du kan till exempel utöka ditt lokala nätverk och Active Directory-domän till molnet via [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Dessutom kan du lagra lokala datafiler i Azure Storage med [SQL Server-datafiler i Azure](http://msdn.microsoft.com/library/dn385720.aspx). Mer information finns i [Introduktion till SQL Server 2014 Hybridmoln](http://msdn.microsoft.com/library/dn606154.aspx). |
+| **Hybridmoln:** |Ditt lokala program har åtkomst till data i Azure SQL Database. | [Intern implementering](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration) och vara ansluten till din lokala miljö med hjälp av Azure Express Route eller VPN-Gateway. | Med SQL Server på virtuella Azure-datorer kan du ha program som kör delvis i molnet och delvis lokalt. Du kan till exempel utöka ditt lokala nätverk och Active Directory-domän till molnet via [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Dessutom kan du lagra lokala datafiler i Azure Storage med [SQL Server-datafiler i Azure](https://msdn.microsoft.com/library/dn385720.aspx). Mer information finns i [Introduktion till SQL Server 2014 Hybridmoln](https://msdn.microsoft.com/library/dn606154.aspx). |
 |  | Har stöd för [SQL Server-transaktionsreplikering](https://msdn.microsoft.com/library/mt589530.aspx) som en prenumerant för att replikera data. | Replikering stöds inte för Azure SQL Database Managed Instance. | Fullständigt stöd för [Transaktionsreplikering i SQL Server](https://msdn.microsoft.com/library/mt589530.aspx), [ständigt aktiverade Tillgänglighetsgrupper](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md), Integration Services och Loggöverföring för att replikera data. Dessutom finns fullständigt stöd för traditionella SQL Server-säkerhetskopieringar | |
 |  | | |
 

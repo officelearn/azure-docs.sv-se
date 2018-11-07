@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: a961565815ca0d89dc98a8d6a3e14b338b649398
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9d009847856936d14a182b234910fb717c084d11
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38687816"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248069"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Skapa en anpassad avbildning från en VHD-fil
 
@@ -29,11 +29,11 @@ ms.locfileid: "38687816"
 
 [!INCLUDE [devtest-lab-upload-vhd-options](../../includes/devtest-lab-upload-vhd-options.md)]
 
-## <a name="step-by-step-instructions"></a>Stegvisa anvisningar
+## <a name="step-by-step-instructions"></a>Stegvisa instruktioner
 
 Följande steg beskriver hur du skapar en anpassad avbildning från en VHD-fil med hjälp av Azure portal:
 
-1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Välj **alla tjänster**, och välj sedan **DevTest Labs** i listan.
 

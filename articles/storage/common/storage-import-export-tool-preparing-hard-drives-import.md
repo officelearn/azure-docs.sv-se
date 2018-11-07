@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 0be0d6c9613b4160a6c4c5cc3b63336fcf67d5c2
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b16a476f1960c79c378cd3aa18eae789c289eb54
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025641"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244040"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Förbereda hårddiskar för ett importjobb
 
@@ -309,7 +309,7 @@ Om data är större än den, distribuera verktyget WAImportExport data på diska
 
 #### <a name="where-can-i-find-previous-version-of-waimportexport-tool"></a>Var hittar jag tidigare version av WAImportExport tool?
 
-WAImportExport verktyget har alla funktioner som hade WAImportExport V1-verktyget. WAImportExport verktyget kan du ange flera källor och skriva till flera enheter. Dessutom kan ett enkelt hantera flera källplatser där data ska kopieras i en enda CSV-fil. Om du behöver support för SAS- eller vill du kopiera en enda källa till enskild disk, du kan dock [hämta WAImportExport V1 verktyget](http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) och referera till [WAImportExport V1 referens](storage-import-export-tool-how-to-v1.md) hjälp med WAImportExport V1-användning .
+WAImportExport verktyget har alla funktioner som hade WAImportExport V1-verktyget. WAImportExport verktyget kan du ange flera källor och skriva till flera enheter. Dessutom kan ett enkelt hantera flera källplatser där data ska kopieras i en enda CSV-fil. Om du behöver support för SAS- eller vill du kopiera en enda källa till enskild disk, du kan dock [hämta WAImportExport V1 verktyget](https://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) och referera till [WAImportExport V1 referens](storage-import-export-tool-how-to-v1.md) hjälp med WAImportExport V1-användning .
 
 #### <a name="what-is-a-session-id"></a>Vad är ett sessions-ID?
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 862143aec0ac54abb3c62677c5a1ab1c15007edb
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b58d6315c4399a7bb23514eb90ab5a94acda2592
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405573"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249038"
 ---
 # <a name="azure-security-technical-capabilities"></a>Tekniska funktioner för Azure-säkerhet
 
@@ -238,7 +238,7 @@ Azure Disk Encryption stöds för närvarande inte på PaaS v1. Därför måste 
 
 De flesta tjänster bör försöka använda kryptering av en lagringsresursprovidern. Vissa tjänster behöver explicit kryptering, till exempel någon beständig nyckelmaterial (certifikat, root / master-nycklar) måste lagras i Key Vault.
 
-Om du stöder tjänstsidan kryptering med Kundhanterade nycklar måste det finnas ett sätt för kunden att hämta nyckeln till oss. Stöds och rekommenderade sättet att göra det genom att integrera med Azure Key Vault (AKV). I det här fallet kan kunderna lägga till och hantera sina nycklar i Azure Key Vault. En kund kan lära dig hur du använder AKV via [komma igång med Key Vault](http://go.microsoft.com/fwlink/?linkid=521402).
+Om du stöder tjänstsidan kryptering med Kundhanterade nycklar måste det finnas ett sätt för kunden att hämta nyckeln till oss. Stöds och rekommenderade sättet att göra det genom att integrera med Azure Key Vault (AKV). I det här fallet kan kunderna lägga till och hantera sina nycklar i Azure Key Vault. En kund kan lära dig hur du använder AKV via [komma igång med Key Vault](https://go.microsoft.com/fwlink/?linkid=521402).
 
 Om du vill integrera med Azure Key Vault, skulle du lägga till kod för att begära en nyckel från AKV när det behövs för dekryptering.
 
@@ -283,7 +283,7 @@ När du planerar för Azure RMS-införande rekommenderar vi följande:
 
 - Skapa [anpassade mallar](https://technet.microsoft.com/library/dn642472.aspx) som motsvarar dina affärsbehov. Till exempel: en mall för övre hemliga data som ska tillämpas i alla översta hemlighet relaterade e-postmeddelanden.
 
-Organisationer som har svag på [dataklassificering](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) och Filskydd kan vara svårare att dataläckage. Utan rätt Filskydd organisationer inte att hämta affärsinsikter, övervaka missbruk och förhindra obehörig åtkomst till filer.
+Organisationer som har svag på [dataklassificering](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) och Filskydd kan vara svårare att dataläckage. Utan rätt Filskydd organisationer inte att hämta affärsinsikter, övervaka missbruk och förhindra obehörig åtkomst till filer.
 
 > [!Note]
 > Du kan lära dig mer om Azure RMS genom att läsa artikeln [komma igång med Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx).
@@ -408,7 +408,7 @@ Du kan hantera en instans i alla moln, inklusive lokala, Azure, AWS, Windows Ser
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) tillhandahåller övervakning genom att samla in data från hanterade resurser i en central databas. Dessa data kan omfatta händelser, prestandadata eller anpassade data via API:t. När data har samlats in är de tillgängliga för avisering, analys och export.
+[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics) tillhandahåller övervakning genom att samla in data från hanterade resurser i en central databas. Dessa data kan omfatta händelser, prestandadata eller anpassade data via API:t. När data har samlats in är de tillgängliga för avisering, analys och export.
 
 ![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 
@@ -452,7 +452,7 @@ Molnprogram är komplexa med alla rörliga delar. Övervakning ger data så att 
 
 Det är viktigt för att identifiera säkerhetsproblem i nätverket och att säkerställa efterlevnad med din IT-säkerhet och föreskrifter styrning modell granskning nätverkssäkerheten. Du kan hämta den konfigurerade Nätverkssäkerhetsgrupp och säkerhetsregler samt gällande säkerhetsregler med säkerhetsgruppen vy. Du kan fastställa vilka portar som är öppna och ss network säkerhetsproblem med listan över regler som tillämpas.
 
-### <a name="network-watcher"></a>Nätverksbevakare
+### <a name="network-watcher"></a>Nätverksbevakaren
 
 [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher) är en regional tjänst som hjälper dig att övervaka och diagnostisera villkor på nätverksnivå i, till och från Azure. Nätverksdiagnostik- och visualiseringsverktyg för Network Watcher hjälper dig att förstå, diagnostisera och få information om ditt nätverk i Azure. Den här tjänsten innefattar paketinsamling, nästa hopp, IP-flöde verifiera säkerhetsgruppvy, NSG-flödesloggar. Scenariot på övervakning ger en heltäckande vy av nätverksresurser, till skillnad från enskilda resource nätverksövervakning.
 

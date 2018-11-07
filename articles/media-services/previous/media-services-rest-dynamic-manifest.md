@@ -1,6 +1,6 @@
 ---
 title: Skapa filter med Azure Media Services REST API | Microsoft Docs
-description: Det här avsnittet beskriver hur du skapar filter så att klienten kan använda dem till dataströmmen vissa delar av en dataström. Media Services skapar dynamiska manifest för att uppnå det här selektiv strömning.
+description: Det här avsnittet beskriver hur du skapar filter så att klienten kan använda dem till stream vissa delar av en dataström. Media Services skapar dynamiska manifest för att uppnå den här selektiva strömning.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,23 +14,23 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 396abe0801d76af3820d302d40d2fc076754741b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 50becbe517e98802c9a3af91b86f845df05378a7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790281"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227526"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Skapa filter med Azure Media Services REST API
 > [!div class="op_single_selector"]
-> * [.NET](media-services-dotnet-dynamic-manifest.md)
+> * [NET](media-services-dotnet-dynamic-manifest.md)
 > * [REST](media-services-rest-dynamic-manifest.md)
 > 
 > 
 
-Från och med 2.17 kan Media Services du definiera filter för dina tillgångar. Dessa filter är serversidan regler som tillåter kunderna välja att till exempel: uppspelning endast en del av en video (i stället för hela video), eller ange bara en del av ljud och video återgivningar som kundens enhet kan hantera (i stället för alla återgivningar som är associerade med tillgången). Den här filtreringen dina tillgångar arkiveras via **dynamiska Manifest**s som skapas på kundens begäran för direktuppspelning av video baserat på angivna filter.
+Från och med 2.17, kan Media Services du definiera filter för dina tillgångar. Dessa filter är serversidan regler som gör att kunderna kan välja att till exempel: uppspelning endast en del av en video (i stället för hela videon), eller ange endast en delmängd av ljud och video återgivningar som din kunds enheten kan hantera (i stället för alla återgivningar som är associerade med tillgången). Den här filtrering av dina tillgångar arkiveras via **dynamiska Manifest**s som skapas på din kunds begäran för direktuppspelning av video baserat på angivna filter.
 
-Mer detaljerad information som rör filter och dynamiska Manifest finns [dynamiska visar en översikt över](media-services-dynamic-manifest-overview.md).
+Mer detaljerad information om filter och dynamiska Manifest, finns i [dynamiska manifest översikt](media-services-dynamic-manifest-overview.md).
 
 Den här artikeln visar hur du använder REST API: er för att skapa, uppdatera och ta bort filter. 
 
@@ -44,18 +44,18 @@ Följande typer används när du skapar filter:
 
 >[!NOTE]
 
->Vid åtkomst till entiteter i Media Services måste du ange specifika namn på huvudfält och värden i HTTP-begäranden. Mer information finns i [installationsprogrammet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
+>Vid åtkomst till entiteter i Media Services, måste du ange specifika namn på huvudfält och värden i HTTP-förfrågningar. Mer information finns i [installationsprogrammet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
 
 ## <a name="connect-to-media-services"></a>Ansluta till Media Services
 
-Information om hur du ansluter till AMS API: et finns [åtkomst till Azure Media Services-API med Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
+Information om hur du ansluter till AMS API finns i [åtkomst till Azure Media Services-API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
 
 ## <a name="create-filters"></a>Skapa filter
 ### <a name="create-global-filters"></a>Skapa globala filter
 Använd följande HTTP-begäranden för att skapa ett globalt Filter:  
 
 #### <a name="http-request"></a>HTTP-begäran
-Huvuden för begäran
+Begärandehuvuden
 
     POST https://media.windows.net/API/Filters HTTP/1.1 
     DataServiceVersion:3.0 
@@ -108,7 +108,7 @@ Begärandetext
 Använd följande HTTP-begäranden för att skapa en lokal AssetFilter:  
 
 #### <a name="http-request"></a>HTTP-begäran
-Huvuden för begäran
+Begärandehuvuden
 
     POST https://media.windows.net/API/AssetFilters HTTP/1.1 
     DataServiceVersion: 3.0 
@@ -157,8 +157,8 @@ Begärandetext
     . . . 
 
 ## <a name="list-filters"></a>Visa filter
-### <a name="get-all-global-filters-in-the-ams-account"></a>Hämta alla globala **Filter**s i AMS-kontot
-Om du vill visa filter använder du följande HTTP-begär: 
+### <a name="get-all-global-filters-in-the-ams-account"></a>Hämta alla globala **Filter**s i AMS-konto
+Om du vill lista filter använder du följande HTTP-begär: 
 
 #### <a name="http-request"></a>HTTP-begäran
     GET https://media.windows.net/API/Filters HTTP/1.1 
@@ -170,7 +170,7 @@ Om du vill visa filter använder du följande HTTP-begär:
     x-ms-version: 2.17 
     Host: media.windows.net 
 
-### <a name="get-assetfilters-associated-with-an-asset"></a>Hämta **AssetFilter**s som är kopplade till en tillgång
+### <a name="get-assetfilters-associated-with-an-asset"></a>Hämta **AssetFilter**s som är associerade med en tillgång
 #### <a name="http-request"></a>HTTP-begäran
     GET https://media.windows.net/API/Assets('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592')/AssetFilters HTTP/1.1 
     DataServiceVersion: 3.0 
@@ -195,15 +195,15 @@ Om du vill visa filter använder du följande HTTP-begär:
 
 
 ## <a name="update-filters"></a>Uppdatera filter
-Använd korrigering, PUT- eller MERGE för att uppdatera ett filter med nya värden.  Mer information om dessa åtgärder finns [korrigering, PUT, MERGE](http://msdn.microsoft.com/library/dd541276.aspx).
+Använda PATCH, PUT eller MERGE för att uppdatera ett filter med nya egenskapsvärden.  Mer information om dessa åtgärder finns i [PATCH, PLACERA, sammanfoga](https://msdn.microsoft.com/library/dd541276.aspx).
 
-Om du uppdaterar ett filter kan ta det upp till två minuter för strömmande slutpunkten att uppdatera reglerna. Om innehållet behandlades med filtret (och cachelagras i proxyservrar och CDN cacheminnen), kan uppdatera det här filtret resultera i player-fel. Rensa cachen när du har uppdaterat filtret. Om det här alternativet inte är möjligt bör du använda ett annat filter.  
+Om du uppdaterar ett filter, kan det ta upp till två minuter för slutpunkten för direktuppspelning att uppdatera reglerna. Om innehållet har behandlats med hjälp av det här filtret och cachelagras i proxyservrar och CDN cacheminnen, kan uppdaterar det här filtret resultera i player-fel. Rensa cacheminnet när du har uppdaterat filtret. Överväg att använda ett annat filter om det här alternativet inte är möjligt.  
 
 ### <a name="update-global-filters"></a>Uppdatera globala filter
-Uppdatera ett globalt filter med följande HTTP-begäranden: 
+Använd följande HTTP-begäranden för att uppdatera ett globalt filter: 
 
 #### <a name="http-request"></a>HTTP-begäran
-Huvuden för begäran: 
+Rubriker i begäran: 
 
     MERGE https://media.windows.net/API/Filters('filterName') HTTP/1.1 
     DataServiceVersion:3.0 
@@ -217,7 +217,7 @@ Huvuden för begäran:
     Host: media.windows.net 
     Content-Length: 384
 
-Begärandetexten: 
+Brödtext i begäran: 
 
     { 
        "Tracks":[   
@@ -243,7 +243,7 @@ Begärandetexten:
 Använd följande HTTP-begäranden för att uppdatera ett lokalt filter: 
 
 #### <a name="http-request"></a>HTTP-begäran
-Huvuden för begäran: 
+Rubriker i begäran: 
 
     MERGE https://media.windows.net/API/AssetFilters('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592__%23%23%23__TestFilter')  HTTP/1.1 
     DataServiceVersion: 3.0 
@@ -256,7 +256,7 @@ Huvuden för begäran:
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
 
-Begärandetexten: 
+Brödtext i begäran: 
 
     { 
        "Tracks":[   
@@ -307,12 +307,12 @@ Använd följande HTTP-begäranden för att ta bort en lokal AssetFilter:
     x-ms-version: 2.17 
     Host: media.windows.net 
 
-## <a name="build-streaming-urls-that-use-filters"></a>Skapa strömning URL: er som använder filter
-Mer information om hur man publicerar och leverera dina tillgångar finns [leverera innehåll till kunder översikt](media-services-deliver-content-overview.md).
+## <a name="build-streaming-urls-that-use-filters"></a>Skapa strömmande URL: er som använder filter
+Information om hur du publicerar och leverera dina tillgångar, finns i [leverera innehåll till kunder översikt](media-services-deliver-content-overview.md).
 
-Följande exempel visar hur du lägger till filter till din strömmande URL: er.
+I följande exempel visas hur du lägger till filter till din strömmande URL: er.
 
-**MPEG DASH** 
+**MPEG-DASH** 
 
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf, filter=MyFilter)
 
@@ -336,5 +336,5 @@ Följande exempel visar hur du lägger till filter till din strömmande URL: er.
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Se även
-[Översikt över dynamisk manifest](media-services-dynamic-manifest-overview.md)
+[Översikt över dynamiska manifest](media-services-dynamic-manifest-overview.md)
 

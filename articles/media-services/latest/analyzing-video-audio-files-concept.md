@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/23/2018
 ms.author: juliako
-ms.openlocfilehash: 90aa3551bb9e2d903fb0f66e3a9b464b0f4be928
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a087c1a069e340c01f2eda657a3d0ecce768168c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987621"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228139"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analysera video-och ljudfiler
 
@@ -25,20 +25,29 @@ Azure Media Services v3 kan du extrahera insikter från din video och ljud filer
 Om du vill analysera ditt innehåll med Media Services v3 förinställningar kan du skapa en **transformera** och skicka en **jobbet** som använder en av dessa förinställningar: **AudioAnalyzerPreset** eller **VideoAnalyzerPreset**. I följande artikel visar hur du använder **VideoAnalyzerPreset**: [självstudie: analysera videoklipp med Azure Media Services](analyze-videos-tutorial-with-api.md).
 
 > [!NOTE]
-> När du använder en Video eller ljud Analyzer förinställningar, kan du använda Azure-portalen för att ange ditt konto ha 10 Mediereserverade S3-enheter. Mer information finns i [skala mediebearbetning](../previous/media-services-scale-media-processing-overview.md).
+> När du använder en Video- eller Audio Analyzer-förinställningen använder du Azure-portalen för att ställa in ditt konto på att ha 10 mediereserverade S3-enheter. Mer information finns i [Skala mediebearbetning](../previous/media-services-scale-media-processing-overview.md).
 
-## <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
+## <a name="built-in-presets"></a>Inbyggda förinställningar
 
-**AudioAnalyzerPreset** kan du ta fram flera ljud insikter från en ljud- eller video-fil. Utdata innehåller en JSON-fil (med insikterna) och VTT-filen för ljudavskrifter. Den här förinställningen accepterar en egenskap som anger språket i indatafilen i form av en [BCP47](https://tools.ietf.org/html/bcp47) sträng. Ljud insikterna är:
+Media Services stöder för närvarande följande inbyggda analyzer förinställningar:  
+
+|**Förinställda namnet**|**Scenario**|**Detaljer**|
+|---|---|---|
+|**AudioAnalyzerPreset**|Analysera ljud|Förinställningen gäller en fördefinierad uppsättning AI-baserade analysis-åtgärder, inklusive taltranskription. Förinställningen stöder för närvarande, bearbetning av innehåll med en enda ljudspår.<br/>Du kan ange språket för ljud nyttolasten i indata i BCP-47 formatet för ”språk tagg-regioner” (till exempel ”en-US”). Listan över språk som stöds är ”en-US”, ”en-GB”, ”es-ES”, ”es-MX”, fr-FR, it-IT, ja-JP, pt-BR, zh-CN.|
+|**VideoAnalyzerPreset**|Analysera ljud och video|Extraherar insikter (omfattande metadata) från både ljud och video och matar ut en fil i JSON-format. Du kan ange om du bara vill lyfta ut kunskaper ljud vid bearbetning av en videofil. Mer information finns i [analysera video](analyze-videos-tutorial-with-api.md).|
+
+### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
+
+Förinställningen kan du extrahera insikter för flera ljud från en ljud- eller video-fil. Utdata innehåller en JSON-fil (med insikterna) och VTT-filen för ljudavskrifter. Den här förinställningen accepterar en egenskap som anger språket i indatafilen i form av en [BCP47](https://tools.ietf.org/html/bcp47) sträng. Ljud insikterna är:
 
 * Ljudutskrift – avskrifter av orden med tidsstämplar. Flera språk som stöds
 * Talare indexering – en mappning av talare och motsvarande talade ord
 * Tal attitydanalys – utdata för attitydanalys som utförs på ljudutskrift
 * Nyckelord – nyckelord som extraheras från ljudutskrift.
 
-## <a name="videoanalyzerpreset"></a>VideoAnalyzerPreset
+### <a name="videoanalyzerpreset"></a>VideoAnalyzerPreset
 
-**VideoAnalyzerPreset** kan du ta fram flera ljud- och insikter från en videofil. Utdata innehåller en JSON-fil (med insikterna), en VTT-fil för videoavskriften och en samling av miniatyrbilder. Den här förinställningen också godkänner en [BCP47](https://tools.ietf.org/html/bcp47) sträng (som motsvarar språket i videon) som en egenskap. Videoinsikter inkluderar alla ljud insikter som nämns ovan och följande funktioner:
+Förinställningen kan du extrahera flera ljud- och insikter från en videofil. Utdata innehåller en JSON-fil (med insikterna), en VTT-fil för videoavskriften och en samling av miniatyrbilder. Den här förinställningen också godkänner en [BCP47](https://tools.ietf.org/html/bcp47) sträng (som motsvarar språket i videon) som en egenskap. Videoinsikter inkluderar alla ljud insikter som nämns ovan och följande funktioner:
 
 * Ansikte spårning – den tid under vilken ansikten finns i videon. Varje ansikte har ett ansikts-id och en motsvarande samling av miniatyrbilder
 * Visual text – den text som har identifierats via optisk teckenläsning. Texten är stämplad och används också för att extrahera nyckelord (utöver ljudavskrifter)

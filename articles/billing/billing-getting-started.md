@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 6b497fd9f4280c36adcbeb4d94e469525c9dad6e
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 3e7af4039ca5cd8aaadc36d3f87900e2127af7ab
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423008"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255667"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Förhindra oväntade avgifter med Azure-fakturering och kostnadshantering
 
@@ -142,7 +142,7 @@ Tala med din kontoansvarige eller Azure-partner för att komma igång.
 | Cloud Solution Provider (CSP) | Tala med din provider |
 | Sponsring av Azure | [Sponsring portal](https://www.microsoftazuresponsorships.com/) |
 
-Om du hanterar IT för en stor organisation kan vi rekommenderar att du läser [Azure enterprise kodskelett](/azure/architecture/cloud-adoption-guide/subscription-governance) och [enterprise IT white paper om](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (PDF-nedladdning, endast på engelska).
+Om du hanterar IT för en stor organisation kan vi rekommenderar att du läser [Azure enterprise kodskelett](/azure/architecture/cloud-adoption-guide/subscription-governance) och [enterprise IT white paper om](https://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (PDF-nedladdning, endast på engelska).
 
 #### <a name="EA"></a> Förhandsversion av Enterprise-avtal kostnad vyer i Azure Portal 
 

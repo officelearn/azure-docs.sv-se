@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: a1f6aae69580f2afe5aceabd70cfe8e6fd3151b8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5e74a845fbf263791e3e07006e79e4332646dfd5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977952"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256314"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure Diagnostics 1.3 och senare konfigurationsschema
 > [!NOTE]
@@ -138,8 +138,8 @@ Läs mer om hur du använder Azure Diagnostics [Azure Diagnostics-tillägget](az
 
   </WadCfg>  
 
-  <StorageAccount>diagstorageaccount</StorageAccount>
-  <StorageType>TableAndBlob</StorageType> <!-- Added in 1.8 -->  
+  <StorageAccount>diagstorageaccount</StorageAccount>
+  <StorageType>TableAndBlob</StorageType> <!-- Added in 1.8 -->  
   </PublicConfig>  
 
   <PrivateConfig>  <!-- Added in 1.3 -->  
@@ -532,7 +532,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Konfigurerar insamling av händelser som genereras från [EventSource klass](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Obligatoriskt attribut:<br /><br /> **Providern** -klassnamnet händelsens EventSource.<br /><br /> Valfritt attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** -den lägsta allvarlighetsgraden att överföra till ditt lagringskonto.<br /><br /> - **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
+|**EtwEventSourceProviderConfiguration**|Konfigurerar insamling av händelser som genereras från [EventSource klass](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Obligatoriskt attribut:<br /><br /> **Providern** -klassnamnet händelsens EventSource.<br /><br /> Valfritt attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** -den lägsta allvarlighetsgraden att överföra till ditt lagringskonto.<br /><br /> - **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 |**EtwManifestProviderConfiguration**|Obligatoriskt attribut:<br /><br /> **Providern** -GUID för händelseprovider<br /><br /> Valfritt attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** -den lägsta allvarlighetsgraden att överföra till ditt lagringskonto.<br /><br /> - **scheduledTransferPeriod** -intervallet mellan schemalagda överföringar till lagringen avrundas uppåt till närmaste minut. Värdet är en [XML ”varaktighet datatyp”.](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 
 
@@ -540,7 +540,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration Element  
  *: Trädrot - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwEventSourceProviderConfiguration*
 
- Konfigurerar insamling av händelser som genereras från [EventSource klass](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx).  
+ Konfigurerar insamling av händelser som genereras från [EventSource klass](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx).  
 
 |Underordnade element|Beskrivning|  
 |--------------------|-----------------|  

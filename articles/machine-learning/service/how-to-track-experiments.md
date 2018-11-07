@@ -9,19 +9,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 054cd54827dc11e57f249a270542ff81ff670912
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: da92f59c4e25ec012cd9ad389c9afac410ba28e1
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650000"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219315"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Spåra experiment och utbildning mått i Azure Machine Learning
 
 I Azure Machine Learning-tjänsten kan du spåra dina experiment och övervaka mått för att förbättra modellen skapandeprocessen. I den här artikeln får du får lära dig om olika sätt att lägga till loggning i manuset utbildning, hur du skickar experiment med **start_logging** och **ScriptRunConfig**, så kontrollera status för en jobb som körs, och hur du visar resultatet av en körning. 
 
 >[!NOTE]
-> Koden i den här artikeln har testats med Azure Machine Learning SDK version 0.168 
+> Koden i den här artikeln har testats med Azure Machine Learning SDK version 0.1.74 
 
 ## <a name="list-of-training-metrics"></a>Lista över mått för utbildning 
 
@@ -67,7 +67,6 @@ Innan du lägger till loggning och skicka ett experiment, måste du ställa in d
 
   # make up an arbitrary name
   experiment_name = 'train-in-notebook'
-  exp = Experiment(workspace_object = ws, name = experiment_name)
   ```
   
 ## <a name="option-1-use-startlogging"></a>Alternativ 1: Använd start_logging
@@ -103,7 +102,8 @@ I följande exempel träna en enkel modell sklearn upphöjning lokalt i en lokal
 2. Lägg till experimentet spårning med Azure Machine Learning-tjänst-SDK och ladda upp en bestående modell till experimentet körningsposten. Följande kod lägger till taggar, loggar, och laddar upp en modellfil till körningen av experimentet.
 
   ```python
-  run = Run.start_logging(experiment = exp)
+  experiment = Experiment(workspace = ws, name = experiment_name)
+  run = experiment.start_logging()
   run.tag("Description","My first run!")
   run.log('alpha', 0.03)
   reg = Ridge(alpha = 0.03)
@@ -209,8 +209,8 @@ Det här exemplet kan utökas med grundläggande sklearn upphöjning modellen ov
   ```python
   from azureml.core import ScriptRunConfig
 
-  src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_user_managed)
-  run = exp.submit(src)
+  src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
+  run = experiment.submit(src)
   ```
   
 ## <a name="view-run-details"></a>Visa körningsinformation
@@ -248,11 +248,22 @@ Länk för körningen öppnar du direkt till sidan körningsinformation i Azure-
   ![Skärmbild av körningsinformation i Azure portal](./media/how-to-track-experiments/run-details-page-web.PNG)
 
 Du kan också visa alla utdata och loggar för körningen eller ladda ned ögonblicksbild av experimentet som du har skickat in så att du kan dela mappen experiment med andra.
+### <a name="viewing-charts-in-run-details"></a>Visa diagram i körningsinformation
+
+Det finns olika sätt att använda loggning API: er till olika posttyper mått under en körning och visa dem som diagram i Azure-portalen. 
+
+|Loggade värde|Exempelkod| Visa på portal|
+|----|----|----|
+|Logga en matris med numeriska värden| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|Single-variable linjediagram|
+|Logga ett numeriskt värde med samma måttnamnet används flera gånger (liknande inifrån en slinga)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Single-variable linjediagram|
+|Logga en rad med 2 numeriska kolumner upprepade gånger|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Två variabler linjediagram|
+|Tabell med 2 numeriska kolumner|`run.log_table(name='Sine Wave', value=sines)`|Två variabler linjediagram|
 
 ## <a name="example-notebooks"></a>Exempel-anteckningsböcker
 Följande anteckningsböcker demonstrera begreppen i den här artikeln:
 * [01.Getting-Started/01.Train-within-notebook/01.Train-within-notebook.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/01.train-within-notebook)
 * [01.Getting-Started/02.Train-on-Local/02.Train-on-Local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
+* [01.Getting-Started/06.Logging-API/06.Logging-API.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/06.logging-api/06.logging-api.ipynb)
 
 Hämta dessa anteckningsböcker: [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

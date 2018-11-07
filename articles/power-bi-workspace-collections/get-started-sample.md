@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: cd7da8d2bbd684df29432bb924bdae3cd9ac7e64
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a2e1604a51b8343d926dda3b258d38b19266deeb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044445"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246692"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Kom igång med Power BI-Arbetsytesamlingar exempel
 
@@ -26,9 +26,9 @@ Med **Microsoft Power BI-Arbetsytesamlingar**, kan du integrera Power BI-rapport
 
 Innan vi går vidare, du vill spara följande resurser: de hjälper dig att när de integrerar Power BI-rapporter i exempelappen och dina egna appar för.
 
-* [Exempelwebbappen för arbetsytan](http://go.microsoft.com/fwlink/?LinkId=761493)
+* [Exempelwebbappen för arbetsytan](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Power BI-arbetsyta samlingar API-referens](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-* [Power BI .NET SDK ](http://go.microsoft.com/fwlink/?LinkId=746472) (tillgängligt via NuGet)
+* [Power BI .NET SDK ](https://go.microsoft.com/fwlink/?LinkId=746472) (tillgängligt via NuGet)
 * [Rapport för JavaScript-Inbäddningsexempel](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Innan vi går vidare, du vill spara följande resurser: de hjälper dig att när
 
 Låt oss gå genom att ställa in din utvecklingsmiljö i Visual Studio för att få åtkomst till de komponenter som behövs för att köra exempelappen.
 
-1. Hämta och packa upp den [Power BI-Arbetsytesamlingar – integrera en rapport i en webbapp](http://go.microsoft.com/fwlink/?LinkId=761493) i GitHub.
+1. Hämta och packa upp den [Power BI-Arbetsytesamlingar – integrera en rapport i en webbapp](https://go.microsoft.com/fwlink/?LinkId=761493) i GitHub.
 2. Öppna **PowerBI-embedded.sln** i Visual Studio. Du kan behöva köra den **uppdateringspaketet** i NuGet Package Manager-konsolen för att uppdatera de paket som används i den här lösningen.
 3. Skapa lösningen.
 4. Kör den **ProvisionSample** konsolapp. I konsolen exempelapp etablerar en arbetsyta och importera en PBIX-fil.
@@ -51,7 +51,7 @@ Låt oss gå genom att ställa in din utvecklingsmiljö i Visual Studio för att
 8. Kopiera och spara den nyligen skapade **arbetsyte-ID** att använda senare i den här artikeln. Efter den **arbetsyte-ID** är skapat kan du hittar den på **Azure-portalen**.
 
     ![Arbetsyte-ID på Azure portal](media/get-started-sample/workspace-id.png)
-9. Importera en PBIX-fil i din **arbetsytan**, Välj alternativet **6. Importera PBIX Desktop-fil till en befintlig arbetsyta**. Om du inte har en PBIX filen till hands kan du hämta den [Retail Analysis-exemplet PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
+9. Importera en PBIX-fil i din **arbetsytan**, Välj alternativet **6. Importera PBIX Desktop-fil till en befintlig arbetsyta**. Om du inte har en PBIX filen till hands kan du hämta den [Retail Analysis-exemplet PBIX](https://go.microsoft.com/fwlink/?LinkID=780547).
 10. Om du uppmanas, anger du ett eget namn för din **datauppsättning**.
 
 Du bör se ett svar som:
@@ -83,7 +83,7 @@ Web app-exemplet är ett exempelprogram som återger rapporter som importeras ti
     ```
 3. Kör den **EmbedSample** webbprogram.
 
-När du kör den **EmbedSample** webbprogrammet, den vänstra navigeringspanelen ska innehålla en **rapporter** menyn. Om du vill visa rapporten du importerat, expandera **rapporter**, och klicka på en rapport. Om du har importerat den [Retail Analysis-exemplet PBIX](http://go.microsoft.com/fwlink/?LinkID=780547), exempelwebbappen skulle se ut så här:
+När du kör den **EmbedSample** webbprogrammet, den vänstra navigeringspanelen ska innehålla en **rapporter** menyn. Om du vill visa rapporten du importerat, expandera **rapporter**, och klicka på en rapport. Om du har importerat den [Retail Analysis-exemplet PBIX](https://go.microsoft.com/fwlink/?LinkID=780547), exempelwebbappen skulle se ut så här:
 
 ![Exemplet vänster navigeringsfält i exempelprogrammet](media/get-started-sample/sample-left-nav.png)
 

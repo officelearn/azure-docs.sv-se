@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 224d5673b374b9b30237d25113e07aaf6dd4feaf
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 77d47b1f4946a8539b58b9335b967321b6bbf2e9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960985"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259878"
 ---
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Automatisera processer för Log Analytics med anslutningsappen för Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) kan du skapa automatiserade arbetsflöden med hundratals åtgärder för en mängd olika tjänster. Utdata från en åtgärd kan användas som indata till en annan så att du kan skapa integrering mellan olika tjänster.  Azure Log Analytics-anslutningsappen för Microsoft Flow kan du skapa arbetsflöden som innehåller data som hämtats av loggsökningar i Log Analytics.
@@ -29,7 +29,7 @@ Självstudie i den här artikeln visar hur du skapar ett flöde som automatiskt 
 
 
 ## <a name="step-1-create-a-flow"></a>Steg 1: Skapa ett flöde
-1. Logga in på [Microsoft Flow](http://flow.microsoft.com), och välj **Mina flöden**.
+1. Logga in på [Microsoft Flow](https://flow.microsoft.com), och välj **Mina flöden**.
 2. Klicka på **+ skapa från tom**.
 
 ## <a name="step-2-create-a-trigger-for-your-flow"></a>Steg 2: Skapa en utlösare för flödet
@@ -79,7 +79,7 @@ Självstudie i den här artikeln visar hur du skapar ett flöde som automatiskt 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [loggsökningar i Log Analytics](log-analytics-log-search.md).
+- Läs mer om [loggsökningar i Log Analytics](log-analytics-queries.md).
 - Läs mer om [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

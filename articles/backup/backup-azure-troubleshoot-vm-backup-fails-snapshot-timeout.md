@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 25c9cbcaf852aa07bcbe4f71bf69de366d4dbb87
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: 9511e4f90348d58c7b5f6e85d9a5eb74af276461
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50754043"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260507"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: problem med agenten eller -tillägget
 
@@ -153,7 +153,7 @@ VM-agenten kan vara skadad eller tjänsten har stoppats. Installera om den Virtu
 1. Avgör om Windows-gästagenttjänsten körs i VM-tjänsterna (services.msc). Försök att starta om Windows-gästagenttjänsten och påbörja säkerhetskopieringen.    
 2. Om Windows-gästagenttjänsten inte visas i tjänster på Kontrollpanelen, gå till **program och funktioner** att avgöra om tjänsten Windows-Gästagenten är installerad.
 4. Om Windows-Gästagenten visas i **program och funktioner**, avinstallera Windows-Gästagenten.
-5. Ladda ned och installera den [senaste versionen av agenten MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du måste ha administratörsbehörighet för att slutföra installationen.
+5. Ladda ned och installera den [senaste versionen av agenten MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du måste ha administratörsbehörighet för att slutföra installationen.
 6. Kontrollera att Windows-Gästagenten tjänster visas i services.
 7. Köra en säkerhetskopiering på begäran:
     * I portalen, väljer **Säkerhetskopiera nu**.

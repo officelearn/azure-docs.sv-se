@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 617a6f4873c49877cbef48a7df3f2ab2c625445e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 68f3fe0dbd16d3d71dc66af05de6f90156d67dfa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412524"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246369"
 ---
 # <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Program- och problem med tjänsters tillgänglighet för Azure Cloud Services: vanliga frågor (FAQ)
 
@@ -33,7 +33,7 @@ Ungefär släpper en gång i månaden, Microsoft en ny gäst-OS-version för Win
 
 Mer information om de senaste uppdateringarna för gäst-OS, finns i [Azures gäst-OS-versioner och SDK-kompatibilitetsöversikten](cloud-services-guestos-update-matrix.md).
 
-Användbar information om omstarter och pekare till teknisk information av Gäst och värd-OS-uppdateringar finns i MSDN bloggposten [rollen instansen startas om på grund av OS-uppgraderingar](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).
+Användbar information om omstarter och pekare till teknisk information av Gäst och värd-OS-uppdateringar finns i MSDN bloggposten [rollen instansen startas om på grund av OS-uppgraderingar](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).
 
 ## <a name="why-does-the-first-request-to-my-cloud-service-after-the-service-has-been-idle-for-some-time-take-longer-than-usual"></a>Varför den första begäran till min molntjänst när tjänsten har varit inaktiv under en viss tid tar det längre tid än vanligt?
 När servern tar emot den första begäran, först kompilerar koden och bearbetar begäran. Det är därför den första begäran tar längre tid än de andra. Som standard hämtar app pool stänga av i fall av användaren inaktivitet. App-poolen kommer också Papperskorgen som standard var 1,740 minut (29 timmar).

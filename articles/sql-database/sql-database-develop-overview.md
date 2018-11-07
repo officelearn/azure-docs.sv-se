@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 06/20/2018
-ms.openlocfilehash: 58f902edcd417809d1bb47a231cb1c2ac2f579d1
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 707e10f77bf00ed12f09a23e490105f52ceed4ab
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063599"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241607"
 ---
 # <a name="sql-database-application-development-overview"></a>Översikt över SQL Database-programutveckling
 Den här artikeln beskriver grundläggande överväganden som utvecklare bör tänka på då de skriver kod för att ansluta till Azure SQL Database.
@@ -61,7 +61,7 @@ När ett tillfälligt fel uppstår vid anslutning till SQL Database, bör din ko
 
 ## <a name="managing-connections"></a>Hantera anslutningar
 * I din klient för anslutningslogik åsidosätter du standardvärdet för timeout till att vara 30 sekunder.  Standardvärdet på 15 sekunder är för kort för anslutningar som beror på internet.
-* Om du använder en [anslutningspool](http://msdn.microsoft.com/library/8xx3tyca.aspx), måste du stänga anslutningen så snart programmet inte aktivt använder den och inte förbereder sig för att återanvända den.
+* Om du använder en [anslutningspool](https://msdn.microsoft.com/library/8xx3tyca.aspx), måste du stänga anslutningen så snart programmet inte aktivt använder den och inte förbereder sig för att återanvända den.
 
 ## <a name="network-considerations"></a>Nätverksöverväganden
 * På den dator som är värd för ditt klientprogram, ska du se till att brandväggen tillåter utgående TCP-kommunikation på port 1433.  Mer information: [konfigurera en Azure SQL Database-brandvägg](sql-database-configure-firewall-settings.md).

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/07/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: a50f91d5cbbc0eac7080437c96144014dad651ee
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: d520a33fd6729f4a9d4778cfdb8d3380c9ac09b0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161773"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237850"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Använda Azure Resource Manager-mallar i Azure Stack
 
@@ -30,7 +30,7 @@ Du kan använda Azure Resource Manager-mallar för att distribuera och etablera 
 
 Dessa mallar kan distribueras med Microsoft Azure Stack-portalen, PowerShell, kommandorad och Visual Studio.
 
-Följande snabbstartsmallar är tillgängliga på [GitHub](http://aka.ms/azurestackgithub):
+Följande snabbstartsmallar är tillgängliga på [GitHub](https://aka.ms/azurestackgithub):
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>Distribuera SharePoint-Server (distribution med hög tillgänglighet)
 

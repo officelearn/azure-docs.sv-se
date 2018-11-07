@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 29faba8947e189072317f1e85ba6fe71e7805462
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 99b915f14aaa7d306d1bceb5bd4f6bb23abdb929
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957853"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245383"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Återställa Remote Desktop Services eller dess administratörslösenordet, i en virtuell Windows-dator
 Om du inte kan ansluta till en Windows-dator (VM), kan du återställa ditt lösenord för lokal administratör eller återställa Remote Desktop Services-konfigurationen (stöds inte på Windows-domänkontrollanter). Använd Azure portal eller VM Access-tillägg i Azure PowerShell för att återställa lösenordet. När du har loggat in till den virtuella datorn, kan du återställa lösenordet för den lokala administratören.  
@@ -93,7 +93,7 @@ Kontrollera först att du har den [senaste PowerShell-modulen installeras och ko
 
 - [Lär dig mer om Azure VM-tillägg och funktioner](../extensions/features-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-- [Ansluta till en Azure-dator med RDP eller SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx).
+- [Ansluta till en Azure-dator med RDP eller SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
 - [Felsöka fjärrskrivbordsanslutningar till en Windows-baserade Azure VM](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

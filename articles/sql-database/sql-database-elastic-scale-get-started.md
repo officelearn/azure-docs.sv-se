@@ -12,12 +12,12 @@ ms.author: anjangsh
 ms.reviewer: ''
 manager: craigg
 ms.date: 08/27/2018
-ms.openlocfilehash: 74bbaeeee390952bf42407a53684bc33a7cfc543
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: ad07b0a9ae2d0c90f63d4f3a842a5d386ac4c59b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242781"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249871"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Kom igång med elastiska Databasverktyg
 Det här dokumentet ger en introduktion till utvecklarupplevelsen för den [klientbibliotek för elastiska databaser](sql-database-elastic-database-client-library.md) genom att hjälpa du kör en exempelapp. Exempelappen skapar ett enkelt delat program och utforskar nyckelfunktioner av funktionen Verktyg för elastiska databaser i Azure SQL Database. Den fokuserar på användningsområden för [fragmentkarthantering](sql-database-elastic-scale-shard-map-management.md), [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md), och [Multi-shard-frågor](sql-database-elastic-scale-multishard-querying.md). Det finns klientbiblioteket för .NET och Java. 
@@ -67,7 +67,7 @@ Lägg till klientbiblioteket till dina egna Maven-projekt genom att lägga till 
 
 ## <a name="elastic-database-tools-for-net"></a>Elastiska Databasverktyg för .NET 
 ### <a name="prerequisites"></a>Förutsättningar
-* Visual Studio 2012 eller senare med C#. Hämta en kostnadsfri version på [hämtningsfiler för Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
+* Visual Studio 2012 eller senare med C#. Hämta en kostnadsfri version på [hämtningsfiler för Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2.7 eller senare. Om du vill hämta den senaste versionen, se [installera NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
 
 ### <a name="download-and-run-the-sample-app"></a>Hämta och köra exempelappen
@@ -95,13 +95,13 @@ Grattis! Du har skapat och kör ditt första delat program med hjälp av verktyg
 > 
 
 ## <a name="key-pieces-of-the-code-sample"></a>Viktiga delar av kodexemplet
-* **Hantera shards och shard**: koden visar hur du arbetar med fragment, intervall och avbildningar i den *ShardManagementUtils.cs* fil. Mer information finns i [skala ut databaser med fragmentkartehanteraren](http://go.microsoft.com/?linkid=9862595).  
+* **Hantera shards och shard**: koden visar hur du arbetar med fragment, intervall och avbildningar i den *ShardManagementUtils.cs* fil. Mer information finns i [skala ut databaser med fragmentkartehanteraren](https://go.microsoft.com/?linkid=9862595).  
 
-* **Databeroende routning**: routning av transaktioner till rätt fragment visas i den *DataDependentRoutingSample.cs* fil. Mer information finns i [databeroende routning](http://go.microsoft.com/?linkid=9862596). 
+* **Databeroende routning**: routning av transaktioner till rätt fragment visas i den *DataDependentRoutingSample.cs* fil. Mer information finns i [databeroende routning](https://go.microsoft.com/?linkid=9862596). 
 
-* **Fråga över flera shard**: fråga över shards illustreras i den *MultiShardQuerySample.cs* fil. Mer information finns i [Multi-shard-frågor](http://go.microsoft.com/?linkid=9862597).
+* **Fråga över flera shard**: fråga över shards illustreras i den *MultiShardQuerySample.cs* fil. Mer information finns i [Multi-shard-frågor](https://go.microsoft.com/?linkid=9862597).
 
-* **Att lägga till tom shards**: iterativ tillägg av nya tom fragmenten utförs av koden i den *CreateShardSample.cs* fil. Mer information finns i [skala ut databaser med fragmentkartehanteraren](http://go.microsoft.com/?linkid=9862595).
+* **Att lägga till tom shards**: iterativ tillägg av nya tom fragmenten utförs av koden i den *CreateShardSample.cs* fil. Mer information finns i [skala ut databaser med fragmentkartehanteraren](https://go.microsoft.com/?linkid=9862595).
 
 ## <a name="other-elastic-scale-operations"></a>Andra åtgärder med elastisk skalning
 * **Dela en befintlig fragment**: möjlighet att dela shards tillhandahålls av verktyget Dela och slå samman. Mer information finns i [flytta data mellan utskalade molndatabaser](sql-database-elastic-scale-overview-split-and-merge.md).
@@ -119,12 +119,12 @@ Information om priser finns i [SQL Database prisinformation](https://azure.micro
 Mer information om verktyg för elastiska databaser finns i följande artiklar:
 
 * Kodexempel: 
-  * Elastiska Databasverktyg ([.NET](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
-  * [Elastic Database-verktyg för Azure SQL - integrering av Entity Framework](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
+  * Elastiska Databasverktyg ([.NET](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
+  * [Elastic Database-verktyg för Azure SQL - integrering av Entity Framework](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
   * [Skärvelasticitet på Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blogg: [elastisk skalning meddelande](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
 * Channel 9: [Elastic Scale översiktsvideo](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
-* Diskussionsforum: [Azure SQL Database-forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
+* Diskussionsforum: [Azure SQL Database-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
 * Att mäta prestanda: [prestandaräknare för karthanteraren för shard](sql-database-elastic-database-client-library.md)
 
 <!--Anchors-->

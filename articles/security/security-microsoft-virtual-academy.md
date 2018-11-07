@@ -1,6 +1,6 @@
 ---
-title: Azure-säkerhet kurser från Microsoft Virtual Academy | Microsoft Docs
-description: Den här artikeln innehåller en granskad uppsättning Azure-säkerhet relaterade kurser från Microsoft Virtual Academy.  Microsoft Virtual Academy innehåller gratis, online-utbildning som hjälper utvecklare, IT och Data experter och studenter Läs den senaste tekniken, skapar sina kunskaper och deras karriärmöjligheter i förväg.
+title: Azure-säkerhetskurser från Microsoft Virtual Academy | Microsoft Docs
+description: Den här artikeln innehåller en granskad uppsättning Azure-säkerhet relaterade kurser från Microsoft Virtual Academy.  Microsoft Virtual Academy erbjuder kostnadsfria, online-utbildningar för utvecklare, IT och Datapersonal och studenter Läs den senaste tekniken, öka deras kunskaper och utveckla sina karriärer.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,54 +14,54 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: dfcd248be48109203e91c93231d89d1d650a4b96
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 21f5aba3acfebdcd2e93825ea34226adee5455d2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
-ms.locfileid: "25540056"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248086"
 ---
-# <a name="azure-security-courses-from-microsoft-virtual-academy"></a>Azure-säkerhet kurser från Microsoft Virtual Academy
-Microsoft Virtual Academy innehåller gratis, online-utbildning som hjälper utvecklare, IT och Data experter och studenter Läs den senaste tekniken, skapar sina kunskaper och deras karriärmöjligheter i förväg.
+# <a name="azure-security-courses-from-microsoft-virtual-academy"></a>Azure-säkerhetskurser från Microsoft Virtual Academy
+Microsoft Virtual Academy erbjuder kostnadsfria, online-utbildningar för utvecklare, IT och Datapersonal och studenter Läs den senaste tekniken, öka deras kunskaper och utveckla sina karriärer.
 
-Hitta en granskad uppsättning Azure säkerhetsrelaterade kurser på den här sidan. Besök den [Microsoft Virtual Academy](https://mva.microsoft.com/) visas alla kurser som de har tillgängliga.
+På den här sidan kan hitta du en granskad uppsättning Azure säkerhetsrelaterade kurser. Gå till den [Microsoft Virtual Academy](https://mva.microsoft.com/) för att se alla kurser som de har tillgängliga.
 
-[Utveckling och testning i molnet](https://mva.microsoft.com/en-us/training-courses/devtest-in-the-cloud-16274?l=9aAijd7LC_2005190311)
+[Utveckling/testning i molnet](https://mva.microsoft.com/en-us/training-courses/devtest-in-the-cloud-16274?l=9aAijd7LC_2005190311)
 
-Är du en utvecklare som behöver ge snabbare och bättre program? Flytta din utvecklings- och testmiljöer till molnet kan hjälpa dig att uppnå exakt som! Lär dig att få det gjort och ta reda på fördelarna med att gå. Dessutom finns demonstrationer och presentationer som visar hur Microsoft Azure kan stödja hanteringsbehoven för utveckling och testning. Här ingår lektionen på säkerhet praxis för utveckling och distribution.
+Är du en utvecklare som behöver kunna leverera snabbare och bättre program? Flytta utveckling och testmiljöer i molnet kan hjälpa dig att få exakt det! Lär dig hur du blir klar och ta reda på fördelarna med att gå över. Dessutom kan se demonstrationer och presentationer som visar hur Microsoft Azure stöder utvecklings- och belastningstester behov. Ingår lektionen på security metoder för utveckling och distribution.
 
 [Vanliga uppgifter för Linux på Azure](https://mva.microsoft.com/en-us/training-courses/common-tasks-for-linux-on-azure-16191?l=J0Hvb7qJC_1204668937)
 
-Om du har frågor om hur du använder Linux på Microsoft Azure-plattformen har kursen detaljerad svar för dig. Utforska några vanliga aktiviteter med experter från [Linux Academy](https://linuxacademy.com/). Lär dig mer om hur du skapar en Linux-dator (VM) i Azure, åtkomst till Linux VM programvara för skrivbordet, och köra virtuella värdar. Många säkerhetstekniker och konfigurationer som behandlas i den här kursen.
+Om du har frågor om hur du använder Linux på Microsoft Azure-plattformen innehåller kursen detaljerad svar för dig. Utforska några vanliga uppgifter med experter från [Linux Academy](https://linuxacademy.com/). Lär dig mer om hur du skapar en Linux-dator (VM) i Azure, åtkomst till Linux VM med programvara för fjärrskrivbord och köra virtuella värdar. Många olika tekniker och konfigurationer täcks i den här kursen.
 
 [Skydda molnet](https://mva.microsoft.com/en-us/training-courses/secure-the-cloud-14037?l=lQIkkst0B_5300115881)
 
-I den här sessionen lär du dig hur Microsoft hjälper dig att uppfylla efterlevnadskrav globala, till exempel ISO 27001 / 27018, FedRAMP och PCI HIPAA med nya säkerhetskontrollerna. Dessa kontroller mellan kryptering av data i vila, nyckelhantering, skydd av Virtuella datorer, loggning och övervakning, till skadlig services, Identitetshantering, komma åt kontroller och mycket mer.
+I den här sessionen får du lära dig hur Microsoft kan hjälpa dig att uppfylla krav på global efterlevnad, till exempel ISO 27001 / 27018, FedRAMP, PCI och HIPAA, med nya säkerhetskontroller. Dessa kontroller mellan kryptering i vila, nyckelhantering, skydd av virtuell dator, loggning och övervakning, till skadlig tjänster, Identitetshantering, få åtkomst till kontroller och mycket mer.
 
-[Utforma och implementera lösningar för Cloud Platform](https://mva.microsoft.com/en-us/training-courses/design-and-implement-cloud-data-platform-solutions-15711?l=jbCdW0j1B_3005244527)
+[Utforma och implementera lösningar för Molndataplattformar](https://mva.microsoft.com/en-us/training-courses/design-and-implement-cloud-data-platform-solutions-15711?l=jbCdW0j1B_3005244527)
 
-Läs om funktionerna i Microsoft cloud platform lösningar. Få en överblick över plattform och få information om säkerhetsfunktioner, alternativ för hög tillgänglighet, tekniker för att övervaka och hantera molndata och mycket mer. Dessutom får du vägledning om hur du identifierar kompromisser och fatta beslut för hur man designar offentliga och hybrid cloud lösningar med hjälp av Microsoft cloud platform funktioner.
+Läs om funktionerna och egenskaperna för Microsoft molndataplattformar. Få en översikt för plattformen och lär dig om säkerhetsfunktioner, alternativ för hög tillgänglighet, tekniker för att övervaka och hantera molndata och mycket mer. Dessutom får du vägledning att identifiera kompromisser och fatta beslut för att utforma offentliga och hybridmolnlösningar med hjälp av Microsoft cloud data plattformsfunktioner.
 
-[Hantera och skydda identiteter i ett moln och mobila World](https://mva.microsoft.com/en-us/training-courses/manage-and-secure-identities-in-a-cloud-and-mobile-world-14013?l=GIJ2GcvrB_405192797)
+[Hantera och skydda identiteter i en moln- och mobil värld](https://mva.microsoft.com/en-us/training-courses/manage-and-secure-identities-in-a-cloud-and-mobile-world-14013?l=GIJ2GcvrB_405192797)
 
-I den här sessionen lär du dig hur Azure Active Directory och Microsoft Advanced Threat Analytics hjälper dig att skydda och hantera användaridentitet, identifiera säkerhetsintrång innan de orsakar skada och ge användarna en enstaka identitet för åtkomst till alla företagets resurser. Utforska de tekniker som används för att identifiera Shadow IT, hantera åtkomst till program och övervaka misstänkt aktivitet med avancerad säkerhet som rapportering, analys av användarbeteende, granskning och aviseringar.
+I den här sessionen får du lära dig hur Azure Active Directory och Microsoft Advanced Threat Analytics hjälper dig att skydda och hantera användaridentitet, identifiera säkerhetsintrång innan de orsakar skada och ge användarna en enda identitet för att komma åt alla företagsägda resurser. Utforska de tekniker som används för att upptäcka skugg-IT, hantera programåtkomst och övervaka misstänkt aktivitet via avancerad säkerhet som rapportering, analys av användarbeteende, granskning och aviseringar.
 
-[Säkerhet i ett moln-aktiverat World](https://mva.microsoft.com/en-us/training-courses/security-in-a-cloudenabled-world-12725?l=CfLHobAcB_3904300474)
+[Säkerhet i en Molnvärld](https://mva.microsoft.com/en-us/training-courses/security-in-a-cloudenabled-world-12725?l=CfLHobAcB_3904300474)
 
-Experter leder dig igenom kunden ansvar översikt över i den [Microsoft Cloud Security för Enterprise-arkitekter](http://www.microsoft.com/download/48121) poster. Experter ger även rekommendationer för modernizing varje del av din säkerhetstillståndet, inklusive styrning, inneslutning strategier, säkerhetsåtgärder, värdefulla tillgångsskydd, informationsskydd och användare och enhetssäkerhet med en särskild betoning på skydda administrativ kontroll. Lär dig från samma ramverk som använder Microsoft cybersecurity teamet att utvärdera kundernas molnet säkerhet och skapa dem en översikt över säkerhet.
+Experter som leder dig igenom kundens ansvar översikten i den [Microsoft Cloud Security för företagsarkitekter](https://www.microsoft.com/download/48121) affischen. Experterna även rekommendationer för att modernisera varje del av din säkerhetsposition, inklusive styrning, strategier för inneslutning, säkerhetsåtgärder, värdefulla tillgångsskydd, information protection och användare och säkerhet för enheter med en särskild betoning på att skydda administrativ kontroll. Lär dig från samma ramverket att Microsoft-teamet för cybersäkerhet använder för att utvärdera kunders molnsäkerhet och du skapar dem säkerhet-Översikt.
 
-[Microsoft Azure IaaS djup besöka](https://mva.microsoft.com/en-us/training-courses/microsoft-azure-iaas-deep-dive-14339?l=PtppYVQgB_8300115888)
+[Microsoft Azure IaaS Deep Dive](https://mva.microsoft.com/en-us/training-courses/microsoft-azure-iaas-deep-dive-14339?l=PtppYVQgB_8300115888)
 
-Lär dig hur du använder funktionerna för Microsoft Azure-infrastrukturen. Om du är en IT-proffs, behöver du inte har tidigare erfarenhet av Azure. Den här kursen vägleder dig genom att skapa och konfigurera virtuella Azure-datorer, virtuella Azure-nätverk och anslutning för att få saker och körs i molnet. Säkerhetsfunktioner och överväganden ingår i de.
+Lär dig hur du använder funktioner för Microsoft Azure-infrastruktur. Om du är en IT-proffs, behöver du inte har tidigare erfarenhet av Azure. Den här kursen får du hjälp att skapa och konfigurera virtuella datorer i Azure, Azure-nätverk och anslutning mellan olika platser för att få saker och som körs i molnet. Funktioner för säkerhet och överväganden ingår under kursens gång.
 
-[Komma igång med Azure-säkerhet för IT-proffs](https://mva.microsoft.com/training-courses/getting-started-with-azure-security-for-the-it-professional-11165?l=HfHzCXSAB_7404300474)
+[Komma igång med Azure Security för IT-proffs](https://mva.microsoft.com/training-courses/getting-started-with-azure-security-for-the-it-professional-11165?l=HfHzCXSAB_7404300474)
 
-I kursen demo ifylld ett team av säkerhetsexperter och Azure engineers tar du utöver de grundläggande certifieringarna och utforskar vad du kan göra i Azure. Lär dig att utforma och använda olika tekniker för att se till att du har säkerhets- och arkitektur som du måste starta har projekten i molnet. Fördjupa dig i datacenter operations, VM-konfiguration, nätverksarkitektur och lagringsinfrastruktur.
+I den här demospäckade kursen ett team med säkerhetsexperter och Azure-tekniker tar dig bakom den grundläggande certifieringen och utforskar det är möjligt inuti Azure. Se hur du utformar och använda olika tekniker för att säkerställa att du har säkerhets- och arkitektur som du behöver starta dina projekt i molnet. Fördjupa dig i störs, VM-konfiguration, nätverksarkitektur och lagringsinfrastrukturen.
 
-[Ingående i Azure Resource Manager-scenarier och mönster](https://mva.microsoft.com/en-us/training-courses/deep-dive-into-azure-resource-manager-scenarios-and-patterns-13793?l=i1m06ZJYB_7001937557)
+[Djupdykning i Azure Resource Manager-scenarier och mönster](https://mva.microsoft.com/en-us/training-courses/deep-dive-into-azure-resource-manager-scenarios-and-patterns-13793?l=i1m06ZJYB_7001937557)
 
-Utforska Azure Resource Manager med en grupp av experter som visar skript och verktyg som gör det enkelt att få upp hastigheten eller sakta ned element i din infrastruktur. Utforska användning av rollbaserad åtkomstkontroll (RBAC) att implementera säkerhet med Azure Resource Manager.
+Utforska Azure Resource Manager med ett team med experter som visar hanteringsskript och verktyg som gör det enkelt att skapa eller sakta ned element i programinfrastrukturen. Utforska användning av rollbaserad åtkomstkontroll (RBAC för) att implementera säkerhet med Azure Resource Manager.
 
-[Azure Rights Management Services grundläggande kunskaper](https://mva.microsoft.com/en-us/training-courses/azure-rights-management-services-core-skills-10500?l=QLoxMwuCB_1805094681)
+[Azure Rights Management Services Core Skills](https://mva.microsoft.com/en-us/training-courses/azure-rights-management-services-core-skills-10500?l=QLoxMwuCB_1805094681)
 
-Ta reda på varför informationsskydd är ett ”måste ha” krav i din organisation och hur rights management skyddar organisationens immateriell egendom, oavsett var de överförs i enheter och molnet. Hämta praktisk erfarenhet och teknisk kunskap från Microsoft experter.
+Ta reda på varför informationsskydd krävs för att ”ha” i din organisation och hur rights management skyddar organisationens immateriella, oavsett var de överförs mellan enheter och molnet. Få praktisk erfarenhet och tekniskt kunnande från Microsoft-experter.

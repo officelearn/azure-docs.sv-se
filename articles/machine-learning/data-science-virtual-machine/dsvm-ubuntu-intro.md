@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: d9008956d3a5542d71438ee13050a3951230e101
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: cf5a15a55cf3f0d33edeec9440e745c9dce996c1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338815"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244873"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Etablera den virtuella datorn för datavetenskap för Linux (Ubuntu)
 
@@ -91,7 +91,7 @@ Här följer stegen för att skapa en instans av den virtuella datorn för datav
    * **Typ av virtuell Datordisk**: Välj **Premium SSD** om du föredrar en Solid State-hårddisk (SSD). Annars väljer du **Standard HDD**. 
    * **Användarnamnet**: första kontoinloggningen ID.
    * **Lösenord**: första kontolösenordet (du kan använda offentlig SSH-nyckel i stället för lösenord).
-   * **Prenumeration**: Om du har mer än en prenumeration kan du välja den som som datorn är skapas och faktureras. Du måste ha behörighet för resursen skapas för den här prenumerationen.
+   * **Prenumeration**: Om du har mer än en prenumeration kan du välja den som som datorn är skapas och faktureras. Du måste ha behörighet att skapa resurser för prenumerationen.
    * **Resursgrupp**: du kan skapa en ny eller Använd en befintlig grupp.
    * **Plats**: Välj det datacenter som är mest lämplig. Vanligtvis är det datacenter som har de flesta av dina data, eller så är närmast dina fysiska platsen för snabbaste nätverksåtkomst.
    
@@ -118,7 +118,7 @@ Du kan komma åt Ubuntu DSVM på tre sätt:
 
 ### <a name="ssh"></a>SSH
 
-När den virtuella datorn har skapats kan logga du in till den med hjälp av SSH. Använda de autentiseringsuppgifter som du skapade i den **grunderna** avsnittet i steg 3 för text shell-gränssnittet. På Windows, kan du ladda ned ett SSH-klientverktyg som [Putty](http://www.putty.org). Du kan använda X11 vidarebefordran på Putty eller installera X2Go klienten om du föredrar en grafisk desktop (X Windows System).
+När den virtuella datorn har skapats kan logga du in till den med hjälp av SSH. Använda de autentiseringsuppgifter som du skapade i den **grunderna** avsnittet i steg 3 för text shell-gränssnittet. I Windows kan du ladda ned ett SSH-klientverktyg som [Putty](http://www.putty.org). Du kan använda X11 vidarebefordran på Putty eller installera X2Go klienten om du föredrar en grafisk desktop (X Windows System).
 
 > [!NOTE]
 > Klienten X2Go presterade bättre än X11 vidarebefordran i testet. Vi rekommenderar att du använder X2Go-klienten för ett grafiskt gränssnitt för fjärrskrivbord.
@@ -233,7 +233,7 @@ För conda, bör du alltid ange miljönamnet (_py35_ eller _rot_):
 
 Om du är på ett grafiskt gränssnitt eller har X11 vidarebefordran set upp kan du skriva **pycharm** starta PyCharm Python IDE. Du kan använda standard-textredigerare. Du kan dessutom använda Spyder, en Python IDE som har paketerats med Anaconda Python-distributioner. Spyder måste en grafisk desktop eller X11 vidarebefordran. En genväg till Spyder har angetts i grafiska desktop.s
 
-### <a name="jupyter-notebook"></a>Jupyter-anteckningsbok
+### <a name="jupyter-notebook"></a>Jupyter Notebook
 Anaconda distribution levereras också med en Jupyter-anteckningsbok, en miljö för att dela kod och analys. Jupyter-anteckningsboken sker via JupyterHub. Du loggar in med ditt lokala Linux-användarnamn och lösenord.
 
 Jupyter notebook-server har konfigurerats före med Python 2, Python 3 och R-kärnor. Det finns en skrivbordsikonen med namnet ”Jupyter Notebook” för att starta webbläsaren för att komma åt notebook-server. Om du är på den virtuella datorn via SSH- eller X2Go-klient kan du kan också besöka [ https://localhost:8000/ ](https://localhost:8000/) till Jupyter notebook-server.
@@ -429,6 +429,6 @@ Här är hur du kan fortsätta din inlärning och undersökning:
 
 * Den [datavetenskap på den virtuella datorn för datavetenskap för Linux](linux-dsvm-walkthrough.md) genomgången visar hur du utför flera vanliga datavetenskapsuppgifter med den Linux virtuell dator för datavetenskap etablerats här. 
 * Utforska de olika verktyg för datavetenskap på den virtuella datorn för datavetenskap genom att prova de verktyg som beskrivs i den här artikeln. Du kan också köra *dsvm-mer-info* på gränssnittet på den virtuella datorn för en grundläggande introduktion och länkar till mer information om verktygen som installeras på den virtuella datorn.  
-* Lär dig att skapa slutpunkt till slutpunkt Analyslösningar systematiskt med hjälp av den [Team Data Science Process](http://aka.ms/tdsp).
+* Lär dig att skapa slutpunkt till slutpunkt Analyslösningar systematiskt med hjälp av den [Team Data Science Process](https://aka.ms/tdsp).
 * Gå till den [Azure AI-galleriet](https://gallery.azure.ai/) för machine learning och data analytics-exempel som använder Azure AI-tjänster.
 

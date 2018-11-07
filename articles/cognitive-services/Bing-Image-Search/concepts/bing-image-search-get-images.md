@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 8/8/2018
 ms.author: aahi
-ms.openlocfilehash: c21741ebb8f68797b31a2ba1de4bb6f0f8d32cb7
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 621c2844b6952e5ea1f6b9f7c8bc2ed170fee310
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297135"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246794"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Hämta avbildningar från webben med sökning i Bing
 
@@ -38,7 +38,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="get-images-from-a-specific-web-domain"></a>Hämta bilder från en specifik domän
 
-Om du vill hämta bilder från en specifik domän använder du frågeoperatorn [site:](http://msdn.microsoft.com/library/ff795613.aspx).
+Om du vill hämta bilder från en specifik domän använder du frågeoperatorn [site:](https://msdn.microsoft.com/library/ff795613.aspx).
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
@@ -71,7 +71,7 @@ Host: api.cognitive.microsoft.com
 * [licens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#license)– filtrera avbildningar av typ av licens kopplad till platsen.
 * [storlek](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#size)– filtrera avbildningar efter storlek, till exempel små avbildningar upp till 200 x 200 bildpunkter.
 
-Om du vill hämta bilder från en specifik domän använder du frågeoperatorn [site:](http://msdn.microsoft.com/library/ff795613.aspx).
+Om du vill hämta bilder från en specifik domän använder du frågeoperatorn [site:](https://msdn.microsoft.com/library/ff795613.aspx).
 
  > [!NOTE]
  > Svar på frågor med hjälp av den `site:` operatör kan innehålla vuxet innehåll oavsett den [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) inställningen. Använd bara `site:` om du är medveten om innehållet på domänen.

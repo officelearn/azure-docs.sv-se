@@ -8,12 +8,12 @@ services: devops
 custom: jenkins
 ms.date: 07/31/2018
 ms.component: common
-ms.openlocfilehash: b7ac5c277b45ae5c005a284d5c38e55099c11e33
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 040f7ef8d9b50998ac2b84ed9d4e3712f4ed5835
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735570"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246879"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Använda Azure Storage med en lösning för kontinuerlig integrering av Jenkins
 
@@ -129,7 +129,7 @@ Det här avsnittet innehåller en översikt över tjänstkomponenter Blob.
 
 * **Lagringskonto**: All åtkomst till Azure Storage görs genom ett lagringskonto. Ett lagringskonto är den högsta nivån av namnområdet för att komma åt blobar. Ett konto kan innehålla ett obegränsat antal behållare, så länge som deras totala storlek är under 100 TB.
 * **Behållaren**: en behållare grupperar en uppsättning blobbar. Alla blobar måste vara i en container. Ett konto kan innehålla ett obegränsat antal containrar. En container kan lagra ett obegränsat antal blobar.
-* **BLOB**: en fil av valfri typ och storlek. Det finns två typer av blobbar som kan lagras i Azure Storage: block- och sidblobbar. De flesta filer som är blockblobar. En enda blockblobb kan vara upp till 200 GB i storlek. Den här självstudien använder blockblobar. Sidblobar, en annan blobtyp kan vara upp till 1 TB i storlek, och är mer effektivt när intervallen för byte i en fil ändras ofta. Läs mer om BLOB-objekt, [förstå Blockblobbar, Tilläggsblobbar och Sidblobbar](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+* **BLOB**: en fil av valfri typ och storlek. Det finns två typer av blobbar som kan lagras i Azure Storage: block- och sidblobbar. De flesta filer som är blockblobar. En enda blockblobb kan vara upp till 200 GB i storlek. Den här självstudien använder blockblobar. Sidblobar, en annan blobtyp kan vara upp till 1 TB i storlek, och är mer effektivt när intervallen för byte i en fil ändras ofta. Läs mer om BLOB-objekt, [förstå Blockblobbar, Tilläggsblobbar och Sidblobbar](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 * **URL-format**: BLOB-lagring är adresserbara via följande URL-format:
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
@@ -149,6 +149,6 @@ Om du stöter på buggar med Jenkins-plugin-programmet kan du rapportera problem
 * [Azure Storage SDK för Java](https://github.com/azure/azure-storage-java)
 * [Azure Storage Client SDK-referens](http://dl.windowsazure.com/storage/javadoc/)
 * [REST-API för Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Azure Storage Teamblogg](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Azure Storage Teamblogg](https://blogs.msdn.com/b/windowsazurestorage/)
 
 Mer information finns i [Azure för Java-utvecklare](/java/azure).

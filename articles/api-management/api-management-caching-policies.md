@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 160172b25f4bcdb04ac9f9649bca6b08e0be1b0d
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 1706364ca0281240b5b887bea219620c7b4add5e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269080"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246845"
 ---
 # <a name="api-management-caching-policies"></a>API Management cachelagringsprinciperna
-Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
+Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="CachingPolicies"></a> Cachelagringsprinciper  
   
@@ -121,7 +121,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |variera-av-developer-groups|Ange `true` till cache svar per användarroll.|Ja||  
   
 ### <a name="usage"></a>Användning  
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Princip-avsnitt:** inkommande  
 -   **Princip-scope:** API, åtgärden, produkt  
@@ -193,7 +193,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |varaktighet|Time-to-live posternas cachelagrade anges i sekunder.|Ja|Gäller inte|  
   
 ### <a name="usage"></a>Användning  
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Princip-avsnitt:** utgående    
 -   **Princip-scope:** API, åtgärden, produkt  
@@ -237,7 +237,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |variabeln-name|Namnet på den [sammanhangsvariabel](api-management-policy-expressions.md#ContextVariables) looked upp värdet kommer att tilldelas till, om sökningen lyckas. Om sökning resulterar i en missa, variabeln tilldelas värdet för den `default-value` attributet eller `null`, om den `default-value` attributet utelämnas.|Ja|Gäller inte|  
   
 ### <a name="usage"></a>Användning  
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Princip-avsnitt:** inkommande, utgående serverdelen, vid fel  
 -   **Princip-scope:** globala, API, åtgärden, produkt  
@@ -279,7 +279,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |värde|Värdet som ska cachelagras.|Ja|Gäller inte|  
   
 ### <a name="usage"></a>Användning  
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Princip-avsnitt:** inkommande, utgående serverdelen, vid fel  
 -   **Princip-scope:** globala, API, åtgärden, produkt  
@@ -316,7 +316,7 @@ Den `cache-remove-value` tar bort ett cachelagrade objekt som identifieras av de
 |key|Nyckeln för det tidigare cachelagrade värdet som ska tas bort från cachen.|Ja|Gäller inte|  
   
 #### <a name="usage"></a>Användning  
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  
   
 -   **Princip-avsnitt:** inkommande, utgående serverdelen, vid fel  
 -   **Princip-scope:** globala, API, åtgärden, produkt  

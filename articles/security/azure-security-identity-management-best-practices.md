@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: b1002d046014abd15452489e343ecf7c30b00d73
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 64d940552f2790c08e8087f279990d0a6c595bac
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311345"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245749"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identitetshantering och åtkomstkontroll säkerhetsmetoder
 
-Många Överväg identitet ska vara det nya gräns-lagret för säkerhet, tar över rollen traditionella nätverk-centric perspektiv. Den här utvecklingen av den primära pivot för säkerhet uppmärksamhet och investeringar kommer från det faktum att nätverket perimetrar har blivit allt högre grad porös och den perimeterskydd får inte vara så effektiv som de en gång var innan expanderingen av [BYOD ](http://aka.ms/byodcg) enheter och molnprogram.
+Många Överväg identitet ska vara det nya gräns-lagret för säkerhet, tar över rollen traditionella nätverk-centric perspektiv. Den här utvecklingen av den primära pivot för säkerhet uppmärksamhet och investeringar kommer från det faktum att nätverket perimetrar har blivit allt högre grad porös och den perimeterskydd får inte vara så effektiv som de en gång var innan expanderingen av [BYOD ](https://aka.ms/byodcg) enheter och molnprogram.
 
 I den här artikeln diskuterar vi en samling Azure identity management och säkerhetsmetoder för access control. Dessa metodtips härleds från vår erfarenhet av [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) och erfarenheter från kunder som dig själv.
 
@@ -51,7 +51,7 @@ Azure identitet och kontroll säkerhetsmetoder beskrivs i den här artikeln är:
 
 ## <a name="treat-identity-as-the-primary-security-perimeter"></a>Hantera identitet som primär säkerhetsperimeter
 
-Många Överväg identitet för att vara primär perimeternätverket för säkerhet. Det här är en förändring jämfört med traditionella fokus på nätverkssäkerhet. Nätverket perimetrar fortsätta att få mer porös och den perimeterskydd får inte vara så effektiv innan alltfler [BYOD](http://aka.ms/byodcg) enheter och molnprogram.
+Många Överväg identitet för att vara primär perimeternätverket för säkerhet. Det här är en förändring jämfört med traditionella fokus på nätverkssäkerhet. Nätverket perimetrar fortsätta att få mer porös och den perimeterskydd får inte vara så effektiv innan alltfler [BYOD](https://aka.ms/byodcg) enheter och molnprogram.
 [Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md) är Azure-lösning för identitets- och åtkomsthantering. Azure AD är en multitenant, molnbaserade företagskatalogen och identitetshanteringen management-tjänst från Microsoft. Den kombinerar viktiga katalogtjänster, åtkomsthantering för program och identitetsskydd i en enda lösning.
 
 I följande avsnitt listas Metodtips för identitets- och säkerhet med hjälp av Azure AD.

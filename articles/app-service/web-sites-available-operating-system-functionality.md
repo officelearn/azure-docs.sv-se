@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
-ms.openlocfilehash: 9b4c87bd0889718fcb8938a9e3bb9207b8fe727a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 7cf7078353de27c35a607fa8ef1921d6ed4b54b4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420464"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247355"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funktioner för operativsystemet på Azure App Service
-Den här artikeln beskriver de funktioner för vanliga baslinje operativsystemet som är tillgänglig för alla Windows-appar som körs på [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Den här funktionen innehåller filen, nätverk, och åtkomst till behållarregistret, och diagnostikloggar och händelser. 
+Den här artikeln beskriver de funktioner för vanliga baslinje operativsystemet som är tillgänglig för alla Windows-appar som körs på [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Den här funktionen innehåller filen, nätverk, och åtkomst till behållarregistret, och diagnostikloggar och händelser. 
 
 > [!NOTE] 
 > [Linux-appar](containers/app-service-linux-intro.md) i App Service som körs i sin egen behållare. Ingen åtkomst till värdoperativsystemet tillåts, du har rotåtkomst till behållaren. På så sätt, [program som körs på Windows-behållare](app-service-web-get-started-windows-container.md), du har administrativ åtkomst till behållaren men ingen åtkomst till värdoperativsystemet. 

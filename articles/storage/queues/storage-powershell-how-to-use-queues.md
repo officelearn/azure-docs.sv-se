@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: rogarana
 ms.component: queues
-ms.openlocfilehash: 2f347ef0bd53a8d148a56d8431e004e9e88894d8
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: b89c2607a1b21b999e5f95224e4aefc97e321f14
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128579"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251363"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Utföra åtgärder för Azure Queue storage med Azure PowerShell
 
@@ -82,7 +82,7 @@ $queueName = "howtoqueue"
 $queue = New-AzureStorageQueue –Name $queueName -Context $ctx
 ```
 
-Information om namngivningskonventioner för Azure-kötjänsten finns [namngivning av köer och Metadata](http://msdn.microsoft.com/library/azure/dd179349.aspx).
+Information om namngivningskonventioner för Azure-kötjänsten finns [namngivning av köer och Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
 ## <a name="retrieve-a-queue"></a>Hämta en kö
 
@@ -100,7 +100,7 @@ Get-AzureStorageQueue -Context $ctx | select Name
 
 ## <a name="add-a-message-to-a-queue"></a>Lägg till ett meddelande till en kö
 
-Åtgärder som påverkar själva meddelandena i kön använda lagringsklientbiblioteket för .NET som visas i PowerShell. Om du vill lägga till ett meddelande till en kö, skapa en ny instans av meddelandeobjektet [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) klass. Därefter anropar du [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx)-metoden. En CloudQueueMessage kan skapas från en sträng (i UTF-8-format) eller en bytematris.
+Åtgärder som påverkar själva meddelandena i kön använda lagringsklientbiblioteket för .NET som visas i PowerShell. Om du vill lägga till ett meddelande till en kö, skapa en ny instans av meddelandeobjektet [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](https://msdn.microsoft.com/library/azure/jj732474.aspx) klass. Därefter anropar du [AddMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx)-metoden. En CloudQueueMessage kan skapas från en sträng (i UTF-8-format) eller en bytematris.
 
 I följande exempel visar hur du lägger till ett meddelande i kön.
 
@@ -128,7 +128,7 @@ Meddelanden läses i bästa Försök först-in-först-ut ordning. Detta är inte
 
 Detta **tidsgränsen för osynlighet** definierar hur länge meddelandet är osynlig innan den blir tillgänglig igen för bearbetning. Standardvärdet är 30 sekunder. 
 
-Din kod läser meddelandet från kön i två steg. När du anropar den [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx) metoden du hämtas nästa meddelande i kön. Ett meddelande som returneras från **GetMessage** blir osynligt för andra meddelanden som läser kod i den här kön. Om du vill ta bort meddelandet från kön är klar kan du anropa den [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx) metod. 
+Din kod läser meddelandet från kön i två steg. När du anropar den [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx) metoden du hämtas nästa meddelande i kön. Ett meddelande som returneras från **GetMessage** blir osynligt för andra meddelanden som läser kod i den här kön. Om du vill ta bort meddelandet från kön är klar kan du anropa den [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx) metod. 
 
 I följande exempel du läsa igenom tre Kömeddelanden och vänta 10 sekunder (tidsgränsen för osynlighet). Och sedan läsa de tre meddelanden igen, ta bort meddelanden när du har läst dem genom att anropa **DeleteMessage**. Om du försöker läsa kön när meddelanden tas bort returneras $queueMessage som NULL.
 

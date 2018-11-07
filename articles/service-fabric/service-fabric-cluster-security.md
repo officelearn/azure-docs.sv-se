@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: e791ddd3ade2ff486f1c3ec123695ecc155353d6
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: aa0d209cf3da65bb3d50a6458ecc33cfcd85eecb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541912"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240604"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Säkerhetsscenarier för Service Fabric-kluster
 Ett Azure Service Fabric-kluster är en resurs som du äger. Det är ditt ansvar att skydda dina kluster för att förhindra att obehöriga användare från att ansluta till dem. Ett säkert kluster är särskilt viktigt när du kör produktionsarbetsbelastningar i klustret. Även om det är möjligt att skapa ett oskyddat kluster om klustret exponerar hanteringsslutpunkter till det offentliga internet, kan anonyma användare ansluta till den. Oskyddade kluster stöds inte för produktionsarbetsbelastningar. 
@@ -85,7 +85,7 @@ Användare som har tilldelats rollen administratör har fullständig åtkomst ti
 Ange administratörs- och klienten roller när du skapar klustret. Tilldela roller genom att tillhandahålla separata identiteter (till exempel genom att använda certifikat eller Azure AD) för varje rolltyp. Mer information om standardinställningar för åtkomstkontroll och hur du ändrar standardinställningarna finns i [rollbaserad åtkomstkontroll för Service Fabric-klienter](service-fabric-cluster-security-roles.md).
 
 ## <a name="x509-certificates-and-service-fabric"></a>X.509-certifikat och Service Fabric
-Digitala X.509-certifikat används ofta att autentisera klienter och servrar. De används också för att kryptera och digitalt signera meddelanden. Service Fabric använder X.509-certifikat för att skydda ett kluster och säkerhetsfunktioner för programmet. Läs mer om X.509 digitala certifikat, [arbeta med certifikat](http://msdn.microsoft.com/library/ms731899.aspx). Du använder [Key Vault](../key-vault/key-vault-get-started.md) att hantera certifikat för Service Fabric-kluster i Azure.
+Digitala X.509-certifikat används ofta att autentisera klienter och servrar. De används också för att kryptera och digitalt signera meddelanden. Service Fabric använder X.509-certifikat för att skydda ett kluster och säkerhetsfunktioner för programmet. Läs mer om X.509 digitala certifikat, [arbeta med certifikat](https://msdn.microsoft.com/library/ms731899.aspx). Du använder [Key Vault](../key-vault/key-vault-get-started.md) att hantera certifikat för Service Fabric-kluster i Azure.
 
 Några viktiga saker att tänka på:
 
@@ -109,7 +109,7 @@ Några andra saker att tänka på:
 
 * Den **ämne** fält kan ha flera värden. Varje värde är föregås av ett initieringen du ange vilken värdetyp. Initieringen är vanligtvis **CN** (för *nätverksnamn*), till exempel **CN = www.contoso.com**. 
 * Den **ämne** fältet kan vara tomt. 
-* Om den valfria **Alternativt ämnesnamn** fylls, måste den ha både vanliga namn för certifikatet och en post per SAN. Dessa anges som **DNS-namnet** värden. Läs hur du genererar certifikat som har SAN-nätverk i [lägga till ett alternativt namn i certifikatet för säkert LDAP](http://support.microsoft.com/kb/931351).
+* Om den valfria **Alternativt ämnesnamn** fylls, måste den ha både vanliga namn för certifikatet och en post per SAN. Dessa anges som **DNS-namnet** värden. Läs hur du genererar certifikat som har SAN-nätverk i [lägga till ett alternativt namn i certifikatet för säkert LDAP](https://support.microsoft.com/kb/931351).
 * Värdet för den **avsedda syften** fält för certifikatet ska innehålla ett lämpligt värde som **serverautentisering** eller **klientautentisering**.
 
 ### <a name="application-certificates-optional"></a>Certifikat för programmet (valfritt)

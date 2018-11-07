@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 5284b31ddf2ace3c1b9ed587e8f09301c17a54a7
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 75b5246b83106b7d331ad3d467de2005e8d1f854
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211778"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237816"
 ---
 # <a name="create-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Skapa Azure-SSIS integration runtime i Azure Data Factory
 Den här artikeln innehåller steg för att distribuera en Azure-SSIS integration runtime i Azure Data Factory. Sedan kan du använda SQL Server Data Tools (SSDT) eller SQL Server Management Studio (SSMS) för att distribuera och köra SQL Server Integration Services-paket (SSIS) till den här körningen i Azure. 
@@ -27,7 +27,7 @@ Självstudien [självstudie: distribuera SQL Server Integration Services-paket (
 
 - Du kan också använda Azure SQL Database med virtuellt nätverk tjänstens slutpunkter/hanterad instans som databasserver som värd för SSIS-katalogen (SSISDB-databasen). Vägledning i att välja vilken typ av database-server som värd för SSISDB finns i [logisk jämför SQL Database-server och SQL Database Managed Instance](create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). Som ett krav måste du ansluta till din Azure-SSIS IR till ett virtuellt nätverk och konfigurera behörigheter för virtuella nätverk och inställningar efter behov. Se [ansluta till Azure-SSIS IR till ett virtuellt nätverk](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
 
-- Du kan också använda Azure Active Directory (AAD)-autentisering med hanterad identitet för din Azure Data Factory kan ansluta till databasservern. Som ett krav, måste du lägga till den hanterade identitet för din ADF i en AAD-grupp med behörigheter för åtkomst till databasservern [aktiverar AAD-autentisering för Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
+- Du kan också använda Azure Active Directory (AAD)-autentisering med hanterad identitet för din Azure Data Factory kan ansluta till databasservern. Som ett krav, måste du lägga till den hanterade identitet för din ADF i en AAD-grupp med behörigheter för åtkomst till databasservern [aktiverar AAD-autentisering för Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
 
 ## <a name="overview"></a>Översikt
 Den här artikeln beskrivs olika sätt för att etablera en Azure-SSIS IR: 
@@ -41,7 +41,7 @@ När du skapar en Azure-SSIS IR kan ansluter Data Factory-tjänsten till Azure S
 När du etablerar en instans av en Azure-SSIS IR installeras också Azure Feature Pack för SSIS och Access Redistributable. Med dessa komponenter upprättar du en anslutning till Excel- och Access-filer och till olika Azure-datakällor, utöver de datakällor som stöds av de inbyggda komponenterna. Du kan också installera ytterligare komponenter. Mer information finns i [Anpassad konfiguration för Azure-SSIS integreringskörning](how-to-configure-azure-ssis-ir-custom-setup.md). 
 
 ## <a name="prerequisites"></a>Förutsättningar 
-- **Azure-prenumeration**. Om du inte har en prenumeration kan du skapa ett [kostnadsfritt utvärderingskonto](http://azure.microsoft.com/pricing/free-trial/). 
+- **Azure-prenumeration**. Om du inte har en prenumeration kan du skapa ett [kostnadsfritt utvärderingskonto](https://azure.microsoft.com/pricing/free-trial/). 
 
 - **Azure SQL Database-logisk server eller hanterad instans**. Om du inte redan har en databasserver kan du skapa en i Azure-portalen innan du börjar. Den här servern är värd för SSISDB (SSIS Catalog Database). Vi rekommenderar att du skapar databasservern i samma Azure-region som Integration Runtime. Den här konfigurationen gör att Integration Runtimes skrivkörning loggas till SSISDB utan att korsa Azure-regioner. Baserat på vald databasserver kan SSISDB skapas för din räkning som en enskild databas, en del av en elastisk pool eller i en hanterad instans och kan nås i ett offentligt nätverk eller genom att ansluta till ett virtuellt nätverk. En lista över stöds prisnivåer för Azure SQL Database finns i [SQL Database-resursgränser](../sql-database/sql-database-resource-limits.md). 
 
@@ -54,7 +54,7 @@ När du etablerar en instans av en Azure-SSIS IR installeras också Azure Featur
 - **Azure PowerShell**. Följ instruktionerna i [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/install-azurerm-ps), om du använder PowerShell för att köra ett skript för att etablera Azure-SSIS integration runtime som kör SSIS-paket i molnet. 
 
 ### <a name="region-support"></a>Regionsstöd
-En lista över Azure-regioner som Data Factory och Azure-SSIS Integration Runtime är tillgängliga för närvarande finns i [ADF + SSIS IR tillgänglighet efter region](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 
+En lista över Azure-regioner som Data Factory och Azure-SSIS Integration Runtime för närvarande är tillgängliga för finns i [tillgänglighet för ADF + SSIS efter region](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 
 
 ### <a name="compare-sql-database-logical-server-and-sql-database-managed-instance"></a>Jämför logisk SQL Database-server och SQL Database Managed Instance
 
@@ -62,7 +62,7 @@ I följande tabell jämförs vissa funktioner i logisk SQL Database-server och S
 
 | Funktion | Logisk SQL Database-server| SQL Database - hanterad instans |
 |---------|--------------|------------------|
-| **Schemaläggning** | SQL Server Agent är inte tillgänglig.<br/><br/>Se [schemalägga ett paket som en del av en Azure Data Factory-pipeline](https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| Hanterad instans-Agent är tillgänglig. |
+| **Schemaläggning** | SQL Server Agent är inte tillgänglig.<br/><br/>Se [schemalägga ett paket som en del av en Azure Data Factory-pipeline](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| Hanterad instans-Agent är tillgänglig. |
 | **Autentisering** | Du kan skapa en databas med ett användarkonto för innesluten databas som representerar alla Azure Active Directory-användare i den **dbmanager** roll.<br/><br/>Se [aktivera Azure AD i Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Du kan inte skapa en databas med ett användarkonto för innesluten databas som representerar alla Azure Active Directory-användare än en Azure AD-administratör. <br/><br/>Se [aktivera Azure AD i Azure SQL Database Managed Instance](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
 | **Tjänstenivå** | När du skapar Azure-SSIS IR på SQL Database kan välja du tjänstnivå för SSISDB. Det finns flera nivåer för tjänster. | När du skapar Azure-SSIS IR på en hanterad instans, kan du inte välja tjänstnivå för SSISDB. Alla databaser på den hanterade instansen delar samma resurs allokeras till instansen. |
 | **Virtuellt nätverk** | Stöder både Azure Resource Manager och klassiska virtuella nätverk för din Azure-SSIS IR för att ansluta till om du använder Azure SQL Database med virtuella nätverksslutpunkter eller kräver åtkomst till lokala data. | Stöder endast Azure Resource Manager virtuellt nätverk för din Azure-SSIS IR att ansluta till. Virtuellt nätverk måste anges.<br/><br/>Om du sammanfogar din Azure-SSIS IR till samma virtuella nätverk som den hanterade instansen ska du kontrollera att Azure-SSIS IR är i ett annat undernät än den hanterade instansen. Om du ansluta Azure-SSIS IR till ett annat virtuellt nätverk än den hanterade instansen rekommenderar vi virtuell nätverkspeering (som är begränsad till samma region) eller ett virtuellt nätverk för virtuell nätverksanslutning. Se [Anslut ditt program till Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md). |
@@ -144,7 +144,7 @@ I det här avsnittet använder du Azure-portalen, särskilt i Användargränssni
 
     c. För **Serverslutpunkt för katalogdatabas**, välj en slutpunkt på din databasserver som värd för SSISDB. Baserat på vald databasserver kan SSISDB skapas för din räkning som en enskild databas, en del av en elastisk pool eller i en hanterad instans och kan nås i ett offentligt nätverk eller genom att ansluta till ett virtuellt nätverk. 
 
-    d. På **Använd AAD-autentisering...**  markerar du kryssrutan Välj autentiseringsmetod för din database-server som värd för SSISDB: SQL- eller Azure Active Directory (AAD) med den hanterade identitet för din Azure Data Factory. Om du markerar det, du måste lägga till den hanterade identitet för din ADF i en AAD-grupp med behörigheter för åtkomst till databasservern, se [aktiverar AAD-autentisering för Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
+    d. På **Använd AAD-autentisering...**  markerar du kryssrutan Välj autentiseringsmetod för din database-server som värd för SSISDB: SQL- eller Azure Active Directory (AAD) med den hanterade identitet för din Azure Data Factory. Om du markerar det, du måste lägga till den hanterade identitet för din ADF i en AAD-grupp med behörigheter för åtkomst till databasservern, se [aktiverar AAD-autentisering för Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
 
     e. För **Admin Username**, ange användarnamn för SQL-autentisering för databasservern som är värd för SSISDB. 
 
@@ -333,7 +333,7 @@ Om du inte använder Azure SQL Database med virtuellt nätverk tjänstens slutpu
 
 Om du använder hanterad instans som värd för SSISDB du utelämnar CatalogPricingTier parametern eller skicka ett tomt värde för den. I annat fall du kan inte utelämna den och skicka ett giltigt värde i listan med prisnivåer för Azure SQL Database som stöds, se [SQL Database-resursgränser](../sql-database/sql-database-resource-limits.md). 
 
-Om du använder Azure Active Directory (AAD)-autentisering med den hanterade identitet för din Azure Data Factory för att ansluta till databasservern, du kan utelämna CatalogAdminCredential parametern, men du måste lägga till den hanterade identitet för din ADF i en AAD-grupp med åtkomstbehörigheter till databasservern, se [aktiverar AAD-autentisering för Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir). Annars kan inte utelämna den och måste ange ett giltigt objekt som skapats på rätt sätt från dina server administratörens användarnamn och lösenord för SQL-autentisering.
+Om du använder Azure Active Directory (AAD)-autentisering med den hanterade identitet för din Azure Data Factory för att ansluta till databasservern, du kan utelämna CatalogAdminCredential parametern, men du måste lägga till den hanterade identitet för din ADF i en AAD-grupp med åtkomstbehörigheter till databasservern, se [aktiverar AAD-autentisering för Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir). Annars kan inte utelämna den och måste ange ett giltigt objekt som skapats på rätt sätt från dina server administratörens användarnamn och lösenord för SQL-autentisering.
 
 ```powershell               
 Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `

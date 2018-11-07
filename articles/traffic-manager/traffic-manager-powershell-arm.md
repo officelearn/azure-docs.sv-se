@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 8dcd89415bdd48b2d8d5c8e1e699159e9d1129e5
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8696f4780db8b98457b56dd7f1162553697023d4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139483"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237935"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Använda PowerShell för att hantera Traffic Manager
 
@@ -178,7 +178,7 @@ Varje Traffic Manager-profil anger en enda metod för routning av nätverkstrafi
 Kapslade slutpunkter har konfigurerats på den överordnade-profil som använder en viss slutpunkts-typ, 'NestedEndpoints'. När du anger kapslade slutpunkter:
 
 * Slutpunkten måste anges med parametern ”targetResourceId”
-* Om ”Performance” trafikdirigeringsmetoden används krävs EndpointLocation. Annars är valfritt. Värdet måste vara en [giltiga Azure-regionnamn](http://azure.microsoft.com/regions/).
+* Om ”Performance” trafikdirigeringsmetoden används krävs EndpointLocation. Annars är valfritt. Värdet måste vara en [giltiga Azure-regionnamn](https://azure.microsoft.com/regions/).
 * ”Vikt” och ”prioritet” är valfria, som Azure-slutpunkter.
 * ”MinChildEndpoints”-parametern är valfri. Standardvärdet är '1'. Om antalet tillgängliga slutpunkter sjunker under det här tröskelvärdet, anses den överordnade profilen underordnade profilen 'degraderad' och diverts trafik till de andra slutpunkterna i den överordnade profilen.
 

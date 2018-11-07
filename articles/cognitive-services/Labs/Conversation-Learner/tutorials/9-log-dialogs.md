@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 4663fc377e795e603bd2484ec4cf98578408501f
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 5369e16e0f1adc48eb019f3790dc900577c144af
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248389"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243667"
 ---
 # <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Hur du loggar in dialogrutor i en Konversationsdeltagare-modell
 
@@ -23,7 +23,7 @@ Den här kursen visar hur du gör slutanvändarens testning i gränssnittet Konv
 
 ## <a name="video"></a>Video
 
-[![Förhandsversion av självstudien 9](http://aka.ms/cl-tutorial-09-preview)](http://aka.ms/blis-tutorial-09)
+[![Förhandsversion av självstudien 9](https://aka.ms/cl-tutorial-09-preview)](https://aka.ms/blis-tutorial-09)
 
 ## <a name="requirements"></a>Krav
 Den här självstudien krävs att Allmänt självstudiekursen bot körs

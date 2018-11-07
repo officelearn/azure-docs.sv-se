@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 11/05/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6f7fced5163476dc1de866474484f98d546d1901
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 1def5686933a971b1192ec58bc72d64cbc5e8931
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945730"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219332"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Lägg till AD FS som en SAML-identitetsprovider med anpassade principer i Azure Active Directory B2C
 
@@ -64,6 +64,7 @@ Du kan definiera ett AD FS-konto som en anspråksprovider genom att lägga till 
           <Metadata>
             <Item Key="WantsEncryptedAssertions">false</Item>
             <Item Key="PartnerEntity">https://your-ADFS-domain/federationmetadata/2007-06/federationmetadata.xml</Item>
+            <Item Key=" XmlSignatureAlgorithm">Sha256</Item>
           </Metadata>
           <CryptographicKeys>
             <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_ADFSSamlCert"/>
@@ -165,6 +166,15 @@ Ersätt följande värden:
 9. Välj **Lägg till regel**.  
 10. I **anspråksregelmall**väljer **skicka LDAP-attribut som anspråk**.
 11. Ange en **Regelnamn för anspråk**. För den **attributarkiv**väljer **Välj Active Directory**, lägga till följande anspråk och sedan på **Slutför** och **OK**.
+
+    | LDAP-attrubute | Typ av utgående anspråk |
+    | -------------- | ------------------- |
+    | Användarens huvudnamn | userPricipalName |
+    | Efternamn | family_name |
+    | Angivna namn | given_name |
+    | E-post-adress | e-post |
+    | Visningsnamn | namn |
+    
 12.  Baserat på din typ av certifikat kan behöva du ange HASH-algoritmen. I egenskapsfönstret förlitande part förtroende (B2C Demo) väljer den **Avancerat** fliken och ändra den **säkra hash-algoritm** till `SHA-1` eller `SHA-256`, och klicka på **Ok**.  
 13. I Serverhanteraren väljer **verktyg**, och välj sedan **AD FS Management**.
 14. Välj det förlitande partsförtroendet som du har skapat, Välj **uppdateringen från Federationsmetadata**, och klicka sedan på **uppdatering**. 

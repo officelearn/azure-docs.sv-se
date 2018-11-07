@@ -12,18 +12,18 @@ ms.author: genemi
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: c9c3383719ed8001167a6dce42d2df3e58b6ca74
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 0da4626943a7223b24baac80121b5da0062c0d73
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161972"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237085"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Ringbuffertens målkod för utökade händelser i SQL-databas
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-Du vill ha ett komplett kodexempel för det enklaste snabbt sättet att avbilda och rapportera information om en utökad händelse under ett test. Det enklaste målet för utökade händelser är den [Ringbuffert target](http://msdn.microsoft.com/library/ff878182.aspx).
+Du vill ha ett komplett kodexempel för det enklaste snabbt sättet att avbilda och rapportera information om en utökad händelse under ett test. Det enklaste målet för utökade händelser är den [Ringbuffert target](https://msdn.microsoft.com/library/ff878182.aspx).
 
 Det här avsnittet anger ett Transact-SQL-kodexempel som:
 
@@ -50,8 +50,8 @@ Det här avsnittet anger ett Transact-SQL-kodexempel som:
 * SQL Server Management Studio (ssms.exe), helst den senaste månatliga update-versionen. 
   Du kan hämta den senaste ssms.exe från:
   
-  * Avsnittet [Hämta SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
-  * [En direktlänk till nedladdningen.](http://go.microsoft.com/fwlink/?linkid=616025)
+  * Avsnittet [Hämta SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+  * [En direktlänk till nedladdningen.](https://go.microsoft.com/fwlink/?linkid=616025)
 
 ## <a name="code-sample"></a>Kodexempel
 
@@ -353,6 +353,6 @@ Andra exempel ämnen i koden för utökade händelser finns på följande länka
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
 -->

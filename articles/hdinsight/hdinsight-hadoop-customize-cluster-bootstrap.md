@@ -2,19 +2,19 @@
 title: Anpassa HDInsight-kluster med bootstrap - Azure
 description: Lär dig mer om att anpassa HDInsight-kluster med bootstrap.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: f0fe09a6d67d2ad72a1984168b669f34c8d8f3ef
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: bfa36cfeda514be0941481b0e4ed5ab9b3669b54
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107413"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238105"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Anpassa HDInsight-kluster med Bootstrap
 
@@ -106,7 +106,7 @@ $MapRedConfigValues = @{ "mapreduce.task.timeout"="1200000" } #default 600000
 # oozie-site.xml configuration
 $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
 ```
-Mer information finns i Azim Uddin blogg benämnt [anpassa HDInsight-klustret har skapats](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).
+Mer information finns i Azim Uddin blogg benämnt [anpassa HDInsight-klustret har skapats](https://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).
 
 ## <a name="use-net-sdk"></a>Använd .NET SDK
 Se [skapa Linux-baserade kluster i HDInsight med .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).

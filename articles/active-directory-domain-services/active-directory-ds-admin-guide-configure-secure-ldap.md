@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 9188e7a8dc5364592772b95c302c59a16bfad2be
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: 850b721cfa78dde23ebc11944bf023de8798cec9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50754077"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236961"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Konfigurera säker LDAP (LDAPS) för en Azure AD Domain Services-hanterad domän
 Den här artikeln visar hur du kan aktivera säker Lightweight Directory Access Protocol (LDAPS) för din hanterade domän i Azure AD Domain Services. Säkert LDAP kallas även ”Lightweight Directory Access Protocol (LDAP) över Secure Sockets Layer (SSL) / Transport Layer Security (TLS)”.
@@ -45,7 +45,7 @@ Skaffa ett giltigt certifikat enligt följande riktlinjer innan du aktiverar sä
 
 1. **Betrodda utfärdare** -certifikatet måste utfärdas av en utfärdare som är betrodd av datorer som ansluter till den hanterade domänen med säkert LDAP. Denna behörighet kan vara en offentlig certifikatutfärdare (CA) eller en Företagscertifikatutfärdare som är betrodd av dessa datorer.
 2. **Livslängd** -certifikatet måste vara giltig för minst de kommande 3 – 6 månaderna. Åtkomst med säkert LDAP till din hanterade domän avbryts när certifikatet upphör att gälla.
-3. **Ämnesnamn** -Subjektnamnet på certifikatet måste vara namnet på din hanterade domän. Om din domän har namnet ”contoso100.com”, till exempel vara certifikatets ämnesnamn ”contoso100.com”. 
+3. **Ämnesnamn** -Subjektnamnet på certifikatet måste vara din hanterade domän. Om din domän har namnet ”contoso100.com”, till exempel vara certifikatets ämnesnamn ”contoso100.com”. Ange DNS-namn (Alternativt ämnesnamn) till ett jokertecken namn för din hanterade domän.
 4. **Nyckelanvändning** -certifikatet måste konfigureras för följande använder - digitala signaturer och nyckelchiffrering.
 5. **Användning av certifikat** -certifikatet måste vara giltig för serverautentisering för SSL.
 
@@ -83,7 +83,7 @@ På din Windows-dator, öppna ett nytt PowerShell-fönster som **administratör*
 $lifetime=Get-Date
 New-SelfSignedCertificate -Subject contoso100.com `
   -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
-  -Type SSLServerAuthentication -DnsName *.contoso100.com
+  -Type SSLServerAuthentication -DnsName *.contoso100.com, contoso100.com
 ```
 
 Ersätt ”contoso100.com” i det föregående exemplet med DNS-domännamnet för den hanterade domänen. Ersätt till exempel om du har skapat en hanterad domän som kallas ”contoso100.onmicrosoft.com”, ”contoso100.com” i attributet ämne med 'contoso100.onmicrosoft.com' och '*. contoso100.com ”i attributet DNS-namn med”*. contoso100.onmicrosoft.com ”).

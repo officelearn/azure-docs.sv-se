@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 78796b5dc62cb573f149c24d90205d26fb139cf7
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: eb5b4b3741b064a934833b3094c69db85e9ccabb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628655"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238717"
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk Services: Utfärdarens namn och nyckel
 
@@ -77,24 +77,24 @@ Mer på den [New AzureSBNamespace](https://docs.microsoft.com/powershell/module/
 Service Bus-Utfärdarens namn och nyckel som används av BizTalk Adapter-tjänster. I din BizTalk Services-projekt i Visual Studio använder du BizTalk Adapter-tjänster för att ansluta till ett lokalt Line-of-Business (LOB)-system. För att ansluta, skapa enheterna LOB-reläer och ange din information för LOB-system. När du gör detta måste ange du också Service Bus-Utfärdarens namn och nyckel.
 
 ### <a name="to-retrieve-the-service-bus-issuer-name-and-issuer-key"></a>Att hämta Service Bus-Utfärdarens namn och nyckel
-1. Logga in på [Azure-portalen](http://portal.azure.com).
+1. Logga in på [Azure Portal](http://portal.azure.com).
 2. Sök efter **Service Bus**, och ditt namnområde. 
 3. Öppna den **principer för delad åtkomst** egenskaper, Välj din princip och visa den **Connection String** för namn och värden.  
 
 ## <a name="next"></a>Nästa
 Avsnitt om ytterligare Azure BizTalk Services:
 
-* [Installera SDK för Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
-* [Självstudier: Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
-* [Hur gör jag för att börja använda Azure BizTalk Services SDK?](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-* [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
+* [Installera SDK för Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
+* [Självstudier: Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
+* [Hur gör jag för att börja använda Azure BizTalk Services SDK?](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
 ## <a name="see-also"></a>Se även
-* [Så här: använda ACS Management-tjänsten för att konfigurera tjänstidentiteter](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
-* [BizTalk Services: Developer, Basic, Standard och Premium diagram över utgåvor](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [BizTalk Services: etablering](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-* [BizTalk Services: Etablering av statusdiagram](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-* [BizTalk Services: Flikarna Instrumentpanel, Övervakare och Skalning](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [BizTalk Services: Säkerhetskopiering och återställning](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-* [BizTalk Services: Begränsning](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+* [Så här: använda ACS Management-tjänsten för att konfigurera tjänstidentiteter](https://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
+* [BizTalk Services: Developer, Basic, Standard och Premium diagram över utgåvor](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [BizTalk Services: etablering](https://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+* [BizTalk Services: Etablering av statusdiagram](https://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+* [BizTalk Services: Flikarna Instrumentpanel, Övervakare och Skalning](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [BizTalk Services: Säkerhetskopiering och återställning](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [BizTalk Services: Begränsning](https://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 

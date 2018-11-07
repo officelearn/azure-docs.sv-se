@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: eeecf37a6cc7a0f86662f002b6f0efab5ef8c35c
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 80799eb716e77a4dec02a2daf028c35589c75da0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417471"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235283"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Felsöka problem med Windows Azure VM-aktivering
 
@@ -45,9 +45,9 @@ I allmänhet inträffa Azure VM aktiveringsproblem om den virtuella Windows-dato
 ## <a name="solution"></a>Lösning
 
 >[!NOTE]
->Om du använder en plats-till-plats-VPN och Tvingad tunneltrafik, se [Använd Azure anpassade vägar för att aktivera KMS-aktivering med Tvingad tunneltrafik](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx). 
+>Om du använder en plats-till-plats-VPN och Tvingad tunneltrafik, se [Använd Azure anpassade vägar för att aktivera KMS-aktivering med Tvingad tunneltrafik](https://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx). 
 >
->Om du använder ExpressRoute och du har en standardväg publiceras kan du se [virtuella Azure-datorn misslyckas med att aktivera via ExpressRoute](http://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx).
+>Om du använder ExpressRoute och du har en standardväg publiceras kan du se [virtuella Azure-datorn misslyckas med att aktivera via ExpressRoute](https://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx).
 
 ### <a name="step-1-configure-the-appropriate-kms-client-setup-key-for-windows-server-2016-and-windows-server-2012-r2"></a>Steg 1 konfigurera lämplig Konfigurationsnyckel för KMS-klient (för Windows Server 2016 och Windows Server 2012 R2)
 
@@ -125,7 +125,7 @@ Ja.
  
 ### <a name="what-happens-if-windows-activation-period-expires"></a>Vad händer om Windows aktiveringsperioden upphör att gälla? 
  
-När respittiden har upphört att gälla och Windows fortfarande inte är aktiverad, visas ytterligare meddelanden om att aktivera i Windows Server 2008 R2 och senare versioner av Windows. Skrivbordsunderlägg förblir svart och Windows Update installerar säkerhet och viktiga uppdateringar, men inte valfria uppdateringar. Se avsnittet meddelanden längst ned på den [licensiering villkor](http://technet.microsoft.com/library/ff793403.aspx) sidan.   
+När respittiden har upphört att gälla och Windows fortfarande inte är aktiverad, visas ytterligare meddelanden om att aktivera i Windows Server 2008 R2 och senare versioner av Windows. Skrivbordsunderlägg förblir svart och Windows Update installerar säkerhet och viktiga uppdateringar, men inte valfria uppdateringar. Se avsnittet meddelanden längst ned på den [licensiering villkor](https://technet.microsoft.com/library/ff793403.aspx) sidan.   
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
 Om du fortfarande behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.

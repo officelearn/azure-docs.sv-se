@@ -1,6 +1,6 @@
 ---
-title: Datavetenskap med hjälp av Scala och Spark på Azure | Microsoft Docs
-description: Hur du använder Scala för övervakade machine learning aktiviteter med Spark skalbara MLlib och Spark ML paketen på ett Azure HDInsight Spark-kluster.
+title: Datavetenskap med Scala och Spark på Azure | Microsoft Docs
+description: Så här använder Scala för övervakade machine learning-aktiviteter med Spark skalbar MLlib och Spark ML paketen på ett Azure HDInsight Spark-kluster.
 services: machine-learning
 documentationcenter: ''
 author: deguhath
@@ -15,83 +15,83 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 16e4af4dd7f5c2bd14d70cc28225dfc750ce3bea
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b90603490af851d9b7ca735b00ee7d6ca5d53951
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838518"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233532"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Datavetenskap med Scala och Spark på Azure
-Den här artikeln visar hur du använder Scala för övervakade machine learning uppgifter med Spark skalbara MLlib och Spark ML paketen på ett Azure HDInsight Spark-kluster. Den vägleder dig igenom de aktiviteter som utgör den [datavetenskap processen](http://aka.ms/datascienceprocess): datapåfyllning och undersökning, visualisering, funktionen tekniker, modellering och förbrukning av modellen. Modeller i artikeln är logistic och linjär regression, slumpmässiga skogar och ökat toningen träd (GBTs), förutom två övervakat utföra vanliga:
+Den här artikeln visar hur du använder Scala för övervakade machine learning-aktiviteter med Spark skalbar MLlib och Spark ML paketen på ett Azure HDInsight Spark-kluster. Vi går igenom de aktiviteter som utgör den [Data Science process](https://aka.ms/datascienceprocess): datainmatning och utforskning, visualisering, funktionsframställning, modellering och förbrukning av modellen. Modeller i artikeln är logistic och linjär regression, slumpmässiga skogar och gradient-förstärkta träd (GBTs), utöver de två vanliga övervakade machine learning-aktiviteter:
 
-* Regression problem: förutsägelser av tips belopp ($) för en taxi resa
-* Binär klassificering: förutsägelser av tips eller inget tips (1/0) för en taxi resa
+* Ordinal regression: förutsägelse av tips belopp ($) för en taxi-resa
+* Binär klassificering: förutsägelser av tips eller inga tips (1/0) för en taxi-resa
 
-Modelleringsprocessen kräver träning och utvärdering på en datauppsättning test och relevanta noggrannhet mått. I den här artikeln får du lära dig hur du lagrar dessa modeller i Azure Blob storage och poängsätta och utvärdera deras förutsägbar prestanda. Den här artikeln beskriver också mer avancerade avsnitt om hur du optimerar modeller med hjälp av korsvalidering och hyper-parametern omfattande. De data som används är ett exempel på de 2013 NYC taxi resa och avgiften data som finns på GitHub.
+Modelleringsprocessen kräver träning och utvärdering av på en datauppsättning för testning och relevanta Precision mått. I den här artikeln får du lära dig hur du lagrar dessa modeller i Azure Blob storage och hur du bedöma och utvärdera deras förutsägande prestanda. Den här artikeln beskriver också mer avancerade avsnitt om hur du optimerar modeller med hjälp av oinskränkt korsvalidering och hyper-parametern. De data som används är ett exempel på 2013 NYC taxi resa och avgiften datauppsättningen finns på GitHub.
 
-[Scala](http://www.scala-lang.org/), ett språk baserat på Java virtual machine integrerar Språkbegrepp för objektorienterad och fungerar. Det är ett skalbart språk som är utmärkt för distribuerad databehandling i molnet och körs på Azure Spark-kluster.
+[Scala](http://www.scala-lang.org/), ett språk baserat på Java virtual machine, integrerar objektorienterad och funktionella språkkoncept. Det är ett skalbart språk som är lämplig för distribuerad databehandling i molnet och körs på Azure Spark-kluster.
 
-[Spark](http://spark.apache.org/) är ett ramverk för parallell bearbetning av öppen källkod som stöder minnesintern bearbetning för att höja prestandan hos analytics stordataprogram. Bearbetningsmotorn i Spark är byggd för hastighet, enkel användning och avancerade analyser. Sparks funktioner för beräkning för distribuerade i minnet gör det ett bra alternativ för iterativa algoritmer i machine learning och grafberäkningar. Den [spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) paketet ger en enhetlig uppsättning övergripande API: er som bygger på data ramar som kan hjälpa dig att skapa och finjustera praktiska maskininlärning pipelines. [MLlib](http://spark.apache.org/mllib/) är Sparks skalbara machine learning-biblioteket, som ger funktioner för modellering denna distribuerad miljö.
+[Spark](http://spark.apache.org/) är ett ramverk för parallellbearbetning av öppen källkod som stöder intern bearbetning för att höja prestandan hos program för stordata-analys. Bearbetningsmotorn i Spark är byggd för hastighet, enkel användning och avancerade analyser. Sparks InMemory-distribuerad beräkning funktioner blir det ett bra alternativ för iterativa algoritmer i machine learning och grafberäkningar. Den [spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) paketet tillhandahåller en enhetlig uppsättning avancerade API: er som bygger på data ramar som kan hjälpa dig att skapa och finjustera praktiska machine learning-pipelines. [MLlib](http://spark.apache.org/mllib/) är Sparks skalbar machine learning-biblioteket, som hämtar modelleringsfunktioner till den här distribuerad miljö.
 
-[HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) är värd för Azure-erbjudande för öppen källkod Spark. Det även inkluderar stöd för Jupyter Scala-anteckningsböcker i Spark-klustret och köra interaktiva Spark SQL-frågor för att omvandla, filtrera och visualisera data som lagras i Azure Blob storage. Scala kodavsnitten i den här artikeln som tillhandahåller lösningarna och visa relevanta områden att visualisera data körs i Jupyter-anteckningsböcker som är installerad på Spark-kluster. Modellering stegen i följande avsnitt har kod som visar hur du träna, utvärdera, spara och använda varje typ av modellen.
+[HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) är i Azure som värd-versionen av öppen källkod Spark. Den också har stöd för Jupyter Scala-anteckningsböcker i Spark-klustret och köra interaktiva Spark SQL-frågor för att omvandla, filtrera och visualisera data som lagras i Azure Blob storage. Scala kodfragmenten i den här artikeln som tillhandahåller lösningar och visa relevanta områden att visualisera data körs i Jupyter-anteckningsböcker som installerats på Spark-kluster. Modellering stegen i följande avsnitt har kod som visar hur du tränar, utvärdera, spara och använda varje typ av modellen.
 
-Konfigurationsstegen och kod i den här artikeln gäller Azure HDInsight 3.4 Spark 1.6. Men koden i den här artikeln och i den [Scala Jupyter-anteckningsbok](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration%20Modeling%20and%20Scoring%20using%20Scala.ipynb) är allmänna och bör fungera på Spark-kluster. Klustret installation och hantering av stegen kanske skiljer sig från vad som anges i den här artikeln om du inte använder HDInsight Spark.
+Steg för konfiguration och kod i den här artikeln är för Azure HDInsight 3.4 Spark 1.6. Men koden i den här artikeln och i den [Scala Jupyter Notebook](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration%20Modeling%20and%20Scoring%20using%20Scala.ipynb) är allmänna och bör fungera i ett Spark-kluster. Klustret installation och hantering steg kanske skiljer sig från vad som anges i den här artikeln om du inte använder HDInsight Spark.
 
 > [!NOTE]
-> Ett avsnitt som visar hur du använder Python i stället för Scala utföra uppgifter för en datavetenskap slutpunkt till slutpunkt-processen, se [datavetenskap med Spark på Azure HDInsight](spark-overview.md).
+> En artikel som visar hur du använder Python i stället för Scala för att utföra åtgärder för en slutpunkt till slutpunkt Data Science process, se [datavetenskap med Spark på Azure HDInsight](spark-overview.md).
 > 
 > 
 
 ## <a name="prerequisites"></a>Förutsättningar
-* Du måste ha en Azure-prenumeration. Om du inte redan har en, [hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Du behöver ett Azure HDInsight 3.4 Spark 1.6 klustret för att slutföra följande procedurer. Om du vill skapa ett kluster, se anvisningarna i [komma igång: skapa Apache Spark på Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Anger typ av kluster och versionen på den **Välj typ av kluster** menyn.
+* Du måste ha en Azure-prenumeration. Om du inte redan har en, [få en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Du behöver ett Azure HDInsight 3.4 Spark 1.6-kluster för att slutföra följande procedurer. Om du vill skapa ett kluster, se anvisningarna i [komma igång: skapa Apache Spark på Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Ange typ av kluster och version på den **Välj typ av kluster** menyn.
 
-![HDInsight klusterkonfiguration för typen](./media/scala-walkthrough/spark-cluster-on-portal.png)
+![Konfiguration av HDInsight-kluster](./media/scala-walkthrough/spark-cluster-on-portal.png)
 
 > [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 > 
 > 
 
-En beskrivning av NYC taxi resa data och instruktioner om hur du kör kod från en Jupyter notebook i Spark-klustret finns i de relevanta avsnitten i [översikt av datavetenskap med Spark på Azure HDInsight](spark-overview.md).  
+En beskrivning av NYC taxi-resedata och anvisningar om hur du kör koden från en Jupyter notebook i Spark-klustret finns i de relevanta avsnitten i [översikt över datavetenskap med Spark på Azure HDInsight](spark-overview.md).  
 
 ## <a name="execute-scala-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Köra Scala kod från en Jupyter notebook i Spark-klustret
-Du kan starta en Jupyter-anteckningsbok från Azure-portalen. Hitta Spark-kluster på instrumentpanelen och klickar på knappen för att ange sidan för klustret. Klicka sedan på **Klusterinstrumentpaneler**, och klicka sedan på **Jupyter-anteckningsbok** att öppna den bärbara datorn som är associerade med Spark-klustret.
+Du kan starta en Jupyter-anteckningsbok från Azure-portalen. Hitta Spark-klustret på instrumentpanelen och klicka sedan på den för att ange hanteringssidan för klustret. Klicka sedan på **Klusterinstrumentpaneler**, och klicka sedan på **Jupyter Notebook** att öppna anteckningsboken som är associerade med Spark-klustret.
 
-![Instrumentpanelen klustret och Jupyter-anteckningsböcker](./media/scala-walkthrough/spark-jupyter-on-portal.png)
+![Instrumentpanelen för klustret och Jupyter notebooks](./media/scala-walkthrough/spark-jupyter-on-portal.png)
 
-Du kan också komma åt Jupyter-anteckningsböcker med https://&lt;clustername&gt;.azurehdinsight.net/jupyter. Ersätt *klusternamn* med namnet på klustret. Du behöver lösenordet för ditt administratörskonto att komma åt Jupyter-anteckningsböcker.
+Du kan också komma åt Jupyter-anteckningsböcker på https://&lt;clustername&gt;.azurehdinsight.net/jupyter. Ersätt *clustername* med namnet på klustret. Du behöver lösenordet för ditt administratörskonto att få åtkomst till Jupyter notebooks.
 
 ![Gå till Jupyter-anteckningsböcker med hjälp av klustrets namn](./media/scala-walkthrough/spark-jupyter-notebook.png)
 
-Välj **Scala** att se en mapp med några exempel på färdigförpackade bärbara datorer som använder PySpark-API. Exempel på undersökning modellering och bedömningen med Scala.ipynb bärbar dator som innehåller koden för den här sviten Spark avsnitt är tillgängliga på [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Scala).
+Välj **Scala** att se en katalog som är några exempel på förpaketerade anteckningsböcker som använder PySpark-API. Exempel för att utforska modellering och bedömning med Scala.ipynb bärbar dator som innehåller koden för den här programsviten Spark ämnen på [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Scala).
 
-Du kan ladda upp anteckningsboken direkt från GitHub på servern Jupyter Notebook i Spark-kluster. På startsidan Jupyter klickar du på den **överför** knappen. Klistra in URL-Adressen för GitHub (rådata innehåll) av Scala notebook i Utforskaren, och klicka sedan på **öppna**. Scala anteckningsboken är tillgänglig på följande URL:
+Du kan ladda upp anteckningsboken direkt från GitHub för att Jupyter Notebook-server på Spark-kluster. På startsidan Jupyter klickar du på den **överför** knappen. Klistra in GitHub (raw innehåll)-URL: en för Scala anteckningsboken i Utforskaren, och klicka sedan på **öppna**. Scala anteckningsboken är tillgänglig på följande URL:
 
 [Exploration-Modeling-and-Scoring-using-Scala.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration-Modeling-and-Scoring-using-Scala.ipynb)
 
-## <a name="setup-preset-spark-and-hive-contexts-spark-magics-and-spark-libraries"></a>Konfigurera: Förinställda Spark och Hive-kontexterna, Spark användbara och Spark-bibliotek
-### <a name="preset-spark-and-hive-contexts"></a>Förinställningen Spark och Hive-kontexterna
+## <a name="setup-preset-spark-and-hive-contexts-spark-magics-and-spark-libraries"></a>Konfiguration: Förinställning Spark och Hive-kontexterna, användbara funktioner Spark och Spark-bibliotek
+### <a name="preset-spark-and-hive-contexts"></a>Förinställda kontexter för Spark och Hive
     # SET THE START TIME
     import java.util.Calendar
     val beginningTime = Calendar.getInstance().getTime()
 
 
-Spark-kernlar som tillhandahålls med Jupyter-anteckningsböcker har förinställda sammanhang. Du behöver inte explicit inställd på Spark eller Hive-kontexterna innan du börjar arbeta med programmet som du utvecklar. De förinställda kontexterna är:
+Spark-kernlar som tillhandahålls med Jupyter-anteckningsböcker har förinställda kontexter. Du behöver inte uttryckligen ställa in Spark eller Hive-kontexterna innan du börjar arbeta med programmet du utvecklar. Förinställda kontexter finns:
 
 * `sc` för SparkContext
 * `sqlContext` för HiveContext
 
-### <a name="spark-magics"></a>Spark användbara
-Spark-kärnan innehåller vissa fördefinierade ”användbara”, som är särskilda kommandon som kan anropas med `%%`. Två av dessa kommandon som används i följande kodexempel.
+### <a name="spark-magics"></a>Spark användbara funktioner
+Spark-kernel innehåller vissa fördefinierade ”användbara”, vilket är särskilt kommandon som du kan anropa med `%%`. Två av dessa kommandon som används i följande kodexempel.
 
-* `%%local` Anger att koden i efterföljande rader körs lokalt. Koden måste vara en giltig Scala-kod.
-* `%%sql -o <variable name>` Kör en Hive-fråga mot `sqlContext`. Om den `-o` -parameter har skickats, resultatet av frågan sparas i den `%%local` Scala kontext som en Spark data ram.
+* `%%local` Anger att koden i efterföljande rader kommer att köras lokalt. Koden måste vara giltig Scala-kod.
+* `%%sql -o <variable name>` Kör en Hive-frågan mot `sqlContext`. Om den `-o` parametern har gått ut, resultatet av frågan sparas i den `%%local` Scala kontext som Spark data frame.
 
-För mer information om kärnor för Jupyter-anteckningsböcker och deras fördefinierade ”magics” som du anropar med `%%` (till exempel `%%local`), se [kernlar som är tillgängliga för Jupyter-anteckningsböcker med HDInsight Spark Linux-kluster i HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
+För mer information om kärnor för Jupyter notebooks och deras fördefinierade ”magics” som du anropar med `%%` (till exempel `%%local`), se [Kernlar som är tillgängliga för Jupyter-anteckningsböcker med HDInsight Spark Linux-kluster på HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
 ### <a name="import-libraries"></a>Importera bibliotek
-Importera Spark, MLlib och andra bibliotek som du behöver genom att använda följande kod.
+Importera Spark MLlib och andra bibliotek som du behöver med hjälp av följande kod.
 
     # IMPORT SPARK AND JAVA LIBRARIES
     import org.apache.spark.sql.SQLContext
@@ -128,21 +128,21 @@ Importera Spark, MLlib och andra bibliotek som du behöver genom att använda f�
 
 
 ## <a name="data-ingestion"></a>Datainhämtning
-Det första steget i processen datavetenskap är att mata in data som du vill analysera. Data hämtas från externa källor eller system där den finns i din data från kartläggning av naturresurser och modellering miljö. I den här artikeln är de data du mata in ett domänanslutna 0,1% exempel filernas taxi resa och avgiften (som lagras som en TSV-fil). Data från kartläggning av naturresurser och modellering miljön är Spark. Det här avsnittet innehåller koden för att genomföra följande antal aktiviteter:
+Det första steget i Data Science process är att mata in data som du vill analysera. Du kan sätta data från externa källor eller system där det finns i miljön data utforskning och modellering. I den här artikeln är de data du matar in ett domänansluten 0,1% exempel filens taxi resa och avgiften (som lagras som en TSV-fil). Utforskning och modellering miljön data är Spark. Det här avsnittet innehåller koden för att slutföra den följande metoder:
 
 1. Ange katalogsökvägar för lagring av data och modell.
-2. Läs i inkommande datauppsättningen (som lagras som en TSV-fil).
+2. Läs i den inkommande datauppsättningen (som lagras som en TSV-fil).
 3. Definiera ett schema för data och rensa data.
-4. Skapa en rensade data ram och cachelagra i minnet.
-5. Registrera data som en tillfällig tabell i SQLContext.
-6. Fråga tabellen och importera resultaten till en data-ram.
+4. Skapa en rensad dataram och cachelagra i minnet.
+5. Registrera informationen som en temporär tabell SQLContext.
+6. Fråga efter tabellen och importera resultaten till en dataram.
 
 ### <a name="set-directory-paths-for-storage-locations-in-azure-blob-storage"></a>Ange katalogsökvägar för lagringsplatser i Azure Blob storage
-Spark kan läsa och skriva till Azure Blob storage. Du kan använda Spark bearbeta några befintliga data och spara resultatet i Blob storage igen.
+Spark kan läsa och skriva till Azure Blob storage. Du kan använda Spark för att bearbeta några befintliga data och spara resultatet i Blob storage igen.
 
-Du måste ange korrekt sökväg för att spara modeller eller filer i Blob storage. Referera standardbehållaren kopplad till Spark-kluster med hjälp av en sökväg som börjar med `wasb:///`. Referera till andra platser med hjälp av `wasb://`.
+Du måste ange korrekt sökväg för att spara modeller eller filer i Blob storage. Referera till behållare som standard ansluts till Spark-kluster med hjälp av en sökväg som börjar med `wasb:///`. Referera till andra platser med hjälp av `wasb://`.
 
-Följande kodexempel anger platsen för indata som ska läsas och sökvägen till Blob storage som är kopplad till Spark-kluster där modellen ska sparas.
+Följande kodexempel anger platsen för indata som ska läsas och sökvägen till Blob-lagring som är kopplad till Spark-klustret där modellen kommer att sparas.
 
     # SET PATHS TO DATA AND MODEL FILE LOCATIONS
     # INGEST DATA AND SPECIFY HEADERS FOR COLUMNS
@@ -154,7 +154,7 @@ Följande kodexempel anger platsen för indata som ska läsas och sökvägen til
     val modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/";
 
 
-### <a name="import-data-create-an-rdd-and-define-a-data-frame-according-to-the-schema"></a>Importera data, skapa en RDD och definierar data enligt schemat
+### <a name="import-data-create-an-rdd-and-define-a-data-frame-according-to-the-schema"></a>Importera data, skapa en RDD och definiera en dataram enligt schemat
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
 
@@ -230,10 +230,10 @@ Följande kodexempel anger platsen för indata som ska läsas och sökvägen til
 
 **Utdata:**
 
-Tid att köra cellen: 8 sekunder.
+Tiden för att köra cellen: 8 sekunder.
 
-### <a name="query-the-table-and-import-results-in-a-data-frame"></a>Fråga tabellen och importera resulterar i en data-ram
-Därefter fråga tabellen för avgiften, resande och tips data. Filtrera bort skadad och öar data. och Skriv ut flera rader.
+### <a name="query-the-table-and-import-results-in-a-data-frame"></a>Fråga efter tabellen och importera resultat i en dataram
+Därefter fråga tabell efter avgiften och passagerartrafik tips data. Filtrera bort skadade och mindre data. och Skriv ut flera rader.
 
     # QUERY THE DATA
     val sqlStatement = """
@@ -257,31 +257,31 @@ Därefter fråga tabellen för avgiften, resande och tips data. Filtrera bort sk
 |        16.0 |2.0 |3.4 |1.0 |
 |        10.5 |2.0 |1.0 |1.0 |
 
-## <a name="data-exploration-and-visualization"></a>Datagranskning och visualisering
-När data hämtas i Spark är nästa steg i processen datavetenskap att få en bättre förståelse av data via undersökning och visualisering. I det här avsnittet kan undersöka du taxi data med hjälp av SQL-frågor. Importera sedan resultaten i ett data ska ritas target-variabler och potentiella funktioner för granskning med hjälp av funktionen för automatisk visualisering av Jupyter.
+## <a name="data-exploration-and-visualization"></a>Datautforskning och visualisering
+När du fört dina data i Spark är nästa steg i processen för datavetenskap att få en djupare förståelse av data via utforskning och visualisering. I det här avsnittet ska undersöka du taxi-data med hjälp av SQL-frågor. Importera sedan resultaten till en dataram ska ritas target-variabler och potentiella funktioner för granskning med hjälp av funktionen automatisk visualisering av Jupyter.
 
-### <a name="use-local-and-sql-magic-to-plot-data"></a>Använda lokala och Magiskt tal för SQL data ska ritas
-Som standard är resultatet av alla kodstycke som du kör från en Jupyter-anteckningsbok tillgänglig inom ramen för sessionen som sparas på arbetsnoderna. Om du vill spara en resa till arbetsnoderna för varje beräkning och om alla data som du behöver för din beräkning är tillgängligt lokalt på noden Jupyter (vilket är huvudnoden) kan du använda den `%%local` Magiskt tal för att köra kodfragmentet på Jupyter-servern.
+### <a name="use-local-and-sql-magic-to-plot-data"></a>Använda lokala och SQL magic data ska ritas
+Som standard är utdata från alla kodfragment som du kör från en Jupyter-anteckningsbok tillgänglig inom ramen för sessionen som sparas på arbetsnoderna. Om du vill spara en resa till arbetsnoderna för varje beräkning och om alla data som du behöver för din beräkning är tillgängliga lokalt på noden Jupyter (vilket är huvudnoden), kan du använda den `%%local` magic att köra kodfragmentet på Jupyter Server.
 
-* **SQL-magic** (`%%sql`). HDInsight Spark-kernel stöder enkelt infogade HiveQL frågor mot SQLContext. Den (`-o VARIABLE_NAME`) argumentet kvarstår utdata från SQL-frågan som en Pandas data ram på Jupyter-servern. Det innebär att den ska vara tillgänglig i lokalt läge.
-* `%%local` **Magic**. Den `%%local` magic körs koden lokalt på servern Jupyter som huvudnod HDInsight-klustret. Normalt använder du `%%local` magiskt tillsammans med den `%%sql` magiskt med den `-o` parameter. Den `-o` parametern skulle spara resultatet av SQL-frågan lokalt, och sedan `%%local` magic skulle leda till en uppsättning kodstycke kör lokalt mot utdata för SQL-frågor som sparas lokalt.
+* **SQL magic** (`%%sql`). HDInsight Spark-kernel har stöd för enkel infogade HiveQL frågor mot SQLContext. Den (`-o VARIABLE_NAME`) argumentet kvarstår utdata från SQL-frågan som en Pandas dataram på Jupyter-servern. Det innebär att den blir tillgänglig i lokalt läge.
+* `%%local` **Magic**. Den `%%local` magic körs koden lokalt på servern och Jupyter, som är huvudnoden på HDInsight-klustret. Normalt använder du `%%local` magic tillsammans med den `%%sql` magic med den `-o` parametern. Den `-o` parametern skulle spara utdata av SQL-frågan lokalt, och sedan `%%local` magic ska utlösa nästa uppsättning kodfragmentet att köra lokalt mot utdata från SQL-frågor som är sparade lokalt.
 
 ### <a name="query-the-data-by-using-sql"></a>Fråga efter data med hjälp av SQL
-Den här frågan hämtar taxi resor av avgiften, passagerare antal, och tips belopp.
+Den här frågan hämtar taxi-kommunikation med avgiften, passagerartrafik antal, och tips belopp.
 
     # RUN THE SQL QUERY
     %%sql -q -o sqlResults
     SELECT fare_amount, passenger_count, tip_amount, tipped FROM taxi_train WHERE passenger_count > 0 AND passenger_count < 7 AND fare_amount > 0 AND fare_amount < 200 AND payment_type in ('CSH', 'CRD') AND tip_amount > 0 AND tip_amount < 25
 
-I följande kod i `%%local` magic skapas en lokala data, sqlResults. Du kan använda sqlResults ska ritas med hjälp av matplotlib.
+I följande kod i `%%local` magic skapar en lokal dataram sqlResults. Du kan använda sqlResults ska ritas med hjälp av matplotlib.
 
 > [!TIP]
-> Lokala magic används flera gånger i den här artikeln. Om din datauppsättning är stor, exempel om du vill skapa en data-ram som får plats i det lokala minnet.
+> Lokala magic används flera gånger i den här artikeln. Om datauppsättningen är stor, exempel för att skapa en dataram som ryms i lokalt minne.
 > 
 > 
 
 ### <a name="plot-the-data"></a>Ritas
-Du kan rita med hjälp av Python-kod när dataramen är i lokala kontext som en Pandas data ram.
+Du kan rita med hjälp av Python-kod när dataramen är i lokal kontext som en dataram Pandas.
 
     # RUN THE CODE LOCALLY ON THE JUPYTER SERVER
     %%local
@@ -291,7 +291,7 @@ Du kan rita med hjälp av Python-kod när dataramen är i lokala kontext som en 
     sqlResults
 
 
- Spark-kernel visualizes automatiskt utdata för SQL (HiveQL)-frågor när du kör kod. Du kan välja mellan flera olika typer av visualiseringar:
+ Spark-kernel visualiserar resultatet av SQL (HiveQL)-frågor automatiskt när du kör koden. Du kan välja mellan flera typer av visualiseringar:
 
 * Tabell
 * Cirkel
@@ -335,21 +335,21 @@ Här är koden för att rita data:
 
 ![Tips belopp histogram](./media/scala-walkthrough/plot-tip-amount-histogram.png)
 
-![Tips belopp av passagerare antal](./media/scala-walkthrough/plot-tip-amount-by-passenger-count.png)
+![Tips belopp efter passagerar-antal](./media/scala-walkthrough/plot-tip-amount-by-passenger-count.png)
 
 ![Tips belopp med avgiften belopp](./media/scala-walkthrough/plot-tip-amount-by-fare-amount.png)
 
-## <a name="create-features-and-transform-features-and-then-prep-data-for-input-into-modeling-functions"></a>Skapa funktioner och transformera funktioner och Förbered dig för indata i modeling funktioner
-För trädet-baserade modelleringsfunktioner från Spark ML och MLlib måste du förbereda mål och funktioner med hjälp av en mängd olika tekniker, till exempel diskretisering, indexering, en hot kodning och vectorization. Här följer du procedurerna för att följa i det här avsnittet:
+## <a name="create-features-and-transform-features-and-then-prep-data-for-input-into-modeling-functions"></a>Skapa funktioner och omvandla funktioner och Förbered sedan data för mata in modellering funktioner
+För trädet-baserade modelleringsfunktioner från Spark ML och MLlib måste du förbereda mål- och funktioner genom att använda en mängd olika tekniker, till exempel datagruppering, indexering, en frekvent kodning och vectorization. Här följer procedurerna som ska följas i det här avsnittet:
 
-1. Skapa en ny funktion av **diskretisering** timmar till trafik tid buckets.
-2. Tillämpa **indexering och en hot kodning** kategoriska funktioner.
-3. **Exempel och dela datauppsättningen** till bråk träning och testning.
-4. **Ange variabeln utbildning och funktioner**, och sedan skapa indexerade eller ett hot kodade utbildning och testar inkommande märkt punkt flexibel distribueras datauppsättningar (RDDs) eller ramar.
+1. Skapa en ny funktion av **datagruppering** timmar trafik tid buckets.
+2. Tillämpa **indexering och en frekvent kodning** till kategoriska funktioner.
+3. **Hämta exempel och dela upp datauppsättningen** i bråkdelar för träning och testning.
+4. **Ange variabel för utbildning och funktioner**, och sedan skapa indexerade eller en frekvent kodad utbildning och testning inkommande taggade punkt elastiska distribueras Rdd-datauppsättningar () eller dataramar.
 5. Automatiskt **kategorisera och vectorize funktioner och mål** ska användas som indata för machine learning-modeller.
 
-### <a name="create-a-new-feature-by-binning-hours-into-traffic-time-buckets"></a>Skapa en ny funktion med diskretisering timmar till trafik tid buckets
-Den här koden visar hur du skapar en ny funktion med diskretisering timmar i trafik tid buckets och cachelagra dataramen resulterande i minnet. Där RDDs och data används flera gånger, cachelagring leder till en förbättrad körningstider. Du måste därför cachelagra RDDs och dataramar i flera steg i följande procedurer.
+### <a name="create-a-new-feature-by-binning-hours-into-traffic-time-buckets"></a>Skapa en ny funktion med datagrupperingen timmar till trafik tid buckets
+Den här koden visar hur du skapar en ny funktion med datagrupperingen timmar till trafik tid buckets och cachelagra den resulterande dataramen i minnet. Där rdd-datauppsättningar och data används flera gånger, cachelagring leder till bättre körningstider. Därför ska du Cachelagra rdd-datauppsättningar och dataramar i flera led i följande procedurer.
 
     # CREATE FOUR BUCKETS FOR TRAFFIC TIMES
     val sqlStatement = """
@@ -369,14 +369,14 @@ Den här koden visar hur du skapar en ny funktion med diskretisering timmar i tr
     taxi_df_train_with_newFeatures.count()
 
 
-### <a name="indexing-and-one-hot-encoding-of-categorical-features"></a>Indexering och en hot kodning av kategoriska funktioner
-Modellering och förutsäga funktioner för MLlib kräver funktioner med kategoriska indata till indexerade eller kodade före användning. Det här avsnittet visar hur du index eller koda kategoriska funktioner för indata i modelleringsfunktioner.
+### <a name="indexing-and-one-hot-encoding-of-categorical-features"></a>Indexering och hot som kodning av kategoriska funktioner
+Modellering och förutsäga funktioner för MLlib kräver funktioner med kategoriska indata till indexerade eller kodade före användning. Det här avsnittet visar hur du indexera eller koda kategoriska funktioner för mata in modelleringsfunktioner.
 
-Du behöver index eller koda modeller på olika sätt beroende på modellen. Till exempel kräva logistic och linjär regression modeller ett hot kodning. Till exempel kan en funktion med tre kategorier expanderas i tre kolumner i funktionen. Varje kolumn innehåller 0 eller 1 beroende på kategorin för en observationsintervallet. MLlib ger den [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) funktionen för en hot kodning. Den här kodaren mappar etikett index i en kolumn till en kolumn med binära angreppsmetoderna med högst ett ett-värde. Med den här kodningen kan algoritmer som räknar numeriska värden funktioner, till exempel logistic regression tillämpas på kategoriska funktioner.
+Du behöver index eller koda dina modeller på olika sätt, beroende på modellen. Till exempel kräva logistic och linjära regressionsmodeller en frekvent kodning. Till exempel kan en funktion med tre kategorier expanderas till tre kolumner i funktionen. Varje kolumn innehåller 0 eller 1 beroende på en uppmaning i kategorin. MLlib ger den [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) funktionen för en frekvent encoding. Den här encoder mappar en kolumn med etiketten index till en kolumn med binära vektorer med högst ett ett-värde. Med den här kodningen kan algoritmer som förväntar sig numeriska värden funktioner, till exempel logistic regression tillämpas på kategoriska funktioner.
 
-Här kan du omvandla bara fyra variabler för att visa exempel som är strängar. Du kan också indexera andra variabler, till exempel veckodag representeras av numeriska värden som kategoriska variabler.
+Här kan du omvandla bara fyra variabler för att visa exempel som är teckensträngar. Du kan också indexera andra variabler, till exempel veckodag och representeras av numeriska värden som kategoriska variabler.
 
-Använd för indexering, `StringIndexer()`, och för ett hot encoding använder `OneHotEncoder()` funktioner från MLlib. Här är koden för att indexera och koda kategoriska funktioner:
+Använd för indexering, `StringIndexer()`, och för en frekvent encoding, använda `OneHotEncoder()` funktioner från MLlib. Här är koden för att indexera och koda kategoriska funktioner:
 
     # CREATE INDEXES AND ONE-HOT ENCODED VECTORS FOR SEVERAL CATEGORICAL FEATURES
 
@@ -415,12 +415,12 @@ Använd för indexering, `StringIndexer()`, och för ett hot encoding använder 
 
 **Utdata:**
 
-Tid att köra cellen: 4 sekunder.
+Tiden för att köra cellen: 4 sekunder.
 
-### <a name="sample-and-split-the-data-set-into-training-and-test-fractions"></a>Exempel och dela datauppsättningen till bråk träning och testning
-Den här koden skapar en slumpmässig provtagning data (i det här exemplet 25%). Även om sampling inte krävs för det här exemplet på grund av storleken på datamängden som visar artikeln hur du kan prova så att du vet hur du använder för din egen problem vid behov. När prover är stort, kan detta spara mycket tid medan du träna modeller. Dela exemplet i en utbildning (75% i det här exemplet) och en tester del (i det här exemplet 25%) för att använda i klassificering och regressionen modeling.
+### <a name="sample-and-split-the-data-set-into-training-and-test-fractions"></a>Exempel och dela datauppsättningen i bråkdelar för träning och testning
+Den här koden skapar ett slumpmässigt urval av data (i det här exemplet 25%). Även om sampling inte krävs för det här exemplet på grund av storleken på datauppsättningen, visar artikeln hur du kan ta prov så att du vet hur du använder det egna problem när det behövs. När exempel är stort, kan detta spara mycket tid medan du träna modeller. Dela exemplet till en utbildning (75% i det här exemplet) och en testning delen (i det här exemplet 25%) för att använda i klassificering och regression modellering.
 
-Lägg till ett slumptal (mellan 0 och 1) på varje rad (i en kolumn ”SLUMP”) som kan användas för att välja korsvalidering vikningar vid träning.
+Lägg till ett slumptal (mellan 0 och 1) i varje rad (i en kolumn för ”rand”) som kan användas för att välja korsvalidering vikningar vid träning.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
@@ -454,12 +454,12 @@ Lägg till ett slumptal (mellan 0 och 1) på varje rad (i en kolumn ”SLUMP”)
 
 **Utdata:**
 
-Tid att köra cellen: 2 sekunder.
+Tiden för att köra cellen: 2 sekunder.
 
-### <a name="specify-training-variable-and-features-and-then-create-indexed-or-one-hot-encoded-training-and-testing-input-labeled-point-rdds-or-data-frames"></a>Ange utbildning variabeln och funktioner, och skapa indexerade eller ett hot kodade träning och testning indata med etiketten punkt RDDs eller data ramar
-Det här avsnittet innehåller kod som visar hur du indexera kategoriska textdata med datatypen märkt punkt och koda den så att du kan använda för att träna och testa MLlib logistic regression och andra klassificering modeller. Märkt point-objekt är RDDs som är formaterad på ett sätt som krävs av de flesta maskininlärningsalgoritmer i MLlib som indata. En [etikett punkt](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) är en lokal vector kompakta eller utspridd, som är associerade med en etikett/svar.
+### <a name="specify-training-variable-and-features-and-then-create-indexed-or-one-hot-encoded-training-and-testing-input-labeled-point-rdds-or-data-frames"></a>Ange variabel för utbildning och funktioner och sedan skapa indexerade eller en frekvent kodad träning och testning indata märkta punkt Rdd eller data bildrutor
+Det här avsnittet innehåller kod som visar hur du indexera kategoriska textdata som datatypen taggade punkt och koda den så att du kan använda den för att träna och testa MLlib logistic regression och andra klassificering modeller. Taggade point-objekt är rdd-datauppsättningar som är formaterad på ett sätt som krävs som indata av de flesta av machine learning-algoritmer i MLlib. En [märkta punkt](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) är en lokal vector kompakta eller null-optimerade, som är associerad med en etikett/svar.
 
-I den här koden anger du målvariabel (beroende) och funktionerna du använder för att träna modeller. Sedan kan skapa du indexerade eller ett hot kodade träning och testning indata med etiketten punkt RDDs eller data ramar.
+I den här koden anger du en målvariabel (beroende) och vilka funktioner som ska använda för att träna modeller. Sedan kan skapa du indexerade eller en frekvent kodad träning och testning indata märkta punkt Rdd-och data.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
@@ -497,13 +497,13 @@ I den här koden anger du målvariabel (beroende) och funktionerna du använder 
 
 **Utdata:**
 
-Tid att köra cellen: 4 sekunder.
+Tiden för att köra cellen: 4 sekunder.
 
-### <a name="automatically-categorize-and-vectorize-features-and-targets-to-use-as-inputs-for-machine-learning-models"></a>Kategorisera och vectorize funktioner och mål för att användas som indata för maskininlärningsmodeller automatiskt
-Använda Spark ML för att kategorisera mål- och funktioner du vill använda i trädet-baserade modelleringsfunktioner. Koden är klar två aktiviteter:
+### <a name="automatically-categorize-and-vectorize-features-and-targets-to-use-as-inputs-for-machine-learning-models"></a>Automatiskt kategorisera och vectorize mål ska användas som indata för machine learning-modeller och funktioner
+Använd Spark ML för att kategorisera mål- och vilka funktioner du vill använda i trädet-baserade modelleringsfunktioner. Koden utför två aktiviteter:
 
-* Skapar ett binärt mål för klassificering genom att tilldela varje datapunkt mellan 0 och 1 med hjälp av ett tröskelvärde för 0,5 värdet 0 eller 1.
-* Automatiskt kategoriserar funktioner. Om antalet distinkta numeriska värden för alla funktioner som är mindre än 32, kategoriseras den funktionen.
+* Skapar ett binärt mål för klassificering genom att tilldela ett värde på 0 eller 1 till varje datapunkt mellan 0 och 1 med hjälp av ett tröskelvärde för 0,5.
+* Automatiskt kategoriserar funktioner. Om antalet distinkta numeriska värden för alla funktioner som är mindre än 32 kan kategoriseras den funktionen.
 
 Här är koden för dessa två aktiviteter.
 
@@ -536,21 +536,21 @@ Här är koden för dessa två aktiviteter.
 
 
 
-## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Binär klassificering modell: förutsäga om tipsrutor ska användas för betalning
-I det här avsnittet kan du skapa tre olika typer av binär klassificering modeller att förutsäga om tipsrutor ska betald:
+## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Binär klassificeringsmodell: förutsäga om ett tips ska betalas
+I det här avsnittet skapar du tre typer av binär klassificering modeller för att förutsäga om ett tips ska betalas:
 
-* En **logistic regressionsmodell** med hjälp av Spark ML `LogisticRegression()` funktion
+* En **logistic regression-modellen** med hjälp av Spark ML `LogisticRegression()` funktion
 * En **slumpmässiga klassificering Skogsmodell** med hjälp av Spark ML `RandomForestClassifier()` funktion
-* En **toning den trädet klassificering modellen** med hjälp av MLlib `GradientBoostedTrees()` funktion
+* En **gradient boosting trädet klassificeringsmodellen** med hjälp av MLlib `GradientBoostedTrees()` funktion
 
-### <a name="create-a-logistic-regression-model"></a>Skapa en logistic regressionsmodell
-Skapa sedan en logistic regressionsmodell med hjälp av Spark ML `LogisticRegression()` funktion. Du kan skapa modellen skapa koden i ett antal steg:
+### <a name="create-a-logistic-regression-model"></a>Skapa en logistic regression-modell
+Därefter skapa en logistic regression-modellen med hjälp av Spark ML `LogisticRegression()` funktion. Du skapar modellen att skapa koden i en serie steg:
 
-1. **Träna modellen** data med en enda parameter.
-2. **Utvärdera modellen** på en datauppsättning med test.
+1. **Träna modellen** data med en parameteruppsättning.
+2. **Utvärdera modellen** på en datauppsättning för testning med mått.
 3. **Spara modellen** i Blob storage för framtida användning.
 4. **Poängsätt modellen** mot testdata.
-5. **Rita resultaten** med operativsystemet kurvor egenskap (ROC).
+5. **Rita resultaten** med mottagare fungerar egenskap (ROC) kurvor.
 
 Här är koden för dessa procedurer:
 
@@ -572,7 +572,7 @@ Här är koden för dessa procedurer:
     val filename = modelDir.concat(modelName).concat(datestamp)
     lrModel.save(filename);
 
-Läsa in poängsätta och spara resultatet.
+Läsa in poäng och spara resultaten.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
@@ -638,10 +638,10 @@ Använda Python på lokala Pandas dataramar ska ritas ROC-kurvan.
 
 **Utdata:**
 
-![Tips eller några tips ROC-kurvan](./media/scala-walkthrough/plot-roc-curve-tip-or-not.png)
+![Tips eller inga ROC-kurvan för tips](./media/scala-walkthrough/plot-roc-curve-tip-or-not.png)
 
-### <a name="create-a-random-forest-classification-model"></a>Skapa en modell för klassificering av slumpmässiga skog
-Skapa sedan en klassificering för slumpmässiga Skogsmodell med hjälp av Spark ML `RandomForestClassifier()` fungera och sedan utvärdera modellen på testdata.
+### <a name="create-a-random-forest-classification-model"></a>Skapa en klassificering för slumpmässiga Skogsmodell
+Skapa sedan en klassificering för slumpmässiga Skogsmodell med hjälp av Spark ML `RandomForestClassifier()` fungera, och sedan utvärdera modellen på testdata.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
@@ -674,7 +674,7 @@ Skapa sedan en klassificering för slumpmässiga Skogsmodell med hjälp av Spark
 ROC på testdata = 0.9847103571552683
 
 ### <a name="create-a-gbt-classification-model"></a>Skapa en modell för klassificering av GBT
-Skapa sedan en modell för klassificering av GBT med hjälp av Mllib's `GradientBoostedTrees()` fungera och sedan utvärdera modellen på testdata.
+Skapa sedan en modell för klassificering av GBT med hjälp av Mllib's `GradientBoostedTrees()` fungera, och sedan utvärdera modellen på testdata.
 
     # TRAIN A GBT CLASSIFICATION MODEL BY USING MLLIB AND A LABELED POINT
 
@@ -730,12 +730,12 @@ Skapa sedan en modell för klassificering av GBT med hjälp av Mllib's `Gradient
 Området under ROC-kurvan: 0.9846895479241554
 
 ## <a name="regression-model-predict-tip-amount"></a>Regressionsmodell: förutsäga tips belopp
-I det här avsnittet kan du skapa två typer av regression modeller att förutse hur tips:
+I det här avsnittet skapar du två typer av regressionsmodeller att förutsäga hur tips:
 
-* En **reglerats linjär regressionsmodell** med hjälp av Spark ML `LinearRegression()` funktion. Du måste spara modellen och utvärdera modellen på testdata.
-* En **toningen förstärkning trädet regressionsmodell** med hjälp av Spark ML `GBTRegressor()` funktion.
+* En **reglerats linjär regressionsmodell** med hjälp av Spark ML `LinearRegression()` funktion. Du spara modellen och utvärdera modellen på testdata.
+* En **gradient-boosting trädet regressionsmodell** med hjälp av Spark ML `GBTRegressor()` funktion.
 
-### <a name="create-a-regularized-linear-regression-model"></a>Skapa en reglerats linjär regressionsmodell
+### <a name="create-a-regularized-linear-regression-model"></a>Skapa en reglerats linjär regression-modell
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
 
@@ -779,7 +779,7 @@ I det här avsnittet kan du skapa två typer av regression modeller att förutse
 
 **Utdata:**
 
-Tid att köra cellen: 13 sekunder.
+Tiden för att köra cellen: 13 sekunder.
 
     # LOAD A SAVED LINEAR REGRESSION MODEL FROM BLOB STORAGE AND SCORE A TEST DATA SET
 
@@ -812,7 +812,7 @@ Tid att köra cellen: 13 sekunder.
 
 R-sqr på testdata = 0.5960320470835743
 
-Därefter fråga testresultaten en data-ram och använda AutoVizWidget och matplotlib visualisera den.
+Sedan fråga testresultaten som en dataram och Använd AutoVizWidget och matplotlib för att visualisera den.
 
     # RUN A SQL QUERY
     %%sql -q -o sqlResults
@@ -825,14 +825,14 @@ Därefter fråga testresultaten en data-ram och använda AutoVizWidget och matpl
     # CLICK THE TYPE OF PLOT TO GENERATE (LINE, AREA, BAR, AND SO ON)
     sqlResults
 
-Koden skapas en lokala data från frågeresultatet och visar data. Den `%%local` magic skapar en lokala data ram `sqlResults`, som du kan använda för att rita med matplotlib.
+Koden skapar en lokal dataram från frågeresultatet visas och visar data. Den `%%local` magic skapar en lokal dataram `sqlResults`, som du kan använda för att rita med matplotlib.
 
 > [!NOTE]
-> Den här Spark magic används flera gånger i den här artikeln. Om mängden data som är stor, bör du prov för att skapa en data-ram som ryms i lokalt minne.
+> Den här Spark magic används flera gånger i den här artikeln. Om mängden data som är stor, bör du ta prov för att skapa en dataram som ryms i lokalt minne.
 > 
 > 
 
-Skapa områden med Python matplotlib.
+Skapa områden med hjälp av Python matplotlib.
 
     # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
     %%local
@@ -852,12 +852,12 @@ Skapa områden med Python matplotlib.
 
 **Utdata:**
 
-![Tips belopp: faktiska kontra förväntade](./media/scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
+![Tips belopp: faktiska intäkter jämfört med förväntade](./media/scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
 
-### <a name="create-a-gbt-regression-model"></a>Skapa en GBT regressionsmodell
-Skapa en GBT regressionsmodell med hjälp av Spark ML `GBTRegressor()` fungera och sedan utvärdera modellen på testdata.
+### <a name="create-a-gbt-regression-model"></a>Skapa en regressionsmodell för GBT
+Skapa en GBT regressionsmodell med hjälp av Spark ML `GBTRegressor()` fungera, och sedan utvärdera modellen på testdata.
 
-[Ökat toningen träd](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) är ensembler av beslutsträd. GBTs träna beslutsträd upprepade gånger för att minimera dataförlust funktionen. Du kan använda GBTs för regression och klassificering. De kan hantera kategoriska funktioner kräver inte funktionen skalning och kan avbilda nonlinearities och funktionen interaktioner. Du kan också använda dem i en multiclass klassificering.
+[Toning förstärkta träd](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) är ensembler för beslutsträd. GBTs träna beslutsträd upprepade gånger för att minimera en förlust-funktion. Du kan använda GBTs för regression och klassificering. De kan hantera kategoriska funktioner kräver funktionen skalning och kan avbilda nonlinearities och funktionen interaktioner. Du kan också använda dem i en inställning för multiclass-klassificering.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
@@ -887,21 +887,21 @@ Skapa en GBT regressionsmodell med hjälp av Spark ML `GBTRegressor()` fungera o
 
 Testa R-sqr är: 0.7655383534596654
 
-## <a name="advanced-modeling-utilities-for-optimization"></a>Avancerade modellering verktyg för optimering
-I det här avsnittet använder du machine learning verktyg som utvecklare använder ofta för optimering av modellen. Mer specifikt kan du optimera machine learning-modeller tre olika sätt med hjälp av parametern omfattande och korsvalidering:
+## <a name="advanced-modeling-utilities-for-optimization"></a>Verktyg för avancerad modellering för optimering
+I det här avsnittet använder du machine learning-verktyg som utvecklare använder ofta för optimering av modellen. Mer specifikt kan du optimera machine learning-modeller tre olika sätt med hjälp av oinskränkt parametern och korsvalidering:
 
-* Dela data i tåg och validering uppsättningar, optimera modellen med hjälp av hyper-parametern omfattande på en träningsmängden och utvärdera en verifiering mängd (linjär regression)
-* Optimera modellen med hjälp av korsvalidering och hyper-parametern omfattande med funktionen Spark ML CrossValidator (binär klassificering)
-* Optimera modellen med hjälp av anpassade korsvalidering och parametern omfattande kod för att använda alla maskininlärning funktion och parametern uppsättning (linjär regression)
+* Dela upp data i träna och verifiering, optimera modellen med hjälp av oinskränkt hyper-parametern på en uppsättning med utbildning och utvärdera på en uppsättning med verifiering (linjär regression)
+* Optimera modellen med hjälp av korsvalidering och hyper-parametern oinskränkt med hjälp av Spark ML CrossValidator funktion (binär klassificering)
+* Optimera modellen genom att använda anpassad kod för korsvalidering och parametern-oinskränkt för att använda alla machine learning-funktion och parametern set (linjär regression)
 
-**Korsvalidering** är en teknik som utvärderar hur väl en modell med en känd uppsättning data kommer generalize för att förutsäga funktioner för datauppsättningar som den inte har tränats. Allmänna syftet med den här metoden är att en modell tränas på en datauppsättning med kända data och sedan korrektheten i dess förutsägelser kontrolleras mot en oberoende datamängd. En vanlig tillämpning är att dela en datamängd i *k*-vikningar och träna modellen i ett resursallokering sätt på alla utom en av vikningar.
+**Korsvalidering** är en teknik som bedömer hur väl en modell som har tränats på en känd uppsättning data kommer generalize för att förutsäga funktionerna för datauppsättningar som den inte har tränats. Den allmänna idén bakom den här tekniken är att en modell som har tränats på en uppsättning av kända data och sedan korrektheten i dess förutsägelser har testats mot en oberoende datauppsättning. En vanlig tillämpning är att dela upp en datauppsättning i *k*-vikningar och sedan träna modellen i en resursallokering på alla utom ett av vikningar.
 
-**Hyper-parametern optimering** är problem med att välja en uppsättning hyper-parametrar för en inlärningsalgoritm vanligtvis med målet att optimera ett mått på den algoritm prestanda på en fristående uppsättning data. Hyper-parametern är ett värde som du måste ange utanför modellen utbildning proceduren. Antaganden om hyper-parametervärden kan påverka flexibilitet och korrektheten i modellen. Beslutsträd har till exempel hyper-parametrar, till exempel önskad djup och många blad i trädet. Du måste ange en felklassificering påföljder term för en support vector machine (SVM).
+**Hyper-parametern optimering** är problemet för att välja en uppsättning hyperparametrar för en inlärningsalgoritm vanligtvis med målet att optimera ett mått på den algoritmen prestanda på en oberoende datauppsättning. En hyper-parameter är ett värde som du måste ange utanför modellen utbildning proceduren. Antaganden om hyper-parametervärden kan påverka flexibilitet och korrektheten i modellen. Beslutsträd har till exempel hyperparametrar, till exempel önskad djup och många blad i trädet. Du måste ange en felklassificering särskilda avgifter term för en dator för vektorstöd (SVM).
 
-Ett vanligt sätt att utföra en optimering för hyper-parametern är att använda en rutnätet sökning, kallas även en **parametern Svep**. I ett rutnät sökning utförs en fullständig sökning genom värdena för en angiven del av hyper-parametern utrymmet för en inlärningsalgoritm. Korsvalidering kan tillhandahålla ett prestanda mått för att lösa bästa möjliga resultat som genereras av algoritmen rutnätet sökning. Om du använder korsvalidering hyper parametern omfattande, kan du hjälpa gränsen problem angående overfitting en modell för utbildningsdata. Det här sättet modellen behåller kapacitet att tillämpa en allmän uppsättning data från vilket utbildning data extraheras.
+Ett vanligt sätt att utföra hyper parametern optimering är att använda en grid-sökning, kallas även en **parameterrensning**. I en grid-sökning utförs en uttömmande sökning efter via värdena för en angiven delmängd av hyper-parametern utrymme för en inlärningsalgoritm. Korsvalidering kan ange ett prestandamått för att lösa de optimala resultat som skapas av algoritmen grid sökning. Om du använder korsvalidering hyper parametern oinskränkt kan hjälpa du gränsen problem angående overfitting en modell på träningsdata. På så sätt kan modellen behåller kapacitet att gäller för allmän uppsättning data från vilken träningsdata har extraherats.
 
 ### <a name="optimize-a-linear-regression-model-with-hyper-parameter-sweeping"></a>Optimera en linjär regressionsmodell med hyper-parametern omfattande
-Därefter dela data i tåg och validering uppsättningar, Använd hyper-parametern omfattande på en träningsmängden att optimera modellen och utvärdera en verifiering mängd (linjär regression).
+Dela sedan data till uppsättningar av träna upp och verifiering, Använd hyper-parametern oinskränkt på en träningsmängden att optimera modellen och utvärdera på en uppsättning med verifiering (linjär regression).
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
@@ -944,8 +944,8 @@ Därefter dela data i tåg och validering uppsättningar, Använd hyper-paramete
 
 Testa R-sqr är: 0.6226484708501209
 
-### <a name="optimize-the-binary-classification-model-by-using-cross-validation-and-hyper-parameter-sweeping"></a>Optimera binär klassificering modellen med hjälp av korsvalidering och hyper-parametern omfattande
-Det här avsnittet visar hur du optimerar en binär klassificering modell med omfattande korsvalidering och hyper-parametern. Här används Spark ML `CrossValidator` funktion.
+### <a name="optimize-the-binary-classification-model-by-using-cross-validation-and-hyper-parameter-sweeping"></a>Optimera binära klassificeringsmodellen med hjälp av oinskränkt korsvalidering och hyper-parameter
+Det här avsnittet visar hur du optimerar en binär klassificeringsmodell med hjälp av oinskränkt korsvalidering och hyper-parametern. Här används Spark ML `CrossValidator` funktion.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
@@ -986,10 +986,10 @@ Det här avsnittet visar hur du optimerar en binär klassificering modell med om
 
 **Utdata:**
 
-Tid att köra cellen: 33 sekunder.
+Tiden för att köra cellen: 33 sekunder.
 
-### <a name="optimize-the-linear-regression-model-by-using-custom-cross-validation-and-parameter-sweeping-code"></a>Optimera linjär regressionsmodell med hjälp av anpassade korsvalidering och parametern omfattande kod
-Sedan optimera modellen med hjälp av anpassade kod och identifiera de lämpligaste modellparametrarna med hjälp av kriterium högsta noggrannhet. Skapa sedan sista modellen, utvärdera modellen på testdata och spara modellen i Blob storage. Slutligen läsa in modellen poängsätta testdata och utvärdera noggrannhet.
+### <a name="optimize-the-linear-regression-model-by-using-custom-cross-validation-and-parameter-sweeping-code"></a>Optimera den linjära regressionsmodellen genom att använda anpassad kod för korsvalidering och parametern-oinskränkt
+Sedan optimera modellen genom att använda anpassad kod och identifiera de lämpligaste parametrarna för modellen med hjälp av villkoret för bästa noggrannheten. Skapa sedan den slutliga modellen, utvärdera modellen på testdata och spara modellen i Blob storage. Slutligen kan läsa in modellen, bedöma testdata och utvärdera precision.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
@@ -1101,12 +1101,12 @@ Sedan optimera modellen med hjälp av anpassade kod och identifiera de lämpliga
 
 **Utdata:**
 
-Tid att köra cellen: 61 sekunder.
+Tiden för att köra cellen: 61 sekunder.
 
-## <a name="consume-spark-built-machine-learning-models-automatically-with-scala"></a>Använda Spark-inbyggda machine learning-modeller automatiskt med Scala
-En översikt över ämnen som vägleder dig igenom de aktiviteter som utgör processen datavetenskap i Azure finns [Team datavetenskap Process](http://aka.ms/datascienceprocess).
+## <a name="consume-spark-built-machine-learning-models-automatically-with-scala"></a>Använda Spark-byggda machine learning-modeller automatiskt med Scala
+En översikt över avsnitt som vägleder dig genom de uppgifter som utgör Data Science process i Azure finns i [Team Data Science Process](https://aka.ms/datascienceprocess).
 
-[Teamet datavetenskap Process genomgång](walkthroughs.md) beskriver andra slutpunkt till slutpunkt-genomgång som visar stegen i teamet vetenskap av data för specifika scenarier. Genomgångar visar även hur du kombinerar molnet och lokala verktyg och tjänster i ett arbetsflöde eller en rörledning för att skapa ett intelligent program.
+[Team Data Science Process genomgångar](walkthroughs.md) beskriver andra slutpunkt till slutpunkt genomgång som visar stegen i Team Data Science Process för specifika scenarier. Genomgångar visar också hur du kombinera molnet och lokala verktyg och tjänster i ett arbetsflöde eller en pipeline för att skapa ett intelligenta program.
 
-[Poängsätta Spark-inbyggda machine learning-modeller](spark-model-consumption.md) visar hur du kan använda Scala-kod för att läsa in och poängsätta nya datauppsättningar med machine learning-modeller inbyggd Spark och sparas i Azure Blob storage automatiskt. Du kan följer du det och Ersätt bara Python-kod med Scala kod i den här artikeln för automatisk användning.
+[Rangordna Spark-byggda machine learning-modeller](spark-model-consumption.md) visar hur du använder Scala code för att läsa in automatiskt och poängsätta nya uppsättningar med machine learning-modeller som skapats i Spark och sparade i Azure Blob storage. Du kan följa anvisningarna det och Ersätt helt enkelt Python-kod med Scala kod i den här artikeln för automatisk användning.
 

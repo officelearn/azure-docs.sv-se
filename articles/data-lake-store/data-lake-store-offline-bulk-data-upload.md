@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 6430bf524ac81af242bf7afb4c2c8196309806ab
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: fc70089517bbc1aa90f95f1e0231f2c67f930090
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391688"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242202"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-azure-data-lake-storage-gen1"></a>Använda Azure Import/Export-tjänsten för offlinekopia av data till Azure Data Lake Storage Gen1
 I den här artikeln får du veta hur du kopierar enorma datamängder (> 200 GB) i Azure Data Lake Storage Gen1 med offlinekopia metoder som de [tjänsten Azure Import/Export](../storage/common/storage-import-export-service.md). Filen används som exempel i den här artikeln är mer specifikt 339,420,860,416 byte eller cirka 319 GB på disken. Vi kan kalla den här filen 319GB.tsv.
@@ -52,7 +52,7 @@ Följ instruktionerna i [med hjälp av tjänsten Azure Import/Export](../storage
 
 1. Skaffa en hårddisk som uppfyller kraven som ska användas för tjänsten Azure Import/Export.
 2. Identifiera Azure-lagringskonton dit data ska kopieras när det har levererats till Azure-datacentret.
-3. Använd den [Azure Import/Export-verktyget](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409), ett kommandoradsverktyg. Här är ett exempel kodfragment som visar hur du använder verktyget.
+3. Använd den [Azure Import/Export-verktyget](https://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409), ett kommandoradsverktyg. Här är ett exempel kodfragment som visar hur du använder verktyget.
 
     ````
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/

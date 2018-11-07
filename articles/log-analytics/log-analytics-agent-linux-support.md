@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 3f23464776036a8c91b180d46341782fddb9d5e8
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 2720ecece86133bf551ab42c415b2e9a87420e93
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140967"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237833"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Så här felsöker du problem med Log Analytics-agenten för Linux 
 
@@ -32,7 +32,7 @@ Om ingen av de här stegen fungerar för dig finns också stöd för följande k
 * Kunder med supportavtal för Azure kan öppna en supportbegäran [i Azure-portalen](https://manage.windowsazure.com/?getsupport=true).
 * Diagnostisera OMI problem med den [OMI felsökningsguide för](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md).
 * Filen en [GitHub-ärende](https://github.com/Microsoft/OMS-Agent-for-Linux/issues).
-* Gå till sidan för Log Analytics Feedback om du vill granska skickade idéer och buggar [ http://aka.ms/opinsightsfeedback ](http://aka.ms/opinsightsfeedback) eller skicka en ny.  
+* Gå till sidan för Log Analytics Feedback om du vill granska skickade idéer och buggar [ http://aka.ms/opinsightsfeedback ](https://aka.ms/opinsightsfeedback) eller skicka en ny.  
 
 ## <a name="important-log-locations-and-log-collector-tool"></a>Viktiga loggfilernas placering och Logginsamlaren verktyg
 

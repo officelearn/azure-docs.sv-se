@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
-ms.openlocfilehash: b71ba12f6c533d67b04366f05b9334e1993823fa
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 2c0c8b49d3f7122b71a08bc57ac615ba9e0c0108
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382036"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239448"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introduktion till SQL Server Always On-Tillgänglighetsgrupper på virtuella Azure-datorer #
 
 Den här artikeln ger en introduktion av SQL Server-Tillgänglighetsgrupper på Azure Virtual Machines. 
 
-Always On-Tillgänglighetsgrupper på Azure Virtual Machines liknar ständigt aktiverade Tillgänglighetsgrupper lokalt. Mer information finns i [Always On-Tillgänglighetsgrupper (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx). 
+Always On-Tillgänglighetsgrupper på Azure Virtual Machines liknar ständigt aktiverade Tillgänglighetsgrupper lokalt. Mer information finns i [Always On-Tillgänglighetsgrupper (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx). 
 
 Diagrammet visar delarna av en fullständig SQL Server-tillgänglighetsgrupp i Azure Virtual Machines.
 

@@ -9,12 +9,12 @@ ms.date: 06/25/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: d0ae7fbb22f6d98662f83968158182d447a75394
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: b32af29a123ce4d070e1bb68b5a43ba6d0d2c5e1
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39501975"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218482"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Vanliga frågor och svar om Service Fabric-nät
 Azure Service Fabric Mesh är en fullständigt hanterad tjänst som gör att utvecklare kan distribuera mikrotjänstprogram utan att hantera virtuella datorer, lagring eller nätverk. Den här artikeln innehåller svar på vanliga frågor.
@@ -27,24 +27,50 @@ Ställ frågor, få svar från Microsofts tekniker och rapportera problem i den 
 
 **Vad är kostnaden för att delta i förhandsgranskningen?**
 
-Det finns inga avgifter för att distribuera program eller behållare till nät preview. Men körs du rekommenderas att ta bort de resurser som du distribuerar och inte låta dem vara, om du inte aktivt testar den.
+Det finns inga avgifter för att distribuera program eller behållare till förhandsversionen av nät. Men vi rekommenderar att du tar bort de resurser som du distribuerar och inte låta dem vara köras om du testar aktivt dem.
 
 **Finns det en kvotgräns på antalet kärnor och RAM-minne?**
 
-Ja, kvoter för varje prenumeration är:
+Ja, kvoter för varje prenumeration är inställda på följande sätt:
 
 - Antal program - 5 
-- Antalet kärnor per program – 12 
+- Kärnor per program – 12 
 - Totalt RAM-minne per program – 48 GB 
-- Antalet slutpunkter nätverks- och Ingångsanspråk – 5  
-- Antalet Azure volymer som du kan koppla - 10 
+- Nätverks- och inkommande slutpunkter – 5  
+- Azure volymer som du kan koppla - 10 
 - Antal repliker Service – 3 
-- Den största behållare som du kan distribuera är begränsad till 4 kärnor, 16 GB RAM-minne.
+- Den största behållare som du kan distribuera är begränsad till 4 kärnor, 16GB RAM-minne.
 - Du kan allokera partiella kärnor till dina behållare i steg om 0,5 kärnor upp till högst 6 kärnor.
 
-**Kan jag lämna mitt program som körs över natten?**
+**Hur länge kan jag lämna mitt program som distribueras för?**
 
-Ja, du kan, men du uppmanas att ta bort alla resurser som du distribuerar och inte låta dem vara körs, om du inte aktivt testar den. Den här principen kan ändras i framtiden och resurserna som kan tas bort om de är missbruk.
+Vi har för närvarande begränsad livslängd för ett program till två dagar. Det här är för att maximera användningen av de lediga kärnor som allokerats till förhandsversionen. Därför kan du bara ska tillåtas att köras en viss distribution kontinuerligt i 48 timmar efter det kommer att tas bort av systemet. Om du ser det här exemplet kan du verifiera att systemet Stäng av den genom att köra en `az mesh app show` kommandot i Azure CLI och kontrollera om det returnerar `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
+
+Exempel: 
+
+```cli
+chackdan@Azure:~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
+{
+  "debugParams": null,
+  "description": "Service Fabric Mesh HelloWorld Application!",
+  "diagnostics": null,
+  "healthState": "Ok",
+  "id": "/subscriptions/1134234-b756-4979-84re-09d671c0c345/resourcegroups/myResourceGroup/providers/Microsoft.ServiceFabricMesh/applications/helloWorldApp",
+  "location": "eastus",
+  "name": "helloWorldApp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "serviceNames": [
+    "helloWorldService"
+  ],
+  "services": null,
+  "status": "Failed",
+  "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue.",
+  "tags": {},
+  "type": "Microsoft.ServiceFabricMesh/applications",
+  "unhealthyEvaluation": null
+}
+```
 
 ## <a name="supported-container-os-images"></a>Stöds behållaravbildningar OS
 Följande behållare OS-avbildningar kan användas när du distribuerar tjänster.

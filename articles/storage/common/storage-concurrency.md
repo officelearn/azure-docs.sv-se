@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
 ms.component: common
-ms.openlocfilehash: 91eb9c12a8913c0a96ee7c3133dc5f982c42cad7
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 25de4f28d7516f5c7830b24e4c999ceb855a7759
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025327"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242984"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Hantera samtidighet i Microsoft Azure Storage
 ## <a name="overview"></a>Översikt
@@ -45,7 +45,7 @@ Storage-tjänsten tilldelar en identifierare för varje objekt som lagras. Den h
 4. Om det aktuella ETag-värdet för bloben är en annan version än ETag i den **If-Match** villkorlig huvudet i begäran, tjänsten returnerar en 412 fel till klienten. Detta anger att klienten att en annan process har uppdaterats blob eftersom klienten har hämtat den.
 5. Om det aktuella ETag-värdet för bloben är samma version som ETag i den **If-Match** villkorlig huvudet i begäran, tjänsten utförs den begärda åtgärden och uppdaterar det aktuella ETag-värdet för blobben som ska visa att den har skapats en ny version.  
 
-C# kodfragmentet nedan (med Storage-klientbiblioteket 4.2.0) visar ett enkelt exempel på hur du skapar en **If-Match AccessCondition** baserat på ETag-värdet som kan nås från egenskaperna för en blob som tidigare var antingen Hämta eller infogas. Därefter använder den **AccessCondition** objekt när den uppdaterar blob: den **AccessCondition** objektet lägger till den **If-Match** huvud i begäran. Om en annan process har uppdaterat blob, returnerar blob service ett statusmeddelande för HTTP 412 (Förhandsvillkoret misslyckades). Du kan hämta det fullständiga exemplet: [hantera samtidighet med hjälp av Azure Storage](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).  
+C# kodfragmentet nedan (med Storage-klientbiblioteket 4.2.0) visar ett enkelt exempel på hur du skapar en **If-Match AccessCondition** baserat på ETag-värdet som kan nås från egenskaperna för en blob som tidigare var antingen Hämta eller infogas. Därefter använder den **AccessCondition** objekt när den uppdaterar blob: den **AccessCondition** objektet lägger till den **If-Match** huvud i begäran. Om en annan process har uppdaterat blob, returnerar blob service ett statusmeddelande för HTTP 412 (Förhandsvillkoret misslyckades). Du kan hämta det fullständiga exemplet: [hantera samtidighet med hjälp av Azure Storage](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).  
 
 ```csharp
 // Retrieve the ETag from the newly created blob
@@ -80,7 +80,7 @@ catch (StorageException ex)
 }  
 ```
 
-Lagringstjänsten finns också stöd för ytterligare villkorlig rubriker som **om ändras sedan**, **om ska ändras sedan** och **If-None-Match** samt kombinationer av dessa. Mer information finns i [att ange villkorlig rubriker för Blob-tjänståtgärder](http://msdn.microsoft.com/library/azure/dd179371.aspx) på MSDN.  
+Lagringstjänsten finns också stöd för ytterligare villkorlig rubriker som **om ändras sedan**, **om ska ändras sedan** och **If-None-Match** samt kombinationer av dessa. Mer information finns i [att ange villkorlig rubriker för Blob-tjänståtgärder](https://msdn.microsoft.com/library/azure/dd179371.aspx) på MSDN.  
 
 I följande tabell sammanfattas container-åtgärder som accepterar villkorlig rubriker som **If-Match** i begäran och att returnera ett ETag-värdet i svaret.  
 
@@ -122,11 +122,11 @@ I följande tabell sammanfattas blobåtgärder som accepterar villkorlig rubrike
 (*) Lånet Blob ändras inte ETag för en blob.  
 
 ### <a name="pessimistic-concurrency-for-blobs"></a>Pessimistisk samtidighet för BLOB
-Om du vill låsa en blob för exklusiv användning, kan du hämta en [lånet](http://msdn.microsoft.com/library/azure/ee691972.aspx) på den. När du skaffa en leasing, anger du hur länge du behöver lånet: Detta kan vara för mellan 15 till 60 sekunder eller oändligt, vilket motsvarar ett exklusivt lås. Du kan förnya ett begränsad lån att utöka den och du kan släppa ett lån när du är klar med den. Blob service Frigör automatiskt begränsad lån när de går ut.  
+Om du vill låsa en blob för exklusiv användning, kan du hämta en [lånet](https://msdn.microsoft.com/library/azure/ee691972.aspx) på den. När du skaffa en leasing, anger du hur länge du behöver lånet: Detta kan vara för mellan 15 till 60 sekunder eller oändligt, vilket motsvarar ett exklusivt lås. Du kan förnya ett begränsad lån att utöka den och du kan släppa ett lån när du är klar med den. Blob service Frigör automatiskt begränsad lån när de går ut.  
 
 Lån Aktivera synkronisering av olika strategier för att stödjas, inklusive exklusiva skrivning / delade skrivskyddade, exklusiva skrivning / exklusiv läsa och delade skrivning / exklusiv läsa. Om ett lån finns lagringstjänsten tillämpar exklusiv skrivåtgärder (put, ange och ta bort) men säkerställer exklusivitet för läsåtgärder kräver utvecklare så att alla klientprogram används ett lån-ID och att endast en klienten åt gången har en giltigt lån-ID. Läs-och skrivåtgärder som inte innehåller ett lån-ID resultat i delade läsningar.  
 
-Följande C#-kodavsnitt visar ett exempel på erhålla ett exklusiv lån i 30 sekunder för en blob, uppdaterar innehållet i blobben och sedan släppa lånet. Om det finns redan ett giltigt lån i blobben när du försöker hämta ett nytt adresslån, returnerar blob service ett resultat för ”HTTP (409) konflikt” status. I följande kodfragment används en **AccessCondition** objekt att kapsla in lease-information när den gör en begäran att uppdatera blob i lagringstjänsten.  Du kan hämta det fullständiga exemplet: [hantera samtidighet med hjälp av Azure Storage](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
+Följande C#-kodavsnitt visar ett exempel på erhålla ett exklusiv lån i 30 sekunder för en blob, uppdaterar innehållet i blobben och sedan släppa lånet. Om det finns redan ett giltigt lån i blobben när du försöker hämta ett nytt adresslån, returnerar blob service ett resultat för ”HTTP (409) konflikt” status. I följande kodfragment används en **AccessCondition** objekt att kapsla in lease-information när den gör en begäran att uppdatera blob i lagringstjänsten.  Du kan hämta det fullständiga exemplet: [hantera samtidighet med hjälp av Azure Storage](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 // Acquire lease for 15 seconds
@@ -155,7 +155,7 @@ catch (StorageException ex)
 }  
 ```
 
-Om du försöker utföra en skrivåtgärd i en utlånat blob utan att passera lån-ID, misslyckas denna begäran med ett 412 fel. Observera att om lånet går ut innan du anropar den **UploadText** metoden, men du fortfarande skicka lån-ID, förfrågan genererar ett fel med en **412** fel. Mer information om hur du hanterar lånetid för förfallodatum och lånetiden ID: N finns i den [Lease Blob](http://msdn.microsoft.com/library/azure/ee691972.aspx) REST-dokumentation.  
+Om du försöker utföra en skrivåtgärd i en utlånat blob utan att passera lån-ID, misslyckas denna begäran med ett 412 fel. Observera att om lånet går ut innan du anropar den **UploadText** metoden, men du fortfarande skicka lån-ID, förfrågan genererar ett fel med en **412** fel. Mer information om hur du hanterar lånetid för förfallodatum och lånetiden ID: N finns i den [Lease Blob](https://msdn.microsoft.com/library/azure/ee691972.aspx) REST-dokumentation.  
 
 Följande blobåtgärder för kan använda lån för att hantera pessimistisk samtidighet:  
 
@@ -191,9 +191,9 @@ Följande åtgärder för behållare kan använda lån för att hantera pessimis
 
 Mer information finns i:  
 
-* [Ange villkorlig rubriker för Blob Service-åtgärder](http://msdn.microsoft.com/library/azure/dd179371.aspx)
-* [Lånet behållare](http://msdn.microsoft.com/library/azure/jj159103.aspx)
-* [Lånet Blob ](http://msdn.microsoft.com/library/azure/ee691972.aspx)
+* [Ange villkorlig rubriker för Blob Service-åtgärder](https://msdn.microsoft.com/library/azure/dd179371.aspx)
+* [Lånet behållare](https://msdn.microsoft.com/library/azure/jj159103.aspx)
+* [Lånet Blob ](https://msdn.microsoft.com/library/azure/ee691972.aspx)
 
 ## <a name="managing-concurrency-in-the-table-service"></a>Hantera samtidighet i Table Service
 Table service använder Optimistisk samtidighet kontrollerar som standard när du arbetar med entiteter, till skillnad från blob-tjänsten där du måste uttryckligen välja att utföra Optimistisk samtidighet kontroller. Skillnaden mellan tjänsterna som tabell- och blob är att du bara kan hantera samtidighet beteendet för entiteter medan du kan hantera samtidighet på både behållare och blobbar med blob-tjänsten.  
@@ -208,7 +208,7 @@ Att använda Optimistisk samtidighet och kontrollera om en annan process ändrat
 
 Observera att tabelltjänsten till skillnad från blob-tjänsten kräver att klienten kan innehålla en **If-Match** huvud i begäranden om att uppdatera. Det är dock möjligt att framtvinga en ovillkorlig uppdatera (senaste skrivaren wins strategi) och kringgå samtidighet kontrollerar om klienten anger den **If-Match** sidhuvud till jokertecknet (*) i begäran.  
 
-C# kodfragmentet nedan visar en kundentitet som skapades tidigare antingen eller hämtas med e-postadressen uppdateras. Första infoga eller och hämta åtgärden butiker ETag-värdet i kund-objektet, eftersom i exemplet används samma objektinstans när ersättningsåtgärden körs, som skickar automatiskt ETag-värdet tillbaka till table service, aktivera tjänsten Sök efter samtidighet överträdelser. Om en annan process har uppdaterat entiteten i tabellagring, returnerar tjänsten ett statusmeddelande för HTTP 412 (Förhandsvillkoret misslyckades).  Du kan hämta det fullständiga exemplet: [hantera samtidighet med hjälp av Azure Storage](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
+C# kodfragmentet nedan visar en kundentitet som skapades tidigare antingen eller hämtas med e-postadressen uppdateras. Första infoga eller och hämta åtgärden butiker ETag-värdet i kund-objektet, eftersom i exemplet används samma objektinstans när ersättningsåtgärden körs, som skickar automatiskt ETag-värdet tillbaka till table service, aktivera tjänsten Sök efter samtidighet överträdelser. Om en annan process har uppdaterat entiteten i tabellagring, returnerar tjänsten ett statusmeddelande för HTTP 412 (Förhandsvillkoret misslyckades).  Du kan hämta det fullständiga exemplet: [hantera samtidighet med hjälp av Azure Storage](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 try
@@ -251,7 +251,7 @@ I allmänhet utvecklare som använder tabeller bör förlita dig på Optimistisk
 
 Mer information finns i:  
 
-* [Åtgärder för entiteter](http://msdn.microsoft.com/library/azure/dd179375.aspx)  
+* [Åtgärder för entiteter](https://msdn.microsoft.com/library/azure/dd179375.aspx)  
 
 ## <a name="managing-concurrency-in-the-queue-service"></a>Hantera samtidighet i kötjänsten
 Ett scenario som är viktig i kö-tjänsten i vilken samtidighet är där flera klienter hämtar meddelanden från en kö. När du hämtar ett meddelande från kön, innehåller svaret meddelandet och en pop-kvittovärde, vilket krävs för att ta bort meddelandet. Meddelandet tas inte bort automatiskt från kön, men när det har hämtats, det är inte synliga för andra klienter i tidsintervall som anges av parametern visibilitytimeout. Klienten som hämtar meddelanden som förväntas ta bort meddelandet efter att de har bearbetats och innan den tid som anges av TimeNextVisible element i svaret, som beräknas baserat på värdet för parametern visibilitytimeout. Värdet för visibilitytimeout läggs till den tidpunkt då meddelandet hämtas för att fastställa värdet för TimeNextVisible.  
@@ -260,8 +260,8 @@ Kötjänsten har inte stöd för optimistisk eller pessimistisk samtidighet och 
 
 Mer information finns i:  
 
-* [REST API för kötjänst](http://msdn.microsoft.com/library/azure/dd179363.aspx)
-* [Hämta meddelanden](http://msdn.microsoft.com/library/azure/dd179474.aspx)  
+* [REST API för kötjänst](https://msdn.microsoft.com/library/azure/dd179363.aspx)
+* [Hämta meddelanden](https://msdn.microsoft.com/library/azure/dd179474.aspx)  
 
 ## <a name="managing-concurrency-in-the-file-service"></a>Hantera samtidighet i tjänsten
 Tjänsten kan nås med hjälp av två olika protokollslutpunkterna – SMB- och REST. REST-tjänst har inte stöd för optimistisk låsning eller pessimistisk låsning och alla uppdateringar kommer att följa en strategi för senaste skrivaren wins. SMB-klienter som montera filresurser kan använda filen system låsning mekanismer för att hantera åtkomst till delade filer – inklusive möjligheten att utföra pessimistisk låsning. När en SMB-klient öppnar en fil, anger både filåtkomst och dela läge. Ange ett alternativ för åtkomst till filen för ”skriva” eller ”full” tillsammans med en filresurs läge ”NONE” resulterar i filen är låst av en SMB-klient förrän filen stängs. Om REST-åtgärden utförs på en fil där en SMB-klient har låst filen kommer REST-tjänst returnera statuskod 409 (konflikt) med felkoden SharingViolation.  
@@ -270,19 +270,19 @@ När en SMB-klient öppnar en fil att ta bort, markerar filen som väntar på bo
 
 Mer information finns i:  
 
-* [Hantera filen låser](http://msdn.microsoft.com/library/azure/dn194265.aspx)  
+* [Hantera filen låser](https://msdn.microsoft.com/library/azure/dn194265.aspx)  
 
 ## <a name="summary-and-next-steps"></a>Sammanfattning och nästa steg
 Tjänsten Microsoft Azure Storage har utformats för att uppfylla behoven hos de mest komplexa online program utan att utvecklare kan äventyra eller omvärderar viktiga designbeslut antaganden, till exempel samtidighet och datakonsekvens som de har du kommit till för beviljas.  
 
 För komplett exempelprogrammet refereras till i den här bloggen:  
 
-* [Hantera samtidighet med hjälp av Azure Storage - exempelprogrammet](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)  
+* [Hantera samtidighet med hjälp av Azure Storage - exempelprogrammet](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)  
 
 Mer information om Azure Storage finns:  
 
 * [Startsida för Microsoft Azure Storage](https://azure.microsoft.com/services/storage/)
 * [Introduktion till Azure Storage](storage-introduction.md)
 * Kom igång för Storage [Blob](../blobs/storage-dotnet-how-to-use-blobs.md), [tabell](../../cosmos-db/table-storage-how-to-use-dotnet.md), [köer](../storage-dotnet-how-to-use-queues.md), och [filer](../storage-dotnet-how-to-use-files.md)
-* Lagringsarkitektur – [Azure Storage: en med hög tillgänglighet Molnlagringstjänst med stark konsekvens](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+* Lagringsarkitektur – [Azure Storage: en med hög tillgänglighet Molnlagringstjänst med stark konsekvens](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 

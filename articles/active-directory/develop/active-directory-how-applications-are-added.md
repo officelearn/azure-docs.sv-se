@@ -17,12 +17,12 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
-ms.openlocfilehash: fb2bfc89322d81833b1961bfb866a773c5d1d475
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 8e806fc334faf85864ea9158d4f2ed6d107327ae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577238"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241505"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Hur och varför program läggs till Azure AD
 
@@ -69,7 +69,7 @@ Som programobjekt, kan tjänstens huvudnamn skapas via flera sökvägar, inklusi
 
 * När användare loggar in på ett program från tredje part integrerad med Azure AD
   * Under inloggning uppmanas användarna att ge behörighet till programmet för att få åtkomst till deras profil och andra behörigheter. Den första personen som samtycka orsakar ett huvudnamn för tjänsten som representerar programmet som ska läggas till katalogen.
-* När användare loggar in på Microsoft online services som [Office 365](http://products.office.com/)
+* När användare loggar in på Microsoft online services som [Office 365](https://products.office.com/)
   * När du prenumererar på Office 365 eller starta en utvärderingsversion, skapas en eller flera tjänstens huvudnamn i katalogen som representerar de olika tjänsterna som används för att leverera alla funktioner som är associerade med Office 365.
   * Vissa Office 365-tjänster som SharePoint skapa tjänstens huvudnamn med jämna mellanrum att tillåta säker kommunikation mellan komponenter, inklusive arbetsflöden.
 * När en administratör lägger till ett program från appgalleriet (det skapas också en underliggande app-objekt)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: b05e20b5c99c6f1b5b1bf93ca781ec97284fba79
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: bb812699795f112023b579352ac3a52bef311d40
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004923"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232655"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Ansluta Azure Cloud Services-roller till en anpassad AD-domänkontrollanten i Azure
 Vi kommer först ange ett virtuellt nätverk (VNet) i Azure. Vi kommer sedan att lägga till en Active Directory-domänkontrollant (som finns på en Azure-dator) till det virtuella nätverket. Nu ska vi ska lägga till befintliga molntjänstroller i förväg skapade VNet och sedan Anslut dem till domänkontrollanten.
@@ -95,7 +95,7 @@ Du kan hämta RDP-fil via PowerShell, använder du följande kommandon för att 
 Get-AzureRemoteDesktopFile -ServiceName $vmsvc1 -Name $vm1 -LocalPath <rdp-file-path>
 ```
 
-När du har loggat in till den virtuella datorn, konfigurera den virtuella datorn som en AD-domänkontrollant genom att följa en stegvis guide på [hur du ställer in din kund AD-domänkontrollant](http://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
+När du har loggat in till den virtuella datorn, konfigurera den virtuella datorn som en AD-domänkontrollant genom att följa en stegvis guide på [hur du ställer in din kund AD-domänkontrollant](https://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
 
 ## <a name="add-your-cloud-service-to-the-virtual-network"></a>Lägg till din molntjänst till det virtuella nätverket
 Nu ska behöver du lägga till din molntjänstdistribution till det nya virtuella nätverket. Gör detta genom att ändra din cloud service cscfg genom att lägga till de relevanta avsnitten din cscfg med hjälp av Visual Studio eller valfri redigerare.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hascipio
-ms.openlocfilehash: aadc695b1f07d04f1fcc7f2f2e3ff90fb7f54849
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 300b94aea0c06092a5fb6bdecd49771ef1cd517d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714015"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234195"
 ---
 # <a name="get-pre-approved-via-the-microsoft-azure-certified-program"></a>Hämta förhandsgodkända via Microsoft Azure Certified-programmet
 Den här artikeln innehåller anvisningar för hur du blir Microsoft Azure Certified så att du kan publicera din lösning på Azure Marketplace och är berättigad till marknadsföring fördelar. En detaljerad översikt över Microsoft Azure Certified-programmet och dess fördelar finns [ http://azure.com/certified ](http://azure.com/certified).
@@ -34,7 +34,7 @@ Den här artikeln innehåller anvisningar för hur du blir Microsoft Azure Certi
 3. Om du arbetar med en Partner kontoansvarig eller en DX Partner Manager kan du be dem att nominera din lösning för Azure Certified programmet eller gå till den [Microsoft Azure Certified](http://createopportunity.azurewebsites.net) webbsidan, Fyll i formuläret för program och ange e-postmeddelande med din Partner kontoansvarige eller DX Partner Manager i Microsoft Sponsor kontakt-fält.
 
 > [!IMPORTANT]
-> **”” Försäljningsländer** – för att kunna sälja dina tjänster på Microsoft Azure Marketplace, din registrerade entiteten måste vara från en av de godkända ”” försäljningsländer. Den här begränsningen är payout och skatt skäl. Vi letar aktivt så Håll ögonen öppna om du vill expandera den här listan över länder inom en snar framtid. En fullständig lista finns i avsnittet 1b av den [deltagandepolicyer för Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
+> **”” Försäljningsländer** – för att kunna sälja dina tjänster på Microsoft Azure Marketplace, din registrerade entiteten måste vara från en av de godkända ”” försäljningsländer. Den här begränsningen är payout och skatt skäl. Vi letar aktivt så Håll ögonen öppna om du vill expandera den här listan över länder inom en snar framtid. En fullständig lista finns i avsnittet 1b av den [deltagandepolicyer för Azure Marketplace](https://go.microsoft.com/fwlink/?LinkID=526833).
 
 
 ## <a name="next-step"></a>Nästa steg

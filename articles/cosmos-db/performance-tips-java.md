@@ -10,22 +10,22 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: sngun
-ms.openlocfilehash: d8d05335b62d292bf61dbd3f3d565093b21f9253
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c6c63b7b66114a8c35986b443bda78442b8edd7a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574852"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237748"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Prestandatips för Azure Cosmos DB och Java
 
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
-> * [.NET](performance-tips.md)
+> * [NET](performance-tips.md)
 > 
 
-Azure Cosmos DB är en snabb och flexibel distribuerad databas som kan skalas sömlöst med garanterad svarstid och dataflöde. Du behöver inte göra ändringar i större arkitekturen eller skriva komplex kod för att skala din databas med Azure Cosmos DB. Skala upp och ned är lika enkelt som att göra en enda API-anrop eller [SDK-anrop](set-throughput.md#set-throughput-java). Eftersom Azure Cosmos DB nås via nätverksanrop det finns dock klientsidan optimeringar som du kan göra för att uppnå högsta prestanda när du använder den [SQL Java SDK](documentdb-sdk-java.md).
+Azure Cosmos DB är en snabb och flexibel distribuerad databas som kan skalas sömlöst med garanterad svarstid och dataflöde. Du behöver inte göra ändringar i större arkitekturen eller skriva komplex kod för att skala din databas med Azure Cosmos DB. Skala upp och ned är lika enkelt som att göra en enda API-anrop. Mer information finns i [hur du etablerar dataflöden i behållare](how-to-provision-container-throughput.md) eller [hur du etablerar databasen dataflöde](how-to-provision-database-throughput.md). Eftersom Azure Cosmos DB nås via nätverksanrop det finns dock klientsidan optimeringar som du kan göra för att uppnå högsta prestanda när du använder den [SQL Java SDK](documentdb-sdk-java.md).
 
 Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg följande alternativ:
 
@@ -93,7 +93,8 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
 
 5. **Implementera backoff med getRetryAfterInMilliseconds intervall**
 
-    Prestandatester, bör du öka belastningen tills en liten andel begäranden begränsas. Om prestandan för bör klientprogrammet backoff på begränsning för server angiven återförsöksintervallet. Följer backoff säkerställer att du ägnar kortast möjliga tid att vänta mellan försöken. Återförsök princip support ingår i versionen 1.8.0 och senare av den [Java SDK](documentdb-sdk-java.md). Mer information finns i [Exceeding reserverade dataflödesbegränsningar](request-units.md#RequestRateTooLarge) och [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client_exception.getretryafterinmilliseconds).
+    Prestandatester, bör du öka belastningen tills en liten andel begäranden begränsas. Om prestandan för bör klientprogrammet backoff på begränsning för server angiven återförsöksintervallet. Följer backoff säkerställer att du ägnar kortast möjliga tid att vänta mellan försöken. Återförsök princip support ingår i versionen 1.8.0 och senare av den [Java SDK](documentdb-sdk-java.md). Mer information finns i [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client_exception.getretryafterinmilliseconds).
+
 6. **Skala ut din klient-arbetsbelastning**
 
     Om du testar på hög genomströmning nivåer (> 50 000 RU/s), klientprogrammet kan bli en flaskhals på grund av den datorn tak som skall ut på CPU- eller användning. Om du når den här punkten kan fortsätta du att skicka ytterligare Azure Cosmos DB-kontot genom att skala ut dina klientprogram på flera servrar.
@@ -111,7 +112,7 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
 
     Du kan också ange sida storlek med den [setPageSize metoden](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options_base.setpagesize#com_microsoft_azure_documentdb__feed_options_base_setPageSize_Integer).
 
-## <a name="indexing-policy"></a>Indexeringspolicy
+## <a name="indexing-policy"></a>Indexeringsprincip
  
 1. **Undanta oanvända sökvägar från indexering för snabbare skrivningar**
 

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 7b0de5e149b8b64252f90a01f66642c15fb25ddc
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 426ebb90a0d7716b14664f874db259a0cca2aa7e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247800"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241097"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Koda en tillgång med Media Encoder Standard med hjälp av .NET 
 Kodningsjobb är en av de vanligaste bearbetningsuppgifterna i Media Services. Du skapar kodningsjobb för att konvertera mediefiler från en kodning till en annan. När du kodar kan du använda den inbyggda medietjänster Media Encoder. Du kan också använda en kodare som tillhandahålls av Media Services partner; kodare från tredje part är tillgängliga via Azure Marketplace. 
 
-Den här artikeln visar hur du använder .NET för att koda dina tillgångar med Media Encoder Standard (MES). Media Encoder Standard konfigureras med hjälp av en kodare förinställningar beskrivs [här](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Den här artikeln visar hur du använder .NET för att koda dina tillgångar med Media Encoder Standard (MES). Media Encoder Standard konfigureras med hjälp av en kodare förinställningar beskrivs [här](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 Rekommenderar vi att du alltid koda källfilerna till en med anpassningsbar bithastighet MP4-uppsättningen och sedan konvertera uppsättningen till det önskade formatet med hjälp av den [dynamisk paketering](media-services-dynamic-packaging-overview.md). 
 
@@ -39,7 +39,7 @@ Om utdatatillgången är krypterad, måste du konfigurera tillgångsleveransprin
 [Format och -codec](media-services-media-encoder-standard-formats.md)
 
 ### <a name="mes-presets"></a>MES-förinställningar
-Media Encoder Standard konfigureras med hjälp av en kodare förinställningar beskrivs [här](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Media Encoder Standard konfigureras med hjälp av en kodare förinställningar beskrivs [här](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### <a name="input-and-output-metadata"></a>Inkommande och utgående metadata
 När du kodar en indatatillgången (eller tillgångar) med hjälp av MES, du får en utdatatillgången på den lyckade slutförandet av denna koda uppgift. Utdatatillgången innehåller video, ljud, miniatyrer, manifest, etc. baserat på förinställningen för kodningen du använder.

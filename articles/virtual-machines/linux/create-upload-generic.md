@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: 67796cc3cbb925bb18a917d17b8abb7c085de370
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 3aa2803550c445e0b30ff998cf3adb779515e487
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638225"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235980"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Information om icke-godkända distributioner
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -76,7 +76,7 @@ VHD-avbildningar på Azure måste ha en virtuell storlek justeras till 1 MB.  Vi
 
 * VHD- http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd har en som inte stöds virtuella storlek 21475270656 byte. Storleken måste vara ett heltal (i MB).
 
-I det här fallet, ändra storlek på den virtuella datorn med Hyper-V Manager-konsolen eller [storleksändring-VHD](http://technet.microsoft.com/library/hh848535.aspx) PowerShell-cmdlet.  Om du inte kör i en Windows-miljö, bör du använda `qemu-img` att konvertera (vid behov) och ändra storlek på den virtuella Hårddisken.
+I det här fallet, ändra storlek på den virtuella datorn med Hyper-V Manager-konsolen eller [storleksändring-VHD](https://technet.microsoft.com/library/hh848535.aspx) PowerShell-cmdlet.  Om du inte kör i en Windows-miljö, bör du använda `qemu-img` att konvertera (vid behov) och ändra storlek på den virtuella Hårddisken.
 
 > [!NOTE]
 > Det finns en [känt fel i qemu img](https://bugs.launchpad.net/qemu/+bug/1490611) versioner > = 2.2.1 som resulterar i en felaktigt formaterad virtuell Hårddisk. Problemet har åtgärdats i QEMU 2.6. Vi rekommenderar att du använder antingen `qemu-img` 2.2.0 eller lägre eller 2.6 eller senare.
@@ -125,7 +125,7 @@ I det här fallet, ändra storlek på den virtuella datorn med Hyper-V Manager-k
 
 Linux Integration Services (LIS)-drivrutiner för Hyper-V och Azure tillhandahålls direkt till den överordnade Linux-kerneln. Många distributioner som innehåller en ny Linux-kernel-version (till exempel 3.x) har redan de här drivrutinerna som är tillgängliga eller annars har anpassats versioner av de här drivrutinerna med sina kernlar.  De här drivrutinerna uppdateras ständigt i överordnade kerneln med nya korrigeringar och funktioner, så när det är möjligt rekommenderar vi att köra en [godkända distribution](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) som innehåller dessa korrigeringar och uppdateringar.
 
-Om du kör en variant av Red Hat Enterprise Linux-versioner 6.0 6.3 och sedan måste du installera den [senaste drivrutiner för LIS för Hyper-V](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Från och med RHEL 6.4 + (och derivat) drivrutinerna LIS ingår redan i kerneln och paket så ingen ytterligare information behövs.
+Om du kör en variant av Red Hat Enterprise Linux-versioner 6.0 6.3 och sedan måste du installera den [senaste drivrutiner för LIS för Hyper-V](https://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Från och med RHEL 6.4 + (och derivat) drivrutinerna LIS ingår redan i kerneln och paket så ingen ytterligare information behövs.
 
 Om det krävs en anpassad kernel, rekommenderar vi en ny kernel-version (till exempel 3.8 +). För distributioner eller leverantörer som hanterar sina egna kernel, behöver du regelbundet backport LIS drivrutinerna från den överordnade kerneln din anpassade kerneln.  Även om du redan kör en relativt nytt kernel-version, rekommenderar vi att ha koll på någon uppströms korrigeringar med LIS drivrutiner och backport dem efter behov. Platserna för LIS drivrutinens källfiler anges i den [sköter underhåll SJÄLVA](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) filen i trädet Linux-kernel källa:
 ```

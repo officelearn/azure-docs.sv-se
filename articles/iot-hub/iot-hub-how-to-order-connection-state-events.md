@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: 02fc47200157b813da4d0031effa39633719855d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: df680469541885ab6413800ee3b9806975e34dba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340213"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258671"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordna enheten anslutningshändelser från Azure IoT Hub med Azure Cosmos DB
 
@@ -22,7 +22,7 @@ Sekvensnumret är en strängrepresentation av ett hexadecimalt tal. Du kan anvä
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Ett aktivt Azure-konto. Om du inte redan har ett konto kan du [skapa ett kostnadsfritt konto](http://azure.microsoft.com/pricing/free-trial/).
+* Ett aktivt Azure-konto. Om du inte redan har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 
 * Ett aktivt Azure Cosmos DB SQL API-konto. Om du inte har skapat en ännu, se [skapa ett databaskonto](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#create-a-database-account) en genomgång.
 

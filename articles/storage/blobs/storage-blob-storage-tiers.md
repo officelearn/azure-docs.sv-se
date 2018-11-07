@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 3aad10c398aa4f009ab29f4684cc500b6fb428e7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 3a980abc7b9611cfd6a3933a54505b0208b67f50
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427594"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253728"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob storage: Premium (förhandsversion), frekvent, lågfrekvent och Arkivlagringsnivå
 
@@ -65,7 +65,7 @@ I förhandsversionen Premium åtkomstnivå:
 - Är endast tillgängligt i följande regioner: USA, Öst 2, centrala USA och västra USA
 - Stöder inte automatisk lagringsnivåer och hanteringen av datalivscykeln
 
-Läs hur du registrera dig för förhandsversionen av Premium åtkomst nivå i [introduktion till Azure Premium-Bloblagring](http://aka.ms/premiumblob).
+Läs hur du registrera dig för förhandsversionen av Premium åtkomst nivå i [introduktion till Azure Premium-Bloblagring](https://aka.ms/premiumblob).
 
 ## <a name="hot-access-tier"></a>Frekvent åtkomstnivå
 

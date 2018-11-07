@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 3066da9a492fc12dd8b333a089b8aabbbb647414
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 3f7b216be79be1307a5668d6686fd73a27ae5574
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421364"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237867"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Köra ett Cassandra-kluster på Linux i Azure med Node.js
 
@@ -49,7 +49,7 @@ Cassandra kan distribueras till en enda Azure-region eller till flera regioner b
 ### <a name="single-region-deployment"></a>Distribution av en enda Region
 Låt oss börja med en enda region för distribution och inhämta erfarenheter i att skapa en modell för flera regioner. Azure virtuellt nätverk används för att skapa isolerat undernät så att nätverkssäkerhetskrav som nämns ovan kan uppfyllas.  Processen som beskrivs i avsnittet Skapa en enda region distributionen använder Ubuntu 14.04 LTS och Cassandra 2.08. Processen kan dock enkelt antas till andra Linux-varianter. Följande är några av de systemfel egenskaperna för en enda region-distributionen.  
 
-**Hög tillgänglighet:** Cassandra-noderna som visas i bild 1 har distribuerats till två tillgänglighetsuppsättningar så att noderna är fördelade mellan flera feldomäner för hög tillgänglighet. Virtuella datorer med varje tillgänglighetsuppsättning har mappats till 2 feldomäner. Azure använder begreppet feldomän för att hantera oplanerade driftstopp (till exempel maskinvaru- eller fel). Begreppet uppgraderingsdomän (till exempel värd eller gäst-OS-uppdateringar/uppgraderingar, programuppgraderingar) används för att hantera schemalagda driftstopp. Se [Haveriberedskap och hög tillgänglighet för Azure-program](http://msdn.microsoft.com/library/dn251004.aspx) roll i fel- och uppgraderingsdomäner för att uppnå hög tillgänglighet.
+**Hög tillgänglighet:** Cassandra-noderna som visas i bild 1 har distribuerats till två tillgänglighetsuppsättningar så att noderna är fördelade mellan flera feldomäner för hög tillgänglighet. Virtuella datorer med varje tillgänglighetsuppsättning har mappats till 2 feldomäner. Azure använder begreppet feldomän för att hantera oplanerade driftstopp (till exempel maskinvaru- eller fel). Begreppet uppgraderingsdomän (till exempel värd eller gäst-OS-uppdateringar/uppgraderingar, programuppgraderingar) används för att hantera schemalagda driftstopp. Se [Haveriberedskap och hög tillgänglighet för Azure-program](https://msdn.microsoft.com/library/dn251004.aspx) roll i fel- och uppgraderingsdomäner för att uppnå hög tillgänglighet.
 
 ![Distribution av en enda region](./media/cassandra-nodejs/cassandra-linux1.png)
 

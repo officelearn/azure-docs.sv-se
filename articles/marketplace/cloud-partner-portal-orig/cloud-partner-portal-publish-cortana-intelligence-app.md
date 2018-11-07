@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f12a15a0d739ae6e98be3871fa8bb4104f49565c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 74cde720af012b3355b813cf6da2b2bdf10b9b8e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811837"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257215"
 ---
 # <a name="publish-a-cortana-intelligence-offer-using-the-cloud-partner-portal"></a>Publicera en Cortana Intelligence-erbjudande med partnerportalen i molnet
 
@@ -29,7 +29,7 @@ Den här artikeln beskriver hur du publicerar en Cortana Intelligence-erbjudande
 
 Cloud Partner Portal stöder rollbaserad åtkomst till portalen, vilket gör det möjligt för deltagare att samarbeta på Publicera ett erbjudande. Mer information finns i [Portal hantera Molnanvändare](./cloud-partner-portal-manage-users.md).
 
-Innan ett erbjudande kan publiceras åt en utgivare konto, ett för individer med \"ägare\" rollen behöva samtycker till att följa den [användningsvillkor](https://azure.microsoft.com/support/legal/website-terms-of-use/), [sekretesspolicy för Microsoft](http://www.microsoft.com/privacystatement/default.aspx), och [Microsoft Azure Certified-programavtalet](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+Innan ett erbjudande kan publiceras åt en utgivare konto, ett för individer med \"ägare\" rollen behöva samtycker till att följa den [användningsvillkor](https://azure.microsoft.com/support/legal/website-terms-of-use/), [sekretesspolicy för Microsoft](https://www.microsoft.com/privacystatement/default.aspx), och [Microsoft Azure Certified-programavtalet](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## <a name="to-start-creating-a-cortana-inteligence-offer"></a>Börja skapa ett erbjudande med Cortana Inteligence
 
@@ -208,7 +208,7 @@ Partner kan ge två typer av utvärderingsversion upplevelser på AppSource.
         - [AFS POP detaljhandel körning](https://appsource.microsoft.com/product/web-apps/afs.fa9fc926-3bc3-43dd-becd-3ef41b52c10b?tab=Overview)
         - [AvePoint Medborgartjänster](https://appsource.microsoft.com/product/web-apps/avepoint.7738ac97-fd40-4ed3-aaab-327c3e0fe0b3?tab=Overview). (Den här appen innehåller en skyddad erfarenhet med tydliga sökvägar för en vald uppsättning användare personer.)
 
-     - Provkör
+     - Test Drive
         - Din (eller din partner) lösning eller en delmängd av det kan paketeras med hjälp av Azure Resource Manager-mallar som AppSource instansiera och. AppSource kan du hantera appen i ett partnerprenumeration med tiden boxing och underhålla varma/kalla antalet instanser osv.
         - Vi kan erbjuda mallar och exempelkod som hjälper dig att om du väljer det här alternativet.
 
@@ -216,7 +216,7 @@ Partner kan ge två typer av utvärderingsversion upplevelser på AppSource.
 
         - [Neal Analytics inventering optimering](https://appsource.microsoft.com/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview&tag=CISHome)
 
-- Den **Utvärderingsförfrågan** (**Partner ledde utvärderingar / PLT**) alternativet kräver kunder att fylla ett kontaktinformation formulär för partner uppföljning. Partnern in och ger en demonstration eller utvärderingsversion av appen. Mer information finns i [AppSource utvärderingsversionen genomgången](http://aka.ms/trialexperienceforwebapps) video för en översikt.
+- Den **Utvärderingsförfrågan** (**Partner ledde utvärderingar / PLT**) alternativet kräver kunder att fylla ett kontaktinformation formulär för partner uppföljning. Partnern in och ger en demonstration eller utvärderingsversion av appen. Mer information finns i [AppSource utvärderingsversionen genomgången](https://aka.ms/trialexperienceforwebapps) video för en översikt.
 
 >[!Note]
 >Data visar att **kunden ledde utvärderingsversioner** har en högre generering av leads potentiella än **Partner ledde utvärderingsversioner**.

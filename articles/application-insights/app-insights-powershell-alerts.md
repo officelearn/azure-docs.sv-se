@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: e7e0f6747beea43b55ae1a20da44cde3c070cd89
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 678a31b8c07b21e4bb2c43b8e8bc286d66ee4bab
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091380"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233753"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Använd PowerShell för att ställa in aviseringar i Application Insights
 Du kan automatisera konfigurationen av [aviseringar](app-insights-alerts.md) i [Application Insights](app-insights-overview.md).
@@ -35,7 +35,7 @@ Om du inte har använt PowerShell med Azure-prenumerationen innan du:
 
 Installera Azure Powershell-modulen på datorn där du vill köra skripten.
 
-* Installera [Microsoft Web Platform Installer (v5 eller högre)](http://www.microsoft.com/web/downloads/platform.aspx).
+* Installera [Microsoft Web Platform Installer (v5 eller högre)](https://www.microsoft.com/web/downloads/platform.aspx).
 * Använda den för att installera Microsoft Azure Powershell
 
 ## <a name="connect-to-azure"></a>Anslut till Azure
@@ -108,7 +108,7 @@ Samma regel kan användas för det mått som rapporteras med hjälp av den [mät
 | `clientPerformance.sendRequest.value` |Tid för att skicka förfrågan |Åtgången tid för webbläsaren att skicka begäran. |
 | `clientPerformance.total.value` |Sidhämtningstid för webbläsare |Tiden från användarförfrågan till dess att DOM, formatmallar, skript och bilder har lästs in. |
 | `performanceCounter.available_bytes.value` |Ledigt minne |Fysiskt minne som är omedelbart tillgängligt för en process eller för systemanvändning. |
-| `performanceCounter.io_data_bytes_per_sec.value` |Behandlingstakten för i/o |Totalt antal byte per sekund som har lästs och skrivits till filer, nätverk och enheter. |
+| `performanceCounter.io_data_bytes_per_sec.value` |IO-frekvens för process |Totalt antal byte per sekund som har lästs och skrivits till filer, nätverk och enheter. |
 | `performanceCounter.number_of_exceps_thrown_per_sec.value` |antal undantag |Undantag per sekund. |
 | `performanceCounter.percentage_processor_time.value` |Processoranvändning för process |Procentandelen av förfluten tid som alla processens trådar använda processorn för att köra instruktioner för hur program. |
 | `performanceCounter.percentage_processor_total.value` |Processortid |Den procentandel av tiden som processorn ägnat åt icke-inaktiva trådar. |
@@ -118,7 +118,7 @@ Samma regel kan användas för det mått som rapporteras med hjälp av den [mät
 | `performanceCounter.requests_per_sec.value` |ASP.NET-begärandehastighet |Hastigheten per sekund för alla förfrågningar till programmet från ASP.NET. |
 | `remoteDependencyFailed.durationMetric.count` |Beroendefel |Antal misslyckade anrop gjorda av serverprogrammet till externa resurser. |
 | `request.duration` |Serversvarstid  |Tid från det att en HTTP-förfrågning mottagits till dess att svaret har skickats. |
-| `request.rate` |Förfrågningsfrekvens |Hastigheten per sekund för alla förfrågningar till programmet. |
+| `request.rate` |Förfrågningsfrekvens |Hastighet för alla förfrågningar till programmet per sekund. |
 | `requestFailed.count` |Misslyckade förfrågningar |Antal HTTP-begäranden som resulterade i en svarskoden > = 400 |
 | `view.count` |Sidvisning |Antal klientens användarbegäranden för en webbsida. Syntetisk trafik filtreras. |
 | {din anpassade Måttnamn} |{Måttnamnet} |Din måttvärde rapporteras av [TrackMetric](app-insights-api-custom-events-metrics.md#trackmetric) eller i den [mätningar av parametern för ett spårnings-anrop](app-insights-api-custom-events-metrics.md#properties). |

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: 3e26e40c26a27fdab1ec565dd4112b40acdd17d2
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: ae212bebf5a34e9a80f49a750735137d7a8814be
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213375"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232672"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Konfigurera haveriberedskap för virtuella Azure-datorer efter migrering till Azure 
 
@@ -32,7 +32,7 @@ Innan du konfigurerar haveriberedskap, se till att migreringen har slutförts so
 Azure [VM-agenten](../virtual-machines/extensions/agent-windows.md) måste installeras på den virtuella datorn, så att Site Recovery kan replikera den.
 
 
-1. Installera VM-agenten på virtuella datorer som kör Windows genom att ladda ned och kör den [agentinstalleraren](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du behöver admin-behörighet på den virtuella datorn för att slutföra installationen.
+1. Installera VM-agenten på virtuella datorer som kör Windows genom att ladda ned och kör den [agentinstalleraren](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du behöver admin-behörighet på den virtuella datorn för att slutföra installationen.
 2. Om du vill installera VM-agenten på datorer som kör Linux, installera senast [linuxagenten](../virtual-machines/extensions/agent-linux.md). Du måste ha administratörsbehörighet för att slutföra installationen. Vi rekommenderar att du installerar från din lagringsplats för distribution. Vi rekommenderar inte att du installerar Linux VM-agenten direkt från GitHub. 
 
 

@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 89802722e9e848b5cd5ede952287d5c934c142c3
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 594d181a5452317267157415bdaf68f572f0f0af
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351327"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260031"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Portar utöver 1433 för ADO.NET 4.5
 Det här avsnittet beskriver beteendet för Azure SQL Database-anslutning för klienter som använder ADO.NET 4.5 eller senare. 
@@ -48,7 +48,7 @@ Kontrollera att port cellområden 11000 11999 och 14000-14999 på Azure klientda
 * I synnerhet måste portar i intervallet vara fria från andra utgående blockeringar.
 * På din Azure-dator, den **Windows-brandväggen med avancerad säkerhet** styr vilka portinställningar som.
   
-  * Du kan använda den [brandväggens gränssnitt](http://msdn.microsoft.com/library/cc646023.aspx) att lägga till en regel som du anger den **TCP** protokollet tillsammans med ett portintervall med syntax som **11000 11999**.
+  * Du kan använda den [brandväggens gränssnitt](https://msdn.microsoft.com/library/cc646023.aspx) att lägga till en regel som du anger den **TCP** protokollet tillsammans med ett portintervall med syntax som **11000 11999**.
 
 ## <a name="version-clarifications"></a>Version förtydliganden
 Det här avsnittet visar monikers som refererar till produktversioner. Den visar även vissa par mellan produkter.
@@ -65,9 +65,9 @@ Det här avsnittet visar monikers som refererar till produktversioner. Den visar
 
 
 ## <a name="related-links"></a>Relaterade länkar
-* ADO.NET 4.6 gavs ut den 20 juli 2015. En bloggmeddelandet från .NET-teamet är tillgängligt [här](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
-* ADO.NET 4.5 gavs ut den 15 augusti 2012. En bloggmeddelandet från .NET-teamet är tillgängligt [här](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx). 
-  * Det finns ett blogginlägg om ADO.NET 4.5.1 [här](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
+* ADO.NET 4.6 gavs ut den 20 juli 2015. En bloggmeddelandet från .NET-teamet är tillgängligt [här](https://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
+* ADO.NET 4.5 gavs ut den 15 augusti 2012. En bloggmeddelandet från .NET-teamet är tillgängligt [här](https://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx). 
+  * Det finns ett blogginlägg om ADO.NET 4.5.1 [här](https://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
 
 * Microsoft® ODBC Driver 17 för SQL Server® – Windows, Linux och macOS https://www.microsoft.com/download/details.aspx?id=56567
 

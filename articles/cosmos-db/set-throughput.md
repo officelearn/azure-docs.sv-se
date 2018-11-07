@@ -1,260 +1,85 @@
 ---
-title: Etablera dataflöde för Azure Cosmos DB | Microsoft Docs
-description: Lär dig hur du ställer in dataflöde för Azure Cosmos DB containsers, samlingar, diagram och tabeller.
-services: cosmos-db
+title: Etablera dataflöde för Azure Cosmos DB
+description: Lär dig hur du ställer in dataflöde för Azure Cosmos DB-behållare och databaser.
 author: aliuy
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: 2280a3f6b2a67d392a109a5294e1509bcc804bc3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 49682a2d9ec5d3ce7c2139dc8b2e2fd6a1c3ec18
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869932"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236797"
 ---
-# <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Ange och hämta dataflöde för Azure Cosmos DB-behållare och databasen
+# <a name="provision-throughput-for-cosmos-db-containers-and-databases"></a>Etablera dataflöde för Cosmos DB-behållare och databaser
 
-Du kan ange dataflödet för en Azure Cosmos DB-behållare eller en uppsättning behållare med hjälp av Azure-portalen eller med hjälp av klienten SDK: er. Den här artikeln beskriver de steg som krävs för att konfigurera dataflöde på olika granulariteter för ett Azure Cosmos DB-konto.
+En Cosmos-databas är en enhet för hantering för en uppsättning behållare. En databas består av en uppsättning schemaoberoende behållare. En Cosmos-behållare är Faktureringsenhet skalbarhet för både dataflöde och lagring. En behållare är horisontellt partitionerade över en uppsättning datorer i en Azure-region och distribueras över alla Azure-regioner som är associerade med ditt Cosmos-konto.
 
-## <a name="provision-throughput-by-using-azure-portal"></a>Etablera dataflöde med hjälp av Azure-portalen
+Azure Cosmos DB kan du konfigurera dataflöde på två Precision - **Cosmos behållare** och **Cosmos databaser**.
 
-### <a name="provision-throughput-for-a-container-collectiongraphtable"></a>Etablera dataflöde för en behållare (samling/diagram/tabell)
+# <a name="setting-throughput-on-a-cosmos-container"></a>Ange dataflöde för en Cosmos-behållare  
 
-1. Logga in på [Azure Portal](https://portal.azure.com).  
-2. I det vänstra navigeringsfältet väljer **alla resurser** och hitta ditt Azure Cosmos DB-konto.  
-3. Du kan konfigurera dataflöde när du skapar en behållare (samling, diagram, tabell) eller uppdatera genomströmning för en befintlig behållare.  
-4. Om du vill tilldela dataflöde när du skapar en behållare, öppna den **Datautforskaren** bladet och välj **ny samling** (ny graf, ny tabell för API: er)  
-5. Fyll i formuläret **Lägg till samling** bladet. Fält i det här bladet beskrivs i följande tabell:  
+Dataflödet som tillhandahållits för en Cosmos-behållare enbart för behållaren. Behållaren tar emot det etablerade dataflödet som hela tiden. Dataflöde i en behållare har inget serviceavtal med ekonomisk uppbackning av serviceavtal. För att konfigurera dataflödet för en behållare, se [hur du etablera dataflöde för en Cosmos-behållare](how-to-provision-container-throughput.md).
 
-   |**Inställning**  |**Beskrivning**  |
-   |---------|---------|
-   |Databas-id  |  Ange ett unikt namn som identifierar din databas. Databasen är en logisk behållare för en eller flera samlingar. Databasnamn måste innehålla mellan 1 och 255 tecken och får inte innehålla /, \\, #, ? eller avslutande blanksteg. |
-   |Samlings-id  | Ange ett unikt namn som identifierar din samling. Samma teckenkrav gäller för samlings-ID:n som databasnamn. |
-   |Lagringskapacitet   | Det här värdet representerar lagringskapaciteten för databasen. När du etablerar genomströmning för en enskild samling lagringskapacitet kan vara **fast (10 GB)** eller **obegränsad**. Obegränsade lagringskapacitet måste du ange en partitionsnyckel för dina data.  |
-   |Dataflöde   | Varje samling och databas kan ha dataflöde i enheter för programbegäran per sekund.  Och en samling kan har åtgärdat eller obegränsade lagringskapacitet. |
+Ange dataflöde för en behållare är det vanliga alternativet. Medan du kan Elastiskt skala dataflöde för en behållare genom att etablera valfritt antal dataflöde (ru: er), kan du selektivt ange genomströmning för logiska partitioner. När de arbetsbelastningar som körs på en logisk partition förbrukar mer än det dataflöde som tilldelades till den specifika logisk partitionen, får din verksamhet rate-limited. När hastighetsbegränsande uppstår kan du antingen öka genomflödet för hela behållaren eller försök igen. Mer information om partitionering finns i [logiska partitioner](partition-data.md).
 
-6. När du har angett värden för dessa fält, Välj **OK** att spara inställningarna.  
+Vi rekommenderar att du konfigurerar dataflöde med behållare precision när du vill att garanterade prestanda för behållaren.
 
-   ![Ange dataflöde för en samling](./media/set-throughput/set-throughput-for-container.png)
+Dataflödet som etableras i en Cosmos-behållare är jämnt fördelade över alla logiska partitioner i behållaren. Eftersom en eller flera logiska partitioner för en behållare är värd för en resurspartition, resurspartitioner tillhör exklusivt behållaren och stöd för dataflödet som tillhandahållits för behållaren. Följande bild visar hur en resurspartition är värd för en eller flera logiska partitioner för en behållare:
 
-7. Expandera databasen och behållaren för att uppdatera genomströmning för en befintlig behållare, och klicka sedan på **inställningar**. I det nya fönstret, skriver du det nya värdet för dataflöde och välj sedan **spara**.  
+![Resurspartition](./media/set-throughput/resource-partition.png)
 
-   ![Uppdatera dataflödet för en samling](./media/set-throughput/update-throughput-for-container.png)
+# <a name="setting-throughput-on-a-cosmos-database"></a>Ange dataflöde för en Cosmos-databas
 
-### <a name="provision-throughput-for-a-set-of-containers-or-at-the-database-level"></a>Etablera dataflöde för en uppsättning behållare eller på databasnivå
+När du etablerar dataflödet för en Cosmos-databas kan delas dataflödet mellan alla behållare i databasen, såvida inte du har angett ett dataflöde på specifika behållare. Dela databasen dataflödet mellan dess behållare är detsamma som värd för en databas på ett kluster med datorer. Eftersom alla behållare i en databas delar resurserna som är tillgängliga på en dator, naturligt ger inte förutsägbar prestanda på en specifik behållare. För att konfigurera dataflöde på en databas, se [så här konfigurerar du etablerat dataflöde på en Cosmos-databas](how-to-provision-database-throughput.md).
 
-1. Logga in på [Azure Portal](https://portal.azure.com).  
-2. I det vänstra navigeringsfältet väljer **alla resurser** och hitta ditt Azure Cosmos DB-konto.  
-3. Du kan konfigurera dataflöde när du skapar en databas eller uppdatera genomströmning för en befintlig databas.  
-4. Om du vill tilldela dataflöde när du skapar en databas, öppna den **Datautforskaren** bladet och välj **ny databas**  
-5. Fyll i **databas-id** värde, kontrollera **etablera dataflöde** , och konfigurera dataflödesvärde gjorts.  
+Inställningen dataflödet för en Cosmos-databas garanterar att du får det etablerade dataflödet som hela tiden. Eftersom alla behållare på databas-resursen det etablerade dataflödet tillhandahåller Cosmos DB alla förutsägbart dataflöde garantier för en viss behållare i databasen. Del av vilket dataflöde som kan ta emot en viss behållare är beroende av:
 
-   ![Ange dataflöde med nytt databasalternativ](./media/set-throughput/set-throughput-with-new-database-option.png)
+* Antal behållare
+* Valet av partitionsnycklar för olika behållare och
+* Distribution av arbetsbelastning i olika logiska partitioner av behållarna. 
 
-6. Expandera databasen och behållaren för att uppdatera dataflödet för en befintlig databas, och klicka sedan på **skala**. I det nya fönstret, skriver du det nya värdet för dataflöde och välj sedan **spara**.  
+Vi rekommenderar att du konfigurerar dataflödet för en databas när du vill dela dataflödet över flera behållare, men inte vill att dedikera dataflödet till en viss behållare. Här följer några exempel där det är att föredra att etablera dataflöde på databasnivå:
 
-   ![Uppdatera dataflödet för en databas](./media/set-throughput/update-throughput-for-database.png)
+* Dela dataflöde för en databas i en behållare är användbart för ett program med flera innehavare. Varje användare kan representeras av en distinkt Cosmos-behållare.
 
-### <a name="provision-throughput-for-a-set-of-containers-as-well-as-for-an-individual-container-in-a-database"></a>Etablera dataflöde för en uppsättning behållare också som en enskild behållare i en databas
+* Dela dataflöde för en databas i en behållare är användbart när du migrerar en NoSQL-databas (till exempel MongoDB, Cassandra) som finns från ett kluster av virtuella datorer eller från den lokala fysiska servrar till Cosmos DB. Du kan föreställa dig det etablerade dataflödet som konfigurerats på din Cosmos-databas som en logiska motsvarigheten (men mer kostnadseffektiv och elastiska) med beräkningskapaciteten för din MongoDB- eller Cassandra-kluster.  
 
-1. Logga in på [Azure Portal](https://portal.azure.com).  
-2. I det vänstra navigeringsfältet väljer **alla resurser** och hitta ditt Azure Cosmos DB-konto.  
-3. Skapa en databas och tilldela det dataflöde. Öppna den **Datautforskaren** bladet och välj **ny databas**  
-4. Fyll i **databas-id** värde, kontrollera **etablera dataflöde** , och konfigurera dataflödesvärde gjorts.  
+Vid en given tidpunkt tid fördelas det dataflöde som allokeras till en behållare i en databas för alla logiska partitioner för behållaren. När du har en behållare som delar etablerat dataflöde på en databas, kan du selektivt använder dataflödet till en specifik behållare eller en logisk partition. Om arbetsbelastningen för en logisk partition förbrukar mer än det dataflöde som tilldelas en specifik logisk partition, kommer din verksamhet att rate-limited. När hastighetsbegränsande uppstår kan du antingen öka genomflödet för hela behållaren eller försök igen. Mer information om partitionering finns i [logiska partitioner](partition-data.md).
 
-   ![Ange dataflöde med nytt databasalternativ](./media/set-throughput/set-throughput-with-new-database-option.png)
+Flera logiska partitioner som delar dataflödet som tillhandahållits till en databas kan finnas på en enskild resurs-partition. När en enskild logisk partition för en behållare är alltid begränsade inom en resurspartition, ”L” logiska partitioner mellan ”C”-behållare som delar det etablerade dataflödet för en databas mappade och finns i ”R” resurspartitioner. Följande bild visar hur en resurspartition kan vara värd för en eller flera logiska partitioner som hör till olika behållare i en databas:
 
-5. Därefter skapa en samling i den databas du skapade i steget ovan. Om du vill skapa en samling, högerklicka på databasen Välj **ny samling**.  
+![Resurspartition](./media/set-throughput/resource-partition2.png)
 
-6. I den **Lägg till samling** bladet anger du ett namn för samlingen och partitionsnyckel. Du kan också du kan etablera dataflöde för den specifika behållaren om du väljer att inte tilldela ett dataflöde värde, dataflöde som tilldelats databasen delas i samlingen.  
+## <a name="setting-throughput-on-a-cosmos-database-and-a-container"></a>Ange dataflöde för en Cosmos-databas och en behållare
 
-   ![Du kan också ange dataflöde för behållaren](./media/set-throughput/optionally-set-throughput-for-the-container.png)
+Du kan kombinera de två modellerna, tillåts etablera dataflöde på både databasen och behållaren. I följande exempel visar hur du etablera dataflöde för en Cosmos-databas och en behållare:
 
-## <a name="considerations-when-provisioning-throughput"></a>Överväganden vid etablering av dataflöde
+* Du kan skapa en Cosmos-databas med namnet ”Z” med etablerat dataflöde på ”K” ru: er. 
+* Därefter skapar fem behållare med namnet A, B, C, D och E i databasen.
+* Du kan uttryckligen konfigurera ”P” ru: er för etablerat dataflöde för behållaren ”B”.
+* Dataflödet ”K” ru: er delas mellan de fyra behållarna – A, C, D och E. Den exakta mängden dataflöde tillgängliga till A, C, D eller E varierar och det finns inget serviceavtal för dataflöden i varje behållare.
+* Behållaren ”B” garanteras att hämta dataflödet ”P” ru: er hela tiden och den understöds av serviceavtal.
 
-Nedan finns några överväganden som hjälper dig att avgöra om en strategi för reservation av dataflöde.
+## <a name="comparison-of-models"></a>Jämförelse av modeller
 
-### <a name="considerations-when-provisioning-throughput-at-the-database-level"></a>Överväganden vid etablering av dataflöde på databasnivå
-
-Överväg att etablera dataflöde på databasnivå (det vill säga för en uppsättning behållare) i följande fall:
-
-* Om du har ett dussin eller flera antal behållare som kan dela dataflöde i vissa eller alla.  
-
-* När du migrerar från en enda klient-databas som har utformats för att köras på IaaS-värd virtuella datorer eller lokalt (till exempel NoSQL eller relationsdatabaser) till Azure Cosmos DB och ha många behållare.  
-
-* Om du vill överväga oplanerad toppar i arbetsbelastningar med hjälp av pooler dataflöde på databasnivå.  
-
-* I stället för att inställningen dataflöde på en enskild behållare är du intresserad av den totala genomströmningen i en behållare i databasen.
-
-### <a name="considerations-when-provisioning-throughput-at-the-container-level"></a>Överväganden vid etablering av dataflöde på behållarenivån
-
-Överväg att etablera dataflöde på en enskild behållare i följande fall:
-
-* Om du har mindre antal Azure Cosmos DB-behållare.  
-
-* Om du vill få garanterat dataflöde i en given behållare som backas upp av ett serviceavtal (SLA).
-
-<a id="set-throughput-sdk"></a>
-
-## <a name="set-throughput-by-using-sql-api-for-net"></a>Ange dataflöde med hjälp av SQL-API för .NET
-
-### <a name="set-throughput-at-the-container-level"></a>Ange dataflöde på behållarenivån
-Här är ett kodfragment för att skapa en behållare med 3 000 programbegäran per sekund för en enskild behållare med SQL API .NET SDK:
-
-```csharp
-DocumentCollection myCollection = new DocumentCollection();
-myCollection.Id = "coll";
-myCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(
-    UriFactory.CreateDatabaseUri("db"),
-    myCollection,
-    new RequestOptions { OfferThroughput = 3000 });
-```
-
-### <a name="set-throughput-for-a-set-of-containers-at-the-database-level"></a>Ställa in dataflöde för en uppsättning behållare på databasnivå
-
-Här är ett kodfragment för etablering 100 000 enheter för programbegäran per sekund i en behållare med hjälp av SQL-API .NET SDK:
-
-```csharp
-// Provision 100,000 RU/sec at the database level. 
-// sharedCollection1 and sharedCollection2 will share the 100,000 RU/sec from the parent database
-// dedicatedCollection will have its own dedicated 4,000 RU/sec, independant of the 100,000 RU/sec provisioned from the parent database
-Database database = await client.CreateDatabaseAsync(new Database { Id = "myDb" }, new RequestOptions { OfferThroughput = 100000 });
-
-DocumentCollection sharedCollection1 = new DocumentCollection();
-sharedCollection1.Id = "sharedCollection1";
-sharedCollection1.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection1, new RequestOptions())
-
-DocumentCollection sharedCollection2 = new DocumentCollection();
-sharedCollection2.Id = "sharedCollection2";
-sharedCollection2.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection2, new RequestOptions())
-
-DocumentCollection dedicatedCollection = new DocumentCollection();
-dedicatedCollection.Id = "dedicatedCollection";
-dedicatedCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollection, new RequestOptions { OfferThroughput = 4000 )
-```
-
-Azure Cosmos DB körs på en reservation modell för dataflöde. Det vill säga du faktureras för den dataflöde *reserverade*, oavsett hur mycket av att dataflödet är aktivt *används*. Som ditt program är belastningen, data och användning användningsmönster ändras kan du enkelt skala upp och ned antalet, som reserverade ru: er via SDK: er eller via den [Azure-portalen](https://portal.azure.com).
-
-Varje behållare eller uppsättning behållare, mappas till en `Offer` resurs i Azure Cosmos DB, som innehåller metadata om det etablerade dataflödet. Du kan ändra det tilldelade dataflödet genom att leta upp motsvarande resurs-erbjudande för en behållare och sedan uppdatera den med det nya värdet för dataflöde. Här är ett kodfragment för att ändra dataflödet för en behållare till 5 000 programbegäran per sekund med hjälp av .NET SDK. Du bör uppdatera alla befintliga Azure portal fönster för den ändrade dataflöde visas när du har ändrat dataflödet. 
-
-```csharp
-// Fetch the resource to be updated
-// For a updating throughput for a set of containers, replace the collection's self link with the database's self link
-Offer offer = client.CreateOfferQuery()
-                .Where(r => r.ResourceLink == collection.SelfLink)    
-                .AsEnumerable()
-                .SingleOrDefault();
-
-// Set the throughput to 5000 request units per second
-offer = new OfferV2(offer, 5000);
-
-// Now persist these changes to the database by replacing the original resource
-await client.ReplaceOfferAsync(offer);
-```
-
-Det finns ingen inverkan på tillgängligheten för din behållare eller uppsättning behållare, när du ändrar dataflödet. Ny reserverat dataflöde är vanligtvis effektiva inom några sekunder på tillämpningen av det nya dataflödet.
-
-<a id="set-throughput-java"></a>
-
-## <a name="to-set-the-throughput-by-using-the-sql-api-for-java"></a>Ange dataflöden med hjälp av SQL-API för Java
-
-Följande kodavsnitt hämtar det aktuella dataflödet och ändrar till 500 RU/s. Ett komplett kodexempel, finns det [OfferCrudSamples.java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) fil på GitHub. 
-
-```Java
-// find offer associated with this collection
-// To change the throughput for a set of containers, use the database's resource id instead of the collection's resource id
-Iterator < Offer > it = client.queryOffers(
-    String.format("SELECT * FROM r where r.offerResourceId = '%s'", collectionResourceId), null).getQueryIterator();
-assertThat(it.hasNext(), equalTo(true));
-
-Offer offer = it.next();
-assertThat(offer.getString("offerResourceId"), equalTo(collectionResourceId));
-assertThat(offer.getContent().getInt("offerThroughput"), equalTo(throughput));
-
-// update the offer
-int newThroughput = 500;
-offer.getContent().put("offerThroughput", newThroughput);
-client.replaceOffer(offer);
-```
-
-## <a name="get-the-request-charge-using-cassandra-api"></a>Hämta kostnad för begäran med hjälp av Cassandra-API 
-
-Cassandra-API: et stöder ett sätt att få mer information om begäran enheter avgiften för en viss åtgärd. Till exempel kan RU/s kostar infogningen hämtas på följande sätt:
-
-```csharp
-var insertResult = await tableInsertStatement.ExecuteAsync();
- foreach (string key in insertResult.Info.IncomingPayload)
-        {
-            byte[] valueInBytes = customPayload[key];
-            string value = Encoding.UTF8.GetString(valueInBytes);
-            Console.WriteLine($“CustomPayload:  {key}: {value}”);
-        }
-```
-
-
-## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Beräkna dataflöde med hjälp av portalen MongoDB API-mått
-
-Det enklaste sättet att få en bra uppskattning av begäran units för din MongoDB API-databas är att använda den [Azure-portalen](https://portal.azure.com) mått. Med den *antal begäranden* och *kostnad för begäran* diagram, kan du få en uppskattning av hur många enheter för programbegäran varje åtgärd förbrukar och hur många enheter för programbegäran som de använder i förhållande till varandra.
-
-![Portalen MongoDB API-mått][1]
-
-### <a id="RequestRateTooLargeAPIforMongoDB"></a> Reserverat dataflöde överskreds i MongoDB-API
-Program som överstiger det etablerade dataflödet för en behållare eller en uppsättning behållare att rate-limited tills åtgången sjunker under det etablerade dataflödet. När en rate-begränsning inträffar serverdelen går ut på begäran med en `16500` felkod - `Too Many Requests`. Som standard av MongoDB API automatiskt försöker upp till 10 gånger innan det returneras en `Too Many Requests` felkoden. Om du får många `Too Many Requests` felkoder, kan du överväga att lägga till logik för omprövning i ditt programs rutiner för felhantering eller [ökar det etablerade dataflödet för behållaren](set-throughput.md).
-
-## <a id="GetLastRequestStatistics"></a>Hämta kostnad för begäran med hjälp av MongoDB API GetLastRequestStatistics kommando
-
-MongoDB-API: et stöder ett anpassat kommando *getLastRequestStatistics*, för att hämta begäran om avgifterna för en viss åtgärd.
-
-Till exempel köra åtgärden som du vill kontrollera begäran kostar i Mongo-gränssnittet.
-```
-> db.sample.find()
-```
-
-Kör sedan kommandot *getLastRequestStatistics*.
-```
-> db.runCommand({getLastRequestStatistics: 1})
-{
-    "_t": "GetRequestStatisticsResponse",
-    "ok": 1,
-    "CommandName": "OP_QUERY",
-    "RequestCharge": 2.48,
-    "RequestDurationInMilliSeconds" : 4.0048
-}
-```
-
-En metod för att uppskatta hur mycket reserverat dataflöde som krävs för programmet är att registrera begäran kostnaden för enheten förknippade med vanliga åtgärder mot ett representativt objekt som används av ditt program och sedan beräkna antalet åtgärder som du räknar om du vill utföra varje sekund.
-
-> [!NOTE]
-> Om du har objekttyper som skiljer sig avsevärt beroende på storleken och antalet indexerade egenskaper kan sedan registrera gäller åtgärden begäran kostnaden för den enhet som hör till var *typ* för vanliga objekt.
-> 
-> 
-
-## <a name="throughput-faq"></a>Dataflöde vanliga frågor och svar
-
-**Kan jag ställa in min dataflöde på mindre än 400 RU/s?**
-
-400 RU/s är minsta dataflödet på enskild partition Cosmos DB-behållare (1000 RU/s är minimum för en partitionerad behållare). Begära enheter anges med 100 RU/s intervall, men dataflöde kan inte ställas in på 100 RU/s eller ett värde som är mindre än 400 RU/s. Om du letar efter en kostnadseffektiv metod för att utveckla och testa Cosmos DB kan du använda den kostnadsfria [Azure Cosmos DB-emulatorn](local-emulator.md), vilka du kan distribuera lokalt utan kostnad. 
-
-**Hur ställer jag in dataflöde med hjälp av MongoDB-API?**
-
-Det finns inga MongoDB API-tillägg för att ställa in dataflöde. Rekommendationen är att använda SQL-API som visas i [ange dataflödet med hjälp av SQL-API för .NET](#set-throughput-sdk).
+|**Kvot**  |**Dataflödet som etablerats på en databas**  |**Dataflödet som etableras i en behållare**|
+|---------|---------|---------|
+|Enhet för skalbarhet|Container|Container|
+|Minsta ru: er |400 |400|
+|Minsta ru: er per behållare|100|400|
+|Minsta ru: er som krävs för att använda 1 GB lagringsutrymme|40|40|
+|Maximal ru: er|Obegränsade för databasen|Obegränsade behållare|
+|RU: er tilldelade/tillgänglig för en specifik behållare|Inga garantier. RU: er som har tilldelats en viss behållare beror på egenskaperna, till exempel - val av partitionsnycklar behållare som delar dataflöde, distribution av arbetsbelastning, antal behållare. |Alla ru: er som har konfigurerats på behållaren är enbart för behållaren.|
+|Maximalt lagringsutrymme för en behållare|Obegränsat|Obegränsat|
+|Högsta dataflöde per logisk partition för en behållare|10K ru: er|10K ru: er|
+|Maximalt lagringsutrymme (data + index) per logisk partition för en behållare|10 GB|10 GB|
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs om hur du uppskattar dataflöde och begäransenheter i [begära och uppskattning dataflöde i Azure Cosmos DB](request-units.md)
+* Läs mer om [logiska partitioner](partition-data.md)
+* Lär dig [hur du etablera dataflöde för en Cosmos-behållare](how-to-provision-container-throughput.md)
+* Lär dig [hur du etablera dataflöde för en Cosmos-databas](how-to-provision-database-throughput.md)
 
-* Mer information om att etablera eller gå global skala med Cosmos DB finns [partitionering och skalning med Cosmos DB](partition-data.md).
-
-[1]: ./media/set-throughput/api-for-mongodb-metrics.png

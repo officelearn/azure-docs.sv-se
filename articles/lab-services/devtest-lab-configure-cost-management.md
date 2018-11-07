@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 13535dae82ef2c8896dad7d6221553d15e4e6a95
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e616df772bf11d1247f96c78bea2392252f5e5d0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38573819"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259759"
 ---
 # <a name="view-the-monthly-estimated-lab-cost-trend-in-azure-devtest-labs"></a>Visa månatliga uppskattade labbkostnadstrend i Azure DevTest Labs
 Funktionen kostnadshantering i DevTest Labs kan du spåra kostnaden för ditt labb. Den här artikeln beskrivs hur du använder den **månatliga uppskattade kostnaden Trend** diagram om du vill visa den aktuella kalendermånaden uppskattad kostnad hittills och kostnadsprognoser i slutet av månaden för den aktuella kalendermånaden. Den här artikeln visar också hur du hanterar bättre labbkostnader genom att ange utgiftsgränsen mål och tröskelvärden som, när uppnåtts utlösaren DevTest Labs och rapporterar resultaten till dig.
@@ -27,7 +27,7 @@ Funktionen kostnadshantering i DevTest Labs kan du spåra kostnaden för ditt la
 ## <a name="viewing-the-monthly-estimated-cost-trend-chart"></a>Visa diagrammet månatliga uppskattade kostnaden Trend
 Följ dessa steg om du vill visa månatliga uppskattade kostnaden Trend diagrammet: 
 
-1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Om det behövs väljer **alla tjänster**, och välj sedan **DevTest Labs** i listan. (Labbet kanske redan visas på instrumentpanelen under **alla resurser**).
 1. Listan över labbar, Välj önskade labbet.  
 1. På testmiljön **översikt** Välj **konfiguration och principer**.   

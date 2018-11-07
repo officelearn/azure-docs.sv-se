@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 29aea0171c767b2188e3eac23b1d61ffbda8e284
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 37748aaa7f34a51d24091ee04608496ebd45fa90
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986858"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231642"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection: Bästa praxis och referensarkitekturer
 
@@ -28,7 +28,7 @@ Designa för distribuerade överbelastningsattacker (DDoS) kräver återhämtnin
 
 ## <a name="types-of-attacks"></a>Typer av attacker
 
-DDoS är en typ av angrepp som används för att få slut på resurser. Målet är att påverka programmets tillgänglighet och dess förmåga att hantera legitima begäranden. Attacker blir allt mer sofistikerade och större i storlek och effekt. DDoS-attacker kan riktas till valfri slutpunkt som kan nås offentligt via internet.
+DDoS är en typ av angrepp som används för att få slut på resurser. Målet är att påverka programmets tillgänglighet och dess förmåga att hantera legitima begäranden. Attacker blir allt mer sofistikerade och större i storlek och effekt. DDoS-attacker kan riktas mot valfri slutpunkt som kan nås offentligt via Internet.
 
 Azure tillhandahåller kontinuerligt skydd mot DDoS-attacker. Det här skyddet är integrerad i Azure-plattformen som standard och utan extra kostnad. 
 
@@ -75,7 +75,7 @@ Kontrollera att säkerhet är en prioritet under hela livscykeln för ett progra
 För att skydda en tjänst som körs på Microsoft Azure, bör du ha en god förståelse av programarkitekturen och fokusera på den [fem grundpelare för programkvalitet](https://docs.microsoft.com/azure/architecture/guide/pillars).
 Du bör känna till vanliga trafikvolymer modellen anslutning mellan programmet och andra program och Tjänsteslutpunkter som exponeras för det offentliga internet.
 
-Se till att ett program är tillräckligt flexibel för att hantera DOS-attacker som riktas mot själva programmet är viktigast. Säkerhet och sekretess är inbyggt i Azure-plattformen, från och med den [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). SDL-processen hanterar säkerheten i varje utvecklingsfas och ser till att Azure uppdateras ständigt för att göra det ännu säkrare.
+Se till att ett program är tillräckligt flexibel för att hantera DOS-attacker som riktas mot själva programmet är viktigast. Säkerhet och sekretess är inbyggt i Azure-plattformen, från och med den [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). SDL-processen hanterar säkerheten i varje utvecklingsfas och ser till att Azure uppdateras ständigt för att göra det ännu säkrare.
 
 ### <a name="design-for-scalability"></a>Design för skalbarhet
 
@@ -265,7 +265,7 @@ I den här arkitekturen är DDoS Protection Standard aktiverad på det virtuella
 
 #### <a name="paas-web-application"></a>PaaS-webbprogram
 
-Den här referensarkitekturen visar köra en Azure App Service-App i en enda region. Den här arkitekturen visar en uppsättning beprövade metoder för ett webbprogram som använder [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/) och [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/).
+Den här referensarkitekturen visar köra en Azure App Service-App i en enda region. Den här arkitekturen visar en uppsättning beprövade metoder för ett webbprogram som använder [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/) och [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/).
 En standby region har ställts in för redundansscenarier.
 
 ![Diagram över referensarkitekturen för ett PaaS-webbprogram](media/azure-ddos-best-practices/image11.png)
@@ -300,6 +300,6 @@ Mer information om denna Referensarkitektur finns i den [utöka Azure HDInsight 
 
 * [Produktsida för Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/)
 
-* [Azure DDoS Protection-blogg](http://aka.ms/ddosblog)
+* [Azure DDoS Protection-blogg](https://aka.ms/ddosblog)
 
 * [Dokumentation om Azure DDoS Protection](../virtual-network/ddos-protection-overview.md)

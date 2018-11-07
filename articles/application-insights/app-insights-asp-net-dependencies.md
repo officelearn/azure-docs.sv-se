@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: f1a1c0bd759a88b2e84584f1d52458ac6f56d97f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c54d8b870d6d8c187dcf145b56e3cbae257889a5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999720"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259300"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Konfigurera Application Insights: beroende spårning
 En *beroende* är en extern komponent som anropas av din app. Det är normalt en tjänst som kallas via HTTP, eller en databas eller ett filsystem. [Application Insights](app-insights-overview.md) mäter hur länge ditt program väntar beroenden och hur ofta en beroendeanropet misslyckas. Du kan undersöka specifika anrop och koppla dem till begäranden och undantag.
@@ -44,7 +44,7 @@ Partiell beroendeinformation som samlas in automatiskt av den [Application Insig
 
 | Plattform | Installera |
 | --- | --- |
-| IIS-Server |Antingen [installera Status Monitor på servern](app-insights-monitor-performance-live-website-now.md) eller [uppgradera programmet till .NET framework 4.6 eller senare](http://go.microsoft.com/fwlink/?LinkId=528259) och installera den [Application Insights SDK](app-insights-asp-net.md) i din app. |
+| IIS-Server |Antingen [installera Status Monitor på servern](app-insights-monitor-performance-live-website-now.md) eller [uppgradera programmet till .NET framework 4.6 eller senare](https://go.microsoft.com/fwlink/?LinkId=528259) och installera den [Application Insights SDK](app-insights-asp-net.md) i din app. |
 | Azure-webbapp |I din Kontrollpanelen för webbappar, [öppnar du bladet Application Insights i din Kontrollpanelen för webbappar](app-insights-azure-web-apps.md) och välj Installera om du tillfrågas. |
 | Azure Cloud Service |[Använd startåtgärd](app-insights-cloudservices.md) eller [installera .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
@@ -207,7 +207,7 @@ Se tabellen nedan och se till att du har valt rätt konfiguration för att aktiv
 
 | Plattform | Installera |
 | --- | --- |
-| IIS-Server |Antingen [installera Status Monitor på servern](app-insights-monitor-performance-live-website-now.md). Eller [uppgradera programmet till .NET framework 4.6 eller senare](http://go.microsoft.com/fwlink/?LinkId=528259) och installera den [Application Insights SDK](app-insights-asp-net.md) i din app. |
+| IIS-Server |Antingen [installera Status Monitor på servern](app-insights-monitor-performance-live-website-now.md). Eller [uppgradera programmet till .NET framework 4.6 eller senare](https://go.microsoft.com/fwlink/?LinkId=528259) och installera den [Application Insights SDK](app-insights-asp-net.md) i din app. |
 | Azure-webbapp |I din Kontrollpanelen för webbappar, [öppnar du bladet Application Insights i din Kontrollpanelen för webbappar](app-insights-azure-web-apps.md) och välj Installera om du tillfrågas. |
 | Azure Cloud Service |[Använd startåtgärd](app-insights-cloudservices.md) eller [installera .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 

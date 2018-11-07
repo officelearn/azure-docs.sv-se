@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: 35650eec65fa9181d035c52e6b466985b483500c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 98eee29dc6810d35ee1792c601e6d2f147602cae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036515"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262190"
 ---
 # <a name="securing-paas-deployments"></a>Skydda PaaS-distributioner
 
@@ -115,7 +115,7 @@ I följande tabell visar en lista över STRIDE hot och ger vissa exempel åtgär
 | Manipulering | Integritet | Verifiera SSL-certifikat. |
 | Repudiation | Oavvislighet | Aktivera Azure [övervakning och diagnostik](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). |
 | Avslöjande av information | Sekretess | Kryptera känsliga data i vila med hjälp av [tjänsten certifikat](https://docs.microsoft.com/rest/api/appservice/certificates). |
-| DOS-attack | Tillgänglighet | Övervaka prestandamått för potentiell denial of service-villkor. Implementera anslutningsfilter. |
+| Denial of Service | Tillgänglighet | Övervaka prestandamått för potentiell denial of service-villkor. Implementera anslutningsfilter. |
 | Rättighetsökning | Auktorisering | Använd [Privileged Identity Management](../active-directory/privileged-identity-management/subscription-requirements.md). |
 
 ## <a name="develop-on-azure-app-service"></a>Utveckla på Azure App Service
@@ -151,7 +151,7 @@ Webbprogram blir i allt större utsträckning föremål för attacker där känd
 ## <a name="monitor-the-performance-of-your-applications"></a>Övervaka prestanda för dina program
 Övervakning är syftar till insamling och analys av data för att avgöra prestanda, hälsotillstånd och tillgänglighet för ditt program. En effektiv övervakningsstrategi hjälper dig att förstå den detaljerade driften av komponenterna i ditt program. Det hjälper dig att förbättra din drifttid genom att meddela dig om kritiska tillstånd så att du kan lösa dem innan de hunnit bli problem. Du kan dessutom identifiera avvikelser som kan vara säkerhetsrelaterade.
 
-Använd [Azure Application Insights](http://azure.microsoft.com/documentation/services/application-insights) att övervaka tillgänglighet, prestanda och användning av ditt program, oavsett om den finns i molnet eller lokalt. Genom att använda Application Insights kan du snabbt identifiera och diagnostisera fel i ditt program utan att behöva vänta på att en användare rapporterar dem. Du kan göra välgrundade val om underhåll och förbättringar för ditt program med den information som du samlar in.
+Använd [Azure Application Insights](https://azure.microsoft.com/documentation/services/application-insights) att övervaka tillgänglighet, prestanda och användning av ditt program, oavsett om den finns i molnet eller lokalt. Genom att använda Application Insights kan du snabbt identifiera och diagnostisera fel i ditt program utan att behöva vänta på att en användare rapporterar dem. Du kan göra välgrundade val om underhåll och förbättringar för ditt program med den information som du samlar in.
 
 Application Insights har omfattande verktyg för att interagera med de data som samlas in. Application Insights lagrar data i en gemensam databas. Programmet kan dra nytta av delade funktioner som aviseringar, instrumentpaneler och djupanalys med Log Analytics-frågespråket.
 

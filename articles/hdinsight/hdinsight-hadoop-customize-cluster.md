@@ -2,19 +2,19 @@
 title: Anpassa HDInsight-kluster med skriptåtgärder - Azure
 description: Lär dig mer om att anpassa HDInsight-kluster med skriptåtgärd.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/05/2016
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6c4652e65f0f320063d989f97a5428510913005b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 8923dcb4c35bbf90a6f68bd296bb9a862c5ff07d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105932"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230809"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Anpassa Windows-baserade HDInsight-kluster med skriptåtgärd
 **Skripta åtgärd** kan användas för att anropa [anpassade skript](hdinsight-hadoop-script-actions.md) när klustret skapas för att installera ytterligare programvara på ett kluster.
@@ -279,7 +279,7 @@ I följande exempel visar hur du installerar Spark på Windows-baserat HDInsight
 5. Tryck på **F5** för att köra programmet.
 
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>Stöd för öppen källkod-programvara som används i HDInsight-kluster
-Tjänsten Microsoft Azure HDInsight är en flexibel plattform som gör det möjligt att bygga program för stordata i molnet med hjälp av ett ekosystem med öppen källkod-tekniker som skapats på rätt sätt runt Hadoop. Microsoft Azure tillhandahåller en allmän supportnivå för tekniker med öppen källkod, som beskrivs i den **supportens omfattning** delen av den <a href="http://azure.microsoft.com/support/faq/" target="_blank">Azure Support FAQ webbplats</a>. Tjänsten HDInsight ger en extra nivå av support för några av komponenterna som beskrivs nedan.
+Tjänsten Microsoft Azure HDInsight är en flexibel plattform som gör det möjligt att bygga program för stordata i molnet med hjälp av ett ekosystem med öppen källkod-tekniker som skapats på rätt sätt runt Hadoop. Microsoft Azure tillhandahåller en allmän supportnivå för tekniker med öppen källkod, som beskrivs i den **supportens omfattning** delen av den <a href="https://azure.microsoft.com/support/faq/" target="_blank">Azure Support FAQ webbplats</a>. Tjänsten HDInsight ger en extra nivå av support för några av komponenterna som beskrivs nedan.
 
 Det finns två typer av öppen källkod-komponenter som är tillgängliga i HDInsight-tjänsten:
 

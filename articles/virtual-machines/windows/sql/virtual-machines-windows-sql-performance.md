@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: jroth
-ms.openlocfilehash: 0119c6642d68db6a90af07395882e620b1af08c6
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 395994e2ac017bcdadaca4defad4ec0f910cea17
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394961"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258137"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Prestandavägledning för SQL Server i Azure Virtual Machines
 
@@ -39,7 +39,7 @@ Följande är en snabb kontroll lista för optimala prestanda för SQL Server p�
 
 | Område | Optimeringar |
 | --- | --- |
-| [VM-storlek](#vm-size-guidance) |[DS3_v2](../sizes-general.md) eller högre för SQL Enterprise edition.<br/><br/>[DS2_v2](../sizes-general.md) eller högre för SQL Standard- och webb-utgåvor. |
+| [Storlek på virtuell dator](#vm-size-guidance) |[DS3_v2](../sizes-general.md) eller högre för SQL Enterprise edition.<br/><br/>[DS2_v2](../sizes-general.md) eller högre för SQL Standard- och webb-utgåvor. |
 | [Storage](#storage-guidance) |Använd [Premiumlagring](../premium-storage.md). Standard-lagring rekommenderas endast för utveckling och testning.<br/><br/>Behåll den [lagringskonto](../../../storage/common/storage-create-storage-account.md) och SQL Server-dator i samma region.<br/><br/>Inaktivera Azure [geo-redundant lagring](../../../storage/common/storage-redundancy.md) (geo-replikering) för lagringskontot. |
 | [Diskar](#disks-guidance) |Använder minst 2 [P30 diskar](../premium-storage.md#scalability-and-performance-targets) (1 för loggfiler och 1 för datafiler inklusive TempDB).<br/><br/>Undvik att använda operativsystemet eller temporära diskar för databaslagring eller loggning.<br/><br/>Aktivera läscachelagring på diskarna som är värd för filer och datafiler för TempDB.<br/><br/>Aktivera inte cachelagring på diskar som är värd för loggfilen.<br/><br/>Viktigt: Stoppa SQL Server-tjänsten när du ändrar cacheinställningarna för en virtuell dator i Azure-disk.<br/><br/>Stripe-flera Azure-datadiskar för att få ökad i/o-genomströmning.<br/><br/>Formatera med dokumenterade allokering storlekar. |
 | [I/O](#io-guidance) |Aktivera komprimering för databas-sidan.<br/><br/>Aktivera omedelbara filen initiering av datafiler.<br/><br/>Begränsa systembehandlingens för databasen.<br/><br/>Inaktivera automatiska storleksminskningen för databasen.<br/><br/>Flytta alla databaser till datadiskar, inklusive systemdatabaser.<br/><br/>Flytta SQL Server fel logg- och spårningsfiler filkataloger till datadiskar.<br/><br/>Konfigurera säkerhetskopiering och databasen standardsökvägar.<br/><br/>Aktivera låsta sidor.<br/><br/>Tillämpa korrigeringar för SQL Server-prestanda. |
@@ -166,7 +166,7 @@ För virtuella datorer som har stöd för Premium Storage (DS-serien, DSv2-serie
     ![SQL Data logg-och säkerhetskopiering](./media/virtual-machines-windows-sql-performance/sql_server_default_data_log_backup_locations.png)
 * Aktivera låsta sidor att minska i/o och några sidindelning aktiviteter. Mer information finns i [aktivera den låsa sidor i minnet alternativet (Windows)](https://msdn.microsoft.com/library/ms190730.aspx).
 
-* Om du kör SQL Server 2012 måste du installera Service Pack 1 Cumulative Update 10. Den här uppdateringen innehåller korrigering för låga prestanda på i/o när du kör väljer till tillfällig tabell-satsen i SQL Server 2012. Information finns i den här [knowledge base-artikeln](http://support.microsoft.com/kb/2958012).
+* Om du kör SQL Server 2012 måste du installera Service Pack 1 Cumulative Update 10. Den här uppdateringen innehåller korrigering för låga prestanda på i/o när du kör väljer till tillfällig tabell-satsen i SQL Server 2012. Information finns i den här [knowledge base-artikeln](https://support.microsoft.com/kb/2958012).
 
 * Överväg att komprimera några filer när du överför in/ut i Azure.
 

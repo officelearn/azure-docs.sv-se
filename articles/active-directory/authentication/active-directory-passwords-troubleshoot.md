@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 668882b8b39052c3c8e7d7b72c881a64c5c05a10
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 044a3bae75cb385e7a3542b920e0cb3b5bcedcd0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321809"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233634"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Felsöka lösenordsåterställning via självbetjäning
 
@@ -99,7 +99,7 @@ Bästa praxis när du felsöker problem med tillbakaskrivning av lösenord är a
 | Kod | Namn eller meddelande | Beskrivning |
 | --- | --- | --- |
 | 6329 | BORGEN: MMS(4924) 0x80230619: ”en begränsning förhindrar att lösenordet ändras till den aktuella som angetts”. | Den här händelsen inträffar när tjänsten för tillbakaskrivning av lösenord försöker ange ett lösenord för din lokala katalog som inte uppfyller ålder för lösenord, historik, komplexitet eller filtrering kraven i domänen. <br> <br> Om du har en lägsta ålder för lösenord och nyligen har ändrat lösenordet inom denna tidsperiod kan det inte går att ändra lösenordet igen tills den når den angivna åldern i din domän. I testsyfte sättas minimiålder till 0. <br> <br> Om du har använts på sistone aktiverad så du måste välja ett lösenord som inte har använts under senaste *N* tider var *N* är lösenordsinställningen för historik. Om du väljer ett lösenord som har använts under senaste *N* gånger, kan du se ett fel i det här fallet. I testsyfte ska tidigare lösenord anges till 0. <br> <br> Om du har krav på lösenordskomplexitet, tillämpas alla när användaren försöker att ändra och återställa ett lösenord. <br> <br> Om du har aktiverat lösenordsfilter och en användare väljer ett lösenord som uppfyller inte sökvillkoren, sedan återställa eller ändra åtgärden misslyckas. |
-| 6329 | MMS(3040): admaexport.cpp(2837): servern innehåller inte principkontroll för LDAP-lösenord. | Det här problemet uppstår om LDAP_SERVER_POLICY_HINTS_OID kontroll (1.2.840.113556.1.4.2066) inte är aktiverad på domänkontrollanter. Om du vill använda funktionen för tillbakaskrivning av lösenord, måste du aktivera kontrollen. Om du vill göra det finnas domänkontrollanter i Windows Server 2008 (med senaste SP) eller senare. Om dina domänkontrollanter som är på 2008 (pre-R2) så du måste också installera snabbkorrigeringar [KB2386717](http://support.microsoft.com/kb/2386717). |
+| 6329 | MMS(3040): admaexport.cpp(2837): servern innehåller inte principkontroll för LDAP-lösenord. | Det här problemet uppstår om LDAP_SERVER_POLICY_HINTS_OID kontroll (1.2.840.113556.1.4.2066) inte är aktiverad på domänkontrollanter. Om du vill använda funktionen för tillbakaskrivning av lösenord, måste du aktivera kontrollen. Om du vill göra det finnas domänkontrollanter i Windows Server 2008 (med senaste SP) eller senare. Om dina domänkontrollanter som är på 2008 (pre-R2) så du måste också installera snabbkorrigeringar [KB2386717](https://support.microsoft.com/kb/2386717). |
 | HR 8023042 | Synkroniseringsmotorn returnerade ett fel hr = 80230402, message = ett försök att hämta ett objekt som misslyckades eftersom det finns duplicerade poster med samma ankaret. | Det här felet inträffar när samma användar-ID är aktiverat i flera domäner. Ett exempel är om du synkroniserar konto- och skogar och har samma användar-ID finns och är aktiverat i varje skog. <br> <br> Det här felet kan också inträffa om du använder en icke-unikt fästpunktsattributet som ett alias eller UPN och två användare delar den samma fästpunktsattributet. <br> <br> Lös problemet genom att se till att det inte finns några dubbletter av användare i din domäner och att du använder en unik fästpunktsattributet för varje användare. |
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Om källan för händelsen är PasswordResetService
@@ -215,7 +215,7 @@ Vi rekommenderar att du utför det här steget endast när du försöker de två
 > Om du har anpassat de out-of the box Synkroniseringsregler *säkerhetskopiera dem innan du fortsätter med uppgraderingen och sedan manuellt distribuera dem igen när du är klar.*
 >
 
-1. Hämta den senaste versionen av Azure AD Connect från den [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=615771).
+1. Hämta den senaste versionen av Azure AD Connect från den [Microsoft Download Center](https://go.microsoft.com/fwlink/?LinkId=615771).
 1. Eftersom du redan har installerat Azure AD Connect måste du utföra en uppgradering på plats för att uppdatera din Azure AD Connect-installationen till den senaste versionen.
 1. Kör det Hämta paketet och följa den på skärmen instruktionerna för att uppdatera din Azure AD Connect-datorn.
 

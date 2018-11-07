@@ -3,7 +3,7 @@ title: Åtgärda säkerhetskonfigurationer i Azure Security Center | Microsoft D
 description: Det här dokumentet visar hur du implementerar Azure Security Center-rekommendationen, ”åtgärda säkerhetskonfigurationer”.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: 74bfc3435ad6d247dabd3a7cbf2910ede5f8c8ca
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: d4523a9e2d5a5466c1617930d14a8a2d25a0e16f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296252"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238785"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Åtgärda säkerhetskonfigurationer i Azure Security Center
 Azure Security Center analyserar dagligen operativsystemet (OS) på dina virtuella datorer (VM) och en konfiguration som kan göra de virtuella datorerna och datorer som är mer sårbara för angrepp. Security Center rekommenderar att du löser säkerhetsproblem när Operativsystemets konfiguration matchar inte de rekommendera säkerhetsreglerna för konfiguration och den rekommenderar konfigurationsändringar för att åtgärda dessa sårbarheter.
@@ -107,7 +107,7 @@ Om du vill veta mer om Security Center finns i följande resurser:
 * Läs hur du hanterar och åtgärdar säkerhetsaviseringar i [hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md).
 * Läs hur du övervakar dina partnerlösningars hälsostatus i [övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md).
 * Svar på vanliga frågor och svar om tjänsten finns i [Azure Security Center vanliga frågor och svar](security-center-faq.md).
-* För blogginlägg om Azure-säkerhet och regelefterlevnad, se [Azure Security-bloggen](http://blogs.msdn.com/b/azuresecurity/).
+* För blogginlägg om Azure-säkerhet och regelefterlevnad, se [Azure Security-bloggen](https://blogs.msdn.com/b/azuresecurity/).
 
 <!--Image references-->
 [1]: ./media/security-center-remediate-os-vulnerabilities/compute-blade.png

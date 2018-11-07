@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 353caf2bca68513a1153fe7b569c85606f72e753
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 55c8d3ff394fcf2df92bc80886bc86d29441e547
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631046"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254697"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure virtuella datorer hög tillgänglighet för SAP NetWeaver
 
@@ -220,7 +220,7 @@ I Azure Resource Manager varje Azure-resursen måste placeras i en Azure-resursg
 
 Du kan installera flera SAP system ID (SID) ASCS/SCS instanser i ett kluster i Azure Resource Manager. Multi-SID-instanser är möjliga tack vare stöd för flera IP-adresser för varje Azure intern belastningsutjämnare.
 
-Om du vill använda den klassiska distributionsmodellen, följer du anvisningarna i [SAP NetWeaver i Azure: Clustering SAP ASCS/SCS-instanser med hjälp av Windows Server Failover Clustering i Azure med SIOS DataKeeper](http://go.microsoft.com/fwlink/?LinkId=613056).
+Om du vill använda den klassiska distributionsmodellen, följer du anvisningarna i [SAP NetWeaver i Azure: Clustering SAP ASCS/SCS-instanser med hjälp av Windows Server Failover Clustering i Azure med SIOS DataKeeper](https://go.microsoft.com/fwlink/?LinkId=613056).
 
 > [!IMPORTANT]
 > Vi rekommenderar starkt att du använder Azure Resource Manager-distributionsmodellen för dina SAP-installationer. Den erbjuder många fördelar som inte är tillgängliga i den klassiska distributionsmodellen. Läs mer om Azure [distributionsmodeller][virtual-machines-azure-resource-manager-architecture-benefits-arm].   

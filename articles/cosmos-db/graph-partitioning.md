@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.author: lbosq
-ms.openlocfilehash: bf91ec77f8d7248c6fa2047636f295c187f626c8
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 7e9de68866b5e5849d0e48ad5073fc7b89fbb1ca
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078230"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239312"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Med hjälp av ett partitionerade diagram i Azure Cosmos DB
 
-En av de viktigaste funktionerna i Gremlin-API i Azure Cosmos DB är möjligheten att hantera storskaliga diagram via horisontell skalbarhet. Den här processen uppnås via den [partitionering funktioner i Azure Cosmos DB](partition-data.md#how-does-partitioning-work), vilket gör användning av behållare som kan skalas oberoende vad gäller lagring och dataflöde. Azure Cosmos DB stöder följande typer av behållare i alla API: er:
+En av de viktigaste funktionerna i Gremlin-API i Azure Cosmos DB är möjligheten att hantera storskaliga diagram via horisontell skalbarhet. Den här processen uppnås via den [partitionering funktioner i Azure Cosmos DB](partition-data.md), vilket gör användning av behållare som kan skalas oberoende vad gäller lagring och dataflöde. Azure Cosmos DB stöder följande typer av behållare i alla API: er:
 
 - **Fast behållare**: de här behållarna kan lagra ett diagram databasen upp till 10 GB i storlek med högst 10 000 enheter för programbegäran per sekund som tilldelas till den. Om du vill skapa en fast behållare är det inte nödvändigt att ange en nyckelegenskap för partitionen i data.
 

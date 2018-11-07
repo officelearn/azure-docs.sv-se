@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 90d810916599db50249a3e2ec677046c5af42a09
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 7e43a32a415e58925bda5195b3943afca315f9be
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005857"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238190"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Vad är Cloud Service-modellen och hur jag paketera den?
 En molnbaserad tjänst har skapats från tre komponenter, tjänstdefinitionen *(.csdef)*, service-config *(.cscfg)*, och inget tjänstepaket *(.cspkg)*. Både den **ServiceDefinition.csdef** och **ServiceConfig.cscfg** filer är XML-baserade och beskriver strukturen för Molntjänsten och hur den är konfigurerad; kallade modellen. Den **ServicePackage.cspkg** är en zip-fil som skapas från den **ServiceDefinition.csdef** och bland annat innehåller alla nödvändiga binary-baserade beroenden. Azure skapar en molnbaserad tjänst från både den **ServicePackage.cspkg** och **ServiceConfig.cscfg**.
@@ -144,7 +144,7 @@ Tjänstkonfigurationsfilen levereras inte med programmet, men har överförts ti
 Du kan referera till den [Tjänstkonfigurationens Schema](https://msdn.microsoft.com/library/azure/ee758710.aspx) för bättre förstå XML-schema används här, men här är en snabb förklaring av element:
 
 **instanser**  
-Konfigurerar antalet instanser för rollen som körs. Om du vill förhindra att din molntjänst potentiellt blir otillgänglig under uppgraderingar, bör du distribuera fler än en instans av webbservergrupper web-roller. Genom att distribuera fler än en instans, du följa riktlinjerna i den [Azure Compute serviceavtal (SLA)](http://azure.microsoft.com/support/legal/sla/), som garanterar 99,95% extern anslutning för Internet-riktade roller när två eller fler rollinstanser distribueras för en tjänst.
+Konfigurerar antalet instanser för rollen som körs. Om du vill förhindra att din molntjänst potentiellt blir otillgänglig under uppgraderingar, bör du distribuera fler än en instans av webbservergrupper web-roller. Genom att distribuera fler än en instans, du följa riktlinjerna i den [Azure Compute serviceavtal (SLA)](https://azure.microsoft.com/support/legal/sla/), som garanterar 99,95% extern anslutning för Internet-riktade roller när två eller fler rollinstanser distribueras för en tjänst.
 
 **ConfigurationSettings**  
 Konfigurerar inställningar för instanser som körs för en roll. Namnet på den `<Setting>` element måste matcha inställningen definitionerna i tjänstdefinitionsfilen.

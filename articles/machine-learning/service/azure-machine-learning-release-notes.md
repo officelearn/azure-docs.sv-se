@@ -9,16 +9,53 @@ author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 10/24/2018
-ms.openlocfilehash: 0927ae14d232ec2ce3a46bb66ed535deabbe0138
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 5ceb47f437f736829d0be10a856fe787fab944b0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158694"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261592"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
 I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner. 
+
+## <a name="2018-11-05"></a>2018-11-05
+
+### <a name="azure-portal"></a>Azure Portal 
+Azure-portalen för Azure Machine Learning-tjänsten har följande uppdateringar:
+  * En ny **Pipelines** fliken för publicerade pipelines.
+  * Stöd har lagts till för att bifoga ett befintligt HDInsight-kluster som en beräkningsmål.
+
+### <a name="azure-machine-learning-sdk-for-python-v0174"></a>Azure Machine Learning-SDK för Python v0.1.74
+
++ **Större ändringar** 
+  * *Workspace.compute_targets, datalager, experiment, bilder, modeller* och *webservices* egenskaper i stället för metoder. Ersätt till exempel *Workspace.compute_targets()* med *Workspace.compute_targets*.
+  * *Run.get_context* gör blir föråldrat *Run.get_submitted_run*. Den andra metoden tas bort i kommande versioner.
+  * *PipelineData* klass nu förväntar sig ett datalager-objekt som en parameter i stället för datastore_name. På samma sätt *Pipeline* accepterar default_datastore snarare än default_datastore_name.
+
++ **Nya funktioner**
+  * Azure Machine Learning Pipelines [exempel notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-mpi-batch-prediction.ipynb) använder nu MPI steg.
+  * Widgeten RunDetails för Jupyter-anteckningsböcker uppdateras för att visa en visualisering av pipelinen.
+
+### <a name="azure-machine-learning-data-prep-sdk-v040"></a>Azure Machine Learning Data Förbered SDK v0.4.0 
+ 
++ **Nya funktioner**
+  * Antal läggs till Dataprofil 
+  * Antal värden och Histogram är nu tillgänglig
+  * Mer percentiler i Dataprofil
+  * Medianvärdet är tillgänglig i sammanfatta
+  * Python 3.7 stöds nu
+  * När du sparar ett dataflöde med datalager i ett paket för förberedelse av data, ska datastore-information sparas som en del av paketet för förberedelse av data
+  * Nu finns stöd för skrivning till datalagret 
+        
++ **Bugg har åtgärdats**
+  * 64-bitars heltal utan tecken egenskapslängd hanteras nu korrekt på Linux
+  * Fast felaktig textetikett för filer med oformaterad text i smart_read
+  * Sträng kolumntyp nu visas i måttvyn
+  * Antal löses nu att visa ValueKinds som mappats till enkel FieldType i stället för enskilda finns
+  * Write_to_csv misslyckas inte längre när sökväg har angetts som en sträng
+  * När du använder Ersätt misslyckas lämnar ”hitta” tom inte längre 
 
 ## <a name="2018-10-12"></a>2018-10-12
 
@@ -26,9 +63,6 @@ I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.
 
 + **Nya funktioner**
   * Flera stöd för klienter när du skapar en ny arbetsyta.
-
-+ **Större ändringar**
-  * **Kommande i nästa version** *Workspace.compute_targets, datalager, experiment, bilder, modeller* och *webservices* blir egenskaper i stället för metoder. Ersätt till exempel *Workspace.compute_targets()* med *Workspace.compute_targets*.
 
 + **Korrigerade buggar**
   * Version för pynacl library behöver inte längre fästas när du distribuerar web-Molntjänsten.
@@ -217,7 +251,7 @@ Välkommen till den tredje uppdateringen av Azure Machine Learning. Den här upp
 **Viktiga nya funktioner**
 - [Stöd för SQL Server och Azure SQL DB som en datakälla](../desktop-workbench/data-prep-appendix2-supported-data-sources.md#types) 
 - [Djupinlärning på Spark med GPU-stöd med MMLSpark](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
-- [Alla AML-behållare som är kompatibla med Azure IoT Edge-enheter när de distribueras (inga ytterligare åtgärder krävs)](http://aka.ms/aml-iot-edge-blog)
+- [Alla AML-behållare som är kompatibla med Azure IoT Edge-enheter när de distribueras (inga ytterligare åtgärder krävs)](https://aka.ms/aml-iot-edge-blog)
 - Registrerade modellen lista och information om vyer tillgängliga Azure-portalen
 - Åtkomst till beräkningsmål med hjälp av SSH-nyckel-baserad autentisering förutom användarnamn/lösenord-baserad åtkomst. 
 - Nya mönster frekvens Inspector i data Förbered upplevelse. 
@@ -282,7 +316,7 @@ Läs mer om hur du skapar beräkningsmål [konfigurerar Azure Machine Learning E
 - Lagt till `az ml datasource create` kommandot tillåter att skapa en från kommandoraden
 
 #### <a name="model-management-and-operationalization"></a>Modellhantering och driftsättning
-- [Alla AML-behållare som är kompatibla med Azure IoT Edge-enheter när operationaliserat (inga ytterligare åtgärder krävs)](http://aka.ms/aml-iot-edge-blog) 
+- [Alla AML-behållare som är kompatibla med Azure IoT Edge-enheter när operationaliserat (inga ytterligare åtgärder krävs)](https://aka.ms/aml-iot-edge-blog) 
 - Förbättringar av felmeddelanden i o16n CLI
 - Felkorrigeringar i hanteringsportalen för modellen UX  
 - Konsekvent bokstav skiftläge för modellen management attribut i den här sidan

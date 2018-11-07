@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: adigan
-ms.openlocfilehash: a458a46f3775a593f369d5acb967fc90d61efde8
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 4f1e0c14d3a835b9f6d739511186bdcc19917a7a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628349"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231004"
 ---
 # <a name="install-azure-backup-server-v2"></a>Installera Azure Backup Server v2
 
@@ -103,7 +103,7 @@ Lägga till en volym i administratörskonsolen:
 
   Om du vill lägga till en disk måste disken tillhöra en skyddsgrupp med äldre lagring. Du kan använda dessa diskar endast för dessa skyddsgrupper. Om Backup Server inte har källor som har äldre skydd, visas disken inte.
 
-  Läs mer om att lägga till diskar i [lägga till diskar för att öka äldre lagring](http://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage). Du kan inte ge en disk ett eget namn.
+  Läs mer om att lägga till diskar i [lägga till diskar för att öka äldre lagring](https://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage). Du kan inte ge en disk ett eget namn.
 
 
 ### <a name="assign-workloads-to-volumes"></a>Tilldela arbetsbelastningar till volymer
@@ -160,7 +160,7 @@ Skapa en skyddsgrupp:
 
   ![Sidan för granska Disklagringstilldelning](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-6.png)
 
-  Lagringsvolymer baseras på arbetsbelastningens volymfördelning (anges med hjälp av PowerShell) och tillgängligt lagringsutrymme. Du kan ändra lagringsvolymer genom att välja andra volymer i den nedrullningsbara menyn. Om du ändrar värdet för **Mållagring**, värdet för **ledigt lagringsutrymme** dynamiskt ändras för att återspegla värden under **ledigt utrymme** och ** Underetablerat utrymme**.
+  Lagringsvolymer baseras på arbetsbelastningens volymfördelning (anges med hjälp av PowerShell) och tillgängligt lagringsutrymme. Du kan ändra lagringsvolymer genom att välja andra volymer i den nedrullningsbara menyn. Om du ändrar värdet för **Mållagring**, värdet för **ledigt lagringsutrymme** dynamiskt ändras för att återspegla värden under **ledigt utrymme** och  **Underetablerat utrymme**.
 
   Om datakällorna växer som planerat värde för den **Underetablerat utrymme** kolumn i **ledigt lagringsutrymme** visar mängden ytterligare lagringsutrymme som behövs. Använd det här värdet för att planera lagringsbehoven för smidiga säkerhetskopieringar. Om värdet är noll, finns det inga potentiella problem med lagringen inom en snar framtid. Om värdet är ett annat tal än noll kan du inte har tillräckligt med lagringsutrymme som allokerats (baserat på din skyddsprincip och datastorleken på dina skyddade medlemmar).
 
@@ -175,13 +175,13 @@ Uppdatering av skyddsgrupperna för att använda Modern Backup Storage är valfr
 
 1. I System Center 2016 DPM-administratörskonsolen, väljer du den **Protection** funktionen. I den **Skyddsgruppsmedlem** listan, högerklickar du på medlemmen och välj sedan **stoppa skyddet av medlem**.
 
-  ![Stoppa skyddet av medlem](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
+  ![Stoppa skyddet av medlem](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
 2. I den **ta bort från grupp** dialogrutan granskar du använt diskutrymme och tillgängligt ledigt utrymme för lagringspoolen. Standardvärdet är att lämna återställningspunkterna på disken och låta dem upphöra per deras associerade bevarandeprincip. Välj **OK**.
 
   Om du vill returnera använt diskutrymme direkt till den lediga lagringspoolen, väljer du den **ta bort replik på disk** kryssrutan för att ta bort säkerhetskopierade data (och återställningspunkter) som är associerade med medlemmen.
 
-  ![Ta bort från dialogrutan grupp](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+  ![Ta bort från dialogrutan grupp](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
 3. Skapa en skyddsgrupp som använder Modern Backup Storage. Inkludera de oskyddade datakällorna.
 
@@ -194,7 +194,7 @@ Lägg till disklagring:
 
 1. I System Center 2016 DPM-administratörskonsolen, väljer **Management** > **disklagring** > **Lägg till**.
 
-  ![Lägg till disklagring dialogrutan](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+  ![Lägg till disklagring dialogrutan](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
 2. I den **Lägg till disklagring** dialogrutan **lägga till diskar**.
 

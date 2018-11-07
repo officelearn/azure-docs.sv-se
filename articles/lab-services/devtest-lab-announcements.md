@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: ecfaf24d1122b711a93e1335b79acbbc4235bdae
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: eedab085098c34cdac3c49a3892f7cb0d5824f1b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049957"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259929"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Publicera ett meddelande till ett labb i Azure DevTest Labs
 
@@ -35,7 +35,7 @@ Meddelande-funktionen är avsedd att användas för tillfälliga meddelanden.  N
 
 ## <a name="steps-to-post-an-announcement-in-an-existing-lab"></a>Steg för att publicera ett meddelande i en befintlig labb
 
-1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Om det behövs väljer **alla tjänster**, och välj sedan **DevTest Labs** i listan. (Labbet kanske redan visas på instrumentpanelen under **alla resurser**).
 1. I listan över labbar Välj labb där du vill publicera ett meddelande.  
 1. På testmiljön **översikt** Välj **konfiguration och principer**.  
@@ -70,7 +70,7 @@ När du inte längre vill visa det här meddelandet till labbanvändare tillbaka
 
 ## <a name="steps-for-users-to-view-an-announcement"></a>Steg för användare att visa ett meddelande
 
-1. Från den [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=525040), Välj ett labb.
+1. Från den [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040), Välj ett labb.
 
 1. Om labbet har ett meddelande som publicerats för den, visas ett meddelande längst ned i labbet översiktssidan. Detta meddelande om information är meddelande rubriken som angavs när meddelandet skapades.
 
@@ -163,7 +163,7 @@ Du kan distribuera en Azure Resource Manager-mall med hjälp av något av följa
 - [Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
 - [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 - [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-- [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
+- [REST-API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ## <a name="next-steps"></a>Nästa steg
 * Om du ändrar eller skapa en princip för labbet, kanske du vill publicera ett meddelande för att informera användare. [Ange principer och scheman](devtest-lab-set-lab-policy.md) innehåller information om hur du tillämpar begränsningar och konventioner i hela prenumerationen genom att använda anpassade principer.

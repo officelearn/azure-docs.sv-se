@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: a99375ae961e9239e5e8ea86db8b1b9b002b10c8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0f237b4d742c0c7de1e836e2b9d83502cfe1a30d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526971"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231022"
 ---
 # <a name="storage-analytics"></a>Lagringsanalys
 
@@ -169,7 +169,7 @@ Följande åtgärder utförs av Storage Analytics är fakturerbara:
 Om du har konfigurerat en databevarandeprincip, debiteras du inte för ta borttagningstransaktioner när Lagringsanalys tar bort gamla data för loggning och mått. Ta borttagningstransaktioner från en klient är dock faktureringsbara. Läs mer om principer för kvarhållning [ställa in en bevarandeprincip för Storage Analytics Data](https://msdn.microsoft.com/library/azure/hh343263.aspx).
 
 ### <a name="understanding-billable-requests"></a>Förstå debiterbara begäranden
-Varje begäran som görs till ett konto lagringstjänst är fakturerbara eller icke-fakturerbara. Lagringsanalys loggar varje enskild begäran till en tjänst, inklusive ett statusmeddelande som anger hur begäran behandlades. På samma sätt lagrar Storage Analytics mätvärden för både en tjänst och API-åtgärder för tjänsten, inklusive procenttal och antalet vissa statusmeddelanden. Tillsammans de här funktionerna kan hjälpa dig att analysera din debiterbara begäranden, gör förbättringar för ditt program och diagnostisera problem med förfrågningar till dina tjänster. Läs mer om fakturering, [förstå Azure Storage-fakturering – bandbredd, transaktioner och kapacitet](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
+Varje begäran som görs till ett konto lagringstjänst är fakturerbara eller icke-fakturerbara. Lagringsanalys loggar varje enskild begäran till en tjänst, inklusive ett statusmeddelande som anger hur begäran behandlades. På samma sätt lagrar Storage Analytics mätvärden för både en tjänst och API-åtgärder för tjänsten, inklusive procenttal och antalet vissa statusmeddelanden. Tillsammans de här funktionerna kan hjälpa dig att analysera din debiterbara begäranden, gör förbättringar för ditt program och diagnostisera problem med förfrågningar till dina tjänster. Läs mer om fakturering, [förstå Azure Storage-fakturering – bandbredd, transaktioner och kapacitet](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
 När du granskar data i Storage Analytics kan du använda tabellerna i den [Storage Analytics loggade åtgärder och statusmeddelanden](https://msdn.microsoft.com/library/azure/hh343260.aspx) avsnittet för att avgöra vilka begäranden som fakturerbara. Du kan sedan jämföra dina loggar och mätdata till statusmeddelanden för att se om du debiterades för en viss begäran. Du kan också använda tabellerna i det föregående avsnittet för att undersöka tillgänglighet för en lagringstjänst eller för enskilda API-åtgärden.
 

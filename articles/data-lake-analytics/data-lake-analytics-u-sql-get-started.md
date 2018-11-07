@@ -9,20 +9,20 @@ ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
-ms.openlocfilehash: daef00bc7b39326b79e5f56bf803dc6aad1ac0ff
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b70de1e4494bb142da1cad0d0154b5dc7f765983
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221953"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233364"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Kom igång med U-SQL i Azure Data Lake Analytics
 U-SQL är ett språk som kombinerar deklarativt Frågespråk med tvingande C# för så att du kan bearbeta data i valfri skala. Via funktionen skalbar och distribuerad fråga för U-SQL, kan du effektivt analysera data över relationella datalager som Azure SQL Database. Med U-SQL, kan du bearbeta Ostrukturerade data med hjälp av schema vid läsning och lägga till anpassad logik och UDF: er. Dessutom innehåller U-SQL utökningsbarhet som ger dig detaljerad kontroll över hur du kör i skala. 
 
 ## <a name="learning-resources"></a>Utbildningsresurser
 
-* Den [U-SQL-självstudien](http://aka.ms/usqltutorial) innehåller stegvisa anvisningar för de flesta av U-SQL-språket. Det här dokumentet är rekommenderad läsning för alla utvecklare som vill lära dig U-SQL.
-* Detaljerad information om den **syntaxen för U-SQL**, finns i den [U-SQL-Språkreferens](http://go.microsoft.com/fwlink/p/?LinkId=691348).
+* Den [U-SQL-självstudien](https://aka.ms/usqltutorial) innehåller stegvisa anvisningar för de flesta av U-SQL-språket. Det här dokumentet är rekommenderad läsning för alla utvecklare som vill lära dig U-SQL.
+* Detaljerad information om den **syntaxen för U-SQL**, finns i den [U-SQL-Språkreferens](https://go.microsoft.com/fwlink/p/?LinkId=691348).
 * Att förstå den **U-SQL-designfilosofin**, finns i Visual Studio blogginlägget [introducerar U-SQL – ett språk som gör Big databehandling enkelt](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
 ## <a name="prerequisites"></a>Förutsättningar

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: a7ba92d871bb440b7b8c8a12c1e90f9aa10df3be
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 38df214cad01062100c9ae5c045f9d2589b0041a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105349"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234841"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Diagnostisk funktionalitet för tillståndskänsliga Reliable Services
 Azure Service Fabric tillståndskänslig Reliable Services StatefulServiceBase klassen genererar [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) händelser som kan användas för att felsöka tjänsten, som ger insikt i hur körningen operativsystem och underlätta felsökningen.
@@ -27,7 +27,7 @@ Azure Service Fabric tillståndskänslig Reliable Services StatefulServiceBase k
 ## <a name="eventsource-events"></a>EventSource händelser
 EventSource namnet för klassen tillståndskänslig Reliable Services StatefulServiceBase är ”Microsoft-Service fabric-tjänster”. Händelser från den här händelsekällan visas i den [diagnostikhändelser](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) fönstret när tjänsten håller på att [felsökas i Visual Studio](service-fabric-debugging-your-application.md).
 
-Exempel på Verktyg och tekniker som hjälper till att samla in och/eller visa EventSource händelser är [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), och [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+Exempel på Verktyg och tekniker som hjälper till att samla in och/eller visa EventSource händelser är [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), och [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## <a name="events"></a>Händelser
 | Händelsenamn | Händelse-ID | Nivå | Händelsebeskrivning |

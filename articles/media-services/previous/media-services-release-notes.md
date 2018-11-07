@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 860d28aa37f37ed24346e2fba635b9436684114c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
-ms.translationtype: HT
+ms.openlocfilehash: 41376448095a5dd760fae594fdfe2d2b57e4440a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353790"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231659"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services viktig information
 Dessa informationstexter för Azure Media Services sammanfatta ändringar från tidigare versioner och kända problem.
@@ -35,7 +35,7 @@ Dessa informationstexter för Azure Media Services sammanfatta ändringar från 
 | --- | --- |
 | Flera vanliga HTTP-rubriker angetts inte i REST-API. |Om du utvecklar program för Media Services med hjälp av REST-API kan du upptäcka att vissa vanliga HTTP-huvudfält (inklusive CLIENT-REQUEST-ID, ID för FÖRFRÅGAN och RETUR-CLIENT-REQUEST-ID) stöds inte. Rubrikerna som läggs till i en kommande uppdatering. |
 | Procent-kodning är inte tillåten. |Media Services använder värdet för egenskapen IAssetFile.Name när du skapar URL: er för strömning innehållet (till exempel `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). Därför är inte procent-kodning tillåten. Värdet för egenskapen Name får inte innehålla något av följande [procent-encoding-reserverade tecken](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? [] # % ”. Dessutom det kan bara finnas en ””. för filnamnstillägget. |
-| Metoden ListBlobs som ingår i Azure Storage SDK version 3.x misslyckas. |Media Services genererar SAS URL: er utifrån den [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) version. Om du vill använda Storage SDK och lista blobar i en blobbehållare kan använda den [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) metod som är en del av Storage SDK-version 2.x. |
+| Metoden ListBlobs som ingår i Azure Storage SDK version 3.x misslyckas. |Media Services genererar SAS URL: er utifrån den [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) version. Om du vill använda Storage SDK och lista blobar i en blobbehållare kan använda den [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) metod som är en del av Storage SDK-version 2.x. |
 | Medietjänster begränsning mekanism begränsar resursanvändningen för program som gör långa förfrågningar till tjänsten. Tjänsten kan returnera ”tjänst ej tillgänglig” 503 HTTP-statuskoden. |Mer information finns i beskrivningen av 503 HTTP-statuskod i [felkoder för Media Services](media-services-encoding-error-codes.md). |
 | När du frågar entiteter returneras en gräns på 1 000 entiteter i taget eftersom offentlig REST version 2 begränsar frågeresultaten till 1 000 resultat. |Använd hoppa över och ta (.NET) / viktigaste (REST) enligt beskrivningen i [exemplet .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) och [det här REST API-exemplet](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Vissa klienter kan stöta på ett problem för upprepningar tagg i manifestet Smooth Streaming. |Mer information finns i [i det här avsnittet](media-services-deliver-content-overview.md#known-issues). |
@@ -44,6 +44,16 @@ Dessa informationstexter för Azure Media Services sammanfatta ändringar från 
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API-versionshistorik
 Information om versionshistorik för Media Services REST API finns i den [Azure Media Services REST API-referens].
+
+## <a name="october-2018"></a>Oktober 2018
+
+### <a name="cmaf-support"></a>CMAF support
+
+Stöd för CMAF och 'cbcs' kryptering för (iOS 11 +) för Apple HLS och MPEG-DASH spelare som har stöd för CMAF.
+
+### <a name="web-vtt-thumbnail-sprites"></a>Web VTT miniatyr spriter
+
+Du kan nu använda Media Services för att generera Web VTT miniatyr spriter med hjälp av våra v2 API: er. Mer information finns i [generera miniatyrbilder sprite](generate-thumbnail-sprite.md).
 
 ## <a name="july-2018"></a>Juli 2018
 
@@ -217,7 +227,7 @@ Mer information finns i [den här bloggen](https://azure.microsoft.com/blog/azur
 ## <a id="july_changes_15"></a>Versionen för juli 2015
 * Den allmänna tillgängligheten för Media Encoder Standard lanserades. Mer information finns i [det här blogginlägget](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
   
-    Media Encoder Standard använder förinställningar, enligt beskrivningen i [i det här avsnittet](http://go.microsoft.com/fwlink/?LinkId=618336). När du använder en förinställning för 4K kodar, få Premium reserverade enhetstypen. Mer information finns i [skala kodning](media-services-scale-media-processing-overview.md).
+    Media Encoder Standard använder förinställningar, enligt beskrivningen i [i det här avsnittet](https://go.microsoft.com/fwlink/?LinkId=618336). När du använder en förinställning för 4K kodar, få Premium reserverade enhetstypen. Mer information finns i [skala kodning](media-services-scale-media-processing-overview.md).
 * Live i realtid undertexter användes med Media Services och Media Player. Mer information finns i [det här blogginlägget](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
 
 ### <a name="media-services-net-sdk-updates"></a>Media Services .NET SDK-uppdateringar
@@ -293,7 +303,7 @@ Den här versionen markerad Microsoft.WindowsAzure.MediaServices.Client.ContentK
 * CORS-stöd har lagts till för nyckelleveranstjänst.
 * Prestandaförbättringar har gjorts för frågor alternativ för auktoriseringsprinciper.
 * I datacenter Kina den [leverans webbadress](https://docs.microsoft.com/rest/api/media/operations/contentkey#get_delivery_service_url) är nu per kund (precis som i andra datacenter).
-* Varaktighet för HLS automatisk mål har lagts till. När du gör direktsänd strömning är HLS alltid paketerat dynamiskt. Som standard beräknar Media Services automatiskt HLS segment paketering förhållandet (FragmentsPerSegment) baserat på det bildrutan intervallet (KeyFrameInterval). Den här metoden kallas också för en grupp med bilder (GOP) som tas emot från live-kodare. Mer information finns i [arbete med Media Services live direktuppspelning](http://msdn.microsoft.com/library/azure/dn783466.aspx).
+* Varaktighet för HLS automatisk mål har lagts till. När du gör direktsänd strömning är HLS alltid paketerat dynamiskt. Som standard beräknar Media Services automatiskt HLS segment paketering förhållandet (FragmentsPerSegment) baserat på det bildrutan intervallet (KeyFrameInterval). Den här metoden kallas också för en grupp med bilder (GOP) som tas emot från live-kodare. Mer information finns i [arbete med Media Services live direktuppspelning](https://msdn.microsoft.com/library/azure/dn783466.aspx).
 
 ### <a name="media-services-net-sdk-updates"></a>Media Services .NET SDK-uppdateringar
 Den [Media Services .NET SDK](http://www.nuget.org/packages/windowsazure.mediaservices/) är nu version 3.1.0.0. Följande uppdateringar har gjorts:
@@ -304,7 +314,7 @@ Den [Media Services .NET SDK](http://www.nuget.org/packages/windowsazure.mediase
 * Relativa förskjutningar för BeginDate och ExpirationDate i PlayReady-licensmall har lagts till.
 
 ## <a id="november_changes_14"></a>November 2014-versionen
-* Du kan nu använda Media Services för att mata in live Smooth Streaming (fMP4)-innehåll via en SSL-anslutning. För att mata in via SSL, se till att uppdatera URL: en inmatning till HTTPS. För närvarande stöder Media Services inte SSL med anpassade domäner. Läs mer om direktsänd strömning [arbeta med Azure Media Services Live Streaming](http://msdn.microsoft.com/library/azure/dn783466.aspx).
+* Du kan nu använda Media Services för att mata in live Smooth Streaming (fMP4)-innehåll via en SSL-anslutning. För att mata in via SSL, se till att uppdatera URL: en inmatning till HTTPS. För närvarande stöder Media Services inte SSL med anpassade domäner. Läs mer om direktsänd strömning [arbeta med Azure Media Services Live Streaming](https://msdn.microsoft.com/library/azure/dn783466.aspx).
 * För närvarande kan du mata in en direktsänd dataström RTMP över en SSL-anslutning.
 * Du kan strömma via SSL endast om slutpunkten för direktuppspelning som du kan leverera ditt innehåll har skapats efter den 10 September 2014. Om din strömmande URL: er baseras på de slutpunkter för direktuppspelning som skapats efter den 10 September 2014 innehåller URL: en ”streaming.mediaservices.windows.net” (det nya formatet). Strömmande URL: er som innehåller ”origin.mediaservices.windows.net” (det äldre formatet) stöder inte SSL. Om din URL är i det äldre formatet och du vill spela över SSL, [skapa en ny slutpunkt för direktuppspelning](media-services-portal-manage-streaming-endpoints.md). Använd webbadresserna baserat på den nya strömmande slutpunkten för att strömma ditt innehåll via SSL.
 
@@ -336,7 +346,7 @@ Media Services SDK för .NET är nu version 3.0.0.7
 * En ändring har gjorts i standardbeteendet när du använder Azure-portalen för att koda och publicera MP4-filer.
 
 ### <a id="sept_14_GA_changes"></a>Nya funktioner/scenarier som ingår i den allmänna tillgängliga versionen
-* Mediebearbetare Media Indexer introducerades. Mer information finns i [indexera mediefiler med Media Indexer](http://msdn.microsoft.com/library/azure/dn783455.aspx).
+* Mediebearbetare Media Indexer introducerades. Mer information finns i [indexera mediefiler med Media Indexer](https://msdn.microsoft.com/library/azure/dn783455.aspx).
 * Du kan använda den [StreamingEndpoint] entitet för att lägga till anpassade domännamn (värd).
   
     Om du vill använda ett anpassat domännamn som namnet på Media Services strömmande slutpunkt, att lägga till anpassade värdnamn till slutpunkten för direktuppspelning. Använd Media Services REST API: er eller .NET SDK för att lägga till anpassade värdnamn.
@@ -347,16 +357,16 @@ Media Services SDK för .NET är nu version 3.0.0.7
   * Ägare till domännamnet måste verifieras av Media Services. Verifiera domänen genom att skapa en CNAME-post som mappar den MediaServicesAccountId överordnade domänen för att verifiera DNS-mediaservices-dns-zon.
   * Du måste skapa en annan CNAME-post som mappar det anpassa värdnamnet (till exempel sports.contoso.com) till ditt Media Services StreamingEndpoint värdnamn (till exempel amstest.streaming.mediaservices.windows.net).
 
-    Mer information finns i egenskapen CustomHostNames i den [StreamingEndpoint](http://msdn.microsoft.com/library/azure/dn783468.aspx) artikeln.
+    Mer information finns i egenskapen CustomHostNames i den [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx) artikeln.
 
 ### <a id="sept_14_preview_changes"></a>Nya funktioner/scenarier som ingår i den offentliga förhandsversionen
-* Live direktuppspelning förhandsversion. Mer information finns i [arbete med Media Services live direktuppspelning](http://msdn.microsoft.com/library/azure/dn783466.aspx).
-* Nyckelleveranstjänst. Mer information finns i [dynamisk användning AES-128-kryptering och nyckelleveranstjänst](http://msdn.microsoft.com/library/azure/dn783457.aspx).
-* Dynamisk kryptering med AES. Mer information finns i [dynamisk användning AES-128-kryptering och nyckelleveranstjänst](http://msdn.microsoft.com/library/azure/dn783457.aspx).
+* Live direktuppspelning förhandsversion. Mer information finns i [arbete med Media Services live direktuppspelning](https://msdn.microsoft.com/library/azure/dn783466.aspx).
+* Nyckelleveranstjänst. Mer information finns i [dynamisk användning AES-128-kryptering och nyckelleveranstjänst](https://msdn.microsoft.com/library/azure/dn783457.aspx).
+* Dynamisk kryptering med AES. Mer information finns i [dynamisk användning AES-128-kryptering och nyckelleveranstjänst](https://msdn.microsoft.com/library/azure/dn783457.aspx).
 * Playreadys licensleveranstjänst. 
 * Dynamisk kryptering med PlayReady. 
 * Media Services PlayReady-licensmall. Mer information finns i den [Översikt för Media Services PlayReady-licensmall].
-* Stream storage-krypterad tillgångar. Mer information finns i [Stream storage-krypterat innehåll](http://msdn.microsoft.com/library/azure/dn783451.aspx).
+* Stream storage-krypterad tillgångar. Mer information finns i [Stream storage-krypterat innehåll](https://msdn.microsoft.com/library/azure/dn783451.aspx).
 
 ## <a id="august_changes_14"></a>Augusti 2014-versionen
 När du koda en tillgång, skapas en utdatatillgången när kodningsjobbet är klar. Media Services Encoder gav metadata om utdataresultat fram till den här versionen. Från och med den här versionen, genererar kodaren även metadata om inkommande tillgångar. Mer information finns i [inkommande metadata] och [Utgående metadata].
@@ -371,7 +381,7 @@ Följande felkorrigeringar har gjorts för Azure Media Services Packager och Enc
 ### <a id="may_14_changes"></a>Allmän Media Services-uppdateringar
 Du kan nu använda [dynamisk paketering] att strömma HLS version 3. Stream HLS version 3, Lägg till följande format i ursprung positionerare sökvägen: * .ism/manifest(format=m3u8-aapl-v3). Mer information finns i [detta forum](https://social.msdn.microsoft.com/Forums/en-US/13b8a776-9519-4145-b9ed-d2b632861fde/dynamic-packaging-to-hls-v3).
 
-Dynamisk paketering nu också har stöd för leverans HLS (version 3 och version 4) som krypterats med PlayReady utifrån Smooth Streaming statiskt krypteras med PlayReady. Information om hur du krypterar Smooth Streaming med PlayReady finns [skydda Smooth Streaming med PlayReady](http://msdn.microsoft.com/library/azure/dn189154.aspx).
+Dynamisk paketering nu också har stöd för leverans HLS (version 3 och version 4) som krypterats med PlayReady utifrån Smooth Streaming statiskt krypteras med PlayReady. Information om hur du krypterar Smooth Streaming med PlayReady finns [skydda Smooth Streaming med PlayReady](https://msdn.microsoft.com/library/azure/dn189154.aspx).
 
 ### <a name="may_14_donnet_changes"></a>Media Services .NET SDK-uppdateringar
 Media Services .NET SDK är nu version 3.0.0.5. Följande uppdateringar har gjorts:
@@ -387,9 +397,9 @@ Mer information finns i [logik för omprövning i Media Services SDK för .NET].
 ## <a id="april_changes_14"></a>April 2014 Encoder-versionen
 ### <a name="april_14_enocer_changes"></a>Media Services Encoder-uppdateringar
 * Stöd har lagts till för att mata in AVI-filer som skapats med hjälp av icke-linjära gräset Valley EDIUS-redigeraren. I den här processen komprimeras lätt videon med hjälp av gräset Valley HQ/HQX-codec. Mer information finns i [gräset Valley tillkännager EDIUS 7 direktuppspelning via molnet].
-*  Stöd har lagts till för att ange Namngivningskonventionen för filer som skapas av Media Services Encoder. Mer information finns i [kontroll Media Services Encoder utdata filnamn](http://msdn.microsoft.com/library/azure/dn303341.aspx).
-*  Stöd har lagts till för video och/eller ljud överlägg. Mer information finns i [skapa överlägg](http://msdn.microsoft.com/library/azure/dn640496.aspx).
-*  Stöd har lagts till flera video segment sätta ihop. Mer information finns i [sy ihop video segment](http://msdn.microsoft.com/library/azure/dn640504.aspx).
+*  Stöd har lagts till för att ange Namngivningskonventionen för filer som skapas av Media Services Encoder. Mer information finns i [kontroll Media Services Encoder utdata filnamn](https://msdn.microsoft.com/library/azure/dn303341.aspx).
+*  Stöd har lagts till för video och/eller ljud överlägg. Mer information finns i [skapa överlägg](https://msdn.microsoft.com/library/azure/dn640496.aspx).
+*  Stöd har lagts till flera video segment sätta ihop. Mer information finns i [sy ihop video segment](https://msdn.microsoft.com/library/azure/dn640504.aspx).
 * En bugg har åtgärdats som har relaterade till transkodning MP4s där ljudet kodats med MPEG-1 ljud Layer 3 (även kallat MP3).
 
 ## <a id="jan_feb_changes_14"></a>Versionerna för januari/februari 2014
@@ -415,7 +425,7 @@ Följande ändringar har gjorts i version 3.0.0.3:
 
 Den senaste versionen av Media Services SDK är nu 3.0.0.0. Du kan ladda ned det senaste paketet från NuGet eller hämta bits från [GitHub].
 
-Från och med Media Services SDK version 3.0.0.0, som du kan återanvända den [Azure AD Access Control Service](http://msdn.microsoft.com/library/hh147631.aspx) token. Mer information finns i avsnittet ”återanvändning Access Control Service token” i [Anslut till Media Services med Media Services SDK för .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
+Från och med Media Services SDK version 3.0.0.0, som du kan återanvända den [Azure AD Access Control Service](https://msdn.microsoft.com/library/hh147631.aspx) token. Mer information finns i avsnittet ”återanvändning Access Control Service token” i [Anslut till Media Services med Media Services SDK för .NET](https://msdn.microsoft.com/library/azure/jj129571.aspx).
 
 ### <a name="dec_13_donnet_ext_changes"></a>Media Services .NET SDK-tillägg 2.0.0.0
  Media Services .NET SDK-tillägg är en uppsättning tilläggsmetoder och hjälpfunktioner som förenklar koden och gör det enklare att utveckla med Media Services. Du kan få de senaste nyheterna från [Media Services .NET SDK-tillägg](https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev).
@@ -466,8 +476,8 @@ Följande ändringar ingår i juni 2013 Media Services SDK-versioner. Senaste Me
     * StorageAccount-egenskapen
     * StorageAccountName egenskap
   
-    Mer information finns i [hantera Media Services-tillgångar över flera lagringskonton](http://msdn.microsoft.com/library/azure/dn271889.aspx).
-* Meddelande-relaterade API: er. Från och med version 2.2.0.0 kan lyssna du på Azure Queue storage-meddelanden. Mer information finns i [hantera medietjänster jobb meddelanden](http://msdn.microsoft.com/library/azure/dn261241.aspx).
+    Mer information finns i [hantera Media Services-tillgångar över flera lagringskonton](https://msdn.microsoft.com/library/azure/dn271889.aspx).
+* Meddelande-relaterade API: er. Från och med version 2.2.0.0 kan lyssna du på Azure Queue storage-meddelanden. Mer information finns i [hantera medietjänster jobb meddelanden](https://msdn.microsoft.com/library/azure/dn261241.aspx).
   
     * Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions egenskap
     * Microsoft.WindowsAzure.MediaServices.Client.INotificationEndPoint typ

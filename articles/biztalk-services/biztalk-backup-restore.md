@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 90cf2d0ddbba47a856bf1299a101c5185873b5d8
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 6dc3fb97c912aa9ac66e3d40a8a0318a6938905c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214420"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230299"
 ---
 # <a name="biztalk-services-backup-and-restore"></a>BizTalk Services: Säkerhetskopiering och återställning
 
@@ -132,18 +132,18 @@ Om spårning av databasen tas bort och databasen måste återställas, måste de
 </table>
 
 ## <a name="next"></a>Nästa
-För att skapa Azure BizTalk Services, går du till [BizTalk Services: etablering](http://go.microsoft.com/fwlink/p/?LinkID=302280). Om du vill börja skapa program går du till [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+För att skapa Azure BizTalk Services, går du till [BizTalk Services: etablering](https://go.microsoft.com/fwlink/p/?LinkID=302280). Om du vill börja skapa program går du till [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## <a name="see-also"></a>Se även
-* [Säkerhetskopiera BizTalk-tjänst](http://go.microsoft.com/fwlink/p/?LinkID=325584)
-* [Återställa BizTalk-tjänst från en säkerhetskopia](http://go.microsoft.com/fwlink/p/?LinkID=325582)
-* [BizTalk Services: Developer, Basic, Standard och Premium diagram över utgåvor](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk Services: etablering](http://go.microsoft.com/fwlink/p/?LinkID=302280)
-* [BizTalk Services: Etablering av statusdiagram](http://go.microsoft.com/fwlink/p/?LinkID=329870)
-* [BizTalk Services: Flikarna Instrumentpanel, Övervakare och Skalning](http://go.microsoft.com/fwlink/p/?LinkID=302281)
-* [BizTalk Services: Begränsning](http://go.microsoft.com/fwlink/p/?LinkID=302282)
-* [BizTalk Services: Utfärdarens namn och nyckel](http://go.microsoft.com/fwlink/p/?LinkID=303941)
-* [Hur gör jag för att börja använda Azure BizTalk Services SDK?](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [Säkerhetskopiera BizTalk-tjänst](https://go.microsoft.com/fwlink/p/?LinkID=325584)
+* [Återställa BizTalk-tjänst från en säkerhetskopia](https://go.microsoft.com/fwlink/p/?LinkID=325582)
+* [BizTalk Services: Developer, Basic, Standard och Premium diagram över utgåvor](https://go.microsoft.com/fwlink/p/?LinkID=302279)
+* [BizTalk Services: etablering](https://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk Services: Etablering av statusdiagram](https://go.microsoft.com/fwlink/p/?LinkID=329870)
+* [BizTalk Services: Flikarna Instrumentpanel, Övervakare och Skalning](https://go.microsoft.com/fwlink/p/?LinkID=302281)
+* [BizTalk Services: Begränsning](https://go.microsoft.com/fwlink/p/?LinkID=302282)
+* [BizTalk Services: Utfärdarens namn och nyckel](https://go.microsoft.com/fwlink/p/?LinkID=303941)
+* [Hur gör jag för att börja använda Azure BizTalk Services SDK?](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [BackupStatus]: ./media/biztalk-backup-restore/status-last-backup.png
 [Restore]: ./media/biztalk-backup-restore/restore-ui.png

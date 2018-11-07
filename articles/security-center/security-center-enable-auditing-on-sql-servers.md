@@ -3,7 +3,7 @@ title: Aktivera granskning och hotidentifiering på SQL-servrar i Azure Security
 description: Det här dokumentet visar hur du implementerar Azure Security Center-rekommendationen **aktivera granskning på SQL-servrar**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 042fca4d-7dab-4172-8614-e8c21ccb4960
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
-ms.author: terrylan
-ms.openlocfilehash: fade8de73a35b75f6096a25af13335d679caffac
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: cc0c820fb2172466db917725a4f14e7ea5253fb5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300910"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259912"
 ---
 # <a name="enable-auditing-and-threat-detection-on-sql-servers-in-azure-security-center"></a>Aktivera granskning och hotidentifiering på SQL-servrar i Azure Security Center
 Azure Security Center rekommenderar att du aktiverar granskning och hotidentifiering för alla databaser på din Azure SQL-servrar om granskning inte redan är aktiverad. Granskning och identifiering kan hjälpa dig att upprätthålla regelefterlevnad, Förstå Databasaktivitet och få insyn i avvikelser och fel som kan tyda på affärsproblem eller potentiella säkerhetsöverträdelser.
@@ -58,7 +58,7 @@ I följande avsnitt kan du lära dig mer om Security Center:
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Här får du lära dig hur du övervakar dina partnerlösningars hälsostatus.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
-* [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – senaste nytt i Azure-säkerhet och information.
+* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) – senaste nytt i Azure-säkerhet och information.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-auditing-on-sql-server/enable-auditing-on-sql-servers.png

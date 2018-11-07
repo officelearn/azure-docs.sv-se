@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 41e7f5b4c36ad0bfed0ef5a9a31565474cf4d823
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: cf183b0a78ff3f7e442ea8052f37fc2df58aac54
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42055564"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262326"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Slutpunkt till slutpunkt felsökning med hjälp av Azure Storage-mätvärden och loggning, AzCopy och Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -37,7 +37,7 @@ Du kan använda en kombination av verktyg för att avgöra när ett problem har 
   
     Se [övervaka ett lagringskonto i Azure-portalen](storage-monitor-storage-account.md) information om hur du konfigurerar övervakning i Azure-portalen.
 * **AzCopy**. Serverloggar för Azure Storage lagras som BLOB-objekt, så du kan använda AzCopy för att kopiera loggblobarna till en lokal katalog för analys med hjälp av Microsoft Message Analyzer. Se [överföra data med kommandoradsverktyget Azcopy](storage-use-azcopy.md) för mer information om AzCopy.
-* **Microsoft Message Analyzer**. Message Analyzer är ett verktyg som förbrukar loggfiler och visar loggdata i ett visuellt format som gör det enkelt att filter, search och gruppen loggdata till användbara uppsättningar som du kan använda för att analysera fel och prestandaproblem. Se [fungerar handboken för Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx) för mer information om analysverktyg.
+* **Microsoft Message Analyzer**. Message Analyzer är ett verktyg som förbrukar loggfiler och visar loggdata i ett visuellt format som gör det enkelt att filter, search och gruppen loggdata till användbara uppsättningar som du kan använda för att analysera fel och prestandaproblem. Se [fungerar handboken för Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx) för mer information om analysverktyg.
 
 ## <a name="about-the-sample-scenario"></a>Om Exempelscenario
 Den här självstudien tittar vi närmare på ett scenario där Azure Storage-mätvärden anger en låg procent Slutförandefrekvens för ett program som anropar Azure storage. Låg procent lyckade rate mått (visas som **PercentSuccess** i den [Azure-portalen](https://portal.azure.com) och tabeller för mått) spårar åtgärder som lyckas, men som returnerar en HTTP-statuskod som är större än 299. I loggfilerna från serversidan storage de här åtgärderna registreras med transaktionsstatus **ClientOtherErrors**. Mer information om låg procent lyckade mått finns i [mätningar visar låga PercentSuccess eller analytics loggposter har åtgärder med transaktionsstatus av ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
@@ -51,7 +51,7 @@ I vår Exempelscenario när vi har visat att procent lyckade rate mått är mind
 ### <a name="some-causes-of-400-range-errors"></a>Vissa orsakerna till 400-intervallet fel
 I exemplen nedan visas ett urval av 400-intervallet fel för begäranden mot Azure Blob Storage och deras möjliga orsaker. Någon av dessa fel, samt fel i intervallet 300 och 500 intervallet kan bidra till en låg procent Slutförandefrekvens.
 
-Observera att listorna nedan är långt från klar. Se [Status och felkoder](http://msdn.microsoft.com/library/azure/dd179382.aspx) på MSDN för information om Allmänt Azure Storage-fel och om fel som är specifika för varje lagringstjänst.
+Observera att listorna nedan är långt från klar. Se [Status och felkoder](https://msdn.microsoft.com/library/azure/dd179382.aspx) på MSDN för information om Allmänt Azure Storage-fel och om fel som är specifika för varje lagringstjänst.
 
 **Status 404 (hittades inte)-kodexempel**
 
@@ -79,7 +79,7 @@ I den här självstudien använder vi Message Analyzer för att arbeta med tre o
 * Den **HTTP nätverk spårningsloggen**, som samlar in data för HTTP/HTTPS-begäran och svaret data, inklusive för åtgärder mot Azure Storage. Vi ska generera nätverksspårning via Message Analyzer i de här självstudierna.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Konfigurera serversidan loggning och mått
-Först måste du konfigurera Azure Storage-loggning och mått, så att vi har data från klientprogrammet att analysera. Du kan konfigurera loggning och mått i en mängd olika sätt – den [Azure-portalen](https://portal.azure.com), med hjälp av PowerShell, eller programmässigt. Se [aktiverar Storage-mätvärden och visa Måttdata](http://msdn.microsoft.com/library/azure/dn782843.aspx) och [aktivera loggning för lagring och åtkomst till loggdata](http://msdn.microsoft.com/library/azure/dn782840.aspx) på MSDN för mer information om hur du konfigurerar loggning och mått.
+Först måste du konfigurera Azure Storage-loggning och mått, så att vi har data från klientprogrammet att analysera. Du kan konfigurera loggning och mått i en mängd olika sätt – den [Azure-portalen](https://portal.azure.com), med hjälp av PowerShell, eller programmässigt. Se [aktiverar Storage-mätvärden och visa Måttdata](https://msdn.microsoft.com/library/azure/dn782843.aspx) och [aktivera loggning för lagring och åtkomst till loggdata](https://msdn.microsoft.com/library/azure/dn782840.aspx) på MSDN för mer information om hur du konfigurerar loggning och mått.
 
 **Via Azure portal**
 
@@ -124,7 +124,7 @@ Kom igång med PowerShell för Azure, se [hur du installerar och konfigurerar du
     ```
 
 ### <a name="configure-net-client-side-logging"></a>Konfigurera loggning för klientsidan av .NET
-Aktivera .NET diagnostik i programmets konfigurationsfil (web.config eller app.config) om du vill konfigurera loggning på klientsidan för en .NET-program. Se [Klientloggning med .NET Storage Client Library](http://msdn.microsoft.com/library/azure/dn782839.aspx) och [Klientloggning med Microsoft Azure Storage SDK för Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) på MSDN för mer information.
+Aktivera .NET diagnostik i programmets konfigurationsfil (web.config eller app.config) om du vill konfigurera loggning på klientsidan för en .NET-program. Se [Klientloggning med .NET Storage Client Library](https://msdn.microsoft.com/library/azure/dn782839.aspx) och [Klientloggning med Microsoft Azure Storage SDK för Java](https://msdn.microsoft.com/library/azure/dn782844.aspx) på MSDN för mer information.
 
 Klientsidan loggen innehåller detaljerad information om hur klienten förbereder begäran och tar emot och bearbetar svaret.
 
@@ -160,7 +160,7 @@ Samla in och spara en nätverksspårning först i Message Analyzer och skapa en 
 > 
 > 
 
-Se [med hjälp av spårning av nätverksfunktioner](http://technet.microsoft.com/library/jj674819.aspx) på Technet för mer information.
+Se [med hjälp av spårning av nätverksfunktioner](https://technet.microsoft.com/library/jj674819.aspx) på Technet för mer information.
 
 ## <a name="review-metrics-data-in-the-azure-portal"></a>Granska mätvärden i Azure portal
 När ditt program har körts i en viss tidsperiod, kan du granska måttdiagram som visas i den [Azure-portalen](https://portal.azure.com) att Observera hur tjänsten fungerar.
@@ -186,15 +186,15 @@ AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest
 ```
 AzCopy är tillgänglig för hämtning på den [Azure hämtar](https://azure.microsoft.com/downloads/) sidan. Mer information om hur du använder AzCopy finns i [överföra data med kommandoradsverktyget Azcopy](storage-use-azcopy.md).
 
-Mer information om hur du hämtar loggarna för serversidan finns [ladda ned Storage Logging loggdata](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
+Mer information om hur du hämtar loggarna för serversidan finns [ladda ned Storage Logging loggdata](https://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
 
 ## <a name="use-microsoft-message-analyzer-to-analyze-log-data"></a>Använd Microsoft Message Analyzer för att analysera loggdata
-Microsoft Message Analyzer är ett verktyg för att samla in, visa och analysera protokollet messaging trafik, händelser och andra system- eller meddelanden i scenarier för felsökning och diagnostik. Analysverktyg också kan du läsa in, sammanställa och analysera data från loggen och sparade spårningsfiler. Läs mer om analysverktyg, [fungerar handboken för Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx).
+Microsoft Message Analyzer är ett verktyg för att samla in, visa och analysera protokollet messaging trafik, händelser och andra system- eller meddelanden i scenarier för felsökning och diagnostik. Analysverktyg också kan du läsa in, sammanställa och analysera data från loggen och sparade spårningsfiler. Läs mer om analysverktyg, [fungerar handboken för Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx).
 
 Message Analyzer innehåller tillgångar för Azure Storage som hjälper dig att analysera servern, klienten och nätverksloggar. I det här avsnittet diskuterar vi hur du använder dessa verktyg för att åtgärda problemet för en låg procent i storage-loggar.
 
 ### <a name="download-and-install-message-analyzer-and-the-azure-storage-assets"></a>Hämta och installera Message Analyzer och Azure Storage-tillgångar
-1. Ladda ned [Message Analyzer](http://www.microsoft.com/download/details.aspx?id=44226) från Microsoft Download Center och kör installationsprogrammet.
+1. Ladda ned [Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) från Microsoft Download Center och kör installationsprogrammet.
 2. Starta Message Analyzer.
 3. Från den **verktyg** menyn och välj **Tillgångsansvarig**. I den **Tillgångsansvarig** dialogrutan **hämtar**, sedan kan filtrera efter **Azure Storage**. Azure Storage-tillgångar visas, enligt bilden nedan.
 4. Klicka på **synkronisera alla visas objekt** att installera Azure Storage-tillgångar. De tillgängliga resurserna är:
@@ -231,7 +231,7 @@ Först bestämmer du tidsramen som du vill granska och hålla det här tidsinter
 
 Om du fortfarande har en stor del av loggdata kan sedan du ange en session och filtrerar loggdata innan du läser in den. I den **Session Filter** väljer den **biblioteket** knappen om du vill välja ett fördefinierat filter, till exempel välja **Global tid Filter I** från Azure Storage-filter på Filtrera på ett tidsintervall. Du kan sedan redigera filtervillkoren om du vill ange de inledande och avslutande tidsstämpel för intervallet som du vill se. Du kan också filtrera på en viss status-kod. Du kan till exempel välja att läsa in bara poster där statuskoden är 404.
 
-Läs mer om att importera loggdata till Microsoft Message Analyzer [hämtar meddelandedata](http://technet.microsoft.com/library/dn772437.aspx) på TechNet.
+Läs mer om att importera loggdata till Microsoft Message Analyzer [hämtar meddelandedata](https://technet.microsoft.com/library/dn772437.aspx) på TechNet.
 
 ### <a name="use-the-client-request-id-to-correlate-log-file-data"></a>Använd klientbegärans-ID för att korrelera data för loggfil
 Azure Storage-klientbiblioteket genererar automatiskt ett unikt klient-ID för begäran för varje begäran. Det här värdet skrivs till klientloggen och serverloggen nätverksspårning, så att du kan använda den för att korrelera data över alla tre loggar inom Message Analyzer. Se [ID för klientbegäran](storage-monitoring-diagnosing-troubleshooting.md#client-request-id) för ytterligare information om klienten begär ID.
@@ -337,7 +337,7 @@ Du kan med hjälp av data som visas i vylayouter i dessa två flikar, för att a
 När du känner till adressen för bloben som gav 404-fel kan undersöka du vidare. Om du söker loggposter för andra meddelanden som är associerade med åtgärder på samma blob kan kontrollera du om klienten bort entiteten.
 
 ## <a name="analyze-other-types-of-storage-errors"></a>Analysera andra typer av lagringsfel
-Nu när du är van vid att använda Message Analyzer för att analysera loggdata, du kan analysera andra typer av fel med hjälp av vyn layouter färgregler och söka /-filtrering. I tabellerna nedan visas några problem som kan uppstå och filtervillkoren som du kan använda för att hitta dem. Mer information om att konstruera filter och analysverktyg som filtrering språk finns i [filtrering meddelandedata](http://technet.microsoft.com/library/jj819365.aspx).
+Nu när du är van vid att använda Message Analyzer för att analysera loggdata, du kan analysera andra typer av fel med hjälp av vyn layouter färgregler och söka /-filtrering. I tabellerna nedan visas några problem som kan uppstå och filtervillkoren som du kan använda för att hitta dem. Mer information om att konstruera filter och analysverktyg som filtrering språk finns i [filtrering meddelandedata](https://technet.microsoft.com/library/jj819365.aspx).
 
 | Att undersöka... | Använd filteruttrycket... | Uttrycket som gäller för Log (klient, Server, nätverk, alla) |
 | --- | --- | --- |
@@ -361,7 +361,7 @@ Nu när du är van vid att använda Message Analyzer för att analysera loggdata
 Mer information om felsökning slutpunkt till slutpunkt-scenarier i Azure Storage finns i följande resurser:
 
 * [Övervaka, diagnostisera och felsöka Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)
-* [Lagringsanalys](http://msdn.microsoft.com/library/azure/hh343270.aspx)
+* [Lagringsanalys](https://msdn.microsoft.com/library/azure/hh343270.aspx)
 * [Övervaka ett lagringskonto i Azure portal](storage-monitor-storage-account.md)
 * [Överföra data med kommandoradsverktyget AzCopy](storage-use-azcopy.md)
-* [Microsoft Message Analyzer fungerar Guide](http://technet.microsoft.com/library/jj649776.aspx)
+* [Microsoft Message Analyzer fungerar Guide](https://technet.microsoft.com/library/jj649776.aspx)

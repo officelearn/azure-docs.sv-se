@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 7dbbfb2d97b7015118edca3db3ae050ad07c51ee
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 42a4ea1e4dc352e56fbd65f69c9ed71e3b0c1038
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667455"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238083"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Konfigurera Always On Availability Group i virtuella Azure-datorer manuellt
 
@@ -35,7 +35,7 @@ Diagrammet visar vad du skapar under kursen.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Självstudien förutsätter att du har grundläggande kunskaper om SQL Server Always On-Tillgänglighetsgrupper. Om du behöver mer information finns i [översikt över alltid på Tillgänglighetsgrupper (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
+Självstudien förutsätter att du har grundläggande kunskaper om SQL Server Always On-Tillgänglighetsgrupper. Om du behöver mer information finns i [översikt över alltid på Tillgänglighetsgrupper (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
 I följande tabell visas de krav som du måste utföra innan du påbörjar den här självstudiekursen:
 
@@ -119,7 +119,7 @@ Lägg till SQL Server i klustret.
 
 ### <a name="add-a-cluster-quorum-file-share"></a>Lägg till en filresurs för klustret kvorum
 
-I det här exemplet använder en filresurs i Windows-kluster för att skapa en klustrets kvorum. Den här självstudien används en nod och filresursmajoritet kvorum. Mer information finns i [Om kvorumkonfigurationer i ett redundanskluster](http://technet.microsoft.com/library/cc731739.aspx).
+I det här exemplet använder en filresurs i Windows-kluster för att skapa en klustrets kvorum. Den här självstudien används en nod och filresursmajoritet kvorum. Mer information finns i [Om kvorumkonfigurationer i ett redundanskluster](https://technet.microsoft.com/library/cc731739.aspx).
 
 1. Anslut till resursen vittne medlem filservern med en fjärrskrivbordssession.
 
@@ -168,7 +168,7 @@ Nu ska vi Konfigurera klustrets kvorum.
 1. På **Välj Kvorumvittne**, klickar du på **konfigurera ett filresursvittne**.
 
    >[!TIP]
-   >Windows Server 2016 har stöd för ett molnvittne. Om du väljer den här typen av vittne, behöver du inte en fil dela vittne. Mer information finns i [distribuera ett molnvittne för ett redundanskluster](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). Den här självstudien används ett filresursvittne som stöds av tidigare operativsystem.
+   >Windows Server 2016 har stöd för ett molnvittne. Om du väljer den här typen av vittne, behöver du inte en fil dela vittne. Mer information finns i [distribuera ett molnvittne för ett redundanskluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). Den här självstudien används ett filresursvittne som stöds av tidigare operativsystem.
 
 1. På **konfigurera filresursvittne**, ange sökvägen för den resurs som du skapade. Klicka på **Nästa**.
 
@@ -515,7 +515,7 @@ Så här testar du anslutningen:
 SQLCMD-anslutning ansluter automatiskt till instansen av SQL Server är värd för den primära repliken.
 
 > [!TIP]
-> Se till att den port som du anger är öppen i brandväggen för både SQL-servrar. Båda servrarna kräver en regel för inkommande trafik för TCP-porten som du använder. Mer information finns i [Lägg till eller redigera brandväggsregel](http://technet.microsoft.com/library/cc753558.aspx).
+> Se till att den port som du anger är öppen i brandväggen för både SQL-servrar. Båda servrarna kräver en regel för inkommande trafik för TCP-porten som du använder. Mer information finns i [Lägg till eller redigera brandväggsregel](https://technet.microsoft.com/library/cc753558.aspx).
 
 ## <a name="next-steps"></a>Nästa steg
 

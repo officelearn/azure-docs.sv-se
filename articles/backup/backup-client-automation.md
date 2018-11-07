@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/24/2018
 ms.author: saurse
-ms.openlocfilehash: f69975fc30dfdfbcdd801bcdb552e8b4be948607
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 154d4fbb265a6abb57bc25b4e364983ffe7e399b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38584348"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237765"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Distribuera och hantera säkerhetskopiering till Azure för Windows Server/Windows-klient med hjälp av PowerShell
 Den här artikeln visar hur du använder PowerShell för att konfigurera Azure Backup i Windows Server eller en Windows-klient och hantera säkerhetskopiering och återställning.
@@ -81,7 +81,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="installing-the-azure-backup-agent"></a>Installera Azure Backup-agenten
-Innan du installerar Azure Backup-agenten som du behöver ha installationsprogrammet hämtade och finns på Windows Server. Du kan hämta den senaste versionen av installationsprogrammet från den [Microsoft Download Center](http://aka.ms/azurebackup_agent) eller från Recovery Services-valvet instrumentpanelssidan. Spara installationsprogrammet i en lättillgänglig plats som * C:\Downloads\*.
+Innan du installerar Azure Backup-agenten som du behöver ha installationsprogrammet hämtade och finns på Windows Server. Du kan hämta den senaste versionen av installationsprogrammet från den [Microsoft Download Center](https://aka.ms/azurebackup_agent) eller från Recovery Services-valvet instrumentpanelssidan. Spara installationsprogrammet i en lättillgänglig plats som * C:\Downloads\*.
 
 Du kan också använda PowerShell för att hämta installationshämtaren:
  

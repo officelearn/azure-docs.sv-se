@@ -3,7 +3,7 @@ title: Aktivera Nätverkssäkerhetsgrupper i Azure Security Center | Microsoft D
 description: Det här dokumentet visar hur du implementerar Azure Security Center-rekommendationen **aktivera Nätverkssäkerhetsgrupper**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: f53ed853-ffaf-4530-a019-1906ba6f341b
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
-ms.author: terrylan
-ms.openlocfilehash: 6430be5cce24091f62a7c17d881af98f9c94da95
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: f70faff478da9840a6c40b2f1360aec2cf3aecda
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299550"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235657"
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>Aktivera Nätverkssäkerhetsgrupper i Azure Security Center
 Azure Security Center rekommenderar att du aktiverar en nätverkssäkerhetsgrupp (NSG) om något inte redan är aktiverad. Nätverkssäkerhetsgrupper innehåller en lista över regler för åtkomstkontrollistan (ACL) som tillåter eller nekar nätverkstrafik till dina VM-instanser i ett virtuellt nätverk. NSG:er kan antingen associeras med undernät eller individuella VM-instanser inom det undernätet. När en NSG är associerad med ett undernät, tillämpas ACL-reglerna på alla VM-instanser i det undernätet. Dessutom kan trafik till en enskild VM begränsas ytterligare genom att koppla en NSG direkt till den virtuella datorn. Läs mer i [vad är en Nätverkssäkerhetsgrupp (NSG)?](../virtual-network/security-overview.md)
@@ -59,7 +59,7 @@ I följande avsnitt kan du lära dig mer om Security Center:
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Här får du lära dig hur du övervakar dina partnerlösningars hälsostatus.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
-* [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – senaste nytt i Azure-säkerhet och information.
+* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) – senaste nytt i Azure-säkerhet och information.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-nsg/enable-nsg.png

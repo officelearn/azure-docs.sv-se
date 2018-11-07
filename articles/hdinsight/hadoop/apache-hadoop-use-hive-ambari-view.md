@@ -2,19 +2,19 @@
 title: Använda Ambari-vyer för att arbeta med Hive på HDInsight (Hadoop) – Azure
 description: Lär dig använda Hive-vyn från din webbläsare för att skicka Hive-frågor. Hive-vyn är en del av Ambari-Webbgränssnittet som medföljer ditt Linux-baserade HDInsight-kluster.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
-ms.openlocfilehash: 43b82070ced57c0654d646fbea5a12aeab7c2a31
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: c481889eda53ff46a8899676da2529fe4165dfd5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048529"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233165"
 ---
 # <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>Använda Ambari Hive-vyn med Hadoop i HDInsight
 
@@ -166,7 +166,7 @@ Du kan sedan använda en användardefinierad funktion i din fråga. Till exempel
 Mer information om hur du använder UDF med Hive i HDInsight finns i följande artiklar:
 
 * [Med hjälp av Python med Hive och Pig i HDInsight](python-udf-hdinsight.md)
-* [Lägga till en anpassad UDF med Hive i HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [Lägga till en anpassad UDF med Hive i HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
 ## <a name="hive-settings"></a>Hive-inställningar
 

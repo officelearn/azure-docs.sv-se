@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
-ms.openlocfilehash: 4a6327fcfe6f6e6f3b8b5c6ecbd14b832b4134c5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f5b8d3aa69d6a141394395f012e5cc57873cafaf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421220"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235946"
 ---
 # <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>Kom igång med att köra Excel och SOA-arbetsbelastningar på ett HPC Pack-kluster i Azure
 Den här artikeln visar hur du distribuerar ett Microsoft HPC Pack 2012 R2-kluster på Azure virtual machines med hjälp av en Azure-snabbstartsmall eller du kan också en Azure PowerShell-distributionsskriptet. Klustret använder Azure Marketplace-VM-avbildningar som utformats för att köra Microsoft Excel eller tjänstorienterad arkitektur (SOA) arbetsbelastningar med HPC Pack. Du kan använda klustret för att köra Excel HPC- och SOA-tjänster från en lokal klientdator. Excel-HPC-tjänster är Excel arbetsboksavlastning och användardefinierade funktioner i Excel eller UDF: er.
@@ -225,7 +225,7 @@ Följ dessa steg för att avlasta en Excel-arbetsbok så att den körs på HPC P
         </startup>
     </configuration>
     ```
-1. Konfigurera klienten för att skicka jobb till HPC Pack-kluster. Ett alternativ är att hämta fullständiga [HPC Pack 2012 R2 uppdatering 3 installation](http://www.microsoft.com/download/details.aspx?id=49922) och installera HPC Pack-klienten. Du kan också hämta och installera den [HPC Pack 2012 R2 uppdatering 3 klientverktyg](https://www.microsoft.com/download/details.aspx?id=49923) och den lämpliga Visual C++ 2010 redistributable för datorn ([x64](http://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555) ).
+1. Konfigurera klienten för att skicka jobb till HPC Pack-kluster. Ett alternativ är att hämta fullständiga [HPC Pack 2012 R2 uppdatering 3 installation](https://www.microsoft.com/download/details.aspx?id=49922) och installera HPC Pack-klienten. Du kan också hämta och installera den [HPC Pack 2012 R2 uppdatering 3 klientverktyg](https://www.microsoft.com/download/details.aspx?id=49923) och den lämpliga Visual C++ 2010 redistributable för datorn ([x64](https://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555) ).
 1. I det här exemplet använder vi en Excel-exempelarbetsboken med namnet ConvertiblePricing_Complete.xlsb. Du kan hämta det [här](https://www.microsoft.com/en-us/download/details.aspx?id=2939).
 1. Kopiera Excel-arbetsboken till en arbetsmapp, till exempel D:\Excel\Run.
 1. Öppna Excel-arbetsboken. På den **utveckla** menyfliksområdet, klickar du på **COM-tillägg** och bekräfta att HPC Pack Excel COM-tillägg har lästs in.
@@ -262,7 +262,7 @@ Följ föregående steg 1 – 3 för att konfigurera datorn för att köra Excel
 > 
 > 
 
-När klustret har distribuerats, fortsätter du med följande steg för att köra ett exempel som är inbyggda Excel-UDF. Anpassade Excel UDF: er, finns i dessa [resurser](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) och skapa XLL som du kan distribuera dem på IaaS-kluster.
+När klustret har distribuerats, fortsätter du med följande steg för att köra ett exempel som är inbyggda Excel-UDF. Anpassade Excel UDF: er, finns i dessa [resurser](https://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) och skapa XLL som du kan distribuera dem på IaaS-kluster.
 
 1. Öppna en ny Excel-arbetsbok. På den **utveckla** menyfliksområdet, klickar du på **tillägg**. Klicka i dialogrutan **Bläddra**, navigera till mappen %CCP_HOME%Bin\XLL32 och välj exempel ClusterUDF32.xll. Om ClusterUDF32 inte finns på klientdatorn, kopierar du den från mappen %CCP_HOME%Bin\XLL32 på huvudnoden.
    
@@ -280,7 +280,7 @@ När klustret har distribuerats, fortsätter du med följande steg för att kör
 Om du vill köra Allmänt SOA-program i HPC Pack IaaS-klustret, först använda någon av metoderna i steg 1 för att distribuera klustret. Ange en allmän beräkningsavbildning noden i det här fallet eftersom du inte behöver Excel på beräkningsnoderna. Följ dessa steg.
 
 1. När du har hämtat klustercertifikatet, importerar du den på klientdatorn under Cert: \CurrentUser\Root.
-1. Installera den [HPC Pack 2012 R2 uppdatering 3 SDK](http://www.microsoft.com/download/details.aspx?id=49921) och [HPC Pack 2012 R2 uppdatering 3 klientverktyg](https://www.microsoft.com/download/details.aspx?id=49923). Dessa verktyg kan du utveckla och kör SOA-klientprogram.
+1. Installera den [HPC Pack 2012 R2 uppdatering 3 SDK](https://www.microsoft.com/download/details.aspx?id=49921) och [HPC Pack 2012 R2 uppdatering 3 klientverktyg](https://www.microsoft.com/download/details.aspx?id=49923). Dessa verktyg kan du utveckla och kör SOA-klientprogram.
 1. Ladda ned HelloWorldR2 [exempelkoden](https://www.microsoft.com/download/details.aspx?id=41633). Öppna HelloWorldR2.sln i Visual Studio 2010 eller 2012. (Det här exemplet är inte kompatibelt med nyare versioner av Visual Studio.)
 1. Skapa EchoService projektet först. Sedan distribuera tjänsten till IaaS-klustret på samma sätt som du distribuerar till ett lokalt kluster. Detaljerade anvisningar finns i Viktigt.doc i HelloWordR2. Ändra och skapa HellWorldR2 och andra projekt som beskrivs i följande avsnitt för att generera SOA-klientprogram som körs på ett Azure IaaS-kluster.
 
@@ -343,7 +343,7 @@ Om du vill använda NetTcp bindning liknar konfigurationen ansluta till ett loka
 SOA-klientprogram kräver inga ändringar förutom ändra head namnet till det fullständiga namnet för IaaS-kluster.
 
 ## <a name="next-steps"></a>Nästa steg
-* Se [resurserna](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) för mer information om hur du kör Excel arbetsbelastningar med HPC Pack.
+* Se [resurserna](https://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) för mer information om hur du kör Excel arbetsbelastningar med HPC Pack.
 * Se [hantera SOA-tjänster i Microsoft HPC Pack](https://technet.microsoft.com/library/ff919412.aspx) för mer information om distribution och hantering av SOA-tjänster med HPC Pack.
 
 <!--Image references-->

@@ -12,12 +12,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 92db2a86f5f698945cd2252476e951d658dc75ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c3aa1bfe2cc1513d636452031de62da814af6cd7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959214"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262309"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Så här väljer du algoritmer för Azure Machine Learning Studio
 
@@ -73,7 +73,7 @@ Baserat på den här ändrar algoritmen sin strategi för att uppnå högsta tra
 
 ## <a name="considerations-when-choosing-an-algorithm"></a>Att tänka på när du väljer en algoritm
 
-### <a name="accuracy"></a>Tillförlitlighet
+### <a name="accuracy"></a>Precision
 
 Hämta det mest korrekta svaret möjliga är inte alltid nödvändigt.
 Ibland är ett approximativt värde lämplig, beroende på vad du vill använda den för. Om så är fallet kan du kunna klippa ut din bearbetningstid avsevärt genom fastna mer ungefärliga metoder. En annan fördel med mer ungefärliga metoder är att de naturligt tenderar att undvika [overfitting](https://youtu.be/DQWI1kvmwRg).
@@ -121,7 +121,7 @@ Vissa learning-algoritmer göra viss antaganden om strukturen för data eller de
 | [beslutsskog](https://msdn.microsoft.com/library/azure/dn906008.aspx) |● |○ | |6 | |
 | [beslutet Djungel](https://msdn.microsoft.com/library/azure/dn905976.aspx) |● |○ | |6 |Låg minneskrav |
 | [beslutsträd](https://msdn.microsoft.com/library/azure/dn906025.aspx) |● |○ | |6 |Stora minneskrav |
-| [neuralt nätverk](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[Ytterligare anpassning är möjligt](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [neuralt nätverk](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[Ytterligare anpassning är möjligt](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [Genomsnittlig perceptron](https://msdn.microsoft.com/library/azure/dn906036.aspx) |○ |○ |● |4 | |
 | [dator för vektorstöd](https://msdn.microsoft.com/library/azure/dn905835.aspx) | |○ |● |5 |Bra för stora funktionsuppsättningar |
 | [lokalt djup dator för vektorstöd](https://msdn.microsoft.com/library/azure/dn913070.aspx) |○ | | |8 |Bra för stora funktionsuppsättningar |
@@ -130,7 +130,7 @@ Vissa learning-algoritmer göra viss antaganden om strukturen för data eller de
 | [Logistic regression](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5 | |
 | [beslutsskog](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
 | [beslutet Djungel ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Låg minneskrav |
-| [neuralt nätverk](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Ytterligare anpassning är möjligt](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [neuralt nätverk](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Ytterligare anpassning är möjligt](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [en v alla](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Visa egenskaper för metoden tvåklassförhöjt valt |
 | **Regression** | | | | | |
 | [Linjär](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
@@ -138,7 +138,7 @@ Vissa learning-algoritmer göra viss antaganden om strukturen för data eller de
 | [beslutsskog](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
 | [beslutsträd](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |Stora minneskrav |
 | [snabb skog quantile](https://msdn.microsoft.com/library/azure/dn913093.aspx) |● |○ | |9 |Distributioner i stället för punkt-förutsägelser |
-| [neuralt nätverk](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[Ytterligare anpassning är möjligt](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [neuralt nätverk](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[Ytterligare anpassning är möjligt](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Tekniskt sett log-linjära. För att förutsäga antalet |
 | [Ordningstal](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |För att förutsäga rangordning-axel |
 | **Avvikelseidentifiering** | | | | | |
@@ -190,7 +190,7 @@ Förbättrat beslutsträd undvika overfitting genom att begränsa hur många gå
 Neurala nätverk är hjärna-inspirerat algoritmer som täcker [multiclass](https://msdn.microsoft.com/library/azure/dn906030.aspx), [tvåklassförhöjt](https://msdn.microsoft.com/library/azure/dn905947.aspx), och [regression](https://msdn.microsoft.com/library/azure/dn905924.aspx) problem. De kommer in en rad, men neurala nätverk i Azure Machine Learning är alla slags dirigerad acykliska diagram. Det innebär att indatafunktionerna skickas vidare (aldrig bakåt) via en sekvens av lager innan ha varit i utdata. I varje skikt är indata viktad i olika kombinationer, summeras och överföras till nästa lager. Den här kombinationen av enkla beräkningar innebär möjlighet att lära dig avancerade klass gränser och data trender, till synes genom magic. Många nivåer nätverk på den här typen utför den ”deep learning” som skapar förutsättningar för mycket teknisk reporting och science fiction.
 
 Den här högpresterande gratis inte, men. Neurala nätverk kan ta lång tid att träna, särskilt för stora mängder data med många funktioner. De har också fler parametrar än de flesta algoritmer, vilket innebär att parametern oinskränkt expanderar utbildningstid ett bra pris.
-Och för de overachievers som vill [ange sina egna nätverksstrukturen](http://go.microsoft.com/fwlink/?LinkId=402867), möjligheterna är inexhaustible.
+Och för de overachievers som vill [ange sina egna nätverksstrukturen](https://go.microsoft.com/fwlink/?LinkId=402867), möjligheterna är inexhaustible.
 
 ![Gränser som upptäckts av neurala nätverk][6]
 ***de gränser som upptäckts av neurala nätverk kan vara komplexa och oregelbundna***

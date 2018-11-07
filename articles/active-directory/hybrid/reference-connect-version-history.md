@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 335db0130ae6dd3d11d6592208fdf37e762509e5
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 1f74538deab38db536bfcdc6d0f703d455039d51
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914829"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235912"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg gäller för alla målgrupper.
@@ -35,7 +35,7 @@ Avsnitt |  Information
 Steg för att uppgradera från Azure AD Connect | Olika metoder för att [uppgradera från en tidigare version till senast](how-to-upgrade-previous-version.md) Azure AD Connect-versionen.
 Nödvändiga behörigheter | Behörigheter som krävs för att tillämpa en uppdatering, se [konton och behörigheter](reference-connect-accounts-permissions.md#upgrade).
 
-Ladda ned | [Hämta Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+Ladda ned | [Hämta Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## <a name="12650"></a>1.2.65.0 
 

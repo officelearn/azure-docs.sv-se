@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: 563194ea0b3e4bda2021c75c544d068f00d74ba7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3163d4d61dba958cdf71dd0470b943bba69b0191
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963840"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237206"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Backend-hälsotillstånd, diagnostikloggar och mått för Application Gateway
 
@@ -337,7 +337,7 @@ Mått är en funktion för vissa Azure-resurser där du kan visa prestandaräkna
 
    Du kan filtrera på en per backend-pool regelbundet visar felfria/defekta värdar i en specifik serverdelspool.
 
-Bläddra till en application gateway under **övervakning** klickar du på **mått**. Om du vill visa de tillgängliga värdena, Välj den **mått** listrutan.
+Bläddra till en application gateway under **övervakning** klickar du på **mått**. Om du vill visa de tillgängliga värdena väljer du listrutan **MÅTT**.
 
 I följande bild kan se du ett exempel med tre mått som visas för de senaste 30 minuterna:
 
@@ -380,7 +380,7 @@ Om du vill veta mer om webhooks och hur du kan använda dem med aviseringar, bes
 ## <a name="next-steps"></a>Nästa steg
 
 * Visualisera prestandaräknare och händelseloggar genom att använda [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md).
-* [Visualisera dina Azure-aktivitetsloggen med Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blogginlägg.
+* [Visualisera dina Azure-aktivitetsloggen med Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blogginlägg.
 * [Visa och analysera Azure-aktivitetsloggar i Power BI med mera](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blogginlägg.
 
 [1]: ./media/application-gateway-diagnostics/figure1.png

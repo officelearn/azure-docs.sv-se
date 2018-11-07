@@ -1,6 +1,6 @@
 ---
-title: Skapa och hantera claimable virtuella datorer i ett labb i Azure DevTest Labs | Microsoft Docs
-description: Lär dig hur du lägger till en claimable virtuell dator i ett labb i Azure DevTest Labs
+title: Skapa och hantera tillgängliga virtuella datorer i ett labb i Azure DevTest Labs | Microsoft Docs
+description: Lär dig hur du lägger till en virtuell virtuell dator till ett labb i Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: spelluru
@@ -14,87 +14,87 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 669dfab75f34a0d1f997dc34f600402d3c10669b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3bfb674fa66f0701a099d237f4e760453c7b6a6e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33787495"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232135"
 ---
-# <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Skapa och hantera claimable virtuella datorer i Azure DevTest Labs
-Du lägger till en claimable virtuell dator i ett labb på liknande sätt att hur du [lägga till en standard VM](devtest-lab-add-vm.md) – från en *grundläggande* som är antingen en [anpassad avbildning](devtest-lab-create-template.md), [formeln](devtest-lab-manage-formulas.md) , eller [Marketplace-avbildning](devtest-lab-configure-marketplace-images.md). Den här självstudiekursen vägleder dig genom att använda Azure portal för att lägga till en claimable virtuell dator i ett labb i DevTest Labs och visar processerna som en användare följer för att begära och unclaim den virtuella datorn.
+# <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Skapa och hantera tillgängliga virtuella datorer i Azure DevTest Labs
+Du lägger till en virtuell dator till ett labb i liknande sätt som hur du [lägga till en standard virtuell dator](devtest-lab-add-vm.md) – från en *grundläggande* som är antingen en [anpassad avbildning](devtest-lab-create-template.md), [formeln](devtest-lab-manage-formulas.md) , eller [Marketplace-avbildning](devtest-lab-configure-marketplace-images.md). Den här självstudiekursen beskriver hur du använder Azure-portalen för att lägga till en virtuell dator i ett labb i DevTest Labs och visar processerna som en användare följer för att begära och avsäga sig den virtuella datorn.
 
-## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Steg för att lägga till en claimable virtuell dator i ett labb i Azure DevTest Labs
-1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Välj **alla tjänster**, och välj sedan **DevTest Labs** från listan.
-1. Välj från listan över labs labbet där du vill skapa claimable VM.  
+## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Hur du lägger till en virtuell dator till ett labb i Azure DevTest Labs
+1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Välj **alla tjänster**, och välj sedan **DevTest Labs** i listan.
+1. I listan över labbar Välj labb där du vill skapa virtuell dator.  
 1. På testmiljön **översikt** väljer **+ Lägg till**.  
 
-    ![VM-knappen Lägg till](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
+    ![Lägg till VM-knapp](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
 
-1. På den **väljer du en bas** området, Välj en bas för den virtuella datorn.
-1. I den **virtuella** rutan Ange ett namn för den nya virtuella datorn i den **virtuellt datornamn** textruta.
+1. På den **väljer bas** väljer du den base för den virtuella datorn.
+1. I den **VM** rutan Ange ett namn för den nya virtuella datorn i den **virtuellt datornamn** textrutan.
 
     ![Lab VM-fönstret](./media/devtest-lab-add-vm/devtestlab-lab-vm-blade.png)
 
 1. Ange en **användarnamn** som har beviljats administratörsbehörighet på den virtuella datorn.  
-1. Om du vill använda ett lösenord som lagras i din [hemliga store](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store)väljer **använda en sparad hemlighet**, och ange ett nyckelvärde som motsvarar ditt hemliga (lösenord). Annars kan ange ett lösenord i fältet med etiketten **skriver ett värde**.
-1. Den **virtuella disktyp** avgör vilken lagringstyp som disk är tillåten för virtuella datorer i labbet.
-1. Välj **storlek för virtuell dator** och välj en av de fördefinierade objekt som anger processorkärnor, ram-storlek och storleken på hårddisken på den virtuella datorn för att skapa.
-1. Välj **artefakter** och listan över artefakter och välj och konfigurera artefakter som du vill lägga till basavbildningen. Om du inte har arbetat med DevTest Labs eller konfigurera artefakter, referera till den [lägga till en befintlig artefakt till en virtuell dator](devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) avsnittet och sedan återvända hit när du är klar.
-1. Välj **avancerade inställningar** att konfigurera Virtuellt Nätverksalternativ och upphör att gälla. Under **anspråk alternativ**, Välj **Ja** så att datorn claimable.
+1. Om du vill använda ett lösenord som lagras i din [Arkiv för hemligheter](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store)väljer **använder en sparad hemlighet**, och ange ett nyckelvärde som motsvarar din hemlighet (lösenord). Annars kan ange ett lösenord i textfältet märkta **skriver ett värde**.
+1. Den **disktyp för virtuell dator** avgör vilken typ av premiumlagring tillåts för virtuella datorer i labbet.
+1. Välj **VM-storlek** och välj en av de fördefinierade objekt som anger processorkärnor, RAM-storleken och storleken på hårddisken på den virtuella datorn för att skapa.
+1. Välj **artefakter** och listan över artefakter, Välj och konfigurera artefakter som du vill lägga till i basavbildningen. Om du är nybörjare på DevTest Labs eller konfigurera artefakter, referera till den [lägga till en befintlig artefakt i en virtuell dator](devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) avsnittet och återgå sedan här när du är klar.
+1. Välj **avancerade inställningar** att konfigurera Virtuellt datorns Nätverksalternativ och alternativ för upphör att gälla. Under **anspråk alternativ**, Välj **Ja** att göra en dator som är tillgängliga.
 
-  ![Välja att göra den virtuella datorn claimable.](./media/devtest-lab-add-vm/devtestlab-claim-VM-option.png)
+  ![Välja att göra den virtuella datorn som är tillgängliga.](./media/devtest-lab-add-vm/devtestlab-claim-VM-option.png)
 
-1. Om du vill visa eller kopiera Azure Resource Manager-mallen finns i [spara Azure Resource Manager-mall](devtest-lab-add-vm.md#save-azure-resource-manager-template) avsnittet och återvända hit när du är klar.
-1. Välj **skapa** att lägga till den angivna virtuella datorn i labbet.
+1. Om du vill visa eller kopiera Azure Resource Manager-mallen finns i [spara Azure Resource Manager-mall](devtest-lab-add-vm.md#save-azure-resource-manager-template) avsnitt och komma tillbaka hit när du är klar.
+1. Välj **skapa** att lägga till den angivna virtuella datorn till labbet.
 
-   Status för den virtuella datorn skapas visas första som **skapa**, sedan som **kör** när den virtuella datorn har startats.
+   Status för den virtuella datorn skapas visas först som **skapa**, sedan som **kör** när den virtuella datorn har startats.
 
 > [!NOTE]
-> Om du distribuerar lab virtuella datorer via [Azure Resource Manager-mallar](devtest-lab-create-environment-from-arm.md), du kan skapa claimable virtuella datorer genom att ange den **allowClaim** egenskap till true i egenskapsavsnittet.
+> Om du distribuerar labbet virtuella datorer via [Azure Resource Manager-mallar](devtest-lab-create-environment-from-arm.md), du kan skapa tillgängliga virtuella datorer genom att ange den **allowClaim** egenskapen på Sant i egenskapsavsnittet.
 >
 >
 
-## <a name="using-a-claimable-vm"></a>Med hjälp av en claimable VM
+## <a name="using-a-claimable-vm"></a>Med hjälp av en virtuell dator
 
-En användare kan göra anspråk på någon virtuell dator i listan över ”Claimable virtuella datorer” genom att göra något av följande:
+En användare kan göra anspråk på en virtuell dator i listan över ”tillgängliga virtuella datorer” genom att göra något av följande:
 
-* I listan över ”Claimable virtuella datorer” längst ned på den testmiljön ”Overview” fönstret, högerklicka på någon av de virtuella datorerna i listan och väljer **anspråk datorn**.
+* I listan ”tillgängliga virtuella datorer” längst ned på den lab ”översikt” fönstret, högerklicka på någon av de virtuella datorerna i listan och välj **anspråk datorn**.
 
- ![Begäran om en specifik claimable VM.](./media/devtest-lab-add-vm/devtestlab-claim-VM.png)
-
-
-* Längst upp i fönstret ”Overview” Välj **anspråk någon**. En slumpmässig virtuell dator är tilldelad från listan över claimable virtuella datorer.
-
- ![Begära alla claimable VM.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
+ ![Begär en specifik virtuell dator.](./media/devtest-lab-add-vm/devtestlab-claim-VM.png)
 
 
-När en användare anspråk som en virtuell dator, flyttas till sin lista över ”mina virtuella datorer” och är inte längre claimable av någon annan användare.
+* Längst ned i fönstret ”Översikt” Välj **gör anspråk på någon**. En slumpmässig virtuell dator är tilldelad i listan med tillgängliga virtuella datorer.
 
-## <a name="unclaim-a-vm"></a>Unclaim en virtuell dator
+ ![Begära valfri virtuell dator.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
 
-När en användare har slutförts med hjälp av ett anspråk VM och vill göra den tillgänglig för någon annan, returnera de påstått VM i listan över claimable virtuella datorer genom att göra något av följande:
 
-- I listan över ”mina virtuella datorer”, högerklicka på någon av de virtuella datorerna i listan – eller välj dess ellips (...) – och välj **Unclaim**.
+När en användare anspråk som en virtuell dator, flyttas till sin lista över ”mina virtuella datorer” och är inte längre tillgängliga av någon annan användare.
 
-  ![Unclaim en virtuell dator i listan för den virtuella datorn.](./media/devtest-lab-add-vm/devtestlab-unclaim-VM2.png)
+## <a name="unclaim-a-vm"></a>Avsäga sig en virtuell dator
 
-- Välj en virtuell dator och öppna dess hanteringsfönstret, och välj sedan i listan över ”mina virtuella datorer”, **Unclaim** på översta menyraden.
+När en användare har slutförts med hjälp av en anspråk virtuell dator och vill göra den tillgänglig för någon annan, returnerar de anspråk VM i listan över tillgängliga virtuella datorer genom att göra något av följande:
 
-  ![Unclaim en virtuell dator i fönstret för hantering av den virtuella datorn.](./media/devtest-lab-add-vm/devtestlab-unclaim-VM.png)
+- Listan över ”mina virtuella datorer”, högerklicka på någon av de virtuella datorerna i listan över – eller välj dess ellips (...) och välj **Unclaim**.
 
-När en användare unclaims en virtuell dator, har de inte längre några behörigheter för det specifika labbet VM.
+  ![Avsäga sig en virtuell dator i listan över virtuella datorer.](./media/devtest-lab-add-vm/devtestlab-unclaim-VM2.png)
 
-### <a name="transferring-the-data-disk"></a>Överföring av datadisk
-Om en claimable virtuell dator har en datadisk som är ansluten till den och en användare unclaims den, datadisken finns kvar hos den virtuella datorn. När en annan användare för anspråk som VM, den nya användaren anspråk datadisken samt den virtuella datorn.
+- I listan över ”mina virtuella datorer”, väljer du en virtuell dator för att öppna hanteringsfönstret av dess och välj sedan **Unclaim** från den översta menyraden.
 
-Detta kallas ”överföring av datadisk”. Datadisken blir då tillgängliga i den nya användaren lista över **min datadiskar** för dem att hantera.
+  ![Avsäga sig en virtuell dator i fönstret för hantering av den virtuella datorn.](./media/devtest-lab-add-vm/devtestlab-unclaim-VM.png)
 
-![Unclaim datadiskar.](./media/devtest-lab-add-vm/devtestlab-unclaim-datadisks.png)
+När en användare unclaims en virtuell dator, har de inte längre några behörigheter för den specifika lab VM.
+
+### <a name="transferring-the-data-disk"></a>Överföring av data-disk
+Om en virtuell dator som har en datadisk som är kopplade till den och en användare unclaims den, datadisken förblir med den virtuella datorn. En annan användare anspråk när sedan att VM, den nya användaren anspråk datadisken samt den virtuella datorn.
+
+Detta kallas ”överföring av data-disk”. Datadisken blir tillgängliga i den nya användarens lista över **Moje datové disky** för dem att hantera.
+
+![Avsäga sig datadiskar.](./media/devtest-lab-add-vm/devtestlab-unclaim-datadisks.png)
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-* När den har skapats, du kan ansluta till den virtuella datorn genom att välja **Anslut** på dess hanteringsfönstret.
+* När den har skapats kan du ansluta till den virtuella datorn genom att välja **Connect** dess fönstret för hantering.
 * Utforska den [DevTest Labs Azure Resource Manager-mall snabbstartsgalleriet](https://github.com/Azure/azure-devtestlab/tree/master/Samples).

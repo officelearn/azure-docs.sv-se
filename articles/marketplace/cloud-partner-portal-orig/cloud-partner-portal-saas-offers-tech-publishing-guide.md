@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9d73040f11549741643d96913c42df49594b8d41
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 7430e57ceaec8a280c17f1276d503919a9703182
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811314"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228903"
 ---
 <a name="saas-application-technical-publishing-guide"></a>SaaS-program Technical publicera Guide
 ===========================================
@@ -34,7 +34,7 @@ En översikt över alla andra Marketplace-erbjudanden, finns det [Marketplace Pu
 
 Publiceringsportal ger rollbaserad åtkomst till portalen så att flera personer att samarbeta för att publicera ett erbjudande. Mer information finns i [hantera användare](./cloud-partner-portal-manage-users.md). 
 
-Innan ett erbjudande kan publiceras åt en utgivare konto, ett för individer med *ägare* rollen behöva samtycker till att följa den [användningsvillkor](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft PrivacyStatement](http://www.microsoft.com/privacystatement/default.aspx), och [Microsoft Azure Certified ProgramAgreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+Innan ett erbjudande kan publiceras åt en utgivare konto, ett för individer med *ägare* rollen behöva samtycker till att följa den [användningsvillkor](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft PrivacyStatement](https://www.microsoft.com/privacystatement/default.aspx), och [Microsoft Azure Certified ProgramAgreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 
 <a name="creating-an-offer"></a>Skapa ett erbjudande
@@ -50,7 +50,7 @@ SaaS-App-erbjudandet består av fem delar, som beskrivs i följande tabell:
 |--------------------|-------------------------------------------------------------------------------------------------------------------------------|
 | Erbjudandeinställningar     | Hjälper till att definiera ett unikt namn och ID för SaaS-appen                                                                         |
 | Teknisk information     | Hjälper dig att konfigurera typ av SaaS-lösning och ange anslutningsinformationen för ditt program                            |
-| Provkör         | Valfria avsnittet som hjälper dig att definiera en tjänst som gör att kunder kan testa ditt erbjudande innan de köpa den. |
+| Test Drive         | Valfria avsnittet som hjälper dig att definiera en tjänst som gör att kunder kan testa ditt erbjudande innan de köpa den. |
 | Storefront information | Innehåller marknadsföring, juridisk information, lead-hantering och lista avsnitt:   <br/> -Avsnittet marknadsföring kan du ange den beskrivning och logotyper som krävs för erbjudandet att visas i marketplace-användarportalen.  <br/> -Lead-hantering kan du definiera en plats var att omdirigera användaren leads som skapades i användarportalen för Azure Marketplace slutet.  <br/> -Juridiska avsnittet kan du ange sekretesspolicy och användarvillkoren juridisk dokumentation.  |
 | Kontakt            | Kan du ange erbjudandets kontaktinformation för support.                                                                  |
 |  |  |
@@ -94,7 +94,7 @@ Om du är en SaaS-app som finns på Azure Marketplace och vill aktivera handel v
 Mer information om hur du ansluter din SaaS-app finns i [SaaS - sälj via Azure](./cloud-partner-portal-saas-offer-subscriptions.md).
 
 
-### <a name="test-drive"></a>Provkör
+### <a name="test-drive"></a>Test Drive
 
 Det är en bra idé att kontrollera att de kan köpa tryggt för att skapa en utvärderingsmiljö för dina kunder. För utvärderingsversionsalternativ som är tillgängliga är Test Drive de mest effektiva på att skapa högkvalitativa leads och ökad konvertering av dessa leads.
 

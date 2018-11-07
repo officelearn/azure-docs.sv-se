@@ -1,4 +1,4 @@
-Använd [User Voice](http://go.microsoft.com/fwlink/?linkid=698785&clcid=0x409)-forumet för att ge feedback och förslag på hur Azure Media Services kan förbättras. Du kan även gå direkt till någon av följande kategorier:
+Använd [User Voice](https://go.microsoft.com/fwlink/?linkid=698785&clcid=0x409)-forumet för att ge feedback och förslag på hur Azure Media Services kan förbättras. Du kan även gå direkt till någon av följande kategorier:
 
 * [Azure Media Player](https://feedback.azure.com/forums/169396-media-services/category/109320-azure-media-player/)
 * [SDK-klientbibliotek](https://feedback.azure.com/forums/169396-media-services/category/144435-client-sdks/)

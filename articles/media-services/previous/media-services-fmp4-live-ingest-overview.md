@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 88c152872ef8b571b8bc3e3f06ce486943e724b1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c6ff386913ed66cf4f74cb577bb8ca58e6932ada
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443536"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228886"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Specifikation för Azure Media Services fragmenterad MP4 live-inmatning
 Den här specifikationen beskriver protokollet och format för fragmenterad MP4-baserade live direktuppspelning inmatning för Azure Media Services. Media Services tillhandahåller en liveuppspelningstjänst som kunder kan använda för att strömma direktsändningar och skicka innehållet i realtid genom att använda Azure som molnplattformen. Det här dokumentet beskriver också bästa metoder för att skapa mycket redundant och robust live mata in mekanismer.
@@ -38,7 +38,7 @@ Följande diagram visar den övergripande arkitekturen i tjänsten för live dir
 ![mata in flödet][image1]
 
 ## <a name="3-bitstream-format--iso-14496-12-fragmented-mp4"></a>3. Bitstream format – ISO 14496 – 12 fragmenterad MP4
-Kabelformat för direktsänd strömning mata in beskrivs i det här dokumentet är baserat på [ISO-14496-12]. En detaljerad förklaring av fragmenterad MP4-format och tillägg både för filer för video på begäran och direktsänd strömning datainmatning, se [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx).
+Kabelformat för direktsänd strömning mata in beskrivs i det här dokumentet är baserat på [ISO-14496-12]. En detaljerad förklaring av fragmenterad MP4-format och tillägg både för filer för video på begäran och direktsänd strömning datainmatning, se [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).
 
 ### <a name="live-ingest-format-definitions"></a>Liveinmatning filformatet
 I följande lista beskrivs specialformat definitioner som tillämpas på live-inmatning i Azure Media Services:
@@ -68,7 +68,7 @@ Här följer de detaljerade krav:
 1. Kodaren måste inte använda den `Events()` substantiv enligt beskrivningen i 9.2 in [1] för live-inmatning till Media Services.
 1. Om HTTP POST-begäran avslutas eller tidsgränsen uppnås med en TCP-fel före slutet av strömmen, måste kodaren skicka en ny POST-begäran med hjälp av en ny anslutning och följ föregående kraven. Kodaren måste dessutom skicka om de föregående två MP4-fragment för varje spår i strömmen och återuppta utan introduktion till en avvikelse i media-tidslinje. Skicka om de två sista MP4-fragment för varje spår säkerställer att det finns inga data går förlorade. Med andra ord, om en dataström som innehåller både en ljud och video reda och aktuell POST-begäran misslyckas, måste kodaren återansluta och skicka om de två sista fragment för ljudspår, som tidigare har skickats, och de två sista fragment för videon spåra, som tidigare har skickats, så att det finns inga data går förlorade. Kodaren måste ha en ”vidarebefordra” buffert för media fragment som innehållsuppsättning när anslutningen upprättas.
 
-## <a name="5-timescale"></a>5. tidsskalan
+## <a name="5-timescale"></a>5. Tidsskala
 [[MS-SSTR] ](https://msdn.microsoft.com/library/ff469518.aspx) beskriver användningen av tidsram för **SmoothStreamingMedia** (avsnittet 2.2.2.1), **StreamElement** (avsnittet 2.2.2.3), **StreamFragmentElement** () Avsnittet 2.2.2.6), och **LiveSMIL** (punkt 2.2.7.3.1). Om värdet för tidsskalan inte är tillgänglig, är standardvärdet används 10 000 000 (10 MHz). Även om formatspecifikationen Smooth Streaming inte blockerar användningen av andra tidsskalan värden, de flesta implementeringar av kodare använda denna standardinställning värde (10 MHz) för att generera Smooth Streaming mata in data. På grund av den [dynamisk paketering för Azure Media](media-services-dynamic-packaging-overview.md) funktion, rekommenderar vi att du använder en 90-KHz tid för video strömmar och 44,1 eller 48.1 KHz för ljudströmmar. Om du använder olika tidsskalan värden för olika dataströmmar, måste stream på servernivå tidsskalan skickas. Mer information finns i [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).     
 
 ## <a name="6-definition-of-stream"></a>6. Definitionen av ”stream”
@@ -123,7 +123,7 @@ I det här avsnittet diskuterar vi redundansscenarier för tjänsten. I det här
 ## <a name="8-encoder-failover"></a>8. Kodaren redundans
 Kodaren redundans är den andra typen av redundansscenario som måste åtgärdas för slutpunkt till slutpunkt live strömmande leverans. I det här scenariot inträffar feltillstånd på encoder-sida. 
 
-![kodaren redundans][image5]
+![Kodaren redundans][image5]
 
 Följande förväntningar gäller från slutpunkten för live inmatning när encoder redundans inträffar:
 
@@ -137,7 +137,7 @@ Följande förväntningar gäller från slutpunkten för live inmatning när enc
 ## <a name="9-encoder-redundancy"></a>9. Kodaren redundans
 För vissa viktiga live-händelser som kräver ännu högre tillgänglighet och kvalitet rekommenderar vi att du använder redundanta aktiv-aktiv-kodare för problemfri sömlös redundans utan att förlora data.
 
-![kodaren redundans][image6]
+![Kodaren redundans][image6]
 
 Enligt beskrivningen i det här diagrammet, skicka två grupper av kodare två kopior av varje dataström samtidigt till live-tjänsten. Den här konfigurationen stöds eftersom Media Services kan filtrera bort duplicerade fragment baserat på stream-ID och i fragmentbegäran tidsstämpel. Resulterande direktsänd ström och arkivlagring är en enda kopia av alla dataströmmar som är den bästa möjliga sammansättning från två källor. Till exempel i hypotetisk extrema fall så länge det finns en kodare (det inte behöver vara samma konto) som körs vid en given tidpunkt för varje dataström resulterande live stream från tjänsten är kontinuerligt utan dataförlust. 
 
@@ -146,7 +146,7 @@ Kraven för det här scenariot är nästan samma sätt kraven i ”Encoder redun
 ## <a name="10-service-redundancy"></a>10. Tjänstredundans
 För mycket redundant global distribution, måste ibland du ha interregionala säkerhetskopiering för att hantera regionala katastrofer. Som ett led i ”Encoder redundans”-topologi, kan kunderna välja att ha en redundant tjänstdistribution i en annan region som är kopplad till den andra uppsättningen av kodare. Kunder kan också arbeta med en Content Delivery Network-provider för att distribuera en Global Traffic Manager framför distributionerna av två tjänster för att dirigera sömlöst klienttrafik. Kraven för för kodarna som är samma som ”Encoder redundans”. Det enda undantaget är att den andra uppsättningen av kodare måste vara pekar på en annan live mata in slutpunkt. Följande diagram visar den här konfigurationen:
 
-![tjänstredundans][image7]
+![Tjänstredundans][image7]
 
 ## <a name="11-special-types-of-ingestion-formats"></a>11. Särskilda typer av inmatning format
 Det här avsnittet beskriver särskilda typer av live-inmatning format som är utformade för att hantera specifika scenarier.

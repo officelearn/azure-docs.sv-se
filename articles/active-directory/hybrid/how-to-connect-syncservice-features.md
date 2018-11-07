@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fa7d0f98f8119ad34e0764423e99af4564f20387
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 8d351e41eac3c820b9295b3b5cf314428bebc746
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311929"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243001"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Funktioner i tjänsten Azure AD Connect-synkronisering
 Synkroniseringsfunktionen av Azure AD Connect har två komponenter:
@@ -30,7 +30,7 @@ Synkroniseringsfunktionen av Azure AD Connect har två komponenter:
 
 Det här avsnittet förklarar hur följande funktioner i den **Azure AD Connect-synkroniseringstjänsten** arbete och hur du kan konfigurera dem med hjälp av Windows PowerShell.
 
-De här inställningarna är konfigurerade med den [Azure Active Directory-modulen för Windows PowerShell](https://aka.ms/aadposh). Ladda ned och installera den separat från Azure AD Connect. Cmdletarna som beskrivs i det här avsnittet har introducerats i den [mars 2016-versionen (build 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Om du inte har de cmdletar som beskrivs i det här avsnittet eller om de inte ge samma resultat, se till att du kör den senaste versionen.
+De här inställningarna är konfigurerade med den [Azure Active Directory-modulen för Windows PowerShell](https://aka.ms/aadposh). Ladda ned och installera den separat från Azure AD Connect. Cmdletarna som beskrivs i det här avsnittet har introducerats i den [mars 2016-versionen (build 9031.1)](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Om du inte har de cmdletar som beskrivs i det här avsnittet eller om de inte ge samma resultat, se till att du kör den senaste versionen.
 
 Om du vill se konfigurationen i Azure AD-katalogen, kör `Get-MsolDirSyncFeatures`.  
 ![Get-MsolDirSyncFeatures resultat](./media/how-to-connect-syncservice-features/getmsoldirsyncfeatures.png)
@@ -59,7 +59,7 @@ Följande inställningar konfigureras av Azure AD Connect och kan inte ändras a
 | DirectoryExtensions |[Azure AD Connect-synkronisering: katalogtillägg](how-to-connect-sync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Gör ett attribut som ska placeras i karantän när det är en dubblett av ett annat objekt i stället misslyckas hela objektet under exporten. |
 | Hash-synkronisering av lösenord |[Implementera lösenordshashsynkronisering med Azure AD Connect-synkronisering](how-to-connect-password-hash-synchronization.md) |
-|Direktautentisering|[Användaren logga in med Azure Active Directory-direktautentisering](how-to-connect-pta.md)|
+|Direktautentisering|[Användarinloggning med Azure Active Directory-direktautentisering](how-to-connect-pta.md)|
 | UnifiedGroupWriteback |[Förhandsversion: Tillbakaskrivning av grupp](how-to-connect-preview.md#group-writeback) |
 | UserWriteback |Stöds för närvarande inte. |
 

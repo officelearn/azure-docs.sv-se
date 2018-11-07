@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2018
-ms.openlocfilehash: 53e737f35904a90bb56ec15c8a8282f8775e3c3a
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 45ed1867d6d151250340bb21450b4b0d9b00e993
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393499"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243155"
 ---
 # <a name="what-is-the-azure-machine-learning-cli"></a>Vad är Azure Machine Learning CLI?
 
@@ -25,7 +25,7 @@ Det är Azure Machine Learning kommandoradsgränssnitt (CLI)-tillägget för dat
 
 + Paketera, distribuera och spåra livscykeln för din machine learning-modeller
 
-Den här machine learning CLI är en utökning av [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) och har byggts ovanpå Python-baserade <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> för Azure Machine Learning-tjänsten.
+Den här machine learning CLI är en utökning av [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) och har byggts ovanpå Python-baserade <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> för Azure Machine Learning-tjänsten.
 
 > [!NOTE]
 > CLI är en tidig förhandsversion och kommer att uppdateras.

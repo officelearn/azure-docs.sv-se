@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 97e4e670d5db646cea28cb30e9ca95633cea2a8a
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7fa7e6126c415a0a33b77b78975e8f4a533c4675
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49437148"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263295"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Högpresterande Premium Storage och hanterade diskar för virtuella datorer
 
@@ -97,7 +97,7 @@ Det här är några av de funktioner som stöds i premium storage-aktiverade vir
     Du kan använda premium och standard-diskar i samma Premium Storage VM. Med Premium Storage kan du etablera en virtuell dator och koppla flera beständiga datadiskar till den virtuella datorn. Om du vill öka kapaciteten och prestandan för volymen, kan du stripe över dina diskar.
 
     > [!NOTE]
-    > Om du stripe-data för premiumlagringsdiskar med hjälp av [lagringsutrymmen](http://technet.microsoft.com/library/hh831739.aspx), konfigurera lagringsutrymmen med 1 kolumn för varje disk som du använder. I annat fall kan prestanda i stripe-volymen vara lägre än förväntat på grund av en ojämn fördelning av trafik på diskarna. Du kan ställa in kolumner för upp till 8 diskar som standard i Serverhanteraren. Om du har mer än 8 diskar kan du använda PowerShell för att skapa volymen. Ange antalet kolumner manuellt. I annat fall fortsätter Serverhanteraren UI att använda 8 kolumner, även om du har fler diskar. Exempel: Om du har 32 diskar i en enda stripe-uppsättning, ange 32 kolumner. Ange antalet kolumner i den virtuella disken använder den [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) PowerShell-cmdleten, Använd den *NumberOfColumns* parametern. Mer information finns i [översikt över lagringsutrymmen](http://technet.microsoft.com/library/hh831739.aspx) och [Storage Spaces vanliga frågor och svar](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
+    > Om du stripe-data för premiumlagringsdiskar med hjälp av [lagringsutrymmen](https://technet.microsoft.com/library/hh831739.aspx), konfigurera lagringsutrymmen med 1 kolumn för varje disk som du använder. I annat fall kan prestanda i stripe-volymen vara lägre än förväntat på grund av en ojämn fördelning av trafik på diskarna. Du kan ställa in kolumner för upp till 8 diskar som standard i Serverhanteraren. Om du har mer än 8 diskar kan du använda PowerShell för att skapa volymen. Ange antalet kolumner manuellt. I annat fall fortsätter Serverhanteraren UI att använda 8 kolumner, även om du har fler diskar. Exempel: Om du har 32 diskar i en enda stripe-uppsättning, ange 32 kolumner. Ange antalet kolumner i den virtuella disken använder den [New-VirtualDisk](https://technet.microsoft.com/library/hh848643.aspx) PowerShell-cmdleten, Använd den *NumberOfColumns* parametern. Mer information finns i [översikt över lagringsutrymmen](https://technet.microsoft.com/library/hh831739.aspx) och [Storage Spaces vanliga frågor och svar](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
     >
     > 
 
@@ -151,7 +151,9 @@ Om du använder premium storage-konton för ohanterade diskar och programmet öv
 ### <a name="premium-storage-disk-limits"></a>Gränser för Premium Storage disk
 När du etablerar en premium-lagringsdisk anger storleken på disken högsta IOPS och dataflöde (bandbredd). Azure erbjuder åtta GA-typer av premium-lagringsdiskar: P4 (hanterade diskar endast), P6 (hanterade diskar endast), P10, P15 (hanterade diskar endast), P20, P30, P40 och P50. Samt tre Förhandsgranska diskstorlekar: P60 och P70 P80. Varje typ av premiumlagring har specifika gränser för IOPS och dataflöde. Begränsningar för disktyper beskrivs i följande tabell:
 
-| Typen för Premium-diskar  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60             | P70                | P80                |
+Storlekar som är markerad med en asterisk finns för närvarande i förhandsversion.
+
+| Typen för Premium-diskar  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60 *            | P70 *               | P80 *               |
 |---------------------|-------|-------|--------|--------|--------|------------------|-----------------|-----------------|-----------------|--------------------|--------------------|
 | Diskstorlek           | 32 giB| 64 giB| 128 GiB| 256 GB| 512 GiB| 1 024 giB (1 TiB) | 2048 giB (2 TiB)| 4 095 giB (4 TiB)| 8192 giB (8 TiB)| 16 384 giB (16 TiB)| 32 767 giB (32 TiB)|
 | IOPS per disk       | 120   | 240   | 500    | 1100   | 2 300   | 5000             | 7500            | 7500            | 12 500          | 15 000             | 20,000             |
@@ -237,7 +239,7 @@ Följande begränsningar gäller för premium storage blob-ögonblicksbilder:
 
 Om du vill underhålla geo-redundanta kopior av dina ögonblicksbilder kan kopiera du ögonblicksbilder från ett premium storage-konto till ett geo-redundant standardlagringskonto med hjälp av AzCopy eller kopiering av Blob. Mer information finns i [överföra data med kommandoradsverktyget azcopy](../articles/storage/common/storage-use-azcopy.md) och [kopiering av Blob](/rest/api/storageservices/Copy-Blob).
 
-Detaljerad information om hur du utför REST-åtgärder mot sidblobar i ett premium storage-konto finns i [Bloboperationer i tjänsten med Azure Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969).
+Detaljerad information om hur du utför REST-åtgärder mot sidblobar i ett premium storage-konto finns i [Bloboperationer i tjänsten med Azure Premium Storage](https://go.microsoft.com/fwlink/?LinkId=521969).
 
 ### <a name="managed-disks"></a>Hanterade diskar
 
@@ -267,12 +269,12 @@ Följande Linux-distributioner har verifierats för Azure Premium Storage. För 
 | SUSE | SLES 12| 3.12.36-38.1+| SUSE-sles-12-prioritet-v20150213 <br> SUSE-sles-12-v20150213 |
 | SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
 | CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 krävs](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Se anmärkning i nästa avsnitt* |
-| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 rekommenderas](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Se anmärkning i nästa avsnitt* |
+| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 krävs](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Se anmärkning i nästa avsnitt* |
+| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 rekommenderas](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Se anmärkning i nästa avsnitt* |
 | Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |
 | Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 eller RHCK |
-| Oracle | 7.0-7.1 | &nbsp; | UEK4 eller RHCK med[LIS 4.1 +](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6.7 | &nbsp; | UEK4 eller RHCK med[LIS 4.1 +](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 7.0-7.1 | &nbsp; | UEK4 eller RHCK med[LIS 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 6.4-6.7 | &nbsp; | UEK4 eller RHCK med[LIS 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>LIS drivrutiner för OpenLogic CentOS

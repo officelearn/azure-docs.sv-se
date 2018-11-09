@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: ad77f1f0a99fbdb355163e1bc83461c8c4eb75fa
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7b2dd4e97d23f37c8261e51f3f65e78436493ddc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157708"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238749"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Enhetsanslutning i Azure IoT Central
 
@@ -150,7 +150,7 @@ För att ansluta enheter till IoT Central använder X509 certifikat, det finns t
     
     Nedan visas några commandline verktyg du kan använda för att generera CA-certifikat och certifikat på enheten.
 
-    * Om du använder MxChip här är en [kommandoradsverktyg](http://aka.ms/iotcentral-docs-dicetool) för att generera CA-certifikat lägga till den i din IoT Central-app och verifiera certifikat. 
+    * Om du använder MxChip här är en [kommandoradsverktyg](https://aka.ms/iotcentral-docs-dicetool) för att generera CA-certifikat lägga till den i din IoT Central-app och verifiera certifikat. 
 
     *   Använd det här [kommandoradsverktyg](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) till
         * Skapa certifikatkedjan (Följ steg 2 i GitHub-dokument). 
@@ -165,7 +165,7 @@ För att ansluta enheter till IoT Central använder X509 certifikat, det finns t
     Programmera enheten med provisioning serviceinformation så att systemet kan hämta dess anslutningsinformation och IoT Central apptilldelning när påslaget.    
 
     **Ytterligare referene** 
-    *   Exempel på implementering för [RaspberryPi.](http://aka.ms/iotcentral-docs-Raspi-releases)  
+    *   Exempel på implementering för [RaspberryPi.](https://aka.ms/iotcentral-docs-Raspi-releases)  
 
     *   [Exemplet enhetsklienten i C.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
 

@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: a322edbc6825261dde0fd926a362ca037739e06e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f1fd60774f5790a514e540984812fc1aaf6e38e0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388066"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238921"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Välja rätt autentiseringsmetod för din Azure Active Directory-hybrididentitetslösning 
 
@@ -68,6 +68,18 @@ Följande avsnitt hjälper dig att bestämma vilken autentiseringsmetod som pass
 ## <a name="decision-tree"></a>Beslutsträd
 
 ![Beslutsträd för Azure AD-autentisering](media/azure-ad/azure-ad-authn-image1.png)
+
+Information om beslut frågor:
+
+1. Azure AD kan hantera inloggning för användare utan att förlita dig på den lokala komponenter att bekräfta lösenord.
+2. Azure AD kan lämna över användarinloggning till en betrodd autentiseringsprovider till exempel Microsofts AD FS.
+3. Om du vill tillämpa säkerhetsprinciper för användarnivå Active Directory som kontot har upphört att gälla inaktiverat konto, lösenord har upphört att gälla, låst konto och logga in timmar på varje användare logga in, Azure AD kräver vissa lokala komponenter.
+4. Logga in-funktioner som inte stöds av Azure AD:
+   * Logga in med smartkort eller certifikat.
+   * Logga in med lokala MFA-servern.
+   * Logga in med 3 part authentication-lösning.
+   * Flera platser på lokal autentiseringslösning.
+5. Azure AD Identity Protection kräver Lösenordshashsynkronisering oavsett vilken metod du logga in du välja att ange ”användare med läckta autentiseringsuppgifter” rapporten. Organisationer kan redundansväxla till Lösenordshashsynkronisering om deras primära inloggningsmetod misslyckas och den konfigurerades innan händelsen fel.
 
 ## <a name="detailed-considerations"></a>Detaljerad information
 
@@ -207,4 +219,4 @@ I dagens värld hot är tillgänglig dygnet runt och kommer från var som helst.
 
 [Kom igång](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad) med Azure AD och distribuera rätt autentiseringslösning för din organisation.
 
-Om du tänker om hur du migrerar från federerad autentisering i molnet, Lär dig mer om [ändrar inloggningsmetoden](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method). För att planera och implementera migreringen kan använda [dessa distribution projektplaner](http://aka.ms/deploymentplans).
+Om du tänker om hur du migrerar från federerad autentisering i molnet, Lär dig mer om [ändrar inloggningsmetoden](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method). För att planera och implementera migreringen kan använda [dessa distribution projektplaner](https://aka.ms/deploymentplans).

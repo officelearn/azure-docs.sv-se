@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/22/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: d2e09c837597dfd15e6258cbd0100762b098eedf
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b9a98cea8ee19846afc30b322c3fdacb21f2bf44
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523493"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242463"
 ---
 # <a name="how-to-deploy-azure-files"></a>Så här distribuerar du Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via SMB-protokollet som är branschstandard. Den här artikeln visar hur du distribuerar Azure Files praktiskt taget i din organisation.
@@ -108,7 +108,7 @@ ROBOCOPY är ett välkänt kopiera verktyg som levereras med Windows och Windows
 ### <a name="azcopy"></a>AzCopy
 AzCopy är ett kommandoradsverktyg som utformats för att kopiera data till och från Azure Files, samt Azure Blob storage med hjälp av enkla kommandon med optimala prestanda. Det är enkelt att använda AzCopy:
 
-1. Ladda ned den [senaste versionen av AzCopy på Windows](http://aka.ms/downloadazcopy) eller [Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#download-and-install-azcopy).
+1. Ladda ned den [senaste versionen av AzCopy på Windows](https://aka.ms/downloadazcopy) eller [Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#download-and-install-azcopy).
 2. Använd `azcopy` på kommandoraden för att flytta data till Azure-filresursen. Syntaxen på Windows är följande: 
 
     ```

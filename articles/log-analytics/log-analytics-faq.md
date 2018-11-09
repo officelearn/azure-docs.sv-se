@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 403ac2fd0ab497239350c8b4a68a6b6f53bb24b4
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c79a44422944fd2049c47a6729a86d063dbcd15e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963922"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232349"
 ---
 # <a name="log-analytics-faq"></a>Vanliga frågor och svar om Log Analytics
 Den här Microsoft-FAQ är en lista över vanliga frågor om Log Analytics i Microsoft Azure. Om du har ytterligare frågor om Log Analytics kan du gå till den [diskussionsforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) och ställa frågor. När en fråga är vanliga vi lägga till det i den här artikeln så att den finns snabbt och enkelt.
@@ -158,7 +158,7 @@ A. Nej, det går inte för närvarande att läsa från valfri tabeller eller beh
 
 ### <a name="q-what-ip-addresses-does-the-log-analytics-service-use-how-do-i-ensure-that-my-firewall-only-allows-traffic-to-the-log-analytics-service"></a>F. IP-adresser använder den Log Analytics-tjänsten? Hur undviker jag att min brandvägg endast tillåter trafik till Log Analytics-tjänsten?
 
-A. Log Analytics-tjänsten bygger på Azure. Log Analytics-IP-adresser som tillhör den [IP-intervall i Microsoft Azure Datacenter](http://www.microsoft.com/download/details.aspx?id=41653).
+A. Log Analytics-tjänsten bygger på Azure. Log Analytics-IP-adresser som tillhör den [IP-intervall i Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653).
 
 Eftersom tjänstdistributioner görs, ändra faktiska IP-adresserna för Log Analytics-tjänsten. DNS-namn ska tillåtas via brandväggen finns dokumenterade i [krav på](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
@@ -170,7 +170,7 @@ Trafik till Log Analytics använder offentliga peering ExpressRoute-kretsen.
 
 ### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>F. Finns det ett enkelt och smidigt sätt att flytta en befintlig Log Analytics-arbetsyta till en annan Log Analytics-arbetsyta/Azure-prenumeration?
 
-A. Den `Move-AzureRmResource` cmdlet kan du flytta en Log Analytics-arbetsyta och ett Automation-konto från en Azure-prenumeration till en annan. Mer information finns i [Move-AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx).
+A. Den `Move-AzureRmResource` cmdlet kan du flytta en Log Analytics-arbetsyta och ett Automation-konto från en Azure-prenumeration till en annan. Mer information finns i [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).
 
 Den här ändringen kan också göras i Azure-portalen.
 

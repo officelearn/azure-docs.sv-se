@@ -11,16 +11,16 @@ ms.topic: reference
 ms.date: 09/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6983b49135b5a8adbef1d0cfc5a407cb7b0c7ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0dc7daebe91199cc6c54ac5e3a2d8f43e1592a73
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960557"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282432"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-sdk-dotnet.md)
+> * [NET](sql-api-sdk-dotnet.md)
 > * [.NET-Ändringsfeed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
@@ -45,6 +45,26 @@ ms.locfileid: "46960557"
 | Aktuella plattformar som stöds | [Node.js version 6.x](https://nodejs.org/en/blog/release/v6.10.3/) – krävs för SDK-Version 2.0.0 och senare.<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="2.0.5"/>2.0.5</a>
+* Lägger till gränssnitt för noden agenttypen. Typescript-användare behöver inte längre installera @types/node som ett beroende
+* Önskade platser respekteras nu korrekt
+* Förbättringar av bidrag till dokumentationen för utvecklare
+* Olika stavfel korrigeringar
+
+### <a name="2.0.4"/>2.0.4</a>
+* Korrigeringar skriver defenition problemet som introducerades i 2.0.3
+
+### <a name="2.0.3"/>2.0.3</a>
+* Ta bort `big-integer` beroende
+* Växla till referens direktiv för AsyncIterable typen. Typescript-användare behöver inte längre anpassa sina ”lib”-inställning.
+* Skrivfel korrigeringar
+
+### <a name="2.0.2"/>punkt 2.0.2</a>
+* Åtgärda readme-länkar
+
+### <a name="2.0.1"/>2.0.1</a>
+* Åtgärda implementeringsgränssnittet för återförsök
 
 ### <a name="2.0.0"/>2.0.0</a>
 * GA för Version 2.0.0 av JavaScript SDK

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/04/2017
-ms.openlocfilehash: 240be0e7dc199a84130739244743d245b780b608
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 2f3d96908cbcb68ff01a6e43696a119bf21d02ce
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902084"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226573"
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Översiktsdiagram över funktioner i Machine Learning Studio
 Diagrammet **Översikt över funktioner i Microsoft Azure Machine Learning Studio** ger en övergripande bild av hur du kan utveckla en förutsägelseanalysmodell i Machine Learning Studio och använda den i Azure-molnet.
@@ -39,7 +39,7 @@ Det här diagrammet visar hur alla dessa delar hänger ihop.
 ## <a name="download-the-machine-learning-studio-overview-diagram"></a>Ladda ned översiktsdiagrammet över Machine Learning Studio
 Ladda ned diagrammet **Översikt över funktioner i Microsoft Azure Machine Learning Studio**, så får du en övergripande bild av funktionerna i Machine Learning Studio. Om du vill ha det nära tillhands kan du skriva ut det i tabloidformat (280 x 385 mm).
 
-**Här kan du ladda ned diagrammet: [Översikt över funktioner i Microsoft Azure Machine Learning Studio](http://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
+**Här kan du ladda ned diagrammet: [Översikt över funktioner i Microsoft Azure Machine Learning Studio](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
 
 ![Översikt över funktioner i Microsoft Azure Machine Learning Studio][studio-overview]
 

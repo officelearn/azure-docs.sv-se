@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: 432f61adaf736180a720aa23a7275e96fed4c733
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 22f8384105ed31ac2b11e0c6094b01549a270144
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696939"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230877"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Facit för Azure Cosmos DB-fråga
 
@@ -25,7 +25,7 @@ Välj bland en nedladdning Letter eller A3-storlek.
 
 ## <a name="letter-sized-cheat-sheets"></a>A4-facit
 
-Ladda ned den [facit för Azure Cosmos DB-a4-fråga](http://go.microsoft.com/fwlink/?LinkId=623215) om du ska skriva ut på a4-papper (8,5 ”x 11”).
+Ladda ned den [facit för Azure Cosmos DB-a4-fråga](https://go.microsoft.com/fwlink/?LinkId=623215) om du ska skriva ut på a4-papper (8,5 ”x 11”).
 
 ![Azure Cosmos DB-fråga facit - a4-, med SQL API-, JavaScript, MongoDB-API, Gremlin-API och tabell-API och funktioner](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
 

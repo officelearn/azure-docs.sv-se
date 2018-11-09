@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 11/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 25a8150a2fcf7cdd4e3c82478c0b3db3dad870b4
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a7d77c0a2ce334c9909a621c55866a67e036f9cb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887572"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282789"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Kvoter och begränsningar för Batch-tjänsten
 
@@ -45,17 +45,27 @@ Om du planerar att köra arbetsbelastningar i produktion i Batch kan du behöva 
 
 Om du har skapat ett Batch-konto med poolallokeringsläget inställt **användarprenumeration**, kvoter tillämpas på olika sätt. I detta läge gäller skapas virtuella datorer i Batch och andra resurser direkt i prenumerationen när en pool skapas. Azure Batch-kärnkvoter gäller inte för ett konto som skapats i det här läget. I stället compute-kvoten i prenumerationen för regionala kärnor och andra resurser tillämpas. Mer information om dessa kvoter i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md).
 
+## <a name="pool-size-limits"></a>Storleksgränser för poolen
+
+| **Resurs** | **Övre gräns** |
+| --- | --- |
+| **Compute-noder i [mellan noder kommunikation aktiverat pool](batch-mpi.md)**  ||
+| Poolallokeringsläget för batch-tjänsten | 100 |
+| Poolallokeringsläget för batch-prenumeration | 80 |
+| **Compute-noder i [poolen som skapats med en anpassad virtuell datoravbildning](batch-custom-images.md)**<sup>1</sup> ||
+| Dedikerade noder | 2000 |
+| Lågprioriterade virtuella noder | 1000 |
+
+<sup>1</sup> för pooler som är Obs mellan noder kommunikation är aktiverat.
+
 ## <a name="other-limits"></a>Andra gränser
 
 | **Resurs** | **Övre gräns** |
 | --- | --- |
-| [Samtidiga uppgifter](batch-parallel-node-tasks.md) per compute-nod |4 x antalet kärnor för noden |
-| [Program](batch-application-packages.md) per Batch-konto |20 |
-| Programpaket per program |40 |
+| [Samtidiga uppgifter](batch-parallel-node-tasks.md) per compute-nod | 4 x antalet kärnor för noden |
+| [Program](batch-application-packages.md) per Batch-konto | 20 |
+| Programpaket per program | 40 |
 | Maximal aktiviteternas livslängd | 7 dagar<sup>1</sup> |
-| Compute-noder i [mellan noder kommunikation aktiverat pool](batch-mpi.md) | 100 |
-| Dedikerade beräkningsnoder i [poolen som skapats med en anpassad virtuell datoravbildning](batch-custom-images.md) | 2500 |
-| Beräkningsnoder med låg prioritet i [poolen som skapats med en anpassad virtuell datoravbildning](batch-custom-images.md) | 1000 |
 
 <sup>1</sup> högsta livstid för en uppgift, från när den läggs till i jobbet tills den slutförs, är 7 dagar. Slutförda uppgifter finns kvar på obestämd tid. Data för uppgifter som inte slutförts inom den maximala livstiden är inte tillgängliga.
 

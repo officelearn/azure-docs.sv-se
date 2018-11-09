@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 8383d6afa4b6029aca3978c53eec1865d1d8c8ea
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b23b2c46098fb53a3a08ff86c46cc6b6c9b936bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721848"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228580"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Skydda ett fristående kluster i Windows genom att använda X.509-certifikat
 Den här artikeln beskriver hur du skyddar kommunikationen mellan de olika noderna i ditt fristående Windows-kluster. Det beskriver också hur du autentiserar klienter som ansluter till det här klustret genom att använda X.509-certifikat. Autentisering säkerställer att endast behöriga användare kan få åtkomst till klustret och distribuerade program och utföra administrativa uppgifter. Certifikatsäkerhet ska aktiveras på klustret när klustret har skapats.  
@@ -257,7 +257,7 @@ Om du använder utfärdarens-butiker behöver ingen config-uppgradering som ska 
 ## <a name="acquire-the-x509-certificates"></a>Hämta X.509-certifikat
 Om du vill skydda kommunikation inom klustret, måste du först hämta X.509-certifikat för klusternoderna. Dessutom för att begränsa anslutning till det här klustret till behöriga datorer/användare, måste du hämta och installera certifikat för klientdatorerna.
 
-För kluster som kör produktionsarbetsbelastningar kan använda en [certifikatutfärdare (CA)](https://en.wikipedia.org/wiki/Certificate_authority)-signerade X.509-certifikat för att skydda klustret. Mer information om hur du skaffar dessa certifikat finns i [hur du skaffar ett certifikat](http://msdn.microsoft.com/library/aa702761.aspx).
+För kluster som kör produktionsarbetsbelastningar kan använda en [certifikatutfärdare (CA)](https://en.wikipedia.org/wiki/Certificate_authority)-signerade X.509-certifikat för att skydda klustret. Mer information om hur du skaffar dessa certifikat finns i [hur du skaffar ett certifikat](https://msdn.microsoft.com/library/aa702761.aspx).
 
 För kluster som du kan använda för testning kan välja du att använda ett självsignerat certifikat.
 

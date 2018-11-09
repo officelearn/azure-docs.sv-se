@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: adc58ed8e4c9f5ee0ac83d03e3a95b114364ed66
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
-ms.translationtype: HT
+ms.date: 10/17/2018
+ms.openlocfilehash: 661fd36b4451238f488bff1db60a901a8dabd5aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49355550"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242168"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Vanliga frågor och svar om Azure SQL hyperskala databaser
 
@@ -253,7 +253,7 @@ Ja. Kommer från olika datakällor utom kräver SQL Server logiska migrering. Du
 
 ### <a name="what-slas-are-provided-for-a-hyperscale-database"></a>Vad serviceavtal tillhandahålls för en databas i hyperskala
 
-SERVICEAVTAL tillhandahålls i allmänhet inte allmänt tillgängliga förhandsversionen. Hyperskala innehåller dock samma nivå av hög tillgänglighet med den aktuella SQL DB erbjudanden. Se [SLA](http://azure.microsoft.com/support/legal/sla/).
+SERVICEAVTAL tillhandahålls i allmänhet inte allmänt tillgängliga förhandsversionen. Hyperskala innehåller dock samma nivå av hög tillgänglighet med den aktuella SQL DB erbjudanden. Se [SLA](https://azure.microsoft.com/support/legal/sla/).
 
 ### <a name="are-the-database-backups-managed-for-me-by-the-azure-sql-database-service"></a>Säkerhetskopior av databasen hanteras för mig av tjänsten Azure SQL Database
 

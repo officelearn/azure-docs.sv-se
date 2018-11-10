@@ -1,6 +1,6 @@
 ---
 title: Etablera en simulerad TPM-enhet på Azure IoT Hub med Java | Microsoft Docs
-description: Azure snabbstart – Skapa och etablera en simulerad TPM-enhet med Java-enhets-SDK för Azure IoT Hub Device Provisioning-tjänsten
+description: Azure-snabbstart – Skapa och etablera en simulerad TPM-enhet med Java-enhets-SDK för Azure IoT Hub Device Provisioning Service. Den här snabbstarten använder enskilda registreringar.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/2018
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: b6c6e407e0bd54c4713056fdee12f7a4c355af97
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c1426ebb5a64a1e0552cc35a736186fda60a5af1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030922"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415159"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad TPM-enhet med Java-enhets-SDK för Azure IoT Hub Device Provisioning-tjänsten
 
@@ -23,13 +23,19 @@ ms.locfileid: "47030922"
 
 Dessa steg visar hur du skapar en simulerad enhet på utvecklingsdatorn som kör Windows OS, kör Windows TPM-simulatorn som [maskinvarusäkerhetsmodul (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) för enheten och använder kodexemplet för att ansluta till denna simulerade enhet med Device Provisioning-tjänsten och IoT-hubben. 
 
-Om du inte känner till processen för automatisk etablering, bör du också gå igenom [Begrepp inom automatisk etablering](concepts-auto-provisioning.md). Se också till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal) innan du fortsätter. 
+Om du inte känner till processen för automatisk etablering, bör du även gå igenom [Begrepp inom automatisk etablering](concepts-auto-provisioning.md). Se också till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal) innan du fortsätter. 
+
+Azure IoT Device Provisioning Service stöder två typer av registreringar:
+- [Registreringsgrupper](concepts-service.md#enrollment-group): används för att registrera flera relaterade enheter.
+- [Enskilda registreringar](concepts-service.md#individual-enrollment): används för att registrera en enskild enhet.
+
+Den här artikeln visar enskilda registreringar.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
 ## <a name="prepare-the-environment"></a>Förbereda miljön 
 
-1. Kontrollera att [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) är installerat på datorn.
+1. Kontrollera att [Java SE Development Kit 8](https://aka.ms/azure-jdks) är installerat på datorn.
 
 1. Ladda ned och installera [Maven](https://maven.apache.org/install.html).
 
@@ -62,11 +68,11 @@ Om du inte känner till processen för automatisk etablering, bör du också gå
     cd provisioning/provisioning-samples/provisioning-tpm-sample
     ```
 
-1. Logga in på Azure-portalen, klicka på knappen **Alla resurser** i den vänstra menyn och öppna Device Provisioning-tjänsten. Kom ihåg _ID-omfång_ och _Provisioning Service Global Endpoint_ (Global slutpunkt för etableringstjänsten).
+1. Logga in på Azure-portalen, klicka på knappen **Alla resurser** i den vänstra menyn och öppna Device Provisioning-tjänsten. Kom ihåg _ID-omfång_ och _Global slutpunkt för etableringstjänsten_.
 
     ![Information om enhetsetableringstjänsten](./media/java-quick-create-simulated-device/extract-dps-endpoints.png)
 
-1. Redigera `src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningTpmSample.java` så att _ID-omfång_ och _Provisioning Service Global Endpoint_ (Global slutpunkt för etableringstjänsten) inkluderas enligt tidigare notering.  
+1. Redigera `src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningTpmSample.java` så att _ID-omfång_ och _Global slutpunkt för etableringstjänsten_ inkluderas enligt tidigare notering.  
 
     ```java
     private static final String idScope = "[Your ID scope here]";
@@ -82,7 +88,7 @@ Om du inte känner till processen för automatisk etablering, bör du också gå
     java -jar ./provisioning-tpm-sample-{version}-with-deps.jar
     ```
 
-1. Programmet börjar att köras. Kom ihåg _bekräftelsenyckeln_ och _Registrerings-ID_ för nästa avsnitt och lämna programmet igång.
+1. Programmet börjar att köras. Kom ihåg _bekräftelsenyckeln_ och _Registrerings-ID_ för nästa avsnitt och låt programmet fortsätta köra.
 
     ![Java TPM-enhetsprogram](./media/java-quick-create-simulated-device/program.png)
     

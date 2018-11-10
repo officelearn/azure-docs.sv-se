@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 234e9233e69877c9afe79a5a053a4310d013a9ab
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: fbe3aeac3918142388edfa8cd053badd362d7fd7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646118"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241930"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Ramverk för djupinlärning och AI
-Den [Data Science Virtual Machine](http://aka.ms/dsvm) (DSVM) och [Deep Learning VM](http://aka.ms/dsvm/deeplearning) stöder ett antal olika ramverk för djupinlärning för att skapa artificiell intelligens (AI) program med förutsägelseanalys och kognitiva funktioner som bild- och språkförståelse. 
+Den [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) och [Deep Learning VM](https://aka.ms/dsvm/deeplearning) stöder ett antal olika ramverk för djupinlärning för att skapa artificiell intelligens (AI) program med förutsägelseanalys och kognitiva funktioner som bild- och språkförståelse. 
 
 Här följer information på alla deep learning-ramverk som är tillgängliga på DSVM.
 

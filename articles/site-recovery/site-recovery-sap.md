@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: c83cf9fb319c21881f0db8bd94dc9a94a3b811bc
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1f38cd62a1394d45716e7224cc03a059fcaf9e13
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211731"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247763"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Konfigurera haveriberedskap för en app-distribution för flera nivåer av SAP NetWeaver
 
@@ -93,8 +93,8 @@ Nedan visas stegen för att konfigurera den för haveriberedskap
 2. Utforma återställningsnätverk
 3.  Replikera en domänkontrollant
 4.  Replikera data basnivån 
-5.  Gör ett redundanstest 
-6.  Gör en redundansväxling 
+5.  Utföra ett redundanstest 
+6.  Göra en redundansväxling 
 
 Nedan visas i rekommendationen för haveriberedskap för varje nivå som används i det här exemplet. 
 
@@ -150,7 +150,7 @@ Du kan distribuera de mest använda Azure Site Recovery-skript i ditt Automation
 
 1.  Välj Recovery Services-valvet i Azure-portalen.
 2.  Välj återställningsplan som du skapade för SAP-program.
-3.  Välj **Redundanstest**.
+3.  Välj **Testa redundans**.
 4.  Välj återställningspunkten och Azure-nätverket om du vill börja testa redundansprocessen.
 5.  När den sekundära miljön är igång, utföra verifieringar.
 6.  När verifieringar har slutförts, för att rensa redundans-miljö, Välj **Rensa redundanstestning**.
@@ -161,11 +161,11 @@ Mer information finns i [testa redundans till Azure i Site Recovery](site-recove
 
 1.  Välj Recovery Services-valvet i Azure-portalen.
 2.  Välj återställningsplan som du skapade för SAP-program.
-3.  Välj **redundans**.
+3.  Välj **Redundans**.
 4.  Välj återställningspunkten för att starta redundansprocessen.
 
 Mer information finns i [redundans i Site Recovery](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Nästa steg
-* Mer information om hur du skapar en lösning för haveriberedskap för SAP NetWeaver-distributioner genom att använda Site Recovery finns nedladdningsbara dokumentet [SAP NetWeaver: skapa en lösning för Haveriberedskap med Azure Site Recovery](http://aka.ms/asr-sap). Dokumentet beskriver rekommendationer för olika SAP-arkitekturer, visar en lista över vilka program och VM-typer för SAP på Azure och beskriver testning alternativ för din haveriberedskapslösning.
+* Mer information om hur du skapar en lösning för haveriberedskap för SAP NetWeaver-distributioner genom att använda Site Recovery finns nedladdningsbara dokumentet [SAP NetWeaver: skapa en lösning för Haveriberedskap med Azure Site Recovery](https://aka.ms/asr-sap). Dokumentet beskriver rekommendationer för olika SAP-arkitekturer, visar en lista över vilka program och VM-typer för SAP på Azure och beskriver testning alternativ för din haveriberedskapslösning.
 * Läs mer om [replikera andra arbetsbelastningar](site-recovery-workload.md) med hjälp av Site Recovery.

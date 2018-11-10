@@ -1,6 +1,6 @@
 ---
-title: 'Felsöka: Skapa och ansluta till en arbetsyta i Machine Learning | Microsoft Docs'
-description: Lösningar på vanliga problem med att skapa och ansluta till en Azure Machine Learning-arbetsytan
+title: 'Felsök: Skapa och ansluta till en Machine Learning-arbetsyta | Microsoft Docs'
+description: Lösningar på vanliga problem i Skapa och ansluta till en Azure Machine Learning-arbetsyta
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
@@ -15,56 +15,56 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 262c9af4e0f3ee34dc89986affacb6c0d8a0d801
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 1d53e13798f24fa6225b0a587dde71b4f34f48fc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835730"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243393"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-machine-learning-workspace"></a>Felsökningsguide: Skapa och anslut till en Machine Learning-arbetsyta
-Den här guiden ger lösningar för några vanliga påträffade utmaningar när du ställer in Azure Machine Learning arbetsytor.
+Den här guiden innehåller lösningar för några vanliga påträffade utmaningar när du ställer in Azure Machine Learning-arbetsytor.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="workspace-owner"></a>Arbetsytesägare
-Om du vill öppna en arbetsyta i Machine Learning Studio, måste du vara inloggad på Account du använde för att skapa arbetsytan eller måste du få en inbjudan från ägare att ansluta till arbetsytan. Du kan hantera arbetsytan, vilket ger möjlighet att konfigurera åtkomst från Azure-portalen.
+Du öppnar en arbetsyta i Machine Learning Studio, måste du vara inloggad på Account du använde för att skapa arbetsytan eller du måste ta emot en inbjudan från ägaren att ansluta till arbetsytan. Du kan hantera arbetsytan, vilket ger möjlighet att konfigurera åtkomst från Azure-portalen.
 
-Mer information om hur du hanterar en arbetsyta finns [hantera en Azure Machine Learning-arbetsytan].
+Läs mer om hur du hanterar en arbetsyta, [hantera en Azure Machine Learning-arbetsyta].
 
-[Hantera en Azure Machine Learning-arbetsytan]: manage-workspace.md
+[Hantera en Azure Machine Learning-arbetsyta]: manage-workspace.md
 
 ## <a name="allowed-regions"></a>Tillåtna regioner
-Machine Learning är tillgänglig i ett begränsat antal regioner. Om din prenumeration inte innehåller något av dessa regioner kan du se ett felmeddelande, ”du har inga prenumerationer i tillåtna regioner”.
+Machine Learning är för närvarande tillgängligt i ett begränsat antal regioner. Om din prenumeration inte innehåller något av dessa regioner kan du kan se ett felmeddelande, ”du har inga prenumerationer i tillåtna regioner”.
 
-Om du vill begära att en region som ska läggas till din prenumeration, skapa en ny Microsoft supportförfrågan från Azure portal, väljer **fakturering** som problemtyp, och följ anvisningarna för att skicka din begäran.
+Om du vill begära att en region ska läggas till din prenumeration, skapa en ny supportbegäran för Microsoft från Azure portal, Välj **fakturering** som problemtyp, och följ anvisningarna för att skicka din begäran.
 
 ## <a name="storage-account"></a>Lagringskonto
-Tjänsten Machine Learning måste ett storage-konto för att lagra data. Du kan använda ett befintligt lagringskonto eller skapa ett nytt lagringskonto när du skapar den nya Machine Learning-arbetsytan (om du har en kvot för att skapa ett nytt lagringskonto).
+Machine Learning-tjänsten behöver ett lagringskonto för att lagra data. Du kan använda ett befintligt lagringskonto eller du kan skapa ett nytt lagringskonto när du skapar nya Machine Learning-arbetsytan (om du har en kvot för att skapa ett nytt lagringskonto).
 
-När den nya Machine Learning-arbetsytan har skapats kan logga du in till Machine Learning Studio med hjälp av Microsoft-konto som du använde för att skapa arbetsytan. Om du får felmeddelandet Använd ”arbetsytan kunde inte hittas” (ungefär som följande skärmbild), följande steg att ta bort cookies i webbläsaren.
+När den nya Machine Learning-arbetsytan har skapats kan logga du in till Machine Learning Studio med hjälp av Microsoft-kontot som du använde för att skapa arbetsytan. Om du får felmeddelandet Använd ”arbetsyta hittades inte” (ungefär som följande skärmbild), följande steg att ta bort cookies i webbläsaren.
 
-![Det gick inte att hitta arbetsytan][screen3]
+![Arbetsytan hittades inte][screen3]
 
-**Ta bort cookies i webbläsaren**
+**Att ta bort cookies i webbläsaren**
 
-1. Om du använder Internet Explorer klickar du på den **verktyg** i det övre högra hörnet och välj **Internetalternativ**.  
+1. Om du använder Internet Explorer, klickar du på den **verktyg** i det övre högra hörnet och välj **Internetalternativ**.  
 
 ![Internet-alternativ][screen4]
 
-2. Under den **allmänna** klickar du på **ta bort...**
+2. Under den **Allmänt** fliken **ta bort...**
 
 ![Fliken Allmänt][screen5]
 
-3. I den **ta bort webbhistorik** dialogrutan Kontrollera **Cookies och webbplatsen data** är markerad och klicka på **ta bort**.
+3. I den **ta bort webbhistorik** dialogrutan Kontrollera **Cookies och webbsidesdata** är markerad och klicka på **ta bort**.
 
 ![Ta bort cookies][screen6]
 
-Starta om webbläsaren efter cookies tas bort och går sedan till den [Microsoft Azure Machine Learning](https://studio.azureml.net) sidan. När du ombeds ange ett användarnamn och lösenord anger du samma Microsoft-konto som du använde för att skapa arbetsytan.
+Efter det raderas cookies, starta om webbläsaren och gå sedan till den [Microsoft Azure Machine Learning](https://studio.azureml.net) sidan. När du ombeds ange ett användarnamn och lösenord anger du samma Microsoft-konto som du använde för att skapa arbetsytan.
 
 ## <a name="comments"></a>Kommentarer
 
-Vårt mål är att göra Machine Learning-upplevelse som sömlös som möjligt. Kontrollera efter eventuella kommentarer och problem på den [Azure Machine Learning-forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) som hjälper oss att hantera du bättre.
+Vårt mål är att göra Machine Learning-miljö så smidig som möjligt. Du publicera alla kommentarer och problem med den [Azure Machine Learning-forumet](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) så att vi dig.
 
 [screen1]:media/troubleshooting-creating-ml-workspace/screen1.png
 [screen2]:media/troubleshooting-creating-ml-workspace/screen2.png

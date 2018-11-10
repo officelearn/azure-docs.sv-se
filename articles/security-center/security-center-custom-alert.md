@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 55133310fe9f1bab1c1beb798a04d016919898e1
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 23e7ec45f4f1bdfdeeabff11a63c976f4df605d1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300179"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248613"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Anpassade aviseringsregler i Azure Security Center (förhandsversion)
 I det här avsnittet berättar vi hur du skapar anpassade aviseringsregler i Azure Security Center.
@@ -61,7 +61,7 @@ Med hjälp av anpassade aviseringsregler i Security Center kan du definiera nya 
 
     Frågans resultat utlöser aviseringen. Tänk på att när du skriver in en giltig fråga visas en grön bockmarkering i det högra hörnet av detta fält:
 
-    ![Fråga](./media/security-center-custom-alert/security-center-custom-alert-fig3.png)
+    ![Söka i data](./media/security-center-custom-alert/security-center-custom-alert-fig3.png)
 
 10. Välj det tidsintervall då frågan ovan ska köras i fältet **Period**. Tänk på att sökresultatet längst ned i detta fält ändras beroende på det tidsintervall som du väljer.
 
@@ -87,4 +87,4 @@ I det här avsnittet har vi berättat hur du skapar en anpassad aviseringsregel 
 * [Förstå säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Läs mer om de olika typerna av säkerhetsaviseringar.
 * [Felsökningsguide för Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Lär dig hur du felsöker vanliga problem i Security Center.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md). Här finns vanliga frågor om att använda tjänsten.
-* [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/). Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
+* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/). Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 10b4fec92752e44048454e8b63e90fd9b7fecba0
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 449df8e49eb63cb6e52cd4ec25dafc2bb0851347
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023193"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241778"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Konfigurera en extern lyssnare för Always On-Tillgänglighetsgrupper i Azure
 > [!div class="op_single_selector"]
@@ -127,7 +127,7 @@ För att komma åt lyssnaren från utanför det virtuella nätverket måste du a
 
     sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 
-Till skillnad från det tidigare exemplet måste SQL-autentisering användas, eftersom anroparen inte kan använda windows-autentisering via internet. Mer information finns i [ständigt aktiverad tillgänglighetsgrupp i Azure VM: scenarier för anslutning av klienten](http://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). När du använder SQL-autentisering måste du kontrollera att du skapar samma inloggning på båda replikerna. Läs mer om hur du felsöker inloggningar med Tillgänglighetsgrupper [mappa inloggningar eller använder oberoende databasanvändare som SQL för att ansluta till andra repliker och mappa tillgänglighetsdatabaserna](http://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
+Till skillnad från det tidigare exemplet måste SQL-autentisering användas, eftersom anroparen inte kan använda windows-autentisering via internet. Mer information finns i [ständigt aktiverad tillgänglighetsgrupp i Azure VM: scenarier för anslutning av klienten](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). När du använder SQL-autentisering måste du kontrollera att du skapar samma inloggning på båda replikerna. Läs mer om hur du felsöker inloggningar med Tillgänglighetsgrupper [mappa inloggningar eller använder oberoende databasanvändare som SQL för att ansluta till andra repliker och mappa tillgänglighetsdatabaserna](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
 
 Om Always On-repliker är i olika undernät, måste klienter ange **MultisubnetFailover = True** i anslutningssträngen. Detta resulterar i parallella anslutningsförsök till kopior i olika undernät. Observera att det här scenariot innehåller en interregionala Always On Availability Group-distribution.
 

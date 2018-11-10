@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 8f9504458b1f332193e8457bcc9cf41e85fd6aca
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 558df3fa70989aaf9ba182df3a918994c7dc9db6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38573408"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243717"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Lägg till ägare och användare i Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -64,7 +64,7 @@ I följande tabell visar de åtgärder som kan utföras av användare i var och 
 Ägare och användare kan läggas på nivån lab via Azure portal. En användare kan vara en extern användare med en giltig [Microsoft-konto (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account).
 Följande steg vägleder dig genom processen att lägga till ägare eller användare i ett labb i Azure DevTest Labs:
 
-1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Välj **alla tjänster**, och välj sedan **DevTest Labs** i listan.
 3. Listan över labbar, Välj önskade labbet.
 4. På den labb-bladet och välj **konfiguration och principer**. 
@@ -116,11 +116,11 @@ Du kan hämta den `subscriptionId`, `labResourceGroup`, och `labName` värdena f
 ## <a name="add-an-owner-or-user-at-the-subscription-level"></a>Lägg till ägare eller användaren på prenumerationsnivån
 Azure-behörigheter har spridits från överordnad omfattning till underordnade omfång i Azure. Ägare till en Azure-prenumeration som innehåller labs är därför automatiskt ägare till dessa labs. De äger de virtuella datorerna och andra resurser som skapats av den labbanvändare och tjänsten Azure DevTest Labs. 
 
-Du kan lägga till ytterligare ägare till ett labb via den labb-bladet i den [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=525040). Har lagts till ägarens omfånget för administration är dock smalare än den prenumerationsägaren omfång. Till exempel har har lagts till ägare inte fullständig åtkomst till vissa av de resurser som skapats i prenumerationen med DevTest Labs-tjänsten. 
+Du kan lägga till ytterligare ägare till ett labb via den labb-bladet i den [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040). Har lagts till ägarens omfånget för administration är dock smalare än den prenumerationsägaren omfång. Till exempel har har lagts till ägare inte fullständig åtkomst till vissa av de resurser som skapats i prenumerationen med DevTest Labs-tjänsten. 
 
 Följ dessa steg för att lägga till en ägare till en Azure-prenumeration:
 
-1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Välj **alla tjänster**, och välj sedan **prenumerationer** i listan.
 3. Välj den önskade prenumerationen.
 4. Välj **åtkomst** ikon. 

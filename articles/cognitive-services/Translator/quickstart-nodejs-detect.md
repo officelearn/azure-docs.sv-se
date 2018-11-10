@@ -1,136 +1,164 @@
 ---
-title: 'Snabbstart: Identifiera språk i text, Node.js – Translator Text-API'
+title: 'Snabbstart: Identifiera textspråk, Node.js – Translator Text API'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten ska du identifiera språket i källtexten med hjälp av Translator Text-API:et med Node.js.
+description: I den här snabbstarten lär du dig att identifiera språket för angiven text med hjälp av Node.js och Translator Text REST API.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/21/2018
+ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 15c8b8077caf7c1235d0eff0429f7ada11e533ff
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: d70a420f01c7bf3486093951e89c9f48db148d88
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49644682"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248769"
 ---
-# <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-nodejs"></a>Snabbstart: Identifiera språk från text med Translator Text REST API (Node.js)
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-with-nodejs"></a>Snabbstart: Använda Translator Text API för att identifiera textspråk med Node.js
 
-I den här snabbstarten ska du identifiera språket i källtexten med hjälp av Translator Text-API:et.
+I den här snabbstarten lär du dig att identifiera språket för angiven text med hjälp av Node.js och Translator Text REST API.
+
+För den här snabbstarten krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator Text-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [Node.js 6](https://nodejs.org/en/download/) för att köra den här koden.
+För den här snabbstarten krävs:
 
-För att använda Translator Text-API:et behöver du även en prenumerationsnyckel. Mer information finns i [How to sign up for the Translator Text API](translator-text-how-to-signup.md) (Så här registrerar du dig för Translator Text-API:et).
+* [Nod 8.12.x eller senare](https://nodejs.org/en/)
+* En Azure-prenumerationsnyckel för Translator Text
 
-## <a name="detect-request"></a>Identifieringsbegäran
+## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
 
-Följande kod identifierar språket i källtexten med hjälp av metoden [Identifiera](./reference/v3-0-detect.md).
-
-1. Skapa ett nytt Node.js-projekt i valfri kodredigerare.
-2. Lägg till koden nedan.
-3. Ersätt värdet `subscriptionKey` med en giltig åtkomstnyckel för din prenumeration.
-4. Kör programmet.
+Skapa ett nytt projekt med valfri IDE eller redigeringsprogram. Kopiera sedan det här kodavsnittet till projektet i en fil med namnet `detect.js`.
 
 ```javascript
-'use strict';
-
-let fs = require ('fs');
-let https = require ('https');
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the subscriptionKey string value with your valid subscription key.
-let subscriptionKey = 'ENTER KEY HERE';
-
-let host = 'api.cognitive.microsofttranslator.com';
-let path = '/detect?api-version=3.0';
-
-let params = '';
-
-let text = 'Salve, mondo!';
-
-let response_handler = function (response) {
-    let body = '';
-    response.on ('data', function (d) {
-        body += d;
-    });
-    response.on ('end', function () {
-        let json = JSON.stringify(JSON.parse(body), null, 4);
-        console.log(json);
-    });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
-    });
-};
-
-let get_guid = function () {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-    return v.toString(16);
-  });
-}
-
-let Detect = function (content) {
-    let request_params = {
-        method : 'POST',
-        hostname : host,
-        path : path + params,
-        headers : {
-            'Content-Type' : 'application/json',
-            'Ocp-Apim-Subscription-Key' : subscriptionKey,
-            'X-ClientTraceId' : get_guid (),
-        }
-    };
-
-    let req = https.request (request_params, response_handler);
-    req.write (content);
-    req.end ();
-}
-
-let content = JSON.stringify ([{'Text' : text}]);
-
-Detect (content);
+const request = require('request');
+const uuidv4 = require('uuid/v4');
 ```
 
-## <a name="detect-response"></a>Svar från identifieringen
+> [!NOTE]
+> Om du inte har använt de här modulerna behöver du installera dem innan du kör programmet. För att installera de här paketen kör du: `npm install request uuidv4`.
 
-Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
+De här modulerna krävs för att skapa HTTP-begäran och skapa en unik identifierare för `'X-ClientTraceId'`-sidhuvudet.
+
+## <a name="set-the-subscription-key"></a>Ange prenumerationsnyckeln
+
+Den här koden kommer att försöka läsa din Translator Text-prenumerationsnyckel från miljövariabeln `TRANSLATOR_TEXT_KEY`. Om du inte känner till miljövariabler kan du ange `subscriptionKey` som en sträng och kommentera bort den villkorliga instruktionen.
+
+Kopiera den här koden till projektet:
+
+```javascript
+/* Checks to see if the subscription key is available
+as an environment variable. If you are setting your subscription key as a
+string, then comment these lines out.
+
+If you want to set your subscription key as a string, replace the value for
+the Ocp-Apim-Subscription-Key header as a string. */
+const subscriptionKey = process.env.TRANSLATOR_TEXT_KEY;
+if (!subscriptionKey) {
+  throw new Error('Environment variable for your subscription key is not set.')
+};
+```
+
+## <a name="configure-the-request"></a>Konfigurera begäran
+
+Metoden `request()`, som görs tillgänglig via begärandemodulen, gör att vi kan skicka HTTP-metoden, URL:en, begärandeparametrarna, sidhuvudena och JSON-brödtexten som ett `options`-objekt. I det här kodavsnittet konfigurerar vi begäran:
+
+>[!NOTE]
+> Mer information om slutpunkter, vägar och begärandeparametrar finns i [Translator Text API 3.0: Identifiera](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
+
+```javascript
+let options = {
+    method: 'POST',
+    baseUrl: 'https://api.cognitive.microsofttranslator.com/',
+    url: 'detect',
+    qs: {
+      'api-version': '3.0',
+    },
+    headers: {
+      'Ocp-Apim-Subscription-Key': subscriptionKey,
+      'Content-type': 'application/json',
+      'X-ClientTraceId': uuidv4().toString()
+    },
+    body: [{
+          'text': 'Salve, mondo!'
+    }],
+    json: true,
+};
+```
+
+### <a name="authentication"></a>Autentisering
+
+Det enklaste sättet att autentisera en begäran är att skicka din prenumerationsnyckel som ett `Ocp-Apim-Subscription-Key`-sidhuvud, vilket är det vi använder i det här exemplet. Alternativt kan du byta din prenumerationsnyckel mot en åtkomsttoken och skicka vidare åtkomsttoken som ett `Authorization`-sidhuvud för att verifiera din begäran. Mer information finns i [Autentisering](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+
+## <a name="make-the-request-and-print-the-response"></a>Göra begäran och skriva ut svaret
+
+Nu skapar vi begäran med hjälp av metoden `request()`. Det tar det `options`-objekt som vi skapade i föregående avsnitt som det första argumentet, och skriver sedan ut det förenklade JSON-svaret.
+
+```javascript
+request(options, function(err, res, body){
+    console.log(JSON.stringify(body, null, 4));
+});
+```
+
+>[!NOTE]
+> I det här exemplet definierar vi HTTP-begäran i `options`-objektet. Dock har begärandemodulen även stöd för bekvämlighetsmetoder såsom `.post` och `.get`. Mer information finns i [bekvämlighetsmetoder](https://github.com/request/request#convenience-methods).
+
+## <a name="put-it-all-together"></a>Färdigställa allt
+
+Det var allt – du har skapat ett enkelt program som anropar Translator Text API och returnerar en JSON-svar. Nu är det dags att köra programmet:
+
+```console
+node detect.js
+```
+
+Om du vill jämföra din kod med vår finns det fullständiga exemplet på [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS).
+
+## <a name="sample-response"></a>Exempelsvar
 
 ```json
 [
-  {
-    "language": "it",
-    "score": 1.0,
-    "isTranslationSupported": true,
-    "isTransliterationSupported": false,
-    "alternatives": [
-      {
-        "language": "pt",
-        "score": 1.0,
+    {
+        "alternatives": [
+            {
+                "isTranslationSupported": true,
+                "isTransliterationSupported": false,
+                "language": "pt",
+                "score": 1.0
+            },
+            {
+                "isTranslationSupported": true,
+                "isTransliterationSupported": false,
+                "language": "en",
+                "score": 1.0
+            }
+        ],
         "isTranslationSupported": true,
-        "isTransliterationSupported": false
-      },
-      {
-        "language": "en",
-        "score": 1.0,
-        "isTranslationSupported": true,
-        "isTransliterationSupported": false
-      }
-    ]
-  }
+        "isTransliterationSupported": false,
+        "language": "it",
+        "score": 1.0
+    }
 ]
 ```
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du har hårdkodat din prenumerationsnyckel i programmet ser du till att ta bort prenumerationsnyckeln när du är klar med den här snabbstarten.
+
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska exempelkoden för den här snabbstarten och andra, inklusive översättning och transkribering, samt andra Translator Text-exempelprojekt på GitHub.
-
 > [!div class="nextstepaction"]
-> [Utforska Node.js-exempel på GitHub](https://aka.ms/TranslatorGitHub?type=&language=javascript)
+> [Utforska Node.js-exempel på GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS)
+
+## <a name="see-also"></a>Se även
+
+Utöver språkidentifiering lär du dig hur du använder Translator Text API för att:
+
+* [Översätta text](quickstart-nodejs-translate.md)
+* [Translitterera text](quickstart-nodejs-transliterate.md)
+* [Hämta alternativa översättningar](quickstart-nodejs-dictionary.md)
+* [Hämta en lista över språk som stöds](quickstart-nodejs-languages.md)
+* [Fastställa meningslängd utifrån indata](quickstart-nodejs-sentences.md)

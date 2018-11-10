@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 11/6/2018
 ms.author: patricka
-ms.openlocfilehash: a1c516ebbeb33d2aa92f6a0e3031a2b2d9fb4e9c
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.reviewer: bryanr
+ms.openlocfilehash: fbf62e53ffe3fc3540086137955417bec56e7825
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026168"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240179"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Flera innehavare i Azure Stack
 
@@ -26,9 +27,9 @@ ms.locfileid: "50026168"
 
 Du kan konfigurera Azure Stack för att hantera användare från flera Azure Active Directory (Azure AD)-klienter kan använda tjänster i Azure Stack. Tänk dig följande scenario:
 
- - Du är tjänstadministratör för contoso.onmicrosoft.com, där Azure Stack är installerad.
- - Mary är Katalogadministratör för fabrikam.onmicrosoft.com, där gästanvändare finns. 
- - Marys företaget tar emot IaaS och PaaS-tjänster från ditt företag och behöver användarna från gästkatalogen (fabrikam.onmicrosoft.com) kan logga in och använda Azure Stack-resurser i contoso.onmicrosoft.com.
+- Du är tjänstadministratör för contoso.onmicrosoft.com, där Azure Stack är installerad.
+- Mary är Katalogadministratör för fabrikam.onmicrosoft.com, där gästanvändare finns.
+- Marys företaget tar emot IaaS och PaaS-tjänster från ditt företag och behöver användarna från gästkatalogen (fabrikam.onmicrosoft.com) kan logga in och använda Azure Stack-resurser i contoso.onmicrosoft.com.
 
 Den här guiden innehåller de steg som krävs i samband med det här scenariot konfigurerar flera innehavare i Azure Stack. I det här scenariot måste du och Mary slutföra stegen för att aktivera användare från Fabrikam att logga in och använda tjänster från Azure Stack-distributioner i Contoso.  
 
@@ -50,6 +51,8 @@ Det finns några krav att kompensera för innan du konfigurerar flera innehavare
 I det här avsnittet konfigurerar du Azure Stack för att tillåta inloggningar från Fabrikam Azure AD directory-klienter.
 
 Publicera gäst-Directory-klient (Fabrikam) till Azure Stack genom att konfigurera Azure Resource Manager för att acceptera användare och tjänsthuvudnamn från gästen directory-klient.
+
+Service-administratör för contoso.onmicrosoft.com kör följande kommandon.
 
 ````PowerShell  
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -76,11 +79,11 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 
 ### <a name="configure-guest-directory"></a>Konfigurera gästkatalogen
 
-När du har slutfört stegen i Azure Stack-directory måste Mary ge medgivande till Azure Stack åtkomst till gästkatalogen och registrera Azure Stack med gästkatalogen. 
+När Azure Stack-administratör / operator har aktiverat Fabrikam-katalog som ska användas med Azure Stack, Mary måste registrera Azure Stack med Fabrikams directory-klient.
 
 #### <a name="registering-azure-stack-with-the-guest-directory"></a>Registrerar Azure Stack med gäst-directory
 
-När gästen directory-administratören har angett samtycke för Azure Stack att komma åt Fabrikams directory, registrera Mary Azure Stack med Fabrikams directory-klient.
+Mary Katalogadministratör på Fabrikam kör följande kommandon i gästen directory fabrikam.onmicrosoft.com.
 
 ````PowerShell
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -99,14 +102,14 @@ Register-AzSWithMyDirectoryTenant `
 > Om din Azure Stack-administratör som installerar nya tjänster eller uppdateringar i framtiden, kan du behöva köra skriptet igen.
 >
 > Kör skriptet igen när som helst för att kontrollera status för Azure Stack-program i din katalog.
-> 
+>
 > Om du har märkt problem med att skapa virtuella datorer i Managed Disks (presenteras i uppdateringen 1808), en ny **Disk Resource Provider** har lagts till, som kräver det här skriptet ska köras igen.
 
 ### <a name="direct-users-to-sign-in"></a>Dirigera användarna att logga in
 
 Nu när du och Mary har slutfört stegen för att publicera Mary directory, kan Mary dirigera Fabrikam-användare att logga in.  Fabrikam-användare (det vill säga användare med suffixet fabrikam.onmicrosoft.com) logga in genom att besöka https://portal.local.azurestack.external.  
 
-Mary dirigerar någon [utländska huvudnamn](../role-based-access-control/rbac-and-directory-admin-roles.md) i katalogen Fabrikam (det vill säga användare i katalogen Fabrikam utan fabrikam.onmicrosoft.com suffix) att logga in med https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Om de inte använder den här URL: en som ska skickas till deras standardkatalog (Fabrikam) och ta emot ett meddelande om att deras administratör inte har godkänt.
+Mary dirigerar någon [utländska huvudnamn](../role-based-access-control/rbac-and-directory-admin-roles.md) i katalogen Fabrikam (det vill säga användare i katalogen Fabrikam utan fabrikam.onmicrosoft.com suffix) att logga in med https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Om de inte använder den här URL: en, de skickas till deras standardkatalog (Fabrikam) och ta emot ett meddelande om att deras administratörsgodkända inte har.
 
 ## <a name="disable-multi-tenancy"></a>Inaktivera flera innehavare
 

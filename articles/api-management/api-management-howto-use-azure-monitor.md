@@ -14,18 +14,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: b4c885758f572851f058edb6e7851d650faed9f9
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 683b77e47857e4efbe2c24425953e9a3d83177f9
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38973006"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418855"
 ---
 # <a name="monitor-published-apis"></a>Övervaka publicerade API:er
 
 Med Azure Monitor kan du visualisera, fråga, vidarebefordra, aktivera och vidta åtgärder för mått eller loggar från resurser i Azure.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Visa aktivitetsloggar
@@ -36,11 +36,10 @@ I den här guiden får du lära dig hur man:
 Följande video visar hur du övervakar API Management med Azure Monitor. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
->
->
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
++ Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 + Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
 + Slutför även följande självstudie: [Importera och publicera ditt första API](import-and-publish.md).
 
@@ -55,17 +54,16 @@ API Management sänder ut mätvärden varje minut, vilket ger dig en insyn i rea
 * Ej auktoriserad begäran: antalet API-begäranden som tog emot HTTP-svarskoder som 401, 403 och 429.
 * Övriga gatewaybegäranden: antalet API-begäranden som tog emot HTTP-svarskoder som inte tillhör någon av ovanstående kategorier (til exempel 418).
 
+![måttdiagram](./media/api-management-azure-monitor/apim-monitor-metrics.png)
+
 Så här får du åtkomst till mått:
 
 1. Välj **Mått** på menyn långt ned på sidan.
 
     ![metrics](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-2. Från listrutan väljer du mått som du är intresserad av (du kan lägga till flera mått).  
-    Välj till exempel **Totalt antal gatewaybegäranden** **Misslyckade gatewaybegäranden** på listan över tillgängliga mått.
-3. Diagrammet visar det totala antalet API-anrop. Det visar även antalet API-anrop som misslyckades.
-
-    ![måttdiagram](./media/api-management-azure-monitor/apim-monitor-metrics.png)
+2. Från listrutan väljer du mått som du är intresserad av. Till exempel **Slutförda gatewaybegäranden**. Du kan också lägga till fler mått i diagrammet.
+3. Diagrammet visar det totala antalet genomförda API-anrop.
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Konfigurera en aviseringsregel för obehörig begäran
 
@@ -102,6 +100,8 @@ Aktivitetsloggar ger insikt i de åtgärder som vidtogs för dina API Management
 
 Du kan få åtkomst till aktivitetsloggar i API Management-tjänsten eller få åtkomst till loggar för alla dina Azure-resurser i Azure Monitor. 
 
+![aktivitetsloggar](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
+
 Så här visar du aktivitetsloggar:
 
 1. Välj din APIM-tjänstinstans.
@@ -111,8 +111,6 @@ Så här visar du aktivitetsloggar:
 
 3. Välj önskat filtreringsomfång och klicka på **Använd**.
 
-    ![aktivitetsloggar](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
-
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 
 Diagnostikloggar innehåller omfattande information om åtgärder och fel som är viktiga för granskning, samt i felsökningssyfte. Diagnostikloggar skiljer sig från aktivitetsloggar. Aktivitetsloggar ger insikt i de åtgärder som vidtogs för dina Azure-resurser. Diagnostikloggar ger information om åtgärder som din resurs har vidtagit.
@@ -120,7 +118,7 @@ Diagnostikloggar innehåller omfattande information om åtgärder och fel som ä
 Så här konfigurerar du diagnostikloggar:
 
 1. Välj din APIM-tjänstinstans.
-2. Klicka på **Diagnostikloggar**.
+2. Klicka på **Diagnostikinställningar**.
 
     ![diagnostikloggar](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 

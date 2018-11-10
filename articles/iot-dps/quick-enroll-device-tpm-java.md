@@ -1,6 +1,6 @@
 ---
 title: Registrera TPM-enhet på Azure Device Provisioning Service-tjänsten med Java | Microsoft Docs
-description: Azure snabbstart – Registrera TPM-enhet på Azure IoT Hub Device Provisioning-tjänsten med Java-tjänst-SDK
+description: Azure-snabbstart – Registrera TPM-enhet på Azure IoT Hub Device Provisioning Service med Java-tjänstens SDK. Den här snabbstarten använder enskilda registreringar.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 12/20/2017
@@ -10,19 +10,19 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 68f8125ddc0691346813bb31124fa3abd4976296
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 6b0068bc912de13590cd9bc7418ea6fcdb01189f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234095"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420497"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Registrera TPM-enhet på IoT Hub Device Provisioning-tjänsten med Java-tjänst-SDK
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
 
-De här stegen visar hur du registrerar en simulerad TPM-enhet programmässigt på Azure IoT Hub Device Provisioning-tjänsterna, med [Java-tjänst-SDK](https://azure.github.io/azure-iot-sdk-java/service/) med hjälp av ett Java-exempelprogram. Java-tjänst-SDK fungerar på både Windows- och Linux-datorer men i den här artikeln används en Windows-utvecklingsdator för att gå igenom registreringsprocessen.
+De här stegen visar hur du programmässigt skapar en enskild registrering för en simulerad TPM-enhet i Azure IoT Hub Device Provisioning Servicen med hjälp av [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) och ett Java-exempelprogram. Java-tjänst-SDK fungerar på både Windows- och Linux-datorer men i den här artikeln används en Windows-utvecklingsdator för att gå igenom registreringsprocessen.
 
 Se till att [konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal](./quick-setup-auto-provision.md) samt [simulera en TPM device](quick-create-simulated-device.md#simulatetpm) innan du fortsätter.
 
@@ -30,9 +30,9 @@ Se till att [konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal]
 
 ## <a name="prepare-the-development-environment"></a>Förbereda utvecklingsmiljön 
 
-1. Kontrollera att [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) är installerat på datorn. 
+1. Kontrollera att [Java SE Development Kit 8](https://aka.ms/azure-jdks) är installerat på datorn. 
 
-2. Konfigurera miljövariabler för Java-installationen. Variabeln `PATH` ska innehålla den fullständiga sökvägen till katalogen *jdk1.8.x\bin*. Om det här är datorns första Java-installation skapar du en ny miljövariabeln med namnet `JAVA_HOME` och gör så att den pekar på den fullständiga sökvägen till katalogen *jdk1.8.x*. På Windows-datorer finns den här katalogen normalt i mappen *C:\\Program\\Java\\* och du kan skapa eller redigera miljövariabler genom att söka efter **Redigera systemets miljövariabler** i **Kontrollpanelen** på Windows-datorn. 
+2. Konfigurera miljövariabler för Java-installationen. Variabeln `PATH` ska innehålla den fullständiga sökvägen till katalogen *jdk1.8.x\bin*. Om det här är datorns första Java-installation skapar du en ny miljövariabeln med namnet `JAVA_HOME` och gör så att den pekar på den fullständiga sökvägen till katalogen *jdk1.8.x*. På Windows-datorer finns den här katalogen i mappen *C:\\Program\\Java\\* och du kan skapa eller redigera miljövariabler genom att söka efter **Redigera systemets miljövariabler** i **Kontrollpanelen** på Windows-datorn. 
 
   Du kan kontrollera om Java har konfigurerats på datorn genom att köra följande kommando i kommandofönstret:
 
@@ -67,7 +67,7 @@ I det här avsnittet visas hur du lägger till etableringsinformationen för TPM
 
     1. Lägg till `[Provisioning Connection String]` för etableringstjänsten från portalen enligt följande:
         1. Navigera till etableringstjänsten i [Azure Portal](https://portal.azure.com). 
-        2. Öppna **Policyer för delad åtkomst** och välj en princip med behörigheten *EnrollmentWrite*.
+        2. Öppna **Policyer för delad åtkomst** och välj en princip som har behörigheten *EnrollmentWrite*.
         3. Kopiera **Anslutningssträng – primär nyckel**. 
 
             ![Hämta etableringsanslutningssträngen från portalen](./media/quick-enroll-device-tpm-java/provisioning-string.png)  

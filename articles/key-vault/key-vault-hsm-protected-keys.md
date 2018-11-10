@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: barclayn
-ms.openlocfilehash: 31998c3b9cc151e96d0b2e0b85895603698f493b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f027ced7d6e317bfdf101cb792d9f2f2b7612242
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303226"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247752"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Så här genererar och överför HSM-skyddade nycklar för Azure Key Vault
 
@@ -61,7 +61,7 @@ I tabellen nedan finns en lista över förutsättningar för att ta med din egen
 | En prenumeration på Azure |Om du vill skapa ett Azure Key Vault behöver du en Azure-prenumeration: [registrera dig för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/) |
 | Azure Key Vault Premium-tjänstnivån för HSM-skyddade nycklar |Mer information om tjänstnivåer och funktioner för Azure Key Vault finns i den [priser för Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) webbplats. |
 | Thales HSM, smartkort och hjälpprogram |Du måste ha åtkomst till en maskinvarusäkerhetsmodul och grundläggande operativa kunskaper om Thales HSM: er. Se [maskinvarusäkerhetsmodul](https://www.thales-esecurity.com/msrms/buy) lista över kompatibla modeller eller för att köpa en HSM om du inte har något. |
-| Följande maskinvara och programvara:<ol><li>Ett offline x64 arbetsstation med minst Windows-operativsystemet Windows 7 och Thales nShield-programvara som är minst version 11.50.<br/><br/>Om den här arbetsstationen kör Windows 7, måste du [installera Microsoft .NET Framework 4.5](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>En arbetsstation som är ansluten till Internet med en minsta Windows-operativsystemet Windows 7 och [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.7.0) **lägsta version 1.1.0** installerad.</li><li>En USB-enhet eller annan bärbar lagringsenhet som har minst 16 MB ledigt utrymme.</li></ol> |Av säkerhetsskäl rekommenderar vi att den första arbetsstationen inte är ansluten till ett nätverk. Men är den här rekommendationen inte programmässigt tvingande.<br/><br/>Observera att i instruktionerna som följer den här arbetsstationen kallas den frånkopplade arbetsstationen.</p></blockquote><br/>Om din klientnyckel är avsedd för ett produktionsnätverk, rekommenderar vi dessutom att du använder en andra, separat arbetsstation för att hämta verktygen och överföra klientnyckeln. Men i testsyfte kan du använda samma arbetsstation som den första.<br/><br/>Observera att i instruktionerna som följer den här andra arbetsstationen kallas den Internetanslutna arbetsstationen.</p></blockquote><br/> |
+| Följande maskinvara och programvara:<ol><li>Ett offline x64 arbetsstation med minst Windows-operativsystemet Windows 7 och Thales nShield-programvara som är minst version 11.50.<br/><br/>Om den här arbetsstationen kör Windows 7, måste du [installera Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>En arbetsstation som är ansluten till Internet med en minsta Windows-operativsystemet Windows 7 och [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.7.0) **lägsta version 1.1.0** installerad.</li><li>En USB-enhet eller annan bärbar lagringsenhet som har minst 16 MB ledigt utrymme.</li></ol> |Av säkerhetsskäl rekommenderar vi att den första arbetsstationen inte är ansluten till ett nätverk. Men är den här rekommendationen inte programmässigt tvingande.<br/><br/>Observera att i instruktionerna som följer den här arbetsstationen kallas den frånkopplade arbetsstationen.</p></blockquote><br/>Om din klientnyckel är avsedd för ett produktionsnätverk, rekommenderar vi dessutom att du använder en andra, separat arbetsstation för att hämta verktygen och överföra klientnyckeln. Men i testsyfte kan du använda samma arbetsstation som den första.<br/><br/>Observera att i instruktionerna som följer den här andra arbetsstationen kallas den Internetanslutna arbetsstationen.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Generera och överför din nyckel till Azure Key Vault HSM
 
@@ -101,7 +101,7 @@ Stäng inte Azure PowerShell-fönster.
 
 ### <a name="step-13-download-the-byok-toolset-for-azure-key-vault"></a>Steg 1.3: Hämta BYOK-verktygen för Azure Key Vault
 
-Gå till Microsoft Download Center och [ladda ned Azure Key Vault BYOK-verktygsuppsättningen](http://www.microsoft.com/download/details.aspx?id=45345) för geografisk region eller instans av Azure. Använd följande information för att identifiera paketets namn att ladda ned och dess motsvarande SHA-256 paketets hashvärde:
+Gå till Microsoft Download Center och [ladda ned Azure Key Vault BYOK-verktygsuppsättningen](https://www.microsoft.com/download/details.aspx?id=45345) för geografisk region eller instans av Azure. Använd följande information för att identifiera paketets namn att ladda ned och dess motsvarande SHA-256 paketets hashvärde:
 
 - - -
 **USA:**

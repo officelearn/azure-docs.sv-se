@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 5da623d07c34114d82c2b818a7c06420ffb9c886
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1853d8d23aeb96cda3148c6c9e7668b9c2c28924
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211119"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244023"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Lägg till Azure Automation-runbooks i återställningsplaner
 I den här artikeln beskriver vi hur Azure Site Recovery kan integreras med Azure Automation kan du utöka dina återställningsplaner. Återställningsplaner kan dirigera återställning av virtuella datorer som skyddas med Site Recovery. Återställningsplaner fungerar både för replikering till en sekundär molnet och för replikering till Azure. Återställningsplaner även gör återställningen **konsekvent korrekt**, **upprepningsbara**, och **automatiserade**. Om du växlar över dina virtuella datorer till Azure utökar-integrering med Azure Automation dina återställningsplaner. Du kan använda den för att köra runbooks, som erbjuder kraftfulla automatiserade uppgifter.
@@ -252,8 +252,8 @@ Ett annat exempel finns i följande videoklipp. Den visar hur du återställer e
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 * [Azure Automation-tjänsten kör som-konto](../automation/automation-create-runas-account.md)
-* [Översikt över Azure Automation](http://msdn.microsoft.com/library/azure/dn643629.aspx "översikt över Azure Automation")
-* [Azure Automation-exempelskript](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "exempelskript för Azure Automation")
+* [Översikt över Azure Automation](https://msdn.microsoft.com/library/azure/dn643629.aspx "översikt över Azure Automation")
+* [Azure Automation-exempelskript](https://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "exempelskript för Azure Automation")
 
 ## <a name="next-steps"></a>Nästa steg
 [Läs mer](site-recovery-failover.md) om att köra redundansväxlingar.

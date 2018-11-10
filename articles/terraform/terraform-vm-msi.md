@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 1ec6228993c516ce2974c64bfa5b6dcdf63e7f91
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: a162d0c19bef28e6e4566d39c2dc3b82a87a4aa9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343834"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242100"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Använda en Azure Marketplace-avbildning till att skapa en virtuell Terraform Linux-dator med hanterade identiteter för Azure-resurser
 
@@ -97,9 +97,9 @@ Det föregående skriptet använder mekanismen [interaktiv inloggning med AZ CLI
 I den här artikeln har du lärt dig hur du konfigurerar en virtuell Terraform Linux-dator i Azure. Här är några ytterligare resurser som du kan använda om du vill lära dig mer om Terraform på Azure: 
 
  [Terraform Hub på Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Terraform-dokumentation för Azure-providrar](http://aka.ms/terraform)  
- [Terraform-källa för Azure-providrar](http://aka.ms/tfgit)  
- [Terraform-moduler för Azure](http://aka.ms/tfmodules)
+ [Terraform-dokumentation för Azure-providrar](https://aka.ms/terraform)  
+ [Terraform-källa för Azure-providrar](https://aka.ms/tfgit)  
+ [Terraform-moduler för Azure](https://aka.ms/tfmodules)
  
 
 

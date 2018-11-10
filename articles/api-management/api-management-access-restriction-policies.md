@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 4f00268fcf3797697812f3aa8b221817a2794691
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 4dd54a4a4985a33bc14022d7f722bdf83224c4aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092549"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240859"
 ---
 # <a name="api-management-access-restriction-policies"></a>API Management-principer för begränsning av åtkomst
-Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
+Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="AccessRestrictionPolicies"></a> Principer för begränsning av åtkomst  
   
@@ -71,7 +71,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |Ignorera skiftläge|Kan anges till True eller False. Om inställd på Sant fall ignoreras när huvudets värde jämförs mot uppsättningen av godkända värden.|Ja|Gäller inte|  
   
 ### <a name="usage"></a>Användning  
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Princip-avsnitt:** inkommande, utgående  
   
@@ -126,7 +126,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |förnyelseperioden|Hur lång tid i sekunder efter vilken kvoten återställs.|Ja|Gäller inte|  
   
 ### <a name="usage"></a>Användning  
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Princip-avsnitt:** inkommande  
   
@@ -181,7 +181,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |förnyelseperioden|Hur lång tid i sekunder efter vilken kvoten återställs.|Ja|Gäller inte|  
   
 ### <a name="usage"></a>Användning  
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Princip-avsnitt:** inkommande  
   
@@ -224,7 +224,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |IP-filteråtgärd = ”Tillåt &#124; förbjuda”|Anger om anrop ska tillåtas eller inte för den angivna IP-adresser och intervall.|Ja|Gäller inte|  
   
 ### <a name="usage"></a>Användning  
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Princip-avsnitt:** inkommande  
 -   **Princip-scope:** globala, produkt, API, igen  
@@ -279,7 +279,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |förnyelseperioden|Hur lång tid i sekunder efter vilken kvoten återställs.|Ja|Gäller inte|  
   
 ### <a name="usage"></a>Användning  
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Princip-avsnitt:** inkommande  
 -   **Princip-scope:** produkt  
@@ -336,7 +336,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |förnyelseperioden|Hur lång tid i sekunder efter vilken kvoten återställs.|Ja|Gäller inte|  
   
 ### <a name="usage"></a>Användning  
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Princip-avsnitt:** inkommande  
 -   **Princip-scope:** globala, produkt, API, igen  
@@ -506,7 +506,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |url|Öppna ID configuration slutpunkts-URL från där öppna ID konfigurationsmetadata kan hämtas. Svaret ska vara enligt specifikationer som definierats på URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Använd följande URL för Azure Active Directory: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` Ersätt ditt klientnamn katalog, t.ex. `contoso.onmicrosoft.com`.|Ja|Gäller inte|  
   
 ### <a name="usage"></a>Användning  
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Princip-avsnitt:** inkommande  
 -   **Princip-scope:** globala, produkt, API, igen  

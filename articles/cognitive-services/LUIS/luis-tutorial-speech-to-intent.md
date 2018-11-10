@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: f98d640f032fed5f91df8e9d4fb55d3f20550339
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: c2581abc782558ca114cc3a5d4f6224d132bce5d
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883932"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139114"
 ---
 # <a name="integrate-speech-service"></a>Integrera Speech-tjänsten
 Med [Speech-tjänsten](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kan du använda en enskild begäran för att ta emot ljud och returnera LUIS JSON-förutsägelseobjekt. I den här artikeln laddar du ned och använder ett C#-projekt i Visual Studio för att tala in ett yttrande i en mikrofon och ta emot LUIS-förutsägelseinformation. Projektet använder Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/)-paketet, som redan ingår som referens. 
@@ -39,7 +39,7 @@ Den här appen har avsikter, entiteter och yttranden som rör Human Resources-do
 
 
 ## <a name="add-keyphrase-prebuilt-entity"></a>Lägga till fördefinierad KeyPhrase-entitet
-När du har importerat appen väljer du **Entiteter** och sedan **Hantera fördefinierade entiteter**. Lägg till **KeyPhrase**-entiteten. KeyPhrase-entiteten extraherar nyckelämnen från yttrandet.
+När du har importerat appen väljer du **Entiteter** och sedan **Lägg till fördefinierad entitet**. Lägg till **KeyPhrase**-entiteten. KeyPhrase-entiteten extraherar nyckelämnen från yttrandet.
 
 ## <a name="train-and-publish-the-app"></a>Träna och publicera appen
 1. I det övre högra navigeringsfältet väljer du knappen **Träna** för att träna LUIS-appen.

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 7f71e92513aedb1eb9c394c1e8f547173cfb4dbe
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 4f7955c013ce7f45ebe6db8bb23eeec92303876e
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604186"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230939"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Snabbstart: Konfigurera och hämta en hemlighet från Azure Key Vault med hjälp av en .net-webbapp
 
@@ -25,7 +25,7 @@ I den här snabbstarten följer du de steg som behövs för att få ett Azure-we
 > * Lagra en hemlighet i nyckelvalvet.
 > * Hämta en hemlighet från nyckelvalvet.
 > * Skapa ett Azure-webbprogram.
-> * Aktivera en [hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) för webbappen.
+> * Aktivera en [hanterad tjänstidentitet](../active-directory/managed-identities-azure-resources/overview.md) för webbappen.
 > * Bevilja de behörigheter som krävs för att webbprogrammet ska kunna läsa data från nyckelvalvet.
 
 Innan du fortsätter rekommenderar vi att du läser avsnittet om [grundbegreppen](key-vault-whatis.md#basic-concepts).
@@ -33,7 +33,7 @@ Innan du fortsätter rekommenderar vi att du läser avsnittet om [grundbegreppen
 >[!NOTE]
 >Key Vault är en central lagringsplats för programmeringsbaserad lagring av hemligheter. Det här kräver att program och användare först autentiseras mot Key Vault, dvs. presenterar en hemlighet. Den här första hemligheten måste roteras med jämna mellanrum för att uppfylla de rekommenderade säkerhetsmetoderna. 
 >
->Med [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) ges program som körs i Azure en identitet som hanteras automatiskt av Azure. Det här löser *problemet med den första hemligheten* så att användare och program kan följa bästa praxis utan att behöva bekymra sig om roteringen av den första hemligheten.
+>Med [hanterade tjänstidentiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) ges program som körs i Azure en identitet som hanteras automatiskt av Azure. Det här löser *problemet med den första hemligheten* så att användare och program kan följa bästa praxis utan att behöva bekymra sig om roteringen av den första hemligheten.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 

@@ -10,12 +10,12 @@ ms.component: academic-knowledge
 ms.topic: overview
 ms.date: 10/30/2018
 ms.author: darrine
-ms.openlocfilehash: aa945eb8f0b79a6b0760650bd34dba55d80ef3a4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 02675b8cdc8c509764b20893bde54b50bec74a50
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240366"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242157"
 ---
 # <a name="academic-knowledge-api"></a>Academic Knowledge API
 
@@ -23,7 +23,7 @@ Välkommen till Academic Knowledge API. Med den här tjänsten kan du tolka anv�
 
 MAG-data hämtas från Bing-webbindexet samt en lokal kunskapsbas från Bing. På grund av pågående Bing-indexering innehåller detta API ny information från webben efter identifiering och indexering av Bing. Baserat på den här datamängden möjliggör Academic Knowledge API:er en kunskapsbaserad och interaktiv dialog som smidigt kombinerar reaktiv sökning med proaktiva förslagsfunktioner, omfattande sökresultat för forskningsartikeldiagram samt histogramdistributioner av attributvärdena för en uppsättning artiklar och relaterade entiteter.
 
-Mer information om Microsoft Academic Graph finns på [http://aka.ms/academicgraph](http://aka.ms/academicgraph).
+Mer information om Microsoft Academic Graph finns på [http://aka.ms/academicgraph](https://aka.ms/academicgraph).
 
 Academic Knowledge API har flyttats från förhandsversionen av Cognitive Services till Cognitive Services Labs. Den nya startsidan för projektet är: [https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge](https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge). Din befintliga API-nyckel fortsätter att fungera fram till den 24 maj 2018. Generera en ny API-nyckel efter detta datum. Observera att den betalade förhandsversionen inte längre är tillgänglig när din befintliga nyckel upphör att gälla. Kontakta vårt team om den kostnadsfria nivån av API:et inte är tillräcklig för dina behov. 
 

@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: b94f6ad4c7c6f3b5e93cdb890e053a3d1678e161
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: eab00663918eadea485aed17a91ce01e5718c36e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094436"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413680"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformera och skydda ditt API 
 
@@ -39,9 +39,11 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
++ Lär dig [Azure API Management-terminologin](api-management-terminology.md).
++ Förstå [begreppet principer i Azure API Management](api-management-howto-policies.md).
 + Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
 + Slutför även följande självstudie: [Importera och publicera ditt första API](import-and-publish.md).
- 
+
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="transform-an-api-to-strip-response-headers"></a>Omvandla ett API och ta bort svarshuvuden
@@ -57,21 +59,22 @@ Visa det ursprungliga svaret:
 
 1. I din APIM-tjänstinstans väljer du **APIs** (API:er) under **API MANAGEMENT** (API-HANTERING).
 2. Klicka på **Demo Conference API** i API-listan.
-3. Välj åtgärden **GetSpeakers**.
-4. Klicka på fliken **Test** överst på skärmen.
-5. Klicka på knappen **Skicka** längst ned på skärmen. 
+3. Klicka på fliken **Test** överst på skärmen.
+4. Välj åtgärden **GetSpeakers**.
+5. Klicka på knappen **Skicka** längst ned på skärmen.
 
-    Som du kan se så ser det ursprungliga svaret ut så här:
+Det ursprungliga svaret ska se ut så här:
 
-    ![Principer](./media/transform-api/original-response.png)
+![Principer](./media/transform-api/original-response.png)
 
 ### <a name="set-the-transformation-policy"></a>Ange en transformationsprincip
+
+![Ange utgående princip](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png)
 
 1. Välj **Demokonferens-API**.
 2. Överst på skärmen väljer du fliken **Design**.
 3. Välj **Alla åtgärder**.
-4. Klicka på triangeln (bredvid blyertspennan) i fönstret **Utgående bearbetning** och välj **Code editor** (Kodredigeraren).
-     ![Redigera princip](./media/set-edit-policies/set-edit-policies01.png)
+4. I avsnittet **Utgående bearbetning** klickar du på ikonen **</>**.
 5. Placera markören i elementet **&lt;utgående&gt;**.
 6. Klicka på **+ Konfigurera HTTP-huvud** två gånger under **Transformationsprinciper** i det högra fönstret (så infogas två principkodavsnitt).
 
@@ -82,8 +85,8 @@ Visa det ursprungliga svaret:
         <set-header name="X-AspNet-Version" exists-action="delete" />
 
     ![Principer](./media/transform-api/set-policy.png)
-8. Klicka på knappen **Spara**.
 
+8. Klicka på knappen **Spara**.
 
 ## <a name="replace-original-urls-in-the-body-of-the-api-response-with-apim-gateway-urls"></a>Ersätt ursprungliga URL:er i API-svarets brödtext med URL:er för APIM-gatewayen
 
@@ -94,8 +97,8 @@ I det här avsnittet visas hur du kan dölja de ursprungliga URL:er som visas i 
 Visa det ursprungliga svaret:
 
 1. Välj **Demokonferens-API**.
-2. Välj åtgärden **GetSpeakers**.
-3. Klicka på fliken **Test** överst på skärmen.
+2. Klicka på fliken **Test** överst på skärmen.
+3. Välj åtgärden **GetSpeakers**.
 4. Klicka på knappen **Skicka** längst ned på skärmen. 
 
     Som du kan se så ser det ursprungliga svaret ut så här:
@@ -107,7 +110,7 @@ Visa det ursprungliga svaret:
 1. Välj **Demokonferens-API**.
 2. Välj **Alla åtgärder**.
 3. Överst på skärmen väljer du fliken **Design**.
-4. Klicka på triangeln (bredvid blyertspennan) i fönstret **Utgående bearbetning** och välj **Code editor** (Kodredigeraren).
+4. I avsnittet **Utgående bearbetning** klickar du på ikonen **</>**.
 5. Placera markören i elementet **&lt;utgående&gt;**.
 6. Klicka på **+ Sök och ersätt sträng i brödtext** under **Transformationsprinciper** i det högra fönstret.
 7. Ersätt URL:en så att den matchar APIM-gatewayen genom att ändra din **find-and-replace**-kod (i **\<outbound\>**-elementet). Exempel:
@@ -118,13 +121,14 @@ Visa det ursprungliga svaret:
 
 I det här avsnittet visas hur du lägger till skydd för ditt serverdels-API genom att konfigurera frekvensbegränsningar. Du vill kanske t.ex. begränsa det antal gånger som API:et anropas, så att det inte överutnyttjas av utvecklarna. I det här exemplet anges gränsen till 3 anrop per 15 sekunder för varje prenumerations-ID. Efter 15 sekunder kan en utvecklare försöka att anropa API:et igen.
 
+![Ange princip för inkommande](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png)
+
 1. Välj **Demokonferens-API**.
 2. Välj **Alla åtgärder**.
 3. Överst på skärmen väljer du fliken **Design**.
-4. Klicka på triangeln (bredvid blyertspennan) i fönstret **Inkommande bearbetning** och välj **Code editor** (Kodredigeraren).
-5. Placera markören i elementet **&lt;inkommande&gt;**.
-6. Klicka på **+ Begränsa anropsfrekvens per nyckel** under **Principer för åtkomstbegränsning** i det högra fönstret.
-7. Ändra din **rate-limit-by-key**-kod (i **\<inbound\>**-elementet) till följande kod:
+4. I avsnittet **Inkommande bearbetning** klickar du på ikonen **</>**.5. Placera markören i elementet **&lt;inkommande&gt;**.
+5. Klicka på **+ Begränsa anropsfrekvens per nyckel** under **Principer för åtkomstbegränsning** i det högra fönstret.
+6. Ändra din **rate-limit-by-key**-kod (i **\<inbound\>**-elementet) till följande kod:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 
@@ -156,8 +160,8 @@ I resten av det här avsnittet testas principtransformationer som du anger i den
 ### <a name="test-the-stripped-response-headers"></a>Testa borttagna svarshuvuden
 
 1. Välj **Demokonferens-API**.
-2. Klicka på åtgärden **GetSpeakers**.
-3. Välj fliken **Test**.
+2. Välj fliken **Test**.
+3. Klicka på åtgärden **GetSpeakers**.
 4. Tryck på **Skicka**.
 
     Som du ser så har rubrikerna tagits bort:
@@ -167,8 +171,8 @@ I resten av det här avsnittet testas principtransformationer som du anger i den
 ### <a name="test-the-replaced-url"></a>Testa den ersatta URL:en
 
 1. Välj **Demokonferens-API**.
-2. Klicka på åtgärden **GetSpeakers**.
-3. Välj fliken **Test**.
+2. Välj fliken **Test**.
+3. Klicka på åtgärden **GetSpeakers**.
 4. Tryck på **Skicka**.
 
     Som du ser har URL:en ersatts.
@@ -178,11 +182,12 @@ I resten av det här avsnittet testas principtransformationer som du anger i den
 ### <a name="test-the-rate-limit-throttling"></a>Testa frekvensgränsen (begränsningen)
 
 1. Välj **Demokonferens-API**.
-2. Klicka på åtgärden **GetSpeakers**.
-3. Välj fliken **Test**.
+2. Välj fliken **Test**.
+3. Klicka på åtgärden **GetSpeakers**.
 4. Tryck på **Skicka** tre gånger i rad.
 
     När du har skickat förfrågan 3 gånger får du svaret **429 För många förfrågningar**.
+
 5. Vänta 15 sekunder eller så och tryck på **Skicka** igen. Den här gången bör få svaret **200 OK**.
 
     ![Begränsning](./media/transform-api/test-throttling.png)
@@ -190,8 +195,6 @@ I resten av det här avsnittet testas principtransformationer som du anger i den
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
-> 
-> 
 
 ## <a name="next-steps"></a>Nästa steg
 

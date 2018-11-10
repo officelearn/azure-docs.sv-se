@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 8c369ab05059e57f2e2a98339052c27292ac7c0d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8240cf5beb50ef16aa2bd03415e6bbff9a2f4250
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628784"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158150"
 ---
 <!---
 Purpose of an Overview article: 
@@ -25,7 +25,7 @@ Purpose of an Overview article:
 
 # <a name="what-is-azure-iot-central"></a>Vad är Azure IoT Central?
 
-Microsoft Azure IoT Central är en fullständigt hanterad IoT-lösning för programvara som en tjänst. Den gör det enklare att skapa produkter som sammanför det fysiska och digitala arbetslivet. Du kan förverkliga din vision för anslutna produkter genom att:
+Azure IoT Central är en fullständigt hanterad IoT-lösning för programvara som en tjänst. Den gör det enklare att skapa produkter som sammanför det fysiska och digitala arbetslivet. Du kan förverkliga din vision för anslutna produkter genom att:
 
 - härleda nya insikter från anslutna enheter och därmed kunna erbjuda bättre produkter och upplevelser för dina kunder
 - skapa nya affärsmöjligheter för din organisation.
@@ -42,7 +42,7 @@ Följande videoklipp visar en översikt över Azure IoT Central:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Microsoft-IoT-Central-intro-walkthrough/Player]
 
-I resten av den här artikeln beskrivs följande i Azure IoT Central:
+I resten av den här artikeln beskrivs Azure IoT Central:
 
 - de vanligaste profilerna som är associerade med ett projekt
 - hur du skapar ditt program
@@ -65,11 +65,11 @@ Som byggare använder du Azure IoT Central till att skapa en anpassad, molnbaser
 - ett molnbaserat program som tar emot telemetri från dina enheter och låter dig hantera dessa enheter.
 - flera enheter som kör anpassad kod är anslutna till ditt molnbaserade program.
 
-Du kan snabbt distribuera ett nytt Azure IoT Central-program och sedan anpassa det efter dina specifika krav direkt i webbläsaren. Som Azure IoT Central-byggare kan du använda webbaserade verktyg till att skapa en _enhetsmall_ för enheter som ansluter till ditt program. En enhetsmall är kopian av en enhetsmodell som alla enheter som har skapats från enhetsmallen delar. En enhetsmall definierar egenskaper och beteende för en enhetstyp, till exempel:
+Du kan snabbt distribuera ett nytt Azure IoT Central-program och sedan anpassa det efter dina specifika krav direkt i webbläsaren. Som Azure IoT Central-byggare kan du använda webbaserade verktyg till att skapa en _enhetsmall_ för enheter som ansluter till ditt program. En enhetsmall är skissen för en enhetsmodell. Alla enheter som skapas utifrån samma enhetsmall delar mallen. En enhetsmall definierar egenskaper och beteende för en enhetstyp, till exempel:
 
 - telemetrin den skickar
 - företagsegenskaper som en operatör kan ändra
-- enhetsegenskaper som anges av en enhet och som är skrivskyddade i programmet
+- enhetsegenskaper som anges av en enhet och som är skrivskyddade i programmet.
 - de tröskelvärden som gäller för programmet
 - inställningar som styr beteendet för enheten.
 

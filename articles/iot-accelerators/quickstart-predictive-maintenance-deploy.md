@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/12/2018
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 10ff6565ed8997a5cb87394aa0d743a0d94b67e0
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: c56bdb5968b5f5ada902aa9212282c3cfebe2eaf
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144320"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139847"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Snabbstart: Prova en molnbaserad lösning för att analysera behovet av förutsägande underhåll på anslutna enheter
 
@@ -22,7 +22,7 @@ I den här snabbstarten får du lära dig att distribuera Azure IoT-lösningsacc
 
 I den här simuleringen är Fabrikam ett regionalt flygbolag som fokuserar på bra kundupplevelser till konkurrenskraftiga priser. En orsak till flygförseningar är underhållsproblem, och flygplansmotorernas underhåll är särskilt krävande. Fabrikam måste till vilket pris som helst förhindra motorfel under flygningar och inspekterar därför regelbundet sina motorer och schemalägger underhåll med utgångspunkt i en plan. Flygplansmotorer slits dock inte alltid likadant. En del onödigt underhåll utförs på motorer. Dessutom kan det uppstå problem som gör att planet blir stående tills underhåll har utförts. Dessa problem bli extra kostsamma om ett flygplan finns på en plats där rätt tekniker eller reservdelar inte är tillgängliga.
 
-Motorerna i Fabrikams flygplan är utrustade med sensorer som övervakar motortillståndet under flygning. Fabrikams dataspecialister har under flera år samlat in data om motorernas drift och eventuella fel och har tagit fram en modell som kan förutse flygplansmotorernas återstående livslängd. Modellen använder en korrelation mellan data från fyra av motorsensorerna och motorförslitningar som med tiden leder till motorfel. Fabrikam fortsätter att utföra regelbundna inspektioner för att säkerställa säkerheten, men nu kan man använda modeller för att beräkna varje motors återstående livslängd efter varje flygning. Fabrikam kan nu förutsäga framtida driftstopp och planera för underhåll för att minimera flygplanens marktid och minska driftkostnaderna samtidigt som man säkerställer passagerarnas och flygplansbesättningens säkerhet.
+Motorerna i Fabrikams flygplan är utrustade med sensorer som övervakar motortillståndet under flygning. Fabrikam har flera års drifts- och feldata för motorer från dessa sensorer. Fabrikams datavetare har använt dessa data för att utveckla en modell för att förutsäga återstående driftstid (RUL) för en flygplansmotor. Modellen använder en korrelation mellan data från fyra av motorsensorerna och motorförslitningar som med tiden leder till motorfel. Fabrikam fortsätter att utföra regelbundna säkerhetsinspektioner men nu kan man använda modeller för att beräkna varje motors återstående livslängd efter varje flygning. Fabrikam kan nu förutsäga framtida felpunkter och planera för underhåll för att minimera flygplanens marktid. Processen minskar driftkostnaderna och säkerställer passagerarnas och personalens säkerhet.
 
 Du behöver en aktiv Azure-prenumeration för att kunna utföra den här snabbstarten.
 
@@ -32,11 +32,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 När du distribuerar lösningsacceleratorn till Azure-prenumerationen måste du ange några konfigurationsalternativ.
 
-Logga in på [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) med dina Azure-kontouppgifter.
+Gå till [Microsoft Azure IoT-lösningsacceleratorer](https://www.azureiotsolutions.com) och logga in med autentiseringsuppgifterna för ditt Azure-konto.
 
-Klicka på **Testa nu** på panelen **Förutsägande underhåll**.
+Klicka på panelen **Förebyggande underhåll**. På sidan **Förebyggande underhåll** klickar du på **Try Now** (Testa nu):
 
-![Välj Förutsägande underhåll](./media/quickstart-predictive-maintenance-deploy/predictivemaintenance.png)
+![Testa nu](./media/quickstart-predictive-maintenance-deploy/predictivemaintenance.png)
 
 På sidan **Create Predictive Maintenance solution** (Skapa lösning för förutsägande underhåll) anger du ett unikt **lösningsnamn** för utvecklingsacceleratorn för förutsägande underhåll. I den här snabbstarten använder vi **MyPredictiveMaintenance**.
 

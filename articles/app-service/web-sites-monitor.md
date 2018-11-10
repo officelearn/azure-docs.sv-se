@@ -14,145 +14,145 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: fdc4329806d416811352d0d4dbc8dd3bce25aa0b
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9c58e5c64ea3689634d7afb4c5fef08c9b21798c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2018
-ms.locfileid: "29573811"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244380"
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Så här: övervaka appar i Azure App Service
-[Apptjänst](http://go.microsoft.com/fwlink/?LinkId=529714) har inbyggda funktioner som övervakning för den [Azure-portalen](https://portal.azure.com).
-Azure portal innehåller möjligheten att granska **kvoter** och **mått** för en app, samt App Service-plan, ställa in **aviseringar** och även **skalning**  automatiskt baserat på de här måtten.
+[App Service](https://go.microsoft.com/fwlink/?LinkId=529714) innehåller inbyggda övervakningsfunktioner i den [Azure-portalen](https://portal.azure.com).
+Azure-portalen innehåller möjligheten att granska **kvoter** och **mått** för en app som App Service-planen, hur du konfigurerar **aviseringar** och även **skalning**  automatiskt baserat på de här måtten.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="understanding-quotas-and-metrics"></a>Förstå kvoter och mått
 ### <a name="quotas"></a>Kvoter
-Program som finns i App Service regleras vissa *gränser* för de resurser som de kan använda. Gränserna som definieras av den **programtjänstplanen** associerat med appen.
+Program som körs i App Service är under vissa *gränser* för de resurser som de kan använda. Begränsningarna definieras av den **App Service-plan** som är associerade med appen.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Om programmet finns i en **lediga** eller **delade** planera sedan gränser för de resurser som kan använda appen definieras av **kvoter**.
+Om programmet körs i en **kostnadsfri** eller **delad** planerar, och sedan gränser för de resurser som använder appen definieras av **kvoter**.
 
-Om programmet finns i en **grundläggande**, **Standard** eller **Premium** planera sedan gränser för de resurser som de kan använda ställs in med den **storlek**(Small, Medium, stora) och **instansen antal** (1, 2, 3,...) av den **programtjänstplanen**.
+Om programmet körs i en **grundläggande**, **Standard** eller **Premium** planerar, och sedan gränser för de resurser som de kan använda ställs in med den **storlek**(Liten, medel, stor) och **antal instanser** (1, 2, 3,...) för den **App Service-plan**.
 
-**Kvoter** för **lediga** eller **delade** appar är:
+**Kvoter** för **kostnadsfri** eller **delad** appar är:
 
-* **CPU(Short)**
-  * Mängden CPU som tillåts för det här programmet i en 5 minuter. Den här kvoten återställs var femte minut.
+* **CPU(short)**
+  * Mycket Processorkraft som tillåts för det här programmet i en 5-minutersintervall. Den här kvoten återställer var femte minut.
 * **CPU(Day)**
-  * Totalt antal processorer som tillåts för det här programmet i en dag. Den här kvoten återställs var 24: e timme vid midnatt UTC.
+  * Totalt antal mycket Processorkraft som tillåts för det här programmet i en dag. Den här kvoten återställer var 24: e timme vid midnatt UTC.
 * **Minne**
-  * Totala mängden minne som tillåts för det här programmet.
+  * Total mängd minne som tillåts för det här programmet.
 * **Bandbredd**
-  * Totalt antal utgående bandbredd som tillåts för det här programmet i en dag.
-    Den här kvoten återställs var 24: e timme vid midnatt UTC.
-* **Filesystem**
-  * Totalt antal tillåtet lagringsutrymme.
+  * Totala mängden utgående bandbredd som tillåts för det här programmet i en dag.
+    Den här kvoten återställer var 24: e timme vid midnatt UTC.
+* **Filsystem**
+  * Totala mängden lagring som är tillåtna.
 
-Kvoten som endast till appar som finns på **grundläggande**, **Standard**, och **Premium** planer är **Filesystem**.
+Den enda kvoten för appar i **grundläggande**, **Standard**, och **Premium** planer är **filsystem**.
 
-Mer information om specifika kvoter, begränsningar och funktioner som är tillgängliga för olika App Service SKU hittar du här: [Tjänstbegränsningarna för Azure-prenumeration](../azure-subscription-service-limits.md#app-service-limits)
+Mer information om specifika kvoter, gränser och funktioner som är tillgängliga för olika App Service SKU: er finns här: [tjänstbegränsningar för Azure-prenumeration](../azure-subscription-service-limits.md#app-service-limits)
 
 #### <a name="quota-enforcement"></a>Kvoter
-Om ett program överskrider den **CPU (korta)**, **CPU (dag)**, eller **bandbredd** kvot sedan programmet stoppas tills kvoten återställs. Under denna tid kan alla förfrågningar som resulterar i en **HTTP 403**.
+Om ett program överskrider den **CPU (kort)**, **CPU (dag)**, eller **bandbredd** kvot sedan programmet stoppas tills kvoten återställs. Under denna tid som alla inkommande begäranden resultera i en **HTTP 403**.
 ![][http403]
 
-Om programmet **minne** kvot har överskridits och sedan programmet startas.
+Om programmet **minne** kvot överskrids och programmet startas.
 
-Om den **Filesystem** kvot har överskridits och sedan någon skriva åtgärden misslyckas, som innehåller alla skrivningar till loggar.
+Om den **filsystem** kvoten har överskridits och sedan någon skriva åtgärden misslyckas, vilket inkluderar alla skrivningar till loggarna.
 
-Kvoter kan ökas eller tas bort från din app genom att uppgradera din programtjänstplan.
+Kvoter kan ökas eller bort från din app genom att uppgradera din App Service-plan.
 
 ### <a name="metrics"></a>Mått
-**Mått** innehåller information om appen eller App Service-plan beteende.
+**Mått** ger information om appen eller beteende för App Service-plan.
 
 För en **programmet**, tillgängliga mått är:
 
 * **Genomsnittlig svarstid**
-  * Genomsnittlig tid för appen att betjäna förfrågningar i ms.
-* **Genomsnittlig minne arbetsminne**
+  * Genomsnittlig tid att hantera begäranden i ms-appen.
+* **Genomsnittligt arbetsminne**
   * Genomsnittlig mängd minne i MIB som används av appen.
 * **CPU-tid**
-  * Mängden CPU i sekunder som används av appen. Läs mer om det här måttet: [vs CPU CPU-tid i procent](#cpu-time-vs-cpu-percentage)
+  * Hur mycket Processorkraft i sekunder som används av appen. Läs mer om det här måttet: [vs CPU CPU-tid i procent](#cpu-time-vs-cpu-percentage)
 * **Data i**
   * Mängden inkommande bandbredd som används av appen i MIB.
-* **Ut data**
+* **Data ut**
   * Mängden utgående bandbredd som används av appen i MIB.
-* **HTTP-2xx**
-  * Antal begäranden som resulterar i en HTTP-statuskod > = 200 men < 300.
-* **HTTP-3xx**
-  * Antal begäranden som resulterar i en HTTP-statuskod > = 300 men < 400.
+* **HTTP 2xx**
+  * Antal begäranden, vilket resulterar i en HTTP-statuskod: > = 200 men < 300.
+* **HTTP 3xx**
+  * Antal begäranden, vilket resulterar i en HTTP-statuskod: > = 300 men < 400.
 * **HTTP 401**
-  * Antal begäranden som ledde till ett HTTP 401-statuskod.
+  * Antal begäranden, vilket resulterar i HTTP 401-statuskod.
 * **HTTP 403**
-  * Antal begäranden som ledde till ett 403 HTTP-statuskod.
+  * Antal begäranden, vilket resulterar i HTTP 403-statuskod.
 * **HTTP 404**
-  * Antal begäranden som ledde till ett 404 HTTP-statuskod.
-* **HTTP 406**
-  * Antal begäranden som resulterar i 406 HTTP-statuskod.
-* **HTTP-4xx**
-  * Antal begäranden som resulterar i en HTTP-statuskod > = 400 men < 500.
-* **HTTP-fel**
-  * Antal begäranden som resulterar i en HTTP-statuskod > = 500, men < 600.
-* **Arbetsminnet för minne**
-  * Aktuell mängd minne som används av appen i MIB.
+  * Antal begäranden, vilket resulterar i HTTP 404-statuskod.
+* **HTTP 406 Ogiltigt format**
+  * Antal begäranden, vilket resulterar i 406 Ogiltigt format för HTTP-statuskod.
+* **HTTP 4xx**
+  * Antal begäranden, vilket resulterar i en HTTP-statuskod: > = 400 men < 500.
+* **HTTP-serverfel**
+  * Antal begäranden, vilket resulterar i en HTTP-statuskod: > = 500 men < 600.
+* **Arbetsminne**
+  * Mängden minne som används av appen i MIB.
 * **Begäranden**
   * Totalt antal begäranden oavsett deras resulterande HTTP-statuskod.
 
-För en **programtjänstplanen**, tillgängliga mått är:
+För en **App Service-plan**, tillgängliga mått är:
 
 > [!NOTE]
-> App Service-plan mått är bara tillgängliga för planer i **grundläggande**, **Standard**, och **Premium** nivåer.
+> App Service-plan mått är bara tillgängliga för planer som **grundläggande**, **Standard**, och **Premium** nivåer.
 > 
 > 
 
 * **CPU-procent**
-  * Genomsnittlig CPU som används i alla instanser av planen.
+  * Den genomsnittliga CPU som används i alla instanser av planen.
 * **Minnesprocent**
   * Det genomsnittliga minne som används i alla instanser av planen.
 * **Data i**
-  * Genomsnittlig inkommande bandbredden som används i alla instanser av planen.
-* **Ut data**
-  * Den genomsnittliga utgående bandbredden som används i alla instanser av planen.
+  * Den genomsnittliga inkommande bandbredd som används i alla instanser av planen.
+* **Data ut**
+  * Medelvärdet utgående bandbredd som används i alla instanser av planen.
 * **Diskkölängd**
-  * Det genomsnittliga antalet både Skriv- och läsbegäranden som köade på lagring. En hög diskkölängd är en indikation på ett program som kan långsammare på grund av mycket i/o-disk.
+  * Det genomsnittliga antalet både läsa och skriva begäranden som har ställts i kö på lagring. En hög diskkölängd är en indikation på ett program som kan långsammare på grund av hög diskens i/o.
 * **HTTP-Kölängd**
-  * Genomsnittligt antal HTTP-begäranden som hade till kön innan uppfylls. En hög eller ökande HTTP Kölängd är ett symtom på en plan vid hög belastning.
+  * Det genomsnittliga antalet HTTP-begäranden som hade direkt i kön innan uppfylls. En hög eller ökande HTTP-Kölängd är ett symtom på en plan vid hög belastning.
 
 ### <a name="cpu-time-vs-cpu-percentage"></a>Vs CPU CPU-tid i procent
 <!-- To do: Fix Anchor (#CPU-time-vs.-CPU-percentage) -->
 
-Det finns två mått som avspeglar CPU-användning. **CPU-tid** och **CPU-procent**
+Det finns två mått som återspeglar CPU-användning. **CPU-tid** och **CPU-procent**
 
-**CPU-tid** är användbart för appar som finns i **lediga** eller **delade** planer eftersom en av sina kvoter definieras i CPU minuter som används av appen.
+**CPU-tid** är användbart för appar finns i **kostnadsfri** eller **delad** planer eftersom en av sina kvoter har definierats i CPU-minuter som används av appen.
 
-**CPU-procent** är användbart för appar som finns i **grundläggande**, **standard**, och **premium** planer eftersom de kan skalas ut. Procentandel av Processorn är en bra indikation på den totala användningen i alla instanser.
+**CPU-procent** är användbart för appar finns i **grundläggande**, **standard**, och **premium** planer eftersom de kan skalas upp. CPU-procent är en bra indikation på den totala användningen för alla instanser.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Mått granularitet och bevarandeprincip
-Mått för ett program och apptjänstplan loggas och sammanställs av tjänsten med följande granulariteter och bevarandeprinciper:
+Mått för ett program och app service-plan är inloggad och sammanställs av tjänsten med följande Precision och lagringsprinciper för:
 
-* **Minut** granularitet mått bevaras för **30 timmar**
-* **Timme** granularitet mått bevaras för **30 dagar**
-* **Dag** granularitet mått bevaras för **30 dagar**
+* **Minut** kornighet mått finns kvar **30 timmar**
+* **Timme** kornighet mått finns kvar **30 dagar**
+* **Dag** kornighet mått finns kvar **30 dagar**
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Övervakning av kvoter och mått i Azure-portalen.
 Du kan granska status för de olika **kvoter** och **mått** påverkar ett program i den [Azure-portalen](https://portal.azure.com).
 
 ![][quotas]
-**Kvoter** hittar du under Inställningar >**kvoter**. UX kan du granska: (1) namnet kvoter, (2) intervallet för återställning, (3) den aktuella gränsen och (4) det aktuella värdet.
+**Kvoter** finns under Inställningar >**kvoter**. UX-Gränssnittet kan du granska: (1) namn på kvoter, (2) intervallet för återställning, (3) den aktuella gränsen och (4) aktuellt värde.
 
 ![][metrics]
-**Mått** kan nås direkt från resurssidan. Du kan också anpassa i schemat: (1) **klickar du på** på och välj (2) **redigera diagram**.
-Härifrån kan du ändra (3) **tidsintervallet**, (4) **diagramtypen**, 5 **mått** ska visas.  
+**Mått** kan nås direkt från resurssidan. Du kan också anpassa diagrammet efter: (1) **klickar du på** på den och väljer (2) **redigera diagram**.
+Härifrån kan du ändra (3) **tidsintervall**, (4) **diagramtyp**, 5 **mått** ska visas.  
 
-Du kan lära dig mer om här mått: [övervaka tjänsten](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
+Du kan lära dig mer om mätvärden här: [övervakar tjänstmått](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
-## <a name="alerts-and-autoscale"></a>Aviseringar och Autoskala
-Mätvärden för en App eller App Service-plan kan vara kopplad till aviseringar. Mer information om det finns [få aviseringar](../monitoring-and-diagnostics/insights-alerts-portal.md).
+## <a name="alerts-and-autoscale"></a>Aviseringar och automatisk skalning
+Mått för en App eller App Service-plan kan vara kopplat till aviseringar. Mer information om det finns [Varningsaviseringar](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-Apptjänst-appar som finns i basic, standard och premium stöd för App Service-planer **Autoskala**. Autoskalningsfunktionen kan du konfigurera regler som övervakar App Service-plan mått. Regler kan öka eller minska instansantalet att tillhandahålla ytterligare resurser efter behov. Regler kan också hjälpa dig att spara pengar när programmet konfigureras felaktigt. Du kan lära dig mer om automatisk skalning här: [så skala](../monitoring-and-diagnostics/insights-how-to-scale.md) och här [bästa praxis för Azure-Monitor autoskalning](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
+App Service-appar som finns i basic, standard eller premium stöd för App Service-planer **Autoskala**. Automatisk skalning kan du konfigurera regler som övervakar mått för App Service-plan. Regler kan öka eller minska instansantalet med ytterligare resurser efter behov. Regler kan också hjälpa dig att spara pengar när programmet etableras över. Du kan läsa mer om automatisk skalning här: [hur du skalar](../monitoring-and-diagnostics/insights-how-to-scale.md) och här [bästa praxis för automatisk skalning i Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 
 > [!NOTE]
 > Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](https://azure.microsoft.com/try/app-service/). Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inga kreditkort krävs. Inga åtaganden.

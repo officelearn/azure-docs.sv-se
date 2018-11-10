@@ -13,30 +13,31 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2018
+ms.date: 10/25/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 9b13b8ae0b64dc84e476f5fc5da59ea30702fd8d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0c865b8bc129f4f2809f2dbb09a836efe4cee3d9
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639035"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093048"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Självstudie: Övervaka nätverkskommunikationen mellan två virtuella datorer i Azure Portal
 
-Det kan vara mycket viktigt att kommunikationen mellan en virtuell dator (VM) och en slutpunkt, som en annan virtuell dator, fungerar ordentligt. Ibland görs konfigurationsändringar som kan bryta kommunikationen. I den här guiden får du lära dig hur man:
+Det kan vara mycket viktigt att kommunikationen mellan en virtuell dator (VM) och en slutpunkt, som en annan virtuell dator, fungerar ordentligt. Ibland görs konfigurationsändringar som kan bryta kommunikationen. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa två virtuella datorer
 > * Övervaka kommunikationen mellan virtuella datorer med funktionen för anslutningsövervakning i Network Watcher
+> * Generera aviseringar om mått från anslutningsövervakare
 > * Diagnostisera ett kommunikationsproblem mellan två virtuella datorer och lär dig hur du kan lösa det
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="create-vms"></a>Skapa VM:ar
 
@@ -120,6 +121,19 @@ Skapa en anslutningsövervakare för övervakning av kommunikationen via TCP-por
     | GENOMSN. TIDSFÖRDRÖJNING          | Visar anslutningens tidsfördröjning i millisekunder. Anslutningsövervakaren söker av anslutningen var 60:e sekund så att du kan se svarstiderna över tid.                                         |
     | Hopp                     | Anslutningsövervakaren visar hoppen mellan de två slutpunkterna. I det här exemplet ligger anslutningen mellan de två virtuella datorerna i samma virtuella nätverk, så det sker bara ett hopp till IP-adressen 10.0.0.5. Om något befintligt system eller en egen väg dirigerar trafiken mellan de två virtuella datorerna via en VPN-gateway eller en virtuell nätverksenhet visas fler hopp.                                                                                                                         |
     | STATUS                   | En grön bockmarkering vid respektive slutpunkt anger att tillståndet är felfritt.    ||
+
+## <a name="generate-alerts"></a>Generera aviseringar
+
+Aviseringar skapas av aviseringsregler i Azure Monitor och kan automatiskt köra sparade frågor eller anpassade loggsökningar med jämna mellanrum. En genererad avisering kan automatiskt köra en eller flera åtgärder, till exempel att meddela någon eller starta en annan process. När du anger en aviseringsregel avgör den resurs som du väljer som mål listan över tillgängliga mått som du kan använda för att generera aviseringar.
+
+1. I Azure-portalen väljer du **övervakningstjänsten** och sedan **Aviseringar** > **Ny aviseringsregel**.
+2. Klicka på **Välj mål** och välj sedan de resurser som du vill ha som mål. Välj **Prenumeration** och ange **Resurstyp** till att filtrera ned till den anslutningsövervakare som du vill använda.
+
+    ![aviseringsskärm med mål som valts](./media/connection-monitor/set-alert-rule.png)
+1. När du har valt en resurs som ska vara mål väljer du **Lägg till villkor**. Network Watcher har [mått som du kan skapa aviseringar om](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported). Ange **Tillgängliga signaler** till måtten ProbesFailedPercent och AverageRoundtripMs:
+
+    ![aviseringssida med signaler som valts](./media/connection-monitor/set-alert-signals.png)
+1. Fyll i information om aviseringar såsom namn på aviseringsregel, beskrivning och allvarlighetsgrad. Du kan även lägga till en åtgärdsgrupp till aviseringen för att automatisera och anpassa aviseringssvaret.
 
 ## <a name="view-a-problem"></a>Visa ett problem
 

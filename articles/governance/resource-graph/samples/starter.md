@@ -4,17 +4,17 @@ description: Använd Azure Resource Graph för att köra vissa startfrågor.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: ba3df8f0f7fa0443e64972647b6f146f756e62d6
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: d5b2bb719bcd5c2145740a02bc408385953ff739
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646636"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084538"
 ---
 # <a name="starter-resource-graph-queries"></a>Startfrågor för Azure Resource Graph
 
@@ -58,7 +58,7 @@ Search-AzureRmGraph -Query "summarize count()"
 
 ## <a name="list-resources"></a>Lista över resurser sorterade efter namn
 
-Utan begränsning till någon typ av resurs eller specifika matchningsegenskaper, returnerar den här frågan bara **namn**, **typ** och **plats** för Azure-resurserna men använder `order by` för att sortera dem efter **namn**-egenskapen i stigande (`asc`) ordning.
+Frågan returnerar alla typer av resurser men bara egenskaperna **name** (namn), **type** (typ) och **location** (plats). Den använder `order by` för att sortera egenskaperna efter egenskapen **name** (namn) i stigande (`asc`) ordning.
 
 ```Query
 project name, type, location
@@ -75,8 +75,7 @@ Search-AzureRmGraph -Query "project name, type, location | order by name asc"
 
 ## <a name="show-vms"></a>Visning av alla virtuella datorer sorterade efter namn i fallande ordning
 
-Istället för att få alla Azure-resurser, om vi bara vill ha en lista över virtuella datorer (som är av typ `Microsoft.Compute/virtualMachines`), kan vi matcha egenskapen **typ** i resultatet.
-Som för den föregående frågan, ändrar `desc` `order by` till att vara fallande. Tecknet `=~` i typmatchningen talar om för Resource Graph att Resource Graph ska vara skiftlägesokänsligt.
+För att bara lista virtuella datorer (som är typen `Microsoft.Compute/virtualMachines`) kan vi matcha egenskapen **type** (typ) i resultatet. Som för den föregående frågan, ändrar `desc` `order by` till att vara fallande. Tecknet `=~` i typmatchningen talar om för Resource Graph att Resource Graph ska vara skiftlägesokänsligt.
 
 ```Query
 project name, location, type
@@ -165,7 +164,8 @@ Search-AzureRmGraph -Query "where type contains 'storage' | distinct type"
 
 ## <a name="list-publicip"></a>Lista över alla offentliga IP-adresser
 
-Hittar på ett liknande sätt som för den föregående frågan allt som har en typ som innehåller ordet **publicIPAddresses**. Den här frågan expanderar mönstret för att utesluta resultat där **properties.ipAddress** är null, för att endast returnera **properties.ipAddress** och för att `limit` resultaten till de 100 främsta. Du kan behöva hoppa över citattecknen beroende på valt gränssnitt.
+Hittar på ett liknande sätt som för den föregående frågan allt som är en typ med ordet **publicIPAddresses**.
+Den här frågan expanderar mönstret för att utesluta resultat där **properties.ipAddress** är null, för att endast returnera **properties.ipAddress** och för att `limit` resultaten till de 100 främsta. Du kan behöva hoppa över citattecknen beroende på valt gränssnitt.
 
 ```Query
 where type contains 'publicIPAddresses' and properties.ipAddress != ''
@@ -215,7 +215,7 @@ az graph query -q "where tags.environment=~'internal' | project name"
 Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name"
 ```
 
-Om den även finns krav på att ange vilka taggar som resursen har och deras värden, kan det här exemplet utökas genom att lägga till egenskapen **tags** till nyckelordet för `project`.
+Om du även vill ange vilka taggar som resursen har och deras värden lägger du egenskapen **taggs** (taggar) i `project`-nyckelordet.
 
 ```Query
 where tags.environment=~'internal'
@@ -232,7 +232,7 @@ Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name, t
 
 ## <a name="list-specific-tag"></a>Lista över alla lagringskonton med specifikt taggvärde
 
-Genom att kombinera det föregående exemplets filterkapacitet med filtrering efter Azure-resurstyp via egenskapen **type**, kan vi begränsa vår sökning till specifika typer av Azure-resurser med ett specifikt taggnamn och värde.
+Kombinera filterfunktionerna för exemplet ovan och filtrera Azure-resurstyp efter egenskapen **type** (typ). Den här frågan begränsar även sökningen för specifika typer av Azure-resurser med ett visst taggnamn och -värde.
 
 ```Query
 where type =~ 'Microsoft.Storage/storageAccounts'

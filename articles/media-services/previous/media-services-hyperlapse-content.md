@@ -1,6 +1,6 @@
 ---
 title: Videostabilisera mediefiler med Azure Media Hyperlapse | Microsoft Docs
-description: Azure Media Hyperlapse skapar smooth tid upphörde att gälla videor från första person eller åtgärd kamera innehåll. Det här avsnittet visar hur du använder Media indexeraren.
+description: Azure Media Hyperlapse skapar smooth timelapse-video från första personen eller åtgärd kamera innehåll. Det här avsnittet visar hur du använder Media Indexer.
 services: media-services
 documentationcenter: ''
 author: asolanki
@@ -14,38 +14,38 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: adsolank
-ms.openlocfilehash: ed64a616538ed4699abc03225a2dcf27d164521f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 268e679bb052bce4c972c940333147edc5c7d721
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788489"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242593"
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Videostabilisera mediefiler med Azure Media Hyperlapse
-Azure Media Hyperlapse är ett Media Processor (HP) som skapar smooth tid upphörde att gälla videor från första person eller åtgärd kamera innehåll.  Den molnbaserade på samma nivå till [Microsoft Research skrivbord Videostabilisera Pro och telefon Videostabilisera Mobile](http://aka.ms/hyperlapse), Microsoft Hyperlapse för Azure Media Services använder massiv skala i plattformen Media-bearbetning i Azure Media Services att skala horisontellt och parallelize masskopiera Videostabilisera bearbetning.
+Azure Media Hyperlapse är en Media Processor (MP) som skapar smooth timelapse-video från första personen eller åtgärd kamera innehåll.  Den molnbaserade på samma nivå till [Microsoft Research skrivbord Hyperlapse Pro och telefon Hyperlapse Mobile](https://aka.ms/hyperlapse), Microsoft Hyperlapse för Azure Media Services använder enorma skalan för bearbetning till Media för Azure Media Services plattformen för att vågrätt skala och parallellisera bulk Hyperlapse-bearbetning.
 
 > [!IMPORTANT]
-> Microsoft Hyperlapse fungerar bäst på första person innehåll med en glidande kamera. Även om fortfarande övervakningskameror kan fortfarande fungerar, kan inte prestanda och kvalitet Azure Media Hyperlapse Media processorn garanteras för andra typer av innehåll.
+> Microsoft Hyperlapse fungerar bäst på första personen innehåll med en glidande kamera. Även om fortfarande övervakningskameror kan fortfarande fungerar kan inte prestanda och kvalitet på Azure Media Hyperlapse Mediebearbetare garanteras för andra typer av innehåll.
 > 
 > 
 
-Ett Azure Media Hyperlapse jobbet tar som indata en MP4, MOV eller WMV resursfil tillsammans med en konfigurationsfil som anger vilka ramar av video ska vara tid upphörde att gälla och vilken hastighet (t.ex. första 10 000 ramar på 2 x).  Utdata är ett stabilt och tid slut återgivning av video indata.
+Ett Azure Media Hyperlapse-jobb tar som indata en MP4 eller MOV WMV tillgångsfil tillsammans med en konfigurationsfil som anger vilka bildrutor i videon ska vara timelapse- och vilken hastighet (t.ex. första 10 000 ramar till 2 x).  Utdata är en stabila och timelapse-återgivning av indatavideo.
 
-## <a name="hyperlapse-an-asset"></a>Videostabilisera en tillgång
-Du måste först överföra önskade indatafilen till Azure Media Services.  Mer information om begrepp som ingår i överföringen och hantera innehåll på [innehållshantering artikel](media-services-portal-vod-get-started.md).
+## <a name="hyperlapse-an-asset"></a>Videostabilisering en tillgång
+Först behöver du överföra önskade indatafilen till Azure Media Services.  Mer information om vilka begrepp som används med att ladda upp och hantera innehåll i [innehållshantering artikeln](media-services-portal-vod-get-started.md).
 
-### <a id="configuration"></a>Konfigurationen förinställda för Hyperlapse
-När det är ditt innehåll i Media Services-konto, behöver du skapa förinställning konfiguration.  I följande tabell beskrivs de användardefinierade fält:
+### <a id="configuration"></a>Konfigurationen förinställning för Videostabilisering
+När det är ditt innehåll i Media Services-kontot, måste du konstruera configuration förinställning.  I följande tabell beskrivs de användardefinierade fält:
 
 | Fält | Beskrivning |
 | --- | --- |
-| StartFrame |Ramen som Microsoft Hyperlapse bearbetning ska börja. |
+| StartFrame |Ramens som Microsoft Hyperlapse-bearbetning ska börja. |
 | NumFrames |Antal bildrutor att bearbeta |
-| Hastighet |Faktor som kan påskynda inkommande videon. |
+| Hastighet |Faktorer med vilken hastighet indatavideon ska ha. |
 
-Följande är ett exempel på en fil i XML- och JSON ska följa aktuell standard:
+Följande är ett exempel på en kompatibel konfigurationsfil i XML- och JSON:
 
-**XML-förinställda:**
+**XML-förinställning:**
 ```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -58,7 +58,7 @@ Följande är ett exempel på en fil i XML- och JSON ska följa aktuell standard
     </Preset>
 ```
 
-**JSON förinställda:**
+**Förinställningen för JSON:**
 ```json
     {
         "Version":1.0,
@@ -75,14 +75,14 @@ Följande är ett exempel på en fil i XML- och JSON ska följa aktuell standard
     }
 ```
 
-### <a id="sample_code"></a> Microsoft Videostabilisera med AMS .NET SDK
-Följande metod överför en mediefil som en tillgång och skapar ett jobb med Azure Media Hyperlapse Media Processor.
+### <a id="sample_code"></a> Microsoft Hyperlapse med AMS .NET SDK
+Följande metod överför en mediefil som en tillgång och skapar ett jobb med Azure Media Hyperlapse Mediebearbetare.
 
 > [!NOTE]
-> Har redan en CloudMediaContext i scope med namnet ”kontext” för den här koden ska fungera.  Mer information om detta i [innehållshantering artikel](media-services-dotnet-get-started.md).
+> Du bör redan ha en CloudMediaContext i scope med namnet ”kontexten” för den här koden ska fungera.  Mer information om detta finns i [innehållshantering artikeln](media-services-dotnet-get-started.md).
 > 
 > [!NOTE]
-> Strängargument ”hyperConfig” förväntas vara en konfiguration för ska följa aktuell standard förinställda i JSON- eller XML-enligt beskrivningen ovan.
+> Strängargumentet ”hyperConfig” förväntas vara en kompatibel konfiguration förinställda i JSON eller XML, enligt beskrivningen ovan.
 > 
 > 
 
@@ -213,7 +213,7 @@ Följande metod överför en mediefil som en tillgång och skapar ett jobb med A
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Relaterade länkar
-[Azure Media Services Analytics-översikt](media-services-analytics-overview.md)
+[Översikt över Analytics för Azure Media Services](media-services-analytics-overview.md)
 
-[Azure Media Analytics demonstrationer](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure Medieanalys-demonstrationer](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

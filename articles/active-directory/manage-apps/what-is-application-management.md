@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: overview
 ms.workload: identity
-ms.date: 09/11/2018
+ms.date: 10/30/2018
 ms.author: barbkess
 ms.reviewer: arvinh
-ms.openlocfilehash: 820c6a5cb0bf5fb2d98d27c171c1276866082700
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 577be6669442befec0c14a275505e2eebed72611
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716201"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418100"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Programhantering med Azure Active Directory
 
-Azure Active Directory (Azure AD) ger säker och smidig åtkomst till både molnprogram och lokala program. Användare kan logga in en gång för att få åtkomst till Office 365 och andra affärsprogram från Microsoft, tusentals SaaS-program (Programvara som en tjänst), lokala program och verksamhetsspecifika appar. Minska administrativa kostnader genom att automatisera etableringen av användare. Använd multifaktorautentisering och principer för villkorsstyrd åtkomst för att ge säker åtkomst till program.
+Azure Active Directory (Azure AD) ger säker och smidig åtkomst till både molnprogram och lokala program. Användare kan logga in en gång för att få åtkomst till Office 365 och andra affärsprogram från Microsoft, SaaS-program (Programvara som en tjänst), lokala program och verksamhetsspecifika appar. Minska administrativa kostnader genom att automatisera etableringen av användare. Använd multifaktorautentisering och principer för villkorsstyrd åtkomst för att ge säker åtkomst till program.
 
-![Appar som federeras via Azure AD](media/migrate-adfs-apps-to-azure/migrate2.png)
+![Appar som federeras via Azure AD](media/what-is-application-management/app-management-overview.png)
 
 ## <a name="why-manage-applications-with-a-cloud-solution"></a>Varför hantera program med en molnlösning?
 
@@ -40,5 +40,5 @@ Enkel inloggning ger bättre säkerhet. *Utan enkel inloggning* måste administr
 Med Azure AD kan du övervaka programinloggningar via rapporter som utnyttjar verktyg för säkerhetsinformation och händelsehantering (SIEM). Du kommer åt rapporterna i portalen eller med API:er. Granska programmatiskt vem som har åtkomst till dina program och ta bort åtkomst för inaktiva användare via åtkomstgranskningar.
 
 ## <a name="manage-costs"></a>Hantera kostnader
-Genom att migrera till Azure AD kan du minska kostnaderna och slippa besväret med att hantera en lokal infrastruktur. Azure AD tillhandahåller även åtkomst till program via självbetjäning, vilket sparar tid för både administratörer och användare. Enkel inloggning avlägsnar behovet för programspecifika lösenord, vilket sänker kostnaderna i samband med återställning av lösenord för program och förlorad produktivitet under hämtning av lösenord.
+Genom att migrera till Azure AD kan du minska kostnaderna och slippa besväret med att hantera en lokal infrastruktur. Azure AD tillhandahåller även åtkomst till program via självbetjäning, vilket sparar tid för både administratörer och användare. Enkel inloggning eliminerar programspecifika lösenord. Den här möjligheten att logga in en enda gång sänker kostnaderna i samband med återställning av lösenord för program och förlorad produktivitet under hämtning av lösenord.
 

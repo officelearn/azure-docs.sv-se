@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 35c15613192ac12a7d4c64cbe28f62200724d311
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: af7500d6bf12ef34e6919aa255185a87525310b3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452283"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240723"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Hantera lagringskonton i Azure Stack
 Lär dig mer om att hantera lagringskonton i Azure Stack för att hitta, återställa och frigöra lagringskapacitet baserat på affärsbehoven.
@@ -80,7 +80,7 @@ Det finns ett enkelt sätt att göra det i Azure Stack:
 3. Kontrollera den *tillstånd* för kontot. Det ska stå **borttagna**.
 4. Välj kontot som öppnar rutan information.
 5. Utöver det här fönstret kan du leta upp den **återställa** knappen och markera den.
-6. Välj **Ja** för att bekräfta.
+6. Bekräfta genom att välja **Ja**.
    
    ![](media/azure-stack-manage-storage-accounts/image8.png)
 7. Återställningen är nu i *bearbeta... Vänta* för en indikation på att det lyckades.
@@ -136,8 +136,8 @@ Du kan också använda PowerShell för att åsidosätta uttryckligen kvarhållni
 **Att frigöra kapacitet med hjälp av PowerShell:**   
 
 1. Bekräfta att du har Azure PowerShell installerad och konfigurerad. Om inte, Använd följande instruktioner: 
-   * Om du vill installera den senaste versionen av Azure PowerShell och associera den med din Azure-prenumeration, se [hur du installerar och konfigurerar du Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-   Läs mer om Azure Resource Manager-cmdletar, [med hjälp av Azure PowerShell med Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
+   * Om du vill installera den senaste versionen av Azure PowerShell och associera den med din Azure-prenumeration, se [hur du installerar och konfigurerar du Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+   Läs mer om Azure Resource Manager-cmdletar, [med hjälp av Azure PowerShell med Azure Resource Manager](https://go.microsoft.com/fwlink/?LinkId=394767)
 2. Kör följande cmdlets:
 
 > [!NOTE]  

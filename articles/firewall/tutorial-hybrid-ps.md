@@ -5,17 +5,16 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/2/2018
+ms.date: 10/27/2018
 ms.author: victorh
-ms.openlocfilehash: 27221ac4b23f52dd6976a959e6e5529eb0cc89fa
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 3c225e6fbfb13c04d650b8e6b72ee18d23139a8e
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856079"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158966"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Självstudie: Distribuera och konfigurera Azure Firewall i ett hybridnätverk med hjälp av Azure PowerShell
-
 
 I den här guiden får du lära dig att:
 
@@ -49,6 +48,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 ## <a name="declare-the-variables"></a>Deklarera variablerna
+
 I följande exemplet deklareras variablerna med hjälp av värdena för den här självstudien. I de flesta fall bör du ersätta värdena med dina egna. Du kan dock använda dessa variabler om du bara vill följa anvisningarna för att bekanta dig med den här typen av konfiguration. Ändra variablerna om det behövs och kopiera och klistra in dem i PowerShell-konsolen.
 
 ```azurepowershell
@@ -91,6 +91,7 @@ $SNnameGW = "GatewaySubnet"
 ```
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
+
 Skapa en resursgrupp som ska innehålla alla resurser som krävs för den här självstudien:
 
 ```azurepowershell
@@ -112,12 +113,14 @@ Nu skapar brandväggens virtuella hubbnätverk:
 $VNetHub = New-AzureRmVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetHubPrefix -Subnet $FWsub,$GWsub
 ```
+
 Begär en offentlig IP-adress som ska allokeras till den VPN-gateway som du ska skapa för det virtuella nätverket. Observera att *AllocationMethod* är **Dynamic**. Du kan inte ange den IP-adress som du vill använda. Den allokeras dynamiskt till VPN-gatewayen. 
 
   ```azurepowershell
   $gwpip1 = New-AzureRmPublicIpAddress -Name $GWHubpipName -ResourceGroupName $RG1 `
   -Location $Location1 -AllocationMethod Dynamic
 ```
+
 ## <a name="create-and-configure-the-spoke-vnet"></a>Skapa och konfigurera det virtuella ekernätverket
 
 Definiera de undernät som ska ingå i det virtuella ekernätverket:
@@ -149,6 +152,7 @@ Skapa nu det virtuella OnPrem-nätverket:
 $VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
 ```
+
 Begär en offentlig IP-adress som ska allokeras till den gateway som du ska skapa för det virtuella nätverket. Observera att *AllocationMethod* är **Dynamic**. Du kan inte ange den IP-adress som du vill använda. Den allokeras dynamiskt till gatewayen. 
 
   ```azurepowershell
@@ -176,32 +180,20 @@ $AzfwPrivateIP
 
 ### <a name="configure-network-rules"></a>Konfigurera nätverksregler
 
-<!--- $Rule2 = New-AzureRmFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
+<!--- $Rule3 = New-AzureRmFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort *--->
 
 ```azurepowershell
 $Rule1 = New-AzureRmFirewallNetworkRule -Name "AllowWeb" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 80
 
-$Rule3 = New-AzureRmFirewallNetworkRule -Name "AllowRDP" -Protocol TCP -SourceAddress $SNOnpremPrefix `
+$Rule2 = New-AzureRmFirewallNetworkRule -Name "AllowRDP" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 3389
 
 $NetRuleCollection = New-AzureRmFirewallNetworkRuleCollection -Name RCNet01 -Priority 100 `
-   -Rule $Rule1,$Rule2,$Rule3 -ActionType "Allow"
+   -Rule $Rule1,$Rule2 -ActionType "Allow"
 $Azfw.NetworkRuleCollections = $NetRuleCollection
 Set-AzureRmFirewall -AzureFirewall $Azfw
-```
-### <a name="configure-an-application-rule"></a>Konfigurera en programregel
-
-```azurepowershell
-$Rule4 = New-AzureRmFirewallApplicationRule -Name "AllowBing" -Protocol "Http:80","Https:443" `
-   -SourceAddress $SNOnpremPrefix -TargetFqdn "bing.com"
-
-$AppRuleCollection = New-AzureRmFirewallApplicationRuleCollection -Name RCApp01 -Priority 100 `
-   -Rule $Rule4 -ActionType "Allow"
-$Azfw.ApplicationRuleCollections = $AppRuleCollection
-Set-AzureRmFirewall -AzureFirewall $Azfw
-
 ```
 
 ## <a name="create-and-connect-the-vpn-gateways"></a>Skapa och ansluta VPN-gatewayer
@@ -245,10 +237,13 @@ New-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGroupName $RG1 `
 -Location $Location1 -IpConfigurations $gwipconf2 -GatewayType Vpn `
 -VpnType RouteBased -GatewaySku basic
 ```
+
 ### <a name="create-the-vpn-connections"></a>Skapa VPN-anslutningarna
+
 Nu kan du skapa VPN-anslutningarna mellan hubb- och OnPrem-gatewayerna
 
 #### <a name="get-the-vpn-gateways"></a>Hämta VPN-gatewayerna
+
 ```azurepowershell
 $vnetHubgw = Get-AzureRmVirtualNetworkGateway -Name $GWHubName -ResourceGroupName $RG1
 $vnetOnpremgw = Get-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGroupName $RG1
@@ -270,8 +265,9 @@ Skapa anslutningen mellan det virtuella OnPrem-nätverket till det virtuella hub
   -VirtualNetworkGateway1 $vnetOnpremgw -VirtualNetworkGateway2 $vnetHubgw -Location $Location1 `
   -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
+
 #### <a name="verify-the-connection"></a>Verifiera anslutningen
- 
+
 Du kan kontrollera att anslutningen fungerar genom att använda cmdleten *Get-AzureRmVirtualNetworkGatewayConnection* med eller utan *-Debug*. Använd följande cmdlet-exempel genom att konfigurera värdena för att matcha dina egna. Vid uppmaning väljer du **A** för att köra **Alla**. I exemplet avser *-Name* namnet på den anslutning som du vill testa.
 
 ```azurepowershell
@@ -286,8 +282,6 @@ Visa värdena när cmdleten är klar. I följande exempel visas anslutningsstatu
 "egressBytesTransferred": 4142431
 ```
 
-
-
 ## <a name="peer-the-hub-and-spoke-vnets"></a>Peera de virtuella hubb- och ekernätverken
 
 Peera nu de virtuella eker- och hubbnätverken.
@@ -299,9 +293,11 @@ Add-AzureRmVirtualNetworkPeering -Name HubtoSpoke -VirtualNetwork $VNetHub -Remo
 # Peer spoke to hub
 Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -RemoteVirtualNetworkId $VNetHub.Id -AllowForwardedTraffic -UseRemoteGateways
 ```
+
 ## <a name="create-routes"></a>Skapa roller
 
-Därefter skapar du några vägar: 
+Därefter skapar du några vägar:
+
 - En väg från hubbgateway-undernätet till ekerundernätet via brandväggens IP-adress
 - En standardväg från ekerundernätet via brandväggens IP-adress
 
@@ -364,16 +360,18 @@ Set-AzureRmVirtualNetworkSubnetConfig `
   -RouteTable $routeTableSpokeDG | `
 Set-AzureRmVirtualNetwork
 ```
+
 ## <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
 Skapa nu ekerarbetsbelastningen och de virtuella OnPrem-datorerna och placera dem i respektive undernät.
 
 ### <a name="create-the-workload-virtual-machine"></a>Skapa den virtuella arbetsbelastningsdatorn
+
 Skapa en virtuell dator i det virtuella ekernätverket som kör IIS, saknar offentlig IP-adress och tillåter ingående pingar.
 När du uppmanas anger du användarnamn och lösenord för den virtuella datorn.
 
 ```azurepowershell
-# Create an inbound network security group rule for port 3389
+# Create an inbound network security group rule for ports 3389 and 80
 $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name Allow-RDP  -Protocol Tcp `
   -Direction Inbound -Priority 200 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix $SNSpokePrefix -DestinationPortRange 3389 -Access Allow
 $nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name Allow-web  -Protocol Tcp `
@@ -417,9 +415,10 @@ Set-AzureRmVMExtension `
     -SettingString '{"commandToExecute":"powershell New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4"}' `
     -Location $Location1--->
 
-
 ### <a name="create-the-onprem-virtual-machine"></a>Skapa den virtuella OnPrem-datorn
+
 Det här är en enkel virtuell dator som du kan ansluta till med hjälp av fjärrskrivbord till den offentliga IP-adressen. Därifrån kan du sedan ansluta till OnPrem-servern via brandväggen. När du uppmanas anger du användarnamn och lösenord för den virtuella datorn.
+
 ```azurepowershell
 New-AzureRmVm `
     -ResourceGroupName $RG1 `
@@ -432,6 +431,7 @@ New-AzureRmVm `
 ```
 
 ## <a name="test-the-firewall"></a>Testa brandväggen
+
 Först hämtar och antecknar du den privata IP-adressen för den virtuella datorn **VM-spoke-01**.
 
 ```azurepowershell
@@ -462,17 +462,14 @@ Nu har du verifierat att brandväggsreglerna fungerar:
 $rcNet = $azfw.GetNetworkRuleCollectionByName("RCNet01")
 $rcNet.action.type = "Deny"
 
-$rcApp = $azfw.GetApplicationRuleCollectionByName("RCApp01")
-$rcApp.action.type = "Deny"
-
 Set-AzureRmFirewall -AzureFirewall $azfw
 ```
+
 Kör nu testerna igen. De bör alla misslyckas den här gången. Stäng alla befintliga fjärrskrivbord innan du testar de ändrade reglerna.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Du kan behålla dina brandväggsresurser för nästa självstudie eller, om de inte längre behövs, så tar du bort resursgruppen **FW-Hybrid-Test** för att ta bort alla brandväggsrelaterade resurser.
-
 
 ## <a name="next-steps"></a>Nästa steg
 

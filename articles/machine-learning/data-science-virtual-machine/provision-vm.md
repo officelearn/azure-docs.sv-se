@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: 37a30055e567b27f4e215dac162642d4447a8e49
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1b293ee8f0f83d727cd647cdcdcc424b4db7e5d3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298216"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240893"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Etablera Windows Data Science-dator på Azure
 Microsoft Data Science Virtual Machine (DSVM) är en avbildning för Windows Azure-dator (VM). Det har förinstallerat och har konfigurerats med flera verktyg som används för dataanalys och maskininlärning. Följande verktyg ingår:
@@ -186,7 +186,7 @@ Flera Azure-verktygen är installerade på den virtuella datorn:
 * **Microsoft Azure PowerShell** är ett verktyg som används för att administrera dina Azure-resurser i PowerShell-skriptspråket. Det är också installeras på den virtuella datorn. 
 
 ### <a name="power-bi"></a>Power BI
-Den **Power BI Desktop** installeras för att hjälpa dig att skapa instrumentpaneler och visualiseringar. Använda verktyget för att hämta data från olika källor, skapa dina instrumentpaneler och rapporter och publicera dem till molnet. Mer information finns i den [Power BI](http://powerbi.microsoft.com) plats. Du hittar i Power BI desktop på den **starta** menyn. 
+Den **Power BI Desktop** installeras för att hjälpa dig att skapa instrumentpaneler och visualiseringar. Använda verktyget för att hämta data från olika källor, skapa dina instrumentpaneler och rapporter och publicera dem till molnet. Mer information finns i den [Power BI](https://powerbi.microsoft.com) plats. Du hittar i Power BI desktop på den **starta** menyn. 
 
 > [!NOTE]
 > Du behöver ett Microsoft Office 365-konto till Power BI. 
@@ -228,7 +228,7 @@ Den [Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/p
 * Utforska verktygen på dator för datavetenskap genom att välja den **starta** menyn.
 * Läs mer om Azure Machine Learning Services och Workbench genom att gå till produkten [sidan Snabbstart och självstudier](../service/index.yml). 
 * Gå till **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** för exempel som använder sig av RevoScaleR library i R som har stöd för dataanalys i enterprise-skala.  
-* Läs artikeln [tio saker som du kan göra på den virtuella datorn för datavetenskap](http://aka.ms/dsvmtenthings).
+* Läs artikeln [tio saker som du kan göra på den virtuella datorn för datavetenskap](https://aka.ms/dsvmtenthings).
 * Lär dig att skapa slutpunkt till slutpunkt Analyslösningar systematiskt med hjälp av den [Team Data Science Process](../team-data-science-process/index.yml).
 * Gå till den [Azure AI-galleriet](http://gallery.cortanaintelligence.com) för machine learning och data analytics-exempel som använder Azure Machine Learning och relaterade data services på Azure. Vi har också lagt till en ikon för det här galleriet på den **starta** -menyn och skrivbordet för den virtuella datorn.
 

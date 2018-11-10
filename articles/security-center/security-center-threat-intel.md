@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: d82d52e05d85fbd5197f84f032a55dd9c74f9d1f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: c41cb48e61b4c2bd1dc81e508c8218fad688bbaf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714436"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241727"
 ---
-# <a name="security-alerts-map-and-threat-intelligence"></a>Säkerhetsvarningar kartan och hotinformation för
+# <a name="security-alerts-map-and-threat-intelligence"></a>Säkerhetsvarningsmappning och hotinformation
 Den här artikeln hjälper dig att använda Azure Security Center säkerhetskarta aviseringar och säkerhet händelsebaserad karta för hotinformation att åtgärda säkerhetsrelaterade problem med.
 
 ## <a name="how-the-security-alerts-map-works"></a>Hur säkerhetsaviseringar mappar fungerar
@@ -106,4 +106,4 @@ I den här artikeln lärde du dig att använda hotinformation i Security Center 
 * [Förstå säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Läs mer om de olika typerna av säkerhetsaviseringar.
 * [Felsökningsguide för Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Lär dig hur du felsöker vanliga problem i Security Center.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md). Få svar på vanliga frågor om att använda tjänsten.
-* [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/). Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
+* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/). Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.

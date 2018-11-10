@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: cd7b475dc2bd4dade822a82f285c2e96c8d532d2
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3d9da96e5bf6c88f76089dea930b02248cfa1d24
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138199"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243802"
 ---
 # <a name="azure-storage-security-guide"></a>Säkerhetsguiden för Azure Storage
 
@@ -479,7 +479,7 @@ Mer information om CORS och hur du aktiverar det finns dessa resurser.
 * [Cross-Origin Resource Sharing (CORS) Support för Azure Storage-tjänsterna på MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)
 
   Det här är referensdokumentation för CORS-stöd för Azure Storage-tjänster. Det finns länkar till artiklar som gäller för varje lagringstjänst och visar ett exempel och förklarar varje element i CORS-filen.
-* [Microsoft Azure Storage: Introduktion till CORS](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
+* [Microsoft Azure Storage: Introduktion till CORS](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
 
   Det här är en länk till inledande bloggartikel presenterar CORS och visar hur du använder den.
 
@@ -490,7 +490,7 @@ Mer information om CORS och hur du aktiverar det finns dessa resurser.
 
    Om du kan använda HTTPS, som ger transportsäkerhet, är sedan med hjälp av MD5 kontrollerar redundant och onödiga.
 
-   Mer information finns på den [översikt över Azure Blob-MD5](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx).
+   Mer information finns på den [översikt över Azure Blob-MD5](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx).
 2. **Vad är FIPS-kompatibilitet för USA Myndigheter?**
 
    I USA FIPS Federal Information Processing Standard () definierar kryptografiska algoritmer som godkänts för användning av USA Federala myndigheter datorsystem för skydd av känsliga data. För att aktivera FIPS-läge på en Windows server eller desktop talar om Operativsystemet endast FIPS-validerade kryptografiska algoritmer som ska användas. Om ett program använder icke-kompatibla algoritmer, bryts programmen. With.NET ramverksversioner 4.5.2 eller senare programmet automatiskt växlar krypteringsalgoritmer för att använda FIPS-kompatibla algoritmer när datorn är i FIPS-läge.

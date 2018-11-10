@@ -1,12 +1,25 @@
+---
+author: cynthn
+ms.service: virtual-machines-linux
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 5df1f7ff44a1603dd03d1d803ae9960dc124781e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227453"
+---
 ## <a name="install-wordpress"></a>Installera WordPress
 
-Om du vill prova traven installerar du en exempelapp. Exempelvis följande steg för att installera öppen källkod [WordPress](https://wordpress.org/) plattform för att skapa webbplatser och bloggar. Andra arbetsbelastningar försöka ta [Drupal](http://www.drupal.org) och [Moodle](https://moodle.org/). 
+Om du vill testa din stack, installerar du en exempelapp. Till exempel installerar följande steg [WordPress](https://wordpress.org/)-plattformen med öppen källkod för att skapa webbplatser och bloggar. Andra arbetsbelastningar du kan testa är [Drupal](http://www.drupal.org) och [Moodle](https://moodle.org/). 
 
-Den här WordPress-installationen är endast för konceptbeviset. Om du vill installera den senaste WordPress i produktion med rekommenderade säkerhetsinställningarna i [WordPress dokumentationen](https://codex.wordpress.org/Main_Page). 
+Den här WordPress-installationen är endast avsedd för ”Proof of concept”. Om du vill installera senaste WordPress i produktion med rekommenderade säkerhetsinställningar läser du [WordPress-dokumentationen](https://codex.wordpress.org/Main_Page). 
 
 
 
-### <a name="install-the-wordpress-package"></a>Installera WordPress-paket
+### <a name="install-the-wordpress-package"></a>Installera WordPress-paketet
 
 Kör följande kommando:
 
@@ -16,15 +29,15 @@ sudo apt install wordpress
 
 ### <a name="configure-wordpress"></a>Konfigurera WordPress
 
-Konfigurera WordPress för att använda MySQL och PHP.
+Konfigurera WordPress att använda MySQL och PHP.
 
-Skapa en textfil i arbetskatalogen, `wordpress.sql` att konfigurera MySQL-databas för WordPress: 
+Skapa en textfil `wordpress.sql` i en arbetskatalog för att konfigurera MySQL-databasen för WordPress: 
 
 ```bash
 sudo sensible-editor wordpress.sql
 ```
 
-Lägg till följande kommandon och ersätta ett lösenord för dina val för *yourPassword* (lämna övriga värden oförändrade). Om du tidigare konfigurerat en MySQL-säkerhetsprincip för att verifiera lösenordssäkerhet, kontrollera att lösenordet uppfyller styrka. Spara filen.
+Lägg till följande kommandon för att ersätta ett valfritt databaslösenord mot *yourPassword* (lämna alla andra värden oförändrade). Om du tidigare har konfigurerat en MySQL-säkerhetsprincip för att verifiera lösenordsstyrkan ser du till att lösenordet uppfyller kraven på styrka. Spara filen.
 
 ```sql
 CREATE DATABASE wordpress;
@@ -41,18 +54,18 @@ Kör följande kommando för att skapa databasen:
 cat wordpress.sql | sudo mysql --defaults-extra-file=/etc/mysql/debian.cnf
 ```
 
-Eftersom filen `wordpress.sql` innehåller Databasautentiseringsuppgifter, ta bort den efter att använda:
+Eftersom filen `wordpress.sql` innehåller databasautentiseringsuppgifter tar du bort den efter användning:
 
 ```bash
 sudo rm wordpress.sql
 ```
 
-Om du vill konfigurera PHP, kör du följande kommando för att öppna en textredigerare önskat och skapa filen `/etc/wordpress/config-localhost.php`:
+Om du vill konfigurera PHP kör du följande kommando för att öppna valfri textredigerare och skapa filen `/etc/wordpress/config-localhost.php`:
 
 ```bash
 sudo sensible-editor /etc/wordpress/config-localhost.php
 ```
-Kopiera följande rader i filen, ersätter lösenordet WordPress-databas för *yourPassword* (lämna övriga värden oförändrade). Spara sedan filen.
+Kopiera följande rader i filen för att ersätta ditt WordPress-databaslösenord mot *yourPassword* (lämna alla andra värden oförändrade). Spara sedan filen.
 
 ```php
 <?php
@@ -65,7 +78,7 @@ define('WP_CONTENT_DIR', '/usr/share/wordpress/wp-content');
 ```
 
 
-Flytta WordPress-installationen till dokumentroten web server:
+Flytta WordPress-installationen till webbserverns dokumentrot:
 
 ```bash
 sudo ln -s /usr/share/wordpress /var/www/html/wordpress
@@ -73,6 +86,6 @@ sudo ln -s /usr/share/wordpress /var/www/html/wordpress
 sudo mv /etc/wordpress/config-localhost.php /etc/wordpress/config-default.php
 ```
 
-Nu kan du slutför installationen av WordPress och publicera på plattformen. Öppna en webbläsare och gå till `http://yourPublicIPAddress/wordpress`. Ersätt offentliga IP-adressen för den virtuella datorn. Det bör likna den här avbildningen.
+Nu kan du slutföra WordPress-installationen och publicera på plattformen. Öppna en webbläsare och navigera till `http://yourPublicIPAddress/wordpress`. Ersätt den offentliga IP-adressen för den virtuella datorn. Det bör se ut ungefär som den här bilden:
 
-![Sidan för WordPress-installation](./media/virtual-machines-linux-tutorial-wordpress/wordpressstartpage.png)
+![Installationssidan för WordPress](./media/virtual-machines-linux-tutorial-wordpress/wordpressstartpage.png)

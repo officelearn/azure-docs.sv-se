@@ -9,16 +9,16 @@ ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
 ms.date: 09/24/2018
-ms.openlocfilehash: b81e40298eae0f0b44f37e7f8f16beaddad999a5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 624564d61a7031cee910ab98e1b327b6f0205e28
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456821"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50159017"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Snabbstart: Använda Azure-portalen för att komma igång med Azure Machine Learning
 
-I den här snabbstarten ska du använda Azure-portalen för att skapa en Azure Machine Learning-arbetsyta. Den här arbetsytan är själva grunden i det moln som du använder för att experimentera, träna och distribuera maskininlärningsmodeller med Machine Learning. 
+I den här snabbstarten ska du använda Azure-portalen för att skapa en Azure Machine Learning-arbetsyta. Den här arbetsytan är själva grunden i det moln som du använder för att experimentera, träna och distribuera maskininlärningsmodeller med Machine Learning. Den här snabbstarten använder molnresurser och kräver ingen installation. Om du istället vill konfigurera en egen Jupyter notebook-server går du till [Snabbstart: Använda Python för att komma igång med Azure Machine Learning](quickstart-create-workspace-with-python.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
 
@@ -78,32 +78,9 @@ Tillsammans med två anteckningsböcker ser du en `config.json`-fil. Den här ko
 
 Välj `01.run-experiment.ipynb` för att öppna anteckningsboken.
 
-Om du vill köra cellerna en i taget använder du `Shift`+`Enter`. Eller välj `Cells` > `Run All` om du vill köra hela anteckningsboken. När du ser en asterisk [*] bredvid en cell körs den. När koden för den cellen är klar visas ett tal.
+Om du vill köra cellerna en i taget använder du `Shift`+`Enter`. Eller välj `Cells` > `Run All` om du vill köra hela anteckningsboken. När du ser en asterisk [*] bredvid en cell körs den. När koden för den cellen är klar visas ett tal. 
 
-Du kan uppmanas att logga in. Kopiera koden i meddelandet. Välj sedan länken och klistra in koden i ett nytt fönster. Glöm inte att kopiera ett blanksteg före eller efter koden. Logga in med samma konto som du använde i Azure-portalen.
-
- ![Logga in](./media/quickstart-get-started/login.png)
-
-I anteckningsboken läser den andra cellen från `config.json` för att ansluta till din arbetsyta.
-```
-ws = Workspace.from_config()
-```
-
-Den tredje cellen med kod startar ett experiment med namnet ”my-first-experiment”. Använd det här namnet för att söka efter information om körningen när du är tillbaka på din arbetsyta.
-
-```
-experiment = Experiment(workspace_object=ws, name = "my-first-experiment")
-```
-
-Observera i anteckningsbokens sista cell de värden som skrivs till en loggfil.
-
-```
-# Log final results
-run.log("Final estimate: ",pi_estimate)
-run.log("Final error: ",math.pi-pi_estimate)
-```
-
-Du kan visa dessa värden på din arbetsyta när koden har körts.
+När du har slutfört körningen av alla celler i anteckningsboken kan du visa de loggade värdena på arbetsytan.
 
 ## <a name="view-logged-values"></a>Visa loggade värden
 
@@ -121,11 +98,11 @@ Visa information om körningen som du precis har utfört. Rulla ned på sidan f�
 
  ![Länk för körningshistorik](./media/quickstart-get-started/report.png)
 
-Du ser linjer som skapades automatiskt för de loggade värdena.  
+Du ser linjer som skapades automatiskt för de loggade värdena. När du loggar flera värden med samma parameter genereras ett diagram automatiskt åt dig.
 
    ![Visa historik](./media/quickstart-get-started/plots.png)
 
-Eftersom koden för att göra en uppskattning av pi använder slumpmässiga värden visar dina diagram olika värden.
+Eftersom koden för att göra en uppskattning av pi använder slumpmässiga värden visar dina diagram olika värden.  
 
 ## <a name="clean-up-resources"></a>Rensa resurser 
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d042033981cba4e9d56b48543a7c6016a38efb53
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 2b04853e8d01ae559ce4ad982daba2928a6cd130
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958562"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244482"
 ---
 # <a name="log-analytics-data-security"></a>Logga Analytics-datasäkerhet
 Det här dokumentet är avsedd att ge specifik information till Log Analytics, som är en funktion i Azure Monitor för att komplettera informationen på [Azure Trust Center](../security/security-microsoft-trust-center.md).  
@@ -36,7 +36,7 @@ Log Analytics-tjänsten hanterar dina molnbaserade data på ett säkert sätt me
 * Efterlevnad
 * certifieringar av standarder för säkerhet
 
-Kontakta oss med frågor, förslag eller problem om något av följande information, inklusive våra säkerhetsprinciper på [supportalternativ för Azure](http://azure.microsoft.com/support/options/).
+Kontakta oss med frågor, förslag eller problem om något av följande information, inklusive våra säkerhetsprinciper på [supportalternativ för Azure](https://azure.microsoft.com/support/options/).
 
 ## <a name="sending-data-securely-using-tls-12"></a>Skicka data på ett säkert sätt med hjälp av TLS 1.2 
 
@@ -86,7 +86,7 @@ I följande tabell visas exempel på datatyper:
 | Status |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="physical-security"></a>Fysisk säkerhet
-Log Analytics-tjänsten hanteras av Microsoft-Personal och alla aktiviteter loggas och kan granskas. Log Analytics körs som en Azure-tjänst och uppfyller alla krav för Azure-efterlevnad och säkerhet. Du kan visa information om den fysiska säkerheten för Azure-tillgångar på sidan 18 i den [översikt över Microsoft Azure Security](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Fysiska åtkomsträttigheter för att skydda områden ändras inom en arbetsdag för alla som inte längre har ansvar för Log Analytics-tjänsten, inklusive överföring och avslut. Du kan läsa om den globala fysiska infrastrukturen som vi använder på [Microsofts Datacenters](https://azure.microsoft.com/global-infrastructure/).
+Log Analytics-tjänsten hanteras av Microsoft-Personal och alla aktiviteter loggas och kan granskas. Log Analytics körs som en Azure-tjänst och uppfyller alla krav för Azure-efterlevnad och säkerhet. Du kan visa information om den fysiska säkerheten för Azure-tillgångar på sidan 18 i den [översikt över Microsoft Azure Security](https://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Fysiska åtkomsträttigheter för att skydda områden ändras inom en arbetsdag för alla som inte längre har ansvar för Log Analytics-tjänsten, inklusive överföring och avslut. Du kan läsa om den globala fysiska infrastrukturen som vi använder på [Microsofts Datacenters](https://azure.microsoft.com/global-infrastructure/).
 
 ## <a name="incident-management"></a>incidenthantering
 Log Analytics har en incidenthanteringsprocess som följer alla Microsoft-tjänster. Sammanfattningsvis, vi:

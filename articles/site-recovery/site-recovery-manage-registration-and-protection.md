@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 06169ff8e084882eb9a2dbe71c89c3b2a40b384b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 4dac0ed85500e4339f6389f05113dfd68b72c5ff
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214094"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244346"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Ta bort servrar och inaktivera skydd
 
@@ -34,7 +34,7 @@ Om du replikerar virtuella VMware-datorer eller fysiska Windows/Linux-servrar ti
 3. Observera ID för VMM-servern.
 4. Kopplingen mellan replikeringsprinciper från moln på VMM-servern som du vill ta bort.  I **Site Recovery-infrastruktur** > **för System Center VMM** >  **replikeringsprinciper**, dubbelklicka på den associerade principen. Högerklicka på molnet > **ta bort association med**.
 5. Ta bort VMM-servern eller den aktiva noden. I **Site Recovery-infrastruktur** > **för System Center VMM** > **VMM-servrar**, högerklicka på servern > **ta bort** .
-6. Om din VMM-server har frånkopplat, ladda ned och kör den [raderingsskript](http://aka.ms/asr-cleanup-script-vmm) på VMM-servern. Öppna PowerShell med den **kör som administratör** alternativet för att ändra körningsprincipen för standardomfattning (LocalMachine). Ange ID för VMM-servern som du vill ta bort i skriptet. Skriptet tar bort registrering och molnlänkningen information från servern.
+6. Om din VMM-server har frånkopplat, ladda ned och kör den [raderingsskript](https://aka.ms/asr-cleanup-script-vmm) på VMM-servern. Öppna PowerShell med den **kör som administratör** alternativet för att ändra körningsprincipen för standardomfattning (LocalMachine). Ange ID för VMM-servern som du vill ta bort i skriptet. Skriptet tar bort registrering och molnlänkningen information från servern.
 5. Kör rensning-skriptet på alla sekundära VMM-servern.
 6. Kör rensning-skriptet på alla andra passiv VMM-klusternoder som har installerat providern.
 7. Avinstallera providern manuellt på VMM-servern. Om du har ett kluster kan du ta bort från alla noder.

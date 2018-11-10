@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 9d4ede9aee5261903a814cc2f29c788a2ba377f3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 86e60f339af3d6d467b68d5d3b27d77a9861add1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869777"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244091"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Använda Azure Active Directory-autentisering för autentisering med SQL
 
@@ -35,7 +35,7 @@ Med Azure AD-autentisering kan du centralt hantera identiteter för databasanvä
 - Men kan inte lagra lösenord genom att aktivera integrerad Windows-autentisering och andra former av autentisering som stöds av Azure Active Directory.
 - Azure AD-autentisering använder oberoende databasanvändare för att autentisera identiteter på databasnivå.
 - Azure AD stöder tokenbaserad autentisering för program som ansluter till SQL-databas.
-- Azure AD-autentisering har stöd för AD FS (domän federation) eller interna användare/lösenord autentisering för en lokal Azure Active Directory utan domänsynkronisering.  
+- Azure AD-autentisering har stöd för AD FS (domän federation) eller interna användare/lösenord autentisering för en lokal Azure Active Directory utan domänsynkronisering.  
 - Azure AD stöder anslutningar från SQL Server Management Studio som använder Active Directory Universal-autentisering, inklusive Multi-Factor Authentication (MFA).  MFA innehåller stark autentisering med en rad enkla verifieringsalternativ – telefonsamtal, textmeddelande, smartkort och PIN-kod eller mobilapp. Mer information finns i [SSMS-stöd för Azure AD MFA med SQL Database och SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).  
 
 > [!NOTE]  
@@ -118,10 +118,10 @@ Azure Active Directory-autentisering har stöd för följande metoder för att a
 - Vi rekommenderar att du anger timeout för anslutning till 30 sekunder.   
 - SQL Server 2016 Management Studio och SQL Server Data Tools för Visual Studio 2015 (version 14.0.60311.1April 2016 eller senare) stöder Azure Active Directory-autentisering. (Azure AD-autentisering som stöds av den **.NET Framework Data Provider Pro SqlServer**; minst version .NET Framework 4.6). Därför de senaste versionerna av dessa verktyg och -datanivåprogram (DAC och. BACPAC) kan använda Azure AD-autentisering.   
 - [ODBC version 13,1](https://www.microsoft.com/download/details.aspx?id=53339) stöder Azure Active Directory-autentisering men `bcp.exe` inte kan ansluta med hjälp av Azure Active Directory-autentisering eftersom den använder en äldre ODBC-provider.   
-- `sqlcmd` har stöd för Azure Active Directory-autentisering från och med version 13,1 som är tillgängliga från den [Download Center](http://go.microsoft.com/fwlink/?LinkID=825643).
-- SQL Server Data Tools för Visual Studio 2015 kräver minst April 2016-versionen av Data Tools (version 14.0.60311.1). Azure AD-användare är för närvarande inte visas i SSDT Object Explorer. Som en lösning kan du visa användarna i [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
+- `sqlcmd` har stöd för Azure Active Directory-autentisering från och med version 13,1 som är tillgängliga från den [Download Center](https://go.microsoft.com/fwlink/?LinkID=825643).
+- SQL Server Data Tools för Visual Studio 2015 kräver minst April 2016-versionen av Data Tools (version 14.0.60311.1). Azure AD-användare är för närvarande inte visas i SSDT Object Explorer. Som en lösning kan du visa användarna i [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
 - [Microsoft JDBC Driver 6.0 för SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) har stöd för Azure AD-autentisering. Se även [inställning av anslutningsegenskaper](https://msdn.microsoft.com/library/ms378988.aspx).   
-- PolyBase kan inte autentisera med hjälp av Azure AD-autentisering.   
+- PolyBase kan inte autentisera med hjälp av Azure AD-autentisering.   
 - Azure AD-autentisering är stöd för SQL-databas med Azure-portalen **Importera databas** och **exportera databasen** blad. Import och export med Azure AD-autentisering stöds också från PowerShell-kommando.   
 - Azure AD-autentisering stöds för SQL Database Managed Instance och SQL Data Warehouse med hjälp av CLI. Mer information finns i [konfigurera och hantera Azure Active Directory-autentisering med SQL Database eller SQL Data Warehouse](sql-database-aad-authentication-configure.md) och [SQL Server - az SQLServer](https://docs.microsoft.com/cli/azure/sql/server).
 

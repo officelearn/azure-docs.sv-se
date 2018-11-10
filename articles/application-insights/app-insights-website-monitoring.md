@@ -5,23 +5,23 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/15/2018
+ms.date: 10/29/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: f4de10c29364ab96f54e5d07e9c416a2beb038f6
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 8e764bfc4481343a1e1fb710df7d09f7a38f4f78
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380216"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420378"
 ---
 # <a name="start-monitoring-your-website"></a>Börja övervaka din webbplats
 
 Med Azure Monitor Application Insights kan du enkelt övervaka din webbplats med avseende på tillgänglighet, prestanda och användning. Du kan också snabbt identifiera och diagnostisera fel i appen utan att vänta på att en användare rapporterar dem. Application Insights erbjuder funktioner för övervakning både på serversidan samt på klient-/webbläsarsidan.
 
-Den här snabbstarten vägleder dig genom att lägga till [Application Insight JavaScript SDK med öppen källkod](https://github.com/Microsoft/ApplicationInsights-JS) så att du förstår upplevelsen på klient-/webbläsarsidan för användarna på din webbplats.
+Den här snabbstarten vägleder dig genom att lägga till [Application Insights JavaScript SDK med öppen källkod](https://github.com/Microsoft/ApplicationInsights-JS) så att du förstår upplevelsen på klient-/webbläsarsidan för användarna på din webbplats.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -74,7 +74,7 @@ Application Insights kan samla in telemetridata från alla Internetanslutna appa
 
 1. Välj **Översikt** > **Essentials** > kopiera appens **instrumenteringsnyckel**.
 
-   ![Nytt App Insights-resursformulär](./media/app-insights-nodejs-quick-start/instrumentation-key-001.png)
+   ![Nytt App Insights-resursformulär](media/app-insights-website-monitoring/instrumentation-key-001.png)
 
 2. Lägg till följande skript till ``hello_world.html`` före den avslutande ``</head>``-taggen:
 
@@ -98,7 +98,7 @@ Application Insights kan samla in telemetridata från alla Internetanslutna appa
 
 1. Nu kan du öppna sidan **Översikt** i Application Insights i Azure-portalen, där du hämtade instrumenteringsnyckeln, för att visa information om den app som körs. De fyra standarddiagrammen på översiktssidan är begränsade till programdata på serversidan. Eftersom vi instrumenterar interaktioner på klient-/webbläsarsidan med JavaScript SDK gäller inte just den här vyn såvida vi inte även har en serverdels-SDK installerad.
 
-2. Klicka på ![ikonen för programkarta](./media/app-insights-nodejs-quick-start/006.png) **Analys**.  Då öppnas **Analys**, med ett funktionsrikt frågespråk för att analysera alla data som samlas in av Application Insights. Visa data relaterade till klientsidans webbläsarbegäranden genom att köra följande fråga:
+2. Klicka på ![ikonen för programkarta](media/app-insights-website-monitoring/006.png) **Analys**.  Då öppnas **Analys**, med ett funktionsrikt frågespråk för att analysera alla data som samlas in av Application Insights. Visa data relaterade till klientsidans webbläsarbegäranden genom att köra följande fråga:
 
     ```kusto
     // average pageView duration by name

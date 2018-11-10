@@ -1,20 +1,20 @@
 ---
-title: Redundansväxling och återställning vid fel för virtuella Azure-datorer som replikeras till en sekundär Azure-region med Azure Site Recovery
-description: Lär dig hur du utför redundansväxling och återställning vid fel för virtuella Azure-datorer som replikeras till en sekundär Azure-region med Azure Site Recovery
+title: Redundansväxling och felåterställning av virtuella Azure IaaS-datorer replikerade till en sekundär Azure-region för haveriberedskap med Azure Site Recovery-tjänsten.
+description: Lär dig om redundansväxling och felåterställning av virtuella Azure-datorer replikerade till en sekundär Azure-region för haveriberedskap med Azure Site Recovery-tjänsten.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f7d6594910f3c703c2381515c3b93eb56ff4f675
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9917656a3bc8fd8cfe7d71786dc39d296a2449c1
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456515"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239295"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Redundansväxling och felåterställning av virtuella Azure-datorer mellan Azure-regioner
 
@@ -34,7 +34,7 @@ Den här självstudien beskriver hur en virtuell Azure-dator redundansväxlas ti
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Se till att du genomfört ett [programåterställningstest](azure-to-azure-tutorial-dr-drill.md) och kontrollerat att allt fungerar som väntat.
-- Verifiera den virtuella datorns egenskaper innan testet av redundansväxling körs. Den virtuella datorn måste uppfylla [kraven för Azure](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions).
+- Verifiera den virtuella datorns egenskaper innan testet av redundansväxling körs. Den virtuella datorn måste uppfylla [kraven för Azure](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 
 ## <a name="run-a-failover-to-the-secondary-region"></a>Utför en redundansväxling till den sekundära regionen
 

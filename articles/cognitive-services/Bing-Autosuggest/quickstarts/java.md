@@ -10,24 +10,24 @@ ms.component: bing-autosuggest
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 6f79416c28631a47209558fd0c415ae79cff93bc
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: c19fa95bd5529f18a65ad466e9c6352b1be80657
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831406"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421126"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-java"></a>Snabbstart för API för automatiska förslag i Bing med Java
 
-Den här artikeln visar hur du använder [API:et för automatiska förslag i Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) med Java. API för automatiska förslag i Bing returnerar en lista över föreslagna frågor baserat på den partiella frågesträng som användaren anger i sökrutan. Normalt skulle du anropa detta API varje gång som användaren skriver ett nytt tecken i sökrutan, och sedan visa förslagen i listrutan i sökrutan. Den här artikeln visar hur du skickar en begäran som returnerar de föreslagna frågesträngarna för *sail* (segla).
+Den här artikeln visar hur du använder [API:et för automatiska förslag i Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/)  med Java. API för automatiska förslag i Bing returnerar en lista över föreslagna frågor baserat på den partiella frågesträng som användaren anger i sökrutan. Normalt skulle du anropa detta API varje gång som användaren skriver ett nytt tecken i sökrutan, och sedan visa förslagen i listrutan i sökrutan. I den här artikeln kan du se hur du skickar en begäran som returnerar de föreslagna frågesträngarna för *sail* (segla).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [JDK 7 eller 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) för att kompilera och köra den här koden. Du kan använda en Java IDE om du föredrar det, men ett redigeringsprogram fungerar också bra.
+Du behöver [JDK 7 eller 8](https://aka.ms/azure-jdks) för att kompilera och köra den här koden. Du kan använda en Java IDE om du föredrar det, men ett redigeringsprogram fungerar också bra.
 
-Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API:et för automatiska förslag i Bing v7**. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/#search) för den här snabbstarten. Du behöver den åtkomstnyckel som du fick när du aktiverade din kostnadsfria utvärderingsversion, eller så kan du använda en betald prenumerationsnyckel från instrumentpanelen i Azure.
+Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API v7 för automatiska förslag i Bing**. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/#search) för den här snabbstarten. Du behöver den åtkomstnyckel som du fick när du aktiverade din kostnadsfria utvärderingsversion, eller så kan du använda en betald prenumerationsnyckel från instrumentpanelen i Azure.
 
-## <a name="get-autosuggest-results"></a>Få resultat för automatiska förslag
+## <a name="get-autosuggest-results"></a>Hämta resultat för automatiska förslag
 
 1. Skapa ett nytt Java-projekt i din favoritutvecklingsmiljö.
 2. Lägg till koden nedan.
@@ -190,5 +190,5 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="see-also"></a>Se även
 
-- [Vad är Automatiska förslag i Bing?](../get-suggested-search-terms.md)
-- [Referens för API för automatiska förslag i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Vad är automatiska förslag i Bing?](../get-suggested-search-terms.md)
+- [Referens för API v7 för automatiska förslag i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)

@@ -4,17 +4,17 @@ description: Använd Azure Resource Graph för att köra vissa avancerade frågo
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 934dff93b9a7f5d6755f55ad1073e01e586b1ca7
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: fbbdc4a67cd6f2e7d74031f7acc584bf0004bea4
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647841"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085384"
 ---
 # <a name="advanced-resource-graph-queries"></a>Avancerade frågor för Resource Graph
 
@@ -33,9 +33,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Azure CLI (via ett tillägg) och Azure PowerShell (via en modul) har stöd för Azure Resource Graph. Kontrollera att din miljö är redo innan du kör någon av nedanstående frågor. Se [Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) och [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module) för anvisningar om hur du installerar och validerar din valda gränssnittsmiljö.
 
-## <a name="vmss-capacity"></a>Hämta VMSS-kapacitet och storlek
+## <a name="vmss-capacity"></a>Hämta kapacitet och storlek för skaluppsättning för virtuell dator
 
-Den här frågan söker efter resurser för VM-skalningsuppsättningsresurser (VMSS) och hämtar olika typer av information om t.ex. den virtuella datorns storlek och skalningsuppsättningens kapacitet. Den här informationen använder `toint()`-funktionen för att konvertera kapaciteten till ett tal, så att den kan sorteras. Den byter även nämn på de värden som returneras till anpassade namngivna egenskaper.
+Den här frågan söker efter resurser för VM-skalningsuppsättningsresurser och hämtar olika typer av information om t.ex. den virtuella datorns storlek och skalningsuppsättningens kapacitet. Den här frågan använder `toint()`-funktionen för att konvertera kapaciteten till ett tal, så att den kan sorteras. Slutligen ändras kolumnernas namn till anpassade namngivna egenskaper.
 
 ```Query
 where type=~ 'microsoft.compute/virtualmachinescalesets'
@@ -75,8 +75,8 @@ Den här frågan söker efter virtuella datorer som matchar ett [reguljärt uttr
 Med **matches regex @** kan vi definiera regex så att det matchar, vilket är **^Contoso(.*)[0-9]+$**. Den regex-definitionen förklaras så här:
 
 - `^` – Matchningen måste börja i början av strängen.
-- `Contoso` – Kärnsträngen som vi söker efter matchning för (skiftlägeskänsligt).
-- `(.*)` – En underuttrycksmatchning:
+- `Contoso` – Skiftlägeskänslig sträng.
+- `(.*)` – En matchning av underuttryck:
   - `.` – Matchar varje enskilt tecken (förutom ny rad).
   - `*` – Matchar föregående element noll eller flera gånger.
 - `[0-9]` – Teckengruppsmatchning för siffrorna 0-9.

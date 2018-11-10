@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: a4f9e1111516d439f018e965883eb8268c83289c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 25a1913fba3e66e65b3c785eb6ce1738c5f00a26
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954801"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247933"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Skapa en datafabrik och pipeline med .NET SDK
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,7 +38,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 I den här artikeln används Visual Studio 2017. Du kan också använda Visual Studio 2013 eller 2015.
 
 ### <a name="azure-net-sdk"></a>SDK för Azure .NET
-Ladda ned och installera [Azure .NET SDK](http://azure.microsoft.com/downloads/) på datorn.
+Ladda ned och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/) på datorn.
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Skapa ett program i Azure Active Directory
 Utför följande uppgifter genom att följa anvisningarna i avsnitten i [den här artikeln](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application): 

@@ -1,101 +1,97 @@
 ---
 title: Migrera lokala Windows Server 2008-servrar till Azure med Azure Site Recovery | Microsoft Docs
 description: Den här artikeln beskriver hur du migrerar lokala Windows Server 2008-datorer till Azure med Azure Site Recovery.
-services: site-recovery
-documentationcenter: ''
 author: bsiva
 manager: abhemraj
-editor: raynew
-ms.assetid: ''
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 09/22/2018
 ms.author: bsiva
-ms.openlocfilehash: d15a5b62a148e971c0740f01744fce308e502340
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
-ms.translationtype: MT
+ms.custom: MVC
+ms.openlocfilehash: 68a1367eec5392036797612e631a438b076b2cfc
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056044"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210473"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrera servrar som kör Windows Server 2008 till Azure
 
-Den här självstudien visar hur du migrerar lokala servrar som kör Windows Server 2008 eller 2008 R2 till Azure med Azure Site Recovery. I den här guiden får du lära dig att:
+Den här självstudiekursen visar hur du migrerar lokala servrar med Windows Server 2008 eller 2008 R2 till Azure med hjälp av Azure Site Recovery. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Förbered din lokala miljö för migrering
+> * Förbereda din lokala miljö för migrering
 > * Konfigurera målmiljön
 > * Konfigurerar en replikeringsprincip
 > * Aktivera replikering
 > * Kör en testmigrering för att kontrollera att allt fungerar som förväntat
-> * Redundans till Azure och slutföra migreringen
+> * Redundansväxla till Azure och slutföra migreringen
 
-Avsnittet begränsningar och kända problem, visar några av begränsningar och lösningar för kända problem som du kan stöta på när du migrerar Windows Server 2008-datorer till Azure. 
+Avsnittet med begränsningar och kända problem listar några begränsningar och lösningar som du kan stöta på när du migrerar Windows Server 2008-datorer till Azure. 
 
 
 ## <a name="supported-operating-systems-and-environments"></a>Operativsystem och miljöer som stöds
 
 
-|Operativsystem  | En lokal miljö  |
+|Operativsystem  | Lokal miljö  |
 |---------|---------|
-|Windows Server 2008 SP2 - 32-bitars och 64-bitars (IA-32 och x86 64)</br>-Standard</br>-Enterprise</br>-Datacenter   |     Virtuella VMware-datorer, Hyper-V-datorer och fysiska servrar    |
-|Windows Server 2008 R2 SP1 - 64-bitars</br>-Standard</br>-Enterprise</br>-Datacenter     |     Virtuella VMware-datorer, Hyper-V-datorer och fysiska servrar|
+|Windows Server 2008 SP2 – 32- och 64-bitars (IA-32 och x86-64)</br>– Standard</br>– Enterprise</br>– Datacenter   |     VMware-VM, Hyper-V-VM och fysiska servrar    |
+|Windows Server 2008 R2 SP1 – 64-bitars</br>– Standard</br>– Enterprise</br>– Datacenter     |     VMware-VM, Hyper-V-VM och fysiska servrar|
 
 > [!WARNING]
 > - Migrering av servrar som kör Server Core stöds inte.
-> - Se till att du har senaste servicepack och Windows-uppdateringar som installerats innan du migrerar.
+> - Se till att du har senaste service pack och Windows-uppdateringar installerade innan du migrerar.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Innan du börjar är det bra att granska Azure Site Recovery-arkitekturen för [VMware och fysiska servermigrering](vmware-azure-architecture.md) eller [migrering av Hyper-V virtuell dator](hyper-v-azure-architecture.md) 
+Innan du börjar är det bra att granska Azure Site Recovery-arkitekturen för [migrering av VMware och fysisk server](vmware-azure-architecture.md) eller [migrering av virtuell Hyper-V-dator](hyper-v-azure-architecture.md) 
 
-Om du vill migrera Hyper-V-datorer som kör Windows Server 2008 eller Windows Server 2008 R2, följer du stegen i den [migrera lokala datorer till Azure](migrate-tutorial-on-premises-azure.md) självstudien.
+Om du vill migrera virtuella Hyper-V-datorer som kör Windows Server 2008 eller Windows Server 2008 R2 följer du stegen i självstudiekursen om [migrering av lokala datorer till Azure](migrate-tutorial-on-premises-azure.md).
 
-Resten av den här kursen visar hur du kan migrera lokala virtuella VMware-datorer och fysiska servrar som kör Windows Server 2008 eller 2008 R2.
+Resten av den här självstudiekursen visar hur du kan migrera lokala virtuella VMware-datorer och fysiska servrar som kör Windows Server 2008 eller 2008 R2.
 
 
 ## <a name="limitations-and-known-issues"></a>Begränsningar och kända problem
 
-- Den konfigurationsservern och ytterligare processervrar mobilitetstjänsten som används för att migrera servrar för Windows Server 2008 SP2 bör köra version 9.19.0.0 eller senare av Azure Site Recovery-programvaran.
+- Konfigurationsservern, ytterligare processervrar och mobilitetstjänsten som används för att migrera Windows Server 2008 SP2-servrar ska köra version 9.19.0.0 eller senare av Azure Site Recovery-programvaran.
 
-- Programåterställningspunkter för konsekvent och funktionen konsekvens för flera virtuella datorer stöds inte för replikering av servrar som kör Windows Server 2008 SP2. Windows Server 2008 SP2 servrar ska migreras till en kraschkonsekventa återställningspunkten. Krascher konsekventa återställningspunkter genereras var femte minut som standard. Replikeringshälsa aktivera kritisk på grund av bristande konsekvent programåterställningspunkter genereras om du använder en replikeringsprincip med en frekvens för programkonsekventa ögonblicksbilder av konfigurerade programmet. Ange frekvensen för programkonsekventa ögonblicksbilder i replikeringsprincip på ”av” för att undvika falska positiva identifieringar.
+- Programkonsekventa återställningspunkter och konsekvensfunktionen för flera virtuella datorer stöds inte replikering av servrar som kör Windows Server 2008 SP2. Windows Server 2008 SP2-servrar ska migreras till en kraschkonsekvent återställningspunkt. Kraschkonsekventa återställningspunkter genereras var 5:e minut som standard. Om du använder en replikeringsprincip med ett konfigurerad programkonsekvent ögonblicksbildsfrekvens gör så att replikeringsstatusen blir kritisk på grund av bristen på programkonsekventa återställningspunkter. Om du vill undvika falska positiva identifieringar ställer du in den programkonsekventa ögonblicksbildfrekvensen i replikeringsprincipen på ”Av”.
 
-- De servrar som ska migreras bör ha .NET Framework 3.5 Service Pack 1 för mobilitetstjänsten ska fungera.
+- Servrarna som migreras ska ha .NET Framework 3.5 Service Pack 1 för at mobilitetstjänsten ska fungera.
 
-- Om servern har dynamiska diskar, kanske du märker i vissa konfigurationer, som dessa diskar på den misslyckade över server markeras offline eller visas som externa diskar. Du kan också hända att speglade set-status för speglade volymer mellan diskar är markerad ”misslyckades redundans”. Du kan åtgärda det här problemet från diskmgmt.msc genom att importera de här diskarna och återaktivera dem manuellt.
+- Om servern har dynamiska diskar kan du märka i vissa konfigurationer att dessa diskar på den rendundansväxlade servern är markerade offline eller visas som externa diskar. Du kan även märka att speglade set-statusen för speglade volymer på dynamiska diskar markeras ”Redundansåtgärden misslyckades”. Du kan åtgärda problemet från diskmgmt.msc genom att manuellt importera dessa diskar och återaktivera dem.
 
-- De servrar som ska migreras bör ha vmstorfl.sys-drivrutinen. Redundans kan misslyckas om drivrutinen inte finns på servern som ska migreras. 
+- Servrarna som migreras ska ha drivrutinen vmstorfl.sys. Redundansen kan misslyckas om drivrutin inte finns på servern som migreras. 
   > [!TIP]
-  >Kontrollera om drivrutinen finns på ”C:\Windows\system32\drivers\vmstorfl.sys”. Om drivrutinen inte hittas kan du lösa problemet genom att skapa en dummy-fil på plats. 
+  >Kontrollera om drivrutinen finns på "C:\Windows\system32\drivers\vmstorfl.sys" . Om drivrutinen inte hittas kan du lösa problemet genom att skapa en dummy-fil på plats. 
   >
-  > Öppna Kommandotolken (kör > cmd) och kör sedan följande: ”kopiera nul c:\Windows\system32\drivers\vmstorfl.sys”
+  > Öppna kommandotolken (run > cmd) och kör följande: "copy nul c:\Windows\system32\drivers\vmstorfl.sys"
 
-- Du kanske inte att RDP för Windows Server 2008 SP2-servrar som kör 32-bitars operativsystem omedelbart efter att de har redundansväxlats eller testa redundansväxling till Azure. Starta om den virtuella datorn från Azure-portalen och försök ansluta igen. Om du är fortfarande inte kan ansluta kontrollerar du om servern är konfigurerad att tillåta anslutningar till fjärrskrivbord och se till att det finns inga brandväggsregler eller nätverkssäkerhetsgrupper som blockerar anslutningen. 
+- Du kanske inte kan RDP-ansluta till Windows Server 2008 SP2-servrar som kör 32-bitars operativsystemet när de har redundansväxlat eller testredundansväxlat över till Azure. Starta om den redundansväxlade virtuella datorn via Azure-portalen och försök ansluta igen. Om du fortfarande inte kan ansluta kontrollerar du om servern har konfigurerats att tillåta fjärrskrivbordsanslutningar och att det inte finns några brandväggsregler eller nätverkssäkerhetsgrupper som blockerar anslutningen. 
   > [!TIP]
-  > Ett redundanstest rekommenderas starkt innan du migrerar servrar. Se till att minst en lyckad redundanstestning har utförs på varje server som du migrerar. Anslut till testet misslyckades redundansväxlade datorn som en del av redundanstestet, och se till att saker fungerar som förväntat.
+  > Ett redundanstest rekommenderas starkt innan du migrerar servrar. Se till att du har utfört minst ett lyckat redundanstest på varje server du migrerar. Som en del av redundanstestet ansluter du till den testredundansväxlade datorn och kontrollera att allt fungerar som förväntat.
   >
-  >Redundanstestet är avbrottsfria och hjälper dig att testa migrering genom att skapa virtuella datorer i ett isolerat nätverk du väljer. Till skillnad från Redundansåtgärden under redundanstestet, fortsätter datareplikering att progres. Du kan utföra eftersom många redundanstestningen som du vill, innan du är redo att migrera. 
+  >Redundanstestet är avbrottsfritt och hjälper dig att testa migreringar genom att skapa virtuella datorer på ett valfritt isolerat nätverk. Till skillnad från redundansåtgärden fortsätter datareplikeringen under ett redundanstest. Du kan utföra så många redundanstest du vill innan du är redo att migrera. 
   >
   >
 
 
 ## <a name="getting-started"></a>Komma igång
 
-Utför följande åtgärder för att förbereda Azure-prenumeration och en lokal VMware/fysiska miljön:
+Utför följande uppgifter för att förbereda Azure-prenumerationen och den lokala VMware/fysiska miljön:
 
 1. [Förbereda Azure](tutorial-prepare-azure.md)
-2. Förbered lokala [VMware](vmware-azure-tutorial-prepare-on-premises.md)
+2. Förbereda [lokal VMware](vmware-azure-tutorial-prepare-on-premises.md)
 
 
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) > **Recovery Services**.
 2. Klicka på **Skapa en resurs** > **Övervakning och hantering** > **Backup och Site Recovery**.
-3. I **namn**, ange det egna namnet **W2K8 migrering**. Om du har mer än en prenumeration väljer du den lämpligaste.
-4. Skapa en resursgrupp **w2k8migrate**.
+3. I **Namn** anger du det egna namnet **W2K8-migrering**. Om du har mer än en prenumeration väljer du den lämpligaste.
+4. Skapa en resursgrupp, **w2k8migrate**.
 5. Ange en Azure-region. Information om vilka regioner som stöds finns under Geografisk tillgänglighet i avsnittet med [Azure Site Recovery-prisinformation](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. För att snabbt komma åt valvet från instrumentpanelen klickar du på **Fäst på instrumentpanelen** och sedan på **Skapa**.
 
@@ -104,10 +100,10 @@ Utför följande åtgärder för att förbereda Azure-prenumeration och en lokal
 Det nya valvet läggs till på **Instrumentpanelen** under **Alla resurser** och på huvudsidan för **Recovery Services-valv**.
 
 
-## <a name="prepare-your-on-premises-environment-for-migration"></a>Förbered din lokala miljö för migrering
+## <a name="prepare-your-on-premises-environment-for-migration"></a>Förbereda din lokala miljö för migrering
 
-- Att migrera Windows Server 2008 virtuella datorer som körs på VMware, [installera den lokala konfigurationsservern på VMware](vmware-azure-tutorial.md#set-up-the-source-environment).
-- Om konfigurationsservern inte kan konfigureras som en virtuell VMware-dator, [installera konfigurationsservern på en lokal fysisk server eller virtuell dator](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+- Om du vill migrera virtuella Windows Server 2008-datorer som körs på VMware [konfigurera du den lokala konfigurationsservern på VMware](vmware-azure-tutorial.md#set-up-the-source-environment).
+- Om konfigurationsservern inte kan konfigureras som en virtuell VMware-dator [konfigurerar du konfigurationsservern på en lokal fysisk server eller virtuell dator](physical-azure-disaster-recovery.md#set-up-the-source-environment).
 
 ## <a name="set-up-the-target-environment"></a>Konfigurera målmiljön
 
@@ -120,34 +116,34 @@ Välj och kontrollera målresurserna.
 
 ## <a name="set-up-a-replication-policy"></a>Konfigurerar en replikeringsprincip
 
-1. Klicka för att skapa en ny replikeringsprincip **Site Recovery-infrastruktur** > **replikeringsprinciper** > **+ replikeringsprincip**.
-2. I **skapa replikeringsprincip**, ange ett principnamn.
-3. I **tröskelvärde för Replikeringspunktmål**, ange objektiva (RPO) återställningspunktgränsen. En avisering skapas om replikeringen RPO överskrider den här gränsen.
-4. I **kvarhållning av återställningspunkt**, ange hur lång tid (i timmar) kvarhållningsperioden är för varje återställningspunkt. Replikerade virtuella datorer kan återställas till valfri punkt i ett fönster. Upp till 24 timmar kvarhållning stöds för datorer som har replikerats till premiumlagring och 72 timmar för standardlagring.
-5. I **appkonsekvent ögonblicksbildsfrekvens**, ange **av**. Klicka på **OK** för att skapa principen.
+1. Om du vill skapa en ny replikeringsprincip klickar du på **Site Recovery-infrastruktur** > **Replikeringsprinciper** > **+Replikeringsprincip**.
+2. I **Skapa replikeringsprincip** anger du ett principnamn.
+3. I **Tröskelvärde för replikeringspunktmål** anger du gränsen för replikeringspunktmålet (RPO). En avisering skapas om replikeringens RPO överskrider gränsen.
+4. I **Återställningspunkt för kvarhållning** anger du kvarhållningsperioden (i antal timmar) för varje återställningspunkt. Replikerade virtuella datorer kan återställas till valfri punkt i ett fönster. Upp till 24 timmars kvarhållning stöds för datorer replikerade till premiumlagring och 72 timmar för standardlagring.
+5. I **Frekvens för appkonsekvent ögonblicksbild** anger du **Av**. Klicka på **OK** för att skapa principen.
 
 Principen associeras automatiskt med konfigurationsservern.
 
 > [!WARNING]
-> Kontrollera att du anger **OFF** i programkonsekvent ögonblicksbild frekvensinställningen för replikeringsprincipen. Bara kraschkonsekventa återställningspunkter stöds vid replikering av servrar som kör Windows Server 2008. Att ange ett annat värde för appkonsekvent ögonblicksbildsfrekvens leder falska aviseringar genom att aktivera replikering hälsotillståndet för servern kritiskt på grund av bristande appkonsekventa återställningspunkter.
+> Se till att du anger **AV** i inställningen Frekvens för appkonsekvent ögonblicksbild för replikeringsprincipen. Endast kraschkonsekventa återställningspunkter stöds vid replikering av servrar som kör Windows Server 2008. Om du anger ett annat värde i Frekvens för appkonsekvent ögonblicksbild resulterar i falska aviseringar genom replikeringsstatusen för servern blir kritisk på grund av bristen på appkonsekventa återställningspunkter.
 
    ![Skapa replikeringsprincip](media/migrate-tutorial-windows-server-2008/create-policy.png)
 
 ## <a name="enable-replication"></a>Aktivera replikering
 
-[Aktivera replikering](physical-azure-disaster-recovery.md#enable-replication) för Windows Server 2008 SP2 / Windows Server 2008 R2 SP1-server som ska migreras.
+[Aktivera replikering](physical-azure-disaster-recovery.md#enable-replication) för Windows Server 2008 SP2-/Windows Server 2008 R2 SP1-servern som ska migreras.
    
-   ![Lägg till fysisk server](media/migrate-tutorial-windows-server-2008/Add-physical-server.png)
+   ![Lägga till fysisk server](media/migrate-tutorial-windows-server-2008/Add-physical-server.png)
 
    ![Aktivera replikering](media/migrate-tutorial-windows-server-2008/Enable-replication.png)
 
 ## <a name="run-a-test-migration"></a>Kör en testmigrering
 
-Du kan göra ett redundanstest för att replikera servrar när den inledande replikeringen är klar och serverstatus övergår i **skyddade**.
+Du kan utföra ett redundanstest för servrar som ska replikeras när den inledande replikeringen slutförs och serverstatusen övergår till **Skyddad**.
 
 Kör en [testredundansväxling](tutorial-dr-drill-azure.md) till Azure för att kontrollera att allt fungerar som förväntat.
 
-   ![Testa redundans](media/migrate-tutorial-windows-server-2008/testfailover.png)
+   ![Redundanstest](media/migrate-tutorial-windows-server-2008/testfailover.png)
 
 
 ## <a name="migrate-to-azure"></a>Migrera till Azure
@@ -156,7 +152,7 @@ Kör en redundansväxling för de datorer som du vill migrera.
 
 1. I **Inställningar** > **Replikerade objekt** klickar du på datorn > **Redundans**.
 2. I **Redundans** väljer du en **återställningspunkt** att redundansväxla till. Välj den senaste återställningspunkten.
-3. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av servern innan du utlöser redundansväxlingen. Redundansväxlingen fortsätter även om avstängningen misslyckas. Du kan följa redundansförloppet på sidan **Jobb**.
+3. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av servern innan redundansväxlingen utlöses. Redundansväxlingen fortsätter även om avstängningen misslyckas. Du kan följa redundansförloppet på sidan **Jobb**.
 4. Kontrollera att den virtuella Azure-datorn visas i Azure som förväntat.
 5. I **Replikerade objekt** högerklickar du på den virtuella datorn > **Slutför migrering**. Detta avslutar migreringsprocessen, stoppar replikeringen för den virtuella datorn och stoppar Site Recovery-debitering för den virtuella datorn.
 

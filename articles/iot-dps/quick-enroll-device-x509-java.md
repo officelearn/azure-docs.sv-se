@@ -1,6 +1,6 @@
 ---
 title: Den här snabbstarten beskriver hur du registrerar X.509-enheter till Azure Device Provisioning Service med hjälp av Java | Microsoft Docs
-description: I den här snabbstarten registrerar du X.509-enheter till Azure IoT Hub Device Provisioning Service med hjälp av Java
+description: Den här snabbstarten använder både gruppregistreringar och enskilda registreringar. I den här snabbstarten registrerar du X.509-enheter till Azure IoT Hub Device Provisioning Service med hjälp av Java.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 12/20/2017
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 505aee35c839a0224ca158d918fc5e54dc6e0f28
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 3eec6628ca7dbc16e0cc01701620f1699ba8d368
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205773"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412779"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Snabbstart: Registrera X.509-enheter till Device Provisioning Service med hjälp av Java
 
@@ -31,7 +31,7 @@ Java-tjänst-SDK fungerar på både Windows- och Linux-datorer men i den här ar
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Installera [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+* Installera [Java SE Development Kit 8](https://aka.ms/azure-jdks).
 * Installera [Maven 3](https://maven.apache.org/download.cgi). Du kan verifiera din nuvarande Maven-version genom att köra:
 
     ```cmd/sh

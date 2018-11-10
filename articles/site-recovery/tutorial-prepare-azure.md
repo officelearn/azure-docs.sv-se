@@ -1,21 +1,21 @@
 ---
-title: Skapa resurser som ska användas med Azure Site Recovery | Microsoft Docs
-description: Lär dig hur du förbereder Azure för replikering av lokala datorer med hjälp av Azure Site Recovery.
+title: Förbereda Azure för haveriberedskap för lokala datorer med Azure Site Recovery | Microsoft Docs
+description: Lär dig hur du förbereder Azure för haveriberedskap för lokala datorer med hjälp av Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/19/2018
+ms.date: 10/29/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1d9f84a176d4c2483c83e8961bf426e70933aaa2
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: c00dd8cd412d79093e4ae1fd7ea30a3071c9b54f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457161"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210252"
 ---
-# <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Förbereda Azure-resurser för replikering av lokala datorer
+# <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Förbereda Azure-resurser för haveriberedskap för lokala datorer
 
  [Azure Site Recovery](site-recovery-overview.md) bidrar till din BCDR-strategi för affärskontinuitet och haveriberedskap genom att hålla dina företagsprogram igång och köra dem vid planerade och oplanerade avbrott. Site Recovery hanterar och samordnar haveriberedskap för lokala datorer och virtuella Azure-datorer, inklusive replikering, redundans och återställning.
 

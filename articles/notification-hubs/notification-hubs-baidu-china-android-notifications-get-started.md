@@ -14,12 +14,12 @@ ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c680de254c55adaad8cedde6cf4748efd0c2c858
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d8ece15e7e8fa3b74fbefc78aea65683229712ca
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38700908"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246777"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Kom igång med Notification Hub genom att använda Baidu
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -31,7 +31,7 @@ Eftersom Google Play och FCM (Firebase Cloud Messaging) inte är tillgängliga i
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 För den här kursen behöver du:
 
-* Android SDK (vi antar att du använder Android Studio) som du kan ladda ned från <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android-webbplatsen</a>
+* Android SDK (vi antar att du använder Android Studio) som du kan ladda ned från <a href="https://go.microsoft.com/fwlink/?LinkId=389797">Android-webbplatsen</a>
 * [Baidu Push Android SDK]
 
 > [!NOTE]
@@ -475,7 +475,7 @@ Push-meddelanden skickas vanligtvis i en serverdelstjänst som Mobile Services e
 Den här guiden använder sig för enkelhetens skull av en konsolapp för att demonstrera hur du skickar ett meddelande med .NET SDK. Vi rekommenderar dock guiden [använd Notification Hubs för att skicka push-meddelanden till användare](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) som nästa steg i att skicka meddelanden från en ASP.NET-serverdel. 
 
 Här följer olika metoder för att skicka meddelanden:
-* **REST-gränssnitt**: Du kan använda meddelanden på alla serverdelsplattformar med [REST-gränssnittet](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
+* **REST-gränssnitt**: Du kan använda meddelanden på alla serverdelsplattformar med [REST-gränssnittet](https://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 * **Microsoft Azure Notification Hubs .NET SDK**: I Nuget Package Manager för Visual Studio kör du [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 * **Node.js**: [Använda Notification Hubs från Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
 * **Mobile Apps**: För ett exempel på hur man skickar meddelanden från en Azure App Service Mobile Apps-serverdel som är integrerad med Notification Hubs, kan du gå till [Lägg till push-meddelanden i din mobilapp](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).

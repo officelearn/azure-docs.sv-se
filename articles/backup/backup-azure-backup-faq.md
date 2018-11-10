@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 9fb955b6bce5b3d40def095180326fdc9aed33b1
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 2ba6fefb9c1d952fbfdb6942694d69565a299c2e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747906"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241267"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – vanliga frågor och svar
 Den här artikeln innehåller vanliga frågor och svar om Azure Backup-tjänsten.
@@ -75,7 +75,7 @@ Du behöver inte separata licensiering för VMware/Hyper-V-skydd.
 
 ### <a name="which-dpm-versions-are-supported"></a>Vilka DPM-versioner som stöds?
 
-DPM-versioner som stöds sammanfattas i den [stödmatris](backup-azure-dpm-introduction.md#prerequisites-and-limitations). Vi rekommenderar att du installerar de senaste DPM-uppdateringarna och kör den [senaste versionen](http://aka.ms/azurebackup_agent) av Azure Backup-agenten på DPM-servern.
+DPM-versioner som stöds sammanfattas i den [stödmatris](backup-azure-dpm-introduction.md#prerequisites-and-limitations). Vi rekommenderar att du installerar de senaste DPM-uppdateringarna och kör den [senaste versionen](https://aka.ms/azurebackup_agent) av Azure Backup-agenten på DPM-servern.
 
 ### <a name="can-i-register-the-server-to-multiple-vaults"></a>Kan jag registrera servern till flera valv?
 

@@ -1,22 +1,22 @@
 ---
-title: Hantera Hadoop-kluster i HDInsight med .NET SDK - Azure
-description: Lär dig mer om att utföra administrativa uppgifter för Hadoop-kluster i HDInsight med hjälp av HDInsight .NET SDK.
+title: Hantera Apache Hadoop-kluster i HDInsight med .NET SDK - Azure
+description: Lär dig mer om att utföra administrativa uppgifter för Apache Hadoop-kluster i HDInsight med hjälp av HDInsight .NET SDK.
 services: hdinsight
 ms.reviewer: jasonh
-author: jasonwhowell
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 0d8238d5f1dca15aaba0f8f5a6580df97164006a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: a7c06d53e3823bd81707608f566f581fa44638fc
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43110807"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037770"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Hantera Hadoop-kluster i HDInsight med hjälp av .NET SDK
+# <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Hantera Apache Hadoop-kluster i HDInsight med hjälp av .NET SDK
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 Lär dig att hantera HDInsight-kluster med [HDInsight.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
@@ -142,12 +142,12 @@ Klusterskalning funktionen kan du ändra antalet arbetarnoder som används av et
 
 Effekten av att ändra antalet datanoder som för varje typ av kluster som stöds av HDInsight:
 
-* Hadoop
+* Apache Hadoop
   
     Du kan smidigt öka antalet arbetarnoder i ett Hadoop-kluster som körs utan att påverka alla väntande eller pågående jobb. Också du kan skicka nya jobb medan åtgärden pågår. Fel i en åtgärd för skalning hanteras ett smidigt sätt så att klustret finns alltid kvar i funktionsdugligt tillstånd.
   
     När ett Hadoop-kluster skalas genom att minska antalet datanoder några tjänster i klustret startas om. Detta gör allt körs och väntande jobb misslyckas vid skalning åtgärden slutfördes. Du kan dock skicka jobb när åtgärden har slutförts.
-* HBase
+* Apache HBase
   
     Du kan smidigt lägga till eller ta bort noder till HBase-kluster medan den körs. Regionservrar balanseras automatiskt inom ett par minuter efter att du skalar igen. Du kan också manuellt balansera regionservrar genom att logga till huvudnoden i klustret och köra följande kommandon från en kommandotolk:
   
@@ -156,7 +156,7 @@ Effekten av att ändra antalet datanoder som för varje typ av kluster som stöd
     >hbase shell
     >balancer
     ```
-* Storm
+* Apache Storm
   
     Du kan smidigt lägga till eller ta bort datanoder till ditt Storm-kluster medan den körs. Men när en installationen har slutförts åtgärdens skalning, behöver du balansera om topologin.
   
@@ -192,9 +192,9 @@ HDInsight-kluster har följande HTTP-webbtjänster (alla dessa tjänster har RES
 
 * ODBC
 * JDBC
-* Ambari
-* Oozie
-* Templeton
+* Apache Ambari
+* Apache Oozie
+* Apache Templeton
 
 Som standard beviljas de här tjänsterna för åtkomst. Du kan återkalla/bevilja åtkomst. Återkalla:
 
@@ -246,19 +246,19 @@ foreach (var key in results.Configuration.Keys)
 
 Se [kör Hadoop-MapReduce-exempel i HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
-**Att skicka Hive-jobb** 
+**Att skicka Apache Hive-jobb** 
 
 Se [kör Hive-frågor med .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
-**Att skicka Pig-jobb**
+**Skicka Apache Pig-jobb**
 
 Se [köra Pig-jobb med .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
 
-**Skicka Sqoop jobb**
+**Skicka Apache Sqoop jobb**
 
 Se [använda Sqoop med HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
 
-**Skicka Oozie-jobb**
+**Skicka Apache Oozie-jobb**
 
 Se [Använd Oozie med Hadoop för att definiera och köra ett arbetsflöde i HDInsight](hdinsight-use-oozie-linux-mac.md).
 

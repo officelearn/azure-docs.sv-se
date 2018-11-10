@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 279818e6b43e53206deb9e33591f75ef381a8962
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: f4bc90b2d1a80125ae88b4b5c4c11e42a34a985a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319990"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240434"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plattformar och funktioner som stöds av Azure Security Center
 
@@ -80,16 +80,16 @@ Virtuella datorer som körs i en molntjänst stöds också. Endast molntjänster
 |Säkerhetskonfigurationer|✔|✔|✔|✔|
 |Mot skadlig kod|✔|✔|X|X|
 |JIT VM-åtkomst|✔|X|✔|X|
-|Anpassningsbara programkontroller|✔ (endast Azure)|X|X|X|
+|Anpassningsbara programkontroller|✔|X|X|X|
 |FIM|✔|✔|✔|✔|
 |Diskkryptering|✔|X|✔|X|
 |Tredjeparts-distribution|✔|X|✔|X|
 |NSG:er|✔|X|✔|X|
-|Filess V1|✔|✔|X|X|
+|Filess hotidentifiering|✔|✔|X|X|
 |Nätverkskarta|✔|X|✔|X|
-|Anpassningsbar nätverk appstyrning|✔|X|✔|X|
+|Anpassningsbar nätverkskontroller|✔|X|✔|X|
 
-* Dessa funktioner stöds för närvarande i offentlig förhandsversion.
+\* Dessa funktioner stöds för närvarande i offentlig förhandsversion.
 
 
 ## <a name="supported-paas-features"></a>PaaS-funktioner som stöds
@@ -103,26 +103,17 @@ Virtuella datorer som körs i en molntjänst stöds också. Endast molntjänster
 |BLOB storage-konton *|✔| ✔|
 |App Services|✔| ✔|
 |Molntjänster|✔| X|
-|Redis Cache|✔| X|
-|Service fabric|✔| X|
-|Azure-automatisering|✔| X|
-|Data Lake |✔| X|
-|Nyckelvalv|✔| X|
-|Service bus|✔| X|
-|Stream analytics|✔| X|
-|Batch|✔| X|
-|Logikappar|✔| X|
 |Virtuella nätverk|✔| Ej tillämpligt|
 |Undernät|✔| Ej tillämpligt|
 |Nätverkskort|✔| ✔|
 |NSG:er|✔| Ej tillämpligt|
 |Prenumeration|✔| ✔|
 
-* Dessa funktioner stöds för närvarande i offentlig förhandsversion.
+\* Dessa funktioner stöds för närvarande i offentlig förhandsversion.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Azure Security Center planerings- och bruksanvisning](security-center-planning-and-operations-guide.md) – Lär dig hur du planerar och designaspekter att införa Azure Security Center
 - [Säkerhetsaviseringar per typ i Azure Security Center](security-center-alerts-type.md#virtual-machine-behavioral-analysis) – Lär dig mer om beteendeanalys av virtuell dator och kraschanalys dump minne i Security Center
 - [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten
-- [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – hittar du blogginlägg om Azure-säkerhet och regelefterlevnad
+- [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) – hittar du blogginlägg om Azure-säkerhet och regelefterlevnad

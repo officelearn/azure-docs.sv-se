@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 819a2f81ca5403a3656bf713cf0ee3ae58050a4b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 04c68308739f641e892a335832725ba87e36f7af
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003121"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242134"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Kom igång med Azure Cloud Services och ASP.NET
 
 ## <a name="overview"></a>Översikt
-Under den här kursen får du lära dig hur du skapar ett .NET-program på flera nivåer med en ASP.NET MVC-klientdel, samt att distribuera det till en [Azure-molntjänst](cloud-services-choose-me.md). Programmet använder [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279), [Azure Blob-tjänsten](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) och [Azure-kötjänsten](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Du kan [hämta Visual Studio-projektet](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) från MSDN Code Gallery.
+Under den här kursen får du lära dig hur du skapar ett .NET-program på flera nivåer med en ASP.NET MVC-klientdel, samt att distribuera det till en [Azure-molntjänst](cloud-services-choose-me.md). Programmet använder [Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336279), [Azure Blob-tjänsten](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) och [Azure-kötjänsten](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Du kan [hämta Visual Studio-projektet](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) från MSDN Code Gallery.
 
 Under kursen får du lära dig hur du skapar och kör programmet lokalt, hur du distribuerar det till Azure och kör det i molnet, och hur du skapar det från grunden. Du kan börja med att skapa från grunden och sedan göra test- och distributionsstegen efteråt om du föredrar det.
 
@@ -36,7 +36,7 @@ Programmet är en anslagstavla för annonser. Användare skapar en annons genom 
 Programmet använder det [köcentriska arbetsmönstret](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) för att avlasta det processorintensiva arbetet med att skapa miniatyrbilder till en serverdelsprocess.
 
 ## <a name="alternative-architecture-web-apps-and-webjobs"></a>Alternativ arkitektur: Web Apps och WebJobs
-Under den här kursen får du lära dig hur du kör både klient- och serverdelen i en Azure-molntjänst. Ett alternativ är att köra klientdelen i en [Azure Web Apps](/azure/app-service/) och använda [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226)-funktionen för serverdelen. Om du vill följa en kurs som använder WebJobs går du till [Kom igång med Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki). Mer information om hur du väljer de tjänster som bäst passar din situation finns i [Jämförelse mellan Azure Websites, Cloud Services och Virtual Machines](../app-service/choose-web-site-cloud-service-vm.md).
+Under den här kursen får du lära dig hur du kör både klient- och serverdelen i en Azure-molntjänst. Ett alternativ är att köra klientdelen i en [Azure Web Apps](/azure/app-service/) och använda [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226)-funktionen för serverdelen. Om du vill följa en kurs som använder WebJobs går du till [Kom igång med Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki). Mer information om hur du väljer de tjänster som bäst passar din situation finns i [Jämförelse mellan Azure Websites, Cloud Services och Virtual Machines](../app-service/choose-web-site-cloud-service-vm.md).
 
 ## <a name="what-youll-learn"></a>Det här får du lära du dig
 * Hur du aktiverar datorn för Azure-utveckling genom att installera Azure SDK.
@@ -71,7 +71,7 @@ När en användare laddar upp en bild, lagrar klientdelen som körs i en webbrol
 [!INCLUDE [install-sdk](../../includes/install-sdk-2017-2015-2013.md)]
 
 ## <a name="download-and-run-the-completed-solution"></a>Hämta och köra den färdiga lösningen
-1. Hämta och packa upp den [färdiga lösningen](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4).
+1. Hämta och packa upp den [färdiga lösningen](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4).
 2. Starta Visual Studio.
 3. Gå till **File** (Arkiv-menyn) och välj **Open project** (Öppna projekt), navigera till platsen där du sparade den hämtade lösningen och öppna sedan lösningsfilen.
 4. Tryck på CTRL+SKIFT+B för att skapa lösningen.
@@ -81,7 +81,7 @@ När en användare laddar upp en bild, lagrar klientdelen som körs i en webbrol
 6. Om du använder Visual Studio 2015 eller högre, ska du ändra SQL Server-anslutningssträngen i filen *Web.config* i ContosoAdsWeb-projektet samt i filen *ServiceConfiguration.Local.cscfg* i ContosoAdsCloudService-projektet. I båda fallen ska du ändra ”(localdb)\v11.0” till ”(localdb)\MSSQLLocalDB”.
 7. Tryck på CTRL+F5 för att köra programmet.
 
-    När du kör ett molntjänstprojekt lokalt anropar Visual Studio automatiskt *beräkningsemulatorn* och *lagringsemulatorn* i Azure. Beräkningsemulatorn använder datorns resurser för att simulera webbrolls- och arbetsrollsmiljöerna. Lagringsemulatorn använder en [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx)-databas för att simulera Azure-molnlagring.
+    När du kör ett molntjänstprojekt lokalt anropar Visual Studio automatiskt *beräkningsemulatorn* och *lagringsemulatorn* i Azure. Beräkningsemulatorn använder datorns resurser för att simulera webbrolls- och arbetsrollsmiljöerna. Lagringsemulatorn använder en [SQL Server Express LocalDB](https://msdn.microsoft.com/library/hh510202.aspx)-databas för att simulera Azure-molnlagring.
 
     Första gången du kör ett molntjänstprojekt tar det ungefär en minut för emulatorerna att starta. När emulatorerna har startats öppnas standardwebbläsaren med programmets startsida.
 
@@ -232,7 +232,7 @@ Azure-lagringskontots anslutningssträngar för både webbrollsprojektet och arb
 1. I **Solution Explorer** högerklickar du på **ContosoAdsWeb** under **Roles** (Roller) i **ContosoAdsCloudService**-projektet. Klicka sedan på **Properties** (Egenskaper).
 
     ![Rollegenskaper](./media/cloud-services-dotnet-get-started/roleproperties.png)
-2. Klicka på fliken **Settings** (Inställningar). Välj **Cloud** (Moln) i listrutan **Service Configuration** (Tjänstkonfiguration).
+2. Klicka på fliken **Settings** (Inställningar). Välj **Cloud** (Moln) i listrutan Service Configuration (Tjänstkonfiguration).
 
     ![Molnkonfiguration](./media/cloud-services-dotnet-get-started/sccloud.png)
 3. Markera posten **StorageConnectionString** och sedan ser du en ellipsknapp (**...**) till höger om raden. Klicka på ellipsknappen för att öppna dialogrutan **Create Storage Connection String** (Skapa lagringsanslutningssträng).
@@ -311,7 +311,7 @@ Inställningen `<Instances>` anger det antal virtuella datorer som Azure kommer 
 >
 
 ## <a name="create-the-application-from-scratch"></a>Skapa programmet från grunden
-Om du inte redan har hämtat [det färdiga programmet](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) ska du göra det nu. Du kommer att kopiera filer från det hämtade projektet till det nya projektet.
+Om du inte redan har hämtat [det färdiga programmet](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) ska du göra det nu. Du kommer att kopiera filer från det hämtade projektet till det nya projektet.
 
 Contoso Ads-programmet skapas i följande steg:
 
@@ -549,7 +549,7 @@ queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSec
 imagesQueue = queueClient.GetQueueReference("images");
 ```
 
-Större delen av kontrollantkoden är typisk när du arbetar med en Entity Framework-datamodell med en DbContext-klass. Ett undantag är HttpPost-metoden `Create`, som laddar upp en fil och sparar den i Blob Storage. Modellbindaren tillhandahåller ett [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx)-objekt till metoden.
+Större delen av kontrollantkoden är typisk när du arbetar med en Entity Framework-datamodell med en DbContext-klass. Ett undantag är HttpPost-metoden `Create`, som laddar upp en fil och sparar den i Blob Storage. Modellbindaren tillhandahåller ett [HttpPostedFileBase](https://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx)-objekt till metoden.
 
 ```csharp
 [HttpPost]
@@ -766,8 +766,8 @@ Contoso Ads-programmet har med avsikt förenklats för den här komma igång-kur
 
 Här följer några exempelprogram för molntjänster som visar fler verklighetsbaserade kodningsexempel, i ordningen från mindre till mer komplexa:
 
-* [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Liknande koncept som i Contoso Ads men här finns fler funktioner och fler verklighetsbaserade kodningsexempel.
-* [Azure Cloud Service Multi-Tier Application with Tables, Queues, and Blobs](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Introducerar Azure Storage-tabeller samt blobbar och köer. Baserat på en äldre version av Azure SDK för .NET, kräver vissa ändringar för att fungera med den aktuella versionen.
+* [PhluffyFotos](https://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Liknande koncept som i Contoso Ads men här finns fler funktioner och fler verklighetsbaserade kodningsexempel.
+* [Azure Cloud Service Multi-Tier Application with Tables, Queues, and Blobs](https://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Introducerar Azure Storage-tabeller samt blobbar och köer. Baserat på en äldre version av Azure SDK för .NET, kräver vissa ändringar för att fungera med den aktuella versionen.
 
 Allmän information om hur du utvecklar för molnet finns i [Skapa verkliga molnappar med Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
 

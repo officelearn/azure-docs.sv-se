@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 6aff31c662a845028a02cecd7a99837f92bc87e5
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 4b4230397da7d97b613b546f33a0cbb764675720
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394229"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214825"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Snabbstart: Skapa ett Azure Data Explorer-kluster och -databas
 
@@ -31,11 +31,11 @@ Du skapar ett Azure Data Explorer-kluster i en Azure-resursgrupp med en definier
 
 1. Välj knappen **Skapa en resurs** (+) i det övre vänstra hörnet i portalen.
 
-1. Sök efter *Azure Data Explorer*och välj sedan **Azure Data Explorer**.
+1. Sök efter *Azure-datautforskaren*.
 
    ![Sök efter resurser](media/create-cluster-database-portal/search-resources.png)
 
-1. I det övre vänstra hörnet väljer du **Skapa**.
+1. Under **Azure-datautforskaren** väljer du **Skapa** längst ned på skärmen.
 
 1. Ange ett unikt namn för ditt kluster, välj din prenumeration och skapa en resursgrupp med namnet *test-resource-group*.
 
@@ -51,10 +51,12 @@ Du skapar ett Azure Data Explorer-kluster i en Azure-resursgrupp med en definier
     | Prenumeration | Din prenumeration | Välj den Azure-prenumeration som ska användas för klustret.|
     | Resursgrupp | *test-resource-group* | Skapa en ny resursgrupp. |
     | Plats | *USA, västra* | Välj *USA, västra* för den här snabbstarten. Välj den region som bäst uppfyller dina behov för ett produktionssystem.
-    | Compute-specifikation | *D13_v2* | Välj den lägsta prisspecifikationen för den här snabbstarten. För ett produktionssystem väljer du den specifikation som bäst uppfyller dina behov.
+    | Beräkningsspecifikationer | *D13_v2* | Välj den lägsta prisspecifikationen för den här snabbstarten. För ett produktionssystem väljer du den specifikation som bäst uppfyller dina behov.
     | | |
 
-1. Välj **Skapa** för att etablera klustret. Etableringen tar vanligtvis ungefär tio minuter. Välj **Aviseringar** (klockikonen) i verktygsfältet för att övervaka etableringsprocessen.
+1. Välj **Skapa** för att etablera klustret. Etableringen tar vanligtvis ungefär tio minuter. Välj **Meddelanden** i verktygsfältet för att övervaka etableringsprocessen.
+
+    ![Meddelanden](media/create-cluster-database-portal/notifications.png)
 
 1. När processen är klar, väljer du **Meddelanden** och sedan **Gå till resurs**.
 

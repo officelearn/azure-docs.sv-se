@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
-ms.openlocfilehash: 36d65abb26435581f3e6c9c4a9fc46bb3dd538ce
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: b740aa205982bc0c1104b59e3ea89e2d5980d461
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39362795"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240349"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Självstudie: Installera och skapa Service Fabric-kluster
 
@@ -37,7 +37,7 @@ I del två i serien lär du dig hur du:
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>Ladda ned Service Fabric för Windows Server-paketet
 
-Fabric Service tillhandahåller ett konfigurationspaket för att skapa fristående Service Fabric-kluster.  [Ladda ned installationspaketet](http://go.microsoft.com/fwlink/?LinkId=730690) på den lokala datorn.  När det har laddats ned, kopierar du det via RDP-anslutningen till din EC2-instans och klistrar in det på skrivbordet.
+Fabric Service tillhandahåller ett konfigurationspaket för att skapa fristående Service Fabric-kluster.  [Ladda ned installationspaketet](https://go.microsoft.com/fwlink/?LinkId=730690) på den lokala datorn.  När det har laddats ned, kopierar du det via RDP-anslutningen till din EC2-instans och klistrar in det på skrivbordet.
 
 Välj zip-filen, öppna snabbmenyn och välj **Extrahera alla** > **Extrahera**.  När du extraherar filerna skapas en mapp på skrivbordet med samma namn som zip-filen.
 

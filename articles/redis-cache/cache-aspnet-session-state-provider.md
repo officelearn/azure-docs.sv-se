@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 05/01/2017
 ms.author: wesmc
-ms.openlocfilehash: 047d23184ccf640dd6510faca9f508eef0dc50cb
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: e007b23b6e4a55e2a939994e8f95d01fc24cc529
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050821"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241589"
 ---
 # <a name="aspnet-session-state-provider-for-azure-redis-cache"></a>Provider av ASP.NET-sessionstillstånd för Azure Redis-cache
 Azure Redis Cache ger en sessionstillståndsprovider som du kan använda för att lagra din session tillstånd i minnet med Redis Cache i stället för en SQL Server-databas. För att använda cachelagring sessionstillståndsprovidern måste först konfigurera din cache och konfigurera ASP.NET-program för cache med Redis Cache-Session tillstånd NuGet-paketet.
@@ -94,11 +94,11 @@ Konfigurera attribut med värden från din cachebladet i Microsoft Azure-portale
 * **retryTimeoutInMilliseconds** – åtgärder som misslyckas görs under den här intervall som anges i millisekunder. Det första återförsöket sker efter 20 millisekunder och sedan återförsök sker varje sekund tills retryTimeoutInMilliseconds intervallet upphör att gälla. Omedelbart efter det här intervallet görs åtgärden en sista gång. Om åtgärden fortfarande misslyckas, undantagsfel den tillbaka till anroparen, beroende på inställningen throwOnError. Standardvärdet är 0, vilket innebär att inga nya försök.
 * **databaseId** – anger vilken databas som ska användas för cache-utdata. Om den inte anges används standardvärdet 0.
 * **applicationName** – nycklar lagras i redis som `{<Application Name>_<Session ID>}_Data`. Den här namngivningsschemat kan flera program delar samma Redis-instans. Den här parametern är valfri och om du inte anger den ett standardvärde används.
-* **connectionTimeoutInMilliseconds** – den här inställningen kan du åsidosätta inställningen connectTimeout i StackExchange.Redis-klienten. Om den inte anges används standardinställningen connectTimeout 5000. Mer information finns i [Konfigurationsmodell](http://go.microsoft.com/fwlink/?LinkId=398705).
-* **operationTimeoutInMilliseconds** – den här inställningen kan du åsidosätta inställningen syncTimeout i StackExchange.Redis-klienten. Om den inte anges används standardinställningen för syncTimeout på 1 000. Mer information finns i [Konfigurationsmodell](http://go.microsoft.com/fwlink/?LinkId=398705).
+* **connectionTimeoutInMilliseconds** – den här inställningen kan du åsidosätta inställningen connectTimeout i StackExchange.Redis-klienten. Om den inte anges används standardinställningen connectTimeout 5000. Mer information finns i [Konfigurationsmodell](https://go.microsoft.com/fwlink/?LinkId=398705).
+* **operationTimeoutInMilliseconds** – den här inställningen kan du åsidosätta inställningen syncTimeout i StackExchange.Redis-klienten. Om den inte anges används standardinställningen för syncTimeout på 1 000. Mer information finns i [Konfigurationsmodell](https://go.microsoft.com/fwlink/?LinkId=398705).
 * **redisSerializerType** -den här inställningen kan du ange anpassade serialisering av sessionen innehåll som skickas till Redis. Den angivna typen måste implementera `Microsoft.Web.Redis.ISerializer` och måste deklarera offentliga parameterlös konstruktor. Som standard `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter` används.
 
-Mer information om de här egenskaperna finns i det ursprungliga blogginlägget på [Vi presenterar ASP.NET-Sessionstillståndsprovider för Redis](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
+Mer information om de här egenskaperna finns i det ursprungliga blogginlägget på [Vi presenterar ASP.NET-Sessionstillståndsprovider för Redis](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
 
 Glöm inte att kommentera ut standard InProc session tillstånd providern avsnittet i filen web.config.
 

@@ -1,6 +1,6 @@
 
 # Azure Resiliency
-## [Funktionssida för Azure Resiliency](http://azure.microsoft.com/features/resiliency)
+## [Funktionssida för Azure Resiliency](https://azure.microsoft.com/features/resiliency)
 ## [Utforma elastiska program för Azure](https://docs.microsoft.com/azure/architecture/resiliency/)
 
 # Hög tillgänglighet

@@ -1,6 +1,6 @@
 ---
 title: Etablera en simulerad TPM-enhet till Azure IoT Hub med Node.js | Microsoft Docs
-description: Azure Snabbstart – Skapa och etablera en simulerad TPM-enhet med Node.js-enhetens SDK för Azure IoT Hub Device Provisioning-tjänsten
+description: Azure Snabbstart – Skapa och etablera en simulerad TPM-enhet med Node.js-enhetens SDK för Azure IoT Hub Device Provisioning-tjänsten. Den här snabbstarten använder enskilda registreringar.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/2018
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 956bdf4770bd2a42a9ede6f59c2aa80d44d9429a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 8b2d49d9df2cc8db98004ad9c186511d8d5e2b87
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041599"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156654"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad TPM-enhet med Node.js-enhetens SDK för IoT Hub Device Provisioning-tjänsten
 
@@ -23,6 +23,12 @@ ms.locfileid: "47041599"
 Dessa steg visar hur du skapar en simulerad enhet på utvecklingsdatorn som kör Windows OS, kör Windows TPM-simulatorn som [maskinvarusäkerhetsmodul (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) för enheten och använder kodexemplet för att ansluta till denna simulerade enhet med Device Provisioning-tjänsten och IoT-hubben. 
 
 Om du inte känner till processen för automatisk etablering, bör du också gå igenom [Begrepp inom automatisk etablering](concepts-auto-provisioning.md). Se också till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal) innan du fortsätter. 
+
+Azure IoT Device Provisioning Service stöder två typer av registreringar:
+- [Registreringsgrupper](concepts-service.md#enrollment-group): Används för att registrera flera relaterade enheter.
+- [Enskilda registreringar](concepts-service.md#individual-enrollment): Används för att registrera en enskild enhet.
+
+Den här artikeln visar enskilda registreringar.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
@@ -125,7 +131,7 @@ Om du inte känner till processen för automatisk etablering, bör du också gå
     node ExtractDevice.js
     ```
 
-1. Utdatafönstret visar den **_Bekräftelsenyckel_** och det **_Registrerings-ID_** som krävs vid enhetsregistreringen. Anteckna dessa värden. 
+1. Utdatafönstret visar **_Bekräftelsenyckel_** och **_Registrerings-ID_** som krävs för enhetsregistrering. Anteckna dessa värden. 
 
 
 ## <a name="create-a-device-entry"></a>Skapa en enhetspost

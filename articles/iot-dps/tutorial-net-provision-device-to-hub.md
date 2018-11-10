@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 84072c7e5f7aa37e89fc1b93c1585167dd6d9f4b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 8602f020481249282756a952a46b32bd9e768372
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41924842"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241335"
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Registrera enheten till en IoT-hubb med tjänsteklienten Azure IoT Hub Provisioning (.NET)
 
@@ -230,7 +230,7 @@ Starta enheten för att låta klientprogrammet starta registreringen med din enh
 
 ## <a name="verify-the-device-is-registered"></a>Kontrollera att enheten är registrerad
 
-När enheten startar ska följande åtgärder utföras. Se exemplet på TPM-simulatorprogrammet [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c) för mer information. 
+När enheten startar ska följande åtgärder utföras. Mer information finns i avsnittet om [etablering av enhetsklientexempel](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device). 
 
 1. Enheten skickar en registreringsbegäran till enhetsetableringstjänsten.
 2. För TPM-enheten skickar enhetsetableringstjänsten tillbaka en registreringskontroll som enheten svarar på. 

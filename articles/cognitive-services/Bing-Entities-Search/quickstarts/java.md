@@ -10,26 +10,26 @@ ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 0cf1103b37572b43585e4a977dc4d034e7a50e2f
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: fb6eeafd8183d9e0ae3e6822c236344a9ea1f90f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814482"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419052"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-java"></a>Snabbstart för API för entitetssökning i Bing med Java 
 
-Den här artikeln visar hur du använder [API:et för entitetssökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) med Java.
+Den här artikeln visar hur du använder [API:et för entitetssökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web)  med Java.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [JDK 7 eller 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) för att kompilera och köra den här koden. Du kan använda en Java IDE om du föredrar det, men ett redigeringsprogram fungerar också bra.
+Du behöver [JDK 7 eller 8](https://aka.ms/azure-jdks) för att kompilera och köra den här koden. Du kan använda en Java IDE om du föredrar det, men ett redigeringsprogram fungerar också bra.
 
 Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API:et för entitetssökning i Bing**. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) för den här snabbstarten. Du behöver den åtkomstnyckel som du fick när du aktiverade din kostnadsfria utvärderingsversion, eller så kan du använda en betald prenumerationsnyckel från instrumentpanelen i Azure.
 
 ## <a name="search-entities"></a>Entitetssökning
 
-Följ dessa steg för att köra programmet.
+Följ dessa steg om du vill köra programmet.
 
 1. Skapa ett nytt Java-projekt i din favoritutvecklingsmiljö.
 2. Lägg till koden nedan.

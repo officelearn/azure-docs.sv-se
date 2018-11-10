@@ -10,27 +10,28 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/18/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a3fc3e0cc30b379c84ac0ba12f733d2db4e41587
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 79572a364c2346ffd567cab7d3633ae398715210
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945798"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239961"
 ---
-# <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>Självstudie: Skapa en Azure Resource Manager-mall för att distribuera ett krypterat lagringskonto
+# <a name="tutorial-deploy-an-encrypted-azure-storage-account-with-resource-manager-template"></a>Självstudie: Distribuera ett krypterat Azure Storage-konto med Resource Manager-mall
 
-Lär dig hur du hittar information för att slutföra en Azure Resource Manager-mall.
+Lär dig hur du hittar information om mallschema och använd informationen för att skapa Azure Resource Manager-mallar.
 
-I den här självstudien använder du en basmall från Azure-snabbstartmallar för att skapa ett Azure Storage-konto.  Använd referensdokumentationen för mallar för att anpassa basmallen och skapa ett krypterat lagringskonto.
+I den här självstudien använder du en basmall från Azure-snabbstartmallar. Använd referensdokumentationen för mallar för att anpassa mallen och skapa ett krypterat lagringskonto.
 
 Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
 > * Öppna en snabbstartsmall
 > * Förstå mallen
+> * Leta upp mallreferensen
 > * Redigera mallen
 > * Distribuera mallen
 
@@ -44,7 +45,7 @@ För att kunna följa stegen i den här artikeln behöver du:
 
 ## <a name="open-a-quickstart-template"></a>Öppna en snabbstartsmall
 
-Den mall som används i den här snabbstarten kallas [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) (Skapa ett standardlagringskonto). Mallen definierar en Azure Storage-kontoresurs.
+[Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/) är en lagringsplats för Resource Manager-mallar. I stället för att skapa en mall från början får du en exempelmall som du anpassar. Den mall som används i den här snabbstarten kallas [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) (Skapa ett standardlagringskonto). Mallen definierar en Azure Storage-kontoresurs.
 
 1. Från Visual Studio Code väljer du **Arkiv**>**Öppna fil**.
 2. I **Filnamn** klistrar du in följande URL:
@@ -57,58 +58,22 @@ Den mall som används i den här snabbstarten kallas [Create a standard storage 
 
 ## <a name="understand-the-schema"></a>Förstå schemat
 
-Från VS Code döljer du mallen till rotnivån. Du får den enklaste strukturen med följande element:
+1. Från VS Code döljer du mallen till rotnivån. Du får den enklaste strukturen med följande element:
 
-![Enklaste struktur för Resource Manager-mall](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-simplest-structure.png)
+    ![Enklaste struktur för Resource Manager-mall](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-simplest-structure.png)
 
-* **$schema**: ange platsen för den JSON-schemafil som beskriver versionen av mallspråket.
-* **contentVersion**: ange valfritt värde för det här elementet för att dokumentera betydande förändringar i mallen.
-* **parameters** (parametrar): ange de värden som tillhandahålls när distributionen körs för att anpassa resursdistributionen.
-* **variables** (variabler): ange de värden som används som JSON-fragment i mallen för att förenkla mallspråksuttryck.
-* **resources** (resurser): ange de resurstyper som distribueras eller uppdateras i en resursgrupp.
-* **outputs** (utdata): ange de värden som returneras efter distributionen.
+    * **$schema**: ange platsen för den JSON-schemafil som beskriver versionen av mallspråket.
+    * **contentVersion**: ange valfritt värde för det här elementet för att dokumentera betydande förändringar i mallen.
+    * **parameters** (parametrar): ange de värden som tillhandahålls när distributionen körs för att anpassa resursdistributionen.
+    * **variables** (variabler): ange de värden som används som JSON-fragment i mallen för att förenkla mallspråksuttryck.
+    * **resources** (resurser): ange de resurstyper som distribueras eller uppdateras i en resursgrupp.
+    * **outputs** (utdata): ange de värden som returneras efter distributionen.
 
-## <a name="use-parameters"></a>Använda parametrar
+2. Expandera **resurser**. Det finns en `Microsoft.Storage/storageAccounts`-resurs som definierats. Mallen skapar ett okrypterat lagringskonto.
 
-Med parametrar kan du anpassa distributionen genom att tillhandahålla värden som är skräddarsydda för en viss miljö. Du kan använda de parametrar som definieras i mallen när du anger värden för lagringskontot.
+    ![Definition av lagringskonto för Resource Manager-mall](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resource.png)
 
-![Resource Manager-mallparametrar](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-parameters.png)
-
-I den här mallen definieras två parametrar. Lägg märke till att en mallfunktionen används i location.defaultValue:
-
-```json
-"defaultValue": "[resourceGroup().location]",
-```
-
-Funktionen resourceGroup() returnerar ett objekt som representerar den aktuella resursgruppen. En lista med mallfunktioner finns i [Azure Resource Manager-mallfunktioner](./resource-group-template-functions.md).
-
-Så använder du de parametrar som definieras i mallen:
-
-```json
-"location": "[parameters('location')]",
-"name": "[parameters('storageAccountType')]"
-```
-
-## <a name="use-variables"></a>Använda variabler
-
-Med variabler kan du skapa värden som kan användas i hela mallen. Variabler hjälper till att minska komplexiteten i mallarna.
-
-![Resource Manager-mallvariabler](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-variables.png)
-
-Den här mallen definierar en variabel: *storageAccountName*. I definitionen används två mallfunktioner:
-
-- **concat()**: sammanfogar strängar. Mer information finns i [concat](./resource-group-template-functions-string.md#concat).
-- **uniqueString()**: skapar en deterministisk hash-sträng baserat på de värden som anges som parametrar. Varje Azure-lagringskonto måste ha ett namn som är unikt i hela Azure. Den här funktionen tillhandahåller en unik sträng. Fler strängfunktioner finns i [Strängfunktioner](./resource-group-template-functions-string.md).
-
-Så använder du den variabel som definieras i mallen:
-
-```json
-"name": "[variables('storageAccountName')]"
-```
-
-## <a name="edit-the-template"></a>Redigera mallen
-
-Målet med den här självstudien är att definiera en mall för att skapa ett krypterat lagringskonto.  Exempelmallen skapar bara ett grundläggande okrypterat lagringskonto. För att hitta den krypteringsrelaterade konfigurationen kan du använda mallreferensen för Azure Storage-kontot.
+## <a name="find-the-template-reference"></a>Leta upp mallreferensen
 
 1. Bläddra till [Azure-mallar](https://docs.microsoft.com/azure/templates/).
 2. I **filtrera efter rubrik**, ange **lagringskonton**.
@@ -120,17 +85,52 @@ Målet med den här självstudien är att definiera en mall för att skapa ett k
 
     ```json
     "encryption": {
-        "keySource": "Microsoft.Storage",
+      "services": {
+        "blob": {
+          "enabled": boolean
+        },
+        "file": {
+          "enabled": boolean
+        }
+      },
+      "keySource": "string",
+      "keyvaultproperties": {
+        "keyname": "string",
+        "keyversion": "string",
+        "keyvaulturi": "string"
+      }
+    },
+    ```
+
+    På samma webbplats bekräftar följande beskrivning att objektet `encryption` används för att skapa ett krypterat lagringskonto.
+
+    ![Kryptering av lagringskonto för Resource Manager-mallreferens](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts-encryption.png)
+
+    Och det finns två sätt att hantera krypteringsnyckeln. Du kan använda Microsoft-hanterade krypteringsnycklar med Kryptering för lagringstjänst eller dina egna krypteringsnycklar. För att hålla den här självstudien enkel använder du alternativet `Microsoft.Storage` så att du inte behöver skapa ett Azure-nyckelvalv.
+
+    ![Krypteringsobjekt för lagringskonto för Resource Manager-mallreferens](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts-encryption-object.png)
+
+    Krypteringsobjektet ska se ut så här:
+
+    ```json
+    "encryption": {
         "services": {
             "blob": {
                 "enabled": true
+            },
+            "file": {
+              "enabled": true
             }
-        }
+        },
+        "keySource": "Microsoft.Storage"
     }
     ```
-5. Ändra mallen från Visual Studio Code, så att det slutliga resurselementet som ser ut som följer:
-    
-    ![Krypterade lagringskontoresurser för Resource Manager-mall](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
+
+## <a name="edit-the-template"></a>Redigera mallen
+
+Från Visual Studio Code ändrar du mallen så att resurselementet ser ut så här:
+
+![Krypterade lagringskontoresurser för Resource Manager-mall](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 

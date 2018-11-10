@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 2cd77ee6df52940a800733209b7e384d72d98103
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ddc04d32f76515cb93d2cde3fe4eccaab7e4c291
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962138"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245366"
 ---
 # <a name="quickstart-remove-an-application-from-azure-active-directory"></a>Snabbstart: Ta bort ett program från Azure Active Directory
 
@@ -45,7 +45,7 @@ Program som din organisation har registrerat visas under filtret **Mina appar** 
 
 ### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>Så tar du bort ett program med en enskild klientorganisation från din katalog
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Om ditt konto ger dig tillgång till fler än en väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
 1. I det vänstra navigeringsfönstret väljer du **Azure Active Directory**-tjänsten, väljer **Appregistreringar** och letar upp och väljer det program som du vill konfigurera.
     Detta tar dig till programmets huvudsakliga registreringssida, vilket öppnar sidan **Inställningar** för programmet.
@@ -54,7 +54,7 @@ Program som din organisation har registrerat visas under filtret **Mina appar** 
 
 ### <a name="to-remove-a-multi-tenant-application-from-its-home-directory"></a>Ta bort ett program med flera klientorganisationer från dess hemkatalog
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Om ditt konto ger dig tillgång till fler än en väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
 1. I det vänstra navigeringsfönstret väljer du **Azure Active Directory**-tjänsten, väljer **Appregistreringar** och letar upp och väljer det program som du vill konfigurera.
     Detta tar dig till programmets huvudsakliga registreringssida, vilket öppnar sidan **Inställningar** för programmet.
@@ -69,7 +69,7 @@ En delmängd av de program som visas under filtret **Alla appar** (exklusive reg
 
 Tekniskt sett kommer dessa program för flera klientorganisationer från en annan klientorganisation och registrerades i din klientorganisation under medgivandeprocessen. Mer specifikt representeras de endast av en tjänsthuvudnamnsobjekt i din klientorganisation utan motsvarande programobjekt. Mer information om skillnaderna mellan program- och tjänsthuvudnamnsobjekt finns i [Program och tjänsthuvudnamnsobjekt i Azure AD](app-objects-and-service-principals.md).
 
-För att åtkomsten för ett program för flera klientorganisationer till din katalog ska tas bort (efter att ha godkänts) måste företagets administratör ta bort programmets tjänsthuvudnamn. Administratören måste ha behörighet som global administratör och kan ta bort den via Azure-portalen eller använda [Azure AD PowerShell-cmdletarna](http://go.microsoft.com/fwlink/?LinkId=294151).
+För att åtkomsten för ett program för flera klientorganisationer till din katalog ska tas bort (efter att ha godkänts) måste företagets administratör ta bort programmets tjänsthuvudnamn. Administratören måste ha behörighet som global administratör och kan ta bort den via Azure-portalen eller använda [Azure AD PowerShell-cmdletarna](https://go.microsoft.com/fwlink/?LinkId=294151).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -4,23 +4,23 @@ description: Den här artikeln vägleder dig igenom stegen för att aktivera Res
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: df01a57cda063e301efbc4d99f3bac8dbb4b2e66
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: a252dd6698a5e4f724fcbbf821b01f63ab4f529b
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054174"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086819"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-cli"></a>Köra din första Resource Graph-fråga med hjälp av Azure CLI
 
-Det första steget till att använda Azure Resource Graph är att se till att tillägget för [Azure CLI](/cli/azure/) är installerat. Denna snabbstart vägleder dig genom processen för att lägga till tillägget i Azure CLI-installationen. Du kan använda tillägget med Azure CLI installerat lokalt eller via [Azure Cloud Shell](https://shell.azure.com).
+Det första steget till att använda Azure Resource Graph är att kontrollera att tillägget för [Azure CLI](/cli/azure/) är installerat. Denna snabbstart vägleder dig genom processen för att lägga till tillägget i Azure CLI-installationen. Du kan använda tillägget med Azure CLI installerat lokalt eller via [Azure Cloud Shell](https://shell.azure.com).
 
-I slutet av den här processen har du lagt till tillägget till valfri Azure CLI-installation och kört din första Resource Graph-fråga.
+I slutet av den här processen kommer du att ha lagt till tillägget till valfri Azure CLI-installation och kört din första Resource Graph-fråga.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -28,7 +28,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 Om du vill aktivera Azure CLI för att skicka frågor till Azure Resource Graph, måste du lägga till tillägget. Det här tillägget fungerar överallt där Azure CLI kan användas, inklusive [bash i Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (både fristående och i portalen), [Azure CLI-dockeravbildningen](https://hub.docker.com/r/microsoft/azure-cli/) och där det är lokalt installerat.
 
-1. Se till att den senaste versionen av Azure CLI är installerad (som lägst **2.0.45**). Om den ännu inte är installerad, följer du [de här instruktionerna](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+1. Kontrollera att den senaste versionen av Azure CLI är installerad (minst **2.0.45**). Om den ännu inte är installerad följer du [de här instruktionerna](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
 1. I din valda Azure CLI-miljö importerar du den med följande kommando:
 
@@ -71,16 +71,16 @@ Nu när Azure CLI-tillägget har lagts till i din valda miljö är det dags att 
    ```
 
   > [!NOTE]
-  > Om du kör den här frågan flera kommer den, precis som den första frågan, sannolikt att resultera i olika resurser vid varje förfrågan. Ordningen på frågekommandona är viktig. I det här exemplet kommer `order by` efter `limit`. Det begränsar först frågeresultaten och sorterar sedan dem.
+  > Om du kör den här frågan flera kommer den, precis som den första frågan, sannolikt att resultera i olika resurser vid varje begäran. Ordningen på frågekommandona är viktig. I det här exemplet kommer `order by` efter `limit`. Det begränsar först frågeresultaten och sorterar sedan dem.
 
-1. Uppdatera frågan till att först `order by` **namn**-egenskapen och sedan sätta en `limit` för de 5 främsta resultaten:
+1. Uppdatera frågan till att först `order by` **Namn**-egenskapen och sedan sätta en `limit` för de fem främsta resultaten:
 
    ```azurecli-interactive
    # Run Azure Resource Graph query with `order by` first, then with `limit`
    az graph query -q 'project name, type | order by name asc | limit 5'
    ```
 
-När den sista frågan har körts flera gånger, och förutsatt att ingenting i din miljö ändras, kommer resultaten som returneras bli konsekventa och som förväntade – sorterade efter egenskapen **namn** men fortfarande begränsade till de 5 främsta resultaten.
+När den sista frågan har körts flera gånger, och förutsatt att ingenting i din miljö ändras, kommer resultaten som returneras bli konsekventa och som förväntade – sorterade efter **Namn**-egenskapen men fortfarande begränsade till de fem främsta resultaten.
 
 ## <a name="cleanup"></a>Rensa
 

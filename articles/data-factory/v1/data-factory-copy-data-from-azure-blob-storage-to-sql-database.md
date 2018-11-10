@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a9f76b38139cccedb97c6026f0e0efa14d0dbc8c
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 596a9e4e3e1d24bdcab561a7238548d418ac0581
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42061712"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243581"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Självstudier: Kopiera data från Blob Storage till SQL Database med Data Factory
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten d
 ## <a name="prerequisites-for-the-tutorial"></a>Förutsättningar för självstudien
 Innan du påbörjar den här självstudien måste du ha följande krav:
 
-* **Azure-prenumeration**.  Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto på ett par minuter. Se den [kostnadsfri utvärderingsversion](http://azure.microsoft.com/pricing/free-trial/) nedan för information.
+* **Azure-prenumeration**.  Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto på ett par minuter. Se den [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/) nedan för information.
 * **Azure Storage-konto**. Du kan använda bloblagringen som en **källa** i den här självstudien. om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md).
 * **Azure SQL Database**. Du använder en Azure SQL-databas som en **mål** i den här självstudien. Om du inte har en Azure SQL-databas som du kan använda i självstudien Se [hur du skapar och konfigurerar en Azure SQL Database](../../sql-database/sql-database-get-started.md) att skapa en.
 * **SQL Server 2012/2014 eller Visual Studio 2013**. Du använder SQL Server Management Studio eller Visual Studio för att skapa en exempeldatabas och att visa Resultatdata i databasen.  

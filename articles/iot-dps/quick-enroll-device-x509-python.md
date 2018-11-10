@@ -1,6 +1,6 @@
 ---
 title: Den här snabbstarten beskriver hur du registrerar X.509-enheter till Azure Device Provisioning Service med hjälp av Python | Microsoft Docs
-description: I den här snabbstarten registrerar du X.509-enheter till Azure IoT Hub Device Provisioning Service med hjälp av Python
+description: Den här snabbstarten använder gruppregistreringar. I den här snabbstarten registrerar du X.509-enheter till Azure IoT Hub Device Provisioning Service med hjälp av Python
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/25/2018
@@ -10,18 +10,18 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 84ec165a78f873f6378e840d7f339cb7590dc098
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1eae992785eac18727c138b4e31369f1cf57f93e
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227392"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157249"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>Snabbstart: Registrera X.509-enheter till Device Provisioning Service med hjälp av Python
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-Enheterna registreras till en etableringstjänstinstans genom att du skapar en [registreringsgrupp](concepts-service.md#enrollment-group) eller en [enskild registrering](concepts-service.md#individual-enrollment). Den här snabbstarten beskriver hur du använder Python för att programmässigt skapa en [registreringsgrupp](concepts-service.md#enrollment-group) som använder mellanliggande CA X.509-certifikat eller CA X.509-rotcertifikat. En registreringsgrupp kontrollerar åtkomst till etableringstjänsten för enheter som delar ett gemensamt signeringscertifikat i certifikatkedjan. Registreringsgruppen skapas med [SDK för Python-etableringstjänsten](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client) och ett Python-exempelprogram. Skapande av enskilda registreringar via *SDK för Python-etableringstjänsten* är en process som är under utveckling. Läs mer i informationen om att [kontrollera enhetsåtkomst till etableringstjänsten med X.509-certifikat](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). Mer information om att använda X.509-certifikatbaserad Public Key Infrastructure (PKI) med Azure IoT Hub och enhetsetableringstjänst finns i [Översikt över certifikatsäkerhet med X.509 CA](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview). 
+Enheterna registreras till en etableringstjänstinstans genom att du skapar en [registreringsgrupp](concepts-service.md#enrollment-group) eller en [enskild registrering](concepts-service.md#individual-enrollment). Den här snabbstarten beskriver hur du använder Python för att programmässigt skapa en [registreringsgrupp](concepts-service.md#enrollment-group) som använder mellanliggande CA X.509-certifikat eller CA X.509-rotcertifikat. En registreringsgrupp kontrollerar åtkomst till etableringstjänsten för enheter som delar ett gemensamt signeringscertifikat i certifikatkedjan. Registreringsgruppen skapas med [SDK för Python-etableringstjänsten](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client) och ett Python-exempelprogram. Skapande av enskilda registreringar via *SDK för Python-etableringstjänsten* är en process som är under utveckling. Läs mer i informationen om att [kontrollera enhetsåtkomst till etableringstjänsten med X.509-certifikat](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). Mer information om att använda X.509-certifikatbaserad Public Key Infrastructure (PKI) med Azure IoT Hub och enhetsetableringstjänst finns i [Översikt över certifikatsäkerhet med X.509 CA](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview).
 
 Den här snabbstarten förutsätter att du redan har skapat en IoT-hubb och en Device Provisioning Service-instans. Om du inte redan har skapat dessa resurser slutför du snabbstarten [Konfigurera IoT Hub Device Provisioning-tjänsten med Azure-portalen](./quick-setup-auto-provision.md) innan du fortsätter med den här artikeln.
 
@@ -65,7 +65,7 @@ I det här avsnittet visas hur du lägger till etableringsinformationen för X.5
 
 1. Skapa en ny **Registreringsgrupp.py**-fil med en texteditor.
 
-1. Lägg till följande `import`-instruktioner och variabler längst upp i **Registreringsgrupp.py**-filen. Byt sedan `dpsConnectionString` mot din anslutningssträng som finns under **Policyer för delad åtkomst** i **Device Provisioning-tjänsten** på **Azure Portal**. Byt ut platshållaren för certifikat med certifikatet som skapades i [Förbereda testcertifikat](quick-enroll-device-x509-python.md#prepare-test-certificates). Skapa slutligen ett unikt `registrationid` och se till att det endast innehåller små bokstäver, siffror och bindestreck.  
+1. Lägg till följande `import`-instruktioner och variabler längst upp i **Registreringsgrupp.py**-filen. Byt sedan `dpsConnectionString` mot din anslutningssträng som finns under **Policyer för delad åtkomst** i **Device Provisioning-tjänsten** på **Azure-portalen**. Byt ut platshållaren för certifikat med certifikatet som skapades i [Förbereda testcertifikat](quick-enroll-device-x509-python.md#prepare-test-certificates). Skapa slutligen ett unikt `registrationid` och se till att det endast innehåller små bokstäver, siffror och bindestreck.  
    
     ```python
     from provisioningserviceclient import ProvisioningServiceClient

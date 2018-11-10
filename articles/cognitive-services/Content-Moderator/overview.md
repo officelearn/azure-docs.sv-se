@@ -8,51 +8,56 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: overview
-ms.date: 10/05/2018
+ms.date: 10/22/2018
 ms.author: sajagtap
-ms.openlocfilehash: 5756e8fb451b073c68271359848ab27373ad85ed
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 076948e7434802af7f0ad47f279335009817d40e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309560"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209610"
 ---
-# <a name="what-is-content-moderator"></a>Vad är Content Moderator?
+# <a name="what-is-azure-content-moderator"></a>Vad är Azure Content Moderator?
 
-Innehållsmoderering är processen för att övervaka innehåll med text, bilder eller video efter material som är potentiellt stötande, oönskat eller riskfyllt. Flaggat innehåll kan sedan döljas eller på annat sätt åtgärdas för att uppfylla krav eller upprätthålla den avsedda miljön för användare.
+Azure Content Moderator API är en kognitiv tjänst som kontrollerar innehåll med text, bilder och video efter material som är potentiellt stötande, riskfyllt eller på annat sätt oönskat. När sådant material hittas tillämpar tjänsten lämplig etiketter (flaggor) på innehållet. Appen kan sedan hantera flaggat innehåll för att uppfylla krav eller upprätthålla den avsedda miljön för användare. I avsnittet [Content Moderator-API:er](#content-moderator-apis) kan du lära dig mer om vad de olika innehållsflaggorna indikerar.
 
 ## <a name="where-it-is-used"></a>Var verktyget kan användas
 
-Följande lista innehåller några exempel på scenarier där Content Moderator kan användas:
+Följande är några scenarier där en programutvecklare eller ett team kan använda Content Moderator:
 
-- Marknadsplatser online som modererar produktkataloger och användargenererat innehåll
+- Marknadsplatser online som modererar produktkataloger och annat användargenererat innehåll
 - Spelföretag som modererar användargenererade spelartefakter och chattrum
 - Plattformar för sociala meddelanden som modererar bilder, text och videor som läggs till av användarna
-- Medieföretag som implementerar centraliserad innehållsmoderering för deras innehåll
-- K-12-utbildningslösningsföretag som filtrerar bort olämpligt och stötande innehåll för elever och lärare
+- Medieföretag som implementerar centraliserad moderering för sitt innehåll
+- K-12-utbildningslösningsföretag som filtrerar bort innehåll som är olämpligt för elever och lärare
 
 ## <a name="what-it-includes"></a>Vad verktyget innehåller
 
-Content Moderator består av flera webbtjänst-API:er och ett inbyggt HITL-granskningsverktyg (Human-In-The-Loop) som hjälper dig att moderera bilder, text och videor.
+Content Moderator-tjänsten består av flera webbtjänst-API:er som är tillgängliga via både REST-anrop och en .NET-SDK. Den innehåller även verktyg för mänsklig granskning, vilket gör att mänskliga granskare kan bistå tjänsten och förbättra eller finjustera dess modereringsfunktion.
 
-![Content Moderator-blockdiagram](images/content-moderator-block-diagram.png)
+![Blockdiagram för Content Moderator som visar API:er för moderering och granskning samt ett verktyg för mänsklig granskning](images/content-moderator-block-diagram.png)
 
-### <a name="apis"></a>API:er
+### <a name="content-moderator-apis"></a>Content Moderator-API:er
 
-Content Moderator-tjänsten innehåller följande API:er:
-  - [**API för textmoderering**](text-moderation-api.md): Använd det här API:et för att söka igenom text efter svordomar, olämpliga ord och stötande och personligt identifierbar information (PII).
-  - [**API för anpassade termlistor**](try-terms-list-api.md): Använd det här API:et för att matcha mot anpassade listor med termer utöver de inbyggda termerna. Använd dessa listor för att blockera eller tillåta innehåll baserat på dina innehållsprinciper.  
-  - [**API för bildmoderering**](image-moderation-api.md): Använd det här API:et för att söka igenom bilder efter olämpligt innehåll, för att identifiera text i bilder med funktionen för optisk teckenläsning (OCR) och för att identifiera ansikten.
-  - [**API för anpassade bildlistor**](try-image-list-api.md): Använd det här API:et för att matcha mot anpassade listor med bilder och i förväg identifierat innehåll som du inte behöver klassificera igen.
-  - [**API för videomoderering**](video-moderation-api.md): Använd det här API:et för att söka igenom videor efter olämpligt innehåll.
-  - [**Gransknings-API:er**](try-review-api-job.md): Använd åtgärderna [Jobb](try-review-api-job.md), [Granskningar](try-review-api-review.md) och [Arbetsflöde](try-review-api-workflow.md) för att skapa och automatisera HITL-arbetsflöden (Human-In-The-Loop) i granskningsverktyget.
+Content Moderator-tjänsten innehåller API:er för följande scenarier.
+
+| Åtgärd | Beskrivning |
+| ------ | ----------- |
+|[**Textmoderering**](text-moderation-api.md)| Söker igenom text efter stötande innehåll, sexuellt explicit eller suggestivt innehåll, olämpligt språk och personligt identifierbar information (PII).|
+|[**Anpassade termlistor**](try-terms-list-api.md)| Söker igenom text mot en anpassad lista med termer utöver de inbyggda termerna. Använd anpassade listor för att blockera eller tillåta innehåll baserat på dina egna innehållsprinciper.|  
+|[**Bildmoderering**](image-moderation-api.md)| Söker igenom bilder efter vuxet eller olämpligt innehåll, identifierar text i bilder med funktionen för optisk teckenläsning (OCR) och identifierar ansikten.|
+|[**Anpassade bildlistor**](try-image-list-api.md)| Söker igenom bilder mot en anpassad lista med bilder. Använd anpassade bildlistor för att filtrera bort instanser av ofta återkommande innehåll som du inte vill klassificera igen.|
+|[**Videomoderering**](video-moderation-api.md)| Söker igenom videor efter vuxet eller olämpligt innehåll och returnerar tidsmarkörer för sådant innehåll.|
+|[**Granskning**](try-review-api-job.md)| Använd åtgärderna [Jobb](try-review-api-job.md), [Granskningar](try-review-api-review.md) och [Arbetsflöde](try-review-api-workflow.md) för att skapa och automatisera HITL-arbetsflöden (Human-In-The-Loop) i verktyget för mänsklig granskning. Arbetsflödes-API:et är inte ännu tillgängligt via .NET-SDK.|
 
 ### <a name="human-review-tool"></a>Verktyg för mänsklig granskning
 
-Det inbyggda [verktyget för mänsklig granskning](Review-Tool-User-Guide/human-in-the-loop.md) ingår i din Content Moderator-prenumeration. Använd det tidigare nämnda gransknings-API:et för att skapa granskningar eller omdömen av text, bilder och videor som hjälper dina mänskliga moderatorer att fatta det slutliga beslutet.
+Content Moderator-tjänsten omfattar även det webbaserade [verktyget för mänsklig granskning](Review-Tool-User-Guide/human-in-the-loop.md). 
 
-![Content Moderator-videogranskningsverktyget](images/video-review-default-view.png)
+![Hemsida för Content Moderator-verktyget för mänsklig granskning](images/homepage.PNG)
+
+Du kan använda gransknings-API:erna för att konfigurera teamgranskningar av innehåll med text, bilder och video enligt filter som du anger. Mänskliga moderatorer kan sedan göra fatta de slutgiltiga modereringsbesluten. Mänskliga indata tränar inte tjänsten, men det kombinerade arbetet från tjänsten och mänskliga granskningsteam gör att utvecklare kan åstadkomma rätt balans mellan effektivitet och noggrannhet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd [snabbstarten](quick-start.md) för att komma igång med Content Moderator.
+Följ [snabbstarten](quick-start.md) för att komma igång med att använda Content Moderator.

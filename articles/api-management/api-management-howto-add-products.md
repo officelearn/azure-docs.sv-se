@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 0346cf456c53b14fd3c5b14b2e40eddd8b89fe4d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 0f2b45685d2976c567c16666e2ca89d334914b63
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465958"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417301"
 ---
 # <a name="create-and-publish-a-product"></a>Skapa och publicera en produkt  
 
@@ -35,6 +35,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
++ Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 + Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
 + Slutför även följande självstudie: [Importera och publicera ditt första API](import-and-publish.md).
 
@@ -83,6 +84,9 @@ Utvecklare måste först prenumerera på en produkt för att få åtkomst till A
 2. Navigera till fliken **API:er**.
 3. Klicka på **+ Lägg till**.
 4. Välj ett API och klicka på **Välj**.
+
+> [!TIP]
+> Du kan skapa eller uppdatera användarens prenumeration till en *produkt* med anpassade prenumerationsnycklar [via REST API](https://docs.microsoft.com/rest/api/apimanagement/subscription/createorupdate) eller PowerShell-kommando.
 
 ## <a name="next-steps"></a>Nästa steg
 

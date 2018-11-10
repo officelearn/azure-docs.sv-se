@@ -1,6 +1,6 @@
 ---
 title: Etablera en simulerad TPM-enhet på Azure IoT Hub med C | Microsoft Docs
-description: I den här snabbstarten skapade och etablerade du en simulerad TPM-enhet med C-enhets-SDK för Azure IoT Hub-enhetsetableringstjänsten
+description: Den här snabbstarten använder enskilda registreringar. I den här snabbstarten skapade och etablerade du en simulerad TPM-enhet med C-enhets-SDK för Azure IoT Hub Device Provisioning Service.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 07/13/2018
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3f88da7e70ca62e14444fa742013c982daec3cc6
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: c2f5ff778b49ffb544c53b41cf515e820d646249
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633290"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157861"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Snabbstart: Etablera en simulerad TPM-enhet med Azure IoT C SDK
 
@@ -23,6 +23,12 @@ ms.locfileid: "45633290"
 I den här snabbstarten får lära dig att skapa och köra en TPM-enhetssimulator (Trusted Platform Module) på en Windows-utvecklingsdator. Du ansluter denna simulerade enhet till en IoT-hubb med hjälp av en instans av enhetsetableringstjänst. Exempelkoden från [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) används för att registrera enheten med en instans av enhetsetableringstjänst och simulera en startsekvens för enheten.
 
 Om du inte känner till processen för automatisk etablering bör du gå igenom [Begrepp inom automatisk etablering](concepts-auto-provisioning.md). Se även till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub-enhetsetableringstjänsten med Azure-portalen) innan du fortsätter med den här snabbstarten. 
+
+Azure IoT Device Provisioning Service stöder två typer av registreringar:
+- [Registreringsgrupper](concepts-service.md#enrollment-group): Används för att registrera flera relaterade enheter.
+- [Enskilda registreringar](concepts-service.md#individual-enrollment): Används för att registrera en enskild enhet.
+
+Den här artikeln visar enskilda registreringar.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -46,7 +52,7 @@ I det här avsnittet förbereder du en utvecklingsmiljö som används för att s
     True
     ```
     
-    Följande hash-värden för version 3.11.4 stod på CMake-webbplatsen när detta skrevs:
+    Följande hash-värden för version 3.11.4 visades på CMake-webbplatsen när detta skrevs:
 
     ```
     6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz

@@ -3,7 +3,7 @@ title: Aktivera Transparent datakryptering i Azure Security Center | Microsoft D
 description: Det här dokumentet visar hur du implementerar Azure Security Center-rekommendationen **aktivera Transparent datakryptering**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: e4be8a0e-2118-4ee9-a266-69e52d9f7f8e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
-ms.author: terrylan
-ms.openlocfilehash: 13e47de8ff25451f7d4185927477d524d519ce2a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 1f49930449c5ca342159f2a4eca3d7167dfed925
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299567"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244652"
 ---
 # <a name="enable-transparent-data-encryption-in-azure-security-center"></a>Aktivera Transparent datakryptering i Azure Security Center
 Azure Security Center rekommenderar att du aktiverar Transparent datakryptering (TDE) på SQL-databaser om TDE inte redan är aktiverad. TDE skyddar dina data och hjälper dig att uppfylla efterlevnadskrav genom att kryptera databasen, tillhörande säkerhetskopior och transaktionsloggfiler vilande, utan ändringar i ditt program. Läs mer i [Transparent datakryptering med Azure SQL Database](https://msdn.microsoft.com/library/dn948096).
@@ -57,7 +57,7 @@ I följande avsnitt kan du lära dig mer om Security Center:
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Här får du lära dig hur du övervakar dina partnerlösningars hälsostatus.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
-* [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – senaste nytt i Azure-säkerhet och information.
+* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) – senaste nytt i Azure-säkerhet och information.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-tde-on-sql-databases/enable-tde.png

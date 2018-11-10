@@ -14,12 +14,12 @@ ms.tgt-pltfrm: multiple
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: danlep
-ms.openlocfilehash: a1e472d237977d1948c69828d8ec391522896774
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 01281c0328fab85814ff93c73f9ea25e0d4c1b08
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44058212"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232808"
 ---
 # <a name="cli-example-create-a-batch-ai-cluster-using-a-cluster-configuration-file"></a>CLI-exempel: Skapa ett Batch AI-kluster med en konfigurationsfil
 
@@ -27,7 +27,7 @@ Det här skriptet visar hur du använder en JSON-konfigurationsfil för att ange
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.38 eller senare under den här snabbstarten. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt kräver den här guiden att du kör Azure CLI version 2.0.38 eller senare. Kör `az --version` för att fastställa versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 ## <a name="example-script"></a>Exempelskript
 

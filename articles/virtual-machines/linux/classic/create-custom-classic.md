@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 507d9e12a37d7bf187a3e56b04cb47ac0104773d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d8e469289f72fe892ea7c3da99972e6326c75eb9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982057"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242544"
 ---
 # <a name="how-to-create-a-classic-linux-vm-with-the-azure-classic-cli"></a>Så här skapar du en klassisk virtuell Linux-dator med den klassiska Azure CLI
 > [!IMPORTANT] 
@@ -35,7 +35,7 @@ Det här avsnittet beskriver hur du skapar en Linux-dator (VM) med klassiska Azu
 * Lägga till den virtuella datorn till en tillgänglighetsuppsättning eller plats
 
 > [!IMPORTANT]
-> Om du vill att den virtuella datorn ska använda ett virtuellt nätverk så att du kan ansluta till den direkt av värdnamn eller konfigurera anslutningar mellan platser, kontrollera att du anger det virtuella nätverket när du skapar den virtuella datorn. En virtuell dator kan konfigureras för att ansluta till ett virtuellt nätverk endast när du skapar den virtuella datorn. Mer information om virtuella nätverk finns [Azure översikt över Virtual Network](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+> Om du vill att den virtuella datorn ska använda ett virtuellt nätverk så att du kan ansluta till den direkt av värdnamn eller konfigurera anslutningar mellan platser, kontrollera att du anger det virtuella nätverket när du skapar den virtuella datorn. En virtuell dator kan konfigureras för att ansluta till ett virtuellt nätverk endast när du skapar den virtuella datorn. Mer information om virtuella nätverk finns [Azure översikt över Virtual Network](https://go.microsoft.com/fwlink/p/?LinkID=294063).
 > 
 > 
 

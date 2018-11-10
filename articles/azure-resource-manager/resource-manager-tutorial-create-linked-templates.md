@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/07/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d25ca14b78465a6c4fec7e90bc20436e3ca553fc
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: b08013941c1cf83b3eb006543d699eb7e1356ff0
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419635"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239992"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Självstudie: Skapa länkade Azure Resource Manager-mallar
 
@@ -32,7 +32,6 @@ Den här självstudien omfattar följande uppgifter:
 > * Ladda upp den länkade mallen
 > * Länka till den länkade mallen
 > * Konfigurera beroende
-> * Hämta värden från den länkade mallen
 > * Distribuera mallen
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
@@ -41,16 +40,20 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 För att kunna följa stegen i den här artikeln behöver du:
 
-* [Visual Studio Code](https://code.visualstudio.com/).
-* Resource Manager Tools-tillägget.  Se [Installera tillägget](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
-* Slutför [Självstudie: Skapa flera resursinstanser med hjälp av Resource Manager-mallar](./resource-manager-tutorial-create-multiple-instances.md).
+* [Visual Studio Code](https://code.visualstudio.com/) med [verktygstillägget för Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* För att förbättra säkerheten bör du använda ett genererat lösenord för den virtuella datorns administratörskonto. Här är ett exempel för att generera ett lösenord:
+
+    ```azurecli-interactive
+    openssl rand -base64 32
+    ```
+    Azure Key Vault är utformat för att skydda kryptografiska nycklar och andra hemligheter. Mer information finns i [Självstudie: Integrera Azure Key Vault vid distribution av Resource Manager-mall](./resource-manager-tutorial-use-key-vault.md). Vi rekommenderar även att du uppdaterar ditt lösenord var tredje månad.
 
 ## <a name="open-a-quickstart-template"></a>Öppna en snabbstartsmall
 
 Azure-snabbstartsmallar är en lagringsplats för Resource Manager-mallar. I stället för att skapa en mall från början får du en exempelmall som du anpassar. Den mall som används i den här självstudien heter [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/) (Distribuera en enkel virtuell Windows-dator). Detta är samma mall som används i [Självstudie: Skapa flera resursinstanser med hjälp av Resource Manager-mallar](./resource-manager-tutorial-create-multiple-instances.md). Du sparar två kopior av samma mall som ska användas som:
 
-- **Huvudmallen**: Skapa alla resurser förutom lagringskontot.
-- **Den länkade mallen**: Skapa lagringskontot.
+* **Huvudmallen**: Skapa alla resurser förutom lagringskontot.
+* **Den länkade mallen**: Skapa lagringskontot.
 
 1. Från Visual Studio Code väljer du **Arkiv**>**Öppna fil**.
 2. I **Filnamn** klistrar du in följande URL:
@@ -59,8 +62,17 @@ Azure-snabbstartsmallar är en lagringsplats för Resource Manager-mallar. I st�
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 3. Välj **Öppna** för att öppna filen.
-4. Välj **Arkiv**>**Spara som** för att spara en kopia av filen till den lokala datorn med namnet **azuredeploy.json**.
-5. Välj **Fil**>**Spara som** för att skapa en annan kopia av filen med namnet **linkedTemplate.json**.
+4. Det finns fem resurser som definieras i mallen:
+
+    * `Microsoft.Storage/storageAccounts`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts). 
+    * `Microsoft.Network/publicIPAddresses`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses). 
+    * `Microsoft.Network/virtualNetworks`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks). 
+    * `Microsoft.Network/networkInterfaces`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces). 
+    * `Microsoft.Compute/virtualMachines`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+
+    Det är bra att få lite grundläggande förståelse av mallen innan den anpassas.
+5. Välj **Arkiv**>**Spara som** för att spara en kopia av filen till den lokala datorn med namnet **azuredeploy.json**.
+6. Välj **Fil**>**Spara som** för att skapa en annan kopia av filen med namnet **linkedTemplate.json**.
 
 ## <a name="create-the-linked-template"></a>Skapa den länkade mallen
 
@@ -69,8 +81,8 @@ Den länkade mallen skapar ett lagringskonto. Den länkade mallen är nästan id
 1. Öppna linkedTemplate.json i Visual Studio Code om den inte är öppen.
 2. Gör följande ändringar:
 
-    - Ta bort alla resurser förutom lagringskontot. Du tar bort totalt fyra resurser.
-    - Uppdatera elementet **outputs**, så det ser ut så här:
+    * Ta bort alla resurser förutom lagringskontot. Du tar bort totalt fyra resurser.
+    * Uppdatera elementet **outputs**, så det ser ut så här:
 
         ```json
         "outputs": {
@@ -81,9 +93,9 @@ Den länkade mallen skapar ett lagringskonto. Den länkade mallen är nästan id
         }
         ```
         **storageUri** krävs av VM-resursdefinitionen i huvudmallen.  Du skickar tillbaka värdet till huvudmallen som ett utdatavärde.
-    - Ta bort de parametrar som aldrig används. Dessa parametrar har en grön våglinje under sig. Du ska bara ha en parameter kvar med namnet **location**.
-    - Ta bort elementet för **variables**. De behövs inte i den här självstudien.
-    - Lägg till en parameter med namnet **storageAccountName**. Lagringskontonamnet skickas från huvudmallen till den länkade mallen som en parameter.
+    * Ta bort de parametrar som aldrig används. Dessa parametrar har en grön våglinje under sig. Du ska bara ha en parameter kvar med namnet **location**.
+    * Ta bort elementet för **variables**. De behövs inte i den här självstudien.
+    * Lägg till en parameter med namnet **storageAccountName**. Lagringskontonamnet skickas från huvudmallen till den länkade mallen som en parameter.
 
     När du är klar ska mallen se ut så här:
 
@@ -161,11 +173,11 @@ Huvudmallen heter azuredeploy.json.
 
     Ta hänsyn till följande information:
 
-    - En `Microsoft.Resources/deployments`-resurs i huvudmallen används för att länka till en annan mall.
-    - `deployments`-resursen har namnet `linkedTemplate`. Det här namnet används för [ konfigurering av beroende](#configure-dependency).  
-    - Du kan bara använda läget för [stegvis](./deployment-modes.md) distribution när du anropar länkade mallar.
-    - `templateLink/uri` innehåller den länkade mallens URI. Den länkade mallen har laddats upp till ett delat lagringskonto. Du kan uppdatera URI:n om du laddar upp mallen till en annan plats på Internet.
-    - Använd `parameters` för att skicka värden från huvudmallen till den länkade mallen.
+    * En `Microsoft.Resources/deployments`-resurs i huvudmallen används för att länka till en annan mall.
+    * `deployments`-resursen har namnet `linkedTemplate`. Det här namnet används för [ konfigurering av beroende](#configure-dependency).  
+    * Du kan bara använda läget för [stegvis](./deployment-modes.md) distribution när du anropar länkade mallar.
+    * `templateLink/uri` innehåller den länkade mallens URI. Den länkade mallen har laddats upp till ett delat lagringskonto. Du kan uppdatera URI:n om du laddar upp mallen till en annan plats på Internet.
+    * Använd `parameters` för att skicka värden från huvudmallen till den länkade mallen.
 4. Spara ändringarna.
 
 ## <a name="configure-dependency"></a>Konfigurera beroende
@@ -176,8 +188,8 @@ Som du minns från [Självstudie: Skapa flera resursinstanser med hjälp av Reso
 
 Eftersom lagringskontot är definierat i den länkade mallen nu, måste du uppdatera följande två element i resursen `Microsoft.Compute/virtualMachines`.
 
-- Konfigurera om elementet `dependOn`. Lagringskontodefinitionen flyttas till den länkade mallen.
-- Konfigurera om elementet `properties/diagnosticsProfile/bootDiagnostics/storageUri`. I [Skapa den länkade mallen](#create-the-linked-template) lade du till ett utdatavärde:
+* Konfigurera om elementet `dependOn`. Lagringskontodefinitionen flyttas till den länkade mallen.
+* Konfigurera om elementet `properties/diagnosticsProfile/bootDiagnostics/storageUri`. I [Skapa den länkade mallen](#create-the-linked-template) lade du till ett utdatavärde:
 
     ```json
     "outputs": {
@@ -193,15 +205,15 @@ Eftersom lagringskontot är definierat i den länkade mallen nu, måste du uppda
 2. Expandera den virtuella datorns resursdefinition och uppdatera **dependsOn** enligt följande skärmbild:
 
     ![Azure Resource Manager-länkade mallar konfigurerar beroende ](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
-    
-    ”linkedTemplate” är namnet på distributionsresursen.  
+
+    *linkedTemplate* är namnet på distributionsresursen.  
 3. Uppdatera **properties/diagnosticsProfile/bootDiagnostics/storageUri** som visas på föregående skärmbild.
 
 Mer information finns i [Använda länkade och nästlade mallar vid distribution av Azure-resurser](./resource-group-linked-templates.md).
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-Mer information om distributionsproceduren finns i avsnittet [Distribuera mallen](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template).
+Mer information om distributionsproceduren finns i avsnittet [Distribuera mallen](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template). För att förbättra säkerheten bör du använda ett genererat lösenord för den virtuella datorns administratörskonto. Se [Förutsättningar](#prerequisites).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -214,9 +226,7 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 
 ## <a name="next-steps"></a>Nästa steg
 
-I de här självstudien kommer du att utveckla och distribuera länkade mallar. Mer information om att distribuera Azure-resurser i flera regioner, och om att använda säker distributionspraxis, finns i
-
+I den här självstudiekursen har du utvecklat och distribuerat en länkad mall. Information om hur du använder tillägg för virtuell dator för att utföra distributionsuppgifter finns i
 
 > [!div class="nextstepaction"]
-> [Använda Distributionshanteraren i Azure](./deployment-manager-tutorial.md)
-
+> [Distribuera tillägg för virtuell dator](./deployment-manager-tutorial.md)

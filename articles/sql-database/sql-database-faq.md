@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 7bb692735cb3541fb05b2c39dd7325fa74a00034
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: c9b343bba59776ca735fa5c2cbddf03ec5c92b47
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232213"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242831"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om SQL-databas
 
@@ -27,7 +27,7 @@ Den aktuella versionen av SQL-databas är V12. Version V11 har tagits bort.
 
 ## <a name="what-is-the-sla-for-sql-database"></a>Vad är serviceavtalet för SQL-databas
 
-Vi garanterar minst 99,99% av tiden, du har anslutning mellan Microsoft Azure SQL-databas och vår Internet-gateway, oavsett din tjänstnivå. 0,01% är reserverad för korrigeringar och uppgraderingar redundans. Mer information finns i [SLA](http://azure.microsoft.com/support/legal/sla/). Information om tillgänglighet arkitekturen i Azure SQL Database finns i [hög tillgänglighet och Azure SQL Database](sql-database-high-availability.md).
+Vi garanterar minst 99,99% av tiden, du har anslutning mellan Microsoft Azure SQL-databas och vår Internet-gateway, oavsett din tjänstnivå. 0,01% är reserverad för korrigeringar och uppgraderingar redundans. Mer information finns i [SLA](https://azure.microsoft.com/support/legal/sla/). Information om tillgänglighet arkitekturen i Azure SQL Database finns i [hög tillgänglighet och Azure SQL Database](sql-database-high-availability.md).
 
 ## <a name="can-i-control-when-patching-downtime-occurs"></a>Jag kan styra när uppdatering driftstopp uppstår
 

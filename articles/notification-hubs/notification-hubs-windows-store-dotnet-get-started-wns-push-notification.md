@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c3bb170800508d5a546573850f445b2a8991ea8c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 37d9f433f39b60609870913a13f23e5a6e419476
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38597752"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246505"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>Självstudier: Skicka meddelanden till Universal Windows Platform-appar med hjälp av Azure Notification Hubs | Microsoft Docs
 
@@ -57,7 +57,7 @@ Om du vill skicka push-meddelanden till UWP-appar, associerar du din app med Win
 1. Ange ett namn på appen och markera sedan **Reservera produktnamn**. På så sätt skapas en ny Windows Store-registrering för din app.
 
     ![Lagra appnamnet](./media/notification-hubs-windows-store-dotnet-get-started/store-app-name.png)
-1. Utöka **Apphantering**, välj först **WNS/MPNS**, sedan **WNS/MPNS** och därefter **Live Services-webbplats**. Logga in på ditt Microsoft-konto. **Programregistreringsportalen** öppnas på en ny flik. Du kan också navigera direkt till [programregistreringsportalen](http://apps.dev.microsoft.com) och gå till den här sidan genom att välja ditt programnamn.
+1. Utöka **Apphantering**, välj först **WNS/MPNS**, sedan **WNS/MPNS** och därefter **Live Services-webbplats**. Logga in på ditt Microsoft-konto. **Programregistreringsportalen** öppnas på en ny flik. Du kan också navigera direkt till [programregistreringsportalen](https://apps.dev.microsoft.com) och gå till den här sidan genom att välja ditt programnamn.
 
     ![WNS MPNS-sida](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
 1.   Anteckna lösenordet för **Application Secret** (programhemlighet) och **Package security identifier (SID)**.

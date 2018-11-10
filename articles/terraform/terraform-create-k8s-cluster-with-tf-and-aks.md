@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/08/2018
-ms.openlocfilehash: f261c59193349d55d407e6079002b75884273e84
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fb4eabb247e6a4fe5550b2b23d34862c789bfaa1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960251"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232332"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Skapa ett Kubernetes-kluster med Azure Kubernetes Service och Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) hanterar din värdmiljö för Kubernetes, vilket gör det enkelt att snabbt distribuera och hantera containerbaserade program utan kunskaper om orkestrering av containrar. Det eliminerar också problem med pågående åtgärder och underhåll genom etablering, uppgradering och skalning av resurser på begäran, utan att koppla från dina program.
@@ -372,6 +372,6 @@ Kubernetes-verktygen kan användas för att verifiera det nyligen skapade klustr
 I den här artikeln lärde du dig hur du använder Terraform och AKS för att skapa ett Kubernetes-kluster. Här är några ytterligare resurser som du kan använda om du vill lära dig mer om Terraform på Azure: 
 
  [Terraform Hub på Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Terraform-dokumentation för Azure-providrar](http://aka.ms/terraform)  
- [Terraform-källa för Azure-providrar](http://aka.ms/tfgit)  
- [Terraform-moduler för Azure](http://aka.ms/tfmodules)
+ [Terraform-dokumentation för Azure-providrar](https://aka.ms/terraform)  
+ [Terraform-källa för Azure-providrar](https://aka.ms/tfgit)  
+ [Terraform-moduler för Azure](https://aka.ms/tfmodules)

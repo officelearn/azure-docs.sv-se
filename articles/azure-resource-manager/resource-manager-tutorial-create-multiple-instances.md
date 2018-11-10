@@ -10,19 +10,19 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/18/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 1cfccdf644b1748a96f7638e574c66eace8d113a
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 14dd76e60f615bce4e5b5aa52e6237615071779c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456668"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241931"
 ---
-# <a name="tutorial-create-multiple-resource-instances-using-resource-manager-templates"></a>Självstudie: Skapa flera resursinstanser med hjälp av Resource Manager-mallar
+# <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Självstudie: Skapa flera resursinstanser med Resource Manager-mallar
 
-Lär dig hur du upprepar en Azure Resource Manager-mall för att distribuera flera instanser av en Azure-resurs. I den senaste självstudien ändrade du en befintlig mall för att skapa ett krypterat Azure Storage-konto. I den här självstudien får du ändra samma mall för att skapa tre instanser av samma konto.
+Lär dig hur du upprepar en Azure Resource Manager-mall för att distribuera flera instanser av en Azure-resurs. I den här självstudien ändrar du en mall för att skapa tre lagringskontoinstanser.
 
 > [!div class="checklist"]
 > * Öppna en snabbstartsmall
@@ -39,7 +39,7 @@ För att kunna följa stegen i den här artikeln behöver du:
 
 ## <a name="open-a-quickstart-template"></a>Öppna en snabbstartsmall
 
-Den mall som används i den här snabbstarten kallas [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) (Skapa ett standardlagringskonto). Mallen definierar en Azure Storage-kontoresurs.
+[Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/) är en lagringsplats för Resource Manager-mallar. I stället för att skapa en mall från början får du en exempelmall som du anpassar. Den mall som används i den här snabbstarten kallas [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) (Skapa ett standardlagringskonto). Mallen definierar en Azure Storage-kontoresurs.
 
 1. Från Visual Studio Code väljer du **Arkiv**>**Öppna fil**.
 2. I **Filnamn** klistrar du in följande URL:
@@ -48,20 +48,21 @@ Den mall som används i den här snabbstarten kallas [Create a standard storage 
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
 3. Välj **Öppna** för att öppna filen.
-4. Välj **Arkiv**>**Spara som** för att spara filen som **azuredeploy.json** till den lokala datorn.
+4. Det finns en resurs med namnet ”Microsoft.Storage/storageAccounts” definierad i mallen. Jämför mallen med [mallreferensen](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts). Det är bra att få viss grundläggande förståelse av mallen innan den anpassas.
+5. Välj **Arkiv**>**Spara som** för att spara filen som **azuredeploy.json** till den lokala datorn.
 
 ## <a name="edit-the-template"></a>Redigera mallen
 
-Målet med den här självstudien är att använda resursiteration för att skapa tre lagringskonton.  Exempelmallen skapar bara ett lagringskonto. 
+Den befintliga mallen skapar ett lagringskonto. Du kan anpassa mallen för att skapa tre lagringskonton.  
 
 Från Visual Studio Code gör du följande fyra ändringar:
 
-![Skapa flera instanser av resurser i Azure Resource Manager](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
+![Azure Resource Manager skapar flera instanser](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
 
-1. Lägg till elementet `copy` i resursdefinitionen för lagringskontot. I kopieringselementet anger du antalet iterationer och ett namn för den här loopen. Värdet för antal måste vara ett positivt heltal och får inte överskrida 800.
-2. Funktionen `copyIndex()` returnerar den aktuella iterationen i loopen. `copyIndex()` är nollbaserat. Om du vill åsidosätta indexvärdet kan du skicka ett värde i funktionen copyIndex(). Till exempel *copyIndex(1)*.
+1. Lägg till elementet `copy` i resursdefinitionen för lagringskontot. I kopieringselementet anger du antalet iterationer och en variabel för den här loopen. Värdet för antal måste vara ett positivt heltal och får inte överskrida 800.
+2. Funktionen `copyIndex()` returnerar den aktuella iterationen i loopen. Du kan använda indexet som namnprefix. `copyIndex()` är nollbaserat. Om du vill åsidosätta indexvärdet kan du skicka ett värde i funktionen copyIndex(). Till exempel *copyIndex(1)*.
 3. Ta bort elementet **variabler** eftersom det inte används längre.
-4. Ta bort element **Utdata**.
+4. Ta bort element **Utdata**. Det behövs inte längre.
 
 Den färdiga mallen ser ut så här:
 

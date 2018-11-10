@@ -1,6 +1,6 @@
 ---
 title: Etablera en simulerad X.509-enhet på Azure IoT Hub med C# | Microsoft Docs
-description: Azure snabbstart – Skapa och etablera en simulerad X.509-enhet med C#-enhets-SDK för Azure IoT Hub Device Provisioning-tjänsten
+description: Azure snabbstart – Skapa och etablera en simulerad X.509-enhet med C#-enhets-SDK för Azure IoT Hub Device Provisioning-tjänsten. Den här snabbstarten använder enskilda registreringar.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/18
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 1d42280935c406a7af0e632434749b2b082ea8b8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ae5601cf35540b6f506521a851b4d90dfaf0a20a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039675"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156467"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad X.509-enhet med C#-enhets-SDK för IoT Hub Device Provisioning-tjänsten
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -23,6 +23,12 @@ ms.locfileid: "47039675"
 I det här stegen visas hur du skapar exemplet på simulerad X.509-enhet med [Azure IoT Hub C# SDK](https://github.com/Azure/azure-iot-sdk-csharp) på en utvecklingsdator som kör Windows OS och ansluter den simulerade enheten med Device Provisioning-tjänsten och din IoT-hubb.
 
 Om du inte känner till processen för automatisk etablering, bör du också gå igenom [Begrepp inom automatisk etablering](concepts-auto-provisioning.md). Se också till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal) innan du fortsätter. 
+
+Azure IoT Device Provisioning-tjänsten stöder två typer av registreringar:
+- [Registreringsgrupper](concepts-service.md#enrollment-group): Används för att registrera flera relaterade enheter.
+- [Enskilda registreringar](concepts-service.md#individual-enrollment): Används för att registrera en enskild enhet.
+
+Den här artikeln visar enskilda registreringar.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
@@ -44,7 +50,7 @@ Om du inte känner till processen för automatisk etablering, bör du också gå
 I det här avsnittet använder du ett självsignerat X.509-certifikat. Då måste du tänka på det här:
 
 * Självsignerade certifikat är endast till för testning och ska inte användas i produktion.
-* Standardutgångsdatumet för ett självsignerat certifikat är 1 år.
+* Standardutgångsdatumet för ett självsignerat certifikat är ett år.
 
 Du kommer att använda exempelkoden från [Azure IoT SDK för .NET](https://github.com/Azure/azure-iot-sdk-csharp.git) för att skapa det certifikat som ska användas med posten för enskild registrering för den simulerade enheten.
 

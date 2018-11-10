@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/12/2018
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 649ce7bcd2d2e4ceb2fc397643f4dd0d3ef89c1e
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 8cb604aee39f651770cb708f8dd92b6fbc0921f5
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144521"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139035"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Snabbstart: Testa en molnbaserad lösning för att hantera mina industriella IoT-enheter
 
@@ -32,13 +32,13 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 När du distribuerar lösningsacceleratorn till Azure-prenumerationen måste du ange några konfigurationsalternativ.
 
-Logga in på [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) med dina Azure-kontouppgifter.
+Gå till [Microsoft Azure IoT-lösningsacceleratorer](https://www.azureiotsolutions.com) och logga in med autentiseringsuppgifterna för ditt Azure-konto.
 
-Klicka på **Testa nu** i panelen **Ansluten fabrik**.
+Klicka på panelen **Ansluten fabrik**. På sidan **Ansluten fabrik** klickar du på **Testa nu**:
 
-![Välj Ansluten fabrik](./media/quickstart-connected-factory-deploy/connectedfactory.png)
+![Testa nu](./media/quickstart-connected-factory-deploy/connectedfactory.png)
 
-På sidan **Skapa lösningen Ansluten fabrik** anger du ett unikt **lösningsnamn** för lösningsacceleratorn Ansluten fabrik. Det här namnet är namnet på den Azure-resursgrupp som innehåller alla acceleratorresurser för lösningen. I den här snabbstarten kallar vi den för **MyDemoConnectedFactory**.
+På sidan **Skapa lösningen Ansluten fabrik** anger du ett unikt **lösningsnamn** för lösningsacceleratorn Ansluten fabrik. Det här namnet är namnet på den Azure-resursgrupp som innehåller alla acceleratorresurser för lösningen. Den här snabbstarten använder namnet **MyDemoConnectedFactory**.
 
 Välj den **prenumeration** och den **region** du vill använda för att distribuera lösningsacceleratorn. Normalt väljer du regionen närmast dig. I den här snabbstarten använder vi **Visual Studio Enterprise** och **USA, östra**. Du måste vara [global administratör eller användare](iot-accelerators-permissions.md) i prenumerationen.
 
@@ -66,7 +66,7 @@ Standardvyn är *instrumentpanelen*. Du kan navigera till andra delar av portale
 
 [![Instrumentpanel för lösningen](./media/quickstart-connected-factory-deploy/dashboard-inline.png)](./media/quickstart-connected-factory-deploy/dashboard-expanded.png#lightbox)
 
-Du kan använda instrumentpanelen för att hantera dina industriella IoT-enheter. Ansluten fabrik använder en hierarki för att visa en global fabrikskonfiguration. På den högsta nivån i hierarkin finns det företag som innehåller en eller flera fabriker. Varje fabrik innehåller produktionslinjer, och varje produktionslinje består av stationer. På varje nivå kan du se OEE och KPI:er, publicera nya noder för telemetri och svara på larm.
+Du kan använda instrumentpanelen för att hantera dina industriella IoT-enheter. Ansluten fabrik använder en hierarki för att visa en global fabrikskonfiguration. Den översta nivån i hierarkin är det företag som innehåller en eller flera fabriker. Varje fabriken innehåller produktionslinjer, och varje produktionslinje består av stationer. På varje nivå kan du se OEE och KPI:er, publicera nya noder för telemetri och svara på larm.
 
 På instrumentpanelen kan du se:
 
@@ -122,7 +122,7 @@ Om din prenumeration ger åtkomst till [Bing Maps-API:t](iot-accelerators-faq-cf
 
 ### <a name="alarms"></a>Larm
 
-**Larmpanelen** visar de larm som genereras när ett rapporterat värde eller ett beräknat OEE/KPI-värde överstiger det konfigurerade tröskelvärdet. Den här panelen visar larm på varje nivå i hierarkin, från stationsnivå till företagsnivå. Varje larm innehåller en beskrivning, datum, tid, plats och antal förekomster:
+**Larmpanelen** visar de larm som genereras när ett rapporterat värde eller ett beräknat OEE/KPI-värde överstiger det ett tröskelvärde. Den här panelen visar larm på varje nivå i hierarkin, från stationsnivå till företagsnivå. Varje larm innehåller en beskrivning, datum, tid, plats och antal förekomster:
 
 [![Larm](./media/quickstart-connected-factory-deploy/alarms-inline.png)](./media/quickstart-connected-factory-deploy/alarms-expanded.png#lightbox)
 
@@ -137,7 +137,7 @@ Klicka på något av larmen. I listrutan **Välj åtgärd** väljer du **Bekräf
 
 Om du vill analysera larmdata mer i detalj klickar du på diagrammet på larmpanelen.
 
-Larmen genereras av regler som anges i en konfigurationsfil i lösningsacceleratorn. Dessa regler kan generera larm när OEE- eller KPI-värden eller OPC UA-nodvärden överskrider de angivna tröskelvärdena.
+Larmen genereras av regler som anges i en konfigurationsfil i lösningsacceleratorn. Dessa regler kan generera larm när OEE- eller KPI-värden eller OPC UA-nodvärden överskrider ett tröskelvärde. Du kan ange detta tröskelvärde.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

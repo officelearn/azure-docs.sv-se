@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 575c8a5bec4c7763c75154835830ba350f009e93
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cf8c82f597cd659911cd66b0b7db8139e8d9d1a5
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946949"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416893"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Självstudie: Konfigurera meddelandedirigering med IoT Hub
 
@@ -268,7 +268,9 @@ Du kommer att dirigera meddelanden till olika resurser baserat på egenskaper so
 
 ### <a name="routing-to-a-storage-account"></a>Dirigera till ett lagringskonto 
 
-Konfigurera nu routning för lagringskontot. Du gå till fönstret meddelanderoutning och lägger till en väg. När du lägger till vägen, definierar du en ny slutpunkt för den. Meddelanden där egenskapen **nivå** är inställd på **lagring** skrivs automatiskt till ett lagringskonto.
+Konfigurera nu routning för lagringskontot. Du gå till fönstret meddelanderoutning och lägger till en väg. När du lägger till vägen, definierar du en ny slutpunkt för den. Meddelanden där egenskapen **nivå** är inställd på **lagring** skrivs automatiskt till ett lagringskonto. 
+
+Data skrivs till bloblagring i Avro-format.
 
 1. I [Azure Portal](https://portal.azure.com) klickar du på **Resursgrupper** och väljer resursgruppen. I den här självstudien används **ContosoResources**. 
 
@@ -286,9 +288,19 @@ Konfigurera nu routning för lagringskontot. Du gå till fönstret meddelanderou
 
 6. Klicka på **Välj en container**. Det tar dig till en lista över dina lagringskonton. Välj det som du skapade i förberedelsesteget. I den här självstudiekursen används **contosostorage**. Den visar en lista över containrar i det lagringskontot. Välj den container som du skapade i förberedelsesteget. I självstudien används **contosoresults**. Klicka på **Välj**. Du kommer tillbaka till fönstret **Lägg till slutpunkt**. 
 
-7. Använd standardvärdena för resten av fälten. Klicka på **Skapa** för att skapa slutpunkten för lagring och lägga till den till vägen. Du kommer tillbaka till fönstret **Lägg till en väg**.
+7. I den här självstudiekursen används standardinställningar för resten av fälten. 
 
-8.  Nu slutför du resten av informationen för routningsfrågan. Den här frågan anger kriterier för att skicka meddelanden till den lagringscontainer du just lade till som en slutpunkt. Fyll i fälten på skärmen. 
+   > [!NOTE]
+   > Du kan ange formatet för blobnamnet med hjälp av **Format på blobfilens namn**. Standardvärdet är `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`. Formatet måste innehålla {iothub}, {partition}, {YYYY}, {MM}, {DD}, {HH} och {mm} i valfri ordning. 
+   > 
+   > Exempel med standardinställt namnformat för blobfilen: om hubbnamnet är ContosoTestHub och datum/tid är 30 oktober 2018 kl. 10:56 ser blobnamnet ut så här: `ContosoTestHub/0/2018/10/30/10/56`.
+   > 
+   > Blobarna är skrivna i Avro-format.
+   >
+
+8. Klicka på **Skapa** för att skapa slutpunkten för lagring och lägga till den till vägen. Du kommer tillbaka till fönstret **Lägg till en väg**.
+
+9. Nu slutför du resten av informationen för routningsfrågan. Den här frågan anger kriterier för att skicka meddelanden till den lagringscontainer du just lade till som en slutpunkt. Fyll i fälten på skärmen. 
 
    **Namn**: Ange ett namn för din routningsfråga. I den här självstudien används **StorageRoute**.
 
@@ -368,17 +380,17 @@ Service Bus-kön ska användas för att ta emot meddelanden som har angetts som 
 
    Klicka på **Skapa**.
 
-1. Gå nu till logikappen. Det enklaste sättet att komma till logikappen är att klicka på **Resursgrupper**, välja din resursgrupp (den här självstudien använder **ContosoResources**) och sedan välja logikappen från listan över resurser. Sidan Logikappdesigner visas (du kanske måste rulla över till höger för att se hela sidan). På sidan Logikappdesigner rullar du ned tills du ser en ruta med texten **Tom logikapp +** och klickar på den. 
+2. Gå nu till logikappen. Det enklaste sättet att komma till logikappen är att klicka på **Resursgrupper**, välja din resursgrupp (den här självstudien använder **ContosoResources**) och sedan välja logikappen från listan över resurser. Sidan Logikappdesigner visas (du kanske måste rulla över till höger för att se hela sidan). På sidan Logikappdesigner rullar du ned tills du ser en ruta med texten **Tom logikapp +** och klickar på den. 
 
-1. En lista med anslutningsprogram visas. Välj **Service Bus**. 
+3. En lista med anslutningsprogram visas. Välj **Service Bus**. 
 
    ![Skärmbild som visar listan över anslutningsprogram.](./media/tutorial-routing/logic-app-connectors.png)
 
-1. En lista med utlösare visas. Välj **Service Bus – När ett meddelande tas emot i en kö (komplettera automatiskt)**. 
+4. En lista med utlösare visas. Välj **Service Bus – När ett meddelande tas emot i en kö (komplettera automatiskt)**. 
 
    ![Skärmbild som visar listan över utlösare för Service Bus.](./media/tutorial-routing/logic-app-triggers.png)
 
-1. Fyll i namnet på anslutningen på nästa skärm. I den här självstudien används **ContosoConnection**. 
+5. Fyll i namnet på anslutningen på nästa skärm. I den här självstudien används **ContosoConnection**. 
 
    ![Skärmbild som visar konfiguration av anslutningen för Service Bus-kön.](./media/tutorial-routing/logic-app-define-connection.png)
 
@@ -386,21 +398,21 @@ Service Bus-kön ska användas för att ta emot meddelanden som har angetts som 
    
    ![Skärmbild som visar slutförandet av konfigurationen av anslutningen.](./media/tutorial-routing/logic-app-finish-connection.png)
 
-1. På nästa skärm väljer du namnet på kön (den här självstudien använder **contososbqueue**) i listrutan. Du kan använda standardvärdena för resten av fälten. 
+6. På nästa skärm väljer du namnet på kön (den här självstudien använder **contososbqueue**) i listrutan. Du kan använda standardvärdena för resten av fälten. 
 
    ![Skärmbild som visar köalternativen.](./media/tutorial-routing/logic-app-queue-options.png)
 
-1. Konfigurera nu att åtgärden ska skicka ett e-postmeddelande när ett meddelande kommer till kön. I Logikappsdesignern klickar du på **+ Nytt steg** för att lägga till ett steg och sedan på **Lägg till en åtgärd**. I rutan **Välj en åtgärd** söker du upp och klickar på **Office 365 Outlook**. På skärmen med utlösare väljer du **Office 365 Outlook – Skicka ett e-postmeddelande**.  
+7. Konfigurera nu att åtgärden ska skicka ett e-postmeddelande när ett meddelande kommer till kön. I Logikappsdesignern klickar du på **+ Nytt steg** för att lägga till ett steg och sedan på **Lägg till en åtgärd**. I rutan **Välj en åtgärd** söker du upp och klickar på **Office 365 Outlook**. På skärmen med utlösare väljer du **Office 365 Outlook – Skicka ett e-postmeddelande**.  
 
    ![Skärmbild som visar Office365-alternativen.](./media/tutorial-routing/logic-app-select-outlook.png)
 
-1. Logga sedan in på ditt Office 365-konto för att konfigurera anslutningen. Ange e-postadresser för mottagare av e-postmeddelanden. Ange även ämne och skriv vilket meddelande du vill att mottagaren ska se i brödtexten. För att testa fyller du i din egen e-postadress som mottagare.
+8. Logga sedan in på ditt Office 365-konto för att konfigurera anslutningen. Ange e-postadresser för mottagare av e-postmeddelanden. Ange även ämne och skriv vilket meddelande du vill att mottagaren ska se i brödtexten. För att testa fyller du i din egen e-postadress som mottagare.
 
    Klicka på **Lägg till dynamiskt innehåll** för att visa innehåll från meddelandet som du kan inkludera. Välj **Innehåll** – det inkluderar meddelandet i e-postmeddelandet. 
 
    ![Skärmbild som visar e-postalternativen för logikappen.](./media/tutorial-routing/logic-app-send-email.png)
 
-1. Klicka på **Spara**. Logikappdesignern öppnas.
+9. Klicka på **Spara**. Logikappdesignern öppnas.
 
 ## <a name="set-up-azure-stream-analytics"></a>Konfigurera Azure Stream Analytics
 
@@ -410,7 +422,7 @@ Om du vill se data i Power BI-visualiseringen konfigurerar du först ett Stream 
 
 1. I [Azure Portal](https://portal.azure.com) klickar du på **Skapa en resurs** > **Sakernas Internet** > **Stream Analytics-jobb**.
 
-1. Ange följande information för jobbet.
+2. Ange följande information för jobbet.
 
    **Jobbnamn**: Jobbets namn. Namnet måste vara globalt unikt. I självstudien används **contosoJob**.
 
@@ -420,13 +432,13 @@ Om du vill se data i Power BI-visualiseringen konfigurerar du först ett Stream 
 
    ![Skärmbild som visar hur du skapar Stream Analytics-jobbet.](./media/tutorial-routing/stream-analytics-create-job.png)
 
-1. Klicka på **Skapa** för att skapa jobbet. Om du vill gå tillbaka till jobbet klickar du på **Resursgrupper**. I den här självstudien används **ContosoResources**. Markera resursgruppen och klicka sedan på Stream Analytics-jobbet i listan över resurser. 
+3. Klicka på **Skapa** för att skapa jobbet. Om du vill gå tillbaka till jobbet klickar du på **Resursgrupper**. I den här självstudien används **ContosoResources**. Markera resursgruppen och klicka sedan på Stream Analytics-jobbet i listan över resurser. 
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Lägga till indata till Stream Analytics-jobbet
 
-1. Under **Jobbtopologi** klickar du på **Indata**.
+4. Under **Jobbtopologi** klickar du på **Indata**.
 
-1. I rutan **Indata** klickar du på **Lägg till strömindata** och väljer IoT Hub. På skärmen som visas fyller du i följande fält:
+5. I rutan **Indata** klickar du på **Lägg till strömindata** och väljer IoT Hub. På skärmen som visas fyller du i följande fält:
 
    **Inmatat alias**: Den här självstudien använder **contosoinputs**.
 
@@ -444,13 +456,13 @@ Om du vill se data i Power BI-visualiseringen konfigurerar du först ett Stream 
 
    ![Skärmbild som visar hur du konfigurerar indata för Stream Analytics-jobbet.](./media/tutorial-routing/stream-analytics-job-inputs.png)
 
-1. Klicka på **Spara**.
+6. Klicka på **Spara**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Lägga till utdata till Stream Analytics-jobbet
 
 1. Under **Jobbtopologi** klickar du på **Utdata**.
 
-1. I fönstret **Utdata** klickar du på **Lägg till** och väljer **Power BI**. På skärmen som visas fyller du i följande fält:
+2. I fönstret **Utdata** klickar du på **Lägg till** och väljer **Power BI**. På skärmen som visas fyller du i följande fält:
 
    **Utdataalias**: Utdatas unika alias. I självstudien används **contosooutputs**. 
 
@@ -460,25 +472,25 @@ Om du vill se data i Power BI-visualiseringen konfigurerar du först ett Stream 
 
    Acceptera standardvärdena för resten av fälten.
 
-1. Klicka på **Autentisera** och logga in på Power BI-kontot.
+3. Klicka på **Autentisera** och logga in på Power BI-kontot.
 
    ![Skärmbild som visar hur du konfigurerar utdata för Stream Analytics-jobbet.](./media/tutorial-routing/stream-analytics-job-outputs.png)
 
-1. Klicka på **Spara**.
+4. Klicka på **Spara**.
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Konfigurera frågan för Stream Analytics-jobbet
 
 1. Under **Jobbtopologi** klickar du på **Fråga**.
 
-1. Ersätt `[YourInputAlias]` med inmatat alias för jobbet. I självstudien används **contosoinputs**.
+2. Ersätt `[YourInputAlias]` med inmatat alias för jobbet. I självstudien används **contosoinputs**.
 
-1. Ersätt `[YourOutputAlias]` med utdataalias för jobbet. I självstudien används **contosooutputs**.
+3. Ersätt `[YourOutputAlias]` med utdataalias för jobbet. I självstudien används **contosooutputs**.
 
    ![Skärmbild som visar hur du konfigurerar frågan för Stream Analytics-jobbet.](./media/tutorial-routing/stream-analytics-job-query.png)
 
-1. Klicka på **Spara**.
+4. Klicka på **Spara**.
 
-1. Stäng rutan Fråga. Nu kommer du tillbaka till vyn över resurser i resursgruppen. Klicka på Stream Analytics-jobbet. I den här självstudiekursen kallas det **contosoJob**.
+5. Stäng rutan Fråga. Nu kommer du tillbaka till vyn över resurser i resursgruppen. Klicka på Stream Analytics-jobbet. I den här självstudiekursen kallas det **contosoJob**.
 
 ### <a name="run-the-stream-analytics-job"></a>Köra Stream Analytics-jobbet
 
@@ -520,7 +532,7 @@ Om allt är korrekt konfigurerat bör då se följande resultat:
    * Logikappen som hämtar meddelandet från Service Bus-kön fungerar som den ska.
    * Logic App-anslutningsprogrammet till Outlook fungerar som det ska. 
 
-1. I [Azure Portal](https://portal.azure.com) klickar du på **Resursgrupper** och väljer resursgruppen. I den här självstudien används **ContosoResources**. Välj lagringskontot, klicka på **Blobbar** och välj sedan containern. I självstudien används **contosoresults**. Du bör se en mapp, och du kan öka detaljnivån mellan kataloger tills du ser en eller flera filer. Öppna en av dessa filer. De innehåller poster som dirigeras till lagringskontot. 
+2. I [Azure Portal](https://portal.azure.com) klickar du på **Resursgrupper** och väljer resursgruppen. I den här självstudien används **ContosoResources**. Välj lagringskontot, klicka på **Blobbar** och välj sedan containern. I självstudien används **contosoresults**. Du bör se en mapp, och du kan öka detaljnivån mellan kataloger tills du ser en eller flera filer. Öppna en av dessa filer. De innehåller poster som dirigeras till lagringskontot. 
 
    ![Skärmbild som visar resultatfilerna i lagringen.](./media/tutorial-routing/results-in-storage.png)
 
@@ -534,35 +546,35 @@ Under tiden programmet fortfarande körs konfigurerar du Power BI-visualiseringe
 
 1. Logga in på ditt [Power BI](https://powerbi.microsoft.com/)-konto.
 
-1. Gå till **Arbetsytor** och välj arbetsytan som du angav när du skapade utdata för Stream Analytics-jobbet. Den här självstudien använder **Min arbetsyta**. 
+2. Gå till **Arbetsytor** och välj arbetsytan som du angav när du skapade utdata för Stream Analytics-jobbet. Den här självstudien använder **Min arbetsyta**. 
 
-1. Klicka på **Datauppsättningar**.
+3. Klicka på **Datauppsättningar**.
 
    Du bör se den listade datauppsättningen som du angav när du skapade utdata för Stream Analytics-jobbet. I självstudien används **contosodataset**. (Det kan ta 5–10 minuter innan datauppsättningen visas första gången.)
 
-1. Under **ÅTGÄRDER** klickar du på den första ikonen för att skapa en rapport.
+4. Under **ÅTGÄRDER** klickar du på den första ikonen för att skapa en rapport.
 
    ![Skärmbild som visar Power BI-arbetsytan med ikonen för åtgärder och rapporter markerad.](./media/tutorial-routing/power-bi-actions.png)
 
-1. Skapa ett linjediagram för att visa realtidstemperatur över tid.
+5. Skapa ett linjediagram för att visa realtidstemperatur över tid.
 
-   a. På sidan för skapande av rapport lägger du till ett linjediagram genom att klicka på linjediagramikonen.
+   * På sidan för skapande av rapport lägger du till ett linjediagram genom att klicka på linjediagramikonen.
 
    ![Skärmbild som visar visualiseringar och fält.](./media/tutorial-routing/power-bi-visualizations-and-fields.png)
 
-   b. I rutan **Fält** expanderar du tabellen du angav när du skapade utdata för Stream Analytics-jobbet. I självstudien används **contosotable**.
+   * I rutan **Fält** expanderar du tabellen du angav när du skapade utdata för Stream Analytics-jobbet. I självstudien används **contosotable**.
 
-   c. Dra **EventEnqueuedUtcTime** till **Axel** i fönstret **Visualiseringar**.
+   * Dra **EventEnqueuedUtcTime** till **Axel** i fönstret **Visualiseringar**.
 
-   d. Dra **temperatur** till **Värden**.
+   * Dra **temperatur** till **Värden**.
 
    Ett linjediagram skapas. X-axeln visar datum och tid i UTC-tidszonen. Y-axeln visar temperatur från sensorn.
 
-1. Skapa ett annat linjediagram om du vill visa realtidsfuktighet över tid. För att konfigurera ett andra diagram följer du samma steg som ovan och placerar **EventEnqueuedUtcTime** på x-axeln och **fuktighet** på y-axeln.
+6. Skapa ett annat linjediagram om du vill visa realtidsfuktighet över tid. För att konfigurera ett andra diagram följer du samma steg som ovan och placerar **EventEnqueuedUtcTime** på x-axeln och **fuktighet** på y-axeln.
 
    ![Skärmbild som visar den slutgiltiga Power BI-rapporten med två diagram.](./media/tutorial-routing/power-bi-report.png)
 
-1. Klicka på **Spara** för att spara rapporten.
+7. Klicka på **Spara** för att spara rapporten.
 
 Du bör kunna se data i båda diagrammen. Detta innebär följande:
 
@@ -595,7 +607,6 @@ Om du vill ta bort resursgruppen använder du kommandot [Remove-AzureRmResourceG
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudien har du lärt dig att använda meddelanderoutning för att dirigera IoT Hub-meddelanden till olika mål genom att utföra följande uppgifter.  
@@ -615,5 +626,3 @@ Gå vidare till nästa självstudie där du får lära dig hur du hanterar tills
 
 > [!div class="nextstepaction"]
 [Konfigurera dina enheter från en serverdelstjänst](tutorial-device-twins.md)
-
- <!--  [Manage the state of a device](./tutorial-manage-state.md) -->

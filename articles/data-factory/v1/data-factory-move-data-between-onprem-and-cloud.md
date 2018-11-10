@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b221697b7450ad1c6dac87b7a08c7db8b11810bf
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 1bf915bf702cdf9492cce1f32886c0049fbf9867
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240476"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242848"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Flytta data mellan lokala källor och molnet med Data Management Gateway
 > [!NOTE]
@@ -47,7 +47,7 @@ I den här genomgången kan du göra följande:
 ## <a name="prerequisites-for-the-tutorial"></a>Förutsättningar för självstudien
 Innan du börjar den här genomgången, måste du ha följande krav:
 
-* **Azure-prenumeration**.  Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto på ett par minuter. Se den [kostnadsfri utvärderingsversion](http://azure.microsoft.com/pricing/free-trial/) nedan för information.
+* **Azure-prenumeration**.  Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto på ett par minuter. Se den [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/) nedan för information.
 * **Azure Storage-konto**. Du kan använda bloblagringen som en **destination/mottagare** i den här självstudien. om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md).
 * **SQL Server**. Du använder en lokal SQL Server-databas som **källdata** i den här självstudien. 
 

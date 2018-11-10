@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/07/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 92dde19e42c1adb6d83e1708106f844f228e8989
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e286942f092d2e8c22824a18f5a6503d04a1be0c
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239361"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247563"
 ---
 # <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>Snabbstart: Skapa en Java-webbapp i App Service i Linux
 
@@ -77,26 +77,7 @@ Lägg sedan till följande plugin-definition i `<build>`-elementet i filen `pom.
 
 
 > [!NOTE] 
-> I den här artikeln arbetar vi endast med Java-appar som paketerats i WAR-filer. Plugin-programmet stöder även JAR-webbappar. Använd följande alternativa plugin-definition för dessa program. Den här konfigurationen kommer att distribuera en JAR som skapas av Maven i `${project.build.directory}/${project.build.finalName}.jar` på ditt lokala filsystem.
->
->```xml
-><plugin>
->            <groupId>com.microsoft.azure</groupId>
->            <artifactId>azure-webapp-maven-plugin</artifactId>
->            <version>1.4.0</version>
->            <configuration>
->                <deploymentType>jar</deploymentType>
->
->           <!-- Web App information -->
->            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
->            <appName>${WEBAPP_NAME}</appName>
->            <region>${REGION}</region>  
->
->                <!-- Java Runtime Stack for Web App on Linux-->
->                <linuxRuntime>jre8</linuxRuntime>
->            </configuration>
->         </plugin>
->```    
+> I den här artikeln arbetar vi endast med Java-appar som paketerats i WAR-filer. Plugin-programmet stöder också JAR-webbprogram. Läs informationen om att [distribuera en Java SE JAR-fil till App Service på Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) om du vill testa det.
 
 
 Uppdatera följande platshållare i konfigurationen av plugin-program:
@@ -127,8 +108,8 @@ När distributionen är klar bläddrar du till den distribuerade tillämpningen 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten använde du Maven för att skapa en Java-webbapp, konfigurerade [Maven-plugin-programmet för Azure Web Apps (förhandsversion)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) och distribuerade sedan en webbarkivpaketerad Java-webbapp till App Service i Linux. Om du vill veta mer om att använda Java med Azure följer du länken nedan.
+I den här snabbstarten använde du Maven för att skapa en Java-webbapp, konfigurerade [Maven-plugin-programmet för Azure Web Apps ](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) och distribuerade sedan en webbarkivpaketerad Java-app till App Service i Linux. Om du vill veta hur du ansluter databaser, konfigurerar loggning och övervakning, konfigurerar säkerhet och anger körningsalternativ fortsätter du till utvecklarguiden för Java för App Service i Linux.
 
 > [!div class="nextstepaction"]
-> [Azure för Java-utvecklare](https://docs.microsoft.com/java/azure/)
+> [Utvecklarguide för App Service på Linux Java](app-service-linux-java.md)
 

@@ -4,21 +4,21 @@ description: Azure Resource Graph är en tjänst i Azure som möjliggör komplex
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: d68183f4d0a928ac72f3f73ea5225ad174820cb7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: e78b525e1e08a05b8de6071f9ddba0dfb29ff672
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162108"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087292"
 ---
 # <a name="what-is-azure-resource-graph"></a>Vad är Azure Resource Graph
 
-Azure Resource Graph är en tjänst i Azure som utformats för att utöka Azure Resurshantering genom att tillhandahålla effektiv och högpresterande resursutforskning med möjlighet att fråga i stor skala över alla prenumerationer och hanteringsgrupper så att du kan styra din miljö effektivt. De här frågorna tillhandahåller följande funktioner:
+Azure Resource Graph är en tjänst i Azure som utformats för att utöka Azure Resurshantering genom att tillhandahålla effektiv och högpresterande resursutforskning med möjlighet att fråga i stor skala över alla prenumerationer och hanteringsgrupper så att du kan styra din miljö effektivt. De här frågorna innehåller följande funktioner:
 
 - Möjlighet att fråga resurser med komplex filtrering, gruppering och sortering av resursegenskaper.
 - Möjlighet att upprepade gånger utforska resurser baserat på styrningskrav och konvertera resulterande uttryck till en principdefinition.
@@ -31,7 +31,7 @@ I den här dokumentationen går vi igenom varje funktion i detalj.
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Hur kompletterar Resource Graph Resurshantering i Azure
 
-Azure Resurshantering skickar för närvarande data till en begränsad resurscache som visar flera resursfält, särskilt då resursnamn, ID, typ, resursgrupp, prenumerationer och plats. Om du vill arbeta med fler resursegenskaper idag måste du anropa varje enskild resursprovider och begära egenskapsinformation om varje enskild resurs.
+Azure Resource Manager skickar för närvarande data till en begränsad resurscache som tillgängliggör flera resursfält, särskilt då resursnamn, ID, typ, resursgrupp, prenumerationer och plats. Tidigare krävde arbete med olika resursegenskaper anrop till varje enskild resursprovider och egenskapsinformation om begäran för varje resurs.
 
 Du kan använda Azure Resource Graph för att få åtkomst till dessa egenskaper, och resursprovidrarna returnerar utan att behöva göra enskilda anrop till varje enskild resursprovider.
 
@@ -45,12 +45,11 @@ Information om åtgärder och funktioner som kan användas med Azure Resource Gr
 
 ## <a name="permissions-in-azure-resource-graph"></a>Behörigheter i Azure Resource Graph
 
-Om du vill använda Resource Graph måste du ha behörighet via [rollbaserad åtkomstkontroll](../../role-based-access-control/overview.md) (RBAC) med minst läsbehörighet till de resurser som du vill fråga. Om du inte har `read`-behörigheter för hanteringsgrupp, prenumeration, resursgrupp eller enskild resurs returneras inget resultat till Resource Graph-frågan.
+Om du vill använda Resource Graph måste du ha rätt behörighet i [Rollbaserad åtkomstkontroll](../../role-based-access-control/overview.md) (RBAC) med minst läsbehörighet till de resurser som du vill fråga. Utan minst `read`-behörigheter för Azure-objektet eller -objektgruppen returneras inte resultat.
 
 ## <a name="running-your-first-query"></a>Kör din första fråga
 
-Resource Graph kan användas med både Azure CLI och Azure PowerShell. Frågekomponenten är strukturerad likadant oavsett vilket språk som används. Stöd för Azure Resource Graph är ännu inte tillgängligt som standard i någondera SDK, så ett tillägg eller en modul måste läsas in för att du ska ha tillgång till de nödvändiga kommandona.
-Lär dig hur du aktiverar Resource Graph i [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension) och [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module).
+Resource Graph kan användas med både Azure CLI och Azure PowerShell. Frågan har samma struktur för båda språken. Lär dig hur du aktiverar Resource Graph i [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension) och [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module).
 
 ## <a name="next-steps"></a>Nästa steg
 

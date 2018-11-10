@@ -4,9 +4,6 @@ description: Lär dig om säkerhetsgrupper för nätverk och program. Med säker
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: jdial
-ms.openlocfilehash: 79ea839a5b57a2b64b80feba8324764a23c05697
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e9a4aa1606e99057565891dc10d17ba9abf15d9c
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987024"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50159085"
 ---
 # <a name="security-groups"></a>Säkerhetsgrupper
 <a name="network-security-groups"></a>
@@ -60,9 +57,9 @@ Förhöjda säkerhetsregler förenklar säkerhetsdefinitionen för virtuella nä
  Du kan använda följande tjänsttaggar när du definierar säkerhetsregler. Namnen skiljer sig lite mellan olika [Azure-distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 * **VirtualNetwork** (**Resource Manager) (VIRTUAL_NETWORK** för klassisk): Den här taggen innehåller adressutrymmet för det virtuella nätverket (alla CIDR-intervall som har definierats för det virtuella nätverket), alla anslutna lokala adressutrymmen och [peer-kopplade](virtual-network-peering-overview.md) virtuella nätverk eller virtuella nätverk som anslutits till en [virtuell nätverksgateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** för klassisk): Den här taggen anger lastbalanseraren för Azures infrastruktur. Taggen översätts till en [IP-adress för Azure-datacentret](https://www.microsoft.com/download/details.aspx?id=41653) som Azures hälsoavsökning kommer från. Du kan åsidosätta den här regeln om du inte använder Azures lastbalanserare.
+* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** för klassisk): Den här taggen anger lastbalanseraren för Azures infrastruktur. Taggen översätts till [värdens virtuella IP-adress](security-overview.md##azure-platform-considerations) (168.63.129.16) som Azures hälsoavsökningar kommer från. Du kan åsidosätta den här regeln om du inte använder Azures lastbalanserare.
 * **Internet** (Resource Manager) (**INTERNET** för klassisk): Den här taggen anger IP-adressutrymmet som är utanför det virtuella nätverket och som kan nås av det offentliga Internet. Adressintervallet omfattar det [offentliga IP-adressutrymmet som ägs av Azure](https://www.microsoft.com/download/details.aspx?id=41653).
-* **AzureCloud** (endast Resource Manager): den här taggen anger IP-adressutrymmet för Azure, inklusive alla offentliga IP-adresser för datacentret. Om du anger *AzureCloud* som värde tillåts eller nekas trafik till offentliga Azure IP-adresser. Om du bara vill tillåta åtkomst till AzureCloud i en viss [region](https://azure.microsoft.com/regions) kan du ange regionen. Om du till exempel endast vill tillåta åtkomst till Azure AzureCloud i regionen USA, östra så anger *AzureCloud.EastUS* som en tjänsttagg. 
+* **AzureCloud** (endast Resource Manager): den här taggen anger IP-adressutrymmet för Azure, inklusive alla [offentliga IP-adresser för datacentret](https://www.microsoft.com/download/details.aspx?id=41653). Om du anger *AzureCloud* som värde tillåts eller nekas trafik till offentliga Azure IP-adresser. Om du bara vill tillåta åtkomst till AzureCloud i en viss [region](https://azure.microsoft.com/regions) kan du ange regionen. Om du till exempel endast vill tillåta åtkomst till Azure AzureCloud i regionen USA, östra så anger *AzureCloud.EastUS* som en tjänsttagg. 
 * **AzureTrafficManager** (endast Resource Manager): Den här taggen anger IP-adressutrymmet för IP-adresser för avsökning i Azure Traffic Manager. Mer information om IP-adresser för avsökning i Traffic Manager finns i [Vanliga frågor och svar om Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). 
 * **Storage** (endast Resource Manager): Den här taggen anger IP-adressutrymmet för tjänsten Azure Storage. Om du anger *Storage* som värde tillåts eller nekas trafik till lagringen. Om du bara vill tillåta åtkomst till lagring i en viss [region](https://azure.microsoft.com/regions) anger du regionen. Om du till exempel bara vill tillåta åtkomst till Azure Storage i regionen östra USA kan du ange *Storage.EastUS* som tjänsttagg. Taggen representerar tjänsten, men inte specifika instanser av tjänsten. Taggen kan till exempel representera tjänsten Azure Storage, men inte ett specifikt Azure Storage-konto. Alla adressprefix som representeras av den här taggen är också representerade av taggen **Internet**. 
 * **SQL** (endast Resource Manager): Den här taggen anger adressprefix för tjänsterna Azure SQL Database och Azure SQL Data Warehouse. Om du anger *Sql* som värde tillåts eller nekas trafik till Sql. Om du bara vill tillåta åtkomst till Sql i en viss [region](https://azure.microsoft.com/regions) anger du regionen. Om du till exempel vill tillåta åtkomst endast till Azure SQL Database i regionen östra USA anger du *Sql.EastUS* som tjänsttagg. Taggen representerar tjänsten, men inte specifika instanser av tjänsten. Taggen kan till exempel representera tjänsten Azure SQL Database, men inte en specifik SQL-databas eller -server. Alla adressprefix som representeras av den här taggen är också representerade av taggen **Internet**. 
@@ -79,7 +76,6 @@ Förhöjda säkerhetsregler förenklar säkerhetsdefinitionen för virtuella nä
 * **GatewayManager** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure Gateway Manager. Om du anger *GatewayManager* som värde så tillåts eller nekas trafik till GatwayManager. Om du bara vill ge åtkomst till GatewayManager i en specifik [region](https://azure.microsoft.com/regions) så kan du ange regionen i följande format: GatewayManager.[regionensnamn]. 
 * **AzureDataLake** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten Azure Data Lake. Om du anger *AzureDataLake* som värde tillåts eller nekas trafik till AzureDataLake. 
 * **AzureActiveDirectory** (endast Resource Manager): Den här taggen anger adressprefix för tjänsten AzureActiveDirectory. Om du anger *AzureActiveDirectory* som värde tillåts eller nekas trafik till AzureActiveDirectory.  
-* **CorpNetSAW** (enbart Resource Manager): den här taggen anger adressprefix för [CorpNetSAW-enheter](../security/azure-security-iaas.md) som hanteras av Azure. I vissa fall kan Azure-tjänster använda den här tjänsttaggen för att begära åtkomst till kundhanterade instanser för att förbättra support. Om du anger *CorpNetSAW* som värde så tillåts eller nekas trafik till CorpNetSAW. 
 
 > [!NOTE]
 > Servicetaggar för azure-tjänster anger adressprefix från det specifika molnet som används. Regionala tjänsttaggar stöds inte i nationella moln, utan endast i globalt format. Till exempel *Storage* och *Sql*.

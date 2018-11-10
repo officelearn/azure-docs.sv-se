@@ -1,6 +1,6 @@
 ---
 title: Registrera TPM-enhet på Azure Device Provisioning Service-tjänsten med C# | Microsoft Docs
-description: Azure snabbstart – Registrera TPM-enhet på Azure IoT Hub Device Provisioning-tjänsten med C#-tjänst-SDK
+description: Azure-snabbstart – Registrera TPM-enhet på Azure IoT Hub Device Provisioning-tjänsten med C#-tjänst-SDK. Den här snabbstarten använder enskilda registreringar.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/16/2018
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 5c0ac54996f66f44d39389d8ed1bc0c40793933b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 48409fec8a9edd8a56f6e0664e1451e9677c4281
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528086"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155042"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Registrera TPM-enhet på IoT Hub Device Provisioning-tjänsten med C#-tjänst-SDK
 
@@ -34,7 +34,7 @@ De här stegen visar hur du programmässigt skapar en enskild registrering för 
 ## <a name="get-the-connection-string-for-your-provisioning-service"></a>Hämta anslutningssträngen för etableringstjänsten
 
 För exemplet i den här snabbstarten behöver du anslutningssträngen för etableringstjänsten.
-1. Logga in på Azure-portalen, klicka på knappen **Alla resurser** i den vänstra menyn och öppna Device Provisioning-tjänsten. 
+1. Logga in på Azure-portalen, klicka på knappen **Alla resurser** i den vänstra menyn och öppna Device Provisioning Service. 
 2. Klicka på **Policyer för delad åtkomst** och sedan på den åtkomstprincip du vill använda för att öppna dess egenskaper. I fönstret **Åtkomstprincip** kopierar du och antecknar primärnyckelns anslutningssträng. 
 
     ![Hämta etableringsanslutningssträng från portalen](media/quick-enroll-device-tpm-csharp/get-service-connection-string.png)

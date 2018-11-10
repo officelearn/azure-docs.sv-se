@@ -10,18 +10,20 @@ ms.component: qna-maker
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: tulasim
-ms.openlocfilehash: 742c18815445b038e85c33a96743790491976945
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: bd859183a13e0f8a21cdd2eabb464b718e949464
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901115"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212224"
 ---
 # <a name="what-is-qna-maker"></a>Vad är QnA Maker?
 
-QnA Maker är en kunskapsbas för frågor och svar (KB) som tillämpar anpassad maskininlärningsintelligens för en fråga på användarens naturliga språk ’för att avgöra det bästa svaret.
+QnA Maker är en molnbaserad API-tjänst som skapar en konversationsanpassat lager för frågor och svar över dina data. 
 
-Med QnA Maker kan du driva en molnbaserad tjänst från ditt halvstrukturerade innehåll som Vanliga frågor och svar-dokument, URL:er, produkthandböcker och anpassade frågor och svar. Den lättanvända [webbportalen](https://qnamaker.ai) gör att du kan skapa, hantera, träna och publicera tjänsten utan någon utvecklarerfarenhet. När tjänsten har publicerats till en slutpunkt kan ett klientprogram som en chattrobot hantera konversationen med en användare för att få frågor och svara med svaren. 
+Med QnA Maker kan du skapa en kunskapsbas (KB) från ditt halvstrukturerade innehåll som Vanliga frågor och svar (FAQ), URL:er, produkthandböcker, supportdokument och anpassade frågor och svar. QnA Maker-tjänsten svarar på dina användares frågor på naturligt språk genom att matcha med det bästa möjliga svaret från vanliga frågor och svar i kunskapsbasen.
+
+Den lättanvända [webbportalen](https://qnamaker.ai) gör att du kan skapa, hantera, träna och publicera tjänsten utan någon utvecklarerfarenhet. När tjänsten har publicerats till en slutpunkt kan ett klientprogram som en chattrobot hantera konversationen med en användare för att få frågor och svara med svaren. 
 
 ![Översikt](../media/qnamaker-overview-learnabout/overview.png)
 
@@ -29,7 +31,7 @@ Med QnA Maker kan du driva en molnbaserad tjänst från ditt halvstrukturerade i
 
 Med en QnA Maker får du två nyckeltjänster för data:
 
-* **Extrahering**: strukturerade data med frågor och svar extraheras från halvstrukturerade [datakällor](../Concepts/data-sources-supported.md) som Vanliga frågor och svar samt produkthandböcker. Den här extraheringen kan göras som en del av [skapandet](https://aka.ms/qnamaker-docs-createkb) av KB eller senare som en del av redigeringsprocessen.
+* **Extrahering**: strukturerade data med frågor och svar extraheras från strukturerade och halvstrukturerade [datakällor](../Concepts/data-sources-supported.md) som Vanliga frågor och svar samt produkthandböcker. Den här extraheringen kan göras som en del av [skapandet](https://aka.ms/qnamaker-docs-createkb) av KB eller senare som en del av redigeringsprocessen.
 
 * **Matchning**: när kunskapsbasen har [tränats och testats](https://aka.ms/qnamaker-docs-trainkb) [publicerar](https://aka.ms/qnamaker-docs-publishkb) du den. Det här aktiverar en slutpunkt i din QnA Maker-kunskapsbas som du sedan kan använda i din robot eller klientapp. Den här slutpunkten accepterar en användarfråga och svarar med det bästa svaret i kunskapsbasen samt förtroendepoäng för matchningen.
 
@@ -53,11 +55,11 @@ Med en QnA Maker får du två nyckeltjänster för data:
 
 ## <a name="qna-maker-architecture"></a>QnA Maker-arkitektur
 
-QnA Maker består av följande API-tjänster:
+QnA Maker-arkitekturen består av följande två komponenter:
 
 1. **QnA Maker-hanteringstjänster**: hanteringsfunktionerna för QnA Maker-kunskapsbasen inklusive det ursprungliga skapandet, uppdatering, träning och publicering. Des här aktiviteterna kan utföras via [portalen](https://qnamaker.ai) eller [hanterings-API:erna](https://aka.ms/qnamaker-v4-apis). 
 
-2. **QnA Maker-tjänsten för förutsägelse**: Det här distribueras i Azure-prenumerationen i den angivna regionen. Kundens KB-innehåll lagras i [Azure Search](https://azure.microsoft.com/services/search/), och slutpunkten distribueras som en [apptjänst](https://azure.microsoft.com/services/app-service/). Du kan även välja att distribuera en [Application Insights](https://azure.microsoft.com/services/application-insights/)-resurs för analys.
+2. **QnA Maker-data och körning**: Det här distribueras i Azure-prenumerationen i den angivna regionen. Ditt KB-innehåll lagras i [Azure Search](https://azure.microsoft.com/services/search/), och slutpunkten distribueras som en [apptjänst](https://azure.microsoft.com/services/app-service/). Du kan även välja att distribuera en [Application Insights](https://azure.microsoft.com/services/application-insights/)-resurs för analys.
 
 ![Arkitektur](../media/qnamaker-overview-learnabout/architecture.png)
 

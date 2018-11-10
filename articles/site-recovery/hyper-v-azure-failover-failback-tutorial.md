@@ -1,29 +1,29 @@
 ---
-title: Redundans och återställning vid fel för virtuella Hyper-V-datorer som replikeras till Azure med Site Recovery | Microsoft Docs
-description: Lär dig hur du redundansväxlar virtuella Hyper-V-datorer till Azure och återställer dem till den lokala platsen med Azure Site Recovery efter fel
+title: Redundansväxla och återställa virtuella Hyper-V-datorer vid haveriberedskap till Azure med Site Recovery | Microsoft Docs
+description: Lär dig hur du redundansväxlar och återställer virtuella Hyper-V-datorer vid haveriberedskap till Azure med hjälp av Azure Site Recovery-tjänsten.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 31de654e6746cecf5aedabbfe481ab99b2aa3510
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6dde345e360dc304578b626ee2678dd51fe56dc6
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49076991"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210526"
 ---
-# <a name="failover-and-failback-hyper-v-vms-replicated-to-azure"></a>Redundansväxla och återställ virtuella Hyper-V-datorer som replikeras till Azure efter fel
+# <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Redundans och återställning vid fel för virtuella Hyper-V-datorer som replikeras till Azure
 
-I den här självstudien beskrivs hur du redundansväxlar en virtuell Hyper-V-dator till Azure. När du har redundansväxlat kan du återställa den virtuella datorn till den lokala platsen när den är tillgänglig. I den här guiden får du lära dig att:
+I den här självstudien beskrivs hur du redundansväxlar en virtuell Hyper-V-dator till Azure. När du har redundansväxlat kan du återställa till den lokala platsen när den är tillgänglig. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Kontrollera egenskaperna för den virtuella Hyper-V-datorn för att se att de överensstämmer med kraven för Azure
 > * Köra en redundans i Azure
-> * Redundansväxling från Azure till lokal värd
+> * Redundansväxla från Azure till lokalt
 > * Använd omvänd replikeringen av lokala virtuella datorer för att börja replikera till Azure igen
 
 Detta är den femte självstudien i en serie. Självstudien förutsätter att du redan har slutfört uppgifterna i de föregående självstudierna.    

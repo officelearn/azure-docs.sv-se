@@ -7,20 +7,20 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/12/2018
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 50005e38214bf22aa664c2d2b0cc4f86da412818
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 365c6e41db865edf8384ca1f82210d9471808f94
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144502"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140865"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Snabbstart: Prova en molnbaserad fjärrövervakningslösning
 
-I den här snabbstarten får du lära dig att distribuera Azure IoT-lösningsacceleratorn Fjärrövervakning för körning av en simulerad molnbaserad fjärrövervakningslösning. När du har distribuerat lösningsacceleratorn använder du sidan **Instrumentpanel** för lösningen för att visualisera simulerade enheter på en karta, och sidan **Underhåll** svarar på en tryckvarning från ett simulerat kylaggregat. Du kan använda den här lösningsacceleratorn som utgångspunkt för en egen implementering eller som utbildningsverktyg.
+Den här snabbstarten visar hur du distribuerar Azure IoT-lösningsacceleratorn Fjärrövervakning. I den här molnbaserade lösningen använder du **instrumentpanelssidan** till att visualisera simulerade enheter på en karta så svarar sidan **Underhåll** på en tryckvarning för ett simulerat kylaggregat. Du kan använda den här lösningsacceleratorn som utgångspunkt för en egen implementering eller som utbildningsverktyg.
 
-I den initiala distributionen konfigureras lösningsacceleratorn Fjärrövervakning för ett företag med namnet Contoso. Contoso hanterar olika enheter, till exempel kylaggregat, som distribuerats i olika fysiska miljöer. Ett kylaggregat skickar telemetri om temperatur, luftfuktighet och tryck till Fjärrövervakning-lösningsacceleratorn.
+I den initiala distributionen konfigureras lösningsacceleratorn för ett företag med namnet Contoso. Som operatör på Contoso hanterar du olika enheter, till exempel kylaggregat, som distribuerats i olika fysiska miljöer. Ett kylaggregat skickar telemetri om temperatur, luftfuktighet och tryck till Fjärrövervakning-lösningsacceleratorn.
 
 Du behöver en aktiv Azure-prenumeration för att kunna utföra den här snabbstarten.
 
@@ -38,13 +38,13 @@ Klicka på **Testa nu** på panelen **Fjärrövervakning**.
 
 På sidan **Skapa Fjärrövervakning-lösning** väljer du en **Basic**-distribution. Om du distribuerar lösningsacceleratorn för att lära dig hur den fungerar eller för att köra en demonstration väljer du alternativet **Basic** för att minska kostnaderna.
 
-Välj **.NET** som språk. Java- och .NET-implementeringar har identiska funktioner.
+Välj **.NET** som språk. Java- och .NET-implementeringarna har samma funktioner.
 
 Ange ett unikt **lösningsnamn** för din Fjärrövervakning-lösningsaccelerator. I den här snabbstarten kallar vi den för **contoso-rm2**.
 
 Välj den **prenumeration** och den **region** du vill använda för att distribuera lösningsacceleratorn. Normalt väljer du regionen närmast dig. I den här snabbstarten använder vi **Visual Studio Enterprise** och **Europa, västra**. Du måste vara [global administratör eller användare](iot-accelerators-permissions.md) i prenumerationen.
 
-Klicka på **Skapa lösning** för att inleda distributionen. Processen tar minst fem minuter att köra:
+Inled distribution genom att trycka på **Skapa lösning**. Processen tar minst fem minuter att köra:
 
 ![Information om Fjärrövervakning-lösningen](./media/quickstart-remote-monitoring-deploy/createform.png)
 
@@ -68,15 +68,15 @@ Klicka på **Acceptera** för att acceptera begäran om behörigheter som Fjärr
 
 På lösningens instrumentpanel visas följande information om Contosos simulerade enheter:
 
-* **Enhetsstatistik** visar sammanfattningsinformation om aviseringar och totalt antal enheter. I standarddistributionen har Contoso 10 simulerade enheter av olika typ.
+* Panelen **Enhetsstatistik** visar sammanfattningsinformation om aviseringar och totalt antal enheter. I standarddistributionen har Contoso 10 simulerade enheter av olika typ.
 
-* **Enhetsplatser** visar var enheterna finns fysiskt. Färgen på nålen visar när det finns aviseringar från enheten.
+* Panelen **Enhetsplatser** visar var enheterna finns fysiskt. Färgen på nålen visar när det finns aviseringar från enheten.
 
-* **Aviseringar** visar information om aviseringar från enheterna.
+* Panelen **Aviseringar** visar information om aviseringar från enheterna.
 
-* **Telemetri** visar telemetri från enheterna. Du kan visa olika telemetriströmmar genom att klicka på telemetrityperna högst upp.
+* Panelen **Telemetri** visar telemetridata från enheterna. Du kan visa olika telemetriströmmar genom att klicka på telemetrityperna högst upp.
 
-* **Analys** visar kombinerad information om aviseringarna från enheterna.
+* Panelen **Analys** visar kombinerad information om aviseringarna från enheterna.
 
 ## <a name="respond-to-an-alert"></a>Svara på en avisering
 
@@ -98,7 +98,7 @@ Nu har du identifierat problemet som utlöste aviseringen och på vilken enhet s
 
 ### <a name="fix-the-issue"></a>Åtgärda problemet
 
-Visa för andra operatörer att du arbetar med aviseringen genom att välja den och ändra **aviseringens status** till **Bekräftad**:
+Visa för andra operatörer att du nu arbetar med aviseringen genom att välja den och ändra **aviseringens status** till **Bekräftad**:
 
 [![Välj och bekräfta aviseringen](./media/quickstart-remote-monitoring-deploy/maintenanceacknowledge-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceacknowledge-expanded.png#lightbox)
 
@@ -108,7 +108,7 @@ Värdet i statuskolumnen ändras till **Bekräftad**.
 
 [![Välj en enhet och schemalägg en åtgärd](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-expanded.png#lightbox)
 
-På panelen **Jobb** väljer du **Kör metod** och sedan metoden **EmergencyValveRelease**. Lägg till Jobbnamnet **ChillerPressureRelease** och klicka på **Använd**. Inställningarna skapar ett jobb som körs direkt.
+På panelen **Jobb** väljer du **Kör metod** och sedan metoden **EmergencyValveRelease**. Lägg till Jobbnamnet **ChillerPressureRelease** och klicka på **Använd**. Inställningarna skapar ett jobb åt dig som körs direkt.
 
 Om du vill se jobbstatusen går du tillbaka till sidan **Underhåll** och visar listan över jobb i vyn **Jobb**. Du kan behöva vänta i några sekunder innan du ser att jobbet har körts för att släppa ventiltrycket på kylaggregatet:
 

@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: efaf551d134d339205d40966cb84f41b408559bd
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 3350c222cced036af6319cee166c53da0b14f2a9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394186"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210456"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Snabbstart: Mata in data från Event Hub i Azure Data Explorer
 
@@ -27,7 +27,7 @@ Förutom en Azure-prenumeration behöver du följande för att slutföra den hä
 
 * [Ett testkluster och en databas](create-cluster-database-portal.md)
 
-* [En exempelapp](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) som genererar data
+* [En exempelapp](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) som genererar data och skickar dem till en händelsehubb
 
 * [Visual Studio 2017 version 15.3.2 eller senare](https://www.visualstudio.com/vs/) för att köra exempelappen
 
@@ -37,9 +37,9 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-an-event-hub"></a>Skapa en händelsehubb
 
-I den här snabbstarten ska du skapa exempeldata och skicka dem till en händelsehubb. Det första steget är att skapa en händelsehubb. Du kan göra detta med hjälp av en Azure Resource Manager-mall (ARM) på Azure-portalen.
+I den här snabbstarten ska du skapa exempeldata och skicka dem till en händelsehubb. Det första steget är att skapa en händelsehubb. Du kan göra detta med hjälp av en Azure Resource Manager-mall på Azure-portalen.
 
-1. Välj följande knapp för att starta distributionen.
+1. Använd följande knapp för att starta distributionen. Vi rekommenderar att du öppnar länken i en annan flik eller ett annat fönster så att du kan följa resten av stegen i den här artikeln.
 
     [![Distribuera till Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
@@ -69,13 +69,15 @@ I den här snabbstarten ska du skapa exempeldata och skicka dem till en händels
 
 1. Välj **Köp**, vilket bekräftar att du skapar resurser i din prenumeration.
 
-1. Välj **Meddelanden** (klockikonen) i verktygsfältet för att övervaka etableringsprocessen. Det kan ta flera minuter innan distributionen slutförs, men du kan gå vidare till nästa steg nu.
+1. Välj **Meddelanden** i verktygsfältet för att övervaka etableringsprocessen. Det kan ta flera minuter innan distributionen slutförs, men du kan gå vidare till nästa steg nu.
+
+    ![Meddelanden](media/ingest-data-event-hub/notifications.png)
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Skapa en måltabell i Azure Data Explorer
 
 Nu ska du skapa en tabell i Azure Data Explorer som Event Hubs skickar data till. Du skapar tabellen i klustret och databasen som etablerades i avsnittet **Förutsättningar**.
 
-1. Välj **Fråga** under klustret på Azure-portalen.
+1. På Azure-portalen går du till ditt kluster och väljer sedan **Fråga**.
 
     ![Frågeprogramlänk](media/ingest-data-event-hub/query-explorer-link.png)
 
@@ -92,11 +94,11 @@ Nu ska du skapa en tabell i Azure Data Explorer som Event Hubs skickar data till
     ```Kusto
     .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.timeStamp","datatype":"datetime"},{"column":"Name","path":"$.name","datatype":"string"},{"column":"Metric","path":"$.metric","datatype":"int"},{"column":"Source","path":"$.source","datatype":"string"}]'
     ```
-    Det här kommandot mappar inkommande JSON-data med kolumnnamnen och datatyperna som användes när tabellen skapades.
+    Det här kommandot mappar inkommande JSON-data till kolumnnamnen och datatyperna för tabellen (TestTable).
 
 ## <a name="connect-to-the-event-hub"></a>Ansluta till händelsehubben
 
-Nu ska du ansluta till händelsehubben från Azure Data Explorer så att data som flödar till händelsehubben strömmas till testtabellen.
+Nu ansluter du till händelsehubben från Azure-datautforskaren. När den här anslutningen är på plats strömmas data som flödar till händelsehubben till den testtabell som du skapade tidigare i den här artikeln.
 
 1. Välj **Meddelanden** i verktygsfältet för att kontrollera att distributionen av händelsehubben lyckades.
 
@@ -118,27 +120,27 @@ Nu ska du ansluta till händelsehubben från Azure Data Explorer så att data so
     | Namnområde för händelsehubb | Ett unikt namnområdesnamn | Namnet som du valde tidigare, som identifierar ditt namnområde. |
     | Händelsehubb | *test-hub* | Händelsehubben som du skapade. |
     | Konsumentgrupp | *test-group* | Konsumentgruppen som definierades i hubben som du skapade. |
+    | Måltabell | Låt **My data includes routing info** (Mina data innehåller routningsinformation) vara avmarkerad. | Det finns två alternativ för routning: *statisk* och *dynamisk*. För den här snabbstartsguiden använder du statisk routning (standardinställning), där du anger tabellnamnet, filformatet och mappningen. Du kan även använda dynamisk routning, där dina data innehåller den nödvändiga routningsinformationen. |
     | Tabell | *TestTable* | Tabellen som du skapade i **TestDatabase**. |
     | Dataformat | *JSON* | JSON- och CSV-format stöds. |
-    | Kolumnmappning | *TestMapping* | Mappningen som du skapade i **TestDatabase**. |
-
-    I den här snabbstartsguiden ska du använda *statisk routning* från händelsehubben, där du anger tabellnamnet, filformatet och mappningen. Du kan också använda dynamisk routning, där dessa egenskaper anges av programmet.
+    | Kolumnmappning | *TestMapping* | Den mappning som du skapade i **TestDatabase**, som mappar inkommande JSON-data till kolumnnamnen och datatyperna i **TestTable**.|
+    | | |
 
 ## <a name="copy-the-connection-string"></a>Kopiera anslutningssträngen
 
-När du kör appen för att generera exempeldata behöver du anslutningssträngen för händelsehubbens namnområde.
+När du kör den [exempelapp](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) som anges i Nödvändiga komponenter behöver du anslutningssträngen för händelsehubbens namnrymd.
 
 1. Under händelsehubbens namnområde som du skapade väljer du **Policyer för delad åtkomst** och sedan **RootManageSharedAccessKey**.
 
     ![Principer för delad åtkomst](media/ingest-data-event-hub/shared-access-policies.png)
 
-1. Kopiera **Anslutningssträng – primär nyckel**.
+1. Kopiera **Anslutningssträng – primär nyckel**. Du klistrar in den i nästa avsnitt.
 
     ![Anslutningssträng](media/ingest-data-event-hub/connection-string.png)
 
 ## <a name="generate-sample-data"></a>Generera exempeldata
 
-Nu när du har anslutit Azure Data Explorer och händelsehubben använder du exempelappen som du laddade ned för att generera data.
+Nu när Azure-datautforskaren och händelsehubben har anslutits använder du den [exempelapp](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) som du laddade ned för att generera data.
 
 1. Öppna exempelapplösningen i Visual Studio.
 
@@ -156,13 +158,15 @@ Nu när du har anslutit Azure Data Explorer och händelsehubben använder du exe
 
 ## <a name="review-the-data-flow"></a>Granska dataflödet
 
+Med appen som genererar data kan du nu se flödet av dessa data från händelsehubben till tabellen i ditt kluster.
+
 1. Under händelsehubben på Azure-portalen ser du en aktivitetstopp när appen körs.
 
     ![Graf för händelsehubb](media/ingest-data-event-hub/event-hub-graph.png)
 
-1. Gå tillbaka till appen och stoppa den när den når meddelande 99.
+1. Gå tillbaka till exempelappen och stoppa den när den når meddelande 99.
 
-1. Kör följande fråga i testdatabasen för att kontrollera hur många meddelanden som har kommit fram till databasen hittills.
+1. För att kontrollera hur många meddelanden som nått databasen hittills kör du följande fråga i testdatabasen.
 
     ```Kusto
     TestTable

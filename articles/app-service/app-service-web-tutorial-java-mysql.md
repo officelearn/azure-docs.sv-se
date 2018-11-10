@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: db1005bbce25b0fa3fec76e6f9428a4cdd6fa4aa
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: ec942d97e7671c0477d8d723afacb06b73565c1c
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024383"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414565"
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>Självstudie: Skapa en Java- och MySQL-webbapp i Azure
 
@@ -47,7 +47,7 @@ I den här guiden får du lära dig att:
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 1. [Ladda ned och installera Git](https://git-scm.com/)
-1. [Ladda ned och installera Java 7 JDK eller senare](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+1. [Ladda ned och installera Java JDK](https://aka.ms/azure-jdks)
 1. [Ladda ned, installera och starta MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## <a name="prepare-local-mysql"></a>Förbereda lokal MySQL 
@@ -272,7 +272,7 @@ När webbappsdefinitionen är klar visar Azure CLI information liknande den i f�
 
 Konfigurera i Cloud Shell den Java Runtime-konfiguration som appen behöver med kommandot [`az webapp config set`](/cli/azure/webapp/config#az-webapp-config-set).
 
-Följande kommando konfigurerar webbappen att köra på en sen Java 8 JDK och [Apache Tomcat](http://tomcat.apache.org/) 8.0.
+Följande kommando konfigurerar webbappen att köra på en aktuell [Java 8 JDK](https://aka.ms/azure-jdks) och [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 
 ```azurecli-interactive
 az webapp config set --name <app_name> --resource-group myResourceGroup --java-version 1.8 --java-container Tomcat --java-container-version 8.0

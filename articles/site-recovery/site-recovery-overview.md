@@ -1,19 +1,19 @@
 ---
 title: Om Site Recovery i Azure | Microsoft Docs
-description: Ger en översikt över Azure Site Recovery-tjänsten och sammanfattar distributionsscenarier.
+description: Ger en översikt över Azure Site Recovery-tjänsten och sammanfattar distributionsscenarier för haveriberedskap och migrering.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: overview
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 334b7aa3a3a174055c3741f20a4817063efd21f6
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: b03681e6205b7db24960c99a87a3c84c213884d2
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456651"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240298"
 ---
 # <a name="about-site-recovery"></a>Om Site Recovery
 
@@ -58,7 +58,7 @@ Site Recovery kan hantera replikering för:
 --- | ---
 **Replikeringsscenarier** | Replikera virtuella Azure-datorer från en Azure-region till en annan.<br/><br/>  Replikera lokala, virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar (Windows och Linux) samt virtuella Azure Stack-datorer till Azure.<br/><br/> Replikera lokala virtuella VMware-datorer, virtuella Hyper-V-datorer som hanteras av System Center VMM och fysiska servrar till en sekundär plats.
 **Regioner** | Kontrollera [regioner som stöds](https://azure.microsoft.com/regions/services/) för Site Recovery. |
-**Replikerade datorer** | Granska replikeringskraven för [virtuella Azure-datorer](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions), [lokala virtuella datorer med VMware och fysiska servrar](vmware-physical-azure-support-matrix.md#replicated-machines) samt [lokala virtuella datorer med Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms).
+**Replikerade datorer** | Granska replikeringskraven för [virtuella Azure-datorer](azure-to-azure-support-matrix.md#replicated-machine-operating-systems), [lokala virtuella datorer med VMware och fysiska servrar](vmware-physical-azure-support-matrix.md#replicated-machines) samt [lokala virtuella datorer med Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms).
 **Arbetsbelastningar** | Du kan replikera alla arbetsbelastningar som körs på en dator det finns replikeringsstöd för. Dessutom har Site Recovery-teamet utfört appspecifika tester för ett [antal appar](site-recovery-workload.md#workload-summary).
 
 

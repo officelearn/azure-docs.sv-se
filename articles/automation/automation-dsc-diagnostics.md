@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: dsc
 author: bobbytreed
 ms.author: robreed
-ms.date: 08/08/2018
+ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 62d201e608864949c86e52d8ac8fbf9ce8538f11
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: aa543ad119716b25b7f3ab00d49efb9fe6fb6c3f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631471"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244244"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-log-analytics"></a>Vidarebefordra Azure Automation-Tillståndskonfiguration rapporterar data till Log Analytics
 
@@ -44,14 +44,14 @@ Om du vill börja importera data från Azure Automation DSC till Log Analytics, 
 
   ```powershell
   # Find the ResourceId for the Automation Account
-  Find-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
+  Get-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
   ```
 
 1. Hämta den _ResourceId_ av Log Analytics-arbetsytan genom att köra följande PowerShell-kommando: (om du har fler än en arbetsyta väljer du den _ResourceID_ för den arbetsyta som du vill konfigurera).
 
   ```powershell
   # Find the ResourceId for the Log Analytics workspace
-  Find-AzureRmResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
+  Get-AzureRmResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
   ```
 
 1. Kör följande PowerShell-kommando ersätter `<AutomationResourceId>` och `<WorkspaceResourceId>` med den _ResourceId_ värden från var och en av de här stegen:
@@ -140,7 +140,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Log Analytics.
 | ReportEndTime_t |Datum och tid när rapporten har slutförts. |
 | NumberOfResources_d |Antalet DSC-resurser anropas i konfigurationen tillämpas på noden. |
 | SourceSystem | Hur Log Analytics insamlade data. Alltid *Azure* för Azure-diagnostik. |
-| ResourceId |Anger vilket Azure Automation-konto. |
+| Resurs-ID |Anger vilket Azure Automation-konto. |
 | ResultDescription | Beskrivning för den här åtgärden. |
 | SubscriptionId | Azure-prenumerationen Id (GUID) för Automation-kontot. |
 | ResourceGroup | Namnet på resursgruppen för Automation-kontot. |
@@ -171,7 +171,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Log Analytics.
 | ErrorMessage_s |Felmeddelande om resursen misslyckades. |
 | DscResourceDuration_d |Tid i sekunder som kördes av DSC-resurs. |
 | SourceSystem | Hur Log Analytics insamlade data. Alltid *Azure* för Azure-diagnostik. |
-| ResourceId |Anger vilket Azure Automation-konto. |
+| Resurs-ID |Anger vilket Azure Automation-konto. |
 | ResultDescription | Beskrivning för den här åtgärden. |
 | SubscriptionId | Azure-prenumerationen Id (GUID) för Automation-kontot. |
 | ResourceGroup | Namnet på resursgruppen för Automation-kontot. |

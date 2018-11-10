@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/19/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5e198310dd18cc8574b5510b9318ff4badaffca3
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2b8cc34e5ace5e252acae94a16858a69edc63a1c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646321"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240247"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Självstudie: Skapa Azure Resource Manager-mallar med beroende resurser
 
@@ -29,10 +29,8 @@ I den här självstudien skapar du ett lagringskonto, en virtuell dator, ett vir
 Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
-> * Konfigurera en säker miljö
 > * Öppna en snabbstartsmall
 > * Utforska mallen
-> * Redigera parameterfilen
 > * Distribuera mallen
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
@@ -41,8 +39,8 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 För att kunna följa stegen i den här artikeln behöver du:
 
-* [Visual Studio Code](https://code.visualstudio.com/) med verktygstillägget för Resource Manager.  Se [Installera tillägget](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
-* För att förhindra spray-attacker med lösenord genererar du ett lösenord för den virtuella datorns administratörskonto. Här är ett exempel:
+* [Visual Studio Code](https://code.visualstudio.com/) med verktygstillägget för Resource Manager.  Se [Installera tillägget](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* För att förbättra säkerheten bör du använda ett genererat lösenord för den virtuella datorns administratörskonto. Här är ett exempel för att generera ett lösenord:
 
     ```azurecli-interactive
     openssl rand -base64 32
@@ -66,37 +64,45 @@ Azure-snabbstartsmallar är en lagringsplats för Resource Manager-mallar. I st�
 
 När du utforskar mallen i det här avsnittet kan du försöka besvara följande frågor:
 
-- Hur många Azure-resurser är definierade i den här mallen?
-- En av resurserna är ett Azure-lagringskonto.  Ser definitionen ut som den som används i den senaste självstudien?
-- Kan du hitta mallreferenserna för de resurser som är definierade i mallen?
-- Kan du hitta resursernas beroenden?
+* Hur många Azure-resurser är definierade i den här mallen?
+* En av resurserna är ett Azure-lagringskonto.  Ser definitionen ut som den som används i den senaste självstudien?
+* Kan du hitta mallreferenserna för de resurser som är definierade i mallen?
+* Kan du hitta resursernas beroenden?
 
 1. Från Visual Studio Code döljer du elementen tills du bara ser elementen på den första och andra nivån i **resurser**:
 
     ![Azure Resource Manager-mallar i Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
-    Det finns fem resurser som definieras i mallen.
-2. Expandera den första resursen. Det är ett lagringskonto. Definitionen ska vara identisk med den som används i början av den senaste självstudien.
+    Det finns fem resurser som definieras i mallen:
+
+    * `Microsoft.Storage/storageAccounts`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+    * `Microsoft.Network/publicIPAddresses`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+    * `Microsoft.Network/virtualNetworks`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+    * `Microsoft.Network/networkInterfaces`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+    * `Microsoft.Compute/virtualMachines`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+
+    Det är bra att få lite grundläggande förståelse av mallen innan den anpassas.
+
+2. Expandera den första resursen. Det är ett lagringskonto. Jämför resursdefinitionen med [mallreferensen](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
 
     ![Lagringsdefinition för Azure Resource Manager-mallar i Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
 
-3. Expandera den andra resursen. Resurstypen är **Microsoft.Network/publicIPAddresses**. Du hittar mallreferensen genom att bläddra till [mallreferens](https://docs.microsoft.com/azure/templates/) och ange **offentlig ip-adress** eller **offentliga ip-adresser** i fältet **Filtrera efter rubrik**. Jämför resursdefinitionen med mallreferensen.
+3. Expandera den andra resursen. Resurstypen är `Microsoft.Network/publicIPAddresses`. Jämför resursdefinitionen med [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
 
     ![Definition av offentlig IP-adress för Azure Resource Manager-mallar i Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
-4. Upprepa det senaste steget för att leta rätt på mallreferenserna för de övriga resurser som är definierade i mallen.  Jämför resursdefinitionerna med mallreferenserna.
-5. Expandera den fjärde resursen:
+4. Expandera den fjärde resursen. Resurstypen är `Microsoft.Network/networkInterfaces`:  
 
     ![Azure Resource Manager-mallar i Visual Studio Code – dependson](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
-    Med elementet dependsOn kan du definiera en resurs som beroende på en eller flera resurser. I det här exemplet är den här resursen ett networkInterface.  Den beror på två resurser:
+    Med elementet dependsOn kan du definiera en resurs som beroende på en eller flera resurser. Resursen beror på två resurser:
 
-    * publicIPAddress
-    * virtualNetwork
+    * `Microsoft.Network/publicIPAddresses`
+    * `Microsoft.Network/virtualNetworks`
 
-6. Expandera den femte resursen. Den här resursen är en virtuell dator. Den beror på två resurser:
+5. Expandera den femte resursen. Den här resursen är en virtuell dator. Den beror på två resurser:
 
-    * storageAccount
-    * networkInterface
+    * `Microsoft.Storage/storageAccounts`
+    * `Microsoft.Network/networkInterfaces`
 
 Följande diagram illustrerar resurserna och beroendeinformation för den här mallen:
 
@@ -134,17 +140,18 @@ Det finns många metoder för att distribuera mallar.  I den här självstudien 
     ```azurepowershell
     $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
-    $adminPassword = Read-Host -Prompt "Enter the admin password"
-    $dnsLablePrefix = Read-Host -Prompt "Enter the DNS label prefix"
+    $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
+    $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     New-AzureRmResourceGroupDeployment -Name $deploymentName `
         -ResourceGroupName $resourceGroupName `
-        -adminUsername = $adminUsername `
-        -adminPassword = $adminPassword `
-        -dnsLabelPrefix = $dnsLabelPrefix `
-        -TemplateFile azuredeploy.json 
+        -adminUsername $adminUsername `
+        -adminPassword $adminPassword `
+        -dnsLabelPrefix $dnsLabelPrefix `
+        -TemplateFile azuredeploy.json
     ```
 8. Kör följande PowerShell-kommando för att visa den nyligen skapade virtuella datorn:
 
@@ -155,7 +162,7 @@ Det finns många metoder för att distribuera mallar.  I den här självstudien 
 
     Namnet på den virtuella datorn är hårdkodat som **SimpleWinVM** i mallen.
 
-9. Logga in på den virtuella datorn för att testa administratörens autentiseringsuppgifter. 
+9. RDP till den virtuella datorn för att verifiera att den virtuella datorn har skapats.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -168,9 +175,7 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien utvecklar och distribuerar du en mall för att skapa en virtuell dator, ett virtuellt nätverk och de beroende resurserna. Information om hur du lär dig att distribuera Azure-resurser baserat på villkor finns i:
-
+I den här självstudien har du utvecklat och distribuerat en mall för att skapa en virtuell dator, ett virtuellt nätverk och de beroende resurserna. Information om hur du lär dig att distribuera Azure-resurser baserat på villkor finns i:
 
 > [!div class="nextstepaction"]
 > [Använda villkor](./resource-manager-tutorial-use-conditions.md)
-

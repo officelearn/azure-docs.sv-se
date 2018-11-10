@@ -1,6 +1,6 @@
 ---
 title: Etablera en simulerad X.509-enhet på Azure IoT Hub med Java | Microsoft Docs
-description: Azure snabbstart – Skapa och etablera en simulerad X.509-enhet med Java-enhets-SDK för IoT Hub Device Provisioning-tjänsten
+description: Azure-snabbstart – Skapa och etablera en simulerad X.509-enhet med Java-enhets-SDK för IoT Hub Device Provisioning Service. Den här snabbstarten använder enskilda registreringar.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/2018
@@ -10,23 +10,29 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 694c4fe10ec8f738131768d80dd70c5bd18fe223
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1c784aefca19040abb7ab34dd92dddb1ef0f28de
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040745"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418236"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad X.509-enhet med Java-enhets-SDK för IoT Hub Device Provisioning-tjänsten
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 Dessa steg visar hur du simulerar en X.509-enhet på utvecklingsdatorn som kör Windows OS och använder kodexemplet för att ansluta till denna simulerade enhet med Device Provisioning-tjänsten och IoT-hubben. 
 
-Om du inte känner till processen för automatisk etablering, bör du också gå igenom [Begrepp inom automatisk etablering](concepts-auto-provisioning.md). Se också till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal) innan du fortsätter. 
+Om du inte känner till processen för automatisk etablering, bör du även gå igenom [Begrepp inom automatisk etablering](concepts-auto-provisioning.md). Se också till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal) innan du fortsätter. 
+
+Azure IoT Device Provisioning Service stöder två typer av registreringar:
+- [Registreringsgrupper](concepts-service.md#enrollment-group): används för att registrera flera relaterade enheter.
+- [Enskilda registreringar](concepts-service.md#individual-enrollment): används för att registrera en enskild enhet.
+
+Den här artikeln visar enskilda registreringar.
 
 ## <a name="prepare-the-environment"></a>Förbereda miljön 
 
-1. Kontrollera att [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) är installerat på datorn.
+1. Kontrollera att [Java SE Development Kit 8](https://aka.ms/azure-jdks) är installerat på datorn.
 
 2. Ladda ned och installera [Maven](https://maven.apache.org/install.html).
 
@@ -55,7 +61,7 @@ Om du inte känner till processen för automatisk etablering, bör du också gå
 I det här avsnittet använder du ett självsignerat X.509-certifikat. Då måste du tänka på det här:
 
 * Självsignerade certifikat är endast till för testning och ska inte användas i produktion.
-* Standardutgångsdatumet för ett självsignerat certifikat är 1 år.
+* Standardutgångsdatumet för ett självsignerat certifikat är ett år.
 
 Du kommer att använda exempelkoden från [Azure IoT SDK för Java](https://github.com/Azure/azure-iot-sdk-java.git) till att skapa det certifikat som ska användas med posten för enskild registrering för den simulerade enheten.
 
@@ -96,7 +102,7 @@ Du kommer att använda exempelkoden från [Azure IoT SDK för Java](https://gith
 
 ## <a name="simulate-the-device"></a>Simulera enheten
 
-1. På sammanfattningsbladet för etableringstjänsten väljer du **Översikt** och noterar _Id Scope_ (ID-omfång) och _Provisioning Service Global Endpoint_ (Global slutpunkt för etableringstjänsten).
+1. På sammanfattningsbladet för etableringstjänsten väljer du **Översikt** och noterar _ID-omfång_ och _Global slutpunkt för etableringstjänsten_.
 
     ![Tjänstinformation](./media/java-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
@@ -108,7 +114,7 @@ Du kommer att använda exempelkoden från [Azure IoT SDK för Java](https://gith
 
 3. Ange etableringstjänsten och X.509-identitetsinformation i koden. Den används vid automatisk etablering, för attestering av den simulerade enheten, före enhetsregistrering:
 
-   - Redigera filen `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` så att _ID-omfång_ och _Provisioning Service Global Endpoint_ (Global slutpunkt för etableringstjänsten) inkluderas enligt tidigare notering. Inkludera även _Client Cert_ (Klientcertifikat) och _Client Cert Private Key_ (Privat nyckel för klientcertifikat) enligt notering i föregående avsnitt.
+   - Redigera filen `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` så att _ID-omfång_ och _Global slutpunkt för etableringstjänsten_ inkluderas enligt tidigare notering. Inkludera även _Client Cert_ (Klientcertifikat) och _Client Cert Private Key_ (Privat nyckel för klientcertifikat) enligt notering i föregående avsnitt.
 
       ```java
       private static final String idScope = "[Your ID scope here]";

@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/18/2018
+ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: aab248ac7c9adf7d996406ec35e0317594ce0b68
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: cc94e309db3fd0e97e06b5be5884a0b6e7337cea
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945026"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158983"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Snabbstart: Skapa och hantera Azure-filresurser med hjälp av Azure CLI
 Den här guiden vägleder dig igenom grunderna i att arbeta med [Azure-filresurser](storage-files-introduction.md) med hjälp av Azure CLI. Azure-filresurser är precis som andra filresurser men lagras i molnet och backas av Azure-plattformen. Azure-filresurser stöder SMB-protokollet, som är branschstandard och möjliggör fildelning på olika datorer, program och instanser. 
@@ -185,6 +185,80 @@ az storage file list \
 ```
 
 Även om kommandot `az storage file copy start` är praktiskt för filförflyttningar mellan Azure-filresurser och Azure Blob Storage-containrar, så rekommenderar vi att du använder AzCopy för större flyttar. (Större när det gäller antal eller storleken på filerna som ska flyttas.) Lär dig mer om [AzCopy för Linux](../common/storage-use-azcopy-linux.md) och [AzCopy för Windows](../common/storage-use-azcopy.md). AzCopy måste installeras lokalt. AzCopy är inte tillgängligt i Cloud Shell. 
+
+## <a name="create-and-manage-share-snapshots"></a>Skapa och hantera resursögonblicksbilder
+Ytterligare en användbar uppgift som du kan göra med en Azure-filresurs är att skapa resursögonblicksbilder. En ögonblicksbild bevarar en kopia vid en viss tidpunkt av en Azure-filresurs. Ögonblicksbilder av resurser liknar vissa av de operativsystemtekniker som du kanske redan är bekant med:
+
+- [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) ögonblicksbilder för Linux-system
+- [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) ögonblicksbilder för macOS
+- [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) för Windows-filsystem såsom NTFS och ReFS Du kan skapa en resursögonblicksbild med hjälp av kommandot [`az storage share snapshot`](/cli/azure/storage/share#az_storage_share_snapshot):
+
+```azurecli-interactive
+SNAPSHOT=$(az storage share snapshot \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --name "myshare" \
+    --query "snapshot" | tr -d '"')
+```
+
+### <a name="browse-share-snapshot-contents"></a>Söka i resursögonblicksbilders innehåll
+Du kan söka i en resursögonblicksbilds innehåll genom att skicka resursögonblicksbildens tidsstämpel som vi tog i variabeln `$SNAPSHOT` till kommandot `az storage file list`:
+
+```azurecli-interactive
+az storage file list \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --share-name "myshare" \
+    --snapshot $SNAPSHOT \
+    --output table
+```
+
+### <a name="list-share-snapshots"></a>Lista resursögonblicksbilder
+Du kan se listan över ögonblicksbilder som du har tagit för din resurs med följande kommando:
+
+```azurecli-interactive
+az storage share list \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --include-snapshot \
+    --query "[? name=='myshare' && snapshot!=null]" | tr -d '"'
+```
+
+### <a name="restore-from-a-share-snapshot"></a>Återställ från en resursögonblicksbild
+Du kan återställa en fil med hjälp av kommandot `az storage file copy start` som du använde tidigare. Först tar du bort filen SampleUpload.txt som du laddade upp, så att du kan återställa den från ögonblicksbilden:
+
+```azurecli-interactive
+# Delete SampleUpload.txt
+az storage file delete \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --share-name "myshare" \
+    --path "myDirectory/SampleUpload.txt"
+ # Build the source URI for a snapshot restore
+URI=$(az storage account show \
+    --resource-group "myResourceGroup" \
+    --name $STORAGEACCT \
+    --query "primaryEndpoints.file" | tr -d '"')
+ URI=$URI"myshare/myDirectory/SampleUpload.txt?sharesnapshot="$SNAPSHOT
+ # Restore SampleUpload.txt from the share snapshot
+az storage file copy start \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --source-uri $URI \
+    --destination-share "myshare" \
+    --destination-path "myDirectory/SampleUpload.txt"
+```
+
+### <a name="delete-a-share-snapshot"></a>Ta bort en resursögonblicksbild
+Du kan ta bort en ögonblicksbild av en resurs med hjälp av kommandot [`az storage share delete`](/cli/azure/storage/share#az_storage_share_delete). Använd variabeln som innehåller referensen `$SNAPSHOT` till parametern `--snapshot`:
+
+```azurecli-interactive
+az storage share delete \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --name "myshare" \
+    --snapshot $SNAPSHOT
+```
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 När du är klar kan du använda kommandot [`az group delete`](/cli/azure/group#delete) för att ta bort resursgruppen och alla relaterade resurser: 

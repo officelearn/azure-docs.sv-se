@@ -8,19 +8,19 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: 509c33f2774e2d16bb8a96c50d1fb53962578dee
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f5f04fdaa12c716b21bafcc0abccc719428fe791
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409330"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242083"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-gdpr"></a>Azure-säkerhet och efterlevnad skissen - IaaS-webbprogram för GDPR
 
 ## <a name="overview"></a>Översikt
 Den allmänna Dataskyddsförordningen GDPR (Data Protection) innehåller många krav om att samla in, lagra och använda personliga information, inklusive hur organisationer identifiera och skydda personliga data, hantera krav, identifiera och rapportera personliga dataöverträdelser och träna sekretess personal och andra anställda. GDPR ger enskilda användare större kontroll över deras personliga data och inför många nya skyldigheter på organisationer som samlar in, hantera eller analysera personliga data. Dataskyddsförordningen inför nya regler för organisationer som erbjuder varor och tjänster till personer i Europeiska unionen (EU) eller att samla in och analysera data som EU invånare. Dataskyddsförordningen gäller oavsett var det finns en organisation.
 
-Microsoft har utformat Azure med branschledande säkerhetsåtgärder och sekretesspolicyer för att skydda data i molnet, inklusive kategorierna av personuppgifter som identifieras av GDPR. Microsofts [avtalsvillkor](http://aka.ms/Online-Services-Terms) genomför Microsoft till kraven i processorer.
+Microsoft har utformat Azure med branschledande säkerhetsåtgärder och sekretesspolicyer för att skydda data i molnet, inklusive kategorierna av personuppgifter som identifieras av GDPR. Microsofts [avtalsvillkor](https://aka.ms/Online-Services-Terms) genomför Microsoft till kraven i processorer.
 
 Den här Azure Blueprint för säkerhet och efterlevnad ger vägledning för att distribuera en infrastruktur som en tjänst (IaaS)-miljö som är lämplig för ett enkelt webbprogram mot Internet. Den här lösningen visar sätt där kunder kan uppfylla specifika krav på säkerhet och efterlevnad av Dataskyddsförordningen och fungerar som en grund för kunder att skapa och konfigurera sina egna program webblösningar IaaS i Azure. Kunder kan använda denna Referensarkitektur och följa Microsofts [fyra steg](https://aka.ms/gdprebook) i sin resa till GDPR-efterlevnad:
 1. Identifiera: Identifiera vilka personliga data finns och var den finns.

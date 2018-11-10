@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: garye
-ms.openlocfilehash: cd08f6a31f431900a2cb7ed9ed222409f9583b55
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 32c7fca1b56e5426bc422b816279dd0919599f0f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393379"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244009"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Facit för en automatiserad datapipeline för Azure Machine Learning-förutsägelser
 Den **Microsoft Azure Machine Learning automated data pipeline-facit** kan du navigera genom den teknik som du kan använda för att få dina data till din Machine Learning-webbtjänsten där det kan mätas genom dina förutsägande analys modell.
@@ -31,7 +31,7 @@ Den här lathunden vägleder dig genom de beslut som du behöver göra och ger l
 ## <a name="download-the-machine-learning-automated-data-pipeline-cheat-sheet"></a>Ladda ned facit för Machine Learning automatiserade pipeline
 När du har hämtat facit kan du skriva ut det i tabloidformat (11 x 17 tum).
 
-Ladda ned här facit:  **[Microsoft Azure Machine Learning automatiserad pipeline-facit för data](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
+Ladda ned här facit:  **[Microsoft Azure Machine Learning automatiserad pipeline-facit för data](https://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
 
 ![Översikt över funktioner i Microsoft Azure Machine Learning Studio][op-cheat-sheet]
 

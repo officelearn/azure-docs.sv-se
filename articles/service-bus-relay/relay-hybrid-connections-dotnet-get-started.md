@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: spelluru
-ms.openlocfilehash: 1ed401f6175d7ebea83a888898221d345791bc34
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 2e6119ae4565e0474da12d67c7a7b594cda68977
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697966"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248664"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Komma igång med Azure Relay-hybridanslutningar med Websockets i .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -38,7 +38,7 @@ Hybridanslutningar kräver både en klient- och en serverkomponent. I den här s
 
 För att slutföra den här självstudien, finns följande förhandskrav:
 
-* [Visual Studio 2015 eller senare](http://www.visualstudio.com). I exemplen i den här självstudiekursen används Visual Studio 2017.
+* [Visual Studio 2015 eller senare](https://www.visualstudio.com). I exemplen i den här självstudiekursen används Visual Studio 2017.
 * En Azure-prenumeration.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]

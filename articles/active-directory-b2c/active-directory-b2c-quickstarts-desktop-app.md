@@ -8,94 +8,77 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 2/13/2018
+ms.date: 10/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: af4fe8ce4d9f5584241b56762ddf9c60aa28f0ba
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: b018872eb1bd8575004fc50124c8ab8b77564b15
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293378"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247580"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Snabbstart: Konfigurera inloggning för en skrivbordsapp med Azure Active Directory B2C 
 
-Azure Active Directory (AD Azure) B2C tillhandahåller identitetshantering i molnet för att skydda dina program, ditt företag och dina kunder. Med Azure AD B2C kan appar autentisera med konton på sociala medier och företagskonton med öppna protokoll.
-
-I den här snabbstarten använder du ett Azure AD B2C-aktiverat exempel på en Windows Presentation Foundation-skrivbordsapp (WPF) för att logga in med en social identitetsprovider och anropa en Azure AD B2C-skyddad webb-API.
+Azure Active Directory (AD Azure) B2C tillhandahåller identitetshantering i molnet för att skydda dina program, ditt företag och dina kunder. Med Azure AD B2C kan program autentisera med konton på sociala medier och företagskonton med öppna protokoll. I den här snabbstarten använder du ett Windows Presentation Foundation-skrivbordsprogram (WPF) för att logga in med en social identitetsprovider och anropa ett Azure AD B2C-skyddat webb-API.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/) med arbetsbelastningen **ASP.NET och webbutveckling**. 
-* Ett konto från ett socialt medium, till exempel Facebook, Google, Microsoft eller Twitter.
+- [Visual Studio 2017](https://www.visualstudio.com/downloads/) med arbetsbelastningen **ASP.NET och webbutveckling**. 
+- Ett konto från ett socialt medium, till exempel Facebook, Google, Microsoft eller Twitter.
+- [Ladda ned en zip-fil](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip) eller klona exempelwebbappen från GitHub.
 
-## <a name="download-the-sample"></a>Hämta exemplet
+    ```
+    git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git
+    ```
 
-[Ladda ned en zip-fil](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip) eller klona exempelwebbappen från GitHub.
+## <a name="run-the-application-in-visual-studio"></a>Köra programmet i Visual Studio
 
-```
-git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git
-```
+1. I exempelprogrammets projektmapp öppnar du lösningen **active-directory-b2c-wpf.sln** i Visual Studio.
+2. Tryck på **F5** för att felsöka programmet.
 
-## <a name="run-the-app-in-visual-studio"></a>Kör appen i Visual Studio
+## <a name="sign-in-using-your-account"></a>Logga in med ditt konto
 
-Öppna `active-directory-b2c-wpf.sln`-lösningen i Visual Studio i exempelprogrammets projektkatalog.
+1. Klicka på **Logga in** för att starta arbetsflödet **Registrera sig eller logga in**.
 
-Tryck på **F5** för att felsöka programmet.
+    ![Exempelprogram](media/active-directory-b2c-quickstarts-desktop-app/wpf-sample-application.png)
 
-## <a name="create-an-account"></a>Skapa ett konto
+    Exemplet stöder flera registreringsalternativ, till exempel att använda en social identitetsprovider eller att skapa ett lokalt konto med en e-postadress. För den här snabbstarten använder du ett konto från ett socialt medium, till exempel Facebook, Google, Microsoft eller Twitter. 
 
-Klicka på **Logga in** för att starta arbetsflödet **Registrera dig eller logga in** baserat på en princip för Azure AD B2C.
 
-![Exempelprogram](media/active-directory-b2c-quickstarts-desktop-app/wpf-sample-application.png)
-
-Exemplet stöder flera registreringsalternativ, till exempel att använda en social identitetsprovider eller att skapa ett lokalt konto med en e-postadress. För den här snabbstarten använder du ett konto från ett socialt medium, till exempel Facebook, Google, Microsoft eller Twitter. 
-
-### <a name="sign-up-using-a-social-identity-provider"></a>Registrera dig med en social identitetsprovider
-
-Azure AD B2C visar en anpassad inloggningssida för ett fiktivt varumärke som kallas Wingtip Toys för exempelwebbappen. 
-
-1. Klicka på knappen för den identitetsprovider som du vill använda för att registrera dig med en social identitetsprovider. 
+2. Azure AD B2C visar en anpassad inloggningssida för ett fiktivt varumärke som kallas Wingtip Toys för exempelwebbappen. Klicka på knappen för den identitetsprovider som du vill använda för att registrera dig med en social identitetsprovider. 
 
     ![Inloggnings- eller registreringsprovider](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-wpf.png)
 
     Du autentiserar dig (loggar in) med autentiseringsuppgifterna för ditt sociala konto och ger behörighet till programmet att läsa information från det sociala kontot. När du beviljar åtkomst kan programmet hämta profilinformation från det sociala kontot, till exempel ditt namn och din ort. 
 
-2. Avsluta inloggningsprocessen för identitetsprovidern. Om du till exempel väljer Twitter anger du dina autentiseringsuppgifter för Twitter och klickar på **Logga in**.
+2. Avsluta inloggningsprocessen för identitetsprovidern.
 
-    ![Autentisera och auktorisera användare med ett socialt konto](media/active-directory-b2c-quickstarts-desktop-app/twitter-authenticate-authorize-wpf.png)
-
-    Dina profiluppgifter för det nya kontot fylls i automatiskt med information från det sociala kontot. 
-
-3. Ändra informationen om du vill och klicka på **Fortsätt**. De värden som du anger används för din Azure AD B2C-användarprofil.
-
-    ![Nya profiluppgifter vid kontoregistrering](media/active-directory-b2c-quickstarts-desktop-app/new-account-sign-up-profile-details-wpf.png)
-
-    Du har skapat ett nytt Azure AD B2C-användarkonto som använder en identitetsprovider. Efter inloggningen visas åtkomsttoken i textrutan *Tokeninformation*. Denna åtkomsttoken används vid åtkomst till API-resursen.
+    Dina profiluppgifter för det nya kontot fylls i automatiskt med information från det sociala kontot.
 
 ## <a name="edit-your-profile"></a>Redigera din profil
 
-Azure Active Directory B2C tillhandahåller funktioner som gör det möjligt för användare att uppdatera sina profiler.  Exempelwebbappen använder en Azure AD B2C-princip för att redigera profiler för arbetsflödet. 
+Azure AD B2C tillhandahåller funktioner som gör det möjligt för användare att uppdatera sina profiler. Exempelwebbappen använder en Azure AD B2C-princip för att redigera profiler för arbetsflödet. 
 
-1. Klicka på **Redigera profil** för att redigera den profil som du skapade.
+1. På programmets menyrad klickar du på **Redigera profil** för att redigera den profil som du skapade.
 
     ![Redigera profil](media/active-directory-b2c-quickstarts-desktop-app/edit-profile-wpf.png)
 
 2. Välj den identitetsprovider som är associerad med kontot som du skapade. Om du exempelvis använde Twitter som identitetsprovider när du skapade ditt konto, väljer du Twitter om du vill ändra den tillhörande profilinformationen.
 
-3. Ändra ditt **Visningsnamn** eller **Stad** och klicka på **Fortsätt**.
+3. Ändra ditt **Visningsnamn** eller **Stad** och klicka sedan på **Fortsätt**.
 
     En ny åtkomsttoken visas i textrutan *Tokeninformation*. Om du vill kontrollera ändringarna i din profil, kan du kopiera och klistra in åtkomsttoken i tokenavkodaren https://jwt.ms.
 
-## <a name="access-a-protected-web-api-resource"></a>Få åtkomst till en skyddad webb-API-resurs
+## <a name="access-a-protected-api-resource"></a>Få åtkomst till en skyddad API-resurs
 
-Klicka på **Anropa API** för att göra en begäran om den Azure AD B2C-skyddade resursen. 
+Klicka på **Anropa API** för att göra en begäran om den skyddade resursen. 
 
-![Anropa API](media/active-directory-b2c-quickstarts-desktop-app/call-api-wpf.png)
+    ![Call API](media/active-directory-b2c-quickstarts-desktop-app/call-api-wpf.png)
 
-Programmet innehåller Azure AD-åtkomsttoken i begäran till den skyddade web-API-resursen. Webb-API:n skickar tillbaka det visningsnamn som ingår i åtkomsttoken.
+    The application includes the Azure AD access token in the request to the protected web API resource. The web API sends back the display name contained in the access token.
 
 Du har använt ditt Azure AD B2C-användarkonto för att utföra ett auktoriserat anrop till ett Azure AD B2C-skyddat webb-API.
 
@@ -105,7 +88,9 @@ Du kan använda Azure AD B2C-klientorganisationen om du vill prova andra snabbst
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nästa steg är att skapa din egen Azure AD B2C-klientorganisation och konfigurera exemplet som ska köras med hjälp av klientorganisationen. 
+I den här snabbstarten använde du ett exempelskrivbordsprogram för att logga in med en anpassad inloggningssida, logga in med en social identitetsprovider, skapa ett Azure AD B2C-konto och anropa ett Azure AD B2C-skyddat webb-API. 
+
+Kom igång med att skapa en egen Azure AD B2C-klientorganisation. 
 
 > [!div class="nextstepaction"]
 > [Skapa en Azure Active Directory B2C-klientorganisation i Azure-portalen](tutorial-create-tenant.md)

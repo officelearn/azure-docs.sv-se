@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: cf9c56fa2ba75dc5b5ad4af59d111a0124f1a9df
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ff3dde8ac95b678866ba6f5216ba23357b067765
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057335"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415890"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>Felsöka API:er med hjälp av spårning av förfrågningar
 
@@ -34,18 +34,19 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
++ Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 + Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
 + Slutför även följande självstudie: [Importera och publicera ditt första API](import-and-publish.md).
 
 ## <a name="trace-a-call"></a>Spåra ett anrop
 
+![API-spårning](media/api-management-howto-api-inspector/06-DebugYourAPIs-01-TraceCall.png)
+
 1. Välj **API:er**.
 2. Klicka på **Demo Conference API** i API-listan.
-3. Välj åtgärden **GetSpeakers**.
-4. Växla till fliken **Test**.
+3. Växla till fliken **Test**.
+4. Välj åtgärden **GetSpeakers**.
 5. Se till att ta med HTTP-huvudet med namnet **Ocp-Apim-Trace** med värdet satt till **true**.
-
-    ![API-spårningsrubrik](media/api-management-howto-api-inspector/api-management-tracing-header.png)
 
     > [!NOTE]
     > Om Ocp-Apim-Subscription-Key inte fylls i automatiskt kan du hämta den genom att gå till Utvecklarportalen och exponera nycklarna på profilsidan.
@@ -57,9 +58,9 @@ I den här guiden får du lära dig att:
     Under **inkommande** kan du se den ursprungliga begäran som API Management fick från anroparen och alla principer som tillämpas på begäran, inklusive hastighetsbegränsning och angivet sidhuvud som lades till i steg 2.
 
     Under **serverdelen** visas de förfrågningar som API Management skickade till serverdelen för API:et och svaret den fick.
-    
+
     Under **utgående** visas alla principer som tillämpas på svaret innan det skickas tillbaka till anroparen.
- 
+
     > [!TIP]
     > Alla steg visar också hur lång tid det tog efter att begäran togs emot av API Management.
 

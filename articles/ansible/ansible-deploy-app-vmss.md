@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: 3512cb7eda9f9e5a6e18dc83f6523029b17a9de2
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: c1e38064e8abe53c96a70fb189b3d9e4cc4bc4e4
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391478"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414003"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Distribuera program till skalningsuppsättningar för virtuella datorer i Azure med Ansible
 Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan distribuera program till Azure med Ansible. I den här artikeln får du se hur du distribuerar ett Java-program till en Azure VM-skalningsuppsättning (VMSS).  
@@ -23,7 +23,7 @@ Med Ansible kan du automatisera distributionen och konfigurationen av resurser i
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 - **VM-skalningsuppsättning** – Om du inte redan har en VM-skalningsuppsättning kan du [skapa en VM-skalningsuppsättning med Ansible](ansible-create-configure-vmss.md). 
 - **git** - [git](https://git-scm.com) används för att ladda ned ett Java-exempel som används in den här självstudien.
-- **Java SE Development Kit (JDK)** – JDK-paketet används till att skapa Java-exempelprojektet.
+- **Java SE Development Kit (JDK)** – [JDK](https://aka.ms/azure-jdks) används till att skapa Java-exempelprojektet.
 - **Genereringsverktyg för Apache Maven** –[Genereringsverktygen för Apache Maven](https://maven.apache.org/download.cgi) används för att skapa Java-exempelprojektet.
 
 > [!Note]

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 37498394bc163852d397337cf5728b4941ae45a7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d264160fb3f1c14db3379a314e60efdadb6905b5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956514"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210422"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>Vad är rollbaserad åtkomstkontroll (Role-based access control, RBAC)?
 
@@ -54,7 +54,7 @@ En *säkerhetsobjekt* är ett objekt som representerar en användare, en grupp e
 
 ![Säkerhetsobjekt för en rolltilldelning](./media/overview/rbac-security-principal.png)
 
-- Användare – en person som har en profil i Azure Active Directory. Du kan även tilldela roller till användare i andra klientorganisationer. Information om användare i andra organisationer finns i [Azure Active Directory B2B](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- Användare – en person som har en profil i Azure Active Directory. Du kan även tilldela roller till användare i andra klientorganisationer. Information om användare i andra organisationer finns i [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
 - Grupp – en uppsättning användare som skapas i Azure Active Directory. När du tilldelar en roll till en grupp får alla användare i gruppen den rollen. 
 - Tjänstens huvudnamn – en säkerhetsidentitet som används av program eller tjänster för att få åtkomst till specifika Azure-resurser. Du kan se det som en *användaridentitet* (användarnamn och lösenord eller certifikat) för ett program.
 
@@ -130,3 +130,4 @@ Följande är de övergripande stegen som RBAC använder för att avgöra om du 
 - [Snabbstart – Bevilja åtkomst för en användare med RBAC och Azure Portal](quickstart-assign-role-user-portal.md)
 - [Hantera åtkomst med hjälp av RBAC och Azure-portalen](role-assignments-portal.md)
 - [Förstå de olika rollerna i Azure](rbac-and-directory-admin-roles.md)
+- [Enterprise Cloud Adoption: Hantering av resursåtkomst i Azure](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)

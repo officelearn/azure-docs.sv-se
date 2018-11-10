@@ -14,17 +14,17 @@ ms.devlang: php
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: b812d60363ffebf1f4374b6fd44dff5e67497e08
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: cf7dd8b111683a3b5b2f0a9f371c08ffb788fe58
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42057637"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241080"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Hur du använder Notification Hubs från PHP
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Du kan komma åt alla funktioner i Meddelandehubbar från en Ruby-Java/PHP-serverdel med Notification Hub REST-gränssnittet enligt beskrivningen i avsnittet om MSDN [Notification Hubs REST API: er](http://msdn.microsoft.com/library/dn223264.aspx).
+Du kan komma åt alla funktioner i Meddelandehubbar från en Ruby-Java/PHP-serverdel med Notification Hub REST-gränssnittet enligt beskrivningen i avsnittet om MSDN [Notification Hubs REST API: er](https://msdn.microsoft.com/library/dn223264.aspx).
 
 I det här avsnittet visar vi hur du:
 
@@ -32,7 +32,7 @@ I det här avsnittet visar vi hur du:
 * Följ den [komma igång-självstudiekurs](notification-hubs-ios-apple-push-notification-apns-get-started.md) för din mobil plattform, implementera backend-delen i PHP.
 
 ## <a name="client-interface"></a>Klientgränssnitt
-Viktigaste användargränssnittet kan tillhandahålla samma metoder som är tillgängliga i den [.NET Notification Hubs SDK](http://msdn.microsoft.com/library/jj933431.aspx), kan du direkt översätta alla självstudier och exempel som är för närvarande tillgängligt på den här webbplatsen vilket som tillförts av den Community på internet.
+Viktigaste användargränssnittet kan tillhandahålla samma metoder som är tillgängliga i den [.NET Notification Hubs SDK](https://msdn.microsoft.com/library/jj933431.aspx), kan du direkt översätta alla självstudier och exempel som är för närvarande tillgängligt på den här webbplatsen vilket som tillförts av den Community på internet.
 
 Du kan hitta all kod som är tillgängliga i den [Exempel för PHP-REST-omslutning].
 
@@ -49,7 +49,7 @@ Så här skickar en iOS systemspecifika meddelanden:
 Om du inte redan gjort det, följ den [Självstudier för att komma igång] upp till den senaste avsnitt där du måste implementera backend-server.
 Om du vill att du kan också använda koden från den [Exempel för PHP-REST-omslutning] och gå direkt till den [i självstudiekursen](#complete-tutorial) avsnittet.
 
-All information du implementerar en fullständig REST-omslutning kan hittas på [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). I det här avsnittet beskriver vi PHP-implementeringen av de huvudsakliga steg som krävs för att få åtkomst till Notification Hubs REST-slutpunkter:
+All information du implementerar en fullständig REST-omslutning kan hittas på [MSDN](https://msdn.microsoft.com/library/dn530746.aspx). I det här avsnittet beskriver vi PHP-implementeringen av de huvudsakliga steg som krävs för att få åtkomst till Notification Hubs REST-slutpunkter:
 
 1. Parsa anslutningssträngen
 2. Generera autentiseringstoken
@@ -92,7 +92,7 @@ Här är den viktigaste klass som implementerar klienten, vars konstruktorn som 
 
 
 ### <a name="create-security-token"></a>Skapa säkerhetstoken
-Information om säkerhet token skapas finns [här](http://msdn.microsoft.com/library/dn495627.aspx).
+Information om säkerhet token skapas finns [här](https://msdn.microsoft.com/library/dn495627.aspx).
 Följande metod måste läggas till i **NotificationHub** klassen för att skapa en token baserat på URI: N för den aktuella begäran och de autentiseringsuppgifter som extraheras från anslutningssträngen.
 
     private function generateSasToken($uri) {
@@ -135,7 +135,7 @@ Låt oss först definiera en klass som representerar ett meddelande.
 
 Den här klassen är en behållare för en systemspecifika meddelanden text eller en uppsättning egenskaper i fallet med ett mall-meddelande och en uppsättning rubriker, som innehåller format (interna plattform eller mall) och plattformsspecifika egenskaper (till exempel Apple förfalloegenskapen och WNS rubriker).
 
-Referera till den [dokumentation för Notification Hubs REST API: er](http://msdn.microsoft.com/library/dn495827.aspx) och specifika meddelande plattformar format för alla tillgängliga alternativ.
+Referera till den [dokumentation för Notification Hubs REST API: er](https://msdn.microsoft.com/library/dn495827.aspx) och specifika meddelande plattformar format för alla tillgängliga alternativ.
 
 Som enda verktyg med den här klassen, vi skriva skicka Meddelandemetoder inuti den **NotificationHub** klass.
 

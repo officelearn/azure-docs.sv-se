@@ -1,22 +1,22 @@
 ---
-title: Skapa Hadoop-kluster med hjälp av mallar – Azure HDInsight
+title: Skapa Apache Hadoop-kluster med hjälp av mallar – Azure HDInsight
 description: Lär dig att skapa kluster för HDInsight med hjälp av Resource Manager-mallar
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 4cf516550e9f9852ec50981932c2df8f236d0358
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 4e5561c4846889f53723ed8df82d7c6268aee180
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961322"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241624"
 ---
-# <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Skapa Hadoop-kluster i HDInsight med hjälp av Resource Manager-mallar
+# <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Skapa Apache Hadoop-kluster i HDInsight med hjälp av Resource Manager-mallar
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 I den här artikeln får du lära dig flera olika sätt att skapa Azure HDInsight-kluster med Azure Resource Manager-mallar. Mer information finns i [distribuera ett program med Azure Resource Manager-mall](../azure-resource-manager/resource-group-template-deploy.md). Mer information om andra verktyg för att skapa klustret och funktioner, klickar du på flikväljaren överst i den här sidan eller se [kluster metoder för att skapa](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods).

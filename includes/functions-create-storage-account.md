@@ -1,8 +1,21 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 09/04/2018
+ms.author: glenga
+ms.openlocfilehash: cf8c6f07eb38487dd29624b15be3637536be92fc
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133565"
+---
 ## <a name="create-an-azure-storage-account"></a>Skapa ett Azure Storage-konto
 
-Funktioner använder ett allmänt konto i Azure Storage för att bevara tillstånd och annan information om dina funktioner. Skapa ett allmänt lagringskonto i resursgruppen du skapade med hjälp av [az storage-konto skapar](/cli/azure/storage/account#create) kommando.
+I funktioner används ett konto för generell användning i Azure Storage till att lagra status och annan information om dina funktioner. Skapa ett lagringskonto för generell användning i den resursgrupp som du skapade med hjälp av kommandot [az storage account create](/cli/azure/storage/account#create).
 
-Ersätta en globalt unik lagringskontonamnet där du ser i följande kommando i `<storage_name>` platshållare. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener.
+I följande kommando infogar du ett globalt unikt lagringskontonamn i stället för platshållaren `<storage_name>`. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener.
 
 ```azurecli-interactive
 az storage account create --name <storage_name> --location westeurope --resource-group myResourceGroup --sku Standard_LRS

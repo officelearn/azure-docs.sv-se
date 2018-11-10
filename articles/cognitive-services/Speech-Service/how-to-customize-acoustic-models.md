@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 81449889ae9218f2b59ea48f10c676dcee9aa8b1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 70fc9c34599f27eb5d67b79ef823f8037ae55ba9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466094"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215250"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Självstudie: Skapa en anpassad akustisk modell
 
@@ -53,7 +53,7 @@ En akustisk datamängd för att anpassa den akustiska modellen består av två d
 * Alla ljudfiler i datamängden bör lagras i ljudformatet WAV (RIFF).
 * Ljudet måste ha en samplingsfrekvens på 8 kilohertz (kHz) eller 16 kHz, och exempelvärdena ska lagras som okomprimerade, pulskodsmodulerade (PCM) 16-bitars heltal med tecken (short).
 * Endast ljudfiler med en kanal (mono) stöds.
-* Ljudfilerna måste vara mellan 100 mikrosekunder och 1 minut långa. Varje ljudfil ska helst börja och sluta med minst 100 mikrosekunders tystnad; mellan 500 mikrosekunder och 1 sekund är vanligt.
+* Ljudfilen kan vara mellan 100 mikrosekunder och en minut lång, men bör vara kring 10-12 sekunder. Varje ljudfil ska helst börja och sluta med minst 100 mikrosekunders tystnad; mellan 500 mikrosekunder och 1 sekund är vanligt.
 * Om du har bakgrundsljud i dina data rekommenderar vi att du även har några exempel med längre tystnadsperioder i dina data – till exempel ett par sekunder – före och/eller efter det talade innehållet.
 * Varje ljudfil bör bestå av ett enda uttryck – till exempel en enskild mening för diktering, en enskild fråga eller omgång av en dialog.
 * Varje ljudfil i datamängden ska ha ett unikt filnamn och filnamnstillägget .wav.
@@ -69,7 +69,7 @@ En akustisk datamängd för att anpassa den akustiska modellen består av två d
 | Samplingsfrekvens | 8 000 Hertz (Hz) eller 16 000 Hz |
 | Kanaler | 1 (mono) |
 | Samplingsformat | PCM, 16-bitars heltal |
-| Filens varaktighet | 0,1 sekunder < varaktighet < 60 sekunder |
+| Filens varaktighet | 0,1 sekunder < varaktighet < 12 sekunder | 
 | Tystnadsmarginal | > 0,1 sekunder |
 | Arkivformat | .zip |
 | Maximal arkivstorlek | 2 GB |

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 10/18/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: e8ca232f3c5664f69db800648b46abaf0822d6f1
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 092b6f2c3267a2c2cd2cc6304133134825bb7261
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458147"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230163"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Snabbstart: Skapa Azure Resource Manager-mallar genom att använda Visual Studio Code
 
@@ -81,15 +81,15 @@ Om du vill veta hur du redigerar en mall med Visual Studio Code lägger du till 
     }
     ```
 
-    Om du kopierade och klistrade in koden i Visual Studio Code kan du försöka att skriva elementet **värde** igen för att se intellisense-funktionerna för Resource Manager Tools-tillägget.
+    Om du kopierade och klistrade in koden i Visual Studio Code kan du försöka att skriva elementet **värde** igen för att se IntelliSense-funktionerna för Resource Manager Tools-tillägget.
 
-    ![Resource Manager template visual studio code intellisense](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
+    ![Resource Manager template visual studio code IntelliSense](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
 
 2. Välj **Arkiv** >**Spara** för att spara filen.
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-Det finns många metoder för att distribuera mallar.  I den här snabbstarten använder du Azure Cloud Shell. Cloud Shell kan användas med både Azure CLI och Azure PowerShell. 
+Det finns många metoder för att distribuera mallar.  I den här snabbstarten använder du Azure Cloud Shell. Cloud Shell kan användas med både Azure CLI och Azure PowerShell.
 
 1. Logga in på [Azure Cloud Shell](https://shell.azure.com).
 

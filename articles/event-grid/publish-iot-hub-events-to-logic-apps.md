@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 43b317cd9d1c9384a58e9d525fdd15d18eb63968
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: c91dad17016cd9619d2d42a3fcee04a7d14b5eab
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246644"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242527"
 ---
 # <a name="send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Skicka e-postmeddelanden om Azure IoT Hub-händelser med hjälp av Logic Apps
 
@@ -28,7 +28,7 @@ Den här artikeln går igenom en exempelkonfiguration som använder IoT Hub och 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Ett e-postkonto från valfri e-postleverantör som stöds av Azure Logic Apps, t.ex. Office 365 Outlook, Outlook.com eller Gmail. Det här e-postkontot används för att skicka händelsemeddelandena. En fullständig lista över Logic App-anslutningsprogram som stöds finns i [Översikt över anslutningsappar](https://docs.microsoft.com/connectors/)
-* Ett aktivt Azure-konto. Om du inte redan har ett konto kan du [skapa ett kostnadsfritt konto](http://azure.microsoft.com/pricing/free-trial/).
+* Ett aktivt Azure-konto. Om du inte redan har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 * En IoT-hubb i Azure. Om du inte redan har skapat en hubb läser du genomgången i [Kom igång med IoT Hub](../iot-hub/iot-hub-csharp-csharp-getstarted.md). 
 
 ## <a name="create-a-logic-app"></a>Skapa en logikapp

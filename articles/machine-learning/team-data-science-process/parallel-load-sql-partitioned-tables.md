@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: f87bc1d8140bea9ebb09e45d42b27e201b474026
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
-ms.translationtype: MT
+ms.openlocfilehash: dfb36cfba312d54d469b371f02820fd01da6dc7f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214350"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243428"
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Parallell massimport av data med SQL-tabeller för partition
 Det här dokumentet beskriver hur du skapar partitionerade tabeller för snabb parallell massimport av data till en SQL Server-databas. För inläsning av stordata/överföring till en SQL-databas, importerar data till SQL DB och efterföljande frågor kan förbättras genom att använda *partitionerade tabeller och vyer*. 
@@ -102,7 +102,7 @@ Mer information finns i [skapa partitionerade tabeller och index](https://msdn.m
 * [Ändra databasen](https://msdn.microsoft.com/library/bb522682.aspx) att ändra schemat för loggning av transaktionen till bulkloggad att minimera arbetet med att loggning, till exempel:
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
-* Starta import massåtgärder parallellt för att bearbeta för inläsning av data. Tips om vilket ger snabbare bulk import av big data till SQL Server-databaser finns [läsa in 1TB på mindre än 1 timme](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
+* Starta import massåtgärder parallellt för att bearbeta för inläsning av data. Tips om vilket ger snabbare bulk import av big data till SQL Server-databaser finns [läsa in 1TB på mindre än 1 timme](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
 
 Följande PowerShell-skript är ett exempel på parallella datainläsning med BCP.
 

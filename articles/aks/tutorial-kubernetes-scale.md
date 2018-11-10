@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 5ffe7b4c7830500e5eeeeb61c57730d9a0d9df47
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 4e2ba61ada16c922dc89d9d6c9aa6a0fce8b0941
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41924839"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414190"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Självstudie: Skala program i Azure Kubernetes Service (AKS)
 
@@ -71,7 +71,13 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Automatisk skalning av poddar
 
-Kubernetes har stöd för [horisontell autoskalning av poddar][kubernetes-hpa] så att antalet poddar i en distribution justeras beroende på CPU-användningen eller något annat mått du väljer. [Metrics Server][metrics-server] används för att tillhandahålla resursutnyttjande till Kubernetes. Om du vill installera Metrics Server klonar du GitHub-lagringsplatsen för `metrics-server` och installerar exempelresursdefinitionerna. Information om att visa innehållet i dessa YAML-definitioner finns på sidan om [Metrics Server för Kuberenetes 1.8+][metrics-server-github].
+Kubernetes har stöd för [horisontell autoskalning av poddar][kubernetes-hpa] så att antalet poddar i en distribution justeras beroende på CPU-användningen eller något annat mått du väljer. [Metrics Server][metrics-server] används för att förse Kubernetes resursutnyttjande och distribueras automatiskt i AKS-kluster i version 1.10 och högre. Om du vill se AKS-klusterversionen använder du kommandot [az aks show][az-aks-show], som visas i följande exempel:
+
+```azurecli
+az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
+```
+
+Om AKS-klustret är mindre än *1.10* installerar du Metrics Server, annars hoppar du över det här steget. Klona GitHub-lagringsplatsen för `metrics-server` och installera exempelresursdefinitionerna. Information om att visa innehållet i dessa YAML-definitioner finns på sidan om [Metrics Server för Kuberenetes 1.8+][metrics-server-github].
 
 ```console
 git clone https://github.com/kubernetes-incubator/metrics-server.git
@@ -112,7 +118,7 @@ Om du har skapat Kubernetes-klustret med kommandona i föregående självstudie 
 I följande exempel ökas antalet agentnoder till tre i Kubernetes-klustret med namn *myAKSCluster*. Det tar några minuter att slutföra kommandot.
 
 ```azurecli
-az aks scale --resource-group=myResourceGroup --name=myAKSCluster --node-count 3
+az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 ```
 
 Utdatan liknar följande:
@@ -160,3 +166,4 @@ Gå vidare till nästa självstudie och lär dig hur du uppdaterar program i Kub
 [aks-tutorial-update-app]: ./tutorial-kubernetes-app-update.md
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
 [azure-cli-install]: /cli/azure/install-azure-cli
+[az-aks-show]: /cli/azure/aks#az-aks-show

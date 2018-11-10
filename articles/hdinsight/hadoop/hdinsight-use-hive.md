@@ -3,19 +3,19 @@ title: Vad är Apache Hive och HiveQL - Azure HDInsight
 description: Apache Hive är ett data warehouse-system för Hadoop. Du kan fråga efter data som lagras i Hive med HiveQL, vilket liknar Transact-SQL. I det här dokumentet lär du dig hur du använder Hive och HiveQL med Azure HDInsight.
 keywords: hiveql, vad är hive, hadoop hiveql, hur du använder hive Läs hive, vad är hive
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 9f22766b0ecbaff027cf4b495624f892d4339d17
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 0401717da8c5548033bbbd7720bb1266646bbe48
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249373"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241114"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Vad är Apache Hive och HiveQL på Azure HDInsight?
 
@@ -70,7 +70,7 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 STORED AS TEXTFILE LOCATION '/example/data/';
 ```
 
-Hive även stöder anpassad **serialiserare/deserializers (SerDe)** för komplexa eller oregelbundet strukturerade data. Mer information finns i den [hur du använder en anpassad JSON-SerDe med HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx) dokumentet.
+Hive även stöder anpassad **serialiserare/deserializers (SerDe)** för komplexa eller oregelbundet strukturerade data. Mer information finns i den [hur du använder en anpassad JSON-SerDe med HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx) dokumentet.
 
 Mer information om filformat som stöds av Hive finns i den [manuell (för språk https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 
@@ -106,7 +106,7 @@ Hive kan också utökas via **användardefinierade funktioner (UDF)**. En UDF ka
 
 * [Använda en C#-användardefinierade funktion med Hive](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Lägga till en anpassad Hive användardefinierad funktion i HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [Lägga till en anpassad Hive användardefinierad funktion i HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
 * [Ett exempel Hive användardefinierad funktion för att konvertera datum/tid-format till Hive-tidsstämpel](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 

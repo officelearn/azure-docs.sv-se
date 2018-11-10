@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 3869d83ada1cbe0b234694b6acae88b6f68fc2dd
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
-ms.translationtype: MT
+ms.openlocfilehash: 04e2e32de90283da2563395f8b24dbb4b1dab888
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782285"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241767"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Använda Azure Data Lake Storage Gen2 förhandsversion med Azure HDInsight-kluster
 
@@ -49,13 +49,13 @@ Följande är några saker när du använder ett Azure Storage-konto med HDInsig
 * **Offentliga filer i storage-konton som inte är anslutna till ett kluster** exponera läsbehörighet till filer i filsystemet.
   
   > [!NOTE]
-  > Offentliga filsystem kan du hämta en lista över alla filer som är tillgängliga i filsystemet och få åtkomst till metadata. Offentliga filsystem kan du komma åt filer endast om du vet den exakta Webbadressen. Mer information finns i [begränsa åtkomsten till behållare och blobbar](http://msdn.microsoft.com/library/windowsazure/dd179354.aspx) (regler för behållare och blobbar fungerar samma för filer och file system).
+  > Offentliga filsystem kan du hämta en lista över alla filer som är tillgängliga i filsystemet och få åtkomst till metadata. Offentliga filsystem kan du komma åt filer endast om du vet den exakta Webbadressen. Mer information finns i [begränsa åtkomsten till behållare och blobbar](https://msdn.microsoft.com/library/windowsazure/dd179354.aspx) (regler för behållare och blobbar fungerar samma för filer och file system).
  
 * **Privata filsystem i storage-konton som inte är anslutna till ett kluster** tillåter inte åtkomst till filer i filsystemet såvida du inte definierar lagringskontot när du skickar WebHCat-jobben. Orsaker till den här begränsningen beskrivs senare i den här artikeln.
 
 De lagringskonton som definieras under skapandeprocessen och deras nycklar lagras i *%HADOOP_HOME%/conf/core-site.xml* på klusternoderna. Standardbeteendet för HDInsight är att använda de lagringskonton som definieras i den *core-site.xml* fil. Du kan ändra den här inställningen med [Ambari](../../hdinsight/hdinsight-hadoop-manage-ambari.md)
 
-Flera WebHCat-jobb, inklusive Hive, MapReduce, Hadoop-strömning och Pig, kan ha med sig en beskrivning av lagringskonton och metadata. (Den här metoden för närvarande fungerar för Pig med lagringskonton, men inte för metadata.) Mer information finns i [Använda ett HDInsight-kluster med alternativa lagringskonton och metastores](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
+Flera WebHCat-jobb, inklusive Hive, MapReduce, Hadoop-strömning och Pig, kan ha med sig en beskrivning av lagringskonton och metadata. (Den här metoden för närvarande fungerar för Pig med lagringskonton, men inte för metadata.) Mer information finns i [Använda ett HDInsight-kluster med alternativa lagringskonton och metastores](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
 ## <a id="benefits"></a>Fördelar med Azure Storage
 

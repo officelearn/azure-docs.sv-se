@@ -3,19 +3,19 @@ title: Kärnor för Jupyter notebook i Spark-kluster i Azure HDInsight
 description: Läs mer om PySpark och PySpark3 Spark kärnor för Jupyter-anteckningsbok som är tillgängliga med Azure HDInsight Spark-kluster.
 keywords: jupyter notebook i spark, jupyter spark
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: jasonh
-ms.openlocfilehash: 98c9f260b4be1e335e22b5c68a76e9ffb7316236
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.author: hrasheed
+ms.openlocfilehash: d3694d49256b9844f6e3a76ce83f53be4b42ca48
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697874"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006098"
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Kärnor för Jupyter notebook i Spark-kluster i Azure HDInsight 
 

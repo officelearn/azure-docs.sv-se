@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4b4f9bd1c7390d64a0db08b55bfb777498a10cb0
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 343264f90ecf067786db9c0096625b87b2dbd319
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382713"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51004416"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-azure-functions-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka Azure functions för Azure IoT Edge
 
@@ -74,7 +74,7 @@ Det finns fyra objekt inne i lösningen:
 
 ## <a name="develop-your-module"></a>Utveckla din modell
 
-Standard Azure Function-koden som medföljer lösningen finns i **moduler** > [Modulnamn] > **EdgeHubTrigger-Csharp** > **run.csx** . Modulen och filen deployment.template.json ställs in så att du kan skapa lösningen, push-överföra den till behållarregistret och distribuera den till en enhet för att börja testa utan att röra kod. Modulen är utformat för att helt enkelt ta indata från en källa (i det här fallet modulen tempSensor som simulerar data) och skicka det till IoT Hub. 
+Standard Azure Function-koden som medföljer lösningen finns i **moduler** > [Modulnamn] > **modulename.cs**. Modulen och filen deployment.template.json ställs in så att du kan skapa lösningen, push-överföra den till behållarregistret och distribuera den till en enhet för att börja testa utan att röra kod. Modulen är utformat för att helt enkelt ta indata från en källa (i det här fallet modulen tempSensor som simulerar data) och skicka det till IoT Hub. 
 
 När du är redo att anpassa Azure Function-mallen med din egen kod kan använda den [Azure IoT Hub SDK: er](../iot-hub/iot-hub-devguide-sdks.md) att skapa moduler adressen nyckeln måste för IoT-lösningar som säkerhet, hantering av enheter och tillförlitlighet. 
 
@@ -93,7 +93,7 @@ Kontrollera behållarstatus för i VS Code Docker explorer eller genom att köra
 
    ![Välj debug-konfiguration](./media/how-to-debug-csharp-function/select-debug-configuration.jpg)
 
-2. Navigera till `run.csx`. Lägg till en brytpunkt i funktionen.
+2. Navigera till `modulename.cs`. Lägg till en brytpunkt i funktionen.
 3. Välj **Starta felsökning** eller välj **F5**. Välj processen för att ansluta till.
 4. I VS Code felsökningsvyn visas variabler i den vänstra panelen. 
 

@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/13/2018
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7410dadabf9fda2eb36531991d1d7ff3c3747e2c
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7671a0a99e12463fcce5ff33fbcba7e8677dde05
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406525"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006202"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Typer av program som kan användas i Active Directory B2C
 
@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) B2C stöder autentisering för en mängd olika
 Alla program som använder Azure AD B2C måste registreras i din [Azure AD B2C-klient](active-directory-b2c-get-started.md) med hjälp av den [Azure-portalen](https://portal.azure.com/). Registreringen program samlar in och tilldelar värden, till exempel:
 
 * En **program-ID** som unikt identifierar ditt program.
-* En **omdirigerings-URI** som kan användas för att dirigera svar tillbaka till ditt program.
+* En **svars-URL** som kan användas för att dirigera svar tillbaka till ditt program.
 
 Varje begäran som skickas till Azure AD B2C anger en **princip**. En princip styr beteendet i Azure AD. Du kan också använda dessa slutpunkter för att skapa ytterst anpassningsbara användarupplevelser. Exempel på vanliga principer är registrerings-, inloggnings- och profilredigeringsprinciper. Om du inte är bekant med principer bör du lära dig om [det expanderbara principramverket](active-directory-b2c-reference-policies.md) för Azure AD B2C innan du fortsätter.
 
@@ -112,9 +112,9 @@ I det här flödet att programmet kör [principer](active-directory-b2c-referenc
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
-Azure AD-B2C stöder för närvarande inte följande typer av appar, men det är på gång. 
+### <a name="application-not-supported"></a>Program som inte stöds 
 
-### <a name="daemonsserver-side-applications"></a>Daemons från serversidan program
+#### <a name="daemonsserver-side-applications"></a>Daemons från serversidan program
 
 Program som innehåller tidskrävande processer eller som fungerar utan närvaron av en användare måste också ett sätt att komma åt skyddade resurser, till exempel webb-API: er. Dessa program kan autentisera och hämta token genom att använda programmets identitet (i stället för en användares delegerade identitet) och med hjälp av OAuth 2.0-klienten flödet. Klienten credential flow är inte samma som på räkning-flöde och på räkning-flöde inte ska användas för autentisering av server-till-server.
 
@@ -122,9 +122,60 @@ Program som innehåller tidskrävande processer eller som fungerar utan närvaro
 
 Om du vill konfigurera autentiseringsuppgifter klientflödet Se [Azure Active Directory v2.0- och OAuth 2.0-klient autentiseringsuppgifter flow](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). En lyckad autentisering resulterar i mottagandet av en token som är formaterade så att den kan användas av Azure AD som beskrivs i [tokenreferens för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
-
-### <a name="web-api-chains-on-behalf-of-flow"></a>Webb-API-länkar (On-Behalf-Of-flöde)
+#### <a name="web-api-chains-on-behalf-of-flow"></a>Webb-API-länkar (On-Behalf-Of-flöde)
 
 Många arkitekturer har ett webb-API som måste anropa ett annat underordnat webb-API, där både skyddas av Azure AD B2C. Det här scenariot är vanligt i interna klienter som har ett webb-API på serversidan. Detta anropar sedan en Microsoft-onlinetjänst som Azure AD Graph API.
 
 Det här scenariot med länkade webb-API:er kan användas genom en tilldelning av OAuth 2.0 JWT-ägarautentiseringsuppgifter, även kallat On-Behalf-Of-flöde.  Detta flöde är emellertid inte implementerat i Azure AD B2C.
+
+### <a name="reply-url-values"></a>Svars-URL-värden
+
+Appar som har registrerats med Azure AD B2C är för närvarande begränsade till en begränsad uppsättning svars-URL-värden. Svars-URL för webbprogram och tjänster måste börja med schemat `https` och alla svars-URL-värden måste dela en enda DNS-domän. Exempelvis kan du registrera ett webbprogram som har en av dessa svars-URL: er:
+
+`https://login-east.contoso.com`
+
+`https://login-west.contoso.com`
+
+Registreringssystemet jämför hela DNS-namnet på den befintliga svars-URL:en med DNS-namnet på den svars-URL som du lägger till. Begäran om att lägga till DNS-namnet misslyckas om något av följande villkor föreligger:
+
+- Hela DNS-namnet på den nya svars-URL:en motsvarar inte DNS-namnet på den befintliga svars-URL:en.
+- Hela DNS-namnet på den nya svars-URL:en är inte en underdomän till den befintliga svars-URL:en.
+
+Till exempel om appen har svars-URL:
+
+`https://login.contoso.com`
+
+Du kan lägga till data så här:
+
+`https://login.contoso.com/new`
+
+I det här fallet matchar DNS-namnet exakt. Du kan också göra detta:
+
+`https://new.login.contoso.com`
+
+I så fall måste du referera till DNS-underdomänen login.contoso.com. Om du vill ha en app som har login-east.contoso.com och login-west.contoso.com som svars-URL: er måste du lägga till dessa svars-URL: er i den här ordningen:
+
+`https://contoso.com`
+
+`https://login-east.contoso.com`
+
+`https://login-west.contoso.com`
+
+Du kan lägga till två senare eftersom de är underdomäner i den första reply-URL:en, contoso.com. 
+
+När du skapar mobila/interna program kan du definiera en **omdirigerings-URI** i stället för en **repetitionsattacker URL**. Det finns två viktiga överväganden när du väljer en omdirigerings-URI:
+
+- **Unik**: Schemat för omdirigerings-URI måste vara unikt för varje program. I det här exemplet `com.onmicrosoft.contoso.appname://redirect/path`, `com.onmicrosoft.contoso.appname` är schemat. Det här mönstret ska följas. Om två program delar samma schema, ser användaren ett **väljer app** dialogrutan. Inloggningen misslyckas om användaren gör ett felaktigt val.
+- **Fullständig**: Omdirigerings-URI måste ha ett schema och en sökväg. Sökvägen måste innehålla minst ett snedstreck efter domänen. Till exempel `//contoso/` fungerar och `//contoso` misslyckas. Se till att det finns några specialtecken som understreck i omdirigerings-URI.
+
+### <a name="faulted-apps"></a>Felaktig appar
+
+Azure AD B2C-program bör inte redigeras:
+
+- På andra programhanteringsportaler som den [Programregistreringsportalen](https://apps.dev.microsoft.com/).
+- Med Graph API eller PowerShell.
+
+Om du redigerar Azure AD B2C-program utanför Azure portal, blir en felaktig App och inte längre kan användas med Azure AD B2C. Du måste ta bort programmet och skapa det igen.
+
+Om du vill ta bort programmet går du till den [Programregistreringsportalen](https://apps.dev.microsoft.com/) och ta bort appen. Du måste vara ägare till appen (och inte bara en administratör för klienten) för att appen ska vara synlig.
+

@@ -7,5 +7,5 @@
 | Maximalt antal funktioner per jobb |60 |Det finns en hård gräns på 60 funktioner per Stream Analytics-jobb. |
 | Högsta antalet enheter för strömning per jobb |120 |Det finns en hård gräns på 120 enheter för strömning per Stream Analytics-jobb. |
 | Maximalt antal jobb per region |1500 |Varje prenumeration kan ha upp till 1500 jobb per geografisk region. |
-| Referensdatablob MB | 100 | Referensdatablobar får inte överskrida 100 MB var. |
+| Referensdatablob MB | 300 | Referensdatablobar får inte vara större än 300 MB. |
 

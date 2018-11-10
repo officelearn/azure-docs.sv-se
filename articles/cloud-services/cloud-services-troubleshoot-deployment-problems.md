@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 7f0e65b1de1df48603cab29148c7f4c6fb909714
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 348321592fc32f7dd77447c7217c7142f7ad9bd4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095005"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226948"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Felsök distributionsproblem med cloud service
 När du distribuerar ett program för molntjänstpaket till Azure kan du kan få information om hur du distribuerar från den **egenskaper** fönstret i Azure-portalen. Du kan använda informationen i det här fönstret för att felsöka problem med Molntjänsten och du kan lämna denna information till supporten för Azure när du öppnar en ny supportbegäran.
@@ -50,7 +50,7 @@ Tjänsten återställning sker automatiskt när Azure upptäcker problem noder o
 2. I den **egenskaper** rutan i Azure-portalen, granskar du informationen och avgöra om tjänståterställning uppstod under den tid som du såg i rollåteranvändning.
 
 Roller kommer också Papperskorgen ungefär en gång per månad under värd-OS och Gäst-OS-uppdateringar.  
-Mer information finns i bloggposten [rollen instansen startas om på grund av OS-uppgraderingar](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
+Mer information finns i bloggposten [rollen instansen startas om på grund av OS-uppgraderingar](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
 
 ## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>Problem: Det går inte att jag gör en VIP-växling och får ett felmeddelande
 En VIP-växling är inte tillåtet om en uppdatering av distribution pågår. Distribution av uppdateringar kan ske automatiskt när:
@@ -68,14 +68,14 @@ Om du vill ta reda på om en automatisk hindrar uppdatering dig från att utför
 ## <a name="problem-a-role-instance-is-looping-between-started-initializing-busy-and-stopped"></a>Problem: En rollinstans körs i en loop mellan startad, initierar, upptagen och Stoppad
 Det här tillståndet kan tyda på ett problem med programkoden, paketet eller konfigurationsfilen. I så fall kan du ska kunna se status ändra några minuters mellanrum och Azure-portalen kan stå något som liknar **återanvänder**, **upptagen**, eller **initierar**. Detta anger att det är något fel med det program som hindrar rollinstansen från att köras.
 
-Mer information om hur du felsöker för det här problemet finns i blogginlägget [Compute diagnostikdata i Azure PaaS](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) och [vanliga problem som gör att roller återvinns](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
+Mer information om hur du felsöker för det här problemet finns i blogginlägget [Compute diagnostikdata i Azure PaaS](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) och [vanliga problem som gör att roller återvinns](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
 ## <a name="problem-my-application-stopped-working"></a>Problem: Mitt program slutade fungera
 1. I Azure-portalen klickar du på rollinstansen.
 2. I den **egenskaper** rutan i Azure-portalen, ta hänsyn till följande för att lösa problemet:
    * Om rollinstansen nyligen har stoppats (du kan kontrollera värdet för **antal avbrutna**), det gick att uppdatera distributionen. Vänta med att se om rollinstansen återupptar fungerar på egen hand.
    * Om rollinstansen är **upptagen**, kontrollera din programkod för att se om den [StatusCheck](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.statuscheck) händelsen hanteras. Du kan behöva lägga till eller åtgärda kod som hanterar den här händelsen.
-   * Gå igenom diagnostiska data och felsökning i blogginlägget [Compute diagnostikdata i Azure PaaS](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+   * Gå igenom diagnostiska data och felsökning i blogginlägget [Compute diagnostikdata i Azure PaaS](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
 > [!WARNING]
 > Om du återanvänder din molntjänst återställa du egenskaperna för distributionen, effektivt Radera information för det ursprungliga problemet.
@@ -85,4 +85,4 @@ Mer information om hur du felsöker för det här problemet finns i blogginlägg
 ## <a name="next-steps"></a>Nästa steg
 Visa mer [felsökningsartiklar](https://docs.microsoft.com/azure/cloud-services/cloud-services-allocation-failures) för molntjänster.
 
-Om du vill lära dig mer om felsökning av problem med cloud service rollen genom att använda diagnostikdata för Azure PaaS-dator, se [Kevin Williamson bloggserie](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Om du vill lära dig mer om felsökning av problem med cloud service rollen genom att använda diagnostikdata för Azure PaaS-dator, se [Kevin Williamson bloggserie](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

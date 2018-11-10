@@ -3,23 +3,23 @@ title: Hantera enheter i ditt program med Azure IoT Central | Microsoft Docs
 description: Som operatör, Lär dig att hantera enheter i Azure IoT Central programmet.
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 01/21/2018
+ms.date: 11/02/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4b4ded86075e49277bca84f5261b6762b0f4fcae
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: dc241612149de5c4ea5c1d2e698741e77d429fc7
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737319"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51004892"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Hantera enheter i ditt program med Azure IoT Central
 
-Den här artikeln beskrivs hur du som en operatör att hantera enheter i Microsoft Azure IoT Central programmet. Som en operatör kan du:
+Den här artikeln beskrivs hur du som en operatör att hantera enheter i Azure IoT Central programmet. Som en operatör kan du:
 
-- Använd den **Explorer** att visa, lägga till och ta bort enheter som är anslutna till Azure IoT Central programmet.
+- Använd den **Device Explorer** att visa, lägga till och ta bort enheter som är anslutna till Azure IoT Central programmet.
 - Upprätthålla en uppdaterad förteckning över dina enheter.
 - Håll din enhetsmetadata uppdaterad genom att ändra de värden som lagras i egenskaperna för enheten.
 - Styra beteendet för dina enheter genom att uppdatera en inställning i en specifik enhet från den **inställningar** sidan.
@@ -28,11 +28,11 @@ Den här artikeln beskrivs hur du som en operatör att hantera enheter i Microso
 
 Visa en enskild enhet:
 
-1. Välj **Explorer** på den vänstra navigeringsmenyn. Här visas en lista över dina [enheten mallar](howto-set-up-template.md).
+1. Välj **Device Explorer** på den vänstra navigeringsmenyn. Här visas en lista över dina [enheten mallar](howto-set-up-template.md).
 
-1. Välj en **enheten mallen** i det vänstra fönstret.
+1. Välj en mall för enhet under mallar i det vänstra fönstret.
 
-1. I den högra rutan kan du se en lista över enheter som skapats med mallen för enheten. Välj en enskild enhet för att se den **enhetsinformation** för enheten:
+1. I rutan till höger på sidan Device Explorer kan du se en lista över enheter som skapats med mallen för enheten som visas nedan. Välj en enskild enhet att visa sidan med enhetsinformation för enheten:
 
     [![Enhetens informationssida](./media/howto-manage-devices/image1.png)](./media/howto-manage-devices/image1.png#lightbox)
 
@@ -40,7 +40,7 @@ Visa en enskild enhet:
 
 Lägga till en enhet till Azure IoT Central programmet:
 
-1. Välj **Explorer** på den vänstra navigeringsmenyn.
+1. Välj **Device Explorer** på den vänstra navigeringsmenyn.
 
 1. Välj mallen enhet som du vill skapa en enhet.
 
@@ -58,7 +58,7 @@ Om du vill ansluta stort antal enheter i ditt program, Azure IoT Central masseta
 
 Massinläsning registrerar enheter i ditt program:
 
-1. Välj **Explorer** på den vänstra navigeringsmenyn.
+1. Välj **Device Explorer** på den vänstra navigeringsmenyn.
 
 1. Välj enhet mallen som du vill massregistrera skapar enheterna på den vänstra panelen.
 
@@ -83,7 +83,7 @@ Om enheten importerar misslyckas, visas ett felmeddelande visas i rutnätet för
 **Kopplar enheter till en mall**
 
 Om du registrerar enheter genom att starta importen under **oassocierade enheter**, och sedan enheterna som har skapats utan någon enhetsassociering för mallen. Enheten måste vara associerad med en mall för att utforska data och annan information om enheten. Följ dessa steg om du vill associera enheter med en mall:
-1. Välj **Explorer** på den vänstra navigeringsmenyn.
+1. Välj **Device Explorer** på den vänstra navigeringsmenyn.
 1. I den vänstra panelen, väljer **oassocierade enheter**.
     [![Olänkade enheter](./media/howto-manage-devices/UnassociatedDevices1.png)](./media/howto-manage-devices/UnassociatedDevices1.png#lightbox)
 1. Välj de enheter som du vill associera med en mall.
@@ -100,7 +100,7 @@ Om du registrerar enheter genom att starta importen under **oassocierade enheter
 För att etablera enheter ansluter till IoT Central, behöver du anslutningssträngen för den enhet som har genererats av IoT Central. Du kan använda funktionen Exportera för att hämta anslutningssträngar och andra egenskaper för enheter i grupp från ditt program. Export skapar en CSV-fil med enhetens identitet, enhetsnamn och primär anslutningssträng för de valda enheterna.
 
 Massregistrera enheter för export från ditt program:
-1. Välj **Explorer** på den vänstra navigeringsmenyn.
+1. Välj **Device Explorer** på den vänstra navigeringsmenyn.
 
 1. Välj mallen enhet som du vill exportera enheterna på den vänstra panelen.
 
@@ -128,7 +128,7 @@ Massregistrera enheter för export från ditt program:
 
 Ta bort antingen en faktiska eller simulerade enhet från Azure IoT Central programmet:
 
-1. Välj **Explorer** på navigeringsmenyn.
+1. Välj **Device Explorer** på navigeringsmenyn.
 
 1. Välj mallen enhet på den enhet som du vill ta bort.
 
@@ -140,7 +140,7 @@ Ta bort antingen en faktiska eller simulerade enhet från Azure IoT Central prog
 
 Inställningar styr beteendet för en enhet. Med andra ord kan du ange indata till din enhet. Du kan visa och uppdatera enhetsinställningarna på den **enhetsinformation** sidan.
 
-1. Välj **Explorer** på navigeringsmenyn.
+1. Välj **Device Explorer** på navigeringsmenyn.
 
 1. Välj mallen enhet på den enhet som du vill ändra inställningarna.
 
@@ -154,15 +154,13 @@ Inställningar styr beteendet för en enhet. Med andra ord kan du ange indata ti
 
 Egenskaperna är enhetens metadata som hör till enheten, till exempel city och serienummer. Du kan visa och uppdatera egenskaperna på den **enhetsinformation** sidan.
 
-1. Välj **Explorer** på navigeringsmenyn.
+1. Välj **Device Explorer** på navigeringsmenyn.
 
 1. Välj mallen enhet på den enhet vars egenskaper du vill ändra.
 
 1. Välj den **egenskaper** fliken där du ser alla egenskaper.
 
-1. Ändra egenskaperna för att dina önskade värden. Du kan ändra flera egenskaper på samma gång och uppdatera dem på samma gång.
-
-1. Välj **uppdatering**.
+1. Ändra egenskaper för programmet till din önskade värden. Du kan ändra flera egenskaper på samma gång och uppdatera dem på samma gång. Välj **uppdatering**.
 
 > [!NOTE]
 > Du kan inte ändra värdet för _enhetsegenskaper_. Egenskaper för enhet sätts av enheten och är skrivskyddade i programmet Azure IoT Central.

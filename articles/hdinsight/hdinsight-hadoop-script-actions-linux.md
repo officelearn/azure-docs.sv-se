@@ -2,19 +2,19 @@
 title: Skriptåtgärdsutveckling med Linux-baserade HDInsight - Azure
 description: Lär dig hur du använder Bash-skript för att anpassa Linux-baserade HDInsight-kluster. Funktionen för åtgärden skriptet i HDInsight kan du köra skript under eller när klustret har skapats. Skript kan användas för att ändra inställningar för klustrets eller installera ytterligare programvara.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: jasonh
-ms.openlocfilehash: 9a10620e3a388fa47076afd54e1789607e5ca47e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: 90bba26bf1fd941085568cacd4d005f10eaed1b8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986259"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005401"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Skriptåtgärdsutveckling med HDInsight
 

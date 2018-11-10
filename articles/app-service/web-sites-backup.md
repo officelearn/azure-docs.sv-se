@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 44b4da7c293da0643fb88cc2de21433c6ea72c5c
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 8035a704a76d8f6287addff9c5503eb93f8e04fc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886412"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227849"
 ---
 # <a name="back-up-your-app-in-azure"></a>Säkerhetskopiera din app i Azure
 Funktionen för säkerhetskopiering och återställning i [Azure App Service](app-service-web-overview.md) kan du lätt skapa säkerhetskopior av appar manuellt eller enligt ett schema. Du kan återställa appen till en ögonblicksbild av ett tidigare tillstånd genom att skriva över den befintliga appen eller återställa till en annan app. 
@@ -155,7 +155,7 @@ Köra säkerhetskopieringar på samma sätt som du skulle göra det, [manuellt](
 ## <a name="how-backups-are-stored"></a>Hur säkerhetskopior lagras
 När du har gjort en eller flera säkerhetskopieringar för din app, säkerhetskopiorna som är synliga på den **behållare** i ditt storage-konto och din app. I storage-konto varje säkerhetskopiering består av en`.zip` -fil som innehåller den säkerhetskopierade data och en `.xml` -fil som innehåller ett manifest för den `.zip` filinnehåll. Du kan packa upp och bläddra bland dessa filer om du vill komma åt dina säkerhetskopior utan att faktiskt utföra en återställning för appen.
 
-Säkerhetskopian av databasen för appen lagras i roten på .zip-filen. För en SQL-databas, detta är en BACPAC-fil (utan filtillägget) och kan importeras. Om du vill skapa en SQL-databas utifrån BACPAC-export [importera en BACPAC-fil för att skapa en ny användardatabas](http://technet.microsoft.com/library/hh710052.aspx).
+Säkerhetskopian av databasen för appen lagras i roten på .zip-filen. För en SQL-databas, detta är en BACPAC-fil (utan filtillägget) och kan importeras. Om du vill skapa en SQL-databas utifrån BACPAC-export [importera en BACPAC-fil för att skapa en ny användardatabas](https://technet.microsoft.com/library/hh710052.aspx).
 
 > [!WARNING]
 > Ändra någon av filerna i din **websitebackups** behållare kan orsaka att säkerhetskopiera till blir ogiltiga och därför icke-återställningsbara.

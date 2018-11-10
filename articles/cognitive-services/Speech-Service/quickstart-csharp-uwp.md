@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 1c6e0521f37e85bcb3395de0ad1e9d463125e17f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 7b132ea9fea7591d32b693ef9c95acf7626c8fff
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469806"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218907"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i en UWP-app med hjälp av Speech SDK
 
@@ -70,7 +70,7 @@ Du behöver en prenumerationsnyckel för Speech-tjänsten för att slutföra den
 1. Följande utdatarad visas i Package Manager-konsolen.
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 1.0.1' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 1.1.0' to helloworld
    ```
 
 1. Eftersom programmet använder mikrofonen för talindata lägger du till funktionen **Mikrofon** i projektet. I Solution Explorer dubbelklickar du på **Package.appxmanifest** för att redigera programmanifestet. Sedan växlar du till fliken **Funktioner**, markerar kryssrutan för funktionen **Mikrofon** och sparar dina ändringar.

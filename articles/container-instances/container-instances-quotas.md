@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 02/27/2018
 ms.author: danlep
-ms.openlocfilehash: 427dd8bd4abb72e2750752d828e189921401e9e0
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 2694e8cdc4f1918aab36794804ff48f5a70b44be
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902366"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739693"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Kvoter och regional tillgänglighet för Azure Container Instances
 
@@ -30,9 +30,9 @@ Azure Container Instances är tillgängligt i följande regioner med angivna pro
 | -------- | -- | :---: | :-----------: |
 | USA, östra; Europa, norra; Europa, västra; USA, västra; USA, västra 2 | Linux | 4 | 14 |
 | Australien, östra; USA, östra 2; Asien, sydöstra | Linux | 2 | 7 |
-| Indien, centrala; USA, södra centrala | Linux | 2 | 3.5 |
+| Kanada, centrala; Indien, centrala; USA, södra centrala | Linux | 2 | 3.5 |
 | USA, östra; Europa, västra; USA, västra | Windows | 4 | 14 |
-| Australien, östra; Indien, centrala; USA, östra 2; Europa, norra; USA, södra centrala; Asien, sydöstra; USA, västra 2 | Windows | 2 | 3.5 |
+| Australien, östra; Kanada, centrala; Indien, centrala; USA, östra 2; Europa, norra; USA, södra centrala; Asien, sydöstra; USA, västra 2 | Windows | 2 | 3.5 |
 
 Containerinstanser som har skapats inom dessa resursgränser finns i mån av tillgång i distributionsregionen. Om en region har hög belastning kan du uppleva fel vid distribution av instanser. Du kan försöka lindra sådana distributionsfel genom att prova att distribuera instanser med lägre processor- och minnesinställningar. Du kan även prova att genomföra distributionen senare.
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 0ca9cf0ff75ea76cd2dc203fbdb37162ed1ace34
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: ad3deaad8c069cfb11bb0eb997d886807ecdb0f8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962766"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006506"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analysera dataanvändning i Log Analytics
 
@@ -58,7 +58,7 @@ Instrumentpanelen **Log Analytics usage** (Log Analytics-användning) innehålle
 3. Välj en arbetsyta som du skapade tidigare i listan med Log Analytics-arbetsytor.
 4. Välj **Användning och beräknade kostnader** i listan i det vänstra fönstret.
 5. På instrumentpanelen för **användning och beräknade kostnader** kan du ändra tidsintervallet genom att välja **Time: Last 24 hours** (Tid: Senaste 24 timmarna) och ändra tidsintervallet.<br><br> ![tidsintervall](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
-6. Öppna de blad för användningskategori som visar de områden som du är intresserad av. Välj ett blad och klicka sedan på ett objekt på det om du vill visa mer information i [Loggsökning](log-analytics-log-search.md).<br><br> ![KPI för exempeldataanvändning](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
+6. Öppna de blad för användningskategori som visar de områden som du är intresserad av. Välj ett blad och klicka sedan på ett objekt på det om du vill visa mer information i [Loggsökning](log-analytics-queries.md).<br><br> ![KPI för exempeldataanvändning](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
 7. Granska resultaten som returneras från sökningen på instrumentpanelen Loggsökning.<br><br> ![exempel på loggsökning för användning](./media/log-analytics-usage/usage-log-search-01.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Skapa en avisering när datainsamlingen är högre än väntat
@@ -173,7 +173,7 @@ Klicka på **Visa alla...**  för att visa en fullständig lista över datorer s
 Använd [lösningsriktning](../monitoring/monitoring-solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer.
 
 ## <a name="next-steps"></a>Nästa steg
-* Se [Loggsökningar i Log analytics](log-analytics-log-search.md) för information om hur du använder sökspråket. Du kan använda sökfrågor för att utföra ytterligare analys på användningsdata.
+* Se [Loggsökningar i Log analytics](log-analytics-queries.md) för information om hur du använder sökspråket. Du kan använda sökfrågor för att utföra ytterligare analys på användningsdata.
 * Använd stegen som beskrivs i [Skapa en ny loggavisering](../monitoring-and-diagnostics/alert-metric.md) om du vill meddelas när ett sökvillkor har uppfyllts.
 * Använd [lösningsriktning](../monitoring/monitoring-solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer.
 * Om du vill konfigurera en effektiv princip för insamling av säkerhetshändelse kan du läsa [filtreringsprincipen för Azure Security Center](../security-center/security-center-enable-data-collection.md).

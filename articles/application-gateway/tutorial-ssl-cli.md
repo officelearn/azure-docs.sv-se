@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 7fa581610e007c583dfbad512f74ad335dc21a1e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3364df360926f2065af8650076e129de75934c1a
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974450"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741022"
 ---
 # <a name="tutorial-create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Självstudie: Skapa en programgateway med SSL-avslutning i Azure CLI
 
@@ -155,15 +155,17 @@ az vmss extension set \
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Du kan hämta den offentliga IP-adressen för programgatewayen med [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
+Du kan hämta den offentliga IP-adressen för programgatewayen med [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show).
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \
   --query [ipAddress] \
   --output tsv
 ```
+
+Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. I det här exemplet är URL:en **https://52.170.203.149**.
 
 ![Säkerhetsvarning](./media/tutorial-ssl-cli/application-gateway-secure.png)
 
@@ -180,14 +182,6 @@ az group delete --name myResourceGroupAG --location eastus
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-
-I den här självstudiekursen lärde du dig att:
-
-> [!div class="checklist"]
-> * Skapa ett självsignerat certifikat
-> * Konfigurera ett nätverk
-> * Skapa en programgateway med certifikatet
-> * Skapa en VM-skalningsuppsättning med serverdelens standardpool
 
 > [!div class="nextstepaction"]
 > [Skapa en programgateway som är värd för flera webbplatser](./tutorial-multiple-sites-cli.md)

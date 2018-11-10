@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: 3090dd9e0d9681dbf77f052e9d324f2add0a1910
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: ddbfdc9928122373b82d043fac0777576c5fe99e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215046"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227492"
 ---
 # <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Felsöka problem med Azure Site Recovery-agenten
 
@@ -64,7 +64,7 @@ VM-agenten kan vara skadad eller tjänsten har stoppats. Installera VM-agenten k
 1. Avgöra om den ”Windows Azure-gästagenttjänsten” körs i VM-tjänsterna (services.msc). Försök att starta om den ”Windows Azure-gästagenttjänsten”.    
 2. Om Windows Azure-gästagenttjänsten inte visas i tjänster på Kontrollpanelen, gå till **program och funktioner** att avgöra om tjänsten Windows-Gästagenten är installerad.
 4. Om Windows Azure-Gästagentversionen som visas i **program och funktioner**, avinstallera Windows-Gästagenten.
-5. Ladda ned och installera den [senaste versionen av agenten MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du måste ha administratörsbehörighet för att slutföra installationen.
+5. Ladda ned och installera den [senaste versionen av agenten MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du måste ha administratörsbehörighet för att slutföra installationen.
 6. Kontrollera att tjänsten Windows Azure-Gästagentversionen visas i tjänster.
 7. Starta om jobb för att skydda.
 

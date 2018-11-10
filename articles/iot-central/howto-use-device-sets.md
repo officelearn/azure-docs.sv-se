@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 28706ad77f48ae826b621ebdd920d26f3b87178a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a5dd018197ff78ff0563349fd941308c3684a456
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731996"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51004127"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Använd enhetsuppsättningar i Azure IoT Central programmet
 
-Den här artikeln beskrivs hur, som en operatör att använda enheten anger i programmet Microsoft Azure IoT Central.
+Den här artikeln beskrivs hur du som en operatör att använda enheten anger i programmets Azure IoT Central.
 
-En enhet är en lista över enheter som grupperas eftersom de alla matchar vissa angivna villkor. Enheten anger hjälpa dig att hantera, visualisera och analysera enheter i stor skala genom att gruppera enheter i mindre, logiska grupper. Exempelvis kan skapa du en lista över alla enheter som luftkonditionering i Seattle att aktivera Seattle-tekniker att hitta alla enheter som hon ansvarar. Den här artikeln visar hur du skapar och konfigurerar Enhetsuppsättningar.
+En enhet är en lista över enheter som grupperas eftersom de alla matchar vissa angivna villkor. Enheten anger hjälpa dig att hantera, visualisera och analysera enheter i stor skala genom att gruppera enheter i mindre, logiska grupper. Exempelvis kan skapa du en lista över alla enheter som luftkonditionering i Seattle att aktivera Seattle-tekniker att hitta alla enheter som teknikern ansvarar. Den här artikeln visar hur du skapar och konfigurerar Enhetsuppsättningar.
 
 ## <a name="create-a-device-set"></a>Skapa en enhetsuppsättning
 
@@ -73,7 +73,7 @@ När du skapar din enhetsuppsättning kan du konfigurera dess **instrumentpanele
         ![Välj rutnät](media/howto-use-device-sets/image8.png)
 
     1. Ge ditt rutnät en **rubrik**.
-    1. Markera kolumnerna som ska visas genom att välja inställningsknappen. Välj den kolumn som du vill ska visas och välj högerpilen för att välja den panelen som visas.
+    1. Markera kolumnerna som ska visas genom att välja **Lägg till/ta bort**. Välj den kolumn som du vill ska visas och välj högerpilen för att välja den panelen som visas.
     1. Välj **OK**.
     1. Välj **Spara**.
 
@@ -101,9 +101,10 @@ För att lägga till en platskarta till enheten som anger instrumentpanelen som 
 
 2. Ge en rubrik och Välj egenskapen location som du tidigare har konfigurerat som en del av din enhetsegenskap.
 3. Spara och du ser kartan panelen Visa platsen för dina enheter i enheten inställd.
-4. Nu när en operatör visar instrumentpanelen för enheten uppsättningar, hon kan se alla paneler har du konfigurerat inklusive plats karta som visualiserar enheter plats på ett ögonblick! 
+4. Nu när en operatör vyer enhetsuppsättningar instrumentpanelen, operatören kan se alla paneler som du har konfigurerat, inklusive plats karta som visualiserar enheter plats på ett ögonblick! 
     
-[!NOTE] Du kommer att kunna ändra storlek på kartan för att den har önskad storleken. När du klickar på en PIN-kod på kartan visas information om enhet, namn och plats. Du kan klicka på popup-fönstret att gå till egenskapssidan för enheten.  
+> [!NOTE] 
+> Du kommer att kunna ändra storlek på kartan för att den har önskad storleken. När du klickar på en PIN-kod på kartan visas information om enhet, namn och plats. Du kan klicka på popup-fönstret att gå till egenskapssidan för enheten.  
 
 
 ## <a name="configure-the-list-for-your-device-set"></a>Konfigurera en lista för din enhet

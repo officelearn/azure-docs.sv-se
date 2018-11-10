@@ -5,14 +5,14 @@ services: container-service
 author: seanmck
 ms.service: container-service
 ms.topic: troubleshooting
-ms.date: 09/13/2018
+ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: e29308b7b1c17377cf1d627f2a32a2ba6ea4d077
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 01095ac4ed8e362f1a89a53b10b5da6a547feb57
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314897"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218650"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Söker efter Kubernetes bästa praxis i ditt kluster
 
@@ -30,7 +30,7 @@ Den [kube-Analysverktyget för] [ kube-advisor-github] är en enskild behållare
 Att köra verktyget i ett kluster som har konfigurerats för [rollbaserad åtkomstkontroll (RBAC)](aad-integration.md), med hjälp av följande kommandon. Det första kommandot skapar ett Kubernetes-tjänstkonto. Det andra kommandot Kör verktyget i en pod med detta tjänstkonto och konfigurerar pod för borttagning när avslutas. 
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml?token=ABLLDrNcuHMro9jQ0xduCaEbpzLupzQUks5bh3RhwA%3D%3D
+kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
 
 kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"serviceAccountName\": \"kube-advisor\" } }"
 ```
@@ -60,7 +60,7 @@ Inga begäranden eller gränser är som standard på pod-specifikationer. Detta 
 Om klustret har RBAC aktiverad, du kan rensa den `ClusterRoleBinding` när du har kört verktyget med följande kommando:
 
 ```bash
-kubectl delete -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml?token=ABLLDrNcuHMro9jQ0xduCaEbpzLupzQUks5bh3RhwA%3D%3D
+kubectl delete -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
 ```
 
 Om du kör verktyget mot ett kluster som inte är RBAC-aktiverad, krävs ingen rensning.

@@ -5,20 +5,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 07/11/2018
+ms.date: 11/04/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 4a43966180850645584043690b1be9d6ae232f6e
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 037996385f34c5037e0386686e3bdf8dc1b7a37a
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027455"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219842"
 ---
-Zonredundant lagring (ZRS) replikerar dina data synkront i tre lagringskluster i en enda region. Varje lagringskluster är fysiskt avgränsade från de andra och ligger i sin egen tillgänglighetszon (AZ). Varje tillgänglighetszon och ZRS-klustret i denna är autonoma med olika verktyg och nätverksfunktioner.
+Zonredundant lagring (ZRS) replikerar dina data synkront i tre lagringskluster i en enda region. Varje lagringskluster är fysiskt avgränsade från de andra och finns i sin egen tillgänglighetszon (AZ). Varje tillgänglighetszon&mdash;och ZRS-klustret i den&mdash;är autonoma och inkluderar olika verktyg och funktioner.
 
-Lagra data i ett ZRS-konto säkerställer att du kan få åtkomst till och hantera dina data i händelse av att en zon blir otillgänglig. ZRS ger utmärkt prestanda och låg fördröjning. ZRS ger samma [skalbarhetsmål](../articles/storage/common/storage-scalability-targets.md) som [lokalt redundant lagring (LRS)](../articles/storage/common/storage-redundancy-lrs.md).
+När du lagrar dina data i ett lagringskonto med ZRS-replikering kan fortsätta du att komma åt och hantera dina data om en tillgänglighetszon blir otillgänglig. ZRS ger utmärkt prestanda och låg fördröjning. ZRS ger samma [skalbarhetsmål](../articles/storage/common/storage-scalability-targets.md) som [lokalt redundant lagring (LRS)](../articles/storage/common/storage-redundancy-lrs.md).
 
-Överväg ZRS för scenarier som kräver stark konsekvens, stark hållbarhet och hög tillgänglighet, även om ett avbrott eller en naturkatastrof återger ett zonindelad Datacenter inte tillgänglig. ZRS ger hållbarhet för lagringsobjekt på minst 99,9999999999% (12 9) under ett givet år.
+Överväg ZRS för scenarier som kräver konsekvens, hållbarhet och hög tillgänglighet. Även om ett avbrott eller en naturkatastrof visas med en tillgänglighetszon otillgänglig, ZRS ger hållbarhet för lagringsobjekt på minst 99,9999999999% (12 9) under ett givet år.
 
 Läs mer om tillgänglighetszoner [Tillgänglighetszoner översikt](https://docs.microsoft.com/azure/availability-zones/az-overview).

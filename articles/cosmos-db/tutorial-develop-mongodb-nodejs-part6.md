@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/17/2018
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: a1705913e1656901d0a87a3cebb2eb69a6c7ad63
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 667c1fbce398e06f9f2a6edca21935ae1062a737
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698595"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740578"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-post-put-and-delete-functions-to-the-app"></a>Skapa en MongoDB-app med Angular och Azure Cosmos DB – del 6: Lägga till Post-, Put- och Delete-funktioner till appen
 
@@ -88,13 +88,13 @@ Utför stegen i [del 5](tutorial-develop-mongodb-nodejs-part5.md) av självstudi
     });
     ```
 
-5. Kontrollera att allt fungerar som det ska genom att köra appen. Spara alla ändringar i Visual Studio Code, klicka på **Felsök** ![Felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png) till vänster och klicka sedan på **Starta felsökning** ![Ikonen Starta felsökning i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
+5. Kontrollera att allt fungerar som det ska genom att köra appen. Spara alla ändringar i Visual Studio Code, välj **Felsök** ![Felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png) till vänster och välj sedan **Starta felsökning** ![Ikonen Starta felsökning i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
 
 6. Gå tillbaka till webbläsaren och öppna fliken Nätverk under Utvecklarverktyg. På de flesta datorer trycker du på F12 för att göra det. Gå till [http://localhost:3000](http://localhost:3000) för att se alla anrop som gjorts i nätverket.
 
     ![Fliken Nätverk i Chrome som visar nätverksaktivitet](./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png)
 
-7. Lägg till en ny hero genom att klicka på knappen **Add New Hero** (Lägg till ny hero). Ange ID = "999", name = "Fred" och saying = "Hello" och klicka sedan på **Spara**. På fliken Nätverk kan du se att du har skickat en POST-begäran om en ny hero. 
+7. Lägg till en ny hero genom att välja knappen **Add New Hero** (Lägg till ny hero). Ange ID = "999", name = "Fred" och saying = "Hello" och välj sedan **Spara**. På fliken Nätverk kan du se att du har skickat en POST-begäran om en ny hero. 
 
     ![Fliken Nätverk i Chrome som visar nätverksaktivitet för Get- och Post-funktioner](./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png)
 
@@ -173,17 +173,17 @@ Utför stegen i [del 5](tutorial-develop-mongodb-nodejs-part5.md) av självstudi
     };
     ```
 
-4. Nu när vi har uppdaterat koden klickar du på **Starta om** ![Knappen Starta om i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png) i Visual Studio Code.
+4. Nu när vi har uppdaterat koden väljer du **Starta om** ![Knappen Starta om i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png) i Visual Studio Code.
 
-5. Uppdatera sidan i webbläsaren och klicka på knappen **Add New Hero** (Lägg till ny hero). Lägg till en ny hero med ID = "9", name = "Starlord" och saying = "Hi". Spara den nya hero-komponenten genom att klicka på **Spara**.
+5. Uppdatera sidan i webbläsaren och välj knappen **Add New Hero** (Lägg till ny hero). Lägg till en ny hero med ID = "9", name = "Starlord" och saying = "Hi". Välj den nya hero-komponenten genom att klicka på **Spara**.
 
-6. Välj hero-komponenten **Starlord**, ändra saying från "Hi" till "Bye" och klicka sedan på **Spara**. 
+6. Välj hero-komponenten **Starlord**, ändra saying från "Hi" till "Bye" och välj sedan knappen **Spara**. 
 
     Nu kan du visa nyttolasten genom att välja ID:t på fliken Nätverk. Som du ser i nyttolasten har saying nu värdet "Bye".
 
     ![Hero-app och fliken Nätverk som visar nyttolasten](./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png) 
 
-    Du kan också ta bort en av dessa hero-komponenter i användargränssnittet och se hur lång tid det tar att slutföra borttagningsåtgärden. Testa detta genom att klicka på knappen Delete för hero-komponenten med namnet Fred.
+    Du kan också ta bort en av dessa hero-komponenter i användargränssnittet och se hur lång tid det tar att slutföra borttagningsåtgärden. Testa detta genom att välja knappen Delete för hero-komponenten med namnet Fred.
 
     ![Hero-app och fliken Nätverk som visar hur lång tid det tar att slutföra funktionerna](./media/tutorial-develop-mongodb-nodejs-part6/times.png) 
 

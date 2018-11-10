@@ -8,16 +8,47 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 10/12/2018
+ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: b5e4d239121b2449a45dfce826c99765f1c3f4be
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e2c676932541866df081f6db54fa0b1ec4da7088
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471149"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218601"
 ---
 # <a name="release-notes"></a>Viktig information
+
+## <a name="speech-service-sdk-110"></a>Taltjänst-SDK 1.1.0
+
+**Nya funktioner**
+
+* Stöd för Android x86/x64.
+* Stöd för proxy: I SpeechConfig objektet kan du nu anropa en funktion för att ställa in proxyinformation (värdnamn, port, användarnamn och lösenord). Den här funktionen är ännu inte tillgänglig på iOS.
+* Förbättrad felkod och meddelanden. Om ett erkännande returneras ett fel detta redan inställt `Reason` (i avbrutna händelse) eller `CancellationDetails` (i igenkänningsresultatet) till `Error`. Avbrutna händelsen innehåller nu två ytterligare medlemmar `ErrorCode` och `ErrorDetails`. Om servern returnerade ytterligare felinformation med rapporterade fel, nu blir tillgängliga i de nya medlemmarna.
+
+**Förbättringar**
+
+* Lägga till ytterligare verifiering i Igenkännande konfigurationen och har lagts till ytterligare ett felmeddelande.
+* Förbättrad hantering av sedan länge tystnad i mitten av en ljudfil.
+* NuGet-paketet: för .NET Framework projekt för att förhindra att bygga med Platform konfiguration.
+
+**Felkorrigeringar**
+
+* Fasta flera undantag finns i identifierare. Dessutom är undantag påträffades och konverteras till avbruten händelse.
+* Åtgärda en minnesläcka i egenskapen management.
+* En bugg har åtgärdats där en inkommande ljudfil kan krascha identifieraren.
+* Ett fel har åtgärdats där händelser gick att ta emot när en session stop-händelse.
+* Fasta vissa konkurrenstillstånd i threading.
+* Fast en iOS kompatibilitetsproblem som kan resultera i en krasch.
+* Stabilitetsförbättringar för Android mikrofon support.
+* Ett fel har åtgärdats där en identifierare i JavaScript kan ignorera språket.
+* Åtgärdat en bugg som förhindrar att EndpointId (i vissa fall) i JavaScript.
+* Ändrade Parametrarnas ordning i AddIntent i JavaScript och har lagts till saknas AddIntent JavaScript-signaturen.
+
+**Exempel**
+
+* Lagt till C++-exempel för pull och push strömma användning i vår [exempellagringsplatsen](https://aka.ms/csspeech/samples).
 
 ## <a name="speech-service-sdk-101"></a>Taltjänst-SDK 1.0.1
 

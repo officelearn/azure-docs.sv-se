@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: cabc4f2212e18d774066efad70d9654bb70020d5
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 4035e93b8eed0a7bc1dd0cddbc42f41e9c26f333
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831508"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218873"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Snabbstart: Lägga till inloggning med Microsoft till en ASP.NET-webbapp
 
@@ -28,20 +28,32 @@ ms.locfileid: "48831508"
 
 I den här snabbstarten lär du dig hur en ASP.NET-webbapp kan logga in personliga konton (hotmail.com, outlook.com osv.) och arbets- och skolkonton från alla instanser av Active Directory (Azure AD).
 
-![Så här fungerar exempelappen som skapats med snabbstarten](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.png)
+![Så fungerar den exempelapp som genereras med den här snabbstarten](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.png)
 
 > [!div renderon="docs"]
-> ## <a name="register-your-application-and-download-your-quickstart-app"></a>Registrera appen och ladda ned snabbstartsappen
+> ## <a name="register-and-download-your-quickstart-app"></a>Registrera och ladda ned snabbstartsappen
+> Det finns två alternativ för att starta snabbstartsprogrammet:
+> * [Express] [Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * [Manuellt] [Alternativ 2: Registrera och konfigurera programmet och kodexemplet](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
-> ### <a name="register-and-configure-your-application-and-code-sample"></a>Registrera och konfigurera appen och kodexemplet
-> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera din app
-> 
-> 1. Gå till [Microsoft-portalen för appregistrering](https://apps.dev.microsoft.com/portal/register-app).
-> 1. Ange namnet på din app, kontrollera att alternativet **Guided Setup** (Interaktiv installation) är avmarkerat och klicka på **Create** (Skapa).
-> 1. Klicka på `Add Platform` och välj sedan `Web`.
-> 1. Kontrollera att **Allow Implicit Flow** (Tillåt implicit flöde) är *markerat*.
-> 1. I **Redirect URLs** (Omdirigerings-URL:er) anger du `https://localhost:44368/`.
-> 1. Rulla längst ned på sidan och klicka på **Spara**.
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel
+>
+> 1. Gå till [Azure-portalen – Programregistrering (förhandsversion)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs).
+> 1. Ange ett namn för ditt program och klicka på **Registrera**.
+> 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt med ett enda klick.
+>
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet manuellt
+>
+> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
+> Du registrerar programmet och lägger till appens registreringsinformationen i lösningen manuellt med hjälp av följande steg:
+>
+> 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+> 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
+> 1. I det vänstra navigeringsfönstret väljer du **Azure Active Directory**-tjänsten och sedan **Appregistreringar (förhandsversion)** > **Ny registrering**.
+> 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
+>      - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `ASPNET-Quickstart`.
+>      - Lägg till `https://localhost:44368/` i **Svars-URL** och klicka på **Registrera**.
+Välj **autentiseringsmenyn** och ange **ID-token** under **Implicit beviljande** och välj sedan **Spara**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Steg 1: Konfigurera din app i Azure-portalen
@@ -60,15 +72,23 @@ I den här snabbstarten lär du dig hur en ASP.NET-webbapp kan logga in personli
 
 1. Extrahera zip-filen i en lokal mapp närmare rotkatalogen, till exempel **C:\Azure-Samples**
 1. Öppna lösningen i Visual Studio (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
-1. Redigera **Web.config** och ersätt `Enter_the_Application_Id_here` med program-ID från appen du precis har registrerat:
+1. Redigera **Web.config** och ersätt parametrarna `ClientId` och `Tenant` med:
 
     ```xml
     <add key="ClientId" value="Enter_the_Application_Id_here" />
+    <add key="Tenant" value="Enter_the_Tenant_Info_Here" />
     ```
-    
-> [!div class="sxs-lookup" renderon="portal"]
-> [!IMPORTANT]
-> Om appen är en *app för en innehavare* (och bara riktar in sig på konton i den här katalogen) i **Web.config**-filen letar du reda på värdet för `Tenant` och ersätter `common` med ditt **klientorganisations-ID** eller **klientorganisationsnamn** (t.ex. contoso.microsoft.com). Du kan hämta klientorganisationsnamnet på **översiktssidan**.
+
+> [!div renderon="docs"]
+> Där:
+> - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
+> - `Enter_the_Tenant_Info_Here` – är ett av alternativen nedan:
+>   - Om ditt program stöder **Endast min organisation** ska du ersätta värdet med **klient-Id** eller **klientnamn** (till exempel contoso.microsoft.com)
+>   - Om ditt program stöder **Konton i valfri organisationskatalog** ersätter du värdet med `organizations`
+>   - Om ditt program stöder **Alla Microsoft-kontoanvändare** ersätter du värdet med `common`
+>
+> > [!TIP]
+> > För att hitta värdena för *program-ID*, *katalog-ID (klient)* och *Kontotyper som stöds* går du till **översiktssidan**
 
 ## <a name="more-information"></a>Mer information
 

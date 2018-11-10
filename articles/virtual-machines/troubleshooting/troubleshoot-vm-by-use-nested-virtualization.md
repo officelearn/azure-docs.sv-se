@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 425aa26c07675d57de6892adb5792eb5573f94b1
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: c84d015da907c8792f09d1d60e6bc8eddb7e2957
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747991"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005606"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Felsöka ett problem virtuell Azure-dator med hjälp av kapslad virtualisering i Azure
 
@@ -101,7 +101,7 @@ Om du vill montera problemet VM måste Räddade VM uppfylla följande krav:
 
 11. Välj **koppla en virtuell hårddisk senare**.
 
-    ![bild som visar Anslut en virtuell hårddisk senare alternativet](/media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
+    ![bild som visar Anslut en virtuell hårddisk senare alternativet](media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
 
 12. Välj **Slutför** när den virtuella datorn skapas.
 
@@ -109,11 +109,11 @@ Om du vill montera problemet VM måste Räddade VM uppfylla följande krav:
 
 14. Välj **IDE-styrenhet 0**väljer **hårddisk**, och klicka sedan på **Lägg till**.
 
-    ![bild som visar lägger till ny hårddisk](/media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
+    ![bild som visar lägger till ny hårddisk](media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
 15. I **fysisk hårddisk**, Välj disken för problemet virtuell dator som du har kopplat till den virtuella Azure-datorn. Om du inte ser alla diskar som visas, kontrollerar du om disken sätts till offline med hjälp av Diskhantering.
 
-    ![bild som visar monterar disken](/media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
+    ![bild som visar monterar disken](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
 
 17. Tryck på **Tillämpa** och välj sedan **OK**.
@@ -130,11 +130,11 @@ Om du vill montera problemet VM måste Räddade VM uppfylla följande krav:
 
 3.  Gå till **alla resurser**, Sök efter namnet på disken och sedan väljer du disken.
 
-     ![bild som visar söker disken](/media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
+     ![bild som visar söker disken](media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
 
 4. Klicka på **Skapa virtuell dator**.
 
-     ![bild som visar skapar virtuell dator från disken](./media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
+     ![bild som visar skapar virtuell dator från disken](media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
 
 Du kan också använda Azure PowerShell för att skapa den virtuella datorn från disken. Mer information finns i [skapa den nya virtuella datorn från en befintlig disk med hjälp av PowerShell](../windows/create-vm-specialized.md#create-the-new-vm). 
 

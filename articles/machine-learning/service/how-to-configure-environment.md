@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 11/6/2018
-ms.openlocfilehash: 8ce411e424d538a4a1f94300bfe5510658017f56
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.openlocfilehash: b95b62ab2c51fec93870e3f5593d53a599f3dad2
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238337"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218958"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 
@@ -98,19 +98,11 @@ Ett exempel på hur du använder Azure-datorer med Azure Machine Learning-tjäns
   - Integrated development Environment (IDE: er), till exempel PyCharm och RStudio
   - Paket som till exempel Jupyter Notebooks och Tensorflow
 
-DSVM levereras med miljöer med flera Anaconda redan installerad. Öppna en kommandotolk /-gränssnittet för att använda Azure Machine Learning Python SDK utan att installera eventuella paket, och Använd någon av följande kommandon för att aktivera miljön:
+DSVM levereras med miljöer med flera Anaconda redan installerad. Om du vill använda Azure Machine Learning Python SDK utan att installera eventuella paket, öppna ett kommandotolksfönster och aktivera följande miljö.
 
-* På den __Ubuntu__ DSVM, Använd det här kommandot:
-
-    ```shell
-    conda activate py36
-    ```
-
-* På den __Windows__ DSVM, Använd det här kommandot:
-
-    ```shell
-    conda activate AzureML
-    ```
+```shell
+conda activate AzureML
+```
 
 En gång i den här miljön kan du omedelbart importera SDK: T för Azure Machine Learning i build-verktyg som helst, utan att installera paketet.
 

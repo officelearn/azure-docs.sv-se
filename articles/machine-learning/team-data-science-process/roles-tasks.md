@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 3e0e9a59d7f77355077fc1f7781eb3be4dbe0532
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c245a844ae594f5d78b47a168ad5870f8aea10e9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296711"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227781"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Roller för team Data Science Process och uppgifter
 
@@ -66,7 +66,7 @@ Det här schemat och följande, mer detaljerad översikt över aktiviteter som �
 > [!NOTE]
 > I följande anvisningar visas hur du ställer in en TDSP-miljö och utföra andra data science-åtgärder i Azure DevOps. Vi anger du hur du utför dessa uppgifter med Azure DevOps eftersom det är vad vi använder för att implementera TDSP på Microsoft. Azure DevOps underlättar samarbete genom att integrera hanteringen av arbetsobjekt som spårar aktiviteter och en värdtjänst för kod som används för att dela verktyg, ordna versioner och tillhandahålla rollbaserad säkerhet. Du kan välja andra plattformar, om du föredrar att utföra uppgifter som beskrivs av TDSP. Men beroende på din plattform, vissa funktioner som utnyttjas från Azure DevOps kanske inte tillgänglig. 
 >
->Instruktionerna här också använda den [Data Science Virtual Machine (DSVM)](http://aka.ms/dsvm) på Azure moln som analys-skrivbordet med flera populära verktyg för datavetenskap som redan har konfigurerats och integreras med olika Microsoft-programvara och Azure tjänster. Du kan använda DSVM eller någon annan utvecklingsmiljö för att implementera TDSP. 
+>Instruktionerna här också använda den [Data Science Virtual Machine (DSVM)](https://aka.ms/dsvm) på Azure moln som analys-skrivbordet med flera populära verktyg för datavetenskap som redan har konfigurerats och integreras med olika Microsoft-programvara och Azure tjänster. Du kan använda DSVM eller någon annan utvecklingsmiljö för att implementera TDSP. 
 
 
 ## <a name="group-manager-tasks"></a>Gruppansvarig uppgifter

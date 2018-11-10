@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.workload: data-services
 ms.date: 04/09/2018
-ms.author: jasonh
+ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 50ea4dafe7edfdeb851ad6d9cc42a7bca262e970
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 0a187bbc476738294e2f7f31de4e11ea92e604f9
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985819"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978010"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Köra Azure Functions från Azure Stream Analytics-jobb 
 
@@ -196,6 +196,13 @@ Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-ana
    Det här kommandot bör skriva ut värdet för den angivna nyckeln:
 
    ![Skärmbild av Azure Redis Cache-utdata](./media/stream-analytics-with-azure-functions/image5.png)
+   
+## <a name="error-handling-and-retries"></a>Felhantering och återförsök
+Om det uppstår ett fel när händelser skickas till Azure Functions försöker Stream Analytics på nytt att slutföra åtgärden. Det finns dock vissa fel för vilka återförsök inte sker, däribland följande:
+
+ 1. HttpRequestExceptions
+ 2. Request Entity Too Large (Http error code 413) (Begärandeenhet är för stor (HTTP-felkod: 413))
+ 3. ApplicationExceptions
 
 ## <a name="known-issues"></a>Kända problem
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 743576d8cbd7135369fb692e601360cb57a6c3bd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8e1c85b345acdce6f50cfa169977c513ba0ae2a3
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989643"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740441"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Självstudie: Hantera kostnader med hjälp av Cloudyn
 
@@ -36,7 +36,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Du måste ha ett Azure-konto.
-- Du måste ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
+- Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
 - [Inaktiverade konton måste aktiveras](activate-subs-accounts.md) på Cloudyn-portalen.
 - [Övervakning på gästnivå](azure-vm-extended-metrics.md) måste vara aktiverat på dina virtuella datorer.
 
@@ -61,7 +61,7 @@ På sidan **Cost Allocation 360°** (Kostnadsallokering 360°) väljer du **Add*
 
 
 
-Exemplet visar att 14 444 USD inte är kategoriserade (saknar taggar).
+Exemplet visar att 19 680 USD inte är kategoriserade (saknar taggar).
 
 Välj sedan **Uncategorized Resources** (Okategoriserade resurser) och välj de tjänster som har kostnader som inte allokerats. Definiera sedan regler för allokering av kostnaderna.
 

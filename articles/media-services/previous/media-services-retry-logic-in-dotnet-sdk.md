@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: juliako
-ms.openlocfilehash: 0a4c9db8da046e901241bc383098013b2acc6bb2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: a5171484bb4377e0f9cd84dc0a517f4ea84123e7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242270"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228325"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Logik för omprövning i Media Services SDK för .NET
 När du arbetar med Microsoft Azure-tjänster, kan tillfälliga fel uppstå. Om ett tillfälligt fel inträffar oftast när du har några få återförsök lyckas åtgärden. Media Services SDK för .NET implementerar logik för omprövning för att hantera tillfälliga fel som är associerade med undantag och fel som orsakas av webbegäranden, köra frågor, sparar ändringar och lagringsåtgärder.  Som standard körs Media Services SDK för .NET fyra återförsök innan nytt utlöste undantaget i ditt program. Koden i programmet måste sedan hantera det här undantaget korrekt.  
@@ -49,7 +49,7 @@ I följande tabell beskrivs undantag som Media Services SDK för .NET hanterar e
 | IOException |Nej |Ja |Nej |Nej |
 
 ### <a name="WebExceptionStatus"></a> WebException statuskoder
-I följande tabell visas vilka WebException felkoder omprövningslogiken tillämpas. Den [WebExceptionStatus](http://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) uppräkning definierar statuskoder.  
+I följande tabell visas vilka WebException felkoder omprövningslogiken tillämpas. Den [WebExceptionStatus](https://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) uppräkning definierar statuskoder.  
 
 | Status | Webbegäran | Storage | Söka i data | SaveChanges |
 | --- | --- | --- | --- | --- |

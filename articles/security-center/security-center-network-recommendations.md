@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/12/2018
+ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: b1f7120b3758e35d818aedbcc3b85feca44f8c33
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a7f21d0ebebbe2c811470de384cc5ee9a34ab060
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129666"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006166"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Skydda dina nätverksresurser i Azure Security Center
 Azure Security Center analyserar kontinuerligt säkerhetsläget hos dina Azure-resurser för Metodtips för nätverkssäkerhet. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som guidar dig genom processen med att konfigurera de kontrollfunktioner som behövs för att förstärka och skydda dina resurser.
@@ -126,6 +126,20 @@ I den här topologiska vyn visar virtuella nätverk i den första nivån. De and
 
 Den tredje nivån visar virtuella datorer, som liknar vad som beskrivs ovan. Du kan klicka på en resurs att mer eller lägga till nödvändiga säkerhetskontroll eller konfiguration.
 
+## <a name="network-recommendations"></a>Nätverksrekommendationer
+
+|Resurstyp|Säkerhetspoäng|Rekommendation|Beskrivning|
+|----|----|----|----|
+|Dator|40|Aktivera nätverkssäkerhetsgrupper på virtuella datorer|Aktivera Nätverkssäkerhetsgrupper att styra nätverksåtkomst för dina virtuella datorer.|
+|Undernät|35|Aktivera nätverkssäkerhetsgrupper på undernät |Aktivera nätverkssäkerhetsgrupper att styra nätverksåtkomsten för resurser som har distribuerats i dina undernät.|
+|Dator|30|Tillämpa en just-in-time-nätverksåtkomstkontroll|Använd just-in-time åtkomstkontroll för virtuell dator kan låsa permanent åtkomst till valda portar och aktivera behöriga användare att öppna dem via samma metod och under en begränsad tid.|
+|Dator|20|Begränsa åtkomst via slutpunkt mot Internet|Förstärka nätverket security goups av riktas mot virtuella datorer genom att begränsa åtkomst till din befintliga Internet tillåter regler.|
+|Dator|10|Lägg till en nästa generations brandvägg|Lägg till en nästa Generation Firewall (NGFW)-lösning för att bättre skydda virtuella datorer som riktas mot internet.|
+|Dator|5|Dirigera trafik via nätverkets gateway brandvägg|Trafik till skyddade virtuella datorer som riktas mot internet ska dirigeras endast via nästa generations brandväggslösning för att slutföra distributionen av din nästa generations brandvägg.|
+|VNet|5|Aktivera DDoS protection standard|Program med offentliga IP-adresser i dessa virtuella nätverk skyddas inte med DDOS protection-tjänsten standard. Det är bäst att aktivera den för att aktivera minskning i nätverket som överför och protocol-attacker.|
+|Dator|10|Lägg till en nästa generations brandvägg|dd en nästa Generation Firewall (NGFW)-lösning för att bättre skydda virtuella datorer som riktas mot Internet.|
+|Dator|5|Dirigera trafik via nätverkets gateway brandvägg|Trafik till skyddade virtuella datorer som riktas mot Internet ska dirigeras endast via nästa generations brandväggslösning för att slutföra distributionen av din nästa generations brandvägg.|
+Virtuellt nätverk|5|Aktivera DDoS protection standard|Program med offentliga IP-adresser i dessa virtuella nätverk skyddas inte med DDOS protection-tjänsten standard. Det är bäst att aktivera den för att aktivera minskning i nätverket som överför och protocol-attacker.|
 ## <a name="see-also"></a>Se också
 Om du vill veta mer om rekommendationer som gäller för andra Azure-resurstyper finns i:
 

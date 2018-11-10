@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a197b3c7aa423323f984a793851a458733391e33
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 08d9566c3ce8f486465f0ed7fb5aab4419e592d8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243120"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228597"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Använda en SAML 2.0-identitetsprovider (IdP) för enkel inloggning på
 
@@ -167,7 +167,7 @@ Du måste aktivera kommunikationen mellan SAML 2.0-identitetsprovider och Azure 
 ## <a name="install-windows-powershell-for-sign-on-with-saml-20-identity-provider"></a>Installera Windows PowerShell för inloggning med SAML 2.0-identitetsprovider
 När du har konfigurerat din SAML 2.0-identitetsprovider för användning med Azure AD-inloggning, är nästa steg att ladda ned och installera Azure Active Directory-modulen för Windows PowerShell. När du har installerat ska du använda dessa cmdletar för att konfigurera Azure AD-domäner som federerade domäner.
 
-Azure Active Directory-modulen för Windows PowerShell är ett hämtningsbart program för att hantera organisationens data i Azure AD. Den här modulen installerar en uppsättning cmdlets i Windows PowerShell; du kör dessa cmdletar för att konfigurera enkel inloggning till Azure AD och i sin tur till alla molntjänsterna som du prenumererar på. Anvisningar om hur du hämtar och installerar cmdletar finns i [http://technet.microsoft.com/library/jj151815.aspx](http://technet.microsoft.com/library/jj151815.aspx)
+Azure Active Directory-modulen för Windows PowerShell är ett hämtningsbart program för att hantera organisationens data i Azure AD. Den här modulen installerar en uppsättning cmdlets i Windows PowerShell; du kör dessa cmdletar för att konfigurera enkel inloggning till Azure AD och i sin tur till alla molntjänsterna som du prenumererar på. Anvisningar om hur du hämtar och installerar cmdletar finns i [http://technet.microsoft.com/library/jj151815.aspx](https://technet.microsoft.com/library/jj151815.aspx)
 
 ## <a name="set-up-a-trust-between-your-saml-identity-provider-and-azure-ad"></a>Skapa ett förtroende mellan din SAML-identitetsprovider och Azure AD
 Innan du konfigurerar federation på en Azure AD-domän, måste den ha en anpassad domän som har konfigurerats. Du kan inte federera standarddomän som tillhandahålls av Microsoft. Standarddomän från Microsoft som slutar med tillägget ”onmicrosoft.com”.
@@ -190,12 +190,12 @@ Följande procedur beskriver hur du konverterar en befintlig domän som standard
 
     `<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"> <KeyDescriptor use="signing"> <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#"> <X509Data> <X509Certificate>MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate> </X509Data> </KeyInfo> </KeyDescriptor>` 
 
-Läs mer om ”Set-MsolDomainAuthentication”: [ http://technet.microsoft.com/library/dn194112.aspx ](http://technet.microsoft.com/library/dn194112.aspx).
+Läs mer om ”Set-MsolDomainAuthentication”: [ http://technet.microsoft.com/library/dn194112.aspx ](https://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
 >Du måste köra användning ”$ecpUrl =”https://WS2012R2-0.contoso.com/PAOS”” bara om du har konfigurerat ett ECP-tillägg för din identitetsprovider. Exchange Online-klienter, exklusive Outlook Web Application (OWA) förlitar sig på ett INLÄGG baserat active slutpunkt. Om din SAML 2.0 STS implementerar en aktiv slutpunkt som liknar Shibboleth's ECP implementering av en aktiv slutpunkt kan det vara möjligt för dessa omfattande klienter kan interagera med Exchange Online-tjänsten.
 
-När federation har konfigurerats du kan gå tillbaka till ”icke-federerade” (eller ”hanterad”), men den här ändringen tar upp till två timmar att slutföra och måste tilldela nya slumpmässigt lösenord för molnbaserad inloggning till varje användare. Växla tillbaka till ”hanterad” kan krävas i vissa situationer för att återställa ett fel i dina inställningar. Läs mer på domänen konvertering: [ http://msdn.microsoft.com/library/windowsazure/dn194122.aspx ](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
+När federation har konfigurerats du kan gå tillbaka till ”icke-federerade” (eller ”hanterad”), men den här ändringen tar upp till två timmar att slutföra och måste tilldela nya slumpmässigt lösenord för molnbaserad inloggning till varje användare. Växla tillbaka till ”hanterad” kan krävas i vissa situationer för att återställa ett fel i dina inställningar. Läs mer på domänen konvertering: [ http://msdn.microsoft.com/library/windowsazure/dn194122.aspx ](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 
 ## <a name="provision-user-principals-to-azure-ad--office-365"></a>Etablera användares huvudnamn till Azure AD / Office 365
 Innan du kan autentisera dina användare på Office 365, måste du etablera Azure AD med användares huvudnamn som motsvarar försäkran i SAML 2.0-anspråket. Om dessa användares huvudnamn inte är känner till Azure AD i förväg, kan sedan de inte användas för sammansluten inloggning. Azure AD Connect eller Windows PowerShell kan användas för att etablera användares huvudnamn.
@@ -218,7 +218,7 @@ Den här proceduren visar hur du lägger till en enskild användare till Azure A
         -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
         -UsageLocation "US" ` 
 
-Mer information om ”New-MsolUser” utcheckning [http://technet.microsoft.com/library/dn194096.aspx](http://technet.microsoft.com/library/dn194096.aspx)
+Mer information om ”New-MsolUser” utcheckning [http://technet.microsoft.com/library/dn194096.aspx](https://technet.microsoft.com/library/dn194096.aspx)
 
 >[!NOTE]
 >”UserPrinciplName”-värdet måste matcha det värde som du skickar för ”IDPEmail” i SAML 2.0-anspråk och ”ImmutableID”-värdet måste överensstämma med värdet som skickas som ”NameID”-kontrollen.

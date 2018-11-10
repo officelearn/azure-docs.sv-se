@@ -9,14 +9,14 @@ ms.author: govindk
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: f73a201a25bb2f975e8a261a6c21aa7b066c3a7c
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 56fc07c6d775ee8015ce244acb7782607bda802a
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247858"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739795"
 ---
-# <a name="migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>Migrera data till Azure Cosmos DB Cassandra API-konto
+# <a name="tutorial-migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>Självstudie: Migrera data till Azure Cosmos DB Cassandra API-konto
 
 Den här självstudien innehåller instruktioner om hur du migrerar Apache Cassandra-data till Cassandra-API:et för Azure Cosmos DB. 
 
@@ -101,7 +101,7 @@ Använd följande steg för att migrera data till Cassandra-API:et för Azure Co
 
 - Flytta data till målslutpunkten för Cassandra-API:et med hjälp av [tabellkopieringsåtgärden](cassandra-spark-table-copy-ops.md) 
 
-Vi rekommenderar att du migrerar data med hjälp av Spark-jobb om du har data som finns i ett befintligt kluster på virtuella Azure-datorer eller i ett annat moln. I så fall måste Spark konfigureras som mellanhand för en engångsinmatning eller för regelbunden datainmatning. Du kan påskynda migreringen med hjälp av expressroute-anslutningar mellan den lokala infrastrukturen och Azure. 
+Vi rekommenderar att du migrerar data med hjälp av Spark-jobb om du har data som finns i ett befintligt kluster på virtuella Azure-datorer eller i ett annat moln. Det här alternativet kräver att Spark konfigureras som mellanhand för en engångsinmatning eller för regelbunden datainmatning. Du kan påskynda migreringen med hjälp av expressroute-anslutningar mellan den lokala infrastrukturen och Azure. 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
-title: Företag att förstå fas i livscykeln Team datavetenskap Process - Azure | Microsoft Docs
-description: Mål, uppgifter och produkterna för företag att förstå steg i datavetenskap projekt
+title: Företag förstå steget i Team Data Science Process-livscykel – Azure | Microsoft Docs
+description: Mål, uppgifter och slutprodukter för företag förstå steg i dina data science-projekt
 services: machine-learning
 documentationcenter: ''
 author: deguhath
@@ -15,54 +15,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 6d8eedbbf4a682443e73ecb9cf9496f3cdd1cd9d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 00dc359fc171afe470b1dfe8f38d0951085ec580
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837209"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228308"
 ---
 # <a name="business-understanding"></a>Förståelse för verksamheten
 
-Den här artikeln beskrivs mål, uppgifter och leveranser som är associerade med business förstå fas av Team Data vetenskap processen (TDSP). Denna process tillhandahåller en rekommenderad livscykel som du kan använda för att strukturera datavetenskap projekt. Livscykeln beskrivs viktiga steg som projekt vanligtvis köra, ofta upprepade gånger:
+Den här artikeln beskrivs de mål, uppgifter och slutprodukter som är associerade med företag förstå scenen för Team Data Science Process (TDSP). Den här processen ger en rekommenderad livscykel som du kan använda för att strukturera dina data science-projekt. Livscykeln beskrivs de viktigaste stegen som projekt vanligtvis köra, ofta upprepade gånger:
 
-   1. **Så här fungerar för företag**
-   2. **Datainsamling och förstå**
-   3. **Modeling**
+   1. **Förståelse för verksamheten**
+   2. **Data förvärv och förståelse av**
+   3. **Modellering**
    4. **Distribution**
-   5. **Kundens godkännande**
+   5. **Kundgodkännande**
 
-Här är en bild av TDSP livscykeln: 
+Här är en visuell representation av TDSP-livscykeln: 
 
-![TDSP livscykel](./media/lifecycle/tdsp-lifecycle2.png) 
+![Livscykel för TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
 ## <a name="goals"></a>Mål
-* Ange bestämma viktiga variabler som ska användas som mål för modellen och vars relaterade mått som används i projektet.
-* Identifiera de relevanta datakällor som företaget har åtkomst till eller som behöver få.
+* Ange variablerna nyckel som är som fungerar som mål för modellen och vars relaterade mått som används avgöra projektet.
+* Identifiera de relevanta datakällor som företaget har åtkomst till eller behöver få.
 
-## <a name="how-to-do-it"></a>Hur du gör det.
+## <a name="how-to-do-it"></a>Gör så
 Det finns två huvudsakliga uppgifter som beskrivs i det här steget: 
 
-   * **Definiera mål**: arbeta med kunden och andra berörda parter för att förstå och identifiera problem för företag. Formulera frågor som definierar de affärsmål som datavetenskap tekniker som mål.
+   * **Definiera mål**: arbeta med dina kunder och andra berörda parter för att förstå och identifiera problem för företag. Formulera frågor som definierar de affärsmål som data science-tekniker kan riktas mot.
    * **Identifiera datakällor**: hitta relevanta data som hjälper dig att besvara frågor som definierar målen för projektet.
 
 ### <a name="define-objectives"></a>Definiera mål
-1. En central syftet med det här steget är att identifiera viktiga variabler som analysen ska förutsäga. Vi refererar till dessa variabler som den *modell mål*, och vi använder de mätvärden som är kopplade till dem för att avgöra hur framgångsrik projektet. Två exempel på sådana mål är försäljningsprognoser eller sannolikheten för en order som falska.
+1. En central syftet med det här steget är att identifiera viktiga variablerna som analysen ska förutsäga. Vi refererar till dessa variabler som den *modellera mål*, och vi använder de mått som är kopplade till dem för att avgöra projektet. Två exempel på sådana mål är försäljningsprognoser eller sannolikheten för en order som falska.
 
-2. Definiera projektet genom att fråga och förfina ”skarpa” frågor som är relevanta, specifika och entydigt. Datavetenskap är en process som använder namn och nummer för att besvara frågor. Mer information om att ställa skarpa frågor finns i [hur du gör datavetenskap](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/) blogg. Du använder vanligtvis datavetenskap eller maskininlärning att besvara fem typer av frågor:
+2. Definiera projektmål genom att ställa och förfina ”tydliga” frågor som är relevanta, specifika och entydiga. Datavetenskap är en process som använder namn och nummer för att besvara frågor. Mer information om att ställa sharp frågor finns i den [hur du gör datavetenskap](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/) blogg. Du använder vanligtvis data science eller maskininlärning att besvara fem typer av frågor:
  
    * Hur mycket eller hur många? (regression)
    * Vilken kategori? (klassificering)
    * Vilken grupp? (klustring)
    * Är detta underligt? (avvikelseidentifiering)
-   * Vilket alternativ som ska utföras? (rekommendationer)
+   * Vilket alternativ som ska utföras? (rekommendation)
 
-   Avgöra vilka frågor begär du och hur svarande det ger affärsmålen.
+   Fastställa vilka av dessa frågor begär du och hur svarande det ger dina affärsmål.
 
-3. Definiera projektgruppen genom att ange de roller och ansvarsområden för dess medlemmar. Utveckla en plan för övergripande milstolpe som du itererar som du hittar mer information. 
+3. Definiera projektgruppen genom att ange de roller och ansvarsområden dess medlemmar. Utveckla en övergripande milstolpe plan som du itererar som du får mer information. 
 
-4. Definiera framgångsmått. Du kanske vill få en kund omsättning förutsägelse. Du behöver en noggrannhet frekvens av procent ”x” i slutet av det här projektet för tre månader. Med dessa data kan du erbjuda kunden kampanjer för att minska omsättningsuppdateringar. Måtten måste vara **SMART**: 
+4. Definiera mått för framgång. Du kanske exempelvis vill uppnå en prognostiserad kundomsättning. Du behöver en precision som andelen procent ”x” i slutet av det här projektet för tre månader. Med dessa data kan du erbjuda kunden kampanjer att minska omsättning. Måtten måste vara **SMART**: 
 
    * **S**pecifika 
    * **M**easurable
@@ -71,30 +71,30 @@ Det finns två huvudsakliga uppgifter som beskrivs i det här steget:
    * **T**ime-bunden 
 
 ### <a name="identify-data-sources"></a>Identifiera datakällor
-Identifiera datakällor som innehåller kända exempel svar på din skarpa frågor. Leta efter följande uppgifter:
+Identifiera de datakällor som innehåller kända exempel på svar på dina sharp frågor. Sök efter följande data:
 
-* Data som är relevanta för frågan. Har du mått för målet och funktioner som är relaterade till målet?
-* Data som är ett korrekt mått på mål-modellen och -funktioner av intresse.
+* Data som är relevant för frågan. Har du mått för målet och funktioner som är relaterade till målet?
+* Data som är ett korrekt mått på mål-modellen och funktioner i närheten.
 
-Till exempel kanske du upptäcker att de befintliga system behöver samla in och logga ytterligare typer av data för att lösa problemet och uppnå projektmål. I det här fallet kanske du vill leta efter externa datakällor eller uppdatera dina system för att samla in nya data.
+Till exempel kanske du upptäcker att de befintliga system måste samla in och logga fler typer av data för att lösa problemet och uppnå projektmål. I så fall kanske du vill leta efter externa datakällor eller uppdatera dina system för att samla in nya data.
 
 ## <a name="artifacts"></a>Artefakter
-Här följer resultat i det här steget:
+Här följer slutprodukterna i det här steget:
 
-   * [Auktoriserad dokumentet](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): en standardmall tillhandahålls i TDSP projektet struktur definitionen. Auktoriserad dokumentet är en levande. Du kan uppdatera mallen i projektet som du gör nya identifieringar och som företagets behov förändras. Nyckeln är att iterera när det här dokumentet, lägga till fler detaljer slutföra identifieringsprocessen. Behåll kunden och andra berörda parter som är involverad i att göra ändringarna och tydligt kommunicera skälen för att ändringarna ska dem.  
-   * [Datakällor](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): den **rådata källor** avsnitt i den **datadefinitioner** rapporten som finns i projektet TDSP **Data rapporten** mappen innehåller data källor. Det här avsnittet anger de ursprungliga- och målplatserna för rådata. I senare steg kan du fylla i ytterligare information som skript för att flytta data till din analytiska miljö.  
-   * [Data ordlistor](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): det här dokumentet innehåller beskrivningar av de data som tillhandahålls av klienten. Dessa beskrivningar innehåller information om schemat (datatyper och information om valideringsregler, om sådana finns) och entitet relations-diagram, om det är tillgängligt.
+   * [Auktoriserad dokumentet](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): en standardmall har angetts i strukturdefinition för TDSP-projekt. Auktoriserad dokumentet är en levande. Du kan uppdatera mallen under hela projektet som du gör nya identifieringar och som företagets behov förändras. Nyckeln är att iterera på det här dokumentet, att lägga till mer information, slutföra identifieringsprocessen. Låt kunden och andra berörda parter som ingår i att göra ändringarna och tydligt kommunicera skäl för att ändringarna ska dem.  
+   * [Datakällor](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): den **rådata källor** delen av den **datadefinitioner** rapporten som finns i TDSP-projekt **Data rapporten** mappen innehåller data källor. Det här avsnittet anger de ursprungliga och de nya platserna efter rådata. I senare steg kan du fylla i ytterligare information som skripten för att flytta data till din analytiska miljö.  
+   * [Data ordlistor](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): det här dokumentet innehåller beskrivningar av vilken information som tillhandahålls av klienten. Dessa beskrivningar innehåller information om schemat (datatyper och information om valideringsregler eventuellt) och entiteten-relation diagrammen, om det är tillgängligt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Här är länkar till varje steg i livscykeln för TDSP:
+Här finns länkar till varje steg i livscykeln för TDSP:
 
-   1. [Så här fungerar för företag](lifecycle-business-understanding.md)
-   2. [Datainsamling och förstå](lifecycle-data.md)
-   3. [Modeling](lifecycle-modeling.md)
+   1. [Förståelse för verksamheten](lifecycle-business-understanding.md)
+   2. [Data förvärv och förståelse av](lifecycle-data.md)
+   3. [Modellering](lifecycle-modeling.md)
    4. [Distribution](lifecycle-deployment.md)
-   5. [Kundens godkännande](lifecycle-acceptance.md)
+   5. [Kundgodkännande](lifecycle-acceptance.md)
 
-Vi ger fullständig slutpunkt till slutpunkt genomgång som visar alla steg i processen för specifika scenarier. Den [exempel genomgång](walkthroughs.md) artikeln innehåller en lista över scenarier med länkar och miniatyr beskrivningar. Genomgångar illustrerar hur du kombinerar moln, lokala verktyg och tjänster i ett arbetsflöde eller en rörledning för att skapa ett intelligent program. 
+Vi tillhandahåller fullständig från slutpunkt till slutpunkt genomgång som visar alla steg i processen för specifika scenarier. Den [exempel genomgångar](walkthroughs.md) artikeln innehåller en lista över scenarier med länkar och miniatyr beskrivningar. Genomgångar visar hur du kombinerar molnlösningar, lokala verktyg och tjänster i ett arbetsflöde eller en pipeline för att skapa ett intelligenta program. 
 
-Exempel på hur du utför stegen i TDSPs som använder Azure Machine Learning Studio finns [använder TDSP med Azure Machine Learning](http://aka.ms/datascienceprocess).
+Exempel på hur du utför stegen i TDSPs som använder Azure Machine Learning Studio finns [använder TDSP med Azure Machine Learning](https://aka.ms/datascienceprocess).

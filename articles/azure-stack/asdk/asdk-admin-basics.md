@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 555bf95367ab0d3e6c4afe09edb6777899400dd8
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 66a2871e0c4b36959ccd8f08df5b6b7edd09f624
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344676"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227832"
 ---
 # <a name="asdk-administration-basics"></a>Grundläggande om administration av ASDK 
 Det finns flera saker du behöver veta om du inte har använt Azure Stack Development Kit (ASDK) administration. Den här vägledningen innehåller en översikt över din roll som Azure Stack-operatör i utvecklingsmiljö och kontrollera din testanvändare kan vara produktiva snabbt.
@@ -43,7 +43,7 @@ Det finns några överväganden för användarkonton som du bör känna till nä
 ## <a name="what-tools-do-i-use-to-manage"></a>Vilka verktyg kan jag använda för att hantera?
 Du kan använda den [Azure Stack-Administratörsportalen](https://adminportal.local.azurestack.external) eller PowerShell för att hantera Azure Stack. Det enklaste sättet att lära dig de grundläggande principerna är via portalen. Om du vill använda PowerShell måste du installera [PowerShell för Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) och [ladda ned Azure Stack-verktyg från GitHub](asdk-post-deploy.md#download-the-azure-stack-tools).
 
-Azure Stack använder Azure Resource Manager som dess underliggande mekanism för distribution, hantering och organisation. Om du planerar att hantera Azure Stack och att ge stöd för användare, bör du lära dig om Azure Resource Manager. Du kan lära dig mer genom att läsa den [komma igång med Azure Resource Manager White Paper](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf).
+Azure Stack använder Azure Resource Manager som dess underliggande mekanism för distribution, hantering och organisation. Om du planerar att hantera Azure Stack och att ge stöd för användare, bör du lära dig om Azure Resource Manager. Du kan lära dig mer genom att läsa den [komma igång med Azure Resource Manager White Paper](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf).
 
 ## <a name="your-typical-responsibilities"></a>Dina vanliga ansvarsområden
 Dina användare vill använda tjänster. Deras ur är dina viktigaste roll att gör de här tjänsterna tillgängliga för dem. Använd ASDK och du kan lära dig vilka tjänster som erbjuder och göra dessa tjänster genom [skapa planer, erbjudanden och kvoter](asdk-offer-services.md). Du måste också lägga till objekt i marketplace, till exempel avbildningar av virtuella datorer. Det enklaste sättet är att [hämta marketplace-objekt](asdk-marketplace-item.md) från Azure till Azure Stack.

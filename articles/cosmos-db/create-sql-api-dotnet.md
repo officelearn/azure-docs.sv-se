@@ -12,17 +12,17 @@ ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 clicktale: true
-ms.openlocfilehash: 36265685b9bc43e95c6d7bc1e7a9ad3c52835b36
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 506d21589ee8c5d284bd9ffc430d8b1d40afb910
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978003"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741733"
 ---
 # <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Snabbstart: Skapa en .NET-webbapp med Azure Cosmos DB med SQL API:t och Azure-portalen
 
 > [!div class="op_single_selector"]
-> * [.NET](create-sql-api-dotnet.md)
+> * [NET](create-sql-api-dotnet.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
@@ -120,7 +120,7 @@ Följande kodfragment är alla hämtade från filen DocumentDBRepository.cs.
 
 Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen.
 
-1. I [Azure Portal](http://portal.azure.com/) går du till ditt Azure Cosmos DB-konto. Klicka på **Nycklar** i det västra navigeringsfönstret och sedan på **läs- och skrivnycklar**. Du använder kopiera-knapparna till höger på skärmen för att kopiera URI:n och primärnyckeln i web.config-filen i nästa steg.
+1. I [Azure-portalen](http://portal.azure.com/) går du till ditt Azure Cosmos DB-konto. Välj **Nycklar** i det vänstra navigeringsfönstret och sedan **läs- och skrivnycklar**. Du använder kopiera-knapparna till höger på skärmen för att kopiera URI:n och primärnyckeln i web.config-filen i nästa steg.
 
     ![Visa och kopiera åtkomstnyckeln i Azure Portal, bladet Nycklar](./media/create-sql-api-dotnet/keys.png)
 
@@ -139,7 +139,7 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
     `<add key="database" value="Tasks" />`    
     
 ## <a name="run-the-web-app"></a>Kör webbappen
-1. I Visual Studio högerklickar du på projektet i **Solution Explorer** och därefter på **Hantera NuGet-paket**. 
+1. I Visual Studio högerklickar du på projektet i **Solution Explorer** och väljer därefter **Hantera NuGet-paket**. 
 
 2. I NuGet-rutan **Bläddra**, skriver du in *DocumentDB*.
 
@@ -147,7 +147,7 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
 4. Tryck på Ctrl + F5 för att köra programmet. Appen visas i din webbläsare. 
 
-5. Klicka på **Skapa nytt** i webbläsaren och skapa några nya uppgifter i din att göra-app.
+5. Välj **Skapa nytt** i webbläsaren och skapa några nya uppgifter i din att göra-app.
 
    ![Att göra-app med exempeldata](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list.png)
 

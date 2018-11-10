@@ -1,25 +1,18 @@
 ---
 title: Översikt över URL-baserad innehållsroutning | Microsoft Docs
 description: Den här sidan ger en översikt över den Application Gateway URL-baserade innehållsroutningen, UrlPathMap-konfigurationen och PathBasedRouting-regeln.
-documentationcenter: na
 services: application-gateway
 author: vhorne
 manager: jpconnock
-editor: ''
-ms.assetid: 4409159b-e22d-4c9a-a103-f5d32465d163
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/09/2017
+ms.date: 11/7/2018
 ms.author: victorh
-ms.openlocfilehash: f6108b5ac628b8bc2c1d74dcc871f96115094859
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: HT
+ms.openlocfilehash: bc123307a3cc3a5040e93e517c60604dc75fc7e7
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770346"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218431"
 ---
 # <a name="url-path-based-routing-overview"></a>Översikt över URL-sökvägsbaserad routning
 
@@ -31,7 +24,7 @@ I följande exempel servar Application Gateway trafik åt contoso.com från tre 
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Förfrågningar om http://contoso.com/video/* dirigeras till VideoServerPool och förfrågningar om http://contoso.com/images/* dirigeras till ImageServerPool. DefaultServerPool väljs om inget av sökvägsmönstren matchar.
+Begäranden dirigeras för http://contoso.com/video/* till VideoServerPool och http://contoso.com/images/* dirigeras till ImageServerPool. DefaultServerPool väljs om inget av sökvägsmönstren matchar.
 
 > [!IMPORTANT]
 > Regler bearbetas i den ordning de visas i portalen. Vi rekommenderar starkt att konfigurera lyssnare för flera platser första innan du konfigurerar en grundläggande lyssnare.  Detta säkerställer att trafik dirigeras till rätt serverdel. Om en grundläggande lyssnare visas först och matchar en inkommande begäran kommer den att bearbetas av den lyssnaren.
@@ -70,7 +63,7 @@ UrlPathMap-elementet används för att ange sökvägsmönster till mappningar f�
 ```
 
 > [!NOTE]
-> PathPattern: Den här inställningen är en lista över sökvägsmönster att matcha. Vart och ett måste börja med / och ett * får bara förekomma på slutet följt av ett /. Strängen som skickats till sökvägsmatcharen saknar text efter det första? eller # och de tecknen tillåts inte här.
+> PathPattern: Den här inställningen är en lista över sökvägsmönster att matcha. Vart och ett måste börja med / och ett * får bara förekomma på slutet följt av ett /. Strängen som skickats till sökvägsmatcharen saknar text efter först? eller # och de tecknen tillåts inte här. I annat fall tillåts alla tecken som tillåts i en URL i PathPattern.
 
 Du kan kolla en [Resource Manager-mall med URL-baserad routning](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) för mer information.
 

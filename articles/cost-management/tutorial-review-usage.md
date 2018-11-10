@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 72eaa6f085581f34b696a946e2168eceaa21a849
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 56e6a26803ed5257f1cc303b293615a5ea85a866
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987721"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740050"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -57,11 +57,11 @@ I rapporten visas alla utgifter de senaste 30 dagarna. Om du bara vill visa utgi
 
 ![filtrerade tjänster](./media/tutorial-review-usage/actual-cost02.png)
 
-I föregående exempel spenderades mindre pengar från 2017-08-31 än innan. Den kostnadstrenden fortsatte för de olika tjänsterna i ungefär nio dagar. Sedan återgick kostnaderna till det normala. Det kan dock vara svårt att se en uppenbar trend om du har för många kolumner. Du kan ändra rapportvyn till ett linje- eller områdesdiagram för att se data i andra vyer. I följande bild ser du trenden tydligare.
+I föregående exempel spenderades mindre pengar från 2018-10-29. Men det kan vara svårt att se en uppenbar trend om du har för många kolumner. Du kan ändra rapportvyn till ett linje- eller områdesdiagram för att se data i andra vyer. I följande bild ser du trenden tydligare.
 
 ![trend i rapport](./media/tutorial-review-usage/actual-cost03.png)
 
-I det här exemplet ser du tydligt att kostnaden för Azure Storage minskade 2017-08-31 medan utgifterna för andra Azure-tjänster låg kvar på samma nivå. Vad orsakade då de minskade utgifterna? I det här exemplet var några medarbetare på semester och använde inte Storage-tjänsten.
+Om du fortsätter med exemplet kan du se att kostnaden för virtuell Azure-dator har gått ned. Kostnader för andra Azure-tjänster började också gå ned den dagen. Vad orsakade då de minskade utgifterna? I det här exemplet slutfördes ett stort arbetsprojekt så förbrukningen av många Azure-tjänster gick också ned.
 
 Om du vill se en självstudievideo om att spåra användnings- och kostnadstrender går du till [Analysera molnfaktureringsdata över tid med Cloudyn](https://youtu.be/7LsVPHglM0g).
 
@@ -75,11 +75,11 @@ Problemet är att den befintliga infrastrukturen redan är betald. Användarna k
 
 I rapporten Cost Effective Sizing Recommendations (Rekommendationer kring kostnadseffektiv storleksändring) identifieras potentiella årliga besparingar genom att jämföra kapaciteten hos olika typer av VM-instanser med historiska data kring användning av processor och minne.  
 
-I menyn längst upp i portalen klickar du på **Optimizer** (Optimerare)  > **Sizing Optimization** (Prisstorlek)  > **Cost Effective Sizing Recommendations** (Kostnadseffektiv storleksrekommendation). Filtrera providern som Azure för att endast titta på virtuella Azure-datorer. Här är en exempelbild.
+I menyn längst upp i portalen klickar du på **Optimizer** (Optimerare)  > **Sizing Optimization** (Prisstorlek)  > **Cost Effective Sizing Recommendations** (Kostnadseffektiv storleksrekommendation). Om det är användbart kan du använda ett filter för att minska resultatet. Här är en exempelbild.
 
 ![Virtuella Azure-datorer](./media/tutorial-review-usage/sizing01.png)
 
-I det här exemplet kan du spara 3 114 USD genom att följa rekommendationerna för att ändra typerna av VM-instanser. Klicka på plustecknet (+) under **Details** (Detaljer) för den första rekommendationen. Här är lite information om den första rekommendationen.
+I det här exemplet kan du spara 2 382 USD genom att följa rekommendationerna för att ändra typerna av VM-instanser. Klicka på plustecknet (+) under **Details** (Detaljer) för den första rekommendationen. Här är lite information om den första rekommendationen.
 
 ![information om rekommendation](./media/tutorial-review-usage/sizing02.png)
 
@@ -89,13 +89,15 @@ Visa ID:n för VM-instanser genom att klicka på plustecknet bredvid **List of C
 
 Om du vill se en självstudievideo om att identifiera ineffektivitet i användningen kan du titta på [Optimera VM-storlek i Cloudyn](https://youtu.be/1xaZBNmV704).
 
+Azure Cost Management ger även kostnadsbesparande rekommendationer för Azure-tjänster. Mer information finns i [Självstudie: Optimera kostnader utifrån rekommendationer](tutorial-acm-opt-recommendations.md).
+
 ## <a name="create-alerts-for-unusual-spending"></a>Skapa aviseringar för onormalt höga kostnader
 
 Du kan automatiskt meddela intressenter vid avvikelser i utgifterna och vid risk för höga utgifter. Du kan snabbt och enkelt skapa aviseringar med hjälp av rapporter som har stöd för aviseringar baserat på tröskelvärden för budgetar och kostnader.
 
 Du kan skapa en avisering för alla typer av utgifter från valfri kostnadsrapport. I det här exemplet använder du rapporten Actual Cost Over Time till att meddela dig när Azure VM-utgifterna närmar sig din totala budget. Alla följande steg krävs för att skapa aviseringen. I menyn längst upp i portalen klickar du på **Kostnader** > **Kostnadsanalys** > **Faktisk kostnad över tid**. Ställ in **Groups** (Grupper) på **Service** och sätt **Filter on the service** (Filtrera efter tjänsten) till **Azure/VM**. Klicka på **Actions** (Åtgärder) uppe till höger i rapporten och välj **Schedule report** (Schemalägg rapport).
 
-På fliken **Schemaläggning** i rutan Spara eller schemalägg den här rapporten kan du ange att du vill få ett e-postmeddelande med rapporten med valfri frekvens. Välj **Skicka via e-post**. De taggar samt den gruppering och filtrering du använde ingår i rapporten du får via e-post. Klicka på fliken **Threshold** (Tröskelvärde) och välj **Actual Cost vs. Threshold** (Faktisk kostnad jämfört med tröskelvärde). Om du har en total budget på 500 000 USD och vill få en avisering när kostnaderna är ungefär hälften kan du skapa en **röd avisering** vid 250 000 USD och en **gul avisering** vid 240 000 USD. Inkludera inte kommatecken i de värden som du anger. Välj sedan antalet på varandra följande aviseringar. När du har fått det antal aviseringar som du angett, skickas inga fler aviseringar. Spara den schemalagda rapporten.
+På fliken **Schemaläggning** i rutan Spara eller schemalägg den här rapporten kan du ange att du vill få ett e-postmeddelande med rapporten med valfri frekvens. Välj **Skicka via e-post**. De taggar samt den gruppering och filtrering du använde ingår i rapporten du får via e-post. Klicka på fliken **Threshold** (Tröskelvärde) och välj **Actual Cost vs. Threshold** (Faktisk kostnad jämfört med tröskelvärde). Om du har en total budget på 20 000 USD och vill få en avisering när kostnaderna är ungefär hälften kan du skapa en **röd avisering** vid 10 000 USD och en **gul avisering** vid 9 000 USD. Inkludera inte kommatecken i de värden som du anger. Välj sedan antalet på varandra följande aviseringar. När du har fått det antal aviseringar som du angett, skickas inga fler aviseringar. Spara den schemalagda rapporten.
 
 ![exempelrapport](./media/tutorial-review-usage/schedule-alert01.png)
 

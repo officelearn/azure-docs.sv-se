@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: da1f69fc4b962114668c3365ef345c361a22a526
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f9cc3033c476afe389cb52d3468facb9168fb920
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963973"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006540"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Samla in Azure-tjänstloggar och mått för användning i Log Analytics
 
@@ -159,4 +159,4 @@ Azure-mall-galleriet har [exempel på användning av Azure Automation](https://a
 
 * [Använda blob storage för IIS- och table storage för händelser](log-analytics-azure-storage-iis-table.md) att läsa loggarna för Azure-tjänster som diagnostik för skrivning till tabellagring eller IIS-loggar som skrivs till blob-lagring.
 * [Aktivera lösningar](../monitoring/monitoring-solutions.md) att ge insikter i data.
-* [Använda sökfrågor](log-analytics-log-search.md) att analysera data.
+* [Använda sökfrågor](log-analytics-queries.md) att analysera data.

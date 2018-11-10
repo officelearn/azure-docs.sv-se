@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 673faff51c3d06e50941a6982a9f654c28598d86
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: d1c5c9a8709467c9f9ca87c841cffcf77a5b5f0b
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47006534"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219905"
 ---
 <a name="virtual-networking-limits-classic"></a>Följande begränsningar gäller endast för nätverksresurser som hanteras via den klassiska distributionsmodellen per prenumeration. Lär dig hur du [visa din aktuella användning mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md).
 
@@ -21,7 +21,7 @@ ms.locfileid: "47006534"
 | --- | --- | --- |
 | Virtuella nätverk |50 |100 |
 | Lokala nätverksplatser |20 |kontakta supporten |
-| DNS-servrar per virtuellt nätverk |20 |100 |
+| DNS-servrar per virtuellt nätverk |20 |20 |
 | Privata IP-adresser per virtuellt nätverk |4096 |4096 |
 | Samtidiga TCP eller UDP flöden per nätverkskort för en virtuell dator eller rollinstans |500 000 |500 000 |
 | Nätverkssäkerhetsgrupper (NSG) |100 |200 |

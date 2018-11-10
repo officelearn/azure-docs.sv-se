@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9b0a9b8c976ce5ef9fb57a6f8bcfd076f370bb10
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: fe2407f67e2ef7a2eb14105db0fef10917f34ba9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964006"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005231"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware Monitoring (förhandsversion) lösningen i Log Analytics
 
@@ -131,7 +131,7 @@ I den **VMware** instrumentpanelsvyn blad är ordnade efter:
 
 Klicka på ett blad för att öppna Log Analytics search fönstret som visar detaljerad information för bladet.
 
-Härifrån kan redigera du frågan om du vill ändra det efter något mer specifikt. Mer information om hur du skapar loggsökningar, finns i [hitta data med loggsökningar i Log Analytics](log-analytics-log-search.md).
+Härifrån kan redigera du frågan om du vill ändra det efter något mer specifikt. Mer information om hur du skapar loggsökningar, finns i [hitta data med loggsökningar i Log Analytics](log-analytics-queries.md).
 
 #### <a name="find-esxi-host-events"></a>Hitta händelser för ESXi-värd
 En enda ESXi-värd genererar flera loggar, utifrån sina processer. VMware Monitoring-lösningen centraliserar dem och sammanfattar antalet händelser. Den här centraliserade vyn hjälper dig att förstå vilka ESXi-värden har ett stort antal händelser och vilka händelser inträffar oftast i din miljö.
@@ -206,6 +206,6 @@ Det kan finnas flera anledningar:
     d. Om filen inte finns eller är fel, användare och grupp-inställning vidta åtgärder med [förbereda en Linux-server](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd [Loggsökningar](log-analytics-log-search.md) ha data i Log Analytics för att visa detaljerad VMware.
+* Använd [Loggsökningar](log-analytics-queries.md) ha data i Log Analytics för att visa detaljerad VMware.
 * [Skapa dina egna instrumentpaneler](log-analytics-dashboards.md) som visar data för VMware-värd.
 * [Skapa aviseringar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) när specifika händelser för VMware-värd inträffar.

@@ -1,6 +1,6 @@
 ---
-title: Skapa Hadoop-kluster med hjälp av .NET - Azure HDInsight
-description: Lär dig hur du skapar Hadoop, HBase, Storm eller Spark-kluster på Linux för HDInsight med hjälp av HDInsight .NET SDK.
+title: Skapa Apache Hadoop-kluster med hjälp av .NET - Azure HDInsight
+description: Lär dig hur du skapar Apache Hadoop, Apache HBase, Apache Storm eller Apache Spark-kluster på Linux för HDInsight med hjälp av HDInsight .NET SDK.
 services: hdinsight
 author: mamccrea
 ms.reviewer: jasonh
@@ -9,19 +9,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
-ms.openlocfilehash: ea5c0d3b9f444601607ebcda8d139797eb8dd2ec
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 943d5aeccf949c1dd494dc8ec8fda0d782527749
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093919"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035689"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Skapa Linux-baserade kluster i HDInsight med .NET SDK
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 
-Lär dig hur du skapar ett Hadoop-kluster i Azure HDInsight-kluster med hjälp av .NET SDK.
+Lär dig hur du skapar ett Apache Hadoop-kluster i Azure HDInsight-kluster med hjälp av .NET SDK.
 
 > [!IMPORTANT]
 > Stegen i det här dokumentet kan du skapa ett kluster med en underordnad nod. Om du planerar att mer än 32 arbetarnoder i klustret har skapats eller skala klustret när du har skapat, måste du välja en huvudnod storlek med minst 8 kärnor och 14GB RAM-minne.

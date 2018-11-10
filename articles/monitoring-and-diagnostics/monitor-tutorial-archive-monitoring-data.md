@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: be6f3efd74d013e9ddb02c44031dd6a402f00871
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ac8be998a70b31af9829eeeab24902c62fd2fe37
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409498"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961525"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Arkivera Azure mått och loggdata med hjälp av Azure Storage
 
@@ -42,7 +42,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Du måste först skapa ett lagringskonto där övervakningsdata arkiveras. För att göra det [följer du de här stegen](../storage/common/storage-create-storage-account.md).
+Du måste först skapa ett lagringskonto där övervakningsdata arkiveras. För att göra det [följer du de här stegen](../storage/common/storage-quickstart-create-account.md).
 
 ## <a name="route-subscription-logs-to-the-storage-account"></a>Dirigera prenumerationsloggar till lagringskontot
 
@@ -198,4 +198,4 @@ I den här kursen får du har lärt dig hur du ställer in så att övervaknings
 Om du vill få ut ännu mer av dina data ska du även skicka dem till Log Analytics.
 
 > [!div class="nextstepaction"]
-> [Komma igång med Log Analytics](../log-analytics/log-analytics-get-started.md)
+> [Komma igång med Log Analytics](../log-analytics/log-analytics-queries.md)

@@ -3,21 +3,21 @@ title: Skapa och hantera regler för telemetri i programmet Azure IoT Central | 
 description: Azure IoT Central telemetri regler hjälper dig att övervaka dina enheter i nära realtid och automatiskt anropa åtgärder, till exempel skickar ett e-postmeddelande när regeln utlöses.
 author: ankitgupta
 ms.author: ankitgup
-ms.date: 08/14/2018
+ms.date: 11/02/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1b82ac3bf67370a2c39e85bf5691da38539edb74
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: d085777e347e1e892c3a49f4f37aa1d8130ef18c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729339"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005741"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Skapa en regel för telemetri och konfigurera meddelanden med Azure IoT Central programmet
 
-*Den här artikeln gäller för operatörer, hjälpverktyg och administratörer.*
+*Den här artikeln gäller för operatörer, kompilerare och administratörer.*
 
 Du kan använda Azure IoT Central för att fjärrövervaka dina anslutna enheter. Azure IoT Central-regler kan du övervaka dina enheter i nära realtid och automatiskt anropa åtgärder, till exempel skicka ett e-postmeddelande eller utlösa Microsoft Flow. Du kan definiera villkor som du vill övervaka din enhetsdata och konfigurera den motsvarande åtgärden med bara några klick. Den här artikeln beskriver hur du skapar regler för att övervaka telemetri som skickas av enheten.
 
@@ -87,9 +87,9 @@ Det här avsnittet visar hur du ställer in åtgärder att vidta när regeln utl
 
    ![Konfigurera åtgärd](media\howto-create-telemetry-rules\Configure_Action.png)
 
-1. För att spara regeln, Välj **spara**. Regeln lanseras inom några minuter och börjar övervaka telemetri som skickas till ditt program. När villkoren som anges i regeln matchar utlöser regeln konfigurerade e-poståtgärden.
+1. För att spara regeln, Välj **spara**. Regeln lanseras inom några minuter och börjar övervaka telemetri som skickas till ditt program. När villkoren som anges i regeln uppfylls utlöser regeln konfigurerade e poståtgärd.
 
-1. Välj **klar** att avsluta den **Redigera mall** läge.
+1. Välj **Klar** för att avsluta läget **Redigera mall**.
 
 Du kan lägga till andra åtgärder för regeln, till exempel Microsoft Flow och webhooks. Du kan lägga till upp till 5 åtgärder per regel.
 

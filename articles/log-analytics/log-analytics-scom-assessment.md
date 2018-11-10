@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5f5bfe6c730f569f0cc902b0e0a132bfca645a45
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c17c14b015531bf3f978ac30b013c80ad5be779e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961695"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006523"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimera din miljö med lösningen för System Center Operations Manager hälsokontroll (förhandsversion)
 
@@ -238,7 +238,7 @@ Om du har synpunkter som du vill ignorera kan du skapa en textfil som Log Analyt
     ```
 
     >[!NOTE]
-    > Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search.md), och sedan frågan ovan skulle ändras till följande.
+    > Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-queries.md), och sedan frågan ovan skulle ändras till följande.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -263,7 +263,7 @@ Om du har synpunkter som du vill ignorera kan du skapa en textfil som Log Analyt
     ```
 
     >[!NOTE]
-    > Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search.md), och sedan frågan ovan skulle ändras till följande.
+    > Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-queries.md), och sedan frågan ovan skulle ändras till följande.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -304,4 +304,4 @@ Om du har synpunkter som du vill ignorera kan du skapa en textfil som Log Analyt
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Söka loggarna](log-analytics-log-search.md) och lär dig att analysera detaljerad information för System Center Operations Manager hälsokontrollen och rekommendationer.
+- [Söka loggarna](log-analytics-queries.md) och lär dig att analysera detaljerad information för System Center Operations Manager hälsokontrollen och rekommendationer.

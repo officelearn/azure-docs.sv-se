@@ -12,27 +12,29 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: 5bb1aeadeb31728dcc2d9ac5fa0aeade31857169
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: e9a1b7951d111606d84e235864e3649a742e874e
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41918141"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741512"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-use-mongoose-to-connect-to-azure-cosmos-db"></a>Skapa en MongoDB-app med Angular och Azure Cosmos DB – del 5: Ansluta till Azure Cosmos DB med hjälp av Mongoose
 
-Den här självstudiekursen i flera delar demonstrerar hur du skapar en ny [MongoDB API](mongodb-introduction.md)-app skriven i Node.js med Express, Angular och din Azure Cosmos DB-databas.
+Den här självstudiekursen i flera delar visar hur du skapar en Node.js-app med Express, Angular och ansluter den till [Azure Cosmos DB MongoDB API](mongodb-introduction.md)-konto.
 
 Del 5 av självstudiekursen bygger vidare på [del 4](tutorial-develop-mongodb-nodejs-part4.md) och består av följande uppgifter:
 
 > [!div class="checklist"]
 > * Ansluta till Azure Cosmos DB med hjälp av Mongoose
-> * Hämta information om anslutningssträngen från Azure Cosmos DB
+> * Hämta information om Cosmos DB-anslutningssträngen
 > * Skapa hero-modellen
 > * Skapa hero-tjänsten för att hämta hero-data
 > * Köra appen lokalt
 
 ## <a name="video-walkthrough"></a>Videogenomgång
+
+Du kan även titta på följande video för att snabbt lära dig stegen som beskrivs i det här dokumentet: 
 
 > [!VIDEO https://www.youtube.com/embed/sI5hw6KPPXI]
 
@@ -46,19 +48,24 @@ Utför stegen i [del 4](tutorial-develop-mongodb-nodejs-part4.md) av självstudi
 
 ## <a name="use-mongoose-to-connect-to-azure-cosmos-db"></a>Ansluta till Azure Cosmos DB med hjälp av Mongoose
 
-1. Installera mongoose npm-modulen, som är ett API som vanligtvis används för att kommunicera med MongoDB.
+1. Installera mongoose npm-modulen, ett API som används för att kommunicera med MongoDB.
 
     ```bash
     npm i mongoose --save
     ```
 
-2. Skapa en ny fil i mappen **server** och ge den namnet **mongo.js**. I den här filen lägger du till all anslutningsinformation för Azure Cosmos DB-databasen.
+2. Skapa en ny fil i mappen **server** och ge den namnet **mongo.js**. Du lägger till anslutningsinformationen för Cosmos DB-kontot i den här filen.
 
 3. Kopiera följande kod till **mongo.js**. Den här koden:
+
     * Kräver Mongoose.
-    * Åsidosätter Mongo-löftet (promise) att använda det grundläggande löftet som är inbyggt i ES6/ES2015 och senare.
-    * Anropar en env-fil som du kan använda för att konfigurera vissa saker beroende på om du arbetar med mellanlagring, produktion eller utveckling. Vi ska snart skapa den filen.
-    * Innehåller MongoDB-anslutningssträngen, som anges i env-filen.
+
+    * Åsidosätter Mongo-löftet (promise) att använda det grundläggande löftet som är inbyggt i ES6/ES2015 och senare versioner.
+
+    * Anropar en env-fil som du kan använda för att konfigurera vissa saker beroende på om du arbetar med mellanlagring, produktion eller utveckling. Du skapar den filen i nästa avsnitt.
+
+    * Inkludera MongoDB-anslutningssträngen, som anges i env-filen.
+
     * Skapar en anslutningsfunktion som anropar Mongoose.
 
     ```javascript
@@ -101,7 +108,7 @@ Utför stegen i [del 4](tutorial-develop-mongodb-nodejs-part4.md) av självstudi
 
 ## <a name="get-the-connection-string-information"></a>Hämta information om anslutningssträngen
 
-1. Ändra värdet `port` till 10255 i **environment.js**. (Du hittar din Cosmos DB-port i Azure Portal)
+1. Ändra värdet `port` till 10255 i **environment.js**. (Du hittar din Cosmos DB-port i Azure-portalen)
 
     ```javascript
     const port = 10255;
@@ -123,9 +130,10 @@ Utför stegen i [del 4](tutorial-develop-mongodb-nodejs-part4.md) av självstudi
 
 ## <a name="create-a-hero-model"></a>Skapa en Hero-modell
 
-1.  I Explorer-fönstret skapar du filen **hero.model.js** under mappen **server**.
+1. I Explorer-fönstret skapar du filen **hero.model.js** under mappen **server**.
 
-2. Kopiera följande kod till **hero.model.js**. Den här koden:
+2. Kopiera följande kod till **hero.model.js**. Den här koden innehåller följande funktioner:
+
    * Kräver Mongoose.
    * Skapar ett nytt schema med ett id, ett namn och en fras.
    * Skapar en modell med hjälp av schemat.
@@ -155,14 +163,15 @@ Utför stegen i [del 4](tutorial-develop-mongodb-nodejs-part4.md) av självstudi
 
 ## <a name="create-a-hero-service"></a>Skapa en Hero-tjänst
 
-1.  I Explorer-fönstret skapar du filen **hero.service.js** under mappen **server**.
+1. I Explorer-fönstret skapar du filen **hero.service.js** under mappen **server**.
 
 2. Kopiera följande kod till **hero.service.js**. Den här koden:
+
    * Hämtar modellen som du precis skapat.
    * Ansluter till databasen.
    * Skapar en docquery-variabel som använder metoden hero.find för att definiera en fråga som returnerar alla heroes-komponenter.
    * Kör en fråga med docquery.exec med ett löfte (promise) om att hämta en lista över alla heroes-komponenter, där svarsstatusen är 200. 
-   * Om statusen är 500 returneras felmeddelandet.
+   * Om statusen är 500 returneras felmeddelandet
    * Eftersom vi använder moduler hämtas heroes-komponenterna. 
 
    ```javascript
@@ -213,7 +222,7 @@ Utför stegen i [del 4](tutorial-develop-mongodb-nodejs-part4.md) av självstudi
     function getHeroes(req, res) {
     ```
 
-    Nu ska vi ägna en minut åt att gå igenom anropskedjan. Först kommer vi till `index.js`, som konfigurerar nodservern. Och som du ser konfigureras och definieras våra vägar. Sedan kommunicerar routes.js-filen med hero-tjänsten och beordrar den att hämta våra funktioner, som getHeroes, och att skicka begäran och svaret. I vårt exempel hämtar hero.service.js modellen och ansluter till Mongo. Tjänsten kör sedan getHeroes när vi anropar funktionen och returnerar svaret 200. Händelsen sprids sedan vidare genom kedjan till det översta elementet. 
+    Nu ska vi ägna en minut åt att gå igenom anropskedjan. Först kommer vi till `index.js`, som konfigurerar nodservern. Och som du ser konfigureras och definieras dina vägar. Sedan kommunicerar routes.js-filen med hero-tjänsten och beordrar den att hämta dina funktioner, som getHeroes, och att skicka begäran och svaret. I vårt exempel hämtar hero.service.js modellen och ansluter till Mongo. Tjänsten kör sedan getHeroes när vi anropar funktionen och returnerar svaret 200. Händelsen sprids sedan vidare genom kedjan till det översta elementet. 
 
 ## <a name="run-the-app"></a>Kör appen
 

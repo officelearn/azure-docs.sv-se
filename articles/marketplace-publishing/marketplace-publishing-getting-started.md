@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: 82580fbab68eab28a2027cd277213f1fb2a76e07
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 3556384d71649391d094172a136b863ed26fd2ad
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716009"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227407"
 ---
 > [!NOTE]
 > Den här dokumentationen är inte längre aktuellt och är inte korrekt. I stället gå till Azure Marketplace [Säljguide för](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) vägledning för att publicera ett erbjudande på Azure Marketplace.
@@ -28,7 +28,7 @@ ms.locfileid: "39716009"
 Den här artikeln är som hjälper utvecklare att skapa, distribuera och hantera sina lösningar i Azure Marketplace för andra Azure-kunder och partner att köpa och använda.
 
 ## <a name="marketplace-publishing"></a>Marketplace-publicering
-Som en Azure utgivare som du kan distribuera och sälja innovativ lösning eller tjänster till andra utvecklare, ISV: er, och IT-proffs på Marketplace. Du kan nå kunder som vill snabbt utveckla sina molnbaserade program och mobila lösningar via Marketplace. Om din lösning riktar sig till användare i verksamheten, kanske du vill att den [AppSource](http://appsource.microsoft.com) marketplace.
+Som en Azure utgivare som du kan distribuera och sälja innovativ lösning eller tjänster till andra utvecklare, ISV: er, och IT-proffs på Marketplace. Du kan nå kunder som vill snabbt utveckla sina molnbaserade program och mobila lösningar via Marketplace. Om din lösning riktar sig till användare i verksamheten, kanske du vill att den [AppSource](https://appsource.microsoft.com) marketplace.
 
 
 ## <a name="supported-types-of-solutions"></a>Typer av lösningar som stöds
@@ -51,7 +51,7 @@ Publicera en virtuell dator [lösning](https://createopportunity.azurewebsites.n
 >[!NOTE]
 > Om du arbetar med en Partner kontoansvarig eller en DX Partner Manager kan du be dem att nominera din lösning för Azure Certified-programmet. Du kan även gå till den [Microsoft Azure Certified](http://createopportunity.azurewebsites.net) webbsidan och Fyll i formuläret för programmet. Ange e-postmeddelande med din Partner kontoansvarige eller DX Partner Manager i den **Microsoft Sponsor Kontakta** box.
 
-Om du uppfyller kriterierna i den [deltagandepolicyer för Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833) och din ansökan har godkänts kan vi börja arbeta med dig att publicera din lösning på Marketplace.
+Om du uppfyller kriterierna i den [deltagandepolicyer för Azure Marketplace](https://go.microsoft.com/fwlink/?LinkID=526833) och din ansökan har godkänts kan vi börja arbeta med dig att publicera din lösning på Marketplace.
 
 ### <a name="register-your-account-as-a-microsoft-seller"></a>Registrera ditt konto som ett Microsoft-försäljning
 Registrera ditt Microsoft-konto som en [Microsoft Developer-konto](marketplace-publishing-accounts-creation-registration.md).

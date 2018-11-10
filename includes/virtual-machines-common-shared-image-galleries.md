@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 6ad38d2dc1c5c41dc10685d680f70c59e7983cd2
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 8eca04478fd5aba292fcc47abac37b740b552dff
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035449"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51208757"
 ---
-Delade bildgalleriet är en tjänst som hjälper dig att skapa struktur och organisation runt dina anpassade VM-avbildningar. Delade bildgalleriet innehåller tre huvudsakliga tillämpning
+Delade bildgalleriet är en tjänst som hjälper dig att skapa struktur och organisation runt dina anpassade VM-avbildningar. Delade bildgalleriet innehåller tre huvudsakliga tillämpning:
 - Enkel hantering
-- Skala dina kund-avbildningar
+- Skala dina anpassade avbildningar
 - Dela dina avbildningar – dela dina avbildningar till olika användare, tjänstens huvudnamn eller AD-grupper i din organisation samt olika regioner med replikering av flera regioner
 
-En hanterad avbildning är en kopia av antingen en fullständig virtuell dator (inklusive eventuella anslutna datadiskar) eller bara OS-disk, beroende på hur du skapar avbildningen. När du skapar en virtuell dator från avbildningen används kopia av de virtuella hårddiskarna i bild för att skapa diskar för den nya virtuella datorn. Hanterad avbildning finns kvar i lagringsutrymmet och upprepade gånger kan användas för att skapa nya virtuella datorer.
+En hanterad avbildning är en kopia av antingen en fullständig virtuell dator (inklusive eventuella anslutna datadiskar) eller bara OS-disk, beroende på hur du skapar avbildningen. När du skapar en virtuell dator från avbildningen används en kopia av de virtuella hårddiskarna i bild för att skapa diskar för den nya virtuella datorn. Hanterad avbildning finns kvar i lagringsutrymmet och upprepade gånger kan användas för att skapa nya virtuella datorer.
 
 Om du har ett stort antal hanterade avbildningar som du behöver underhålla och vill göra dem tillgängliga i hela företaget kan använda du en delad bildgalleriet som en lagringsplats som gör det enkelt att uppdatera och dela dina avbildningar. Avgifter för att använda en delad bildgalleriet är bara kostnaderna för den lagring som används av avbildningarna, plus eventuella kostnader för nätverksegress för att replikera avbildningar från källregionen till de publicerade regionerna.
 
@@ -40,7 +40,7 @@ Funktionen delad bildgalleriet har flera resurstyper:
 
 ### <a name="regional-support"></a>Regional Support
 
-Regional support för delade bildgallerier är begränsat, men kommer att expandera över tid. För förhandsversionen följer listorna över där du kan skapa gallerier och regioner där kan replikera alla galleriet: 
+Regional support för delade bildgallerier är i en begränsad förhandsversion, men kommer att expandera över tid. För den begränsade förhandsversionen är här listan över regioner där du kan skapa gallerier och listan över regioner där du kan replikera alla galleriet bilden: 
 
 | Skapa galleri i  | Replikera Version till |
 |--------------------|----------------------|
@@ -61,19 +61,19 @@ Regional support för delade bildgallerier är begränsat, men kommer att expand
 
 
 ## <a name="scaling"></a>Skalning
-Delade galleri med avbildningar kan du ange antalet repliker som du vill att Azure ska hålla för avbildningar. Detta hjälper i scenarier för flera virtuella datorer som VM-distributioner kan spridas till olika repliker, vilket minskar risken för instans skapandeprocessen begränsas på grund av överbelastning av en enskild replik.
+Delade galleri med avbildningar kan du ange antalet repliker som du vill att Azure ska hålla av avbildningarna. Detta hjälper i scenarier för flera virtuella datorer som VM-distributioner kan spridas till olika repliker, vilket minskar risken för att skapa en instans bearbetningen begränsas på grund av överbelastning av en enskild replik.
 
 ![Bild som visar hur du kan skala bilder](./media/shared-image-galleries/scaling.png)
 
 
 ## <a name="replication"></a>Replikering
-Delade galleri med avbildningar kan du automatiskt replikera dina avbildningar till andra Azure-regioner. Varje delad Avbildningsversion kan replikeras till andra regioner beroende på vad passar för din organisation. Ett exempel är att alltid replikera den senaste avbildningen i flera områden, medan alla äldre versioner är endast tillgängliga i 1 region. Detta kan hjälpa att spara lagringskostnader för delade bild versioner. De regioner som en delad Avbildningsversion replikeras till kan uppdateras efter skapandet. Den tid det tar för att replikera till olika regioner beror på mängden data som kopieras och antalet regioner som versionen är replikera till. Det kan ta några timmar i vissa fall. När replikeringen sker, kan du visa replikeringsstatusen per region. När avbildningen replikeringen är klar i en region, kan du sedan distribuera en virtuell dator eller VMSS hjälp i regionen.
+Delade galleri med avbildningar kan du automatiskt replikera dina avbildningar till andra Azure-regioner. Varje delad Avbildningsversion kan replikeras till andra regioner beroende på vad passar för din organisation. Ett exempel är att alltid replikera den senaste avbildningen i flera områden, medan alla äldre versioner är endast tillgängliga i 1 region. Detta kan hjälpa att spara lagringskostnader för delade bild versioner. De regioner som en delad Avbildningsversion replikeras till kan uppdateras efter skapandet. Den tid det tar för att replikera till olika regioner beror på mängden data som kopieras och antalet regioner versionen replikeras till. Det kan ta några timmar i vissa fall. När replikeringen sker, kan du visa replikeringsstatusen per region. När avbildningen replikeringen är klar i en region, kan du sedan distribuera en virtuell dator eller VMSS hjälp bild i regionen.
 
 ![Bild som visar hur du kan replikera avbildningar](./media/shared-image-galleries/replication.png)
 
 
 ## <a name="access"></a>Access
-Delade avbildningen och delade Avbildningsversion är alla resurser som delad avbildningsgalleriet, de kan delas med hjälp av den inbyggda interna Azure RBAC styr. Du kan använda RBAC för att dela dessa resurser till andra användare, tjänstens huvudnamn och grupper i din organisation. Omfånget för delning av dessa resurser är i samma AD-klient. När en användare har åtkomst till delade Avbildningsversion, kan de distribuera en virtuell dator eller en VM-skalningsuppsättning i någon av de prenumerationer som de har åtkomst till inom samma AD-klient som delad versionsnumret för avbildningen.  Här är delningsapplikationen matrisen som hjälper dig att förstå vad användaren får åtkomst till:
+Eftersom bildgalleriet för delade, delade avbildningen och delade Avbildningsversion alla resurser, kan de delas med hjälp av den inbyggda interna Azure RBAC styr. Du kan använda RBAC för att dela dessa resurser till andra användare, tjänstens huvudnamn och grupper i din organisation. Omfånget för delning av dessa resurser som ligger inom samma Azure AD-klienten. När en användare har åtkomst till delade avbildningsversionen, kan de distribuera en virtuell dator eller en Virtual Machine Scale Sets i någon av de prenumerationer som de har åtkomst till inom samma Azure AD-klient som delas Avbildningsversion.  Här är delningsapplikationen matrisen som hjälper dig att förstå vad användaren får åtkomst till:
 
 | Delade med användaren     | Delat bildgalleri | Delade bild | Delade Avbildningsversion |
 |----------------------|----------------------|--------------|----------------------|
@@ -85,8 +85,8 @@ Delade avbildningen och delade Avbildningsversion är alla resurser som delad av
 
 ## <a name="billing"></a>Fakturering
 Det finns utan extra kostnad för att använda delade bildgalleriet-tjänsten. Du kommer att debiteras för följande resurser:
-- Kostnader för lagring för att lagra delade bild versioner. Detta beror på antalet repliker av versionen och antalet regioner versionen replikeras till.
-- Nätverks-kostnader för utgående trafik för replikering från källregionen version till de replikerade regionerna.
+- Kostnader för lagring för att lagra delade bild-versioner. Detta beror på antalet repliker av versionen och antalet regioner versionen replikeras till.
+- Nätverks-kostnader för utgående trafik för replikering från regionen som källa för versionen till replikerade regioner.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar 
 
@@ -98,7 +98,7 @@ Det finns utan extra kostnad för att använda delade bildgalleriet-tjänsten. D
 
 ```bash 
 az feature register --namespace Microsoft.Compute --name GalleryPreview
-az provider register -n Microsoft.Compute
+az provider register -name Microsoft.Compute
 ```
 
 **PowerShell**: 
@@ -119,7 +119,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
  
  Om du vill se bild definitioner och avbildningsversioner, bör du också välja **Visa dolda typer**.
  
- Om du vill visa alla delade bild galleriresurser i alla prenumerationer som du har behörighet att använda följande kommando i Azure CLI:
+ Om du vill visa alla bildgalleriet för delade resurser över prenumerationer som du har behörighet att använda följande kommando i Azure CLI:
 
  ```bash
  az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
@@ -146,12 +146,12 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 
 **F.** Kan jag skapa en Avbildningsversion från en särskild disk?
 
- A. Nej, vi stöder för närvarande inte specialiserade diskar som bilder. Om du har en särskild disk kan du behöva [skapa en virtuell dator från den virtuella Hårddisken](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) genom att koppla specializeddisk till en ny virtuell dator. När du har en aktiv virtuell dator, måste du följa anvisningarna för att skapa en hanterad avbildning från den [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) eller [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). När du har en generaliserad avbildning av hanterade kan starta du processen med att skapa en delad Bildbeskrivning och versionsnumret för avbildningen.
+ A. Nej, vi stöder för närvarande inte specialiserade diskar som bilder. Om du har en särskild disk kan du behöva [skapa en virtuell dator från den virtuella Hårddisken](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) genom att koppla en särskild disk till en ny virtuell dator. När du har en aktiv virtuell dator, måste du följa anvisningarna för att skapa en hanterad avbildning från den [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) eller [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). När du har en generaliserad avbildning av hanterade kan starta du processen med att skapa en delad Bildbeskrivning och versionsnumret för avbildningen.
 
 
 **F.** Kan jag skapa en delad bildgalleriet och avbildningsdefinitionen Avbildningsversion via Azure portal?
 
- A. Nej, för närvarande vi stöder inte skapandet av någon av bildgalleriet för delade resurser via Azure-portalen. Men stöder vi skapandet av bildgalleriet för delade resurser via CLI, mallar och SDK: er. PowerShell kommer också att versionen snart.
+ A. Nej, för närvarande vi stöder inte skapandet av någon av bildgalleriet för delade resurser via Azure-portalen. Men stöder vi skapandet av bildgalleriet för delade resurser via CLI, mallar och SDK: er. PowerShell släpps även snart.
 
  
 **F.** När du skapat kan jag uppdatera avbildningsdefinitionen eller versionsnumret för avbildningen? Vilken typ av information kan jag ändra?
@@ -186,9 +186,9 @@ Avbildningsversion:
 
  A. Nej, kan du replikera versionerna som bild över regioner i en prenumeration och använda den i andra prenumerationer via RBAC.
 
-**F.** Kan jag dela avbildningsversioner i AD-klienter? 
+**F.** Kan jag dela bild versioner i Azure AD-klienter? 
 
- A. Nej, stöder inte för närvarande delade bildgalleriet delning av avbildningsversioner över AD-klienter. Du kan dock använda funktionen privata erbjudanden på Azure Marketplace för att uppnå detta.
+ A. Nej, stöder inte för närvarande delade bildgalleriet delning av avbildningsversioner över Azure AD-klienter. Du kan dock använda funktionen privata erbjudanden på Azure Marketplace för att uppnå detta.
 
 
 **F.** Hur lång tid tar det för att replikera bild versioner i målregioner?
@@ -198,7 +198,7 @@ Avbildningsversion:
 
 **F.** Hur många delade bildgallerier kan jag skapa i en prenumeration?
 
- A. Standardkvoten är 
+ A. Standardkvoten är: 
 - 10 delade bildgallerier per prenumeration per region
 - 200 bild definitioner, per prenumeration per region
 - 2000 bild versioner, per prenumeration per region
@@ -239,4 +239,4 @@ Om du vill ange vanliga replikantalet i CLI använder den **--replikantal** argu
 
 **F.** Vilka API-version ska jag använda för att skapa delade bildgalleriet, Avbildningsdefinitionen, versionsnumret för avbildningen och VM/VMSS utanför versionsnumret för avbildningen?
 
- A. För virtuella datorer och VM scale Sets distributioner som använder en Avbildningsversion av, rekommenderar vi att du använder API-versionen 2018-04-01 eller högre. Om du vill arbeta med delade bildgallerier, bild-definitioner och avbildningsversioner, rekommenderar vi att du använder API-versionen 2018-06-01. 
+ A. För virtuell dator och Virtual Machine Scale Sets distributioner som använder en Avbildningsversion av, rekommenderar vi du använder API-versionen 2018-04-01 eller högre. Om du vill arbeta med delade bildgallerier, bild-definitioner och avbildningsversioner, rekommenderar vi att du använder API-versionen 2018-06-01. 

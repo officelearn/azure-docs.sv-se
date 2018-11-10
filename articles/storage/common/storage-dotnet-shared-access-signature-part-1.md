@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: c7d2c16ef135644c1ff23d7a71c66bec27ac930d
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 1bc93b083b0f6f0d813f209c9371ce38e8a9daa6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241053"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228818"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Använda signaturer för delad åtkomst (SAS)
 
@@ -223,7 +223,7 @@ Följande rekommendationer för att använda signaturer för delad åtkomst kan 
 7. **Förstå att ditt konto kommer att faktureras för eventuell användning, inklusive att göra med SAS.** Om du anger skrivåtkomst till en blob kan kan en användare välja att ladda upp en blob 200GB. Om du har gett dem samt läsbehörighet, kan de välja att hämta den 10 gånger medför 2 TB i kostnader för nätverksegress för dig. Igen, ange begränsade behörigheter för att minska potentiella åtgärder av obehöriga användare. Använda tillfällig SAS för att minska det här hotet (men Tänk också på klockan skeva på sluttid).
 8. **Validera data som skrivits med hjälp av SAS.** När ett klientprogram skriver data till ditt lagringskonto, Kom ihåg att det kan finnas problem med dessa data. Om programmet kräver att data ska verifieras eller behörighet innan det är klart att användas, bör du utföra den här verifieringen när data skrivs och innan den används av ditt program. Den här metoden skyddar även mot skadad eller skadliga data som skrivs till ditt konto, antingen av en användare som har köpt SAS korrekt eller av en användare som utnyttjar en läckta SAS.
 9. **Inte alltid att använda SAS.** Ibland uppväga riskerna med en viss åtgärd mot ditt lagringskonto fördelarna med SAS. För sådana åtgärder, skapar du en tjänst i mittennivå som skriver till ditt storage-konto när du har utfört företag regel verifiering, autentisering och granskning. Dessutom är ibland det enklare att hantera åtkomst på andra sätt. Till exempel om du vill se alla blobbar i en behållare som är offentligt läsbara du behållaren offentlig, i stället för att tillhandahålla en SAS på alla klienter för åtkomst.
-10. **Använda Storage Analytics för att övervaka program.** Du kan använda loggning och mått för att se alla topp i autentiseringsfel på grund av ett avbrott i din SAS provider-tjänsten eller oavsiktlig borttagning av en lagrad åtkomstprincip. Se den [Azure Storage-teamets blogg](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) för ytterligare information.
+10. **Använda Storage Analytics för att övervaka program.** Du kan använda loggning och mått för att se alla topp i autentiseringsfel på grund av ett avbrott i din SAS provider-tjänsten eller oavsiktlig borttagning av en lagrad åtkomstprincip. Se den [Azure Storage-teamets blogg](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) för ytterligare information.
 
 ## <a name="sas-examples"></a>SAS-exempel
 Nedan följer några exempel på båda typerna av signaturer för delad åtkomst, kontot med delad Åtkomstsignatur och tjänst-SAS.
@@ -423,5 +423,5 @@ Signaturer för delad åtkomst är användbara för att tillhandahålla begräns
 ## <a name="next-steps"></a>Nästa steg
 * [Signaturer för delad åtkomst, del 2: Skapa och använda en SAS med Blob storage](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 * [Hantera anonym läsbehörighet till behållare och blobbar](../blobs/storage-manage-access-to-resources.md)
-* [Delegera åtkomst med signatur för delad åtkomst](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-* [Introduktion till tabell och kö-SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+* [Delegera åtkomst med signatur för delad åtkomst](https://msdn.microsoft.com/library/azure/ee395415.aspx)
+* [Introduktion till tabell och kö-SAS](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

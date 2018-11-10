@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: cda2162873b612cb138487e3d120a3bce3fea1ae
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: fdf97234e840de5fdd2811f3cdae8dd4cdc76a22
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407016"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229160"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Självstudie: Uppdatera lagerplatsen med PowerShell och ämnen/prenumerationer
 
@@ -40,7 +40,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][] i
 
 För att kunna följa de här självstudierna ska du kontrollera att du har installerat:
 
-1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) eller senare.
+1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) eller senare.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 eller senare.
 
 Den här självstudien kräver att du kör den senaste versionen av Azure PowerShell. Om du behöver installera eller uppgradera, kan du läsa [Installera och konfigurera Azure PowerShell][].

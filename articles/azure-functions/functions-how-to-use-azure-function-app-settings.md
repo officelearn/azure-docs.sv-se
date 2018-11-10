@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 18e4adb47ecf8e6d44edea873a4b3cc73492b273
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 5e34aae62f871cba2a27a292242cff8e90c67934
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301491"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228988"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Så här hanterar du en funktionsapp i Azure portal 
 
@@ -50,7 +50,7 @@ Det kan ibland vara svårt att hitta dina resurser i den [Azure Portal]. Om du v
 
 Den **inställningar** fliken är där du kan uppdatera Functions runtime-versionen som används av din funktionsapp. Det är också där du hanterar värdnycklar som används för att begränsa HTTP-åtkomst till alla funktioner som är värd för funktionsappen.
 
-Functions har stöd för både som är värd för förbrukning och App Service som är värd för planer. Mer information finns i [Välj korrekt tjänsteplan för Azure Functions](functions-scale.md). Funktioner för bättre förutse förbrukningsplanen kan du begränsa plattformsanvändningen genom att ange en kvot för daglig användning i gigabyte-sekunder. När dagskvoten uppnås stoppas funktionsappen. En funktionsapp som stoppats på grund av når utgiftsgränsen kvoten kan återaktiveras från samma kontext som upprättar dagliga utgiftskvot. Se den [Azure Functions sidan med priser](http://azure.microsoft.com/pricing/details/functions/) mer information om fakturering.   
+Functions har stöd för både som är värd för förbrukning och App Service som är värd för planer. Mer information finns i [Välj korrekt tjänsteplan för Azure Functions](functions-scale.md). Funktioner för bättre förutse förbrukningsplanen kan du begränsa plattformsanvändningen genom att ange en kvot för daglig användning i gigabyte-sekunder. När dagskvoten uppnås stoppas funktionsappen. En funktionsapp som stoppats på grund av når utgiftsgränsen kvoten kan återaktiveras från samma kontext som upprättar dagliga utgiftskvot. Se den [Azure Functions sidan med priser](https://azure.microsoft.com/pricing/details/functions/) mer information om fakturering.   
 
 ## <a name="platform-features-tab"></a>Plattformen funktioner fliken
 

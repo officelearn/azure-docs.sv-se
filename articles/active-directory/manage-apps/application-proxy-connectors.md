@@ -15,12 +15,12 @@ ms.date: 10/17/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: c9c21b9beb891a685d7e264ec55817c0045455bc
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 62738cda8ce37ec7ca50e1e3f285dc71a37113f7
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406285"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036045"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Förstå Azure AD Application Proxy-anslutningar
 
@@ -32,7 +32,7 @@ Kopplingar är förenklad agenter som finns lokalt och underlätta den utgående
 
 ## <a name="requirements-and-deployment"></a>Krav och distribution
 
-Om du vill distribuera Application Proxy har du behöver minst en koppling, men vi rekommenderar två eller fler för större flexibilitet. Installera anslutningen på en Windows Server 2012 R2 eller 2016-dator. Anslutningen måste kunna kommunicera med Application Proxy-tjänsten, samt lokala program som du publicerar. 
+Om du vill distribuera Application Proxy har du behöver minst en koppling, men vi rekommenderar två eller fler för större flexibilitet. Installera anslutningen på en Windows Server 2012 R2 eller 2016-dator. Anslutningen måste kunna kommunicera med Application Proxy-tjänsten, samt lokala program som du publicerar. Application Proxy kräver också TLS 1.2 som körs på det underliggande operativsystemet. Om du vill ändra till TLS 1.2, följer du stegen i [Aktivera TLS 1.2](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect). Innehållet är för Azure AD Connect, är den här proceduren samma för alla .NET-klienter.
 
 Mer information om nätverkskrav connector-server finns i [Kom igång med Application Proxy och installera ett anslutningsprogram](application-proxy-enable.md).
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3fa41f894e3228310bae6a9407cfcc426c27bfdc
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 47cf32a57fc4a2d0e20a9f2c242db1f3dec96fe5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963726"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228546"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Felsökning utan data, Application Insights för .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Några av Mina telemetri saknas
@@ -141,7 +141,7 @@ Instrumenteringsnyckeln i ApplicationInsights.config kontroller där telemetri s
     
     ![](./media/app-insights-asp-net-troubleshoot-no-data/ikey-check.png)
 * I den [home Microsoft Azure-instrumentpanelen](https://portal.azure.com), titta på kartan Tjänstehälsa. Om det finns några aviseringar indikationer, vänta tills de har kommit tillbaka till OK och stänger och öppnar ditt programblad i Application Insights.
-* Kontrollera också [vår status blogg](http://blogs.msdn.com/b/applicationinsights-status/).
+* Kontrollera också [vår status blogg](https://blogs.msdn.com/b/applicationinsights-status/).
 * Har du skriva kod för den [SDK för serversidan](app-insights-api-custom-events-metrics.md) som kan komma att ändras instrumenteringsnyckeln i `TelemetryClient` instanser eller i `TelemetryContext`? Eller har du skriva en [filter eller sampling](app-insights-api-filtering-sampling.md) som kanske filtreras för mycket?
 * Om du har redigerat ApplicationInsights.config noggrant kontrollera konfigurationen för [TelemetryInitializers och TelemetryProcessors](app-insights-api-filtering-sampling.md). En typ av fel namn eller parameter kan orsaka SDK, för att skicka inga data.
 
@@ -167,7 +167,7 @@ Prestandadata (CPU, IO-frekvens och så vidare) är tillgänglig för [Java webb
 * Windows Server 2008: Kontrollera att du har installerat följande uppdateringar: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>Jag använde för att se data, men den har stoppats
-* Kontrollera den [status blogg](http://blogs.msdn.com/b/applicationinsights-status/).
+* Kontrollera den [status blogg](https://blogs.msdn.com/b/applicationinsights-status/).
 * Har du nått din månatliga kvot för datapunkter? Öppna inställningar/kvoter och priser för att ta reda på. I så fall kan du uppgradera din plan eller betala för ytterligare kapacitet. Se den [priser schema](https://azure.microsoft.com/pricing/details/application-insights/).
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>Jag ser inte alla data som jag förväntar mig

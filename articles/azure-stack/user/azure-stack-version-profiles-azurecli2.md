@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 6042aa4dd8b26a0986737edc3c89b8e165ae970a
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 2c862dcaf5f9267265879faa8ac927ddf7515419
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067711"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277281"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Använd API-versionsprofiler med Azure CLI i Azure Stack
 
@@ -139,6 +139,18 @@ Använd följande steg för att ansluta till Azure Stack:
         --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
+    c. Att registrera den *användaren* i en miljö med flera Klientorganisationer, använder:
+
+      ```azurecli
+      az cloud register \ 
+        -n AzureStackUser \ 
+        --endpoint-resource-manager "https://management.local.azurestack.external" \ 
+        --suffix-storage-endpoint "local.azurestack.external" \ 
+        --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
+        --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases> \
+        --endpoint-active-directory-resource-id=<URI of the ActiveDirectoryServiceEndpointResourceID> \
+        --profile 2018-03-01-hybrid
+      ```
 
 1. Konfigurera active miljön med hjälp av följande kommandon.
 
@@ -223,7 +235,7 @@ Om resursgruppen har skapats, visar följande egenskaper för den nyligen skapad
 Det finns några kända problem som du måste tänka på när du använder CLI i Azure Stack:
 
  - CLI interaktivt läge dvs den `az interactive` kommandot stöds inte ännu i Azure Stack.
- - Hämta listan över avbildningar av virtuella datorer som är tillgängliga i Azure Stack med den `az vm images list --all` kommandot i stället för den `az vm image list` kommando. Anger den `--all` alternativet ser till att svaret returnerar endast de avbildningar som är tillgängliga i Azure Stack-miljön.
+ - Hämta listan över avbildningar av virtuella datorer som är tillgängliga i Azure Stack med den `az vm image list --all` kommandot i stället för den `az vm image list` kommando. Anger den `--all` alternativet ser till att svaret returnerar endast de avbildningar som är tillgängliga i Azure Stack-miljön.
  - VM-avbildning alias som är tillgängliga i Azure kan inte tillämpas på Azure Stack. När du använder avbildningar av virtuella datorer, måste du använda parametern hela URN (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) i stället för alias för avbildningen. Den här URN måste matcha bild-specifikationer som härletts från den `az vm images list` kommando.
 
 ## <a name="next-steps"></a>Nästa steg

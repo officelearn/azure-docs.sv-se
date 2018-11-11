@@ -3,18 +3,18 @@ title: Visa trafik med Azure Maps | Microsoft Docs
 description: Hur du vill visa trafikdata på en Javascript-karta
 author: jingjing-z
 ms.author: jinzh
-ms.date: 09/14/2018
+ms.date: 11/10/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 532001a0cda22903d0bdf807ee868aef211336e0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 45f7913c5cc69f99b01ba1a911910273673856d3
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240094"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51513780"
 ---
 # <a name="show-traffic-on-the-map"></a>Visa trafik på kartan
 
@@ -27,7 +27,7 @@ Den här artikeln visar hur du visar information om trafik och händelser på ka
 
 I koden ovan skapar första kodblocket en Kartobjekt. Du kan se [skapa en karta](map-create.md) anvisningar.
 
-Andra kodblocket använder [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic) funktion i klassen kartan för att återge trafikflöden och incidenter på kartan.
+Andra kodblocket använder [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic) funktion i kartans [händelselyssnaren](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) funktionen att återge trafikflöden och incidenter på kartan.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: dobett
-ms.openlocfilehash: 2c7857cd787e9298e94def5341d61238c5bb3a78
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 00b093b5567d85e7f12373020dfaa5f3ca7b0530
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321192"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514408"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Kom igång med IoT Hub-modulidentitet och modultvilling med portalen och .NET-enhet
 
@@ -24,8 +24,9 @@ ms.locfileid: "49321192"
 
 I den här kursen lär du dig:
 
-1. att skapa en modulidentitet i portalen. 
-1. hur du använder .NET-enhetens SDK för att uppdatera modultvillingen från din enhet.
+1. Så här att skapa en modul i portalen. 
+
+2. hur du använder .NET SDK enhetsuppdatering modultvilling från din enhet.
 
 > [!NOTE]
 > Artikeln om [Azure IoT SDK:er][lnk-hub-sdks] innehåller information om Azure IoT SDK:er som du kan använda för att skapa båda programmen så att de kan köras på enheter och på lösningens backend-server.
@@ -36,21 +37,17 @@ För att kunna genomföra den här kursen behöver du följande:
 * Visual Studio 2015 eller Visual Studio 2017.
 * Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnadsfritt konto][lnk-free-trial] på bara några minuter.)
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
-## <a name="create-a-device-identity-in-the-portal"></a>Skapa en enhetsidentitet i portalen
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-Nu har du din IoT Hub. Öppna [portalen](https://portal.azure.com) och gå till IoT-hubben. Klicka på IoT-enheter och sedan på Lägg till för att skapa en enhetsidentitet. Ge den namnet **MyFirstDevice**. 
+### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT hub
 
-  ![Skapa enhetsidentitet][8]
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
-När du har sparat kan du se att MyFirstDevice-identiteten har skapats i din lista över enhetsidentiteter.
+## <a name="register-a-new-device-in-the-iot-hub"></a>Registrera en ny enhet i IoT hub
 
-  ![Enhets-id som skapats][11]
-
-Klicka nu på raden. Du ser information om enheten.
-
-  ![Enhetsinformation][10]
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="create-a-module-identity-in-the-portal"></a>Skapa en modulidentitet i portalen
 
@@ -173,14 +170,11 @@ Mer information om hur du kan komma igång med IoT Hub och utforska andra IoT-sc
 
 
 <!-- Images. -->
-[8]:./media\iot-hub-portal-csharp-module-twin-getstarted/create-device-id.JPG
-[9]:./media\iot-hub-portal-csharp-module-twin-getstarted/create-module-id.JPG
-[10]:./media\iot-hub-portal-csharp-module-twin-getstarted/device-details.JPG
-[11]:./media\iot-hub-portal-csharp-module-twin-getstarted/device-id-created.JPG
-[12]:./media\iot-hub-portal-csharp-module-twin-getstarted/module-details.JPG
-[13]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.JPG
-[14]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png
-[15]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
+[9]:./media/iot-hub-portal-csharp-module-twin-getstarted/create-module-id.JPG
+[12]:./media/iot-hub-portal-csharp-module-twin-getstarted/module-details.JPG
+[13]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.JPG
+[14]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png
+[15]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/07/2018
 ms.author: danlep
-ms.openlocfilehash: 987cbcc642152a4077cc895ad06e43ac56113497
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 35e5d13ac358fa5edcb778253340de0f9e15c067
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544072"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281288"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Välj en VM-storlek för beräkningsnoder i en Azure Batch-pool
 
@@ -42,8 +42,14 @@ Batch-pooler i den virtuella datorkonfigurationen stöder alla VM-storlekar ([Li
 | A-serien | Standard_A0 |
 | B-serien | Alla |
 
-Virtuella datorer i M-serien stöds endast för noder med låg prioritet.
+Storlek på följande Virtuella datorer stöds endast för lågprioriterade virtuella noder:
 
+| Familj  | Storlekar som stöds  |
+|---------|---------|
+| M-serien | Standard_M64ms |
+| M-serien | Standard_M128s |
+
+Andra storlekar på virtuella datorer i M-serien är för närvarande stöds inte.
 
 ### <a name="pools-in-cloud-service-configuration"></a>Pooler i Cloud Service-konfiguration
 
@@ -55,6 +61,7 @@ Batch-pooler i Cloud Service-konfigurationen har stöd för alla [VM-storlekar f
 | Av2-serien | Standard_A1_v2, Standard_A2_v2, Standard_A2m_v2 |
 
 ## <a name="restricted-vm-families"></a>Begränsad VM-serier
+
 Följande VM-familjer kan fördelas i Batch-pooler, men du måste begära en specifik kvot (se [i den här artikeln](batch-quota-limit.md#increase-a-quota)):
 * NCv2-serien
 * NCv3-serien

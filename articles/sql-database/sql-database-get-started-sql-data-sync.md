@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 71e5ae2a6b486873df147e7c2c0518e1c47b09c7
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 11/07/2018
+ms.openlocfilehash: 0a248ec5137a6de43910b1d11184dfeda18601f5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914013"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280355"
 ---
 # <a name="tutorial-set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Självstudie: Ställa in SQL Data Sync för att synkronisera data mellan Azure SQL Database och SQL Server lokalt
 
@@ -129,7 +129,7 @@ På den **konfigurera lokala** gör följande:
 
     Om du har valt **skapa en ny agent**, gör du följande:
 
-   1. Hämta klientprogrammet för sync-agenten från länken och installera den på den dator där SQL Server.
+   1. Hämta klientprogrammet för sync-agenten från länken och installera den på den dator där SQL Server. Du kan också hämta data sync-agenten direkt från [SQL Azure Data Sync-agenten](https://www.microsoft.com/download/details.aspx?id=27693).
 
         > [!IMPORTANT]
         > Du måste öppna utgående TCP-port 1433 i brandväggen så att klientagenten kommunicera med servern.
@@ -253,35 +253,7 @@ När du exporterar en databas som en `.bacpac` filen och importera filen om du v
 
 ## <a name="faq-about-the-client-agent"></a>Vanliga frågor om klientens agent
 
-### <a name="why-do-i-need-a-client-agent"></a>Varför behöver jag en klientagent
-
-SQL Data Sync-tjänsten kommunicerar med SQL Server-databaser via klientagenten. Den här säkerhetsfunktionen förhindrar direktkommunikation med databaser bakom en brandvägg. När SQL Data Sync-tjänsten kommunicerar med agenten, det gör det med hjälp av krypterade anslutningar och en unik token eller *agentnyckeln*. SQL Server-databaserna autentisera agenten med anslutningsnyckel sträng och agenten. Den här designen ger en hög nivå av säkerhet för dina data.
-
-### <a name="how-many-instances-of-the-local-agent-ui-can-be-run"></a>Hur många instanser av lokal agent kan Användargränssnittet köras
-
-Endast en instans av Användargränssnittet kan köras.
-
-### <a name="how-can-i-change-my-service-account"></a>Hur ändrar jag mitt service-konto
-
-När du har installerat en klientagent är det enda sättet att ändra konto för att avinstallera den och installera en ny klientagent med det nya tjänstkontot.
-
-### <a name="how-do-i-change-my-agent-key"></a>Hur ändrar jag min agentnyckeln
-
-En agentnyckel kan bara användas en gång av en agent. Den kan inte återanvändas när du tar bort och sedan installera om en ny agent, och kan inte användas av flera agenter. Om du vill skapa en ny nyckel för en befintlig agent måste du vara säker på att samma nyckel registreras med klientens agent och med SQL Data Sync-tjänsten.
-
-### <a name="how-do-i-retire-a-client-agent"></a>Hur jag för att inaktivera en klientagent
-
-Återskapa dess nyckeln i portalen för att omedelbart ogiltigförklara eller dra tillbaka en agent, men inte skickar den i Användargränssnittet för agenten. Återskapar en nyckel upphäver tidigare nyckeln oavsett om motsvarande agenten är online eller offline.
-
-### <a name="how-do-i-move-a-client-agent-to-another-computer"></a>Hur flyttar jag en klientagent till en annan dator
-
-Om du vill köra lokal agent från en annan dator än den för närvarande finns på gör du följande:
-
-1. Installera agenten på önskad dator.
-2. Logga in till SQL Data Sync-portalen och återskapa en agentnyckel för den nya agenten.
-3. Använda den nya agenten Användargränssnittet för att skicka in den nya agentnyckeln.
-4. Vänta medan klientagenten laddar ned listan över lokala databaser som har registrerats tidigare.
-5. Ange autentiseringsuppgifter på databasen för alla databaser som visas som inte kan nås. Dessa databaser måste kunna nås från den nya datorn där agenten är installerad.
+Läs vanliga frågor om klientagenten [agenten vanliga frågor och svar](sql-database-data-sync-agent.md#agent-faq).
 
 ## <a name="next-steps"></a>Nästa steg
 

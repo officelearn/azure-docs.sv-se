@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: spelluru
-ms.openlocfilehash: e7d140f212dd2506f48b23fe99db5ba2be91dac9
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 031ed86461420ca6ebb2ac3a8f669305666e3cf4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421041"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278352"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Bearbeta Apache Kafka för Event Hubs-händelser med Stream-analys 
 Den här artikeln visar hur du strömma data till Kafka-aktiverade Event Hubs och bearbeta dem med Azure Stream Analytics. Vi går igenom följande steg: 
@@ -207,8 +207,13 @@ När du har en Stream Analytics-jobbkonfiguration för att läsa en inkommande d
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du lärt dig hur du strömmar till Kafka-aktiverade Event Hubs utan att ändra dina protokollklienter och utan att köra dina egna kluster. Läs mer om Event Hubs och Event Hubs för Kafka i följande avsnitt:  
 
-* [Läs om Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Läs om Event Hubs för Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-* [Utforska fler exempel på Event Hubs för Kafka GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
-* Använd [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) för att [strömma händelser från Kafka lokalt till Kafka-aktiverade Event Hubs i molnet.](event-hubs-kafka-mirror-maker-tutorial.md)
-* Lär dig att strömma till Kafka aktiverade Event Hubs med hjälp av [interna Kafka program](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md), eller [Akka strömmar](event-hubs-kafka-akka-streams-tutorial.md)
+- [Läs om Event Hubs](event-hubs-what-is-event-hubs.md)
+- [Event Hubs för Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+- [Så här skapar du Kafka aktiverat Event Hubs](event-hubs-create-kafka-enabled.md)
+- [Stream till Event Hubs från Kafka-program](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+- [Spegla en Kafka-meddelandeköer i ett Kafka-aktiverade händelsehubb](event-hubs-kafka-mirror-maker-tutorial.md)
+- [Ansluta Apache Spark till en händelsehubb med Kafka-aktiverad](event-hubs-kafka-spark-tutorial.md)
+- [Ansluta Apache Flink till ett Kafka-aktiverade event hub](event-hubs-kafka-flink-tutorial.md)
+- [Integrera Kafka ansluta med en Kafka-aktiverade händelsehubb](event-hubs-kafka-connect-tutorial.md)
+- [Ansluta Akka strömmar till en händelsehubb med Kafka-aktiverad](event-hubs-kafka-akka-streams-tutorial.md)
+- [Utforska exempel på GitHub](https://github.com/Azure/azure-event-hubs-for-kafka) 

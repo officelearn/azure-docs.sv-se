@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 08434007c7ef66349cae2a368d3be94ee522bab1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: bfc2f40231b5e28ffa3721eef70311da8dcb6da9
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242356"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51343676"
 ---
 # <a name="discover-competitions-in-the-azure-ai-gallery"></a>Identifiera tävlingar i Azure AI-galleriet
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="cortana-intelligence-competitions"></a>Cortana Intelligence, tävlingar
-**[Tävlingar](https://gallery.cortanaintelligence.com/competitions)**  ger en spännande möjlighet att konkurrera med community för datatekniker att lösa komplexa problem med Cortana Intelligence Suite.
+**[Tävlingar](https://gallery.cortanaintelligence.com/competitions)**  i [Azure AI-galleriet](http://gallery.cortanaintelligence.com) ger en spännande möjlighet att konkurrera med community för datatekniker att lösa komplexa problem med Cortana Intelligence Suite.
 
 Svar på vanliga frågor om tävlingar finns i [Microsoft Cortana Intelligence, tävlingar FAQ](competition-faq.md).
 

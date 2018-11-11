@@ -3,7 +3,7 @@ title: Använda Azure AD Connect Health med synkronisering | Microsoft Docs
 description: Den här sidan om Azure AD Connect Health innehåller information om hur du övervakar Azure AD Connect-synkronisering.
 services: active-directory
 documentationcenter: ''
-author: zhiweiw
+author: zhiweiwangmsft
 manager: mtillman
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
 ms.service: active-directory
@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ca3c0524873e4c7a1326095eb1cc28f63f59a27
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: eebeb8d1f27631e7ecb40072f78d6a04b5152a8f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431941"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277145"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Övervaka Azure AD Connect-synkronisering med Azure AD Connect Health
 Följande dokumentation är specifik för övervakning av Azure AD Connect (Sync) med Azure AD Connect Health.  Information om övervakning av AD FS med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD FS](how-to-connect-health-adfs.md). Mer information om övervakning av Active Directory Domain Services med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD DS](how-to-connect-health-adds.md).

@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6d7e9e5a4c60c16c505b0b69f14d22ebd868c1c0
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: fd0b2bda91ecb9b717f4cfe366c45bc95b21fd8e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748229"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277570"
 ---
 # <a name="filter-events-for-event-grid"></a>Filtrera händelser för Event Grid
 
@@ -181,30 +181,17 @@ I nästa exempel för Resource Manager-mallen skapar en prenumeration för ett b
 
 ## <a name="filter-by-operators-and-data"></a>Filtrera efter operatorer och data
 
-Om du vill använda avancerade filter, måste du installera ett tillägg för förhandsversion för Azure CLI. Du kan använda [CloudShell](/azure/cloud-shell/quickstart) eller installera Azure CLI lokalt.
+Du kan använda operatorer och egenskaper för data att filtrera händelser för mer flexibilitet vid filtrering.
 
-### <a name="install-extension"></a>Installera tillägget
-
-I CloudShell:
-
-* Om du har installerat tillägget tidigare kan du uppdatera den `az extension update -n eventgrid`
-* Om du inte tidigare har installerat tillägget, installerar du det `az extension add -n eventgrid`
-
-För en lokal installation:
-
-1. Avinstallera Azure CLI lokalt.
-1. Installera den [senaste versionen](/cli/azure/install-azure-cli) av Azure CLI.
-1. Starta Kommandotolken.
-1. Avinstallera tidigare versioner av tillägget `az extension remove -n eventgrid`
-1. Installera tillägget `az extension add -n eventgrid`
-
-Du är nu redo att använda avancerade filter.
+[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ### <a name="subscribe-with-advanced-filters"></a>Prenumerera med avancerade filter
 
 Läs om operatörer och nycklar som du kan använda för avancerade filter i [avancerad filtrering](event-filtering.md#advanced-filtering).
 
-I följande exempel skapas ett anpassat ämne. Den prenumererar på det anpassade ämnet och filtrerar efter ett värde i dataobjektet. Händelser som har egenskapen färg har angetts till blått, rött eller grönt skickas till prenumerationen.
+Följande exempel skapar ett anpassat ämne. De prenumerera på anpassat ämne och filtrera efter ett värde i dataobjektet. Händelser som har egenskapen färg har angetts till blått, rött eller grönt skickas till prenumerationen.
+
+Om du använder Azure CLI använder du:
 
 ```azurecli-interactive
 topicName=<your-topic-name>
@@ -225,9 +212,33 @@ az eventgrid event-subscription create \
 
 Observera att en [förfallodatum](concepts.md#event-subscription-expiration) har angetts för prenumerationen.
 
+Om du använder PowerShell använder du:
+
+```azurepowershell-interactive
+$topicName = <your-topic-name>
+$endpointURL = <endpoint-URL>
+
+New-AzureRmResourceGroup -Name gridResourceGroup -Location eastus2
+New-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Location eastus2 -Name $topicName
+
+$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Id
+
+$expDate = '<mm/dd/yyyy hh:mm:ss>' | Get-Date
+$AdvFilter1=@{operator="StringIn"; key="Data.color"; Values=@('blue', 'red', 'green')}
+
+New-AzureRmEventGridSubscription `
+  -ResourceId $topicid `
+  -EventSubscriptionName <event_subscription_name> `
+  -Endpoint $endpointURL `
+  -ExpirationDate $expDate `
+  -AdvancedFilter @($AdvFilter1)
+```
+
 ### <a name="test-filter"></a>Test-filter
 
-Testa filtret genom att skicka en händelse med färgfältet inställd grönt.
+Testa filtret genom att skicka en händelse med färgfältet inställd grönt. Eftersom grön är ett av värdena i filtret, händelsen skickas till slutpunkten.
+
+Om du använder Azure CLI använder du:
 
 ```azurecli-interactive
 topicEndpoint=$(az eventgrid topic show --name $topicName -g gridResourceGroup --query "endpoint" --output tsv)
@@ -238,17 +249,60 @@ event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/
 curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 ```
 
-Händelsen skickas till din slutpunkt.
+Om du använder PowerShell använder du:
 
-Testa ett scenario där händelsen inte skickas genom att skicka en händelse med färgfältet inställd gult.
+```azurepowershell-interactive
+$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Endpoint
+$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name $topicName
+
+$eventID = Get-Random 99999
+$eventDate = Get-Date -Format s
+
+$htbody = @{
+    id= $eventID
+    eventType="recordInserted"
+    subject="myapp/vehicles/cars"
+    eventTime= $eventDate
+    data= @{
+        model="SUV"
+        color="green"
+    }
+    dataVersion="1.0"
+}
+
+$body = "["+(ConvertTo-Json $htbody)+"]"
+
+Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
+```
+
+Testa ett scenario där händelsen inte skickas genom att skicka en händelse med färgfältet inställd gult. Gul inte något av värdena som anges i prenumerationen, så att händelsen inte levereras till din prenumeration.
+
+Om du använder Azure CLI använder du:
 
 ```azurecli-interactive
 event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/cars", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "model": "SUV", "color": "yellow"},"dataVersion": "1.0"} ]'
 
 curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 ```
+Om du använder PowerShell använder du:
 
-Gul inte något av värdena som anges i prenumerationen, så att händelsen inte levereras till din prenumeration.
+```azurepowershell-interactive
+$htbody = @{
+    id= $eventID
+    eventType="recordInserted"
+    subject="myapp/vehicles/cars"
+    eventTime= $eventDate
+    data= @{
+        model="SUV"
+        color="yellow"
+    }
+    dataVersion="1.0"
+}
+
+$body = "["+(ConvertTo-Json $htbody)+"]"
+
+Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

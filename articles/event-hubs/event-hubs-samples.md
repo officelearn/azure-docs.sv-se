@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2018
 ms.author: shvija
-ms.openlocfilehash: ed337689360428d66657e5391ee52bb0ae39dc14
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 3db77a31dfe92e16d2ec145cc0be595082d0d927
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365653"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279389"
 ---
 # <a name="event-hubs-samples"></a>Event Hubs-exempel 
 Du kan hitta exempel för Event Hubs på [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). De här exemplen visar viktiga funktioner i [Azure Event Hubs](/azure/event-hubs/). Den här artikeln kategoriserar och beskriver exempel som är tillgängliga med länkar till var och en.
@@ -60,7 +60,8 @@ Du hittar Azure CLI-exempel för Azure Event Hubs i den [azure-event-hubs](https
 ## <a name="azure-powershell-samples"></a>Azure PowerShell-exempel
 Du hittar Azure PowerShell-exempel för Azure Event Hubs i den [azure-event-hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/PowerShell) GitHub-lagringsplatsen.
  
-
+## <a name="apache-kafka-samples"></a>Apache Kafka-exempel
+Du kan hitta exempel för Event Hubs för Apache Kafka-funktionen i den [azure-event-hubs-för-kafka](https://github.com/Azure/azure-event-hubs-for-kafka) GitHub-lagringsplatsen.
 
 ## <a name="next-steps"></a>Nästa steg
 Du kan läsa mer om Event Hubs i följande artiklar:

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 6e5bbdf0d43b642816a58419c2ce1c186fd44acb
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 774c313086883bedf4f8e06a46715a438fc02e69
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960760"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281208"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Aktivera diagnostikinställningar automatiskt när en resurs skapas med en Resource Manager-mall
 I den här artikeln visar vi hur du kan använda en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-authoring-templates.md) att konfigurera diagnostikinställningar på en resurs när den skapas. På så sätt kan du automatiskt starta direktuppspelning av dina diagnostikloggar och mått till Event Hubs, arkivera dem i ett Lagringskonto eller skicka dem till Log Analytics när en resurs skapas.
@@ -26,7 +26,7 @@ I den här artikeln visar vi hur du kan använda en [Azure Resource Manager-mall
 Metoden för att aktivera diagnostikloggar med en Resource Manager-mall beror på resurstypen.
 
 * **Icke-Compute** resurser (till exempel Nätverkssäkerhetsgrupperna, Logic Apps, Automation) använder [diagnostikinställningar som beskrivs i den här artikeln](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
-* **Compute** (WAD/LAD-baserad) resurser i [WAD/LAD konfigurationsfilen som beskrivs i den här artikeln](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
+* **Compute** (WAD/LAD-baserad) resurser i [WAD/LAD konfigurationsfilen som beskrivs i den här artikeln](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 
 I den här artikeln beskriver vi hur du konfigurerar diagnostik med någon av metoderna.
 

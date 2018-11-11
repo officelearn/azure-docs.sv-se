@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 2c82007092f9ff93086d5caaf188f6922f4a8aea
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 888b9a256a68b77b91145bb3ccfeea820c97ccfa
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086190"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515383"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Utveckla Azure-funktioner med hjälp av Visual Studio  
 
@@ -29,7 +29,7 @@ Azure Functions Tools ger följande fördelar:
 * Utveckla och distribuera förkompilerad C#-funktioner. Före följt functions erbjuder en bättre kallstart prestanda än C#-skriptbaserade funktioner. 
 * Koda dina funktioner i C# samtidigt som du har alla fördelarna med Visual Studio-utveckling. 
 
-Den här artikeln visar hur du använder Azure Functions Tools för Visual Studio 2017 för att utveckla dina funktioner i C#. Du också lära dig hur du publicerar projektet till Azure som en .NET-sammansättning.
+Den här artikeln innehåller information om hur du använder Azure Functions Tools för Visual Studio 2017 för att utveckla C# fungerar och publicera dem till Azure. Innan du läser den här artikeln bör du genomföra den [Functions-Snabbstart för Visual Studio](functions-create-your-first-function-visual-studio.md). 
 
 > [!IMPORTANT]
 > Blanda inte lokal utveckling med portalen utvecklingen i samma funktionsapp. När du publicerar från ett lokalt projekt till en funktionsapp skriver distributionsprocessen över alla funktioner som du har utvecklat i portalen.
@@ -81,6 +81,9 @@ Projektmallen skapar ett C#-projekt, installerar den `Microsoft.NET.Sdk.Function
 * **Host.JSON**: låter dig konfigurera Functions-värden. Dessa inställningar gäller både när du kör lokalt och i Azure. Mer information finns i [referens för host.json](functions-host-json.md).
 
 * **Local.Settings.JSON**: underhåller inställningar som används när du kör funktioner lokalt. De här inställningarna används inte av Azure, de som används av den [Azure Functions Core Tools](functions-run-local.md). Använd den här filen för att ange inställningar för variabler som krävs av dina funktioner. Lägg till ett nytt objekt i den **värden** matris för varje anslutning som krävs av funktions-bindningar i projektet. Mer information finns i [lokala inställningsfilen](functions-run-local.md#local-settings-file) i Azure Functions Core Tools-artikeln.
+
+    >[!IMPORTANT]
+    >Eftersom filen local.settings.json kan innehålla hemligheter, måste den undantas från ditt projekt källkontroll. Den **kopiera till utdata Directory** inställningen för den här filen bör alltid vara **kopiera om nyare**. 
 
 Mer information finns i [Functions klassbiblioteksprojektet](functions-dotnet-class-library.md#functions-class-library-project).
 
@@ -186,7 +189,7 @@ Mer information om hur du använder Azure Functions Core Tools finns [kod och te
 
 Alla inställningar som du lade till i local.settings.json måste också läggas till funktionsappen i Azure. Dessa inställningar överförs inte automatiskt när du publicerar projektet.
 
-Det enklaste sättet att ladda upp inställningarna som krävs till funktionsappen i Azure är att använda den **hantera programinställningar...**  länken som visas när du har publicerat ditt projekt. 
+Det enklaste sättet att ladda upp inställningarna som krävs till funktionsappen i Azure är att använda den **hantera programinställningar...**  länken som visas när du har publicerat ditt projekt.
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings.png)
 
@@ -194,11 +197,13 @@ Detta visar den **programinställningar** dialogrutan för funktionsappen, där 
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
+**Lokala** representerar ett inställningsvärde i filen local.settings.json och **Remote** är den aktuella inställningen i funktionsappen i Azure.  Välj **Lägg till inställning** att skapa en ny appinställning. Använd den **Infoga värde från lokala** länk för att kopiera ett inställningsvärde för för att den **Remote** fält. Väntande ändringar har skrivits till den lokala filen och funktionsappen när du väljer **OK**.
+
 Du kan också hantera programinställningar i någon av dessa andra sätt:
 
 * [Med Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Med hjälp av den `--publish-local-settings` alternativet Publicera i Azure Functions Core Tools](functions-run-local.md#publish).
-* [Med hjälp av Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+* [Med hjälp av Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 
 ## <a name="monitoring-functions"></a>Övervakningsfunktioner
 

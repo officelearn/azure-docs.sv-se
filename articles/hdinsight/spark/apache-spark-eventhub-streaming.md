@@ -3,18 +3,18 @@ title: 'Självstudie: Bearbeta data från Azure Event Hubs med Apache Spark i Az
 description: Anslut Apache Spark i Azure HDInsight till Azure Event Hubs och bearbeta strömmande data.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: conceptual
-ms.date: 06/14/2018
-ms.openlocfilehash: 9cdb5ae31e2743b5ebe877ddd8d6680423e3d9b2
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 11/06/2018
+ms.openlocfilehash: eb2145d2e7b787bafa0b546449282454f7059999
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046260"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283418"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-spark-in-hdinsight"></a>Självstudie: Processen tweetar och använder Azure Event Hubs och Spark i HDInsight
 
@@ -73,18 +73,14 @@ Du kan använda den här händelsehubben för att lagra tweets.
     ![Ange ett namn på händelsehubb för Spark-strömning exempel](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "ger en event hub-namn för Spark-strömning exempel")
 5. Välj **skapa** att skapa namnområdet.
 
-6. Öppna händelsehubbens namnområde med hjälp av följande anvisningar:
+7. Öppna händelsehubbens namnområde med hjälp av följande anvisningar:
 
     1. Från portalen, väljer **alla tjänster**.
     2. I filterrutan anger **händelsehubbar**.
-    3. Dubbelklicka på det namnområde du skapade.
+    3. Välj det nyligen skapade namnområdet.
     4. Välj **+ Event Hub**.
 
-6. Välj det nyligen skapade namnområdet i listan över Event Hubs-namnområde.      
-5. Välj **Händelsehubbar**, och välj sedan **+ Event Hub** att skapa en ny Händelsehubb.
-  
-
-6. Ange följande värden:
+8. Ange följande värden:
 
     - Namn: Ge ett namn för din Händelsehubb.
     - Partitionera antal: 10
@@ -92,12 +88,12 @@ Du kan använda den här händelsehubben för att lagra tweets.
    
     ![Ange event hub-information för Spark-strömning exempel](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "ange event hub-information för Spark-strömning exempel")
 
-7. Välj **Skapa**.
-8. Välj **principer för delad åtkomst** för namnområde (Observera att det inte är åtkomstprinciper för event hub delad) och välj sedan **RootManageSharedAccessKey**.
+9. Välj **Skapa**.
+10. Välj **principer för delad åtkomst** för namnområde (Observera att det inte är åtkomstprinciper för event hub delad) och välj sedan **RootManageSharedAccessKey**.
     
      ![Ange Event Hub-principer för Spark streaming exempel](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "ange Event Hub-principer för Spark streaming exempel")
 
-9. Spara värdena för **primärnyckel** och **anslutningssträng – primär nyckel** att använda senare i självstudien.
+11. Spara värdena för **primärnyckel** och **anslutningssträng – primär nyckel** att använda senare i självstudien.
 
      ![Visa Event Hub principnycklar för Spark streaming exempel](./media/apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "visa Event Hub-principen nycklar för Spark direktuppspelade exempel")
 
@@ -222,7 +218,7 @@ Du behöver skapa en annan Jupyter-anteckningsbok och ge den namnet **ReadTweets
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-I HDInsight lagras dina data i Azure Storage eller Azure Data Lake Store för att du på ett säkert sätt ska kunna ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används. Om du tänker arbeta med nästa självstudie direkt kan du behålla klustret.
+I HDInsight lagras dina data i Azure Storage eller Azure Data Lake Store för att du på ett säkert sätt ska kunna ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Om du planerar att arbeta med nästa självstudie direkt, kanske du vill behålla klustret, annars gå vidare och ta bort klustret.
 
 Öppna klustret i Azure Portal och välj **Ta bort**.
 

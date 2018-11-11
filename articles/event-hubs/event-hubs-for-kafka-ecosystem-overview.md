@@ -7,22 +7,22 @@ author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 11/07/2018
 ms.author: bahariri
-ms.openlocfilehash: b1a046fdb62926d32c05bab5a1616b250911865b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 7f452fe9797e688dc05b644c003117461b4f8bb9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352581"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277502"
 ---
-# <a name="azure-event-hubs-for-apache-kafka-preview"></a>Händelsehubbar i Azure för Apache Kafka (förhandsgranskning)
+# <a name="azure-event-hubs-for-apache-kafka"></a>Azure Event Hubs för Apache Kafka 
 
 Event Hubs ger en Kafka-slutpunkt som kan användas av din befintliga Kafka-baserade program som ett alternativ till att köra dina egna Kafka-kluster. Har stöd för Händelsehubbar [Apache Kafka-protokollet 1.0 och senare](https://kafka.apache.org/documentation/), och fungerar med dina befintliga Kafka-program, inklusive MirrorMaker. 
 
 ## <a name="what-does-event-hubs-for-kafka-provide"></a>Vad tillhandahåller Händelsehubbar för Kafka?
 
-Event Hubs för Kafka-funktionen innehåller en protokollet head ovanpå Azure Event Hubs som är binär kompatibel med Kafka versioner 1.0 och senare för att både läsa från och skriva till Kafka-avsnitt. Du kan börja använda Kafka-slutpunkten från dina program med några ändringar i koden, men en minimal konfigurationsändring. Du kan uppdatera anslutningssträngen i konfigurationer för att peka på Kafka-slutpunkt som exponeras av din händelsehubb i stället för att peka på Kafka-kluster. Du kan sedan starta direktuppspelning av händelser från dina program som använder Kafka-protokollet till Event Hubs. 
+Event Hubs för Kafka-funktionen innehåller en protokollet head ovanpå Azure Event Hubs som är binär kompatibel med Kafka versioner 1.0 och senare för att både läsa från och skriva till Kafka-avsnitt. Du kan börja använda Kafka-slutpunkten från dina program med några ändringar i koden, men en minimal konfigurationsändring. Du kan uppdatera anslutningssträngen i konfigurationer för att peka på Kafka-slutpunkt som exponeras av din händelsehubb i stället för att peka på Kafka-kluster. Du kan sedan starta direktuppspelning av händelser från dina program som använder Kafka-protokollet till Event Hubs. Den här integreringen också stöder ramverk som [Kafka ansluta](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect), vilket är för närvarande i förhandsversion. 
 
 Begreppsmässigt Kafka och Event Hubs är nästan identiska: de är båda partitionerade loggar som skapats för strömmande data. I följande tabell visas begrepp mellan Kafka och Händelsehubbar.
 
@@ -50,9 +50,9 @@ Händelsehubbar i Azure kräver SSL eller TLS för all kommunikation och använd
 
 Event Hubs för Kafka-funktionen kan du skriva med ett protokoll och läsa med en annan, så att din aktuella Kafka producenter kan fortsätta publicera via Kafka, och du kan lägga till läsare med Event Hubs, till exempel Azure Stream Analytics eller Azure Functions. Dessutom Event Hubs-funktioner som [avbilda](event-hubs-capture-overview.md) och [Geo-Haveriberedskap](event-hubs-geo-dr.md) också arbeta med Event Hubs för Kafka-funktionen.
 
-## <a name="features-that-are-not-supported-in-the-preview"></a>Funktioner som inte stöds i förhandsversionen
+## <a name="features-that-are-not-yet-supported"></a>Funktioner som ännu inte stöds 
 
-Följande Kafka-funktioner stöds inte för den offentliga förhandsversionen av Event Hubs för Kafka-integrering:
+Här är listan med Kafka-funktioner som ännu inte stöds:
 
 *   Idempotent producent
 *   Transaktionen
@@ -61,18 +61,20 @@ Följande Kafka-funktioner stöds inte för den offentliga förhandsversionen av
 *   Logga komprimering
 *   Att lägga till partitioner i ett befintligt ämne
 *   HTTP-Kafka API-stöd
-*   Kafka ansluta
 *   Kafka Streams
 
 ## <a name="next-steps"></a>Nästa steg
 
 Den här artikeln kan du tillhandahålla en introduktion till Event Hubs för Kafka. Mer information finns i följande länkar:
 
-* [Så här skapar du Kafka aktiverat Event Hubs](event-hubs-create-kafka-enabled.md)
-* [Stream till Event Hubs från Kafka-program](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-* [Utforska fler exempel på GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
-* Kom igång med en [kurs om händelsehubbar](event-hubs-dotnet-standard-getstarted-send.md)
-* [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)
+- [Så här skapar du Kafka aktiverat Event Hubs](event-hubs-create-kafka-enabled.md)
+- [Stream till Event Hubs från Kafka-program](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+- [Spegla en Kafka-meddelandeköer i ett Kafka-aktiverade händelsehubb](event-hubs-kafka-mirror-maker-tutorial.md)
+- [Ansluta Apache Spark till en händelsehubb med Kafka-aktiverad](event-hubs-kafka-spark-tutorial.md)
+- [Ansluta Apache Flink till ett Kafka-aktiverade event hub](event-hubs-kafka-flink-tutorial.md)
+- [Integrera Kafka ansluta med en Kafka-aktiverade händelsehubb](event-hubs-kafka-connect-tutorial.md)
+- [Ansluta Akka strömmar till en händelsehubb med Kafka-aktiverad](event-hubs-kafka-akka-streams-tutorial.md)
+- [Utforska exempel på GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
 
  
  

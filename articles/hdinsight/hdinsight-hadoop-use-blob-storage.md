@@ -8,33 +8,32 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.openlocfilehash: 026d223d5cb435b741a045dc0f673746b0a6d90b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/06/2018
+ms.openlocfilehash: b029ff7575f9d8511abcc1619d0c5e2e00df01ea
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252027"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282194"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Använda Azure-lagring med Azure HDInsight-kluster
 
-För att analysera data i HDInsight-klustret kan du lagra data i antingen Azure Storage, Azure Data Lake Store eller bådadera. Båda lagringsalternativen låter dig ta bort HDInsight-kluster som används för beräkning utan att förlora användardata.
+Om du vill analysera data i HDInsight-kluster kan du lagra data i Azure Storage, [Azure Data Lake Storage Gen 1 / Azure Data Lake Store Gen2] eller båda. Båda lagringsalternativen låter dig ta bort HDInsight-kluster som används för beräkning utan att förlora användardata.
 
-Hadoop stöder begreppet standardfilsystem. Standardfilsystemet kräver att ett standardschema och en utfärdare används. Det kan också användas för att matcha relativa sökvägar. Du kan ange en blobcontainer i Azure Storage som standardfilsystemet när du skapar HDInsight-kluster. Med HDInsight 3.5 kan du välja antingen Azure Storage eller Azure Data Lake Store som standardfilsystem med ett fåtal undantag. Information om support för att använda Data Lake Store som både standardwebbplats och länkad lagring finns på sidan om [tillgång för HDInsight-kluster](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
+Hadoop stöder begreppet standardfilsystem. Standardfilsystemet kräver att ett standardschema och en utfärdare används. Det kan också användas för att matcha relativa sökvägar. Under skapandeprocessen för HDInsight-kluster kan du ange en blobbehållare i Azure Storage som standardfilsystemet eller med HDInsight 3.6, kan du välja antingen Azure Storage eller Azure Data Lake Storage Gen 1 / Azure Data Lake Store Gen 2 som standardfiler system med några undantag. Support för att använda Data Lake Storage Gen 1 som både standardwebbplatsen och den länkade storage, se [tillgänglighet för HDInsight-kluster](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
 
-I den här artikeln får du lära dig hur Azure Storage fungerar med HDInsight-kluster. Läs mer om hur Data Lake Store fungerar med HDInsight-kluster i [Använd Azure Data Lake Store med Azure HDInsight-kluster](hdinsight-hadoop-use-data-lake-store.md). Mer information om hur du skapar ett HDInsight-kluster finns i [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md) (Skapa Hadoop-kluster i HDInsight).
+I den här artikeln får du lära dig hur Azure Storage fungerar med HDInsight-kluster. Läs hur Data Lake Storage Gen 1 fungerar med HDInsight-kluster i [Använd Azure Data Lake Store med Azure HDInsight-kluster](hdinsight-hadoop-use-data-lake-store.md). Mer information om hur du skapar ett HDInsight-kluster finns i [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md) (Skapa Hadoop-kluster i HDInsight).
 
 Azure Storage är en robust lagringslösning för allmänna ändamål som smidigt kan integreras med HDInsight. HDInsight kan använda en blobcontainer i Azure Storage som standardfilsystem för klustret. Genom ett gränssnitt för Hadoop-distribuerat filsystem (HDFS) kan alla komponenter i HDInsight tillämpas direkt på strukturerade eller ostrukturerade data som har lagrats som blobar.
 
 > [!WARNING]
 > Det finns flera tillgängliga alternativ när du skapar ett Azure Storage-konto. I följande tabell finns information om vilka alternativ som stöds med HDInsight:
-> 
-> | Storage Account-typ | Lagringsnivå | Stöds av HDInsight |
-> | ------- | ------- | ------- |
-> | Allmänna lagringskonton | Standard | __Ja__ |
-> | &nbsp; | Premium | Nej |
-> | Blob Storage-konto | Frekvent | Nej |
-> | &nbsp; | Lågfrekvent | Nej |
+
+| Storage Account-typ | Tjänster som stöds | Stöds prestandanivåer | Stöds åtkomstnivåerna |
+|----------------------|--------------------|-----------------------------|------------------------|
+| Generell användning V2   | Blob               | Standard                    | Frekvent, lågfrekvent Archive3    |
+| General-Purpose V1   | Blob               | Standard                    | Gäller inte                    |
+| Blob Storage         | Blob               | Standard                    | Frekvent, lågfrekvent Archive3    |
 
 Vi rekommenderar att du inte använder standardcontainern för att lagra företagsdata. Ta bort standardcontainern efter varje användning för att minska lagringskostnaden. Observera att standardcontainern innehåller program- och systemloggar. Se till att hämta loggarna innan du tar bort containern.
 

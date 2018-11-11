@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: c3e0494d813f625a23f55171953d9145411a7024
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 7cf4613f2fdceca3e869473ed3ec7f47fb417fcb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960310"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277656"
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Importera Azure Log Analytics-data till Power BI
 
@@ -33,7 +33,7 @@ Om du vill importera data från en Log Analytics-arbetsytan till Power BI, skapa
 ![Log Analytics till Powerbi](media/log-analytics-powerbi/overview.png)
 
 ## <a name="export-query"></a>Exportfråga
-Börja med att skapa en [loggsökning](log-analytics-log-search-new.md) som returnerar data från Log Analytics som du vill fylla i Power BI-datauppsättningen.  Sedan kan du exportera den frågan till [Power Query (M) språk](https://msdn.microsoft.com/library/mt807488.aspx) som kan användas av Power BI Desktop.
+Börja med att skapa en [loggsökning](log-analytics-queries.md) som returnerar data från Log Analytics som du vill fylla i Power BI-datauppsättningen.  Sedan kan du exportera den frågan till [Power Query (M) språk](https://msdn.microsoft.com/library/mt807488.aspx) som kan användas av Power BI Desktop.
 
 1. Skapa loggsökningen i Log Analytics för att extrahera data för din datauppsättning.
 2. Om du använder loggsökningsportalen, klickar du på **Power BI**.  Om du använder Analytics-portalen, väljer **exportera** > **Power BI frågor (miljoner)**.  Båda dessa alternativ exportera frågan till en textfil med namnet **PowerBIQuery.txt**. 
@@ -81,5 +81,5 @@ Den datauppsättning som skapats i Power BI har samma data som du såg tidigare 
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [loggsökningar](log-analytics-log-search.md) att skapa frågor som kan exporteras till Power BI.
-* Läs mer om [Power BI](http://powerbi.microsoft.com) att skapa visualiseringar baserade på Log Analytics-export.
+* Lär dig mer om [loggsökningar](log-analytics-queries.md) att skapa frågor som kan exporteras till Power BI.
+* Läs mer om [Power BI](https://powerbi.microsoft.com) att skapa visualiseringar baserade på Log Analytics-export.

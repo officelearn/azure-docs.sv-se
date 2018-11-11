@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/30/2018
-ms.openlocfilehash: 0bd894e99fd575fca734a101a1cde0f0a2979682
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: f24f15134bf189097f20f75ff0b23b72a3e48363
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983775"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299614"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Begränsningar i Azure Database för PostgreSQL
 I följande avsnitt beskrivs kapacitet och funktionella begränsningar i databastjänsten.
@@ -31,10 +31,10 @@ Det maximala antalet anslutningar per prisnivå och virtuella kärnor är följa
 |Generellt syfte| 8| 480|
 |Generellt syfte| 16| 950|
 |Generellt syfte| 32| 1500|
-|Minnesoptimerad| 2| 150|
-|Minnesoptimerad| 4| 250|
-|Minnesoptimerad| 8| 480|
-|Minnesoptimerad| 16| 950|
+|Minnesoptimerad| 2| 300|
+|Minnesoptimerad| 4| 500|
+|Minnesoptimerad| 8| 960|
+|Minnesoptimerad| 16| 1900|
 
 När anslutningar överskrider gränsen, kan följande felmeddelande visas:
 > Oåterkalleligt fel: tyvärr redan för många klienter

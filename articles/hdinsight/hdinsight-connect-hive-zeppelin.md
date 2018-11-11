@@ -1,32 +1,32 @@
 ---
-title: Använda Zeppelin för att köra Hive-frågor i Azure HDInsight
-description: Lär dig mer om att använda Zeppelin för att köra Hive-frågor.
+title: Använda Apache Zeppelin för att köra Apache Hive-frågor i Azure HDInsight
+description: Lär dig hur du använder Apache Zeppelin du kör Apache Hive-frågor.
 keywords: hdinsight, hadoop, hive, LLAP interaktiv fråga
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 3064c9cd141458307891f666bd5af9aa738cc021
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/05/2018
+ms.author: hrasheed
+ms.openlocfilehash: 75ec0e17e9866d2cd3420ff6ecf648bf22a8ae8e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093176"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277961"
 ---
-# <a name="use-zeppelin-to-run-hive-queries-in-azure-hdinsight"></a>Använda Zeppelin för att köra Hive-frågor i Azure HDInsight 
+# <a name="use-apache-zeppelin-to-run-apache-hive-queries-in-azure-hdinsight"></a>Använda Apache Zeppelin för att köra Apache Hive-frågor i Azure HDInsight 
 
-Interaktiv HDInsight-fråga innehåller Zeppelin-anteckningsböcker som du kan använda för att köra interaktiva Hive-frågor. I den här artikeln får du lära dig hur du använder Zeppelin för att köra Hive-frågor i Azure HDInsight. 
+Interaktiv fråga i HDInsight innehåller Apache Zeppelin-anteckningsböcker som du kan använda för att köra interaktiva Hive-frågor. I den här artikeln får du lära dig hur du använder Apache Zeppelin för att köra Apache Hive-frågor i Azure HDInsight. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 Innan du går igenom den här artikeln, måste du ha följande objekt:
 
 * **Klustret HDInsight interaktiv fråga**. Se [Skapa kluster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) att skapa ett HDInsight-kluster.  Se till att välja typen interaktiv fråga. 
 
-## <a name="create-a-zeppelin-note"></a>Skapa en Zeppelin-anteckning
+## <a name="create-a-apache-zeppelin-note"></a>Skapa en Apache Zeppelin-anteckning
 
 1. Bläddra till följande URL:
 

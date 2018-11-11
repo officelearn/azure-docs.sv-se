@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
-ms.openlocfilehash: fa425a5ecd8cf8f4c7b3516534b4c4f0f4257850
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 962090340cad6bcd95245cffe16c25f08a98226b
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085350"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300769"
 ---
 # <a name="monitor-your-azure-machine-learning-models-in-production-with-application-insights"></a>Övervaka dina Azure Machine Learning-modeller i produktion med Application Insights
 
@@ -109,8 +109,11 @@ Om du vill inaktivera Application Insights, Använd följande kod:
 ## <a name="evaluate-data"></a>Utvärdera data
 Din tjänsts data lagras i ditt Application Insights-konto, inom samma resursgrupp som din Azure Machine Learning-tjänsten.
 Visa den:
-1. Gå till din resursgrupp i den [Azure-portalen](https://portal.azure.com) och bläddra till Application Insights-resursen. 
-2. Den **översikt** fliken visas en uppsättning mått för din tjänst.
+1. Gå till din Machine Learning-tjänsten arbetsyta i den [Azure-portalen](https://portal.azure.com) och klicka på länken för Application Insights.
+
+    [![AppInsightsLoc](media/how-to-enable-app-insights/AppInsightsLoc.png)](./media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
+
+1. Välj den **översikt** fliken för att se en grundläggande uppsättning mått för din tjänst.
 
    [![Översikt över](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
@@ -130,3 +133,7 @@ Den [00. komma Started/13.enable-app-insights-in-production-service.ipynb](https
 
 ## <a name="next-steps"></a>Nästa steg
 Du kan också samla in data på dina modeller i produktion. Läs artikeln [samla in data för modeller i produktion](how-to-enable-data-collection.md). 
+
+
+## <a name="other-references"></a>Andra referenser
+* [Azure Monitor för behållare](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json)

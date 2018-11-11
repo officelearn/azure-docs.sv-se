@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: c7e7b100242d6ceb35172b872f2fb6ff7f4b402b
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: dd73ca876385cf81059228088f7b027f533315eb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886168"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277844"
 ---
 # <a name="tutorial-4-extract-contextually-related-patterns"></a>Självstudie 4: Extrahera kontextuellt relaterade mönster
 
@@ -49,7 +49,7 @@ Om du har problem med enkel entitetsidentifiering eftersom det är ett namn, til
 > * Skapa en fraslista över städer
 > * Hämta avsikter och entiteter från en slutpunkt
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Använda en befintlig app
 Fortsätt med appen du skapade i föregående självstudie med namnet **HumanResources**. 
@@ -64,7 +64,7 @@ Om du inte har appen HumanResources från föregående självstudie gör du så 
 
 ## <a name="create-new-entities"></a>Skapa nya entiteter
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Välj **Entities** (Entiteter) i det vänstra navigeringsfönstret. 
 
@@ -254,7 +254,7 @@ Städer, precis som namn på personer, är svåra på så sätt att de kan vara 
 
 ## <a name="get-intent-and-entities-from-endpoint"></a>Hämta avsikter och entiteter från slutpunkten
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Gå till slutet av URL:en i adressen och ange `Move wayne berry from miami to mount vernon`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. 
 
@@ -376,10 +376,12 @@ I den [hierarkiska självstudien](luis-quickstart-intent-and-hier-entity.md) ide
 
 I den här självstudien identifierar appen Human Resources yttranden om att flytta nya medarbetare från en stad till en annan. Dessa två typer av yttranden är desamma men löses med olika LUIS-funktioner.
 
-|Självstudier|Exempeluttryck|Ursprungs- och destinationsplatser|
+|Självstudier|Exempel på yttrande|Ursprungs- och destinationsplatser|
 |--|--|--|
 |[Hierarkiska (inga roller)](luis-quickstart-intent-and-hier-entity.md)|flytta Jill Jones från **a-2349** till **b-1298**|a-2349, b-1298|
 |Den här självstudien (med roller)|Flytta Billy Patterson från **Yuma** till **Denver**.|Yuma, Denver|
+
+Mer information finns i [Roller jämfört med hierarkiska entiteter](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

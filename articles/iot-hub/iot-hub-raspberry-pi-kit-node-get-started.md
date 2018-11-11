@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 348186bcb29b272b7e6512ce42221d54d6b388d9
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 3f34167cfe689734ec5d5954a1c24a09a1e8d3bd
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161823"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515020"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Anslut Raspberry Pi till Azure IoT Hub (Node.js)
 
@@ -42,7 +42,7 @@ Har inte ett kit ännu? Försök [Raspberry Pi onlinesimulator](iot-hub-raspberr
 
 ## <a name="what-you-need"></a>Vad du behöver
 
-![Vad du behöver](media/iot-hub-raspberry-pi-kit-node-get-started/0_starter_kit.jpg)
+![Vad du behöver](./media/iot-hub-raspberry-pi-kit-node-get-started/0_starter_kit.jpg)
 
 * En Raspberry Pi 2 eller Raspberry Pi 3 tavla.
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
@@ -63,7 +63,17 @@ Följande objekt är valfria:
 > [!NOTE] 
 > Om du inte har de valfria objekt, kan du använda simulerade sensordata.
 
-[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
+## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT hub
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>Registrera en ny enhet i IoT hub
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="set-up-raspberry-pi"></a>Konfigurera Raspberry Pi
 
@@ -102,11 +112,11 @@ Förbered microSD-kort för installation av Raspbian avbildningen.
 
 3. Klicka på ikonen Raspberry > **inställningar** > **Raspberry Pi Configuration**.
 
-   ![Menyn Raspbian inställningar](media/iot-hub-raspberry-pi-kit-node-get-started/1_raspbian-preferences-menu.png)
+   ![Menyn Raspbian inställningar](./media/iot-hub-raspberry-pi-kit-node-get-started/1_raspbian-preferences-menu.png)
 
 4. På den **gränssnitt** fliken genom att ange **I2C** och **SSH** till **aktivera**, och klicka sedan på **OK**. Om du inte har fysisk sensorer och vill använda simulerade sensordata, är det här steget valfritt.
 
-   ![Aktivera I2C och SSH på Raspberry Pi](media/iot-hub-raspberry-pi-kit-node-get-started/2_enable-i2c-ssh-on-raspberry-pi.png)
+   ![Aktivera I2C och SSH på Raspberry Pi](./media/iot-hub-raspberry-pi-kit-node-get-started/2_enable-i2c-ssh-on-raspberry-pi.png)
 
 > [!NOTE] 
 > Om du vill aktivera SSH och I2C, du kan hitta mer referensdokument på [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) och [Adafruit.com](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c).
@@ -115,7 +125,7 @@ Förbered microSD-kort för installation av Raspbian avbildningen.
 
 Använd breadboard och omkopplare kablar för att ansluta en bildskärm och en BME280 till Pi på följande sätt. Om du inte har sensorn [hoppa över det här avsnittet](#connect-pi-to-the-network).
 
-![Raspberry Pi och sensor-anslutning](media/iot-hub-raspberry-pi-kit-node-get-started/3_raspberry-pi-sensor-connection.png)
+![Raspberry Pi och sensor-anslutning](./media/iot-hub-raspberry-pi-kit-node-get-started/3_raspberry-pi-sensor-connection.png)
 
 Sensorn BME280 kan samla in data för temperatur och fuktighet. Indikatorn blinkar när enheten skickar ett meddelande till molnet. 
 
@@ -134,13 +144,13 @@ Klicka för att visa [Raspberry Pi 2 och 3 PIN-kod mappningar](https://developer
 
 När du har anslutit BME280 Raspberry Pi, bör den vara som bilden nedan.
 
-![Anslutna Pi och BME280](media/iot-hub-raspberry-pi-kit-node-get-started/4_connected-pi.jpg)
+![Anslutna Pi och BME280](./media/iot-hub-raspberry-pi-kit-node-get-started/4_connected-pi.jpg)
 
 ### <a name="connect-pi-to-the-network"></a>Ansluta Pi till nätverket
 
 Aktivera Pi med hjälp av micro USB-kabel och strömförsörjningen. Använd Ethernet-kabel för att ansluta Pi till ett kabelanslutet nätverk eller följa den [instruktioner från Raspberry Pi Foundation](https://www.raspberrypi.org/learning/software-guide/wifi/) ansluta Pi till det trådlösa nätverket. När din Pi har lyckats ansluta till nätverket, måste du anteckna den [IP-adressen för din Pi](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address).
 
-![Ansluten till kabelanslutna nätverk](media/iot-hub-raspberry-pi-kit-node-get-started/5_power-on-pi.jpg)
+![Ansluten till kabelanslutna nätverk](./media/iot-hub-raspberry-pi-kit-node-get-started/5_power-on-pi.jpg)
 
 > [!NOTE]
 > Se till att Pi är ansluten till samma nätverk som datorn. Om datorn är ansluten till ett trådlöst nätverk när Pi är ansluten till ett kabelanslutet nätverk, kan du inte se IP-adressen i devdisco utdata.
@@ -157,7 +167,7 @@ Aktivera Pi med hjälp av micro USB-kabel och strömförsörjningen. Använd Eth
 
    b. Kopiera IP-adressen för din Pi till värd (eller IP-adress)-avsnittet och välj SSH som anslutningstyp.
    
-   ![PuTTy](media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
+   ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
    
    **Mac- och Ubuntu-användare**
    
@@ -204,7 +214,7 @@ Aktivera Pi med hjälp av micro USB-kabel och strömförsörjningen. Använd Eth
    nano config.json
    ```
 
-   ![Konfigurationsfil](media/iot-hub-raspberry-pi-kit-node-get-started/6_config-file.png)
+   ![Konfigurationsfil](./media/iot-hub-raspberry-pi-kit-node-get-started/6_config-file.png)
 
    Det finns två objekt i den här filen som du kan konfigurera. Den första är `interval`, som definierar tidsintervallet (i millisekunder) mellan meddelanden som skickas till molnet. Den andra är `simulatedData`, vilket är ett booleskt värde för om du vill använda simulerade sensordata eller inte.
 
@@ -226,7 +236,7 @@ Kör exempelprogrammet genom att köra följande kommando:
 
 Du bör se följande utdata som visar sensordata och meddelanden som skickas till din IoT hub.
 
-![Resultat – sensordata som skickas från Raspberry Pi till din IoT-hubb](media/iot-hub-raspberry-pi-kit-node-get-started/8_run-output.png)
+![Resultat – sensordata som skickas från Raspberry Pi till din IoT-hubb](./media/iot-hub-raspberry-pi-kit-node-get-started/8_run-output.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

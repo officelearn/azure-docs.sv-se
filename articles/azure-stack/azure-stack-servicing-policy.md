@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/23/2018
 ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: f00b175fed36fbe2b28f1d11843bb17c54ac3873
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0bbe2ee7436cc03a3780da096a498769d66eb505
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086972"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277944"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack som hanteringsprincip
 Den här artikeln beskriver Underhåll principen för integrerade Azure Stack-system och vad du måste göra för att behålla ditt system i ett läge som stöds. 
@@ -55,7 +55,7 @@ Om du vill fortsätta att få support, måste du spara distributionen av Azure S
 
 Till exempel om den senaste tillgängliga uppdateringsversionen är 1805 och föregående två uppdateringspaket har version 1804 och 1803, både 1803 1804 finnas kvar i support. Det är dock 1802 support upphör. Principen gäller när det finns inga versionen för en månad eller två. Om den aktuella versionen är 1805 och det fanns inga 1804-versionen, till exempel kvar de föregående två uppdateringspaket 1803 och 1802 i support.
 
-Microsoft programuppdateringspaket är kumulativ och kräver föregående uppdateringspaketet som ett krav. Om du vill skjuta upp en eller flera uppdateringar kan du överväga att övergripande runtime om du vill hämta till den senaste versionen. 
+Microsoft programuppdateringspaket är kumulativ och kräver den tidigare uppdateringen eller en snabbkorrigering som ett krav. Om du vill skjuta upp en eller flera uppdateringar kan du överväga att övergripande runtime om du vill hämta till den senaste versionen. 
 
 ## <a name="get-support"></a>Få support
 Azure Stack följer samma process som stöd för Azure. Enterprise-kunder kan följa processen som beskrivs i [så här skapar du en supportförfrågan för Azure](/azure/azure-supportability/how-to-create-azure-support-request). Om du är en kund med en Cloud Service Provider (CSP), kontaktar du din CSP för support.  Mer information finns i den [Azure stöd för vanliga frågor och svar](https://azure.microsoft.com/support/faq/). 

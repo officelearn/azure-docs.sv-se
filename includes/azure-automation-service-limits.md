@@ -5,20 +5,21 @@ services: automation
 author: georgewallace
 ms.service: automation
 ms.topic: include
-ms.date: 04/05/2018
+ms.date: 11/07/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: abe7668ed16ddd5cc1b247207d3e80f7c1118137
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: HT
+ms.openlocfilehash: 70cdd5a9d0482c24dfeb2037ae56b86cd9339fcf
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50964615"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285724"
 ---
 | Resurs | Övre gräns |Anteckningar|
 | --- | --- |---|
 | Maximalt antal nya jobb som ska skickas med 30 sekunders mellanrum per Automation-konto (icke schemalagda jobb) |100 |När den här gränsen träffar, misslyckas de efterföljande begärandena om att skapa ett jobb. Klienten får ett felsvar.|
 | Maximalt antal samtidiga jobb som körs på samma instans av tid per Automation-konto (icke schemalagda jobb) |200 |När den här gränsen träffar, misslyckas de efterföljande begärandena om att skapa ett jobb. Klienten får ett felsvar.|
+| Maxstorlek jobbmetadata för en rullande period på 30 dagar. | 10GB (cirka 4 miljoner jobb)|När den här gränsen träffar, misslyckas de efterföljande begärandena om att skapa ett jobb. |
 | Maximalt antal moduler som kan importeras med 30 sekunders mellanrum per Automation-konto |5 ||
 | Maxstorlek på en modul |100 MB ||
 | Kör jobbtid - kostnadsfri nivå |500 minuter per prenumeration per kalendermånad ||

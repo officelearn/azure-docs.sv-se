@@ -1,25 +1,25 @@
 ---
-title: Apache Spark streaming med Kafka – Azure HDInsight
-description: Lär dig hur du använder Spark Apache Spark för att strömdata till eller från Apache Kafka med DStreams. I det här exemplet strömmas data med hjälp av en Jupyter Notebook från Apache Spark på HDInsight.
+title: Apache Spark-strömning med Apache Kafka – Azure HDInsight
+description: Lär dig hur du använder Apache Spark för att strömdata till eller från Apache Kafka med DStreams. I det här exemplet strömmas data med hjälp av en Jupyter Notebook från Apache Spark på HDInsight.
 keywords: kafka exempel zookeeper kafka, spark-strömning kafka, spark-strömning kafka-exempel
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/23/2018
-ms.author: jasonh
-ms.openlocfilehash: d06e9d26051fbfafc4d717ec180e8760157aefd9
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: b103300c7d4b72c0605b8355b03fac5201ab6d68
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094174"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279168"
 ---
-# <a name="apache-spark-streaming-dstream-example-with-kafka-on-hdinsight"></a>Apache Spark-strömning (DStream) exempel med Kafka på HDInsight
+# <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Apache Spark-strömning (DStream) exempel med Apache Kafka på HDInsight
 
-Lär dig hur du använder Spark Apache Spark för att strömdata till eller från Apache Kafka på HDInsight med hjälp av DStreams. Det här exemplet använder en Jupyter-anteckningsbok som körs på Spark-klustret.
+Lär dig hur du använder Apache Spark för att strömdata till eller från Apache Kafka på HDInsight med hjälp av DStreams. Det här exemplet använder en Jupyter-anteckningsbok som körs på Spark-klustret.
 
 > [!NOTE]
 > Stegen i det här dokumentet skapar en Azure-resursgrupp som innehåller både en Apache Spark på HDInsight och en Kafka på HDInsight-klustret. Båda dessa kluster finns i ett virtuellt Azure-nätverk, vilket innebär att Apache Spark-klustret kan kommunicera direkt med Kafka-klustret.
@@ -59,7 +59,7 @@ Du kan skapa ett Azure-nätverk, Kafka och Spark-kluster manuellt, men det är e
 
     * **Plats**: Välj en plats geografiskt nära dig.
 
-    * **Basera klusternamnet**: det här värdet används som det grundläggande namnet för Spark och Kafka-kluster. Till exempel innebär **hdi** skapar ett Spark-kluster med namnet __spark-hdi__ och ett Kafka-kluster med namnet **kafka hdi**.
+    * **Basera klusternamnet**: det här värdet används som det grundläggande namnet för Spark och Kafka-kluster. Till exempel innebär **hdistreaming** skapar ett Spark-kluster med namnet __spark-hdistreaming__ och ett Kafka-kluster med namnet **kafka hdistreaming**.
 
     * **Kluster-användarnamnet för inloggningen**: administratörsanvändarnamn för Spark och Kafka-kluster.
 
@@ -71,7 +71,7 @@ Du kan skapa ett Azure-nätverk, Kafka och Spark-kluster manuellt, men det är e
 
 3. Granska **villkoren** och välj sedan **Jag godkänner villkoren ovan**.
 
-4. Markera slutligen **Fäst på instrumentpanelen** och välj sedan **Inköp**. Det tar cirka 20 minuter för att skapa kluster.
+4. Välj slutligen **köp**. Det tar cirka 20 minuter för att skapa kluster.
 
 När resurserna har skapats, visas en sammanfattning av sida.
 

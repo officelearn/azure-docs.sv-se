@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 32a887d54a239db0c1e40458e1b304d899befff5
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 0f53d71cca70f9340689d3d01fb9c67090f917c5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870561"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277559"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Använd Azure AD Graph API
 
@@ -66,8 +66,8 @@ Nu har du ett program som har behörighet att skapa, läsa och uppdatera använd
 > 
 > 
 
-## <a name="configure-delete-permissions-for-your-application"></a>Konfigurera ditt program behörighet att ta bort
-För närvarande den *läsa och skriva katalogdata* behörighet har **inte** är möjligheten att göra alla borttagningar, till exempel ta bort användare. Om du vill ge ditt program kan ta bort användare, måste du utföra de här extra stegen som rör PowerShell, annars kan du gå till nästa avsnitt.
+## <a name="configure-delete-or-update-password-permissions-for-your-application"></a>Konfigurera ta bort eller uppdatera lösenordet behörigheter för ditt program
+För närvarande den *läsa och skriva katalogdata* behörighet har **inte** är möjligheten att ta bort användare eller uppdatera användarlösenord. Om du vill ge ditt program möjlighet att ta bort användare eller update lösenord måste du utföra de här extra stegen som rör PowerShell, annars kan du gå till nästa avsnitt.
 
 Om du inte redan har installerat, installerar du först den [Azure AD PowerShell v1-modulen (MSOnline)](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
 
@@ -84,7 +84,7 @@ När du har installerat PowerShell-modulen att ansluta till din Azure AD B2C-kli
 Connect-MsolService
 ```
 
-Nu använder vi den **program-ID** i skriptet nedan för att tilldela kontot administratörsrollen som gör att den för att ta bort användare för programmet. Dessa roller har välkänd identifierare, så du behöver matas in din **program-ID** i skriptet nedan.
+Nu använder vi den **program-ID** i skriptet nedan för att tilldela programmet till administratörsrollen-konto. Dessa roller har välkänd identifierare, så du behöver matas in din **program-ID** i skriptet nedan.
 
 ```powershell
 $applicationId = "<YOUR_APPLICATION_ID>"
@@ -92,7 +92,7 @@ $sp = Get-MsolServicePrincipal -AppPrincipalId $applicationId
 Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId $sp.ObjectId -RoleMemberType servicePrincipal
 ```
 
-Ditt program nu har även behörighet att ta bort användare från din B2C-klient.
+Ditt program nu har även behörighet att ta bort användare eller uppdatera lösenord från din B2C-klient.
 
 ## <a name="download-configure-and-build-the-sample-code"></a>Hämta, konfigurera och skapa exempelkoden
 Först hämta exempelkoden och få den körs. Sedan tar vi en närmare titt på den.  Du kan [har laddat ned exempelkoden som en .zip-fil](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip). Du kan också klona det i en katalog som du föredrar:

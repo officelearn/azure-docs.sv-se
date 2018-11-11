@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
 ms.date: 11/07/2018
-ms.openlocfilehash: 212488b74ba726012966787c7b2de633414e96a4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 59a35cd7ca3af446853d518fc7e7d48d2321ff10
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245349"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278981"
 ---
 # <a name="pipelines-and-azure-machine-learning"></a>Pipelines och Azure Machine Learning
 
@@ -43,6 +43,8 @@ Med hjälp av steg gör det möjligt att köra bara de steg som du måste du jus
 När är utformat för pipelinen, är det ofta mer finjustera runt loopen utbildning för pipelinen. När du kör en pipeline, kör hoppar till de steg som måste köras igen, till exempel en uppdaterad inlärningsskript och hoppar över vad som inte har ändrats. Samma paradigmet gäller oförändrade skript som används för körningen av steget. 
 
 Med Azure Machine Learning, kan du använda olika verktyg och ramverk som Microsoft Cognitive Toolkit eller TensorFlow för varje steg i din pipeline. Azure koordinater mellan de olika [beräkningsmål](concept-azure-machine-learning-architecture.md) du använder så att dina mellanliggande data kan delas med de underordnade beräkningsmål enkelt. 
+
+Du kan [spåra mått för din pipeline-experiment](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-track-experiments) direkt i Azure-portalen. 
 
 ## <a name="key-advantages"></a>Viktiga fördelar
 

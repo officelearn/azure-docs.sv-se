@@ -4,40 +4,46 @@ description: Azure principdefinitionen har olika effekter som bestämmer hur kom
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 54562401c830232d0a4bf90405cc5a2dbedcd8bc
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4668b1fe6e59898d81fc71558e21acd1a89be767
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055976"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279508"
 ---
-# <a name="understand-policy-effects"></a>Förstå effekterna av princip
+# <a name="understand-policy-effects"></a>Förstå Policy-effekter
 
 Varje principdefinitionen i Azure Policy har en enda effekt som anger vad som händer under genomsökning när den **om** segment för principregeln utvärderas för att matcha resursen som genomsöks. Effekterna kan också fungera annorlunda om de är för en ny resurs, en uppdaterad resurs eller en befintlig resurs.
 
-Det finns för närvarande fem effekter som stöds i en definition av principen:
+Det finns för närvarande sex effekter som stöds i en definition av principen:
 
 - Lägg till
 - Granska
 - AuditIfNotExists
 - Neka
 - DeployIfNotExists
+- Disabled
 
 ## <a name="order-of-evaluation"></a>Ordningen för utvärdering
 
 När en begäran om att skapa eller uppdatera en resurs via Azure Resource Manager görs, bearbetar Grupprincip flera effekterna innan du lämnar över begäran till lämplig Resursprovidern.
 Detta förhindrar onödiga bearbetning av en Resursprovider när en resurs inte uppfyller utformade styrning kontroller av principen. Principen skapas en lista över alla principdefinitioner som tilldelats av en princip eller initiativtilldelning, som tillämpas av omfång (minus undantag) till resursen och förbereder för att utvärdera resurs mot varje definition.
 
-- **Lägg till** utvärderas först. Lägg sedan till kunde ändra begäran, ändringar av Lägg till kan förhindra en granskningslogg eller neka effekt utlöser.
+- **Inaktiverad** kontrolleras först för att fastställa om principregeln bör utvärderas.
+- **Lägg till** utvärderas sedan. Lägg sedan till kunde ändra begäran, ändringar av Lägg till kan förhindra en granskningslogg eller neka effekt utlöser.
 - **Neka** utvärderas sedan. Neka innan granskningen, dubbla loggning för en oönskad resurs förhindras genom att utvärdera.
 - **Granska** utvärderas sedan innan begäran kommer att Resursprovidern.
 
 När begäran har angetts för Resursprovidern och Resursprovidern returnerar statuskoden lyckades **AuditIfNotExists** och **DeployIfNotExists** utvärderas för att avgöra om uppföljning efterlevnad loggning eller åtgärd krävs.
+
+## <a name="disabled"></a>Disabled
+
+Detta är användbart för att testa situationer och när principdefinitionen har parameteriserat effekten. Det blir möjligt att inaktivera en enda tilldelningen av principen genom att ändra parametern tilldelning av påverkan i stället för att inaktivera alla tilldelningar för principen.
 
 ## <a name="append"></a>Lägg till
 

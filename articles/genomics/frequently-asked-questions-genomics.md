@@ -9,16 +9,33 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 804076fdc653622336ac3b99c15df0bc027510d9
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 0129f186736ad2e4d6ea5c94c632bab73b92002c
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730159"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514697"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: Vanliga frågor
 
 Den här artikeln visar de viktigaste frågorna som du kanske har relaterat till Microsoft Genomics. Mer information om Microsoft Genomics-tjänsten finns i [vad är Microsoft Genomics?](overview-what-is-genomics.md). Mer information om felsökning finns i vår [felsökningsguiden för](troubleshooting-guide-genomics.md). 
+
+## <a name="what-is-the-microsoft-genomics-service-gatk-4-promotion"></a>Vad är Microsoft Genomics-tjänsten GATK 4 befordran?
+Fram till slutet av kalenderåret 2018 erbjuder Microsoft Genomics-tjänsten 20 WGS körs med GATK4 utan kostnad. Delta i det här erbjudandet registrera [här](https://aka.ms/msgatk4). 
+
+### <a name="what-are-the-common-issues-i-might-encounter-while-running-the-microsoft-genomics-service-gatk4-promotion"></a>Vilka är de vanligaste problemen som jag kan uppstå när du kör Microsoft Genomics-tjänsten GATK4 befordran
+Här är en lista över vanliga fel som kan uppstå och deras rekommenderad upplösning:
+
+| **meddelande**                                                                                                                                                                                    | **Orsak**                                                                                                    | **Lösning**                                                                                                                                                                                                       |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `gatk4-promo` har inte aktiverats för ditt konto. Mer information finns i https://docs.microsoft.com/en-us/azure/genomics/frequently-asked-questions-genomics                               | Du försöker köra GATK4 arbetsflöden med Microsoft Genomics-tjänsten utan att aktiveras.       | Besök [här](https://aka.ms/msgatk4) att aktivera ditt konto. Observera att utvärderingsversionen upphör att gälla i slutet av kalenderåret 2018. Du kommer inte att kunna aktivera ditt konto för erbjudanden körningar efter detta datum. |
+| Tack för att du testar `gatk4-promo`. Utvärderingsperioden har upphört. Mer information https://docs.microsoft.com/en-us/azure/genomics/frequently-asked-questions-genomics                  | GATK4 utvärderingsversionen har upphört att gälla i slutet av kalenderåret och du försöker anropa den `gatk4-promo` processnamn.  | Växla processnamn parametern till `gatk4`, i stället för `gatk4-promo`. Detta är den officiella gatk4-versionen och ditt arbetsflöde kommer att debiteras om du använder den här parametern.                                         |
+| Tack för att du testar `gatk4-promo` du har använt alla dina tilldelade körningar. Mer information finns i https://docs.microsoft.com/en-us/azure/genomics/frequently-asked-questions-genomics | Du har skickat alla dina erbjudanden 20 körs för GATK4.                               | Skicka eventuella nya gatk4 körs med processnamn argument har angetts till `gatk4` i stället för `gatk4-promo`. Ditt arbetsflöde debiteras när du använder den här parametern.                                                          |        
+
+
+## <a name="can-i-run-gatk4-workflows-on-microsoft-genomics-without-signing-up-for-the-gatk4-promotion"></a>Kan jag köra GATK4 arbetsflöden på Microsoft Genomics utan att registrera dig för att främja GATK4?
+Ja, i Microsoft Genomics-tjänsten filen Config.txt, ange processnamn till `gatk4`. Observera att du kommer att debiteras med standardavgifter för fakturering och 20 kostnadsfria körs gäller inte för Microsoft Genomics-konto.
+
 
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Vad är serviceavtalet för Microsoft Genomics?
@@ -48,7 +65,7 @@ Gå till Azure-portalen och öppna din kontosida för Genomics. Under den **Mana
 Gå till Azure-portalen och öppna din kontosida för Genomics. Under den **Management** rubrik, Välj **åtkomstnycklar**. Där kan hitta du både API-URL och dina åtkomstnycklar.
 
 ## <a name="why-do-i-need-two-access-keys"></a>Varför behöver jag två åtkomstnycklar?
-Du behöver två åtkomstnycklar om du vill uppdatera (återskapa) dem utan att störa användningen av tjänsten. Exempelvis kan du uppdatera den första nyckeln. I så fall kan växla du alla nya arbetsflöden till den andra nyckeln. Vänta tills de pågående arbetsflöden med hjälp av den första nyckeln är klar. Först därefter uppdatera nyckeln.
+Du behöver två åtkomstnycklar om du vill uppdatera (återskapa) dem utan att störa användningen av tjänsten. Du bör till exempel har alla nya arbetsflöden som använder den andra nyckeln om du vill uppdatera den första nyckeln. Vänta sedan tills alla arbetsflöden som använder den första nyckeln ska slutföras innan du uppdaterar den första nyckeln.
 
 ## <a name="do-you-save-my-storage-account-keys"></a>Sparar du nycklar för mitt lagringskonto?
 Din lagringskontonyckel används för att skapa kortsiktig åtkomsttoken för tjänsten Microsoft Genomics att läsa dina indatafiler och skriva utdatafilerna. Token Standardlängden är 48 timmar. Varaktigheten för detta token kan ändras med den `-sas/--sas-duration` möjlighet att skicka kommandot; värdet är i timmar.

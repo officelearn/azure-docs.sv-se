@@ -17,12 +17,12 @@ ms.date: 11/16/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: 8d219ecb2d8a6694da038044bcab883a5535e957
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dc3bbab2242321ae736f3f2cefb1eed5e96e834e
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999264"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288738"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Ordlista för utvecklare för Azure Active Directory
 
@@ -69,7 +69,7 @@ Act angrips en part för giltiga autentiseringsuppgifter som ligger till grund f
 
 ## <a name="authorization"></a>Auktorisering
 
-Åtgärden för att bevilja en autentiserad huvudnamn behörighet att göra något. Det finns två huvudsakliga typer i Azure AD-programmeringsmodell:
+Åtgärden för att bevilja en autentiserad huvudnamn behörighet att göra något. Det vinns två huvudsakliga typer i Azure AD-programmeringsmodellen:
 
 * Under en [OAuth2 auktoriseringsbeviljande](#authorization-grant) flow: när den [resursägaren](#resource-owner) beviljar behörighet att den [klientprogram](#client-application), vilket gör att klientdatorer för åtkomst till resursen ägarens resurser.
 * Under resursåtkomst av klienten: som implementeras av den [resursservern](#resource-server)med hjälp av den [anspråk](#claim) värden finns i den [åtkomsttoken](#access-token) att göra besluten om åtkomstkontroll baserat på dem.
@@ -120,7 +120,7 @@ Se [tokenreferens för Azure AD] [ AAD-Tokens-Claims] för mer information.
 
 ## <a name="microsoft-identity-platform"></a>Microsoft identity-plattformen
 
-Microsoft identity-plattformen är en utveckling av Azure Active Directory (Azure AD)-tjänsten och utvecklare identitetsplattformen. Det hjälper utvecklare att bygga program som loggar du in alla Microsoft-identiteter och hämta token för att anropa Microsoft Graph, andra Microsoft-APIs eller API: er som utvecklare har byggt. Det är en fullständig plattform som består av en autentiseringstjänst, bibliotek, programregistrering och konfiguration, fullständig utvecklardokumentation, kodexempel och annat innehåll för utvecklare. Microsoft identity-plattformen stöder branschstandardprotokoll som OAuth 2.0 och OpenID Connect. Se [om Microsoft identity-plattformen](about-microsoft-identity-platform.md) för mer information.
+Microsoft Identity-plattformen är en utveckling av identitetstjänsten och utvecklingsplattformen Azure Active Directory (Azure AD). Den hjälper utvecklare att bygga program som loggar in alla Microsoft-identiteter, får tokens för att anropa Microsoft Graph, andra Microsoft API:er eller API:er som utvecklare har byggt. Det är en fullständig plattform som består av en autentiseringstjänst, bibliotek, programregistrering och konfiguration, fullständig utvecklardokumentation, kodexempel och annat innehåll för utvecklare. Microsoft Identity-plattformen stöder branschstandardprotokoll som OAuth 2.0 och OpenID Connect. Se [om Microsoft identity-plattformen](about-microsoft-identity-platform.md) för mer information.
 
 ## <a name="multi-tenant-application"></a>program med flera innehavare
 
@@ -163,7 +163,7 @@ Roller är resurs-definierade strängar (till exempel ”telekommunikation godk�
 
 En detaljerad beskrivning av de programroller som exponeras av Azure AD Graph API finns i [Behörighetsomfattningar för Graph API][AAD-Graph-Perm-Scopes]. En stegvis implementering-exempel finns i [hantera åtkomst med RBAC och Azure portal][AAD-RBAC].
 
-## <a name="scopes"></a>scope
+## <a name="scopes"></a>scopes
 
 Som [roller](#roles), scope gör det möjligt för en [resursservern](#resource-server) att styra åtkomst till dess skyddade resurser. Omfång används för att implementera [omfångsbaserad] [ OAuth2-Access-Token-Scopes] åtkomstkontroll för en [klientprogram](#client-application) som har givits delegerad åtkomst till resursen av respektive ägare.
 
@@ -244,7 +244,7 @@ Använd följande avsnitt för kommentarer för att ge feedback och hjälp att f
 [AZURE-portal]: https://portal.azure.com
 [AAD-RBAC]: ../../role-based-access-control/role-assignments-portal.md
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
-[Microsoft-Graph]: https://graph.microsoft.io
+[Microsoft-Graph]: https://developer.microsoft.com/graph
 [O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
 [OAuth2-AuthZ-Endpoint]: https://tools.ietf.org/html/rfc6749#section-3.1

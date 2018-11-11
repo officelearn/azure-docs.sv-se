@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 0221965c51f2287cb6042c33b9ab3402e104abc3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: fe73d5a2aa63cf127f5df835484cfcc75ef702aa
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870486"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514969"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Anslut ditt program till Azure SQL Database Managed Instance
 
@@ -60,7 +60,7 @@ Om du har skapat en lokal plats till Azure-anslutningen har och du kan inte uppr
 Hanterad instans kan bara nås via en privat IP-adress så för att komma åt den från developer-box, måste du först att upprätta en anslutning mellan developer-rutan och VNet hanterade instans. Du gör detta genom att konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med Azures interna certifikatautentisering. Mer information finns i [konfigurera en punkt-till-plats-anslutning för att ansluta till en Azure SQL Database Managed Instance från den lokala datorn](sql-database-managed-instance-configure-p2s.md).
 
 ## <a name="connect-from-on-premises-with-vnet-peering"></a>Ansluta från en lokal plats med VNet-peering
-Ett annat scenario som implementeras av kunder är där VPN-gateway är installerad i ett separat virtuellt nätverk och en prenumeration från en värd Managed Instance. Två virtuella etworks sedan peer-kopplade. Arkitekturdiagram för följande exempel visar hur detta kan implementeras.
+Ett annat scenario som implementeras av kunder är där VPN-gateway är installerad i ett separat virtuellt nätverk och en prenumeration från en värd Managed Instance. De två virtuella nätverken är sedan peer-kopplade. Arkitekturdiagram för följande exempel visar hur detta kan implementeras.
 
 ![VNET-peering](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
 
@@ -83,6 +83,10 @@ Specialfall för att ansluta Azure App Service till Managed Instance är när du
 Det här scenariot illustreras i följande diagram:
 
 ![integrerad app peering](./media/sql-database-managed-instance/integrated-app-peering.png)
+
+>[!NOTE]
+>VNet-integrationsfunktionen integreras inte en app med ett virtuellt nätverk som har en ExpressRoute-Gateway. Även om ExpressRoute-gatewayen har konfigurerats i samexistens läge fungerar inte VNet-integrering. Om du vill komma åt resurser via en ExpressRoute-anslutning kan du använda en App Service Environment som körs i ditt virtuella nätverk.
+>
  
 ## <a name="troubleshooting-connectivity-issues"></a>Felsökning av problem med nätverksanslutningen
 

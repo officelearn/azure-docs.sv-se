@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: 1bee48225448a964da7caa2a7b284b274c52bea6
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 8e57c071c9fd93a8581d574aeec2b23b38b3ab95
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914064"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281667"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introduktion till automatisk skalning
 Automatisk skalning är en ytterligare funktion av Service Fabric dynamiskt skala dina tjänster baserat på den belastning som tjänster rapporterar eller baserat på deras användning av resurser. Automatisk skalning ger bra elasticitet och gör etablering av ytterligare instanser eller partitioner av din tjänst på begäran. Hela processen för autoskalning är automatiserade och transparent och när du har konfigurerat dina principer på en tjänst det finns inget behov av manuell skalningsåtgärder på tjänstnivå. Automatisk skalning kan aktiveras antingen när tjänsten skapas eller när som helst genom att uppdatera tjänsten.
@@ -28,7 +28,9 @@ Det är ett vanligt scenario där automatisk skalning är användbart när belas
 * Om alla instanser av min gateway använder fler än två kärnor i genomsnitt, skala du gateway-tjänsten ut genom att lägga till en mer instans. Gör detta varje timme, men har aldrig mer än sju instanser totalt.
 * Om alla instanser av min gateway använder mindre än 0,5 kärnor i genomsnitt kan du sedan skala tjänsten i genom att ta bort en instans. Gör detta varje timme, men aldrig har färre än tre instanser totalt.
 
-Automatisk skalning har stöd för både behållare och regelbundna Service Fabric-tjänster. Resten av den här artikeln beskriver skalningsprinciper sätt att aktivera eller inaktivera automatisk skalning och ger exempel på hur du använder den här funktionen.
+Automatisk skalning har stöd för både behållare och regelbundna Service Fabric-tjänster. För att kunna använda automatisk skalning, du måste köra på version 6.2 eller högre av Service Fabric-körningen. 
+
+Resten av den här artikeln beskriver skalningsprinciper sätt att aktivera eller inaktivera automatisk skalning och ger exempel på hur du använder den här funktionen.
 
 ## <a name="describing-auto-scaling"></a>Som beskriver automatisk skalning
 Automatisk skalning principer kan definieras för varje tjänst i ett Service Fabric-kluster. Varje skalningsprincip består av två delar:
@@ -41,7 +43,7 @@ Alla utlösare som stöds för närvarande fungerar med antingen [logiska inläs
 Det finns två metoder som stöds för närvarande för automatisk skalning. Den första som är avsedd för tillståndslösa tjänster eller för behållare där automatisk skalning utförs genom att lägga till eller ta bort [instanser](service-fabric-concepts-replica-lifecycle.md). För både tillståndskänsliga och tillståndslösa tjänster, automatisk skalning kan också utföras genom att lägga till eller tar bort det namngivna [partitioner](service-fabric-concepts-partitioning.md) av tjänsten.
 
 > [!NOTE]
-> Det finns för närvarande stöd för endast en skalningsprincip per tjänst och endast en skalning utlösare per princip.
+> Det finns för närvarande stöd för endast en skalningsprincip per tjänst och endast en skalning utlösare per skalningsprincip.
 
 ## <a name="average-partition-load-trigger-with-instance-based-scaling"></a>Genomsnittlig partition belastningen utlösare med instanser baserat skalning
 Den första typen av utlösare baseras på belastningen på instanser i en tillståndslös tjänst-partition. Metrisk belastningar jämnas först för att hämta belastningen för varje instans av en partition och sedan dessa värden är i genomsnitt i alla instanser av partitionen. Det finns tre faktorer som bestämmer när tjänsten kommer att skalas:

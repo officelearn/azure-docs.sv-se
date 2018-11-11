@@ -4,44 +4,44 @@ items:
   items:
   - name: Vad är Custom Vision?
     href: home.md
-- name: Instruktionsguider
+- name: Snabbstarter
   items:
-  - name: Börja använda Custom Vision Service
-    items:
-    - name: Skapa en klassificerare
-      href: getting-started-build-a-classifier.md
-    - name: Testa din modell
-      href: test-your-model.md
-    - name: Förbättra din klassificerare
-      href: getting-started-improving-your-classifier.md
-    - name: Använd förutsägelse-API:t
-      href: use-prediction-api.md
-    - name: Exportera din modell till mobil
-      href: export-your-model.md
-    - name: Använda ONNX-modellen med Windows ML
-      href: custom-vision-onnx-windows-ml.md
-    - name: Köra TensorFlow-modellen i Python
-      href: export-model-python.md
-    - name: Skapa en modell med hjälp av REST API
-      href: rest-api-tutorial.md
-  - name: Skapa appar
+  - name: Använda .NET SDK
     items:
     - name: Bildklassificering
-      items:
-      - name: C#-självstudie
-        href: csharp-tutorial.md
-      - name: Python-självstudie
-        href: python-tutorial.md
-      - name: Java-självstudie
-        href: java-tutorial.md
+      href: csharp-tutorial.md
     - name: Objektidentifiering
-      items:
-      - name: C#-självstudie
-        href: csharp-tutorial-od.md
-      - name: Python-självstudie
-        href: python-tutorial-od.md
-      - name: Java-självstudie
-        href: java-tutorial-od.md
+      href: csharp-tutorial-od.md
+  - name: Använda Python SDK
+    items:
+    - name: Bildklassificering
+      href: python-tutorial.md
+    - name: Objektidentifiering
+      href: python-tutorial-od.md
+  - name: Använda Java SDK
+    items:
+    - name: Bildklassificering
+      href: java-tutorial.md
+    - name: Objektidentifiering
+      href: java-tutorial-od.md
+- name: Instruktionsguider
+  items:
+  - name: Skapa en klassificerare
+    href: getting-started-build-a-classifier.md
+  - name: Testa din modell
+    href: test-your-model.md
+  - name: Förbättra din klassificerare
+    href: getting-started-improving-your-classifier.md
+  - name: Använd förutsägelse-API:t
+    href: use-prediction-api.md
+  - name: Exportera din modell till mobil
+    href: export-your-model.md
+  - name: Använda ONNX-modellen med Windows ML
+    href: custom-vision-onnx-windows-ml.md
+  - name: Köra TensorFlow-modellen i Python
+    href: export-model-python.md
+  - name: Skapa en modell med hjälp av REST API
+    href: rest-api-tutorial.md
 - name: Referens
   items:
   - name: API för Custom Vision Training
@@ -76,9 +76,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Regional tillgänglighet
     href: https://azure.microsoft.com/global-infrastructure/services/
-ms.openlocfilehash: 1a29fbc0e28feced9a3a47daa7a861ddcb8a6e95
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 1394f71bceef7a0646411a155b63825771e839d3
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739778"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281040"

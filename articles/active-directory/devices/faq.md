@@ -15,37 +15,17 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 72035c2f13f5a2a749feabbb26db5500f6c3fc0a
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 9402147e2dab7fbf52fc893f339f6f3b8e112377
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42061110"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515649"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory-enhetshantering vanliga frågor och svar
 
-**F: kan jag registrera Android eller iOS BYOD-enheter?**
-
-**S:** Ja, men endast med enhetsregistreringstjänsten för Azure och för kunder med hybriddistributioner. Det stöds inte med den lokala enhetsregistreringstjänsten i AD FS.
-
-**F: hur kan jag registrera en macOS-enhet?**
-
-**S:** att registrera macOS-enhet:
-
-1.  [Skapa en efterlevnadsprincip](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
-2.  [Definiera principer för villkorlig åtkomst för macOS-enheter](../active-directory-conditional-access-azure-portal.md) 
-
-**Anmärkning:**
-
-- Användare som ingår i din princip för villkorlig åtkomst måste en [version av Office som stöds för macOS](../conditional-access/technical-reference.md#client-apps-condition) att komma åt resurser. 
-
-- Under den första åtkomstförsök uppmanas användarna att registrera enheten med hjälp av Företagsportalen.
-
----
-
-**F: Jag har registrerat enheten nyligen. Varför visas inte enheten under Mina användarinformation i Azure-portalen?**
-
-**S:** Windows 10-enheter som är hybrid Azure AD-anslutna visas inte under användarenheterna.
+**F: Jag har registrerat enheten nyligen. Varför visas inte enheten under Mina användarinformation i Azure-portalen? Eller varför enhetens ägare markeras som ej tillämpligt för hybrid Azure AD-anslutna enheter? ** 
+ **S:** Windows 10-enheter som är hybrid Azure AD-anslutna visas inte under användarenheterna.
 Du måste använda vy över alla enheter i Azure portal. Du kan också använda PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
 Endast följande enheter visas under användarenheterna:
@@ -58,12 +38,16 @@ Endast följande enheter visas under användarenheterna:
 
 **F: hur vet jag enhetstillstånd för registrering av klienten är?**
 
-**S:** du kan använda Azure-portalen, gå till alla enheter och Sök efter enheten med enhets-ID. Kontrollera värdet under typen kopplingskolumn.
-
-Om du vill kontrollera det lokala enheten registreringstillståndet från en registrerad enhet:
+**S:** du kan använda Azure-portalen, gå till alla enheter och Sök efter enheten med enhets-ID. Kontrollera värdet under typen kopplingskolumn. Ibland kunde enheten har återställa eller avbildas på nytt. Det är därför viktigt att också kontrollera status för enhetsregistreringen på enheten för:
 
 - Kör dsregcmd.exe/status för Windows 10 och Windows Server 2016 eller senare enheter.
 - För äldre OS-versioner, ”%programFiles%\Microsoft arbetsplats Join\autoworkplace.exe” som kör
+
+---
+
+**F: jag se enhetspost under användarinformation i Azure portal och kan se tillståndet som registrerats på enheten. Kan jag in korrekt för att använda villkorlig åtkomst?**
+
+**S:** anslutningstillståndet enheten visas deviceID, måste överensstämma med den i Azure AD och utvärderingen kriterier för villkorlig åtkomst. Mer information finns i [kräver hanterade enheter för åtkomst till molnet appen med villkorlig åtkomst](../conditional-access/require-managed-devices.md).
 
 ---
 
@@ -88,25 +72,6 @@ För äldre Windows OS-versioner som är en lokal AD-ansluten till domänen:
 3.  Skriv `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
 ---
-**F: hur jag frånkoppling från en enhet i Azure AD har anslutits lokalt på enheten?**
-
-**S:** 
-- För enheter för hybrid Azure AD har anslutits kan du se till att inaktivera automatisk registrering, så att den schemalagda aktiviteten inte registrera enheten igen. Därefter öppnar du Kommandotolken som administratör och skriv `dsregcmd.exe /debug /leave`. Det här kommandot kan också köras som ett skript på flera enheter vid frånkoppling från gruppvis.
-
-- För ren Azure AD har anslutits enheter, kontrollera att du har en offline lokal administratör konto eller skapa ett, som du kan inte logga in med autentiseringsuppgifter för alla Azure AD-användare. Gå sedan till **inställningar** > **konton** > **åtkomst till arbete eller skola**. Välj ditt konto och klicka på **Disconnect**. Följ anvisningarna och ange autentiseringsuppgifterna som lokal administratör när du tillfrågas. Starta om enheten för att slutföra processen frånkoppling.
-
----
-
-**F: Mina användare kan inte söka efter skrivare från Azure AD har anslutits enheter. Hur kan jag aktivera utskrift från Azure AD har anslutits enheter?**
-
-**S:** distribuera skrivare för Azure AD har anslutits enheter finns i [Hybrid cloud utskrifts](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Du behöver en lokal Windows Server att distribuera hybrid cloud utskrifts. Molnbaserad utskriftstjänster är för närvarande inte tillgänglig. 
-
----
-
-**F: hur ansluter jag till en fjärransluten Azure AD ansluten enhet? ** 
- **S:** finns i artikeln https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc information.
-
----
 
 **F: Varför ser jag dubblettenheten poster i Azure-portalen?**
 
@@ -128,7 +93,27 @@ För äldre Windows OS-versioner som är en lokal AD-ansluten till domänen:
 
 >[!Note] 
 >För registrerade enheter rekommenderar vi att rensa en enhet för att säkerställa att användarna inte kan komma åt resurserna. Mer information finns i [registrera enheter för hantering i Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+---
 
+# <a name="azure-ad-join-faq"></a>Azure AD Join vanliga frågor och svar
+
+**F: hur jag frånkoppling från en enhet i Azure AD har anslutits lokalt på enheten?**
+
+**S:** 
+- För enheter för hybrid Azure AD har anslutits kan du se till att inaktivera automatisk registrering, så att den schemalagda aktiviteten inte registrera enheten igen. Därefter öppnar du Kommandotolken som administratör och skriv `dsregcmd.exe /debug /leave`. Det här kommandot kan också köras som ett skript på flera enheter vid frånkoppling från gruppvis.
+
+- För ren Azure AD har anslutits enheter, kontrollera att du har en offline lokal administratör konto eller skapa ett, som du kan inte logga in med autentiseringsuppgifter för alla Azure AD-användare. Gå sedan till **inställningar** > **konton** > **åtkomst till arbete eller skola**. Välj ditt konto och klicka på **Disconnect**. Följ anvisningarna och ange autentiseringsuppgifterna som lokal administratör när du tillfrågas. Starta om enheten för att slutföra processen frånkoppling.
+
+---
+
+**F: Mina användare kan inte söka efter skrivare från Azure AD har anslutits enheter. Hur kan jag aktivera utskrift från Azure AD har anslutits enheter?**
+
+**S:** distribuera skrivare för Azure AD har anslutits enheter finns i [Hybrid cloud utskrifts](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Du behöver en lokal Windows Server att distribuera hybrid cloud utskrifts. Molnbaserad utskriftstjänster är för närvarande inte tillgänglig. 
+
+---
+
+**F: hur ansluter jag till en fjärransluten Azure AD ansluten enhet? ** 
+ **S:** finns i artikeln https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc information.
 
 ---
 
@@ -144,12 +129,6 @@ För äldre Windows OS-versioner som är en lokal AD-ansluten till domänen:
 
 ---
 
-**F: jag se enhetspost under användarinformation i Azure portal och kan se tillståndet som registrerats på enheten. Kan jag in korrekt för att använda villkorlig åtkomst?**
-
-**S:** anslutningstillståndet enheten visas deviceID, måste överensstämma med den i Azure AD och utvärderingen kriterier för villkorlig åtkomst. Mer information finns i [kräver hanterade enheter för åtkomst till molnet appen med villkorlig åtkomst](../conditional-access/require-managed-devices.md).
-
----
-
 **F: Varför visas ett meddelande om ”användarnamnet eller lösenordet är felaktigt” för en enhet som jag precis har anslutit till Azure AD?**
 
 **S:** vanliga orsaker till det här scenariot:
@@ -158,7 +137,7 @@ För äldre Windows OS-versioner som är en lokal AD-ansluten till domänen:
 
 - Datorn kan inte kommunicera med Azure Active Directory. Sök efter eventuella problem med nätverksanslutningen.
 
-- Federerad inloggningar kräver federationsservern för att stödja en aktiv slutpunkt för WS-Trust. 
+- Federerad inloggningar kräver federationsservern som stöd för WS-Trust-slutpunkter aktiverade och kan nås. 
 
 - Du har aktiverat Pass via autentisering och användaren har ett tillfälligt lösenord som måste ändras vid inloggning.
 
@@ -170,14 +149,15 @@ För äldre Windows OS-versioner som är en lokal AD-ansluten till domänen:
 
 ---
 
-**F: varför min försöker ansluta en dator växlar även om jag inte får någon information om fel?**
+**F: varför min försöker Azure AD join en dator misslyckas även om jag inte får någon information om fel?**
 
 **S:** en trolig orsak är att användaren är inloggad till enheten med det inbyggda lokala administratörskontot. Skapa ett annat lokala konto innan du använder Azure Active Directory Join för att slutföra installationen. 
 
-
 ---
 
-**F: var kan jag hitta felsökning information om automatisk enhetsregistrering?**
+# <a name="hybrid-azure-ad-join-faq"></a>Hybrid Azure AD Join vanliga frågor och svar
+
+**F: var kan jag hitta felsökning information för felsökning av hybrid Azure AD join?**
 
 **S:** information om felsökning finns:
 
@@ -188,3 +168,23 @@ För äldre Windows OS-versioner som är en lokal AD-ansluten till domänen:
 
 ---
 
+# <a name="azure-ad-register-faq"></a>Registrera dig för Azure AD vanliga frågor och svar
+
+**F: kan jag registrera Android eller iOS BYOD-enheter?**
+
+**S:** Ja, men endast med enhetsregistreringstjänsten för Azure och för kunder med hybriddistributioner. Det stöds inte med den lokala enhetsregistreringstjänsten i AD FS.
+
+**F: hur kan jag registrera en macOS-enhet?**
+
+**S:** att registrera macOS-enhet:
+
+1.  [Skapa en efterlevnadsprincip](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
+2.  [Definiera principer för villkorlig åtkomst för macOS-enheter](../active-directory-conditional-access-azure-portal.md) 
+
+**Anmärkning:**
+
+- Användare som ingår i din princip för villkorlig åtkomst måste en [version av Office som stöds för macOS](../conditional-access/technical-reference.md#client-apps-condition) att komma åt resurser. 
+
+- Under den första åtkomstförsök uppmanas användarna att registrera enheten med hjälp av Företagsportalen.
+
+---

@@ -1,20 +1,20 @@
 ---
-title: Skapa Hadoop-kluster med hjälp av en webbläsare – Azure HDInsight
-description: Lär dig hur du skapar Hadoop, HBase, Storm eller Spark-kluster på Linux för HDInsight med hjälp av en webbläsare och Azure preview portal.
+title: Skapa Apache Hadoop-kluster med hjälp av en webbläsare – Azure HDInsight
+description: Lär dig hur du skapar Apache Hadoop, Apache HBase, Apache Storm eller Apache Spark-kluster på Linux för HDInsight med hjälp av en webbläsare och Azure preview portal.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/21/2018
-ms.author: jasonh
-ms.openlocfilehash: 77f4b8e8826dab014b81fdb6847755630ac44508
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 8d5e29b89d65bc8777feac0c496b3253bc2a6763
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104950"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278998"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Skapa Linux-baserade kluster i HDInsight med Azure portal
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -34,7 +34,7 @@ Azure-portalen visar de flesta av egenskaperna. Med Azure Resource Manager-mall 
 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Klicka på **+**, klickar du på **information + analys**, och klicka sedan på **HDInsight**.
+2. Klicka på **+ skapa en resurs**, klickar du på **Analytics**, och klicka sedan på **HDInsight**.
    
     ![Skapa ett nytt kluster i Azure-portalen](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster.png "skapa ett nytt kluster i Azure portal")
 
@@ -47,10 +47,6 @@ Azure-portalen visar de flesta av egenskaperna. Med Azure Resource Manager-mall 
     * Från den **prenumeration** listrutan, Välj den prenumeration som används för klustret.
 
     * Klicka på **Klustertyp**, och välj sedan typ av kluster (Hadoop, Spark, etc.) som du vill skapa. För **operativsystemet**, klickar du på **Linux** och välj sedan en version. Använd standardversionen om du inte vet vad du ska välja. Mer information finns i [HDInsight-klusterversioner](hdinsight-component-versioning.md).
-
-        För Hadoop, Spark och Interactive Query klustertyper, kan du också välja för att installera den **Enterprise Security Package**. Enterprise Security Package säkerhetsvillkoren som Azure Active Directory-integrering och Apache Ranger för klustren. Mer information finns i [säkerhetspaketet för företag i Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
-
-        ![Aktivera Enterprise Security Package](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-enable-enterprise-security-package.png "aktivera Enterprise Security Package")
      
         > [!IMPORTANT]
         > HDInsight kluster kommer in en mängd olika typer, vilket motsvarar arbetsbelastning eller teknik som klustret är anpassad till. Det finns ingen metod som stöds för att skapa ett kluster som kombinerar flera typer, till exempel Storm och HBase i ett kluster. 
@@ -69,7 +65,9 @@ Azure-portalen visar de flesta av egenskaperna. Med Azure Resource Manager-mall 
 
     * Klicka på **Nästa**.
 
-4. För **Storage**, ange om du vill att Azure Storage (WASB) eller Data Lake Storage som standardlagring. Titta på tabellen nedan för mer information.
+4. I **säkerhet och nätverk**, du kan ansluta ditt kluster till ett virtuellt nätverk med hjälp av den angivna listrutan. Välj en Azure-nätverket och undernätet om du vill placera kluster till ett virtuellt nätverk. Information om hur du använder HDInsight med ett virtuellt nätverk, inklusive konfigurationskraven för det virtuella nätverket, finns i [utöka HDInsight-funktioner med hjälp av Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md). Om du vill använda den **Enterprise Security Package**, du kan även följa instruktionerna här: [konfigurera ett HDInsight-kluster med Enterprise Security Package med hjälp av Azure Active Directory Domain Services](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds).
+
+5. För **Storage**, ange om du vill att Azure Storage (WASB) eller Data Lake Storage som standardlagring. Titta på tabellen nedan för mer information.
 
     ![Skapa ett nytt kluster i Azure-portalen](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-storage.png "skapa ett nytt kluster i Azure portal")
 
@@ -84,7 +82,7 @@ Azure-portalen visar de flesta av egenskaperna. Med Azure Resource Manager-mall 
     > [!WARNING]
     > Du kan inte använda ett annat lagringskonto på en annan plats än HDInsight-klustret.
 
-5. Du kan också klicka på **program** att installera program som fungerar med HDInsight-kluster. Dessa program kan utvecklas av Microsoft, oberoende programvaruleverantörer och av dig själv. Mer information finns i [installera HDInsight-program](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
+6. Du kan också klicka på **program** att installera program som fungerar med HDInsight-kluster. Dessa program kan utvecklas av Microsoft, oberoende programvaruleverantörer och av dig själv. Mer information finns i [installera HDInsight-program](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
 
 
 6. Klicka på **klusterstorlek** att visa information om de noder som används för det här klustret. Ange antalet arbetsnoder som ska användas för klustret. Den uppskattade kostnaden för att köra klustret visas också.
@@ -100,18 +98,10 @@ Azure-portalen visar de flesta av egenskaperna. Med Azure Resource Manager-mall 
    
    Klicka på **nästa** att spara konfigurationen av nodpris.
 
-7. Klicka på **avancerade inställningar** att konfigurera andra valfria inställningar, till exempel med hjälp av **skriptåtgärder** att anpassa ett kluster för att installera anpassade komponenter eller koppla en **virtuellt nätverk**. Titta på tabellen nedan för mer information.
+8. I **skriptåtgärder**, du kan anpassa ett kluster för att installera anpassade komponenter.  Använd det här alternativet om du vill använda ett anpassat skript för att anpassa ett kluster när klustret skapas. Mer information om skriptåtgärder finns i [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md).
+Klicka på **Nästa**.
 
-    ![Nodprisnivåer](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-advanced.png "anger antalet klusternoder")
-
-    | Alternativ | Beskrivning |
-    |--------|-------------|
-    | **Skriptåtgärder** | Använd det här alternativet om du vill använda ett anpassat skript för att anpassa ett kluster när klustret skapas. Mer information om skriptåtgärder finns i [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md). |
-    | **Virtual Network** | Välj en Azure-nätverket och undernätet om du vill placera kluster till ett virtuellt nätverk. Information om hur du använder HDInsight med ett virtuellt nätverk, inklusive konfigurationskraven för det virtuella nätverket, finns i [utöka HDInsight-funktioner med hjälp av Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md). |
-
-    Klicka på **Nästa**.
-
-8. För **sammanfattning**, kontrollerar du informationen som du angav tidigare och klicka sedan på **skapa**.
+9. För **sammanfattning**, kontrollerar du informationen som du angav tidigare och klicka sedan på **skapa**.
 
     ![Nodprisnivåer](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-summary.png "anger antalet klusternoder")
     
@@ -119,7 +109,7 @@ Azure-portalen visar de flesta av egenskaperna. Med Azure Resource Manager-mall 
     > Det tar en stund för klustret skapas, vanligen cirka 15 minuter. Använd ikonen på startsidan eller **meddelanden** post till vänster på sidan för att kontrollera etableringsprocessen.
     > 
     > 
-12. När processen är klar klickar du på panelen för klustret från startsidan. Fönstret klustret innehåller följande information.
+10. När processen är klar klickar du på panelen för klustret från startsidan. Fönstret klustret innehåller följande information.
     
     ![Kluster-gränssnittet](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-completed.png "Klusteregenskaper")
     

@@ -1,6 +1,6 @@
 ---
 title: Azure AI-galleriet | Microsoft Docs
-description: Dela och Upptäck analytics resurser och mer i Azure AI-galleriet. Lär dig från andra och göra dina egna bidrag till gruppen.
+description: Dela och Upptäck analytics-resurser och mycket mer i Azure AI-galleriet. Lär dig från andra och göra dina egna bidrag till communityn.
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
@@ -15,83 +15,83 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 0494963f59e885cf2e7fe42704f1314e66ea28a5
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 250b0cf6ff949fab064dc61a5260a68fd78d0387
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834795"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346379"
 ---
-# <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Dela och identifiera resurser i Azure AI-galleriet
-[!INCLUDE [gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
+# <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Dela och Upptäck resurser i Azure AI-galleriet
 
-<!-- separating these 2 includes -->
+**[Azure AI-galleriet](http://gallery.cortanaintelligence.com)**  är en community-drivna plats för att upptäcka och dela lösningar som byggts med Azure AI.
+Galleriet har en mängd olika resurser som du kan använda för att utveckla dina egna Analyslösningar.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="what-can-i-find-in-the-gallery"></a>Vad kan jag hitta i galleriet?
-Azure-galleriet AI innehåller en mängd olika resurser som du kan använda för att utveckla egna Analyslösningar.
+Azure AI-galleriet innehåller en mängd olika resurser som du kan använda för att utveckla dina egna Analyslösningar.
 
-* **[Experiment](gallery-experiments.md)**  -galleriet för den innehåller en mängd olika experiment som har utvecklats i Azure Machine Learning Studio. Dessa mellan snabb proof of concept experiment som visar specifik machine learning-teknik som gör att fullt utvecklade lösningar för komplexa maskininlärning problem.
-* **[Jupyter-anteckningsböcker](gallery-jupyter-notebooks.md)**  - Jupyter-anteckningsböcker är kod, datavisualiseringar, och dokumentation i en enda interaktiva arbetsytan.
-  Datorer i galleriet ger självstudier och detaljerad information om avancerade maskininlärning tekniker och lösningar.
+* **[Experiment](gallery-experiments.md)**  -The-galleriet innehåller en mängd olika experiment som har utvecklats i Azure Machine Learning Studio. Dessa sträcker sig från snabb proof of concept-experiment som visar en specifik machine learning-teknik för att fullständigt utvecklat lösningar för komplexa maskininlärning problem.
+* **[Jupyter Notebooks](gallery-jupyter-notebooks.md)**  - Jupyter Notebooks är kod, datavisualiseringar, och dokumentationen i en enda interaktiv arbetsyta.
+  Anteckningsböcker i galleriet ger självstudier och detaljerade förklaringar av avancerade machine learning-tekniker och lösningar.
 
 <!--
 - **[Machine Learning APIs](https://machine-learning-gallery-apis.md)** - An experiment developed in Azure Machine Learning can be launched as a web service so that the analytics model can be accessed by others through a set of REST APIs. A variety of these APIs are available in the Gallery, such as a product recommendation engine or cloud-based face and speech recognition.
 -->
 
-* **[Lösningar](gallery-solutions.md)**  – snabbt skapa Cortana Intelligence-lösningar från förkonfigurerade lösningar och referensarkitekturer designmönster. Skapa dem egna inkluderade instruktioner eller med en aktuell partner.
-* **[Självstudiekurser](gallery-tutorials.md)**  – självstudier finns tillgängliga leder dig igenom machine learning tekniker och koncept eller beskrivs avancerade metoder för att lösa problem med olika machine learning.
+* **[Lösningar](gallery-solutions.md)**  – snabbt skapa Cortana Intelligence-lösningar utifrån förkonfigurerade lösningar, Referensarkitektur och designmönster. Specialanpassa dem med hjälp av medföljande instruktioner eller med en partner.
+* **[Självstudier](gallery-tutorials.md)**  – det finns ett antal självstudier som leder dig genom machine learning-tekniker och begrepp, eller att beskriva avancerade metoder för att lösa problem med olika machine learning.
 
 Dessa grundläggande galleriresurser kan grupperas logiskt på ett par olika sätt:
 
-* **[Samlingar](gallery-collections.md)**  – en samling kan du gruppera experiment, API: er, och andra Gallery objekt adressen en viss lösning eller begrepp.
-* **[Branscher](gallery-industries.md)**  -det branscher avsnitt i galleriet för ihop olika resurser som är specifika för sådana branscher som retail, tillverkning, bank och hälsovård.
+* **[Samlingar](gallery-collections.md)**  – en samling kan du gruppera experiment, API: er, och andra galleriet objekt adressen en viss lösning eller begrepp.
+* **[Branscher](gallery-industries.md)**  – The branscher avsnittet galleriets sammanför olika resurser som är specifika för sådana branscher som detaljhandel, tillverkning, bank och healthcare.
 
-Slutligen **[tävlingar](gallery-competitions.md)** ger spännande möjlighet att konkurrerar med gemenskapen av data scientsts avancerade problem med hjälp av Cortana Intelligence Suite.
+Slutligen **[tävlingar](gallery-competitions.md)** ger en spännande möjlighet att konkurrera med diskussionsgruppen data scientsts för att lösa komplexa problem med Cortana Intelligence Suite.
 
-![Startsida för Azure AI-galleriet](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
+![Startsidan för Azure AI-galleriet](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
 
-## <a name="discover-and-learn"></a>Identifiera och lära dig
-Alla kan bläddra och söka efter olika typer av resurser i galleriet som bidrog med Microsoft och avancerade analyser.
-Använd dessa vill veta mer och kom igång med att lösa problem med dina egna data analys.
-Du kan också hämta experiment och Jupyter-anteckningsböcker till Machine Learning Studio arbetsytan.
+## <a name="discover-and-learn"></a>Utforska och lär dig
+Vem som helst kan bläddra och söka efter de olika typerna av resurser i galleriet som bidrog av Microsoft och communityn avancerad analys.
+Du kan använda dessa för att lära dig mer och få ett försprång i att lösa dina egna dataanalysproblem.
+Du kan också hämta experiment och Jupyter notebooks till din egen Machine Learning Studio-arbetsyta.
 
 Du kan enkelt hitta nyligen publicerade och populära resurser i galleriet eller du kan söka efter namn, taggar, algoritmer och andra attribut.
-Klicka på **Bläddra igenom alla** i galleriet-huvudet och välj sedan söka förfining till vänster på sidan och ange sökorden längst upp.
+Klicka på **Bläddra igenom alla** i galleriet-huvud och välj sedan söka sökvillkoren till vänster på sidan och ange sökorden högst upp.
 
 Visa bidrag från en viss författare genom att klicka på författarens namn från inom någon av panelerna:
 
 ![Visa en författare bidrag](./media/gallery-how-to-use-contribute-publish/view-by-author.png)
 
-Du kan kommentera ge feedback eller ställa frågor till kommentarer på varje resurssida.
-Du kan också dela en resurs av intresse med vänner och kollegor med resurs-funktionerna i LinkedIn och Twitter.
+Du kan kommentera, ge feedback eller ställa frågor via kommentarerna på varje sida.
+Du kan också dela en resurs i närheten med vänner och kollegor med resurs-funktionerna i LinkedIn eller Twitter.
 Du kan också e-länkar till dessa resurser för att bjuda in andra användare att visa sidorna.
 
-![Dela objektet med vänner](./media/gallery-how-to-use-contribute-publish/comment-and-share.png)
+![Dela det här objektet med vänner](./media/gallery-how-to-use-contribute-publish/comment-and-share.png)
 
 ## <a name="contribute-to-the-gallery"></a>Bidra till galleriet
 När du loggar in du blir medlem i galleri. På så sätt kan du bidra med egna galleriobjekt så att andra kan dra nytta av de lösningar som du har upptäckt.
 
-Du kan följa antalet vyer och nedladdningar av ditt bidrag när andra kommer över ditt bidrag i galleriet:
+Du kan följa antalet visningar och nedladdningar av ditt bidrag som andra stöta på ditt bidrag i galleriet:
 
-![Dela objektet med vänner](./media/gallery-how-to-use-contribute-publish/view-and-download-counts.png)
+![Dela det här objektet med vänner](./media/gallery-how-to-use-contribute-publish/view-and-download-counts.png)
 
-Användare kan också lägga till kommentarer och dela ditt bidrag med andra medlemmar i gruppen datavetenskap.
+Användare kan också lägga till kommentarer och dela ditt bidrag med andra medlemmar i dataexpertcommunityn.
 Du kan logga in med en diskussionsverktyg som till exempel Disqus och ta emot meddelanden för kommentarer på dina bidrag.
 
 ![Följ användarkommentarer](./media/gallery-how-to-use-contribute-publish/follow-comments.png)
 
-Du kan bidra till följande objekt i galleriet - följa dessa länkar för mer information:
+Du kan bidra med följande objekt i galleriet – du följa dessa länkar för mer information:
 
 * **[Samlingar](gallery-collections.md#contribute)**
 * **[Experiment](gallery-experiments.md#contribute)**
 * **[Självstudier](gallery-tutorials.md#contribute)**
 
-## <a name="we-want-to-hear-from-you"></a>Vi vill gärna höra av dig!
-Vi vill galleriet kan styras av våra användare och för våra användare. Använd ansikte till höger för att berätta för oss vad du gillar eller står Gallery.  
+## <a name="we-want-to-hear-from-you"></a>Vi vill gärna höra från dig!
+Vi vill galleriet kan styras av våra användare och för våra användare. Använd ansikte till höger för att berätta för oss vad du gillar eller tar emot om galleriet.  
 
 ![Feedback](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
-**[GÅ TILL I GALLERIET &GT;&GT;](http://gallery.cortanaintelligence.com)**
+**[TA MIG TILL TJÄNSTEN GALLERIET &GT;&GT;](http://gallery.cortanaintelligence.com)**
 

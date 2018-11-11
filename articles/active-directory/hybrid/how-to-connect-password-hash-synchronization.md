@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2d289dee6770b0fc70edb0ed5fecf8a39402c6fa
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 3579a17ab28bd39ddad5008e1d0f8f7834237807
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311992"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282007"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementera lösenordshashsynkronisering med Azure AD Connect-synkronisering
 Den här artikeln innehåller information du behöver för att synkronisera dina lösenord från en lokal Active Directory-instans till en molnbaserad Azure Active Directory (Azure AD)-instans.
@@ -54,7 +54,7 @@ Mer information finns i [Integrera dina lokala identiteter med Azure Active Dire
 >
 
 ## <a name="how-password-hash-synchronization-works"></a>Så här fungerar synkronisering av lösenordshash
-Active Directory domain service lösenord ska lagras i form av en hash-värde-representation av faktiska användarens lösenord. Ett hash-värde är ett resultat av en enkelriktad matematisk funktion (den *hash-algoritm*). Det finns ingen metod för att återställa resultatet av en envägs funktion till oformaterad text-versionen av ett lösenord. Du kan inte använda lösenords-hash för att logga in på ditt lokala nätverk.
+Active Directory domain service lösenord ska lagras i form av en hash-värde-representation av faktiska användarens lösenord. Ett hash-värde är ett resultat av en enkelriktad matematisk funktion (den *hash-algoritm*). Det finns ingen metod för att återställa resultatet av en envägsfunktion till versionen av ett lösenord med oformaterad text. Du kan inte använda en lösenordshash för att logga in på ditt lokala nätverk.
 
 Om du vill synkronisera ditt lösenord extraherar Azure AD Connect-synkronisering lösenords-hash från en lokal Active Directory-instans. Behandling av extra säkerhet tillämpas på lösenordets hash-värde innan den synkroniseras till tjänsten Azure Active Directory-autentisering. Lösenord synkroniseras på basis av per användare och i kronologisk ordning.
 
@@ -136,7 +136,7 @@ Synkronisering av lösenord har ingen inverkan på Azure-användare som är inlo
 ## <a name="enable-password-hash-synchronization"></a>Aktivera synkronisering av lösenordshash
 
 >[!IMPORTANT]
->Om du migrerar från AD FS (eller andra tekniker för federation) till synkronisering av Lösenordshash, rekommenderar vi att du följer våra detaljerad Distributionsguide publicerade [här](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Password%20Hash%20Synchronization.docx).
+>Om du migrerar från AD FS (eller andra tekniker för federation) till synkronisering av Lösenordshash, rekommenderar vi att du följer våra detaljerad Distributionsguide publicerade [här](https://aka.ms/adfstophsdpdownload).
 
 När du installerar Azure AD Connect med hjälp av den **standardinställningar** , synkronisering av lösenordshash är automatiskt aktiverat. Mer information finns i [komma igång med Azure AD Connect med standardinställningar](how-to-connect-install-express.md).
 

@@ -6,14 +6,14 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 11/05/2018
 ms.author: spelluru
-ms.openlocfilehash: c851c8a9384acf909dc88d3565d49021e1ee67e9
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: a000c599ecf8287af57aec2f6e9d550bbe61f280
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362032"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279889"
 ---
 # <a name="service-bus-faq"></a>Vanliga frågor och svar om Service Bus
 
@@ -21,7 +21,7 @@ Den här artikeln beskriver några vanliga frågor om Microsoft Azure Service Bu
 
 ## <a name="general-questions-about-azure-service-bus"></a>Allmänna frågor om Azure Service Bus
 ### <a name="what-is-azure-service-bus"></a>Vad är Azure Service Bus?
-[Azure Service Bus](service-bus-messaging-overview.md) är en asynkron meddelandetjänst molnplattform där du kan skicka data mellan fristående system. Microsoft erbjuder den här funktionen som en tjänst, vilket innebär att du inte behöver som värd för någon av dina egna maskinvara för att kunna använda den.
+[Azure Service Bus](service-bus-messaging-overview.md) är en asynkron meddelandetjänst molnplattform där du kan skicka data mellan fristående system. Microsoft erbjuder den här funktionen som en tjänst, vilket innebär att du inte behöver som värd för din egen maskinvara för att använda den.
 
 ### <a name="what-is-a-service-bus-namespace"></a>Vad är en Service Bus-namnrymd?
 En [namnområde](service-bus-create-namespace-portal.md) tillhandahåller en omfångsbehållare för adressering av Service Bus-resurser i ditt program. Skapa ett namnområde är nödvändigt att använda Service Bus och är en av de första stegen i komma igång.
@@ -78,6 +78,9 @@ Microsoft förbehåller sig rätten att inaktivera ett kundkonto som har översk
 
 Precis som med andra tjänster på Azure tillämpar Service Bus en uppsättning specifika kvoter så att det är verkliga användning av resurser. Du hittar mer information om dessa kvoter i den [översikt över Service Bus-kvoter][Quotas overview].
 
+### <a name="how-to-handle-messages-of-size--1-mb"></a>Hur kan hantera meddelanden av storlek > 1 MB?
+Service Bus-meddelandetjänster (köer och ämnen/prenumerationer) gör att programmet kan skicka meddelanden med storleken upp till 256 KB (standard-nivån) eller 1 MB (premium-nivån). Om du arbetar med meddelanden är större än 1 MB använder den anspråk mönster som beskrivs i [det här blogginlägget](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
+
 ## <a name="troubleshooting"></a>Felsökning
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Vilka är några av undantagen som genereras av Azure Service Bus-API: er och föreslagna åtgärder?
 En lista över möjliga Service Bus-undantag finns i [undantag översikt][Exceptions overview].
@@ -112,7 +115,7 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Service Bus finns i följande artiklar:
 
-* [Introduktion till Azure Service Bus Premium (blogginlägg)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+* [Introduktion till Azure Service Bus Premium (blogginlägg)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Introduktion till Azure Service Bus Premium (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [Översikt över Service Bus](service-bus-messaging-overview.md)
 * [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)

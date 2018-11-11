@@ -7,14 +7,14 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 7d4b4a98c38757eb33c3f8713f662ed52a686924
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: f02fa8ff80915c23f70db09a1dee393010795132
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978663"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277452"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Service Bus-mått i Azure Monitor (förhandsversion)
 
@@ -29,7 +29,7 @@ Azure Monitor innehåller enhetligt användargränssnitt för övervakning över
 
 Azure Monitor innehåller flera sätt att åtkomst mått. Du kan antingen åtkomst mätvärden via den [Azure-portalen](https://portal.azure.com), eller använda Azure Monitor-API: er (REST och .NET) och lösningar för dataanalys, till exempel Log Analytics och Event Hubs. Mer information finns i [övervakningsdata som samlas in av Azure Monitor](../monitoring/monitoring-data-collection.md).
 
-Mått är aktiverade som standard och du kan komma åt de senaste 30 dagarna data. Om du vill behålla data under en längre tid kan du arkivera måttdata till ett Azure Storage-konto. Detta är konfigurerat i [diagnostikinställningar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) i Azure Monitor.
+Mått är aktiverade som standard och du kan komma åt de senaste 30 dagarna data. Om du vill behålla data under en längre tid kan du arkivera måttdata till ett Azure Storage-konto. Det här värdet har konfigurerats i [diagnostikinställningar](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) i Azure Monitor.
 
 ## <a name="access-metrics-in-the-portal"></a>Åtkomst-mått i portal
 
@@ -108,6 +108,54 @@ Azure Service Bus stöder följande dimensioner för mått i Azure Monitor. Det 
 |Dimensionsnamn|Beskrivning|
 | ------------------- | ----------------- |
 |EntityName| Service Bus stöder meddelandeentiteter under namnområdet.|
+
+## <a name="set-up-alerts-on-metrics"></a>Konfigurera aviseringar i mått
+
+1. På den **mått** fliken den **Service Bus Namespace** väljer **konfigurera aviseringar**. 
+
+    ![Mått sidan – Konfigurera alerts-menyn](./media/service-bus-metrics-azure-monitor/metrics-page-configure-alerts-menu.png)
+2. Välj **Välj mål**, och gör följande på den **väljer du en resurs** sidan: 
+    1. Välj **Service Bus-namnområden** för den **filtrera efter resurstyp** fält. 
+    2. Välj din prenumeration för den **filtrera efter prenumeration** fält.
+    3. Välj den **service bus-namnområde** i listan. 
+    4. Välj **Done** (Klar). 
+    
+        ![Välj namnområde](./media/service-bus-metrics-azure-monitor/select-namespace.png)
+1. Välj **lägga till villkor**, och gör följande på den **konfigurera signallogiken** sidan:
+    1. Välj **mått** för **signalera typ**. 
+    2. Välj en signal. Till exempel: **tjänsten fel (förhandsversion)**. 
+
+        ![Välj serverfel](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
+    1. Välj **är större än** för **villkor**.
+    2. Välj **totala** för **tidsmängd**. 
+    3. Ange **5** för **tröskelvärdet**. 
+    4. Välj **Done** (Klar).    
+
+        ![Ange villkor](./media/service-bus-metrics-azure-monitor/specify-condition.png)    
+1. På den **skapa regeln** expanderar **definiera Aviseringsinformationen**, och göra följande:
+    1. Ange en **namn** för aviseringen. 
+    2. Ange en **beskrivning** för aviseringen.
+    3. Välj **allvarlighetsgrad** för aviseringen. 
+
+        ![Aviseringsinformation](./media/service-bus-metrics-azure-monitor/alert-details.png)
+1. På den **skapa regeln** expanderar **definiera åtgärdsgruppen**väljer **ny åtgärdsgrupp**, och gör följande på den **gruppsidanförLäggtillåtgärd**. 
+    1. Ange ett namn för åtgärdsgruppen.
+    2. Ange ett kort namn för åtgärdsgruppen. 
+    3. Välj din prenumeration. 
+    4. Välj en resursgrupp. 
+    5. Den här genomgången ska ange **skicka e-postmeddelande** för **ÅTGÄRDSNAMN**.
+    6. Välj **e-post/SMS/Push/röst** för **ÅTGÄRDSTYP**. 
+    7. Välj **redigera information**. 
+    8. På den **e-post/SMS/Push/röst** gör du följande åtgärder:
+        1. Välj **e-post**. 
+        2. Skriv den **e-postadress**. 
+        3. Välj **OK**.
+
+            ![Aviseringsinformation](./media/service-bus-metrics-azure-monitor/add-action-group.png)
+        4. På den **Lägg till åtgärdsgrupp** väljer **OK**. 
+1. På den **skapa regeln** väljer **skapa varningsregel**. 
+
+    ![Skapa aviseringsregel knapp](./media/service-bus-metrics-azure-monitor/create-alert-rule.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

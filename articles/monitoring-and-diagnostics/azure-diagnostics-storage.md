@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: jeconnoc
 ms.component: diagnostic-extension
-ms.openlocfilehash: 733c84ef9e6cee1a8ea488f0007ade1e72f39737
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f9ae9e2edea1daf2fda825053c777521f042413d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033261"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278930"
 ---
-# <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Store och visa diagnostikdata i Azure Storage
+# <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Lagra och visa diagnostikdata i Azure Storage
 Diagnostiska data lagras inte permanent såvida inte du överföra den till Microsoft Azure storage-emulatorn eller Azure storage. En gång i lagring, den kan visas med en av flera tillgängliga verktyg.
 
 ## <a name="specify-a-storage-account"></a>Ange ett lagringskonto
@@ -73,7 +73,7 @@ Loggdata som lagras i Blob eller Table storage med följande namn:
 ## <a name="tools-to-view-diagnostic-data"></a>Verktyg för att visa diagnostikdata
 Det finns flera verktyg för att visa data när den överförs till lagring. Exempel:
 
-* Server Explorer i Visual Studio - om du har installerat Azure Tools för Microsoft Visual Studio, du kan använda Azure Storage-noden i Server Explorer visa skrivskyddade blob- och tabelldata från Azure storage-konton. Du kan visa data från lokala emulatorn lagringskontot och även från storage-konton du har skapat för Azure. Mer information finns i [webbsökning och hantera lagringsresurser med Server Explorer](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md).
+* Server Explorer i Visual Studio - om du har installerat Azure Tools för Microsoft Visual Studio, du kan använda Azure Storage-noden i Server Explorer visa skrivskyddade blob- och tabelldata från Azure storage-konton. Du kan visa data från lokala emulatorn lagringskontot och även från storage-konton du har skapat för Azure. Mer information finns i [webbsökning och hantera lagringsresurser med Server Explorer](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage).
 * [Microsoft Azure Lagringsutforskaren](../vs-azure-tools-storage-manage-with-storage-explorer.md) är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, OSX och Linux.
 * [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) innehåller Azure Diagnostics Manager där du kan visa, ladda ned och hantera diagnostics-data som samlas in av programmen som körs på Azure.
 

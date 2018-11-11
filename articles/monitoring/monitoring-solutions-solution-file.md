@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 13da68f826f7077acec9a64d1aa0ea18c66be6ff
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 21e280740d5d7f467ee70952febf858e0dc0b89d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914251"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278216"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Skapa en fil för lösningen i Azure (förhandsversion)
 > [!NOTE]
 > Det här är preliminära dokumentationen för att skapa lösningar för hantering i Azure som för närvarande i förhandsversion. Ett schema som beskrivs nedan kan komma att ändras.  
 
-Lösningar för hantering i Azure implementeras som [Resource Manager-mallar](../azure-resource-manager/resource-manager-template-walkthrough.md).  Viktigaste uppgiften i lära dig hur du skapar lösningar för hantering av learning så [skapar en mall](../azure-resource-manager/resource-group-authoring-templates.md).  Den här artikeln innehåller unika detaljer mallar som används för lösningar och hur du konfigurerar vanliga lösningsresurser.
+Lösningar för hantering i Azure implementeras som [Resource Manager-mallar](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).  Viktigaste uppgiften i lära dig hur du skapar lösningar för hantering av learning så [skapar en mall](../azure-resource-manager/resource-group-authoring-templates.md).  Den här artikeln innehåller unika detaljer mallar som används för lösningar och hur du konfigurerar vanliga lösningsresurser.
 
 
 ## <a name="tools"></a>Verktyg

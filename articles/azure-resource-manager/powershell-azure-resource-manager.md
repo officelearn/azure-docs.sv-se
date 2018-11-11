@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/20/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7cda2a406c6c49e9252bfd5840e8f943e5b7043f
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 0ecb497e9b07119f6c32149a875f27ee7c338d74
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205807"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344645"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Hantera resurser med Azure PowerShell
 
@@ -56,7 +56,7 @@ I den här artikeln får distribuera du en virtuell dator och dess relaterade vi
 * [Nätverksdeltagare](../role-based-access-control/built-in-roles.md#network-contributor)
 * [Lagringskontodeltagare](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-I stället för att tilldela roller till enskilda användare är det ofta lättare att [skapa en Azure Active Directory-grupp](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) för användare som behöver utföra liknande åtgärder. Därefter tilldelar du gruppen lämplig roll. För att förenkla informationen i den här artikeln skapar vi en Azure Active Directory-grupp utan medlemmar. Du kan fortfarande tilldela den här gruppen en roll för ett omfång. 
+I stället för att tilldela roller till enskilda användare är det ofta lättare att [skapa en Azure Active Directory-grupp](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) för användare som behöver utföra liknande åtgärder. Därefter tilldelar du gruppen lämplig roll. För att förenkla informationen i den här artikeln skapar vi en Azure Active Directory-grupp utan medlemmar. Du kan fortfarande tilldela den här gruppen en roll för ett omfång.
 
 I följande exempel skapar en grupp och tilldelar den till rollen virtuell Datordeltagare för resursgruppen. Att köra den `New-AzureAdGroup` kommandot, måste du antingen genom att använda den [Azure Cloud Shell](/azure/cloud-shell/overview) eller [ladda ned Azure AD PowerShell-modulen](https://www.powershellgallery.com/packages/AzureAD/).
 
@@ -74,7 +74,7 @@ Normalt upprepar du processen för **Nätverksdeltagare** och **Lagringskontodel
 
 ## <a name="azure-policy"></a>Azure Policy
 
-[Azure Policy](../azure-policy/azure-policy-introduction.md) kan du kontrollera att alla resurser i prenumerationen uppfyller företagets standarder. Din prenumeration har redan flera principdefinitioner. Om du vill se tillgängliga principdefinitioner, använder du:
+[Azure Policy](../azure-policy/azure-policy-introduction.md) hjälper dig se till att alla resurser i prenumerationen uppfyller företagets standarder. Din prenumeration har redan flera principdefinitioner. Om du vill se tillgängliga principdefinitioner, använder du:
 
 ```azurepowershell-interactive
 (Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
@@ -211,11 +211,12 @@ Remove-AzureRmResourceLock -LockName LockNSG `
 
 När den inte längre behövs du använda kommandot [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 * Läs om hur du övervakar dina virtuella datorer i [övervaka och uppdatera en Windows-dator med Azure PowerShell](../virtual-machines/windows/tutorial-monitoring.md).
 * Läs om hur du använder Azure Security Center för att implementera rekommenderade säkerhetsmetoder [övervaka säkerhet för virtuella datorer med hjälp av Azure Security Center](../virtual-machines/windows/tutorial-azure-security.md).
 * Du kan flytta befintliga resurser till en ny resursgrupp. Exempel finns i [flytta resurser till ny resursgrupp eller prenumeration](resource-group-move-resources.md).

@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: a39ae42ba2344cb39318809e2f120e01a75344d7
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b595e62e032743be2655406ac02c8db94cf708f9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025794"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281775"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Hur du använder Azure Mobile Apps-SDK för Android
 
@@ -1047,7 +1047,7 @@ Den allmänna processen för att logga in med klientflödet autentisering är f�
 
 * Konfigurera Azure App Service-autentisering och auktorisering som server flow-autentisering.
 * Integrera autentiseringsprovider SDK för autentisering för att skapa en åtkomsttoken.
-* Anropa den `.login()` metoden på följande sätt:
+* Anropa den `.login()` metoden på följande sätt (`result` ska vara en `AuthenticationResult`):
 
     ```java
     JSONObject payload = new JSONObject();
@@ -1065,6 +1065,8 @@ Den allmänna processen för att logga in med klientflödet autentisering är f�
     });
     ```
 
+Se fullständiga koden exemplet i nästa avsnitt.
+
 Ersätt den `onSuccess()` metod med det kod som du vill använda på en lyckad inloggning.  Den `{provider}` strängen är en giltig provider: **aad** (Azure Active Directory), **facebook**, **google**, **microsoftaccount**, eller **twitter**.  Om du har implementerat anpassad autentisering, kan du också använda den anpassade providern autentiseringstagg.
 
 ### <a name="adal"></a>Autentisera användare med Active Directory Authentication Library (ADAL)
@@ -1074,35 +1076,35 @@ Du kan använda Active Directory Authentication Library (ADAL) för att registre
 1. Konfigurera mobilappsserverdelen för AAD-inloggningen genom att följa den [så här konfigurerar du App Service för Active Directory-inloggning] [ 22] självstudien. Se till att slutföra det valfria steget med att registrera ett internt klientprogram.
 2. Installera ADAL genom att ändra build.gradle-filen för att inkludera följande definitioner:
 
-```
-repositories {
-    mavenCentral()
-    flatDir {
-        dirs 'libs'
+    ```
+    repositories {
+        mavenCentral()
+        flatDir {
+            dirs 'libs'
+        }
+        maven {
+            url "YourLocalMavenRepoPath\\.m2\\repository"
+        }
     }
-    maven {
-        url "YourLocalMavenRepoPath\\.m2\\repository"
+    packagingOptions {
+        exclude 'META-INF/MSFTSIG.RSA'
+        exclude 'META-INF/MSFTSIG.SF'
     }
-}
-packagingOptions {
-    exclude 'META-INF/MSFTSIG.RSA'
-    exclude 'META-INF/MSFTSIG.SF'
-}
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile('com.microsoft.aad:adal:1.1.1') {
-        exclude group: 'com.android.support'
-    } // Recent version is 1.1.1
-    compile 'com.android.support:support-v4:23.0.0'
-}
-```
+    dependencies {
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+        compile('com.microsoft.aad:adal:1.1.1') {
+            exclude group: 'com.android.support'
+        } // Recent version is 1.1.1
+        compile 'com.android.support:support-v4:23.0.0'
+    }
+    ```
 
-1. Lägg till följande kod i ditt program, vilket gör de följande ersättningarna:
+3. Lägg till följande kod i ditt program, vilket gör de följande ersättningarna:
 
-* Ersätt **INSERT-UTFÄRDARE-HERE** med namnet på den klient som du har etablerat för ditt program. Formatet ska vara https://login.microsoftonline.com/contoso.onmicrosoft.com.
-* Ersätt **INSERT-resurs-ID-HERE** med klient-ID för din mobilappsserverdel. Du kan hämta klient-ID från den **Avancerat** fliken **Azure Active Directory-inställningar** i portalen.
-* Ersätt **INSERT-klient-ID-HERE** med klient-ID som du kopierade från native client-program.
-* Ersätt **INSERT-OMDIRIGERINGS-URI-HERE** med webbplatsens */.auth/login/done* slutpunkten, med hjälp av HTTPS-schema. Det här värdet ska vara liknar *https://contoso.azurewebsites.net/.auth/login/done*.
+    * Ersätt **INSERT-UTFÄRDARE-HERE** med namnet på den klient som du har etablerat för ditt program. Formatet ska vara https://login.microsoftonline.com/contoso.onmicrosoft.com.
+    * Ersätt **INSERT-resurs-ID-HERE** med klient-ID för din mobilappsserverdel. Du kan hämta klient-ID från den **Avancerat** fliken **Azure Active Directory-inställningar** i portalen.
+    * Ersätt **INSERT-klient-ID-HERE** med klient-ID som du kopierade från native client-program.
+    * Ersätt **INSERT-OMDIRIGERINGS-URI-HERE** med webbplatsens */.auth/login/done* slutpunkten, med hjälp av HTTPS-schema. Det här värdet ska vara liknar *https://contoso.azurewebsites.net/.auth/login/done*.
 
 ```java
 private AuthenticationContext mContext;

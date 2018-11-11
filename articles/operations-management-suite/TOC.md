@@ -3,7 +3,7 @@
 
 # Kom igång
 ## [Log Analytics](../log-analytics/log-analytics-get-started.md)
-## [Automation](../automation/automation-offering-get-started.md)
+## [Automation](/azure/automation/)
 ## [Säkerhetskopiering](../backup/backup-introduction-to-azure-backup.md)
 ## [Site Recovery](../site-recovery/site-recovery-overview.md)
 
@@ -11,7 +11,7 @@
 # Gör så här för att
 
 ## Analysera
-### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Log Analytics](../log-analytics/log-analytics-queries.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## Automatisera
 ### [Översikt över Azure Automation](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
@@ -36,7 +36,7 @@
 #### [Agenthälsa](oms-solution-agenthealth.md)
 #### [Varningshantering](../log-analytics/log-analytics-solution-alert-management.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Azure-nätverksanalys](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-#### [Behållare](../log-analytics/log-analytics-containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+#### [Containrar](../log-analytics/log-analytics-containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Key Vault-analys](../log-analytics/log-analytics-azure-key-vault.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Övervakning av nätverksprestanda](../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Office 365](oms-solution-office-365.md)

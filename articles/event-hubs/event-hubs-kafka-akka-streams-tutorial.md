@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 08/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 9cfaec69d3c9cea7f6f3860e8f07df6dc1638a9a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 973470a6964e04b84b814ecf8732b2b981ced44c
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416077"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278964"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Med hjälp av Akka dataströmmar med Event Hubs för Apache Kafka
 Den här självstudien visar hur du ansluter Akka strömmar till Kafka-aktiverade event hubs utan att ändra protokoll-klienter eller ditt eget kluster som körs. Har stöd för Azure Event Hubs för Kafka [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
@@ -39,7 +39,7 @@ För att slutföra den här självstudien måste du kontrollera att du har följ
 
 * Läs artikeln [Event Hubs för Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md). 
 * En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
-* [Java Development Kit (JDK 1.8 +)](https://aka.ms/azure-jdks)
+* [Java Development Kit (JDK) 1.8+](https://aka.ms/azure-jdks)
     * I Ubuntu kör du `apt-get install default-jdk` för att installera JDK-paketet.
     * Tänk på att ställa in miljövariabeln JAVA_HOME så att den pekar på den mapp där JDK-paketet är installerat.
 * [Ladda ned](http://maven.apache.org/download.cgi) och [installera](http://maven.apache.org/install.html) ett Maven-binärarkiv
@@ -150,8 +150,12 @@ I den här självstudien lärde du dig att ansluta Akka strömmar till Kafka-akt
 
 Läs mer om Event Hubs och Event Hubs för Kafka i följande avsnitt:  
 
-* [Läs om Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Läs om Event Hubs för Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-* [Utforska fler exempel på Event Hubs för Kafka GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
-* Använd [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) för att [strömma händelser från Kafka lokalt till Kafka-aktiverade Event Hubs i molnet.](event-hubs-kafka-mirror-maker-tutorial.md)
-* Lär dig att strömma till Kafka aktiverade Event Hubs med hjälp av [interna Kafka program](event-hubs-quickstart-kafka-enabled-event-hubs.md) eller [Apache Flink](event-hubs-kafka-flink-tutorial.md)
+- [Läs om Event Hubs](event-hubs-what-is-event-hubs.md)
+- [Event Hubs för Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+- [Så här skapar du Kafka aktiverat Event Hubs](event-hubs-create-kafka-enabled.md)
+- [Stream till Event Hubs från Kafka-program](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+- [Spegla en Kafka-meddelandeköer i ett Kafka-aktiverade händelsehubb](event-hubs-kafka-mirror-maker-tutorial.md)
+- [Ansluta Apache Spark till en händelsehubb med Kafka-aktiverad](event-hubs-kafka-spark-tutorial.md)
+- [Ansluta Apache Flink till ett Kafka-aktiverade event hub](event-hubs-kafka-flink-tutorial.md)
+- [Integrera Kafka ansluta med en Kafka-aktiverade händelsehubb](event-hubs-kafka-connect-tutorial.md)
+- [Utforska exempel på GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)

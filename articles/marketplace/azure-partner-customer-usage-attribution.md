@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 604eb528ef33a95993aa5b6d3ff6eebb77936aa2
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7937f3d0db414d7a9cc2adaefd4324d49d734fcb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157946"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280681"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure-partner kundens användning attribution
 
@@ -66,7 +66,7 @@ Resursen måste läggas till i den **mainTemplate.json** eller **azuredeploy.jso
 
 { // add this resource to the mainTemplate.json (do not add the entire file)
     "apiVersion": "2018-02-01",
-    "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" // use your generated GUID here
+    "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
     "type": "Microsoft.Resources/deployments",
     "properties": {
         "mode": "Incremental",
@@ -145,7 +145,7 @@ Alla registreringar för mall-GUID görs via Azure Marketplace Cloud Partner Por
 
 När du lägger till GUID i mallen eller i användaragenten och registrera GUID i CPP, spåras alla distributioner. 
 
-1. Gäller för [Azure Marketplace](http://aka.ms/listonazuremarketplace) och få tillgång till CPP.
+1. Gäller för [Azure Marketplace](https://aka.ms/listonazuremarketplace) och få tillgång till CPP.
 
    * Partner som krävs för att [har en profil i CPP](https://docs.microsoft.com/azure/marketplace/become-publisher). Är du rekommenderas att erbjudandet i Azure Marketplace eller AppSource-lista.
    * Partner kan registrera flera GUID: er.

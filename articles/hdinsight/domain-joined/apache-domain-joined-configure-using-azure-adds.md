@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/9/2018
-ms.openlocfilehash: 5707f97dff099d1ad914dcf3faa96cc287d48de9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: f0727d7ad415c718c01361cba8e8822a43298f66
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245672"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300735"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Konfigurera ett HDInsight-kluster med Enterprise Security Package med hjälp av Azure Active Directory Domain Services
 
@@ -64,6 +64,9 @@ När den hanterade identitet skapas och rätt rollen, kan AAD-DS-administratöre
 ![HDInsight hanterad identitet operatorn rolltilldelning](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-managed-identity-operator-role-assignment.png)
 
 ## <a name="networking-considerations"></a>Nätverksöverväganden
+
+> [!NOTE]
+> Azure AD DS måste distribueras i ett Azure Resource Manager (ARM) baserat virtuellt nätverk. Klassiska virtuella nätverk stöds inte för Azure AD DS. Se [aktivera Azure Active Directory Domain Services med Azure portal](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started-network) för mer information.
 
 När du har aktiverat Azure AD-DS körs en lokal tjänst DNS (Domain Name)-server på AD-datorer (VM). Konfigurera din Azure AD DS virtuella nätverk (VNET) om du vill använda dessa anpassade DNS-servrar. För att hitta rätt IP-adresser, Välj **egenskaper** under den **hantera** kategori och titta på IP-adresser i listan under **IP-adress i virtuellt nätverk**.
 

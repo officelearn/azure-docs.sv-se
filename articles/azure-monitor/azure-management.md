@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/07/2018
 ms.author: bwren
-ms.openlocfilehash: 46c59d02294dea34a4713f44f31733035c68d66e
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 30898be58db228484bcd85e8896da10d0bfc29dd
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47058015"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277468"
 ---
 # <a name="azure-management---monitoring"></a>Azure-hantering – övervakning
 
@@ -35,13 +35,13 @@ Följande diagram visar de olika hanteringsområdena som krävs för att underh�
 Följande avsnitt beskriver i korta ordalag de olika hanteringsområdena och tillhandahåller länkar till detaljerat innehåll om de viktigaste Azure-tjänsterna.
 
 ## <a name="monitor"></a>Övervaka
-Övervakning syftar till insamling och analys av data för att avgöra prestanda, hälsotillstånd och tillgänglighet för affärsprogram och resurser som dessa program är beroende av. En effektiv övervakningsstrategi hjälper dig att få en detaljerad översikt över hur de olika komponenterna fungerar i ditt program och hjälper dig att förbättra din drifttid genom att proaktivt meddela dig om kritiska tillstånd så att du kan hantera dem innan de hunnit bli problem. Övervakning i Azure tillhandahålls främst av [Azure Monitor](../azure-monitor/overview.md) som innehåller vanliga butiker för att lagra övervakningsdata, flera källor för att samla in data från olika nivåer som stöder ditt program och funktioner för analysera och svara på insamlade data.
+Övervakning syftar till insamling och analys av data för att avgöra prestanda, hälsotillstånd och tillgänglighet för affärsprogram och resurser som dessa program är beroende av. En effektiv övervakningsstrategi hjälper dig att få en detaljerad översikt över hur de olika komponenterna fungerar i ditt program och hjälper dig att förbättra din drifttid genom att proaktivt meddela dig om kritiska tillstånd så att du kan hantera dem innan de hunnit bli problem. Övervakning i Azure har tillhandahålls främst av [Azure Monitor](../azure-monitor/overview.md) som innehåller gemensamma lagringsplatser för övervakningsdata, flera datakällor för insamling av data från de olika lagren som stöder ditt program och funktioner för att analysera och svara på insamlade data.
 
 ## <a name="configure"></a>Konfigurera
 Konfiguration syftar på den första distributionen och konfigurationen av program och resurser samt det löpande underhållet av dessa program och resurser som utförs genom korrigeringar och programvaruuppdateringar.  Genom att automatisera de här uppgifterna via skript och principer kan du eliminera redundans och minimera tiden och arbetet som krävs samtidigt som du ökar din precision och effektivitet.  [Azure Automation](..\automation\automation-intro.md) innehåller många tjänster för att automatisera konfigurationsåtgärder.  Förutom runbook-flöden för att automatisera processer tillhandahåller Azure Automation även hantering av konfigurationer och uppdateringar, vilket hjälper dig att hantera konfigurationer via principer och att identifiera och distribuera uppdateringar.
 
 ## <a name="govern"></a>Styrning
-Styrning tillhandahåller mekanismer och processer för att behålla kontrollen över dina program och resurser i Azure.  Det omfattar att planera initiativ och att fatta beslut om strategiska prioriteringar.  Styrning i Azure implementeras främst genom två tjänster.  [Azure Policy](../azure-policy/azure-policy-introduction.md) gör det möjligt att skapa, tilldela och hantera principdefinitioner som tillämpar olika regler och åtgärder på resurserna, så att resurserna följer företagets standarder och serviceavtal. [Azure Cost Management från Cloudyn](../cost-management/overview.md) gör det möjligt att spåra molnanvändning och utgifter för dina Azure-resurser och andra molnleverantörer, inklusive AWS och Google.
+Styrning tillhandahåller mekanismer och processer för att behålla kontrollen över dina program och resurser i Azure.  Det omfattar att planera initiativ och att fatta beslut om strategiska prioriteringar.  Styrning i Azure implementeras främst genom två tjänster.  [Azure Policy](../governance/policy/overview.md) gör det möjligt att skapa, tilldela och hantera principdefinitioner som tillämpar olika regler och åtgärder på resurserna, så att resurserna följer företagets standarder och serviceavtal. [Azure Cost Management från Cloudyn](../cost-management/overview.md) gör det möjligt att spåra molnanvändning och utgifter för dina Azure-resurser och andra molnleverantörer, inklusive AWS och Google.
 
 ## <a name="secure"></a>Skydda
 Hantering av säkerhet för program, resurser och data innefattar en kombination av att bedöma hot, samla in och analysera säkerhetsdata och att säkerställa att program och resurser är utformade och konfigurerade på ett säkert sätt.  Säkerhetsövervakning och hotanalys tillhandahålls av [Azure Security Center](../security-center/security-center-intro.md), som ger enhetlig säkerhetshantering och avancerat skydd mot hot i olika hybridmolnarbetsbelastningar.  Du bör även läsa [Introduktion till Azure-säkerhet](../security/azure-security.md) för mer utförlig information om säkerhet i Azure och för att få hjälp med att konfigurera Azure-resurser på ett säkert sätt.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 32cebecbb9185250d7d295eab3074a76dcd6a8b9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: d21b6235c91a7d2f14b8b39c07891efe967ef572
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240502"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278250"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Azure Diagnostics-data i den heta sökvägen för direktuppspelning med Event Hubs
 Azure-diagnostik tillhandahåller flexibelt sätt att samla in mått och loggar från cloud services-datorer (VM) och överför resultatet till Azure Storage. Från och med mars 2016 (SDK 2.9) tidsram, kan du skickar diagnostik till anpassade datakällor och överföra heta sökvägen data på några sekunder med hjälp av [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -40,7 +40,7 @@ Event Hubs receieving data från Azure Diagnostics stöds i molntjänster, virtu
 * Azure Diagnostics-tillägg 1.6 ([Azure SDK för .NET 2.9 eller senare](https://azure.microsoft.com/downloads/) riktar sig mot det som standard)
 * [Visual Studio 2013 eller senare](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * Befintliga konfigurationer av Azure Diagnostics-data i ett program med hjälp av en *.wadcfgx* fil- och en av följande metoder:
-  * Visual Studio: [konfigurera diagnostik för Azure-molntjänster och virtuella datorer](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
+  * Visual Studio: [konfigurera diagnostik för Azure-molntjänster och virtuella datorer](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
   * Windows PowerShell: [aktivera diagnostik i Azure Cloud Services med hjälp av PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)
 * Event Hubs-namnområde etablerat per artikel, [Kom igång med Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 

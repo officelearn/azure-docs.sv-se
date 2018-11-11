@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/09/2018
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: d9b6f5c08eed5efceafc71feaf654ad8f4fcafa0
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: eb14a3bc76fef37cdff4ed49cdbb6a99eac40928
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341131"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280171"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetrikorrelation i Application Insights
 
@@ -66,7 +66,7 @@ Nu när anropet `GET /api/stock/value` görs till en extern tjänst som du vill 
 
 ## <a name="correlation-headers"></a>Korrelations-huvuden
 
-Vi arbetar på RFC förslag för den [korrelation HTTP-protokollet](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v1.md). Förslaget definierar två rubriker:
+Vi arbetar på RFC förslag för den [korrelation HTTP-protokollet](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Förslaget definierar två rubriker:
 
 - `Request-Id` utföra ett globalt unikt id för anropet
 - `Correlation-Context` -utföra namn värde-par insamlingen av egenskaper för distribuerad spårning
@@ -77,7 +77,7 @@ Application Insights definierar den [tillägget](https://github.com/lmolkova/cor
 
 ### <a name="w3c-distributed-tracing"></a>W3C distribuerad spårning
 
-Vi övergår till (W3C distribuerad spårning format) [https://w3c.github.io/distributed-tracing/report-trace-context.html]. Den definierar:
+Vi övergår till [W3C distribuerad spårning format](https://w3c.github.io/trace-context/). Den definierar:
 - `traceparent` -globalt unika åtgärds-id och unik identifierare för anropet
 - `tracestate` -innebär spårning av specifika systemkontexten.
 
@@ -156,7 +156,7 @@ public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
     }
   }
 ```
-Via den [kontext enhetsklass](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (endast den här telemetriobjekt är märkta)
+Via den [kontext enhetsklass](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (endast den här telemetriobjekt är märkta)
 ```Java
 telemetry.getContext().getDevice().setRoleName("My Component Name");
 ```

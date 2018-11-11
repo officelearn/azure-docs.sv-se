@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2018
+ms.date: 11/09/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: 8e8518cdf95e1b97bd4b641322c1b2a3fdc3bf9e
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 27dbd4215deef6574622ffcd2c62a64503459258
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282466"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515768"
 ---
 # <a name="asdk-release-notes"></a>Viktig information om ASDK  
 Den här artikeln innehåller information om förbättringar, korrigeringar och kända problem i Azure Stack Development Kit (ASDK). Om du inte vet vilken version du kör, kan du [använda portalen för att kontrollera](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -46,7 +46,7 @@ Mer information finns i [Azure Stack syslog-vidarebefordran](../azure-stack-inte
 <!-- TBD - IS ASDK --> 
 - Ett problem där du skapade virtuella datorer på Azure Stack-användarportalen och portalen visas ett felaktigt antal datadiskar som kan ansluta till virtuella datorer i DS-serien har åtgärdats. DS-serien virtuella datorer kan hantera så många datadiskar som Azure-konfiguration.
 
-- Följande problem för hanterad disk har korrigerats i 1809 och korrigeras också i 1808 [Azure Stack-snabbkorrigeringen 1.1808.5.110](https://support.microsoft.com/help/4468920/): 
+- Följande problem för hanterad disk har korrigerats i 1809 och korrigeras också i 1808 [Azure Stack-snabbkorrigeringen 1.1808.7.113](https://support.microsoft.com/help/4471992/): 
 
    <!--  2966665 – IS, ASDK --> 
    - Åtgärdats i vilka kopplar SSD datadiskar till premium-storlek som hanterad disk virtuella datorer (DS, DSv2, Fs, Fs_V2) misslyckades med ett fel: *gick inte att uppdatera diskar för den virtuella datorn 'vmname' fel: begärda åtgärden inte kan utföras eftersom lagringskontotypen ”Premium_LRS” inte stöds för VM-storleken ”Standard_DS/Ds_V2/FS/Fs_v2)*. 
@@ -59,6 +59,16 @@ Mer information finns i [Azure Stack syslog-vidarebefordran](../azure-stack-inte
 - <!-- 2702741 -  IS, ASDK --> Ett problem har åtgärdats i vilka offentliga IP-adresser som har distribuerats med hjälp av dynamisk allokering metoden inte har garanterat bevaras när en frigörandet har utfärdats. De finns kvar.
 
 - <!-- 3078022 - IS, ASDK --> Om en virtuell dator var frigörandet innan 1808 gick det inte att uppdatera allokerade efter 1808 uppdateringen.  Det här problemet löses i 1809. Instanser som fanns i det här tillståndet och kunde inte startas kan startas i 1809 med den här snabbkorrigeringen. Korrigeringen förhindrar också att det här problemet igen.
+
+<!-- 3090289 – IS, ASDK --> 
+- Ett problem har åtgärdats där efter att uppdateringen 1808, du kan stöta på följande problem när du distribuerar virtuella datorer med hanterade diskar:
+
+   1. Om prenumerationen har skapats innan uppdateringen gjordes 1808, distribution av virtuella datorer med Managed Disks misslyckas med felmeddelandet internt. Följ dessa steg för varje prenumeration för att lösa problemet:
+      1. I klient-portalen går du till **prenumerationer** och hitta prenumerationen. Klicka på **Resursprovidrar**, klicka sedan på **Microsoft.Compute**, och klicka sedan på **Omregistrera**.
+      2. Under samma prenumeration, gå till **åtkomstkontroll (IAM)**, och kontrollera att **Azure Stack – hanterad Disk** visas.
+   2. Om du har konfigurerat en miljö med flera organisationer kan misslyckas distribuera virtuella datorer i en prenumeration som är associerade med en gästkatalogen med ett internt felmeddelande. Följ dessa steg för att lösa problemet:
+      1. Tillämpa den [1808 Azure Stack snabbkorrigering](https://support.microsoft.com/help/4471992).
+      2. Följ stegen i [i den här artikeln](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) att konfigurera om var och en av dina gäst-kataloger.
 
 - **Olika korrigeringar** för prestanda, stabilitet, säkerhet och det operativsystem som används av Azure Stack
 
@@ -100,7 +110,7 @@ Mer information finns i [Azure Stack syslog-vidarebefordran](../azure-stack-inte
 
 #### <a name="compute"></a>Compute 
 
-<!-- TBD – IS, ASDK -->
+<!-- 3164607 – IS, ASDK -->
 - Återansluta en kopplas från disk till samma virtuella-dator (VM) med samma namn och LUN misslyckas med ett fel som **det går inte att koppla data disk 'datadisk' till virtuell dator ”vm1”**. Felet inträffar eftersom disken håller på att frånkopplas eller senaste frånkopplingen misslyckades. Vänta tills disken är helt frånkopplad och sedan försök igen eller ta bort/frånkoppla disken igen. Lösningen är att ansluta den igen med ett annat namn eller på en annan logisk enhet. 
 
 <!-- 3235634 – IS, ASDK -->
@@ -108,16 +118,6 @@ Mer information finns i [Azure Stack syslog-vidarebefordran](../azure-stack-inte
 
 <!-- 3099544 – IS, ASDK --> 
 - När du skapar en ny virtuell dator (VM) med hjälp av Azure Stack-portalen och du väljer virtuella datorstorlek, kolumnen USD/månad visas med en **ej tillgänglig** meddelande. Den här kolumnen visas inte; Visar den virtuella datorn stöds prissättning kolumn inte i Azure Stack.
-
-<!-- 3090289 – IS, ASDK --> 
-- Efter att ha tillämpat 1808 uppdatera, du kan stöta på följande problem när du distribuerar virtuella datorer med hanterade diskar:
-
-   1. Om prenumerationen har skapats innan uppdateringen gjordes 1808, distribution av virtuella datorer med Managed Disks misslyckas med felmeddelandet internt. Följ dessa steg för varje prenumeration för att lösa problemet:
-      1. I klient-portalen går du till **prenumerationer** och hitta prenumerationen. Klicka på **Resursprovidrar**, klicka sedan på **Microsoft.Compute**, och klicka sedan på **Omregistrera**.
-      2. Under samma prenumeration, gå till **åtkomstkontroll (IAM)**, och kontrollera att **Azure Stack – hanterad Disk** visas.
-   2. Om du har konfigurerat en miljö med flera organisationer kan misslyckas distribuera virtuella datorer i en prenumeration som är associerade med en gästkatalogen med ett internt felmeddelande. Följ dessa steg för att lösa problemet:
-      1. Tillämpa den [1808 Azure Stack snabbkorrigering](https://support.microsoft.com/help/4468920).
-      2. Följ stegen i [i den här artikeln](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) att konfigurera om var och en av dina gäst-kataloger.
 
 <!-- 2869209 – IS, ASDK --> 
 - När du använder den [ **Lägg till AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), måste du använda den **- OsUri** parameter som lagringskontot URI där disken har laddats upp. Om du använder den lokala sökvägen på disken kan cmdleten misslyckas med följande fel: *tidskrävande åtgärden misslyckades med statusen ”misslyckades”*. 

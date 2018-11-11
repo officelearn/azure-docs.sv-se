@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 43ff945747915edb76da8b593b232e86778374ce
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f7122c6147af2ed1af1f3b5e08458fd73f9aef6d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958516"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279117"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar med Azure Monitor  
 
@@ -57,7 +57,7 @@ Detaljerad nästa är stegvis guide till med hjälp av aviseringar i Azure porta
 
    > [!NOTE]
 
-   > Aviseringar listor importera analytics-fråga som signaltyp - **Log (sparad fråga)** enligt ovan bild. Så att användarna kan förbättrar din fråga i Analytics och spara dem för framtida användning i aviseringar – mer information om hur du använder för att spara frågan som är tillgängliga på [med hjälp av loggsökning i log analytics](../log-analytics/log-analytics-log-searches.md) eller [delade fråga i application insights Analytics](../log-analytics/log-analytics-queries.md). 
+   > Aviseringar listor importera analytics-fråga som signaltyp - **Log (sparad fråga)** enligt ovan bild. Så att användarna kan förbättrar din fråga i Analytics och spara dem för framtida användning i aviseringar – mer information om hur du använder för att spara frågan som är tillgängliga på [med hjälp av loggsökning i log analytics](../log-analytics/log-analytics-queries.md) eller [delade fråga i application insights Analytics](../log-analytics/log-analytics-queries.md). 
 
 1.  *Loggaviseringar*: när du valt, fråga aviseringar kan anges i **sökfråga** fältet; om frågesyntaxen är felaktigt fältet visar fel i rött. Om frågesyntaxen är korrekt - referens visas historiska data för den angivna frågan som ett diagram med alternativet för att justera tidsfönster från senaste sex timmar att förra veckan.
 

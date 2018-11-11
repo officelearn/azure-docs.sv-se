@@ -8,23 +8,23 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: artek
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: c59331c772e140fccfefb89eef086a35837171e1
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c5f11cbb12b727f5f308d7a71c51706fa8ec373f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576983"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277094"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Med hjälp av HDFS-CLI med Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 förhandsversion kan du hantera och komma åt data precis som med en [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Du kan använda kommandoradsgränssnittet (CLI) för att hämta och ändra inlästa data oavsett om du har ett HDInsight-kluster-ansluten eller kör ett Apache Spark-jobb med Azure Databricks för att utföra analyser på data som lagras i Azure Data Lake Storage Gen2. Resten av artikeln beskrivs de alternativ som du har medan den [Azure Storage-teamet arbetar med att lägga till stöd för Azure Storage Explorer och Azure-portalen](https://azure.microsoft.com/roadmap/).
+Azure Data Lake Storage Gen2 förhandsversion kan du hantera och komma åt data precis som med en [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Om du har ett HDInsight-kluster-ansluten eller kör ett Apache Spark-jobb med Azure Databricks för att utföra analyser på data som lagras i ett Azure Storage-konto kan använda du kommandoradsgränssnittet (CLI) att hämta och ändra inlästa data.
 
 ## <a name="hdfs-cli-with-hdinsight"></a>HDFS CLI med HDInsight
 
 HDInsight ger tillgång till det distribuerade filsystemet som är lokalt anslutet till beräkningsnoderna. Detta filsystem kan nås genom att använda det gränssnitt som interagerar direkt med med HDFS och andra filsystem som har stöd för Hadoop. Nedan visas vanliga kommandon och länkar till användbara resurser.
 
 >[!IMPORTANT]
->Debiteringen för HDInsight-klustret börjar när ett kluster skapas och stoppas när klustret tas bort. Fakturering beräknas proportionellt per minut, så du bör alltid ta bort ditt kluster när det inte längre används (Lär dig hur du [ta bort ett kluster](../../hdinsight/hdinsight-delete-cluster.md)). Data som lagras i Azure Data Lake Storage Gen2 bevaras dock även efter ett HDInsight-klustret tas bort.
+>HDInsight-kluster debiteringen börjar när ett kluster har skapats och stoppas när klustret tas bort. Debiteringen görs i förväg per minut, så du ska alltid ta bort ditt kluster när det inte används. Information om hur du tar bort ett kluster finns i vår [artikeln på ämnet](../../hdinsight/hdinsight-delete-cluster.md). Data som lagras i ett lagringskonto med Data Lake Storage Gen2 aktiverat kvarstår dock även efter ett HDInsight-klustret tas bort.
 
 Hämta en lista över filer eller kataloger:
 

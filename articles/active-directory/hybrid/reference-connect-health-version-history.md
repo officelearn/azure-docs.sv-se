@@ -3,7 +3,7 @@ title: Versionshistorik för Azure AD Connect Health
 description: Det här dokumentet beskriver versionerna för Azure AD Connect Health och vad ingår i dessa versioner.
 services: active-directory
 documentationcenter: ''
-author: zhiweiw
+author: zhiweiwangmsft
 manager: mtillman
 editor: curtand
 ms.assetid: 8dd4e998-747b-4c52-b8d3-3900fe77d88f
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 970df215f4a2e7619d43594734b9f6c3476bc609
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 8ca04fef8a17c43c9d1f761e36d8da7f1e07d4d5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311950"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283588"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Versionshistorik för Azure AD Connect Health
 Azure Active Directory-teamet uppdaterar regelbundet Azure AD Connect Health med nya funktioner. Den här artikeln visas de versioner och funktioner som har frisläppts.

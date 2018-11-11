@@ -3,19 +3,19 @@ title: 'Snabbstart: Komma igång med Hadoop och Hive i Azure HDInsight med Azure
 description: Lär dig hur du skapar HDInsight-kluster med Azure Portal och kör frågor mot data med Hive.
 keywords: hadoop komma igång, hadoop linux, hadoop Snabbstart, komma igång, hive hive-Snabbstart
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc
 ms.topic: quickstart
-ms.date: 05/07/2018
-ms.author: jasonh
-ms.openlocfilehash: 802c35f94457cc60ec27b3dd061d763d1acab4f5
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 07f9f774e3d133a2a39aad16b06ed77938ad74c8
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042244"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281656"
 ---
 # <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-the-azure-portal"></a>Snabbstart: Komma igång med Hadoop och Hive i Azure HDInsight med Azure Portal
 

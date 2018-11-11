@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 752a0262503550b9995ac76f648a132429203cce
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a40917ec24ede1107f7d8ae7f5fb2f0f03d1094c
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961440"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278335"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Vad är Azure Diagnostics-tillägget
 Azure Diagnostics-tillägget är en agent i Azure som aktiverar insamlingen av diagnostikdata på ett distribuerat program. Du kan använda diagnostiktillägget från ett antal olika källor. För närvarande är Azure-molntjänst (klassisk) rollerna Web och Worker, virtuella datorer, Virtual Machine Scale sets och Service Fabric. Andra Azure-tjänster har olika diagnostik metoder. Se [översikt över övervakning i Azure](../azure-monitor/overview.md).
@@ -60,7 +60,7 @@ Se [versionshistorik för Azure-diagnostik och Schema](azure-diagnostics-schema.
 Välj vilken tjänst som du vill samla in diagnostik på och Använd följande artiklar för att komma igång. Länkarna Allmänt Azure-diagnostik för referens för specifika uppgifter.
 
 ## <a name="cloud-services-using-azure-diagnostics"></a>Cloud Services med Azure Diagnostics
-* Om du använder Visual Studio finns i [Använd Visual Studio för att spåra en Cloud Services-program](../vs-azure-tools-debug-cloud-services-virtual-machines.md) att komma igång. Annars läser
+* Om du använder Visual Studio finns i [Använd Visual Studio för att spåra en Cloud Services-program](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) att komma igång. Annars läser
 * [Så här övervakar du Cloud services med Azure Diagnostics](../cloud-services/cloud-services-how-to-monitor.md)
 * [Konfigurera Azure Diagnostics i en Cloud Services-program](../cloud-services/cloud-services-dotnet-diagnostics.md)
 
@@ -71,8 +71,8 @@ Läs mer avancerade ämnen
 * [Använd PowerShell för att konfigurera diagnostik på molntjänster](../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="virtual-machines"></a>Virtuella datorer
-* Om du använder Visual Studio finns i [Använd Visual Studio för att spåra Azure Virtual Machines](../vs-azure-tools-debug-cloud-services-virtual-machines.md) att komma igång. Annars läser
-* [Konfigurera Azure Diagnostics på en Azure-dator](../virtual-machines/virtual-machines-dotnet-diagnostics.md)
+* Om du använder Visual Studio finns i [Använd Visual Studio för att spåra Azure Virtual Machines](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) att komma igång. Annars läser
+* [Konfigurera Azure Diagnostics på en Azure-dator](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
 
 Läs mer avancerade ämnen
 

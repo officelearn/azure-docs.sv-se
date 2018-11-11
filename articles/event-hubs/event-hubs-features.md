@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: shvija
-ms.openlocfilehash: c4a9a3189f3de101528871e4dba95bf7a76b9846
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: a3f7245d8a648249a4e7179cc02982eae8561037
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746922"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280588"
 ---
 # <a name="event-hubs-features-overview"></a>Översikt över Event Hubs-funktioner
 
@@ -25,16 +25,24 @@ Azure Event Hubs är en skalbar händelsebearbetningstjänst som matar in och be
 
 Den här artikeln bygger på informationen i den [översiktsartikeln](event-hubs-what-is-event-hubs.md), och innehåller teknisk och implementering information om Event Hubs-komponenter och funktioner.
 
-## <a name="namespace"></a>Namnområde
+## <a name="namespace"></a>Namnrymd
 Ett namnområde för Event Hubs innehåller en unik omfattningsbehållare som refereras av dess [fullständigt kvalificerade domännamnet](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), i vilket du skapar en eller flera händelsehubbar Kafka-avsnitt. 
+
+## <a name="event-hubs-for-apache-kafka"></a>Event Hubs för Apache Kafka
+
+[Den här funktionen](event-hubs-for-kafka-ecosystem-overview.md) innehåller en slutpunkt som ger kunder möjlighet att kommunicera med Event Hubs med Kafka-protokollet. Den här integreringen ger kunderna en Kafka-slutpunkt. Detta gör det möjligt för kunder att konfigurera sina befintliga Kafka-program att kommunicera med Event Hubs, vilket ger ett alternativ till att köra sina egna Kafka-kluster. Event Hubs för Apache Kafka har stöd för Kafka-protokollet 1.0 och senare. 
+
+Med den här integreringen behöver du inte kör Kafka-kluster eller hantera dem med Zookeeper. Detta kan du också att arbeta med några av de mest krävande funktionerna i Event Hubs som att samla in, automatisk ökning och Geo-Haveriberedskap.
+
+Den här integrationen kan också program, t.ex. spegling Maker eller ramverk som Kafka ansluta ska fungera clusterless bara konfigurationsändringar. 
 
 ## <a name="event-publishers"></a>Händelseutfärdare
 
-En enhet som skickar data till en händelsehubb är en händelse tillverkare eller *händelseutfärdare*. Händelseutfärdare kan utfärda händelser med hjälp av HTTPS eller AMQP 1.0. Händelseutfärdare använder en SAS-token (signatur för delad åtkomst) för att identifiera sig mot en händelsehubb och kan ha en unik identitet eller använda en gemensam SAS-token.
+En enhet som skickar data till en händelsehubb är en händelse tillverkare eller *händelseutfärdare*. Händelseutfärdare kan utfärda händelser med hjälp av HTTPS eller AMQP 1.0 eller Kafka 1.0 och senare. Händelseutfärdare använder en SAS-token (signatur för delad åtkomst) för att identifiera sig mot en händelsehubb och kan ha en unik identitet eller använda en gemensam SAS-token.
 
 ### <a name="publishing-an-event"></a>Publicera en händelse
 
-Du kan publicera en händelse via AMQP 1.0 eller HTTPS. Event Hubs tillhandahåller [klientbibliotek och klasser](event-hubs-dotnet-framework-api-overview.md) för att publicera händelser till en händelsehubb från .NET-klienter. För andra körningar och plattformar kan du använda alla AMQP 1.0-klienter, t.ex. [Apache Qpid](http://qpid.apache.org/). Du kan publicera händelser individuellt eller i batchar. En enstaka publikation (en instans av händelsedata ) har en begränsning på 256 KB, oavsett om det är en enskild händelse eller en batch. Publicering av händelser som är större än det här tröskelvärdet resultat i ett fel. Bästa metoden för en utfärdare är att vara ovetande om partitioner i händelsehubben och att bara ange en *partitionsnyckel* (presenteras i nästa avsnitt) eller sin identitet via sin SAS-token.
+Du kan publicera en händelse via AMQP 1.0, Kafka 1.0 (och senare) eller HTTPS. Event Hubs tillhandahåller [klientbibliotek och klasser](event-hubs-dotnet-framework-api-overview.md) för att publicera händelser till en händelsehubb från .NET-klienter. För andra körningar och plattformar kan du använda alla AMQP 1.0-klienter, t.ex. [Apache Qpid](http://qpid.apache.org/). Du kan publicera händelser individuellt eller i batchar. En enstaka publikation (en instans av händelsedata) har en gräns på 1 MB, oavsett om det är en enskild händelse eller en batch. Publicering av händelser som är större än det här tröskelvärdet resultat i ett fel. Bästa metoden för en utfärdare är att vara ovetande om partitioner i händelsehubben och att bara ange en *partitionsnyckel* (presenteras i nästa avsnitt) eller sin identitet via sin SAS-token.
 
 Valet att använda AMQP eller HTTPS är specifikt för användningsscenariot. AMQP kräver en beständig dubbelriktad socket och dessutom säkerhet på transportnivå (TLS) eller SSL/TLS. AMQP har högre nätverkskostnader när sessionen initieras, men HTTPS kräver ytterligare SSL-kostnader för varje begäran. AMQP har högre prestanda för frekventa utfärdare.
 
@@ -52,7 +60,7 @@ Med händelsehubbar får du granulär kontroll över utgivare via *utgivarprinci
 
 Du behöver inte skapa utgivarnamnen i förväg, men de måste matcha SAS-token som används när du publicerar en händelse för att garantera oberoende utgivaridentiteter. När du använder utgivarprinciper ställs **PartitionKey**-värdet in på utgivarens namn. Dessa värden måste matcha för att fungera korrekt.
 
-## <a name="capture"></a>Ta bild
+## <a name="capture"></a>Capture
 
 [Event Hubs Capture](event-hubs-capture-overview.md) gör att du kan avbilda strömmande data i Event Hubs och spara den till ett Blob storage-konto eller ett tjänstkonto för Azure Data Lake automatiskt. Du kan aktivera avbildning från Azure-portalen och ange en minsta storlek och tidsfönster att utföra insamlingen. Med Event Hubs Capture kan ange du din egen Azure Blob Storage-konto och en behållare eller ett konto för Azure Data Lake-tjänsten, av vilka används för att lagra insamlade data. Inlästa data skrivs i Apache Avro-format.
 
@@ -76,7 +84,7 @@ Partitioner är fyllda med en sekvens av händelsedata som innehåller själva h
 
 Mer information om partitioner och avvägningen mellan tillgänglighet och tillförlitlighet finns i [Programmeringsguide för Event Hubs](event-hubs-programming-guide.md#partition-key) och i artikeln om [tillgänglighet och konsekvens i Event Hubs](event-hubs-availability-and-consistency.md).
 
-### <a name="partition-key"></a>Partitionsnyckel
+### <a name="partition-key"></a>Partitionsnyckeln
 
 Du kan organisera data med hjälp av en [partitionsnyckel](event-hubs-programming-guide.md#partition-key) som mappar inkommande händelsedata till specifika partitioner. Partitionsnyckeln är ett värde som avsändaren anger och som skickas till en händelsehubb. Den bearbetas via en statisk hash-funktion som skapar partitionstilldelningen. Om du inte anger en partitionsnyckel när du publicerar en händelse, används en tilldelning enligt resursallokeringsmodellen.
 
@@ -147,7 +155,7 @@ Det är ditt ansvar att hantera positionen (offset).
 
 Event Hubs har en mycket skalbar parallell arkitektur och det finns flera viktiga faktorer att tänka på när du ändrar storlek och skala.
 
-### <a name="throughput-units"></a>Dataflödesenheter
+### <a name="throughput-units"></a>Genomflödesenheter
 
 Genomflödeskapaciteten i Event Hubs styrs av *genomflödesenheter*. Genomflödesenheter är färdiga kapacitetsenheter. En dataflödesenhet har följande kapacitet:
 

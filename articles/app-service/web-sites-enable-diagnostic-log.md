@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 7ab12c86e01a34e4ba2a9673364c0e1104f6cdba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0c22072d0eaa328fdf786421344e8ef2caaa575c
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231633"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515666"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för webbappar i Azure App Service
 ## <a name="overview"></a>Översikt
 Azure har inbyggd diagnostik som hjälper till med felsökning av en [App Service-webbapp](https://go.microsoft.com/fwlink/?LinkId=529714). I den här artikeln lär du dig hur du aktiverar diagnostikloggning och lägger till instrumentering i programmet, samt hur du kommer åt den information som loggas av Azure.
 
-Den här artikeln används den [Azure-portalen](https://portal.azure.com), Azure PowerShell och Azure-kommandoradsgränssnittet (Azure CLI) för att arbeta med diagnostikloggar. Information om hur du arbetar med diagnostikloggar med Visual Studio finns i [felsökning Azure i Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+Den här artikeln används den [Azure-portalen](https://portal.azure.com) och Azure CLI för att arbeta med diagnostikloggar. Information om hur du arbetar med diagnostikloggar med Visual Studio finns i [felsökning Azure i Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -65,7 +65,7 @@ För **programloggning**, du kan aktivera system filalternativet tillfälligt f�
 
 För **webbserverloggning**, kan du välja **storage** eller **filsystem**. Att välja **storage** kan du välja ett lagringskonto och en blob-behållare som loggarna skrivs till. 
 
-Om du sparar loggar på filsystemet kan filerna nås via FTP eller hämtat som ett Zip-arkiv med hjälp av Azure PowerShell eller Azure-kommandoradsgränssnittet (Azure CLI).
+Om du sparar loggar på filsystemet kan filerna nås via FTP eller hämtat som ett Zip-arkiv med hjälp av Azure CLI.
 
 Som standard loggar tas inte bort automatiskt (med undantag för **Programinloggning (filsystem)**). Om du vill ta bort loggar automatiskt, ange den **kvarhållningsperiod (dagar)** fält.
 
@@ -84,13 +84,9 @@ När alla tre lagringsplatser ger samma grundläggande information för loggade 
 > [!NOTE]
 > Information som lagras i **tabellagring** eller **blob-lagring** kan bara användas med ett storage-klienten eller ett program som kan arbeta direkt med dessa lagringssystem. Till exempel Visual Studio 2013 innehåller en lagringsutforskare som kan användas för att utforska tabell eller blob storage och HDInsight kan komma åt data som lagras i blob storage. Du kan också skriva ett program som ansluter till Azure Storage med hjälp av en av de [Azure SDK: er](https://azure.microsoft.com/downloads/).
 >
-> [!NOTE]
-> Diagnostik kan även aktiveras från Azure PowerShell med hjälp av den **Set-AzureWebsite** cmdlet. Om du inte har installerat Azure PowerShell eller inte har konfigurerat den att använda din Azure-prenumeration, se [installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
->
->
 
 ## <a name="download"></a> Så här: ladda ned loggar
-Diagnostisk information som lagras i web app-filsystem kan nås direkt med FTP. Det kan också hämtas som en Zip-arkiv med Azure PowerShell eller Azure-kommandoradsgränssnittet.
+Diagnostisk information som lagras i web app-filsystem kan nås direkt med FTP. Det kan också hämtas som en Zip-arkiv med Azure CLI.
 
 Katalogstrukturen som loggar lagras i är följande:
 
@@ -106,19 +102,7 @@ Om du vill öppna en FTP-anslutning till FTP-server för din app Se [distribuera
 
 När du är ansluten till din webbapps FTP/S-servern, öppna den **LogFiles** mappen där loggfilerna lagras.
 
-### <a name="download-with-azure-powershell"></a>Ladda ned med Azure PowerShell
-Starta en ny instans av Azure PowerShell för att hämta filerna, och använder du följande kommando:
-
-    Save-AzureWebSiteLog -Name webappname
-
-Det här kommandot sparar loggarna för den webbapp som anges av den **-namnet** parametern till en fil med namnet **logs.zip** i den aktuella katalogen.
-
-> [!NOTE]
-> Om du inte har installerat Azure PowerShell eller inte har konfigurerat den att använda din Azure-prenumeration, se [installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
->
->
-
-### <a name="download-with-azure-command-line-interface"></a>Ladda ned Azure kommandoradsgränssnitt
+### <a name="download-with-azure-cli"></a>Ladda ned med Azure CLI
 För att hämta filerna med hjälp av Azure-kommandoradsgränssnittet, öppna en kommandotolk, PowerShell, Bash eller terminalsession och ange följande kommando:
 
     az webapp log download --resource-group resourcegroupname --name webappname
@@ -126,7 +110,7 @@ För att hämta filerna med hjälp av Azure-kommandoradsgränssnittet, öppna en
 Det här kommandot sparar loggar för en webbapp med namnet webappname om du till en fil med namnet **diagnostics.zip** i den aktuella katalogen.
 
 > [!NOTE]
-> Om du inte har installerat Azure-kommandoradsgränssnittet (Azure CLI) eller inte har konfigurerat den att använda din Azure-prenumeration, se [hur du använder Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+> Om du inte har installerat Azure CLI eller inte har konfigurerat den att använda din Azure-prenumeration, se [hur du använder Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 
@@ -143,7 +127,7 @@ Visual Studio Application Insights innehåller verktyg för att filtrera och sö
 [Mer information om prestandaspårning med Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
 ## <a name="streamlogs"></a> Så här: Stream loggar
-När du utvecklar ett program, kan det ofta vara användbart att visa loggningsinformation i nära realtid. Du kan strömma loggningsinformation till utvecklingsmiljön med Azure PowerShell eller Azure-kommandoradsgränssnittet.
+När du utvecklar ett program, kan det ofta vara användbart att visa loggningsinformation i nära realtid. Du kan strömma loggningsinformation till utvecklingsmiljön med Azure CLI.
 
 > [!NOTE]
 > Vissa typer av loggning bufferten skriver till loggfilen, vilket kan resultera i oordnade händelser i strömmen. Exempelvis visas en loggpost för program som uppstår när en användare besöker en sida i strömmen innan den motsvarande HTTP-loggfil för sidan-begäran.
@@ -153,29 +137,7 @@ När du utvecklar ett program, kan det ofta vara användbart att visa loggningsi
 >
 >
 
-### <a name="streaming-with-azure-powershell"></a>Strömning med Azure PowerShell
-Att strömma loggningsinformation, starta en ny instans av Azure PowerShell och Använd följande kommando:
-
-    Get-AzureWebSiteLog -Name webappname -Tail
-
-Det här kommandot ansluter till den webbapp som anges av den **-namnet** parametern och påbörja direktuppspelning information till PowerShell-fönstret när händelser inträffar i webbappen. All information som skrivs till filer som slutar på .txt, .log eller .htm som lagras i katalogen /LogFiles (d:/home/logfiles) strömmas till den lokala konsolen.
-
-För att filtrera specifika händelser, t.ex fel som använder den **-meddelandet** parametern. Exempel:
-
-    Get-AzureWebSiteLog -Name webappname -Tail -Message Error
-
-För att filtrera specifika loggtyper, till exempel HTTP, använder den **-sökvägen** parametern. Exempel:
-
-    Get-AzureWebSiteLog -Name webappname -Tail -Path http
-
-Använd parametern - ListPath om du vill se en lista över tillgängliga sökvägar.
-
-> [!NOTE]
-> Om du inte har installerat Azure PowerShell eller inte har konfigurerat den att använda din Azure-prenumeration, se [hur du använder Azure PowerShell](https://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
->
->
-
-### <a name="streaming-with-azure-command-line-interface"></a>Strömning med Azure-kommandoradsgränssnittet
+### <a name="streaming-with-azure-cli"></a>Strömning med Azure CLI
 Strömma loggningsinformation, öppna en kommandotolk, PowerShell, Bash eller terminalsession och ange följande kommando:
 
     az webapp log tail --name webappname --resource-group myResourceGroup
@@ -191,7 +153,7 @@ För att filtrera specifika loggtyper, till exempel HTTP, använder den **--sök
     az webapp log tail --name webappname --resource-group myResourceGroup --path http
 
 > [!NOTE]
-> Om du inte har installerat Azure-kommandoradsgränssnittet eller inte har konfigurerat den att använda din Azure-prenumeration, se [hur du använder Azure-kommandoradsgränssnittet](../cli-install-nodejs.md).
+> Om du inte har installerat Azure CLI eller inte har konfigurerat den att använda din Azure-prenumeration, se [hur du använder Azure CLI](../cli-install-nodejs.md).
 >
 >
 

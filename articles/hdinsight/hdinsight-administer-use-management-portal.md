@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 67138b9e98818f5d106c73cef027d0eb2515e9a8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 651a03f69a7664b68ce3fe5c512c59c01762a505
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233923"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282483"
 ---
 # <a name="manage-windows-based-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Windows-baserade Apache Hadoop-kluster i HDInsight med hjälp av Azure-portalen
 
@@ -22,9 +22,7 @@ Med hjälp av den [Azure-portalen][azure-portal], du kan skapa Windows-baserade 
 
 Informationen i den här artikeln gäller endast för Windows-baserad HDInsight-kluster. Information om hur du hanterar Linux-baserade kluster finns i [hantera Hadoop-kluster i HDInsight med hjälp av Azure portal](hdinsight-administer-use-portal-linux.md).
 
-> [!IMPORTANT]
-> Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
+[!INCLUDE [windows-retirement-notice](../../includes/windows-retirement-notice.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 

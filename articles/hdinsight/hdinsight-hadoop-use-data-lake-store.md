@@ -2,19 +2,19 @@
 title: Använd Data Lake Store med Hadoop i Azure HDInsight
 description: Lär dig mer om hur du frågar efter data från Azure Data Lake Store och lagrar resultatet av dina analyser.
 services: hdinsight,storage
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 07/23/2018
-ms.openlocfilehash: d205a46c672523e029816b573742d991de79b2ae
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.date: 11/06/2018
+ms.openlocfilehash: 0859e480df0111e26d5b64bf835f94b3852b3414
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956739"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277366"
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Använda Data Lake Store med Azure HDInsight-kluster
 
@@ -40,16 +40,17 @@ Från och med nu har endast vissa typer/versioner av HDInsight-kluster stöd fö
 
 | Typ av HDInsight-kluster | Data Lake Store som standardlagring | Data Lake Store som ytterligare lagring| Anteckningar |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight version 3.6 | Ja | Ja | |
+| HDInsight version 3.6 | Ja | Ja | Förutom HBase|
 | HDInsight version 3.5 | Ja | Ja | Förutom HBase|
 | HDInsight version 3.4 | Nej | Ja | |
 | HDInsight version 3.3 | Nej | Nej | |
 | HDInsight version 3.2 | Nej | Ja | |
 | Storm | | |Du kan använda Data Lake Store till att skriva data från en Storm-topologi. Du kan också använda Data Lake Store för referensdata som sedan kan läsas av en Storm-topologi.|
 
+[!WARNING]
+> HDInsight HBase stöds inte med Azure Data Lake Storage Gen 1
+
 När du använder Data Lake Store som ett ytterligare lagringskonto påverkas inte prestanda eller möjligheten att läsa eller skriva till Azure-lagring från klustret.
-
-
 ## <a name="use-data-lake-store-as-default-storage"></a>Använda Data Lake Store som standardlagring
 
 När HDInsight distribueras med Azure Data Lake Store som standardlagringsutrymme lagras klusterrelaterade filer i Data Lake Store på följande plats:

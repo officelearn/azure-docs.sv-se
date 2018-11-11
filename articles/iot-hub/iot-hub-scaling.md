@@ -8,21 +8,21 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 6ae0217ed4b8833eb42a4719a1f2525461f9dcdd
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: d98a890cfb6bd388477ff3f14b81c8df02ece879
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143656"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287973"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Välja rätt nivå för IoT Hub för din lösning
 
-Varje IoT-lösning är olika, så Azure IoT Hub erbjuder flera alternativ baserat på priser och skalning. Den här artikeln är avsedd att hjälpa dig att utvärdera din IoT Hub-behov. Prisinformation om IoT Hub-nivåer finns i [IoT Hub priser](https://azure.microsoft.com/pricing/details/iot-hub). 
+Varje IoT-lösning är olika, så Azure IoT Hub erbjuder flera alternativ baserat på priser och skalning. Den här artikeln är avsedd att hjälpa dig att utvärdera din IoT Hub-behov. Information om nivåerna om priser finns i [IoT Hub priser](https://azure.microsoft.com/pricing/details/iot-hub). 
 
 För att avgöra vilken nivå för IoT Hub är rätt för din lösning, ställa dig två frågor:
 
 **Vilka funktioner jag tänker använda?**
-Azure IoT Hub har två nivåer, basic och standard, som skiljer sig åt i hur många funktioner de stöder. Om din IoT-lösning baserad kring att samla in data från enheter och analysera dem centralt är den grundläggande nivån förmodligen rätt för dig. Om du vill använda mer avancerade konfigurationer att fjärrstyra IoT-enheter eller distribuera några av dina arbetsbelastningar till själva enheterna bör du överväga standard-nivån. För en detaljerad analys på detaljnivå av vilka funktioner som ingår i varje nivå fortfarande [nivåerna Basic och standard](#basic-and-standard-tiers).
+Azure IoT Hub har två nivåer, basic och standard, som skiljer sig åt i hur många funktioner de stöder. Om din IoT-lösning baserad kring att samla in data från enheter och analysera dem centralt, är den grundläggande nivån förmodligen rätt för dig. Om du vill använda mer avancerade konfigurationer att fjärrstyra IoT-enheter eller distribuera några av dina arbetsbelastningar till själva enheterna, bör du överväga standard-nivån. För en detaljerad analys på detaljnivå av vilka funktioner som ingår i varje nivå fortfarande [nivåerna Basic och standard](#basic-and-standard-tiers).
 
 **Hur mycket data jag tänker flytta varje dag?**
 Varje nivå för IoT Hub är tillgänglig i tre storlekar som baserat dataflöde för hur mycket data som de kan hantera i en viss dag. Dessa storlekar identifieras numeriskt som 1, 2 och 3. Varje enhet i en IoT-hubb på nivå 1 kan exempelvis hantera 400 tusen meddelanden per dag, medan en nivå 3-enhet kan hantera 300 miljoner. För mer information om riktlinjer för data kan fortsätta att [meddelandedataflöde](#message-throughput).
@@ -31,7 +31,7 @@ Varje nivå för IoT Hub är tillgänglig i tre storlekar som baserat dataflöde
 
 Standardnivån för IoT Hub kan du använda alla funktioner och är obligatoriskt för alla IoT-lösningar som vill göra användning av funktioner för dubbelriktad kommunikation. Basic-nivån kan en delmängd av funktionerna som är avsedd för IoT-lösningar som bara behöver enkelriktad kommunikation från enheter till molnet. Båda nivåerna har samma funktioner för säkerhet och autentisering.
 
-När du har skapat din IoT-hubb som du kan uppgradera från basic-nivån till standardnivån utan att avbryta din befintliga åtgärder. Mer information finns i [uppgradera din IoT-hubb](iot-hub-upgrade.md). Observera att den maximala partitionsgränsen för basic-nivån IoT Hub är 8 och standard-nivån är 32. De flesta IoT-hubbar behöver bara 4 partitioner. Partitionsgränsen väljs när IoT-hubben har skapats och avser antalet samtidiga läsare av dessa meddelanden på meddelanden från enheten till molnet. Det här värdet ändras inte när du migrerar från basic-nivån till standardnivån. Tänk också på den enda typen av [edition](https://azure.microsoft.com/pricing/details/iot-hub/) inom en nivå kan väljas per IoT Hub. Du kan till exempel skapa en IoT-hubb med flera enheter av S1, men inte med en blandning av enheter från olika versioner, till exempel S1 och B3, eller S1 och S2.
+När du har skapat din IoT-hubb, kan du uppgradera från basic-nivån till standardnivån utan att avbryta din befintliga åtgärder. Mer information finns i [uppgradera din IoT-hubb](iot-hub-upgrade.md). Maximal partitionsgränsen för basic-nivån IoT Hub är 8 och standard-nivån är 32. De flesta IoT-hubbar behöver bara 4 partitioner. Partitionsgränsen väljs när IoT-hubben har skapats och avser antalet samtidiga läsare av dessa meddelanden på meddelanden från enheten till molnet. Det här värdet ändras inte när du migrerar från basic-nivån till standardnivån. Tänk också på den enda typen av [edition](https://azure.microsoft.com/pricing/details/iot-hub/) inom en nivå kan väljas per IoT Hub. Du kan till exempel skapa en IoT-hubb med flera enheter av S1, men inte med en blandning av enheter från olika versioner, till exempel S1 och B3, eller S1 och S2.
 
 | Funktion | Basic-nivå | Standard-nivå |
 | ---------- | ---------- | ------------- |
@@ -42,7 +42,7 @@ När du har skapat din IoT-hubb som du kan uppgradera från basic-nivån till st
 | [Enhetsetableringstjänst](../iot-dps/about-iot-dps.md) | Ja | Ja |
 | [Övervakning och diagnostik](iot-hub-monitor-resource-health.md) | Ja | Ja |
 | [Moln-till-enhet-meddelanden](iot-hub-devguide-c2d-guidance.md) |   | Ja |
-| [Enhetstvillingar](iot-hub-devguide-device-twins.md), [modultvillingar](iot-hub-devguide-module-twins.md) och [enhetshantering](iot-hub-device-management-overview.md) |   | Ja |
+| [Enhetstvillingar](iot-hub-devguide-device-twins.md), [modultvillingar](iot-hub-devguide-module-twins.md), och [enhetshantering](iot-hub-device-management-overview.md) |   | Ja |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Ja |
 
 IoT Hub erbjuder också en kostnadsfri nivå som är avsedd för testning och utvärdering. Den har alla funktioner i standard-nivån, men begränsad meddelanden tilldelningar. Du kan inte uppgradera från den kostnadsfria nivån till basic eller standard. 
@@ -115,7 +115,7 @@ Om du närmar gräns för antalet tillåtna meddelanden på din IoT-hubb, kan du
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om IoT Hub funktioner och prestandainformation finns i [IoT Hub priser] [länk priser] eller [IoT Hub-kvoter och begränsningar][IoT Hub quotas and throttles].
+* Läs mer om IoT Hub funktioner och prestandainformation [IoT Hub priser] [ lnk-pricing] eller [IoT Hub-kvoter och begränsningar] [ IoT Hub quotas and throttles].
 * Om du vill ändra nivå för IoT Hub följer du stegen i [uppgradera din IoT-hubb](iot-hub-upgrade.md).
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub

@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/06/2018
+ms.date: 11/06/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3948c226f13f0ff358f9ca467f19cf0e48795911
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bed053f812cc5c14e6cfe76b8a08b1ffe0cadcb3
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429903"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289129"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Överväganden för distribution av Azure virtuella datorer DBMS för SAP-arbetsbelastningar
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -64,7 +64,7 @@ Hela dokumentet används följande termer:
 * SAP-komponent: Ett enskilt SAP program, till exempel ECC, BW, lösningen Manager eller EP.  SAP-komponenter kan baseras på traditionella ABAP eller Java-tekniker eller ett icke-NetWeaver-baserade program, till exempel företag objekt.
 * SAP-miljön: en eller flera SAP-komponenter logiskt grupperade för att utföra en företagsfunktion, till exempel utveckling, QAS, utbildning, DR eller produktion.
 * SAP-landskap: Den här termen avser hela SAP-tillgångar i en kunds IT-miljön. SAP-landskap innehåller alla produktions- och icke-produktionsmiljöer.
-* SAP-System: Kombinationen av DBMS lager och programnivån av, till exempel en utvecklingssystem för SAP ERP, SAP BW testsystem, SAP CRM produktionssystemet osv. I Azure-distributioner, är det inte stöd för att dela upp de här två lager mellan lokala och Azure. Det innebär att ett SAP-system är antingen distribuerat lokalt eller det distribueras i Azure. Du kan dock distribuera olika system i ett SAP-landskap i Azure eller lokalt. Du kan till exempel distribuera SAP CRM-utveckling och testa system i Azure men SAP CRM produktionsprogrammen system på plats.
+* SAP-System: Kombinationen av DBMS lager och programnivån av, till exempel en utvecklingssystem för SAP ERP, SAP BW testsystem, SAP CRM produktionssystemet osv. I Azure-distributioner, är det inte stöd för att dela upp de här två lager mellan lokala och Azure. Därför kan ett SAP-system är antingen distribueras lokalt eller det distribueras i Azure. Du kan dock distribuera olika system i ett SAP-landskap i Azure eller lokalt. Du kan till exempel distribuera SAP CRM-utveckling och testa system i Azure men SAP CRM produktionsprogrammen system på plats.
 * Mellan olika platser: Beskriver ett scenario där virtuella datorer distribueras till en Azure-prenumeration med plats-till-plats, flera platser eller ExpressRoute-anslutning mellan lokala datacenter och Azure. I vanliga Azure-dokumentation, dessa typer av distributioner beskrivs också som mellan lokala scenarier. Orsaken till att anslutningen är att utöka lokala domäner, en lokal Active Directory och lokala DNS i Azure. Lokala liggande utökas till Azure-tillgångar för prenumerationen. Med det här tillägget, kan de virtuella datorerna vara en del av den lokala domänen. Domänanvändare på den lokala domänen har åtkomst till servrarna och kan köra services på de virtuella datorerna (till exempel DBMS tjänster). Kommunikation och namnmatchning mellan virtuella datorer distribueras på plats och virtuella datorer som distribueras i Azure är möjligt. Det här scenariot är det vanligaste scenariot för att distribuera SAP-tillgångar i Azure. Mer information finns i [planering och design för VPN-gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
 
 > [!NOTE]
@@ -161,7 +161,7 @@ Om dina krav på IOPS överskrider vad en enda virtuell Hårddisk kan ge som ang
 >
 
 ### <a name="managed-or-non-managed-disks"></a>Hanterad eller icke-hanterade diskar
-Azure Storage-kontot är inte bara en administrativ konstruktion, utan också ett ämne med begränsningar. Begränsningarna skiljer sig mellan Azure Standard Storage Accounst och Azure Premium Storage-konton. Exakta funktioner och begränsningar finns i artikeln [mål för prestanda och skalbarhet för lagring i Azure](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)
+Azure Storage-kontot är inte bara en administrativ konstruktion, utan också ett ämne med begränsningar. Begränsningarna skiljer sig mellan Azure Standard Storage-konto och Azure Premium Storage-konton. Exakta funktioner och begränsningar finns i artikeln [mål för prestanda och skalbarhet för lagring i Azure](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)
 
 Azure standardlagring, är det viktigt att komma ihåg att det finns en gräns på IOPS per lagringskonto (rad som innehåller **totala begära antalet** i artikeln [skalbarhet för lagring av Azure- och prestandamål](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)). Det finns dessutom en inledande gräns för antalet Lagringskonton per Azure-prenumeration. Du måste därför fördela virtuella hårddiskar för större SAP-landskap mellan olika lagringskonton för att undvika nått gränserna för dessa konton. En tedious fungerar när du pratar om några hundra virtuella datorer med mer än tusen virtuella hårddiskar. 
 
@@ -276,7 +276,10 @@ Det finns flera bästa praxis, vilket resulterade från hundratals kunddistribut
 > [!NOTE]
 > Du bör tilldela statiska IP-adresser via Azure innebär att enskilda virtuella nätverkskort. Du bör inte tilldela statiska IP-adresser i gästoperativsystemet till ett virtuellt nätverkskort. Vissa Azure-tjänster som Azure Backup-tjänsten är beroende av faktumet att vid minst det primära virtuella nätverkskortet är inställd på DHCP- och inte på statiska IP-adresser. Se även dokumentet [felsöka Azure VM backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking). Om du vill tilldela flera statiska IP-adresser till en virtuell dator måste du tilldela flera virtuella nätverkskort till en virtuell dator.
 >
->
+
+
+> [!IMPORTANT]
+> Utanför funktioner, men mer viktiga av prestandaskäl, det finns inte stöd för att konfigurera [Azure virtuella nätverksinstallationer](https://azure.microsoft.com/solutions/network-appliances/) i kommunikationsvägen mellan SAP-program och DBMS-lager med en SAP NetWeaver Hybris eller S/4HANA-baserade SAP-system. Ytterligare scenarier där nva: er inte stöds finns i kommunikationsvägar mellan virtuella Azure-datorer som representerar Linux Pacemaker klusternoder och uppstår enheter enligt beskrivningen i [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse). Eller i kommunikationen ange sökvägar mellan virtuella Azure-datorer och Windows Server SOFS görs enligt beskrivningen i [kluster ett SAP ASCS/SCS-instans på en Windows-redundanskluster med hjälp av en filresurs i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share). Nva: er i kommunikationen sökvägar kan enkelt dubbelklicka Nätverksfördröjningen mellan två kommunikation partner, kan begränsa genomflöde i kritiska vägar mellan SAP-programnivån och DBMS-lagret. I vissa scenarier som observerats med kunder, kan nva: er orsaka Pacemaker Linux-kluster misslyckas i fall där kommunikationen mellan noderna i Linux Pacemaker behöver kommunicera med enheten uppstår via NVA.   
 
 Med hjälp av två virtuella datorer för din produktion DBMS distribution inom ett Azure-Tillgänglighetsuppsättning plus en separat routning för SAP-programnivån och hantering och åtgärder trafiken till de två DBMS på virtuella datorer, ser grov diagram ut som:
 

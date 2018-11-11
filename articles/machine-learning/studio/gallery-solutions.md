@@ -1,5 +1,5 @@
 ---
-title: Azure AI-galleriet lösningar | Microsoft Docs
+title: Azure AI-galleriet-lösningar | Microsoft Docs
 description: Upptäck lösningar i Azure AI-galleriet.
 services: machine-learning
 documentationcenter: ''
@@ -15,39 +15,37 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 19861955dcf82d0ffae674400552ca1f0c439a81
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: cb02ed61ea050c17bc7e6dc0ebc724f29f885dd7
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834895"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344343"
 ---
 # <a name="discover-solutions-in-the-azure-ai-gallery"></a>Upptäck lösningar i Azure AI-galleriet
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="solutions"></a>Lösningar
-En **[lösning](https://gallery.cortanaintelligence.com/solutions)** innehåller förhandstillgång för att snabbt skapa Cortana Intelligence-lösningar från förkonfigurerade lösningar och referensarkitekturer designmönster i galleriet.
-Skapa dem egna inkluderade instruktioner eller med en aktuell partner.  
+En **[lösning](https://gallery.cortanaintelligence.com/solutions)** i [Azure AI-galleriet](http://gallery.cortanaintelligence.com) ger ett snabbt komma igång med att snabbt skapa Cortana Intelligence-lösningar från förkonfigurerade lösningar, referensarkitekturer, och designmönster.
+Specialanpassa dem med hjälp av medföljande instruktioner eller med en partner.  
 
 ## <a name="discover"></a>Utforska
-  Om du vill söka efter lösningar i galleriet, öppna den [galleriet](http://gallery.cortanaintelligence.com) och på **lösningar** överst på sidan Gallery.
+  Om du vill söka efter lösningar i galleriet, öppna den [galleriet](http://gallery.cortanaintelligence.com) och klicka på **lösningar** överst på startsidan för galleriet.
 
- Den **[lösningar](https://gallery.cortanaintelligence.com/solutions)** sidan visar en lista över nyligen tillagda lösningar.
+ Den **[lösningar](https://gallery.cortanaintelligence.com/solutions)** sidan visar en lista över de senast tillagda lösningarna.
 Klicka på **se alla** att visa alla lösningar.
-Den här sidan kan bläddra du alla lösningar i galleriet. Du kan också söka genom att välja filtervillkor till vänster på sidan och anger sökvillkoren längst upp.
+Från den här sidan kan du bläddra bland alla lösningar i galleriet. Du kan också söka genom att välja filtervillkoren till vänster på sidan och anger sökvillkor högst upp.
 
- Klicka på någon lösning för att öppna dess informationssidan och läsa mer. Ge feedback på den här sidan som du kan kommentera eller ställa frågor till kommentarer. Du kan även dela den med vänner och kollegor med resurs-funktionerna i LinkedIn och Twitter. Du kan också e-posta en länk till lösningen att bjuda in andra användare att visa sidan.
+ Klicka på någon lösning för att öppna dess informationssida och läsa mer. På den här sidan kan du kommentera, ge feedback eller ställa frågor via avsnittet med kommentarer. Du kan också dela den med vänner och kollegor med resurs-funktionerna i LinkedIn eller Twitter. Du kan också e-posta en länk till lösningen att bjuda in andra användare att visa sidan.
 
-![Dela objektet med vänner](./media/gallery-how-to-use-contribute-publish/share-links.png)
+![Dela det här objektet med vänner](./media/gallery-how-to-use-contribute-publish/share-links.png)
 
 ![Lägga till egna kommentarer](./media/gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="deploy"></a>Distribuera
-Om du vill använda en lösning, klickar du på **distribuera**. Följ stegen för att konfigurera och distribuera lösningen i arbetsytan.
+Om du vill använda en lösning, klickar du på **distribuera**. Följ stegen som visas för att konfigurera och distribuera lösningen i din arbetsyta.
 
 ![Distribuera en lösning för galleriet](./media/gallery-solutions/deploy-solution.png)
 
-**[GÅ TILL I GALLERIET &GT;&GT;](http://gallery.cortanaintelligence.com)**
+**[TA MIG TILL TJÄNSTEN GALLERIET &GT;&GT;](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

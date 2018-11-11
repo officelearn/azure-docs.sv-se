@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: a810de5c3c70322560bb45bcc2aee5cf0798cea9
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 8aa79d66801ff30fedc725913696d5cfa3c9626f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248718"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282841"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Övervakning av data som samlas in av Azure Monitor
 [Azure Monitor](../azure-monitor/overview.md) är en tjänst som hjälper dig att övervaka dina program och resurser som de förlitar sig på. Centrala för den här funktionen är lagring av telemetri och andra data från övervakade resurser. Den här artikeln innehåller en fullständig beskrivning av hur dessa data lagras och används av Azure Monitor.
@@ -98,7 +98,7 @@ Det finns tre grundläggande källor till mätvärden som samlats in från Azure
 Följande: uppgifter som du kan utföra med mått
 
 - Använd [måttutforskaren](../monitoring-and-diagnostics/monitoring-metric-charts.md) att analysera insamlade mätvärdena och rita ut dem i ett diagram. Spåra prestanda för en resurs (till exempel en virtuell dator, webbplats eller logic app) genom att fästa diagram för en [Azure-instrumentpanelen](../azure-portal/azure-portal-dashboards.md).
-- Konfigurera en [måttaviseringsregel](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) som skickar ett meddelande eller tar [automatisk åtgärd](../monitoring-and-diagnostics/monitoring-action-groups.md) när måtten överskrider ett tröskelvärde.
+- Konfigurera en [måttaviseringsregel](../monitoring-and-diagnostics/alert-metric.md) som skickar ett meddelande eller tar [automatisk åtgärd](../monitoring-and-diagnostics/monitoring-action-groups.md) när måtten överskrider ett tröskelvärde.
 - Använd [Autoskala](../monitoring-and-diagnostics/monitoring-overview-autoscale.md) att öka eller minska resurser baserat på ett mått som korsar ett tröskelvärde.
 - Vägens mått till Log Analytics att analysera måttdata tillsammans med loggdata och för att lagra måttvärden under längre tid än 93 dagar. 
 - Stream mått för att en [Händelsehubb](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) att dirigera dem till [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) eller till externa system.
@@ -138,7 +138,7 @@ Loggar som samlats in från Azure Monitor lagras i Log Analytics som samlar in t
 Log Analytics kan samla in data från olika källor både i Azure och lokala resurser. Följande: källor för data som skrivs till Log Analytics
 
 - [Aktivitetsloggar](../log-analytics/log-analytics-activity.md) från Azure-resurser med information om sina konfigurationer och hälsa och [diagnostikloggar](../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) som ger insikt i deras funktion.
-- Agenter på [Windows](../log-analytics/log-analytics-windows-agent.md) och [Linux](../log-analytics/log-analytics-linux-agents.md) virtuella datorer som skickar telemetri från gästoperativsystem och program till Log Analytics enligt [datakällor](../log-analytics/log-analytics-data-sources.md) som du konfigurerar.
+- Agenter på [Windows](../log-analytics/log-analytics-windows-agent.md) och [Linux](../log-analytics/log-analytics-quick-collect-linux-computer.md) virtuella datorer som skickar telemetri från gästoperativsystem och program till Log Analytics enligt [datakällor](../log-analytics/log-analytics-data-sources.md) som du konfigurerar.
 - Programdata som samlas in av [Application Insights](https://docs.microsoft.com/azure/application-insights/).
 - Data som ger insikter om ett visst program eller tjänst från [övervakningslösningar](../monitoring/monitoring-solutions.md) eller funktioner som Behållareinsikter, VM insikter eller Resource Group insikter.
 - Säkerhetsdata som samlas in av [Azure Security Center](https://docs.microsoft.com/azure/security-center/).

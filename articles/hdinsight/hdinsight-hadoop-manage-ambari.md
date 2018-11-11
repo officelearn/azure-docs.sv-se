@@ -2,19 +2,19 @@
 title: Övervaka och hantera Azure HDInsight med hjälp av Ambari-Webbgränssnittet
 description: Lär dig mer om att använda Ambari och övervaka och hantera Linux-baserade HDInsight-kluster. I detta dokument kan du lära dig hur du använder Ambari-Webbgränssnittet som medföljer HDInsight-kluster.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/23/2018
-ms.author: jasonh
-ms.openlocfilehash: 3f2c9a246a7252241ffb65a4fa8545ba84e81df8
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 1e17412636a904508352370bc7292a7d64bac6bc
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43096475"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280445"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Hantera HDInsight-kluster med Ambari-Webbgränssnittet
 

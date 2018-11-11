@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: juliako
-ms.openlocfilehash: c8e4e84d7ae0defdb053108dc668956062c47ea5
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a4569505cb9a42f6682391a8b06725dea5e539dc
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962392"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344985"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Liveuppspelning med Azure Media Services v3
 
@@ -44,11 +44,11 @@ Om du vill kan du också använda **dynamisk filtrering**, som kan användas fö
 
 Följande nya förbättringar har utförts i den senaste versionen.
 
-- Nya läget för låg latens för live-(10 sekunder slutpunkt till slutpunkt).
+- Nya läget för låg latens. Mer information finns i [svarstid](#latency).
 - Förbättrad RTMP support (ökad stabilitet och mer käll-kodare stöder).
 - RTMPS säker mata in.
 
-    När du skapar en LiveEvent du nu få 4 mata in URL: er. 4 mata in URL: er är nästan identiska, har samma strömmande token (AppId), bara den numeriska delen port är olika. Två av de URL: er är primär och sekundär för RTMPS.   
+    När du skapar en LiveEvent kan du få 4 mata in URL: er. 4 mata in URL: er är nästan identiska, har samma strömmande token (AppId), bara den numeriska delen port är olika. Två av de URL: er är primär och sekundär för RTMPS.   
 - 24-timmars transkodning stöd. 
 - Förbättrat stöd för ad-signalering i RTMP via SCTE35.
 
@@ -82,7 +82,7 @@ När du skapar den här typen av LiveEvent ange **ingen** (LiveEventEncodingType
 
 I följande tabell jämförs funktionerna i de två typerna av LiveEvent.
 
-| Funktion | Direktautentisering LiveEvent | Grundläggande LiveEvent |
+| Funktion | Direktautentisering LiveEvent | Standard LiveEvent |
 | --- | --- | --- |
 | Enkel bithastighet indata kodas till flera olika bithastigheter i molnet |Nej |Ja |
 | Maximal upplösning, antalet lager |4Kp30  |720p, 6 lager 30 bilder per sekund |
@@ -126,6 +126,20 @@ En LiveEvent stöder upp till tre som körs samtidigt LiveOutputs så att du kan
 När dataströmmen väl flödar till LiveEventet kan du påbörja strömningshändelsen genom att skapa en tillgång, ett LiveOutput och en StreamingLocator. Detta kommer arkiverar dataströmmen och gör den tillgänglig för visning via den [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints).
 
 När ditt Media Services-konto skapas läggs en standardslutpunkt för direktuppspelning till ditt konto i tillståndet stoppad. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste måste slutpunkten för direktuppspelning som du vill spela upp innehåll vara i tillståndet körs.
+
+## <a name="latency"></a>Svarstid
+
+Det här avsnittet beskrivs vanliga resultat som visas när du använder inställningar för låg latens och olika spelare. Resultatet varierar beroende på CDN och nätverksfördröjning.
+
+Om du vill använda den nya funktionen för LowLatency, du kan ange den **StreamOptionsFlag** till **LowLatency** på LiveEvent. När den är igång, kan du använda den [Azure Media Player](http://ampdemo.azureedge.net/) (AMP) demonstration sidan och ange uppspelningsalternativ att använda ”låg latens heuristik profilen”.
+
+### <a name="pass-through-liveevents"></a>Direktautentisering LiveEvents
+
+||2S GOP låg latens som aktiverats|1s GOP låg latens som aktiverats|
+|---|---|---|
+|BINDESTRECK i AMP|10-tal|8S|
+|HLS på interna iOS player|14s|10-tal|
+|HLS. JS i Mixer-spelare|30 sekunder|16s|
 
 ## <a name="billing"></a>Fakturering
 

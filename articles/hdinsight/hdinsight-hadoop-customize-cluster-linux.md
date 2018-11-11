@@ -2,19 +2,19 @@
 title: Anpassa HDInsight-kluster med skriptåtgärder - Azure
 description: Lägga till anpassade komponenter i Linux-baserade HDInsight-kluster med skriptåtgärder. Skriptåtgärder är Bash-skript som kan användas för att anpassa klusterkonfigurationen eller lägga till ytterligare tjänster och verktyg som Hue, Solr eller R.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/01/2018
-ms.author: jasonh
-ms.openlocfilehash: e9662a0a0def91fa2cace1eb47dceffed5ff1ae6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 24fecd73876228b3665cde21ae312963ec979df6
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978037"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279747"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Anpassa Linux-baserade HDInsight-kluster med skriptåtgärder
 
@@ -67,7 +67,7 @@ En skriptåtgärder är Bash-skript som körs på noderna i ett HDInsight-kluste
         Till exempel URI: er, finns i den [exempelskript skriptet åtgärd](#example-script-action-scripts) avsnittet.
 
         > [!WARNING]
-        > HDInsight stöder endast __allmänna__ Azure Storage-konton. Det för närvarande stöder inte den __Blob-lagring__ kontotyp.
+        > HDInsight stöder endast Blob i Azure Storage-konton med standard-prestandanivån. 
 
 * Kan vara begränsad till **köras på vissa nodtyper**för exempel huvud- eller arbetsnoder.
 

@@ -1,6 +1,6 @@
 ---
-title: Visa Azure aktivitetsloggar att övervaka resurser | Microsoft Docs
-description: Använd aktivitetsloggar till användaråtgärder för granskning och fel. Visar PowerShell för Azure Portal, Azure CLI och REST.
+title: Visa Azure-aktivitetsloggar att övervaka resurser | Microsoft Docs
+description: Använd aktivitetsloggar till användaråtgärder för granskning och fel. Visar Azure Portal PowerShell, Azure CLI och REST.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -12,93 +12,91 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2dcf93a635a8eb0a01ec266d2478b6e5a336ec00
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 09f7fba2b8ae3b3ccc8710ffe9302d02d311c74c
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358701"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514340"
 ---
-# <a name="view-activity-logs-to-audit-actions-on-resources"></a>Visa aktivitetsloggar granska åtgärder på resurser
+# <a name="view-activity-logs-to-audit-actions-on-resources"></a>Visa aktivitetsloggar för att granska åtgärder på resurser
 
-Du kan bestämma via aktivitetsloggar:
+Via aktivitetsloggarna kan du fastställa:
 
-* vilka åtgärder som utförts på resurserna i prenumerationen
-* vem som initierat åtgärden (även om en serverdelstjänst åtgärder inte returnerar en användare som anroparen)
+* vilka åtgärder som utförts på resurser i din prenumeration
+* den som initierade åtgärden (även om åtgärder som initieras av en serverdelstjänst inte returnerar en användare som anroparen)
 * När åtgärden utfördes
 * Status för åtgärden
-* Värdena för andra egenskaper som kan hjälpa dig undersöka igen
+* Värdena för andra egenskaper som kan hjälpa dig undersöka åtgärden
 
-Aktivitetsloggen innehåller alla skrivåtgärder (PUT, POST, ta bort) utförs på dina resurser. Det inkluderar inte läsåtgärder (GET). En lista över åtgärder för resursen finns [Azure Resource Manager Resource Provider operations](../role-based-access-control/resource-provider-operations.md). Du kan använda granskningsloggarna för att hitta ett fel när du felsöker eller för att övervaka hur en användare i din organisation ändrades en resurs.
+Aktivitetsloggen innehåller alla skrivåtgärder (PUT, POST, ta bort) utförs på dina resurser. Det inkluderar inte läsåtgärder (GET). En lista över resource åtgärder finns i [Azure Resource Manager Resource Provider operations](../role-based-access-control/resource-provider-operations.md). Du kan använda granskningsloggarna för att hitta ett fel när du felsöker eller övervakar hur en användare i organisationen ändrat en resurs.
 
-Aktivitetsloggar finns kvar i 90 dagar. Du kan fråga efter alla datumintervall, så länge startdatumet inte är mer än 90 dagar bakåt i tiden.
+Aktivitetsloggar bibehålls i 90 dagar. Du kan fråga efter alla datumintervall förutsatt att startdatumet inte är mer än 90 dagar bakåt i tiden.
 
-
-
-Du kan hämta information från aktivitetsloggar via portalen, PowerShell, Azure CLI, insikter REST API eller [insikter .NET-bibliotek](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
+Du kan hämta information från aktivitetsloggar via portalen, PowerShell, Azure CLI, Insights REST API eller [Insights-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
 ## <a name="portal"></a>Portalen
 
-1. Om du vill visa aktivitetsloggar via portalen **övervakaren**.
-   
+1. Om du vill visa aktivitetsloggar via portalen, Välj **övervakaren**.
+
     ![Välj aktivitetsloggar](./media/resource-group-audit/select-monitor.png)
 
-   Om du vill filtrera automatiskt aktivitetsloggen för en viss resurs eller en resursgrupp, väljer du **aktivitetsloggen**. Observera att aktivitetsloggen filtreras automatiskt av den valda resursen.
-   
-    ![Filtrera efter resurs](./media/resource-group-audit/filtered-by-resource.png)
-2. I den **aktivitetsloggen**, visas en sammanfattning av nya åtgärder.
-   
-    ![Visa åtgärder](./media/resource-group-audit/audit-summary.png)
-3. Välj olika villkor för att begränsa antalet åtgärder visas. Till exempel följande bild visar den **Timespan** och **händelse som initieras av** fält ändras för att visa de åtgärder som vidtas av en viss användare eller ett program för den senaste månaden. Välj **tillämpa** att visa resultat av frågan.
-   
-    ![Ange alternativ för filter](./media/resource-group-audit/set-filter.png)
+   Eller, för att automatiskt filtrera aktivitetsloggen för en viss resurs eller resursgrupp, Välj **aktivitetsloggen**. Observera att aktivitetsloggen automatiskt filtreras efter den valda resursen.
 
-4. Om du behöver köra frågan igen senare väljer **spara** och ge ett namn för frågan.
-   
-    ![Spara frågan](./media/resource-group-audit/save-query.png)
-5. Du kan välja något av de inbyggda frågorna, till exempel inte kunde distribueras för att köra en fråga snabbt.
+    ![Filtrera efter resurs](./media/resource-group-audit/filtered-by-resource.png)
+2. I den **aktivitetsloggen**, visas en sammanfattning av de senaste åtgärder.
+
+    ![Visa åtgärder](./media/resource-group-audit/audit-summary.png)
+3. Välj olika villkor för att begränsa antalet åtgärder som visas. Exempelvis följande bild visar den **Timespan** och **händelsen initieras av** fält ändras för att visa de åtgärder som vidtas av en viss användare eller ett program under den senaste månaden. Välj **tillämpa** att visa resultatet av frågan.
+
+    ![Anger filteralternativ](./media/resource-group-audit/set-filter.png)
+
+4. Om du vill köra frågan igen senare, Välj **spara** och ge ett namn för frågan.
+
+    ![Spara fråga](./media/resource-group-audit/save-query.png)
+5. För att snabbt köra en fråga, kan du välja något av de inbyggda frågorna, till exempel inte kunde distribueras.
 
     ![Välj fråga](./media/resource-group-audit/select-quick-query.png)
 
    Den valda frågan anger automatiskt filtervärdena som krävs.
 
-    ![Visa distributionsfel](./media/resource-group-audit/view-failed-deployment.png)   
+    ![Visa distributionsfel](./media/resource-group-audit/view-failed-deployment.png)
 
-6. Välj en av åtgärderna för att visa en sammanfattning av händelsen.
+6. Välj någon av åtgärderna för att se en sammanfattning av händelsen.
 
-    ![Visa åtgärden](./media/resource-group-audit/view-operation.png)  
+    ![Visa åtgärd](./media/resource-group-audit/view-operation.png)  
 
 ## <a name="powershell"></a>PowerShell
 
-1. Om du vill hämta loggposter kör den **Get-AzureRmLog** kommando. Du kan ange ytterligare parametrar om du vill filtrera listan med poster. Om du inte anger en start- och Slutdatum tid returneras poster för den senaste timmen. Till exempel för att hämta kör åtgärder för en resursgrupp under den senaste timmen:
+1. Kör för att hämta poster i **Get-AzureRmLog** kommando. Du kan ange ytterligare parametrar för att filtrera listan med poster. Om du inte anger en start- och -tid, returneras poster för den senaste timmen. Till exempel kör för att hämta åtgärder för en resursgrupp under den senaste timmen:
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup ExampleGroup
   ```
-   
-    I följande exempel visas hur du använder aktivitetsloggen till research åtgärder som vidtagits under en angiven tid. Start- och slutdatum har angetts i ett datumformat.
 
-  ```powershell
+    I följande exempel visar hur du använder aktivitetsloggen till research-åtgärder som vidtagits under en angiven tid. Start- och slutdatumen har angetts i ett datumformat.
+
+  ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
   ```
 
-    Eller så kan du använda datumfunktioner för att ange datumintervallet, till exempel de senaste 14 dagarna.
-   
-  ```powershell 
+    Eller så kan du använda datumfunktioner för att ange datumintervall, till exempel de senaste 14 dagarna.
+
+  ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
   ```
 
-2. Beroende på den starttid som du anger kan de föregående kommandona returnera en lång lista med åtgärder för resursgruppen. Du kan filtrera resultaten för vad du letar efter genom att ange sökvillkor. Om du vill undersöka hur en webbapp har stoppats, kan du köra följande kommando:
+2. Beroende på den starttid som du anger kan de tidigare kommandona returnera en lång lista med åtgärder för resursgruppen. Du kan filtrera resultaten för vad du letar efter genom att ange sökvillkor. Du kan till exempel köra följande kommando om du vill undersöka hur en webbapp har stoppats:
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
   ```
 
-    Vilket det här exemplet visar att en stoppåtgärden utfördes av someone@contoso.com. 
+    Som i det här exemplet visar att en stop-åtgärd utfördes av someone@contoso.com.
 
-  ```powershell 
+  ```powershell
   Authorization     :
   Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
   Action    : Microsoft.Web/sites/stop/action
@@ -116,47 +114,46 @@ Du kan hämta information från aktivitetsloggar via portalen, PowerShell, Azure
   SubStatus         : OK
   ```
 
-3. Du kan söka efter de åtgärder som vidtas för en viss användare, även för en resursgrupp som inte längre finns.
+3. Du kan söka efter de åtgärder som vidtas av en viss användare, även för en resursgrupp som inte längre finns.
 
-  ```powershell 
+  ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
   ```
 
 4. Du kan filtrera efter misslyckade åtgärder.
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
   ```
 
-5. Du kan fokusera på ett fel genom att titta på statusmeddelanden för posten.
-   
-        ((Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json).error
-   
-    Som returnerar:
-   
-        code           message                                                                        
-        ----           -------                                                                        
-        DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. 
+5. Du kan fokusera på ett fel genom att titta på statusmeddelanden för den posten.
 
+  ```azurepowershell-interactive
+  ((Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json).error
+  ```
+
+    Som returnerar:
+
+        code           message
+        ----           -------
+        DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP.
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Om du vill hämta loggposter kör den [az övervaka aktivitetsloggen listan](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) kommando.
+Kör för att hämta poster i [az monitor-aktivitetsloggen lista](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) kommando.
 
   ```azurecli
   az monitor activity-log list --resource-group <group name>
   ```
 
-
 ## <a name="rest-api"></a>REST-API
 
-REST-åtgärder för att arbeta med aktivitetsloggen är en del av den [insikter REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx). Om du vill hämta aktivitet logghändelser finns [management-händelser i en prenumeration](https://msdn.microsoft.com/library/azure/dn931934.aspx).
+REST-åtgärder för att arbeta med aktivitetsloggen är en del av den [Insights REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx). Om du vill hämta händelser i aktivitetsloggen, se [management-händelser i en prenumeration](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Azure aktivitetsloggar kan användas med Power BI och få större insikter om åtgärderna i din prenumeration. Se [visa och analysera Azure aktivitetsloggar i Power BI och mycket mer](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
-* Mer information om att ställa in säkerhetsprinciper, se [Azure rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md).
+* Azure-aktivitetsloggar kan användas med Power BI för att få bättre kunskaper om åtgärderna i din prenumeration. Se [visa och analysera Azure-aktivitetsloggar i Power BI och mycket annat](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
+* Läs om hur du ställer in säkerhetsprinciper i [Azure rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md).
 * Läs om kommandona för att visa distributionsåtgärder i [visa distributionsåtgärder](resource-manager-deployment-operations.md).
-* Information om hur du hindrar borttagningar på en resurs för alla användare finns [låsa resurser med Azure Resource Manager](resource-group-lock-resources.md).
-* Om du vill se en lista över åtgärder som är tillgängliga för varje leverantör i Microsoft Azure Resource Manager finns [Azure Resource Manager-Resursprovidern åtgärder](../role-based-access-control/resource-provider-operations.md)
-
+* Läs hur du förhindrar borttagningar på en resurs för alla användare i [låsa resurser med Azure Resource Manager](resource-group-lock-resources.md).
+* Listan över åtgärder som är tillgängliga för varje Microsoft Azure Resource Manager-providern finns i [Resursprovidern för Azure Resource Manager-åtgärder](../role-based-access-control/resource-provider-operations.md)

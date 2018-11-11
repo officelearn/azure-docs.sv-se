@@ -15,15 +15,15 @@ ms.workload: identity
 ms.date: 10/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9c40cfd9b15f2ae6398b70effc4f4d38111cfe1e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b6c5f55a575605eef3a280de4f973d9b2d0a4ace
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886073"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288313"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect-synkronisering: katalogtillägg
-Du kan använda katalogtillägg utöka schemat i Azure Active Directory (Azure AD) med egna attribut från en lokal Active Directory. Den här funktionen kan du skapa LOB-appar genom att använda attribut som du fortsätta att hantera lokala. Dessa attribut kan användas via [Azure AD Graph API katalogtillägg](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) eller [Microsoft Graph](https://graph.microsoft.io/). Du kan se tillgängliga attribut med hjälp av [Azure AD Graph-testaren](https://graphexplorer.azurewebsites.net/) och [Microsoft Graph-testaren](https://developer.microsoft.com/graph/graph-explorer)respektive.
+Du kan använda katalogtillägg utöka schemat i Azure Active Directory (Azure AD) med egna attribut från en lokal Active Directory. Den här funktionen kan du skapa LOB-appar genom att använda attribut som du fortsätta att hantera lokala. Dessa attribut kan användas via [Azure AD Graph API katalogtillägg](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) eller [Microsoft Graph](https://developer.microsoft.com/graph/). Du kan se tillgängliga attribut med hjälp av [Azure AD Graph-testaren](https://graphexplorer.azurewebsites.net/) och [Microsoft Graph-testaren](https://developer.microsoft.com/graph/graph-explorer)respektive.
 
 För närvarande förbrukar inga Office 365-arbetsbelastning dessa attribut.
 

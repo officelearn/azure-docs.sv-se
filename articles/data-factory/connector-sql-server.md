@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: b0e9f72bad685d569b4a09baecec8cebc33fefde
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b528507d0f12cda72855db19aa28c7b06a4e26c1
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717904"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345223"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Kopiera data till och från SQL Server med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -119,7 +119,7 @@ För att kopiera data från/till SQL Server-databas, ange typegenskapen på data
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för datauppsättningen måste anges till: **SqlServerTable** | Ja |
-| tableName |Namnet på tabellen eller vyn i SQL Server-databasinstansen som den länkade tjänsten refererar till. | Ja |
+| tableName |Namnet på tabellen eller vyn i SQL Server-databasinstansen som den länkade tjänsten refererar till. | Nej för källa, Ja för mottagare |
 
 **Exempel:**
 
@@ -159,7 +159,6 @@ För att kopiera data från SQL Server, ange typ av datakälla i kopieringsaktiv
 
 - Om den **sqlReaderQuery** har angetts för SqlSource, Kopieringsaktivitet körs den här frågan mot SQL Server-källa för att hämta data. Du kan också ange en lagrad procedur genom att ange den **sqlReaderStoredProcedureName** och **storedProcedureParameters** (om den lagrade proceduren tar parametrar).
 - Om du inte anger ”sqlReaderQuery” eller ”sqlReaderStoredProcedureName” de kolumner som definierats i avsnittet ”struktur” i datauppsättningen JSON används för att skapa en fråga (`select column1, column2 from mytable`) ska köras mot SQL Server. Om definitionen för datauppsättningen inte har ”strukturen”, markeras alla kolumner från tabellen.
-- När du använder **sqlReaderStoredProcedureName**, behöver du fortfarande ange en **tableName** egenskap i JSON-datauppsättningen.
 
 **Exempel: med SQL-fråga**
 
@@ -518,7 +517,7 @@ När du kopierar data från/till SQL Server, används följande mappningar från
 | varchar |Sträng, Char] |
 | xml |Xml |
 
-## <a name="troubleshooting-connection-issues"></a>Felsökning av problem med anslutningen
+## <a name="troubleshooting-connection-issues"></a>Felsöka anslutningsproblem
 
 1. Konfigurera din SQL Server för att acceptera fjärranslutningar. Starta **SQL Server Management Studio**, högerklicka på **server**, och klicka på **egenskaper**. Välj **anslutningar** i listan och kontrollera **Tillåt fjärranslutningar till servern**.
 

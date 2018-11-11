@@ -1,18 +1,18 @@
 ---
 title: Hantera konfigurationsservern för VMware och fysiska servrar haveriberedskap med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hur du hanterar en befintlig konfigurationsservern för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure med Azure Site RecoveryS.
+description: Den här artikeln beskriver hur du hanterar en befintlig konfigurationsservern för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure med Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 4ac3871893e7e8161dc087f285eb3d802cd4a355
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f76a55778a5d4c00060192bfaa704724d5fe1045
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215148"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219500"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>Hantera konfigurationsservern för VMware-datorer
 
@@ -137,10 +137,10 @@ Du kan köra samlade uppdateringar för att uppdatera konfigurationsservern. Upp
 - Om du kör 9.7, 9.8, 9.9 eller 9.10, kan du uppgradera direkt till 9.11.
 - Om du kör 9,6 eller tidigare och du vill uppgradera till 9.11, måste du först uppgradera till version 9.7. innan du 9.11.
 
-Länkar till samlade uppdateringar för att uppgradera till alla versioner av konfigurationsservern är tillgängliga i den [wiki-sida för uppdateringar](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+Länkar till samlade uppdateringar för att uppgradera till alla versioner av konfigurationsservern är tillgängliga i den [uppdateringar i Azure-sidan](https://azure.microsoft.com/updates/?product=site-recovery).
 
 > [!IMPORTANT]
-> Med varje ny version ”n” av en Azure Site Recovery Component som släpps, alla versioner under ' n – 4' anses support upphör. Det är alltid lämpligt att uppgradera till de senaste versionerna som är tillgängliga.
+> Med varje ny version ”n” för en Azure Site Recovery-komponent som släpps, alla versioner under ' n – 4' anses support upphör. Det är alltid lämpligt att uppgradera till de senaste versionerna som är tillgängliga.
 
 Uppgradera servern på följande sätt:
 

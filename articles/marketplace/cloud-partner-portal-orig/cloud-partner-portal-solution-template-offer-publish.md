@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c7c7912860568aea497e327f29a1b7b71b8f5e87
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
-ms.translationtype: MT
+ms.openlocfilehash: 5320b8d5ca7456a6f1b0fdd1372c9f39ac1edfb0
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345597"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219417"
 ---
 # <a name="publish-a-solution-template-to-azure-marketplace"></a>Publicera en Lösningsmall Azure Marketplace
 
@@ -161,7 +161,7 @@ Ange följande Paketinformation när du har slutfört SKU-inställningar.
 
 ![Paketinformation](./media/cloud-partner-portal-publish-managed-app/newOffer_newsku_ST_package.png)
 
-- **Aktuell version** -versionen av paketet som du överför. Version taggar måste vara i formatet X.Y.Z, där X, Y och Z är heltal.
+- **Aktuell version** -versionen av paketet som du överför. Det bör vara i formatet -...
 
 - **Paketfil** – det här paketet innehåller följande filer som sparas i en .zip-fil.
 

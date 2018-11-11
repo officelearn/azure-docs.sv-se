@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/02/2017
 ms.author: spelluru
-ms.openlocfilehash: fa8c4b07f79564a1e9aa4e78b2323789283d4e73
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 668ccc581e457e2ed3ad72c08bf5e65dd86c4b52
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054629"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228614"
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Lokalt eller molnbaserat .NET-hybridprogram med hjälp av Azure WCF Relay
 
@@ -52,7 +52,7 @@ I självstudiekursen förutsätter vi att du har produktinformation i ett befint
 Innan du kan börja utveckla Azure-program måste du hämta de verktyg som krävs och ställa in din utvecklingsmiljö:
 
 1. Installera Azure SDK för .NET från [hämtningssidan](https://azure.microsoft.com/downloads/) för SDK.
-2. Klicka på den version av [Visual Studio](http://www.visualstudio.com) du använder i kolumnen **.NET**. Stegen i den här självstudiekursen använder Visual Studio 2017.
+2. Klicka på den version av [Visual Studio](https://www.visualstudio.com) du använder i kolumnen **.NET**. Stegen i den här självstudiekursen använder Visual Studio 2017.
 3. När du uppmanas att köra eller spara installationsprogrammet, klickar du på **Kör**.
 4. I **Installationsprogram för webbplattform** klickar du på **Installera** och fortsätter med installationen.
 5. När installationen är klar har du allt som behövs för att börja utveckla appen. SDK inkluderar verktyg som låter dig utveckla Azure-program i Visual Studio på ett enkelt sätt.
@@ -75,7 +75,7 @@ Det här projektet är ett konsolprogram för Visual Studio som använder [Azure
 
    ![][11]
 4. Klicka på **OK** för att skapa **ProductsServer**-projektet.
-5. Om du redan har installerat NuGet Package Manager för Visual Studio kan du hoppa över nästa steg. Annars går du till [NuGet][NuGet] och klickar på [Installera NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Följ anvisningarna för att installera NuGet Package Manager och starta sedan om Visual Studio.
+5. Om du redan har installerat NuGet Package Manager för Visual Studio kan du hoppa över nästa steg. Annars går du till [NuGet][NuGet] och klickar på [Installera NuGet](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Följ anvisningarna för att installera NuGet Package Manager och starta sedan om Visual Studio.
 6. Högerklicka på projektet **ProductsServer** i Solution Explorer och klicka sedan på **Hantera NuGet-paket**.
 7. Klicka på fliken **Bläddra** och sök sedan efter **WindowsAzure.ServiceBus**. Välj paketet **WindowsAzure.ServiceBus**.
 8. Klicka på **Installera** och godkänn användningsvillkoren.

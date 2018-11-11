@@ -1,22 +1,22 @@
 ---
-title: Använda Tez-Användargränssnittet med Windows-baserade HDInsight - Azure
-description: Lär dig hur du använder Tez UI för att felsöka Tez-jobb på Windows-baserade HDInsight HDInsight.
+title: Använda Apache Tez-Användargränssnittet med Windows-baserade HDInsight - Azure
+description: Lär dig hur du använder Apache Tez-Användargränssnittet för att felsöka Tez-jobb på Windows-baserade HDInsight HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/17/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ff47d0a71e97ce4ec9fd04e1d0cb9e5592192d53
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ecb613dd2f624b9e0910a0ddcdf931f4b266aa96
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43112195"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036591"
 ---
-# <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Använda Tez UI för att felsöka Tez-jobb på Windows-baserade HDInsight
+# <a name="use-the-apache-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Använda Apache Tez-Användargränssnittet för att felsöka Tez-jobb på Windows-baserade HDInsight
 Tez UI kan användas för att felsöka Hive-jobb som använder Tez som motorn för körning. Tez UI visualisera jobbet som ett diagram över anslutna objekt kan öka detaljnivån i varje objekt och hämta statistik och loggningsinformation.
 
 > [!IMPORTANT]
@@ -26,13 +26,13 @@ Tez UI kan användas för att felsöka Hive-jobb som använder Tez som motorn f�
 * Ett Windows-baserade HDInsight-kluster. Anvisningar om hur du skapar ett nytt kluster finns i [komma igång med Windows-baserade HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md).
 
   > [!IMPORTANT]
-  > Tez UI är endast tillgänglig på Windows-baserade HDInsight-kluster som skapats efter den 8 februari 2016.
+  > Apache Tez-Användargränssnittet är bara tillgängligt på Windows-baserade HDInsight-kluster som skapas efter den 8 februari 2016.
   >
   >
 * En Windows-baserade fjärrskrivbord-klienten.
 
-## <a name="understanding-tez"></a>Förstå Tez
-Tez är ett utökningsbart ramverk för att bearbeta i Hadoop och ger högre hastigheter än med traditionella MapReduce-bearbetning. Du kan aktivera Tez genom att inkludera följande text som en del av en Hive-fråga:
+## <a name="understanding-apache-tez"></a>Förstå Apache Tez
+Tez är ett utökningsbart ramverk för att bearbeta i Apache Hadoop och ger högre hastigheter än med traditionella MapReduce-bearbetning. Du kan aktivera Tez genom att inkludera följande text som en del av en Hive-fråga:
 
     set hive.execution.engine=tez;
 

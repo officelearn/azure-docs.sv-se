@@ -1,6 +1,6 @@
 ---
 title: Installera publicerad program – StreamSets Data Collector - Azure HDInsight
-description: Installera och använda Hadoop-program StreamSets Data Collector från tredje part.
+description: Installera och använda Apache Hadoop-program StreamSets Data Collector från tredje part.
 services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 72ace99a8124b0a288e8facf630e947151169d0b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: f963ae53e1396b1ef6279f2bd6502e5ab0cd23a1
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106890"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034565"
 ---
 # <a name="install-published-application---streamsets-data-collector"></a>Installera publicerad program – StreamSets Data Collector
 
-Den här artikeln beskrivs hur du installerar och kör den [StreamSets Data Collector för HDInsight](https://streamsets.com/) publicerat Hadoop-program på Azure HDInsight. En översikt över HDInsight-programplattform och en lista över tillgängliga oberoende programvaruleverantör (ISV) publicerade program finns i [installera Hadoop-program från tredje part](hdinsight-apps-install-applications.md). Anvisningar om hur du installerar ett eget program finns i [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).
+Den här artikeln beskrivs hur du installerar och kör den [StreamSets Data Collector för HDInsight](https://streamsets.com/) publicerade Apache Hadoop-program på Azure HDInsight. En översikt över HDInsight-programplattform och en lista över tillgängliga oberoende programvaruleverantör (ISV) publicerade program finns i [installera Hadoop-program från tredje part](hdinsight-apps-install-applications.md). Anvisningar om hur du installerar ett eget program finns i [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-streamsets-data-collector"></a>Om StreamSets Data Collector
 

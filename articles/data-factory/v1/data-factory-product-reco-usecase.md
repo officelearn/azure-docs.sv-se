@@ -1,6 +1,6 @@
 ---
-title: Användningsfall för data Factory - produktrekommendationer
-description: Läs mer om ett användningsfall som implementeras med hjälp av Azure Data Factory tillsammans med andra tjänster.
+title: Data Factory användningsfall - produktrekommendationer
+description: Läs mer om en användningsfall som implementeras med hjälp av Azure Data Factory tillsammans med andra tjänster.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -14,49 +14,49 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3328a7c80a05a48b3c04ad5492a7eafe62059681
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a940b1d2184961d907f72ad072270dad3571e844
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622473"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229261"
 ---
 # <a name="use-case---product-recommendations"></a>Användningsfall - Produktrekommendationer
-Azure Data Factory är en av många tjänster som används för att implementera Cortana Intelligence Suite solution Accelerator-verktyg.  Se [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) sidan för ytterligare information om det här paketet. I det här dokumentet beskrivs vanliga användningsfall som Azure användare redan har löst och implementeras med hjälp av Azure Data Factory och andra Cortana Intelligence component services.
+Azure Data Factory är en av många tjänster som används för att implementera Cortana Intelligence Suite med Lösningsacceleratorer.  Se [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) för information om de här. I det här dokumentet beskrivs ett vanligt användningsfall som Azure-användare som redan har löst och implementeras med hjälp av Azure Data Factory och andra tjänster för Cortana Intelligence-komponenten.
 
 ## <a name="scenario"></a>Scenario
-Online återförsäljare vill ofta locka kunderna att köpa produkter genom att presentera dem med produkter som de är antagligen är intresserad av och därför sannolikt att köpa. För att åstadkomma detta online återförsäljare som behöver anpassa sina online användarupplevelse med hjälp av anpassade produktrekommendationer för den specifika användaren. Dessa anpassade rekommendationer ska göras baserat på deras aktuella och historiska shopping beteendedata, produktinformation, nyligen införda varumärken och produkt- och segmentering data.  Dessutom kan de ger användaren produktrekommendationer baserat på analys av den övergripande användning beteende från sina användare kombineras.
+Onlineåterförsäljare vill ofta locka sina kunder att köpa produkter genom att presentera dem med produkter som de är antagligen är intresserad av och därför sannolikt att köpa. Onlineåterförsäljare behöver anpassa sina online användarupplevelsen med hjälp av anpassade produktrekommendationer för den specifika användaren för att åstadkomma detta. De här personanpassade rekommendationer ska fattas baserat på deras aktuella och historiska shopping beteendedata, produktinformation, nyligen införda varumärken och produkt- och segmentering data.  Dessutom får användaren produktrekommendationer baserat på analyser av övergripande användningsbeteende från sina användare kombineras.
 
-Syftet med dessa återförsäljare är att optimera för användaren klicka till försäljning konverteringar och få högre försäljningsintäkter.  De uppnå den här konverteringen genom att leverera kontextuella, beteende-baserade produktrekommendationer baserat på kundens intressen och åtgärder. För den här användningsfall använder vi online återförsäljare som ett exempel på företag som vill optimera för sina kunder. Men dessa principer som gäller för alla företag som vill engagera kunderna runt dess varor och tjänster och förbättra sina kunder köpa med anpassade produktrekommendationer.
+Målet med dessa återförsäljare är att optimera för användaren klickar på till försäljning konverteringar och du betalar, desto högre försäljningsintäkter.  De kan få den här konverteringen genom att tillhandahålla sammanhangsberoende, beteende-baserad produktrekommendationer baserat på kundernas intresse och åtgärder. Det här användningsfallet används onlineåterförsäljare som ett exempel på företag som vill optimera för sina kunder. Dessa principer gäller dock för alla verksamheter som vill engagera kunderna runt dess varor och tjänster och förbättra sina kunders köpupplevelsen med anpassade produktrekommendationer.
 
 ## <a name="challenges"></a>Utmaningar
-Det finns många UTMANINGAR den online återförsäljare sida vid försök att implementera den här typen av användningsfall. 
+Det finns många UTMANINGAR den sida onlinebutiker vid försök att implementera den här typen av användningsfall. 
 
-Data av olika storlekar och former måste först vara inhämtas från flera datakällor, både lokalt och i molnet. Dessa data innehåller produktdata och historiska beteende kundinformation användardata som användaren bläddrar online retail-platsen. 
+Data av olika storlekar och former måste först matas in från flera källor, både lokalt och i molnet. Dessa data innehåller produktdata och historiska kunddata för beteende användardata som användaren bläddrar onlinebutiker platsen. 
 
-Andra, anpassade produktrekommendationer måste rimligen och korrekt beräknas och förutsade. Förutom produkten, varumärken och beteende och webbläsare kundinformation måste online återförsäljare också innehålla kundfeedback tidigare inköp i fastställandet av produktrekommendationerna om bästa för användaren. 
+Andra, anpassade produktrekommendationer måste rimligen och korrekt beräknas och förutse. Förutom produkt, varumärke och kundernas beteende och webbläsaren data måste också onlineåterförsäljare för kundfeedback tidigare inköp i fastställandet av de bästa produktrekommendationerna för användaren. 
 
-Det tredje måste rekommendationerna vara direkt leverans till användaren för att ange ett sömlös surfning och köpa upplevelse och ger rekommendationer för senaste och mest relevanta. 
+Det tredje måste rekommendationerna vara direkt leverans för användaren att ge en sömlös Bläddra och köpa upplevelse och ger rekommendationer för de senaste och mest relevanta. 
 
-Slutligen måste återförsäljare mäta effektiviteten i deras metod genom att spåra övergripande upp säljer mellan säljer Klicka till konvertering försäljning lyckade och justera sina framtida rekommendationer.
+Slutligen måste återförsäljare Mät effektiviteten i sina metoden genom att spåra övergripande merförsäljning och korsförsäljning klickar du på att konvertering försäljning lyckade och anpassa sig till sina framtida rekommendationer.
 
 ## <a name="solution-overview"></a>Lösningsöversikt
-Det här exemplet användningsfall har lösas och implementeras av verkliga Azure-användare med hjälp av Azure Data Factory och andra Cortana Intelligence component services, inklusive [HDInsight](https://azure.microsoft.com/services/hdinsight/) och [Power BI](https://powerbi.microsoft.com/).
+Det här exemplet användningsfallet har löst och implementeras av riktig Azure-användare med hjälp av Azure Data Factory och andra Cortana Intelligence-Komponenttjänster, inklusive [HDInsight](https://azure.microsoft.com/services/hdinsight/) och [Power BI](https://powerbi.microsoft.com/).
 
-Online återförsäljaren använder ett Azure Blob-lagring, en lokal SQLServer, Azure SQL DB och en relationella datamart som deras alternativ för lagring av data i hela arbetsflödet.  Blob-arkivet innehåller kundinformation, beteende kunddata och produkten information data. Produkten information data innefattar produktinformation märke och en produkt katalogen lagras lokalt i en SQL data warehouse. 
+Näthandelsföretagen använder en Azure Blob store, en lokal SQLServer, Azure SQL DB och en relationella datamart som deras alternativen för datalagring i hela arbetsflödet.  Blob-arkivet innehåller kundinformation, beteende kunddata och produktdata för information. Produkten information innehåller produktinformation varumärke och en produkt katalogisera lagras lokalt i ett SQL data warehouse. 
 
-Alla data är kombinerade och skickas till ett system med produkten rekommendation att leverera anpassade rekommendationer baserat på kundens intressen och åtgärder, medan användaren bläddrar produkter i katalogen på webbplatsen. Kunder kan också se produkter som är relaterade till de tittar på produkten baserat på totala webbplats användningsmönster som inte är relaterade till alla användare.
+Alla data kombineras och skickas till en produkt rekommendation systemet att leverera personligt anpassade rekommendationer baserat på kundernas intresse och åtgärder, medan användaren bläddrar produkter i katalogen på webbplatsen. Kunderna kan också se produkter som är relaterade till de tittar på produkten baserat på övergripande webbplats användningsmönster som inte är relaterade till någon en användare.
 
-![Använd case diagram](./media/data-factory-product-reco-usecase/diagram-1.png)
+![använda diagram över ärende](./media/data-factory-product-reco-usecase/diagram-1.png)
 
-Gigabyte rådata web loggfiler skapas varje dag från online återförsäljaren webbplats som halvstrukturerade filer. Rådata web-loggfiler och kataloginformationen kund och produkt är inhämtas regelbundet till ett Azure Blob storage med hjälp av Data Factory globalt distribuerade data flyttas som en tjänst. Rådata loggfilerna för dagen partitioneras (per år och månad) i blob storage för långsiktig lagring.  [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) används för att partitionera rådata loggfilerna i blobstore och bearbeta de infogade loggfilerna i stor skala med hjälp av både Hive och Pig-skript. Den partitionerade webbloggar data bearbetas sedan för att extrahera indata som behövs för machine learning rekommendation system för att skapa anpassade produktrekommendationer.
+Gigabyte raw web loggfiler genereras per dag från den näthandelsföretagen webbplats som semistrukturerade filer. Rå web-loggfiler och kataloginformation kunden och produkten matas regelbundet in i Azure Blob storage med hjälp av Data Factorys globalt distribuerade data flyttas som en tjänst. Råa loggfiler för dagen partitioneras (per år och månad) i blob storage för långsiktig lagring.  [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) används för att partitionera råa loggfiler i blob store och bearbeta inmatade loggar i stor skala med både Hive och Pig-skript. Den partitionerade webbloggar data bearbetas sedan för att extrahera nödvändiga indata för en rekommendation system för att generera personliga produktrekommendationer för maskininlärning.
 
-Systemets rekommendation för maskininlärning i det här exemplet är en öppen källkod machine learning rekommendation plattform från [Apache Mahout](http://mahout.apache.org/).  Alla [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) eller anpassade modell kan tillämpas på scenariot.  Mahout modellen för att förutsäga likheten mellan objekt på webbplatsen utifrån övergripande användningsmönster och att skapa anpassade rekommendationer baserat på den enskilda användaren.
+Rekommendationen systemet används för maskininlärning i det här exemplet är en maskininlärningsfunktion rekommendation plattform från [Apache Mahout](http://mahout.apache.org/).  Alla [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) eller anpassade modellen kan tillämpas på scenariot.  Mahout modellen används för att förutsäga likheten mellan objekt på den webbplats som baseras på allmänna användningsmönster och för att ge personanpassade rekommendationer baserat på den enskilda användaren.
 
-Slutligen flyttas resultatuppsättningen för anpassade produktrekommendationer till en relationella datamart för användning av webbplatsen återförsäljare.  Resultatuppsättningen kan även nås direkt från blob-lagring av ett annat program eller flyttats till flera butiker för andra användare och användningsfall.
+Slutligen flyttas resultatuppsättningen för personliga produktrekommendationer till en relationella datamart för användning med webbplatsen återförsäljaren.  Resultatuppsättningen kan även nås direkt från blob-lagring av ett annat program eller flyttas till ytterligare lager för andra konsumenter och användningsfall.
 
 ## <a name="benefits"></a>Fördelar
-Genom att optimera sina produkten rekommendation strategi och justera med affärsmål uppfyllt lösningen online återförsäljaren försäljning och marknadsföring mål. Dessutom kan kunde de operationalisera och hantera produkten rekommendation arbetsflödet på ett effektivt, tillförlitligt och kostnadseffektivt sätt. Metoden som gjort det lättare att uppdatera deras modellen och finjustera effektivitet baserat på försäljning Klicka till konvertering lyckade åtgärder. Med hjälp av Azure Data Factory kunde de Avbryt resurshantering sina tidskrävande och kostsamt manuell moln och gå till molnet på begäran resurshantering. Därför kan kunde de spara tid, pengar, och minska tid till lösningsdistribution. Övriga datavyer och operativa tjänstens hälsa blev enkelt att visualisera och felsöka med intuitiv Data Factory-övervakning och hantering användargränssnitt som är tillgängliga från Azure-portalen. Lösningen kan nu schemalagda och hanteras så att klar data på ett tillförlitligt sätt produceras och levereras till användare och data och bearbetning beroenden hanteras automatiskt utan mänsklig inblandning.
+Genom att optimera sin produkt rekommendation strategi och justerar detta till affärsmålen uppfyllt lösningen den näthandelsföretagen försäljning och marknadsföring mål. Dessutom har de operationalisera och hantera produkten rekommendation arbetsflödet på ett effektivt, tillförlitlig och kostnadseffektivt sätt. Metoden som gjort det lättare att uppdatera sin modell och finjustera dess effektivitet baserat på mått för försäljning klickar du på att konvertering lyckade försök. Med hjälp av Azure Data Factory kan kunna de lämna sina tidsödande och dyrt manuell cloud-resurshantering och flytta till hantering av molnresurser på begäran. Därför var de kan spara tid, pengar och minska tiden till distribution. Härkomst datavyer och operativa tjänsthälsa blev enkelt att visualisera och felsöka med intuitiva Data Factory-övervakning och hantering av användargränssnitt som är tillgängliga från Azure-portalen. Deras lösning kan nu schemalagda och hanteras så att klar data på ett tillförlitligt sätt produceras och levereras till användare och data och bearbetning av beroenden hanteras automatiskt utan mänsklig inblandning.
 
-Genom att tillhandahålla anpassade shopping upplevelsen online återförsäljaren skapas en mer konkurrenskraftiga, spännande kund får och därför att öka försäljning och övergripande nöjda.
+Genom att tillhandahålla den här anpassade handelsmiljö näthandelsföretagen som skapade sin konkurrenskraft, engagerande upplevelse och därför att öka försäljning och hela kundnöjdhet.
 

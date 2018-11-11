@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/06/2018
+ms.date: 11/05/2018
 ms.author: barbkess
 ms.reviewer: luleon
-ms.openlocfilehash: f23c9976dacc1ca696772d6bf02b5d59e3e0b4d5
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ee0b14123e193f219e403d2608368c27f953013d
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369186"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037982"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory
 Om du vill tilldela en användare eller grupp till en företagsapp, du måste ha behörighet att hantera appen enterprise och du måste vara global administratör för katalogen.
 
 > [!NOTE]
-> De funktioner som beskrivs i den här artikeln kräver en Azure Active Directory Premium P1- eller Premium P2-licens. Mer information finns i den [sidan med priser för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory).
+> Licensieringskrav för de funktioner som beskrivs i den här artikeln, finns i den [sidan med priser för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory).
 
 > [!NOTE]
 > For Microsoft Applications (till exempel Office 365-appar), använder du PowerShell för att tilldela användare till en företagsapp.
@@ -35,7 +35,7 @@ Om du vill tilldela en användare eller grupp till en företagsapp, du måste ha
 ## <a name="how-do-i-assign-user-access-to-an-enterprise-app-in-the-azure-portal"></a>Hur tilldelar åtkomst till en enterprise-app i Azure-portalen?
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
 2. Välj **alla tjänster**, ange Azure Active Directory i textrutan och välj sedan **RETUR**.
-3. På den **Azure Active Directory - *directoryname***  bladet (det vill säga till Azure AD bladet för den katalog som du hanterar) och välj **företagsprogram**.
+3. Välj **företagsprogram**.
 
     ![Att öppna företagsappar](./media/assign-user-or-group-access-portal/open-enterprise-apps.png)
 4. På den **företagsprogram** bladet väljer **alla program**. Här visas de appar som du kan hantera.

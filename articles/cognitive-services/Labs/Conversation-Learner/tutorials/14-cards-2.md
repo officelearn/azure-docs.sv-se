@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 1c7c88742c69041594006add76f7e3c642c64dec
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 99c474978d4da1d80669505330b2dc6220d7ca5f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170580"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226642"
 ---
 # <a name="how-to-use-cards-part-1-of-2"></a>Hur du använder kort (del 1 av 2)
 Den här självstudiekursen visar hur du lägger till ett kort ifyllbara din robot. Den visar hur formulärfält flytta till entiteter.
@@ -24,7 +24,7 @@ Konversationsdeltagare förväntar sig ditt kort definitionsfiler finnas i en ka
 
 ## <a name="video"></a>Video
 
-[![Förhandsversion av självstudien 14](http://aka.ms/cl-tutorial-14-preview)](http://aka.ms/blis-tutorial-14)
+[![Förhandsversion av självstudien 14](https://aka.ms/cl-tutorial-14-preview)](https://aka.ms/blis-tutorial-14)
 
 ## <a name="requirements"></a>Krav
 Den här självstudien krävs att Allmänt självstudiekursen bot körs

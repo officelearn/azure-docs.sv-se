@@ -15,17 +15,17 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: mvc
-ms.openlocfilehash: 3fc9677d72dacd06bde2fcfa4812cf4613efef01
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: e1c327051982ce36e94cd1fe0f824db5ec424da1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394297"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226999"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Konfigurera en brandvägg för webbaserade program (WAF) för en App Service-miljö
 ## <a name="overview"></a>Översikt
 
-Brandväggar för webbaserade program (WAF) skyddar dina webbprogram genom att kontrollera ingående webbtrafik för att blockera SQL-inmatningar, skriptkörning över flera webbplatser, överföring av skadlig kod och program-DDoS och andra attacker. De kontrollerar även svar från backend-webbservrar för dataförlustskydd (DLP). I kombination med den isolering och ytterligare skalning som tillhandahålls av App Service-miljöerna är det här en perfekt miljö att ha affärskritiska webbprogram som måste klara av skadliga begäranden och hög trafik. Azure tillhandahåller en WAF-funktion med [Application Gateway](http://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).  Du kan läsa om hur du integrerar din App Service-miljö med en Application Gateway i dokumentet [Integrera din ILB ASE med en Application Gateway](http://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway).
+Brandväggar för webbaserade program (WAF) skyddar dina webbprogram genom att kontrollera ingående webbtrafik för att blockera SQL-inmatningar, skriptkörning över flera webbplatser, överföring av skadlig kod och program-DDoS och andra attacker. De kontrollerar även svar från backend-webbservrar för dataförlustskydd (DLP). I kombination med den isolering och ytterligare skalning som tillhandahålls av App Service-miljöerna är det här en perfekt miljö att ha affärskritiska webbprogram som måste klara av skadliga begäranden och hög trafik. Azure tillhandahåller en WAF-funktion med [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).  Du kan läsa om hur du integrerar din App Service-miljö med en Application Gateway i dokumentet [Integrera din ILB ASE med en Application Gateway](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway).
 
 Det finns flera alternativ utöver Azure Application Gateway, till exempel [Barracuda WAF for Azure](https://www.barracuda.com/programs/azure), på [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/). I resten av dokumentet fokuserar vi på hur du integrerar din App Service-miljö med en Barracuda WAF-enhet.
 

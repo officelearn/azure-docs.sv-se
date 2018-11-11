@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: 00bc950493e7b4eaad4a2165779f5c8151070aee
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: dbe511f59b62d018115706d31a5cd955576cbaee
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042588"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229005"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>Kom igång med Azure Table Storage och Table-API:et för Azure Cosmos DB med hjälp av .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -569,8 +569,8 @@ Nu när du har lärt dig grunderna i Table Storage kan du följa dessa länkar f
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, macOS och Linux.
 * Du hittar fler Table Storage-exempel i [Komma igång med Azure Table Storage i .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
 * Fullständig information om tillgängliga API:er finns i referensdokumentationen för tabelltjänsten:
-* [Storage-klientbibliotek för .NET-referens](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-* [REST API-referens](http://msdn.microsoft.com/library/azure/dd179355)
+* [Storage-klientbibliotek för .NET-referens](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+* [REST API-referens](https://msdn.microsoft.com/library/azure/dd179355)
 * Lär dig hur du förenklar koden du skriver så att den fungerar med Azure Storage genom att använda [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
 * Visa fler funktionsguider och lär dig mer om andra alternativ för att lagra data i Azure.
 * [Kom igång med Azure Blob Storage med hjälp av .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) om du vill lagra ostrukturerade data.

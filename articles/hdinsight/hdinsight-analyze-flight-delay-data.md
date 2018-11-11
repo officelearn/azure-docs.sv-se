@@ -1,23 +1,23 @@
 ---
-title: Analysera flygförseningsdata med Hadoop i HDInsight - Azure
+title: Analysera flygförseningsdata med Apache Hadoop i HDInsight - Azure
 description: Lär dig hur du använder en Windows PowerShell-skript för att skapa ett HDInsight-kluster, kör ett Hive-jobb, köra ett jobb för Sqoop och ta bort klustret.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1d39fd1cf40834781375b2c7bd6cb801ccd3cb97
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a7700de9bed7e5cfc003481a8e7d93720a767928
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43091906"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036163"
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analysera flygförseningsdata med hjälp av Hive i HDInsight
-Hive ger dig möjlighet att kör Hadoop MapReduce-jobb via en SQL-liknande skriptspråk som kallas  *[HiveQL][hadoop-hiveql]*, som kan tillämpas gentemot sammanfatta, frågor, och analysera stora mängder data.
+Hive ger dig möjlighet att köra Apache Hadoop MapReduce-jobb via en SQL-liknande skriptspråk som kallas  *[HiveQL][hadoop-hiveql]*, som kan tillämpas gentemot sammanfatta, fråga och analysera stora mängder data.
 
 > [!IMPORTANT]
 > Stegen i det här dokumentet kräver ett Windows-baserade HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Anvisningar som fungerar med en Linux-baserat kluster finns i [analysera flygförseningsdata med hjälp av Hive i HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).

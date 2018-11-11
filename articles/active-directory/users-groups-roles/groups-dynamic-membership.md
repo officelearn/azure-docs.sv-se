@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 11/07/2018
+ms.date: 11/05/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: c2e50362de48991c818017b59632be3b0e74cb0b
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: MT
+ms.openlocfilehash: 53c50ba75a16c58d7936a6f06de87218f67f5951
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282075"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219604"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -339,9 +339,7 @@ Anpassade egenskapsnamnet kan hittas i katalogen genom att fråga en egenskap me
 
 ## <a name="rules-for-devices"></a>Regler för enheter
 
-Du kan också skapa en regel som väljer enhetsobjekt för medlemskap i en grupp. Du kan inte ha både användare och enheter som medlemmar i gruppen. Den **organizationalUnit** attribut visas inte längre och ska inte användas. Den här strängen ställs av Intune i vissa fall, men kan identifieras inte av Azure AD, så inga enheter har lagts till i grupper baserat på det här attributet.
-
-Du kan använda följande enhetsattribut.
+Du kan också skapa en regel som väljer enhetsobjekt för medlemskap i en grupp. Du kan inte ha både användare och enheter som medlemmar i gruppen. Du kan använda följande enhetsattribut.
 
  Enhetsattributet  | Värden | Exempel
  ----- | ----- | ----------------
@@ -357,6 +355,7 @@ Du kan använda följande enhetsattribut.
  enrollmentProfileName | Profil för registrering av Apple-enheter eller Windows Autopilot-profilnamn | (device.enrollmentProfileName - eq ”DEP iPhone”)
  isRooted | SANT FALSKT | (device.isRooted - eq SANT)
  managementType | MDM (för mobila enheter)<br>Datorn (för datorer som hanteras av Intune PC-agenten) | (device.managementType - eq ”MDM”)
+ organizationalUnit | valfritt strängvärde som matchar namnet på den organisationsenhet som anges av en lokal Active Directory | (device.organizationalUnit - eq ”USA datorer”)
  deviceId | en giltig enhets-ID för Azure AD | (device.deviceId - eq ”d4fe7726-5966-431c-b3b8-cddc8fdb717d”)
  objekt-ID | en giltig Azure AD objekt-ID |  (device.objectId - eq 76ad43c9-32c5-45e8-a272-7b58b58f596d ”)
  systemLabels | valfri sträng som matchar Intune enhetsegenskap för taggar Modern arbetsplats enheter | (device.systemLabels-innehåller ”M365Managed”)

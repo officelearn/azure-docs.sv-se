@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: d96058ae9415ccb361af8a281a4b65b3f69edfcd
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 7a7267faae2067a873ee11bfbf4ef3027b285a0b
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746773"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034957"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Schemalagda händelser för virtuella Windows-datorer
 
@@ -42,7 +42,7 @@ Många program kan dra nytta av tid för att förbereda för VM-underhåll. Tide
 - Händelseloggning
 - Avslutning 
 
-Med schemalagda händelser ditt program kan identifiera när Underhåll ska inträffa och utlösa uppgifter för att begränsa dess inverkan.  
+Med schemalagda händelser ditt program kan identifiera när Underhåll ska inträffa och utlösa uppgifter för att begränsa dess inverkan. Aktivera schemalagda händelser ger din virtuella dator en minimal mängd tid innan aktiviteten underhåll utförs. Se avsnittet händelse schemaläggning nedan för information.
 
 Schemalagda händelser innehåller händelser i följande användningsfall:
 - Plattform som initierade Underhåll (t.ex. värden OS uppdatering)
@@ -65,13 +65,13 @@ Tjänsten schemalagda händelser skapas. Versioner är obligatoriska och den akt
 | Version | Versionstyp | Regioner | Viktig information | 
 | - | - | - | - |
 | 2017-08-01 | Allmän tillgänglighet | Alla | <li> Bort föregås av ett anpassningsprefix understreck från resursnamn för virtuella Iaas-datorer<br><li>Metadatarubrik krav som gäller för alla begäranden | 
-| 2017-03-01 | Förhandsgranskning | Alla |<li>Första utgåvan
+| 2017-03-01 | Förhandsversion | Alla |<li>Första utgåvan
 
 > [!NOTE] 
 > Föregående förhandsversionerna av schemalagda händelser stöds {senaste} som den api-versionen. Det här formatet stöds inte längre och kommer att bli inaktuella i framtiden.
 
 ### <a name="enabling-and-disabling-scheduled-events"></a>Aktivera och inaktivera schemalagda händelser
-Schemalagda händelser är aktiverat för din tjänst först gången du gör en begäran om händelser. Du bör förvänta sig något fördröjda svar i ditt första anrop på upp till två minuter.
+Schemalagda händelser är aktiverat för din tjänst först gången du gör en begäran om händelser. Du bör förvänta sig något fördröjda svar i ditt första anrop på upp till två minuter. Du bör fråga slutpunkten med jämna mellanrum för att identifiera kommande underhållshändelser, samt status för underhållsaktiviteter som utförs.
 
 Schemalagda händelser är inaktiverad för tjänsten om den inte gör en begäran i 24 timmar.
 
@@ -82,13 +82,13 @@ Starta om en virtuell dator schemalägger en händelse med typen `Reboot`. Omdis
 
 ## <a name="using-the-api"></a>Med hjälp av API
 
-### <a name="headers"></a>Sidhuvuden
+### <a name="headers"></a>Rubriker
 När du frågar Metadata Service måste du ange rubriken `Metadata:true` att se till att begäran inte har omdirigerats oavsiktligt. Den `Metadata:true` rubrik krävs för alla schemalagda händelser förfrågningar. Det gick inte att använda huvud i begäran resulterar i en felaktig begäran-svar från Metadata Service.
 
 ### <a name="query-for-events"></a>Fråga efter händelser
 Du kan fråga efter schemalagda händelser genom att göra följande anrop:
 
-#### <a name="powershell"></a>Powershell
+#### <a name="powershell"></a>PowerShell
 ```
 curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01 -H @{"Metadata"="true"}
 ```
@@ -110,9 +110,10 @@ I fall där det finns schemalagda händelser, svaret innehåller en matris med h
     ]
 }
 ```
+DocumentIncarnation är en ETag och ger ett enkelt sätt att kontrollera om händelser nyttolasten har ändrats sedan den senaste frågan.
 
 ### <a name="event-properties"></a>Egenskaper för händelse
-|Egenskap  |  Beskrivning |
+|Egenskap   |  Beskrivning |
 | - | - |
 | EventId | Globalt unik identifierare för den här händelsen. <br><br> Exempel: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | Händelsetyp | Påverkan som gör att den här händelsen. <br><br> Värden: <br><ul><li> `Freeze`: Den virtuella datorn är schemalagd att pausa under några sekunder. Processorn är inaktiverad, men det finns ingen inverkan på minne, öppna filer eller nätverksanslutningar. <li>`Reboot`: Den virtuella datorn är schemalagd för omstart (icke-beständiga minne är förlorad). <li>`Redeploy`: Den virtuella datorn kommer att flytta till en annan nod (differentierande diskar förloras). |
@@ -126,9 +127,9 @@ Varje händelse schemaläggs en minimal mängd tidpunkt i framtiden utifrån hä
 
 |Händelsetyp  | Minsta meddelande |
 | - | - |
-| Lås| 15 minuter |
-| Starta om | 15 minuter |
-| Distribuera om | 10 minuter |
+| Lås| 15 minuter |
+| Starta om | 15 minuter |
+| Omdistribuera | 10 minuter |
 
 ### <a name="event-scope"></a>Händelsen omfång     
 Schemalagda händelser levereras till:        
@@ -153,7 +154,7 @@ Följande är den json som förväntas i den `POST` brödtext i begäran. Begär
 }
 ```
 
-#### <a name="powershell"></a>Powershell
+#### <a name="powershell"></a>PowerShell
 ```
 curl -H @{"Metadata"="true"} -Method POST -Body '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```

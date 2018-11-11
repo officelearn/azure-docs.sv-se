@@ -1,10 +1,10 @@
 ---
-title: Skala media bearbetning med hjälp av Azure portal | Microsoft Docs
-description: Den här självstudiekursen vägleder dig genom stegen för skalning media bearbetning med Azure-portalen.
+title: Skala mediebearbetning med Azure portal | Microsoft Docs
+description: Den här självstudien vägleder dig genom stegen för skala mediebearbetning med Azure portal.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: e500f733-68aa-450c-b212-cf717c0d15da
 ms.service: media-services
@@ -12,28 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/04/2017
+ms.date: 11/05/2018
 ms.author: juliako
-ms.openlocfilehash: 51973916c97282ac93032ab833402d9d1356647e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2aabdc503a694de46796b7c3afeedfcdb2f39ca9
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790316"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037880"
 ---
 # <a name="change-the-reserved-unit-type"></a>Ändra den reserverade enhetstypen
 > [!div class="op_single_selector"]
-> * [.NET](media-services-dotnet-encoding-units.md)
+> * [NET](media-services-dotnet-encoding-units.md)
 > * [Portal](media-services-portal-scale-media-processing.md)
 > * [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
 > 
-
-> [!NOTE]
-> Information om hur du hämtar den senaste versionen av Java SDK och börjar utveckla med Java finns i [Komma igång med Java-klient-SDK för Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Om du vill hämta den senaste PHP SDK för Media Services, leta efter version 0.5.7 av Microsoft/WindowAzure-paketet i [Packagist-databasen](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
 ## <a name="overview"></a>Översikt
 
@@ -45,23 +41,23 @@ Förutom att ange typ av reserverad enhet kan du etablera **reserverade enheter*
 >RU:er fungerar för parallellisera all bearbetning av media, inklusive indexeringsjobb med hjälp av Azure Media Indexer. Men till skillnad från kodning bearbetas inte indexeringsjobb snabbare med snabbare reserverade enheter.
 
 > [!IMPORTANT]
-> Se till att granska den [översikt](media-services-scale-media-processing-overview.md) avsnittet om du vill ha mer information om skalning media bearbetning av avsnittet.
+> Se till att granska den [översikt](media-services-scale-media-processing-overview.md) så får du mer information om att skala mediebearbetning avsnittet.
 > 
 > 
 
 ## <a name="scale-media-processing"></a>Skala mediebearbetning
-Om du vill ändra vilken enhet och antalet reserverade enheter måste du göra följande:
+Om du vill ändra typ av reserverad enhet och antalet reserverade enheter måste du göra följande:
 
 1. Välj ditt Azure Media Services-konto i [Azure-portalen](https://portal.azure.com/).
 2. I den **inställningar** väljer **mediereserverade enheter**.
    
-    Du kan ändra antalet reserverade enheter för den valda reserverade enhetstypen den **Media hanteras enheter** skjutreglaget längst upp på skärmen.
+    Du kan ändra antalet reserverade enheter för den valda reserverade enhetstypen med den **Media hanteras enheter** skjutreglaget överst på skärmen.
    
-    Så här ändrar du den **RESERVERADE ENHETSTYP**, klickar du på den **hastighet reserverade enheter** fältet. Markera den prisnivå som du behöver: S1, S2 och S3.
+    Ändra den **typ av reserverad enhet**, klicka på den **hastighet för reserverade bearbetningsenheter** fältet. Välj den prisnivå som du behöver: S1, S2 eller S3.
    
 3. Tryck på knappen SPARA för att spara ändringarna.
    
-    Nya reserverade enheter tilldelas när du trycker på Spara.
+    De nya reserverade enheterna tilldelas när du trycker på Spara.
 
 ## <a name="next-steps"></a>Nästa steg
 Granska sökvägarna för Media Services-utbildning.

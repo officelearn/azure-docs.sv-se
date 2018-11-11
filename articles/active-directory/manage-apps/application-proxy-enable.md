@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 5227f756e807a30573733bd408144d869caac9ec
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 59ca9ca7711904fe7882aac4878bd62c597645d8
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366483"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034974"
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Kom igång med Application Proxy och installera connector
 I den här artikeln beskrivs steg för steg hur du aktiverar Microsoft Azure AD Application Proxy för din molnkatalog i Azure AD.
@@ -33,6 +33,7 @@ Innan du kan aktivera och använda Application Proxy-tjänster behöver du:
 * En [Basic- eller Premium-prenumeration på Microsoft Azure AD](../fundamentals/active-directory-whatis.md) och en Azure AD-katalog som du är en global administratör för.
 * En server som kör Windows Server 2012 R2 eller 2016, där du kan installera Application Proxy Connector. Servern måste kunna ansluta till Application Proxy-tjänsterna i molnet och lokala program som du publicerar.
   * För enkel inloggning till dina publicerade program med hjälp av Kerberos-begränsad delegering, bör den här datorn vara domänansluten i samma AD-domän som de program som du publicerar. Mer information finns i [KCD för enkel inloggning med programproxy](application-proxy-configure-single-sign-on-with-kcd.md).
+* TLS 1.2 som körs på det underliggande operativsystemet. Om du vill ändra till TLS 1.2, följer du stegen i [Aktivera TLS 1.2](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect). Innehållet är för Azure AD Connect, är den här proceduren samma för alla .NET-klienter.
 
 Om din organisation använder proxyservrar för att ansluta till internet kan du läsa [fungerar med befintliga lokala proxyservrar](application-proxy-configure-connectors-with-proxy-servers.md) mer information om hur du konfigurerar dem innan du sätter igång med Application Proxy.
 

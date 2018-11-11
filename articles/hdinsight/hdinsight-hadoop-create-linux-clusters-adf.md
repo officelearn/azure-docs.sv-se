@@ -1,25 +1,25 @@
 ---
-title: 'Självstudie: Skapa Hadoop-kluster på begäran i Azure HDInsight med Data Factory '
-description: Lär dig hur du skapar på begäran Hadoop-kluster i HDInsight med Azure Data Factory.
+title: 'Självstudie: Skapa Apache Hadoop-kluster på begäran i Azure HDInsight med Data Factory '
+description: Lär dig hur du skapar på begäran Apache Hadoop-kluster i HDInsight med Azure Data Factory.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: jasonh
-ms.openlocfilehash: 9e21c49e7a472830c19f61388739c35aac17c3ff
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.author: hrasheed
+ms.openlocfilehash: 76651874951255d9b01efdc6e91892f6852d948d
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955617"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036384"
 ---
-# <a name="tutorial-create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Självstudie: Skapa på begäran Hadoop-kluster i HDInsight med Azure Data Factory
+# <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Självstudie: Skapa på begäran Apache Hadoop-kluster i HDInsight med Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-I den här artikeln får du lära dig hur du skapar ett Hadoop-kluster på begäran i Azure HDInsight med Azure Data Factory. Du sedan använda datapipelines i Azure Data Factory att köra Hive-jobb och ta bort klustret. I slutet av den här självstudiekursen, kan du se hur att utföra åtgärder för ett jobb för stordata som kör där skapa kluster, kör jobb och klustret borttagning utförs enligt ett schema.
+I den här artikeln får du lära dig hur du skapar ett Apache Hadoop-kluster på begäran i Azure HDInsight med Azure Data Factory. Du sedan använda datapipelines i Azure Data Factory att köra Hive-jobb och ta bort klustret. I slutet av den här självstudiekursen, kan du se hur att utföra åtgärder för ett jobb för stordata som kör där skapa kluster, kör jobb och klustret borttagning utförs enligt ett schema.
 
 Den här självstudien omfattar följande uppgifter: 
 

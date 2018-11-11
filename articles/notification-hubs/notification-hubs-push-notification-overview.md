@@ -15,12 +15,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: ccf27748699a49c569a43f041cbc5e3625055852
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: a39eebda5abb41e02ce7254e2084541e86ecee30
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503425"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229517"
 ---
 # <a name="what-is-azure-notification-hubs"></a>Vad är Azure Notification Hubs?
 Azure Notification Hubs innehåller en lättanvänd och uppskalad push-motor som gör det möjligt för dig att skicka meddelanden till valfri plattform (iOS, Android, Windows, Kindle, Baidu osv) från valfri serverdel (molnet eller lokalt). Notification Hubs fungerar utmärkt för både företags- och konsumentscenarier. Här följer några exempel:
@@ -40,7 +40,7 @@ Push-meddelanden är viktiga för konsumentapparna när det gäller att öka eng
 Mer information om push-meddelanden för några populära plattformar finns i följande avsnitt: 
 * [iOS](https://developer.apple.com/notifications/)
 * [Android](https://developer.android.com/guide/topics/ui/notifiers/notifications.html)
-* [Windows](http://msdn.microsoft.com/library/windows/apps/hh779725.aspx)
+* [Windows](https://msdn.microsoft.com/library/windows/apps/hh779725.aspx)
 
 ## <a name="how-push-notifications-work"></a>Hur fungerar push-meddelanden?
 Push-meddelanden levereras via plattformsspecifika infrastrukturer som kallas för *plattformsspecifika meddelandesystem* (Platform Notification Systems, PNS). De erbjuder grundläggande push-funktioner när det gäller att leverera ett meddelande till en enhet med en tillhandahållen referens, och de har inget gemensamt gränssnitt. Om du vill skicka ett meddelande till alla kunder via en apps iOS-, Android- och Windows-versioner måste utvecklarna arbeta med Apple Push Notification Service (APNS), Firebase Cloud Messaging (FCM) och Windows Notification Service (WNS).

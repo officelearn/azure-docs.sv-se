@@ -9,16 +9,16 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 88e7dad15a7080c4132a6983d949f9451ad5ce69
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b8263c399f287be79590860cce7036207ef2e3f7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239279"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243751"
 ---
 # <a name="what-is-happening-to-workbench-in-azure-machine-learning-preview"></a>Vad händer med Workbench i Azure Machine Learning (förhandsversion)?
 
-Workbench-programmet och vissa andra tidiga funktioner byttes ut i versionen från september 2018 för att frigöra plats för en förbättrad [arkitektur](concept-azure-machine-learning-architecture.md). Versionen innehåller många viktiga uppdateringar som baseras på feedback från kunder och förbättrar upplevelsen. Grundläggande funktioner från experimentkörningar till modelldistribution har inte ändrats, men nu kan du använda den robusta <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> och [CLI](reference-azure-machine-learning-cli.md) för att utföra dina maskininlärningsaktiviteter och pipelines.  
+Workbench-programmet och vissa andra tidiga funktioner byttes ut i versionen från september 2018 för att frigöra plats för en förbättrad [arkitektur](concept-azure-machine-learning-architecture.md). Versionen innehåller många viktiga uppdateringar som baseras på feedback från kunder och förbättrar upplevelsen. Grundläggande funktioner från experimentkörningar till modelldistribution har inte ändrats, men nu kan du använda den robusta <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> och [CLI](reference-azure-machine-learning-cli.md) för att utföra dina maskininlärningsaktiviteter och pipelines.  
 
 I den här artikeln får lära du dig om vad som ändrats och hur det påverkar ditt befintliga arbete med Azure Machine Learning-tjänsten.
 
@@ -27,7 +27,7 @@ I den här artikeln får lära du dig om vad som ändrats och hur det påverkar 
 Den senaste versionen av Azure Machine Learning-tjänsten innehåller:
 + En [förenklad Azure-resursmodell](concept-azure-machine-learning-architecture.md)
 + [Den nya portalens användargränssnitt](how-to-track-experiments.md) för att hantera experiment och beräkningsmål
-+ Ett nytt och mer omfattande Python <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>
++ Ett nytt och mer omfattande Python <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>
 + Ett nytt, utökat [Azure CLI-tillägg](reference-azure-machine-learning-cli.md) för maskininlärning
 
 [Arkitekturen](concept-azure-machine-learning-architecture.md) har gjorts om för enklare användning. I stället för flera Azure-resurser och konton behöver du bara en [Azure Machine Learning-tjänstarbetsyta](concept-azure-machine-learning-architecture.md#workspace).  Du kan skapa arbetsytor snabbt i [Azure-portalen](quickstart-get-started.md).  En arbetsyta kan användas av flera användare för att lagra tränings- och distributionsberäkningsmål, modellexperiment, Docker-avbildningar, distribuerade modeller och så vidare.
@@ -46,11 +46,10 @@ Du kan fortsätta att använda dina konton för experimentering och modellhanter
 
 |Fas|Information som stöd för äldre funktioner|
 |:---:|----------------|
-|1|Möjligheten att skapa ett _konto för Azure Machine Learning-experimentering_ och _ett modellhanteringskonto_ i Azure-portalen och från CLI. Möjligheten att skapa ML-beräkningsmiljöer från CLI avslutas också. Om du har ett befintligt konto fortsätter CLI och Workbench för skrivbord att fungera i den här fasen.|
-|2|De underliggande API:erna för att skapa gamla arbetsytor och projekt i Workbench för skrivbord och med CLI avslutas. Du kan fortfarande öppna befintliga projekt, lägga till ytterligare skript till dem, köra skript i befintliga projekt och distribuera webbtjänster till befintliga ML-beräkningsmiljöer i det här läget.|
-|3|Stöd för allt annat, däribland återstående API:er och Workbench för skrivbord, avslutas i det här läget.|
+|1|Möjligheten att skapa ett _konto för Azure Machine Learning-experimentering_ och _ett modellhanteringskonto_ på Azure-portalen och från CLI avslutas. Möjligheten att skapa ML-beräkningsmiljöer från CLI avslutas också. Om du har ett befintligt konto fortsätter CLI och Workbench för skrivbord att fungera i den här fasen.|
+|2|Stöd för allt annat, däribland återstående API:er och Workbench för skrivbord, avslutas i det här läget.|
 
-[Börja migrera](how-to-migrate.md) i dag. Alla nya funktioner är tillgängliga med vår nya <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>, [CLI](reference-azure-machine-learning-cli.md) och [portalen](quickstart-get-started.md).
+[Börja migrera](how-to-migrate.md) i dag. Alla nya funktioner är tillgängliga med vår nya <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, [CLI](reference-azure-machine-learning-cli.md) och [portalen](quickstart-get-started.md).
 
 ## <a name="what-about-run-histories"></a>Vad händer med körhistorik?
 
@@ -67,9 +66,9 @@ Portalens instrumentpanel för arbetsytor stöds endast i webbläsarna Edge, Chr
 
 Dina befintliga dataförberedelsefiler kan inte överföras till den senaste versionen eftersom vi inte längre har Workbench. Du kan dock fortfarande förbereda dina data för modellering.  
 
-Med mindre datamängder kan du använda <a href="http://aka.ms/aml-sdk" target="_blank">Azure Machine Learning-SDK för dataförberedelse</a> för att snabbt förbereda dina data före modellering. 
+Med mindre datamängder kan du använda <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning-SDK för dataförberedelse</a> för att snabbt förbereda dina data före modellering. 
 
-Du kan använda den här samma <a href="http://aka.ms/aml-sdk" target="_blank">SDK:n</a> för större datamängder eller använda Azure Databricks för att förbereda stordatamängder. 
+Du kan använda den här samma <a href="https://aka.ms/aml-sdk" target="_blank">SDK:n</a> för större datamängder eller använda Azure Databricks för att förbereda stordatamängder. 
 
 ## <a name="will-projects-persist"></a>Kommer projekt att bevaras?
 
@@ -95,7 +94,7 @@ I den nyare versionen distribueras modeller som webbtjänster till [Azure Contai
 
 Ja, de fortsätter att fungera ett tag (se [tidslinjen](#timeline) ovan). Vi rekommenderar att du börjar skapa dina nya experiment och modeller med den senaste SDK:n och/eller CLI.
 
-I den senaste versionen gör den nya Python SDK att du kan interagera med Azure Machine Learning-tjänsten i alla Python-miljöer. Lär dig hur du installerar den senast <a href="http://aka.ms/aml-sdk" target="_blank">SDK:n</a>.  Du kan också använda [det uppdaterade Azure CLI-maskininlärningstillägget](reference-azure-machine-learning-cli.md) med den omfattande uppsättningen `az ml`-kommandon för att interagera med tjänsten i valfri kommandoradmiljö, inklusive Azure-portalens molngränssnitt.
+I den senaste versionen gör den nya Python SDK att du kan interagera med Azure Machine Learning-tjänsten i alla Python-miljöer. Lär dig hur du installerar den senast <a href="https://aka.ms/aml-sdk" target="_blank">SDK:n</a>.  Du kan också använda [det uppdaterade Azure CLI-maskininlärningstillägget](reference-azure-machine-learning-cli.md) med den omfattande uppsättningen `az ml`-kommandon för att interagera med tjänsten i valfri kommandoradmiljö, inklusive Azure-portalens molngränssnitt.
 
 ## <a name="what-about-vs-code-tools-for-ai"></a>Vad gäller för VS Code Tools for AI?
 
@@ -105,7 +104,7 @@ Med den senaste versionen har Visual Studio (VS) Code Tools for AI-tillägget ut
 
 ## <a name="what-about-domain-packages"></a>Vad gäller för domänpaket?
 
-Domänpaketen för [Visuellt innehåll, Textanalys och Prognostisering](../desktop-workbench/reference-python-package-overview.md) kan inte användas med den senaste versionen av Azure Machine Learning. Du kan dock fortfarande skapa och träna modeller för visuellt innehåll, textanalys och prognostisering med den senaste Azure Machine Learning Python-<a href="http://aka.ms/aml-sdk" target="_blank">SDK:n</a>. Om du vill lära dig mer om att migrera befintliga modeller som skapats med Visuellt innehåll-, Textanalys- och Prognostisering-paket kontaktar du oss på [AML-Packages@microsoft.com](mailto:AML-Packages@microsoft.com).
+Domänpaketen för [Visuellt innehåll, Textanalys och Prognostisering](../desktop-workbench/reference-python-package-overview.md) kan inte användas med den senaste versionen av Azure Machine Learning. Du kan dock fortfarande skapa och träna modeller för visuellt innehåll, textanalys och prognostisering med den senaste Azure Machine Learning Python-<a href="https://aka.ms/aml-sdk" target="_blank">SDK:n</a>. Om du vill lära dig mer om att migrera befintliga modeller som skapats med Visuellt innehåll-, Textanalys- och Prognostisering-paket kontaktar du oss på [AML-Packages@microsoft.com](mailto:AML-Packages@microsoft.com).
 
 ## <a name="next-steps"></a>Nästa steg
 

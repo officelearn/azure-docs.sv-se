@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 2dd9b14ebd7e64a1073ab773b2f1ac8d8c05ac0a
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a2d067f71b7b68944e479cfd27c1dbf414762af8
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185255"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514884"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Anslut Raspberry Pi onlinesimulator till Azure IoT Hub (Node.js)
 
@@ -59,9 +59,13 @@ Klicka på knappen för att starta Raspberry Pi onlinesimulator.
 <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Starta simulatorn Raspberry Pi</a>
 
 Det finns tre områden i web-simulatorn.
+
 1. Sammansättningen område - standard-kretsen är att en Pi ansluter med en BME280 sensor och en Indikator. Området är låst i förhandsversionen så för tillfället inte kan du göra anpassning.
+
 2. Koda området - Kodredigerare online du kan koda med Raspberry Pi. Standard-exempelprogrammet hjälper dig att samla in sensordata från BME280 sensor och skickar till Azure IoT Hub. Programmet är helt kompatibel med verkliga Pi-enheter. 
+
 3. Integrerad konsolfönstret - visar utdata från din kod. Det finns tre knappar längst ned i fönstret.
+
    * **Kör** -köra programmet i området för kodning.
    * **Återställ** -återställa området kodning till standard-exempelprogram.
    * **Vikning/Expandera** -på höger sida finns en knapp att vikning/Expandera konsolfönstret.
@@ -71,8 +75,17 @@ Raspberry Pi web simulatorn är nu tillgängligt i förhandsversionen. Vi vill g
 
 ![Översikt över Pi onlinesimulator](media/iot-hub-raspberry-pi-web-simulator/0_overview.png)
 
-[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
+## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT hub
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>Registrera en ny enhet i IoT hub
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="run-a-sample-application-on-pi-web-simulator"></a>Kör ett exempelprogram på Pi web simulator
 
@@ -80,7 +93,6 @@ Raspberry Pi web simulatorn är nu tillgängligt i förhandsversionen. Vi vill g
    ![Ersätt enhetens anslutningssträng](media/iot-hub-raspberry-pi-web-simulator/1_connectionstring.png)
 
 2. Klicka på **kör** eller typ `npm start` att köra programmet.
-
 
 Du bör se följande utdata som visar sensordata och meddelanden som skickas till din IoT hub ![utdata - sensordata som skickas från Raspberry Pi till din IoT-hubb](media/iot-hub-raspberry-pi-web-simulator/2_run_application.png)
 

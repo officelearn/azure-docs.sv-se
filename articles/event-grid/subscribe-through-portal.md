@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 72eaa17e78086a4e5338bb3198ef7471c44b785f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: eb48e40007a25992a9a399176b6a4f93be89efc8
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235042"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344100"
 ---
 # <a name="subscribe-to-events-through-portal"></a>Prenumerera på händelser via portalen
 
@@ -45,6 +45,16 @@ Skapa en Event Grid-prenumeration för någon av stöds [händelsekällor](event
 1. Ge mer information om händelseprenumerationen, till exempel slutpunkten för hantering av händelser och ett prenumerationsnamn.
 
    ![Ange information om en prenumeration](./media/subscribe-through-portal/provide-subscription-details.png)
+
+1. Om du vill aktivera obeställbara och anpassa återförsöksprinciper, Välj **extrafunktioner**.
+
+   ![Välj ytterligare funktioner](./media/subscribe-through-portal/select-additional-features.png)
+
+1. Välj en behållare som ska användas för att lagra händelser som inte levereras och ange hur återförsök skickas.
+
+   ![Aktivera obeställbara och försök igen](./media/subscribe-through-portal/set-deadletter-retry.png)
+
+1. Välj **Skapa** när du är klar.
 
 ## <a name="create-subscription-on-resource"></a>Skapa prenumeration på resursen
 

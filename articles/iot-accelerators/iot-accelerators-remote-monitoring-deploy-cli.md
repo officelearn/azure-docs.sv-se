@@ -1,29 +1,29 @@
 ---
-title: Distribuera Java av lösningen för fjärrövervakning – Azure | Microsoft Docs
-description: Den här självstudien visar hur du etablerar den lösningsacceleratorn för fjärrövervakning med hjälp av CLI.
+title: Distribuera lösningen för fjärrövervakning med hjälp av CLI - Azure | Microsoft Docs
+description: Den här guiden visar hur du etablerar den lösningsacceleratorn för fjärrövervakning med hjälp av CLI.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/12/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
-ms.openlocfilehash: ddb0b5b1a0847200caa7d8d04ecdc9dab4c41d14
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 5704cc21b14d83ebc30cd29f52102c751cfb11f2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956705"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248018"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuera den lösningsacceleratorn för fjärrövervakning med hjälp av CLI
 
-Den här självstudien visar hur du etablerar lösningsacceleratorn för fjärrövervakning. Du kan distribuera lösningen med hjälp av CLI. Du kan också distribuera lösningen med webbaserat gränssnitt på azureiotsuite.com, om du vill veta mer om det här alternativet finns i [distribuerar lösningsacceleratorn för fjärrövervakning](quickstart-remote-monitoring-deploy.md).
+Den här guiden visar hur du distribuerar lösningsacceleratorn för fjärrövervakning. Du kan distribuera lösningen med hjälp av CLI. Du kan också distribuera lösningen med webbaserat gränssnitt på azureiotsuite.com, om du vill veta mer om det här alternativet finns i den[distribuerar lösningsacceleratorn för fjärrövervakning](quickstart-remote-monitoring-deploy.md) Snabbstart.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en aktiv Azure-prenumeration om du vill distribuera lösningsacceleratorn för fjärrövervakning.
 
-Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](http://azure.microsoft.com/pricing/free-trial/).
+Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 Om du vill köra CLI, behöver du [Node.js](https://nodejs.org/) installerad på den lokala datorn.
 
@@ -37,7 +37,7 @@ npm install iot-solutions -g
 
 ## <a name="sign-in-to-the-cli"></a>Logga in på CLI
 
-Innan du kan distribuera solution accelerator, måste du logga in på Azure-prenumerationen med hjälp av CLI på följande sätt:
+Innan du kan distribuera solution accelerator, måste du logga in på Azure-prenumerationen med hjälp av CLI:
 
 ```cmd/sh
 pcs login
@@ -51,19 +51,20 @@ När du distribuerar solution accelerator, finns det flera alternativ som konfig
 
 | Alternativ | Värden | Beskrivning |
 | ------ | ------ | ----------- |
-| SKU    | `basic`, `standard`, `local` | En _grundläggande_ distribution är avsedd för testning och demonstrationer, alla mikrotjänster distribueras till en virtuell dator. En _standard_ distribution är avsedd för produktion, mikrotjänster distribueras till flera virtuella datorer. En _lokala_ distribution konfigurerar en Docker-behållare för att köra mikrotjänster på den lokala datorn och använder Azure-tjänster, till exempel lagring och Cosmos DB, i molnet. |
+| SKU    | `basic`, `standard`, `local` | En _grundläggande_ distribution är avsedd för testning och demonstrationer, alla mikrotjänster distribueras till en virtuell dator. En _standard_ distribution är avsedd för produktion, mikrotjänster distribueras till flera virtuella datorer. En _lokala_ distribution konfigurerar en Docker-behållare för att köra mikrotjänster på den lokala datorn och använder Azure molntjänster, till exempel lagring och Cosmos DB. |
 | Körmiljö | `dotnet`, `java` | Väljer språk implementeringen av mikrotjänster. |
 
-Läs om hur du använder den lokala distributionen i [körs av lösningen för fjärrövervakning lokalt](iot-accelerators-remote-monitoring-deploy-local.md).
+Läs hur du använder alternativet för lokal distribution i [körs av lösningen för fjärrövervakning lokalt](iot-accelerators-remote-monitoring-deploy-local.md).
 
-## <a name="basic-vs-standard-deployments"></a>Grundläggande vs. Standard-distributioner
+## <a name="basic-and-standard-deployments"></a>Basic och standard-distributioner
+
+Det här avsnittet sammanfattas de största skillnaderna mellan en grundläggande och standard-distribution.
 
 ### <a name="basic"></a>Basic
-Grundläggande distribution är inriktat för visar lösningen. För att minska kostnaden för den här demonstrationen distribueras alla mikrotjänster i en enskild virtuell dator; Detta anses inte vara en produktionsklar arkitektur.
 
-Vår Standard distributionsalternativ bör användas när du är redo att anpassa en arkitektur med produktionsklara, byggd för skalning och utökningsbarhet.
+Grundläggande distribution är inriktat för visar lösningen. För att minska kostnaderna, distribueras alla mikrotjänster i en enskild virtuell dator. Den här distributionen använder inte en produktionsklar arkitektur.
 
-Skapa en grundläggande lösning resulterar i följande Azure-tjänster som etableras i din Azure-prenumeration till en kostnad: 
+En grundläggande distribution skapar följande tjänster i Azure-prenumerationen:
 
 | Antal | Resurs                       | Typ         | Används för |
 |-------|--------------------------------|--------------|----------|
@@ -78,13 +79,11 @@ Skapa en grundläggande lösning resulterar i följande Azure-tjänster som etab
 | 1     | [Azure Device Provisioning-tjänsten](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Etablera enheter i stor skala |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 enhet              | Lagring för meddelanden data och aktiverar djupdykning telemetrianalyser |
 
-
-
 ### <a name="standard"></a>Standard
-Standarddistributionen är en produktionsklar distribution utvecklare kan anpassa och utöka för att uppfylla deras behov. Distributionsalternativet standard ska användas när du är redo att anpassa en arkitektur med produktionsklara, byggd för skalning och utökningsbarhet. Mikrotjänster för program skapas med Docker-behållare och distribueras via Azure Kubernetes Service (AKS). Orchestrator är ansvarig för distribution, skalning och hantering av programmet.
 
+En vanlig distribution är en produktionsklar-distribution som utvecklare kan anpassa och utöka. Använd alternativet standarddistribution när du är redo att anpassa en arkitektur med produktionsklara, byggd för skalning och utökningsbarhet. Mikrotjänster för program skapas med Docker-behållare och distribueras via Azure Kubernetes Service. Distribuerar Kubernetes-orchestratorn, skalar och hanterar mikrotjänster.
 
-Skapa en lösning som Standard leder följande Azure-tjänster som etableras i din Azure-prenumeration till en kostnad:
+En vanlig distribution skapar följande tjänster i Azure-prenumerationen:
 
 | Antal | Resurs                                     | SKU / storlek      | Används för |
 |-------|----------------------------------------------|-----------------|----------|
@@ -99,9 +98,12 @@ Skapa en lösning som Standard leder följande Azure-tjänster som etableras i d
 | 1     | [Azure Device Provisioning-tjänsten](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Etablera enheter i stor skala |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 enhet              | Lagring för meddelanden data och aktiverar djupdykning telemetrianalyser |
 
-> Information om priser för de här tjänsterna hittar [här](https://azure.microsoft.com/pricing). Förbrukade belopp och fakturainformationen för prenumerationen kan hittas i den [Azure-portalen](https://portal.azure.com/).
+> [!NOTE]
+> Du hittar information om priser för dessa tjänster enligt [ https://azure.microsoft.com/pricing ](https://azure.microsoft.com/pricing). Du kan hitta användning och fakturering uppgifterna för din prenumeration i den [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="deploy-the-solution-accelerator"></a>Distribuera solution accelerator
+
+Exempel på distribution:
 
 ### <a name="example-deploy-net-version"></a>Exempel: distribuera .NET-version
 
@@ -121,14 +123,14 @@ pcs -t remotemonitoring -s standard -r java
 
 ### <a name="pcs-command-options"></a>kommandoalternativ för datorer
 
-När du kör den `pcs` kommando för att distribuera en lösning kan du ange:
+När du kör den `pcs` kommando för att distribuera en lösning kan du blir tillfrågad om:
 
 - Ett namn för din lösning. Det här namnet måste vara unikt.
 - Den Azure-prenumeration som ska användas.
 - En plats.
 - Autentiseringsuppgifter för virtuella datorer som är värdar för mikrotjänster. Du kan använda dessa autentiseringsuppgifter för att få åtkomst till de virtuella datorerna för felsökning.
 
-När den `pcs` kommandot har slutförts visas URL: en för din nya lösning accelerator distribution. Den `pcs` kommandot skapar även en fil `{deployment-name}-output.json` med ytterligare information, till exempel namnet på IoT-hubben som etableras för dig.
+När den `pcs` kommandot har slutförts visas URL: en för din nya lösningsaccelerator. Den `pcs` kommandot skapar även en fil `{deployment-name}-output.json` som innehåller information som namnen på IoT-hubben som det skapats.
 
 Mer information om kommandoradsparametrar kör du:
 
@@ -140,7 +142,7 @@ Mer information om CLI finns i [hur du använder CLI](https://github.com/Azure/p
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig att:
+I den här guiden beskrivs hur du:
 
 > [!div class="checklist"]
 > * Konfigurera lösningsacceleratorn
@@ -149,4 +151,4 @@ I den här självstudiekursen lärde du dig att:
 
 Nu när du har distribuerat av lösningen för fjärrövervakning, nästa steg är att [utforska funktionerna i lösningens instrumentpanel](./quickstart-remote-monitoring-deploy.md).
 
-<!-- Next tutorials in the sequence -->
+<!-- Next how-to guides in the sequence -->

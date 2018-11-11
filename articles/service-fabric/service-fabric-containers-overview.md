@@ -3,7 +3,7 @@ title: Översikt över Service Fabric och behållare | Microsoft Docs
 description: En översikt över Service Fabric och användningen av behållare för att distribuera mikrotjänstprogram. Den här artikeln innehåller en översikt över hur du kan använda behållare och de tillgängliga funktionerna i Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/8/2018
-ms.author: msfussell
-ms.openlocfilehash: 6715142be7f40955861afa634bf6e2472c9f7294
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.author: twhitney, msfussell
+ms.openlocfilehash: 0acbd2d4ccf35c9490a06228eeb1bb465a8ca732
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005783"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299982"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric och behållare
 
@@ -38,8 +38,7 @@ Prova Snabbstart, självstudier och exempel för att sätta och prova att använ
 [Snabbstart: Distribuera ett program för Linux-behållare till Service Fabric](service-fabric-quickstart-containers-linux.md)  
 [Snabbstart: Distribuera ett program för Windows-behållare till Service Fabric](service-fabric-quickstart-containers.md)  
 [Använd en befintlig .NET-app i behållare](service-fabric-host-app-in-a-container.md)  
-
-  [Exempel på container för Service Fabric](https://azure.microsoft.com/resources/samples/service-fabric-containers/)  
+[Exempel på container för Service Fabric](https://azure.microsoft.com/resources/samples/service-fabric-containers/)  
 
 ## <a name="what-are-containers"></a>Vad är behållare
 

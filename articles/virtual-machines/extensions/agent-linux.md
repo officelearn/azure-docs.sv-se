@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 73e5e54e40223f7cd972e2bd2752add9ca82ff2b
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 0c19d32f6c6f491a91ba6c2219be9fd016b5ec34
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452351"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243887"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Förstå och använda Azure Linux Agent
 
@@ -73,7 +73,7 @@ Informationsflödet från plattformen till agenten sker via två kanaler:
 Följande datorer har testats och är kända för att arbeta med Azure Linux Agent:
 
 > [!NOTE]
-> Den här listan kan skilja sig från listan över officiella av operativsystem som stöds på Microsoft Azure-plattformen, enligt nedan: [http://support.microsoft.com/kb/2805216](http://support.microsoft.com/kb/2805216)
+> Den här listan kan skilja sig från listan över officiella av operativsystem som stöds på Microsoft Azure-plattformen, enligt nedan: [http://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
 > 
 > 
 
@@ -344,6 +344,6 @@ Ubuntu Molnbilder använda [cloud-init](https://launchpad.net/ubuntu/+source/clo
 
 * Mer information finns i följande resurser för att konfigurera monteringspunkten resource disk och växlingsutrymme på Ubuntu Molnbilder under etableringen:
   
-  * [Ubuntu Wiki: Konfigurera växling](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+  * [Ubuntu Wiki: Konfigurera växling](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [Infoga anpassade Data i en Azure virtuell dator](../windows/classic/inject-custom-data.md)
 

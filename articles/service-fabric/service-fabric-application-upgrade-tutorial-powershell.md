@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: c1005d60df0b1cfd3b24be954ab4ff1b18c8f7a8
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 0f134bdb4f77034dd124027fc960d172d25db721
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348777"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515326"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Uppgradering av Service Fabric-programmet med hjälp av PowerShell
 > [!div class="op_single_selector"]
@@ -79,13 +79,13 @@ Nu kan skapa projektet genom att välja bara **ActorService** -projektet och sed
 ## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Steg 3: Bestäm på hälsoprinciper och Uppgraderingsparametrar
 Bekanta dig med den [programuppgraderingsparametrar](service-fabric-application-upgrade-parameters.md) och [uppgraderingsprocessen](service-fabric-application-upgrade.md) att få en god förståelse av de olika Uppgraderingsparametrar, tidsgränser och hälsotillstånd villkor tillämpas. Den här genomgången leverantörsutvärdering för service health är inställt på standardvärdet (och rekommenderas) värden, vilket innebär att alla tjänster och instanser ska vara *felfri* efter uppgraderingen.  
 
-Men vi öka den *HealthCheckStableDuration* till 60 sekunder (så att tjänsterna fungerar felfritt för minst 20 sekunder innan uppgraderingen fortsätter till nästa uppdateringsdomän).  Nu ska vi också ange den *UpgradeDomainTimeout* vara 1200 sekunder och *UpgradeTimeout* vara 3000 sekunder.
+Men vi öka den *HealthCheckStableDuration* till 180 sekunder (så att tjänsterna fungerar felfritt för minst 120 sekunder innan uppgraderingen fortsätter till nästa uppdateringsdomän).  Nu ska vi också ange den *UpgradeDomainTimeout* vara 1200 sekunder och *UpgradeTimeout* vara 3000 sekunder.
 
 Slutligen ska vi också ange den *UpgradeFailureAction* att återställa. Det här alternativet kräver Service Fabric för att återställa programmet till föregående version om det uppstår problem under uppgraderingen. När du startar uppgraderingen (i steg 4) anges därför följande parametrar:
 
 FailureAction = återställning
 
-HealthCheckStableDurationSec = 60
+HealthCheckStableDurationSec = 180
 
 UpgradeDomainTimeoutSec = 1200
 

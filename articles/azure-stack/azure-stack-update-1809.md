@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/09/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: cca9307fd849f6b8537cf7484d2e56e1a710295b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f44b267a28abd64acdd6bc74a43f1c5be8daf0ab
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257198"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515615"
 ---
 # <a name="azure-stack-1809-update"></a>Uppdatering av Azure Stack 1809
 
@@ -70,6 +70,17 @@ Den här uppdateringen innehåller följande förbättringar för Azure Stack:
 - <!-- 2702741 -  IS, ASDK --> Ett problem har åtgärdats i vilka offentliga IP-adresser som har distribuerats med hjälp av dynamisk allokering metoden inte har garanterat bevaras när en frigörandet har utfärdats. De finns kvar.
 
 - <!-- 3078022 - IS, ASDK --> Om en virtuell dator var frigörandet innan 1808 gick det inte att uppdatera allokerade efter 1808 uppdateringen.  Det här problemet löses i 1809. Instanser som fanns i det här tillståndet och kunde inte startas kan startas i 1809 med den här snabbkorrigeringen. Korrigeringen förhindrar också att det här problemet igen.
+
+<!-- 3090289 – IS, ASDK --> 
+- Åtgärdat problemet där efter att uppdateringen 1808, du kan stöta på följande problem när du distribuerar virtuella datorer med hanterade diskar:
+
+   1. Om prenumerationen har skapats innan uppdateringen gjordes 1808, distribution av virtuella datorer med Managed Disks misslyckas med felmeddelandet internt. Följ dessa steg för varje prenumeration för att lösa problemet:
+      1. I klient-portalen går du till **prenumerationer** och hitta prenumerationen. Klicka på **Resursprovidrar**, klicka sedan på **Microsoft.Compute**, och klicka sedan på **Omregistrera**.
+      2. Under samma prenumeration, gå till **åtkomstkontroll (IAM)**, och kontrollera att **Azure Stack – hanterad Disk** visas.
+   2. Om du har konfigurerat en miljö med flera organisationer kan misslyckas distribuera virtuella datorer i en prenumeration som är associerade med en gästkatalogen med ett internt felmeddelande. Följ dessa steg för att lösa problemet:
+      1. Tillämpa den [1808 Azure Stack snabbkorrigering](https://support.microsoft.com/help/4471992).
+      2. Följ stegen i [i den här artikeln](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) att konfigurera om var och en av dina gäst-kataloger.
+
 
 ### <a name="changes"></a>Ändringar
 
@@ -128,7 +139,7 @@ Klicka på föregående länkarna för mer information om dessa säkerhetsrisker
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-- Installera den senaste Azure Stack snabbkorrigering för 1808 innan du tillämpar 1809. Mer information finns i [KB 4468920 – Azure Stack snabbkorrigering Azure Stack snabbkorrigering 1.1808.5.110](https://support.microsoft.com/en-us/help/4468920).
+- Installera den senaste Azure Stack snabbkorrigering för 1808 innan du tillämpar 1809. Mer information finns i [KB 4471992 – Azure Stack snabbkorrigering Azure Stack snabbkorrigering 1.1808.7.113](https://support.microsoft.com/help/4471992/).
 
   > [!TIP]  
   > Prenumerera på följande *RRS* eller *Atom* flöden, hålla jämna steg med Azure Stack snabbkorrigeringar:
@@ -157,9 +168,8 @@ Klicka på föregående länkarna för mer information om dessa säkerhetsrisker
 > [!Important]  
 > Förbereda distributionen av Azure Stack för tillägget värd som aktiveras av nästa uppdateringspaketet. Förbered datorn med hjälp av nedanstående procedur, [förbereda för tillägget för värd för Azure Stack](azure-stack-extension-host-prepare.md).
 
-<!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - [Link to KB]()  
- -->
+Installera alla tillämpliga snabbkorrigeringar efter installationen av uppdateringen. Visa mer information i följande artiklar i kunskapsbasen, samt våra [Servicing princip](azure-stack-servicing-policy.md).  
+- [KB 4471993 – Azure Stack snabbkorrigering Azure Stack snabbkorrigering 1.1809.3.96](https://support.microsoft.com/help/4471993/)  
 
 ## <a name="known-issues-post-installation"></a>Kända problem (efter installationen)
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: d52431b50e37101b0272e3ce4bbf91011a477775
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cb1c525527f7261c10b502a25b3cab3db89dd85f
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252095"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515151"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att skydda din infrastruktur för Identitetshantering
 
@@ -34,6 +34,10 @@ Den här checklistan hjälper dig att snabbt distribuera kritiska rekommenderade
 > [!NOTE]
 > Många av rekommendationerna i det här dokumentet gäller endast för program som är konfigurerade för att använda Azure Active Directory som deras identitetsprovider. Konfigurera appar för enkel inloggning säkerställer fördelarna med principer för autentiseringsuppgifter, hotidentifiering, granskning, loggning och andra funktioner lägga till i dessa program. [Enkel inloggning via Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) är grunden - där alla de här rekommendationerna är baserad.
 
+Rekommendationerna i det här dokumentet ligger i linje med de [identitet skyddar Score](https://docs.microsoft.com/azure/active-directory/fundamentals/identity-secure-score), en automatiserad bedömning av din Azure AD-klient identitet säkerhetskonfiguration. Organisationer kan använda sidan identitet skyddar Score i Azure AD-portalen för att hitta luckor i deras aktuella säkerhetskonfiguration att se till att de följer aktuella Metodtips för säkerhet. Implementera varje rekommendation på sidan skyddar Score förbättra resultatet och gör att du kan följa dina framgångar och hjälper dig att jämföra implementeringen mot andra liknande storlek organisationer eller din bransch.
+
+![Säker identitets-poäng](media/azure-ad/azure-ad-sec-steps0.png)
+
 ## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Innan du börjar: skydda Privilegierade konton med MFA
 
 Innan du börjar den här checklistan måste du kontrollera att du inte blir kompromissade medan du läser den här checklistan. Först måste du skydda din Privilegierade konton.
@@ -44,8 +48,8 @@ Allt klart? Nu sätter vi igång på checklistan.
 
 ## <a name="step-1---strengthen-your-credentials"></a>Steg 1 – Stärk dina autentiseringsuppgifter 
 
-De flesta enterprise säkerhetsöverträdelser som drabbar kommer med ett konto komprometteras med någon av några olika metoder, till exempel lösenord sprutar, brott repetitionsattacker eller nätfiske. Läs mer om dessa attacker i den här videon (1t 15 miljoner):
-> [!VIDEO https://channel9.msdn.com/events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3016/player]
+De flesta enterprise säkerhetsöverträdelser som drabbar kommer med ett konto komprometteras med någon av några olika metoder, till exempel lösenord sprutar, brott repetitionsattacker eller nätfiske. Läs mer om dessa attacker i den här videon (45 minuter):
+> [!VIDEO https://www.youtube.com/embed/uy0j1_t5Hd4]
 
 Om användare i identitetssystemet med hjälp av svaga lösenord och stärka dem inte med Multi-Factor authentication, det är inte bara några om eller när du blivit komprometterade – bara ”hur ofta”.
 
@@ -53,36 +57,36 @@ Om användare i identitetssystemet med hjälp av svaga lösenord och stärka dem
 
 Angivna frekvensen för att gissa lösenord phished, blir stulen med skadlig kod eller återanvänds, det är viktigt att bakåt lösenord med någon form av starka autentiseringsuppgifter – Lär dig mer om [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication).
 
-### <a name="turn-off-traditional-complexity-expiration-rules-and-start-banning-commonly-attacked-passwords-instead"></a>Inaktivera traditionella komplexitet, upphör att gälla regler och starta förbjuda vanliga angripna lösenord i stället
+### <a name="start-banning-commonly-attacked-passwords-and-turn-off-traditional-complexity-and-expiration-rules"></a>Starta förbjuda vanliga angripna lösenord och Stäng av traditionella komplexitet och upphör att gälla regler.
 
-Många organisationer använder traditionella komplexiteten (till exempel specialtecken) och regler för lösenord upphör att gälla. Microsofts forskning har visat dessa principer är skadliga, vilket gör att välja lösenord som är lättare att gissa.
+Många organisationer använder traditionella komplexiteten (kräver särskilda tecken, siffror, versaler och gemener) och regler för lösenord upphör att gälla. [Microsofts research](https://aka.ms/passwordguidance) har visat dessa principer orsaka att välja lösenord som är lättare att gissa.
 
-Microsofts rekommendationer, konsekvent med [NIST: S vägledning](https://pages.nist.gov/800-63-3/sp800-63b.html), är att implementera de följande tre:
+Azure Active Directorys [dynamisk förbjudna lösenord](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords) funktionen använder den aktuella angripare beteendet för att hindra användare från att ange lösenord som enkelt kan gissas. Den här funktionen är alltid aktiverat när användare skapas i molnet, men det finns nu även för hybridorganisationer när de distribuerar [Azure AD-lösenordsskydd för Windows Server Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). Azure AD-lösenordsskydd blockerar användare från att välja dessa vanliga lösenord och kan utökas för att blockera lösenord med anpassade nyckelord som du anger. Exempelvis kan du förhindra att användarna väljer lösenord som innehåller ditt företags produktnamn eller en lokal sport-teamet.
+
+Microsoft rekommenderar att du använder följande moderna lösenordsprincipen utifrån [NIST: S vägledning](https://pages.nist.gov/800-63-3/sp800-63b.html):
 
 1. Kräv lösenord har minst 8 tecken. Längre är inte nödvändigtvis bättre, eftersom de orsakar användare att välja förutsägbara lösenord, spara lösenord i filer eller Skriv ned dem.
-2. Inaktivera upphör att gälla regler som få användarna att enkelt att gissa lösenord som **Summer2018!**.
+2. Inaktivera upphör att gälla regler som få användarna att enkelt att gissa lösenord som **Summer2018!**
 3. Inaktivera tecken sammansättning krav och hindra användare från att välja ofta angripna lösenord, eftersom de orsakar användare att välja ersättningar för förutsägbar tecken i lösenord.
 
-Du kan använda [PowerShell för att förhindra att lösenord upphör att gälla](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) på användare om du skapar identiteter i Azure AD direkt. Organisationer som använder den lokala AD med Azure AD Connect att synkronisera identiteter till Azure AD (även kallat en hybriddistribution), bör implementera en lokal [intelligent lösenordsprinciper](https://aka.ms/passwordguidance) med [Grupprincip för domänen inställningar för](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) eller [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
-
-Azure Active Directorys [dynamisk förbjudna lösenord](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords) funktionen använder den aktuella angripare beteendet för att hindra användare från att ange lösenord som enkelt kan gissas. Den här funktionen är alltid aktiverad och organisationer med en hybriddistribution kan dra nytta av den här funktionen genom att aktivera [tillbakaskrivning av lösenord](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-writeback) eller de kan distribuera [Azure AD-lösenordsskydd för Windows Server Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). Azure AD-lösenordsskydd blockerar användare från att välja vanliga lösenord i allmänhet och anpassade lösenord som du kan konfigurera.
+Du kan använda [PowerShell för att förhindra att lösenord upphör att gälla](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) för användare om du skapar identiteter i Azure AD direkt. Hybridorganisationer bör implementera dessa principer med hjälp av [domän grupprincipinställningar] (https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10) eller [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
 
 ### <a name="protect-against-leaked-credentials-and-add-resilience-against-outages"></a>Skydda mot läckta autentiseringsuppgifter och lägga till återhämtning mot avbrott
 
-Om din organisation använder en hybrididentitetslösning, bör du aktivera synkronisering av lösenordshash för av följande skäl:
+Om din organisation använder en hybrididentitetslösning med direktautentisering eller federation, bör du aktivera lösenordshashsynkronisering av följande två skäl:
 
 * Den [användare med läckta autentiseringsuppgifter](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events) rapporten i Azure AD-hantering varnar dig om användarnamn och lösenord-par, som har gjorts tillgänglig på ”mörka Internet”. En fantastiska volym av lösenord har läckts via nätfiske och skadlig kod lösenord återanvändning på tredje parters webbplatser som har brutit mot senare. Microsoft hittar många av dessa läcka ut autentiseringsuppgifter och talar om för dig, i den här rapporten om de matchar autentiseringsuppgifter i din organisation –, men bara om du [aktivera lösenordshashsynkronisering](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization)!
-* Vid ett avbrott för lokala (till exempel i en utpressningstrojan-attack) kommer du att kunna växla till [autentisering i molnet med hjälp av synkronisering av lösenordshash](https://docs.microsoft.com/azure/security/azure-ad-choose-authn). Den här autentiseringsmetoden för säkerhetskopiering kan du fortsätta använda appar som har konfigurerats för autentisering med Azure Active Directory, inklusive Office 365.
+* Vid ett avbrott för lokala (till exempel i en utpressningstrojan-attack) kommer du att kunna växla till [autentisering i molnet med hjälp av lösenordshashsynkronisering](https://docs.microsoft.com/azure/security/azure-ad-choose-authn). Den här autentiseringsmetoden för säkerhetskopiering kan du fortsätta använda appar som har konfigurerats för autentisering med Azure Active Directory, inklusive Office 365. I det här fallet behöver IT-personal inte använda personliga e-postkonton att dela data förrän den lokala driftstörningarna har åtgärdats.
 
 Läs mer om hur [lösenordshashsynkronisering](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization) fungerar.
 
-### <a name="implement-ad-fs-extranet-lockout"></a>Implementera AD FS extranätsutelåsning
+### <a name="implement-ad-fs-extranet-smart-lockout"></a>Implementera AD FS smart extranätsutelåsning
 
-Organisationer som konfigurerar program för att autentisera direkt till Azure AD dra nytta av [smart Azure AD-kontoutelåsning](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords). Om du använder AD FS i Windows Server 2012 R2 måste implementera AD FS [extranät-kontoutelåsningsskydd](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). Om du använder AD FS i Windows Server 2016 måste implementera [smart extranätsutelåsning](https://support.microsoft.com/en-us/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). AD FS Smart extranät kontoutelåsning skyddar mot brute force-attacker, vilka mål AD FS samtidigt som användarna från att bli utelåsta i Active Directory.
+Organisationer som konfigurerar program för att autentisera direkt till Azure AD dra nytta av [smart Azure AD-kontoutelåsning](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords). Om du använder AD FS i Windows Server 2012 R2 måste implementera AD FS [extranät-kontoutelåsningsskydd](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). Om du använder AD FS i Windows Server 2016 måste implementera [smart extranätsutelåsning](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). AD FS Smart extranät kontoutelåsning skyddar mot brute force-attacker, vilka mål AD FS samtidigt som användarna från att bli utelåsta i Active Directory.
 
 ### <a name="take-advantage-of-intrinsically-secure-easier-to-use-credentials"></a>Dra nytta av är säker, lättanvänd autentiseringsuppgifter
 
-Med hjälp av [Windows Hello](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification), du kan ersätta lösenord med stark tvåfaktorsautentisering på datorer och mobila enheter. Den här autentiseringen består av en ny typ av autentiseringsuppgifter som är kopplad till en enhet och använder en biometriska eller PIN-kod.
+Med hjälp av [Windows Hello](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification), du kan ersätta lösenord med stark tvåfaktorsautentisering på datorer och mobila enheter. Den här autentiseringen består av en ny typ av autentiseringsuppgifter som är knutet på ett säkert sätt till en enhet och använder en biometriska eller PIN-kod.
 
 ## <a name="step-2---reduce-your-attack-surface"></a>Steg 2 – minska din attackyta
 
@@ -98,9 +102,11 @@ Appar som använder sina egna äldre metoder för att autentisera med Azure AD o
 
 ### <a name="block-invalid-authentication-entry-points"></a>Blockera ogiltig autentisering startpunkter
 
-Använda förutsätt intrång mentalitet kan minska effekten av avslöjade autentiseringsuppgifter när de inträffar. Överväg att giltig användningsfall för varje app i din miljö: vilka grupper, vilka nätverk, vilka enheter och andra element auktoriseras – och sedan blockera resten. Var noga med för att begränsa användningen av [mycket Privilegierade eller tjänsten konton](https://docs.microsoft.com/azure/active-directory/admin-roles-best-practices). Med [Azure AD villkorsstyrd åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), du kan styra hur behöriga användare åtkomst till sina appar och resurser baserat på specifika villkor som du definierar.
+Använda förutsätt intrång mentalitet kan minska effekten av avslöjade autentiseringsuppgifter när de inträffar. Överväg att giltig användningsfall för varje app i din miljö: vilka grupper, vilka nätverk, vilka enheter och andra element auktoriseras – och sedan blockera resten. Med [Azure AD villkorsstyrd åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), du kan styra hur behöriga användare åtkomst till sina appar och resurser baserat på specifika villkor som du definierar.
 
-Särskilt uppmärksam på tjänstkonton (konton som används för att utföra uppgifter i obevakat läge). Använder villkorlig åtkomst måste se du till sådana konton kan bara köras mot tjänsten från IP-adress, och tid på dagen, som är lämpliga.
+### <a name="block-end-user-consent"></a>Blockera slutanvändarens medgivande
+
+Som standard tillåts alla användare i Azure AD att bevilja program som använder OAuth 2.0 och Microsoft-identitet [ramverket för medgivande](https://docs.microsoft.com/azure/active-directory/develop/consent-framework) behörighet att komma åt företagets data. Medan medgivandedialogen tillåter användare att enkelt få användbara program som integreras med Microsoft 365 och Azure, kan representera en risk den om den inte används och övervakas noggrant. [Inaktivera alla framtida medgivande användaråtgärder](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access) kan hjälpa att minska dina utsatt område och minska denna risk. Om slutanvändarens medgivande inaktiveras tidigare medgivande ger kommer fortfarande att användas, men alla framtida godkännanden åtgärder måste utföras av en administratör. Innan du inaktiverar den här funktionen rekommenderas så att användare kan förstå hur du begär godkännande av administratören för nya program; Detta bör hjälpa att minska friktionen för användare, minimera support volym och se till att användarna inte registrera dig för program som använder icke-Azure AD-autentiseringsuppgifter.
 
 ### <a name="implement-azure-ad-privileged-identity-management"></a>Implementera Azure AD Privileged Identity Management
 
@@ -113,7 +119,7 @@ En annan effekten av ”förutsätta intrång” uppstår ofta behovet av att mi
 * Upprätta regler för att se till att Privilegierade roller är skyddade med multifaktorautentisering.
 * Upprätta regler för att se till att Privilegierade roller beviljas endast tillräckligt länge för att utföra Privilegierade uppgiften.
 
-Aktivera Azure AD PIM och visa de användare som tilldelas administrativa roller och ta bort onödiga konton i dessa roller. Återstående Privilegierade användare, flytta dem från permanent till berättigade. Slutligen kan upprätta lämpliga principer för att se till att när de behöver för att få åtkomst till dessa Privilegierade roller, de kan göra det på ett säkert sätt.
+Aktivera Azure AD PIM och visa de användare som tilldelas administrativa roller och ta bort onödiga konton i dessa roller. Återstående Privilegierade användare, flytta dem från permanent till berättigade. Slutligen kan upprätta lämpliga principer för att se till att när de behöver för att få åtkomst till dessa Privilegierade roller, kan de göra det på ett säkert sätt, med nödvändiga ändringskontroll.
 
 Som en del av distributionen privilegierat konto-processen, följer du de [bästa praxis att skapa minst två nödfall konton](https://docs.microsoft.com/azure/active-directory/admin-roles-best-practices) att kontrollera att du har åtkomst till Azure AD om du låser dig.
 
@@ -143,7 +149,7 @@ Microsoft Azure-tjänster och funktioner ger dig konfigurerbara säkerhet, grans
 
 ### <a name="monitor-azure-ad-connect-health-in-hybrid-environments"></a>Övervaka Azure AD Connect Health i hybridmiljöer
 
-[Övervakning av AD FS med Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs) får du bättre inblick i potentiella problem och synligheten för attacker på din AD FS-infrastruktur. Azure AD Connect Health ger aviseringar med information, Lösningssteg och länkar till relaterade dokument. Användningsanalys för flera prestandamått autentiseringstrafik; övervakning av programprestanda och rapporter.
+[Övervakning av AD FS med Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs) får du bättre inblick i potentiella problem och synligheten för attacker på AD FS-infrastrukturen. Azure AD Connect Health ger aviseringar med information, Lösningssteg och länkar till relaterade dokument. Användningsanalys för flera prestandamått autentiseringstrafik; övervakning av programprestanda och rapporter.
 
 ![Azure AD Connect Health](media/azure-ad/azure-ad-sec-steps4.png)
 
@@ -151,7 +157,15 @@ Microsoft Azure-tjänster och funktioner ger dig konfigurerbara säkerhet, grans
 
 [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) är ett meddelande, övervakning och rapportering verktyg som du kan använda för att identifiera potentiella problem som påverkar organisationens identiteter. Den identifierar riskhändelser, till exempel läckta autentiseringsuppgifter, omöjlig resa och inloggningar från smittade enheter, anonyma IP-adresser, IP-adresser som är associerade med misstänkt aktivitet och okända platser. Aktivera aviseringar för meddelandet att ta emot e-postadress till användare i farozonen och/eller en veckovis sammanfattad e-post.
 
+Azure AD Identity Protection ger två viktiga rapporter bör du övervaka varje dag:
+1. Riskfylld inloggning rapporter visar användare logga in aktiviteter som du bör undersöka, kan inte har utfört är tillförlitligt ägare inloggningen.
+2. Riskfylld Användarrapporter visar användarkonton som kan ha drabbats, till exempel läckta autentiseringsuppgifter som har identifierats eller användaren loggat in från olika platser som orsakar en omöjlig resa händelse. 
+
 ![Användare som har flaggats för risk](media/azure-ad/azure-ad-sec-steps3.png)
+
+### <a name="audit-apps-and-consented-permissions"></a>Granska appar och godkända behörigheter
+
+Användare kan vara att navigera till en komprometterad webbplats eller appar som får tillgång till deras profil och data, till exempel sin e-post. En skadlig aktören kan använda de godkända behörigheter togs emot för att kryptera innehållet postlåda och kräver en ransom för att få dina data för postlådan. [Administratörer bör granska och granska](https://blogs.technet.microsoft.com/office365security/defending-against-illicit-consent-grants/) de behörigheter som anges av användare.
 
 ## <a name="step-5---enable-end-user-self-help"></a>Steg 5: aktivera slutanvändarens självhjälp
 

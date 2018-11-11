@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: librown
-ms.openlocfilehash: 81c249c8dc8475428f4cb0014e57f09e28a3d9af
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 3a9fba644bd379f3f54cf07cf35c0a54029756da
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804335"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287191"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Lösenord utan telefoninloggning med Microsoft Authenticator-appen (offentlig förhandsversion)
 
@@ -37,11 +37,16 @@ För en förhandsversion, en administratör måste först lägga till en princip
 
 ### <a name="steps-to-enable"></a>Steg för att aktivera
 
-1. Installera den [offentliga förhandsversionen av Azure Active Directory V2 PowerShell-modulen](https://www.powershellgallery.com/packages/AzureADPreview/).  
-2. Kör två kommandon i PowerShell:
-   1. `Connect-AzureAD`
-      1. Logga in med ett konto i klient i dialogrutan för autentisering. Kontot måste antingen vara en säkerhetsadministratör eller Global administratör.
-   2. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
+Kontrollera att du har den senaste versionen av den offentliga förhandsversionen av Azure Active Directory V2 PowerShell-modulen. Du kanske vill avinstallera och installera om för att kontrollera detta genom att köra följande kommandon:
+
+1. `Uninstall-Module -Name AzureADPreview`
+2. `Install-Module -Name AzureADPreview`
+
+Du kan aktivera den lösenord utan inloggning förhandsvisning mobil med hjälp av följande PowerShell-kommandon:
+
+1. `Connect-AzureAD`
+   1. Logga in med ett konto i klient i dialogrutan för autentisering. Kontot måste antingen vara en säkerhetsadministratör eller Global administratör.
+1. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>Hur aktiverar slutanvändarna telefoninloggning?
 
@@ -61,7 +66,7 @@ När användaren har MFA-konto med push-meddelanden som ställts in i Microsoft 
 
 ### <a name="ad-fs-integration"></a>AD FS-integrering
 
-När en användare har aktiverat Microsoft Authenticator lösenord utan autentiseringsuppgifter, autentisering för den användaren alltid som standard skickar ett meddelande om godkännande. Den här logiken som förhindrar att användare i en hybrid-klient dirigeras till AD FS för att bekräfta din inloggning utan att användaren tar ytterligare ett steg att klicka på ”Använd ditt lösenord istället”. Den här processen kommer också kringgå alla principer för villkorlig åtkomst av lokala och direkt autentiseringsflöden. Undantag till den här processen är om en login_hint är anges en användare vara automatisk vidarebefordras till AD FS och kringgå alternativet att använda lösenord utan autentiseringsuppgifter.
+När en användare har aktiverat Microsoft Authenticator lösenord utan autentiseringsuppgifter, autentisering för den användaren alltid som standard skickar ett meddelande om godkännande. Den här logiken som förhindrar att användare i en hybrid-klient dirigeras till AD FS för att bekräfta din inloggning utan att användaren tar ytterligare ett steg att klicka på ”Använd ditt lösenord istället”. Den här processen kommer också kringgå alla principer för villkorlig åtkomst av lokala och direkt autentiseringsflöden. Undantag till den här processen är om en login_hint är anges en användare vara automatiskt till AD FS och kringgå alternativet att använda lösenord utan autentiseringsuppgifter.
 
 ### <a name="azure-mfa-server"></a>Azure MFA-servern
 

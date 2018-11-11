@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5a36c239e296d6f393c49932f1a369d8aae80b83
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a9a7848069300d5f52d16585a55313643e02bc72
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311110"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244465"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Hantera och anpassa Active Directory Federation Services med hjälp av Azure AD Connect
 Den här artikeln beskriver hur du hanterar och anpassa Active Directory Federation Services (AD FS) med hjälp av Azure Active Directory (Azure AD) Connect. Den innehåller också andra vanliga aktiviteter för AD FS som du kan behöva göra en fullständig konfiguration av AD FS-servergrupp.
@@ -81,7 +81,7 @@ Konfigurera alternativa inloggnings-ID för AD FS består av två Huvudsteg:
 
     ![Varning för saknar KB 2012 R2](./media/how-to-connect-fed-management/kbwarning.png)
 
-    Installera de nödvändiga för att åtgärda konfigurationen vid saknas KB [KB2919355](http://go.microsoft.com/fwlink/?LinkID=396590) och reparera förtroende med hjälp av [reparera AAD och AD FS-förtroendet](#repairthetrust).
+    Installera de nödvändiga för att åtgärda konfigurationen vid saknas KB [KB2919355](https://go.microsoft.com/fwlink/?LinkID=396590) och reparera förtroende med hjälp av [reparera AAD och AD FS-förtroendet](#repairthetrust).
 
 > [!NOTE]
 > Mer information om alternateID och hur du manuellt konfigurerar [konfigurera alternativa inloggnings-ID](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)

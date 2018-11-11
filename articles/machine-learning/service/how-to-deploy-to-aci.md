@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 8a736516a598eee051b416834d2b737211e66b96
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: b004abb3959bbfe36fc200bf762114f88f3d2ead
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429474"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345054"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>Distribuera webbtjänster till Azure Container Instances 
 
@@ -48,9 +48,12 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 ## <a name="configure-an-image"></a>Konfigurera en avbildning
 
 Konfigurera Docker-avbildningen som används för att lagra alla modellfiler som.
-1. Skapa ett bedömningsskript (score.py) [använder dessa instruktioner](tutorial-deploy-models-with-aml.md#create-scoring-script)
+1. Skapa ett bedömningsskript (score.py) [med hjälp av anvisningarna](tutorial-deploy-models-with-aml.md#create-scoring-script).
 
-1. Skapa en miljöfil (myenv.yml) [använder dessa instruktioner](tutorial-deploy-models-with-aml.md#create-environment-file) 
+    > [!IMPORTANT]
+    > Bedömningsskriptet tar emot data som skickats från klienter och skickar det till modell för bedömning. Dokumentera datastrukturen skript och modell du förväntar dig. Den här dokumentationen blir saker enklare när du skapar en klient för att använda webbtjänsten.
+
+1. Skapa en miljöfil (myenv.yml) [med hjälp av anvisningarna](tutorial-deploy-models-with-aml.md#create-environment-file).
 
 1. Använd dessa två filer för att konfigurera Docker-avbildningen i Python med hjälp av SDK på följande sätt:
 
@@ -217,8 +220,7 @@ Den här metoden ger dig de flesta kontroll över hur du skapar och namnger komp
 
 Nu kan du testa webbtjänsten.
 
-<a name='test-web-service'/>
-## <a name="test-the-web-service"></a>Testa webbtjänsten
+## <a name="a-nametest-web-servicetest-the-web-service"></a><a name='test-web-service'/>Testa webbtjänsten
 
 Webbtjänsten är samma oavsett vilken metod du använde.  För att få förutsägelser kan använda den `run` metoden för tjänsten.  
 
@@ -261,4 +263,5 @@ service.delete()
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [distribuera till Azure Kubernetes Service](how-to-deploy-to-aks.md) för distribueras i större skala. 
+* Lär dig hur du [förbruka en ML-modell som distribueras som en webbtjänst](how-to-consume-web-service.md).
+* Lär dig hur du [distribuera till Azure Kubernetes Service](how-to-deploy-to-aks.md) för distribueras i större skala. 

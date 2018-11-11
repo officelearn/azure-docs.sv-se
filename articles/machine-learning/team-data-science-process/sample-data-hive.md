@@ -1,6 +1,6 @@
 ---
-title: Exempel på data i Azure HDInsight Hive-tabeller | Microsoft Docs
-description: Ned provtagning data i Azure HDInsight (Hadopop) Hive-tabeller
+title: Exempeldata i Azure HDInsight Hive-tabeller | Microsoft Docs
+description: Ned samlar data i Hive-tabeller i Azure HDInsight (Hadopop)
 services: machine-learning,hdinsight
 documentationcenter: ''
 author: deguhath
@@ -15,34 +15,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 558f7d684453c8b5040f586820bd2a8a9ac0f9c8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 8a1fd001980efbff27f10cfb4be1502cd2f9f402
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838440"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345937"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Exempeldata i Azure HDInsight Hive-tabeller
-Den här artikeln beskriver hur du ned-sample data som lagras i Azure HDInsight Hive-tabeller som använder Hive-frågor för att minska det till en mer användarvänlig för analys storlek. Den omfattar tre provtagningsmetoder för vilket populärt används:
+Den här artikeln beskriver hur du nedåtsampla data som lagras i Azure HDInsight Hive-tabeller som använder Hive-frågor för att minska det till en storlek som är mer hanterbara för analys. Det omfattar tre metoder för vilket populärt används sampling:
 
-* Enhetlig slumpmässig provtagning
+* Enhetligt slumpmässigt urval
 * Slumpmässigt urval av grupper
-* Stratified provtagning
+* Stratified sampling
 
-Följande **menyn** länkar till avsnitt som beskriver hur du exempeldata från olika miljöer för lagring.
+**Varför prov på dina data?**
+Om datauppsättningen som du planerar att analysera är stor, men det är oftast en bra idé att nedåtsampla data för att minska det till en mindre men representativa och mer hanterbara storlek. Ned sampling underlättar förståelse av data, utforskning och funktioner. Dess roll i Team Data Science Process är att snabbt skapa prototyper för bearbetning av funktions- och machine learning-modeller.
 
-[!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
-
-**Varför exempel dina data?**
-Om datamängden som du planerar att analysera är stort, men det är vanligtvis en bra idé att ned-sample data för att minska det till en mindre men representativt och mer användarvänlig storlek. Ned provtagning underlättar data förstå undersökning och funktionen tekniker. Roll i teamet datavetenskap processen är att aktivera snabb prototyper för databearbetning funktions- och maskininlärning modeller.
-
-Sampling uppgiften är ett steg i den [Team Data vetenskap processen (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Den här aktiviteten för sampling är ett steg i den [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ## <a name="how-to-submit-hive-queries"></a>Hur du skickar in Hive-frågor
-Du kan skicka hive-frågor från Hadoop kommandoradskonsol i huvudnod i Hadoop-kluster. Gör detta genom att logga in huvudnod Hadoop-kluster, öppna Hadoop kommandoradskonsol och skicka Hive-frågor därifrån. Anvisningar för att skicka Hive-frågor i Hadoop kommandoradskonsol finns [så skicka Hive-frågor](move-hive-tables.md#submit).
+Du kan skicka hive-frågor från Hadoop kommandoradskonsol på huvudnoden för Hadoop-kluster. Gör detta genom att logga in huvudnoden för Hadoop-kluster, öppna Hadoop kommandoradskonsol och skicka Hive-frågor därifrån. Anvisningar för att skicka Hive-frågor i Hadoop kommandoradskonsol finns i [så skicka Hive-frågor](move-hive-tables.md#submit).
 
-## <a name="uniform"></a> Enhetlig slumpmässig provtagning
-Enhetligt slumpmässiga urval innebär att varje rad i datamängden som har ett lika risken för att sampla. Den kan implementeras genom att lägga till ett extra fält rand() datauppsättningen i frågan ”Välj” inre och yttre ”Välj” frågan villkoret på slumpmässiga fältet.
+## <a name="uniform"></a> Enhetligt slumpmässigt urval
+Enhetligt slumpmässigt urval innebär att varje rad i datauppsättningen har samma chans urvalet. Det kan implementeras genom att lägga till ett extra fält SLUMP() datauppsättningen i den inre ”Välj” frågan och i yttre ”Välj” frågan villkoret slumpmässiga fältet.
 
 Här är en exempelfråga:
 
@@ -57,12 +53,12 @@ Här är en exempelfråga:
         )a
     where samplekey<='${hiveconf:sampleRate}'
 
-Här kan `<sample rate, 0-1>` anger andelen poster som användare vill använda som exempel.
+Här kan `<sample rate, 0-1>` anger andelen av poster som användare vill ska samlas in.
 
 ## <a name="group"></a> Slumpmässigt urval av grupper
-När provtagning kategoriska data, du kanske vill inkludera eller exkludera alla instanser för vissa kategoriska variabelns värde. Den här typen av provtagning kallas ”sampling av grupp”. Om du har en kategoriska variabel till exempel ”*tillstånd*”, som innehåller värden som NY, MA, CA, NJ och PA, om du vill att posterna från varje tillstånd så att förekomma tillsammans, om de samplas eller inte.
+När kategoriska sampling av data kan du antingen inkludera eller exkludera alla instanser för vissa kategoriska variabelns värde. Den här typen av sampling kallas ”sampling av grupp”. Exempel: Om du har en variabel som kategoriska ”*tillstånd*”, som har värden som NY, MA, CA, NJ och PA kan du ha poster från varje tillstånd är tillsammans, oavsett om de samplas eller inte.
 
-Här är en exempelfråga som exempel av grupp:
+Här är en exempelfråga som exempel efter grupp:
 
     SET sampleRate=<sample rate, 0-1>;
     select
@@ -88,8 +84,8 @@ Här är en exempelfråga som exempel av grupp:
         )c
     on b.catfield=c.catfield
 
-## <a name="stratified"></a>Stratified provtagning
-Slumpmässig provtagning stratified med avseende på en kategoriska variabel när de prov som erhålls har kategoriska värden som finns i samma förhållandet som de var i överordnade populationen. Med det här exemplet som ovan, anta att dina data har anmärkningar utfärda: NJ har 100 observationer, NY har 60 observationer och WA har 300 observationer. Om du anger mängden stratified provtagning vara 0,5 bör sedan exemplet fick ha ungefär 50, 30 och 150 observationer av Dr, NY och WA respektive.
+## <a name="stratified"></a>Stratified sampling
+Stickprov stratified med avseende på en kategoriska variabel när de exempel som fick har kategoriska värden som finns i samma förhållandet som de var i överordnade populationen. Om du använder samma exempel som ovan, anta att dina data har följande observationer per tillstånd: NJ har 100 observationer, NY har 60 observationer och WA har 300 observationer. Om du anger mängden stratified sampling är 0,5 bör sedan exemplet fick ha ungefär 50, 30 och 150 observationer av NJ och NY WA respektive.
 
 Här är en exempelfråga:
 
@@ -107,5 +103,5 @@ Här är en exempelfråga:
     where state_rank <= state_cnt*'${hiveconf:sampleRate}'
 
 
-Mer information om avancerade provtagningsmetoder som är tillgängliga i Hive finns [LanguageManual provtagning](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
+Information om mer avancerade sampling metoder som är tillgängliga i Hive finns i [LanguageManual Sampling](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
 

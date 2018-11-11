@@ -3,7 +3,7 @@ title: Volym-drivrutinen (förhandsversion) för Service Fabric Azure Files | Mi
 description: Service Fabric stöder användningen av Azure Files att säkerhetskopiera volymer från din behållare. Detta är för närvarande i förhandsversion.
 services: service-fabric
 documentationcenter: other
-author: mani-ramaswamy
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
-ms.author: subramar
-ms.openlocfilehash: 0ce1ca09327fa0bd7fbbb82b8dc3c3bdc70d5028
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.author: twhitney, subramar
+ms.openlocfilehash: fabb44f9369dd7b7050ae353ab94263f140aae48
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239380"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346413"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure Files volym drivrutinen (förhandsversion)
 Plugin-programmet för Azure Files volym är en [Docker volym plugin-programmet](https://docs.docker.com/engine/extend/plugins_volume/) som ger [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) baserat på volymer för Docker-behållare. Det här plugin-program med Docker volymen kommer som ett Service Fabric-program som kan distribueras till Service Fabric-kluster. Dess syfte är att tillhandahålla Azure Files baserat på volymer för andra program i Service Fabric-behållare som distribueras till klustret.
@@ -166,12 +166,11 @@ I den **volym** element i kodfragmentet ovan, Azure Files volym plugin-programme
 - **Mål** – den här taggen är den plats där volymen har mappats till i behållaren som körs. Därför får inte mål vara en plats som redan finns i din behållare
 
 Enligt den **DriverOption** element i kodfragmentet ovan, Azure Files volym plugin-programmet har stöd för följande alternativ:
+- **Resursnamn** -namnet på filresursen för Azure Files med volymen för behållaren.
+- **storageAccountName** – namn på Azure-lagringskontot som innehåller filen Azure Files dela.
+- **storageAccountKey** -åtkomstnyckel för Azure storage-kontot som innehåller filresursen Azure Files.
+- **storageAccountFQDN** -domännamn som är associerade med lagringskontot. Om storageAccountFQDN inte anges kommer domännamnet skapas med hjälp av standard-suffix(.file.core.windows.net) med storageAccountName.  
 
-Drivrutinsalternativ som stöds:
-- **Resursnamn** -namnet på filresursen för Azure Files med volymen för behållaren
-- **storageAccountName** – namn på Azure-lagringskontot som innehåller filen Azure Files dela
-- **storageAccountKey** -åtkomstnyckel för Azure storage-kontot som innehåller filresursen Azure Files
-- **storageAccountFQDN** -domännamn som är associerade med lagringskontot. Om storageAccountFQDN inte anges kommer domännamnet skapas med hjälp av standard-suffix(.file.core.windows.net) med storageAccountName. 
     ```xml
     - Example1: 
         <DriverOption Name="shareName" Value="myshare1" />
@@ -184,6 +183,7 @@ Drivrutinsalternativ som stöds:
         <DriverOption Name="storageAccountKey" Value="mykey2" />
         <DriverOption Name="storageAccountFQDN" Value="myaccount2.file.core.chinacloudapi.cn" />
     ```
+
 ## <a name="using-your-own-volume-or-logging-driver"></a>Med hjälp av dina egna volym eller loggning drivrutin
 Service Fabric kan också användningen av dina egna anpassade [volym](https://docs.docker.com/engine/extend/plugins_volume/) eller [loggning](https://docs.docker.com/engine/admin/logging/overview/) drivrutiner. Om Docker volym/loggning drivrutinen inte är installerad på klustret, kan du installera det manuellt med hjälp av RDP/SSH-protokoll. Du kan utföra installationen med dessa protokoll via en [Start-skript för VM-skalningsuppsättningen](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) eller en [SetupEntryPoint skriptet](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service).
 

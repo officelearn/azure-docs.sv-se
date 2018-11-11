@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 11/05/2018
 ms.author: jingwang
-ms.openlocfilehash: d8bbc3a5e4ac14ed60fcd6e5f19bdf1df03455a6
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 3b1abe60fc81ae0316e2d0552a1750129171ff5f
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817032"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345461"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Kopiera data till och från Azure Data Lake Storage Gen1 med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,9 +44,6 @@ Mer specifikt stöder den här Azure Data Lake Store-anslutningen:
 > En genomgång av att använda Azure Data Lake Store-anslutningen finns i [läser in data i Azure Data Lake Store](load-azure-data-lake-store.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
-
->[!NOTE]
->När du använder verktyget för att kopiera Data för att skapa kopiering av pipeline eller Använd ADF UI för att utföra belastningstester anslutning/navigera mappar under redigering, kräver behörigheten för tjänstens huvudnamn eller MSI beviljas på rotnivå. Tag, kan kopiera körningsmiljön för aktiviteten fungera så länge som beviljats behörighet till data som ska kopieras. Du kan hoppa över redigering åtgärder om du behöver begränsa behörigheten.
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Azure Data lake Store.
 
@@ -79,6 +76,9 @@ Registrera en entitet för program i Azure Active Directory (Azure AD) för att 
 > Kontrollera att du ge tjänstens huvudnamn rätt behörighet i Azure Data Lake Store:
 >- **Som källa**, i Data explorer -> åtkomst, ge minst **Läs + kör** behörighet att visa och kopiera filerna i mappen/undermappar, eller **Läs** tillstånd att kopiera en fil, och väljer att Lägg till i **den här mappen och alla underordnade** för rekursiv och Lägg till som **behörigheten och en standardbehörighetsinlägg**. Inga krav på kontot på åtkomstkontroll (IAM).
 >- **Som mottagare**, i Data explorer -> åtkomst, ge minst **skriva + köra** behörighet att skapa underordnade objekt i mappen och välja att lägga till **den här mappen och alla underordnade** för rekursiv och Lägg till som **behörigheten och en standardbehörighetsinlägg**. Om du använder Azure IR för att kopiera (både källa och mottagare finns i molnet), i åtkomstkontroll (IAM), beviljar minst **läsare** roll för att identifiera Data Lake Store-region med Data Factory. Om du vill undvika den här IAM-rollen uttryckligen [skapa en Azure IR](create-azure-integration-runtime.md#create-azure-ir) med platsen för ditt Data Lake Store och associera i Data Lake Store-länkade tjänst som i följande exempel.
+
+>[!NOTE]
+>När du använder **Data Kopieringsverktyget** redigera kopiering av pipeline eller använda **ADF UI** för att utföra belastningstester anslutning/navigera mappar under redigering, den kräver behörigheten för tjänstens huvudnamn som beviljas **på rotnivå med ”kör” behörighet** för att lista mappar från roten. Tag, kan kopiera körningsmiljön för aktiviteten fungera så länge som beviljats behörighet till data som ska kopieras. Du kan hoppa över redigering åtgärder om du behöver begränsa behörigheten.
 
 Följande egenskaper stöds:
 
@@ -128,6 +128,9 @@ Använda hanterade identiteter för Azure-resurser autentisering:
 >- **Som källa**, i Data explorer -> åtkomst, ge minst **Läs + kör** behörighet att visa och kopiera filerna i mappen/undermappar, eller **Läs** tillstånd att kopiera en fil, och väljer att Lägg till i **den här mappen och alla underordnade** för rekursiv och Lägg till som **behörigheten och en standardbehörighetsinlägg**. Inga krav på kontot på åtkomstkontroll (IAM).
 >- **Som mottagare**, i Data explorer -> åtkomst, ge minst **skriva + köra** behörighet att skapa underordnade objekt i mappen och välja att lägga till **den här mappen och alla underordnade** för rekursiv och Lägg till som **behörigheten och en standardbehörighetsinlägg**. Om du använder Azure IR för att kopiera (både källa och mottagare finns i molnet), i åtkomstkontroll (IAM), beviljar minst **läsare** roll för att identifiera Data Lake Store-region med Data Factory. Om du vill undvika den här IAM-rollen uttryckligen [skapa en Azure IR](create-azure-integration-runtime.md#create-azure-ir) med platsen för ditt Data Lake Store och associera i Data Lake Store-länkade tjänst som i följande exempel.
 
+>[!NOTE]
+>När du använder **Data Kopieringsverktyget** redigera kopiering av pipeline eller använda **ADF UI** för att utföra belastningstester anslutning/navigera mappar under redigering, den kräver behörigheten beviljas **roten nivån med ”kör” behörighet** för att lista mappar från roten. Tag, kan kopiera körningsmiljön för aktiviteten fungera så länge som beviljats behörighet till data som ska kopieras. Du kan hoppa över redigering åtgärder om du behöver begränsa behörigheten.
+
 I Azure Data Factory behöver du inte ange några egenskaper förutom den allmänna Data Lake Store-informationen i den länkade tjänsten.
 
 **Exempel:**
@@ -159,7 +162,7 @@ För att kopiera data till och från Azure Data Lake Store, ange typegenskapen p
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för datauppsättningen måste anges till: **AzureDataLakeStoreFile** |Ja |
-| folderPath | Sökvägen till mappen i Data Lake Store. Jokerteckenfilter stöds inte. Exempel: rootfolder/undermappen / |Ja |
+| folderPath | Sökvägen till mappen i Data Lake Store. Jokerteckenfilter stöds inte. Om den inte anges som den pekar till roten. Exempel: rootfolder/undermappen / |Nej |
 | fileName | **Namn eller jokertecken-filtret** för den eller filerna under den angivna ”folderPath”. Om du inte anger ett värde för den här egenskapen datauppsättningen pekar på alla filer i mappen. <br/><br/>För filter tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar noll eller valfritt tecken).<br/>– Exempel 1: `"fileName": "*.csv"`<br/>– Exempel 2: `"fileName": "???20180427.txt"`<br/>Använd `^` att undvika om din faktiska filnamnet har jokertecken eller den här escape-tecken i.<br/><br/>Om filnamnet har inte angetts för en utdatauppsättning och **preserveHierarchy** inte har angetts i aktiviteten-mottagare kopieringsaktiviteten genererar automatiskt filnamnet med följande format ”:*Data. [ aktivitetskörning id GUID]. [GUID om FlattenHierarchy]. [format om konfigurerat]. [komprimering om konfigurerat]* ". Ett exempel är ”Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz”. |Nej |
 | Format | Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia).<br/><br/>Om du vill parsa eller generera filer med ett visst format format för följande filtyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Json-Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc-Format](supported-file-formats-and-compression-codecs.md#orc-format), och [Parquet-Format](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej (endast för binär kopia scenario) |
 | Komprimering | Ange typ och komprimeringsnivå för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**.<br/>Nivåer som stöds är: **Optimal** och **snabbast**. |Nej |

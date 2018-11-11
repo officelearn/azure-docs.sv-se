@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 9430a2b72e2599f4a64103016fcae940cbc0a417
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: ac15b95c19fb0184e902ebb43146a76b6ba2faaf
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249211"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283741"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Event Grid-utlösare för Azure Functions
 
@@ -245,12 +245,12 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 ## <a name="usage"></a>Användning
 
-För C# och F #-funktioner i Azure Functions 1.x, kan du använda följande parametertyper av för Event Grid-utlösare:
+För C# och F# funktioner i Azure Functions 1.x, kan du använda följande parametertyper av för Event Grid-utlösare:
 
 * `JObject`
 * `string`
 
-För C# och F #-funktioner i Azure Functions 2.x kan du också alternativet att använda följande parametertypen för Event Grid-utlösare:
+För C# och F# funktioner i Azure Functions 2.x kan du också alternativet att använda följande parametertypen för Event Grid-utlösare:
 
 * `Microsoft.Azure.EventGrid.Models.EventGridEvent`-Definierar egenskaperna för fält som är gemensamma för alla händelsetyper.
 
@@ -358,6 +358,14 @@ Läs mer om hur du skapar en prenumeration, [snabbstarten om blob storage](../st
 ### <a name="get-the-system-key"></a>Hämta systemnyckel för
 
 Du kan få systemnyckeln med hjälp av följande API (HTTP GET):
+
+#### <a name="version-2x-runtime"></a>Version 2.x-körningen
+
+```
+http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgrid_extension?code={masterkey}
+```
+
+#### <a name="version-1x-runtime"></a>Version 1.x-körningen
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}

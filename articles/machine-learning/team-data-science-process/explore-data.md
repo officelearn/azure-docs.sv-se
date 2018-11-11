@@ -1,6 +1,6 @@
 ---
-title: Utforska data i Team av vetenskapliga data | Microsoft Docs
-description: Så här utforska data i olika miljöer för lagring.
+title: Utforska data i Team Data Science Process | Microsoft Docs
+description: Så här att utforska data i olika lagringsmiljöer.
 services: machine-learning,storage
 documentationcenter: ''
 author: deguhath
@@ -13,24 +13,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 11/08/2018
 ms.author: deguhath
-ms.openlocfilehash: 168d2852d8905735b450850c8bb32a1ae07a620d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 55d92fedbb67d21d34464b792b3600eb6964840b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837301"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345529"
 ---
 # <a name="explore-data-in-the-team-data-science-process"></a>Utforska data i TDSP (Team Data Science Process)
-Det här dokumentet innehåller information om hur att utforska data i fyra olika lagringsplatser miljöer som vanligtvis används i vetenskap av data:
 
-* **Azure blob-behållaren** data har arbetat med hjälp av den [Pandas](http://pandas.pydata.org/) Python-paketet.
-* **SQL Server** data har arbetat med SQL och med hjälp av programmeringsspråk som Python.
-* **Hive tabell** data har arbetat med hjälp av Hive-frågor.
-* **Azure Machine Learning (AML) Studio** data har arbetat med AML-moduler.
+Utforska data är ett steg i den [Team Data Science Process](overview.md).
 
-Följande **menyn** länkar till avsnitt som beskriver hur du använder dessa verktyg för att utforska data från olika miljöer för lagring. 
+I följande artiklar beskrivs hur du utforska data i tre olika lagringsmiljöer som vanligtvis används i Data Science Process:
 
-[!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
+* Utforska [Azure blob-behållare](explore-data-blob.md) data med hjälp av den [Pandas](http://pandas.pydata.org/) Python-paketet.
+* Utforska [SQL Server](explore-data-sql-server.md) data med hjälp av SQL och med hjälp av ett programmeringsspråk som Python.
+* Utforska [Hive-tabell](explore-data-hive-tables.md) data med hjälp av Hive-frågor.
 
+Dessutom videon [Förbearbeta Data i Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/), beskriver vanliga moduler för att rensa och transformera data i Azure Machine Learning Studio.

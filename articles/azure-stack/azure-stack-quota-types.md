@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/30/2018
+ms.date: 11/08/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 3c0ab236dd6fce10be0a50c435f04517e14c1387
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: ec84c87e047d6426d24ef339d1247c6cb53954dd
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077603"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299427"
 ---
 # <a name="quota-types-in-azure-stack"></a>Kvottyper i Azure Stack
 
@@ -31,15 +31,15 @@ ms.locfileid: "49077603"
 ## <a name="compute-quota-types"></a>Compute kvottyper 
 | **Typ** | **Standardvärde** | **Beskrivning** |
 | --- | --- | --- |
-| Maxantal virtuella datorer | 20 | Det maximala antalet virtuella datorer som en prenumeration kan skapa i den här platsen. |
-| Maxantal virtuella kärnor | 50 | Det maximala antalet kärnor som en prenumeration kan skapa i den här platsen (till exempel en A3 VM har fyra kärnor). |
+| Maxantal virtuella datorer | 50 | Det maximala antalet virtuella datorer som en prenumeration kan skapa i den här platsen. |
+| Maxantal virtuella kärnor | 100 | Det maximala antalet kärnor som en prenumeration kan skapa i den här platsen (till exempel en A3 VM har fyra kärnor). |
 | Max antal tillgänglighetsuppsättningar | 10 | Det maximala antalet tillgänglighetsuppsättningar som kan skapas i den här platsen. |
-| Max antal VM-skalningsuppsättningar | 20 | Det maximala antalet VM-skalningsuppsättningar som kan skapas på den här platsen. |
+| Max antal VM-skalningsuppsättningar | 100 | Det maximala antalet VM-skalningsuppsättningar som kan skapas på den här platsen. |
 
 ## <a name="storage-quota-types"></a>Kvot lagringstyper 
 | **Objekt** | **Standardvärde** | **Beskrivning** |
 | --- | --- | --- |
-| Maximal kapacitet (GB) |500 |Total lagringskapacitet som kan användas av en prenumeration på den här platsen. |
+| Maximal kapacitet (GB) |2048 |Total lagringskapacitet som kan användas av en prenumeration på den här platsen. |
 | Totalt antal lagringskonton |20 |Det maximala antalet lagringskonton som en prenumeration kan skapa i den här platsen. |
 
 > [!NOTE]  

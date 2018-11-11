@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 718b57a801a9ba62a0154ae42da2ac0c0741f203
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e25f98f1189f71943ece4a7877a86e29698689a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22706656"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240519"
 ---
 # <a name="biztalk-services-editions-chart"></a>BizTalk Services: Diagram över utgåvor
 
@@ -63,7 +63,7 @@ I nedanstående tabell visas skillnaderna.
 
 <tr>
 <td><strong>Startpris</strong></td>
-<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Priser för Azure BizTalk Services</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full"> Priskalkylator för Azure</a></td>
+<td colspan="5"><a HREF="https://go.microsoft.com/fwlink/p/?LinkID=304011"> Priser för Azure BizTalk Services</a> <br/><br/> <a HREF="https://azure.microsoft.com/pricing/calculator/?scenario=full"> Priskalkylator för Azure</a></td>
 </tr>
 <tr>
 <td><strong>Minsta standardkonfiguration</strong></td>
@@ -153,7 +153,7 @@ Innefattar TPM-avtal</td>
 <tr>
 <td><strong>Hög tillgänglighet</strong>
 <br/><br/>
-För serviceavtal (SLA), läs mer i <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Prissättning för Azure BizTalk Services</a>.
+För serviceavtal (SLA), läs mer i <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=304011"> Prissättning för Azure BizTalk Services</a>.
 </td>
 <td>Ingår inte</td>
 <td>Ingår inte</td>
@@ -242,10 +242,10 @@ Free-utgåvan kan inte migreras eller ”skalas upp” till en annan nivå och k
 För de återstående utgåvorna använder du säkerhetskopiering och återställning för att migrera artefakterna från en nivå till en annan. Du kan till exempel säkerhetskopiera dina artefakter på Standard-nivån och återställa dem till Premium-nivån. [BizTalk Services: Säkerhetskopiering och återställning](biztalk-backup-restore.md) beskriver de migreringsvägar som stöds och visar en lista över vilka artefakter som säkerhetskopieras. Observera att hybridanslutningar inte säkerhetskopieras. När du har säkerhetskopierat och återställt till en ny nivå återskapar du sedan hybridanslutningarna.  
 
 #### <a name="is-the-biztalk-adapter-service-included-in-the-service-how-do-i-receive-the-software"></a>Ingår BizTalk Adapter i tjänsten? Hur får jag programvaran?
-Ja, BizTalk Adapter-tjänsten med BizTalk Adapter Pack ingår i Azure BizTalk Services SDK-[hämtning](http://www.microsoft.com/download/details.aspx?id=39087).
+Ja, BizTalk Adapter-tjänsten med BizTalk Adapter Pack ingår i Azure BizTalk Services SDK-[hämtning](https://www.microsoft.com/download/details.aspx?id=39087).
 
 ## <a name="next-steps"></a>Nästa steg
-Om du vill skapa Azure BizTalk Services i Azure-portalen går du till [BizTalk Services: Etablering med hjälp av Azure-portalen](biztalk-provision-services.md). Om du vill börja skapa program går du till [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Om du vill skapa Azure BizTalk Services i Azure-portalen går du till [BizTalk Services: Etablering med hjälp av Azure-portalen](biztalk-provision-services.md). Om du vill börja skapa program går du till [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 * [BizTalk Services: Etablering med hjälp av Azure-portalen](biztalk-provision-services.md)<br/>
@@ -254,5 +254,5 @@ Om du vill skapa Azure BizTalk Services i Azure-portalen går du till [BizTalk S
 * [BizTalk Services: Säkerhetskopiering och återställning](biztalk-backup-restore.md)<br/>
 * [BizTalk Services: Begränsning](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk Services: Utfärdarens namn och nyckel](biztalk-issuer-name-issuer-key.md)<br/>
-* [Hur gör jag för att börja använda Azure BizTalk Services SDK?](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Hur gör jag för att börja använda Azure BizTalk Services SDK?](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 

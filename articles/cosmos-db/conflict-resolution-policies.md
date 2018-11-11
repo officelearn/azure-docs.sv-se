@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: c682b61a39224f2c80db8fe5fa153ea5e5d82922
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1b2a122cc8a04d4f0044ecb0fe0341357bc29c0f
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958580"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514833"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Konflikt typer och principer för lösning
 
 Skriva regioner konflikter och konfliktlösning policys är tillämpbara om Cosmos-konto har konfigurerats med flera.
 
-För Cosmos DB-konton som har konfigurerats med flera Skriv-regioner kan update konflikter uppstå när flera skrivare samtidigt uppdaterar samma objekt i flera regioner. Uppdateringskonflikter indelas i följande tre typer.
+För Cosmos-konton som har konfigurerats med flera Skriv-regioner kan update konflikter uppstå när flera skrivare samtidigt uppdaterar samma objekt i flera regioner. Uppdateringskonflikter indelas i följande tre typer.
 
 1. **Infoga konflikter:** dessa konflikter kan uppstå när ett program samtidigt infogar två eller flera objekt med samma unika index (till exempel ID-egenskap) från två eller fler regioner. I det här fallet alla skrivningar kan lyckas inledningsvis i deras respektive lokala regioner, men baserat på principen för konfliktlösning du väljer kan bara ett objekt med den ursprungliga ID strävar slutligen.
 

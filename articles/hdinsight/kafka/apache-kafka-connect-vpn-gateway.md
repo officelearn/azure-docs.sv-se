@@ -3,18 +3,18 @@ title: Ansluta till Kafka med hjälp av virtuella nätverk – Azure HDInsight
 description: Lär dig mer om att ansluta direkt till Kafka på HDInsight med Azure Virtual Network. Lär dig hur du ansluter till Kafka från utveckling-klienter som använder en VPN-gateway eller från klienter i ditt lokala nätverk med hjälp av en VPN-gateway-enhet.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/02/2018
-ms.openlocfilehash: 973563a0c9a986bb4dec785b4521566acb657d15
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 11/06/2018
+ms.openlocfilehash: da98873b133d69d78271494b991b67caea1d5a11
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042402"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283078"
 ---
 # <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Ansluta till Kafka på HDInsight via Azure-nätverk
 
@@ -35,7 +35,7 @@ HDInsight tillåter inte direkt anslutning till Kafka via offentligt internet. K
     2. Skapa en VPN-gateway som använder en plats-till-plats-konfiguration. Konfigurationen används i det här dokumentet ansluter till en VPN-gateway-enhet i ditt lokala nätverk.
     3. Skapa en DNS-server i det virtuella nätverket.
     4. Konfigurera vidarebefordran mellan DNS-servern i varje nätverk.
-    5. Installera Kafka på HDInsight till det virtuella nätverket.
+    5. Skapa en Kafka på HDInsight-kluster i det virtuella nätverket.
 
     Mer information finns i den [Anslut till Kafka från ett lokalt nätverk](#on-premises) avsnittet. 
 
@@ -43,8 +43,8 @@ HDInsight tillåter inte direkt anslutning till Kafka via offentligt internet. K
 
     1. Skapa ett virtuellt nätverk.
     2. Skapa en VPN-gateway som använder en punkt-till-plats-konfiguration. Den här konfigurationen kan användas med både Windows och MacOS klienter.
-    3. Installera Kafka på HDInsight till det virtuella nätverket.
-    4. Konfigurera Kafka för IP-annonsering. Den här konfigurationen gör att klienten kan ansluta med IP-adressering i stället för domännamn.
+    3. Skapa en Kafka på HDInsight-kluster i det virtuella nätverket.
+    4. Konfigurera Kafka för IP-annonsering. Den här konfigurationen gör att klienten kan ansluta med broker IP-adresser i stället för domännamn.
     5. Ladda ned och använda VPN-klienten på utvecklingssystemet.
 
     Mer information finns i den [Anslut till Kafka med en VPN-klient](#vpnclient) avsnittet.

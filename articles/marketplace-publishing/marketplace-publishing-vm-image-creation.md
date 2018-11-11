@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 6469ff9c59c87bc6735e795195866b0aaf211246
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2ec758d9457b75cd7e5f6f29757d3201f3a6d62e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262139"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283486"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guiden för att skapa en avbildning av virtuell dator för Azure Marketplace
 Den här artikeln **steg 2**, beskriver hur du förbereder de virtuella hårddiskarna (VHD) som du distribuerar på Azure Marketplace. De virtuella hårddiskarna är grunden för din SKU. Processen skiljer sig beroende på om du erbjuder en Linux- eller Windows-baserad SKU. Den här artikeln tas båda scenarier upp. Den här processen kan utföras parallellt med [skapande och registrering][link-acct-creation].
@@ -191,7 +191,7 @@ Om du vill veta mer om VM-avbildningar kan du granska följande blogginlägg:
 
 ### <a name="set-up-the-necessary-tools-powershell-and-azure-classic-cli"></a>Konfigurera nödvändiga verktyg, PowerShell och Azure klassiskt CLI
 * [Så här konfigurerar du PowerShell](/powershell/azure/overview)
-* [Så här konfigurerar du Azure klassiskt CLI](../cli-install-nodejs.md)
+* [Så här konfigurerar du Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ### <a name="41-create-a-user-vm-image"></a>4.1 skapa en virtuell datoravbildning för användare
 #### <a name="capture-vm"></a>Avbilda virtuell dator
@@ -427,63 +427,45 @@ Nedan följer stegen för att generera SAS-Webbadressen genom att använda Micro
 
 11. Upprepa stegen för varje VHD i SKU:n.
 
-**Klassisk Azure-CLI (rekommenderas för icke-Windows & kontinuerlig integrering)**
+**Azure CLI 2.0 (rekommenderas för icke-Windows och kontinuerlig integrering)**
 
 Nedan följer stegen för att generera SAS-Webbadressen genom att använda Azure klassiskt CLI
 
 [!INCLUDE [outdated-cli-content](../../includes/contains-classic-cli-content.md)]
 
-1.  Ladda ned den klassiska Azure CLI från [här](https://azure.microsoft.com/documentation/articles/xplat-cli-install/). Du kan också hitta olika länkar för **[Windows](https://aka.ms/webpi-azure-cli)** och  **[MAC OS](https://aka.ms/mac-azure-cli)**.
+1.  Ladda ned Microsoft Azure-CLI från [här](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Du kan också hitta olika länkar för **[Windows](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest)** och  **[MAC OS](https://docs.microsoft.com/cli/azure/install-azure-cli-macos?view=azure-cli-latest)**.
 
 2.  När det har laddats ned, installera
 
-3.  Skapa ett PowerShell (eller andra skript körbara filen) med följande kod och spara den lokalt
+3.  Skapa en Bash (eller andra motsvarande skript körbara filen) med följande kod och spara den lokalt
 
-          $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
-          azure storage container list vhds -c $conn
-          azure storage container sas create vhds rl <Permission End Date> -c $conn --start <Permission Start Date>  
+        export AZURE_STORAGE_ACCOUNT=<Storage Account Name>
+        EXPIRY=$(date -d "3 weeks" '+%Y-%m-%dT%H:%MZ')
+        CONTAINER_SAS=$(az storage container generate-sas --account-name -n vhds --permissions rl --expiry $EXPIRY -otsv)
+        BLOB_URL=$(az storage blob url -c vhds -n <VHD Blob Name> -otsv)
+        echo $BLOB_URL\?$CONTAINER_SAS
 
     Uppdatera följande parametrar i ovan
 
-    a. **`<StorageAccountName>`**: Ge namnet på ditt lagringskonto
+    a. **`<Storage Account Name>`**: Ge namnet på ditt lagringskonto
 
-    b. **`<Storage Account Key>`**: Ger din lagringskontonyckel
+    b. **`<VHD Blob Name>`**: Ge namnet på din VHD-blob.
 
-    c. **`<Permission Start Date>`**: Välj dag före aktuellt datum om du vill skydda för UTC-tid. Till exempel om det aktuella datumet infaller 26 oktober 2016, sedan värdet bör vara 10/25/2016. Om du använder Azure CLI version 2.0 eller senare, ange både datum och tid i Start- och slutdatum, till exempel: 10-25-2016T00:00:00Z.
+    Välj ett datum som är minst tre veckor efter startdatumet (standardvärde sas-token genererades). Ett exempel är: **2018-10-11T23:56Z**.
 
-    d. **`<Permission End Date>`**: Välj ett datum som är minst tre veckor efter den **startdatum**. Värdet ska vara **2016-02-11**. Om du använder Azure CLI version 2.0 eller senare, ange både datum och tid i Start- och slutdatum, till exempel: 11-02-2016T00:00:00Z.
+    Följande är exempelkoden efter uppdatering rätt parametrar exportera AZURE_STORAGE_ACCOUNT = vhdstorage1ba78dfb6bc2d8 förfallodatum = $(date -d ”3 veckor” ”+ %Y-%m-% dT % H: % MZ”) CONTAINER_SAS = $(az storage container generera sas - n virtuella hårddiskar – behörigheter rl – utgången $ FÖRFALLODATUM - otsv) BLOB_URL = $(az storage blob url - c VHD - n osdisk_1ba78dfb6b.vhd - otsv) echo $BLOB_URL\?$CONTAINER_SAS
 
-    Följande är exempelkoden när du har uppdaterat rätt parametrar
+4.  Kör skriptet och ger du SAS-Webbadressen för åtkomst till nivån-behållare.
 
-          $conn="DefaultEndpointsProtocol=https;AccountName=st20151;AccountKey=TIQE5QWMKHpT5q2VnF1bb+NUV7NVMY2xmzVx1rdgIVsw7h0pcI5nMM6+DVFO65i4bQevx21dmrflA91r0Vh2Yw=="
-          azure storage container list vhds -c $conn
-          azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
-
-4.  Öppna Redigeraren för Powershell med ”Kör som administratör”-läge och öppna filen i steg #3. Du kan använda valfri Skriptredigerare som är tillgänglig för ditt operativsystem.
-
-5.  Kör skriptet och ger du SAS-Webbadressen för åtkomst till nivån-behållare
-
-    Följande ska utdata för SAS-signaturen och kopiera den markerade delen i anteckningar
-
-    ![Rita](media/marketplace-publishing-vm-image-creation/img5.2_16.png)
-
-6.  Nu får du behållarenivån SAS-URL och du måste lägga till namn på virtuell Hårddisk i den.
-
-    Behållare på SAS-Webbadressen #
-
-    `https://st20151.blob.core.windows.net/vhds?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
-
-7.  Infoga namn på virtuell Hårddisk efter behållarens namn i SAS-Webbadressen som visas nedan `https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
-
-    Exempel:
-
-    TestRGVM201631920152.vhd är den virtuella Hårddiskens namn och sedan VHD SAS URL: en blir
-
-    `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
+5.  Kontrollera din SAS-URL.
 
     - Se till att ditt filnamn för avbildning och ”VHD” finns i URI: N.
     -   I mitten av signaturen, se till att ”sp = rl” visas. Detta demonstrerar att läs- och lista åtkomst har angetts korrekt.
     -   I mitten av signaturen, se till att ”sr = c” visas. Detta demonstrerar att du har åtkomst till nivån-behållare
+
+    Exempel:
+
+    `https://vhdstorage1ba78dfb6bc2d8.blob.core.windows.net/vhds/osdisk_1ba78dfb6b.vhd?se=2018-10-12T00%3A04Z&sp=rl&sv=2018-03-28&sr=c&sig=...`
 
 8.  Säkerställ att den genererade delad åtkomst signatur URI: N fungerar genom att testa den i webbläsaren. Den bör starta hämtningen
 

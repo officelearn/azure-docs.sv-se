@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/09/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 1414fd7b559a1bf12cc26d218f4577bbdc986916
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a28168291c79dc54feb5ff572c609cdfb09a187f
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964126"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515598"
 ---
 # <a name="azure-stack-1808-update"></a>Uppdatering av Azure Stack 1808
 
@@ -64,12 +64,13 @@ Den här uppdateringen innehåller följande förbättringar för Azure Stack.
 - **Marketplace-objekt för Kubernetes**. Du kan nu distribuera Kubernetes-kluster med hjälp av den [Kubernetes Marketplace-objekt](azure-stack-solution-template-kubernetes-cluster-add.md). Användare kan det Kubernetes-objekt och fylla i några parametrar för att distribuera ett Kubernetes-kluster i Azure Stack. Syftet med mallarna är att göra det enkelt för användarna att ställa in Kubernetes-distributioner för utveckling/testning med några få steg.
 
 <!-- | IS ASDK--> 
-- **Blockchain mallar**. Du kan nu köra [Ethereum consortium distributioner](azure-stack-ethereum.md) på Azure Stack. Du kan hitta tre nya mallar i den [Azure Stack Snabbstartsmallarna](https://github.com/Azure/AzureStack-QuickStart-Templates). De används att distribuera och konfigurera ett flera medlem Ethereum konsortienätverk med minimal kunskap om Azure och Ethereum. Syftet med mallarna är att göra det enkelt för användarna att ställa in utveckling/testning Blockchain distributioner med några få steg.
+- **Blockchain mallar**. Du kan nu köra [Ethereum consortium distributioner](user/azure-stack-ethereum.md) på Azure Stack. Du kan hitta tre nya mallar i den [Azure Stack-snabbstartsmallar](https://github.com/Azure/AzureStack-QuickStart-Templates). De används att distribuera och konfigurera ett flera medlem Ethereum konsortienätverk med minimal kunskap om Azure och Ethereum. Syftet med mallarna är att göra det enkelt för användarna att ställa in utveckling/testning Blockchain distributioner med några få steg.
 
 <!-- | IS ASDK--> 
 - **API-version profilen 2017-03-09-profilen har uppdaterats till 2018-03-01-hybrid**. API-profiler ange Azure-resursprovidern och API-version för Azure REST-slutpunkter. Mer information om profiler finns i [hantera API-versionsprofiler i Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
 
- ### <a name="fixed-issues"></a>Åtgärdade problem
+### <a name="fixed-issues"></a>Åtgärdade problem
+
 <!-- IS ASDK--> 
 - Vi har åtgärdat problemet för att skapa en tillgänglighetsuppsättning i portalen som resulterade i gruppen med en feldomän och uppdateringsdomän 1. 
 
@@ -162,7 +163,7 @@ Den här uppdateringen innehåller även minskningen för spekulativ körning si
 > Förbereda distributionen av Azure Stack för tillägget värden. Förbered datorn med hjälp av nedanstående procedur, [förbereda för tillägget för värd för Azure Stack](azure-stack-extension-host-prepare.md).
 
 Installera alla tillämpliga snabbkorrigeringar efter installationen av uppdateringen. Visa mer information i följande artiklar i kunskapsbasen, samt våra [Servicing princip](azure-stack-servicing-policy.md). 
-- [KB 4468920 – Azure Stack snabbkorrigering Azure Stack snabbkorrigering 1.1808.5.110](https://support.microsoft.com/help/4468920/)
+- [KB 4468920 – Azure Stack snabbkorrigering Azure Stack snabbkorrigering 1.1808.7.113](https://support.microsoft.com/help/4471992/)
 
 
 ## <a name="known-issues-post-installation"></a>Kända problem (efter installationen)
@@ -253,8 +254,11 @@ Här följer efter installation kända problem för den här build-versionen.
 
 ### <a name="compute"></a>Compute
 
+<!-- 3164607 – IS, ASDK -->
+- Återansluta en kopplas från disk till samma virtuella-dator (VM) med samma namn och LUN misslyckas med ett fel som **det går inte att koppla data disk 'datadisk' till virtuell dator ”vm1”**. Felet inträffar eftersom disken håller på att frånkopplas eller senaste frånkopplingen misslyckades. Vänta tills disken är helt frånkopplad och sedan försök igen eller ta bort/frånkoppla disken igen. Lösningen är att ansluta den igen med ett annat namn eller på en annan logisk enhet. 
+
 <!-- 3099544 – IS, ASDK --> 
-- När du skapar en ny virtuell dator (VM) med hjälp av Azure Stack-portalen och du väljer virtuella datorstorlek, kolumnen USD/månad visas med en **ej tillgänglig** meddelande. Den här kolumnen visas inte; Visar den virtuella datorn stöds prissättning kolumn inte i Azure Stack.
+- När du skapar en ny virtuell dator med hjälp av Azure Stack-portalen och du väljer virtuella datorstorlek, kolumnen USD/månad visas med en **ej tillgänglig** meddelande. Den här kolumnen visas inte; Visar den virtuella datorn stöds prissättning kolumn inte i Azure Stack.
 
 <!-- 3090289 – IS, ASDK --> 
 - Efter att ha tillämpat 1808 uppdatera, du kan stöta på följande problem när du distribuerar virtuella datorer med hanterade diskar:
@@ -263,7 +267,7 @@ Här följer efter installation kända problem för den här build-versionen.
       1. I klient-portalen går du till **prenumerationer** och hitta prenumerationen. Klicka på **Resursprovidrar**, klicka sedan på **Microsoft.Compute**, och klicka sedan på **Omregistrera**.
       2. Under samma prenumeration, gå till **åtkomstkontroll (IAM)**, och kontrollera att **Azure Stack – hanterad Disk** visas.
    2. Om du har konfigurerat en miljö med flera organisationer kan misslyckas distribuera virtuella datorer i en prenumeration som är associerade med en gästkatalogen med ett internt felmeddelande. Följ dessa steg för att lösa problemet:
-      1. Tillämpa den [1808 Azure Stack snabbkorrigering](https://support.microsoft.com/help/4468920/).
+      1. Tillämpa den [1808 Azure Stack snabbkorrigering](https://support.microsoft.com/help/4471992/).
       2. Följ stegen i [i den här artikeln](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) att konfigurera om var och en av dina gäst-kataloger.
       
 <!-- 3179561 - IS --> 

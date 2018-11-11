@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: a88a0d9105942502b634f3be7c3279167ea590c6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: d5ea6f18fb288711bae67b6840ddb5b8bb9942c2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393260"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245451"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Kom igång med Microsoft Authenticator-appen
 
@@ -39,7 +39,7 @@ Du kan också använda Microsoft Authenticator-appen med icke-Microsoft-konton. 
 
 ## <a name="install-the-app"></a>Installera appen
 
-Microsoft Authenticator-appen finns för [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) och [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). För att få bästa möjliga upplevelse, bör du låta appen få meddelanden när du blir tillfrågad. 
+Microsoft Authenticator-appen finns för [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) och [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071). För att få bästa möjliga upplevelse, bör du låta appen få meddelanden när du blir tillfrågad. 
 
 ## <a name="add-accounts-to-the-app"></a>Lägga till konton i appen
 
@@ -51,7 +51,7 @@ För ett personligt microsoftkonto (en som används för att logga in på Outloo
 
 ### <a name="add-a-work-or-school-account"></a>Lägg till ett arbets- eller skolkonto
 
-1. Om det är möjligt, gå till den [ytterligare säkerhetsverifiering](http://aka.ms/mfasetup) skärmen på en annan dator eller enhet. Information om hur du kommer till den här skärmen finns i [ändrar säkerhetsinställningarna](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) eller kontakta administratören.
+1. Om det är möjligt, gå till den [ytterligare säkerhetsverifiering](https://aka.ms/mfasetup) skärmen på en annan dator eller enhet. Information om hur du kommer till den här skärmen finns i [ändrar säkerhetsinställningarna](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) eller kontakta administratören.
 
     >[!Note]
     >Om din administratör har aktiverat förhandsgranskningsupplevelsen för security info, följer du anvisningarna i den [konfigurera säkerhetsinformation för att använda en autentiseringsapp](security-info-setup-auth-app.md) avsnittet.

@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 25d13ba53eb5a8b411a557b5eaf05d278faa3733
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 3b979a9a7e93992ba593697fa9465fdadc1e58b9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869320"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240400"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>Replikering med SQL Database Managed Instance
 
@@ -77,7 +77,7 @@ Stöder:
 ## <a name="configure-publishing-and-distribution-example"></a>Konfigurera publicering och distribution av exempel
 
 1. [Skapa en Azure SQL Database Managed Instance](sql-database-managed-instance-create-tutorial-portal.md) i portalen.
-2. [Skapa ett Azure Storage-konto](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) för arbetskatalogen.
+2. [Skapa ett Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) för arbetskatalogen.
 
    Glöm inte att kopiera storage-nycklar. Se [visa och kopiera åtkomstnycklar för lagring](../storage/common/storage-account-manage.md#access-keys
 ).
@@ -85,11 +85,11 @@ Stöder:
 
    I exemplet skripten nedan ersätter `<Publishing_DB>` med namnet på den här databasen.
 
-4. Skapa en databasanvändare med SQL-autentisering för distributören. Se, [skapa databasanvändare](http://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Använd ett säkert lösenord.
+4. Skapa en databasanvändare med SQL-autentisering för distributören. Se, [skapa databasanvändare](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Använd ett säkert lösenord.
 
    I exemplet skripten nedan använder `<SQL_USER>` och `<PASSWORD>` med det här kontot för SQL Server-databas användare och lösenord.
 
-5. [Ansluta till SQL Database Managed Instance](http://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [Ansluta till SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
 
 6. Kör följande fråga för att lägga till distributören och distributionsdatabasen.
 
@@ -197,4 +197,4 @@ Följande funktioner stöds inte:
 
 ## <a name="see-also"></a>Se även
 
-- [Vad är en hanterad instans?](http://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)
+- [Vad är en hanterad instans?](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)

@@ -15,15 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath
-ms.openlocfilehash: 95403e71367f111877c6f317c63811333bd054dd
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 76b67112ade2d160f281533c4be7d41c98087398
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395198"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345546"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Operationalisera Spark-byggda machine learning-modeller
-[!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
 
 Det här avsnittet visar hur du operationalisera en sparad maskininlärningsmodell (ML) med hjälp av Python i HDInsight Spark-kluster. Den beskriver hur du läser in machine learning-modeller som skapats med Spark MLlib och lagras i Azure Blob Storage (WASB) och hur du kan bedöma dem med datauppsättningar som också har lagrats i WASB. Den visar hur du Förbearbeta indata, omvandla funktioner med hjälp av funktionerna indexering och kodning i MLlib toolkit och hur du skapar ett taggade point data-objekt som kan användas som indata för bedömning med ML-modeller. Modeller som används för bedömning är linjär Regression, Logistic Regression, slumpmässigt skog modeller och Gradient Boosting trädet modeller.
 

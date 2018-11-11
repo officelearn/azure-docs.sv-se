@@ -1,6 +1,6 @@
 ---
 title: Azure AI-galleriet samlingar | Microsoft Docs
-description: Identifiera och dela samlingar i Azure AI-galleriet.
+description: Upptäcka och dela samlingar i Azure AI-galleriet.
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
@@ -15,86 +15,84 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 6b8cb104c734edf688d875a8e9674a660f2db4e2
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b586639cc6c9d4e25d65fa9f3a510e22789acfb2
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834608"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346043"
 ---
-# <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Identifiera och dela samlingar i Azure AI-galleriet
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
+# <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Upptäcka och dela samlingar i Azure AI-galleriet
 
-## <a name="collections"></a>Samlingar
-Du kan använda en [samling](https://gallery.cortanaintelligence.com/collections) att gruppera experiment, API: er och andra Galleriobjekt som du använder för en viss lösning eller begrepp. Du kan gruppera dem att använda, spara för senare referens eller dela.
+Du kan använda en [samling](https://gallery.cortanaintelligence.com/collections) i [Azure AI-galleriet](http://gallery.cortanaintelligence.com) att gruppera experiment, API: er och andra Galleriobjekt som du använder för en viss lösning eller begrepp. Du kan gruppera dem att använda, spara för senare referens eller att dela.
 
 ## <a name="discover"></a>Utforska
 Att söka i samlingar [i galleriet](http://gallery.cortanaintelligence.com)under **mer**väljer **samlingar**.
 
-![Välj samlingar på startsidan galleri](./media/gallery-collections/select-collections-in-gallery.png)
+![Välj samlingar på startsidan för galleriet](./media/gallery-collections/select-collections-in-gallery.png)
 
-Den **[samlingar](https://gallery.cortanaintelligence.com/collections)** sidan visas en lista över nyligen tillagda och populära samlingar. Om du vill visa alla samlingar, Välj **se alla**. Om du vill söka efter en specifik samling, Välj **se alla**, och välj sedan filtreringsvillkor. Du kan även ange sökorden i den **Sök** rutan längst upp på sidan Gallery.
+Den **[samlingar](https://gallery.cortanaintelligence.com/collections)** sidan visar en lista över nyligen har lagts till och populära samlingar. Om du vill visa alla samlingar, Välj **se alla**. För att söka efter en viss samling, Välj **se alla**, och välj sedan filtreringsvillkor. Du kan även ange sökorden i den **Search** rutan längst upp på sidan för galleriet.
 
-Du kan få mer information om en mängd på informationssidan för samlingen. Markera samlingen för att öppna en samling informationssida. På en samling information sidan den **kommentarer** avsnitt, du kan kommentera, ge feedback eller ställa frågor om samlingen. Du kan också dela samlingen med vänner och kollegor på Twitter och LinkedIn. Du kan också e-en länk till sidan samling information att bjuda in andra användare att visa sidan.
+Du kan få mer information om en samling på informationssidan för samlingen. Markera samlingen för att öppna en samling informationssida. På en samling information sidan den **kommentarer** avsnitt, du kan kommentera, ge feedback eller ställa frågor om samlingen. Du kan också dela samlingen med vänner och kollegor på Twitter och LinkedIn. Du kan också e-en länk till sidan samling information att bjuda in andra användare att visa sidan.
 
-![Dela objektet med vänner](./media/gallery-how-to-use-contribute-publish/share-links.png)
+![Dela det här objektet med vänner](./media/gallery-how-to-use-contribute-publish/share-links.png)
 
 ![Lägga till egna kommentarer](./media/gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="contribute"></a>Bidra
-Du kan skapa en samling som innehåller objekt som du äger eller objekt som bidrog av communityn. Ett objekt i en samling kan vara någon Galleriobjekt som åtgärdar en viss lösning eller begrepp.
+Du kan skapa en samling som har objekt som du äger eller objekt som bidrog av communityn. Ett objekt i en samling kan vara galleri-objekt som åtgärdar en viss lösning eller begrepp.
 
-T.ex, du kan använda en samling för att gruppera objekt i ett visst ämne eller du kan gruppera ett experiment i flera steg som löser komplicerat. De inledande samlingar som har bidragit med Microsoft består av flera steg maskininlärning experiment mallar. Du kan använda mallarna för att lösa verkliga problem, till exempel att upptäcka bedrägerier online text klassificering, retail prognoser eller förutsägande underhåll.
+Exempel: du kan använda en samling att gruppera objekt i ett visst ämne eller du kan gruppera ett experiment i flera steg som löser komplicerat. De första samlingar från Microsoft som består av flera steg machine learning-experiment-mallar. Du kan använda mallarna för att lösa verkliga problem, till exempel online bedrägerier, text klassificering, detaljhandel prognoser eller förebyggande underhåll.
 
 ### <a name="create-a-collection"></a>Skapa en samling
 
-1. Logga in i galleriet med ditt Microsoft-konto.
+1. Logga in till galleriet med ditt Microsoft-konto.
 
-2.  Markera bilden överst på sidan och välj sedan ditt namn.
+2.  Välj din avbildning överst på sidan och välj sedan ditt namn.
   
     ![Välj namnet på ditt konto](./media/gallery-collections/click-account-name.png)
 
 3. Välj **Nytt objekt**.
    
     ![Välj ”nytt objekt”](./media/gallery-collections/click-new-item.png)
-4. På den **beskrivning** sidan för **OBJEKTTYPEN**väljer **samling**. Ange ett namn för samlingen, en kort sammanfattning, en detaljerad beskrivning och alla taggar som kan hjälpa andra användare att hitta din samling.
+4. På den **beskrivning** sidan för **OBJEKTTYPEN**väljer **samling**. Ange ett namn för din samling, en kort sammanfattning, en detaljerad beskrivning och alla taggar som kan hjälpa andra användare hitta din samling.
    
     ![Ange information för en ny samling](./media/gallery-collections/create-collection-page-1.png)
-5. På den **valet** markerar du en bild som visas med samlingen. Du kan ladda upp en egen avbildningsfil eller välj en bild. Välj en bild som kan hjälpa användare identifiera innehåll och syftet med samlingen.
+5. På den **valet av** väljer du en bild som visas med samlingen. Du kan ladda upp en egen avbildningsfil eller välj en bild. Välj en avbildning som kan hjälpa användare att identifiera innehåll och syftet med samlingen.
    
     ![Ange information för en ny samling](./media/gallery-collections/create-collection-page-2.png)
-6. På den **inställningar** sidan för **synlighet**väljer du om samlingen **offentliga** (alla kan se samlingen) eller **nya** (endast personer med en direktlänk till samlingen kan se det).
+6. På den **inställningar** sidan för **synlighet**väljer du om samlingen är **offentliga** (vem som helst kan visa samlingen) eller **nya** (endast personer med en direktlänk till samlingen kan visa den).
    
    > [!IMPORTANT]
-   > När du ställer in en samling till **offentliga** och välj sedan **skapa**, du inte senare ändra mängden **nya**.
+   > När du ställer in en samling till **offentliga** och välj sedan **skapa**, du kan inte senare ändra samlingen till **nya**.
    > 
    > 
    
     ![Välj ”offentliga” eller ”olistade”](./media/gallery-collections/create-collection-page-3.png)
 7. Välj **Skapa**.
 
-Samlingen är nu i Azure AI-galleriet. Samlingar visas på sidan för konto på den **samling** fliken.
+Samlingen är nu i Azure AI-galleriet. Dina samlingar visas på din kontosida på den **samling** fliken.
 
 ### <a name="add-items-to-a-collection"></a>Lägg till objekt i en samling
-Om du vill lägga till objekt i samlingen, öppna insamling, Välj **redigera**, och välj sedan **Lägg till objekt**.
+Om du vill lägga till objekt i din samling, öppna samlingen, Välj **redigera**, och välj sedan **Lägg till objekt**.
 
 ![Lägg till objekt i en samling från sidan](./media/gallery-collections/add-to-collection-from-details-page.png)
 
-En lista med objekt som du har bidragit till galleriet visas på sidan för ditt konto. Du kan också söka i galleriet för artiklar för att lägga till. Välj de objekt som du vill lägga till. Varje objekt som du väljer ingår i en uppsättning objekt att lägga till. Den **Lägg till** knapp anger hur många objekt som du har valt.
+En lista med objekt som du har bidragit till galleriet visas på din kontosida. Du kan också söka galleriet för objekt för att lägga till. Välj de objekt som du vill lägga till. Alla objekt som du väljer ingår i uppsättningen objekt att lägga till. Den **Lägg till** knapp anger hur många objekt som du har valt.
 
 ![Lägg till samlingen](./media/gallery-collections/add-to-collection.png)
 
-Om du hittar ett objekt som du vill lägga till när du bläddrar galleriet för att öppna objektet, Välj **lägga till samlingen**. Välj den samling som du vill lägga till objektet till.
+Om du hittar ett objekt som du vill lägga till när du surfar galleriet, öppna objektet som väljer **lägga till samlingen**. Välj den samling som du vill lägga till objektet du vill.
 
 ![Lägg till objekt i en samling från sidan](./media/gallery-collections/add-to-collection-from-item-details.png)
 
-Om du vill ändra sammanfattning, beskrivning eller taggar för samlingen, öppna insamling och välj sedan **redigera**. 
+Om du vill ändra sammanfattning, beskrivning eller taggar för din samling, öppnar du samlingen och välj sedan **redigera**. 
 
-Du kan ändra ordningen på objekten i samlingen när du redigerar din samling. Använd pilknapparna bredvid ett objekt om du vill flytta uppåt eller nedåt i listan order. 
+Du kan ändra ordningen på objekten i samlingen när du redigerar din samling. Använd pilknapparna bredvid ett objekt för att flytta det uppåt eller nedåt i ordning. 
 
-Välj övre högra hörnet av ett objekt om du vill lägga till anteckningar till objekt i samlingen, och välj sedan **Lägg till/redigera anteckning**. 
+Välj det övre högra hörnet av ett objekt om du vill lägga till anteckningar till objekten i samlingen, och därefter **Lägg till/redigera Obs**. 
 
-Om du vill ta bort ett objekt från samlingen, Välj **ta bort**.
+Om du vill ta bort ett objekt från din samling, Välj **ta bort**.
 
 ![Ändra uppgifter för en samling](./media/gallery-collections/change-collection-details.png)
 

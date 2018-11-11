@@ -4,16 +4,16 @@ description: Beskriver hur resource principdefinitionen används av Azure Policy
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 0ff56b86243956d1fa6b51a6dfd14af9e00d8367
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: b5c7d0c6d54272518b19ffec0d8f02ebbcfe55d9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212785"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283299"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -123,12 +123,12 @@ I principregeln du referera till parametrar med följande `parameters` distribut
 
 ## <a name="definition-location"></a>Definitionens plats
 
-När du skapar en definition av initiativ- eller är det viktigt att du anger definitionens plats.
+När du skapar ett initiativ- eller är det nödvändigt att ange platsen för definition. Definitionens plats måste vara en hanteringsgrupp eller en prenumeration och fastställer omfånget som den initiativ- eller kan tilldelas. Resurser måste vara direkta medlemmar i eller underordnade objekt inom hierarkin för definitionens plats för att rikta för tilldelning.
 
-Definitionens plats anger omfattningen som initiativ- eller definitionen kan tilldelas till. Platsen kan anges som en hanteringsgrupp eller en prenumeration.
+Om den definition lagras a:
 
-> [!NOTE]
-> Om du planerar att använda den här principdefinitionen till flera prenumerationer, måste platsen vara en hanteringsgrupp som innehåller de prenumerationer som du vill tilldela initiativ- eller principen till.
+- **Prenumeration** – endast resurser inom den prenumerationen kan tilldelas principen.
+- **Hanteringsgruppen** – endast resurser i underordnade hanteringsgrupper och underordnade prenumerationer kan du tilldela principen. Om du planerar att använda principdefinitionen till flera prenumerationer, måste platsen vara en hanteringsgrupp som innehåller dessa prenumerationer.
 
 ## <a name="display-name-and-description"></a>Namn och beskrivning
 
@@ -146,7 +146,7 @@ I den **sedan** block, definierar du den effekt som händer när den **om** vill
         <condition> | <logical operator>
     },
     "then": {
-        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
+        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists | disabled"
     }
 }
 ```
@@ -232,7 +232,8 @@ Principen har stöd för följande typer av effekt:
 - **Granska**: genererar en varning-händelse i aktivitetsloggen men misslyckas inte begäran
 - **Lägg till**: lägger till en definierad uppsättning fält på begäran
 - **AuditIfNotExists**: aktiverar granskning om en resurs inte finns
-- **DeployIfNotExists**: distribuerar en resurs om det inte redan finns.
+- **DeployIfNotExists**: distribuerar en resurs om det inte redan finns
+- **Inaktiverad**: utvärderas inte resurser för principregeln
 
 För **lägga till**, måste du ange följande information:
 
@@ -247,6 +248,18 @@ För **lägga till**, måste du ange följande information:
 Värdet kan vara en sträng eller ett JSON-format-objekt.
 
 Med **AuditIfNotExists** och **DeployIfNotExists** du kan utvärdera förekomsten av en relaterad resurs och tillämpa en regel och en motsvarande effekt när den här resursen inte finns. Du kan till exempel kräva att en nätverksbevakare distribueras för alla virtuella nätverk. Ett exempel på granskning när tillägg för virtuell dator inte distribueras kan se [granska om tillägg inte finns](../samples/audit-ext-not-exist.md).
+
+Den **DeployIfNotExists** effekt kräver den **roleDefinitionId** -egenskapen i den **information** delen av principregeln. Mer information finns i [reparation – konfigurera principdefinitionen](../how-to/remediate-resources.md#configure-policy-definition).
+
+```json
+"details": {
+    ...
+    "roleDefinitionIds": [
+        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+        "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
+    ]
+}
+```
 
 Mer information om varje effekt ordningen för utvärdering, egenskaper och exempel finns i [Förstå princip effekterna](effects.md).
 

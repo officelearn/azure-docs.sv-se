@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 24337863d4e3f8e093c2e33afbb39364ec37516d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: fd33ca723bd00b4a9c25009ef5b4f444487244f0
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50252189"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281956"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Förstå händelse filtrering för Event Grid-prenumerationer
 
@@ -57,9 +57,9 @@ JSON-syntaxen för att filtrera efter händelsetyp är:
 
 Om du vill filtrera efter värden i fälten och anger jämförelseoperatorn, använder du alternativet för avancerad filtrering. I avancerad filtrering, anger du den:
 
-* operator - typ av jämförelse.
+* typ av frågeoperator - typ av jämförelse.
 * nyckel - fältet i informationen om händelsen som du använder för filtrering. Det kan vara ett tal, ett booleskt värde eller en sträng.
-* värden – värdena som ska jämföras med nyckeln.
+* värdet eller värdena - värdet eller värdena ska jämföras med nyckeln.
 
 JSON-syntaxen för att använda avancerade filter är:
 
@@ -67,14 +67,14 @@ JSON-syntaxen för att använda avancerade filter är:
 "filter": {
   "advancedFilters": [
     {
-      "Operator": "NumberGreaterThanOrEquals",
-      "Key": "Data.Key1",
-      "Values": 5
+      "operatorType": "NumberGreaterThanOrEquals",
+      "key": "Data.Key1",
+      "value": 5
     },
     {
-      "Operator": "StringContains",
-      "Key": "Subject",
-      "Values": ["container1", "container2"]
+      "operatorType": "StringContains",
+      "key": "Subject",
+      "values": ["container1", "container2"]
     }
   ]
 }
@@ -122,7 +122,7 @@ Använd följande värden för händelser i molnet händelseschemat för nyckeln
 * eventTypeVersion
 * Händelsedata (till exempel Data.key1)
 
-Använda datafälten som händelse (till exempel Data.key1 Data.key1.key2) för anpassade inmatningsschemat.
+Använda datafälten som händelse (till exempel Data.key1) för anpassade inmatningsschemat.
 
 ### <a name="values"></a>Värden
 
@@ -140,7 +140,7 @@ Avancerade filter har följande begränsningar:
 * Fem avancerade filter per event grid-prenumeration
 * 512 tecken per strängvärde
 * Fem värden för **i** och **inte i** operatorer
-* Nyckeln kan bara ha två nivåer av inkapsling (till exempel data.key1.key2)
+* Nyckeln kan bara ha en kapslingsnivå (till exempel data.key1)
 
 Samma nyckel kan användas i mer än ett filter.
 

@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: overview
 ms.date: 11/03/2017
 ms.author: sngun
-ms.openlocfilehash: 495fc0fff39a04dee4fc707bd0d2f6b3571cc46a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 204d0032516886c2d954965c7c4561d967bae705
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582072"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232196"
 ---
 # <a name="azure-table-storage-overview"></a>Översikt över Azure Table Storage
 
@@ -35,6 +35,6 @@ Du kan använda Table Storage för att lagra flexibla datauppsättningar som anv
 
 * Fullständig information om tillgängliga API:er finns i referensdokumentationen för tabelltjänsten:
 
-    * [Storage-klientbibliotek för .NET-referens](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    * [Storage-klientbibliotek för .NET-referens](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 
-    * [REST API-referens](http://msdn.microsoft.com/library/azure/dd179355)
+    * [REST API-referens](https://msdn.microsoft.com/library/azure/dd179355)

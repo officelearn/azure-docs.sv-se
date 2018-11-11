@@ -22,6 +22,8 @@ items:
     items:
     - name: Azure Portal
       href: tutorial-design-database-using-portal.md
+    - name: Azure CLI
+      href: tutorial-design-database-cli.md
 - name: Begrepp
   items:
   - name: Databas och servrar
@@ -30,8 +32,6 @@ items:
       href: concepts-servers.md
     - name: Versioner som stöds
       href: concepts-supported-versions.md
-    - name: Serverloggar
-      href: concepts-server-logs.md
     - name: Hög tillgänglighet
       href: concepts-high-availability.md
   - name: Resurser
@@ -52,6 +52,16 @@ items:
       href: concepts-business-continuity.md
     - name: Säkerhetskopiering och återställning
       href: concepts-backup.md
+  - name: Övervaka
+    items:
+    - name: Övervaka
+      href: concepts-monitoring.md
+    - name: Serverloggar
+      href: concepts-server-logs.md
+  - name: Utveckling
+    items:
+    - name: Anslutningsåterhämtning
+      href: concepts-connectivity.md
   - name: Replikering
     items:
     - name: Dataintensiv replikering
@@ -62,10 +72,14 @@ items:
     items:
     - name: Azure Portal
       href: howto-manage-firewall-portal.md
+    - name: Azure CLI
+      href: howto-manage-firewall-cli.md
   - name: Återställ en server
     items:
     - name: Azure Portal
       href: howto-restore-server-portal.md
+    - name: Azure CLI
+      href: howto-restore-server-cli.md
   - name: Migrera en databas
     items:
     - name: Dumpa och återställa
@@ -82,14 +96,24 @@ items:
     items:
     - name: Azure Portal
       href: howto-server-parameters.md
+    - name: Azure CLI
+      href: howto-configure-server-parameters-cli.md
   - name: Åtkomst till serverloggar
     items:
     - name: Azure Portal
       href: howto-configure-server-logs-portal.md
+    - name: Azure CLI
+      href: howto-configure-server-logs-cli.md
   - name: Replikering
     items:
     - name: Konfigurera dataintensiv replikering
       href: howto-data-in-replication.md
+  - name: Felsöka
+    items:
+    - name: Felsöka anslutningsfel
+      href: howto-troubleshoot-common-connection-issues.md
+    - name: Felsöka frågeprestanda
+      href: howto-troubleshoot-query-performance.md
 - name: Referens
   items:
   - name: REST-API
@@ -109,14 +133,14 @@ items:
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-database-mariadb
   - name: Begär en funktion
-    href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
+    href: https://feedback.azure.com/forums/915439-azure-database-for-mariadb
   - name: Regional tillgänglighet
     href: https://azure.microsoft.com/regions/services/
   - name: Supportalternativ
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 2ba86afb2bb0aeff5ab83cfb9e3ee1b27ce3b3f5
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 3fc6bf5571f3ddcfe6d1a6acd7fc4a298f996e63
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986367"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515428"

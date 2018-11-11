@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: roiyz
-ms.openlocfilehash: 134105ee2446f3c7bf0f19e2f9611597ee9bedfe
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: ddb999c252f0802ef57942de694340ae29f2d8ba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451960"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240366"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Så installerar och konfigurerar du Trend Micro Deep Security som en tjänst på en virtuell Windows-dator
 [!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]
@@ -30,7 +30,7 @@ Klienten installeras som en säkerhetstillägg via VM-agenten. På en ny virtuel
 
 En befintlig virtuell dator som skapats med hjälp av Azure-portalen, Azure CLI eller PowerShell kanske inte har en VM-agenten. För en befintlig virtuell dator som inte har VM-agenten måste du ladda ned och installera den först. Den här artikeln täcker båda situationer.
 
-Om du har någon aktuell prenumeration från Trend Micro för en lokal lösning kan använda du den för att skydda virtuella datorer i Azure. Om du inte är en kund ännu kan registrera du dig för en utvärderingsprenumeration. Mer information om den här lösningen finns i blogginlägget Trend Micro [Microsoft Azure VM Agent-tillägget för Deep Security](http://go.microsoft.com/fwlink/p/?LinkId=403945).
+Om du har någon aktuell prenumeration från Trend Micro för en lokal lösning kan använda du den för att skydda virtuella datorer i Azure. Om du inte är en kund ännu kan registrera du dig för en utvärderingsprenumeration. Mer information om den här lösningen finns i blogginlägget Trend Micro [Microsoft Azure VM Agent-tillägget för Deep Security](https://go.microsoft.com/fwlink/p/?LinkId=403945).
 
 ## <a name="install-the-deep-security-agent-on-a-new-vm"></a>Installera Deep Security Agent på en ny virtuell dator
 
@@ -67,7 +67,7 @@ Kontrollera först att VM-agenten är redan installerad. Fyll i molntjänstens n
 
 Om du inte vet molntjänst och namn på virtuell dator, kör **Get-AzureVM** visa informationen för alla virtuella datorer i din aktuella prenumeration.
 
-Om den **write-host** kommandot **SANT**, VM-agenten är installerad. Om den returnerar **FALSKT**, se instruktionerna och en länk för nedladdning i Azure-blogginlägget [VM-agenten och tillägg – del 2](http://go.microsoft.com/fwlink/p/?LinkId=403947).
+Om den **write-host** kommandot **SANT**, VM-agenten är installerad. Om den returnerar **FALSKT**, se instruktionerna och en länk för nedladdning i Azure-blogginlägget [VM-agenten och tillägg – del 2](https://go.microsoft.com/fwlink/p/?LinkId=403947).
 
 Om den Virtuella Datoragenten är installerad kan du köra dessa kommandon.
 
@@ -78,9 +78,9 @@ Om den Virtuella Datoragenten är installerad kan du köra dessa kommandon.
 ## <a name="next-steps"></a>Nästa steg
 Det tar några minuter för att agenten ska börja köra när den är installerad. Därefter måste du aktivera Deep Security på den virtuella datorn så att den kan hanteras av en Deep Security Manager. Se följande artiklar för ytterligare information:
 
-* Trends artikeln om den här lösningen [Instant-On Molnsäkerhet för Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=404101)
-* En [exempel på Windows PowerShell-skript](http://go.microsoft.com/fwlink/?LinkId=404100) att konfigurera den virtuella datorn
-* [Instruktioner](http://go.microsoft.com/fwlink/?LinkId=404099) för exemplet
+* Trends artikeln om den här lösningen [Instant-On Molnsäkerhet för Microsoft Azure](https://go.microsoft.com/fwlink/?LinkId=404101)
+* En [exempel på Windows PowerShell-skript](https://go.microsoft.com/fwlink/?LinkId=404100) att konfigurera den virtuella datorn
+* [Instruktioner](https://go.microsoft.com/fwlink/?LinkId=404099) för exemplet
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 [Hur du ansluter till en virtuell dator som kör Windows Server]

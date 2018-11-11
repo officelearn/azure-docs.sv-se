@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 6e3026ea3aca897ab63f4ad7d72eac438fdb7199
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 8aec6ae3532acaaa5d039ee9db8745927c66957b
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389119"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288789"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS-portalen som flyttar till Azure
 
@@ -55,7 +55,7 @@ Referera till [vanliga frågor för övergången från OMS-portalen till Azure-p
 Hantering av åtkomst i Azure portal är större och kraftfullare än åtkomsthantering i OMS-portalen. Se [hantera arbetsytor](log-analytics-manage-access.md#manage-accounts-and-users) för information om åtkomsthantering i Log Analytics.
 
 > [!NOTE]
-> Tidigare versioner av den här artikeln anges att behörigheterna som automatiskt skulle konverteras från OMS-portalen till Azure-portalen. Den här automatiska konversationen planeras inte längre och du måste utföra konverteringen själv.
+> Tidigare versioner av den här artikeln anges att behörigheterna som automatiskt skulle konverteras från OMS-portalen till Azure-portalen. Den här automatisk konvertering inte längre är avsiktlig och du måste utföra konverteringen själv.
 
 Du kanske redan har lämplig åtkomst i Azure-portalen i vilket fall du inte behöver göra några ändringar. Det finns ett par olika fall där du inte kanske har lämplig åtkomst i vilket fall du administratören måste tilldela behörigheter.
 

@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 8809a5a8b4f76d6e33bbb934e13931e86f2d681c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: a2a869c04034f8ca38e80e1bf10518d22e38bcbc
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091782"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287004"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B-samarbete API och anpassning
 
@@ -75,7 +75,7 @@ I det här läget kan den använder API-behov har behörigheter att skapa B2B in
 ### <a name="app-only-mode"></a>Endast appläge
 Appen måste i appen endast sammanhanget User.Invite.All omfånget för inbjudan ska lyckas.
 
-Mer information finns: https://graph.microsoft.io/docs/authorization/permission_scopes
+Mer information finns: https://developer.microsoft.com/graph/docs/authorization/permission_scopes
 
 
 ## <a name="powershell"></a>PowerShell

@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: e99d5d36fa46e9972e706d580e4dfb1d5f9e8bbc
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: c65f5364ccd4943d1d3e703ed27099408d3a2a27
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093841"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346600"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -28,11 +28,10 @@ När du flyttar resurser, är både källgruppen och målgruppen låsta under å
 Du kan inte ändra platsen för resursen. En resurs flyttas bara flyttar det till en ny resursgrupp. Den nya resursgruppen kan ha en annan plats, men som ändra inte platsen för resursen.
 
 > [!NOTE]
-> Den här artikeln beskrivs hur du flyttar resurser i ett befintligt Azure-konto erbjudande. Om du vill ändra ditt Azure-konto erbjudande (t.ex uppgraderar från kostnadsfritt till betala per användning) måste konvertera din prenumeration. 
+> Den här artikeln beskrivs hur du flyttar resurser i ett befintligt Azure-konto erbjudande. Om du vill ändra ditt Azure-konto erbjudande (t.ex uppgraderar från kostnadsfritt till betala per användning) måste konvertera din prenumeration.
 > * Om du vill uppgradera en kostnadsfri utvärderingsversion, [uppgradera din kostnadsfria utvärderingsversion eller en Microsoft Imagine Azure-prenumeration till betala per användning](..//billing/billing-upgrade-azure-subscription.md).
 > * Om du vill ändra en betala per användning-konto, se [ändra din betala per användning för Azure-prenumeration till ett annat erbjudande](../billing/billing-how-to-switch-azure-offer.md).
 > * Om du inte kan konvertera prenumerationen, [skapa en Azure-supportbegäran](../azure-supportability/how-to-create-azure-support-request.md). Välj **prenumerationshantering** för typ av ärende.
->
 
 ## <a name="checklist-before-moving-resources"></a>Checklistan innan du flyttar resurser
 
@@ -42,7 +41,7 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
 
   Använd för Azure PowerShell:
 
-  ```powershell
+  ```azurepowershell-interactive
   (Get-AzureRmSubscription -SubscriptionName <your-source-subscription>).TenantId
   (Get-AzureRmSubscription -SubscriptionName <your-destination-subscription>).TenantId
   ```
@@ -63,14 +62,14 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
 
   Använd följande kommandon för att hämta registreringsstatus PowerShell:
 
-  ```powershell
+  ```azurepowershell-interactive
   Set-AzureRmContext -Subscription <destination-subscription-name-or-id>
   Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
   ```
 
   Om du vill registrera en resursleverantör, använder du:
 
-  ```powershell
+  ```azurepowershell-interactive
   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
   ```
 
@@ -112,7 +111,7 @@ Kontakta [stöder](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpA
 
 ## <a name="validate-move"></a>Verifiera flytt
 
-Den [verifiera flyttåtgärden](/rest/api/resources/resources/resources_validatemoveresources) kan du testa ditt move-scenario utan att faktiskt flytta resurserna. Använd den här åtgärden för att avgöra om flytten lyckas. Om du vill köra den här åtgärden, måste den:
+Den [verifiera flyttåtgärden](/rest/api/resources/resources/validatemoveresources) kan du testa ditt move-scenario utan att faktiskt flytta resurserna. Använd den här åtgärden för att avgöra om flytten lyckas. Om du vill köra den här åtgärden, måste den:
 
 * namn på resursgrupp för källa
 * resurs-ID för målresursgruppen
@@ -325,7 +324,6 @@ Här följer de begränsningar som ännu inte stöds:
 * Virtual Machine Scale Sets med Standard-SKU-belastningsutjämnare eller SKU offentlig IP kan inte flyttas
 * Virtuella datorer som skapats från Marketplace-resurser med anslutna-planer kan inte flyttas mellan resursgrupper eller prenumerationer. Avetablera den virtuella datorn i den aktuella prenumerationen och distribuera igen i den nya prenumerationen.
 
-
 ## <a name="virtual-networks-limitations"></a>Begränsningar för virtuellt nätverk
 
 När du flyttar ett virtuellt nätverk, måste du även flytta beroende resurser. För VPN-gatewayer måste du flytta IP-adresser, virtuella nätverksgatewayer och alla associerade anslutningsresurser. Lokala nätverksgatewayer kan finnas i en annan resursgrupp.
@@ -346,9 +344,9 @@ När du flyttar en Webbapp _inom samma prenumeration_, du kan inte flytta upplad
 
 Om du vill flytta SSL-certifikat med Webbappen gör du följande:
 
-1.  Ta bort överförda certifikat från Webbappen.
-2.  Flytta Webbappen.
-3.  Överför certifikatet till flyttade Webbappen.
+1. Ta bort överförda certifikat från Webbappen.
+2. Flytta Webbappen.
+3. Överför certifikatet till flyttade Webbappen.
 
 ### <a name="moving-across-subscriptions"></a>Flytta mellan prenumerationer
 
@@ -503,7 +501,7 @@ När den har slutförts meddelas du om resultatet.
 
 Flytta befintliga resurser till en annan resursgrupp eller prenumeration genom att använda den [Move-AzureRmResource](/powershell/module/azurerm.resources/move-azurermresource) kommando. I följande exempel visas hur du flyttar flera resurser till en ny resursgrupp.
 
-```powershell
+```azurepowershell-interactive
 $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
 $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
 Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId

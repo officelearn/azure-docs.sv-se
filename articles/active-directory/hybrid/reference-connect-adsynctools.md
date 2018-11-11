@@ -8,12 +8,12 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b1e95ade4793fd7d3acf396b00ee4f7d8b81b2f8
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 734387e7ce5fc27cb88c73601bdfd0f35d04b693
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634635"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288687"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: ADSyncTools PowerShell-referens
 Följande dokumentation innehåller information för ADSyncTools.psm1 PowerShell-modul som ingår i Azure AD Connect.
@@ -1102,7 +1102,8 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-adwatermark"></a>-ADwatermark
-Om du redan körs eftersom det domänadministratör behöver inte ange autentiseringsuppgifter för AD manuell inmatning av vattenstämpel, i stället för XML filen t.ex. $ADwatermark = ”TVNEUwMAAAAXyK9ir1zSAQAAAAAAAAAA(...)”
+Om du redan körs som domänadministratör finns du behöver inte ange autentiseringsuppgifter för AD.
+Manuell inmatning av vattenstämpel, i stället för XML-filen t.ex. $ADwatermark = ”TVNEUwMAAAAXyK9ir1zSAQAAAAAAAAAA(...)”
 
 ```yaml
 Type: String

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/05/2018
+ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dcc27992c318a970a86f1ff5c60723daeef881b6
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 0983c2235fba0cacbda53208e5dcad5b2878619c
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914659"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345495"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Så här: Ange valfria anspråk till din Azure AD-app (förhandsversion)
 
@@ -42,7 +42,7 @@ Ett av målen med den [v2.0 Azure AD-slutpunkten](active-directory-appmodel-v2-o
 | Kontotyp | V1.0 slutpunkt | V2.0-slutpunkten  |
 |--------------|---------------|----------------|
 | Personligt Microsoft-konto  | Ej tillämpligt – RPS biljetter som används i stället | Stöd kommer |
-| Azure AD-konto          | Stöds                          | Stöds med varningar      |
+| Azure AD-konto          | Stöds                          | Stöds med varningar |
 
 > [!IMPORTANT]
 > Appar som stöder både personliga konton och Azure AD (registrerad via den [app registreringsportalen](https://apps.dev.microsoft.com)) kan inte använda valfria anspråk. Appar som är registrerade för bara Azure AD med v2.0-slutpunkten får valfria anspråk som begärts i manifestet. I Azure-portalen kan du använda redigeringsprogrammet för applikationsmanifestet i den befintliga **appregistreringar** lösning för att redigera din valfria anspråk. Den här funktionen är dock inte ännu med redigeringsprogrammet för applikationsmanifestet i den nya **appregistreringar (förhandsversion)** upplevelse.
@@ -60,8 +60,6 @@ Uppsättningen med valfria anspråk som är tillgängliga som standard att anvä
 |-----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Tid när användaren senast autentiserade. Se OpenID Connect-specifikationen.| JWT        |           |  |
 | `tenant_region_scope`      | Region för resurs-klient | JWT        |           | |
-| `signin_state`             | Logga in tillstånd-anspråk   | JWT        |           | 6 returvärden som flaggor:<br> ”dvc_mngd”: enheten är hanterad<br> ”dvc_cmp”: enheten är kompatibel<br> ”dvc_dmjd”: enheten är ansluten till en domän<br> ”dvc_mngd_app”: enheten hanteras via MDM<br> ”inknownntwk”: enheten är i ett känt nätverk.<br> ”kmsi”: Håll mig inloggad i användes. <br> |
-| `controls`                 | Flervärden är anspråk som innehåller sessionskontroller som tillämpas av principer för villkorlig åtkomst. | JWT        |           | 3 värden:<br> ”app_res”: appen måste tillämpa mer detaljerade begränsningarna. <br> ”ca_enf”: tillämpa villkorlig åtkomst har uppskjutits och fortfarande krävs. <br> ”no_cookie”: denna token är tillräckligt för att exchange för cookies i webbläsaren. <br>  |
 | `home_oid`                 | För gästanvändare, objekt-ID för användaren i användarens startklientorganisation.| JWT        |           | |
 | `sid`                      | Sessions-ID används för tillfälliga användare utloggning. | JWT        |           |         |
 | `platf`                    | Enhetsplattform    | JWT        |           | Begränsat till hanterade enheter som kan verifiera typ av enhet.|
@@ -76,6 +74,7 @@ Uppsättningen med valfria anspråk som är tillgängliga som standard att anvä
 | `xms_pl`                   | Användarens förvalda språk  | JWT ||Användaren prioriterade språk, om ange. Ursprung sina startklientorganisation i scenarier för gäst-åtkomst. Formaterad lla kopia (”en-us”). |
 | `xms_tpl`                  | Klient-språk| JWT | | Resurs-klienten prioriterade språk, om ange. Formaterad lla (”SV”). |
 | `ztdid`                    | Zero touch-distributions-ID | JWT | | Enhetsidentitet används för [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
+|`email`                     | Den adresserbara e-postadress för användaren, om användaren har en.  | JWT, SAML | | Det här värdet ingår som standard om användaren inte är gäst i klienten.  För hanterade användare (de i klienten), måste det begäras via den här valfria anspråk eller på v2.0, med OpenID-området.  För hanterade användare, e-postadressen måste anges i den [administrationsportalen för Office](https://portal.office.com/adminportal/home#/users).|  
 | `acct`             | Status för användare i klienten. | JWT, SAML | | Om användaren är medlem i klienten, är värdet `0`. Om de är en gäst, är värdet `1`. |
 | `upn`                      | UserPrincipalName anspråk. | JWT, SAML  |           | Även om det här anspråket medföljer automatiskt, kan du ange det som ett valfritt anspråk att koppla ytterligare egenskaper om du vill ändra sitt beteende i fallet för gäst-användare. <br> Ytterligare egenskaper: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
 

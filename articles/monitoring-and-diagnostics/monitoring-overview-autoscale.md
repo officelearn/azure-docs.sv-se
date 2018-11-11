@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: autoscale
-ms.openlocfilehash: 7a3083bd757a7aa5625799724d601f99fd7e2b14
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 8491f3f61746374b67e174ca5efff2fbf2fe5fbe
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961304"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281905"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Översikt över automatisk skalning i Microsoft Azure Virtual Machines, Cloud Services och Web Apps
 Den här artikeln beskriver vilka Microsoft Azure automatisk skalning är, dess fördelar, och hur du kommer igång med hjälp av den.  
@@ -107,8 +107,8 @@ Du kan ställa in automatisk skalning via
 | Web Apps |[Skalning av Webbappar](monitoring-autoscale-get-started.md) |
 | Cloud Services |[Skala en molntjänst](../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Virtuella datorer: klassisk |[Skala Tillgänglighetsuppsättningar för klassiska virtuella datorer](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
-| Virtuella datorer: Skalningsuppsättningar Windows |[Skala VM scale anger i Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell.md) |
-| Virtuella datorer: Skalningsuppsättningar för Linux |[Skala VM scale anger i Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) |
+| Virtuella datorer: Skalningsuppsättningar Windows |[Skala VM scale anger i Windows](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
+| Virtuella datorer: Skalningsuppsättningar för Linux |[Skala VM scale anger i Linux](../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Virtuella datorer: Windows-exempel |[Avancerad automatisk skalning med Resource Manager-mallar för VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
 | API Management-tjänst|[Skala automatiskt en Azure API Management-instans](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 

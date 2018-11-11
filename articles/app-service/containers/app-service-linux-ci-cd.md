@@ -13,60 +13,52 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
-ms.author: msangapu
-ms.openlocfilehash: 20ca63b7126a6800538129115ff339308c11d8c5
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 11/08/2018
+ms.author: msangapu;yili
+ms.openlocfilehash: b26366edddc223b842cc5d38473bda42422f1840
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867040"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298549"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Kontinuerlig distribution med Web App for Containers
 
 I den här självstudien konfigurerar du kontinuerlig distribution för en anpassad behållaravbildning från hanterade [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) databaser eller [Docker Hub](https://hub.docker.com).
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+## <a name="enable-continuous-deployment-with-acr"></a>Aktivera kontinuerlig distribution med ACR
 
-Logga in på [Azure Portal](https://portal.azure.com).
+![Skärmbild av ACR webhook](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-02.png)
 
-## <a name="enable-the-continuous-deployment-feature"></a>Aktivera funktionen kontinuerlig distribution
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Välj den **Apptjänst** alternativ till vänster på sidan.
+3. Välj namnet på appen som du vill konfigurera kontinuerlig distribution.
+4. På den **Behållarinställningar** väljer **enskild behållare**
+5. Välj **Azure Container Registry**
+6. Välj **kontinuerlig distribution > på**
+7. Välj **spara** du aktiverar kontinuerlig distribution.
 
-Aktivera funktionen kontinuerlig distribution med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) och köra följande kommando:
+## <a name="use-the-acr-webhook"></a>Använd ACR webhook
 
-```azurecli-interactive
-az webapp deployment container config --name name --resource-group myResourceGroup --enable-cd true
-```
+När kontinuerlig distribution har aktiverats kan visa du den nyligen skapade webhooken på din sida för Azure Container Registry-webhookar.
 
-I den [Azure-portalen](https://portal.azure.com/)väljer den **Apptjänst** alternativ till vänster på sidan.
+![Skärmbild av ACR webhook](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-03.png)
 
-Välj namnet på appen som du vill konfigurera kontinuerlig distribution av Docker Hub.
+Klicka på Webhooks för att visa aktuella webhooks i ditt Behållarregister.
 
-På den **Behållarinställningar** väljer **på**, och välj sedan **spara** du aktiverar kontinuerlig distribution.
+## <a name="enable-continuous-deployment-with-docker-hub-optional"></a>Aktivera kontinuerlig distribution med Docker Hub (valfritt)
 
-![Skärmbild av app-inställning](./media/app-service-webapp-service-linux-ci-cd/step2.png)
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Välj den **Apptjänst** alternativ till vänster på sidan.
+3. Välj namnet på appen som du vill konfigurera kontinuerlig distribution.
+4. På den **Behållarinställningar** väljer **enskild behållare**
+5. Välj **Docker Hub**
+6. Välj **kontinuerlig distribution > på**
+7. Välj **spara** du aktiverar kontinuerlig distribution.
 
-## <a name="prepare-the-webhook-url"></a>Förbereda en webhook-URL
+![Skärmbild av app-inställning](./media/app-service-webapp-service-linux-ci-cd/ci-cd-docker-02.png)
 
-Hämta en webhook-URL med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) och köra följande kommando:
-
-```azurecli-interactive
-az webapp deployment container show-cd-url --name sname1 --resource-group rgname
-```
-
-Anteckna webhook-URL. Du behöver det i nästa avsnitt.
-`https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
-
-Du kan hämta din `publishingusername` och `publishingpwd` genom att ladda ned webbappen publiceringsprofil med Azure portal.
-
-![Skärmbild för att lägga till webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-3.png)
-
-## <a name="add-a-webhook"></a>Lägg till en webhook
-
-Om du vill lägga till en webhook, följer du stegen i de här guiderna:
-
-- [Azure Container Registry](../../container-registry/container-registry-webhook.md) med webhook-URL
-- [Webhooks för Docker Hub](https://docs.docker.com/docker-hub/webhooks/)
+Kopiera en Webhook-URL. Så lägger du till en webhook för Docker Hub <a href="https://docs.docker.com/docker-hub/webhooks/" target="_blank">webhooks för Docker Hub</a>.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/08/2017
 ms.author: mbullwin
-ms.openlocfilehash: 99ace7be05f186ac920aa9671946389e95e3a3a6
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: cc9b3bd1d038bd8aa9c01e806e5448824011bc93
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958125"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240757"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Utforska mått i Application Insights
 Mått i [Programinsikter] [ start] är mätvärden och antalet händelser som skickas i telemetri från ditt program. De hjälper dig att identifiera problem med prestanda och se trender i hur ditt program används. Det finns en mängd olika standardmått och du kan också skapa egna anpassade mått och händelser.
@@ -180,7 +180,7 @@ Lägg till en avisering om du vill meddelas via e-post med ovanliga värden för
 Om du vill data kontinuerligt exporteras så att du kan bearbeta externt, bör du använda [löpande export](app-insights-export-telemetry.md).
 
 ### <a name="power-bi"></a>Power BI
-Om du vill att ännu bättre vyer över dina data, kan du [exportera till Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
+Om du vill att ännu bättre vyer över dina data, kan du [exportera till Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
 ## <a name="analytics"></a>Analytics
 [Analytics](app-insights-analytics.md) är ett mer flexibelt sätt att analysera din telemetri med hjälp av ett kraftfullt frågespråk. Använd det om du vill kombinera compute resultaten från mått eller utför en detaljerad förklaring av appens senaste prestanda. 

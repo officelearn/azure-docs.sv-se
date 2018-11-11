@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
-ms.openlocfilehash: 885d867d0733ef923d327d8d6a36fc1588fd4961
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: ec7b956f080837b297bac56e6237ac0672601ce7
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801020"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344492"
 ---
 # <a name="secure-azure-machine-learning-web-services-with-ssl"></a>Skydda Azure Machine Learning-webbtjänster med SSL
 
@@ -53,9 +53,8 @@ När du begär ett certifikat, måste du ange det fullständigt kvalificerade do
 > [!TIP]
 > Om certifikatutfärdaren inte kan tillhandahålla certifikat och nyckel som PEM-kodat filer, kan du använda ett verktyg som [OpenSSL](https://www.openssl.org/) att ändra format.
 
-> [!IMPORTANT]
-> Självsignerat certifikat ska användas endast för utveckling. De bör inte användas i produktion. Om du använder ett självsignerat certifikat, se den [förbrukar webbtjänster med självsignerade certifikat](#self-signed) för specifika anvisningar.
-
+> [!WARNING]
+> Självsignerat certifikat ska användas endast för utveckling. De bör inte användas i produktion. Självsignerade certifikat kan orsaka problem i din klient program. Mer information finns i dokumentationen för nätverksbibliotek som används i klientprogrammet.
 
 ## <a name="enable-ssl-and-deploy"></a>Aktivera SSL och distribuera
 
@@ -119,91 +118,8 @@ Därefter måste du uppdatera din DNS så att den pekar till webbtjänsten.
 
   Uppdatera DNS under fliken ”Configuration” i ”offentliga IP-adressen” för AKS-kluster som du ser i bilden. Du hittar den offentliga IP-adressen som en av de resurstyper som skapats under resursgruppen med agentnoderna AKS och andra nätverksresurser.
 
-  ![Azure Machine Learning-tjänsten: skydda webbtjänster med SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
+  ![Azure Machine Learning-tjänsten: skydda webbtjänster med SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)Self-
 
-## <a name="consume-authenticated-services"></a>Använda autentiserade tjänster
+## <a name="next-steps"></a>Nästa steg
 
-### <a name="how-to-consume"></a>Hur du använder 
-+ **För ACI och AKS**: 
-
-  För ACI och AKS webbtjänster, Lär dig att använda webbtjänster i de här artiklarna:
-  + [Hur du distribuerar till ACI](how-to-deploy-to-aci.md)
-
-  + [Hur du distribuerar till AKS](how-to-deploy-to-aks.md)
-
-+ **För FPGA**:  
-
-  I följande exempel visar hur du använder en autentiserad FPGA-tjänst i Python och C#.
-  Ersätt `authkey` med den primära eller sekundära nyckeln som returnerades när tjänsten har distribuerats.
-
-  Python-exempel:
-    ```python
-    from amlrealtimeai import PredictionClient
-    client = PredictionClient(service.ipAddress, service.port, use_ssl=True, access_token="authKey")
-    image_file = R'C:\path_to_file\image.jpg'
-    results = client.score_image(image_file)
-    ```
-
-  C#-exempel:
-    ```csharp
-    var client = new ScoringClient(host, 50051, useSSL, "authKey");
-    float[,] result;
-    using (var content = File.OpenRead(image))
-        {
-            IScoringRequest request = new ImageRequest(content);
-            result = client.Score<float[,]>(request);
-        }
-    ```
-
-### <a name="set-the-authorization-header"></a>Ange auktoriseringsrubriken
-Andra gRPC-klienter kan autentisera begäranden genom att ange en auktoriseringsrubrik. Den allmänna riktlinjen att skapa en `ChannelCredentials` objekt som kombinerar `SslCredentials` med `CallCredentials`. Detta har lagts till auktoriseringshuvudet för begäran. Läs mer om hur du implementerar stöd för din specifika rubriker, [ https://grpc.io/docs/guides/auth.html ](https://grpc.io/docs/guides/auth.html).
-
-Följande exempel visar hur du ställer in rubriken i C# och Go:
-
-+ Använda C# för att ange rubriken:
-    ```csharp
-    creds = ChannelCredentials.Create(baseCreds, CallCredentials.FromInterceptor(
-                          async (context, metadata) =>
-                          {
-                              metadata.Add(new Metadata.Entry("authorization", "authKey"));
-                              await Task.CompletedTask;
-                          }));
-    
-    ```
-
-+ Använda Go för att ange rubriken:
-    ```go
-    conn, err := grpc.Dial(serverAddr, 
-        grpc.WithTransportCredentials(credentials.NewClientTLSFromCert(nil, "")),
-        grpc.WithPerRPCCredentials(&authCreds{
-        Key: "authKey"}))
-    
-    type authCreds struct {
-        Key string
-    }
-    
-    func (c *authCreds) GetRequestMetadata(context.Context, uri ...string) (map[string]string, error) {
-        return map[string]string{
-            "authorization": c.Key,
-        }, nil
-    }
-    
-    func (c *authCreds) RequireTransportSecurity() bool {
-        return true
-    }
-    ```
-
-<a id="self-signed"></a>
-
-## <a name="consume-services-with-self-signed-certificates"></a>Använda tjänster med självsignerade certifikat
-
-Det finns två sätt att aktivera klienten för att autentisera mot en server som skyddas med ett självsignerat certifikat:
-
-* På klientsystemet, ange den `GRPC_DEFAULT_SSL_ROOTS_FILE_PATH` miljövariabeln på klientsystemet så att den pekar till certifikatfilen.
-
-* När en `SslCredentials` objekt, skicka innehållet i certifikatfilen till konstruktorn.
-
-Med någon av metoderna gör gRPC ska kunna använda certifikatet som rotcertifikatet.
-
-> [!IMPORTANT]
-> gRPC accepterar inte icke betrodda certifikat. Med ett icke betrott certifikat misslyckas med ett `Unavailable` statuskod. Innehåller information om felet `Connection Failed`.
+Lär dig hur du [förbruka en ML-modell som distribueras som en webbtjänst](how-to-consume-web-service.md).

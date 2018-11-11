@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 09/25/2018
-ms.openlocfilehash: eae7f97799e38d5a4b09e3f193a84b423dced780
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 11/09/2018
+ms.openlocfilehash: abf41f48ffa08867fd0f06ff88da00ca65286803
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869337"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515717"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replikering till SQL Database enkel och delade databaser
 
@@ -65,7 +65,7 @@ SQL Server-replikering kan konfigureras för enkel och delade databaser på en [
 
 1. Skapa en Transaktionsreplikering publikation på en lokal SQL Server-databas.  
 2. På en lokal SQL Server använder du den **New Subscription Wizard** eller Transact-SQL-uttryck för att skapa en distribution till Azure SQL Database-prenumeration.  
-3. Den initiala datauppsättningen är vanligtvis en ögonblicksbild som skapats av Ögonblicksbildagenten och distribueras och tillämpas av Distributionsagenten. Den första datauppsättningen kan också anges via en säkerhetskopia eller på annat sätt, till exempel SQL Server Integration Services.  
+3. I Azure SQL Database är första datamängden en ögonblicksbild som skapats av Ögonblicksbildagenten och distribueras och tillämpas av Distributionsagenten.   
 
 ### <a name="data-migration-scenario"></a>Data Migreringsscenario  
 

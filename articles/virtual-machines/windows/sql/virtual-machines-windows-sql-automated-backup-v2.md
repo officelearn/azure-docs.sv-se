@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: jroth
-ms.openlocfilehash: 4619c26e34c90f58702ad286f76a999f83f49cc4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 664a0036b8aa753de9636688d22afff0163f031f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894517"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246828"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Automatisk säkerhetskopiering v2 för virtuella Azure-datorer (Resource Manager)
 
@@ -27,34 +27,34 @@ ms.locfileid: "33894517"
 > * [SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
 > * [SQL Server 2016/2017](virtual-machines-windows-sql-automated-backup-v2.md)
 
-Automatisk säkerhetskopiering v2 konfigurerar automatiskt [hanterad säkerhetskopiering till Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) för alla befintliga och nya databaser på en Azure VM som kör SQL Server 2016/2017 Standard, Enterprise eller Developer-versioner. På så sätt kan du konfigurera regelbundna säkerhetskopieringar som använder beständiga Azure blob storage. Automatisk säkerhetskopiering v2 beror på den [tillägg för SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md).
+Automatiserad säkerhetskopiering v2 konfigurerar automatiskt [hanterad säkerhetskopiering till Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) för alla befintliga och nya databaser på en Azure-dator som kör SQL Server 2016/2017 Standard, Enterprise eller Developer-versioner. På så sätt kan du konfigurera regelbundna databassäkerhetskopieringar som använder varaktiga Azure blob-lagring. Automatiserad säkerhetskopiering v2 beror på den [SQL Server IaaS Agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
-Om du vill använda automatisk säkerhetskopiering v2, gå igenom följande krav:
+För att använda automatisk säkerhetskopiering v2, gå igenom följande krav:
 
 **Operativsystemet**:
 
 - Windows Server 2012 R2
 - Windows Server 2016
 
-**SQL Server-version/utgåva**:
+**SQL Server version/utgåva**:
 
-- SQLServer 2016: Utvecklare, Standard eller Enterprise
-- SQLServer 2017: Utvecklare, Standard eller Enterprise
+- SQLServer 2016: Developer, Standard eller Enterprise
+- SQLServer 2017: Developer, Standard eller Enterprise
 
 > [!IMPORTANT]
-> Automatisk säkerhetskopiering v2 fungerar med SQL Server 2016 eller högre. Om du använder SQL Server 2014 kan du använda automatisk säkerhetskopiering v1 för att säkerhetskopiera databaserna. Mer information finns i [automatisk säkerhetskopiering för SQL Server 2014 Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
+> Automatiserad säkerhetskopiering v2 fungerar med SQL Server 2016 eller senare. Om du använder SQL Server 2014 kan använda du automatisk säkerhetskopiering v1 för att säkerhetskopiera dina databaser. Mer information finns i [automatisk säkerhetskopiering för SQL Server 2014 Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
 **Databaskonfiguration**:
 
-- Måldatabaserna måste använda den fullständiga återställningsmodellen. Mer information om inverkan av den fullständiga återställningsmodellen säkerhetskopior finns [säkerhetskopiering Under den fullständiga återställningsmodellen](https://technet.microsoft.com/library/ms190217.aspx).
-- Systemdatabaser behöver inte använda fullständiga återställningsmodellen. Om du behöver säkerhetskopior som ska vidtas för modellen eller MSDB, måste du använda fullständiga återställningsmodellen.
-- Måldatabaserna måste vara på standardinstansen för SQL Server. SQL Server IaaS-tillägg stöder inte namngivna instanser.
+- Måldatabaserna måste använda den fullständiga återställningsmodellen. Mer information om effekten av den fullständiga återställningsmodellen säkerhetskopior finns i [säkerhetskopiering Under den fullständiga återställningsmodellen](https://technet.microsoft.com/library/ms190217.aspx).
+- Systemdatabaser behöver inte använda fullständiga återställningsmodellen. Om du behöver loggsäkerhetskopior vidtas för modellen eller MSDB, måste du använda fullständiga återställningsmodellen.
+- Måldatabaserna måste vara på standardinstansen för SQL Server. SQL Server IaaS-tillägget har inte stöd för namngivna instanser.
 
 > [!NOTE]
-> Automatisk säkerhetskopiering är beroende av **tillägg för SQL Server IaaS Agent**. Aktuell SQL virtuella galleriavbildningar lägga till tillägget som standard. Mer information finns i [tillägg för SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md).
+> Automatisk säkerhetskopiering är beroende av den **SQL Server IaaS Agent-tillägget**. Aktuell SQL VM-galleriavbildningar lägga till det här tillägget som standard. Mer information finns i [SQL Server IaaS Agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md).
 
 ## <a name="settings"></a>Inställningar
 I följande tabell beskrivs de alternativ som kan konfigureras för automatisk säkerhetskopiering v2. De faktiska konfigurationsstegen varierar beroende på om du använder Azure-portalen eller Azure Windows PowerShell-kommandon.
@@ -63,99 +63,99 @@ I följande tabell beskrivs de alternativ som kan konfigureras för automatisk s
 
 | Inställning | Intervall (standard) | Beskrivning |
 | --- | --- | --- |
-| **Automatisk säkerhetskopiering** | Aktivera/inaktivera (inaktiverat) | Aktiverar eller inaktiverar automatisk säkerhetskopiering för en Azure-dator som kör SQL Server 2016/2017 utvecklare, Standard eller Enterprise. |
-| **Kvarhållningsperioden** | 1 – 30 dagar (30 dagar) | Antal dagar säkerhetskopiorna ska behållas. |
-| **Lagringskonto** | Azure Storage-konto | Ett Azure storage-konto som ska användas för att lagra filer för automatisk säkerhetskopiering i blob storage. En behållare skapas på denna plats att lagra säkerhetskopior. Namngivningskonventionen för säkerhetskopian innehåller datum, tid och databas-GUID. |
-| **Kryptering** |Aktivera/inaktivera (inaktiverat) | Aktiverar eller inaktiverar kryptering. När kryptering är aktiverat finns certifikat som används för att återställa säkerhetskopian i det angivna lagringskontot. Den använder samma **automaticbackup** behållare med samma namngivningskonvention. Om lösenordet ändras, skapas ett nytt certifikat med lösenordet, men det gamla certifikatet finns kvar för att återställa tidigare säkerhetskopior. |
-| **Lösenord** |Text för lösenord | Ett lösenord för krypteringsnycklar. Lösenordet är bara obligatoriskt om kryptering är aktiverat. Du måste ha rätt lösenord och relaterade certifikatet som användes när säkerhetskopian skapades för att återställa en krypterad säkerhetskopiering. |
+| **Automatisk säkerhetskopiering** | Aktivera/inaktivera (inaktiverad) | Aktiverar eller inaktiverar automatisk säkerhetskopiering för en Azure virtuell dator som kör SQL Server 2016/2017 Developer, Standard eller Enterprise. |
+| **Kvarhållningsperiod** | 1 – 30 dagar (30 dagar) | Antal dagar att behålla säkerhetskopior. |
+| **Lagringskonto** | Azure Storage-konto | Ett Azure storage-konto som ska användas för att lagra filer för automatisk säkerhetskopiering i blob storage. En behållare skapas på den här platsen för att lagra säkerhetskopior. Namngivningskonventionen för säkerhetskopian innehåller datum, tid och databas-GUID. |
+| **Kryptering** |Aktivera/inaktivera (inaktiverad) | Aktiverar eller inaktiverar kryptering. När kryptering har aktiverats, finns de certifikat som används för att återställa säkerhetskopian i det angivna lagringskontot. Den använder samma **automaticbackup** behållare med samma namngivningskonvention. Om lösenordet ändras, skapas ett nytt certifikat med lösenordet, men det gamla certifikatet förblir för att återställa tidigare säkerhetskopior. |
+| **Lösenord** |Lösenordet | Ett lösenord för krypteringsnycklar. Det här lösenordet används bara krävs om kryptering är aktiverat. Om du vill återställa en krypterad säkerhetskopiering måste du ha rätt lösenord och relaterade certifikatet som användes när säkerhetskopian skapades. |
 
 ### <a name="advanced-settings"></a>Avancerade inställningar
 
 | Inställning | Intervall (standard) | Beskrivning |
 | --- | --- | --- |
-| **System databassäkerhetskopieringar** | Aktivera/inaktivera (inaktiverat) | När aktiverat funktionen också säkerhetskopierar systemdatabaserna: Master, MSDB och modell. Kontrollera att de är i fullständigt återställningsläge om du vill att säkerhetskopior som ska vidtas för databaserna MSDB och modell. Säkerhetskopior av tas aldrig för Master. Och inga säkerhetskopior har tagit för TempDB. |
-| **Schemat för säkerhetskopiering** | Manuell/automatisk (automatisk) | Som standard bestäms automatiskt schemat för säkerhetskopiering baserat på loggen tillväxt. Manuell Säkerhetskopieringsschemat tillåter användaren att ange tidsfönstret för säkerhetskopior. I det här fallet ske säkerhetskopieringar endast vid den angivna frekvensen och under det angivna tidsfönstret för en viss dag. |
-| **Frekvens för fullständig säkerhetskopiering** | Varje dag/vecka | Frekvens för fullständiga säkerhetskopieringar. I båda fallen måste börja och fullständiga säkerhetskopieringar under nästa schemalagda tidpunkt fönster. När varje vecka väljs säkerhetskopieringar kan sträcka sig över flera dagar tills alla databaser har säkerhetskopierats. |
-| **Starttid för fullständig säkerhetskopiering** | 00:00 – 23:00 (01:00) | Starttid för en viss dag då fullständiga säkerhetskopieringar kan göras. |
-| **Fullständig säkerhetskopiering tidsfönstret** | 1 – 23 timmar (1 timme) | Varaktighet för tidsfönstret för en viss dag då fullständiga säkerhetskopieringar kan göras. |
-| **Frekvens för säkerhetskopiering av loggen** | 5 – 60 minuter (60 minuter) | Frekvensen för säkerhetskopior. |
+| **System-databassäkerhetskopieringar** | Aktivera/inaktivera (inaktiverad) | När aktiverat den här funktionen också säkerhetskopierar systemdatabaserna: Master, MSDB och modellen. Kontrollera att de är i fullständigt återställningsläge om du vill att säkerhetskopior som ska vidtas för databaserna MSDB och modell. Loggsäkerhetskopior tas aldrig för huvudserver. Och inga säkerhetskopior tas för TempDB. |
+| **Schema för säkerhetskopiering** | Manuell/automatisk (automatisk) | Som standard fastställs automatiskt schemat för säkerhetskopiering baserat på logg-tillväxt. Manuell Säkerhetskopieringsschemat gör att användaren kan ange tidsperioden för säkerhetskopior. I det här fallet ske säkerhetskopieringar endast vid den angivna frekvensen och under den angivna tidsfönstret på en viss dag. |
+| **Frekvens för fullständig säkerhetskopiering** | Varje dag/vecka | Frekvensen av fullständiga säkerhetskopieringar. I båda fallen börjar fullständiga säkerhetskopieringar under nästa schemalagda tidsperioden. När vecka har valts kan säkerhetskopior löper under flera dagar tills alla databaser har säkerhetskopierat. |
+| **Starttid för fullständig säkerhetskopiering** | 00:00 – 23:00 (01:00) | Starttid för en viss dag under vilken fullständiga säkerhetskopieringar kan göras. |
+| **Tidsperiod för fullständig säkerhetskopiering** | 1 – 23 timmar (1 timme) | Varaktigheten för tidsperioden för en viss dag under vilken fullständiga säkerhetskopieringar kan göras. |
+| **Frekvens för loggsäkerhetskopiering** | 5 – 60 minuter (60 minuter) | Frekvensen för säkerhetskopior. |
 
-## <a name="understanding-full-backup-frequency"></a>Förstå frekvensen för fullständig säkerhetskopiering
-Det är viktigt att förstå skillnaden mellan dagliga och veckovisa fullständiga säkerhetskopieringar. Tänk på följande två exempel.
+## <a name="understanding-full-backup-frequency"></a>Förstå frekvens för fullständig säkerhetskopiering
+Det är viktigt att förstå skillnaden mellan dagliga och veckovisa fullständiga säkerhetskopieringar. Tänk på följande två exempelscenarier.
 
 ### <a name="scenario-1-weekly-backups"></a>Scenario 1: Veckovisa säkerhetskopior
-Du har en SQL Server-VM som innehåller ett antal stora databaser.
+Du har en SQL Server VM som innehåller ett antal stora databaser.
 
-Måndag aktivera automatisk säkerhetskopiering v2 med följande inställningar:
+På måndag aktiverar du automatisk säkerhetskopiering v2 med följande inställningar:
 
-- Schemat för säkerhetskopiering: **manuell**
-- Fullständig säkerhetskopiering synkroniseringsfrekvensen: **varje vecka**
-- Fullständig säkerhetskopiering starttiden: **01:00**
-- Fullständig säkerhetskopiering tidsfönstret: **1 timme**
+- Schema för säkerhetskopiering: **manuell**
+- Fullständig säkerhetskopieringsfrekvens: **varje vecka**
+- Fullständig säkerhetskopiering: **01:00**
+- Tidsperiod för fullständig säkerhetskopiering: **1 timme**
 
-Detta innebär att nästa tillgängliga fönster för säkerhetskopiering finns tisdag kl 1 timma. Då börjar automatisk säkerhetskopiering säkerhetskopiera databaserna en i taget. I det här scenariot är databaserna tillräckligt stor för att utföra fullständiga säkerhetskopieringar för de första några databaserna. Men efter en timme har inte alla databaserna som säkerhetskopierats.
+Det innebär att nästa tillgängliga fönster för säkerhetskopiering är tisdag kl 1 timme. Vid den tidpunkten börjar automatisk säkerhetskopiering säkerhetskopiera dina databaser en i taget. I det här scenariot är dina databaser tillräckligt stor för att det Slutför fullständiga säkerhetskopieringar för de första par databaserna. Men efter en timme har inte alla databaserna som säkerhetskopierats.
 
-När detta händer börjar automatisk säkerhetskopiering säkerhetskopiera återstående databaser nästa dag, onsdag kl 1 under en timme. Om inte alla databaser har säkerhetskopierats i den tid, försök igen nästa dag på samma gång. Detta fortsätter tills alla databaser har säkerhetskopierats.
+När detta sker börjar automatisk säkerhetskopiering säkerhetskopiera återstående databaser nästa dag, onsdag kl 1 under en timme. Om inte alla databaser har säkerhetskopierats vid den tiden, försök igen nästa dag på samma gång. Detta fortsätter tills alla databaser har säkerhetskopierats.
 
 När den når tisdag igen börjar automatisk säkerhetskopiering säkerhetskopierar alla databaser igen.
 
-Det här scenariot visar att automatisk säkerhetskopiering fungerar endast inom det angivna tidsfönstret, och varje databas säkerhetskopieras en gång per vecka. Det visar att det är möjligt för säkerhetskopiering ska sträcka sig över flera dagar i de fall där det inte går att slutföra alla säkerhetskopior i en dag.
+Det här scenariot visar att automatisk säkerhetskopiering fungerar bara inom det angivna tidsfönstret och varje databas säkerhetskopieras på en gång per vecka. Detta visar att det är möjligt för säkerhetskopiering till löper under flera dagar i de fall där det inte går att slutföra alla säkerhetskopior i en dag.
 
 ### <a name="scenario-2-daily-backups"></a>Scenario 2: Daglig säkerhetskopiering
-Du har en SQL Server-VM som innehåller ett antal stora databaser.
+Du har en SQL Server VM som innehåller ett antal stora databaser.
 
-Måndag aktivera automatisk säkerhetskopiering v2 med följande inställningar:
+På måndag aktiverar du automatisk säkerhetskopiering v2 med följande inställningar:
 
-- Schemat för säkerhetskopiering: manuell
-- Fullständig säkerhetskopiering synkroniseringsfrekvensen: varje dag
-- Fullständig säkerhetskopiering starttiden: 22:00
-- Fullständig säkerhetskopiering tidsfönstret: 6 timmar
+- Schema för säkerhetskopiering: manuell
+- Fullständig säkerhetskopieringsfrekvens: varje dag
+- Fullständig säkerhetskopiering: 22:00
+- Tidsperiod för fullständig säkerhetskopiering: 6 timmar
 
-Detta innebär att nästa tillgängliga fönster för säkerhetskopiering är måndag klockan 10 i 6 timmar. Då börjar automatisk säkerhetskopiering säkerhetskopiera databaserna en i taget.
+Det innebär att nästa tillgängliga fönster för säkerhetskopiering är måndag kl 10 i 6 timmar. Vid den tidpunkten börjar automatisk säkerhetskopiering säkerhetskopiera dina databaser en i taget.
 
-Tisdagen 10 i 6 timmar och fullständiga säkerhetskopieringar för alla databaser starta sedan igen.
+Tisdagen vid 10 i 6 timmar och fullständiga säkerhetskopieringar av alla databaser starta sedan igen.
 
 > [!IMPORTANT]
-> När du schemalägger en daglig säkerhetskopiering, rekommenderas att du schemalägger ett brett tidsfönster så alla databaser kan säkerhetskopieras i den här gången. Detta är särskilt viktigt i de fall där du har en stor mängd data att säkerhetskopiera.
+> När du schemalägger dagliga säkerhetskopior, rekommenderar vi att du schemalägger ett brett tidsfönster att se till att alla databaser kan säkerhetskopieras i den här gången. Detta är särskilt viktigt i fall där du har en stor mängd data du säkerhetskopierar.
 
 ## <a name="configure-in-the-portal"></a>Konfigurera i portalen
 
-Du kan använda Azure-portalen för att konfigurera automatisk säkerhetskopiering v2 under etableringen eller för befintliga SQL Server 2016/2017 virtuella datorer.
+Du kan använda Azure-portalen för att konfigurera automatisk säkerhetskopiering v2 under etableringen eller för befintliga virtuella SQL Server 2016/2017-datorer.
 
 ## <a name="configure-for-new-vms"></a>Konfigurera för nya virtuella datorer
 
-Använda Azure portal för att konfigurera automatisk säkerhetskopiering v2 när du skapar en ny SQL Server 2016 eller 2017 virtuell dator i Resource Manager-distributionsmodellen.
+Använd Azure-portalen för att konfigurera automatisk säkerhetskopiering v2 när du skapar en ny SQL Server 2016 eller 2017-dator i distributionsmodellen för Resource Manager.
 
 I den **SQL Server-inställningar** väljer **automatisk säkerhetskopiering**. I följande Skärmbild av Azure portal visas den **SQL automatisk säkerhetskopiering** inställningar.
 
-![Automatisk säkerhetskopiering i SQL-konfigurationen i Azure-portalen](./media/virtual-machines-windows-sql-automated-backup-v2/automated-backup-blade.png)
+![Automatisk säkerhetskopiering för SQL-konfiguration i Azure-portalen](./media/virtual-machines-windows-sql-automated-backup-v2/automated-backup-blade.png)
 
 > [!NOTE]
-> Automatisk säkerhetskopiering v2 är inaktiverad som standard.
+> Automatiserad säkerhetskopiering v2 är inaktiverad som standard.
 
 ## <a name="configure-existing-vms"></a>Konfigurera befintliga virtuella datorer
 
-Välj den virtuella datorn för SQL Server för befintliga SQL Server virtuella datorer. Välj sedan den **SQL Server-konfigurationsfilen** avsnitt i den virtuella datorn **inställningar**.
+För befintliga SQL Server-datorer, väljer du din SQL Server-dator. Välj sedan den **konfiguration av SQL Server** delen av den virtuella datorn **inställningar**.
 
-![SQL automatisk säkerhetskopiering av befintliga virtuella datorer](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration.png)
+![SQL automatisk säkerhetskopiering för befintliga virtuella datorer](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration.png)
 
-I den **SQL Server-konfigurationsfilen** klickar du på den **redigera** i avsnittet automatisk säkerhetskopiering.
+I den **konfiguration av SQL Server** klickar du på den **redigera** i avsnittet automatisk säkerhetskopiering.
 
-![Konfigurera automatisk säkerhetskopiering i SQL för befintliga virtuella datorer](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration-edit.png)
+![Konfigurera automatisk säkerhetskopiering för SQL för befintliga virtuella datorer](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration-edit.png)
 
-När du är klar klickar du på den **OK** knappen längst ned på den **SQL Server-konfigurationsfilen** inställningar för att spara dina ändringar.
+När du är klar klickar du på den **OK** knappen längst ned på den **konfiguration av SQL Server** inställningar för att spara dina ändringar.
 
-Om du aktiverar automatisk säkerhetskopiering för första gången, konfigurerar Azure SQL Server IaaS-Agent i bakgrunden. Under denna tid kanske Azure-portalen inte visar att automatisk säkerhetskopiering har konfigurerats. Vänta några minuter för att agenten ska installeras, konfigureras. Efter det visar Azure-portalen de nya inställningarna.
+Om du aktiverar automatisk säkerhetskopiering för första gången, konfigurerar SQL Server IaaS Agent i bakgrunden i Azure. Under denna tid kanske Azure-portalen inte visar att automatisk säkerhetskopiering är konfigurerad. Vänta några minuter för att agenten ska installeras, konfigureras. Efter det visar Azure-portalen de nya inställningarna.
 
 ## <a name="configure-with-powershell"></a>Konfigurera med PowerShell
 
 Du kan använda PowerShell för att konfigurera automatisk säkerhetskopiering v2. Innan du börjar måste du:
 
-- [Hämta och installera den senaste Azure PowerShell](http://aka.ms/webpi-azps).
+- [Ladda ned och installera den senaste Azure PowerShell](https://aka.ms/webpi-azps).
 - Öppna Windows PowerShell och koppla den till ditt konto med den **Connect-AzureRmAccount** kommando.
 
-### <a name="install-the-sql-iaas-extension"></a>Installera SQL IaaS-tillägg
-Om du har etablerat en SQL Server-datorn från Azure portal bör SQL Server IaaS-tillägget vara installerad. Du kan fastställa om det har installerats för den virtuella datorn genom att anropa **Get-AzureRmVM** kommandot och undersöka den **tillägg** egenskapen.
+### <a name="install-the-sql-iaas-extension"></a>Installera SQL IaaS-tillägget
+Om du har etablerat en SQL Server-dator från Azure portal bör SQL Server IaaS-tillägget vara installerad. Du kan fastställa om det har installerats för den virtuella datorn genom att anropa **Get-AzureRmVM** kommandot och undersöka den **tillägg** egenskapen.
 
 ```powershell
 $vmname = "vmname"
@@ -164,9 +164,9 @@ $resourcegroupname = "resourcegroupname"
 (Get-AzureRmVM -Name $vmname -ResourceGroupName $resourcegroupname).Extensions 
 ```
 
-Du bör se den visas som ”SqlIaaSAgent” eller ”SQLIaaSExtension” om tillägget SQL Server IaaS-Agent är installerad. **ProvisioningState** för tillägget bör också visa ”lyckades”. 
+Om SQL Server IaaS Agent-tillägget har installerats, bör du se att det visas som ”SqlIaaSAgent” eller ”SQLIaaSExtension”. **ProvisioningState** för tillägget bör också visa ”Succeeded”. 
 
-Om det inte är installerat eller inte fungerar som ska etableras, kan du installera det med följande kommando. Utöver VM namn och resursen gruppen, måste du också ange regionen (**$region**) som den virtuella datorn finns i.
+Om den inte är installerad eller kunde inte etableras, kan du installera det med följande kommando. Utöver VM namn och resursgrupp gruppen, måste du även ange regionen (**$region**) som den virtuella datorn finns i.
 
 ```powershell
 $region = “EASTUS2”
@@ -175,8 +175,8 @@ Set-AzureRmVMSqlServerExtension -VMName $vmname `
     -Version "1.2" -Location $region 
 ```
 
-### <a id="verifysettings"></a> Kontrollera aktuella inställningar
-Om du har aktiverat automatisk säkerhetskopiering under etableringen kan du använda PowerShell för att kontrollera den aktuella konfigurationen. Kör den **Get-AzureRmVMSqlServerExtension** kommando och undersöka den **AutoBackupSettings** egenskapen:
+### <a id="verifysettings"></a> Kontrollera inställningarna för aktuella
+Om du har aktiverat automatisk säkerhetskopiering under etableringen kan du använda PowerShell för att kontrollera din nuvarande konfiguration. Kör den **Get-AzureRmVMSqlServerExtension** kommandot och granska de **AutoBackupSettings** egenskapen:
 
 ```powershell
 (Get-AzureRmVMSqlServerExtension -VMName $vmname -ResourceGroupName $resourcegroupname).AutoBackupSettings
@@ -199,13 +199,13 @@ FullBackupWindowHours       : 2
 LogBackupFrequency          : 60
 ```
 
-Om din utdata visar att **aktivera** är inställd på **FALSKT**, och sedan att aktivera automatisk säkerhetskopiering. Goda nyheter är att aktivera och konfigurera automatisk säkerhetskopiering på samma sätt. Finns i nästa avsnitt för den här informationen.
+Om dina utdata visar att **aktivera** är inställd på **FALSKT**, och sedan att aktivera automatisk säkerhetskopiering. Den goda nyheten är att aktivera och konfigurera automatisk säkerhetskopiering på samma sätt. Se nästa avsnitt för den här informationen.
 
 > [!NOTE] 
-> Om du kontaktar inställningarna innan du gör en ändring, är det möjligt att du kommer tillbaka gamla konfigurationsvärden. Vänta en stund och kontrollera inställningarna igen för att säkerställa att ändringarna har tillämpats.
+> Om du markerar inställningarna innan du gör en ändring är det möjligt att du kommer tillbaka gamla konfigurationsvärden. Vänta några minuter och kontrollera inställningarna igen för att se till att dina ändringar har tillämpats.
 
 ### <a name="configure-automated-backup-v2"></a>Konfigurera automatisk säkerhetskopiering v2
-Du kan använda PowerShell för att aktivera automatisk säkerhetskopiering samt för att ändra dess konfiguration och funktionalitet när som helst. 
+Du kan använda PowerShell för att aktivera automatisk säkerhetskopiering samt för att ändra dess konfiguration och beteende när som helst. 
 
 Först, Välj eller skapa ett lagringskonto för de säkerhetskopiera filerna. Följande skript väljer ett lagringskonto eller skapar den om den inte finns.
 
@@ -221,9 +221,9 @@ If (-Not $storage)
 ```
 
 > [!NOTE]
-> Automatisk säkerhetskopiering stöder inte lagra säkerhetskopior i premium-lagring, men det kan göra säkerhetskopior från Virtuella diskar som använder Premium-lagring.
+> Automatisk säkerhetskopiering stöder inte lagra säkerhetskopior i premium-lagring, men det kan ta säkerhetskopior från VM-diskar som använder Premium Storage.
 
-Använd sedan den **ny AzureRmVMSqlServerAutoBackupConfig** kommando för att aktivera och konfigurera automatisk säkerhetskopiering v2-inställningar för att lagra säkerhetskopior i Azure storage-konto. I det här exemplet ställs säkerhetskopiorna ska behållas i 10 dagar. System databassäkerhetskopiorna är aktiverade. Fullständiga säkerhetskopieringar är schemalagda för varje vecka med ett tidsfönster som börjar vid 20:00 i två timmar. Säkerhetskopieringar är schemalagda för var 30: e minut. Det andra kommandot **Set AzureRmVMSqlServerExtension**, uppdaterar den angivna virtuella Azure-datorn med de här inställningarna.
+Använd sedan den **New AzureRmVMSqlServerAutoBackupConfig** kommando för att aktivera och konfigurera inställningarna för automatisk säkerhetskopiering v2 för att lagra säkerhetskopior i Azure storage-kontot. I det här exemplet anges säkerhetskopiorna ska behållas i 10 dagar. Säkerhetskopior av databasen system är aktiverade. Fullständiga säkerhetskopieringar är schemalagda för varje vecka med ett tidsfönster med början vid 20:00 för två timmar. Säkerhetskopieringar är schemalagda för var 30: e minut. Det andra kommandot **Set-AzureRmVMSqlServerExtension**, uppdaterar den angivna virtuella Azure-datorer med de här inställningarna.
 
 ```powershell
 $autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
@@ -237,9 +237,9 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname 
 ```
 
-Det kan ta flera minuter att installera och konfigurera SQL Server IaaS-Agent. 
+Det kan ta flera minuter att installera och konfigurera SQL Server IaaS Agent. 
 
-Om du vill aktivera kryptering, ändra tidigare skriptet skickar den **EnableEncryption** parametern tillsammans med ett lösenord (säker sträng) för den **CertificatePassword** parametern. Följande skript gör inställningar för automatisk säkerhetskopiering i föregående exempel och lägger till kryptering.
+Om du vill aktivera kryptering, ändrar du föregående skript för att skicka den **EnableEncryption** parametern tillsammans med ett lösenord (säker sträng) för den **CertificatePassword** parametern. Följande skript gör att inställningarna för automatisk säkerhetskopiering i exemplet ovan och lägger till kryptering.
 
 ```powershell
 $password = "P@ssw0rd"
@@ -257,10 +257,10 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 
-Bekräfta dina inställningar tillämpas [verifiera konfigurationen av automatisk säkerhetskopiering](#verifysettings).
+Bekräfta dina inställningar tillämpas [verifiera konfigurationen för automatisk säkerhetskopiering](#verifysettings).
 
 ### <a name="disable-automated-backup"></a>Inaktivera automatisk säkerhetskopiering
-Om du vill inaktivera automatisk säkerhetskopiering, kör du skriptet samma utan den **-aktivera** parametern till den **ny AzureRmVMSqlServerAutoBackupConfig** kommando. Avsaknad av den **-aktivera** parametern signalerar kommandot för att inaktivera funktionen. Precis som med installationen, kan det ta flera minuter att inaktivera automatisk säkerhetskopiering.
+Om du vill inaktivera automatisk säkerhetskopiering, kör samma skript utan den **-aktivera** parametern till den **New AzureRmVMSqlServerAutoBackupConfig** kommandot. Om den **-aktivera** parametern signalerar kommandot för att inaktivera funktionen. Precis som med installationen, kan det ta flera minuter att inaktivera automatisk säkerhetskopiering.
 
 ```powershell
 $autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -ResourceGroupName $storage_resourcegroupname
@@ -270,7 +270,7 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 ```
 
 ### <a name="example-script"></a>Exempelskript
-Följande skript innehåller en uppsättning variabler som du kan anpassa om du vill aktivera och konfigurera automatisk säkerhetskopiering för den virtuella datorn. I ditt fall kan du behöva anpassa skriptet baserat på dina krav. Du skulle behöva ändra om du vill aktivera kryptering eller inaktivera säkerhetskopiering för systemdatabaser.
+Följande skript innehåller ett antal variabler som du kan anpassa om du vill aktivera och konfigurera automatisk säkerhetskopiering för den virtuella datorn. I ditt fall kan du behöva anpassa skriptet efter dina behov. Du skulle behöva göra ändringar om du vill inaktivera säkerhetskopiering för systemdatabaser eller aktivera kryptering.
 
 ```powershell
 $vmname = "yourvmname"
@@ -316,24 +316,24 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 
 ## <a name="monitoring"></a>Övervakning
 
-Du har två huvudsakliga alternativ för att övervaka automatisk säkerhetskopiering på SQL Server 2016/2017. Eftersom automatisk säkerhetskopiering använder funktionen SQL Server-hanterad säkerhetskopiering kan tillämpas på samma sätt som övervakning för både.
+Om du vill övervaka automatisk säkerhetskopiering på SQL Server 2016/2017 har du två huvudsakliga alternativ. Eftersom automatisk säkerhetskopiering använder funktionen SQL Server-hanterad säkerhetskopiering kan tillämpas på samma sätt som övervakning för både.
 
-Du kan börja avsöka status genom att anropa [msdb.managed_backup.sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Eller fråga den [msdb.managed_backup.fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql) tabellvärdesfunktion funktion.
+Du kan börja söka status genom att anropa [msdb.managed_backup.sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Eller fråga den [msdb.managed_backup.fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql) -tabellvärdesfunktion.
 
-Ett annat alternativ är att dra nytta av den inbyggda funktionen Database Mail för meddelanden.
+Ett annat alternativ är att dra nytta av den inbyggda funktionen för Database Mail för meddelanden.
 
-1. Anropa den [msdb.managed_backup.sp_set_parameter](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) lagrade proceduren för att tilldela en e-postadress till den **SSMBackup2WANotificationEmailIds** parameter. 
+1. Anropa den [msdb.managed_backup.sp_set_parameter](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) lagrade proceduren för att tilldela en e-postadress till den **SSMBackup2WANotificationEmailIds** parametern. 
 1. Aktivera [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md) att skicka e-postmeddelanden från den virtuella Azure-datorn.
-1. Använd SMTP-servern och användaren namn om du vill konfigurera Database Mail. Du kan konfigurera Database Mail i SQL Server Management Studio eller med Transact-SQL-kommandon. Mer information finns i [Database Mail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail).
+1. Använd SMTP-server och användar-namn för att konfigurera Database Mail. Du kan konfigurera Database Mail i SQL Server Management Studio eller med Transact-SQL-kommandon. Mer information finns i [Database Mail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail).
 1. [Konfigurera SQL Server Agent om du vill använda Database Mail](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).
-1. Kontrollera att SMTP-porten får både via den lokala VM-brandväggen och nätverkssäkerhetsgruppen för den virtuella datorn.
+1. Kontrollera att SMTP-porten tillåts både via den lokala Virtuella brandväggen och nätverkssäkerhetsgruppen för den virtuella datorn.
 
 ## <a name="next-steps"></a>Nästa steg
-Automatisk säkerhetskopiering v2 konfigurerar hanterad säkerhetskopiering på virtuella Azure-datorer. Därför är det viktigt att [Läs dokumentationen om hanterad säkerhetskopiering](https://msdn.microsoft.com/library/dn449496.aspx) att förstå beteendet och konsekvenser.
+Automatiserad säkerhetskopiering v2 konfigurerar hanterad säkerhetskopiering på virtuella Azure-datorer. Så det är viktigt att [Läs dokumentationen för hanterad säkerhetskopiering](https://msdn.microsoft.com/library/dn449496.aspx) att förstå beteende och konsekvenser.
 
-Du kan hitta ytterligare en säkerhetskopia och återställa riktlinjerna för SQL Server på virtuella Azure-datorer i följande artikel: [säkerhetskopiering och återställning av SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
+Du kan hitta ytterligare säkerhetskopia och återställa hos SQL Server på virtuella Azure-datorer i följande artikel: [säkerhetskopiering och återställning av SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
 
-Information om andra tillgängliga automation-aktiviteter finns [tillägg för SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md).
+Information om andra tillgängliga automation-aktiviteter finns i [SQL Server IaaS Agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md).
 
-Mer information om hur du kör SQL Server på Azure Virtual Machines finns [SQL Server på Azure virtuella datorer – översikt](virtual-machines-windows-sql-server-iaas-overview.md).
+Mer information om hur du kör SQL Server på Azure Virtual Machines finns i [SQL Server på Azure virtuella datorer – översikt](virtual-machines-windows-sql-server-iaas-overview.md).
 

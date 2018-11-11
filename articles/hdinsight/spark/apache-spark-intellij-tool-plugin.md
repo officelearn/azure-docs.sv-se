@@ -2,19 +2,19 @@
 title: 'Azure Toolkit för IntelliJ: skapa Spark-program för ett HDInsight-kluster '
 description: Använd Azure Toolkit för IntelliJ för att utveckla Spark-program som skrivits i Scala och skicka dem till ett HDInsight Spark-kluster.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/08/2018
 ms.author: maxluk
-ms.openlocfilehash: 51e1e7696ece46e63358b2ed6efa55bbf6ab01fd
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ff7cfcd56158bd38d031a29a21247fb9eb6b91f9
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420786"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289078"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Använd Azure Toolkit för IntelliJ för att skapa Spark-program för ett HDInsight-kluster
 
@@ -195,7 +195,7 @@ När du har skapat ett Scala-program, kan du skicka den till klustret.
        > [!NOTE]
        > Om du vill överföra dina referera till JAR: er och refererar till filer, se: [ladda upp resurser ska ingå i klustret](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)
                          
-    * **Ladda upp sökväg**: du kan ange lagringsplats för Jar eller Scala projekt resurser programobjektet skulle skickas. Det finns tre lagringstyper som stöds: **Azure Blob**, **använda Spark interaktiva sessionen för att ladda upp artefakter**, och **använda kluster standardkontot för lagring**. Skärmbilden nedan är ett exempel för Azure Blob.
+    * **Ladda upp sökväg**: du kan ange lagringsplats för Jar eller Scala projekt resurser programobjektet skulle skickas. Det finns tre lagringstyper som stöds: **Azure Blob**, **använda Spark interaktiva sessionen för att ladda upp artefakter**, och **använda kluster standardkontot för lagring**, och **ADLS Gen1**. Skärmbilden nedan är ett exempel för Azure Blob.
 
         ![Dialogrutan Skicka Spark](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-upload-storage-types.png)
 
@@ -258,26 +258,25 @@ Som standard visar Azure Toolkit för IntelliJ Spark-kluster från alla dina Azu
 Du kan köra Spark lokala Console(Scala) eller köra Spark Livy interaktiva sessionen Console(Scala).
 
 ### <a name="spark-local-consolescala"></a>Spark lokala Console(Scala)
-1. Du måste manuellt lägga till beroenden. I menyn **filen**->**projektstrukturer**->**Projektinställningar**->**bibliotek**, Klicka sedan på **+**, Välj **från Maven...** . Ange sedan **org.apache.spark:spark-repl_2.11:2.1.0** i en dialogruta. När du lägger till beroendena i bibliotek, måste du flytta beroendet till den första raden i **moduler** i **projektstrukturer** fönster. Innan du flyttar, ändra den **omfång** till **Runtime**.
-
-    ![Lokala konsolen Lägg till beroende bibliotek](./media/apache-spark-intellij-tool-plugin/local-console-add-dependency-libraries.png)
-
-    ![Lokala konsolen flytten till första raden](./media/apache-spark-intellij-tool-plugin/local-console-move-first-line.png)
-
-2. Ställ in konfigurationen om du inte har någon innan. I **kör/Debug konfigurationer** fönstret klickar du på **+** -> **Azure HDInsight Spark**, väljer fliken **lokalt kör**, Välj huvudklass och sedan på **OK**.
+1. Ställ in konfigurationen om du inte har någon innan. I **kör/Debug konfigurationer** fönstret klickar du på **+** -> **Azure HDInsight Spark**, väljer fliken **lokalt kör**och **fjärrköra i kluster**, Välj huvudklass och sedan på **OK**.
 
     ![Konfiguration av lokal konsol](./media/apache-spark-intellij-tool-plugin/console-set-configuration.png)
  
-3. Öppna filen motsvarande filen main-klass och högerklicka på **Spark konsolen**, klicka sedan på **kör Spark lokala Console(Scala)**. Eller gå till menyn **verktyg**->**Spark konsolen**->**kör Spark lokala Console(Scala)** att starta konsolen.
+2. Öppna filen för motsvarande main-klass och högerklicka på **Spark konsolen**, klicka sedan på **kör Spark lokala Console(Scala)**. Eller gå till menyn **verktyg**->**Spark konsolen**->**kör Spark lokala Console(Scala)** att starta konsolen. Sedan visas två dialogrutor för att be dig om du vill att automatiskt åtgärda beroenden. Klicka bara på knappen **automatiskt åtgärda**.
+
+    ![Spark automatisk Fix1](./media/apache-spark-intellij-tool-plugin/console-auto-fix1.png)
+
+    ![Spark automatisk Fix2](./media/apache-spark-intellij-tool-plugin/console-auto-fix2.png)
 
     ![Spark-lokala startpunkt](./media/apache-spark-intellij-tool-plugin/spark-console-local-entry-script.png)
 
-4. När du startar lokala konsolen har. Det ser ut som nedan. Du kan göra någonting som du vill. Ange till exempel **sc.appName**, tryck på ctrl + RETUR, och sedan visas resultatet.
+3. När du startar lokala konsolen har. Det ser ut som nedan. Du kan göra någonting som du vill. Ange till exempel **sc.appName**, tryck på ctrl + RETUR, och sedan visas resultatet. Du kan säga upp den lokala konsolen genom att klicka på röd knapp.
 
     ![Lokala konsolen resultat](./media/apache-spark-intellij-tool-plugin/local-console-result.png)
 
+
 ### <a name="spark-livy-interactive-session-consolescala"></a>Spark-Livy interaktiva sessionen Console(Scala)
-Den stöds bara på IntelliJ 2018.2.
+Den stöds bara på IntelliJ 2018.2 och 2018.3.
 
 1. Ställ in konfigurationen om du inte har någon innan. I **kör/Debug konfigurationer** fönstret klickar du på **+** -> **Azure HDInsight Spark**, väljer fliken **fjärrköra i kluster** , Välj klusternamnet och main-klass och klicka på **OK**.
 
@@ -290,6 +289,11 @@ Den stöds bara på IntelliJ 2018.2.
 3. När du startar konsolen har kan du göra någonting som du vill. Ange till exempel **sc.appName**, tryck på ctrl + RETUR, och sedan visas resultatet.
 
     ![Interaktiv konsol resultat](./media/apache-spark-intellij-tool-plugin/interactive-console-result.png)
+
+### <a name="send-selection-to-spark-console"></a>Skicka markeringen till Spark-konsolen
+Det är lämpligt för dig att forsee resultatet skriptet genom att skicka vissa koder till den lokala konsolen eller Livy interaktiva sessionen Console(Scala). Du kan markera vissa koder i Scala-filen och sedan högerklicka på **skicka markeringen till Spark konsolen**. De valda koderna kommer att skickas till konsolen och utföras. Resultatet visas efter koder i konsolen. Konsolen ska kontrollera felen om befintlig. 
+
+   ![Skicka markeringen till Spark-konsolen](./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png)
 
 ## <a name="convert-existing-intellij-idea-applications-to-use-azure-toolkit-for-intellij"></a>Konvertera befintliga IntelliJ IDEA-programmen kan använda Azure Toolkit för IntelliJ
 Du kan konvertera befintliga Spark Scala program som du skapade i IntelliJ IDEA till att vara kompatibel med Azure Toolkit för IntelliJ. Du kan sedan använda plugin-programmet för att skicka program till ett HDInsight Spark-kluster.
@@ -333,11 +337,7 @@ Dessa fel inträffa heap-storleken inte är är tillräckligt stort för Spark k
 ![Att lägga till alternativ i rutan ”alternativ för virtuell dator” i IntelliJ](./media/apache-spark-intellij-tool-plugin/change-heap-size.png)
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
-När länkar ett kluster, jag vill föreslå dig med autentiseringsuppgifterna för lagring.
-
-![Länka kluster, ange autentiseringsuppgifter för lagring](./media/apache-spark-intellij-tool-plugin/link-cluster-with-storage-credential-intellij.png)
-
-Det finns två lägen för att skicka jobb. Om storage-autentiseringsuppgifter har angetts och används batch-läge för att skicka jobbet. I annat fall används interaktivt läge. Om klustret är upptagen, kan du få felet nedan.
+Om klustret är upptagen, kan du få felet nedan.
 
 ![Intellij får fel när klustret upptagen](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-upload.png)
 

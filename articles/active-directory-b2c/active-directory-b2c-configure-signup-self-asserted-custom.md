@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/29/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 37492e22b5615ae0b266bc8b2bb6d8f039fdaabe
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 6b2a6d84fffecbe30bd2a47c795ee6143458ee2b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336863"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345008"
 ---
 # <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: Ändra logga in för att lägga till nya anspråk och konfigurera indata från användaren.
 
@@ -277,8 +277,8 @@ Verifiera e-post är aktiverat som standard i den `<TechnicalProfile Id="LocalAc
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lägg till nytt anspråk till flöden för socialt konto inloggningar genom att ändra TechnicalProfiles som anges nedan. Dessa används av sociala/federerad inloggningsnamn för att skriva och läsa informationen med alternativeSecurityId som lokaliseraren.
-```xml
-<TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
-<TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
-```
+Om din princip har stöd för konton i sociala medier, kan du lägga till nytt anspråk till flöden för socialt konto inloggningar genom att ändra teknisk profilerna visas nedan. Dessa anspråk som används av inloggningar för socialt konto att samla in och skriva data från användaren.
+
+1. Leta upp den tekniska profilen **SelfAsserted Social** och Lägg till utdata-anspråket. Ordningen på anspråk i **OutputClaims** styr den ordning som att Azure AD B2C återger anspråk på skärmen. Till exempel `<OutputClaim ClaimTypeReferenceId="city" />`.
+2. Leta upp den tekniska profilen **AAD-UserWriteUsingAlternativeSecurityId** och Lägg till spara anspråket. Till exempel `<PersistedClaim ClaimTypeReferenceId="city" />`.
+3. Leta upp den tekniska profilen **AAD-UserReadUsingAlternativeSecurityId** och Lägg till utdata-anspråket. Till exempel `<OutputClaim ClaimTypeReferenceId="city" />`.

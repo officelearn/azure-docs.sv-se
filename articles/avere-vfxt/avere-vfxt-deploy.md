@@ -6,16 +6,16 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 359ada08f1d9df6b60fc27ca385f6003af498e17
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: eb0f5a4a4219c63334e0a5be3ea4378c3c317bec
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958618"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288109"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Distribuera vFXT-klustret
 
-Om du vill skapa ett vFXT kluster är det enklaste sättet att använda en kluster-controller som en virtuell dator som har de nödvändiga skripten, mallar och programvaruinfrastruktur för att skapa och hantera vFXT-kluster.
+Det enklaste sättet att skapa ett vFXT-kluster i Azure är att använda en kluster-styrenhet. Kluster-styrenheten är en virtuell dator som innehåller de nödvändiga skripten, mallar och programvaruinfrastruktur för att skapa och hantera vFXT-kluster.
 
 Distribuera ett nytt vFXT kluster omfattar de här stegen:
 
@@ -68,7 +68,7 @@ Ange följande information.
 
 I den **BASIC** avsnittet:  
 
-* **Prenumerationen** för klustret
+* **Prenumeration** för klustret
 * **Resursgrupp** för klustret 
 * **Plats** 
 
@@ -82,7 +82,7 @@ I den **inställningar** avsnittet:
 * Resursgrupp för virtuellt nätverk, namn och namn på undernät - skriver namnen på befintliga resurser (om du använder ett befintligt virtuellt nätverk) eller ange nytt namn om du skapar ett nytt virtuellt nätverk
 * **Kontrollnamn** -ange ett namn för VM-styrenhet
 * Administratörsanvändarnamn för domänkontrollant – standardvärdet är `azureuser`
-* SSH-nyckel - klistra in den offentliga nyckeln för att koppla till administratörens användarnamn. Läs [hur du skapar och använder SSH-nycklar](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) om du behöver hjälp.
+* SSH-nyckel - klistra in den offentliga nyckeln för att koppla till administratörens användarnamn. Läs [hur du skapar och använder SSH-nycklar](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) om du behöver hjälp.
 
 Under **villkor**: 
 
@@ -93,16 +93,13 @@ Under **villkor**:
 
 Klicka på **köp** när du är klar. När du har fem eller sex minuter kommer controller noden vara igång.
 
-Du bör gå till utdata-sidan för att samla in information som behövs för klustret. Läs [indata behövs för Skapa kluster](#inputs-needed-for-cluster-creation) vill veta mer.
+Besök sidan utdata om du vill samla in controller information som du behöver för att skapa klustret. Läs [Information som behövs för att skapa klustret](#information-needed-to-create-the-cluster) vill veta mer.
 
 ### <a name="create-controller---azure-marketplace-image"></a>Skapa kontrollenhet – Azure Marketplace-avbildning
 
-Hitta controller mallen genom att söka på Azure Marketplace efter namnet ``Avere``. Välj den **Avere vFXT för Azure Controller** mall. 
+Hitta controller mallen genom att söka på Azure Marketplace efter namnet ``Avere``. Välj den **Avere vFXT för Azure Controller** mall.
 
 Om du inte redan har gjort det, acceptera villkoren och aktivera Programmeringsåtkomst för Marketplace-avbildning genom att klicka på ”vill du distribuera via programmering”? länka under den **skapa** knappen.
-
-> [!NOTE] 
-> Under den första veckan i allmän tillgänglighet (31 oktober – 7 November 2018), måste du använda kommandoradsalternativet accepterar villkoren för två Programvaruavbildningar i stället för att följa den här proceduren. Följ instruktionerna i [acceptera programvara villkoren i förväg](avere-vfxt-prereqs.md#accept-software-terms-in-advance). 
 
 ![Skärmbild av en länk till programmässig åtkomst, vilket ligger under knappen Skapa](media/avere-vfxt-deploy-programmatically.png)
 
@@ -125,7 +122,7 @@ Fyll i första panelen eller bekräfta dessa grundläggande alternativ:
   * Välj användarnamn/lösenord eller offentlig SSH-nyckel (rekommenderas).
   
     > [!TIP] 
-    > En SSH-nyckel är säkrare. Läs [hur du skapar och använder SSH-nycklar](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) om du behöver hjälp. 
+    > En SSH-nyckel är säkrare. Läs [hur du skapar och använder SSH-nycklar](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) om du behöver hjälp. 
   * Ange användarnamnet 
   * Klistra in SSH-nyckel eller ange och bekräfta lösenordet
 * **Regler för inkommande portar** – om du använder en offentlig IP-adress, öppna port 22 (SSH)
@@ -172,29 +169,31 @@ Om du använder Azure Blob storage för lagring av dina backend-data kan skapa d
 
   ![Azure portal skärmbild med anteckningar för stegen för att skapa tjänsteslutpunkt](media/avere-vfxt-service-endpoint.png)
 
-## <a name="gather-needed-inputs"></a>Samla in nödvändiga indata
+## <a name="information-needed-to-create-the-cluster"></a>Information som behövs för att skapa klustret
 
-Du behöver följande information för att skapa klustret. 
+När du har skapat klustret controller, kontrollera att du har den information du behöver för nästa steg. 
 
-Om du har skapat noden domänkontrollant med hjälp av Resource Manager-mall kan du [hämta information från mallutdata](#finding-template-output). 
+Information som behövs för att ansluta till hanteringsstyrenheten: 
 
-Krävs för att ansluta till hanteringsstyrenheten: 
-
-* Controller användarnamn och SSH-nyckel eller lösenord
+* Controller användarnamn och SSH-nyckel (eller lösenord)
 * IP-adress för kontrollenhet eller annan metod för att ansluta till VM-styrenhet
 
-Krävs för att skapa kluster: 
+Information som behövs för klustret: 
 
 * Resursgruppsnamn
 * Azure-plats 
 * Namn på virtuellt nätverk
 * Namn på undernät
-* Rollen för klusternodnamnet
+* Rollen för klusternodnamnet – det här namnet anges när du skapar rollen beskrivs [nedan](#create-the-cluster-node-access-role)
 * Lagringskontonamn om du skapar en Blob-behållare
 
-Du kan också hitta saknas information genom att gå till sidan controller VM information. Klicka till exempel **alla resurser** och Sök efter namnet på och klicka sedan på Kontrollnamn att se detaljerna.
+Om du har skapat noden domänkontrollant med hjälp av Resource Manager-mall kan du få information från den [mallutdata](#find-template-output). 
 
-### <a name="finding-template-output"></a>Hitta mallutdata
+Om du använde Azure Marketplace-avbildning för att skapa styrningen, du har angett de flesta av dessa objekt direkt. 
+
+Hitta alla objekt som saknas genom att gå till sidan controller VM information. Klicka till exempel **alla resurser** och Sök efter namn på och klicka sedan på Kontrollnamn om du vill visa dess information.
+
+### <a name="find-template-output"></a>Hitta mallutdata
 
 Du hittar den här informationen från Resource Manager mallutdata genom att följa den här proceduren:
 
@@ -215,7 +214,7 @@ Om du vill göra resten av stegen för distributionen, måste du ansluta till kl
 1. Metod för att ansluta till kluster-styrenhet beror på din konfiguration.
 
    * Om styrenheten har en offentlig IP-adress, SSH till den styrenheten IP-adress som administratörens användarnamn som du anger (till exempel ``ssh azureuser@40.117.136.91``).
-   * Om den inte har en offentlig IP-adress, använder du en [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) eller en VPN-anslutning till ditt virtuella nätverk.
+   * Om den inte har en offentlig IP-adress, använder du en VPN-anslutning eller [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) anslutning till ditt virtuella nätverk.
 
 1. När du loggar in till en styrenhet, autentisera genom att köra `az login`. Kopiera den Autentiseringskod som angetts i gränssnittet och sedan använda en webbläsare för att läsa in [ https://microsoft.com/devicelogin ](https://microsoft.com/devicelogin) och autentisera med Microsoft-system. Gå tillbaka till gränssnitt för bekräftelse.
 
@@ -292,15 +291,18 @@ RESOURCE_GROUP=
 Spara filen och avsluta.
 
 ### <a name="run-the-script"></a>Kör skriptet
+
 Kör skript genom att skriva det filnamn som du skapade. (Exempel: `./create-cloudbacked-cluster-west1`)  
 
-Överväg att köra det här kommandot i en [terminal multiplexor](http://linuxcommand.org/lc3_adv_termmux.php) som `screen` eller `tmux` om du tappar bort din anslutning.  
+> [!TIP]
+> Överväg att köra det här kommandot i en [terminal multiplexor](http://linuxcommand.org/lc3_adv_termmux.php) som `screen` eller `tmux` om du tappar bort din anslutning.  
+
 Utdata loggas också i `~/vfxt.log`.
 
 När skriptet har körts kan du kopiera hantering av IP-adress, vilket krävs för administration av klustret.
 
 ![Kommandoraden utdata från skriptet visar IP-adress för hantering slutet](media/avere-vfxt-mgmt-ip.png)
 
-### <a name="next-step"></a>Nästa steg
+## <a name="next-step"></a>Nästa steg
 
 Nu när klustret körs och du vet att dess IP-adress för hantering, kan du [ansluta till klustret konfigurationsverktyget](avere-vfxt-cluster-gui.md) att aktivera stöd för och lägga till lagring om det behövs.

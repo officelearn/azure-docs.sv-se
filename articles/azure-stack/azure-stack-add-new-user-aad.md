@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: 9a4d7200a2bc2445fcdfefc0332d67a045b5a2e1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: fa8c8da34a687edd1bd92c1d516183ee5d3e1bd0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038025"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240128"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Lägg till ett nytt konto i Azure Stack-klient i Azure Active Directory
 
@@ -65,7 +65,7 @@ Om du inte har en Azure-prenumeration kan använda du inte Azure-portalen för a
 > 
 
 1. Installera den [Microsoft Online Services-inloggningsassistent för IT-proffs RTW](https://www.microsoft.com/en-us/download/details.aspx?id=41950).
-2. Installera den [Azure Active Directory-modulen för Windows PowerShell (64-bitars version)](http://go.microsoft.com/fwlink/p/?linkid=236297) och öppna den.
+2. Installera den [Azure Active Directory-modulen för Windows PowerShell (64-bitars version)](https://go.microsoft.com/fwlink/p/?linkid=236297) och öppna den.
 3. Kör följande cmdlets:
 
     ```powershell

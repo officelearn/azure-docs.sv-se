@@ -17,15 +17,15 @@ ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: 3cbded3224e7622d13e7af362cb3532a1813787e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: a415258b8127bb78d8a8d1b5ef228234b34b3e26
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242168"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287520"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Kom igång med Azure Active Directory Identity Protection och Microsoft Graph
-Microsoft Graph är Microsofts enhetlig API-slutpunkt och hem för [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) API: er. Den första API **identityRiskEvents**, kan du fråga Microsoft Graph för en lista över [riskhändelser](../reports-monitoring/concept-risk-events.md) och tillhörande information. Den här artikeln kommer du igång fråga detta API. En djupgående introduktion, fullständig dokumentation och åtkomst till Graph-testaren finns i den [Microsoft Graph plats](https://graph.microsoft.io/).
+Microsoft Graph är Microsofts enhetlig API-slutpunkt och hem för [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) API: er. Den första API **identityRiskEvents**, kan du fråga Microsoft Graph för en lista över [riskhändelser](../reports-monitoring/concept-risk-events.md) och tillhörande information. Den här artikeln kommer du igång fråga detta API. En djupgående introduktion, fullständig dokumentation och åtkomst till Graph-testaren finns i den [Microsoft Graph plats](https://developer.microsoft.com/graph/).
 
 
 Det finns fyra steg för att komma åt Identity Protection data via Microsoft Graph:
@@ -219,7 +219,7 @@ Lägg till klient-ID, den hemliga nyckeln och klient-domänen.
 Grattis, du har skapat just ditt första anrop till Microsoft Graph!  
 Nu kan du fråga identitet riskhändelser och använda data men du vill.
 
-Om du vill veta mer om Microsoft Graph och hur du skapar program med Graph API kan ta en titt på [dokumentation](https://graph.microsoft.io/docs) och mycket mer på den [Microsoft Graph plats](https://graph.microsoft.io/). Kontrollera också att lägga den [Azure AD Identity Protection API](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root) sida som innehåller alla Identity Protection API: erna i Graph. När vi lägger till nya sätt att arbeta med Identity Protection via API: et ser dem på sidan.
+Om du vill veta mer om Microsoft Graph och hur du skapar program med Graph API kan ta en titt på [dokumentation](https://developer.microsoft.com/graph/docs) och mycket mer på den [Microsoft Graph plats](https://developer.microsoft.com/graph/). Kontrollera också att lägga den [Azure AD Identity Protection API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root) sida som innehåller alla Identity Protection API: erna i Graph. När vi lägger till nya sätt att arbeta med Identity Protection via API: et ser dem på sidan.
 
 Relaterad information finns i:
 
@@ -227,9 +227,9 @@ Relaterad information finns i:
 
 -  [Typer av riskhändelser som identifierats av Azure Active Directory Identity Protection](../reports-monitoring/concept-risk-events.md)
 
-- [Microsoft Graph](https://graph.microsoft.io/)
+- [Microsoft Graph](https://developer.microsoft.com/graph/)
 
-- [Översikt över Microsoft Graph](https://graph.microsoft.io/docs)
+- [Översikt över Microsoft Graph](https://developer.microsoft.com/graph/docs)
 
-- [Azure AD Identity Protection Service-rot](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root)
+- [Azure AD Identity Protection Service-rot](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root)
 

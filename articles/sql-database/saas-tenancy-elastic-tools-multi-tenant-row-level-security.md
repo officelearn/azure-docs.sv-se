@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: d669e7beb2d0e41ff26408d4f71c3e1648c41e3a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6d701878886cb1d5cc20a57614a474537f06a728
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242576"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242916"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Program för flera innehavare med elastic database-verktyg och säkerhet på radnivå
 
@@ -41,7 +41,7 @@ Målet är att använda elastic database-klientbibliotek [databeroende routning]
 
 - Använd Visual Studio (2012 eller senare)
 - Skapa tre Azure SQL-databaser
-- Ladda ned exempelprojektet: [elastiska DB-verktyg för Azure SQL - fragment för flera innehavare](http://go.microsoft.com/?linkid=9888163)
+- Ladda ned exempelprojektet: [elastiska DB-verktyg för Azure SQL - fragment för flera innehavare](https://go.microsoft.com/?linkid=9888163)
   - Fyll i information för dina databaser i början av **Program.cs** 
 
 Det här projektet utökar det som beskrivs i [elastiska DB-verktyg för Azure SQL - integrering av Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) genom att lägga till stöd för flera innehavare fragment databaser. Projektet bygger ett enkelt konsolprogram för att skapa bloggar och inlägg. Projektet innehåller fyra klienter, samt två databaser för flera innehavare fragment. Den här konfigurationen visas i föregående diagram. 
@@ -254,7 +254,7 @@ GO
 ```
 
 > [!TIP]
-> I ett komplext projekt som du kan behöva lägga till predikatet på hundratals olika tabeller, vilket kan orsaka tedious. Det finns en helper lagrade procedur som automatiskt genererar en säkerhetsprincip och lägger till ett predikat för alla tabeller i ett schema. Mer information finns i blogginlägget vid [gäller säkerhet på radnivå till alla tabeller - helper-skript (blogg)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
+> I ett komplext projekt som du kan behöva lägga till predikatet på hundratals olika tabeller, vilket kan orsaka tedious. Det finns en helper lagrade procedur som automatiskt genererar en säkerhetsprincip och lägger till ett predikat för alla tabeller i ett schema. Mer information finns i blogginlägget vid [gäller säkerhet på radnivå till alla tabeller - helper-skript (blogg)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
 
 Nu se klienter endast de rader som hör till dem om du kör exempelprogrammet igen. Dessutom kan kan inte programmet infoga rader som hör till klienter andra än den som är anslutna till den shard-databasen. Appen kan inte också uppdatera TenantId i alla rader som den kan se. Om appen försöker göra något, utlöses en DbUpdateException.
 
@@ -342,7 +342,7 @@ GO
 ### <a name="maintenance"></a>Underhåll
 
 - **Att lägga till nya fragmenten**: köra T-SQL-skript om du vill aktivera RLS på alla nya fragmenten, annars frågor på dessa fragment inte är att filtreras.
-- **Att lägga till nya tabeller**: lägga till ett FILTER och BLOCK-predikat i säkerhetsprincipen på alla shards varje gång en ny tabell skapas. Frågor om den nya tabellen är annars inte filtreras. Det här tillägget kan automatiseras med hjälp av en DDL-utlösare, enligt beskrivningen i [gäller säkerhet på radnivå automatiskt till nya tabeller (blogg)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Att lägga till nya tabeller**: lägga till ett FILTER och BLOCK-predikat i säkerhetsprincipen på alla shards varje gång en ny tabell skapas. Frågor om den nya tabellen är annars inte filtreras. Det här tillägget kan automatiseras med hjälp av en DDL-utlösare, enligt beskrivningen i [gäller säkerhet på radnivå automatiskt till nya tabeller (blogg)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 ## <a name="summary"></a>Sammanfattning
 
@@ -358,7 +358,7 @@ Verktyg för elastiska databaser och säkerhet på radnivå kan finnas tillsamma
 
 ## <a name="questions-and-feature-requests"></a>Frågor och funktionsförfrågningar
 
-Frågor kan du kontakta oss på den [SQL Database-forumet](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Och Lägg till eventuella funktionsbegäranden till den [SQL Database-Feedbackforum](https://feedback.azure.com/forums/217321-sql-database/).
+Frågor kan du kontakta oss på den [SQL Database-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Och Lägg till eventuella funktionsbegäranden till den [SQL Database-Feedbackforum](https://feedback.azure.com/forums/217321-sql-database/).
 
 
 <!--Image references-->

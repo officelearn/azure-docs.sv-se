@@ -12,35 +12,35 @@ items:
   expanded: true
 - name: Självstudier
   items:
-  - name: Virtuella Azure-datorer
+  - name: Haveriberedskap för virtuell Azure-dator till Azure
     items:
-    - name: Konfigurera haveriberedskap
+    - name: Aktivera replikering
       href: azure-to-azure-tutorial-enable-replication.md
     - name: Köra ett programåterställningstest
       href: azure-to-azure-tutorial-dr-drill.md
     - name: Köra redundans och återställning efter fel
       href: azure-to-azure-tutorial-failover-failback.md
-  - name: VMwares virtuella datorer
+  - name: Haveriberedskap för virtuell VMware-dator till Azure
     items:
     - name: Förbereda Azure
       href: tutorial-prepare-azure.md
     - name: Förbereda lokal VMware
       href: vmware-azure-tutorial-prepare-on-premises.md
-    - name: Konfigurera haveriberedskap
+    - name: Konfigurera replikering
       href: vmware-azure-tutorial.md
     - name: Köra ett programåterställningstest
       href: tutorial-dr-drill-azure.md
     - name: Köra redundans och återställning efter fel
       href: vmware-azure-tutorial-failover-failback.md
-  - name: Hyper-V:s virtuella datorer
+  - name: Haveriberedskap för virtuell Hyper-V-dator till Azure
     items:
     - name: Förbereda Azure
       href: tutorial-prepare-azure.md
     - name: Förbereda lokala Hyper-V
       href: hyper-v-prepare-on-premises-tutorial.md
-    - name: Konfigurera haveriberedskap för virtuella Hyper-V-datorer
+    - name: Konfigurera replikering för virtuella Hyper-V-datorer
       href: hyper-v-azure-tutorial.md
-    - name: Ställ in katastrofåterställning för virtuella Hyper-V-datorer i VMM-moln
+    - name: Konfigurera replikering för virtuella Hyper-V-datorer i VMM-moln
       href: hyper-v-vmm-azure-tutorial.md
     - name: Köra ett programåterställningstest
       href: tutorial-dr-drill-azure.md
@@ -52,7 +52,7 @@ items:
       href: tutorial-prepare-azure.md
     - name: Migrera lokala datorer till Azure
       href: migrate-tutorial-on-premises-azure.md
-    - name: Migrera Windows Server 2008-servrar till Azure
+    - name: Migrera lokala Windows Server 2008-servrar till Azure
       href: migrate-tutorial-windows-server-2008.md
     - name: Migrera AWS-instanser till Azure
       href: migrate-tutorial-aws-azure.md
@@ -60,7 +60,9 @@ items:
       href: azure-to-azure-tutorial-migrate.md
 - name: Begrepp
   items:
-  - name: Virtuella Azure-datorer
+  - name: Vanliga frågor och svar (FAQ)
+    href: site-recovery-faq.md
+  - name: Om haveriberedskap för virtuell Azure-dator till Azure
     items:
     - name: Arkitektur för Azure till Azure
       href: azure-to-azure-architecture.md
@@ -70,47 +72,35 @@ items:
       href: azure-vm-disaster-recovery-with-accelerated-networking.md
     - name: ExpressRoute med Azure VM-haveriberedskap
       href: azure-vm-disaster-recovery-with-expressroute.md
-  - name: Virtuella VMware-datorer och fysiska servrar
+  - name: Om haveriberedskap för virtuell VMware-dator till Azure
     items:
-    - name: Replikering till Azure
-      items:
-      - name: Vanliga frågor om replikering från VMware till Azure
-        href: vmware-azure-common-questions.md
-      - name: Stödmatris
-        href: vmware-physical-azure-support-matrix.md
-      - name: Arkitektur för VMware till Azure
-        href: vmware-azure-architecture.md
-      - name: Arkitektur för fysisk till Azure
-        href: physical-azure-architecture.md
-      - name: Om haveriberedskap
-        href: vmware-azure-about-disaster-recovery.md
-      - name: Om alternativ för redundansplats
-        href: concepts-types-of-failback.md
-      - name: Om stöd för flera klienter för VMware
-        href: vmware-azure-multi-tenant-overview.md
-    - name: Replikering till en sekundär plats
-      items:
-      - name: Stödmatris för VMware/fysisk till sekundär plats
-        href: vmware-physical-secondary-support-matrix.md
-      - name: Arkitektur för VMware/fysisk till sekundär plats
-        href: vmware-physical-secondary-architecture.md
-  - name: Hyper-V:s virtuella datorer
+    - name: Översikt över haveriberedskap för VMware
+      href: vmware-azure-about-disaster-recovery.md
+    - name: Vanliga frågor
+      href: vmware-azure-common-questions.md
+    - name: Stödmatris
+      href: vmware-physical-azure-support-matrix.md
+    - name: Arkitektur för VMware till Azure
+      href: vmware-azure-architecture.md
+    - name: Platsalternativ för återställning efter fel från Azure till VMware
+      href: concepts-types-of-failback.md
+    - name: Haveriberedskap för VMware med stöd för flera klienter
+      href: vmware-azure-multi-tenant-overview.md
+  - name: Om haveriberedskap för virtuell Hyper-V-dator till Azure
     items:
-    - name: Replikering till Azure
-      items:
-      - name: Vanliga frågor om replikering från Hyper-V till Azure
-        href: hyper-v-azure-common-questions.md
-      - name: Hyper-V-till-Azure-supportmatris
-        href: hyper-v-azure-support-matrix.md
-      - name: Arkitektur för Hyper-V till Azure
-        href: hyper-v-azure-architecture.md
-    - name: Replikering till en sekundär plats
-      items:
-      - name: Stödmatris för Hyper-V till sekundär plats
-        href: hyper-v-vmm-secondary-support-matrix.md
-      - name: Arkitektur för Hyper-V till sekundär
-        href: hyper-v-vmm-architecture.md
-  - name: Nätverk
+    - name: Vanliga frågor
+      href: hyper-v-azure-common-questions.md
+    - name: Stödmatris
+      href: hyper-v-azure-support-matrix.md
+    - name: Arkitektur för Hyper-V till Azure
+      href: hyper-v-azure-architecture.md
+  - name: Om haveriberedskap för fysisk server till Azure
+    items:
+    - name: Stödmatris
+      href: vmware-physical-azure-support-matrix.md
+    - name: Arkitektur för fysisk server till Azure
+      href: physical-azure-architecture.md
+  - name: Om nätverk för haveriberedskap till Azure
     items:
     - name: Azure Traffic Manager med Site Recovery
       href: concepts-traffic-manager-with-site-recovery.md
@@ -118,67 +108,71 @@ items:
       href: concepts-expressroute-with-site-recovery.md
     - name: Nätverkssäkerhetsgrupper med Site Recovery
       href: concepts-network-security-group-with-site-recovery.md
-    - name: Offentlig IP-adress med Site Recovery
+    - name: Använda offentliga IP-adresser med Site Recovery
       href: concepts-public-ip-address-with-site-recovery.md
-  - name: Haveriberedskap för appar
-    href: site-recovery-workload.md
-  - name: Om återställningsplaner
+  - name: Om redundans- och återställningsplaner
     href: recovery-plan-overview.md
-  - name: Om migrering
+  - name: Om migrering till Azure
     href: migrate-overview.md
   - name: Om rollbaserad åtkomstkontroll med Site Recovery
     href: site-recovery-role-based-linked-access-control.md
-  - name: VANLIGA FRÅGOR OCH SVAR
-    href: site-recovery-faq.md
+  - name: Om haveriberedskap till en sekundär lokal plats
+    items:
+    - name: Supportmatris för VMware/fysisk server
+      href: vmware-physical-secondary-support-matrix.md
+    - name: Arkitektur för virtuell VMware-dator/fysisk server till en sekundär plats
+      href: vmware-physical-secondary-architecture.md
+    - name: Stödmatris för Hyper-V
+      href: hyper-v-vmm-secondary-support-matrix.md
+    - name: Arkitektur för virtuell Hyper-V-dator till en sekundär plats
+      href: hyper-v-vmm-architecture.md
 - name: Instruktionsguider
   items:
-  - name: Azure till Azure
+  - name: Azure-till-Azure-haveriberedskap
     items:
-    - name: Nätverk
+    - name: Konfigurera nätverk
       items:
-      - name: Hantera nätverk för haveriberedskap för virtuella Azure-datorer
+      - name: Förbereda nätverk för haveriberedskap för virtuella Azure-datorer
         href: azure-to-azure-about-networking.md
-      - name: Förbereda nätverksmappning i haveriberedskap för virtuella Azure-datorer
+      - name: Förbereda nätverksmappning för haveriberedskap för virtuella Azure-datorer
         href: azure-to-azure-network-mapping.md
       - name: Konfigurera IP-adresser för redundans
         href: site-recovery-retain-ip-azure-vm-failover.md
       - name: Integrera ExpressRoute med Azure VM-haveriberedskap
         href: azure-vm-disaster-recovery-with-expressroute.md
-    - name: Haveriberedskap
-      items:
-      - name: Haveriberedskap för virtuella Azure-datorer efter migrering till Azure
-        href: azure-to-azure-replicate-after-migration.md
-      - name: Haveriberedskap för virtuella Azure-datorer med PowerShell
-        href: azure-to-azure-powershell.md
-    - name: Replikering, redundans och återställning efter fel
+    - name: Konfigurera haveriberedskap
       items:
       - name: Aktivera Azure till Azure-replikering
         href: azure-to-azure-how-to-enable-replication.md
       - name: Aktivera Azure till Azure-replikering för krypterade virtuella datorer
         href: azure-to-azure-how-to-enable-replication-ade-vms.md
-      - name: Skydda datorer igen från en sekundär Azure-region till en primär
+      - name: Skydda virtuella Azure-datorer igen efter en redundansväxling
         href: azure-to-azure-how-to-reprotect.md
     - name: Felsökning
       items:
       - name: Felsöka replikering från Azure till Azure
         href: azure-to-azure-troubleshoot-errors.md
+      - name: Felsöka pågående replikering
+        href: azure-to-azure-troubleshoot-replication.md
       - name: Felsöka Azure Site Recovery-tillägg
         href: site-recovery-extension-troubleshoot.md
+      - name: Konfigurera haveriberedskap för virtuella Azure-datorer efter migrering till Azure
+        href: azure-to-azure-replicate-after-migration.md
     - name: Hantera
       items:
-      - name: Automatisk uppdatering av mobilitetstjänstetillägg
+      - name: Uppdatera mobilitetstjänsten för virtuella Azure-datorer
         href: azure-to-azure-autoupdate.md
-  - name: VMware/fysisk till Azure
+  - name: Haveriberedskap för VMware till Azure
     items:
-    - name: Nätverk
+    - name: Konfigurera nätverk
       items:
       - name: Hantera nätverksgränssnitt för replikering från lokal plats till Azure
         href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
       - name: Konfigurera IP-adresser för redundans
         href: concepts-on-premises-to-azure-networking.md
-    - name: Kapacitetsplanering
+    - name: Utför kapacitetsplanering
       items:
-      - name: Planera kapacitet för VMware-replikering till Azure
+      - name: Planera kapacitet
         href: site-recovery-plan-capacity-vmware.md
       - name: Distributionsplaneringsverktyget för VMware-replikering till Azure
         items:
@@ -192,44 +186,36 @@ items:
           href: site-recovery-vmware-deployment-planner-cost-estimation.md
       - name: Skala ut processervrar för VMware-replikering
         href: vmware-azure-set-up-process-server-scale.md
-    - name: Haveriberedskap
+    - name: Konfigurera haveriberedskap
       items:
-      - name: Replikera virtuella VMware-datorer till Azure med PowerShell
-        href: vmware-azure-disaster-recovery-powershell.md
-      - name: Konfigurera källmiljön för virtuella VMware-datorer
+      - name: Konfigurera källmiljön
         href: vmware-azure-set-up-source.md
-      - name: Distribuera konfigurationsservern för VMware-replikering
+      - name: Distribuera konfigurationsservern för virtuella VMware-datorer
         href: vmware-azure-deploy-configuration-server.md
-      - name: Konfigurera målmiljön för virtuella VMware-datorer
+      - name: Konfigurera målmiljön
         href: vmware-azure-set-up-target.md
-      - name: Konfigurera replikeringsinställningar för virtuella VMware-datorer
+      - name: Konfigurera replikeringsinställningar
         href: vmware-azure-set-up-replication.md
+      - name: Distribuera mobilitetstjänsten
+        items:
+        - name: Installation av mobilitetstjänsten
+          href: vmware-physical-mobility-service-overview.md
+        - name: Förbereda för push-installation av mobilitetstjänsten
+          href: vmware-azure-install-mobility-service.md
+        - name: Installera mobilitetstjänsten manuellt
+          href: vmware-physical-mobility-service-install-manual.md
+        - name: Distribuera mobilitetstjänsten med System Center Configuration Manager
+          href: vmware-azure-mobility-install-configuration-mgr.md
       - name: Aktivera replikering för virtuella VMware-datorer
         href: vmware-azure-enable-replication.md
-      - name: Undanta diskar från replikering av virtuella VMware-datorer
+      - name: Uteslut diskar
         href: vmware-azure-exclude-disk.md
-      - name: Konfigurera replikering med flera innehavare och CSP för virtuella VMWare-datorer
+      - name: Genomgång – Konfigurera replikering med flera klienter och CSP för virtuella VMWare-datorer
         href: vmware-azure-multi-tenant-csp-disaster-recovery.md
-      - name: Konfigurera haveriberedskap för fysiska servrar till Azure
-        href: physical-azure-disaster-recovery.md
-      - name: Konfigurera källmiljön för replikering av fysiska servrar
-        href: physical-azure-set-up-source.md
-      - name: Konfigurera målmiljön för replikering av fysiska servrar
-        href: vmware-azure-set-up-target.md
-      - name: Konfigurera haveriberedskap för virtuella Azure Stack-datorer
-        href: azure-stack-site-recovery.md
-    - name: Distribuera mobilitetstjänsten
-      items:
-      - name: Mobilitetstjänstöversikt
-        href: vmware-azure-install-mobility-service.md
-      - name: Distribuera mobilitetstjänsten med System Center Configuration Manager
-        href: vmware-azure-mobility-install-configuration-mgr.md
-    - name: Redundans och återställning efter fel
+    - name: Köra redundans och återställning efter fel
       items:
       - name: Konfigurera återställningsplaner
         href: site-recovery-create-recovery-plans.md
-      - name: Lägga till Azure-runbookflöden i återställningsplaner
-        href: site-recovery-runbook-automation.md
       - name: Köra ett programåterställningstest till Azure
         href: site-recovery-test-failover-to-azure.md
       - name: Köra en redundans i Azure
@@ -242,14 +228,10 @@ items:
         href: vmware-azure-set-up-process-server-azure.md
       - name: Konfigurera en Linux-huvudmålserver för återställning efter fel
         href: vmware-azure-install-linux-master-target.md
-      - name: Köra redundans och återställning efter fel för fysiska servrar
-        href: physical-to-azure-failover-failback.md
     - name: Hantera
       items:
-      - name: Hantera konfigurationsservern för VMware-replikering
+      - name: Hantera konfigurationsservern för VMware
         href: vmware-azure-manage-configuration-server.md
-      - name: Hantera konfigurationsservern för fysisk serverreplikering
-        href: physical-manage-configuration-server.md
       - name: Hantera processervrar
         href: vmware-azure-manage-process-server.md
       - name: Hantera vCenter-servrar
@@ -258,31 +240,57 @@ items:
         href: site-recovery-manage-registration-and-protection.md
       - name: Ta bort ett valv
         href: delete-vault.md
-    - name: Övervaka och felsök
-      items:
-      - name: Övervaka Azure Site Recovery
-        href: site-recovery-monitor-and-troubleshoot.md
-      - name: Felsöka replikering från VMware till Azure
-        href: vmware-azure-troubleshoot-replication.md
-      - name: Felsöka mobilitetstjänsten/push-installationen i replikering från VMware och fysiska servrar
-        href: vmware-azure-troubleshoot-push-install.md
-      - name: Felsöka redundans till Azure
-        href: site-recovery-failover-to-azure-troubleshoot.md
-      - name: Felsöka återaktivering av skydd och återställning efter fel för virtuella VMware-datorer från Azure
-        href: vmware-azure-troubleshoot-failback-reprotect.md
-  - name: VMware/fysiska till en sekundär plats
+  - name: Haveriberedskap för fysisk server till Azure
     items:
-    - name: Haveriberedskap för virtuella VMware-datorer och fysiska servrar till en sekundär plats
-      href: vmware-physical-secondary-disaster-recovery.md
-  - name: Hyper-V till Azure
-    items:
-    - name: Nätverk
+    - name: Konfigurera nätverk
       items:
       - name: Hantera nätverksgränssnitt för replikering från lokal plats till Azure
         href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
       - name: Konfigurera IP-adresser för redundans
         href: concepts-on-premises-to-azure-networking.md
-    - name: Kapacitetsplanering
+    - name: Konfigurera haveriberedskap
+      items:
+      - name: Konfigurera källmiljön
+        href: physical-azure-set-up-source.md
+      - name: Konfigurera målmiljön
+        href: vmware-azure-set-up-target.md
+      - name: Distribuera mobilitetstjänsten
+        items:
+        - name: Om installation av mobilitetstjänsten
+          href: vmware-physical-mobility-service-overview.md
+        - name: Förbereda för push-installation av mobilitetstjänsten
+          href: vmware-azure-install-mobility-service.md
+        - name: Installera mobilitetstjänsten manuellt
+          href: vmware-physical-mobility-service-install-manual.md
+        - name: Distribuera mobilitetstjänsten med System Center Configuration Manager
+          href: vmware-azure-mobility-install-configuration-mgr.md
+        - name: Genomgång – Konfigurera haveriberedskap
+          href: physical-azure-disaster-recovery.md
+    - name: Köra redundans och återställning efter fel
+      href: physical-to-azure-failover-failback.md
+    - name: Hantera
+      items:
+      - name: Hantera konfigurationsservern för fysisk serverreplikering
+        href: physical-manage-configuration-server.md
+      - name: Hantera processervrar
+        href: vmware-azure-manage-process-server.md
+      - name: Ta bort servrar och inaktivera skydd
+        href: site-recovery-manage-registration-and-protection.md
+      - name: Ta bort ett valv
+        href: delete-vault.md
+  - name: Haveriberedskap för virtuell Azure Stack-dator
+    items:
+    - name: Genomgång – Konfigurera haveriberedskap för virtuella Azure Stack-datorer
+      href: azure-stack-site-recovery.md
+  - name: Haveriberedskap för Hyper-V till Azure
+    items:
+    - name: Konfigurera nätverk
+      items:
+      - name: Hantera nätverksgränssnitt för replikering från lokal plats till Azure
+        href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
+      - name: Konfigurera IP-adresser för redundans
+        href: concepts-on-premises-to-azure-networking.md
+    - name: Utför kapacitetsplanering
       items:
       - name: Verktyget Distributionshanteraren för Hyper-V-replikering till Azure
         items:
@@ -294,26 +302,20 @@ items:
           href: hyper-v-deployment-planner-analyze-report.md
         - name: Analysera kostnadsuppskattningsrapporten
           href: hyper-v-deployment-planner-cost-estimation.md
-    - name: Haveriberedskap
+    - name: Konfigurera haveriberedskap
       items:
-      - name: Konfigurera Hyper-V-replikering till Azure (utan VMM) med PowerShell
-        href: hyper-v-azure-powershell-resource-manager.md
-      - name: Konfigurera Hyper-V-replikering till Azure (med VMM) med PowerShell
-        href: hyper-v-vmm-powershell-resource-manager.md
       - name: Förbereda nätverksmappning för haveriberedskap för virtuella Hyper-V-datorer
         href: hyper-v-vmm-network-mapping.md
       - name: Undanta diskar från replikering för Hyper-V till Azure
         href: hyper-v-exclude-disk.md
-    - name: Redundans och återställning efter fel
+    - name: Köra redundans och återställning efter fel
       items:
-      - name: Köra ett programåterställningstest till Azure
-        href: site-recovery-test-failover-to-azure.md
       - name: Konfigurera återställningsplaner
         href: site-recovery-create-recovery-plans.md
       - name: Lägga till VMM-skript i återställningsplaner
         href: hyper-v-vmm-recovery-script.md
-      - name: Lägga till Azure-runbookflöden i återställningsplaner
-        href: site-recovery-runbook-automation.md
+      - name: Köra ett programåterställningstest till Azure
+        href: site-recovery-test-failover-to-azure.md
       - name: Köra en redundans i Azure
         href: site-recovery-failover.md
       - name: Redundansväxla från Azure till Hyper-V
@@ -324,30 +326,10 @@ items:
         href: site-recovery-manage-registration-and-protection.md
       - name: Ta bort ett valv
         href: delete-vault.md
-    - name: Övervaka och felsök
-      items:
-      - name: Felsöka Hyper-V-replikering
-        href: hyper-v-azure-troubleshoot.md
-      - name: Övervaka Azure Site Recovery
-        href: site-recovery-monitor-and-troubleshoot.md
-  - name: Hyper-V till sekundär plats
+  - name: Haveriberedskap för appar
     items:
-    - name: Haveriberedskap för virtuella Hyper-V-datorer till en sekundär webbplats
-      href: hyper-v-vmm-disaster-recovery.md
-    - name: Konfigurera Hyper-V-replikering till en sekundär VMM-plats med PowerShell
-      href: hyper-v-vmm-powershell-resource-manager.md
-    - name: Köra ett haveriberedskapstest för virtuella Hyper-V-datorer till en sekundär plats
-      href: hyper-v-vmm-test-failover.md
-    - name: Konfigurera IP-adresser för redundans
-      href: hyper-v-vmm-networking.md
-    - name: Lägga till VMM-skript i återställningsplaner
-      href: hyper-v-vmm-recovery-script.md
-    - name: Köra redundans och återställning efter fel mellan lokala platser
-      href: hyper-v-vmm-failover-failback.md
-    - name: Prestandaskalningstester för Hyper-V-replikering till en sekundär plats
-      href: hyper-v-vmm-performance-results.md
-  - name: Replikera appar
-    items:
+    - name: Konfigurera haveriberedskap för Azure för lokala appar
+      href: site-recovery-workload.md
     - name: Active Directory och DNS
       href: site-recovery-active-directory.md
     - name: SQL Server
@@ -370,6 +352,64 @@ items:
       href: site-recovery-citrix-xenapp-and-xendesktop.md
     - name: Övriga arbetsbelastningar
       href: site-recovery-workload.md#workload-summary
+  - name: Haveriberedskap till en sekundär plats
+    items:
+    - name: Virtuella VMware-datorer/fysiska servrar
+      items:
+      - name: Genomgång – Haveriberedskap för virtuella VMware-datorer och fysiska servrar till en sekundär plats
+        href: vmware-physical-secondary-disaster-recovery.md
+    - name: Hyper-V:s virtuella datorer
+      items:
+      - name: Genomgång – Haveriberedskap för virtuella Hyper-V-datorer i VMM-moln till en sekundär plats
+        href: hyper-v-vmm-disaster-recovery.md
+      - name: Köra ett haveriberedskapstest för virtuella Hyper-V-datorer till en sekundär plats
+        href: hyper-v-vmm-test-failover.md
+      - name: Konfigurera IP-adresser för redundans
+        href: hyper-v-vmm-networking.md
+      - name: Lägga till VMM-skript i återställningsplaner
+        href: hyper-v-vmm-recovery-script.md
+      - name: Köra redundans och återställning efter fel mellan lokala platser
+        href: hyper-v-vmm-failover-failback.md
+      - name: Prestandaskalningstester för haveriberedskap till en sekundär plats
+        href: hyper-v-vmm-performance-results.md
+- name: Automation
+  items:
+  - name: Konfigurera haveriberedskap för virtuella Azure-datorer med PowerShell
+    href: azure-to-azure-powershell.md
+  - name: Konfigurera haveriberedskap för virtuella VMware-datorer till Azure med PowerShell
+    href: vmware-azure-disaster-recovery-powershell.md
+  - name: Konfigurera haveriberedskap för virtuella Hyper-V-datorer till Azure med PowerShell
+    href: hyper-v-azure-powershell-resource-manager.md
+  - name: Konfigurera haveriberedskap för virtuella Hyper-V-datorer (med VMM) till Azure med PowerShell
+    href: hyper-v-vmm-powershell-resource-manager.md
+  - name: Lägga till Azure Automation-runbookflöden i återställningsplaner för att samordna redundans
+    href: site-recovery-runbook-automation.md
+- name: Övervaka och felsök
+  items:
+  - name: Övervaka Azure Site Recovery
+    href: site-recovery-monitor-and-troubleshoot.md
+  - name: Virtuella Azure-datorer
+    items:
+    - name: Felsöka replikering från Azure till Azure
+      href: azure-to-azure-troubleshoot-errors.md
+    - name: Felsöka mobilitetstjänsten för virtuella Azure-datorer
+      href: site-recovery-extension-troubleshoot.md
+  - name: VMware/fysisk server
+    items:
+    - name: Felsöka replikering från VMware till Azure
+      href: vmware-azure-troubleshoot-replication.md
+    - name: Felsöka push-installation av mobilitetstjänsten för virtuella VMware-datorer/fysiska servrar
+      href: vmware-azure-troubleshoot-push-install.md
+    - name: Felsöka redundans till Azure
+      href: site-recovery-failover-to-azure-troubleshoot.md
+    - name: Felsöka återaktivering av skydd och återställning efter fel för virtuella VMware-datorer
+      href: vmware-azure-troubleshoot-failback-reprotect.md
+  - name: Hyper-V
+    items:
+    - name: Felsöka Hyper-V-replikering
+      href: hyper-v-azure-troubleshoot.md
+    - name: Felsöka redundans till Azure
+      href: site-recovery-failover-to-azure-troubleshoot.md
 - name: Referens
   items:
   - name: Azure PowerShell
@@ -398,9 +438,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Tjänstuppdateringar
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 7fada17ee637afe9595da2080ff0433c9001df63
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 770aa6a07df6900b10558ebbb7718c248296ee51
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404710"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288092"

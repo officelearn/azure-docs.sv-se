@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 09/24/2018
-ms.openlocfilehash: 4a867692d3ce509443e5aa94536075fdcd4bab84
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 1dac11b8ad71a936b33742b52c95ac998176baf7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945968"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244957"
 ---
 # <a name="what-is-azure-machine-learning-service-preview"></a>Vad är tjänsten Azure Machine Learning (förhandsversion)?
 
@@ -48,7 +48,7 @@ Du kan hantera de distribuerade modellerna och spåra flera körningar när du e
 Azure Machine Learning-tjänsten kan skapa en modell automatiskt och automatiskt justera den åt dig.
 Ett exempel finns i [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md) (Självstudie: Träna automatiskt en klassificeringsmodell med Azure Automated Machine Learning).
 
-Eller så kan du använda Azure Machine Learning <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> för Python tillsammans med Python-paket med öppen källkod och skapa och själv träna mycket exakta maskininlärnings- och djupinlärningsmodeller på en Azure Machine Learning-tjänstens arbetsyta.
+Eller så kan du använda Azure Machine Learning <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> för Python tillsammans med Python-paket med öppen källkod och skapa och själv träna mycket exakta maskininlärnings- och djupinlärningsmodeller på en Azure Machine Learning-tjänstens arbetsyta.
 Du kan välja bland många maskininlärningskomponenter som är tillgängliga i Python-paket med öppen källkod, till exempel följande:
 
 - <a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
@@ -59,7 +59,7 @@ Du kan välja bland många maskininlärningskomponenter som är tillgängliga i 
 
 När du har en modell kan du använda den för att skapa en container (till exempel Docker) som kan distribueras lokalt för testning och sedan som en produktionswebbtjänst i antingen [Azure Container Instances](how-to-deploy-to-aci.md) eller [Azure Kubernetes Service](how-to-deploy-to-aks.md).
 
-Du kan sedan hantera dina distribuerade modeller med hjälp av [Azure-portalen](https://portal.azure.com/) eller [Azure Machine Learning CLI-tillägget](https://review.docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
+Du kan sedan hantera dina distribuerade modeller med hjälp av [Azure-portalen](https://portal.azure.com/) eller [Azure Machine Learning CLI-tillägget](reference-azure-machine-learning-cli.md).
 Du kan utvärdera modellmått, träna om och distribuera om nya versioner av modellen, samtidigt som du spårar modellens experiment.
 
 Kom igång med tjänsten Azure Machine Learning genom att gå till [Nästa steg](#next-steps) nedan.
@@ -85,6 +85,8 @@ Om du inte är prenumerant kan du [öppna ett Azure-konto utan kostnad](https://
 - Gå den heltäckande kursen [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md) (Träna en bildklassificeringsmodell med Azure Machine Learning) om du vill lära dig hur du tränar och distribuerar modeller med Azure Machine Learning-tjänsten
 
 - Information om hur du tillåter att Azure Machine Learning genererar och justerar din modell automatiskt finns i [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md) (Självstudie: Träna en klassificeringsmodell automatiskt med Azure Automated Machine Learning)
+
+- Lär dig mer om [pipelines för maskininlärning](/azure/machine-learning/service/concept-ml-pipelines) för att skapa, optimera och hantera dina maskininlärningsscenarier.
 
 - En teknisk, detaljerad genomgång av tjänsten finns i [Azure Machine Learning service architecture and concepts](concept-azure-machine-learning-architecture.md) (Tjänsten Azure Machine Learning – arkitektur och begrepp)
 

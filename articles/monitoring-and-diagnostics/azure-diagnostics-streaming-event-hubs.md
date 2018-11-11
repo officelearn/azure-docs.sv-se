@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 123005a32315ba3972ed4f1c1784d3ac9460b101
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: MT
+ms.openlocfilehash: 32cebecbb9185250d7d295eab3074a76dcd6a8b9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958958"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240502"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Azure Diagnostics-data i den heta sökvägen för direktuppspelning med Event Hubs
 Azure-diagnostik tillhandahåller flexibelt sätt att samla in mått och loggar från cloud services-datorer (VM) och överför resultatet till Azure Storage. Från och med mars 2016 (SDK 2.9) tidsram, kan du skickar diagnostik till anpassade datakällor och överföra heta sökvägen data på några sekunder med hjälp av [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -70,7 +70,7 @@ Som standard skickar Azure Diagnostics alltid loggar och mått till ett Azure St
 
 I det här exemplet anges URL: en för event hub till fullständigt kvalificerade namnområdet för event hub: Event Hubs-namnområdet + ”/” + event hub-namn.  
 
-Event hub URL-Adressen visas i den [Azure-portalen](http://go.microsoft.com/fwlink/?LinkID=213885) på instrumentpanelen för Event Hubs.  
+Event hub URL-Adressen visas i den [Azure-portalen](https://go.microsoft.com/fwlink/?LinkID=213885) på instrumentpanelen för Event Hubs.  
 
 Den **mottagare** namnet kan vara samma som en giltig sträng så länge samma värde används konsekvent i hela konfigurationsfilen.
 

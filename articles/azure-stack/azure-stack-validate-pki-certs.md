@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 11/09/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 51c76c552ef3a79f48637598a12f7a7be1823996
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f3a83352e5aa7591d3f7b325adb542ba89e57fe5
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961134"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515836"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Verifiera Azure Stack PKI-certifikat
 
@@ -244,6 +244,22 @@ Följ dessa steg för att förbereda och kontrollera Azure Stack PKI-certifikat 
         Key Usage: OK
         Key Size: OK
     ```
+
+## <a name="certificates"></a>Certifikat
+
+| Katalog | Certifikat |
+| ---    | ----        |
+| acsBlob | wildcard_blob_\< region >\< externalFQDN > |
+| ACSQueue  |  wildcard_queue\< region >\< externalFQDN > |
+| ACSTable  |  wildcard_table\< region >\< externalFQDN > |
+| Admininistrationstillägg värden  |  wildcard_adminhosting\< region >\< externalFQDN > |
+| Administratörsportalen  |  adminportal\< region >\< externalFQDN > |
+| ARM-administratör  |  adminmanagement\< region >\< externalFQDN > |
+| ARM-offentlig  |  hantering av\< region >\< externalFQDN > |
+| KeyVault  |  wildcard_vault\< region >\< externalFQDN > |
+| KeyVaultInternal  |  wildcard_adminvault\< region >\< externalFQDN > |
+| Offentliga tillägget värd  |  wildcard_hosting\< region >\< externalFQDN > |
+| Offentlig Portal  |  portalen\< region > _\< externalFQDN > |
 
 ## <a name="using-validated-certificates"></a>Med verifierade certifikat
 

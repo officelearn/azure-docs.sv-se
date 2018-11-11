@@ -1,6 +1,6 @@
 ---
 title: Azure AI-galleriet branschspecifika lösningar | Microsoft Docs
-description: Identifiera branschlösningar i Azure AI-galleriet.
+description: Upptäck lösningar i Azure AI-galleriet.
 services: machine-learning
 documentationcenter: ''
 author: garyericson
@@ -15,40 +15,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: garye
-ms.openlocfilehash: c1ca9c45a7bd070ba0dbcee3b428f986ebac47d3
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: d64395314f73c5d359b30c15ef11bfd3078e068f
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062105"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346311"
 ---
 # <a name="discover-industry-specific-solutions-in-the-azure-ai-gallery"></a>Upptäck branschspecifika lösningar i Azure AI-galleriet
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="industry-specific-cortana-intelligence-solutions"></a>Branschspecifika Cortana Intelligence-lösningar
-Den **[branscher](https://gallery.azure.ai/industries)** avsnitt i galleriet för ihop olika resurser som är specifika för sådana branscher som
+Den **[branscher](https://gallery.azure.ai/industries)** delen av [Azure AI-galleriet](http://gallery.cortanaintelligence.com) sammanför olika resurser som är specifika för sådana branscher som
 
-* [Retail](https://gallery.azure.ai/industries/retail) -retail-lösningar, till exempel försäljning prognoser förutsäga kunden omsättning och utveckla prissättningsmodeller.
-* [Tillverkar](https://gallery.azure.ai/industries/manufacturing) – Sök tillverkar lösningar, till exempel förutseende underhåll och skapa prognoser energi priser.
-* [Bankwebbplatser](https://gallery.azure.ai/industries/banking) – Sök bankwebbplatser lösningar, till exempel att förutsäga kredit risk och övervakning av bedrägerier online.
-* [Hälsovård](https://gallery.azure.ai/industries/healthcare) -hitta sjukvården lösningar, till exempel identifiera sjukdom och förutsäga sjukhus readmissions.
+* [Detaljhandel](https://gallery.azure.ai/industries/retail) -hitta säljlösningar till exempel försäljning prognoser, förutsäga kundomsättning och utveckla prismodeller.
+* [Tillverkar](https://gallery.azure.ai/industries/manufacturing) – Sök inom tillverkning lösningar, till exempel förutseende underhåll och prognostisering energi priser.
+* [Banking](https://gallery.azure.ai/industries/banking) – Sök banklösningar till exempel att förutsäga kredit risker och övervakning för onlinebedrägerier.
+* [Hälsovård](https://gallery.azure.ai/industries/healthcare) -hitta hälsovård lösningar, till exempel identifiera sjukdomar och att förutsäga antalet återinskrivningar sjukhus.
 
-Dessa resurser inkluderar experiment, anpassade moduler, API: er, samlingar och andra Galleriobjekt som kan hjälpa dig att utveckla lösningar som är specifika för du arbetar i branschen.
+Dessa resurser inkluderar experiment, anpassade moduler, API: er, samlingar och andra galleriobjekten som kan hjälpa dig att utveckla lösningar som är specifika för du arbetar i branschen.
 
 ## <a name="discover"></a>Utforska
- Om du vill bläddra igenom branschspecifika lösningar i galleriet, öppna den [galleriet](http://gallery.cortanaintelligence.com), pekar på på **branscher** överst på sidan galleri väljer du en viss branschsegment eller **Visa alla** att se en översikt översiktssida för alla branscher.
+ Du kan bläddra i branschspecifika lösningar i galleriet, öppna den [galleriet](http://gallery.cortanaintelligence.com), peka med musen på **branscher** längst ned på sidan galleri väljer du en specifika branschsegment eller **Visa alla** att se en översiktssida för alla branscher.
 
- Varje branschen sida visar en lista över populäraste galleriobjekten som är associerade med den branschen.
+ Varje bransch-sida visar en lista över de mest populära Galleriobjekt som är associerade med denna industri.
 Klicka på **se alla** att visa alla branschspecifika resurser i galleriet.
-Den här sidan kan bläddra du alla resurser i galleriet. Du kan också söka genom att välja filtervillkor till vänster på sidan och anger sökvillkoren längst upp.
+Den här sidan kan du bläddra alla resurser i galleriet. Du kan också söka genom att välja filtervillkoren till vänster på sidan och anger sökvillkor högst upp.
 
-![Dela objektet med vänner](./media/gallery-how-to-use-contribute-publish/share-links.png)
+![Dela det här objektet med vänner](./media/gallery-how-to-use-contribute-publish/share-links.png)
 
 ![Lägga till egna kommentarer](./media/gallery-how-to-use-contribute-publish/comments.png)
 
- Klicka på någon galleriobjektet om du vill öppna objektets informationssidan för mer information.
+ Klicka på ett galleriobjekt för att öppna informationssidan för objektets för mer information.
 
-**[GÅ TILL I GALLERIET &GT;&GT;](http://gallery.cortanaintelligence.com)**
+**[TA MIG TILL TJÄNSTEN GALLERIET &GT;&GT;](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

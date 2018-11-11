@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: dfb36cfba312d54d469b371f02820fd01da6dc7f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: ecdc6ae6c7e0c8a89d97611f41146d168bc74741
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243428"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344118"
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Parallell massimport av data med SQL-tabeller för partition
-Det här dokumentet beskriver hur du skapar partitionerade tabeller för snabb parallell massimport av data till en SQL Server-databas. För inläsning av stordata/överföring till en SQL-databas, importerar data till SQL DB och efterföljande frågor kan förbättras genom att använda *partitionerade tabeller och vyer*. 
+
+Den här artikeln beskriver hur du skapar partitionerade tabeller för snabb parallell massimport av data till en SQL Server-databas. För inläsning av stordata/överföring till en SQL-databas, importerar data till SQL DB och efterföljande frågor kan förbättras genom att använda *partitionerade tabeller och vyer*. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Skapa en ny databas och en uppsättning filgrupper
 * [Skapa en ny databas](https://technet.microsoft.com/library/ms176061.aspx), om den inte redan finns.

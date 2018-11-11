@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 99e0b22b663f6edab9646111b390186a6f89a90f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1521bba188fcd7d8bade88196fe687929f414f93
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035189"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283520"
 ---
 # <a name="tutorial-6-group-and-extract-related-data"></a>Självstudiekurs 6: Gruppera och extrahera relaterade data
 I den här självstudien lägger du till en sammansatt entitet för att paketera olika typer av extraherade data i en enda innehållande entiteten. Genom att paketera data extrahera klientprogrammet enkelt relaterade data i olika datatyper.
@@ -26,30 +26,30 @@ Sammansatta entiteten är ett bra alternativ för den här typen av data efterso
 
 * Är relaterade till varandra. 
 * Använda en mängd olika typer av enheter.
-* Måste vara grupperade och bearbetas av klientapp som en enhet med information.
+* Båda måste grupperas och bearbetas av klientappen som en informationsenhet.
 
-**I den här självstudien får du lära dig hur du:**
+**I den här självstudiekursen får du lära du dig att:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Använd befintliga självstudieappen
+> * Använda en befintlig självstudieapp
 > * Lägg till sammansatt entitet 
 > * Träna
 > * Publicera
-> * Hämta avsikter och entiteter från slutpunkten
+> * Hämta avsikter och entiteter från en slutpunkt
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Använd befintlig app
-Fortsätt med den app som skapats i den sista självstudien med namnet **ska**. 
+## <a name="use-existing-app"></a>Använda en befintlig app
+Fortsätt med appen du skapade i föregående självstudie med namnet **HumanResources**. 
 
-Om du inte har appen ska från den tidigare självstudiekursen, använder du följande steg:
+Om du inte har appen HumanResources från föregående självstudie gör du så här:
 
-1.  Hämta och spara [app JSON-fil](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-hier-HumanResources.json).
+1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-hier-HumanResources.json).
 
-2. Importera JSON till en ny app.
+2. Importera JSON-koden till en ny app.
 
-3. Från den **hantera** avsnittet på den **versioner** fliken klona versionen och ge den namnet `composite`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används som en del av URL: en väg, får inte namnet innehålla några tecken som inte är giltiga i en URL.
+3. I avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `composite`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser.
 
 
 ## <a name="composite-entity"></a>Sammansatt entitet
@@ -97,7 +97,7 @@ Extraherade data från slutpunkten bör innehålla den här informationen och re
 ]
 ```
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. På den **avsikter** väljer **MoveEmployee** avsikt. 
 
@@ -153,7 +153,7 @@ Extraherade data från slutpunkten bör innehålla den här informationen och re
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Hämta avsikt och entiteter från slutpunkten 
+## <a name="get-intent-and-entities-from-endpoint"></a>Hämta avsikter och entiteter från slutpunkten 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 

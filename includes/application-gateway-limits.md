@@ -15,9 +15,9 @@
 | Högsta timeout för begäran |24 timmar | |
 | Antal platser |20 |1 per HTTP-lyssnare |
 | URL-mappningar per lyssnare |1 | |
+|Maximal sökväg-baserade regler per URL: en karta|100|
 | Samtidiga WebSocket-anslutningar |5000| |
 |Maximal URL-längd|8000|
 | Maximala storleken för filöverföring Standard |2 GB | |
 | Maximal uppladdning storlek WAF |Medelhög WAF-gatewayer – 100 MB<br>Stora WAF-gatewayer – 500 MB| |
 |Storleksgräns för WAF brödtext (utan-filer)|128 KB|
-

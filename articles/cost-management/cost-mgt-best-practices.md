@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/10/2018
+ms.date: 01/09/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: f52a849fee4005628fb6a8ad567d89f5046d4765
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 43a682568708ab0286328cf3e483ddc3d5cf9dd8
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968081"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515360"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Optimera din molninvestering med Azure Cost Management
 
@@ -186,10 +186,6 @@ Mer information finns i [vad är Azure reservationer?](../billing/billing-save-c
 Om du redan har Windows Server eller SQL Server-licenser i din lokala distributioner kan du använda Azure Hybrid-förmånen-programmet för att spara i Azure. Varje licens täcker kostnaden för Operativsystemet (upp till två virtuella datorer) med Windows Server-förmånen och du betalar bara för basberäkningskostnaderna. Du kan använda befintliga SQL Server-licenser för att spara upp till 55 procent på vCore-baserade SQL Database-alternativ. alternativ inkluderar SQL Server i Azure Virtual Machines och SQL Server Integration Services.
 
 Mer information finns i [kalkylator för besparingar med Azure Hybrid-förmånen](https://azure.microsoft.com/pricing/hybrid-benefit/).
-
-#### <a name="monetary-commitment"></a>Åtagandebelopp
-
-Kunder som registrerar ett Enterprise-avtal kan skapa en direkta summa i förskott till Microsoft. Tillsammans med att tillhandahålla ett enkelt sätt att allokera budgetar till molnresurser, kan monetära åtaganden du ha lägre kostnader på Azure. Sänkt pris kan leda till betydande kostnadsbesparingar för din organisation.
 
 ### <a name="other-resources"></a>Andra resurser
 

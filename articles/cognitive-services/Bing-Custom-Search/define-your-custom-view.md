@@ -10,16 +10,16 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: a74e6a6a90a242d4d1b2fd71a5fc6cf949ea55cb
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 5e168608202f81f698221b52315de83e9713feab
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815264"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282932"
 ---
 # <a name="configure-your-custom-search-experience"></a>Konfigurera din upplevelse för anpassad sökning
 
-En anpassad sökning i instans kan du skräddarsy sökupplevelsen om du vill inkludera innehåll från webbplatser som användarna som intresserar dig. Istället för att utföra en webbkomponenterna sökning, söker Bing endast sektorn webb som intresserar dig. Använd Bing Custom Search för att skapa den anpassade vyn webb-, [portal](https://customsearch.ai). Information om att logga in på portalen finns i [skapar din första Bing Custom Search-instans](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/quick-start). 
+En anpassad sökning i instans kan du skräddarsy sökupplevelsen om du vill inkludera innehåll från webbplatser som användarna som intresserar dig. Istället för att utföra en webbkomponenterna sökning, söker Bing endast sektorn webb som intresserar dig. Du skapar en anpassad vy av webben med hjälp av [portalen](https://customsearch.ai) för anpassad sökning i Bing. Information om att logga in på portalen finns i [skapar din första Bing Custom Search-instans](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/quick-start). 
 
 Portalen kan du skapa en sökning-instans som anger domänerna, underordnade sidor, och webbsidor som du vill att Bing för att söka och de som du inte vill att söka. Förutom att ange URL: er för det innehåll som du vet om ställa du även på portalen för att föreslå innehåll som du kanske vill lägga till i vyn. 
 
@@ -64,7 +64,7 @@ På samma sätt kan du lägga till segment i listan blockerad (utom om du inte a
 
 ## <a name="pinned-list"></a>Fästa lista
 
-Portalen kan du fästa en specifik webbsida längst upp i sökresultatet om användaren anger ett specifikt sökord. Den **fästa** fliken innehåller en lista över frågan period och webbsidan par som anger på webbsidan som visas i det översta resultat för en specifik fråga. Information om att fästa resultat finns i [justera rangordning](#adjustrank).
+Portalen ger dig också möjlighet att fästa en specifik webbsida högst upp i sökresultatet om användaren anger ett specifikt sökord. Den **fästa** fliken innehåller en lista över frågan period och webbsidan par som anger på webbsidan som visas i det översta resultat för en specifik fråga. Dessutom visas endast indexerade webbsidor i sökningar. Information om att fästa resultat finns i [justera rangordning](#adjustrank). 
 
 Fästa resultatet är inte tillgänglig för den bildsökning och Videosökningsresultat inträffar.
 
@@ -175,7 +175,7 @@ Om du prenumererar på Custom Search på lämplig nivå (se den [prissidor](http
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Anropa dina anpassad sökning](./search-your-custom-view.md)
-- [Konfigurera din värdbaserade användargränssnitt](./hosted-ui.md)
-- [Använda decoration markörer för att markera text](./hit-highlighting.md)
-- [Sidan webbsidor](./page-webpages.md)
+- [Anropa din anpassade sökning](./search-your-custom-view.md)
+- [Konfigurera värdbaserad UI-upplevelse](./hosted-ui.md)
+- [Använda dekorationsmarkörer för att markera text](./hit-highlighting.md)
+- [Webbsidor för sida](./page-webpages.md)

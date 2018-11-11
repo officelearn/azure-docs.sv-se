@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: fa73062cc2fdfa3704088f37b2e4856e134a6dfe
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 4f0558f9619aa06557cf89e885154f6326d4b150
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979037"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281786"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Felsökningsguide för Azure Storage Explorer
 
@@ -59,6 +59,9 @@ Om du är i en loop omautentisering eller har ändrats UPN-namnet för ett av di
 1. Ta bort alla konton och stäng sedan Storage Explorer
 2. Ta bort den. IdentityService mappen från din dator. På Windows, mappen finns i `C:\users\<username>\AppData\Local`. Du kan hitta mapp i användarkatalogen roten för Mac och Linux.
 3. Om du använder Mac- eller Linux, måste du också ta bort posten Microsoft.Developer.IdentityService från ditt operativsystem keystore. På Mac är keystore ”gör väldigt lätt nyckelringar”-program. Programmet kallas vanligtvis ”nyckelringen” för Linux, men namnet kan vara olika beroende på din distribution.
+
+### <a name="conditional-access"></a>Villkorlig åtkomst
+Villkorlig åtkomst stöds inte när Lagringsutforskaren används på Windows 10, Linux eller macOS. Detta beror på en begränsning i AAD-biblioteket som används av Storage Explorer.
 
 ## <a name="mac-keychain-errors"></a>Mac-nyckelringen fel
 MacOS nyckelring kan ibland hamna i ett tillstånd som orsakar problem med Storage Explorer-autentiseringsbiblioteket. Hämta nyckelringen utanför det här tillståndet prova följande steg:

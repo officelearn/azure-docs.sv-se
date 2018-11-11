@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 418b23f0783341ff7e5aaf7e2bbb2e869eb7dc45
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 5d2f4fc77d5849dc2be80ada9610098c9a381f92
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466162"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244108"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Rotera hemligheter i Azure Stack
 
@@ -92,7 +92,7 @@ Kör hemliga rotation med hjälp av anvisningarna nedan kommer att åtgärda des
 5.  Store en tillbaka upp till de certifikat som används för rotation på ett säkert ställe. Om din rotation körs och misslyckas, ersätter du certifikat i filresursen med säkerhetskopiorna innan du kör rotationen. Observera, göra säkerhetskopior i säker säkerhetskopieringsplatsen.
 6.  Skapa en filresurs som du kan komma åt från de ERCS virtuella datorerna. Filresursen måste vara Läs- och skrivbara för den **CloudAdmin** identitet.
 7.  Öppna ett PowerShell ISE-konsolen från en dator där du har åtkomst till filresursen. Gå till din filresurs. 
-8.  Kör **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** att skapa de nödvändiga katalogerna för ditt externa certifikat.
+8.  Kör **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** att skapa de nödvändiga katalogerna för ditt externa certifikat.
 
 ## <a name="rotating-external-and-internal-secrets"></a>Rotera externa och interna hemligheter
 

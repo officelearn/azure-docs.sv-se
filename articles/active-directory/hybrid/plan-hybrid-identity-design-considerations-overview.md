@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d916e884e7764a1ba5ebaf224750f38e7d7673e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d85157c3f1aafd33a2b996168f2f9eac613a209c
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313896"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344890"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Azure Active Directory Hybrid Identity designöverväganden
 Konsument-baserade enheter proliferating företagets världen och molnbaserade program för programvara som tjänst (SaaS) är lätta att införa. Därför kan underhålla kontroll över användarnas programåtkomst på interna datacenter och plattformar en utmaning.  
@@ -58,10 +58,10 @@ Du kommer till vilken design som bäst uppfyller dina krav förrän går igenom 
 
 | Hybrid Identity fas | Avsnittet lista |
 | --- | --- |
-| Fastställa identitetskrav för |[Fastställa affärsbehov](plan-hybrid-identity-design-considerations-business-needs.md)<br> [Fastställa katalogsynkroniseringskrav](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)<br> [Fastställa krav för multifaktorautentisering](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)<br> [Definiera en hybrid identity införandestrategi](plan-hybrid-identity-design-considerations-identity-adoption-strategy.md) |
+| Fastställa identitetskrav |[Fastställa affärsbehov](plan-hybrid-identity-design-considerations-business-needs.md)<br> [Fastställa katalogsynkroniseringskrav](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)<br> [Fastställa krav för multifaktorautentisering](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)<br> [Definiera en hybrid identity införandestrategi](plan-hybrid-identity-design-considerations-identity-adoption-strategy.md) |
 | Planering för att utöka datasäkerhet via stark identitetslösning |[Fastställa kraven på dataskydd](plan-hybrid-identity-design-considerations-dataprotection-requirements.md) <br> [Fastställa krav för innehållshantering](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)<br> [Fastställa krav på åtkomstkontroll](plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)<br> [Fastställa kraven på incidentsvar](plan-hybrid-identity-design-considerations-incident-response-requirements.md) <br> [Definiera en strategi för skydd av data](plan-hybrid-identity-design-considerations-data-protection-strategy.md) |
-| Planera för hybrid identitetslivscykel |[Fastställa hanteringsuppgifter för hybrid identity](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) <br> [Hantering av datasynkronisering](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)<br> [Fastställa införandestrategin för hybrid identity](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |
+| Planera för hybrididentitetslivscykeln |[Fastställa hanteringsuppgifter för hybrid identity](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) <br> [Hantering av datasynkronisering](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)<br> [Fastställa införandestrategin för hybrid identity](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |
 
-## <a name="download-this-guide"></a>Ladda ned den här guiden
-Du kan ladda ned en pdf-version av guiden för designöverväganden för Hybrid Identity från den [Technet-galleriet](https://gallery.technet.microsoft.com/Azure-Hybrid-Identity-b06c8288). 
+## <a name="next-steps"></a>Nästa steg
+[Fastställa identitetskrav för](plan-hybrid-identity-design-considerations-business-needs.md)
 

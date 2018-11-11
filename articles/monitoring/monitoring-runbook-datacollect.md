@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: a0dc515bb6a4cbf0395dc1407ca65edd5d517d15
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7ef7f6548cd3dd838889fd51ff0521428bbbc2aa
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261606"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282687"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Samla in data i Log Analytics med en Azure Automation-runbook
 Du kan samla in en betydande mängd data i Log Analytics från olika källor, inklusive [datakällor](../log-analytics/log-analytics-data-sources.md) på agenter och även [data som samlas in från Azure](../log-analytics/log-analytics-azure-storage.md).  Det finns en scenarier om när du behöver samla in data som inte är tillgängliga via dessa källor som standard.  I dessa fall kan du använda den [HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md) att skriva data till Log Analytics från en REST API-klient.  En vanlig metod att utföra den här Datasamlingen med hjälp av en runbook i Azure Automation.   
@@ -198,7 +198,7 @@ När schemat skapas, måste du ange de parametervärden som ska användas varje 
 8. Klicka på **OK**. 
 
 ## <a name="9-verify-runbook-starts-on-schedule"></a>9. Kontrollera runbook startar enligt schema
-Varje gång som en runbook startas [skapas ett jobb](../automation/automation-runbook-execution.md) och all utdata som loggas.  Faktum är är det här de samma jobb som samlar in runbook.  Du kan kontrollera att runbooken startar som förväntat genom att kontrollera jobb för runbooken efter starttiden för schemat har överskridits.
+Varje gång du startar en runbook [skapas ett jobb](../automation/automation-runbook-execution.md) och all utdata som loggas.  Faktum är är det här de samma jobb som samlar in runbook.  Du kan kontrollera att runbooken startar som förväntat genom att kontrollera jobb för runbooken efter starttiden för schemat har överskridits.
 
 ![Jobb](media/monitoring-runbook-datacollect/jobs.png)
 

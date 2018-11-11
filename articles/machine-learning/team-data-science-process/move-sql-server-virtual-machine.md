@@ -15,21 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: a87d02732196af7471636346fa802f9a58869c95
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: a71ee9246ae21ad76be66c022dac9fe3f00ecbb5
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393581"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345240"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Flytta data till SQL Server på en virtuell Azure-dator
-Det här avsnittet beskrivs alternativen för att flytta data från flata filer (CSV- eller TSV-format) eller från en lokal SQL Server till SQL Server på virtuella Azure-datorer. Dessa uppgifter för att flytta data till molnet är en del av Team Data Science Process.
+
+Den här artikeln beskriver alternativ för att flytta data från flata filer (CSV- eller TSV format) eller från en lokal SQL Server till SQL Server på virtuella Azure-datorer. Dessa uppgifter för att flytta data till molnet är en del av Team Data Science Process.
 
 Ett avsnitt som visar alternativ för att flytta data till en Azure SQL-databas för Machine Learning, se [flytta data till en Azure SQL Database för Azure Machine Learning](move-sql-azure.md).
-
-Den **menyn** nedan länkar till avsnitt som beskriver hur du mata in data till andra målmiljöer där data kan lagras och bearbetas under Team Data Science Process (TDSP).
-
-[!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
 
 I följande tabell sammanfattas alternativen för att flytta data till SQL Server på virtuella Azure-datorer.
 

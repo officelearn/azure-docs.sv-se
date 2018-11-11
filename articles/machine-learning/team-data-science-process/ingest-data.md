@@ -1,5 +1,5 @@
 ---
-title: Läs in data till Azure storage-miljöer för analytics | Microsoft Docs
+title: Läs in data i Azure lagringsmiljöer för analys | Microsoft Docs
 description: Flytta data till och från Azure Blob Storage
 services: machine-learning,storage
 documentationcenter: ''
@@ -15,19 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: d045bd37a4b3192672cc1bd37bc4bd14ea8d5402
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a5db14b99a81c373fbc72f523798e1f3bbdf9285
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837192"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344509"
 ---
 # <a name="load-data-into-storage-environments-for-analytics"></a>Läs in data i lagringsmiljöer för analys
-Team av vetenskapliga data kräver att data ska inhämtas eller läses in i en mängd olika lagringsplatser miljöer bearbetas eller analyseras i det lämpligaste sättet i varje steg i processen. Datamål som ofta används för bearbetning inkluderar Azure Blob Storage, SQL Azure-databaser, SQL Server på Azure VM, HDInsight (Hadoop) och Azure Machine Learning. 
 
-[!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
+Team Data Science Process kräver att data ska matas in eller läses in i en mängd olika lagringsmiljöer bearbetas eller analyseras i det lämpligaste sättet i varje steg i processen. Datamål som ofta används för bearbetning inkluderar Azure Blob Storage, SQL Azure-databaser, SQL Server på virtuella Azure-datorer, HDInsight (Hadoop) och Azure Machine Learning. 
 
-Detta **menyn** länkar till avsnitt som beskriver hur du mata in data i dessa mål miljöer där data lagras och bearbetas.
+I följande artiklar beskrivs hur du mata in data i olika målmiljöer där data lagras och bearbetas.
 
-Teknisk och affärsbehov samt deras ursprungliga plats formatera och storleken på dina data avgör mål-miljöer där data behöver inhämtas för att uppnå målen för din analys. Det är inte ovanligt att ett scenario för kräver att data flyttas mellan flera miljöer för olika uppgifter som krävs för att skapa en förutsägelsemodell. Den här aktivitetssekvensen kan exempelvis innehålla datagranskning, föregående bearbetning, rensa, ned provtagning och modellen utbildning.
+* Till och från [Azure Blob Storage](move-azure-blob.md)
+* Att [SQLServer på Azure VM](move-sql-server-virtual-machine.md)
+* Att [Azure SQL-databas](move-sql-azure.md)
+* Att [Hive-tabeller](move-hive-tables.md)
+* Att [SQL partitionerade tabeller](parallel-load-sql-partitioned-tables.md)
+* Från [lokal SQLServer](move-sql-azure-adf.md)
 
+Teknisk och affärsbehov, samt deras ursprungliga plats, formatera och storleken på dina data kommer att fastställa målmiljöer dit data ska matas in för att uppnå målen för din analys. Det är inte ovanligt att ett scenario för kräver att data flyttas mellan flera miljöer för olika uppgifter som krävs för att konstruera en förutsägelsemodell. Den här aktivitetssekvensen kan exempelvis innehålla datagranskning, bearbeta data i förväg, rensning, ned sampling och modellen.

@@ -15,19 +15,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.openlocfilehash: 02a12e917ed36367ffac1ac2e7a1fef1c6098ea7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0594b9b40fdf8647f99946a31dbb47a95c9694ac
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985375"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300361"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook"></a>Vehicle Telemetry Analytics-lösning, playbook
-Den här menyn länkar till kapitel i denna spelbok: 
 
-[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
-
-## <a name="overview"></a>Översikt
 Superdatorer finns har flyttat ut ur labbet och nu i garage. Dessa placeras nu på banbrytande bilar som innehåller många sensorer. Dessa sensorer som ger dem möjlighet att spåra och övervaka miljoner händelser varje sekund. De flesta av dessa fordon ska anslutas till Internet 2020. Att den stora mängden data ger större säkerhet, tillförlitlighet, och därför en bättre Driver upplevelse. Microsoft gör detta drömma verklighet med Cortana Intelligence.
 
 Cortana Intelligence är en fullständigt hanterad stordata och avancerad analys som hjälper som du kan använda för att omvandla data till smarta åtgärder. Lösningsmallen Cortana Intelligence Vehicle Telemetry Analytics visar hur bilhandlare, bilfabrikanter och försäkringsbolag kan hämta i realtid och förutsägande insikter om fordonshälsa och körvanor.
@@ -54,3 +50,8 @@ Den här lösningen använder två olika datakällor:
 * **Simulerade vehicle signaler och diagnostik**: en vehicle telematics simulator genererar diagnostisk information och signaler som relaterar till tillståndet för fordon och utveckla mönster vid en viss tidpunkt. 
 * **Vehicle catalog**: den här referensdatauppsättning mappar VIN siffror till modeller.
 
+## <a name="next-steps"></a>Nästa steg
+
+Om du vill utforska ytterligare i den här lösningen, se [Vehicle Telemetry Analytics-lösning, playbook: fördjupa dig i lösningen](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md).
+
+Läs hur du konfigurerar Power BI-rapporter och instrumentpaneler för den här lösningen i [Vehicle Telemetry Analytics-lösningen mall Power BI-instrumentpanel, konfigurationsanvisningar](cortana-analytics-playbook-vehicle-telemetry-powerbi.md).

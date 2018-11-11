@@ -7,12 +7,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: ac34f03c896e9e2180b653c41faa7f7525a40e33
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 12b14b87a02619b21e80436c80a284c4011f8b33
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407883"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300327"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Översikt över mjuk borttagning i Azure Key Vault
 
@@ -44,7 +44,9 @@ Mjuk borttagning är ett valfritt beteende för Key Vault och är **inte aktiver
 ### <a name="purge-protection--flag"></a>Rensa skydd flagga
 Rensa skydd (**– aktivera rensningsskydd** i Azure CLI) flaggan är inaktiverat som standard. När den här flaggan är aktiverad, ett valv eller ett objekt i tillståndet deleted går inte att tömma tills har kvarhållningsperiod på 90 dagar passerat. Sådana valv eller ett objekt kan fortfarande återställas. Den här flaggan ger extra trygghet för kunder att ett valv eller ett objekt kan aldrig tas bort permanent tills kvarhållningsperioden har passerat. Du kan aktivera flaggan Rensa protection endast om flaggan mjuk borttagning är på, eller på Skapa valv du slår på både mjuk borttagning och rensa skydd.
 
-[!NOTE] Krav för aktivering av Rensa skydd är måste du ha mjuk borttagning aktiveras. Kommandot för att göra det i Azure CLI-2 är
+> [!NOTE] 
+   Krav för aktivering av Rensa skydd är måste du ha mjuk borttagning aktiveras.
+Kommandot för att göra det i Azure CLI-2 är
 
 ```
 az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true

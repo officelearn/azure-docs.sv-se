@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: c478c2c4af12ecaa02e6700ec7faffc5b9862a00
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 90837092390cd2550805658471ff7aa884773371
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958193"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239601"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Ansluta en Raspberry Pi till Azure IoT Central programmet (Python)
 
@@ -64,11 +64,11 @@ Följande steg beskriver hur du hämtar och konfigurerar du exempelprogrammet Py
 * Skickar telemetri och egenskapsvärden till Azure IoT Central.
 * Svarar på inställningen ändringar som gjorts i Azure IoT Central.
 
-Konfigurera enheten, [följa de stegvisa anvisningarna på GitHub.](http://aka.ms/iotcentral-docs-Raspi-releases)
+Konfigurera enheten, [följa de stegvisa anvisningarna på GitHub.](https://aka.ms/iotcentral-docs-Raspi-releases)
 
 
 > [!NOTE]
-> Mer information om de Raspberry Pi Python-exempel finns i den [README](http://aka.ms/iotcentral-docs-Raspi-releases) fil på GitHub.
+> Mer information om de Raspberry Pi Python-exempel finns i den [README](https://aka.ms/iotcentral-docs-Raspi-releases) fil på GitHub.
 
 
 1. När enheten har konfigurerats kan ska enheten börja skicka data till Azure IoT Central under ett ögonblick.

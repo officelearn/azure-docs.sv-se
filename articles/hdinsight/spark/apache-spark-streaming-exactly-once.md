@@ -3,17 +3,17 @@ title: Skapa Spark Streaming jobb med exakt-gång bearbetning - Azure HDInsight
 description: Hur du ställer in Spark Streaming för att bearbeta en händelse en gång och bara en gång.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/26/2018
-ms.openlocfilehash: ae170e90cede26bd6a43fcc10b93fcd7490d838f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.date: 11/06/2018
+ms.openlocfilehash: 6c39eb02e9610e0020ab2abe8a192dabf0b768d9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618829"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241330"
 ---
 # <a name="create-spark-streaming-jobs-with-exactly-once-event-processing"></a>Skapa Spark Streaming jobb med exakt-gång bearbetning
 
@@ -61,13 +61,21 @@ Kontrollpunkter är aktiverade i Spark Streaming i två steg.
 
 1. Konfigurera lagringssökväg för kontrollpunkterna i StreamingContext-objekt:
 
-    val ssc = ny StreamingContext (spark, Seconds(1)) ssc.checkpoint("/path/to/checkpoints")
+    ```Scala
+    val ssc = new StreamingContext(spark, Seconds(1))
+    ssc.checkpoint("/path/to/checkpoints")
+    ```
 
     I HDInsight, bör kontrollpunkterna sparas till standardlagring kopplat till ditt kluster, antingen Azure Storage eller Azure Data Lake Store.
 
 2. Ange sedan en Kontrollpunktsintervall (i sekunder) på DStream. Vid varje intervall beständiga tillståndsdata som härletts från den inkommande händelsen till lagring. Beständiga data kan minska beräkningen behövs när tillstånd från händelsen som källan.
 
-    val rader = ssc.socketTextStream (”värdnamnet”, 9999) lines.checkpoint(30) ssc.start() ssc.awaitTermination()
+    ```Scala
+    val lines = ssc.socketTextStream("hostname", 9999)
+    lines.checkpoint(30)
+    ssc.start()
+    ssc.awaitTermination()
+    ```
 
 ### <a name="use-idempotent-sinks"></a>Använd idempotenta mottagare
 

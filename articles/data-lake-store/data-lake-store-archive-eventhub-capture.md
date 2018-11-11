@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 0bb870b54099fce9f7f6cfd1666be1b6393c5d07
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: a921a717445df93c83518c89970050e63a51ddf3
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391444"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345212"
 ---
 # <a name="use-azure-data-lake-storage-gen1-to-capture-data-from-event-hubs"></a>Använd Azure Data Lake Storage Gen1 att samla in data från Event Hubs
 
@@ -58,7 +58,7 @@ I det här avsnittet skapar du en mapp i konton där du vill samla in data från
     c. Under **tilldela behörigheter**, klickar du på **Select-behörigheter**. Ange **behörigheter** till **köra**. Ange **lägga till i** till **den här mappen och alla underordnade**. Ange **lägga till som** till **ett åtkomstbehörighetsinlägg och en standardbehörighetsinlägg**.
 
     > [!IMPORTANT]
-    > När du skapar en ny mapp-hierarkin för insamling av data som tas emot av Händelsehubbar i Azure kan är det här ett enkelt sätt att kontrollera åtkomst till målmappen.  Lägger till behörigheter till alla underordnade i en mapp på översta nivån med många underordnade filer och mappar kan dock ta lång tid.  Om din rotmapp innehåller ett stort antal filer och mappar kan det vara snabbare att lägga till **kör** behörigheter för `Microsoft.EventHubs` individuellt till varje mapp i sökvägen till mappen slutdestinationen. 
+    > När du skapar en ny mapphierarki för insamling av data som tas emot av Händelsehubbar i Azure kan är det här ett enkelt sätt att kontrollera åtkomst till målmappen.  Lägger till behörigheter till alla underordnade i en mapp på översta nivån med många underordnade filer och mappar kan dock ta lång tid.  Om din rotmapp innehåller ett stort antal filer och mappar kan det vara snabbare att lägga till **kör** behörigheter för `Microsoft.EventHubs` individuellt till varje mapp i sökvägen till mappen slutdestinationen. 
 
     ![Tilldela behörigheter för roten för Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "tilldela behörigheter för roten för Data Lake Storage Gen1")
 

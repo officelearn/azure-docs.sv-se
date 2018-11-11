@@ -1,6 +1,6 @@
 ---
-title: Flytta Data till och från Azure Blob Storage | Microsoft Docs
-description: Flytta data till och från Azure Blob Storage
+title: Flytta Data till och från Azure Blob storage | Microsoft Docs
+description: Flytta Data till och från Azure Blob storage
 services: machine-learning,storage
 documentationcenter: ''
 author: deguhath
@@ -15,19 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 717fdd2053cae28234458e197f8211ef25cf7f9d
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 7d0111b22df45577fccc3f4491f375ddd2e8b40f
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394399"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344475"
 ---
-# <a name="move-data-to-and-from-azure-blob-storage"></a>Flytta data till och från Azure Blob Storage
-[!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
+# <a name="move-data-to-and-from-azure-blob-storage"></a>Flytta data till och från Azure Blob storage
 
-<!-- just in case, adding this to separate these two include references -->
+Team Data Science Process kräver att data ska matas in eller läses in i en mängd olika lagringsmiljöer bearbetas eller analyseras i det lämpligaste sättet i varje steg i processen.
+I följande artiklar beskrivs hur du flyttar data till och från Azure Blob storage med hjälp av olika tekniker.
 
-[!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
+* [Azure Lagringsutforskaren](move-data-to-azure-blob-using-azure-storage-explorer.md)
+* [AzCopy](move-data-to-azure-blob-using-azcopy.md)
+* [Python](move-data-to-azure-blob-using-python.md)
+* [SSIS](move-data-to-azure-blob-using-ssis.md)
 
 Vilken metod som passar bäst för dig beror på ditt scenario. Den [scenarier för avancerade analyser i Azure Machine Learning](plan-sample-scenarios.md) artikeln hjälper dig att avgöra de resurser du behöver för en mängd olika data science arbetsflöden som används i processen för avancerad analys.
 

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: mjbrown
-ms.openlocfilehash: 8f36026c7e5802994b8cf22d60c6ecea052e6382
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0e4105d6f56a8eb45a83e970c85319cf25041781
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963055"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514782"
 ---
 # <a name="availability-and-performance-tradeoffs-for-various-consistency-levels-in-azure-cosmos-db"></a>Tillgänglighet och prestanda kompromisser för olika konsekvensnivåer i Azure Cosmos DB
 
@@ -33,20 +33,6 @@ Distribuerade databaser som förlitar sig på replikering för hög tillgänglig
 - För samma antal enheter för programbegäran ger session, konsekventa prefix och slutlig konsekvensnivåer cirka 2 X läsningsdataflöde jämfört med starka och begränsad föråldring.
 
 - Genomströmning för skrivning för begäransenheter är identiska för alla konsekvensnivåer för en viss typ av Skrivåtgärden infoga, Ersätt, upsert, ta bort osv.
-
-## <a name="consistency-levels-and-durability"></a>Konsekvensnivåer och hållbarhet
-
-Innan skrivning bekräftas till klienten, är data hållbarheten har säkerställts genom att ett kvorum av repliker i den region som accepterar skrivåtgärder. Dessutom om behållaren är konfigurerad med konsekvent indexeringsprincip, är indexet också synkront uppdateras, replikeras och hållbarheten har säkerställts av kvorum av repliker innan bekräftelse av Skrivåtgärden skickas till klienten.
-
-I följande tabell sammanfattas potentiella dataförlustfönstret i händelse av ett regionalt haveri för Cosmos-konton som sträcker sig över flera regioner.
-
-| **Konsekvensnivå** | **Potentiella dataförlustfönstret i händelse av ett regionalt haveri** |
-| - | - |
-| Stark | Noll |
-| Begränsad föråldring | Begränsat till ”föråldring fönstret” du konfigurerar på Cosmos-konto. |
-| Session | Upp till 5 sekunder |
-| Konsekvent prefix | Upp till 5 sekunder |
-| Eventuell | Upp till 5 sekunder |
 
 ## <a name="next-steps"></a>Nästa steg
 

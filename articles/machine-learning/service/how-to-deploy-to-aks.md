@@ -10,12 +10,12 @@ author: raymondlaghaeian
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 3ab32388e0a35f4abf3866aa0a84ee0628b0570c
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: efaaa196220213877283040120d6c2eeed86dbf3
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318205"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346328"
 ---
 # <a name="how-to-deploy-models-from-azure-machine-learning-service-to-azure-kubernetes-service"></a>Hur du distribuerar modeller från Azure Machine Learning-tjänsten till Azure Kubernetes Service
 
@@ -63,6 +63,9 @@ Azure Kubernetes Service använder Docker-avbildningar. Använd följande steg f
 1. Om du vill konfigurera avbildningen måste du skapa ett bedömningsskript och miljöfil. Ett exempel för att skapa filen skript och miljö finns i följande avsnitt för till exempel klassificering bild:
 
     * [Skapa ett bedömningsskript (score.py)](tutorial-deploy-models-with-aml.md#create-scoring-script)
+
+        > [!IMPORTANT]
+        > Bedömningsskriptet tar emot data som skickats från klienter och skickar det till modell för bedömning. Dokumentera datastrukturen skript och modell du förväntar dig. Den här dokumentationen blir saker enklare när du skapar en klient för att använda webbtjänsten.
 
     * [Skapa en miljöfil (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file) 
 
@@ -190,3 +193,7 @@ aks_service.delete()
 image.delete()
 model.delete()
 ```
+
+## <a name="next-steps"></a>Nästa steg
+
+Lär dig hur du [förbruka en ML-modell som distribueras som en webbtjänst](how-to-consume-web-service.md).

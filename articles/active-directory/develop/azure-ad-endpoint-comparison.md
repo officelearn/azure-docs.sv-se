@@ -17,12 +17,12 @@ ms.date: 09/27/2018
 ms.author: andret
 ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: e393851535c36eb604d57cc4d7c7561a3ebb201b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 215e0abe196620624dcca7f430aec4ee9b9612f2
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955463"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288211"
 ---
 # <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Jämföra Azure AD v2.0-slutpunkten med v1.0-slutpunkt
 
@@ -41,7 +41,7 @@ När du utvecklar ett nytt program är det viktigt att veta skillnaderna mellan 
 
 * Både v1.0 och v2.0-slutpunkter också acceptera inloggningar för *[gästanvändare](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* av Azure AD-katalog för program som har konfigurerats som *[enda klient](single-and-multi-tenant-apps.md)* eller för *flera innehavare* program som har konfigurerats för att peka på den klientspecifik-slutpunkten (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
-V2.0-slutpunkten kan du skriva appar som har stöd för inloggning från både personliga och arbets och skolan konton, vilket ger dig möjlighet att skriva din app helt konto-oberoende. Till exempel om appen anropar den [Microsoft Graph](https://graph.microsoft.io), vissa ytterligare funktioner och data kommer att kunna arbeta konton, till exempel sina SharePoint-webbplatser eller katalogdata. Men för många åtgärder, till exempel [läsning av en användares e-post](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), samma kod kan komma åt e-post för både personliga och arbets och skolkonton.
+V2.0-slutpunkten kan du skriva appar som har stöd för inloggning från både personliga och arbets och skolan konton, vilket ger dig möjlighet att skriva din app helt konto-oberoende. Till exempel om appen anropar den [Microsoft Graph](https://developer.microsoft.com/graph), vissa ytterligare funktioner och data kommer att kunna arbeta konton, till exempel sina SharePoint-webbplatser eller katalogdata. Men för många åtgärder, till exempel [läsning av en användares e-post](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/message), samma kod kan komma åt e-post för både personliga och arbets och skolkonton.
 
 Du kan använda en enda library (MSAL) för v2.0-slutpunkten för att få åtkomst till både konsument, högskolor och enterprise världar.
 

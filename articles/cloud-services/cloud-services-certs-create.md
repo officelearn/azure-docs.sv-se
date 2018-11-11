@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 5c16f06d0cc031cd9b51a3c6cf0beb149a19aeb4
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 9cf37e611dce5705a4c866f25afa59e5c1602ec4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001447"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282211"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Översikt över certifikat för Azure Cloud Services
 Certifikat används i Azure för cloud services ([tjänsten certifikat](#what-are-service-certificates)) och för att autentisera med API för hantering ([hanteringscertifikat](#what-are-management-certificates)). Det här avsnittet ger en allmän översikt över båda typer av certifikat, hur till [skapa](#create) och [distribuera](#deploy) dem till Azure.
@@ -27,6 +27,9 @@ Certifikat används i Azure för cloud services ([tjänsten certifikat](#what-ar
 Certifikat som används i Azure är x.509 v3-certifikat och kan vara signerat av en annan betrott certifikat eller de kan vara självsignerade. Ett självsignerat certifikat är signerat av en egen skapare kan därför inte är betrodd som standard. De flesta webbläsare kan ignorera det här problemet. Du bör endast använda självsignerade certifikat när du utvecklar och testar dina molntjänster. 
 
 Certifikat som används av Azure kan innehålla en privat eller offentlig nyckel. Certifikatet har ett tumavtryck som ett sätt att identifiera dem på ett entydigt sätt. Det här tumavtrycket används i Azure [konfigurationsfilen](cloud-services-configure-ssl-certificate-portal.md) för att identifiera vilket certifikat som en tjänst i molnet ska använda. 
+
+>[!Note]
+>Azure Cloud Services accepterar inte krypterade AES256 SHA256-certifikatet.
 
 ## <a name="what-are-service-certificates"></a>Vad är service-certifikat?
 Service-certifikat är kopplade till molntjänster och aktivera säker kommunikation till och från tjänsten. Om du har distribuerat en webbroll, skulle du till exempel vill ange ett certifikat som kan autentisera en exponerade HTTPS-slutpunkt. Tjänstcertifikat som definierats i tjänstdefinitionsfilen, distribueras automatiskt till den virtuella datorn som kör en instans av din roll. 

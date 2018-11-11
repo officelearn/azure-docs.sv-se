@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: ca0fb177c8b6a16cf624fd4533c9c9040e6d9dee
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: f84eda2269df0bbe7186a2f1a9abb9c594b75455
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365242"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245077"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Snabbstart: Distribuera Azure Data Box Disk med hjälp av Azure Portal (förhandsversion)
 
@@ -31,11 +31,11 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 Innan du börjar:
 
-- Kontrollera att din prenumeration har aktiverats för Azure Data Box-tjänsten. Aktivera din prenumeration för den här tjänsten genom att [registrera dig för tjänsten](http://aka.ms/azuredataboxfromdiskdocs).
+- Kontrollera att din prenumeration har aktiverats för Azure Data Box-tjänsten. Aktivera din prenumeration för den här tjänsten genom att [registrera dig för tjänsten](https://aka.ms/azuredataboxfromdiskdocs).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på [http://aka.ms/azuredataboxfromdiskdocs](http://aka.ms/azuredataboxfromdiskdocs).
+Logga in på Azure Portal på [http://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
 
 ## <a name="order"></a>Beställa
 
@@ -70,11 +70,11 @@ Det här steget tar ungefär 5 minuter.
     3. Kör upplåsningsverktyget för Data Box Disk och ange nyckeln. Om du sätter i nya diskar kör du upplåsningsverktyget igen och anger nyckeln. **Använd inte BitLocker-dialogrutan eller BitLocker-nyckeln för att låsa upp disken.** Mer information om hur du låser upp diskar finns i [Låsa upp diskar på en Windows-klient]() eller [Låsa upp diskar på en Linux-klient]().
     4. Diskens tilldelade enhetsbeteckning visas i verktyget. Skriv ned diskens enhetsbeteckning. Du behöver den i efterföljande steg.
 
-## <a name="copy-data-and-verify"></a>Kopiera data och verifiera
+## <a name="copy-data-and-validate"></a>Kopiera data och verifiera
 
 Hur lång tid det tar att slutföra den här åtgärden beror på datastorleken. 
 
-1. Enheten innehåller mapparna *PageBlob*, *BlockBlob* och *AzureImportExport*. Dra och släpp för att kopiera de data som ska importeras som blockblobar till mappen *BlockBlob*. På samma sätt drar du och släpper data som exempelvis VHD/VHDX till mappen *PageBlob*.
+1. Enheten innehåller mapparna *PageBlob*, *BlockBlob*, *DataBoxDiskImport*. Dra och släpp för att kopiera de data som ska importeras som blockblobar till mappen *BlockBlob*. På samma sätt drar du och släpper data som exempelvis VHD/VHDX till mappen *PageBlob*.
 
     En container skapas i Azure Storage-kontot för varje undermapp under mapparna *BlockBlob* och *PageBlob*. Alla filer under mapparna *BlockBlob* och *PageBlob* kopieras till standardcontainern `$root` under Azure Storage-kontot.
 
@@ -82,7 +82,7 @@ Hur lång tid det tar att slutföra den här åtgärden beror på datastorleken.
     > - Alla containrar och blobar måste följa [Azures namngivningskonventioner](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). Om dessa regler inte uppfylls misslyckas datauppladdningen till Azure.
     > - Kontrollera att filerna inte överskrider ~4,75 TiB för blockblobar och ~ 8 TiB för sidblobar.
 
-2. (Valfritt) När kopieringen är klar rekommenderar vi att du kör `DataBoxDiskValidation.cmd` i mappen *AzureImportExport* för att generera kontrollsummor för verifiering. Beroende på datastorleken kan det här steget ta en stund. 
+2. (Valfritt) När kopieringen är klar rekommenderar vi att du kör `DataBoxDiskValidation.cmd` i mappen *DataBoxDiskImport* för att generera kontrollsummor för verifiering. Beroende på datastorleken kan det här steget ta en stund. 
 3. Koppla från enheten. 
 
 

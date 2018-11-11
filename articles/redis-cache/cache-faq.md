@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: c5a18a2e8d58553e49797da418f76fc3f251e003
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 21b5050996428328bfda314b2f2242ed2a766e74
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026049"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239771"
 ---
 # <a name="azure-redis-cache-faq"></a>Vanliga frågor och svar för Azure Redis Cache
 Lär dig svar på vanliga frågor, mönster och metodtips för Azure Redis Cache.
@@ -250,7 +250,7 @@ Du kan använda någon av de kommandon som finns på [Redis-kommandon](http://re
 * `redis-cli -h <redis cache name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
-> Redis-kommandoradsverktyg fungerar inte med SSL-porten, men du kan använda ett verktyg som `stunnel` att på ett säkert sätt ansluta verktygen till SSL-porten genom att följa anvisningarna i den [Vi presenterar ASP.NET-Sessionstillståndsprovider för Redis-förhandsversion Versionen](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blogginlägg.
+> Redis-kommandoradsverktyg fungerar inte med SSL-porten, men du kan använda ett verktyg som `stunnel` att på ett säkert sätt ansluta verktygen till SSL-porten genom att följa anvisningarna i den [Vi presenterar ASP.NET-Sessionstillståndsprovider för Redis-förhandsversion Versionen](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blogginlägg.
 >
 >
 
@@ -295,7 +295,7 @@ Redis-server inte har inbyggt stöd SSL, men Azure Redis Cache har. Om du anslut
 >
 >
 
-Redis verktyg som `redis-cli` fungerar inte med SSL-porten, men du kan använda ett verktyg som `stunnel` att på ett säkert sätt ansluta verktygen till SSL-porten genom att följa anvisningarna i den [Vi presenterar ASP.NET-Sessionstillståndsprovider för Redis Förhandsversionen](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blogginlägg.
+Redis verktyg som `redis-cli` fungerar inte med SSL-porten, men du kan använda ett verktyg som `stunnel` att på ett säkert sätt ansluta verktygen till SSL-porten genom att följa anvisningarna i den [Vi presenterar ASP.NET-Sessionstillståndsprovider för Redis Förhandsversionen](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blogginlägg.
 
 Anvisningar om hur du hämtar Redis-verktyg finns i den [hur kan jag köra Redis-kommandon?](#cache-commands) avsnittet.
 

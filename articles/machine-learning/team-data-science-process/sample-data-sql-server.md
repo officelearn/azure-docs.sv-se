@@ -15,82 +15,79 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 74dcef9e927fc537cba56b03fcbfb9528c952ad0
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7852a0fc548980227723c9f6a259c63367159201
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837879"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346247"
 ---
 # <a name="heading"></a>Exempeldata i SQL Server på Azure
-Den här artikeln visar hur du samla in data som lagras i SQL Server på Azure med hjälp av SQL- eller Python-programmeringsspråket. Den visar även hur du flyttar samplade data till Azure Machine Learning genom att spara den till en fil, överföra den till en Azure blob och läsa den i Azure Machine Learning Studio.
 
-Python provtagning använder den [pyodbc](https://code.google.com/p/pyodbc/) ODBC-biblioteket för att ansluta till SQL Server på Azure och [Pandas](http://pandas.pydata.org/) biblioteket för att göra beräkningarna.
+Den här artikeln visar hur du exempel på data som lagras i SQL Server på Azure med SQL- eller Python-programmeringsspråket. Den visar också hur du flyttar samplade data till Azure Machine Learning genom att spara den till en fil, överföra den till en Azure-blob och läser den i Azure Machine Learning Studio.
+
+Python sampling använder den [pyodbc](https://code.google.com/p/pyodbc/) ODBC-biblioteket att ansluta till SQL Server på Azure och [Pandas](http://pandas.pydata.org/) bibliotek som ska göra är samplingen.
 
 > [!NOTE]
-> Exempelkoden SQL i det här dokumentet förutsätter att data i en SQL Server på Azure. Om det inte finns [flytta data till SQL Server på Azure](move-sql-server-virtual-machine.md) artikel instruktioner om hur du flyttar dina data till SQL Server på Azure.
+> SQL-exempelkoden i det här dokumentet förutsätter att data är i en SQL Server på Azure. Om den inte avser [flytta data till SQL Server på Azure](move-sql-server-virtual-machine.md) artikeln anvisningar om hur du flyttar dina data till SQL Server på Azure.
 > 
 > 
 
-Följande **menyn** länkar till artiklar som beskriver hur du exempeldata från olika miljöer för lagring. 
+**Varför prov på dina data?**
+Om datauppsättningen som du planerar att analysera är stor, men det är oftast en bra idé att nedåtsampla data för att minska det till en mindre men representativa och mer hanterbara storlek. Detta underlättar förståelse av data, utforskning och funktioner. Dess roll i den [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) är att snabbt skapa prototyper för bearbetning av funktions- och machine learning-modeller.
 
-[!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
+Den här aktiviteten för sampling är ett steg i den [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-**Varför exempel dina data?**
-Om datamängden som du planerar att analysera är stort, men det är vanligtvis en bra idé att ned-sample data för att minska det till en mindre men representativt och mer användarvänlig storlek. Detta underlättar data förstå undersökning och funktionen tekniker. Roll i den [Team Data vetenskap processen (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) är att aktivera snabb prototyper för databearbetning funktions- och maskininlärning modeller.
+## <a name="SQL"></a>Med hjälp av SQL
+Det här avsnittet beskrivs flera metoder som använder SQL för att utföra enkla stickprov mot data i databasen. Välj en metod baserat på datastorleken på din och motsvarande distribution.
 
-Sampling uppgiften är ett steg i den [Team Data vetenskap processen (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Följande två objekt visar hur du använder `newid` i SQL Server för att utföra är samplingen. Vilken metod du väljer beror på hur slumpmässiga du vill att exemplet ska vara (pk_id i följande exempelkod antas vara en automatiskt genererad primärnyckel).
 
-## <a name="SQL"></a>Med SQL
-Det här avsnittet beskrivs flera metoder som använder SQL för att utföra enkla slumpmässig provtagning mot data i databasen. Välj en metod baserat på datastorleken på din och dess distributionsplatser.
-
-Följande två objekt visar hur du använder `newid` i SQL Server för att utföra beräkningarna. Vilken metod du väljer beror på hur slumpmässiga du vill att samplet som ska vara (pk_id i följande exempelkod antas vara en automatiskt genererad primärnyckel).
-
-1. Mindre strikta slumpmässigt prov
+1. Mindre strikta slumpmässigt urval
    
         select  * from <table_name> where <primary_key> in 
         (select top 10 percent <primary_key> from <table_name> order by newid())
-2. Fler slumpmässigt prov 
+2. Mer slumpmässigt urval 
    
         SELECT * FROM <table_name>
         WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
 
-Tablesample kan användas för datasampling samt. Detta kan vara en bättre metod om dina data är stor (förutsatt att data på olika sidor inte korreleras) och för frågan ska slutföras inom en rimlig tid.
+Tablesample kan användas för sampling data samt. Detta kan vara en bättre metod om dina data är stora (förutsatt att data på olika sidor inte korreleras) och för frågan ska slutföras inom rimlig tid.
 
     SELECT *
     FROM <table_name> 
     TABLESAMPLE (10 PERCENT)
 
 > [!NOTE]
-> Du kan utforska och generera funktioner från den här samplade data genom att lagra det i en ny tabell
+> Du kan utforska och skapa funktioner från den här samplade data genom att lagra det i en ny tabell
 > 
 > 
 
 ### <a name="sql-aml"></a>Ansluta till Azure Machine Learning
-Du kan använda exempelfrågor ovan direkt i Azure Machine Learning [importera Data] [ import-data] modulen ned-sample data direkt och sätta den i ett Azure Machine Learning-experiment. Här visas en skärmbild av med hjälp av modulen läsare för att läsa samplade data:
+Du kan använda exempelfrågor ovan direkt i Azure Machine Learning [importdata] [ import-data] modulen att nedåtsampla data direkt och ta med dem i ett Azure Machine Learning-experiment. En skärmbild av med läsmodulen för att läsa samplade data visas här:
 
-![läsaren sql][1]
+![läsare sql][1]
 
-## <a name="python"></a>Använder Python programmeringsspråket
-Det här avsnittet visas hur du använder den [pyodbc biblioteket](https://code.google.com/p/pyodbc/) att upprätta en ODBC ansluta till en SQL server-databas i Python. Anslutningssträngen för databasen är följande: (Ersätt servername, dbname, användarnamn och lösenord med din konfiguration):
+## <a name="python"></a>Med hjälp av Python programmeringsspråket
+Det här avsnittet visar hur du använder den [pyodbc biblioteket](https://code.google.com/p/pyodbc/) att upprätta en ODBC ansluta till en SQL server-databas i Python. Databasens anslutningssträng är följande: (Ersätt servername, dbname, användarnamn och lösenord med din konfiguration):
 
     #Set up the SQL Azure connection
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-Den [Pandas](http://pandas.pydata.org/) i Python-bibliotek innehåller ett stort utbud av datastrukturer och verktyg för analys av data för datamanipulering för Python-programmering. Följande kod läser en 0,1% exempeldata från en tabell i Azure SQL-databas i en Pandas data:
+Den [Pandas](http://pandas.pydata.org/) i Python-bibliotek innehåller ett stort utbud av datastrukturer och verktyg för analys av data för datamanipulering för Python-programmering. Följande kod läser in en 0,1% exempeldata från en tabell i Azure SQL-databas i en Pandas-data:
 
     import pandas as pd
 
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select column1, cloumn2... from <table_name> tablesample (0.1 percent)''', conn)
 
-Nu kan du arbeta med samplade data i ramen Pandas data. 
+Du kan nu arbeta med exempeldata i dataram Pandas. 
 
 ### <a name="python-aml"></a>Ansluta till Azure Machine Learning
-Du kan använda följande exempelkod för att spara provtagning ned data till en fil och överför den till en Azure blob. Data i blob direkt kan läsas in i ett Experiment i Azure Machine Learning med hjälp av den [importera Data] [ import-data] modul. Stegen är följande: 
+Du kan använda följande exempelkod för att spara data samplas ned till en fil och överföra den till en Azure-blob. Data i blob kan läsas direkt till en Azure Machine Learning-Experiment med hjälp av den [importdata] [ import-data] modulen. Stegen är följande: 
 
-1. Skriva ramen pandas data till en lokal fil
+1. Skriva dataram pandas till en lokal fil
    
         dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
 2. Ladda upp en lokal fil till Azure-blob
@@ -114,12 +111,12 @@ Du kan använda följande exempelkod för att spara provtagning ned data till en
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Läsa data från Azure blob med hjälp av Azure Machine Learning [importera Data] [ import-data] modulen som visas i följande skärmbild grab:
+3. Läsa data från Azure-blob med hjälp av Azure Machine Learning [importdata] [ import-data] modulen enligt följande skärm fälten:
 
-![läsaren blob][2]
+![läsare blob][2]
 
-## <a name="the-team-data-science-process-in-action-example"></a>Team vetenskap av data i åtgärden exempel
-Till genomgången ett exempel på Team av vetenskapliga data med en offentlig dataset finns [Team vetenskap av data i praktiken: använder SQL Server](sql-walkthrough.md).
+## <a name="the-team-data-science-process-in-action-example"></a>Team Data Science Process i åtgärden exemplet
+För att gå igenom ett exempel på Team Data Science Process med en offentlig datauppsättning, se [Team Data Science Process i praktiken: med SQL Server](sql-walkthrough.md).
 
 [1]: ./media/sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/sample-sql-server-virtual-machine/reader_blob.png

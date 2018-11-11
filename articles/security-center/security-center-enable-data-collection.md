@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/5/2018
+ms.date: 11/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: d0455e549745e743e7a8c0f65cb56a1e16dfb131
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 9100722042bfdcbee48af1fc44e294df046c828e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044084"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007220"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Insamling av data i Azure Security Center
 Security Center samlar in data från dina virtuella Azure-datorer (VM) och icke-Azure-datorer för att övervaka säkerhetsproblem och hot. Data samlas in med Microsoft Monitoring Agent, som läser olika säkerhetsrelaterade konfigurationer och händelseloggar från datorn och kopierar data till din arbetsyta för analys. Exempel på sådana data är: driva systemtyp och version, operativsystemloggar (Windows-händelseloggar), kör processer, datornamn, IP-adresser och inloggad användare. Microsoft Monitoring Agent kopierar också kraschdumpfiler till din arbetsyta.
@@ -87,7 +87,7 @@ Välja den arbetsyta som skapats av Security Center:
 -   Security Center aktiverar automatiskt en Security Center-lösning på arbetsytan per prisnivån för prenumerationen. 
 
 > [!NOTE]
-> Arbetsytor som skapats av Security Center avgifter Log Analytics. Log Analytics prisnivån för arbetsytor som skapats av Security Center påverkar inte Security Center fakturering. Security Center fakturering baseras alltid på din säkerhetsprincip i Security Center och de lösningar som är installerad på en arbetsyta. Den kostnadsfria nivån med Security Center kan de *SecurityCenterFree* lösning på standardarbetsytan. Standard-nivån med Security Center kan de *Security* lösning på standardarbetsytan.
+> Log Analytics prisnivån för arbetsytor som skapats av Security Center påverkar inte Security Center fakturering. Security Center fakturering baseras alltid på din säkerhetsprincip i Security Center och de lösningar som är installerad på en arbetsyta. Den kostnadsfria nivån med Security Center kan de *SecurityCenterFree* lösning på standardarbetsytan. Standard-nivån med Security Center kan de *Security* lösning på standardarbetsytan.
 
 Mer information om priser finns i [Security Center-prissättning](https://azure.microsoft.com/pricing/details/security-center/).
 

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d17e7abbb3b6e4f091e19b8ab6834461dedffc71
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 8cec3d3695eaff8719757dd022951b969de99f6a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914778"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010651"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Vanliga frågor (och svar FAQ) 
 Den här sidan får du svar på vanliga frågor om Azure Active Directory (Azure AD) B2C. Kontrollera tillbaka för uppdateringar.
 
 ### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>Varför kan jag inte använda Azure AD B2C-tillägget i Azure-portalen?
-Det finns två vanliga orsaker till varför Azure AD-tillägget inte fungerar för dig.  Azure AD B2C kräver din användarroll i katalogen är global administratör.  Kontakta administratören om du tror att du ska ha åtkomst.  Om du har behörigheter som global administratör kan du kontrollera att du är i en Azure AD B2C-katalog och inte en Azure Active Directory-katalog.  Du kan se anvisningar för [skapar en Azure AD B2C-katalog här](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant).
+Det finns två vanliga orsaker till varför Azure AD-tillägget inte fungerar för dig.  Azure AD B2C kräver din användarroll i katalogen är global administratör.  Kontakta administratören om du tror att du ska ha åtkomst.  Om du har behörigheter som global administratör kan du kontrollera att du är i en Azure AD B2C-katalog och inte en Azure Active Directory-katalog.  Du kan se anvisningar för [skapar en Azure AD B2C-klient](tutorial-create-tenant.md).
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>Kan jag använda Azure AD B2C-funktioner i min befintliga, anställd-baserad Azure AD-klient?
 Azure AD och Azure AD B2C är separata produkterbjudanden och kan inte finnas i samma klient.  En Azure AD-klient representerar en organisation.  En Azure AD B2C-klient representerar en samling med identiteter som ska användas med förlitande parters program.  Azure AD B2C kan federera Azure AD att tillåta autentisering av anställda i en organisation med anpassade principer (i allmänt tillgänglig förhandsversion).
@@ -39,12 +39,12 @@ Användarkonton för program måste alltid skapas via en registreringsprincip re
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Vilka leverantörer via sociala du stöder nu? Vilka som kommer att stödja i framtiden?
 Vi stöder för närvarande Facebook, Google +, LinkedIn, Amazon, Twitter (förhandsversion), WeChat (förhandsversion), Weibo (förhandsversion) och QT (förhandsversion). Vi lägger till stöd för andra populära sociala identitetsleverantörer baserat på kundernas behov.
 
-Azure AD B2C har också lagt till stöd för [anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom).  Dessa [anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom) att en utvecklare att skapa sina egna princip som med alla identitetsprovider som stöder [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) eller SAML. 
+Azure AD B2C har också lagt till stöd för [anpassade principer](active-directory-b2c-overview-custom.md).  Dessa [anpassade principer](active-directory-b2c-overview-custom.md) att en utvecklare att skapa sina egna princip som med alla identitetsprovider som stöder [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) eller SAML. 
 
 Kom igång med anpassade principer genom att läsa vår [anpassad princip startpaket](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>Kan jag konfigurera omfång för att samla in mer information om användare från olika leverantörer via sociala?
-Nej, men den här funktionen finns i vår översikt. Standard-omfattningar som används för vår uppsättning sociala identitetsleverantörer som stöds är:
+Nej. Standard-omfattningar som används för vår uppsättning sociala identitetsleverantörer som stöds är:
 
 * Facebook: e-post
 * Google +: e-post
@@ -56,7 +56,7 @@ Nej, men den här funktionen finns i vår översikt. Standard-omfattningar som a
 Nej, kan du vara värd för ditt program var som helst (i molnet eller lokalt). Allt som behövs för att interagera med Azure AD B2C är möjligheten att skicka och ta emot HTTP-förfrågningar på offentligt tillgängliga slutpunkter.
 
 ### <a name="i-have-multiple-azure-ad-b2c-tenants-how-can-i-manage-them-on-the-azure-portal"></a>Jag har flera Azure AD B2C-klienter. Hur kan jag hantera dem på Azure portal?
-Innan du öppnar ”Azure AD-B2C” i menyn till vänster på Azure-portalen, måste du växla till den katalog som du vill hantera.  Växla kataloger genom att klicka på din identitet uppe till höger på Azure-portalen och välj sedan en katalog i nedrullningsbara menyn som visas.  Ett steg för steg med avbildningar finns i [navigera till Azure AD B2C-inställningar](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
+Innan du öppnar ”Azure AD-B2C” i menyn till vänster på Azure-portalen, måste du växla till den katalog som du vill hantera.  Växla kataloger genom att klicka på din identitet uppe till höger på Azure-portalen och välj sedan en katalog i nedrullningsbara menyn som visas.
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Hur anpassar jag verifiering e-postmeddelanden (innehållet och ”från”: fält) skickas av Azure AD B2C?
 Du kan använda den [funktionen för företagsanpassning](../active-directory/fundamentals/customize-branding.md) att anpassa innehållet i e-postmeddelanden för verifiering. Mer specifikt kan du anpassa dessa två element för e-postmeddelandet:
@@ -74,7 +74,7 @@ E-signaturen innehåller Azure AD B2C-klientens namn som du angav när du först
 1. Ändra den **namn** fält.
 1. Klicka på **Spara** längst upp på sidan.
 
-Det finns för närvarande inget sätt att ändra den ”från”: i e-postmeddelandet. Rösta på [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) du är intresserad av att anpassa brödtexten i bekräftelsemeddelandet.
+Det finns för närvarande inget sätt att ändra den ”från”: i e-postmeddelandet.
 
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>Hur kan jag migrera min befintliga användarnamn, lösenord och profiler från min databas till Azure AD B2C?
 Du kan använda Azure AD Graph API för att skriva din Migreringsverktyg. Se den [användaren Migreringsguide](active-directory-b2c-user-migration.md) mer information.
@@ -113,8 +113,7 @@ För närvarande inte. Den här funktionen finns i vår översikt. Verifiera din
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Hur tar jag bort min Azure AD B2C-klient?
 Följ dessa steg för att ta bort din Azure AD B2C-klient:
 
-1. Följ dessa steg för att [navigera till inställningarna för Azure AD B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) på Azure portal.
-1. Navigera till den **program**, **identitetsprovidrar**, och **alla principer** och ta bort alla poster i var och en av dem.
+1. Ta bort alla principer i din Azure AD B2C-klient.
 1. Nu logga in på den [Azure-portalen](https://portal.azure.com/) som administratör för prenumerationen. (Använd samma arbets- eller skolkonto eller samma Microsoft-konto som användes för att registrera dig för Azure.)
 1. Växla till Azure AD B2C-klient som du vill ta bort.
 2. Gå till Active Directory-menyn till vänster.

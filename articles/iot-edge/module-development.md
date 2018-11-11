@@ -8,12 +8,12 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d4253942ea5cd998bfd3806978e108413949f886
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 2513624aecff652e8a952b3255faf2ab9366f21a
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741444"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288704"
 ---
 # <a name="understand-the-requirements-and-tools-for-developing-iot-edge-modules"></a>Förstå de krav och verktyg för att utveckla IoT Edge-moduler
 
@@ -26,7 +26,7 @@ IoT Edge-runtime tillhandahåller infrastrukturen som att integrera funktionerna
 IoT Edge hub ger två huvudsakliga funktioner: proxy till IoT Hub och lokala kommunikation.
 
 ### <a name="iot-hub-primitives"></a>IoT Hub primitiver
-IoT Hub ser en modul instans på samma sätt till en enhet, i meningen att den:
+IoT-hubben ser en modulinstans på samma sätt som en enhet i meningen som:
 
 * den har en modultvilling som är unik och isolerade från de [enhetstvillingen](../iot-hub/iot-hub-devguide-device-twins.md) och andra modultvillingar för en enhet;
 * den kan skicka [meddelanden från enheten till molnet](../iot-hub/iot-hub-devguide-messaging.md);
@@ -41,7 +41,7 @@ Se [utveckla och distribuera en IoT Edge-modul till en simulerad enhet](tutorial
 ### <a name="device-to-cloud-messages"></a>Meddelanden från enheten till molnet
 För att aktivera komplexa bearbetning av meddelanden från enheten till molnet, IoT Edge hub ger deklarativ meddelanderoutning mellan moduler och mellan moduler och IoT Hub. Deklarativ routning låter moduler att fånga upp och bearbeta meddelanden som skickas av andra moduler och sprida dem till komplexa pipelines. Artikeln [modulsammansättningen](module-composition.md) förklarar hur du ordna datalagrings-moduler i komplexa pipelines med vägar.
 
-Annorlunda än en normal IoT Hub device program, kan en IoT Edge-modul, ta emot meddelanden från enheten till molnet som körs via en proxy av sin lokala IoT Edge hub för att bearbeta dem.
+En IoT Edge-modul, till skillnad från en normal IoT Hub device program, kan ta emot meddelanden från enheten till molnet som körs via en proxy av sin lokala IoT Edge hub för att bearbeta dem på.
 
 IoT Edge hub sprider meddelanden till din modul som baseras på deklarativa vägar som beskrivs i den [modulsammansättningen](module-composition.md) artikeln. När du utvecklar en IoT Edge-modul, kan du ta emot dessa meddelanden genom att ange meddelandehanterare.
 
@@ -58,7 +58,9 @@ Slutligen är enhet-till-moln-meddelanden som hanteras av Edge hub stämplad med
 | $outputName | De utdata som används för att skicka meddelandet. Kan vara tom. |
 
 ### <a name="connecting-to-iot-edge-hub-from-a-module"></a>Ansluter till IoT Edge hub från en modul
-Ansluter till lokala IoT Edge hub från en modul omfattar två steg: använda anslutningssträngen förutsatt att genom IoT Edge-körningen när din modul startar och kontrollera att ditt program godkänner certifikatet som presenteras av IoT Edge-hubben på den enheten.
+Ansluter till lokala IoT Edge hub från en modul omfattar två steg: 
+1. Använd anslutningssträngen som tillhandahålls av IoT Edge-körningen när din modul startar.
+2. Kontrollera att ditt program godkänner certifikatet som presenteras av IoT Edge-hubben på den enheten.
 
 Anslutande strängen som ska använda matas in av IoT Edge-körning i miljövariabeln `EdgeHubConnectionString`. Detta gör dem tillgängliga för alla program som vill använda den.
 

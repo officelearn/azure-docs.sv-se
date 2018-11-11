@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: bwren
 ms.comopnent: ''
-ms.openlocfilehash: 6670b6648a0f38879b57b05cb3c6c6e15ca832b4
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 52d81e4f4070d8d8e13497ad39d5adf1b99470de
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958227"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007747"
 ---
 # <a name="iis-logs-in-log-analytics"></a>IIS-loggar i Log Analytics
 Internet Information Services (IIS) lagrar användarnas aktivitet i loggfiler som kan samlas in av Log Analytics.  
@@ -80,5 +80,5 @@ I följande tabell innehåller olika exempel på loggfrågor som hämtar IIS-log
 
 ## <a name="next-steps"></a>Nästa steg
 * Konfigurera Log Analytics för att samla in andra [datakällor](log-analytics-data-sources.md) för analys.
-* Lär dig mer om [loggsökningar](log-analytics-log-search.md) att analysera data som samlas in från datakällor och lösningar.
+* Lär dig mer om [loggsökningar](log-analytics-queries.md) att analysera data som samlas in från datakällor och lösningar.
 * Konfigurera aviseringar i Log Analytics för att informera dig om viktiga villkor finns i IIS-loggar.

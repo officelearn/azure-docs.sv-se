@@ -1,24 +1,24 @@
 ---
-title: Lägga till Hive-bibliotek under Skapa kluster i HDInsight - Azure
-description: Lär dig hur du lägger till Hive-bibliotek (jar-filer) till ett HDInsight-kluster när klustret skapas.
+title: Lägga till Apache Hive-bibliotek under Skapa kluster i HDInsight - Azure
+description: Lär dig hur du lägger till Apache Hive-bibliotek (jar-filer) till ett HDInsight-kluster när klustret skapas.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
+ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 40650c813efc8fe7389b0445c72007dbd97e3ce8
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: f9788c82e74b47d4550640a1069f6d97487eecc6
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108694"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035313"
 ---
-# <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>Lägg till anpassade Hive-bibliotek när du skapar HDInsight-kluster
+# <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Lägga till anpassade Apache Hive-bibliotek när du skapar HDInsight-kluster
 
-Lär dig hur du Förhandsladda Hive-bibliotek på HDInsight. Det här dokumentet innehåller information om hur du använder en skriptåtgärd för att läsa in bibliotek när klustret skapas före. Bibliotek som har lagts till med hjälp av stegen i det här dokumentet är tillgängliga globalt i Hive - behöver inte använda [JAR-Lägg till](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) att läsa in dem.
+Lär dig mer om att läsa in Apache Hive-bibliotek på HDInsight i förväg. Det här dokumentet innehåller information om hur du använder en skriptåtgärd för att läsa in bibliotek när klustret skapas före. Bibliotek som har lagts till med hjälp av stegen i det här dokumentet är tillgängliga globalt i Hive - behöver inte använda [JAR-Lägg till](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) att läsa in dem.
 
 ## <a name="how-it-works"></a>Hur det fungerar
 

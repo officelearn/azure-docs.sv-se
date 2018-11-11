@@ -2,19 +2,18 @@
 title: Hur du hanterar anslutningar i Azure Functions
 description: Lär dig hur du undviker problem med prestanda i Azure Functions med hjälp av statiska-klienter.
 services: functions
-documentationcenter: ''
 author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 07/13/2018
+ms.date: 11/02/2018
 ms.author: glenga
-ms.openlocfilehash: 6a877bb7f21b129522b9ffeab22eb77d7a556d53
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: eb5c302c807f85f24f53fa1ba32ef4cd7b52274a
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094807"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036469"
 ---
 # <a name="how-to-manage-connections-in-azure-functions"></a>Hur du hanterar anslutningar i Azure Functions
 
@@ -37,9 +36,13 @@ Här följer några riktlinjer för att följa när du använder en tjänstspeci
 - **GÖR** skapar en enda, statiska klient som kan användas av varje funktionsanrop.
 - **Överväg att** skapar en enda, statisk klient i en delad hjälparklass om olika funktioner använder samma tjänst.
 
-## <a name="httpclient-code-example"></a>HttpClient-kodexempel
+## <a name="client-code-examples"></a>Kodexempel för klienten
 
-Här är ett exempel på function-koden som skapar en statisk [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx):
+Det här avsnittet visar bra arbetsmetoder för skapar och använder klienter från funktionskoden.
+
+### <a name="httpclient-example-c"></a>HttpClient exempel (C#)
+
+Här är ett exempel på C# fungera kod som skapar en statisk [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx):
 
 ```cs
 // Create a single, static HttpClient
@@ -54,7 +57,27 @@ public static async Task Run(string input)
 
 Vanliga frågor om .NET [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) är ”bör jag vara tar bort min klient”? Generellt sett kan du ta bort objekt som implementerar `IDisposable` när du är klar med dessa. Men du inte ta bort en statisk klient eftersom du inte är klar med den när funktionen har upphört. Du vill att statisk klienten TTL-värde för varaktigheten för ditt program.
 
-## <a name="documentclient-code-example"></a>DocumentClient-kodexempel
+### <a name="http-agent-examples-nodejs"></a>HTTP-agenten exempel (Node.js)
+
+Eftersom det ger bättre anslutning hanteringsalternativ, bör du använda inbyggt [ `http.agent` ](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) klassen i stället för icke-intern metoder, till exempel den `node-fetch` modulen. Anslutningsparametrar konfigureras med hjälp av alternativen på den `http.agent` klass. Se [ny Agent (\[alternativ\])](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options) för detaljerade alternativ med HTTP-agenten.
+
+Den globala `http.globalAgent` används av `http.request()` har alla de här värdena standardvärdena respektive. Det rekommenderade sättet att konfigurera anslutningsgräns i funktioner är att ange ett högsta antal globalt. I följande exempel anger det maximala antalet sockets för funktionsappen:
+
+```js
+http.globalAgent.maxSockets = 200;
+```
+
+ I följande exempel skapas en ny HTTP-begäran med en anpassad HTTP-agenten endast för begäran.
+
+```js
+var http = require('http');
+var httpAgent = new http.Agent();
+httpAgent.maxSockets = 200;
+options.agent = httpAgent;
+http.request(options, onResponseCallback);
+```
+
+### <a name="documentclient-code-example-c"></a>DocumentClient kodexempel (C#)
 
 [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
 ) ansluter till en Azure Cosmos DB-instans. Azure Cosmos DB-dokumentationen rekommenderar att du [använder en singleton Azure Cosmos DB-klienten för hela ditt programs livslängd](https://docs.microsoft.com/azure/cosmos-db/performance-tips#sdk-usage). I följande exempel visar ett mönster för att göra som i en funktion:

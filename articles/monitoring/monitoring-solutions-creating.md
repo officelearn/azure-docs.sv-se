@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2f7871aac0469e5fb8eaaebef9ca48404609bab7
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 09dd046f9dc7d6b73207ab1ab739e913a8ed5b92
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912568"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282058"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Utforma och skapa en lösning i Azure (förhandsversion)
 > [!NOTE]
@@ -49,16 +49,16 @@ Det finns ett antal sätt datakällor som kan samlas in i Log Analytics-database
 Om du kräver att data som inte kan nås via någon av de tillgängliga datakällorna så du kan använda den [HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md) där du kan skriva data till Log Analytics-databasen från alla klienter som kan anropa en REST-API.  Det vanligaste sättet för anpassad insamling i en lösning för hantering av är att skapa en [runbook i Azure Automation](../automation/automation-runbook-types.md) som samlar in nödvändiga data från Azure eller externa resurser och använder Data Collector API för att skriva till den lagringsplats.  
 
 ### <a name="log-searches"></a>Loggsökningar
-[Loggsökningar](../log-analytics/log-analytics-log-search.md) används för att extrahera och analysera data i Log Analytics-databasen.  De används i vyer och aviseringar förutom tillåter användare att utföra ad hoc-analyser av data i databasen.  
+[Loggsökningar](../log-analytics/log-analytics-queries.md) används för att extrahera och analysera data i Log Analytics-databasen.  De används i vyer och aviseringar förutom tillåter användare att utföra ad hoc-analyser av data i databasen.  
 
 Du bör definiera alla frågor som du tror att användbara för användaren även om de inte används av alla vyer eller aviseringar.  Dessa är tillgängliga för dem som sparade sökningar i portalen och du kan även inkludera dem i en [Listfrågor för visualisering del](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) i den anpassade vyn.
 
 ### <a name="alerts"></a>Aviseringar
-[Aviseringar i Log Analytics](../log-analytics/log-analytics-alerts.md) identifiera problem med hjälp av [loggsökningar](#log-searches) mot data i databasen.  De meddela användaren eller köra automatiskt en åtgärd som svar. Du bör identifiera olika aviseringsvillkor för ditt program och inkludera motsvarande Varningsregler i din lösningsfilen.
+[Aviseringar i Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) identifiera problem med hjälp av [loggsökningar](#log-searches) mot data i databasen.  De meddela användaren eller köra automatiskt en åtgärd som svar. Du bör identifiera olika aviseringsvillkor för ditt program och inkludera motsvarande Varningsregler i din lösningsfilen.
 
 Om problemet kan eventuellt åtgärdas med en automatiserad process, ska du vanligtvis skapa en runbook i Azure Automation för att utföra den här reparationen.  De flesta Azure-tjänster kan hanteras med [cmdletar](/powershell/azure/overview) som runbook skulle använda för att utföra dessa funktioner.
 
-Om din lösning kräver externa funktioner som svar på en avisering så kan du använda en [webhook-svar](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).  På så sätt kan du anropa en extern webbtjänst skickar information från aviseringen.
+Om din lösning kräver externa funktioner som svar på en avisering så kan du använda en [webhook-svar](../monitoring-and-diagnostics/alert-metric.md).  På så sätt kan du anropa en extern webbtjänst skickar information från aviseringen.
 
 ### <a name="views"></a>Vyer
 Vyer i Log Analytics används för att visualisera data från Log Analytics-databasen.  Varje lösning vanligtvis innehåller en enda vy med en [panelen](../log-analytics/log-analytics-view-designer-tiles.md) som visas på användarens huvudinstrumentpanel.  Vyn kan innehålla valfritt antal [visualisering delar](../log-analytics/log-analytics-view-designer-parts.md) att tillhandahålla olika visualiseringar av insamlade data för användaren.

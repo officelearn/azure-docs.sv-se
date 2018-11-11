@@ -7,51 +7,46 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2016
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 3d18e1b2e45aba4e83989e29c533cfc7bf5033fc
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: eabae0f3575719c6cb93affefe0a393dd13d1439
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442716"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014014"
 ---
-# <a name="azure-active-directory-b2c-enable-multi-factor-authentication-in-your-consumer-facing-applications"></a>Azure Active Directory B2C: Aktivera Multi-Factor Authentication i dina konsumentinriktade program
-Azure Active Directory (Azure AD) B2C integreras direkt med [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) så att du kan lägga till ett andra säkerhetslager till registrering och inloggning upplevelser i dina konsumentinriktade program. Och du kan göra detta utan att behöva skriva en enda rad kod. Vi stöder för närvarande telefonsamtal och SMS-verifiering. Du kan aktivera Multifaktorautentisering även om du redan har skapat principer för registrering och inloggning.
+# <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Aktivera Multi-Factor authentication i Azure Active Directory B2C
 
-> [!NOTE]
-> Multifaktorautentisering kan även aktiveras när du skapar principer för registrering och inloggning, inte bara genom att redigera befintliga principer.
-> 
-> 
+Azure Active Directory (Azure AD) B2C integreras direkt med [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) så att du kan lägga till ett andra säkerhetslager till registrering och inloggning upplevelser i dina program. Du kan aktivera multifaktorautentisering för utan att behöva skriva en enda rad kod. Om du redan har skapat logga in och inloggnings-principer, kan du fortfarande aktivera multifaktorautentisering.
 
 Den här funktionen hjälper dig att hantera scenarier som följande program:
 
-* Du behöver inte Multi-Factor Authentication att få åtkomst till ett program, men du behöver komma åt en annan. Konsumenten kan logga in på ett automatiskt försäkring program med ett socialt eller lokala men måste kontrollera telefonnumret innan åtkomst till hemnätverk försäkring program registrerade i samma katalog.
-* Du behöver inte Multifaktorautentisering komma åt ett program i allmänhet, men du behöver komma åt känsliga delar i den. Konsumenten kan logga in på en metodparameter med en social eller till ett lokalt konto och kontrollera saldo men måste verifiera telefonnumret innan du försöker en banköverföring.
+- Du behöver inte multifaktorautentisering för åtkomst till ett program, men du behöver komma åt en annan. Kunden kan logga in på ett automatiskt försäkring program med ett socialt eller lokala men måste kontrollera telefonnumret innan åtkomst till hemnätverk försäkring program registrerade i samma katalog.
+- Du behöver inte multifaktorautentisering komma åt ett program i allmänhet, men du behöver komma åt känsliga delar i den. Exempelvis kan kunden kan logga in på en metodparameter med en social eller lokalt konto och kontrollera vilket konto balansera, men måste verifiera telefonnumret innan du försöker en banköverföring.
 
-## <a name="modify-your-sign-up-policy-to-enable-multi-factor-authentication"></a>Ändra principen för registrering om du vill aktivera Multi-Factor Authentication
-1. [Följ dessa steg för att gå till B2C-funktionsbladet på Azure portal](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
-2. Klicka på **Registreringsprinciper**.
-3. Klicka på registreringsprincipen (till exempel ”B2C_1_SiUp”) för att öppna den.
-4. Klicka på **multifaktorautentisering** och aktivera den **tillstånd** till **på**. Klicka på **OK**.
-5. Klicka på **spara** överst på bladet.
+## <a name="set-multi-factor-authentication"></a>Ange multifaktorautentisering
 
-Du kan använda funktionen ”Kör nu” i principen för att kontrollera hur lösenordsåterställningen går till. Kontrollera följande:
+När du skapar en princip har du möjlighet att aktivera Multi-Factor authentication.
 
-Ett konsumentkonto skapas det i din katalog innan Multi-Factor Authentication-steg sker. Under steget uppmanas användaren att ange sitt telefonnummer och kontrollera att den. Om verifieringen lyckas är nummer som kopplat till konsumentkonto för senare användning. Även om användaren avbryter eller minskar, kan han eller hon bli ombedd att verifiera ett telefonnummer igen under nästa inloggningen (med aktiverat Multifaktorautentisering).
+![Ange multifaktorautentisering](./media/active-directory-b2c-reference-mfa/add-policy.png)
 
-## <a name="modify-your-sign-in-policy-to-enable-multi-factor-authentication"></a>Ändra din princip om du vill aktivera Multi-Factor Authentication
-1. [Följ dessa steg för att gå till B2C-funktionsbladet på Azure portal](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
-2. Klicka på **inloggningsprinciper**.
-3. Klicka på din inloggningsprincip (till exempel ”B2C_1_SiIn”) för att öppna den. Klicka på **redigera** överst på bladet.
-4. Klicka på **multifaktorautentisering** och aktivera den **tillstånd** till **på**. Klicka på **OK**.
-5. Klicka på **spara** överst på bladet.
+Ange **tillstånd** till **på**.
 
-Du kan använda funktionen ”Kör nu” i principen för att kontrollera hur lösenordsåterställningen går till. Kontrollera följande:
+Du kan använda **kör nu** på principen för att verifiera upplevelsen. Bekräfta följande scenario:
 
-När användaren loggar in (med en social eller till ett lokalt konto), om ett verifierat telefonnummer är kopplad till konsumentkonto, han eller hon uppmanas att verifiera den. Om utan telefonnummer kopplas uppmanas konsumenten att ange en och kontrollera att den. Vid lyckad kontroll är telefonnumret kopplat till konsumentkonto för senare användning.
+Ett kundkonto skapas i din klient innan steget multifaktorautentisering sker. Under steget uppmanas kunden att ange ett telefonnummer och kontrollera att den. Om verifieringen lyckas är nummer som kopplat till kontot för senare användning. Även om kunden avbryter eller släpper, kan kunden bli ombedd att verifiera ett telefonnummer igen under nästa inloggningen med aktiverat multifaktorautentisering.
 
-## <a name="multi-factor-authentication-on-other-policies"></a>Multifaktorautentisering på andra principer
-Enligt beskrivningen för registrering och inloggning i principer som ovan, det är också möjligt att aktivera multifaktorautentisering för registrering eller inloggningsprinciper och lösenordsåterställning principer. Den blir tillgänglig snart på profilredigeringsprinciper.
+## <a name="add-multi-factor-authentication"></a>Lägg till Multi-Factor authentication
+
+Det är möjligt att aktivera multifaktorautentisering för en princip som du skapade tidigare. 
+
+För att aktivera multifaktorautentisering:
+
+1. Öppna principen och välj sedan **redigera**. 
+2. Välj **multifaktorautentisering**
+3. Ange **tillstånd** till **på**.
+4. Klicka på **Spara** längst upp på sidan.
+
 

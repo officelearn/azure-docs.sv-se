@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 930f5dc0369c998039b9cc0c089f60de17993be0
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 1481c32512266f494c03f9ffdc1ce67ef503b4a8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435178"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255208"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Självstudier: Skapa en anpassad avbildning av en virtuell dator i Azure med hjälp av Azure PowerShell
 
@@ -50,7 +50,7 @@ För att skapa en avbildning av en virtuell dator måste du förbereda den genom
 
 ### <a name="generalize-the-windows-vm-using-sysprep"></a>Generalisera den virtuella Windows-datorn med hjälp av Sysprep
 
-Sysprep tar bland annat bort all din personliga kontoinformation och förbereder datorn så att den kan användas som en avbildning. Mer information om Sysprep finns i [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx) (Använda Sysprep: En introduktion).
+Sysprep tar bland annat bort all din personliga kontoinformation och förbereder datorn så att den kan användas som en avbildning. Mer information om Sysprep finns i [How to Use Sysprep: An Introduction](https://technet.microsoft.com/library/bb457073.aspx) (Använda Sysprep: En introduktion).
 
 
 1. Ansluta till den virtuella datorn.

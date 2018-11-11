@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: d4197effff48c23147799cd1fc3778521c42a19e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2a7e7f13b68f06bb6c0e9be4730c7346e43e8e5b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256773"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346583"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Contoso-migrering: Rehost en lokala Linux-app på Azure virtuella datorer och Azure MySQL
 
@@ -399,7 +399,7 @@ Kör ett redundanstest Kontrollera hjälper till att att allt fungerar som förv
 
 ### <a name="migrate-the-vm"></a>Migrera den virtuella datorn
 
-För att migrera den virtuella datorn, Contoso administratörer creats en återställningsplan som innehåller den virtuella datorn och växla över plan till Azure.
+Om du vill migrera den virtuella datorn, Contoso administratörer skapar en återställningsplan som innehåller den virtuella datorn och växla över plan till Azure.
 
 1. De skapa en plan och lägga till **OSTICKETWEB** till den.
 

@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 11/02/2018
+ms.date: 11/09/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.openlocfilehash: 4376b9e89aeef32987f7a3bb29ca6815e941ba00
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 049e859f1d736e7c06ac5d40e33d91d1540c3d9e
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960250"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514374"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Förbereda för tillägget för värd för Azure Stack
 
@@ -84,8 +84,7 @@ Använda en dator som kan ansluta till Azure Stack privilegierad slutpunkt för 
 
 1. Använda en dator som kan ansluta till Azure Stack privilegierad slutpunkt för nästa steg. Kontrollera att du får tillgång till nya certifikatfiler från datorn.
 2. Öppna PowerShell ISE för att köra nästa skriptblock
-3. Importera certifikatet för som är värd för slutpunkten. Justera skriptet som matchar din miljö.
-4. Importera certifikatet för administratören som är värd för slutpunkten.
+3. Importera certifikatet för administratören som är värd för slutpunkten.
 
     ```PowerShell  
 
@@ -104,7 +103,7 @@ Använda en dator som kan ansluta till Azure Stack privilegierad slutpunkt för 
             Import-AdminHostingServiceCert $AdminHostingCertContent $certPassword
     }
     ```
-5. Importera certifikat för värdbaserade slutpunkten.
+4. Importera certifikat för värdbaserade slutpunkten.
     ```PowerShell  
     $CertPassword = read-host -AsSecureString -prompt "Certificate Password"
 

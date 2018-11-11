@@ -1,68 +1,72 @@
 ---
-title: 'Snabbstart: Kontrollera videoinnehåll i C# - Content Moderator'
+title: Analysera video innehåll för stötande material iC#
 titlesuffix: Azure Cognitive Services
-description: Hur du kontrollerar videoinnehåll för vuxet eller olämpligt material med innehåll Moderator SDK för C#
+description: Hur du analyserar videoinnehåll för olika stötande material med innehåll Moderator SDK för .NET
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/31/2018
 ms.author: sajagtap
-ms.openlocfilehash: cb97eebcf398137653988ab3b6ef663f987fb57a
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 80635354b228edc1a8c1334e5d59cf530a10083e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310512"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008291"
 ---
-# <a name="quickstart-check-video-content-in-c"></a>Snabbstart: Kontrollera videoinnehåll i C#
+# <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analysera video innehåll för stötande material iC#
 
-Idag, generera online visningsprogram miljarder video vyer över populära och regionala sociala webbplatser och appar. Genom att tillämpa machine-learning-baserade tjänster som identifierar potentiellt vuxet eller olämpligt innehåll, kan du sänka kostnaden för ditt arbete med moderering.
+Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med den [innehåll Moderator SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) söker igenom videoinnehåll för vuxet eller olämpligt innehåll.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="sign-up-for-the-content-moderator-media-processor-preview"></a>Registrera dig för Content Moderator-mediebearbetare (förhandsversion)
+## <a name="prerequisites"></a>Förutsättningar
+- En utgåva av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/)
+
+## <a name="set-up-azure-resources"></a>Ställa in Azure-resurser
+
+Content Moderator videomoderering funktionen är tillgänglig som en kostnadsfri offentlig förhandsversion **medieprocessor** i Azure Media Services (AMS). Azure Media Services är en särskild Azure-tjänst för att lagra och strömma videofiler. 
 
 ### <a name="create-an-azure-media-services-account"></a>Skapa ett Azure Media Services-konto
 
-Content Moderator video funktionen är tillgänglig som en offentlig förhandsversion **medieprocessor** i Azure Media Services (AMS) utan kostnad. [Skapa ett Azure Media Services-konto](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account) i Azure-prenumerationen.
+Följ instruktionerna i [skapa ett Azure Media Services-konto](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account) att prenumerera på AMS och skapa en associerad Azure storage-konto. Skapa en ny Blob storage-behållare i det lagringskontot.
 
-### <a name="get-azure-active-directory-credentials"></a>Hämta autentiseringsuppgifter för Azure Active Directory
+### <a name="create-an-azure-active-directory-application"></a>Skapa ett Azure Active Directory-program
 
-   1. Läs den [Azure Media Services portal artikeln](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad) att lära dig hur du använder Azure-portalen för att hämta dina autentiseringsuppgifter för Azure Active Directory-autentisering.
-   1. Läs den [Azure Media Services .NET artikeln](https://docs.microsoft.com/azure/media-services/media-services-dotnet-get-started-with-aad) att lära dig hur du använder Azure Active Directory-autentiseringsuppgifter med .NET SDK.
+Gå till din nya AMS-prenumeration i Azure-portalen och välj **API-åtkomst** på menyn på klientsidan. Välj **Anslut till Azure Media Services med tjänstens huvudnamn**. Notera värdet i den **REST API-slutpunkt** fältet; du behöver det senare.
 
-   > [!NOTE]
-   > Exempelkoden i den här snabbstarten använder den **tjänstobjektautentisering** metod som beskrivs i både artiklar ovan.
+I den **Azure AD-app** väljer **Skapa ny** och namnge din nya Azure AD-programregistrering (till exempel ”VideoModADApp”). Klicka på **spara** och Vänta några minuter medan programmet är konfigurerat. Då, bör du se din nya appregistreringen under den **Azure AD-app** på sidan.
 
-När du har hämtat dina AMS-autentiseringsuppgifter, finns det två sätt att testa mediebearbetare Content Moderator.
+Välj din appregistrering och klicka på den **Hanteringsappen** knappen under den. Notera värdet i den **program-ID** fältet; du behöver det senare. Välj **inställningar** > **nycklar**, och ange en beskrivning för en ny nyckel (till exempel ”VideoModKey”). Klicka på **spara**, och notera värdet för nya nyckeln. Kopiera följande sträng och spara den någonstans säkert.
+
+En mer omfattande genomgång av processen ovan finns i [Kom igång med Azure AD-autentisering](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad).
+
+När du har gjort det, kan du använda mediebearbetare videomoderering på två olika sätt.
 
 ## <a name="use-azure-media-services-explorer"></a>Använd Azure Media Services Explorer
 
-Använd det interaktiva [Azure Media Services (AMS) explorer](https://azure.microsoft.com/blog/managing-media-workflows-with-the-new-azure-media-services-explorer-tool/) för att bläddra bland ditt AMS-konto, ladda upp videor och Genomsök med Content Moderator mediebearbetare. [Hämta och installera det](https://github.com/Azure/Azure-Media-Services-Explorer/releases) från GitHub, och [Bläddra källkoden](http://github.com/Azure/Azure-Media-Services-Explorer) att ta itu med hjälp av AMS SDK.
+Azure Media Services Explorer är ett användarvänligt frontend för AMS. Du kan använda den för att bläddra ditt AMS-konto, ladda upp videor och söker igenom innehållet i medieprocessor Content Moderator. Hämta och installera det från [GitHub](https://github.com/Azure/Azure-Media-Services-Explorer/releases), eller se den [Azure Media Services Explorer blogginlägget](https://azure.microsoft.com/blog/managing-media-workflows-with-the-new-azure-media-services-explorer-tool/) för mer information.
 
 ![Azure Media Services explorer med Content Moderator](images/ams-explorer-content-moderator.PNG)
 
-## <a name="quickstart-with-visual-studio-and-c"></a>Snabbstart med Visual Studio och C#
+## <a name="create-the-visual-studio-project"></a>Skapa Visual Studio-projektet
 
-1. Lägg till ett nytt projekt för en **konsolapp (.NET Framework)** i lösningen.
+1. I Visual Studio skapar du en ny **konsolapp (.NET Framework)** projektet och ge den namnet **VideoModeration**. 
+1. Om det finns andra projekt i din lösning, väljer du den här kopian som enda startup-projekt.
+1. Hämta NuGet-paket som krävs. Högerklicka på projektet i Solution Explorer och välj **hantera NuGet-paket**; Sök efter och installera följande paket:
+    - windowsazure.mediaservices
+    - windowsazure.mediaservices.Extensions
 
-   Namnge projektet i exempelkoden **VideoModeration**.
+## <a name="add-video-moderation-code"></a>Lägg till kod för videomoderering
 
-1. Välj det här projektet som det enda startprojektet för lösningen.
-
-### <a name="install-required-packages"></a>Installera de paket som krävs
-
-Installera följande NuGet-paketen tillgängliga på [NuGet](https://www.nuget.org/).
-
-- windowsazure.mediaservices
-- windowsazure.mediaservices.Extensions
+Nu ska du kopiera och klistra in koden från den här guiden i ditt projekt för att implementera ett grundläggande innehållsmoderering scenario.
 
 ### <a name="update-the-programs-using-statements"></a>Uppdatera programmets using-instruktioner
 
-Lägg till följande `using` instruktioner.
+Lägg till följande `using` uttryck överst i din _Program.cs_ fil.
 
 ```csharp
 using System;
@@ -77,9 +81,9 @@ using Microsoft.WindowsAzure.Storage.Auth;
 using System.Collections.Generic;
 ```
 
-### <a name="initialize-application-specific-settings"></a>Initiera programspecifika inställningar
+### <a name="set-up-resource-references"></a>Konfigurera resurs-referenser
 
-Lägg till följande statiska fält i den **programmet** klassen i _Program.cs_.
+Lägg till följande statiska fält i den **programmet** klassen i _Program.cs_. De här fälten hålla informationen behövs för att ansluta till AMS-prenumeration. Fyll dem med de värden som du fick i stegen ovan. Observera att `CLIENT_ID` är den **program-ID** värdet för din Azure AD-app och `CLIENT_SECRET` är värdet för den ”VideoModKey” som du skapade för den appen.
 
 ```csharp
 // declare constants and globals
@@ -94,9 +98,9 @@ static string STORAGE_CONTAINER_NAME = "YOUR BLOB CONTAINER FOR VIDEO FILES";
 
 private static StorageCredentials _StorageCredentials = null;
 
-// Azure Media Services authentication. See the quickstart for how to get these.
+// Azure Media Services authentication. 
 private const string AZURE_AD_TENANT_NAME = "microsoft.onmicrosoft.com";
-private const string CLIENT_ID = "YOUR CLIENT ID"
+private const string CLIENT_ID = "YOUR CLIENT ID";
 private const string CLIENT_SECRET = "YOUR CLIENT SECRET";
 
 // REST API endpoint, for example "https://accountname.restv2.westcentralus.media.azure.net/API".      
@@ -108,23 +112,25 @@ private const string MEDIA_PROCESSOR = "Azure Media Content Moderator";
 // Input and Output files in the current directory of the executable
 private const string INPUT_FILE = "VIDEO FILE NAME";
 private const string OUTPUT_FOLDER = "";
-```
 
-### <a name="create-a-preset-file-json"></a>Skapa en förinställd fil (json)
-
-Skapa en JSON-fil i den aktuella katalogen med versionsnumret.
-
-```csharp
-//Example file content:
-//        {
-//             "version": "2.0"
-//        }
+// JSON settings file
 private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
+
 ```
 
-### <a name="add-the-following-code-to-the-main-method"></a>Lägg till följande kod i main-metoden
+Om du vill använda en lokal videofil (enklaste fallet) lägga till den i projektet och ange dess sökväg som den `INPUT_FILE` värde (relativa sökvägar är relativa till körningskatalogen).
 
-Main-metoden skapar först en kontext för Azure Media och sedan på ett Azure Storage-kontext om dina videor som finns i blob storage. Återstående koden söker igenom en video från en lokal mapp, blob eller flera blobbar i en Azure storage-behållare. Du kan prova alla alternativ genom att kommentera ut andra rader med kod.
+Du måste också skapa den _preset.json_ filen i den aktuella katalogen och använda den för att ange ett versionsnummer. Exempel:
+
+```JSON
+{
+    "version": "2.0"
+}
+```
+
+### <a name="load-the-input-videos"></a>Läsa in indata video(s)
+
+Den **Main** -metoden för den **programmet** klass skapar ett Azure Media-kontexten och sedan ett Azure Storage-kontext (om dina videor finns i blob storage). Återstående koden söker igenom en video från en lokal mapp, blob eller flera blobbar i en Azure storage-behållare. Du kan prova alla alternativ genom att kommentera ut andra rader med kod.
 
 ```csharp
 // Create Azure Media Context
@@ -134,7 +140,7 @@ CreateMediaContext();
 CreateStorageContext();
 
 // Use a file as the input.
-// IAsset asset = CreateAssetfromFile();
+IAsset asset = CreateAssetfromFile();
 
 // -- OR ---
 
@@ -142,20 +148,20 @@ CreateStorageContext();
 // IAsset asset = CreateAssetfromBlob((CloudBlockBlob)GetBlobsList().First());
 
 // Then submit the asset to Content Moderator
-// RunContentModeratorJob(asset);
+RunContentModeratorJob(asset);
 
 //-- OR ----
 
 // Just run the content moderator on all blobs in a list (from a Blob Container)
-RunContentModeratorJobOnBlobs();
+// RunContentModeratorJobOnBlobs();
 ```
 
-### <a name="add-the-code-to-create-an-azure-media-context"></a>Lägg till kod för att skapa en Azure Media-kontext
+### <a name="create-an-azure-media-context"></a>Skapa ett Azure Media-kontext
+
+Lägg till följande metod i klassen **Program**. Här används AMS-autentiseringsuppgifter för att tillåta kommunikation med AMS.
 
 ```csharp
-/// <summary>
-/// Creates a media context from azure credentials
-/// </summary>
+// Creates a media context from azure credentials
 static void CreateMediaContext()
 {
     // Get Azure AD credentials
@@ -172,12 +178,11 @@ static void CreateMediaContext()
 ```
 
 ### <a name="add-the-code-to-create-an-azure-storage-context"></a>Lägg till kod för att skapa ett Azure Storage-kontext
-Du kan använda Storage-kontext som skapats från Storage-autentiseringsuppgifter för att få åtkomst till ditt blob storage.
+
+Lägg till följande metod i klassen **Program**. Du kan använda Storage-kontext som skapats från storage-autentiseringsuppgifter för att få åtkomst till ditt blob storage.
 
 ```csharp
-/// <summary>
-/// Creates a storage context from the AMS associated storage name and key
-/// </summary>
+// Creates a storage context from the AMS associated storage name and key
 static void CreateStorageContext()
 {
     // Get a reference to the storage account associated with a Media Services account. 
@@ -190,24 +195,18 @@ static void CreateStorageContext()
 ```
 
 ### <a name="add-the-code-to-create-azure-media-assets-from-local-file-and-blob"></a>Lägg till kod för att skapa Azure Medietillgångar från lokal fil och blob
+
 Mediebearbetare för Content Moderator kör jobb **tillgångar** i Azure Media Services-plattformen.
 Dessa metoder skapa tillgångar från en lokal fil eller en associerad blob.
 
 ```csharp
-/// <summary>
-/// Creates an Azure Media Services Asset from the video file
-/// </summary>
-/// <returns>Asset</returns>
+// Creates an Azure Media Services Asset from the video file
 static IAsset CreateAssetfromFile()
 {
     return _context.Assets.CreateFromFile(INPUT_FILE, AssetCreationOptions.None); ;
 }
 
-/// <summary>
-/// Creates an Azure Media Services asset from your blog storage
-/// </summary>
-/// <param name="Blob"></param>
-/// <returns>Asset</returns>
+// Creates an Azure Media Services asset from your blog storage
 static IAsset CreateAssetfromBlob(CloudBlockBlob Blob)
 {
     // Create asset from the FIRST blob in the list and return it
@@ -218,9 +217,7 @@ static IAsset CreateAssetfromBlob(CloudBlockBlob Blob)
 ### <a name="add-the-code-to-scan-a-collection-of-videos-as-blobs-within-a-container"></a>Lägg till kod för att skanna en samling med videor (som blobar) i en behållare
 
 ```csharp
-/// <summary>
-/// Runs the Content Moderator Job on all Blobs in a given container name
-/// </summary>
+// Runs the Content Moderator Job on all Blobs in a given container name
 static void RunContentModeratorJobOnBlobs()
 {
     // Get the reference to the list of Blobs. See the following method.
@@ -239,10 +236,7 @@ static void RunContentModeratorJobOnBlobs()
     }
 }
 
-/// <summary>
-/// Get all blobs in your container
-/// </summary>
-/// <returns></returns>
+// Get all blobs in your container
 static IEnumerable<IListBlobItem> GetBlobsList()
 {
     // Get a reference to the Container within the Storage Account
@@ -259,10 +253,7 @@ static IEnumerable<IListBlobItem> GetBlobsList()
 ### <a name="add-the-method-to-run-the-content-moderator-job"></a>Lägg till metod för att köra jobbet för Content Moderator
 
 ```csharp
-/// <summary>
-/// Run the Content Moderator job on the designated Asset from local file or blob storage
-/// </summary>
-/// <param name="asset"></param>
+// Run the Content Moderator job on the designated Asset from local file or blob storage
 static void RunContentModeratorJob(IAsset asset)
 {
     // Grab the presets

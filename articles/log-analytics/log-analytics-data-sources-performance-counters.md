@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/19/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d03af1398f8fd714246c88308ba615ae17010b39
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 15991faa61dc5f543b1b9db491bc1669daf219cc
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962035"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014218"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Windows- och Linux prestanda datakällor i Log Analytics
 Prestandaräknare i Windows och Linux ger information om prestanda för maskinvarukomponenter, operativsystem och program.  Log Analytics kan samla in prestandaräknare med återkommande intervall för analys i nära realtid (NRT) utöver sammanställa prestandadata för längre sikt analys och rapportering.
@@ -227,5 +227,5 @@ I följande tabell innehåller olika exempel på sökningar i loggen som hämtar
 
 ## <a name="next-steps"></a>Nästa steg
 * [Samla in prestandaräknare från Linux-program](log-analytics-data-sources-linux-applications.md) inklusive MySQL och Apache HTTP Server.
-* Lär dig mer om [loggsökningar](log-analytics-log-search.md) att analysera data som samlas in från datakällor och lösningar.  
+* Lär dig mer om [loggsökningar](log-analytics-queries.md) att analysera data som samlas in från datakällor och lösningar.  
 * Exportera insamlade data [Power BI](log-analytics-powerbi.md) för fler visualiseringar och analys.

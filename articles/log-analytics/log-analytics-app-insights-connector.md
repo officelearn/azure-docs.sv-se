@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 7f3a90bf0dad2d0e9c6d51e942d88fb933b8ed1f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 2e59286822d49abeea522b5346ba531408559a7b
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961338"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014830"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Lösning för Application Insights-Anslutningsapp (förhandsversion)
 
@@ -267,4 +267,4 @@ Den här lösningen har inte en uppsättning exempel på loggsökningar visas p�
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Använd [Loggsökning](log-analytics-log-search.md) att visa detaljerad information för Application Insights-appar.
+- Använd [Loggsökning](log-analytics-queries.md) att visa detaljerad information för Application Insights-appar.

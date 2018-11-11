@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c078320ce31e0c51c7aef0bc0a2aa14e68ac2fc3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 41e627d895f0276d372ee42df3e0a43fdadc4051
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042869"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016071"
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Samla in Azures aktivitetsloggar till Log Analytics i alla prenumerationer
 
@@ -29,7 +29,7 @@ Om Log Analytics-arbetsytan finns i samma Azure-prenumeration, eller i en annan 
 
 ## <a name="overview"></a>Översikt
 
-Den strategi som används i det här scenariot är att Azure-aktivitetsloggen skickar händelser till en [händelsehubb](../event-hubs/event-hubs-what-is-event-hubs.md) där en [logikapp](../logic-apps/logic-apps-overview.md) skickar dem till Log Analytics-arbetsytan. 
+Den strategi som används i det här scenariot är att Azure-aktivitetsloggen skickar händelser till en [händelsehubb](../event-hubs/event-hubs-about.md) där en [logikapp](../logic-apps/logic-apps-overview.md) skickar dem till Log Analytics-arbetsytan. 
 
 ![bild av dataflöde från aktivitetslogg till log analytics](media/log-analytics-activity-logs-subscriptions/data-flow-overview.png)
 

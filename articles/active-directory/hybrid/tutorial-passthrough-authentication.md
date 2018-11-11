@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6154164aadd8ed508bfae8de8b6f3c8255111a73
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: fed1078b9a4e0ca4d0674db522f73705fa3efd0a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313483"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254495"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Självstudie: Integrera en enda AD-skog med hjälp av direktautentisering (PTA)
 
@@ -193,7 +193,7 @@ Nu ska vi skapa en Azure AD-klient så att vi kan synkronisera våra användare 
 ## <a name="create-a-global-administrator-in-azure-ad"></a>Skapa en global administratör i Azure AD
 Nu när vi har en Azure AD-klient ska vi skapa ett globalt administratörskonto.  Det här kontot används för att skapa ett Azure AD Connector-konto under Azure AD Connect-installationen.  Azure AD-anslutningskontot används för att skriva information till Azure AD.   Konto för att skapa den globala administratören göra följande.
 
-1.  Under **hantera**väljer **användare**.</br>
+1.  Under **Hantera** väljer du **Användare**.</br>
 ![Skapa](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Välj **alla användare** och välj sedan **+ ny användare**.
 3.  Ange ett namn och användarnamn för den här användaren. Det här är din globala administratör för klienten. Du kan också ändra den **katalogroll** till **Global administratör.** Du kan också visa det tillfälliga lösenordet. När du är klar väljer du **skapa**.</br>
@@ -244,12 +244,12 @@ Vi kommer nu att verifiera att de användare som vi hade våra lokala katalog ha
 
 1. Bläddra till den [Azure-portalen](https://portal.azure.com) och logga in med ett konto som har en Azure-prenumeration.
 2. Till vänster, Välj **Azure Active Directory**
-3. Under **hantera**väljer **användare**.
+3. Under **Hantera** väljer du **Användare**.
 4. Kontrollera att du ser de nya användarna i våra klient ![synkronisering](media/tutorial-password-hash-sync/synch1.png)
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testa logga in med något av våra användare
 
-1.  Bläddra till [http://myapps.microsoft.com](http://myapps.microsoft.com)
+1.  Bläddra till [http://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Logga in med ett användarkonto som har skapats i vår nya innehavaren.  Du måste logga in med följande format: (user@domain.onmicrosoft.com). Använd samma lösenord som användaren använder för att logga in lokalt.
 ![Kontrollera](media/tutorial-password-hash-sync/verify1.png)
 

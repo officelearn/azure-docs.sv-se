@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: ef2b5fe6c9b70eaea5ab4db2d4a0ca59ff82dbb9
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 2c7e624344605b24e78962ac2b6d23278c06c0cc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391903"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255156"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Metodtips för Azure Data Lake Storage Gen1
 
@@ -27,7 +27,7 @@ I den här artikeln får du lära dig om bästa praxis och överväganden för a
 
 Azure Data Lake Storage Gen1 erbjudanden POSIX åtkomstkontroller och detaljerad granskning för Azure Active Directory (Azure AD)-användare, grupper och tjänstens huvudnamn. Dessa åtkomstkontroller kan ställas in på befintliga filer och mappar. Åtkomstkontroller kan också användas för att skapa standardvärden som kan tillämpas på nya filer eller mappar. När behörigheter ställs in befintliga mappar och underordnade objekt, behöver behörigheterna spridda rekursivt på varje objekt. Om det finns många filer, kan det ta lång tid att sprida behörigheterna. Den tid det tar kan variera mellan 30 – 50 objekt som bearbetas per sekund. Planera därför mappen struktur och användargrupper på lämpligt sätt. Annars kan orsaka det oväntade fördröjningar och problem när du arbetar med dina data. 
 
-Anta att du har en mapp med 100 000 underordnade objekt. Om du skapar den undre gränsen för 30 objekt som bearbetas per sekund kan för att uppdatera behörigheten för hela mappen ta en timme. Mer information om Data Lake Storage Gen1 ACL: er finns på [åtkomstkontroll i Azure Data Lake Storage Gen1](data-lake-store-access-control.md). Du kan använda Azure Data Lake-kommandoradsverktyget för bättre prestanda om hur du tilldelar ACL: er rekursivt. Verktyget skapar flera trådar och rekursiv navigering logik för att snabbt tillämpa ACL: er till miljoner filer. Verktyget är tillgängligt för Linux och Windows, och [dokumentation](https://github.com/Azure/data-lake-adlstool) och [hämtar](http://aka.ms/adlstool-download) för det här verktyget finns på GitHub. Dessa samma prestandaförbättringar kan aktiveras med dina egna verktyg som skrivits med Data Lake Storage Gen1 [.NET](data-lake-store-data-operations-net-sdk.md) och [Java](data-lake-store-get-started-java-sdk.md) SDK: er.
+Anta att du har en mapp med 100 000 underordnade objekt. Om du skapar den undre gränsen för 30 objekt som bearbetas per sekund kan för att uppdatera behörigheten för hela mappen ta en timme. Mer information om Data Lake Storage Gen1 ACL: er finns på [åtkomstkontroll i Azure Data Lake Storage Gen1](data-lake-store-access-control.md). Du kan använda Azure Data Lake-kommandoradsverktyget för bättre prestanda om hur du tilldelar ACL: er rekursivt. Verktyget skapar flera trådar och rekursiv navigering logik för att snabbt tillämpa ACL: er till miljoner filer. Verktyget är tillgängligt för Linux och Windows, och [dokumentation](https://github.com/Azure/data-lake-adlstool) och [hämtar](https://aka.ms/adlstool-download) för det här verktyget finns på GitHub. Dessa samma prestandaförbättringar kan aktiveras med dina egna verktyg som skrivits med Data Lake Storage Gen1 [.NET](data-lake-store-data-operations-net-sdk.md) och [Java](data-lake-store-get-started-java-sdk.md) SDK: er.
 
 ### <a name="use-security-groups-versus-individual-users"></a>Använda säkerhetsgrupper jämfört med enskilda användare 
 
@@ -105,7 +105,7 @@ Nedan visas de översta tre rekommendera alternativ för att dirigera replikerin
 |**Har stöd för kopiering av deltan**     |   Ja      | Nej         | Nej         |
 |**Inbyggda orchestration**     |  Nej (Använd Oozie luftflödet eller ett cron-jobb)       | Ja        | Nej (använda Azure Automation eller Schemaläggaren i Windows)         |
 |**Filsystem som stöds**     | ADL, HDFS, WASB, S3, GS, CFS        |Ett stort antal, se [Anslutningsappar](../data-factory/connector-azure-blob-storage.md).         | ADL till ADL/WASB till ADL (endast samma region)        |
-|**OS-support**     |Alla operativsystem som körs Hadoop         | Ej tillämpligt          | Windows 10         |
+|**OS-support**     |Alla operativsystem som körs Hadoop         | Gäller inte          | Windows 10         |
    
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>Använd Distcp för dataförflyttning mellan två platser 

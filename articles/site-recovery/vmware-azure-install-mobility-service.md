@@ -3,128 +3,65 @@ title: Installera Mobilitetstjänsten för haveriberedskap för virtuella VMware
 description: Lär dig hur du installerar mobilitetstjänstagenten för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure med Azure Site Recovery-tjänsten.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: 145affbcff128e0ec599ad1f97c79260b0dcae5a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 14be544c53bf3393466cfa33b2ad815f07d0005d
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212700"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007424"
 ---
 # <a name="install-the-mobility-service-for-disaster-recovery-of-vmware-vms-and-physical-servers"></a>Installera mobilitetstjänsten för haveriberedskap för virtuella VMware-datorer och fysiska servrar
 
-Azure Site Recovery-Mobilitetstjänsten installeras på virtuella VMware-datorer och fysiska servrar som du vill replikera till Azure. Tjänsten samlar in skrivna data på en dator och vidarebefordrar dem till processervern. Distribuera Mobilitetstjänsten till varje dator (VMware VM eller fysisk) som du vill replikera till Azure. Du kan distribuera Mobilitetstjänsten på servrarna och virtuella VMware-datorer du vill skydda med hjälp av följande metoder:
+När du ställer in katastrofåterställning för virtuella VMware-datorer och fysiska servrar med [Azure Site Recovery](site-recovery-overview.md), du installerar den [Site Recovery-mobilitetstjänsten](vmware-physical-mobility-service-overview.md) på varje virtuell dator med en lokal VMware och fysiska servrar.  Mobilitetstjänsten samlar in skrivna data på datorn och vidarebefordrar dem till processervern för Site Recovery.
+
+## <a name="install-on-windows-machine"></a>Installera på Windows-dator
+
+På varje Windows-dator som du vill skydda, gör du följande:
+
+1. Kontrollera att det finns nätverksanslutning mellan datorn och processervern. Om du inte har konfigurerat en separat processerver sedan körs som standard den på konfigurationsservern.
+1. Skapa ett konto som processervern kan använda för att komma åt datorn. Kontot måste ha administratörsbehörighet, antingen lokalt eller via domänadministratör. Använd det här kontot bara för push-installation och för agentuppdateringar.
+2. Om du inte använder ett domänkonto, inaktivera kontroll av åtkomst för fjärranvändare på den lokala datorn på följande sätt:
+    - Under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System registernyckeln lägger du till ett nytt DWORD-värde: **LocalAccountTokenFilterPolicy**. Ange värdet till **1**.
+    -  Om du vill göra detta i en kommandotolk, kör du följande kommando:  
+   ”REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
+3. I Windows-brandväggen på den dator du vill skydda, Välj **Tillåt en app eller funktion i brandväggen**. Aktivera **File and Printer Sharing** och **Windows Management Instrumentation (WMI)**. För datorer som tillhör en domän kan konfigurera du brandväggsinställningarna med ett grupprincipobjekt (GPO).
+
+   ![Brandväggsinställningar](./media/vmware-azure-install-mobility-service/mobility1.png)
+
+4. Lägg till kontot som du skapat i CSPSConfigtool. Om du vill göra detta måste du logga in på konfigurationsservern.
+5. Öppna **cspsconfigtool.exe**. Det är tillgängligt som en genväg på skrivbordet och i mappen %ProgramData%\home\svsystems\bin.
+6. På den **hantera konton** fliken **Lägg till konto**.
+7. Lägg till kontot som du skapade.
+8. Ange autentiseringsuppgifterna som du använder när du aktiverar replikering för en dator.
+
+## <a name="install-on-linux-machine"></a>Installera på Linux-dator
+
+På varje Linux-dator som du vill skydda, gör du följande:
+
+1. Kontrollera att det finns nätverksanslutning mellan Linux-datorn och processervern.
+2. Skapa ett konto som processervern kan använda för att komma åt datorn. Kontot måste vara en **rotanvändare** på Linux-källservern. Använd det här kontot bara för push-installation och för uppdateringar.
+3. Kontrollera att /etc/hosts-filen på Linux-källservern innehåller poster som mappar det lokala värdnamnet till IP-adresser som är associerade med alla nätverkskort.
+4. Installera de senaste openssh-, openssh-server- och openssl-paketen på den dator som du vill replikera.
+5. Kontrollera att Secure Shell (SSH) är aktiverat och körs på port 22.
+4. Aktivera SFTP undersystemet och lösenordsautentisering i sshd_config-filen. Om du vill göra detta måste logga in som **rot**.
+5. I den **/etc/ssh/sshd_config** filen, leta reda på raden som börjar med **PasswordAuthentication**.
+6. Ta bort raden och ändra värdet till **Ja**.
+7. Hitta raden som börjar med **undersystem**, och ta bort den.
+
+      ![Linux](./media/vmware-azure-install-mobility-service/mobility2.png)
+
+8. Starta om **sshd**-tjänsten.
+9. Lägg till kontot som du skapat i CSPSConfigtool. Om du vill göra detta måste du logga in på konfigurationsservern.
+10. Öppna **cspsconfigtool.exe**. Det är tillgängligt som en genväg på skrivbordet och i mappen %ProgramData%\home\svsystems\bin.
+11. På den **hantera konton** fliken **Lägg till konto**.
+12. Lägg till kontot som du skapade.
+13. Ange autentiseringsuppgifterna som du använder när du aktiverar replikering för en dator.
+
+## <a name="next-steps"></a>Nästa steg
+
+När Mobilitetstjänsten har installerats i Azure portal, Välj **+ replikera** att börja skydda dessa virtuella datorer. Läs mer om hur du aktiverar replikering för [VMware VMs(vmware-azure-enable-replication.md) och [fysiska servrar](physical-azure-disaster-recovery.md#enable-replication).
 
 
-* [Installera med hjälp av programdistributionsverktyg som System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
-* [Installera med Azure Automation och Desired State Configuration (Automation DSC)](vmware-azure-mobility-deploy-automation-dsc.md)
-* [Installera manuellt från Användargränssnittet](vmware-azure-install-mobility-service.md#install-mobility-service-manually-by-using-the-gui)
-* [Installera manuellt från Kommandotolken](vmware-azure-install-mobility-service.md#install-mobility-service-manually-at-a-command-prompt)
-* [Installera med hjälp av Site Recovery push-installation](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery)
-
-
->[!IMPORTANT]
-> Från och med version 9.7.0.0, **på virtuella Windows-datorer**, Mobilitetstjänsten installeras också de senaste tillgängliga [Virtuella Azure-datoragenten](../virtual-machines/extensions/features-windows.md#azure-vm-agent). När en dator växlar till Azure måste uppfyller datorn agentinstallationen som är nödvändiga för att använda alla VM-tillägg.
-> </br>På **virtuella Linux-datorer**, WALinuxAgent måste installeras manuellt.
-
-## <a name="prerequisites"></a>Förutsättningar
-Utför dessa nödvändiga steg innan du installerar Mobilitetstjänsten på servern:
-1. Logga in på konfigurationsservern och öppna ett kommandotolksfönster som administratör.
-2. Ändra katalogen till bin-mappen och sedan skapa en lösenfras-fil.
-
-    ```
-    cd %ProgramData%\ASR\home\svsystems\bin
-    genpassphrase.exe -v > MobSvc.passphrase
-    ```
-3. Store lösenfrasfilen på en säker plats. Du kan använda filen under installationen av Mobilitetstjänsten.
-4. Mobility Service installationsprogram för alla operativsystem som stöds finns i mappen %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository.
-
-### <a name="mobility-service-installer-to-operating-system-mapping"></a>Mobility installationsprogrammet för att driva systemmappning
-
-Visa en lista över operativsystem versioner med en kompatibel Mobilitetstjänsten-paketet finns på listan över [operativsystem som stöds för VMware-datorer och fysiska servrar](vmware-physical-azure-support-matrix.md#replicated-machines).
-
-| Mallnamn för Installer-fil| Operativsystem |
-|---|--|
-|Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64-bitars) </br> Windows Server 2012 (64-bitars) </br> Windows Server 2012 R2 (64-bitars) </br> Windows Server 2016 (64-bitars) |
-|Microsoft-ASR\_UA\*RHEL6 64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 6.* (endast 64-bitars) </br> CentOS 6.* (endast 64-bitars) |
-|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.* (endast 64-bitars) </br> CentOS 7.* (endast 64-bitars) |
-|Microsoft-ASR\_UA\*SLES12 64\*release.tar.gz | SUSE Linux Enterprise Server 12 SP1, SP2, SP3 (endast 64-bitars)|
-|Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (endast 64-bitars)|
-|Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (endast 64-bitars)|
-|Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (endast 64-bitars)|
-|Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04 (endast 64-bitars)|
-|Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS server (endast 64-bitars)|
-|Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7 (endast 64-bitars)|
-|Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8 (endast 64-bitars)|
-
-## <a name="install-mobility-service-manually-by-using-the-gui"></a>Installera Mobilitetstjänsten manuellt med hjälp av det grafiska Användargränssnittet
-
->[!IMPORTANT]
-> Om du använder en konfigurationsserver för att replikera virtuella Azure IaaS-datorer från en Azure-prenumeration/region till en annan kan du använda metoden kommandoradsbaserad Command-Line-baserad installation.
-
-[!INCLUDE [site-recovery-install-mob-svc-gui](../../includes/site-recovery-install-mob-svc-gui.md)]
-
-## <a name="install-mobility-service-manually-at-a-command-prompt"></a>Installera Mobilitetstjänsten manuellt i en kommandotolk
-
-### <a name="command-line-installation-on-a-windows-computer"></a>Installation från kommandoraden på en Windows-dator
-[!INCLUDE [site-recovery-install-mob-svc-win-cmd](../../includes/site-recovery-install-mob-svc-win-cmd.md)]
-
-### <a name="command-line-installation-on-a-linux-computer"></a>Installation från kommandoraden på en Linux-dator
-[!INCLUDE [site-recovery-install-mob-svc-lin-cmd](../../includes/site-recovery-install-mob-svc-lin-cmd.md)]
-
-
-## <a name="install-mobility-service-by-push-installation-from-azure-site-recovery"></a>Så här installerar du Mobilitetstjänsten via push-installation från Azure Site Recovery
-Du kan göra en push-installation av Mobilitetstjänsten med hjälp av Site Recovery. Alla måldatorer måste uppfylla följande krav.
-
-[!INCLUDE [site-recovery-prepare-push-install-mob-svc-win](../../includes/site-recovery-prepare-push-install-mob-svc-win.md)]
-
-[!INCLUDE [site-recovery-prepare-push-install-mob-svc-lin](../../includes/site-recovery-prepare-push-install-mob-svc-lin.md)]
-
-
-> [!NOTE]
-När Mobilitetstjänsten har installerats i Azure portal, Välj **+ replikera** att börja skydda dessa virtuella datorer.
-
-## <a name="update-mobility-service"></a>Uppdateringen av Mobilitetstjänsten
-
-> [!WARNING]
-> Se till att konfigurationsservern och skala ut processervrar någon huvudmålservern-server som är en del av distributionen uppdateras innan du börjar att uppdatera Mobilitetstjänsten på skyddade servrar.
-
-1. På Azure-portalen bläddrar du till den *namnet på ditt valv* > **replikerade objekt** vy.
-2. Om konfigurationsservern har redan har uppdaterats till den senaste versionen kan se du ett meddelande som läser ”ny Site recovery replikering agentuppdatering är tillgänglig. Klicka för att installera ”.
-
-     ![Replikerade objekt fönster](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
-3. Välj meddelandet för att öppna sidan för val av virtuell dator.
-4. Välj de virtuella datorer som du vill uppgradera mobilitetstjänsten på och välj **OK**.
-
-     ![Replikerade objekt VM-lista](.\media\vmware-azure-install-mobility-service\update-okpng.png)
-
-Uppdateringen av Mobilitetstjänsten jobbet startar för var och en av de valda virtuella datorerna.
-
-> [!NOTE]
-> [Läs mer](vmware-azure-manage-configuration-server.md) om hur du uppdaterar lösenordet för kontot som används för att installera Mobilitetstjänsten.
-
-## <a name="uninstall-mobility-service-on-a-windows-server-computer"></a>Avinstallera Mobilitetstjänsten på en Windows Server-dator
-Använd någon av följande metoder för att avinstallera Mobilitetstjänsten på en Windows Server-dator.
-
-### <a name="uninstall-by-using-the-gui"></a>Avinstallera med hjälp av det grafiska Användargränssnittet
-1. I Kontrollpanelen, väljer **program**.
-2. Välj **Microsoft Azure Site Recovery Mobility Service/huvudmålservern**, och välj sedan **avinstallera**.
-
-### <a name="uninstall-at-a-command-prompt"></a>Avinstallera i en kommandotolk
-1. Öppna ett kommandotolksfönster som administratör.
-2. Om du vill avinstallera Mobilitetstjänsten, kör du följande kommando:
-
-    ```
-    MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
-    ```
-
-## <a name="uninstall-mobility-service-on-a-linux-computer"></a>Avinstallera Mobilitetstjänsten på en Linux-dator
-1. Logga in på din Linux-server som en **rot** användare.
-2. Gå till /user/local/ASR i en terminal.
-3. Om du vill avinstallera Mobilitetstjänsten, kör du följande kommando:
-
-    ```
-    uninstall.sh -Y
-    ```

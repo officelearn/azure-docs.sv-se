@@ -1,272 +1,167 @@
 ---
-title: 'Snabbstart: Hitta alternativa översättningar, Node.js – Translator Text-API'
+title: 'Snabbstart: Hämta alternativa översättningar, Node.js – Translator Text API'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten hittar du alternativa översättningar och exempel på termer i ett sammanhang med Translator Text-API:et med Node.js.
+description: I den här snabbstarten lär du dig att hitta alternativa översättningar och användningsexempel för en angiven text med hjälp av Node.js och Translator Text REST API.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/21/2018
+ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 4b5857fdb7871107396ca1fd50865f317038abb5
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 191afcdfb7a401755fffc028ce4119526f1e693d
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646236"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035636"
 ---
-# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-nodejs"></a>Snabbstart: Hitta alternativa översättningar med Translator Text REST API (Node.js)
+# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-with-nodejs"></a>Snabbstart: Använd Translator Text API för att hämta alternativa översättningar med Node.js
 
-I den här snabbstarten hittar du information om möjliga alternativa översättningar för en term, och även användningsexempel för de alternativa översättningarna, med hjälp av Translator Text-API:et.
+I den här snabbstarten lär du dig att hitta alternativa översättningar och användningsexempel för en angiven text med hjälp av Node.js och Translator Text REST API.
+
+För den här snabbstarten krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator Text-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [Node.js 6](https://nodejs.org/en/download/) för att köra den här koden.
+För den här snabbstarten krävs:
 
-För att använda Translator Text-API:et behöver du också en prenumerationsnyckel. Mer information finns i [How to sign up for the Translator Text API](translator-text-how-to-signup.md) (Så här registrerar du dig för Translator Text-API:et).
+* [Nod 8.12.x eller senare](https://nodejs.org/en/)
+* En Azure-prenumerationsnyckel för Translator Text
 
-## <a name="dictionary-lookup-request"></a>Begäran om att slå upp i ordlista
+## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
 
-Följande hämtar alternativa översättningar för ett or med hjälp av metoden [Dictionary Lookup](./reference/v3-0-dictionary-lookup.md) (Slå upp i ordlista).
-
-1. Skapa ett nytt Node.js-projekt i valfri kodredigerare.
-2. Lägg till koden nedan.
-3. Ersätt värdet `subscriptionKey` med en giltig åtkomstnyckel för din prenumeration.
-4. Kör programmet.
+Skapa ett nytt projekt med valfri IDE eller redigeringsprogram. Kopiera sedan det här kodavsnittet till projektet i en fil med namnet `dictionary-lookup.js`.
 
 ```javascript
-'use strict';
-
-let fs = require ('fs');
-let https = require ('https');
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the subscriptionKey string value with your valid subscription key.
-let subscriptionKey = 'ENTER KEY HERE';
-
-let host = 'api.cognitive.microsofttranslator.com';
-let path = '/dictionary/lookup?api-version=3.0';
-
-let params = '&from=en&to=fr';
-
-let text = 'great';
-
-let response_handler = function (response) {
-    let body = '';
-    response.on ('data', function (d) {
-        body += d;
-    });
-    response.on ('end', function () {
-        let json = JSON.stringify(JSON.parse(body), null, 4);
-        console.log(json);
-    });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
-    });
-};
-
-let get_guid = function () {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-    return v.toString(16);
-  });
-}
-
-let DictionaryLookup = function (content) {
-    let request_params = {
-        method : 'POST',
-        hostname : host,
-        path : path + params,
-        headers : {
-            'Content-Type' : 'application/json',
-            'Ocp-Apim-Subscription-Key' : subscriptionKey,
-            'X-ClientTraceId' : get_guid (),
-        }
-    };
-
-    let req = https.request (request_params, response_handler);
-    req.write (content);
-    req.end ();
-}
-
-let content = JSON.stringify ([{'Text' : text}]);
-
-DictionaryLookup (content);
+const request = require('request');
+const uuidv4 = require('uuid/v4');
 ```
 
-## <a name="dictionary-lookup-response"></a>Svar på begäran om att slå upp i ordlista
+> [!NOTE]
+> Om du inte har använt de här modulerna behöver du installera dem innan du kör programmet. För att installera de här paketen kör du: `npm install request uuidv4`.
 
-Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
+De här modulerna krävs för att skapa HTTP-begäran och skapa en unik identifierare för `'X-ClientTraceId'`-sidhuvudet.
+
+## <a name="set-the-subscription-key"></a>Ange prenumerationsnyckeln
+
+Den här koden kommer att försöka läsa din Translator Text-prenumerationsnyckel från miljövariabeln `TRANSLATOR_TEXT_KEY`. Om du inte känner till miljövariabler kan du ange `subscriptionKey` som en sträng och kommentera bort den villkorliga instruktionen.
+
+Kopiera den här koden till projektet:
+
+```javascript
+/* Checks to see if the subscription key is available
+as an environment variable. If you are setting your subscription key as a
+string, then comment these lines out.
+
+If you want to set your subscription key as a string, replace the value for
+the Ocp-Apim-Subscription-Key header as a string. */
+const subscriptionKey = process.env.TRANSLATOR_TEXT_KEY;
+if (!subscriptionKey) {
+  throw new Error('Environment variable for your subscription key is not set.')
+};
+```
+
+## <a name="configure-the-request"></a>Konfigurera begäran
+
+Metoden `request()`, som görs tillgänglig via begärandemodulen, gör att vi kan skicka HTTP-metoden, URL:en, begärandeparametrarna, sidhuvudena och JSON-brödtexten som ett `options`-objekt. I det här kodavsnittet konfigurerar vi begäran:
+
+>[!NOTE]
+> Mer information om slutpunkter, vägar och begärandeparametrar finns i [Translator Text API 3.0: Ordlista, sökning](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
+
+```javascript
+let options = {
+    method: 'POST',
+    baseUrl: 'https://api.cognitive.microsofttranslator.com/',
+    url: 'dictionary/lookup',
+    qs: {
+      'api-version': '3.0',
+      'from': 'en',
+      'to': 'es'
+    },
+    headers: {
+      'Ocp-Apim-Subscription-Key': subscriptionKey,
+      'Content-type': 'application/json',
+      'X-ClientTraceId': uuidv4().toString()
+    },
+    body: [{
+          'text': 'Elephants'
+    }],
+    json: true,
+};
+```
+
+### <a name="authentication"></a>Autentisering
+
+Det enklaste sättet att autentisera en begäran är att skicka din prenumerationsnyckel som ett `Ocp-Apim-Subscription-Key`-sidhuvud, vilket är det vi använder i det här exemplet. Alternativt kan du byta din prenumerationsnyckel mot en åtkomsttoken och skicka vidare åtkomsttoken som ett `Authorization`-sidhuvud för att verifiera din begäran. Mer information finns i [Autentisering](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+
+## <a name="make-the-request-and-print-the-response"></a>Göra begäran och skriva ut svaret
+
+Nu skapar vi begäran med hjälp av metoden `request()`. Det tar det `options`-objekt som vi skapade i föregående avsnitt som det första argumentet, och skriver sedan ut det förenklade JSON-svaret.
+
+```javascript
+request(options, function(err, res, body){
+    console.log(JSON.stringify(body, null, 4));
+});
+```
+
+>[!NOTE]
+> I det här exemplet definierar vi HTTP-begäran i `options`-objektet. Dock har begärandemodulen även stöd för bekvämlighetsmetoder såsom `.post` och `.get`. Mer information finns i [bekvämlighetsmetoder](https://github.com/request/request#convenience-methods).
+
+## <a name="put-it-all-together"></a>Färdigställa allt
+
+Det var allt – du har skapat ett enkelt program som anropar Translator Text API och returnerar en JSON-svar. Nu är det dags att köra programmet:
+
+```console
+node dictionary-lookup.js
+```
+
+Om du vill jämföra din kod med vår finns det fullständiga exemplet på [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS).
+
+## <a name="sample-response"></a>Exempelsvar
 
 ```json
 [
-  {
-    "normalizedSource": "great",
-    "displaySource": "great",
-    "translations": [
-      {
-        "normalizedTarget": "grand",
-        "displayTarget": "grand",
-        "posTag": "ADJ",
-        "confidence": 0.2783,
-        "prefixWord": "",
-        "backTranslations": [
-          {
-            "normalizedText": "great",
-            "displayText": "great",
-            "numExamples": 15,
-            "frequencyCount": 34358
-          },
-          {
-            "normalizedText": "big",
-            "displayText": "big",
-            "numExamples": 15,
-            "frequencyCount": 21770
-          },
-...
+    {
+        "displaySource": "elephants",
+        "normalizedSource": "elephants",
+        "translations": [
+            {
+                "backTranslations": [
+                    {
+                        "displayText": "elephants",
+                        "frequencyCount": 1207,
+                        "normalizedText": "elephants",
+                        "numExamples": 5
+                    }
+                ],
+                "confidence": 1.0,
+                "displayTarget": "elefantes",
+                "normalizedTarget": "elefantes",
+                "posTag": "NOUN",
+                "prefixWord": ""
+            }
         ]
-      },
-      {
-        "normalizedTarget": "super",
-        "displayTarget": "super",
-        "posTag": "ADJ",
-        "confidence": 0.1514,
-        "prefixWord": "",
-        "backTranslations": [
-          {
-            "normalizedText": "super",
-            "displayText": "super",
-            "numExamples": 15,
-            "frequencyCount": 12023
-          },
-          {
-            "normalizedText": "great",
-            "displayText": "great",
-            "numExamples": 15,
-            "frequencyCount": 10931
-          },
-...
-        ]
-      },
-...
-    ]
-  }
+    }
 ]
 ```
 
-## <a name="dictionary-examples-request"></a>Begäran om ordlisteexempel
+## <a name="clean-up-resources"></a>Rensa resurser
 
-Följande hämtar sammanhangsbaserade exempel på hur du använder en term i en ordlista med hjälp av metoden [Dictionary Examples](./reference/v3-0-dictionary-examples.md) (Ordlisteexempel).
-
-1. Skapa ett nytt Node.js-projekt i valfri kodredigerare.
-2. Lägg till koden nedan.
-3. Ersätt värdet `subscriptionKey` med en giltig åtkomstnyckel för din prenumeration.
-4. Kör programmet.
-
-```javascript
-'use strict';
-
-let fs = require ('fs');
-let https = require ('https');
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the subscriptionKey string value with your valid subscription key.
-let subscriptionKey = 'ENTER KEY HERE';
-
-let host = 'api.cognitive.microsofttranslator.com';
-let path = '/dictionary/examples?api-version=3.0';
-
-let params = '&from=en&to=fr';
-
-let text = 'great';
-let translation = 'formidable';
-
-let response_handler = function (response) {
-    let body = '';
-    response.on ('data', function (d) {
-        body += d;
-    });
-    response.on ('end', function () {
-        let json = JSON.stringify(JSON.parse(body), null, 4);
-        console.log(json);
-    });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
-    });
-};
-
-let get_guid = function () {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-    return v.toString(16);
-  });
-}
-
-let DictionaryExamples = function (content) {
-    let request_params = {
-        method : 'POST',
-        hostname : host,
-        path : path + params,
-        headers : {
-            'Content-Type' : 'application/json',
-            'Ocp-Apim-Subscription-Key' : subscriptionKey,
-            'X-ClientTraceId' : get_guid (),
-        }
-    };
-
-    let req = https.request (request_params, response_handler);
-    req.write (content);
-    req.end ();
-}
-
-let content = JSON.stringify ([{'Text' : text, 'Translation' : translation}]);
-
-DictionaryExamples (content);
-```
-
-## <a name="dictionary-examples-response"></a>Svar på ordlisteexempel
-
-Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
-
-```json
-[
-  {
-    "normalizedSource": "great",
-    "normalizedTarget": "formidable",
-    "examples": [
-      {
-        "sourcePrefix": "You have a ",
-        "sourceTerm": "great",
-        "sourceSuffix": " expression there.",
-        "targetPrefix": "Vous avez une expression ",
-        "targetTerm": "formidable",
-        "targetSuffix": "."
-      },
-      {
-        "sourcePrefix": "You played a ",
-        "sourceTerm": "great",
-        "sourceSuffix": " game today.",
-        "targetPrefix": "Vous avez été ",
-        "targetTerm": "formidable",
-        "targetSuffix": "."
-      },
-...
-    ]
-  }
-]
-```
+Om du har hårdkodat din prenumerationsnyckel i programmet ser du till att ta bort prenumerationsnyckeln när du är klar med den här snabbstarten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska exempelkoden för den här snabbstarten och andra, inklusive översättning och transkribering, samt andra Translator Text-exempelprojekt på GitHub.
-
 > [!div class="nextstepaction"]
-> [Utforska Node.js-exempel på GitHub](https://aka.ms/TranslatorGitHub?type=&language=javascript)
+> [Utforska Node.js-exempel på GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS)
+
+## <a name="see-also"></a>Se även
+
+Utöver språkidentifiering lär du dig hur du använder Translator Text API för att:
+
+* [Översätta text](quickstart-nodejs-translate.md)
+* [Translitterera text](quickstart-nodejs-transliterate.md)
+* [Identifiera språket efter indata](quickstart-nodejs-detect.md)
+* [Hämta en lista över språk som stöds](quickstart-nodejs-languages.md)
+* [Fastställa meningslängd utifrån indata](quickstart-nodejs-sentences.md)

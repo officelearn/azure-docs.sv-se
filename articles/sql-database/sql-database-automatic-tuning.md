@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: f9a9f3d04a3ee7a2917e04c378af135601f3eaac
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 0bde940718165f31ef06f1b09fc071e63d94c8b2
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042062"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345648"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Automatisk justering i Azure SQL Database
 
@@ -71,7 +71,7 @@ Alternativen för automatisk justering i Azure SQL Database är:
 
 Automatisk justering identifierar **CREATE INDEX**, **DROP INDEX**, och **kraft senaste bra planera** rekommendationer som kan optimera din databasprestanda och visar dem i [Azure-portalen](sql-database-advisor-portal.md), och visar dem via [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) och [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
 
-Du kan antingen manuellt tillämpa justeringsrekommendationer med hjälp av portalen eller du kan låta automatisk justering självständigt gäller justeringsrekommendationer för dig. Fördelarna med att låta systemet självständigt gäller justeringsrekommendationer för dig är att i detta fall automatiskt kontrollerar det finns en positiv vinst arbetsbelastningsprestandan eller annars om en regression identifieras återgår automatiskt den justering rekommendation. Observera att valideringsfasen vid frågor som påverkas av justeringsrekommendationer som inte utförs ofta, kan ta upp till 72 timmar avsiktligt. I de fall du tillämpar manuellt justering finns rekommendationer, automatisk prestanda verifiering och återföring mekanismer inte.
+Du kan antingen manuellt tillämpa justeringsrekommendationer med hjälp av portalen eller du kan låta automatisk justering självständigt gäller justeringsrekommendationer för dig. Fördelarna med att låta systemet självständigt gäller justeringsrekommendationer för dig är att den verifierar automatiskt det finns en positiv vinst arbetsbelastningsprestandan och om det finns inga betydande prestandaförbättringar har identifierats, kommer det att automatiskt återgå justering rekommendationen. Observera att valideringsfasen vid frågor som påverkas av justeringsrekommendationer som inte utförs ofta, kan ta upp till 72 timmar avsiktligt. I de fall du tillämpar manuellt justering finns rekommendationer, automatisk prestanda verifiering och återföring mekanismer inte.
 
 Alternativen för automatisk justering kan aktiveras eller inaktiveras per databas oberoende av varandra, eller de kan konfigureras på logiska servrar och tillämpas på alla databaser som ärver inställningar från servern. Logiska servrar kan ärva Azure-standardinställningar för inställningar för automatisk justering. Azure-standardinställningar just nu är inställda på att FORCE_LAST_GOOD_PLAN är aktiverad, CREATE_INDEX är aktiverad och DROP_INDEX är inaktiverad.
 

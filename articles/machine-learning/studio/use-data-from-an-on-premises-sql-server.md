@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.openlocfilehash: d9d9bfc6f8571ab30804d76b9ab9490b0d2e43c7
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 4ea0a247116db521e03d7092be0bb86a6528f44d
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37934733"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346396"
 ---
 # <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>Utföra avancerade analyser med Azure Machine Learning med hjälp av data från en lokal SQL Server-databas
-[!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 Ofta företag som fungerar med lokala data vill dra nytta av skalan och flexibilitet med molnet för sina maskininlärningsarbetsbelastningar. Men de vill inte störa deras aktuella affärsprocesser och arbetsflöden genom att flytta sina lokala data till molnet. Azure Machine Learning har nu stöd för att läsa data från en lokal SQL Server-databas och sedan utbildning och bedömning av en modell med dessa data. Du har inte längre att manuellt kopiera och synkronisera data mellan molnet och den lokala servern. I stället den **importdata** modul i Azure Machine Learning Studio kan nu läsa direkt från din lokala SQL Server-databas för utbildning och bedömning jobb.
 

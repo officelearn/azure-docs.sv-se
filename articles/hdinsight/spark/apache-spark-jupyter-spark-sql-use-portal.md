@@ -2,19 +2,19 @@
 title: 'Snabbstart: Skapa ett Spark-kluster i HDInsight med hjälp av Azure Portal'
 description: Snabbstarten visar hur du använder Azure Portal för att skapa ett Apache Spark-kluster i Azure HDInsight och köra ett Spark SQL.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 05/07/2018
+ms.date: 11/06/2018
 ms.custom: mvc
-ms.openlocfilehash: 912cbf77c4e2beb32238708a704405fad1582705
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 4bb37032f2ecdfecf08adec3f32aa00d5ad12897
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785721"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255531"
 ---
 # <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-the-azure-portal"></a>Snabbstart: Skapa ett Spark-kluster i HDInsight med Azure Portal
 Lär dig hur du skapar Apache Spark-kluster på Azure HDInsight och hur du kör Spark SQL-frågor mot Hive-tabeller. Apache Spark möjliggör snabb dataanalys och databehandling i kluster med hjälp av minnesintern bearbetning. Mer information om Spark på HDInsight finns i [Översikt: Apache Spark på Azure HDInsight](apache-spark-overview.md).

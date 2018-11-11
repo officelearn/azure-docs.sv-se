@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 6743d03b623084675f5043a7e158fa99e8aa39d2
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ea29d9052c2389b0c7d145223d3660364cbf2c74
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054013"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016326"
 ---
 # <a name="archive-the-azure-activity-log"></a>Arkivera Azure-aktivitetsloggen
 I den här artikeln visar vi hur du kan använda Azure-portalen, PowerShell-Cmdlets och plattformsoberoende CLI för att arkivera dina [ **Azure-aktivitetsloggen** ](monitoring-overview-activity-logs.md) i ett lagringskonto. Det här alternativet är användbart om du vill behålla din aktivitetslogg som är längre än 90 dagar (med fullständig kontroll över bevarandeprincipen) för granskning, statiska analys eller säkerhetskopiering. Om du behöver bara att behålla dina händelser i 90 dagar eller mindre du behöver inte konfigurera arkivering till ett lagringskonto eftersom aktivitetslogghändelser finns kvar i Azure-plattformen i 90 dagar utan att aktivera arkivering.
@@ -35,10 +35,10 @@ Om du vill arkivera aktivitetsloggen med någon av metoderna nedan, anger du den
 ## <a name="archive-the-activity-log-using-the-portal"></a>Arkivera aktivitetsloggen med hjälp av portalen
 1. I portalen klickar du på den **aktivitetsloggen** länk navigeringen till vänster. Om du inte ser en länk för aktivitetsloggen, klickar du på den **alla tjänster** länka först.
    
-    ![Gå till bladet aktivitetslogg](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
-2. Överst på bladet klickar du på **exportera**.
+    ![Gå till bladet aktivitetslogg](media/monitoring-archive-activity-log/activity-logs-portal-navigate-v2.png)
+2. Överst på bladet klickar du på **exportera till Event Hub**.
    
-    ![Klicka på knappen Export](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
+    ![Klicka på knappen Export](media/monitoring-archive-activity-log/activity-logs-portal-export-v2.png)
 3. På bladet som visas, markerar du kryssrutan för **exportera till ett lagringskonto** och välj ett lagringskonto.
    
     ![Ange ett lagringskonto](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
@@ -65,9 +65,9 @@ Om du vill arkivera aktivitetsloggen med någon av metoderna nedan, anger du den
 | Egenskap  | Krävs | Beskrivning |
 | --- | --- | --- |
 | StorageAccountId |Ja |Resurs-ID för det Lagringskonto där aktivitetsloggar ska sparas. |
-| Plats |Ja |Kommaavgränsad lista över regioner som du vill samla in händelser i aktivitetsloggen. Du kan visa en lista över alla regioner för din prenumeration med hjälp av `(Get-AzureRmLocation).Location`. |
+| Platser |Ja |Kommaavgränsad lista över regioner som du vill samla in händelser i aktivitetsloggen. Du kan visa en lista över alla regioner för din prenumeration med hjälp av `(Get-AzureRmLocation).Location`. |
 | RetentionInDays |Nej |Antal dagar för vilka händelser ska behållas, mellan 1 och 2147483647. Värdet noll lagrar loggarna på obestämd tid (alltid). |
-| Kategori |Nej |Kommaavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva, ta bort och åtgärder.  Om det inte anges, antas alla möjliga värden |
+| Kategorier |Nej |Kommaavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva, ta bort och åtgärder.  Om det inte anges, antas alla möjliga värden |
 
 ## <a name="archive-the-activity-log-via-cli"></a>Arkivera aktivitetsloggen via CLI
 

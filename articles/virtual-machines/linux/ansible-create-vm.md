@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 08/22/2018
-ms.openlocfilehash: a5b9d711b1d53d56f31a8b32e6d86722ac02c905
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 99822fc1d99d914327a64cfb9fe8e18189f30a4f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393544"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251246"
 ---
 # <a name="use-ansible-to-create-a-linux-virtual-machine-in-azure"></a>Använda Ansible för att skapa en virtuell Linux-dator i Azure
 Med hjälp av ett deklarativ språk gör Ansible att du kan automatisera skapande, konfiguration och distribution av Azure-resurser via Ansible-*spelböcker*. Varje avsnitt i den här artikeln visar hur varje avsnitt i en Ansible-spelbok kan se ut att för att skapa och konfigurera olika aspekter av en virtuell Linux-dator. Den [fullständiga Ansible-spelboken](#complete-sample-ansible-playbook) anges i slutet av den här artikeln.
@@ -205,7 +205,7 @@ Det här avsnittet innehåller det Ansible-spelboksexempel som du har byggt unde
 
 Det här avsnittet beskriver hur du kör det Ansible-spelboksexempel som presenteras i den här artikeln.
 
-1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Logga in på [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Öppna [Cloud Shell](/azure/cloud-shell/overview).
 

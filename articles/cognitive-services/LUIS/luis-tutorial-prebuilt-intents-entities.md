@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie 2: Fördefinierade avsikter och entiteter – använd fördefinierade vanliga yttranden – extrahera vanliga data i LUIS'
 titleSuffix: Azure Cognitive Services
-description: Lägg till fördefinierade avsikter och entiteter i Human Resources-självstudieappen för att snabbt få avsiktsförutsägelse och dataextrahering. Du behöver inte märka yttranden med fördefinierade entiteter. Entiteten identifieras automatiskt.
+description: Lägg till fördefinierade avsikter och entiteter i Human Resources-självstudieappen för att snabbt få avsiktsförutsägelse och dataextrahering. Du behöver inte märka upp några yttranden med fördefinierade entiteter. Entiteten identifieras automatiskt.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d42aed76ecdbc2bd840e17517db2ca0b6ba11aa0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d73284ecf40b2dfcd4954c1ddee82bf92a8931b9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034441"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281803"
 ---
 # <a name="tutorial-2-identify-common-intents-and-entities"></a>Självstudie 2: Identifiera vanliga avsikter och entiteter
 I den här självstudien ändrar du Human Resources-appen. Lägg till fördefinierade avsikter och entiteter i Human Resources-självstudieappen för att snabbt få avsiktsförutsägelse och dataextrahering. Du behöver inte märka några yttranden med fördefinierade entiteter eftersom entiteten identifieras automatiskt.
@@ -30,25 +30,25 @@ Fördefinierade modeller av vanliga ämnesdomäner och datatyper hjälper dig at
 > * Lägg till fördefinierade entiteter 
 > * Träna 
 > * Publicera 
-> * Hämta avsikter och entiteter från slutpunkt
+> * Hämta avsikter och entiteter från en slutpunkt
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Använda befintlig app
-Fortsätta med den app som skapades i den senaste självstudien med namnet **HumanResources**. 
+## <a name="use-existing-app"></a>Använda en befintlig app
+Fortsätt med appen du skapade i föregående självstudie med namnet **HumanResources**. 
 
-Om du inte har HumanResources-appen från den tidigare självstudiekursen använder du följande steg:
+Om du inte har appen HumanResources från föregående självstudie gör du så här:
 
-1.  Ladda ned och spara [app JSON-filen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-intent-only-HumanResources.json).
+1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-intent-only-HumanResources.json).
 
-2. Importera JSON till en ny app.
+2. Importera JSON-koden till en ny app.
 
-3. Från avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `prebuilts`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används som en del av URL-vägen får namnet inte innehålla några tecken som inte är giltiga i en URL. 
+3. I avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `prebuilts`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser. 
 
 ## <a name="add-prebuilt-intents"></a>Lägga till fördefinierade avsikter
 LUIS har flera fördefinierade avsikter som hjälper dig med vanliga användaravsikter.  
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Välj **Lägg till fördefinierad avsikt**. 
 
@@ -84,7 +84,7 @@ LUIS har flera fördefinierade entiteter för extrahering av data.
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Hämta avsikt och entiteter från slutpunkt
+## <a name="get-intent-and-entities-from-endpoint"></a>Hämta avsikter och entiteter från slutpunkten
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 

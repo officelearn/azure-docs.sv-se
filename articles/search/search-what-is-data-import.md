@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: heidist
-ms.openlocfilehash: b518d86d5cb08f85beecd4afe30efc9e4f70e1f7
-ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
+ms.openlocfilehash: ab26adb330e69f71d94aa296ede558b44e47a187
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43371476"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249786"
 ---
 # <a name="indexing-in-azure-search"></a>Indexering i Azure Search
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ Datahämtningsmodellen crawlar en datakälla som stöds och överför automatisk
 
 + [Blob Storage](search-howto-indexing-azure-blob-storage.md)
 + [Table Storage](search-howto-indexing-azure-tables.md)
-+ [Azure Cosmos DB](http://aka.ms/documentdb-search-indexer)
++ [Azure Cosmos DB](https://aka.ms/documentdb-search-indexer)
 + [Azure SQL Database och SQL Server på virtuella Azure-datorer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
 Indexerare ansluter ett index till en datakälla (vanligtvis en tabell, vy eller motsvarande struktur) och mappar källfält till motsvarande fält i indexet. Under körningen omvandlas raduppsättningen automatiskt till JSON och läses in i det angivna indexet. Alla indexerare stöder schemaläggning så att du kan ange hur ofta data ska uppdateras. De flesta indexerare tillhandahåller ändringsspårning om datakällan har stöd för det. Indexerare spårar ändringar och borttagningar av befintliga dokument och identifierar nya dokument, vilket gör att du slipper hantera dina data i indexet aktivt. 

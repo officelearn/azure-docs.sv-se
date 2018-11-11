@@ -2,19 +2,19 @@
 title: Använda SSH-tunnel för att komma åt Azure HDInsight
 description: Lär dig hur du använder en SSH-tunnel för att på ett säkert sätt Bläddra webbresurser på Linux-baserade HDInsight-noder.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.author: jasonh
-ms.openlocfilehash: 0722a366c374bd69fd9cf97279416a60d7133428
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: 0be2895bf08cc7d6aa0b2e55b62b2d6705b27725
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107677"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007304"
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Använda SSH-tunnlar för att komma åt Ambari-webbgränssnittet, JobHistory, NameNode, Oozie och andra web UIs
 

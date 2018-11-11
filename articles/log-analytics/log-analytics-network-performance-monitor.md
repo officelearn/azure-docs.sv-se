@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: d49360fe39b0df7fc1172c3927e8725af10f927d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a38532d7a411080feb637549288bdad036a11153
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963888"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011059"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor-lösning i Azure
 
@@ -251,7 +251,7 @@ Topologin visas på kartan är layer 3-topologi och innehåller inte nivå 2-enh
 
 ## <a name="log-analytics-search"></a>Log Analytics-sökningen 
 
-Alla data som är exponerade grafiskt via instrumentpanelen för övervakning av nätverksprestanda och nedåt sidor är också tillgängligt internt i [Log Analytics Sök](log-analytics-log-search.md). Du kan utföra interaktiva analyser av data i databasen och korrelera data från olika källor. Du kan också skapa anpassade aviseringar och vyer och exportera data till Excel, Power BI eller en delbart länk. Den **vanliga frågor om** område i instrumentpanelen har vissa användbara frågor som du kan använda som startpunkt för att skapa egna frågor och rapporter. 
+Alla data som är exponerade grafiskt via instrumentpanelen för övervakning av nätverksprestanda och nedåt sidor är också tillgängligt internt i [Log Analytics Sök](log-analytics-queries.md). Du kan utföra interaktiva analyser av data i databasen och korrelera data från olika källor. Du kan också skapa anpassade aviseringar och vyer och exportera data till Excel, Power BI eller en delbart länk. Den **vanliga frågor om** område i instrumentpanelen har vissa användbara frågor som du kan använda som startpunkt för att skapa egna frågor och rapporter. 
 
 ## <a name="alerts"></a>Aviseringar
 

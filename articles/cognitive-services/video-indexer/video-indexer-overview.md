@@ -10,12 +10,12 @@ ms.component: video-indexer
 ms.topic: overview
 ms.date: 10/10/2018
 ms.author: nolachar
-ms.openlocfilehash: cf761342bb434100920c3888f2f441b9f8c8de08
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 9936cd301cc8dad88ce1a2431f9253a15ab2da7f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077924"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251261"
 ---
 # <a name="what-is-video-indexer"></a>Vad är Video Indexer?
 
@@ -65,7 +65,7 @@ Nedan visas några scenarier där Video Indexer kan vara användbart
 
 - Användarengagemang – Videoinsikter kan användas för att förbättra användarnas engagemang genom positionering av relevanta videor. Ett exempel är en utbildningsvideo där sfärer förklaras under de första 30 minuterna och pyramider under efterföljande 30 minuter. En student som läser om pyramiderna har mer nytta av videon om den positioneras med start från 30-minutersmarkeringen.
 
-Mer information finns i den här [bloggen](http://aka.ms/videoindexerblog).
+Mer information finns i den här [bloggen](https://aka.ms/videoindexerblog).
 
 ## <a name="next-steps"></a>Nästa steg
 

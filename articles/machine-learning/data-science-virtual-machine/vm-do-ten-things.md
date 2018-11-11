@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: faabdb4c2d2e434863a6bed0b2cd85a05c94eab1
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: df9edfee9d8a6a0736a040924bac736cfcb3633c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395737"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250925"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Tio saker som du kan göra på den Windows virtuell dator för datavetenskap
 
@@ -64,9 +64,9 @@ Här är vad inställningen för anpassad miljö ser ut som i Visual Studio.
 
 ![PTVS installationen](./media/vm-do-ten-things/PTVSSetup.png)
 
-Se den [dokumentationen till PTVS](http://aka.ms/ptvsdocs) för ytterligare information om hur du skapar Python-miljöer.
+Se den [dokumentationen till PTVS](https://aka.ms/ptvsdocs) för ytterligare information om hur du skapar Python-miljöer.
 
-Du är nu ställa in för att skapa ett nytt Python-projekt. Gå till **filen** -> **New** -> **projekt** -> **Python** och välj typ av Python-program som du skapar. Du kan ange Python-miljön för det aktuella projektet till den önskade versionen (Python 2.7 eller 3.6) genom att högerklicka på den **Python-miljöer**, välja **Lägg till/ta bort Python miljöer**, och sedan välja önskad miljö. Du hittar mer information om hur du arbetar med PTVS i produkten [dokumentation](http://aka.ms/ptvsdocs).
+Du är nu ställa in för att skapa ett nytt Python-projekt. Gå till **filen** -> **New** -> **projekt** -> **Python** och välj typ av Python-program som du skapar. Du kan ange Python-miljön för det aktuella projektet till den önskade versionen (Python 2.7 eller 3.6) genom att högerklicka på den **Python-miljöer**, välja **Lägg till/ta bort Python miljöer**, och sedan välja önskad miljö. Du hittar mer information om hur du arbetar med PTVS i produkten [dokumentation](https://aka.ms/ptvsdocs).
 
 ## <a name="2-using-a-jupyter-notebook-to-explore-and-model-your-data-with-python-or-r"></a>2. Använder en Jupyter-anteckningsbok för att utforska och modellera dina data med Python eller R
 Jupyter-anteckningsboken är en kraftfull miljö som ger ett webbläsarbaserat ”IDE” för datagranskning och modellering. Du kan använda Python 2, Python 3 eller R (öppen källkod och Microsoft R Server) i en Jupyter-anteckningsbok.
@@ -806,7 +806,7 @@ Följande är per komponenter stegen för att få åtkomst till Azure Cosmos DB 
 
 1. Azure Cosmos DB Python SDK redan är installerad på DSVM (kör ```pip install pydocumentdb --upgrade``` från Kommandotolken för att uppdatera)
 2. Skapa ett Azure Cosmos DB-konto och en databas från [Azure-portalen](https://portal.azure.com)
-3. Ladda ned ”Azure Cosmos DB Migreringsverktyget” från [här](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) och extrahera till en valfri katalog
+3. Ladda ned ”Azure Cosmos DB Migreringsverktyget” från [här](https://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) och extrahera till en valfri katalog
 4. Importera JSON-data (vulkanen data) som lagras på en [offentlig blob](https://cahandson.blob.core.windows.net/samples/volcano.json) till Cosmos DB med följande parametrar för att Migreringsverktyget (dtui.exe från den katalog där du installerade Cosmos DB Migration Tool). Ange platsen för källa och mål med följande parametrar:
    
     `/s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`

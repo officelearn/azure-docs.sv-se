@@ -4,7 +4,7 @@ description: Den här artikeln förklarar hur Azure Security Center använder ro
 services: security-center
 cloud: na
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 ms.assetid: ''
 ms.service: security-center
@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/13/2017
-ms.author: terrylan
-ms.openlocfilehash: b93b57d50ccf5d5dfb092bdb71820da77f345878
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 42220a94eb0d0259b8b410e7343ffbfe09e8bfa5
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295470"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007866"
 ---
 # <a name="permissions-in-azure-security-center"></a>Behörigheter i Azure Security Center
 
-Azure Security Center använder [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/role-assignments-portal.md), som tillhandahåller [inbyggda roller](../role-based-access-control/built-in-roles.md) som kan tilldelas till användare, grupper och tjänster i Azure.
+I Azure Security Center tillämpas [rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md), vilket innebär att det finns [förinställda roller](../role-based-access-control/built-in-roles.md) som kan ges till användare, grupper och tjänster i Azure.
 
 Security Center utvärderar konfigurationen av dina resurser för att identifiera säkerhetsproblem och säkerhetsproblem. I Security Center kan se du bara information relaterad till en resurs när du har tilldelats rollen ägare, deltagare eller läsare för prenumeration eller resursgrupp som en resurs hör till.
 
@@ -44,7 +44,7 @@ I följande tabell visar roller och tillåtna åtgärder i Security Center. Ett 
 | Roll | Redigera säkerhetsprincip | Tillämpa säkerhetsrekommendationer på en resurs | Avvisa aviseringar och rekommendationer | Visa aviseringar och rekommendationer |
 |:--- |:---:|:---:|:---:|:---:|
 | Prenumerationens ägare | X | X | X | X |
-| Prenumerations-deltagare | X | X | X | X |
+| Prenumerationsdeltagare | -- | X | X | X |
 | Resursgrupp ägare | -- | X | -- | X |
 | Resursgrupp deltagare | -- | X | -- | X |
 | Läsare | -- | -- | -- | X |

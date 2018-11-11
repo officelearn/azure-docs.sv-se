@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 8cca69109f07cbcffe2a5d796262e51fc9233cc5
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 8591e723cad1c44e9cc8d00008485e6b304fc4d3
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914696"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283382"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Hur att publicera Azure övervakar för virtuella datorer (förhandsversion)
 Den här artikeln beskriver hur du ställer in Azure Monitor för virtuella datorer för att övervaka hälsotillståndet för operativsystemet för virtuella datorer i Azure och identifiera och mappa programberoenden som kan vara baserad på dem.  
@@ -337,7 +337,7 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
     ```
 
 ### <a name="enable-using-azure-policy"></a>Aktivera med hjälp av Azure Policy
-Aktivera Azure Monitor för virtuella datorer i stor skala som säkerställer konsekvent efterlevnad och automatisk aktivering för nya virtuella datorer som etablerats [Azure Policy](../azure-policy/azure-policy-introduction.md) rekommenderas. Dessa principer:
+Aktivera Azure Monitor för virtuella datorer i stor skala som säkerställer konsekvent efterlevnad och automatisk aktivering för nya virtuella datorer som etablerats [Azure Policy](../governance/policy/overview.md) rekommenderas. Dessa principer:
 
 * Distribuera Log Analytics-agenten och beroendeagenten 
 * Rapport om kompatibilitetsresultat 

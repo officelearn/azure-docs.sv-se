@@ -8,19 +8,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: sutalasi
-ms.openlocfilehash: 5d1beb124bbb857d13aecad7bf0cef493d42dac5
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6d47fe29dab37523913b96ebae0ef3ef31d11210
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043285"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300582"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Replikera Azure disk encryption (ADE) aktiverade virtuella datorer till en annan Azure-region
 
 Den här artikeln beskriver hur du aktiverar replikering av Azure-diskkryptering (ADE) aktiverade virtuella datorer från en Azure-region till en annan.
 
 >[!NOTE]
->Endast virtuella Azure-datorer som kör Windows OS och [aktiverat för kryptering med Azure AD-app](https://aka.ms/ade-aad-app) stöds för närvarande av Azure Site Recovery.
+>Endast virtuella Azure-datorer som kör Windows OS och är [aktiverade för kryptering med Azure AD-appen](https://aka.ms/ade-aad-app) stöds för närvarande av Azure Site Recovery.
 >
 
 ## <a name="required-user-permissions"></a>Nödvändiga användarbehörigheter
@@ -64,8 +64,8 @@ Om du aktiverar haveriberedskap (DR) inte har behörigheterna som krävs för at
 6. Vänta tills resursgrupper kan du läsa in och välj sedan den **resursgrupp** för dina virtuella datorer.
 7. Välj de virtuella datorerna i listan över virtuella datorer visas. Endast virtuella datorer med Azure-diskkryptering aktiverat visas i listan.
 8. Välj den **målplats**.
-9. **Disk encryption nyckelvalv**: som standard skapar Azure Site Recovery ett nytt nyckelvalv i målregionen med namn som har suffixet ”asr” baserat på käll-VM för diskkrypteringsnycklarna. Om nyckelvalvet som skapats av Azure Site Recovery redan finns, återanvänds. Du kan välja ett annat nyckelvalv från listan över om det behövs.
-10. **Nyckeln nyckelvalv för kryptering**: som standard skapar Azure Site Recovery ett nytt nyckelvalv i målregionen med namn som har suffixet ”asr” baserat på källan VM viktiga krypteringsnycklar. Om nyckelvalvet som skapats av Azure Site Recovery redan finns, återanvänds. Du kan välja ett annat nyckelvalv från listan över om det behövs.
+9. **Diskkrypteringsnyckelvalv**: som standard skapar Azure Site Recovery ett nytt nyckelvalv i målregionen med namn som har suffixet ”asr” baserat på den virtuella källdatorns diskkrypteringsnycklar. Om det nyckelvalv som skapades av Azure Site Recovery redan finns återanvänds det. Du kan välja ett annat nyckelvalv från listan över om det behövs.
+10. **Nyckelkrypteringsnyckelvalv**: som standard skapar Azure Site Recovery ett nytt nyckelvalv i målregionen med namn som har suffixet ”asr” baserat på den virtuella källdatorns nyckelkrypteringsnycklar. Om det nyckelvalv som skapades av Azure Site Recovery redan finns återanvänds det. Du kan välja ett annat nyckelvalv från listan över om det behövs.
 
 ## <a name="enable-replication"></a>Aktivera replikering
 
@@ -91,8 +91,8 @@ Den här proceduren förutsätter att den primära Azure-regionen är Östasien 
     - **Hanterade replikeringsdiskar (om den Virtuella måldatorn använder hanterade diskar)**: Site Recovery skapar nya hanterade replikeringsdiskar i målregionen som speglar den Virtuella källdatorns hanterade diskar med samma lagringstyp (Standard eller premium) som den Virtuella källdatorn hanterade disk.
     - **Cachelagringskonton**: Site Recovery behöver extra lagringskonto med namnet cachelagring i källregionen. Alla ändringar som sker på virtuella källdatorn är spåras och skickas till cachelagringskontot innan du replikerar de till målplatsen.
     - **Tillgänglighetsuppsättning**: som standard skapar Azure Site Recovery en ny tillgänglighetsuppsättning i målregionen med namn som har suffixet ”asr”. Tillgänglighetsuppsättning som skapats av Azure Site Recovery redan finns, återanvänds.
-    - **Disk encryption nyckelvalv**: som standard skapar Azure Site Recovery ett nytt nyckelvalv i målregionen med namn som har suffixet ”asr” baserat på käll-VM för diskkrypteringsnycklarna. Om nyckelvalvet som skapats av Azure Site Recovery redan finns, återanvänds.
-    - **Nyckeln nyckelvalv för kryptering**: som standard skapar Azure Site Recovery ett nytt nyckelvalv i målregionen med namn som har suffixet ”asr” baserat på källan VM viktiga krypteringsnycklar. Om nyckelvalvet som skapats av Azure Site Recovery redan finns, återanvänds.
+    - **Diskkrypteringsnyckelvalv**: som standard skapar Azure Site Recovery ett nytt nyckelvalv i målregionen med namn som har suffixet ”asr” baserat på den virtuella källdatorns diskkrypteringsnycklar. Om det nyckelvalv som skapades av Azure Site Recovery redan finns återanvänds det.
+    - **Nyckelkrypteringsnyckelvalv**: som standard skapar Azure Site Recovery ett nytt nyckelvalv i målregionen med namn som har suffixet ”asr” baserat på den virtuella källdatorns nyckelkrypteringsnycklar. Om det nyckelvalv som skapades av Azure Site Recovery redan finns återanvänds det.
     - **Replikeringsprincip**: den definierar inställningarna för recovery point kvarhållning och frekvensen för programkonsekventa ögonblicksbilder. Som standard skapar Azure Site Recovery en ny replikeringsprincip med standardinställningarna för ”24 timmars för kvarhållning av återställningspunkt och” 60 minuters för frekvens för appkonsekvent ögonblicksbild.
 
 
@@ -104,7 +104,7 @@ Du kan ändra standardinställningarna för målet som används av Site Recovery
 
 1. Klicka på **anpassa:** bredvid mål-prenumeration att ändra målprenumerationen standard. Välj prenumerationen i listan över alla prenumerationer som är tillgängliga i samma Azure Active Directory (AAD)-klient.
 
-2. Klicka på **anpassa:** bredvid ' resursgrupp, lagring, nätverk och tillgänglighet som anger för att ändra den nedan standardinställningar:
+2. Klicka på **anpassa:** bredvid ”Resource group, nätverk, lagring och tillgänglighetsuppsättningar att ändra den nedan standardinställningar:
     - I **målresursgrupp**, Välj resursgruppen i listan över alla resursgrupper i målplatsen för prenumerationen.
     - I **virtuellt Målnätverk**, väljer nätverket från en lista över det virtuella nätverket på målplatsen.
     - I **tillgänglighetsuppsättning**, du kan lägga till inställningar för tillgänglighetsuppsättningen till den virtuella datorn, om de är en del av en tillgänglighetsuppsättning i källregionen.

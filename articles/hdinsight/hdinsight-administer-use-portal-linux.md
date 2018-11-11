@@ -1,33 +1,33 @@
 ---
-title: Hantera Hadoop-kluster i HDInsight med hjälp av Azure portal
+title: Hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure portal
 description: Lär dig mer om att skapa och hantera HDInsight-kluster med Azure portal.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/18/2018
-ms.author: jasonh
-ms.openlocfilehash: b00c88e526bf72f51df0d2a3d6a87fbd5bc1f991
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: b96712c3a920a70e121f0a72954680ced2ba96ff
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991988"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252300"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Hadoop-kluster i HDInsight med hjälp av Azure-portalen
+# <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure-portalen
 
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Med hjälp av den [Azure-portalen][azure-portal], du kan hantera Hadoop-kluster i Azure HDInsight. Använd flikväljaren ovan för information om hur du hanterar Hadoop-kluster i HDInsight med andra verktyg.
+Med hjälp av den [Azure-portalen][azure-portal], du kan hantera Apache Hadoop-kluster i Azure HDInsight. Använd flikväljaren ovan för information om hur du hanterar Hadoop-kluster i HDInsight med andra verktyg.
 
 **Krav**
 
 Om du vill följa stegen i den här artikeln behöver du en **Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="open-the-azure-portal"></a>Öppna Azure portal
-1. Logga in på [ https://portal.azure.com ](https://portal.azure.com).
+1. Logga in på [https://portal.azure.com](https://portal.azure.com).
 2. När du öppnar portalen, kan du:
 
    * Klicka på **skapa en resurs** från den vänstra menyn för att skapa ett nytt kluster:
@@ -69,7 +69,7 @@ Du måste ange en Azure-prenumeration när du skapar ett HDInsight-kluster. Klus
 Om du får felet NoRegisteredProviderFound eller MissingSubscriptionRegistration felet, se [felsöka vanliga Azure-distributionsfel med Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 
 ## <a name="list-and-show-clusters"></a>Lista och visa kluster
-1. Logga in på [ https://portal.azure.com ](https://portal.azure.com).
+1. Logga in på [https://portal.azure.com](https://portal.azure.com).
 2. Klicka på **HDInsight-kluster** i den vänstra menyn Visa en lista över befintliga kluster. Om du inte ser **HDInsight-kluster**, klickar du på **alla tjänster** första.
 3. Klicka på klusternamnet. Om listan över klustret är lång kan använda du filter överst på sidan.
 4. Klicka på ett kluster från listan om du vill se översiktssidan:
@@ -81,29 +81,32 @@ Om du får felet NoRegisteredProviderFound eller MissingSubscriptionRegistration
     * **Flytta**: flyttar klustret till en annan resursgrupp eller till en annan prenumeration.
     * **Ta bort**: tar bort klustret.
 
-    **Menyn till vänster:**
+**Menyn till vänster:**
     * **Aktivitetsloggar**: visa och fråga aktivitetsloggar.
     * **Åtkomstkontroll (IAM)**: använda rolltilldelningar.  Se [använda rolltilldelningar för att hantera åtkomst till din Azure-prenumerationsresurser](../role-based-access-control/role-assignments-portal.md).
     * **Taggar**: kan du ange nyckel/värde-par för att definiera en anpassad taxonomi för cloud services. Du kan till exempel skapa en nyckel med namnet **projekt**, och sedan använda gemensamt värde för alla tjänster som är associerade med ett specifikt projekt.
-    * **Diagnostisera och lösa problem**: visa felsökningsinformation.
-    * **Låser**: Lägg till ett lås för att förhindra att klustret som ändrats eller tagits bort.
-    * **Automationsskript**: visa och exportera Azure Resource Manager-mall för klustret. För närvarande kan exportera du bara beroende Azure storage-kontot. Se [skapa Linux-baserade Hadoop-kluster i HDInsight med hjälp av Azure Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+* **Diagnostisera och lösa problem**: visa felsökningsinformation.
     * **Snabbstart**: Visar information som hjälper dig att komma igång med HDInsight.
     * **Verktyg för HDInsight**: hjälpinformation för HDInsight relaterade verktyg.
-    * **Core prenumerationsanvändning**: visa använda och tillgängliga kärnor för prenumerationen.
-    * **Skala kluster**: öka och minska antalet arbetarnoder i klustret. Se[skala kluster](hdinsight-administer-use-management-portal.md#scale-clusters).
+**Inställningar**
+* **Klusterstorlek**: Kontrollera, öka och minska antalet arbetarnoder i klustret. Se[skala kluster](hdinsight-administer-use-management-portal.md#scale-clusters).
+    * **Kvotgränser**: visa använda och tillgängliga kärnor för prenumerationen.
     * **SSH + klusterinloggning**: Visar instruktioner för att ansluta till klustret med Secure Shell (SSH)-anslutning. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
-    * **HDInsight-Partner**: Lägg till/ta bort aktuell HDInsight-Partner.
-    * **Externa Metastores**: Visa metastores för Hive och Oozie. Metastores kan bara konfigureras när klustret skapas. Se [använder Hive/Oozie-metaarkiv](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
-    * **Skriptåtgärder**: kör Bash-skript på klustret. Se [anpassa Linux-baserade HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md).
-    * **Program**: Lägg till/ta bort HDInsight-program.  Se [installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).
-    * **Övervakning av**: övervaka klustret i Azure Log Analytics.
-    * **Egenskaper för**: Visa egenskaper för klustret.
+* **Data Lake Store Gen1**: Konfigurera åtkomst till Data Lake Store Gen1.  Se [Snabbstart: Konfigurera kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
     * **Storage-konton**: Visa storage-konton och nycklar. Storage-konton har konfigurerats när klustret skapas.
-    * **Data Lake Store-åtkomst**: Konfigurera åtkomst till Data Lake lagras.  Se [Snabbstart: Konfigurera kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+    * **Program**: Lägg till/ta bort HDInsight-program.  Se [installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).
+    * **Skriptåtgärder**: kör Bash-skript på klustret. Se [anpassa Linux-baserade HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md).
+    * **HDInsight-Partner**: Lägg till/ta bort aktuell HDInsight-Partner.
+    * **Egenskaper för**: Visa egenskaper för klustret.
+* **Låser**: Lägg till ett lås för att förhindra att klustret som ändrats eller tagits bort.
+    * **Automationsskript**: visa och exportera Azure Resource Manager-mall för klustret. För närvarande kan exportera du bara beroende Azure storage-kontot. Se [skapa Linux-baserade Hadoop-kluster i HDInsight med hjälp av Azure Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+**Övervakning**
+* **Alters**: Hantera aviseringar och åtgärder.
+    * **Mått**: övervaka klustermått i Azure Log Analytics.
+* **Diagnosinställningar**: inställningarna på var du vill lagra mått som du kan undersöka **Support och felsökning**
     * **Resurshälsa**: se [översikt över hälsotillståndet för Azure-resurs](../service-health/resource-health-overview.md).
     * **Ny supportförfrågan**: gör att du kan skapa ett supportärende hos Microsoft support.
-    
+
 6. Klicka på **egenskaper**:
 
     Egenskaperna är:
@@ -144,6 +147,15 @@ Klusterskalning funktionen kan du ändra antalet arbetarnoder som används av et
 > Endast kluster med HDInsight version 3.1.3 eller högre stöds. Om du är osäker på vilken version av ditt kluster kan kontrollera du egenskapssidan.  Se [lista och visa kluster](#list-and-show-clusters).
 >
 >
+**Skala kluster**
+
+1. Logga in på den [Portal][azure-portal].
+2. Klicka på **HDInsight-kluster** menyn till vänster.
+3. Klicka på klustret som du vill skala.
+3. Klicka på **skala kluster**.
+4. Ange **många av arbetsnoder**. Gränsen för antalet klusternoder varierar mellan Azure-prenumerationer. Du kan kontakta faktureringssupporten om du vill öka gränsen.  Information om kostnaden ändringarna du gjort i antalet noder.
+
+    ![HDInsight hadoop hbase storm spark skala](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster.png)
 
 Effekten av att ändra antalet datanoder varierar för varje typ av kluster som stöds av HDInsight:
 
@@ -188,15 +200,6 @@ Effekten av att ändra antalet datanoder varierar för varje typ av kluster som 
     $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
     ```
 
-**Skala kluster**
-
-1. Logga in på den [Portal][azure-portal].
-2. Klicka på **HDInsight-kluster** menyn till vänster.
-3. Klicka på klustret som du vill skala.
-3. Klicka på **skala kluster**.
-4. Ange **många av arbetsnoder**. Gränsen för antalet klusternoder varierar mellan Azure-prenumerationer. Du kan kontakta faktureringssupporten om du vill öka gränsen.  Information om kostnaden ändringarna du gjort i antalet noder.
-
-    ![HDInsight hadoop hbase storm spark skala](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster.png)
 
 ## <a name="pauseshut-down-clusters"></a>Pausa/Stäng kluster
 
@@ -339,7 +342,7 @@ Se [hantera HDInsight-kluster med hjälp av Ambari-Webbgränssnittet](hdinsight-
 ## <a name="browse-files"></a>Bläddra efter filer
 Med Azure-portalen kan bläddra du innehållet i behållare som standard.
 
-1. Logga in på [ https://portal.azure.com ](https://portal.azure.com).
+1. Logga in på [https://portal.azure.com](https://portal.azure.com).
 2. Klicka på **HDInsight-kluster** i den vänstra menyn Visa en lista över befintliga kluster.
 3. Klicka på klusternamnet. Om listan över klustret är lång kan använda du filter överst på sidan.
 4. Klicka på **Lagringskonton** i den vänstra menyn i klustret.

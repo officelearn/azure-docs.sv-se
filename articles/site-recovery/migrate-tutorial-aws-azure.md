@@ -1,20 +1,20 @@
 ---
-title: Migrera virtuella datorer från AWS till Azure med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hur du migrerar virtuella Windows-datorer som körs i Amazon Web Services (AWS) till Azure, med hjälp av Azure Site Recovery.
+title: Migrera virtuella AWS-datorer till Azure med Azure Site Recovery-tjänsten | Microsoft Docs
+description: Den här artikeln beskriver hur du migrerar virtuella Windows-datorer som körs i Amazon Web Services (AWS) till Azure med hjälp av Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 04e7506562d29e37abb65b7a760fbc9bd707e2c6
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: cd33b7cb45bb165a120a7efe20eba962ec75e273
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078944"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252147"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrera virtuella AWS-datorer (Amazon Web Services) till Azure
 
@@ -119,7 +119,7 @@ På sidan **Förbered källa** klickar du på **+ Konfigurationsserver**.
 
 1. Använd en EC2-instans som kör Windows Server 2012 R2 för att skapa en konfigurationsserver och registrera den med återställningsvalvet.
 2. Konfigurera proxyn på den virtuella datorn med EC2-instansen som du använder som konfigurationsserver så att den kan komma åt [tjänst-URL:erna](site-recovery-support-matrix-to-azure.md).
-3. Hämta det [enhetliga installationsprogrammet för Microsoft Azure Site Recovery](http://aka.ms/unifiedinstaller_wus). Du kan hämta det till din lokala dator och sedan kopiera över det till den virtuella dator du använder som konfigurationsserver.
+3. Hämta det [enhetliga installationsprogrammet för Microsoft Azure Site Recovery](https://aka.ms/unifiedinstaller_wus). Du kan hämta det till din lokala dator och sedan kopiera över det till den virtuella dator du använder som konfigurationsserver.
 4. Klicka på knappen **Hämta** för att hämta valvregistreringsnyckeln. Kopiera den hämtade filen till den virtuella dator du använder som konfigurationsserver.
 5. På den virtuella datorn högerklickar du på installationsprogrammet du hämtade för det enhetliga installationsprogrammet för Microsoft Azure Site Recovery och väljer sedan **Kör som administratör**.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 62cd6baa489ed3fb193ecacadf88cf34448319b5
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 24cb21e81d2b4385423512ae58de2d6c0f94b93b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403515"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251908"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute-krav och checklista
 Om du vill ansluta till Microsofts molntjänster med ExpressRoute måste du kontrollera att följande krav som anges i följande avsnitt är uppfyllda.
@@ -57,7 +57,7 @@ Om du planerar att aktivera Office 365 på ExpressRoute bör du läsa följande 
 ## <a name="dynamics-365"></a>Dynamics 365
 Om du planerar att aktivera Dynamics 365 på ExpressRoute bör du läsa följande dokument för att få mer information om Dynamics 365
 
-* [Dynamics 365 och ExpressRoute-dokumentation](http://download.microsoft.com/download/B/2/8/B2896B38-9832-417B-9836-9EF240C0A212/Microsoft%20Dynamics%20365%20and%20ExpressRoute.pdf)
+* [Dynamics 365 och ExpressRoute-dokumentation](https://download.microsoft.com/download/B/2/8/B2896B38-9832-417B-9836-9EF240C0A212/Microsoft%20Dynamics%20365%20and%20ExpressRoute.pdf)
 * [Dynamics 365-URL:er](https://support.microsoft.com/kb/2655102) och [IP-adressintervall](https://support.microsoft.com/kb/2728473)
 
 ## <a name="next-steps"></a>Nästa steg

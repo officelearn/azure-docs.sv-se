@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4dd3253b1d7ee159914f2d1fd6a8644bbc69c1f0
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 5205d7797e7d45266a4f54b842ad56f353abc6d6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092799"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252997"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Förhandskrav för Azure AD Connect
 Det här avsnittet beskriver kraven och maskinvarukrav för Azure AD Connect.
@@ -41,7 +41,7 @@ Innan du installerar Azure AD Connect, finns det några saker som du behöver.
 
 ### <a name="on-premises-active-directory"></a>Lokalt Active Directory
 * AD-schemat version och skogens funktionsnivå måste vara Windows Server 2003 eller senare. Domänkontrollanter kan köra någon version så länge schemat och skog nivå krav är uppfyllda.
-* Om du planerar att använda funktionen **tillbakaskrivning av lösenord**, domänkontrollanterna måste vara i Windows Server 2008 (med senaste SP) eller senare. Om dina domänkontrollanter som är på 2008 (pre-R2) så du måste också använda [snabbkorrigering KB2386717](http://support.microsoft.com/kb/2386717).
+* Om du planerar att använda funktionen **tillbakaskrivning av lösenord**, domänkontrollanterna måste vara i Windows Server 2008 (med senaste SP) eller senare. Om dina domänkontrollanter som är på 2008 (pre-R2) så du måste också använda [snabbkorrigering KB2386717](https://support.microsoft.com/kb/2386717).
 * Domänkontrollanten som används av Azure AD måste vara skrivbar. Det är **stöds inte** för att använda en skrivskyddad Domänkontrollant (skrivskyddade domänkontrollanten) och Azure AD Connect inte följer alla skrivåtgärder omdirigeringar.
 * Det är **stöds inte** att använda lokala skogar/domäner med ”prickade” (namn innehåller en punkt ””.) NetBIOS-namn.
 * Det rekommenderas att [aktivera Active Directory-Papperskorgen](how-to-connect-sync-recycle-bin.md).
@@ -123,11 +123,11 @@ Azure AD Connect är beroende av Microsoft PowerShell och .NET Framework 4.5.1. 
   * Microsoft PowerShell installeras som standard. Ingen åtgärd krävs.
   * .NET framework 4.5.1 eller senare versioner erbjuds via Windows Update. Kontrollera att du har installerat de senaste uppdateringarna till Windows Server i Kontrollpanelen.
 * Windows Server 2008R2 och Windows Server 2012
-  * Den senaste versionen av Microsoft PowerShell finns i **Windows Management Framework 4.0**är tillgängligt på [Microsoft Download Center](http://www.microsoft.com/downloads).
-  * .NET framework 4.5.1 och senare versioner är tillgängliga på [Microsoft Download Center](http://www.microsoft.com/downloads).
+  * Den senaste versionen av Microsoft PowerShell finns i **Windows Management Framework 4.0**är tillgängligt på [Microsoft Download Center](https://www.microsoft.com/downloads).
+  * .NET framework 4.5.1 och senare versioner är tillgängliga på [Microsoft Download Center](https://www.microsoft.com/downloads).
 * Windows Server 2008
-  * Den senaste versionen av PowerShell finns i **Windows Management Framework 3.0**är tillgängligt på [Microsoft Download Center](http://www.microsoft.com/downloads).
-  * .NET framework 4.5.1 och senare versioner är tillgängliga på [Microsoft Download Center](http://www.microsoft.com/downloads).
+  * Den senaste versionen av PowerShell finns i **Windows Management Framework 3.0**är tillgängligt på [Microsoft Download Center](https://www.microsoft.com/downloads).
+  * .NET framework 4.5.1 och senare versioner är tillgängliga på [Microsoft Download Center](https://www.microsoft.com/downloads).
 
 ### <a name="enable-tls-12-for-azure-ad-connect"></a>Aktivera TLS 1.2 för Azure AD Connect
 Före version 1.1.614.0 använder TLS 1.0 i Azure AD Connect som standard för att kryptera kommunikationen mellan synkronisering engine-server och Azure AD. Du kan ändra detta genom att konfigurera .net-program att använda TLS 1.2 som standard på servern. Mer information om TLS 1.2 finns i [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: 8f45535b0e75c3f95a56148ea92a343bb0d8a9f5
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: d94b7f7f2f032278f71053e5de8bb2935af01f3f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079267"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300157"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Om VPN gateway för Azure Stack
 
@@ -33,7 +33,7 @@ När du skapar en virtuell nätverksgateway anger du vilken typ av gateway som d
 
 Varje virtuellt nätverk kan ha två virtuella nätverksgatewayer, men bara en av varje typ. Du kan skapa flera anslutningar till en enda VPN-gateway beroende på de inställningar som du väljer. Ett exempel är en konfiguration för anslutning till flera platser.
 
-Innan du skapar och konfigurerar VPN-gatewayer för Azure Stack, granska de [överväganden för nätverk i Azure Stack](/articles/azure-stack/user/azure-stack-network-differences.md) att lära dig hur konfigurationer för Azure Stack skiljer sig från Azure.
+Innan du skapar och konfigurerar VPN-gatewayer för Azure Stack, granska de [överväganden för nätverk i Azure Stack](user/azure-stack-network-differences.md) att lära dig hur konfigurationer för Azure Stack skiljer sig från Azure.
 
 >[!NOTE]
 >I Azure, måste du dela upp bandbredd dataflödet för VPN-gateway SKU som du väljer i alla projekt som är anslutna till gatewayen. Men i Azure Stack, bandbreddsvärdet för VPN-gateway SKU används för varje anslutning-resurs som är ansluten till gatewayen.

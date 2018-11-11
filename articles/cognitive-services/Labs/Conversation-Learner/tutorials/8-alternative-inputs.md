@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 8d3b3f419ceacbb9a6fe2b19cf68ea6873de536f
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 3b38cc265b4adfb301dc1165e02b17a8aa7c9589
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171025"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252555"
 ---
 # <a name="how-to-use-alternative-inputs"></a>Hur du använder alternativa indata
 
@@ -23,7 +23,7 @@ Den här självstudiekursen visar hur du använder fältet ”alternativa indata
 
 ## <a name="video"></a>Video
 
-[![Självstudien 8 förhandsversion](http://aka.ms/cl-tutorial-08-preview)](http://aka.ms/blis-tutorial-08)
+[![Självstudien 8 förhandsversion](https://aka.ms/cl-tutorial-08-preview)](https://aka.ms/blis-tutorial-08)
 
 ## <a name="requirements"></a>Krav
 Den här självstudien krävs att Allmänt självstudiekursen bot körs

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: c30c233fb1d413c6a55c7ec0af8c63ca60284b86
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: d29f01c7f953ed211b429e41b844a01c67e41054
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960284"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282387"
 ---
 # <a name="scaling-throughput-in-azure-cosmos-db"></a>Skalning av dataflöden i Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Du kan etablera ru: er i en Cosmos-behållare eller en Cosmos-databas. RU som et
 
 För att skala Elastiskt dataflöde, kan du öka eller minska etablerade RU/s när som helst. Mer information finns i [How-to etablera dataflöde](set-throughput.md) och Elastiskt skala Cosmos-behållare och databaser. Globalt skalning av dataflöde, kan du lägga till eller ta bort regioner på ditt Cosmos-konto när som helst. Mer information finns i [anvisningar: lägga till eller ta bort regioner till ditt Cosmos-konto](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Associera flera regioner med ett Cosmos-konto är viktigt i många scenarier för att uppnå med låg latens och [hög tillgänglighet](high-availability.md) runt om i världen.
 
-## <a name="how-throughput-scaling-works"></a>Så här fungerar skalning av dataflöde
+## <a name="how-provisioned-throughput-is-distributed-across-regions"></a>hur etablerade dataflödet som distribueras i flera regioner
 
 Om du etablerar ”R” ru: er på en Cosmos-behållare (eller databas), Cosmos DB garanterar att ”R” ru: er är tillgängliga i *varje* region som är associerade med ditt Cosmos-konto. Varje gång du lägger till en ny region till ditt konto, etablerar Cosmos DB automatiskt ”R” ru: er i regionen nyligen tillagda. De åtgärder som utförs mot din Cosmos-behållare garanteras att hämta ”R” ru: er i varje region. Du kan inte selektivt tilldela ru: er i en specifik region. RU som etableras för en Cosmos-behållare (eller databas) har etablerats för alla regioner som är associerat med ditt Cosmos-konto.
 

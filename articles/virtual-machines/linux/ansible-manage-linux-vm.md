@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 09/27/2018
-ms.openlocfilehash: d9ff0387a1d02eb5f4684048aeed8ad0079b28ef
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 06a0f2416ecff9e2f9a21877e26487b56452d0a0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434423"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251329"
 ---
 # <a name="use-ansible-to-manage-a-linux-virtual-machine-in-azure"></a>Använda Ansible för att hantera en virtuell Linux-dator i Azure
 Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan använda Ansible för att hantera dina virtuella Azure-datorer på samma sätt som för alla andra resurser. Den här artikeln visar hur du använder en Ansible-spelbok för att starta och stoppa en virtuell Linux-dator. 
@@ -27,7 +27,7 @@ Med Ansible kan du automatisera distributionen och konfigurationen av resurser i
 ## <a name="use-ansible-to-deallocate-stop-an-azure-virtual-machine"></a>Använda Ansible för att frigöra (stoppa) en virtuell Azure-dator
 Det här avsnittet visar hur du använder Ansible för att frigöra (stoppa) en virtuell Azure-dator
 
-1.  Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1.  Logga in på [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1.  Öppna [Cloud Shell](/azure/cloud-shell/overview).
 
@@ -85,7 +85,7 @@ Det här avsnittet visar hur du använder Ansible för att frigöra (stoppa) en 
 ## <a name="use-ansible-to-start-a-deallocated-stopped-azure-virtual-machine"></a>Använda Ansible för att starta en frigjord (stoppad) virtuell Azure-dator
 Det här avsnittet visar hur du använder Ansible för att starta en frigjord (stoppad) virtuell Azure-dator
 
-1.  Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1.  Logga in på [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1.  Öppna [Cloud Shell](/azure/cloud-shell/overview).
 

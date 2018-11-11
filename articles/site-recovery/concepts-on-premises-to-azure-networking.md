@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: ce7e5fde60503a969b88892be890173861fb15be
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c05a97dc5a5fe9a0e8a6f1a8598ff82fcf488ab2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215233"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253286"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>Konfigurera IP-adresser för att ansluta till virtuella Azure-datorer efter redundans
 
@@ -81,7 +81,7 @@ Förutom vnet-till-vnet-anslutning efter redundansväxlingen kan Woodgrove stäl
 
 ## <a name="assigning-new-ip-addresses"></a>Tilldela nya IP-adresser
 
-Detta [blogginlägget](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) förklarar hur du ställer in nätverksinfrastrukturen i Azure när du inte behöver behålla IP-adresser efter redundansväxling. Det börjar med en beskrivning av programmet, tittar på hur du ställer in nätverk både lokalt och i Azure och avslutas med information om att köra redundansväxlingar.
+Detta [blogginlägget](https://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) förklarar hur du ställer in nätverksinfrastrukturen i Azure när du inte behöver behålla IP-adresser efter redundansväxling. Det börjar med en beskrivning av programmet, tittar på hur du ställer in nätverk både lokalt och i Azure och avslutas med information om att köra redundansväxlingar.
 
 ## <a name="next-steps"></a>Nästa steg
 [Köra en redundans](site-recovery-failover.md)

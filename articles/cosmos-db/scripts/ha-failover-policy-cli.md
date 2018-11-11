@@ -1,25 +1,17 @@
 ---
 title: Azure CLI-skript – Skapa en princip för redundansväxling för hög tillgänglighet | Microsoft Docs
 description: Exempel på Azure CLI-skript – Skapa en princip för redundansväxling för hög tillgänglighet
-services: cosmos-db
-documentationcenter: cosmosdb
-author: SnehaGunda
-manager: kfile
-tags: azure-service-management
+author: markjbrown
 ms.service: cosmos-db
-ms.custom: mvc
-ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
-ms.date: 06/02/2017
-ms.author: sngun
-ms.openlocfilehash: 8bd920d8cb50ae8f7091a8a69dfe76f9dae36fee
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/26/2018
+ms.author: mjbrown
+ms.openlocfilehash: abfe386c438e943cbe481168daaa4c58a39ed44f
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985596"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014324"
 ---
 # <a name="create-a-failover-policy-for-high-availability-using-the-azure-cli"></a>Skapa en princip för redundansväxling för hög tillgänglighet med Azure CLI
 
@@ -27,18 +19,18 @@ Det här CLI-skriptexemplet skapar ett Azure Cosmos DB-konto och konfigurerar de
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Exempelskript
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/high-availability-cosmosdb-configure-failover/high-availability-cosmosdb-configure-failover.sh?highlight=23-27 "Create an Azure Cosmos DB failover policy")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/high-availability-cosmosdb-configure-failover/high-availability-cosmosdb-configure-failover.sh "Create an Azure Cosmos DB failover policy")]
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
 När exempelskriptet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>Förklaring av skript
@@ -54,6 +46,6 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
+Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
 Ytterligare Azure Cosmos DB CLI-skriptexempel finns i [Azure Cosmos DB CLI-dokumentationen](../cli-samples.md).

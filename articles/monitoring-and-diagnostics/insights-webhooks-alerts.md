@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 0f08e63d6cbf5be8667b1fd61556e3f33e31d06f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f2f96faf6bd8132422aeb3484547e4b6a1195a7f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957666"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255548"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Har en klassisk måttavisering meddela en icke-Azure-system med en webhook
 Du kan använda webhooks för att dirigera Azure aviseringsmeddelanden till andra system för efterbearbetning eller anpassade åtgärder. Du kan använda en webhook på en avisering och dirigerar den till tjänster som skickar SMS-meddelanden, logga buggar, för att meddela ett team via chatt eller meddelandetjänster eller för olika åtgärder. 
@@ -101,8 +101,8 @@ POST-åtgärd innehåller följande JSON-nyttolast och schemat för alla mått-b
 >
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om Azure-aviseringar och webhooks i videon [integrera Azure-aviseringar med PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080).
-* Lär dig hur du [köra skript i Azure Automation (runbooks) på Azure-aviseringar](http://go.microsoft.com/fwlink/?LinkId=627081).
+* Läs mer om Azure-aviseringar och webhooks i videon [integrera Azure-aviseringar med PagerDuty](https://go.microsoft.com/fwlink/?LinkId=627080).
+* Lär dig hur du [köra skript i Azure Automation (runbooks) på Azure-aviseringar](https://go.microsoft.com/fwlink/?LinkId=627081).
 * Lär dig hur du [använder en logikapp för att skicka ett SMS-meddelande via Twilio från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
 * Lär dig hur du [använder en logikapp för att skicka ett Slack-meddelande från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
 * Lär dig hur du [använder en logikapp för att skicka ett meddelande till en Azure-kö från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).

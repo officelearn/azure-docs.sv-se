@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/12/2018
+ms.date: 11/06/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2b9e7615fc0c2262c33ab5d7be39bdb99bc752bd
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a16230b6f51f0ce93f4a9bf53591abbcd6b4bd3b
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412966"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283690"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Ansluta Windows-datorer till Log Analytics-tjänsten i Azure
 
@@ -98,7 +98,7 @@ Följande tabell visar de specifika Log Analytics-parametrar som stöds av insta
 
 ## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Installera agenten med DSC i Azure Automation
 
-Du kan använda följande skript för att installera agenten med hjälp av Azure Automation DSC.   Om du inte har ett Automation-konto, se [Kom igång med Azure Automation](../automation/automation-offering-get-started.md) att förstå kraven och steg för att skapa ett Automation-konto som krävs innan du kan använda Automation DSC.  Om du inte är bekant med Automation DSC kan du läsa [komma igång med Automation DSC](../automation/automation-dsc-getting-started.md).
+Du kan använda följande skript för att installera agenten med hjälp av Azure Automation DSC.   Om du inte har ett Automation-konto, se [Kom igång med Azure Automation](/azure/automation/) att förstå kraven och steg för att skapa ett Automation-konto som krävs innan du kan använda Automation DSC.  Om du inte är bekant med Automation DSC kan du läsa [komma igång med Automation DSC](../automation/automation-dsc-getting-started.md).
 
 I följande exempel installeras 64-bitars agent, identifieras av den `URI` värde. Du kan också använda 32-bitars version genom att ersätta URI-värdet. URI: er för båda versionerna är:
 
@@ -109,13 +109,13 @@ I följande exempel installeras 64-bitars agent, identifieras av den `URI` värd
 >[!NOTE]
 >Den här proceduren och skript exempel stöder inte uppgradera agenten redan har distribuerats till en Windows-dator.
 
-32-bitars och 64-bitars versioner av agenten paketet har olika produktkoder och nya versioner är också ha ett unikt värde.  Den här koden är ett GUID som är en huvudnamn identifiering av ett program eller en produkt och representeras av Windows Installer **ProductCode** egenskapen.  Den `ProductId value` i den **MMAgent.ps1** skriptet måste matcha den här koden från 32-bitars eller 64-bitars agent installer-paketet.
+32-bitars och 64-bitars versioner av agenten paketet har olika produktkoder och nya versioner är också ha ett unikt värde.  Den här koden är ett GUID som är en huvudnamn identifiering av ett program eller en produkt och representeras av Windows Installer **ProductCode** egenskapen.  Den `ProductId` värde i den **MMAgent.ps1** skriptet måste matcha den här koden från 32-bitars eller 64-bitars agent installer-paketet.
 
 För att hämta den här koden från installationspaket för agenten direkt, du kan använda Orca.exe från den [Windows SDK-komponenterna för Windows Installer-utvecklare](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) som är en komponent i Windows Software Development Kit eller med hjälp av Följande PowerShell en [exempelskript](http://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) skrivs av en Microsoft Valuable Professional (MVP).  För båda metoder, måste du först extrahera den **MOMagent.msi** filen i MMASetup installationspaket.  Detta visas tidigare i det första steget i avsnittet [installera agenten från kommandoraden](#install-the-agent-using-the-command-line).  
 
 1. Importera xPSDesiredStateConfiguration DSC-modul från [ http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration ](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) till Azure Automation.  
 2.  Skapa Azure Automation variabler för tillgångar för *OPSINSIGHTS_WS_ID* och *OPSINSIGHTS_WS_KEY*. Ange *OPSINSIGHTS_WS_ID* till Log Analytics arbetsyte-ID och set *OPSINSIGHTS_WS_KEY* till den primära nyckeln i din arbetsyta.
-3.  Kopiera skriptet och spara det som MMAgent.ps1
+3.  Kopiera skriptet och spara den som MMAgent.ps1.
 
     ```PowerShell
     Configuration MMAgent
@@ -153,7 +153,8 @@ För att hämta den här koden från installationspaket för agenten direkt, du 
 
     ```
 
-4. [Importera konfigurationsskript MMAgent.ps1](../automation/automation-dsc-getting-started.md#importing-a-configuration-into-azure-automation) i ditt Automation-konto. 
+4. Uppdatera den `ProductId` värdet i skriptet med den här koden som extraheras från den senaste versionen av agenten installera paketet med hjälp av de metoder som rekommenderas tidigare. 
+5. [Importera konfigurationsskript MMAgent.ps1](../automation/automation-dsc-getting-started.md#importing-a-configuration-into-azure-automation) i ditt Automation-konto. 
 5. [Tilldela en Windows-dator eller en nod](../automation/automation-dsc-getting-started.md#onboarding-an-azure-vm-for-management-with-azure-automation-state-configuration) i konfigurationen. Noden kontrollerar dess konfiguration inom 15 minuter och agenten skickas till noden.
 
 ## <a name="verify-agent-connectivity-to-log-analytics"></a>Verifiera agentanslutning till Log Analytics

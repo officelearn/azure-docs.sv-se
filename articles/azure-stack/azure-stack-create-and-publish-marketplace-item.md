@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 10/03/2018
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: 40ecb474b4faa4031cb364dfc1151c6fe6f09dd6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c07e1282a755962b6fe6bc980207a510bd3287a4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856462"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253779"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Skapa och publicera ett Marketplace-objekt
 
 *Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
 ## <a name="create-a-marketplace-item"></a>Skapa ett Marketplace-objekt
-1. [Ladda ned](http://www.aka.ms/azurestackmarketplaceitem) verktyget Azure-galleriet Packager och exemplet Azure Stack Marketplace-objekt.
+1. [Ladda ned](https://www.aka.ms/azurestackmarketplaceitem) verktyget Azure-galleriet Packager och exemplet Azure Stack Marketplace-objekt.
 2. Öppna exemplet Marketplace-objekt och Byt namn på den **SimpleVMTemplate** mapp. (Använd samma namn som din Marketplace-objekt – till exempel **Contoso.TodoList**.) Den här mappen innehåller:
    
    ```shell

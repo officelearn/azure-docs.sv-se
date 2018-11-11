@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 6d4f7fab0c36095d96cec0038a39744102e8972b
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 535f70658593ff5a9ae1642ae7a97646e3fefb63
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433760"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288262"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Nätverksöverväganden för App Service Environment #
 
@@ -33,7 +33,7 @@ Det finns två versioner av App Service Environment: ASEv1 och ASEv2. Informatio
 
 Alla anrop från en ASE som går till internet lämna det virtuella nätverket via en VIP för ASE. Offentliga IP-Adressen för den här VIP är IP-källan för alla anrop från ase: N som går till internet. Om appar i din ASE göra anrop till resurser i ditt virtuella nätverk eller i en VPN-anslutning, är en av IP-adresser i undernätet som används av din ASE käll-IP. Eftersom ASE är inom det virtuella nätverket, kan det också komma åt resurser i det virtuella nätverket utan någon ytterligare konfiguration. Om det virtuella nätverket är anslutet till ditt lokala nätverk, appar i din ASE även att ha åtkomst till resurser det utan ytterligare konfiguration.
 
-![Extern ASE][1] 
+![Extern ASE][1] 
 
 Om du har en extern ASE är också det offentliga VIP slutpunkten att dina appar i ASE matcha för:
 
@@ -52,7 +52,7 @@ Om du har en ILB ASE är adressen för den interna Belastningsutjämnaren slutpu
 |----------|---------|-------------|
 |  HTTP/HTTPS  | Konfigureras av användaren |  80, 443 |
 |  FTP/FTPS    | Konfigureras av användaren |  21, 990, 10001-10020 |
-|  Visual Studio fjärrfelsökning  |  Konfigureras av användaren |  4016, 4018, 4020, 4022 |
+|  Visual Studio fjärrfelsökning  |  Konfigureras av användaren |  4020, 4022, 4024 |
 
 Detta gäller om du är på en extern ASE eller på en ILB ASE. Om du använder en extern ASE kan kommer du till dessa portar på det offentliga VIP. Om du är på en ILB ASE, kommer du till dessa portar på den interna Belastningsutjämnaren. Om du låsa port 443, kan det finnas en effekt på vissa funktioner som exponeras i portalen. Mer information finns i [Portal beroenden](#portaldep).
 
@@ -170,7 +170,7 @@ De första två inkommande kraven för ASE ska fungera visas överst i listan i 
 
 En standardregel kan IP-adresser i det virtuella nätverket kan kommunicera med ASE-undernät. En annan standardregel som gör det möjligt för belastningsutjämnaren, även känt som det offentliga VIP, att kommunicera med ASE. Om du vill se standardreglerna **standardregler** bredvid den **Lägg till** ikon. Om du placerar en neka allt annat regel när NSG-regler visas måste du förhindra att trafik mellan VIP och ASE. Lägga till egna regel som tillåter inkommande för att förhindra att trafik som kommer från i det virtuella nätverket. Använda en källa som är lika med AzureLoadBalancer med valfri målplats **alla** och ett portintervall för **\***. Eftersom NSG-regel används på ASE-undernät, behöver du inte vara specifikt i målet.
 
-Om du har tilldelat en IP-adress till din app, kontrollera att du behåller portarna öppna. Om du vill se portarna som **App Service Environment** > **IP-adresser**.  
+Om du har tilldelat en IP-adress till din app, kontrollera att du behåller portarna öppna. Om du vill se portarna som **App Service Environment** > **IP-adresser**.  
 
 Alla objekt som visas i följande regler för utgående behövs, förutom det sista objektet. De gör att nätverksåtkomsten till ASE-beroenden som noterades tidigare i den här artikeln. Om du blockerar någon av dem kan slutar din ASE fungera. Det sista objektet i listan kan din ASE att kommunicera med andra resurser i ditt virtuella nätverk.
 

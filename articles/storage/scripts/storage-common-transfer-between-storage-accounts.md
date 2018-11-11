@@ -13,24 +13,24 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/01/2018
 ms.author: rogarana
-ms.openlocfilehash: 970315c5d597d691454f9dea0a76f2c0dc4a40ec
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 58e2275398216f29764d54d1a230959e86eda0b6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "29360725"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253269"
 ---
 # <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>Migrera blobar över lagringskonton med hjälp av AzCopy på Windows
 
 Det här exemplet kopierar alla blob-objekt från ett lagringskonto som användaren tillhandahåller till ett mållagringskonto som användaren tillhandahåller. 
 
-Detta görs genom att använda `Get-AzureStorageContainer`-kommandot, som visar alla behållare i ett lagringskonto. Exemplet skickar sedan AzCopy-kommandon som kopierar varje behållare från källans lagringskonto till målets lagringskonto. Om något fel uppstår försöker exemplet igen $retryTimes (standard är 3 och kan ändras med `-RetryTimes`-parametern). Om ett fel uppstår vid varje nytt försök kan användaren köra skriptet igen genom att ange exemplet med den behållare som senast kunde kopieras med hjälp av `-LastSuccessContainerName`-parametern. Exemplet fortsätter sedan kopiera behållare från den punkten.
+Detta görs genom att använda `Get-AzureStorageContainer`-kommandot, som visar alla containrar i ett lagringskonto. Exemplet skickar sedan AzCopy-kommandon som kopierar varje container från källans lagringskonto till målets lagringskonto. Om något fel uppstår försöker exemplet igen $retryTimes (standard är 3 och kan ändras med `-RetryTimes`-parametern). Om ett fel uppstår vid varje nytt försök kan användaren köra skriptet igen genom att ange exemplet med den container som senast kunde kopieras med hjälp av `-LastSuccessContainerName`-parametern. Exemplet fortsätter sedan kopiera containrar från den punkten.
 
 Det här exemplet kräver Azure PowerShell Storage-modul version **4.0.2** eller senare. Du kan kontrollera den installerade versionen med hjälp av `Get-Module -ListAvailable Azure.storage`. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-Det här exemplet kräver även den senaste versionen av [AzCopy på Windows](http://aka.ms/downloadazcopy). Standardkatalogen för installation är `C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\`.
+Det här exemplet kräver även den senaste versionen av [AzCopy på Windows](https://aka.ms/downloadazcopy). Standardkatalogen för installation är `C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\`.
 
 Det här exemplet använder källans lagringskontonamn och nyckel, målets lagringskontonamnet och nyckel och den fullständiga filsökvägen för AzCopy.exe (om det inte är installerat i standardkatalogen).
 
@@ -54,7 +54,7 @@ DestStorageAccountKey: ExampleTargetStorageAccountKey
 AzCopyPath: C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\AzCopy.exe
 ```
 
-Om ett fel uppstod och exemplet måste köras igen från en viss behållare: 
+Om ett fel uppstod och exemplet måste köras igen från en viss container: 
 
 `.\copyScript.ps1 -LastSuccessContainerName myContainerName`
 
@@ -68,7 +68,7 @@ Det här skriptet använder följande kommandon för att kopiera data från ett 
 
 | Kommando | Anteckningar |
 |---|---|
-| [Get-AzureStorageContainer](/powershell/module/azure.storage/Get-AzureStorageContainer) | Returnerar de behållare som är kopplade till det här lagringskontot. |
+| [Get-AzureStorageContainer](/powershell/module/azure.storage/Get-AzureStorageContainer) | Returnerar de containrar som är kopplade till det här lagringskontot. |
 | [New-AzureStorageContext](/powershell/module/azure.storage/New-AzureStorageContext) | Skapar en Azure Storage-kontext. |
 
 ## <a name="next-steps"></a>Nästa steg

@@ -3,18 +3,18 @@ title: Programmeringsguide för SCP.NET för Storm i Azure HDInsight
 description: Lär dig hur du använder SCP.NET för att skapa. NET-baserade Storm-topologier för användning med Storm som körs i Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: fb7a8ed81794e3a5c1a772fd242f5ef85a800365
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: e6025ba2645c284cca87483b48b2d79a9558d574
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959213"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012538"
 ---
 # <a name="scp-programming-guide"></a>Programmeringsguide för SCP
 SCP är en plattform för att skapa realtid, tillförlitliga och konsekventa, och bearbetning av högpresterande program. Det är byggt ovanpå [Apache Storm](http://storm.incubator.apache.org/) – ett system som utformats av OSS-communities för strömbearbetning. Storm är utformad av Nathan Marz och har öppen källkod med Twitter. Den använder [Apache ZooKeeper](http://zookeeper.apache.org/), en annan Apache-projektet för att möjliggöra tillförlitliga distribuerade samordning och tillstånd. 

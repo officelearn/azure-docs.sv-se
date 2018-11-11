@@ -1,134 +1,84 @@
 ---
-title: Programregistrering i Azure Active Directory B2C | Microsoft Docs
-description: Registrera ditt program med Azure Active Directory B2C
+title: Registrera ett program i Azure Active Directory B2C | Microsoft Docs
+description: Lär dig mer om att registrera ditt program med Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 6/13/2017
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4f8a5b1ceda77ef254ad0c2afb7d2316581d778e
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 8068c4a8f38cd33a1a0547f5db5079bc75c76ec1
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376404"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013419"
 ---
-# <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: Registrera ditt program
+# <a name="register-an-application-in-azure-active-directory-b2c"></a>Registrera ett program i Azure Active Directory B2C
 
-Med hjälp av den här snabbstarten registrerar du ett program i en Microsoft Azure Active Directory (Azure AD) B2C-klientorganisation på några få minuter. När du är färdig är programmet klart att användas i Azure AD B2C-klientorganisationen.
+Skapa en [program](active-directory-b2c-apps.md) som accepterar konsument registrering och inloggning, måste du först registrera programmet med en Azure AD B2C-klient. Den här artikeln hjälper dig att registrera ett program i en Azure Active Directory (Azure AD) B2C-klient på några få minuter. När du är färdig är programmet klart att användas i Azure AD B2C-klientorganisationen.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill skapa ett program som accepterar registrering och inloggning av konsumenter måste du först registrera programmet med en Azure Active Directory B2C-klient. Skaffa en egen klient genom att följa stegen i [Skapa en Azure AD B2C-klient](active-directory-b2c-get-started.md).
+Skaffa en egen klient med hjälp av stegen i [skapa en Azure Active Directory B2C-klient](tutorial-create-tenant.md).
 
-Program som har skapats i Azure-portalen måste hanteras från samma plats. Om du redigerar Azure AD B2C-program med hjälp av PowerShell eller någon annan portal, stöds de inte och fungerar inte med Azure AD B2C. Mer information finns i avsnittet [felaktiga appar](#faulted-apps). 
+Välj nästa steg baserat på din programtyp:
 
-Informationen i den här artikeln hjälper dig att komma igång med våra exempel. Du lär dig mer om dessa exempel i efterföljande artiklar.
+- [Registrera ett webbprogram](#register-a-web-application)
+- [Registrera ett webb-API](#register-a-web-api)
+- [Registrera ett mobilt eller inbyggt program](#register-a-mobile-or-native-application)
 
-## <a name="navigate-to-b2c-settings"></a>Gå till B2C-inställningar
+## <a name="register-a-web-application"></a>Registrera ett webbprogram
 
-Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för B2C-klientorganisationen. 
+1. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
+2. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
+3. Välj **program**, och välj sedan **Lägg till**.
+4. Ange ett namn för programmet. Till exempel *testapp1*.
+5. För **ta med webbapp / webb-API** och **Tillåt implicit flöde**väljer **Ja**.
+6. För **svars-URL**, ange slutpunkt där Azure AD B2C ska returnera de token som appen begär. Du kan till exempel ange den för att lyssna lokalt på `https://localhost:44316`. Om du inte ännu vet portnumret, kan du ange ett platshållarvärde och ändra den senare.
+7. Klicka på **Skapa**.
 
-[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
+### <a name="create-a-client-secret"></a>Skapa en klienthemlighet
 
-[!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](../../includes/active-directory-b2c-portal-navigate-b2c-service.md)]
+Om programmet anropar ett webb-API som skyddas av Azure AD B2C, måste du skapa en programhemlighet.
 
-## <a name="choose-next-steps-based-on-your-application-type"></a>Välj nästa steg beroende på din programtyp
+1. Välj **nycklar** och klicka sedan på **skapa nycklar**. 
+2. Välj **spara** att visa nyckeln. Anteckna **appnyckel**-värdet. Du använder värdet som programhemlighet i programkoden.
+3. Välj **API-åtkomst**, klickar du på **Lägg till**, och välj webb-API och scope (behörigheter).
 
-* [Registrera ett webbprogram](#register-a-web-app)
-* [Registrera ett webb-API](#register-a-web-api)
-* [Registrera ett mobilt eller inbyggt program](#register-a-mobile-or-native-app)
- 
-### <a name="register-a-web-app"></a>Registrera en webbapp
+## <a name="register-a-web-api"></a>Registrera ett webb-API
 
-[!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
+1. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
+2. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
+3. Välj **program**, och välj sedan **Lägg till**.
+4. Ange ett namn för programmet. Till exempel *testapp2*.
+5. För **ta med webbapp / webb-API** och **Tillåt implicit flöde**väljer **Ja**.
+6. För **svars-URL**, ange slutpunkt där Azure AD B2C ska returnera de token som appen begär. Du kan till exempel ange den för att lyssna lokalt på `https://localhost:44316`. Om du inte ännu vet portnumret, kan du ange ett platshållarvärde och ändra den senare.
+7. För **Appidentitets-URI**, ange identifieraren som används för ditt webb-API. Den fullständiga URI-identifieraren inklusive domänen skapas åt dig. Till exempel `https://contosotenant.onmicrosoft.com/api`.
+8. Klicka på **Skapa**.
+9. Välj **publicerade områden** att lägga till fler omfång efter behov. Som standard den `user_impersonation` omfång definieras. Den `user_impersonation` omfång ger andra program möjlighet att komma åt den här API: et för den inloggade användaren räkning. Om du vill kan den `user_impersonation` omfång kan tas bort.
 
-### <a name="create-a-web-app-client-secret"></a>Skapa en klienthemlighet för webbappar
+## <a name="register-a-mobile-or-native-application"></a>Registrera ett mobilt eller inbyggt program
 
-Gör så här om webbprogrammet anropar ett webb-API som skyddas av Azure AD B2C:
-   1. Skapa en programhemlighet genom att gå till bladet **Nycklar** och klicka på **Generera nyckel**. Anteckna **appnyckel**-värdet. Du använder värdet som programhemlighet i programkoden.
-   2. Klicka på **API-åtkomst**, **Lägg till** och välj webb-API och områden (behörigheter).
+1. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
+2. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
+3. Välj **program**, och välj sedan **Lägg till**.
+4. Ange ett namn för programmet. Till exempel *testapp3*.
+5. För **ta med webbapp / webb-API**väljer **nr**.
+6. För **ta med intern klient**väljer **Ja**.
+7. För **omdirigerings-URI**, ange en [omdirigerings-URI med ett anpassat schema](active-directory-b2c-apps.md). Kontrollera att du väljer en bra omdirigerings-URI och inte innehåller specialtecken, till exempel understreck.
+8. Klicka på **Skapa**.
 
-> [!NOTE]
-> En **programhemlighet** är en viktig autentiseringsuppgift och bör skyddas på lämpligt sätt.
-> 
+### <a name="create-a-client-secret"></a>Skapa en klienthemlighet
 
-[Gå vidare till **nästa steg**](#next-steps)
+Om programmet anropar ett webb-API som skyddas av Azure AD B2C, måste du skapa en programhemlighet.
 
-### <a name="register-a-web-api"></a>Registrera ett webb-API
-
-[!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
-
-Klicka på **Publicerade områden** om du behöver lägga till fler områden. Som standard definieras området ”user_impersonation”. Området user_impersonation ger andra program möjlighet att komma åt det här API:et för den inloggade användarens räkning. Om du vill kan området user_impersonation tas bort.
-
-[Gå vidare till **nästa steg**](#next-steps)
-
-### <a name="register-a-mobile-or-native-app"></a>Registrera en mobil eller inbyggd app
-
-[!INCLUDE [active-directory-b2c-register-mobile-native-app](../../includes/active-directory-b2c-register-mobile-native-app.md)]
-
-[Gå vidare till **nästa steg**](#next-steps)
-
-## <a name="limitations"></a>Begränsningar
-
-### <a name="choosing-a-web-app-or-api-reply-url"></a>Om du väljer en webbapp eller en api-svarswebbadress
-
-Appar som har registrerats med Azure AD B2C är för närvarande begränsade till en begränsad uppsättning svars-URL-värden. Svars-URL för webbprogram och tjänster måste börja med schemat `https` och alla svars-URL-värden måste dela en enda DNS-domän. Exempelvis kan du registrera ett webbprogram som har en av dessa svars-URL: er:
-
-`https://login-east.contoso.com`
-
-`https://login-west.contoso.com`
-
-Registreringssystemet jämför hela DNS-namnet på den befintliga svars-URL:en med DNS-namnet på den svars-URL som du lägger till. Begäran om att lägga till DNS-namnet misslyckas om något av följande villkor föreligger:
-
-* Hela DNS-namnet på den nya svars-URL:en motsvarar inte DNS-namnet på den befintliga svars-URL:en.
-* Hela DNS-namnet på den nya svars-URL:en är inte en underdomän till den befintliga svars-URL:en.
-
-Till exempel om appen har svars-URL:
-
-`https://login.contoso.com`
-
-Du kan lägga till data så här:
-
-`https://login.contoso.com/new`
-
-I det här fallet matchar DNS-namnet exakt. Du kan också göra detta:
-
-`https://new.login.contoso.com`
-
-I så fall måste du referera till DNS-underdomänen login.contoso.com. Om du vill ha en app som har login-east.contoso.com och login-west.contoso.com som svars-URL: er måste du lägga till dessa svars-URL: er i den här ordningen:
-
-`https://contoso.com`
-
-`https://login-east.contoso.com`
-
-`https://login-west.contoso.com`
-
-Du kan lägga till två senare eftersom de är underdomäner i den första reply-URL:en, contoso.com.
-
-### <a name="choosing-a-native-app-redirect-uri"></a>Om du väljer en omdirigerings-URI för en inbyggd app
-
-Det finns två viktiga överväganden när du väljer en omdirigerings-URI för mobila/interna program:
-
-* **Unik**: Schemat för omdirigerings-URI måste vara unikt för varje program. I exemplet (com.onmicrosoft.contoso.appname://redirect/path), är com.onmicrosoft.contoso.appname schemat. Vi rekommenderar att detta mönster följs. Om två program delar samma schema visas en dialogruta för att ”välja app”. Inloggningen misslyckas om användaren gör ett felaktigt val.
-* **Fullständig**: Omdirigerings-URI måste ha ett schema och en sökväg. Sökvägen måste innehålla minst ett snedstreck efter domänen (till exempel fungerar //contoso/ medan //contoso misslyckas).
-
-Se till att det inte finns några specialtecken som understreck i omdirigerings-uri.
-
-### <a name="faulted-apps"></a>Felaktig appar
-
-B2C program bör INTE redigeras:
-
-* På andra programhanteringsportaler, som [Programregistreringsportalen](https://apps.dev.microsoft.com/).
-* Med Graph API eller PowerShell
-
-Om du redigerar Azure AD B2C-programmet enligt beskrivning och försöker att redigera det i Azure AD B2C-funktionerna på Azure Portal, blir det en felaktig app och programmet kommer inte längre att kunna användas med Azure AD B2C. Du måste ta bort programmet och skapa det igen.
-
-Ta bort appen genom att gå till den [Appregistreringsportalen](https://apps.dev.microsoft.com/) och ta bort det appen. Du måste vara ägare till appen (och inte bara en administratör för klienten) för att appen ska vara synlig.
+1. Välj **nycklar** och klicka sedan på **skapa nycklar**. 
+2. Välj **spara** att visa nyckeln. Anteckna **appnyckel**-värdet. Du använder värdet som programhemlighet i programkoden.
+3. Välj **API-åtkomst**, klickar du på **Lägg till**, och välj webb-API och scope (behörigheter).
 
 ## <a name="next-steps"></a>Nästa steg
 

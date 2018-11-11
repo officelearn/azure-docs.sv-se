@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/07/2017
 ms.author: alkohli
-ms.openlocfilehash: 3fb246b1515e7a637e6cff6499bf324c3f80dd45
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cd3fdec0e50d64af28306034e6e1086e67526b7d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232197"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251061"
 ---
 # <a name="install-update-04-on-your-storsimple-virtual-array"></a>Installera uppdatering 0.4 på StorSimple Virtual Array
 
@@ -29,7 +29,7 @@ Den här artikeln beskriver de steg som krävs för att installera uppdatering 0
 
 Tänk på att installera en uppdatering eller snabbkorrigering startar om enheten. Med hänsyn till att StorSimple Virtual Array är en enskild nod-enhet, alla i/o pågår avbryts och din enhet upplever driftstopp. 
 
-Innan du installerar en uppdatering, rekommenderar vi att du vidtar volymer eller resurser offline på värden första och sedan enheten. Detta minskar risk att data skadas.
+Innan du installerar en uppdatering, rekommenderar vi att du vidtar volymer eller resurser offline på värden första och sedan enheten. Detta minskar risken för skadade data.
 
 > [!IMPORTANT]
 > Om du kör uppdatering 0.1 eller GA programvaruversioner, måste du använda metoden snabbkorrigering via det lokala webbgränssnittet för att installera uppdatering 0.3. Om du kör uppdatering 0.2 eller senare, rekommenderar vi att installerar du uppdateringar via Azure portal.
@@ -48,7 +48,7 @@ Utför följande steg för att hämta programuppdateringen från Microsoft Updat
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Ladda ned uppdateringen eller snabbkorrigeringen
 
-1. Starta Internet Explorer och navigera till [ http://catalog.update.microsoft.com ](http://catalog.update.microsoft.com).
+1. Starta Internet Explorer och navigera till [ http://catalog.update.microsoft.com ](https://catalog.update.microsoft.com).
 
 2. Om det här är första gången du använder Microsoft Update Catalog på den här datorn klickar du på **Installera** när du uppmanas att installera tillägget för Microsoft Update Catalog.
 
@@ -78,7 +78,7 @@ Använd den här metoden för att installera uppdateringar på en enhet som kör
    
     ![uppdatera enhet](./media/storsimple-virtual-array-install-update/update1m.png)
 
-2. I **uppdatering filsökväg**, ange filnamnet för uppdateringen eller snabbkorrigeringen. Du kan också bläddra till installationsfilen för uppdateringen eller snabbkorrigeringen om placeras på en nätverksresurs. Klicka på **Använd**.
+2. I **uppdatering filsökväg**, ange filnamnet för uppdateringen eller snabbkorrigeringen. Du kan också bläddra till installationsfilen för uppdateringen eller snabbkorrigeringen om placeras på en nätverksresurs. Klicka på **Verkställ**.
    
     ![uppdatera enhet](./media/storsimple-virtual-array-install-update/update2m.png)
 

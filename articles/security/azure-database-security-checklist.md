@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: f6e8ed1725b7ba2a0cba8523ae03c0306337aba0
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: db976fb61c5659fbdcb7ba30aa4f619d52d441c4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402515"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252402"
 ---
 # <a name="azure-database-security-checklist"></a>Checklista för Azure database-säkerhet
 
@@ -34,7 +34,7 @@ Exempel på dessa är:
 -   Använda access management
 -   Datakryptering
 -   Granskning av SQL Database
--   Hotidentifieringen i SQL Database
+-   SQL Database hotidentifiering
 
 ## <a name="introduction"></a>Introduktion
 Molnbaserad databehandling kräver ny security paradigm som är okända för många programanvändare, databasadministratörer och programmerare. Vissa organisationer är därför tveksamma att implementera en molninfrastruktur för hantering av på grund av upplevd säkerhetsrisker. Mycket av det här problemet kan dock lindras genom en bättre förståelse för säkerhetsfunktioner som är inbyggda i Microsoft Azure och Microsoft Azure SQL Database.
@@ -47,7 +47,7 @@ Vi rekommenderar att du läser den [säkerhetsmetoder för Azure Database](https
 | ------------ | -------- |
 |**Skydda Data**||
 | <br> Kryptering under överföring/överföring| <ul><li>[Transport Layer Security](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), för kryptering av data när data flyttas till nätverk.</li><li>Databasen kräver säker kommunikation från klienter baserat på den [TDS (Tabular Data Stream)](https://msdn.microsoft.com/library/dd357628.aspx) protokollet via TLS (Transport Layer Security).</li></ul> |
-|<br>Vilande kryptering| <ul><li>[Transparent datakryptering](http://go.microsoft.com/fwlink/?LinkId=526242)när inaktiva data lagras fysiskt i någon digital form.</li></ul>|
+|<br>Vilande kryptering| <ul><li>[Transparent datakryptering](https://go.microsoft.com/fwlink/?LinkId=526242)när inaktiva data lagras fysiskt i någon digital form.</li></ul>|
 |**Kontrollera åtkomst**||  
 |<br> Åtkomst till databasen | <ul><li>[Autentisering](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) (Azure Active Directory-autentisering) AD-autentisering använder identiteter som hanteras av Azure Active Directory.</li><li>[Auktorisering](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) och ge användare så få behörigheter som krävs.</li></ul> |
 |<br>Programåtkomst| <ul><li>[Rad säkerhet på](https://msdn.microsoft.com/library/dn765131) (med hjälp av säkerhetsprinciper, samtidigt som begränsar på radnivå åtkomst baserat på en användares identitet, roll eller körning kontext).</li><li>[Dynamisk Datamaskning](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) (med hjälp av behörighet och principen begränsar exponering av känsliga data genom att maskera den för icke-privilegierade användare)</li></ul>|

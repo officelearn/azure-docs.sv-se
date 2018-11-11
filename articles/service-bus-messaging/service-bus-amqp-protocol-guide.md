@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 75c6b5c34559ad17f662c895352bff5a58da00d4
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b3c652baa515035fc91d2a5f7f962685b673a25e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395856"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013334"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 i Azure Service Bus och Event Hubs-protokollguide
 
@@ -225,7 +225,7 @@ Egenskaper som programmet behöver definierar bör mappas till AMQP'S `applicati
 | meddelande-id |Programdefinierade, fri form identifierare för det här meddelandet. Används för identifiering av dubbletter. |[Meddelande-ID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) |
 | användar-id |Programdefinierade användar-ID, tolkas inte av Service Bus. |Är inte tillgängliga via Service Bus-API. |
 | till |Programdefinierade mål-ID, tolkas inte av Service Bus. |[Till](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
-| Ämne |Programdefinierade syfte meddelandeidentifieraren, tolkas inte av Service Bus. |[Etikett](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
+| ämne |Programdefinierade syfte meddelandeidentifieraren, tolkas inte av Service Bus. |[Etikett](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
 | Svara till |Programdefinierade svars-path indikator, tolkas inte av Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
 | Korrelations-id |Programdefinierade Korrelations-ID, tolkas inte av Service Bus. |[Korrelations-ID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
 | innehållstyp |Programdefinierade innehållstyp indikator för brödtexten, tolkas inte av Service Bus. |[contentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
@@ -391,7 +391,7 @@ Mekanismen för anonym måste därför stödjas av valda AMQP 1.0-klienten. Anon
 
 När anslutningen och sessionen har upprättats kan du koppla länkar till den *$cbs* nod och skicka den *put-token* begär är den enda tillåtna åtgärder. En giltig token måste anges med en *put-token* begäran för en eller flera noder för entiteten i 20 sekunder när anslutningen har upprättats, annars anslutningen ensidigt ignoreras av Service Bus.
 
-Klienten är skyldig att betala för att hålla reda på token upphör att gälla. När en token upphör att gälla, utelämnar Service Bus omedelbart alla länkar på anslutningen till respektive entiteten. Om du vill förhindra att problemet uppstår, kan klienten ersätta token för noden med ett nytt lösenord när som helst via den virtuella *$cbs* hanteringsnod med samma *put-token* rörelser och utan får i den sätt att nyttolasten trafik som flöden på olika länkar.
+Klienten är skyldig att betala för att hålla reda på token upphör att gälla. När en token upphör att gälla, utelämnar Service Bus omedelbart alla länkar på anslutningen till respektive entiteten. För att förhindra problem inträffar, kan klienten ersätta token för noden med ett nytt lösenord när som helst via den virtuella *$cbs* hanteringsnod med samma *put-token* rörelser och utan får i den sätt att nyttolasten trafik som flöden på olika länkar.
 
 ### <a name="send-via-functionality"></a>Skicka via funktioner
 

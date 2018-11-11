@@ -16,22 +16,22 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: b01cd43d1c38a9db50937a6cff9b416b8c6acd0e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 942151c0ce2a3a79dbdce9b90adea721456f920f
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946484"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288483"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Ramverket för medgivande för Azure Active Directory
 
 Ramverket för medgivande Azure Active Directory (AD Azure) gör det enkelt att utveckla webbprogram för flera klienter och interna klientprogram. Dessa program kan logga in genom att användarkonton från en Azure AD-klient som skiljer sig från den där programmet har registrerats. De kan också behöva åtkomst till webb-API: er som Microsoft Graph API (för att få åtkomst till Azure AD, Intune och tjänster i Office 365) och andra Microsoft-tjänster API: er, förutom ditt eget webb-API: er.
 
-Ramverket är baserad på en användare eller administratör ge ditt medgivande till ett program som frågar registreras i sin katalog, som kan ge åtkomst till katalogdata. Om ett webb-klientprogram behöver läsa kalenderinformation om användaren från Office 365, är till exempel att användaren måste godkänna klientprogrammet först. När tillstånd ges kommer klientprogrammet att kunna anropa Microsoft Graph API för användarens räkning och använda kalenderinformationen vid behov. Den [Microsoft Graph API](https://graph.microsoft.io) ger åtkomst till data i Office 365 (till exempel kalendrar och meddelanden från Exchange, platser och listor från SharePoint, dokument från OneDrive, från OneNote-anteckningsböcker, aktiviteter från Planner och arbetsböcker från Excel-), samt användare och grupper från Azure AD och andra dataobjekt från flera Microsoft-molntjänster.
+Ramverket är baserad på en användare eller administratör ge ditt medgivande till ett program som frågar registreras i sin katalog, som kan ge åtkomst till katalogdata. Om ett webb-klientprogram behöver läsa kalenderinformation om användaren från Office 365, är till exempel att användaren måste godkänna klientprogrammet först. När tillstånd ges kommer klientprogrammet att kunna anropa Microsoft Graph API för användarens räkning och använda kalenderinformationen vid behov. Den [Microsoft Graph API](https://developer.microsoft.com/graph) ger åtkomst till data i Office 365 (till exempel kalendrar och meddelanden från Exchange, platser och listor från SharePoint, dokument från OneDrive, från OneNote-anteckningsböcker, aktiviteter från Planner och arbetsböcker från Excel-), samt användare och grupper från Azure AD och andra dataobjekt från flera Microsoft-molntjänster.
 
 Ramverket för medgivande bygger på OAuth 2.0 och dess olika flöden, t.ex. bevilja kod stipendium och klientens autentiseringsuppgifter, med hjälp av offentliga eller konfidentiella klienter. Med hjälp av OAuth 2.0, går Azure AD det att skapa många olika typer av program – till exempel på en telefon, surfplatta, server eller ett webbprogram – och få åtkomst till resurserna som krävs.
 
-Mer information om hur du använder ramverket för medgivande med OAuth2.0 auktoriseringsbeviljanden finns i [bevilja åtkomst till webbprogram med hjälp av OAuth 2.0 och Azure AD](v1-protocols-oauth-code.md) och [autentiseringsscenarier för Azure AD](authentication-scenarios.md). Information om hur du får auktoriserad åtkomst till Office 365 via Microsoft Graph finns i [appautentisering med Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview).
+Mer information om hur du använder ramverket för medgivande med OAuth2.0 auktoriseringsbeviljanden finns i [bevilja åtkomst till webbprogram med hjälp av OAuth 2.0 och Azure AD](v1-protocols-oauth-code.md) och [autentiseringsscenarier för Azure AD](authentication-scenarios.md). Information om hur du får auktoriserad åtkomst till Office 365 via Microsoft Graph finns i [appautentisering med Microsoft Graph](https://developer.microsoft.com/graph/docs/authorization/auth_overview).
 
 ## <a name="consent-experience---an-example"></a>Samtycke upplevelsen - exempel
 

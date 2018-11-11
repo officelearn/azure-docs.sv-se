@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 10/30/2018
+ms.date: 11/02/2018
 ms.author: rolyon
-ms.openlocfilehash: 87b08ce138cde5cc70c5a80cc414c68dd7aea743
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 8fddcdbb8aa523cf3a98a8f2b203440ceedbdf06
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249846"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015221"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Användningsvillkorsfunktion för Azure Active Directory
 Användningsvillkoren för Azure AD tillhandahåller en enkel metod som organisationer kan använda för att presentera information för slutanvändare. Den här presentationen gör att användare kan se relevanta ansvarsfriskrivningar för juridiska krav eller efterlevnadskrav. Den här artikeln beskriver hur du kommer igång med användningsvillkoren.
@@ -218,7 +218,7 @@ Principer för villkorlig åtkomst börjar gälla omedelbart. När detta händer
 
 **F: Hur ser jag om/när en användare har godkänt användningsvillkoren?**</br>
 S: på villkoren i Använd bladet, klickar du på numret under **godkända**. Du kan också visa eller söka efter accept-aktiviteten i Azure AD granskningsloggar. Mer information finns i [Visa rapport över vem som har godkänts och nekats](#view-who-has-accepted-and-declined) och [öppna Azure AD-granskningsloggar](#view-azure-ad-audit-logs).
- 
+
 **F: Hur länge lagras informationen?**</br>
 S: användare räknas av villkoren i rapporten för användning och som accepterat/avvisade lagras för resten av användningsvillkoren. Azure AD-granskningen loggar lagras i 30 dagar.
 
@@ -245,12 +245,15 @@ S: Du kan skapa en princip för villkorlig åtkomst för företagsprogram som an
 
 **F: Kan jag lägga till flera användningsvillkor till en viss användare eller app?**</br>
 S: Ja, genom att skapa flera principer för villkorlig åtkomst för dessa grupper eller program. Användare som omfattas av flera användningsvillkor godkänner ett användningsvillkor i taget.
- 
+
 **F: Vad händer om en användare nekar användningsvillkoren?**</br>
 S: Användare blockeras från åtkomst till programmet. Användaren behöver logga in igen och Godkänn villkoren för att få åtkomst.
- 
+
 **F: är det möjligt att unaccept användningsvillkoren som godkändes tidigare?**</br>
 S: du kan [granska tidigare godkända användningsvillkor](#how-users-can-review-their-terms-of-use), men det finns för närvarande inte ett sätt att unaccept.
+
+**F: Vad händer om jag använder också Intune villkoren?**</br>
+S: Om du har konfigurerat båda Azure AD-användningsvillkor och [Intune villkor](/intune/terms-and-conditions-create), användaren uppmanas att godkänna båda. Mer information finns i den [välja rätt villkor lösning för din organisation blogginlägget](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 ## <a name="next-steps"></a>Nästa steg
 

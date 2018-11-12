@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: jeedes
-ms.openlocfilehash: d7a5bf23f2855b43c4a2e4022568028d852c094b
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 0f6e690bc80ae8004fba4faf53c0403b0cb7edd9
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719587"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035344"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Hantera certifikat för federerad enkel inloggning i Azure Active Directory
 Den här artikeln innehåller vanliga frågor och information som rör de certifikat som skapas i Azure Active Directory (Azure AD) för att upprätta federerad enkel inloggning (SSO) till dina SaaS-program. Lägg till program från Azure AD-appgalleri eller genom att använda en mall för icke-galleriprogram. Konfigurera programmet med hjälp av alternativet federerad enkel inloggning.
@@ -76,11 +76,15 @@ Följande steg för förnyelse resulterar i utan betydande driftavbrott för din
 
     ![Generera ett nytt certifikat](./media/manage-certificates-for-federated-single-sign-on/create_new_certficate.png)
 
-2. Välj önskad datum och tid för det nya certifikatet och klicka på **spara**.
+2. Välj önskad datum och tid för det nya certifikatet och klicka på **spara**. Att välja ett datum som överlappar med det befintliga certifikatet säkerställer att driftavbrott på grund av förfallodatum för certifikat är begränsad. 
 
-3. Ladda ned certifikatet i den **SAML-signeringscertifikat** alternativet. Ladda upp det nya certifikatet till SaaS-programmets konfigurationen för enkel inloggning på skärmen. Om du vill veta hur du gör detta för dina visst SaaS-program, klickar du på den **visa självstudierna för konfiguration av programmet** länk.
+3. Om appen kan automatiskt förnyar ett certifikat, anger du det nya certifikatet till aktiv.  Logga in på appen för att kontrollera att den fungerar.
+
+4. Om appen inte automatiskt upphämtning nytt certifikat, men kan hantera mer än ett signeringscertifikat certifikat innan gamla upphör att gälla, ladda upp den nya servern till appen, och sedan gå tillbaka till portalen och blir det aktiva certifikatet. 
+
+5. Om appen kan endast hantera ett certifikat i taget, Välj en driftstörningen, ladda ned det nya certifikatet, överföra den till programmet, gå tillbaka till Azure-portalen och ange det nya certifikatet som aktiv. 
    
-4. Om du vill aktivera det nya certifikatet i Azure AD, Välj den **gör nytt certifikat aktivt** markerar du kryssrutan och klicka på den **spara** längst upp på sidan. Detta samlar via det nya certifikatet på Azure AD-sida. Status för certifikatet ändras från **New** till **Active**. Från den tidpunkten börjar Azure AD med hjälp av det nya certifikatet för signering av svaret. 
+6. Om du vill aktivera det nya certifikatet i Azure AD, Välj den **gör nytt certifikat aktivt** markerar du kryssrutan och klicka på den **spara** längst upp på sidan. Detta samlar via det nya certifikatet på Azure AD-sida. Status för certifikatet ändras från **New** till **Active**. Från den tidpunkten börjar Azure AD med hjälp av det nya certifikatet för signering av svaret. 
    
     ![Generera ett nytt certifikat](./media/manage-certificates-for-federated-single-sign-on/new_certificate_download.png)
 

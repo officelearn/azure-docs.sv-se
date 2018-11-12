@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: a8c7df4ba1cd919a23fc45ee165584cd9a85afed
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: ff560715f9c6aff8f50d3b20db1f3e79f3527113
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211323"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257307"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: vanliga frågor (och svar FAQ)
 Den här artikeln innehåller vanliga frågor och svar om Azure Site Recovery. Om du har frågor när du har läst den här artikeln kan publicera dem på den [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -99,7 +99,7 @@ Ja, [ExpressRoute kan användas för](concepts-expressroute-with-site-recovery.m
 Ditt Azure-konto måste ha vissa [behörigheter](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) att aktivera replikering för en ny virtuell dator till Azure.
 
 ### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>Kan jag replikera virtuella Hyper-V-datorer i generation 2 till Azure?
-Ja. Site Recovery konverterar från generation 2 till generation 1 under redundansväxlingen. Vid återställningen konverteras datorn tillbaka till generation 2. [Läs mer](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
+Ja. Site Recovery konverterar från generation 2 till generation 1 under redundansväxlingen. Vid återställningen konverteras datorn tillbaka till generation 2. [Läs mer](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
 
 ### <a name="if-i-replicate-to-azure-how-do-i-pay-for-azure-vms"></a>Hur betalar jag för virtuella datorer i Azure om jag replikerar till Azure?
 Vid vanlig replikering replikeras data till geo-redundant lagring med Azure och du behöver inte betala några avgifter för Azure IaaS virtuella datorer, vilket ger en stor fördel. När du kör en redundansväxling till Azure skapar Site Recovery automatiskt IaaS-baserade virtuella Azure-datorer. Därefter debiteras du för de beräkningsresurser som du använder i Azure.

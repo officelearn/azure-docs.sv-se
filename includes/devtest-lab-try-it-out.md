@@ -3,5 +3,5 @@ Ny Azure-användare? [Skapa ett kostnadsfritt Azure-konto](https://azure.microso
 
 Har redan Azure? Kom igång med din första labb i DevTest Labs.
 
-[![Kom igång med Azure DevTest Labs på några få minuter](./media/devtest-lab-try-it-out/get-started.png)](http://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
+[![Kom igång med Azure DevTest Labs på några få minuter](./media/devtest-lab-try-it-out/get-started.png)](https://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
 

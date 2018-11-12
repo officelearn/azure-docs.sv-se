@@ -9,12 +9,12 @@ ms.date: 06/25/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: b32af29a123ce4d070e1bb68b5a43ba6d0d2c5e1
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: f80f61cbfc1f7b719e73d7d29c6948bebe84aa6c
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218482"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278318"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Vanliga frågor och svar om Service Fabric-nät
 Azure Service Fabric Mesh är en fullständigt hanterad tjänst som gör att utvecklare kan distribuera mikrotjänstprogram utan att hantera virtuella datorer, lagring eller nätverk. Den här artikeln innehåller svar på vanliga frågor.
@@ -44,7 +44,7 @@ Ja, kvoter för varje prenumeration är inställda på följande sätt:
 
 **Hur länge kan jag lämna mitt program som distribueras för?**
 
-Vi har för närvarande begränsad livslängd för ett program till två dagar. Det här är för att maximera användningen av de lediga kärnor som allokerats till förhandsversionen. Därför kan du bara ska tillåtas att köras en viss distribution kontinuerligt i 48 timmar efter det kommer att tas bort av systemet. Om du ser det här exemplet kan du verifiera att systemet Stäng av den genom att köra en `az mesh app show` kommandot i Azure CLI och kontrollera om det returnerar `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
+Vi har för närvarande begränsad livslängd för ett program till två dagar. Det här är för att maximera användningen av de lediga kärnor som allokerats till förhandsversionen. Därför kan du bara ska tillåtas att köras en viss distribution kontinuerligt i 48 timmar efter det kommer att stänga av systemet. Om du ser det här exemplet kan du verifiera att systemet Stäng av den genom att köra en `az mesh app show` kommandot i Azure CLI och kontrollera om det returnerar `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
 
 Exempel: 
 
@@ -71,6 +71,10 @@ chackdan@Azure:~$ az mesh app show --resource-group myResourceGroup --name hello
   "unhealthyEvaluation": null
 }
 ```
+
+Om du vill fortsätta med distributionen av samma program i nät, bör du ta bort resursgruppen som är associerade med programmet eller individuellt ta bort programmet och alla relaterade resurser för nät (inklusive nätverket). 
+
+Om du vill ta bort resursgruppen, använda den `az group delete <nameOfResourceGroup>` kommando. 
 
 ## <a name="supported-container-os-images"></a>Stöds behållaravbildningar OS
 Följande behållare OS-avbildningar kan användas när du distribuerar tjänster.

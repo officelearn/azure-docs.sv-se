@@ -12,12 +12,12 @@ services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5ca47c8234239b56a2d829903828dda8220d53cb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e71de2d543c8f29b7195e74d574855bcbe739162
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967616"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260558"
 ---
 # <a name="aerial-image-classification"></a>Klassificering av Flygfoto
 
@@ -154,7 +154,7 @@ Nu kan vi skapa storage-konto att värdar projektfiler som måste kunna nås av 
     az storage share create --account-name %STORAGE_ACCOUNT_NAME% --account-key %STORAGE_ACCOUNT_KEY% --name baitshare
     ```
 1. Läsa in i valfri textredigerare den `settings.cfg` från Azure Machine Learning Workbench-projekt ”Code” underkatalog och infoga lagringskontonamnet och nyckeln som anges. Spara och Stäng den `settings.cfg` filen.
-1. Om du inte redan har gjort det, hämta och installera den [AzCopy](http://aka.ms/downloadazcopy) verktyget. Kontrollera att den AzCopy körbara filen finns på systemsökvägen genom att skriva ”AzCopy” och trycka på RETUR för att visa dess dokumentation.
+1. Om du inte redan har gjort det, hämta och installera den [AzCopy](https://aka.ms/downloadazcopy) verktyget. Kontrollera att den AzCopy körbara filen finns på systemsökvägen genom att skriva ”AzCopy” och trycka på RETUR för att visa dess dokumentation.
 1. Kör följande kommandon för att kopiera alla exempeldata, tränats modeller och modellen utbildningsskript till lämplig plats i ditt storage-konto:
 
     ```
@@ -255,7 +255,7 @@ Batch AI-kluster har åtkomst till dina utbildningsdata på en filserver för n�
 
 Om du vill kan du bekräfta att dataöverföringen har fortsatte som planerat genom att logga in på servern med din favorit SSH-verktyg och kontrollera den `/mnt/data` kataloginnehållet. Du bör hitta två mappar, training_images och validation_images, var och en innehåller med undermapparna som namnges enligt mark använda kategorier.  Uppsättningar för träning och verifiering ska innehålla ~ 44 k och ~ 11 k bilder, respektive.
 
-#### <a name="create-a-batch-ai-cluster"></a>Skapa ett Batch AI-kluster
+#### <a name="create-a-batch-ai-cluster"></a>Skapa ett Azure Batch AI-kluster
 
 1. Skapa klustret genom att följande kommando:
 

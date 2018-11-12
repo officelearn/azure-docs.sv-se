@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 09/04/2018
+ms.date: 10/30/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: 322c398bd6384821697e2b672825cc0805eb43ad
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f965d455b3ada48caabb80458d44e841329cf787
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092906"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229619"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Vad är Azure Data Box Disk? (Förhandsversion)
 
@@ -25,7 +25,7 @@ Du kan snabbt konfigurera, ansluta och låsa upp diskarna via Data Box-tjänsten
 
 > [!IMPORTANT]
 > - Data Box Disk är tillgänglig som en förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du distribuerar den här lösningen. 
-> - Du behöver registrera dig för den här tjänsten. Om du vill registrera dig går du till [Preview-portalen](http://aka.ms/azuredataboxfromdiskdocs).
+> - Du behöver registrera dig för den här tjänsten. Om du vill registrera dig går du till [Preview-portalen](https://aka.ms/azuredataboxfromdiskdocs).
 > - Under förhandsversionen kan Data Box Disk levereras till kunder i USA och EU. Mer information finns i [Regional tillgänglighet](#region-availability).
 
 ## <a name="use-cases"></a>Användningsfall
@@ -112,7 +112,7 @@ Under förhandsversionen kan Data Box Disk överföra data till följande Azure-
 
 ## <a name="pricing"></a>Prissättning
 
-Under förhandsversionen är Data Box Disk tillgängligt kostnadsfritt. Detta ändras när Data Box Disk blir allmänt tillgängligt.
+Mer information om priser finns på [sidan med priser för förhandsversion](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
 
 ## <a name="next-steps"></a>Nästa steg
 

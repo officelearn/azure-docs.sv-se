@@ -1,25 +1,25 @@
 ---
-title: Felsöka och analysera Hadoop-tjänster med heapdumpar - Azure
-description: Automatiskt samla in heapdumpar för Hadoop-tjänster och placera i Azure Blob storage-konto för felsökning och analys.
+title: Felsöka och analysera Apache Hadoop-tjänster med heapdumpar - Azure
+description: Automatiskt samla in heapdumpar för Apache Hadoop-tjänster och placera i Azure Blob storage-konto för felsökning och analys.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 35f7843ebf49e79d9045c72493bb38b218234288
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 2a399899c93addf966d3f2ec0e36d4b1c76b686f
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43099775"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038315"
 ---
-# <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-hadoop-services"></a>Samla in heapdumpar i Blob storage för att felsöka och analysera Hadoop-tjänster
+# <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-apache-hadoop-services"></a>Samla in heapdumpar i Blob storage för att felsöka och analysera Apache Hadoop-tjänster
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
-Heapdumpar innehåller en ögonblicksbild av programmets minne, inklusive värdena för variabler vid tidpunkten dumpen skapades. Så att de är användbara för att diagnostisera problem som uppstår vid körning. Heapdumpar kan samlas in för Hadoop-tjänster och placeras i Azure Blob storage-konto för en användare under HDInsightHeapDumps automatiskt /.
+Heapdumpar innehåller en ögonblicksbild av programmets minne, inklusive värdena för variabler vid tidpunkten dumpen skapades. Så att de är användbara för att diagnostisera problem som uppstår vid körning. Heapdumpar kan samlas in för Apache Hadoop-tjänster och placeras i Azure Blob storage-konto för en användare under HDInsightHeapDumps automatiskt /.
 
 Insamling av heap dumps för olika tjänster måste vara aktiverat för tjänster på enskilda kluster. Standard för den här funktionen är att vara inaktiverat för ett kluster. Dessa heapdumpar kan vara stora, så det är lämpligt att övervaka Blob storage-konto där de sparas när samlingen har aktiverats.
 
@@ -30,11 +30,11 @@ Insamling av heap dumps för olika tjänster måste vara aktiverat för tjänste
 ## <a name="eligible-services-for-heap-dumps"></a>Berättigade tjänster för heapdumpar
 Du kan aktivera heap dumps för följande tjänster:
 
-* **hcatalog** -tempelton
-* **hive** -hiveserver2 och metaarkiv, derbyserver
+* **Apache hcatalog** -tempelton
+* **Apache hive** -hiveserver2 och metaarkiv, derbyserver
 * **mapreduce** -jobhistoryserver
-* **yarn** -resourcemanager nodemanager, timelineserver
-* **hdfs** -datanode secondarynamenode, namenode
+* **Apache yarn** -resourcemanager nodemanager, timelineserver
+* **Apache hdfs** -datanode secondarynamenode, namenode
 
 ## <a name="configuration-elements-that-enable-heap-dumps"></a>Konfigurationselement som aktiverar heap dumps
 Om du vill aktivera heap dumps för en tjänst måste du ange lämplig konfigurationselement i avsnittet för tjänsten, som anges med **service_name**.

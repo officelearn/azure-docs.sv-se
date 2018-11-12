@@ -9,17 +9,17 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 0187bf51d36f16001f0f7f67f4f72f5f3df2e05d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a41ffdb31cb54e1488c0f114632c605b92d4c444
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974144"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255293"
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Bygga mobilappar med Xamarin och Azure Cosmos DB
 
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-dotnet-application.md)
+> * [NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
 > * [Python](sql-api-python-application.md)
@@ -85,7 +85,7 @@ Följ dessa anvisningar om du vill ändra att göra-appen till en app med en att
 
   4. Ändra appen så att den asynkrona meddelandekön för resurstoken autentiseras med Facebook och begär resurstoken för inloggade Facebook-användare. Du kan sedan komma åt deras data i samlingen UserItems.  
 
-Du hittar en fullständig kodsamling för det här mönstret under den [asynkrona meddelandekön för resurstoken på GitHub](http://aka.ms/documentdb-xamarin-todouser). Det här diagrammet visar lösningen:
+Du hittar en fullständig kodsamling för det här mönstret under den [asynkrona meddelandekön för resurstoken på GitHub](https://aka.ms/documentdb-xamarin-todouser). Det här diagrammet visar lösningen:
 
 ![Azure DB Cosmos-användare och asynkron meddelandekö för behörigheter](media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png)
 

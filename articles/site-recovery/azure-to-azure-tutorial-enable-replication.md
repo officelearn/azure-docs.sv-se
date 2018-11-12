@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 63a45aa02eadd0b5739c1624af524883171a7055
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8dc6b7da77988a789de04578d6653b192f58afa8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211204"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261731"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Konfigurera haveriberedskap för virtuella Azure-datorer till en sekundär Azure-region
 
@@ -81,9 +81,9 @@ Om du använder en webbadressbaserad brandväggsproxy för att styra utgående n
 
 Om du vill styra utgående anslutningar med hjälp av IP-adresser istället för URL:er, måste du vitlista lämpliga datacenterintervall, Office 365-adresser och tjänstens slutpunktsadresser för IP-baserade brandväggar, proxy eller NSG-regler.
 
-  - [Microsoft Azure Datacenter IP-intervall](http://www.microsoft.com/en-us/download/details.aspx?id=41653)
-  - [Windows Azure Datacenter IP-intervall i Tyskland](http://www.microsoft.com/en-us/download/details.aspx?id=54770)
-  - [Windows Azure Datacenter IP-intervall i Kina](http://www.microsoft.com/en-us/download/details.aspx?id=42064)
+  - [Microsoft Azure Datacenter IP-intervall](https://www.microsoft.com/en-us/download/details.aspx?id=41653)
+  - [Windows Azure Datacenter IP-intervall i Tyskland](https://www.microsoft.com/en-us/download/details.aspx?id=54770)
+  - [Windows Azure Datacenter IP-intervall i Kina](https://www.microsoft.com/en-us/download/details.aspx?id=42064)
   - [URL:er och IP-adressintervall för Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [IP-adresser för Site Recovery-tjänstens slutpunkter](https://aka.ms/site-recovery-public-ips)
 

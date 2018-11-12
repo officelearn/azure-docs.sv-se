@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: 9778d348cf49d4066f034931dc350a1f4a608ad2
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e2b3545c020f41f25f19843eab158cfb1b419164
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48236592"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253456"
 ---
 # <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>Migrera till den senaste versionen av Azure Machine Learning-tjänsten 
 
@@ -38,7 +38,7 @@ Följande tabell och artikeln förklarar vad du kan göra med dina befintliga ti
 |Registrerade avbildningar|Nej|Skapa Docker-avbildning för distribution under en ny arbetsyta.|
 |Distribuerade webbtjänster|Nej|Ingen. De kommer att fungera som – är <br/>eller [distribuera dem igen med senaste versionen](#services).|
 |Experimentering och <br/>Konton för modellhantering|Nej|[Skapa en arbetsyta](#resources) i stället.|
-|Machine learning-KLI & SDK|Nej|Använd den nya [CLI](reference-azure-machine-learning-cli.md) och [SDK](http://aka.ms/aml-sdk) för nytt arbete.|
+|Machine learning-KLI & SDK|Nej|Använd den nya [CLI](reference-azure-machine-learning-cli.md) och [SDK](https://aka.ms/aml-sdk) för nytt arbete.|
 
 
 Läs mer om [vad som ändrats i den här versionen](overview-what-happened-to-workbench.md)?
@@ -52,7 +52,7 @@ Läs mer om [vad som ändrats i den här versionen](overview-what-happened-to-wo
 
 Resurser, till exempel din experimenteringskonton och konton för modellhantering maskininlärning compute-miljöer inte kan migreras över till den senaste versionen av Azure Machine Learning-tjänsten. Se den [tidslinje](overview-what-happened-to-workbench.md#timeline) på hur länge dina tillgångar fortsätter att fungera.
 
-Kom igång med den senaste versionen genom att skapa en arbetsyta med Azure Machine Learning-tjänsten i den [Azure-portalen](quickstart-get-started.md). Portalens instrumentpanel för arbetsytan stöds i Edge, Chrome och Firefox webbläsare.
+Kom igång med den senaste versionen genom att skapa en arbetsyta med Azure Machine Learning-tjänsten i den [Azure-portalen](quickstart-get-started.md). Portalens instrumentpanel för arbetsytor stöds endast i webbläsarna Edge, Chrome och Firefox.
 
 Den här nya arbetsytan är den huvudtjänst resursen och gör att du kan använda alla de senaste funktionerna i Azure Machine Learning-tjänsten. Mer information om detta [arbetsyta och arkitektur](concept-azure-machine-learning-architecture.md).
 
@@ -62,7 +62,7 @@ Den här nya arbetsytan är den huvudtjänst resursen och gör att du kan använ
 
 Projekt är nu kataloger på den lokala datorn i den senaste versionen i stället för att dina projekt i en arbetsyta i molnet. Visas ett diagram över den [senaste arkitekturen](concept-azure-machine-learning-architecture.md). 
 
-Om du vill använda den lokala katalogen som innehåller filer och skript, ange katalogens namn i den ['experiment.submit'](http://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python-kommandot eller med kommandot az ml projekt bifoga CLI.
+Om du vill använda den lokala katalogen som innehåller filer och skript, ange katalogens namn i den ['experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python-kommandot eller med kommandot az ml projekt bifoga CLI.
 
 Exempel:
 ```python

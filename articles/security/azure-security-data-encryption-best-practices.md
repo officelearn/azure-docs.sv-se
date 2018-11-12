@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: barclayn
-ms.openlocfilehash: 263c04fd15240f365f2325c69d5cb25aa1a539f0
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 86724ca49884f1072297ffcf4fc6498db5ae8ac3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465885"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254646"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Metodtips för datasäkerhet i Azure och kryptering
 För att skydda data i molnet, som du behöver för möjliga tillstånd som kan uppstå i dina data och vilka kontroller som finns för det aktuella tillståndet. Metodtips för datasäkerhet i Azure och kryptering som är relaterade till dessa data tillstånd:
@@ -132,7 +132,7 @@ Vi rekommenderar att du:
 - Använda etiketter som motsvarar dina affärsbehov. Till exempel: tillämpa en etikett med namnet ”konfidentiell” för alla dokument och e-postmeddelanden som innehåller superhemlig data, för att klassificera och skydda dessa data. Endast behöriga användare kan sedan komma åt dessa data med några begränsningar som du anger.
 - Konfigurera [användningsloggning för Azure RMS](https://docs.microsoft.com/azure/information-protection/log-analyze-usage) så att du kan övervaka hur din organisation använder skyddstjänsten.
 
-Organisationer som har svag på [dataklassificering](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) och Filskydd kan vara svårare att data läcker ut eller missbruk av data. Du kan analysera dataflöden för att få insikt i verksamheten, identifiera riskfyllda beteenden och vidta lämpliga åtgärder, spåra åtkomst till dokument och så vidare med rätt Filskydd.
+Organisationer som har svag på [dataklassificering](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) och Filskydd kan vara svårare att data läcker ut eller missbruk av data. Du kan analysera dataflöden för att få insikt i verksamheten, identifiera riskfyllda beteenden och vidta lämpliga åtgärder, spåra åtkomst till dokument och så vidare med rätt Filskydd.
 
 ## <a name="next-steps"></a>Nästa steg
 Se [säkerhet i Azure-metodtips och mönster](security-best-practices-and-patterns.md) för flera beprövade metoder för att använda när du utforma, distribuera och hantera dina molnlösningar med hjälp av Azure.

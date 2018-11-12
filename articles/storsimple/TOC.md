@@ -61,6 +61,7 @@
 
 ## Översikt
 ### [Vad är lösningen?](storsimple-overview.md)
+### [Jämför dataöverföringsalternativ](storsimple-8000-choose-storage-solution.md)
 ### [StorSimple-inlärningskarta](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Säkerhetsöverväganden](storsimple-8000-security.md)
 ### [Regional tillgänglighet](storsimple-regions.md)
@@ -183,7 +184,7 @@
 #### [Från enheter i 5000/7000-serien](storsimple-8000-migration-options.md)
 ##### [Till enheter i StorSimple 8000-serien](storsimple-8000-migrate-from-5000-7000.md)
 ##### [Till Azure File Sync](storsimple-5000-7000-afs-migration.md)
-#### [Från andra lagringsenheter](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
+#### [Från andra lagringsenheter](https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Uppdatering
 #### [Installera Uppdatering 5 – aktuell](storsimple-8000-install-update-5.md)
@@ -206,7 +207,7 @@
 #### [Version – GA](storsimple-july-2014-release-notes.md)
 
 ## Referens
-### [REST API](https://docs.microsoft.com/rest/api/storsimple)
+### [REST-API](https://docs.microsoft.com/rest/api/storsimple)
 ### [Windows PowerShell för StorSimple cmdlets](https://technet.microsoft.com/library/dn688168.aspx)
 
 
@@ -248,8 +249,8 @@
 ## [Prissättning](https://azure.microsoft.com/pricing/details/storsimple/)
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=storsimple)
-## [Supportblogg](http://blogs.msdn.com/b/storsimple/)
-## [Meddelanden från tredje part](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
+## [Supportblogg](https://blogs.msdn.com/b/storsimple/)
+## [Meddelanden från tredje part](https://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 

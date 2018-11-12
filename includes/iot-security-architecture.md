@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 7407bed746f863a5daecfc98d2df89175ff35b5f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: a6564877c05dcd5c611c6bbf7a09c65ac2f1f406
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263985"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51293201"
 ---
-# <a name="internet-of-things-security-architecture"></a>Internet of Things security-arkitektur
+# <a name="internet-of-things-iot-security-architecture"></a>Säkerhetsarkitektur för Internet of Things (IoT)
 
 När du designar ett system, är det viktigt att förstå de potentiella hot på systemet och lägga till lämpliga försvar, eftersom systemet är utformad och byggts. Det är viktigt att utforma produkten från början med säkerhet i åtanke eftersom förstå hur en angripare kan eventuellt att angripa en dator gör att lämpliga åtgärder finns på plats från början.
 
@@ -27,23 +27,23 @@ Målet med hotmodellering är att förstå hur en angripare kan eventuellt att a
 
 Många utvecklingsteam göra ett tydligt sätt samla in funktionskrav för systemet som har nytta av kunder. Identifiera icke-uppenbart sätt att någon kan missbrukas systemet är dock mer utmanande. Hotmodellering kan hjälpa att utvecklingsteam förstå vad en angripare kan göra och varför. Hotmodellering är en strukturerad process som skapar en diskussion om säkerheten designbeslut i systemet, samt ändringar i designen som görs på vägen inverkan säkerheten. En hotmodell är bara ett dokument, representerar den här dokumentationen också ett perfekt sätt att säkerställa kontinuitet kunskap, kvarhållning av lektioner lärt dig och hjälp med att nya team snabbt komma igång. Slutligen är ett resultat av hotmodellering så att du kan överväga andra aspekter av säkerhet, till exempel vilka säkerhetsåtaganden som du vill ge dina kunder. Dessa åtaganden tillsammans med hotmodellering informera och genomför testning av din lösning för Internet of Things (IoT).
 
-### <a name="when-to-threat-model"></a>När du ska hot modell
+### <a name="when-to-do-threat-modeling"></a>När du ska hot modellering
 
 [Hotmodellering](https://www.microsoft.com/en-us/sdl/adopt/threatmodeling.aspx) innehåller det största värdet när du sedan inkludera den i designfasen. När du designar, har den största flexibiliteten att göra ändringar för att eliminera hot. Eliminera hot avsiktligt är önskat utfall. Det är mycket enklare än att lägga till åtgärder, testa dem och att se till att de fortfarande är aktuella och dessutom sådan eliminering är inte alltid möjligt. Det blir svårare att eliminera hot som en produkt blir mognare och slutligen i sin tur kräver mer arbete och mycket svårare kompromisser än threat modeling tidigt i utvecklingen.
 
-### <a name="what-to-threat-model"></a>Vad du hotmodell
+### <a name="what-to-consider-for-threat-modeling"></a>Tänk på följande för hotmodellering
 
-Du bör hot modellen lösningen som helhet och också fokusera inom följande områden:
+Du bör se ut på lösningen som en helhet och också fokusera på följande områden:
 
 * Funktioner för säkerhet och sekretess
 * De funktioner vars fel är relevanta säkerhet
 * De funktioner som touch en förtroendegräns
 
-### <a name="who-threat-models"></a>Som hot modeller
+### <a name="who-performs-threat-modeling"></a>Som utför hotmodellering
 
 Hotmodellering är en process som med andra. Det är en bra idé att behandla threat modellen dokumentet som alla andra komponenter i lösningen och verifiera den. Många utvecklingsteam göra ett tydligt sätt samla in funktionskrav för systemet som har nytta av kunder. Identifiera icke-uppenbart sätt att någon kan missbrukas systemet är dock mer utmanande. Hotmodellering kan hjälpa att utvecklingsteam förstå vad en angripare kan göra och varför.
 
-### <a name="how-to-threat-model"></a>Så här hotmodell
+### <a name="how-to-perform-threat-modeling"></a>Så här utför du hotmodellering
 
 Hotet modellera processen består av fyra steg; stegen är:
 
@@ -57,16 +57,21 @@ Hotet modellera processen består av fyra steg; stegen är:
 Tre tumregel att tänka på när du skapar en hotmodell:
 
 1. Skapa ett diagram av Referensarkitektur.
-1. Starta bredden först. Få en översikt och förstå systemet som helhet, innan du börjar med djup. Den här metoden hjälper till att säkerställa att du tittar på rätt plats.
-1. Driv processen, låt inte processen driva din. Om du hittar ett problem i fasen modellering och vill utforska det, kör! Känner du måste följa de här stegen slavishly.
+
+2. Starta bredden först. Få en översikt och förstå systemet som helhet, innan du börjar med djup. Den här metoden hjälper till att säkerställa att du tittar på rätt plats.
+
+3. Driv processen, låt inte processen driva din. Om du hittar ett problem i fasen modellering och vill utforska det, kör! Känner du måste följa de här stegen slavishly.
 
 #### <a name="threats"></a>Hot
 
 De fyra Kärnelementen i en hotmodell är:
 
 * Processer som webbtjänster och Win32-tjänster och * nix daemon. Vissa komplexa entiteter (till exempel fält-gateways och sensorer) kan representeras som en process när en teknisk nedåt i dessa områden inte är möjligt.
+
 * Datalagren (var som helst data lagras, till exempel en konfigurationsfil eller databas)
+
 * Dataflöde (där data flyttas mellan andra element i programmet)
+
 * Externa enheter (något som interagerar med systemet, men är inte kontrolleras av programmet, exempel inkludera användare och satellit feeds)
 
 Alla element i Arkitekturdiagram omfattas av olika hot den här artikeln STRIDE mnemonik. Läs [Threat Modeling igen, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) vill veta mer om STRIDE-element.
@@ -105,7 +110,7 @@ I följande avsnitt beskrivs standard komponenter som vanligtvis finns i dessa z
 
 Enhetsmiljö är omedelbar fysiskt utrymme runt enheten där fysisk åtkomst och/eller ”lokala nätverk” peer-to-peer digitala åtkomst till enheten som är möjligt. Ett ”lokalt nätverk” antas vara ett nätverk som är unik och isolerade från – men potentiellt bryggor till – det offentliga Internet och omfattar alla kort Håll trådlösa radio-teknik som möjliggör peer-to-peer-kommunikation av enheter. Den gör *inte* omfattar alla nätverk virtualiseringsteknik som skapar illusionen av ett lokalt nätverk och även omfattar inte publik operator-nätverk som kräver några två enheter kan kommunicera över offentligt nätverksutrymme om de har att ange en relation för peer-to-peer-kommunikation.
 
-### <a name="the-field-gateway-zone"></a>Zonen för fält-Gateway
+### <a name="the-field-gateway-zone"></a>Zonen för fält-gateway
 
 Fält-gateway är en enhet/installation eller vissa allmänna datorn serverprogram som fungerar som verktyg för kommunikation och potentiellt, som ett kontrollsystem för enheten och enheten databearbetning hub. Zonen för fält-gateway innehåller den fält-gatewayen och alla enheter som är kopplade till den. Som namnet antyder, fält-gateways fungerar utanför dedikerade databearbetning verksamhet, är vanligtvis plats bunden, omfattas potentiellt fysiskt intrång och har begränsad operativa redundans. Alla om du vill att en fält-gateway är ofta en sak en touch och sabotera samtidigt som du vet vad dess funktion är.
 
@@ -135,7 +140,7 @@ Anslutna enheter för särskilda ändamål har ett stort antal möjliga interakt
 
 När du utforskar interaktion mönster, titta på ”enhet” och ”enhet” med samma uppmärksamhet vid hotmodellering. ”Enhetskontroll” kan klassificeras som all information som har angetts för en enhet av part med målet att ändra eller påverka sitt beteende för dess tillstånd eller tillståndet för sin miljö. ”Enhetsdata” kan klassificeras som all information som en enhet genererar andra parten om dess tillstånd och den observerade statusen för sin miljö.
 
-## <a name="threat-modeling-the-azure-iot-reference-architecture"></a>Threat modeling Azure IoT-Referensarkitektur
+## <a name="performing-threat-modeling-for-the-azure-iot-reference-architecture"></a>Utför threat modeling för Azure IoT-Referensarkitektur
 
 Microsoft använder ramverket som beskrivs tidigare för att göra threat modeling för Azure IoT. Följande avsnitt använder konkreta exempel på Azure IoT-Referensarkitektur för att demonstrera hur du förhåller dig threat modeling för IoT samt hur du löser hot som har identifierats. Det här exemplet identifierar fyra huvudområden för fokus:
 

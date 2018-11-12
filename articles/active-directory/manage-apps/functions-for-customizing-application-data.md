@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: d8e390fc185c3cb0b63bcea56feb4b133652673d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 7a7f959f54281dcce5b8d1349f5d6607f0e5da30
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258841"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345801"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Skriva uttryck för attributmappningar i Azure Active Directory
 När du konfigurerar etablering till ett SaaS-program, är en av typerna av attributmappningar som du kan ange mappningen för en uttryck. För dessa, måste du skriva ett skript-liknande uttryck som hjälper dig att omvandla dina användares data till format som kan användas mer för SaaS-program.
@@ -37,7 +37,7 @@ Syntaxen för uttryck för attributmappningar är påminner om Visual Basic för
 * För strängkonstanter, om du behöver ett omvänt snedstreck (\) eller citattecken (”) i strängen är måste den föregås symbolen omvänt snedstreck (\). Till exempel ”: företagets namn: \"Contoso\"”
 
 ## <a name="list-of-functions"></a>Lista över funktioner
-[Lägg till](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [ansluta](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [inte](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Ersätt](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Växel](#switch)
+[Lägg till](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [ansluta](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [inte](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Ersätt](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Växel](#switch)
 
 - - -
 ### <a name="append"></a>Lägg till
@@ -152,6 +152,24 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 | **mall** |Valfri |Sträng |När **mall** värde anges, vi söker efter **oldValue** i mallen och Ersätt den med värdet för datakällan. |
 
 - - -
+### <a name="selectuniquevalue"></a>SelectUniqueValue
+**Funktionen:**<br> SelectUniqueValue (uniqueValueRule1, uniqueValueRule2, uniqueValueRule3,...)
+
+**Beskrivning:**<br> Kräver minst två argument, som är unikt värde Genereringsregler definieras med hjälp av uttryck. Funktionen utvärderar varje regel och sedan kontrollerar värdet som genererats för unikhet i appen/målkatalogen. Det första unika värdet att hitta som kommer att returneras. Om alla värden redan finns i målet, posten ska hämta escrowed och orsaken hämtar loggas i granskningsloggarna. Det finns ingen övre gräns för antalet argument som kan anges.
+
+> [!NOTE]
+>1. Det här är en funktion på översta nivån, kan inte kapslas.
+>2. Den här funktionen är endast avsedd att användas för skapande av posten. När du använder det med ett attribut, ange den **gäller mappning** egenskap **enbart vid objektskapande**.
+
+
+**Parametrar:**<br> 
+
+| Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
+| --- | --- | --- | --- |
+| ** uniqueValueRule1... uniqueValueRuleN ** |Minst är 2 krävs, inte övre gräns |Sträng | Lista över regler för rapportmodellgenerering unikt värde ska utvärderas |
+
+
+- - -
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **Funktionen:**<br> SingleAppRoleAssignment([appRoleAssignments])
 
@@ -238,6 +256,7 @@ NormalizeDiacritics([givenName])
 * **UTDATA**: ”Zoe”
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Utdatadatum som en sträng i ett visst format
+
 Du vill skicka datum till ett SaaS-program i ett visst format. <br>
 Exempelvis kan du formatera datum för ServiceNow.
 
@@ -251,6 +270,7 @@ Exempelvis kan du formatera datum för ServiceNow.
 * **UTDATA**: ”2015-01-23”
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Ersätt ett värde baserat på fördefinierade uppsättning med alternativ
+
 Du behöver definiera tidszonen för användaren baserat på delstatskod som lagras i Azure AD. <br>
 Om delstatskod inte matchar någon av de fördefinierade alternativ, använder du standardvärdet ”Australien/Sydney”.
 
@@ -262,6 +282,26 @@ Om delstatskod inte matchar någon av de fördefinierade alternativ, använder d
 
 * **INDATA** (tillstånd): ”QLD”
 * **UTDATA**: ”Australien/Brisbane”
+
+### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Generera unikt värde för attributet userPrincipalName (UPN)
+
+Baserat på användarens förnamn, mellannamn och efternamn, måste du generera ett värde för UPN-attributet och Sök efter dess unikhet i målkatalogen AD innan tilldelas värdet till UPN-attributet.
+
+**Uttryck:** <br>
+
+    SelectUniqueValue( 
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"), 
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com")
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 2), [PreferredLastName]))), "contoso.com")
+    )
+
+**Exempel indata/utdata:**
+
+* **INDATA** (PreferredFirstName): ”John”
+* **INDATA** (PreferredLastName): ”Smith”
+* **UTDATA**”:John.Smith@contoso.com” om UPN-värdet för John.Smith@contoso.com inte redan finns i katalogen
+* **UTDATA**”:J.Smith@contoso.com” om UPN-värdet för John.Smith@contoso.com finns redan i katalogen
+* **UTDATA**”:Jo.Smith@contoso.com” om ovanstående två UPN-värden som redan finns i katalogen
 
 ## <a name="related-articles"></a>Relaterade artiklar
 * [Automatisera användaren etablering/avetablering för SaaS-appar](user-provisioning.md)

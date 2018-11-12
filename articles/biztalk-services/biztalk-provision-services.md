@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 61776b19ba0ee273b78e3b0a6f610e5701251dd0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fe56b84b881b2afce9da9a7f7dfe4637c3494aa8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26632729"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261969"
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Skapa BizTalk Services med Azure-portalen
 
@@ -28,7 +28,7 @@ ms.locfileid: "26632729"
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 > [!TIP]
-> Om du vill logga in på Azure-portalen behöver du ett Azure-konto och en Azure-prenumeration. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Se [Kostnadsfri utvärderingsversion av Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
+> Om du vill logga in på Azure-portalen behöver du ett Azure-konto och en Azure-prenumeration. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Se [Kostnadsfri utvärderingsversion av Azure](https://go.microsoft.com/fwlink/p/?LinkID=239738).
 
 
 ## <a name="CreateService"></a>Skapa en BizTalk-tjänst
@@ -84,7 +84,7 @@ Dessa krav gäller inte för Free-utgåvan.
 <br/><br/>
 Azure-kontot kan ha flera prenumerationer och kan hanteras av vem som helst som är behörig. Till exempel kan din Azure-kontoinnehavare skapa en prenumeration med namnet <em>BizTalkServiceSubscription</em> och ge BizTalk-administratörerna i företaget (till exempel ContosoBTSAdmins@live.com) åtkomst till prenumerationen. I det här scenariot loggar BizTalk-administratörerna in på Azure och har fullständiga administratörsbehörigheter till alla värdtjänster i prenumerationen, inklusive Azure BizTalk Services. BizTalk-administratörerna är inte Azure-kontoinnehavare och har därför inte tillgång till någon faktureringsinformation.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577"> Hantera prenumerationer och lagringskonton i Azure</a> innehåller mer information.
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=267577"> Hantera prenumerationer och lagringskonton i Azure</a> innehåller mer information.
 </td>
 </tr>
 <tr>
@@ -93,7 +93,7 @@ Azure-kontot kan ha flera prenumerationer och kan hanteras av vem som helst som 
 <br/><br/>
 Du kan använda en befintlig Azure SQL Server, Azure SQL Database eller automatiskt skapa en ny server eller databas när du skapar en BizTalk-tjänst.
 <br/><br/>
-SQL Database-skalan konfigureras automatiskt. Vanligtvis räcker standardskalan för en BizTalk-tjänst. Om du ändrar skalan påverkas prissättningen. Se <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=234930"> Konton och fakturering i Azure SQL Database</a>
+SQL Database-skalan konfigureras automatiskt. Vanligtvis räcker standardskalan för en BizTalk-tjänst. Om du ändrar skalan påverkas prissättningen. Se <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=234930"> Konton och fakturering i Azure SQL Database</a>
 <br/><br/>
 <strong>Anteckningar</strong>
 <br/>
@@ -123,7 +123,7 @@ Vanligtvis är standardinställningarna för lagring tillräckliga för en BizTa
 <br/><br/>
 När du skapar ett lagringskonto skapas automatiskt en primär nyckel och en sekundär nyckel. De här nycklarna styr åtkomsten till ditt lagringskonto. BizTalk-tjänsten använder automatiskt den primära nyckeln.
 <br/><br/>
-Se <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285671"> Lagring</a> för mer information.
+Se <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=285671"> Lagring</a> för mer information.
 </td>
 </tr>
 
@@ -165,7 +165,7 @@ Hybridanslutningar används för att ansluta en Azure-webbplats eller mobil Azur
  Se [Hybridanslutningar](integration-hybrid-connection-overview.md) för mer information, inklusive att skapa och hantera hybridanslutningar.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när en BizTalk-tjänst har skapats kan du bekanta dig med [BizTalk Services: Flikarna Instrumentpanel, Övervakare och Skalning](biztalk-dashboard-monitor-scale-tabs.md). Din BizTalk-tjänst är redo för dina program. Om du vill börja skapa program går du till [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Nu när en BizTalk-tjänst har skapats kan du bekanta dig med [BizTalk Services: Flikarna Instrumentpanel, Övervakare och Skalning](biztalk-dashboard-monitor-scale-tabs.md). Din BizTalk-tjänst är redo för dina program. Om du vill börja skapa program går du till [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## <a name="see-also"></a>Se även
 * [BizTalk Services: Diagram över utgåvor](biztalk-editions-feature-chart.md)<br/>
@@ -173,7 +173,7 @@ Nu när en BizTalk-tjänst har skapats kan du bekanta dig med [BizTalk Services:
 * [BizTalk Services: Säkerhetskopiering och återställning](biztalk-backup-restore.md)<br/>
 * [BizTalk Services: Begränsning](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk Services: Utfärdarens namn och nyckel](biztalk-issuer-name-issuer-key.md)<br/>
-* [Hur gör jag för att börja använda Azure BizTalk Services SDK?](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Hur gör jag för att börja använda Azure BizTalk Services SDK?](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 * [Hybridanslutningar](integration-hybrid-connection-overview.md)
 
 [NewBizTalkService]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png

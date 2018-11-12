@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: b4ee3354d024034fd47ee50ae78d25d5bb4a38f5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: ce74d12e4ea91d8c230218081461bc375e250ce4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345279"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260592"
 ---
 # <a name="azure-stack-1807-update"></a>Uppdatering av Azure Stack 1807
 
@@ -94,7 +94,7 @@ Den här uppdateringen innehåller följande förbättringar för Azure Stack.
 - **Förbättrad virtuella datorn skapas** för virtuella datorer som skapas med avbildningar som du hämtar från Azure marketplace.
 
 <!-- TBD | IS, ASDK -->  
-- **Azure Stack Capacity Planner användbarhet**. Azure Stack [Capacity Planner](http://aka.ms/azstackcapacityplanner) som nu erbjuder ett förenklat sätt för att mata in S2D-cache och S2D kapacitet när du definierar lösning SKU: er. VM-gränsen på 1000 har tagits bort.
+- **Azure Stack Capacity Planner användbarhet**. Azure Stack [Capacity Planner](https://aka.ms/azstackcapacityplanner) som nu erbjuder ett förenklat sätt för att mata in S2D-cache och S2D kapacitet när du definierar lösning SKU: er. VM-gränsen på 1000 har tagits bort.
 
 
 ### <a name="fixed-issues"></a>Åtgärdade problem

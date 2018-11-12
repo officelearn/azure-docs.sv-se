@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/10/2018
 ms.author: genli
-ms.openlocfilehash: f9b950b1d85f50331d556a54b4237d78ec5c07ac
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 4d30cca0106e52706326bfd91a2d0dfb0a64ca04
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388183"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258467"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Förbereda en Windows-VHD eller VHDX för att överföra till Azure
 Innan du överför en Windows-dator (VM) från en lokal plats till Microsoft Azure, måste du förbereda den virtuella hårddisken (VHD eller VHDX). Azure stöder **endast 1 virtuella datorer i generation** som är i VHD-format och har en fast storlek disk. Den maximala storleken som tillåts för den virtuella Hårddisken är 1,023 GB. Du kan konvertera en generation 1 VM från VHDX filsystemet till virtuell Hårddisk och från en dynamiskt expanderande disk till fast storlek. Men du kan inte ändra en virtuell dator generation. Mer information finns i [bör jag skapa en generation 1 eller 2 virtuella datorer i Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -48,7 +48,7 @@ När du konverterar disken kan du skapa en virtuell dator som använder den konv
 >Kommandona i den här artikeln måste köras på en upphöjd PowerShell-session.
 
 ### <a name="convert-disk-by-using-powershell"></a>Konvertera disk med hjälp av PowerShell
-Du kan konvertera en virtuell disk med hjälp av den [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) i Windows PowerShell. Välj **kör som administratör** när du startar PowerShell. 
+Du kan konvertera en virtuell disk med hjälp av den [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) i Windows PowerShell. Välj **kör som administratör** när du startar PowerShell. 
 
 Följande exempelkommando konverterar från VHDX till VHD och från en dynamiskt expanderande disk till fast storlek:
 
@@ -58,7 +58,7 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 I det här kommandot ersätter du värdet för ”-sökvägen” med sökvägen till den virtuella hårddisken som du vill konvertera och värdet för ”-DestinationPath” med den nya sökvägen och namnet på den konvertera disken.
 
 ### <a name="convert-from-vmware-vmdk-disk-format"></a>Konvertera från VMware VMDK diskformat
-Om du har en Windows VM-avbildning i den [VMDK-filformat](https://en.wikipedia.org/wiki/VMDK), konvertera den till en virtuell Hårddisk med hjälp av den [Microsoft VM Converter](https://www.microsoft.com/download/details.aspx?id=42497). Mer information finns i bloggen artikeln [så här konverterar du en VMware VMDK till VHD för Hyper-V](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx).
+Om du har en Windows VM-avbildning i den [VMDK-filformat](https://en.wikipedia.org/wiki/VMDK), konvertera den till en virtuell Hårddisk med hjälp av den [Microsoft VM Converter](https://www.microsoft.com/download/details.aspx?id=42497). Mer information finns i bloggen artikeln [så här konverterar du en VMware VMDK till VHD för Hyper-V](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx).
 
 ## <a name="set-windows-configurations-for-azure"></a>Ange Windows-konfigurationer för Azure
 
@@ -377,7 +377,7 @@ Mer information om hur du skapar en virtuell dator från en särskild disk finns
 - [Skapa en virtuell dator från en särskild disk](create-vm-specialized.md)
 - [Skapa en virtuell dator från en specialiserad virtuell hårddisk](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
-Om du vill skapa en generaliserad avbildning måste du köra sysprep. Mer information om Sysprep finns i [så här använder du Sysprep: en introduktion](http://technet.microsoft.com/library/bb457073.aspx). 
+Om du vill skapa en generaliserad avbildning måste du köra sysprep. Mer information om Sysprep finns i [så här använder du Sysprep: en introduktion](https://technet.microsoft.com/library/bb457073.aspx). 
 
 Inte alla roll eller program som är installerad på en Windows-baserad dator stöder tack vare generaliseringen. Så innan du kör den här proceduren finns i följande artikel för att se till att rollen för den datorn stöds av sysprep. Mer information [Sysprep-stöd för serverroller](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
@@ -401,7 +401,7 @@ Inte alla roll eller program som är installerad på en Windows-baserad dator st
 ## <a name="complete-recommended-configurations"></a>Ange rekommenderade konfigurationen
 Följande inställningar påverkar inte ladda upp VHD. Men rekommenderar vi starkt att du har konfigurerat dem.
 
-* Installera den [virtuella Azure-datorer agenten](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Sedan kan du aktivera VM-tillägg. VM-tillägg implementera de flesta av de viktiga funktioner som du kanske vill använda med dina virtuella datorer, som att återställa lösenord, konfigurera RDP och så vidare. Mer information finns i:
+* Installera den [virtuella Azure-datorer agenten](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Sedan kan du aktivera VM-tillägg. VM-tillägg implementera de flesta av de viktiga funktioner som du kanske vill använda med dina virtuella datorer, som att återställa lösenord, konfigurera RDP och så vidare. Mer information finns i:
 
     - [VM-agenten och tillägg – del 1](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/)
     - [VM-agenten och tillägg – del 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)

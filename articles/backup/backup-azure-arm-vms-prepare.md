@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: dd11c50940dc35524b6d10c6043e906cc813498d
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 6de0d29895a6d12d3a5aa761c0c4c5148f62dd81
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748297"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256280"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Förbereda säkerhetskopiering av virtuella Azure-datorer
 
@@ -182,8 +182,8 @@ Om du har problem med säkerhetskopiering av Virtuella Azure kan du använda fö
 
 | **Åtgärd** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Installera VM-agenten |Ladda ned och installera [agentens MSI-fil](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du måste ha administratörsbehörighet för att slutföra installationen. |<li> Installera senast [linuxagenten](../virtual-machines/extensions/agent-linux.md). Du måste ha administratörsbehörighet för att slutföra installationen. Vi rekommenderar att du installerar agenten från din lagringsplats för distribution. Vi **rekommenderar inte** installera Linux VM-agenten direkt från github.  |
-| Uppdatera VM-agenten |Det är enkelt att uppdatera VM-agenten. Du installerar bara om [binärfilerna för VM-agenten](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Kontrollera att ingen säkerhetskopieringsåtgärd körs medan VM-agenten uppdateras. |Följ anvisningarna för hur du [uppdaterar VM-agenten för Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Vi rekommenderar att du uppdaterar agenten från din lagringsplats för distribution. Vi **rekommenderar inte** uppdatering Linux VM-agenten direkt från github.<br>Kontrollera att ingen säkerhetskopieringsåtgärd körs medan VM-agenten uppdateras. |
+| Installera VM-agenten |Ladda ned och installera [agentens MSI-fil](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du måste ha administratörsbehörighet för att slutföra installationen. |<li> Installera senast [linuxagenten](../virtual-machines/extensions/agent-linux.md). Du måste ha administratörsbehörighet för att slutföra installationen. Vi rekommenderar att du installerar agenten från din lagringsplats för distribution. Vi **rekommenderar inte** installera Linux VM-agenten direkt från github.  |
+| Uppdatera VM-agenten |Det är enkelt att uppdatera VM-agenten. Du installerar bara om [binärfilerna för VM-agenten](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Kontrollera att ingen säkerhetskopieringsåtgärd körs medan VM-agenten uppdateras. |Följ anvisningarna för hur du [uppdaterar VM-agenten för Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Vi rekommenderar att du uppdaterar agenten från din lagringsplats för distribution. Vi **rekommenderar inte** uppdatering Linux VM-agenten direkt från github.<br>Kontrollera att ingen säkerhetskopieringsåtgärd körs medan VM-agenten uppdateras. |
 | Bekräfta installationen av VM-agenten |<li>Gå till mappen *C:\WindowsAzure\Packages* på den virtuella datorn i Azure. <li>Du bör hitta filen WaAppAgent.exe.<li> Högerklicka på filen, gå till **Egenskaper** och välj fliken **Information**. Fältet Produktversion ska vara 2.6.1198.718 eller högre. |Gäller inte |
 
 ### <a name="backup-extension"></a>Säkerhetskopieringstillägg
@@ -194,7 +194,7 @@ Backup-tjänsten installerar tillägget för säkerhetskopiering, oavsett om Vir
 ## <a name="establish-network-connectivity"></a>Upprätta nätverksanslutning
 Om du vill hantera ögonblicksbilder av Virtuella ha säkerhetskopieringstillägget anslutning till Azure offentliga IP-adresser. Tidsgränsen nåddes för den virtuella datorns HTTP-förfrågningar utan rätt internet-anslutningen och utförs inte säkerhetskopieringen. Om distributionen har åtkomstbegränsningar--via en nätverkssäkerhetsgrupp (NSG), till exempel – Välj något av dessa alternativ för att tillhandahålla ett tydligt sätt för säkerhetskopieringstrafik:
 
-* [Lista över tillåtna Azure datacenter IP-intervall](http://www.microsoft.com/download/details.aspx?id=41653).
+* [Lista över tillåtna Azure datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653).
 * Distribuera en HTTP-proxyserver dirigeras trafiken.
 
 När du bestämmer vilket alternativ som är avvägningarna mellan hanterbarhet, detaljerad kontroll och kostnad.
@@ -205,7 +205,7 @@ När du bestämmer vilket alternativ som är avvägningarna mellan hanterbarhet,
 | Använda en HTTP-proxy |Detaljerad kontroll i proxyn över lagringen URL: er tillåts.<br><br>Enskild punkt för internet-åtkomst till virtuella datorer.<br><br>Inte kan komma att ändras för Azure-IP-adress. |Ytterligare kostnader för att köra en virtuell dator med proxy-programvara. |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Listan över godkända Azure-datacenter IP-intervall
-Godkänna Azure datacenter IP-intervall finns i den [Azure-webbplatsen](http://www.microsoft.com/download/details.aspx?id=41653) mer information om IP-intervall och anvisningar.
+Godkänna Azure datacenter IP-intervall finns i den [Azure-webbplatsen](https://www.microsoft.com/download/details.aspx?id=41653) mer information om IP-intervall och anvisningar.
 
 Du kan tillåta anslutningar till storage för den specifika regionen med hjälp av [tjänsttaggar](../virtual-network/security-overview.md#service-tags). Se till att den regel som tillåter åtkomst till storage-kontot har högre prioritet än den regel som blockerar Internetåtkomst.
 
@@ -305,7 +305,7 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 ```
 
 ## <a name="questions"></a>Har du några frågor?
-Om du har frågor eller om det finns en funktion som du vill Välkommen [Skicka oss feedback](http://aka.ms/azurebackup_feedback).
+Om du har frågor eller om det finns en funktion som du vill Välkommen [Skicka oss feedback](https://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har förberett din miljö för att säkerhetskopiera den virtuella datorn, är nästa logiska steg att skapa en säkerhetskopia. Planering artikeln innehåller mer detaljerad information om hur du säkerhetskopierar virtuella datorer.

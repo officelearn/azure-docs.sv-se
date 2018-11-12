@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/21/2018
 ms.author: michaelhauss
 ms.component: blobs
-ms.openlocfilehash: 35cfa36aba8042bcc753c1005c8fd8dbcdb70e79
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 43e9acb79b363e8f2cb00f6a4676d450c097bf3e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397680"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262003"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Använda Blob storage från iOS
 
@@ -382,8 +382,8 @@ Nu när du har lärt dig hur du använder Blob Storage från iOS, kan du följa 
 * [Azure Storage-klientbibliotek för iOS](https://github.com/azure/azure-storage-ios)
 * [Azure Storage iOS referensdokumentation](http://azure.github.io/azure-storage-ios/)
 * [REST-API för Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Azure Storage Teamblogg](http://blogs.msdn.com/b/windowsazurestorage)
+* [Azure Storage Teamblogg](https://blogs.msdn.com/b/windowsazurestorage)
 
-Om du har frågor om det här biblioteket passa på att publicera till vår [MSDN Azure-forumet](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) eller [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+Om du har frågor om det här biblioteket passa på att publicera till vår [MSDN Azure-forumet](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) eller [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 Om du har förslag på funktioner för Azure Storage kan du publicera till [Azure Storage-Feedback](https://feedback.azure.com/forums/217298-storage/).
 

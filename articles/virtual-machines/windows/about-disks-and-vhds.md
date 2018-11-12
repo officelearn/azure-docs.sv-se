@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
 ms.component: disks
-ms.openlocfilehash: d6491ea1fd46d1dbd3d258a79a8d8e932173dae5
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: b1127475b873c5679946121e570ef2bb51f25be1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912296"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234722"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Om disklagring för virtuella Azure Windows-datorer
 
@@ -51,8 +51,9 @@ När du skapar en virtuell dator från en avbildning skapar Azure en operativsys
 
 Du kan lägga till datadiskar till en virtuell dator när som helst av **koppla** disken till den virtuella datorn. Du kan använda en virtuell Hårddisk som du har laddat upp eller kopieras till ditt storage-konto eller använda en tom virtuell Hårddisk som Azure skapar åt dig. Koppla en datadisk associerar VHD-filen med den virtuella datorn genom att placera ett lån på den virtuella Hårddisken så att den inte kan tas bort från lagring när den är fortfarande ansluten.
 
-
 [!INCLUDE [storage-about-vhds-and-disks-windows-and-linux](../../../includes/storage-about-vhds-and-disks-windows-and-linux.md)]
+
+Förhandsgranska storlekar, se vår [vanliga frågor och svar](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) vill veta vilka regioner som de är tillgängliga i.
 
 ## <a name="one-last-recommendation-use-trim-with-unmanaged-standard-disks"></a>En senaste rekommendation: Använd TRIM med ohanterade standarddiskar
 

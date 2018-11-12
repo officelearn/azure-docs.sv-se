@@ -9,12 +9,12 @@ ms.service: event-hubs
 ms.topic: article
 ms.date: 10/07/2018
 ms.author: shvija
-ms.openlocfilehash: 4e0f762a69451ce0dc9ec00db5992fce0707f275
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 9bd1649c0ec89abf660865971314becb6580852f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282449"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300683"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Vanliga och frågor svar om Event Hubs
 
@@ -50,7 +50,7 @@ Event Hubs Standard-nivån stöder för närvarande en högsta kvarhållningsper
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Hur övervakar jag min Event Hubs?
 Händelsehubbar genererar uttömmande mått som anger tillståndet för dina resurser till [Azure Monitor](../azure-monitor/overview.md). De också kan du utvärdera den övergripande hälsan för Event Hubs-tjänsten inte bara på namnområdesnivå utan även på enhetsnivå. Läs om vilka övervakning erbjuds för [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
 
-## <a name="apache-kakfa-integration"></a>Apache Kakfa integrering
+## <a name="apache-kafka-integration"></a>Apache Kafka-integrering
 
 ### <a name="how-do-i-integrate-my-existing-kafka-application-with-event-hubs"></a>Hur integrerar jag mina befintliga Kafka-program med Event Hubs?
 Event Hubs ger en Kafka-slutpunkt som kan användas av befintliga Apache Kafka-baserade program. En konfigurationsändring är allt som krävs för att ha PaaS Kafka-upplevelse. Det är ett alternativ till att köra dina egna Kafka-kluster. Händelsehubbar har stöd för Apache Kafka 1.0 och nyare klientversioner och fungerar med din befintliga Kafka program, verktyg och ramverk. Mer information finns i [Händelsehubbar för Kafka-lagringsplatsen](https://github.com/Azure/azure-event-hubs-for-kafka).

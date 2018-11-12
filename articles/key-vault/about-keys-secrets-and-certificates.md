@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: 00a2c0d50a2476995dfb0d16d0cdbc5bd0ec313b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: c5677dc07326fa16960e0d748f88e26f259c0485
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139014"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262289"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Om nycklar, hemligheter och certifikat
 
@@ -398,7 +398,7 @@ Innan du kan skapa en certifikatutfärdare i Key Vault, måste följande nödvä
 
     -   Innehåller konfigurationen som ska användas för att skapa ett objekt för utfärdare av providern i nyckelvalvet  
 
-Mer information om hur du skapar utfärdarobjekt från Certificates-portalen finns i den [Nyckelvalvscertifikat blogg](http://aka.ms/kvcertsblog)  
+Mer information om hur du skapar utfärdarobjekt från Certificates-portalen finns i den [Nyckelvalvscertifikat blogg](https://aka.ms/kvcertsblog)  
 
 Key Vault gör för att skapa flera utfärdarobjekt med olika utfärdare providerkonfigurationen. När ett utfärdare-objekt skapas, kan dess namn refereras i en eller flera certifikatprinciper för. Refererar till objektet utfärdare instruerar Key Vault för att använda konfigurationen som anges i objektet utfärdaren när du begär x509 certifikat från CA-providern under skapandet av certifikat och förnyelse.  
 

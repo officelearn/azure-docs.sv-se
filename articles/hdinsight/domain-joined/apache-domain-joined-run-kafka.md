@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 1a8f04f39568816252175fc9e0893f1ab3e2cdc6
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 48cfba6f62d75470efd27e3a4cdcb995e716798b
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224825"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037149"
 ---
 # <a name="tutorial-configure-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Självstudie: Konfigurera Kafka-principer i HDInsight med Enterprise Security Package (förhandsversion)
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 
 * Logga in på [Azure-portalen](https://portal.azure.com/).
 
-* Skapa ett [HDInsight Kafka-kluster med Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-run-hive).
+* Skapa ett [HDInsight Kafka-kluster med Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md).
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Anslut till Apache Ranger Admin-gränssnittet
 
@@ -117,15 +117,18 @@ Skapa två ämnen, **salesevents** och **marketingspend**:
 
    ```bash
    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
-   
    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
    ```
+> [!Note]
+> Innan du fortsätter kan du behöva konfigurera din distributionsmiljö, om du inte redan har gjort det. Du behöver komponenter som Java JDK, Apache Maven och en SSH-klient med scp. Mer information finns i de här [installationsinstruktionerna](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
+1. Ladda ned [exemplen på Apache Kafka-domänansluten producent/konsument](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
 
-4. Kör följande kommandon: 
+1. Följ steg 2 och 3 under **Skapa och distribuera exemplet** i [Självstudie: Använda Apache Kafka-producenten och konsument-API:er](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example)
+
+1. Kör följande kommandon:
 
    ```bash
    java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar create salesevents $KAFKABROKERS
-   
    java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar create marketingspend $KAFKABROKERS
    ```
 

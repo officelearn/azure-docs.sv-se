@@ -1,6 +1,6 @@
 ---
 title: Distribuera lösningen för fjärrövervakning lokalt (via Visual i Studio IDE) – Azure | Microsoft Docs
-description: Den här guiden visar hur du distribuerar den lösningsacceleratorn för fjärrövervakningen till den lokala datorn med hjälp av Visual Studio för utveckling och testning.
+description: Den här guiden visar hur du distribuerar den lösningsacceleratorn för fjärrövervakningen till din lokala dator för utveckling och testning.
 author: avneet723
 manager: hegate
 ms.author: avneet723
@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5068f0277726b7c468aa24d0629c4350b60b78b5
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
-ms.translationtype: MT
+ms.openlocfilehash: c667782ef49f41cda8ccefc2f56e5f1265531037
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287616"
+ms.locfileid: "51278828"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Distribuera lösningsacceleratorn för fjärrövervakning lokalt – Visual Studio
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-Den här artikeln visar hur du distribuerar lösningsacceleratorn för fjärrövervakning till din lokala dator för utveckling och testning. Du lär dig hur du kör mikrotjänster i Visual Studio. En lokal mikrotjänster distribution använder följande molntjänster: IoT Hub, Cosmos DB, Azure Streaming Analytics och Azure Time Series Insights-tjänster i molnet.
+Den här artikeln visar hur du distribuerar lösningsacceleratorn för fjärrövervakning till din lokala dator för utveckling och testning. Artikeln visar hur du kör mikrotjänster i Visual Studio. En lokal mikrotjänster distribution använder följande molntjänster: IoT Hub, Cosmos DB, Azure Streaming Analytics och Azure Time Series Insights-tjänster i molnet.
 
 Om du vill köra lösningsacceleratorn för fjärrövervakning i Docker på din lokala dator, se [och distribuera lösningsacceleratorn för fjärrövervakning lokalt - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md).
 
@@ -115,4 +115,14 @@ Du kan också ta bort den lokala kopian av databasen fjärrövervakning skapas n
 
 ## <a name="next-steps"></a>Nästa steg
 
+I den här självstudiekursen lärde du dig att:
+
+> [!div class="checklist"]
+> * Konfigurera en lokal utvecklingsmiljö
+> * Konfigurera lösningsacceleratorn
+> * Distribuera solution accelerator
+> * Logga in på solution accelerator
+
 Nu när du har distribuerat av lösningen för fjärrövervakning, nästa steg är att [utforska funktionerna i lösningens instrumentpanel](quickstart-remote-monitoring-deploy.md).
+
+<!-- Next tutorials in the sequence -->

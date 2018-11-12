@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 76a87b79ccc776e0facd57a1cff50fbbcb4f0b9e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e18b670b94962c0e7aa469402228fd4ed95d846b
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414887"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287259"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Skapa, visa och hantera klassiska måttaviseringar med Azure Monitor
 
@@ -124,24 +124,25 @@ Detta avsnitt visar hur du använder PowerShell kommandon skapa, visa och hanter
 
     ```PowerShell
     Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
+    ```
 
-8. You can use the `Add-AlertRule` cmdlet to create, update, or disable an alert rule. You can create email and webhook properties using  `New-AzureRmAlertRuleEmail` and `New-AzureRmAlertRuleWebhook`, respectively. In the Alert rule cmdlet, assign these properties as actions to the **Actions** property of the Alert Rule. The following table describes the parameters and values used to create an alert using a metric.
+8. Du kan använda den `Add-AlertRule` cmdlet för att skapa, uppdatera eller inaktivera en aviseringsregel. Du kan skapa e-post och webhook-egenskaper med hjälp av `New-AzureRmAlertRuleEmail` och `New-AzureRmAlertRuleWebhook`respektive. I cmdleten varningsregel tilldela dessa egenskaper som åtgärder för att den **åtgärder** egenskapen för regeln. I följande tabell beskrivs de parametrar och värden som används för att skapa en avisering med mått.
 
-    | parameter | value |
+    | Parameter | värde |
     | --- | --- |
-    | Name |simpletestdiskwrite |
-    | Location of this alert rule |East US |
+    | Namn |simpletestdiskwrite |
+    | Platsen för den här aviseringsregeln |Östra USA |
     | ResourceGroup |montest |
-    | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-    | MetricName of the alert that is created |\PhysicalDisk(_Total)\Disk Writes/sec. See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |
-    | operator |GreaterThan |
-    | Threshold value (count/sec in for this metric) |1 |
-    | WindowSize (hh:mm:ss format) |00:05:00 |
-    | aggregator (statistic of the metric, which uses Average count, in this case) |Average |
-    | custom emails (string array) |'foo@example.com','bar@example.com' |
-    | send email to owners, contributors and readers |-SendToServiceOwners |
+    | TargetResourceId |/subscriptions/S1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
+    | MetricName om aviseringen som har skapats |\PhysicalDisk (_Total) \Disk Diskskrivningar/sek. Se den `Get-MetricDefinitions` cmdlet om hur du hämtar exakt tjänstmåttets namn |
+    | Operator |GreaterThan |
+    | Tröskelvärdet (antal per sekund i för det här måttet) |1 |
+    | Fönsterstorlek (: mm: ss-format) |00:05:00 |
+    | Aggregator (statistik för mått, som använder Genomsnittligt antal i det här fallet) |Medel |
+    | anpassade e-postmeddelanden (Strängmatrisen) |'foo@example.com','bar@example.com' |
+    | Skicka e-post till ägare, deltagare och läsare |-SendToServiceOwners |
 
-9. Create an Email action
+9. Skapa en e poståtgärd
 
     ```PowerShell
     $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com

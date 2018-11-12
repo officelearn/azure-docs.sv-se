@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: b6386f4a23a0ca6d0134f8c4e298a3f7100cc1d6
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: a517597c2c4586b59594415f2361e3e4166d4c5a
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466961"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299664"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Använd taggar för att organisera Azure-resurser
 
@@ -35,7 +35,7 @@ Exemplen i den här artikeln kräver Azure PowerShell 6.0 eller senare. Om du in
 
 Om du vill visa de befintliga taggarna för en *resursgrupp* använder du:
 
-```powershell
+```azurepowershell-interactive
 (Get-AzureRmResourceGroup -Name examplegroup).Tags
 ```
 
@@ -50,31 +50,31 @@ Environment                    Test
 
 Om du vill visa de befintliga taggarna för en *resurs som har ett angivet resurs-ID* använder du:
 
-```powershell
+```azurepowershell-interactive
 (Get-AzureRmResource -ResourceId /subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>).Tags
 ```
 
 Och om du vill visa de befintliga taggarna för en *resurs som har ett angivet namn och en angiven resursgrupp* använder du:
 
-```powershell
+```azurepowershell-interactive
 (Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
 ```
 
 Om du vill hämta *resursgrupper som har en specifik tagg* använder du:
 
-```powershell
+```azurepowershell-interactive
 (Get-AzureRmResourceGroup -Tag @{ Dept="Finance" }).ResourceGroupName
 ```
 
 Om du vill hämta *resurser som har en specifik tagg* använder du:
 
-```powershell
+```azurepowershell-interactive
 (Get-AzureRmResource -Tag @{ Dept="Finance"}).Name
 ```
 
 Att hämta *resurser som har ett specifikt taggnamn*, Använd:
 
-```powershell
+```azurepowershell-interactive
 (Get-AzureRmResource -TagName Dept).Name
 ```
 
@@ -82,13 +82,13 @@ Varje gång du tillämpar taggar på en resurs eller resursgrupp skriver du öve
 
 Om du vill lägga till taggar till en *resursgrupp utan befintliga taggar* använder du:
 
-```powershell
+```azurepowershell-interactive
 Set-AzureRmResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
 ```
 
 Om du vill lägga till taggar till en *resursgrupp som har befintliga taggar* hämtar du de befintliga taggarna, lägger till den nya taggen och tillämpar taggarna igen:
 
-```powershell
+```azurepowershell-interactive
 $tags = (Get-AzureRmResourceGroup -Name examplegroup).Tags
 $tags.Add("Status", "Approved")
 Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
@@ -96,22 +96,22 @@ Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
 
 Om du vill lägga till taggar till en *resurs utan befintliga taggar* använder du:
 
-```powershell
+```azurepowershell-interactive
 $r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
 Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceId $r.ResourceId -Force
 ```
 
 Om du vill lägga till taggar till en *resurs som har befintliga taggar* använder du:
 
-```powershell
+```azurepowershell-interactive
 $r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
-$r.Tags.Add("Status", "Approved") 
+$r.Tags.Add("Status", "Approved")
 Set-AzureRmResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
 Om du vill tillämpa alla taggar från en resursgrupp på dess resurser *utan att behålla någon av de befintliga taggarna för resurserna* kan du använda följande skript:
 
-```powershell
+```azurepowershell-interactive
 $groups = Get-AzureRmResourceGroup
 foreach ($g in $groups)
 {
@@ -121,7 +121,7 @@ foreach ($g in $groups)
 
 Om du vill tillämpa alla taggar från en resursgrupp på dess resurser och *behålla de befintliga taggarna på resurser som inte är dubbletter* kan du använda följande skript:
 
-```powershell
+```azurepowershell-interactive
 $group = Get-AzureRmResourceGroup "examplegroup"
 if ($group.Tags -ne $null) {
     $resources = Get-AzureRmResource -ResourceGroupName $group.ResourceGroupName
@@ -149,7 +149,7 @@ if ($group.Tags -ne $null) {
 
 Om du vill ta bort alla taggar skickar du en tom hash-tabell:
 
-```powershell
+```azurepowershell-interactive
 Set-AzureRmResourceGroup -Tag @{} -Name examplegroup
 ```
 
@@ -208,7 +208,7 @@ Om du vill lägga till taggar till en *resurs utan befintliga taggar* använder 
 az resource tag --tags Dept=IT Environment=Test -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-Hämta de befintliga taggarna för att lägga till taggar till en resurs som redan har taggar, formatera om detta värde och återanvända befintliga och nya taggar: 
+Hämta de befintliga taggarna för att lägga till taggar till en resurs som redan har taggar, formatera om detta värde och återanvända befintliga och nya taggar:
 
 ```azurecli
 jsonrtag=$(az resource show -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks" --query tags)

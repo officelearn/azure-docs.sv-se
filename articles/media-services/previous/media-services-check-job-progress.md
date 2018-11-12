@@ -1,10 +1,10 @@
 ---
-title: Övervaka Jobbförloppet med hjälp av .NET
-description: Lär dig hur du använder hanteraren händelsekod att följa jobbförloppet och skicka statusuppdateringar. Kodexemplet är skrivna i C# och använder Media Services SDK för .NET.
+title: Övervaka Jobbförlopp med hjälp av .NET
+description: Lär dig hur du använder hanteraren händelsekod att följa jobbförloppet och skicka statusuppdateringar. Kodexemplet är skriven i C# och använder Media Services SDK för .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: ee720ed6-8ce5-4434-b6d6-4df71fca224e
 ms.service: media-services
@@ -12,27 +12,27 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 11/05/2018
 ms.author: juliako
-ms.openlocfilehash: 4e24dc040998586579334c6363707a61c2164db5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9f5632f6b4a99c4771f10a89165b452addee0f1c
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788286"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035772"
 ---
-# <a name="monitor-job-progress-using-net"></a>Övervaka Jobbförloppet med hjälp av .NET
+# <a name="monitor-job-progress-using-net"></a>Övervaka Jobbförlopp med hjälp av .NET
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-check-job-progress.md)
-> * [.NET](media-services-check-job-progress.md)
+> * [NET](media-services-check-job-progress.md)
 > * [REST](media-services-rest-check-job-progress.md)
 > 
 > 
 
-När du kör jobb behöver du ofta ett sätt att spåra jobbförloppet. Du kan kontrollera förloppet genom att definiera en händelsehanterare för StateChanged (som beskrivs i det här avsnittet) eller använda Azure Queue storage för att övervaka Media Services jobbet meddelanden (enligt beskrivningen i [detta](media-services-dotnet-check-job-progress-with-queues.md) avsnittet).
+När du kör jobb kräver ofta ett sätt att spåra jobbförloppet. Du kan kontrollera förloppet genom att definiera en händelsehanterare för StateChanged (som beskrivs i det här avsnittet) eller använda Azure Queue storage för att övervaka jobbmeddelanden för Media Services (enligt beskrivningen i [detta](media-services-dotnet-check-job-progress-with-queues.md) avsnittet).
 
-## <a name="define-statechanged-event-handler-to-monitor-job-progress"></a>Definiera StateChanged händelsehanterare för att övervaka jobbförloppet
-Följande exempel definierar händelsehanteraren StateChanged. Den här händelsehanteraren spårar jobbförloppet och ger uppdaterad status, beroende på tillståndet. Koden definierar också metoden LogJobStop. Den här metoden helper loggar information om felet.
+## <a name="define-statechanged-event-handler-to-monitor-job-progress"></a>Definiera StateChanged händelsehanterare för att övervaka jobbförlopp
+I följande kodexempel definierar händelsehanteraren StateChanged. Händelsehanteraren spårar förloppet och innehåller uppdaterad status, beroende på tillståndet. Koden definierar också metoden LogJobStop. Den här hjälpmetoden loggar felinformation.
 
 ```csharp
     private static void StateChanged(object sender, JobStateChangedEventArgs e)

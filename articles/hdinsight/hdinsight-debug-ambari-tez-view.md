@@ -1,24 +1,24 @@
 ---
-title: Använda Ambari Tez vy med HDInsight - Azure
-description: Lär dig mer om att använda Ambari Tez-vyn för att felsöka Tez-jobb på HDInsight.
+title: Använd Apache Ambari Tez vyn HDInsight - Azure
+description: Lär dig använda Apache Ambari Tez-vyn för att felsöka Tez-jobb på HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
-ms.openlocfilehash: 576460f4b68d670e534e0ddeed920f7ac99e1458
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: c85ad59acc8e307de05f41365855f3a9669ac2b5
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108894"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034684"
 ---
-# <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>Använda Ambari-vyer för att felsöka Tez-jobb på HDInsight
+# <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>Använd Apache Ambari-vyer för att felsöka Apache Tez-jobb på HDInsight
 
-Ambari-Webbgränssnittet för HDInsight innehåller en Tez-vy som kan användas för att förstå och felsöka jobb som använder Tez. Tez-vy kan du visualisera för jobbet som ett diagram över anslutna objekt, öka detaljnivån i varje objekt och hämta statistik och loggningsinformation.
+Apache Ambari-Webbgränssnittet för HDInsight innehåller en Apache Tez-vy som kan användas för att förstå och felsöka jobb som använder Tez. Tez-vy kan du visualisera för jobbet som ett diagram över anslutna objekt, öka detaljnivån i varje objekt och hämta statistik och loggningsinformation.
 
 > [!IMPORTANT]
 > Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Linux. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [versionshantering för HDInsight](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -28,9 +28,9 @@ Ambari-Webbgränssnittet för HDInsight innehåller en Tez-vy som kan användas 
 * Ett Linux-baserade HDInsight-kluster. Anvisningar om hur du skapar ett kluster finns i [komma igång med Linux-baserade HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * En modern webbläsare som stöder HTML5.
 
-## <a name="understanding-tez"></a>Förstå Tez
+## <a name="understanding-apache-tez"></a>Förstå Apache Tez
 
-Tez är ett utökningsbart ramverk för att bearbeta i Hadoop och ger högre hastigheter än med traditionella MapReduce-bearbetning. För Linux-baserade HDInsight-kluster är den standard-motor för Hive.
+Tez är ett utökningsbart ramverk för att bearbeta i Apache Hadoop och ger högre hastigheter än med traditionella MapReduce-bearbetning. För Linux-baserade HDInsight-kluster är den standard-motor för Hive.
 
 Tez skapar en dirigeras Acyklisk graf (DAG) som beskriver ordningen på åtgärder som krävs av jobb. Enskilda åtgärder kallas hörn och köra en del av det övergripande jobbet. Den faktiska körningen av arbetet som beskrivs av en brytpunkt kallas en uppgift och kan distribueras över flera noder i klustret.
 

@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 8137a292045377c5dccb69c21a8118d0dc17874e
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 14e8eb7c73a1e2cf5047410d3571008c1cd1e1ca
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069956"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289282"
 ---
-# <a name="internet-of-things-security-from-the-ground-up"></a>IOT-säkerhet från grunden
+# <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>Säkerhet för Internet of Things (IoT) från grunden
 
 Sakernas Internet (IoT) utgör unika utmaningar för företag över hela världen som säkerhet, sekretess och efterlevnad. Till skillnad från traditionella cyberhot teknik där problemen kretsar kring programvara och hur det implementeras, gäller IoT vad som händer när cyberhot och de fysiska världarna Konvergera. Skydda IoT-lösningar kräver att säkerställa säker etablering av enheter, säkra anslutningar mellan dessa enheter och molnet och säkert dataskydd i molnet under bearbetning och lagring. Arbeta mot sådana funktioner, men är begränsad resurs enheter, geografisk fördelning av distributioner och ett stort antal enheter i en lösning.
 

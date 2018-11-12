@@ -1,9 +1,9 @@
 ---
 title: Importera certifikat till en behållare som körs på Azure Service Fabric | Microsoft Docs
-description: Lär dig att importera certifikatfiler till en tjänst för Service Fabric-behållaren.
+description: Lär dig att importera certifikatfiler till en tjänst för Service Fabric-behållare.
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: f234a6f6ca56d1833aac53f490feb5f667a6bf1b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney, subramar
+ms.openlocfilehash: d49c16741f581b2ad09dc173e8380fdf77391dbe
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208224"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299069"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Importera en certifikatfil till en behållare som körs på Service Fabric
 
-Du kan skydda dina behållartjänster genom att ange ett certifikat. Service Fabric är en mekanism för tjänster i en behållare för att komma åt ett certifikat som är installerad på noder i ett Windows- eller Linux-kluster (version 5.7 eller högre). Certifikatet måste installeras i LocalMachine på alla noder i klustret. Certifikatinformationen som har angetts i applikationsmanifestet under den `ContainerHostPolicies` tagg som i följande fragment visas:
+Du kan skydda dina behållartjänster genom att ange ett certifikat. Service Fabric tillhandahåller en mekanism för tjänster i en behållare för att få åtkomst till ett certifikat som installeras på noderna i ett Windows- eller Linux-kluster (version 5.7 eller högre). Certifikatet måste installeras i LocalMachine på alla noder i klustret. Certifikatinformationen har angetts i manifestet under den `ContainerHostPolicies` tagg som i följande fragment visas:
 
 ```xml
   <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
@@ -31,7 +31,7 @@ Du kan skydda dina behållartjänster genom att ange ett certifikat. Service Fab
     <CertificateRef Name="MyCert2" X509FindValue="[Thumbprint2]"/>
  ```
 
-För Windows-kluster, när programmet startas, körningsmiljön läser certifikat och genererar en PFX-filen och lösenordet för varje certifikat. Det här PFX-filen och lösenordet är tillgängliga i behållaren med hjälp av följande miljövariabler: 
+Windows-kluster, när programmet startas, körningen läser certifikat och genererar en PFX-filen och lösenordet för varje certifikat. Det här PFX-filen och lösenordet är tillgängliga i behållaren med hjälp av följande miljövariabler: 
 
 * Certificates_ServicePackageName_CodePackageName_CertName_PFX
 * Certificates_ServicePackageName_CodePackageName_CertName_Password
@@ -41,14 +41,14 @@ För Linux-kluster kopieras certifikat (PEM) över från arkivet som anges av X5
 * Certificates_ServicePackageName_CodePackageName_CertName_PEM
 * Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey
 
-Om du redan har certifikat i formuläret och vill komma åt i behållaren du också skapa ett datapaket i app-paket och ange följande i programmanifestet:
+Om du redan har certifikaten i formuläret och vill ha åtkomst till den i behållaren du också skapa ett paket för data i din app-paket och anger du följande i programmanifestet:
 
 ```xml
 <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
   <CertificateRef Name="MyCert1" DataPackageRef="[DataPackageName]" DataPackageVersion="[Version]" RelativePath="[Relative Path to certificate inside DataPackage]" Password="[password]" IsPasswordEncrypted="[true/false]"/>
  ```
 
-Behållartjänsten eller process ansvarar för importerar certifikatfilerna i behållaren. Du kan använda för att importera certifikatet `setupentrypoint.sh` skript eller köra anpassad kod i behållaren-processen. Här är exempelkod i C# för att importera PFX-filen:
+Behållartjänst eller process ansvarar för att importera certifikatdatabasen till behållaren. Du kan använda för att importera certifikatet `setupentrypoint.sh` skript eller köra anpassad kod i behållaren processen. Här är exempelkod i C# för att importera PFX-filen:
 
 ```csharp
 string certificateFilePath = Environment.GetEnvironmentVariable("Certificates_MyServicePackage_NodeContainerService.Code_MyCert1_PFX");
@@ -61,9 +61,9 @@ store.Open(OpenFlags.ReadWrite);
 store.Add(cert);
 store.Close();
 ```
-Den här PFX-certifikat kan användas för att autentisera program eller tjänst eller säker kommunikation med andra tjänster. Som standard är filerna ACLed endast till systemet. Du kan ACL det till andra konton som krävs av tjänsten.
+Den här PFX-certifikat kan användas för att autentisera programmet eller tjänsten eller säker kommunikation med andra tjänster. Som standard är filerna ACLed endast för SYSTEM. Du kan ACL den till andra konton som krävs av tjänsten.
 
-Läs följande artiklar som ett nästa steg:
+Som ett nästa steg kan du läsa följande artiklar:
 
-* [Distribuera en Windows-behållare till Service Fabric på Windows Server 2016](service-fabric-get-started-containers.md)
-* [Distribuera en dockerbehållare till Service Fabric på Linux](service-fabric-get-started-containers-linux.md)
+* [Distribuera en Windows-behållare till Service Fabric i Windows Server 2016](service-fabric-get-started-containers.md)
+* [Distribuera en Docker-behållare till Service Fabric i Linux](service-fabric-get-started-containers-linux.md)

@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 4574b140e2e17462a5ff696b913bb4ef7bcb0ad0
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 5714257fce53fafa148b8ae4d5a3addf3b872c6f
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412764"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035483"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Integrerade Azure-frånkopplade distribution planeringsbeslut för Azure Stack-system
 När du har bestämt dig [hur du ska integrera Azure Stack i hybridmolnmiljön](azure-stack-connection-models.md), du kan sedan slutföra din Azure Stack-distributionsbeslut.
 
-Med den frånkopplade från Azure distributionsalternativ, du kan distribuera och använda Azure Stack utan en anslutning till Internet. Men med en frånkopplad distribution är du begränsad till en AD FS-Identitetslagret och kapacitetsbaserad faktureringsmodell. 
+Du kan distribuera och använda Azure Stack utan en anslutning till internet. Men med en frånkopplad distribution är du begränsad till en AD FS-Identitetslagret och kapacitetsbaserad faktureringsmodell. 
 
 Välj det här alternativet om du:
 - Har säkerhets- eller andra begränsningar som kräver att du kan distribuera Azure Stack i en miljö som inte är ansluten till Internet.

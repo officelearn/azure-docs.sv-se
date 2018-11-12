@@ -3,7 +3,7 @@ title: Kom igång med Storage Explorer | Microsoft Docs
 description: Hantera Azure storage-resurser med Storage Explorer
 services: storage
 documentationcenter: na
-author: cawa
+author: cawaMS
 manager: paulyuk
 editor: ''
 ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 329653e7494d2f993acb462d7d989db07a18f790
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 20aa1824656ee6eb861f3848d969d678b07e9378
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600871"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038441"
 ---
 # <a name="get-started-with-storage-explorer"></a>Kom igång med Storage Explorer
 
@@ -88,8 +88,7 @@ Dessutom kan du arbeta med lagringskonton i globala och nationella Azure:
 * [Arbeta med lokal utvecklingslagring](#work-with-local-development-storage): hantera lokal lagring med hjälp av Azure Storage-emulatorn.
 * [Ansluta till extern lagring](#attach-or-detach-an-external-storage-account): hantera lagringsresurser som hör till en annan Azure-prenumeration eller nationella Azure-moln med hjälp av lagringskontots namn, nyckel och slutpunkter.
 * [Ansluta ett lagringskonto med hjälp av en SAS](#attach-storage-account-using-sas): hantera lagringsresurser som tillhör en annan Azure-prenumeration med hjälp av en signatur för delad åtkomst (SAS).
-* 
-  [Ansluta en tjänst med hjälp av SAS](#attach-service-using-sas): hantera en specifik lagringstjänst (blobcontainer, kö eller tabell) som hör till en annan Azure-prenumeration med hjälp av en SAS.
+* [Ansluta en tjänst med hjälp av SAS](#attach-service-using-sas): hantera en specifik lagringstjänst (blobcontainer, kö eller tabell) som hör till en annan Azure-prenumeration med hjälp av en SAS.
 * [Ansluta till ett Azure Cosmos DB-konto med hjälp av en anslutningssträng](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): hantera Cosmos DB-konto med hjälp av en anslutningssträng.
 
 ## <a name="connect-to-an-azure-subscription"></a>Ansluta till en Azure-prenumeration
@@ -264,8 +263,7 @@ Avsnittet ”ansluta ett lagringskonto med hjälp av en SAS” förklarar hur ad
 
 I det här sammanhanget, kan en tjänst vara en blobbehållare, kö, tabell eller filresurs. Om du vill generera SAS för en tjänst kan du läsa:
 
-* 
-  [Hämta SAS för en blobcontainer](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
+* [Hämta SAS för en blobcontainer](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
 
 ### <a name="attach-to-the-shared-account-service-by-using-a-sas-uri"></a>Ansluta till tjänsten för delade kontot med hjälp av en SAS-URI
 

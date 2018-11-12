@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 11/01/2018
-ms.openlocfilehash: 0796ab0a0923d9a04e07542c576883c004c63263
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.date: 11/05/2018
+ms.openlocfilehash: a66311cb35815b5db7724a277677ad41d7afec77
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957760"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035741"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Övervakning i Azure Database for MySQL
 Övervakning av data om dina servrar kan du felsöka och optimera din arbetsbelastning. Azure Database for MySQL tillhandahåller olika mått som ger inblick i beteendet för din server.
@@ -49,3 +49,4 @@ Du kan aktivera långsamma fråga loggning på servern. Dessa loggar är också 
 ## <a name="next-steps"></a>Nästa steg
 - Se [hur du konfigurerar aviseringar](howto-alert-on-metric.md) anvisningar om hur du skapar en avisering på ett mått.
 - Mer information om hur du komma åt och exportera mått med hjälp av Azure portal, REST API eller CLI finns i den [översikt över Azure-mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+- Läs vår blogg på [bästa praxis när du övervakar servern](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-mysql-monitoring/).

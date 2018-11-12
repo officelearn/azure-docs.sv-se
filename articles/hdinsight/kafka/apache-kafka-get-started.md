@@ -3,17 +3,17 @@ title: Snabbstart för Apache Kafka – Azure HDInsight
 description: I den här snabbstarten lär du dig hur du skapar ett Apache Kafka-kluster på Azure HDInsight med hjälp av Azure Portal. Du lär dig också om Kafka-ämnen, -prenumeranter och -konsumenter.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 10/12/2018
-ms.openlocfilehash: 0ed594afd8a41d9158bc565a8566672275852740
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9edb85fcaa2c3f9c58cc74c55d52e4dbbf751727
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458164"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014524"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Snabbstart: Skapa ett Apache Kafka-kluster på HDInsight
 
@@ -284,7 +284,7 @@ Om du vill ha mer information om vilka kommandon som är tillgängliga med verkt
 
 ## <a name="produce-and-consume-records"></a>Skapa och använda poster
 
-Kafka lagrar *poster* i ämnen. Poster produceras av *producenter*, och används av *konsumenter*. Producenter och konsumenter kommunicerar med *Kafka-broker*tjänsten. Varje arbetsnod i HDInsight-klustret är en Apache Kafka-brokervärd.
+Kafka lagrar *poster* i ämnen. Poster produceras av *producenter*, och används av *konsumenter*. Producenter och konsumenter kommunicerar med *Kafka-koordinator*tjänsten. Varje arbetsnod i HDInsight-klustret är en Apache Kafka-brokervärd.
 
 Använd följande steg för att lagra poster i det testämne som du skapade tidigare och sedan läsa dem med en konsument:
 

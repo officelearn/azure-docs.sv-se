@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: 2f35f54c7ec5ad169673aebe08602294270f470a
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: a2bf6ef44a8698e802d9bbc25689988498c55f13
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364463"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300276"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Avvikelseidentifiering i Azure Stream Analytics
 
@@ -31,7 +31,7 @@ Operatorn AnomalyDetection identifierar tre typer av avvikelser:
 
 * **Långsam försämringen**: en långsam minskning i trend över tid.  
 
-När du använder operatorn AnomalyDetection, måste du ange den **Limit Duration** satsen. Den här satsen Anger tidsintervall (hur långt tillbaka i historiken från den aktuella händelsen) bör övervägas när du söker efter avvikelser. Den här operatorn kan du kan också begränsas till endast de händelser som matchar en viss egenskap eller ett villkor med hjälp av den  **när**   satsen. Den här operatorn kan också välja att bearbeta grupper av händelser som separat baserat på nyckeln som anges i den  **partitionera av**   satsen. Utbildning och förutsägelse sker separat för varje partition. 
+När du använder operatorn AnomalyDetection, måste du ange den **Limit Duration** satsen. Den här satsen Anger tidsintervall (hur långt tillbaka i historiken från den aktuella händelsen) bör övervägas när du söker efter avvikelser. Den här operatorn kan du kan också begränsas till endast de händelser som matchar en viss egenskap eller ett villkor med hjälp av den **när** satsen. Den här operatorn kan också välja att bearbeta grupper av händelser som separat baserat på nyckeln som anges i den **partitionera av** satsen. Utbildning och förutsägelse sker separat för varje partition. 
 
 ## <a name="syntax-for-anomalydetection-operator"></a>Syntax för operatorn AnomalyDetection
 
@@ -45,11 +45,11 @@ När du använder operatorn AnomalyDetection, måste du ange den **Limit Duratio
 
 * **scalar_expression** -skalärt uttryck som utförs för avvikelseidentifiering. Tillåtna värden för den här parametern innehåller flyttal eller Bigint-datatyper som en enda (skalära) returvärdet. Jokerteckenuttryck **\*** tillåts inte. Skalärt uttryck får inte innehålla andra analysfunktioner eller externa funktioner. 
 
-* **partition_by_clause** – `PARTITION BY <partition key>` satsen dividerar inlärning och utbildning i separata partitioner. Med andra ord en separat modell används per värde för `<partition key>` och endast händelser med detta värde används för inlärning och utbildning i den modellen. Till exempel följande fråga tåg och poängsätter en läsning mot andra avläsningar av samma sensorn:
+* **partition_by_clause** – `PARTITION BY <partition key>` satsen dividerar inlärning och utbildning i separata partitioner. Med andra ord en separat modell används per värde för `<partition key>` och endast händelser med detta värde används för inlärning och utbildning i den modellen. Till exempel följande fråga tåg och poängsätter en läsning mot andra avläsningar av samma sensorn:
 
   `SELECT sensorId, reading, ANOMALYDETECTION(reading) OVER(PARTITION BY sensorId LIMIT DURATION(hour, 1)) FROM input`
 
-* **limit_duration satsen** `DURATION(<unit>, <length>)` -Anger tidsintervall (hur långt tillbaka i historiken från den aktuella händelsen) bör övervägas när du söker efter avvikelser. Se [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics) för en detaljerad beskrivning av enheter som stöds och deras förkortningar. 
+* **limit_duration satsen**  `DURATION(<unit>, <length>)` -Anger tidsintervall (hur långt tillbaka i historiken från den aktuella händelsen) bör övervägas när du söker efter avvikelser. Se [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics) för en detaljerad beskrivning av enheter som stöds och deras förkortningar. 
 
 * **when_clause** -anger ett booleskt villkor för de händelser som anses vara i beräkningen för avvikelseidentifiering identifiering.
 
@@ -243,7 +243,7 @@ När Indataströmmen inte uniform kan aggregering steg omvandla det till en enhe
 ## <a name="references"></a>Referenser
 
 * [Avvikelseidentifiering – använda maskininlärning att identifiera avvikelser i time series-data](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/)
-* [Machine learning-API: T för avvikelseidentifiering](https://docs.microsoft.com/en-gb/azure/machine-learning/machine-learning-apps-anomaly-detection-api)
+* [Machine learning-API: T för avvikelseidentifiering](https://docs.microsoft.com/azure/machine-learning/machine-learning-apps-anomaly-detection-api)
 * [Time series-avvikelseidentifiering](https://msdn.microsoft.com/library/azure/mt775197.aspx)
 
 ## <a name="next-steps"></a>Nästa steg

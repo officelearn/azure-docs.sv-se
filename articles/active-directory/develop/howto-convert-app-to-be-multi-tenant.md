@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: 61238482339250e45be36162e7eef252f78c74b1
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
-ms.translationtype: HT
+ms.openlocfilehash: 6581081f0f34f73c915f0b026a3ed50816f6731f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288993"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298951"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Så här: Logga in alla Azure Active Directory-användare med programmönstret för flera innehavare
 
@@ -118,7 +118,7 @@ Vissa behörigheter kan vara godkänts av en vanlig användare, medan andra krä
 
 Appspecifika behörigheter kräver alltid en Innehavaradministratör godkännande. Om ditt program begär en appspecifik behörighet och en användare försöker logga in på programmet, visas ett felmeddelande visas om användaren inte kan godkänna.
 
-Vissa delegerade behörigheter kräver också en Innehavaradministratör godkännande. Till exempel kräver möjligheten att skriva tillbaka till Azure AD som den inloggade användaren en Innehavaradministratör medgivande. Som appspecifika behörigheter får ditt program ett fel om en vanlig användare försöker logga in till ett program som begär en delegerad behörighet som kräver administratörens godkännande. Om en behörighet kräver administratörens godkännande bestäms av utvecklaren som publiceras till resursen och finns i dokumentationen för resursen. I dokumentationen för behörigheter för den [Azure AD Graph API] [ AAD-Graph-Perm-Scopes] och [Microsoft Graph API] [ MSFT-Graph-permision-scopes] anger vilka behörigheter kräver administratör ditt medgivande.
+Vissa delegerade behörigheter kräver också en Innehavaradministratör godkännande. Till exempel kräver möjligheten att skriva tillbaka till Azure AD som den inloggade användaren en Innehavaradministratör medgivande. Som appspecifika behörigheter får ditt program ett fel om en vanlig användare försöker logga in till ett program som begär en delegerad behörighet som kräver administratörens godkännande. Om en behörighet kräver administratörens godkännande bestäms av utvecklaren som publiceras till resursen och finns i dokumentationen för resursen. I dokumentationen för behörigheter för den [Azure AD Graph API] [ AAD-Graph-Perm-Scopes] och [Microsoft Graph API] [ MSFT-Graph-permission-scopes] anger vilka behörigheter kräver administratör ditt medgivande.
 
 Om programmet använder behörigheter som kräver administratörens godkännande, måste du ha en gest, till exempel en knapp eller länk där administratören kan starta åtgärden. Den begäran som programmet skickar för den här åtgärden är vanligt OAuth2/OpenID Connect auktoriseringsbegäran som även innehåller den `prompt=admin_consent` frågesträngparametern. När administratören har godkänt och tjänstens huvudnamn har skapats i kundens klient, efterföljande inloggningsförfrågningar behöver inte den `prompt=admin_consent` parametern. Eftersom administratören har valt behörigheterna som krävs är godtagbara, tillfrågas inga andra användare i klienten om samtycke från den tidpunkten och framåt.
 
@@ -184,7 +184,7 @@ I den här artikeln beskrivs hur du skapar en App som kan logga in en användare
 * [Programobjekt och tjänstobjekt][AAD-App-SP-Objects]
 * [Integrera program med Azure Active Directory][AAD-Integrating-Apps]
 * [Översikt över ramverket för medgivande][AAD-Consent-Overview]
-* [Behörighetsomfattning för Microsoft Graph API][MSFT-Graph-permision-scopes]
+* [Behörighetsomfattning för Microsoft Graph API][MSFT-Graph-permission-scopes]
 * [Behörighetsomfattning för Azure AD Graph API][AAD-Graph-Perm-Scopes]
 
 <!--Reference style links IN USE -->
@@ -202,7 +202,7 @@ I den här artikeln beskrivs hur du skapar en App som kan logga in en användare
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
 [MSFT-Graph-overview]: https://developer.microsoft.com/graph/docs/overview/overview
-[MSFT-Graph-permision-scopes]: https://developer.microsoft.com/graph/docs/concepts/permissions_reference
+[MSFT-Graph-permission-scopes]: https://developer.microsoft.com/graph/docs/concepts/permissions_reference
 
 <!--Image references-->
 [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

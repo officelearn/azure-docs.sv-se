@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f8ca716f4ab991fecca52ca2d5fed080e6f4c177
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7c7671578dc22926dabfe7735038186ab1c2c2b3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060837"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264287"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Standard SSD Managed Disks för virtuella Azure-datorbelastningar
 
@@ -22,7 +22,7 @@ Azure Standard Solid tillstånd-hårddiskar (SSD) Managed Disks är ett alternat
 ## <a name="standard-ssd-features"></a>Standard SSD-funktioner
 
 **Hanterade diskar**: Standard SSD-enheter är endast tillgängliga som Managed Disks. Ohanterade diskar och Sidblobar stöds inte på Standard SSD. När du skapar den hanterade disken måste du ange typ av disk som Standard SSD och ange storlek på disk och Azure skapar och hanterar disken åt dig.
-Standard SSD-enheter stöder alla tjänsthantering som erbjuds av Managed Disks. Exempelvis kan du skapa, kopiera eller ögonblicksbild Standard SSD Managed Disks på samma sätt som du gör med Managed Disks.
+Standard SSD-enheter stöder alla åtgärder för klassisk distribution modellen erbjuds av Managed Disks. Exempelvis kan du skapa, kopiera eller ögonblicksbild Standard SSD Managed Disks på samma sätt som du gör med Managed Disks.
 
 **Virtuella datorer**: Standard SSD-enheter kan användas med alla Azure virtuella datorer, inklusive de typer av virtuella datorer som inte har stöd för Premium-diskar. Exempel: Om du använder en virtuell dator i A-serien, eller virtuell N-serien eller DS-serien, eller alla andra Virtuella Azure-serien, du kan använda Standard SSD-enheter med den virtuella datorn. Med introduktionen av Standard SSD möjliggör vi ett brett utbud av arbetsbelastningar som tidigare använt HDD-baserade diskar att övergå till SSD-baserade diskar och Upplev konsekvent prestanda, högre tillgänglighet, bättre svarstid och en övergripande bättre upplevelse som medföljer SSD-enheter.
 
@@ -32,7 +32,7 @@ Standard SSD-enheter stöder alla tjänsthantering som erbjuds av Managed Disks.
 
 ## <a name="scalability-and-performance-targets"></a>Mål för skalbarhet och prestanda
 
-I följande tabell innehåller diskstorlekar som för närvarande erbjuds för Standard SSD.
+I följande tabell innehåller diskstorlekar som för närvarande erbjuds för Standard SSD. Storlekar som är markerad med en asterisk finns för närvarande i förhandsversion.
 
 |Standard SSD-disktyp  |Diskstorlek  |IOPS per Disk  |Dataflöde per disk  |
 |---------|---------|---------|---------|
@@ -42,9 +42,9 @@ I följande tabell innehåller diskstorlekar som för närvarande erbjuds för S
 |E30     |1 024 giB       |Upp till 500         |Upp till 60 MiB per sekund         |
 |E40     |2 048 giB       |Upp till 500         |Upp till 60 MiB per sekund         |
 |E50     |4095 giB       |Upp till 500         |Upp till 60 MiB per sekund         |
-|E60     |8 192 giB       |Upp till 1 300       |Upp till 300 MiB per sekund        |
-|E70     |16 384 giB      |Upp till 2 000       |Upp till 500 MiB per sekund        |
-|E80     |32 767 giB      |Upp till 2 000       |Upp till 500 MiB per sekund        |
+|E60 *     |8 192 giB       |Upp till 1 300       |Upp till 300 MiB per sekund        |
+|E70 *    |16 384 giB      |Upp till 2 000       |Upp till 500 MiB per sekund        |
+|E80 *    |32 767 giB      |Upp till 2 000       |Upp till 500 MiB per sekund        |
 
 Standard SSD-enheter är utformade för att tillhandahålla ensiffrig svarstid för de flesta i/o-åtgärder och leverera IOPS och dataflöde upp till de gränser som beskrivs i tabellen ovan. Faktiska IOPS och dataflöden varierar ibland beroende på trafikmönster. Standard SSD-enheter ger mer konsekventa prestanda än HDD-diskar med kortare svarstider.
 
@@ -61,7 +61,7 @@ När du använder Standard SSD-enheter, gäller följande för debitering:
 - Utgående dataöverföringar
 - Transaktioner
 
-**Hanterade diskstorlek**: Managed disks debiteras storleken du fått. Azure maps-Allokerad storlek (avrundas uppåt) till närmaste disk storlek erbjudandet. Se tabellen i skalbarhets- och prestandamål ovan för information om diskstorlekar som erbjuds. Varje disk som mappar till en etablerad diskstorleken som stöds och debiteras därefter. Till exempel om du har etablerat en 200 GiB Standard SSD den mappas till disk storlek erbjudandet om E15 (256 GB). Debiteringen för etablerade diskar beräknas per timme med hjälp av det månatliga priset för Premium Storage-erbjudandet. Till exempel om du har etablerat en E10 disk och tar bort den efter 20 timmar faktureras du för erbjudandet E10 beräknat på 20 timmar. Det här är oavsett mängden faktiska data som skrivs till disken.
+**Hanterade diskstorlek**: Managed disks debiteras storleken du fått. Azure mappar den etablerade storleken (avrundad uppåt) till närmaste diskstorlekserbjudande. Se tabellen i skalbarhets- och prestandamål ovan för information om diskstorlekar som erbjuds. Varje disk som mappar till en etablerad diskstorleken som stöds och debiteras därefter. Till exempel om du har etablerat en 200 GiB Standard SSD den mappas till disk storlek erbjudandet om E15 (256 GB). Debiteringen för etablerade diskar beräknas per timme med hjälp av det månatliga priset för Premium Storage-erbjudandet. Till exempel om du har etablerat en E10 disk och tar bort den efter 20 timmar faktureras du för erbjudandet E10 beräknat på 20 timmar. Det här är oavsett mängden faktiska data som skrivs till disken.
 
 **Ögonblicksbilder**: ögonblicksbilder för Managed Disks debiteras för den kapacitet som används av ögonblicksbilder, på målet och källan, om sådana. Mer information om ögonblicksbilder finns [hanteras diskbilder](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#managed-disk-snapshots).
 

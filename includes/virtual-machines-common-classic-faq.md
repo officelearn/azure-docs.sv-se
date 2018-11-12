@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 45a6bd349169265ef411d01a3601a27551847633
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 37dc96cf965181c5acba74449c684a08035e37b2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226943"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263945"
 ---
 Den här artikeln tar upp några vanliga frågor som användare ställer om virtuella Azure-datorer som skapats med den klassiska distributionsmodellen.
 
@@ -22,9 +22,9 @@ Ja. Anvisningar om hur du migrerar finns i:
 ## <a name="what-can-i-run-on-an-azure-vm"></a>Vad kan jag köra på en virtuell Azure-dator?
 Alla prenumeranter kan köra serverprogramvara på en virtuell Azure-dator. Du kan köra de senaste versionerna av Windows Server, samt en mängd olika Linux-distributioner. Information om support finns i:
 
-• För virtuella Windows-datorer – [Microsofts serverprogramsupport för virtuella Azure-datorer](http://go.microsoft.com/fwlink/p/?LinkId=393550)
+• För virtuella Windows-datorer – [Microsofts serverprogramsupport för virtuella Azure-datorer](https://go.microsoft.com/fwlink/p/?LinkId=393550)
 
-• För virtuella Linux-datorer – [Linux på Azure-godkända distributioner](http://go.microsoft.com/fwlink/p/?LinkId=393551)
+• För virtuella Linux-datorer – [Linux på Azure-godkända distributioner](https://go.microsoft.com/fwlink/p/?LinkId=393551)
 
 För Windows-klientavbildningar är vissa versioner av Windows 7 och Windows 8.1 tillgängliga för MSDN Azure-förmånsprenumeranter och MSDN-utvecklings- och testningsprenumeranter som betalar per användning, för utvecklings- och testningsuppgifter. Mer information, bland annat instruktioner och begränsningar, finns i [Windows-klientavbildningar för MSDN-prenumeranter](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
 
@@ -38,10 +38,10 @@ Funktioner för tillhörighetsgrupper är redan inaktuella i Azure Resource Mana
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Hur mycket lagringsutrymme kan jag använda med en virtuell dator?
 Varje datadisk kan vara upp till 1 TB. Antalet datadiskar som du kan använda beror på storleken på den virtuella datorn. Mer information finns i [Storlekar för virtuella datorer](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Ett Azure-lagringskonto innehåller lagringsutrymme för operativsystemsdisken och eventuella datadiskar. Varje disk är en VHD-fil som lagras som en sidblob. Information om priser finns i [Information om lagringspriser](http://go.microsoft.com/fwlink/p/?LinkId=396819).
+Ett Azure-lagringskonto innehåller lagringsutrymme för operativsystemsdisken och eventuella datadiskar. Varje disk är en VHD-fil som lagras som en sidblob. Information om priser finns i [Information om lagringspriser](https://go.microsoft.com/fwlink/p/?LinkId=396819).
 
 ## <a name="which-virtual-hard-disk-types-can-i-use"></a>Vilka typer av virtuella hårddiskar kan jag använda?
-Azure har bara stöd för fasta virtuella hårddiskar i VHD-format. Om du har en VHDX-disk som du vill använda i Azure måste du först konvertera den med hjälp av Hyper-V Manager eller cmdleten [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656). När du har gjort det använder du cmdleten [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) (i Service Management-läge) för att ladda upp VHD-disken till ett lagringskonto i Azure så att du kan använda den med virtuella datorer.
+Azure har bara stöd för fasta virtuella hårddiskar i VHD-format. Om du har en VHDX-disk som du vill använda i Azure måste du först konvertera den med hjälp av Hyper-V Manager eller cmdleten [convert-VHD](https://go.microsoft.com/fwlink/p/?LinkId=393656). När du har gjort det använder du cmdleten [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) (i Service Management-läge) för att ladda upp VHD-disken till ett lagringskonto i Azure så att du kan använda den med virtuella datorer.
 
 * Linux-instruktioner finns i [Skapa och ladda upp en virtuell hårddisk som innehåller operativsystemet Linux](../articles/virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
@@ -50,7 +50,7 @@ På många sätt liknar de virtuella Hyper-V-datorer i ”Generation 1”, men d
 
 * Azure ger inte konsolåtkomst till en virtuell dator. Det går inte att komma åt en virtuell dator förrän den har startat klart.
 * Virtuella Azure-datorer i de flesta [storlekar](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) har endast 1 virtuellt nätverkskort, vilket innebär att de även kan ha endast 1 extern IP-adress. (För storlekarna A8 och A9 används ett andra nätverkskort för programkommunikation mellan instanser i begränsade scenarier.)
-* Virtuella Azure-datorer stöder inte funktioner för virtuella Hyper-V-datorer i Generation 2. Mer information om dessa funktioner finns i [Specifikationer för virtuell dator för Hyper-V](http://technet.microsoft.com/library/dn592184.aspx) och [Översikt över virtuella Generation 2-datorer](https://technet.microsoft.com/library/dn282285.aspx).
+* Virtuella Azure-datorer stöder inte funktioner för virtuella Hyper-V-datorer i Generation 2. Mer information om dessa funktioner finns i [Specifikationer för virtuell dator för Hyper-V](https://technet.microsoft.com/library/dn592184.aspx) och [Översikt över virtuella Generation 2-datorer](https://technet.microsoft.com/library/dn282285.aspx).
 
 ## <a name="can-these-virtual-machines-use-my-existing-on-premises-networking-infrastructure"></a>Kan dessa virtuella datorer använda min befintliga, lokala nätverksinfrastruktur?
 För virtuella datorer som skapats med den klassiska distributionsmodellen kan du använda Azure Virtual Network för att utöka den befintliga infrastrukturen. Metoden liknar att öppna ett avdelningskontor. Du kan etablera och hantera virtuella privata nätverk (VPN) i Azure samt ansluta dem säkert till lokal IT-infrastruktur. Mer information finns i [Översikt över Virtual Network](../articles/virtual-network/virtual-networks-overview.md).
@@ -85,7 +85,7 @@ Termen uppgradering innebär vanligtvis att flytta till en senare version av ope
 * För virtuella Linux-datorer använder du lämpliga pakethanteringsverktyg och -procedurer för distributionen.
 * För en virtuell Windows-dator måste du migrera servern med något som liknar Migreringsverktyg för Windows Server. Försök inte uppgradera gästoperativsystemet medan det finns på Azure. Det stöds inte på grund av risken att förlora åtkomst till den virtuella datorn. Om problem uppstår under uppgraderingen kan du förlora möjligheten att starta en fjärrskrivbordssession och skulle inte kunna felsöka problemen.
 
-Allmän information om verktyg och processer för att migrera en Windows-server finns i [Migrera roller och funktioner till Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940).
+Allmän information om verktyg och processer för att migrera en Windows-server finns i [Migrera roller och funktioner till Windows Server](https://go.microsoft.com/fwlink/p/?LinkId=396940).
 
 ## <a name="whats-the-default-user-name-and-password-on-the-virtual-machine"></a>Vad är standardanvändarnamnet och -lösenordet på den virtuella datorn?
 Avbildningarna som tillhandahålls av Azure har inget förkonfigurerat användarnamn och lösenord. När du skapar en virtuell dator med en av dessa avbildningar kan måste du ange ett användarnamn och lösenord som du använder för att logga in på den virtuella datorn.
@@ -100,8 +100,8 @@ Ytterligare information:
 ## <a name="can-azure-run-anti-virus-on-my-virtual-machines"></a>Kan Azure köra antivirus på mina virtuella datorer?
 Azure erbjuder flera alternativ för antiviruslösningar, men det är upp till dig att hantera det. Du kan till exempel behöva en separat prenumeration på program mot skadlig kod och du måste ange när du vill köra genomsökningar och installera uppdateringar. Du kan lägga till stöd för antivirus med ett VM-tillägg för Microsoft Antimalware, Symantec Endpoint Protection eller TrendMicro Deep Security Agent när du skapar en virtuell Windows-dator eller vid ett senare tillfälle. Med Symantec- och TrendMicro-tilläggen kan du använda en kostnadsfri utvärderingsprenumeration under begränsad tid eller en befintlig företagsprenumeration. Microsoft Antimalware är kostnadsfritt. Mer information finns i:
 
-* [Så installerar och konfigurerar du Symantec Endpoint Protection på virtuella Azure-datorer](http://go.microsoft.com/fwlink/p/?LinkId=404207)
-* [Så installerar och konfigurerar du Trend Micro Deep Security som en tjänst på en virtuell Azure-dator](http://go.microsoft.com/fwlink/p/?LinkId=404206)
+* [Så installerar och konfigurerar du Symantec Endpoint Protection på virtuella Azure-datorer](https://go.microsoft.com/fwlink/p/?LinkId=404207)
+* [Så installerar och konfigurerar du Trend Micro Deep Security som en tjänst på en virtuell Azure-dator](https://go.microsoft.com/fwlink/p/?LinkId=404206)
 * [Distribuera lösningar för skydd mot skadlig kod i Azure Virtual Machines](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
 ## <a name="what-are-my-options-for-backup-and-recovery"></a>Vad har jag för alternativ för säkerhetskopiering och återställning?

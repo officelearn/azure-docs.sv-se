@@ -1,46 +1,65 @@
 ---
-title: Hur du hanterar stora mängder information i Azure Event Grid och publicering av händelser till dem med hjälp av händelse domäner
-description: Lär dig skapa och hantera avsnitt i Azure Event Grid och publicering av händelser till dem med hjälp av händelse domäner.
+title: Hantera stora mängder ämnen i Azure Event Grid med händelsen domäner
+description: Visar hur du hanterar stora mängder information i Azure Event Grid och publicering av händelser till dem med hjälp av händelse domäner.
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 10/30/2018
-ms.openlocfilehash: 48a5356b03e38e864ba76f048febdb0b040893f5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 11/08/2018
+ms.openlocfilehash: ad23599d1df5d07e912f634435f8b44b441d87e6
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634311"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298544"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Hantera ämnen och publicera händelser med händelse-domäner
 
 Den här artikeln visar hur du:
 
 * Skapa en Event Grid-domän
-* Prenumerera på ämnen
+* Prenumerera på event grid-ämnen
 * Lista över nycklar
 * Publicering av händelser till en domän
+
+Läs om event domäner i [förstå händelse domäner för att hantera Event Grid-ämnen](event-domains.md).
+
+## <a name="install-preview-feature"></a>Installera funktionen för förhandsgranskning
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="create-an-event-domain"></a>Skapa en händelsedomän
 
-Skapa en händelsedomän kan ske via den `eventgrid` -tillägg för [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). När du har skapat en domän kan använda du det för att hantera stora mängder information.
+Skapa en händelsedomän för att hantera stora mängder information.
+
+Om du använder Azure CLI använder du:
 
 ```azurecli-interactive
-# if you haven't already installed the extension, do it now.
+# If you haven't already installed the extension, do it now.
 # This extension is required for preview features.
 az extension add --name eventgrid
 
 az eventgrid domain create \
   -g <my-resource-group> \
-  --name <my-domain-name>
+  --name <my-domain-name> \
   -l <location>
 ```
 
-Har skapats returnerar följande:
+Om du använder PowerShell använder du:
+
+```azurepowershell-interactive
+# If you have not already installed the module, do it now.
+# This module is required for preview features.
+Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
+
+New-AzureRmEventGridDomain `
+  -ResourceGroupName <my-resource-group> `
+  -Name <my-domain-name> `
+  -Location <location>
+```
+
+Har skapats returnerar följande värden:
 
 ```json
 {
@@ -57,24 +76,59 @@ Har skapats returnerar följande:
 }
 ```
 
-Obs den `endpoint` och `id` som de kommer att behöva hantera domänen och publicera händelser.
+Obs den `endpoint` och `id` som de är nödvändiga för att hantera domänen och publicera händelser.
+
+## <a name="manage-access-to-topics"></a>Hantera åtkomst till avsnitt
+
+Hantera åtkomst till avsnitt sker via [rolltilldelning](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli). Rolltilldelning använder rollbaserad åtkomstkontroll för att begränsa åtgärder på Azure-resurser till behöriga användare för ett visst omfång.
+
+Event Grid har två inbyggda roller som du kan använda för att tilldela specifika användare åtkomst om olika ämnen inom en domän. Dessa roller är `EventGrid EventSubscription Contributor (Preview)`, vilket möjliggör skapandet och borttagningen av prenumerationer och `EventGrid EventSubscription Reader (Preview)`, vilket gör att endast lista över prenumerationer på händelser.
+
+Följande begränsningar för Azure CLI-kommandot `alice@contoso.com` att skapa och ta bort prenumerationer på händelser endast på avsnittet `demotopic1`:
+
+```azurecli-interactive
+az role assignment create \
+  --assignee alice@contoso.com \
+  --role "EventGrid EventSubscription Contributor (Preview)" \
+  --scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
+```
+
+Följande PowerShell-kommando begränsningar `alice@contoso.com` att skapa och ta bort prenumerationer på händelser endast på avsnittet `demotopic1`:
+
+```azurepowershell-interactive
+New-AzureRmRoleAssignment `
+  -SignInName alice@contoso.com `
+  -RoleDefinitionName "EventGrid EventSubscription Contributor (Preview)" `
+  -Scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
+```
+
+Läs mer om hur du hanterar åtkomst för Event Grid-åtgärder, [Event Grid säkerhet och autentisering](./security-authentication.md).
 
 ## <a name="create-topics-and-subscriptions"></a>Skapa ämnen och prenumerationer
 
 Event Grid-tjänsten automatiskt skapar och hanterar avsnittet i en domän som baserat på samtalet för att skapa en händelseprenumeration för ett ämne i domänen. Det finns ingen separat steg att skapa ett ämne i en domän. På samma sätt när den senaste händelseprenumerationen för ett ämne tas bort är ämnet också bort.
 
-Prenumerera på ett ämne i en domän är samma som prenumererar på andra Azure-resurs:
+Prenumerera på ett ämne i en domän är samma som prenumererar på andra Azure-resurs. Ange domän efter händelse-ID returneras när du skapar domänen tidigare för resurs-ID källa. Avsnittet om du vill prenumerera på lägger du till `/topics/<my-topic>` i slutet av källans resurs-ID. Ange domän efter händelse-ID för att skapa en händelseprenumeration för domän-omfång som tar emot alla händelser i domänen, utan att ange något ämne.
+
+Vanligtvis användaren du beviljas åtkomst till i föregående avsnitt skapar prenumerationen. För att förenkla den här artikeln kan skapa du prenumerationen. 
+
+Om du använder Azure CLI använder du:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
   --name <event-subscription> \
-  --resource-id "/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/<my-topic>" \
-  --endpoint https://contoso.azurewebsites.net/api/f1?code=code
+  --source-resource-id "/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1" \
+  --endpoint https://contoso.azurewebsites.net/api/updates
 ```
 
-Resurs-ID som angetts är samma ID som returneras när du skapar domänen tidigare. Avsnittet om du vill prenumerera på lägger du till `/topics/<my-topic>` i slutet av resurs-ID.
+Om du använder PowerShell använder du:
 
-Om du vill skapa en händelseprenumeration för domän-omfång som tar emot alla händelser i domänen, ge domänen som den `resource-id` utan att ange något ämne som till exempel `/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>`.
+```azurepowershell-interactive
+New-AzureRmEventGridSubscription `
+  -ResourceId "/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1" `
+  -EventSubscriptionName <event-subscription> `
+  -Endpoint https://contoso.azurewebsites.net/api/updates
+```
 
 Om du behöver en test-slutpunkt för att prenumerera på dina händelser kan du alltid distribuera en [färdiga webbapp](https://github.com/Azure-Samples/azure-event-grid-viewer) som visar inkommande händelser. Du kan skicka händelser till din testwebbplats på `https://<your-site-name>.azurewebsites.net/api/updates`.
 
@@ -82,23 +136,6 @@ Om du behöver en test-slutpunkt för att prenumerera på dina händelser kan du
 
 Behörigheter som anges för ett ämne som lagras i Azure Active Directory och måste uttryckligen tas bort. Tar bort en händelseprenumeration återkalla inte en användares åtkomst för att skapa prenumerationer på händelser om de har skrivbehörighet på ett ämne.
 
-## <a name="manage-access-to-topics"></a>Hantera åtkomst till avsnitt
-
-Hantera åtkomst till avsnitt sker via [rolltilldelning](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-cli). Rolltilldelning använder roll baserad åtkomstkontroll för att begränsa åtgärder på Azure-resurser till behöriga användare för ett visst omfång.
-
-Event Grid har två inbyggda roller som du kan använda för att tilldela specifika användare åtkomst om olika ämnen inom en domän. Dessa roller är `EventGrid EventSubscription Contributor (Preview)`, vilket möjliggör skapandet och borttagningen av prenumerationer och `EventGrid EventSubscription Reader (Preview)`, vilket gör att endast lista över prenumerationer på händelser.
-
-Följande kommando skulle begränsa `alice@contoso.com` att skapa och ta bort prenumerationer på händelser endast på avsnittet `foo`:
-
-```azurecli-interactive
-az role assignment create --assignee alice@contoso.com --role "EventGrid EventSubscription Contributor (Preview)" --scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/foo
-```
-
-Se [Event Grid säkerhet och autentisering](./security-authentication.md) mer information om:
-
-* Hantering av åtkomstkontroll
-* Åtgärdstyper
-* Skapa anpassade rolldefinitioner
 
 ## <a name="publish-events-to-an-event-grid-domain"></a>Publicering av händelser till en Event Grid-domän
 
@@ -106,7 +143,7 @@ Publicering av händelser till en domän är samma som [publicering till ett anp
 
 ```json
 [{
-  "topic": "foo",
+  "topic": "demotopic1",
   "id": "1111",
   "eventType": "maintenanceRequested",
   "subject": "myapp/vehicles/diggers",
@@ -118,7 +155,7 @@ Publicering av händelser till en domän är samma som [publicering till ett anp
   "dataVersion": "1.0"
 },
 {
-  "topic": "bar",
+  "topic": "demotopic2",
   "id": "2222",
   "eventType": "maintenanceCompleted",
   "subject": "myapp/vehicles/tractors",
@@ -131,7 +168,7 @@ Publicering av händelser till en domän är samma som [publicering till ett anp
 }]
 ```
 
-Hämta nycklarna för en domän:
+Om du vill hämta nycklar för en domän med Azure CLI, använder du:
 
 ```azurecli-interactive
 az eventgrid domain key list \
@@ -139,8 +176,16 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
+Om du använder PowerShell använder du:
+
+```azurepowershell-interactive
+Get-AzureRmEventGridDomainKey `
+  -ResourceGroupName <my-resource-group> `
+  -Name <my-domain>
+```
+
 Och Använd din favoritmetod för att göra en HTTP POST du publicerar dina händelser till Event Grid-domänen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om avancerade begrepp på Event domäner och varför de är användbara finns i den [konceptuell översikt över Event domäner](./event-domains.md).
+* Mer information om avancerade begrepp på Event domäner och varför de är användbara finns i den [konceptuell översikt över Event domäner](event-domains.md).

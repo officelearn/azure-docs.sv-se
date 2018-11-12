@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: bf73f64cc1e1789b770d7fae5f62e0ec27425263
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 8c8f3cd67186450fdcf65c177ea0353d297a3b01
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42915447"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264420"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Generera filen för begäran om certifikatsignering
 
@@ -41,7 +41,7 @@ Därefter registrerar du din app med Apple, aktivera push-meddelanden och laddar
 
 För att kunna skicka push-meddelanden till en iOS-app måste du registrera programmet med Apple och registrera dig för push-meddelanden.  
 
-1. Om du inte redan har registrerat din app så navigerar du till [iOS Provisioning Portal](http://go.microsoft.com/fwlink/p/?LinkId=272456) i Apple Developer Center, loggar in med ditt Apple-ID, klickar först på **Identifierare**, sedan på **App-ID:n** och slutligen på **+** Logga in för att registrera en ny app.
+1. Om du inte redan har registrerat din app så navigerar du till [iOS Provisioning Portal](https://go.microsoft.com/fwlink/p/?LinkId=272456) i Apple Developer Center, loggar in med ditt Apple-ID, klickar först på **Identifierare**, sedan på **App-ID:n** och slutligen på **+** Logga in för att registrera en ny app.
 
     ![Sidan för App-ID:n i etableringsportalen för iOS](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
 
@@ -111,7 +111,7 @@ För att kunna skicka push-meddelanden till en iOS-app måste du registrera prog
 
 ## <a name="create-a-provisioning-profile-for-the-app"></a>Skapa en etableringsprofil för appen
 
-1. I [iOS Provisioning Portal](http://go.microsoft.com/fwlink/p/?LinkId=272456) väljer du **Etableringsprofiler**, markerar **Alla** och klickar sedan på **+**-knappen (plusknappen) för att skapa en ny profil. Du ser guiden **Lägg till iOS-etableringsprofil**:
+1. I [iOS Provisioning Portal](https://go.microsoft.com/fwlink/p/?LinkId=272456) väljer du **Etableringsprofiler**, markerar **Alla** och klickar sedan på **+**-knappen (plusknappen) för att skapa en ny profil. Du ser guiden **Lägg till iOS-etableringsprofil**:
 
     ![Lista med etableringsprofiler](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
 

@@ -1,24 +1,24 @@
 ---
-title: Använda tomma kantnoder på Hadoop-kluster i HDInsight - Azure
+title: Använda tomma kantnoder på Apache Hadoop-kluster i HDInsight - Azure
 description: Hur du lägger till en tom edge-nod till ett HDInsight-kluster som kan användas som en klient och sedan test/värd dina HDInsight-program.
 services: hdinsight
 ms.reviewer: jasonh
-author: jasonwhowell
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 04/23/2018
-ms.author: jasonh
-ms.openlocfilehash: 1111f3c21e3c3718a9a010284a42ea469e04473d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 276f11bf889927ee74fa4e9078e147db6df78b9e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090396"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281380"
 ---
-# <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Använda tomma kantnoder på Hadoop-kluster i HDInsight
+# <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Använda tomma kantnoder på Apache Hadoop-kluster i HDInsight
 
-Lär dig hur du lägger till en tom edge-nod till ett HDInsight-kluster. En tom edge-nod är en Linux-dator med samma klientverktyg installeras och konfigureras enligt huvudnoderna, men med ingen Hadoop-tjänster som körs. Du kan använda gränsnoden för åtkomst till klustret, testa dina klientprogram och som är värd för dina klientprogram. 
+Lär dig hur du lägger till en tom edge-nod till ett HDInsight-kluster. En tom edge-nod är en Linux-dator med samma klientverktyg installeras och konfigureras enligt huvudnoderna, men med inga Apache Hadoop-tjänster som körs. Du kan använda gränsnoden för åtkomst till klustret, testa dina klientprogram och som är värd för dina klientprogram. 
 
 Du kan lägga till en tom edge-nod i ett befintligt HDInsight-kluster till ett nytt kluster när du skapar klustret. Att lägga till en tom kantnod görs med hjälp av Azure Resource Manager-mall.  I följande exempel visas hur du kan göra med en mall:
 
@@ -58,7 +58,7 @@ Edge-nodstorlek för virtuell dator måste uppfylla storlekskraven för HDInsigh
 När du har skapat en kantnod, kan du ansluta till gränsnoden via SSH och kör klientverktyg för att komma åt Hadoop-kluster i HDInsight.
 
 > [!WARNING] 
-> Anpassade komponenter som är installerade på gränsnoden får kommersiellt rimlig support från Microsoft. Detta kan resultera i att lösa eventuella problem. Eller du kan referera till community-resurser för ytterligare hjälp. Följande är några av de mest aktiva webbplatser för att få hjälp från communityn:
+> Anpassade komponenter som är installerade på gränsnoden får kommersiellt rimlig support från Microsoft. Detta kan resultera i att lösa eventuella problem. Eller så kan du hänvisas till community-resurser för ytterligare hjälp. Följande är några av de mest aktiva webbplatser för att få hjälp från communityn:
 >
 > * [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
 > * [http://stackoverflow.com](http://stackoverflow.com).
@@ -66,7 +66,7 @@ När du har skapat en kantnod, kan du ansluta till gränsnoden via SSH och kör 
 > Om du använder en Apache-teknik kan du kanske kan hitta hjälp via Apache project-webbplatser på [ http://apache.org ](http://apache.org), till exempel den [Hadoop](http://hadoop.apache.org/) plats.
 
 > [!NOTE]
-> Samma som klustren, kantnoder-patch hanterade ”är också”.  Mer information finns i [OS-korrigering för HDInsight](./hdinsight-os-patching.md).
+> Precis som andra klusternoder är kantnoder också patch hanteras.  Mer information finns i [OS-korrigering för HDInsight](./hdinsight-os-patching.md).
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Lägg till en edge-nod i ett befintligt kluster
 I det här avsnittet använder du Resource Manager-mall för att lägga till en edge-nod i ett befintligt HDInsight-kluster.  Resource Manager-mallen finns i [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). Resource Manager-mallen anropar en skriptåtgärd i https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Skriptet utföra inte några åtgärder.  Det är att demonstrera den anropande skriptåtgärd från en Resource Manager-mall.

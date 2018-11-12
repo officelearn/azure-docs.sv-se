@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 40396462cc568a4ad7dea798fc30d72dcd75fd07
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 6ca819b20bd033cc4081fb98a0c22c23aed05a28
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51208853"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264246"
 ---
 # <a name="azure-managed-disks-overview"></a>Översikt över Azure Managed Disks
 
@@ -67,21 +67,21 @@ Låt oss ta en närmare titt på de här alternativen.
 
 **Diskstorlek**: faktureringen för hanterade diskar är beroende av den etablerade storleken på disken. Azure maps-Allokerad storlek (avrundas uppåt) till närmaste Managed Disks-alternativ som anges i tabellerna nedan. Varje hanterad disk mappar till en av de etablerade storlekarna som stöds och debiteras därefter. Till exempel att om du skapar en hanterad disk som standard och ange en etablerad storlek på 200 GB, kommer du att debiteras enligt priserna för S15 disktypen.
 
-Här är de diskar som är tillgängliga för en premium-hanterad disk:
+Här är de diskar som är tillgängliga för en premium-hanterad disk, storlekar som är markerad med en asterisk är för närvarande förhandsversioner:
 
-| **Premium SSD hanteras <br>disktyp** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60** | **P70** | **P80** |
+| **Premium SSD hanteras <br>disktyp** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60*** | **P70*** | **P80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Diskstorlek        | 32 giB  | 64 giB  | 128 GiB | 256 GB | 512 GiB | 1 024 giB (1 TiB) | 2 048 giB (2 TiB) | 4 095 giB (4 TiB) | 8 192 giB (8 TiB) | 16 384 giB (16 TiB) | 32 767 giB (TiB) |
 
-Här är de diskar som är tillgängliga för en standard hanterad SSD-disk:
+Här följer de diskar som är tillgängliga för en standard SSD hanterad disk, storlekar som är markerad med en asterisk är för närvarande förhandsversioner:
 
-| **Standard SSD hanteras <br>disktyp** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60** | **E70** | **E80** |
+| **Standard SSD hanteras <br>disktyp** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60*** | **E70*** | **E80*** |
 |------------------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Diskstorlek        | 128 GiB | 256 GB | 512 GiB | 1 024 giB (1 TiB) | 2 048 giB (2 TiB) | 4 095 giB (4 TiB) | 8 192 giB (8 TiB) | 16 384 giB (16 TiB) | 32 767 giB (TiB) |
 
-Här är de diskar som är tillgängliga för en standard HDD hanterad disk:
+Här följer de diskar som är tillgängliga för en standard HDD hanterad disk, storlekar som är markerad med en asterisk är för närvarande förhandsversioner:
 
-| **Standard HDD hanteras <br>disktyp** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
+| **Standard HDD hanteras <br>disktyp** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Diskstorlek        | 32 giB  | 64 giB  | 128 GiB | 256 GB | 512 GiB | 1 024 giB (1 TiB) | 2 048 giB (2 TiB) | 4 095 giB (4 TiB) | 8 192 giB (8 TiB) | 16 384 giB (16 TiB) | 32 767 giB (TiB) |
 

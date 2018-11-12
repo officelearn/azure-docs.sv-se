@@ -1,20 +1,20 @@
 ---
-title: Skapa Hadoop-kluster med hjälp av Azure klassiska CLI - Azure HDInsight
+title: Skapa Apache Hadoop-kluster med hjälp av Azure klassiska CLI - Azure HDInsight
 description: Lär dig hur du skapar HDInsight-kluster med hjälp av plattformsoberoende Azure klassiskt CLI.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
-ms.openlocfilehash: 84b352fea0c5b9c98cd3b4e814e448cf8b706402
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: 93ee51c8a00e5cfcbffd56f96b627b68dd124aea
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992821"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034701"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>Skapa HDInsight-kluster med den klassiska Azure-CLI
 

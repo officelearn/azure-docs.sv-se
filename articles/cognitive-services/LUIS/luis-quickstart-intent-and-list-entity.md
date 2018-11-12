@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: b4fdf094653a4b16dead6397fe8e1a9f1a0258b9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 2ce6e7c796faf0c7377a33dabe1e8c05e81fde2f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162091"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280721"
 ---
 # <a name="tutorial-4-extract-exact-text-matches"></a>Självstudie 4: Extrahera exakta textmatchningar
 I den här självstudien får du lära dig hur du hämtar data som matchar en fördefinierad lista med objekt. Varje objekt i listan kan innehålla en lista med synonymer. I Human Resources-appen kan medarbetare identifieras med flera olika uppgifter, som namn, e-post, telefonnummer och skatte-id. 
@@ -41,7 +41,7 @@ En listentitet är ett bra alternativ för den här typen av data när:
 > * Publicera
 > * Hämta avsikter och entiteter från en slutpunkt
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Använda en befintlig app
 Fortsätt med appen du skapade i föregående självstudie med namnet **HumanResources**. 
@@ -57,7 +57,7 @@ Om du inte har appen HumanResources från föregående självstudie gör du så 
 
 ## <a name="moveemployee-intent"></a>Avsikten MoveEmployee
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Välj **Create new intent** (Skapa ny avsikt). 
 
@@ -84,7 +84,7 @@ Om du inte har appen HumanResources från föregående självstudie gör du så 
 
     Kom ihåg att number och datetimeV2 lades till i en tidigare självstudie och automatiskt märks ut när de identifieras i yttranden.
 
-    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="employee-list-entity"></a>Listentitet för medarbetare
 Avsikten **MoveEmployee** innehåller nu exempelyttranden, och LUIS behöver förstå vad en medarbetare är. 

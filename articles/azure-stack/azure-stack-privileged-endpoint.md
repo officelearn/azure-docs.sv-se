@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: f064521929bdaf0565a2993e12be62a3959ad567
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: df1f8d805c950bdfbe2c18f365a450a6d630891b
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945305"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300446"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Med hjälp av privilegierad slutpunkt i Azure Stack
 
@@ -55,7 +55,7 @@ Innan du påbörjar den här proceduren för ett integrerat system, kontrollera 
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
-    - Om du kör ADSK, kan du logga in på värden development kit.
+    - Om du kör ASDK, kan du logga in på värden development kit.
 
 2. Öppna en Windows PowerShell-session på den strikta virtuella datorn körs på maskinvara livscykel värd eller Privileged Access Workstation. Kör följande kommandon för att upprätta en fjärrsession på den virtuella datorn som är värd för detta program:
  
@@ -67,7 +67,7 @@ Innan du påbörjar den här proceduren för ett integrerat system, kontrollera 
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
       Den `ComputerName` parameter kan vara antingen IP-adressen eller DNS-namnet på en av de virtuella datorerna som är värd för detta program. 
-    - Om du kör ADSK:
+    - Om du kör ASDK:
      
       ````PowerShell
         $cred = Get-Credential
@@ -127,7 +127,7 @@ Om du vill importera program-session på den lokala datorn, gör du följande:
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
-    - Om du kör ADSK, kan du logga in på värden development kit.
+    - Om du kör ASDK, kan du logga in på värden development kit.
 
 2. Öppna en Windows PowerShell-session på den strikta virtuella datorn körs på maskinvara livscykel värd eller Privileged Access Workstation. Kör följande kommandon för att upprätta en fjärrsession på den virtuella datorn som är värd för detta program:
  
@@ -139,7 +139,7 @@ Om du vill importera program-session på den lokala datorn, gör du följande:
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
       Den `ComputerName` parameter kan vara antingen IP-adressen eller DNS-namnet på en av de virtuella datorerna som är värd för detta program. 
-    - Om du kör ADSK:
+    - Om du kör ASDK:
      
       ````PowerShell
        $cred = Get-Credential

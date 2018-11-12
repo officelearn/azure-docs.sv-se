@@ -26,7 +26,7 @@
 
 Från och med 1 April 2017 kommer tas alla jobbposter i ditt konto som är äldre än 90 dagar automatiskt bort, tillsammans med deras associerade uppgiftsposter, även om det totala antalet poster är lägre än den maximala kvoten. Om du behöver arkivera jobb/uppgiftsinformationen kan du använda koden som beskrivs [här](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
 
-<sup>3</sup> när du gör en begäran till jobblistan entiteter kan högst 1 000 jobben returneras per begäran. Om du behöver följa upp alla skickade jobb kan du använda top/skip (maximalt antal poster som ska returneras/hoppa över) på det sätt som beskrivs i [OData system query options](http://msdn.microsoft.com/library/gg309461.aspx) (OData-systemfrågealternativ).
+<sup>3</sup> när du gör en begäran till jobblistan entiteter kan högst 1 000 jobben returneras per begäran. Om du behöver följa upp alla skickade jobb kan du använda top/skip (maximalt antal poster som ska returneras/hoppa över) på det sätt som beskrivs i [OData system query options](https://msdn.microsoft.com/library/gg309461.aspx) (OData-systemfrågealternativ).
 
 <sup>4</sup> Positionerare är inte utformade för att hantera åtkomstkontroll per användare. Om du vill ge olika åtkomsträttigheter till enskilda användare kan du använda DRM-lösningar (Digital Rights Management). Mer information finns i [det här](../articles/media-services/previous/media-services-content-protection-overview.md) avsnittet.
 

@@ -4,7 +4,7 @@ items:
 - name: Översikt
   items:
   - name: Vad är tjänsten Azure Machine Learning?
-    displayName: AML, services
+    displayName: AML, services, overview
     href: overview-what-is-azure-ml.md
   - name: Så här fungerar tjänsten
     displayName: architecture
@@ -17,6 +17,7 @@ items:
   - name: Kom igång – Portal
     href: quickstart-get-started.md
   - name: Kom igång – Python
+    displayName: create workspace
     href: quickstart-create-workspace-with-python.md
 - name: Självstudier
   items:
@@ -25,6 +26,7 @@ items:
   - name: 'Distribuera modeller: Del 2'
     href: tutorial-deploy-models-with-aml.md
   - name: Lär in automatiska ML-modeller
+    displayName: automl
     href: tutorial-auto-train-models.md
 - name: Exempel
   items:
@@ -34,6 +36,7 @@ items:
 - name: Begrepp
   items:
   - name: Modellhantering
+    displayName: deploy, deployment
     href: concept-model-management-and-deployment.md
   - name: Accelerera med FPGA
     href: concept-accelerate-with-fpgas.md
@@ -51,13 +54,14 @@ items:
     - name: Konfigurera en miljövariabel
       href: how-to-configure-environment.md
     - name: VS Code-verktyg för AI
+      displayName: Visual Studio Code, vscode
       items:
       - name: Kom igång
         href: how-to-vscode-tools.md
       - name: Träna och distribuera
         href: how-to-vscode-train-deploy.md
   - name: Förbereda data
-    displayName: data prep, etl, elt
+    displayName: data prep, etl, elt, data preparation
     href: how-to-data-prep.md
     items:
     - name: Läsa in data
@@ -69,6 +73,7 @@ items:
   - name: Inlärningsmodeller
     items:
     - name: Konfigurera miljöer för utbildning
+      displayName: compute target, train
       href: how-to-set-up-training-targets.md
     - name: Få åtkomst till data under utbildning
       href: how-to-access-data.md
@@ -79,13 +84,12 @@ items:
         href: how-to-train-pytorch.md
       - name: TensorFlow
         href: how-to-train-tensorflow.md
-  - name: Justering av modeller
-    items:
     - name: Justering av hyperparametrar
       href: how-to-tune-hyperparameters.md
     - name: Spåra experiment och mått
       href: how-to-track-experiments.md
   - name: Azure-maskininlärning
+    displayName: automl
     href: how-to-automated-ml.md
     items:
     - name: Konfigurera automatisk utbildning
@@ -101,8 +105,10 @@ items:
     - name: Välj var du vill distribuera modeller
       href: how-to-deploy-and-where.md
     - name: Distribuera till ACI
+      displayName: Azure Container Instances
       href: how-to-deploy-to-aci.md
     - name: Distribuera till AKS
+      displayName: Azure Kubernetes
       href: how-to-deploy-to-aks.md
     - name: Distribuera till FPGA:er
       href: how-to-deploy-fpga-web-service.md
@@ -112,6 +118,9 @@ items:
       href: how-to-troubleshoot-deployment.md
     - name: Skydda med SSL
       href: how-to-secure-web-service.md
+    - name: Använda en distribuerad modell
+      displayName: create client, client, consume
+      href: how-to-consume-web-service.md
   - name: Övervaka modeller
     items:
     - name: Samla in data i produktion
@@ -126,6 +135,8 @@ items:
     href: http://aka.ms/aml-sdk
   - name: SDK för dataförberedelser
     href: http://aka.ms/data-prep-sdk
+  - name: Övervaka SDK
+    href: https://aka.ms/aml-monitoring-sdk
   - name: Maskininlärning CLI
     href: reference-azure-machine-learning-cli.md
 - name: Resurser
@@ -347,9 +358,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Äldre problem
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 23e715064db714765a11771182248978f9493bd2
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 8519a04730105537d5bd8639da54afafdf76590b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095083"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345023"

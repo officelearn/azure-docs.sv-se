@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: andrl
-ms.openlocfilehash: 9e75068a1e05f12c7b887b601777227902f15ed8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5dd1926496351f5bbfe8e5b3e4d1e0b68e82d272
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238584"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283401"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partitionering och horisontell skalning i Azure Cosmos DB
 
@@ -29,13 +29,13 @@ När nya objekt läggs till i behållaren eller om du ökar dataflödet som till
 
 ## <a name="physical-partitions"></a>Fysiska partitioner
 
-En Cosmos-behållare skalas genom att distribuera data och dataflöde över ett stort antal logiska partitioner. Internt, en eller flera logiska partitioner mappas till en **resurspartition** som består av en uppsättning repliker kallas även en replikuppsättning. Varje replikuppsättningen har en instans av databasmotorn Cosmos. En replikuppsättning gör de data som lagras i resurspartition hållbar, högtillgänglig och konsekvent. En resurspartition har stöd för en fast, maximal mängd lagringsutrymme och ru: er. Varje replik som består av resurspartition ärver lagringskvoten. Och alla repliker av en resurspartition stöd gemensamt för det dataflöde som tilldelats resursen partitionen. Följande bild visar logiska partitioner mappas till resurspartitioner som distribueras globalt:
+En Cosmos-behållare skalas genom att distribuera data och dataflöde över ett stort antal logiska partitioner. Internt, en eller flera logiska partitioner mappas till en **resurspartition** som består av en uppsättning repliker kallas även en replikuppsättning. Varje replikuppsättningen har en instans av databasmotorn Cosmos. En replikuppsättning gör de data som lagras i resurspartition hållbar, högtillgänglig och konsekvent. En resurspartition har stöd för en fast, maximal mängd lagringsutrymme och ru: er. Varje replik som består av resurspartition ärver lagringskvoten. Och alla repliker av en resurspartition stöd gemensamt för det dataflöde som tilldelats resursen partitionen. Följande bild visar logiska partitioner mappas till fysiska partitioner som distribueras globalt:
 
 ![Azure Cosmos DB-partitionering](./media/partition-data/logical-partitions.png)
 
-Dataflödet som etableras för en behållare fördelas jämnt mellan resurspartitioner. En partition viktiga designbeslut som inte distribuerar dataflöde begäranden jämnt kan därför skapa ”heta” partitioner. Heta partitioner kan resultera i frekvensbegränsning och ineffektiv användning av det etablerade dataflödet.
+Dataflödet som etableras för en behållare fördelas jämnt mellan de fysiska partitionerna. En partition viktiga designbeslut som inte distribuerar dataflöde begäranden jämnt kan därför skapa ”heta” partitioner. Heta partitioner kan resultera i frekvensbegränsning och ineffektiv användning av det etablerade dataflödet.
 
-Till skillnad från logiska partitioner är resurspartitioner en intern implementering av systemet. Du kan inte styra sin storlek, placering, antalet eller mappningen mellan logiska partitioner och resurspartitioner. Du kan dock styra antalet logiska partitioner och distribution av data och dataflöde genom att välja rätt Partitionsnyckeln.
+Till skillnad från logiska partitioner är fysiska partitioner en intern implementering av systemet. Du kan inte styra sin storlek, placering, antalet eller mappningen mellan logiska partitioner och de fysiska partitionerna. Du kan dock styra antalet logiska partitioner och distribution av data och dataflöde genom att välja rätt Partitionsnyckeln.
 
 ## <a name="next-steps"></a>Nästa steg
 

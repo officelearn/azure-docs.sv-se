@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 7b129eea513b7856ca99b02842b3b9c33c6ec19b
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 8436b530ac01f03e071604e5023b50f8de6989fd
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50084993"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034815"
 ---
 # <a name="post-deployment-tasks"></a>Uppgifter efter distribution
 
@@ -186,7 +186,7 @@ Det finns tre sätt att lägga till Log Analytics-agenten i OpenShift.
 - Aktivera Log Analytics VM-tillägget på varje nod för OpenShift
 - Installera Log Analytics-agenten som en daemon-uppsättning OpenShift
 
-Fullständiga anvisningar finns här: https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift.
+Fullständiga anvisningar finns här: https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift.
 
 ## <a name="configure-metrics-and-logging"></a>Konfigurera mått och loggning
 

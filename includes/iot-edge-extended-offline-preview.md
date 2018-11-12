@@ -9,15 +9,15 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: kgremban
-ms.openlocfilehash: a8160e677fa99d8cb691db39d7f29ba6eddbd261
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: be4d82577584e83e29f2511d51256fda0970e917
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47004687"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264027"
 ---
 ## <a name="enabling-extended-offline-operation-preview"></a>Aktivera utökad offline åtgärden (förhandsgranskning)
-Från och med den [v1.0.2 versionen](https://aka.ms/edge102) av Edge-körningen Edge-enhet och underordnade enheter som ansluter till den kan konfigureras för utökade offline åtgärden. 
+Med den [v1.0.4 versionen](https://github.com/Azure/azure-iotedge/releases/tag/1.0.4) av Edge-körningen Edge-enhet och underordnade enheter som ansluter till den kan konfigureras för utökade offline åtgärden. 
 
 Med den här funktionen lokala moduler eller efterföljande enheter autentiseras igen med Edge-enhet efter behov och kommunicera med varandra med hjälp av meddelanden och metoder även när kopplas bort från IoT Hub. Se den här [blogginlägget](https://aka.ms/iot-edge-offline) och [konceptet artikeln](../articles/iot-edge/offline-capabilities.md) för mer information om omfånget för den här funktionen.
 
@@ -30,9 +30,5 @@ För att aktivera utökad offline i ett gateway-scenario skapar du en överordna
 1. Markera enheterna som underordnade från enhetslistan över och använda högerpilen för att välja de adresser som ska läggas till som underordnade.
 
 1. Klicka på **OK** att bekräfta.
-
-1. I den **ange moduler** skärmbild från Edge-enhetsinformation, klickar du på **konfigurera avancerade Edge-körningsinställningar**, och under **Edge Hub** miljövariabler lägga till en post  **UpstreamProtocol** med värdet **MQTT**. Lägg till samma miljövariabeln och värdet för den **Edge-agenten** samt. 
-
-1. Klicka på **spara** och se till att **skicka** ändringarna när du klickar på **nästa** två gånger.
 
 Edge-enhet och dess underordnade enheter har nu aktiverats för utökade offline igen.  

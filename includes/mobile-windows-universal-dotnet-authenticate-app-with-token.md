@@ -3,7 +3,7 @@
    
         using System.Linq;        
         using Windows.Security.Credentials;
-2. Ersätt den **AuthenticateAsync** metod med följande kod:
+2. Ersätt den **AuthenticateAsync** metoden med följande kod:
    
         private async System.Threading.Tasks.Task<bool> AuthenticateAsync()
         {
@@ -72,13 +72,13 @@
             return success;
         }
    
-    I den här versionen av **AuthenticateAsync**, appen försöker använda autentiseringsuppgifter som lagras i den **PasswordVault** komma åt tjänsten. En vanlig inloggning också utförs när det finns inga lagrade autentiseringsuppgifter.
+    I den här versionen av **AuthenticateAsync**, appen försöker använda autentiseringsuppgifter som lagras i den **PasswordVault** åtkomst till tjänsten. En vanlig inloggning också utförs när det finns inga lagrade autentiseringsuppgifter.
    
    > [!NOTE]
-   > En cachelagrad token kan ha gått och token upphör att gälla kan även uppstå efter autentisering när appen används. Information om hur du avgör om en token har upphört att gälla finns [söka efter utgångna autentiseringstoken](http://aka.ms/jww5vp). En lösning för att hantera auktorisering fel som rör token upphör att gälla, finns i inlägg [cachelagring och hantering av utgångna token i Azure Mobile Services hanteras SDK](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
+   > Kan ha upphört att gälla en cachelagrad token och token upphör att gälla kan också inträffa efter autentisering när appen används. Läs hur du avgör om en token har upphört att gälla i [söka efter utgångna autentiseringstoken](https://aka.ms/jww5vp). En lösning för att hantera auktoriseringsfel som rör utgångna token, finns i inlägget [Caching och hantering av utgångna token i Azure Mobile Services hanteras SDK](https://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
    > 
    > 
 3. Starta om appen.
    
-    Observera att på första start, logga in med providern krävs igen. Dock på andra omstarten cachelagrade autentiseringsuppgifter används och logga in kringgås. 
+    Observera att på första start, logga in med providern krävs igen. Men efter den andra omstarten cachelagrade autentiseringsuppgifter används och logga in kringgås. 
 

@@ -5,21 +5,21 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/06/2018
+ms.date: 11/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 0c071fbfb962de1bf077dfa720cd66bc06e42178
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 3bd4adcd6df07aa47312223c559f0e9ed4fc0b14
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49312442"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264402"
 ---
 <!-- F-series, Fs-series* -->
 
 Databearbetningen optimerad VM-storlekar har förhållandet hög CPU och minne och är bra för webbservrar med medelhög trafik, nätverkstillämpningar, batchprocesser och programservrar. Den här artikeln innehåller information om hur många virtuella processorer, datadiskar och nätverkskort samt storage dataflöde och nätverket bandbredden för varje storlek i den här grupperingen.
 
-Fsv2-serien bygger på processorn Intel® Xeon® Platinum 8168 med en grundläggande core frekvens på 2,7 GHz och en största enkel kärna turbo frekvens som 3,7 GHz. Intel® AVX-512 instruktioner som är nytt på Intel skalbar processorer, ger upp till en 2 X prestandaökning för vektor bearbetning av arbetsbelastningar på både enkla och dubbla flyttalsåtgärder precision. De är alltså mycket snabbt för alla beräkningsarbetsbelastning. 
+Fsv2-serien bygger på processorn Intel® Xeon® Platinum 8168, med en varaktig alla viktiga Turbo klockfrekvens 3,4 GHz och en största enkel kärna turbo frekvens som 3,7 GHz. Intel® AVX-512 instruktioner som är nytt på Intel skalbar processorer, ger upp till en 2 X prestandaökning för vektor bearbetning av arbetsbelastningar på både enkla och dubbla flyttalsåtgärder precision. De är alltså mycket snabbt för alla beräkningsarbetsbelastning. 
 
 Ett lägre listpris per timme Fsv2-serien har har bästa prisprestanda i Azure-portföljen baserat på Azure Compute-beräkningsenhet (ACU) per virtuell processor. 
 

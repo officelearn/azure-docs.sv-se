@@ -1,6 +1,6 @@
 ---
-title: Konsulttjänster | Microsoft Docs
-description: Guide för att definiera och publicera en konsult tjänsteerbjudanden.
+title: Azure och Dynamcis 365 Consulting-tjänst-erbjudande | Microsoft Docs
+description: Guide för att definiera och publicera en Azure- eller Dynamcis 365 konsult tjänsteerbjudanden i partnerportalen i molnet.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: dan-wesley
@@ -12,19 +12,29 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b3f6b9166afce9ca0cdeaa1c9dd6e10a5a976453
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 43f1e71486cedbeccb2c02388147a68756581e50
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811593"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037778"
 ---
-<a name="defining-and-publishing-your-consulting-services-offer"></a>Definiera och publicera erbjudandet Consulting Services
-======================================================
+# <a name="azure-and-dynamics-365-consulting-service-offer"></a>Azure och Dynamics 365 Consulting tjänst-erbjudande
 
-Den här guiden är utformad för att hjälpa dig att definiera och publicera dina konsult erbjuder i partnerportalen i molnet.
+<table> <tr> <td>Det här avsnittet beskrivs hur du publicerar konsulter till antingen Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> eller <a href="https://appsource.microsoft.com">AppSource-marknadsplatsen</a>. Lösningar baserat på Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://products.office.com">Office 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a>, och <a href="https://powerapps.microsoft.com">PowerApps</a> är berättigade att lista på AppSource. Andra erbjudanden baserat på andra Microsoft- <a href="https://azure.microsoft.com/services">Azure-tjänster</a> är listad på på Azure Marketplace. </td> <td><img src="./media/consulting-services-publishing-offer/consulting-icon1.png"  alt="Microsoft consulting icon" /></td> </tr> </table>
+
+
+# <a name="publishing-benefits"></a>Publicera fördelar
+
+Publicering till antingen Microsoft-marknadsplatser har betydande fördelar:
+
+- Marknadsför ditt företag genom att utnyttja Microsoft varumärke.
+- Potentiellt nå ut till över 100 miljoner Office 365 och Dynamics 365-användare på AppSource; nå ut till över 200 tusen organisationer via Azure Marketplace.
+- Hämta stora mängder leads från dessa marknadsplatser.
+- Hämta dina befordras av Microsoft-fältet och telefonförsäljning team-tjänster.
+
 
 <a name="define-your-consulting-services-offer"></a>Definiera ditt Consulting Services-erbjudande
 -------------------------------------
@@ -52,43 +62,36 @@ Utför följande steg för att skapa ett nytt erbjudande:
 
 ### <a name="define-offer-settings"></a>Definiera inställningar för erbjudandet
 
-På skärmen för nytt erbjudande är det första steget att skapa erbjudandet identiteten.
-Erbjudandet identiteten består av tre delar:
-
-1.  ID för erbjudande
-2.  Utgivar-ID
-3.  Namn
-
-De olika delarna beskrivs i följande avsnitt.
+På skärmen för nytt erbjudande är det första steget att skapa erbjudandet identiteten.  Erbjudandet identiteten består av tre delar: **erbjudande-ID**, **Publicerings-ID**, och **namn**.  De olika delarna beskrivs i följande avsnitt.
 
 #### <a name="offer-id"></a>ID för erbjudande
 
-Det här är ett unikt namn som du skapar när du skickar in erbjudandet. Den måste bestå enbart av gemena alfanumeriska tecken, bindestreck eller understreck. ID: T syns i URL-Adressen och påverkan motorn sökresultat. Till exempel *yourcompanyname\_exampleservice*
+Den här identifieraren är ett unikt namn som du skapar när du skickar in erbjudandet. Den måste bestå enbart av gemena alfanumeriska tecken, bindestreck eller understreck. Erbjudande-ID kommer att synas på URL: en och påverkan Sök-motorns resultat. Till exempel *yourcompanyname\_exampleservice*
 
-I exemplet visas erbjudande-ID kommer att läggas till i Publicerings-ID för att skapa en unik identifierare. Detta visas som en permanent länk som kan belasta och indexeras av de olika sökmotorer.
+I exemplet visas erbjudande-ID kommer att läggas till Publicerings-ID för att skapa en unik identifierare. Detta visas som en permanent länk som kan belasta och indexeras av de olika sökmotorer. 
 
-**När ett erbjudande är live kan den\'t uppdateras**
+*När ett erbjudande är aktiv, det går inte att uppdatera dess identifierare*
 
 #### <a name="publisher-id"></a>Utgivar-ID
 
-Detta är relaterat till ditt konto. När du har loggat in med ditt organisationskonto visas Publicerings-ID i den nedrullningsbara menyn.
+Den här identifieraren är relaterat till ditt konto. När du har loggat in med ditt organisationskonto visas Publicerings-ID i den nedrullningsbara menyn.
 
 #### <a name="name"></a>Namn
 
-Det här är vad som visas som erbjudandenamn på AppSource eller Azure Marketplace.
+Strängen är vad som visas som erbjudandet namnen på AppSource eller Azure Marketplace.
 
 **Viktigt:** bara ange namnet på den faktiska servicen här. Omfattar inte varaktighet och typ av tjänst.
 
-I följande exempel av Edgewater Fullscope visas hur erbjudandenamn är klar. Erbjudandenamn ser ut så här:
+I följande exempel av Edgewater Fullscope visas hur erbjudandenamn är klar. Erbjudandenamn visas som:
 
 ![Skapa en ny erbjuder konsulttjänster](media/consulting-services-publishing-offer/cppsampleconsultingoffer.png)
 
 Erbjudandenamn består av fyra delar:
 
--   **Varaktighet:** du definierar det på fliken Storefront information i redigeraren. Varaktighet kan uttryckas i timmar, dagar eller veckor.
--   **Typ av tjänst:** du definierar det på fliken Storefront information i redigeraren. Typer av tjänster finns utvärdering, genomgång, implementering, konceptbevis och Workshop.
--   **Preposition:** infogats av granskaren
--   **Namn:** det här är vad du har definierat i erbjuder inställningssidan.
+-   **Varaktighet:** – definierad i den **Storefront information** fliken i redigeraren. Varaktighet kan uttryckas i timmar, dagar eller veckor.
+-   **Typ av tjänst:** – definierad i den **Storefront information** fliken i redigeraren. Typer av tjänster är `Assessment`, `Briefing`, `Implementation`, `Proof of concept`, och `Workshop`.
+-   **Preposition:** – infogad av den
+-   **Namn:** – definierad i den **erbjuder inställningar** sidan.
 
 Följande lista innehåller flera väl namngivna erbjudandet namn:
 
@@ -124,7 +127,7 @@ Avsnittet med erbjudandet innehåller följande fält:
 
 ##### <a name="offer-summary"></a>Sammanfattning av erbjudandet
 
-Sammanfattning av erbjudandet är en kort beskrivning av ditt erbjudande som visas under erbjudandenamn. Du bör använda oformaterad text när du lägger till sammanfattning av erbjudandet och bör inte ha radbrytningar. Här följer några bra exempel på erbjudandet sammanfattningar tillsammans med motsvarande erbjudandet namn:
+Sammanfattning av erbjudandet är en kort beskrivning av ditt erbjudande som visas under erbjudandenamn. Använd oformaterad text när du lägger till sammanfattning av erbjudandet och ska inte innehålla radbrytningar. Här följer några bra exempel på erbjudandet sammanfattningar tillsammans med motsvarande erbjudandet namn:
 
 *Exempel 1*
 
@@ -153,7 +156,7 @@ Sammanfattning av erbjudandet är en kort beskrivning av ditt erbjudande som vis
 
 ##### <a name="offer-description"></a>Beskrivning av erbjudande
 
-Det här är en beskrivning av Consulting tjänsteerbjudanden. En bra erbjudandet beskrivning innehåller mer information om vad samarbetet kommer att se ut och vad blir slutet leverans till kunden. Det tydligt hjälper kunden förstå vad de får.
+Beskrivning av Consulting tjänsteerbjudanden. En bra erbjudandet beskrivning innehåller mer information om vad samarbetet kommer att se ut och vad blir slutet leverans till kunden. Det tydligt hjälper kunden förstå vad de får.
 
 Ta inte med via e-post eller telefonnummer för att kontakta dig i ditt erbjudande beskrivning. Det blir en kontakta mig med ditt erbjudande som överför leder till målet för lead-hantering som du identifierar på ditt erbjudande.
 
@@ -161,7 +164,7 @@ Beskrivning av erbjudande anger du i Markdown-format. Om du inte är bekant med 
 
 Dessa format säkerställer att ditt erbjudande har högsta läsbarhet för kunder.
 
-Håll det kort beskrivning av ditt erbjudande och följa teckengränsen som användarna inte tycker om att läsa mycket text. Du har fortfarande möjlighet att ladda upp marknadsföring broschyrer, informationsbladet och andra dokument som beskriver ditt erbjudande i mer detalj.
+Håll det kort beskrivning av ditt erbjudande och följa teckengränsen som användarna inte tycker om att läsa lång text. Du har fortfarande möjlighet att ladda upp marknadsföring broschyrer, informationsbladet och andra dokument som beskriver ditt erbjudande i mer detalj.
 
 I följande exempel visar en bra består beskrivning av erbjudande och dess relaterade namn och en sammanfattning:
 
@@ -223,7 +226,7 @@ Ny Partner Center-ID, om du har en.
 **MPN-ID**
 
 Ange en hemlig nyckel om du vill förhandsgranska ditt erbjudande på AppSource innan de aktiveras.
-Detta är inte ett lösenord.
+Den här identifieraren är inte ett lösenord.
 
 #### <a name="listing-details"></a>Lista information
 
@@ -287,4 +290,4 @@ Ladda upp marknadsföring publikationer beskriver dina konsult tjänsteerbjudand
 
 När du har slutfört erbjuder inställningar, Storefront information och kontakter, Välj **publicera** och ange en e-postadress. När Microsoft är redo att publicera ditt erbjudande, får du ett e-postmeddelande om du vill förhandsgranska den innan det lanseras. Du kan gå tillbaka till portalen för att kontrollera status för erbjudandet när som helst i tid.
 
-Erbjudanden kan visas i en ”publicera avbryts” eller ”publicera misslyckades” status under publiceringsprocessen. Det är en normal del av processen och att Microsoft kan göra ändringar i ditt erbjudande. Om du ser ditt erbjudande i ”Publicera har avbrutits”, lämna den i denna status.
+Erbjudanden kan visas i en ”publicera avbryts” eller ”publicera misslyckades” status under publiceringsprocessen. Denna status är en normal del av processen och gör Microsoft kan göra ändringar i ditt erbjudande. Om du ser ditt erbjudande i ”Publicera har avbrutits”, lämna den i denna status.

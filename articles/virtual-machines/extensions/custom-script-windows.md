@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: roiyz
-ms.openlocfilehash: 7396277c58b079dc2f0c68b7832a6f2ca57ee287
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 2c8ac43d96c100f0c26281fea1d4e9eba41bc178
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212309"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282345"
 ---
 # <a name="custom-script-extension-for-windows"></a>Tillägget för anpassat skript för Windows
 
@@ -201,7 +201,7 @@ Set-AzureRmVMExtension -ResourceGroupName myRG
 ### <a name="how-to-run-custom-script-more-than-once-with-cli"></a>Så här kör du anpassat skript för mer än en gång med CLI
 Om du vill köra det anpassade skripttillägget mer än en gång kan du bara göra detta under dessa förhållanden:
 1. Tillägget ”Name”-parametern är samma som föregående distributionen av tillägget.
-2. Du måste uppdatera konfigurationen annars kommandot kommer utförs inte igen, t.ex, du kan lägga till i en dynamisk egenskap i kommandot, till exempel en tidsstämpel. 
+2. Du måste uppdatera konfigurationen annars kommandot igen inte körs, till exempel du kan lägga till i en dynamisk egenskap i kommandot, till exempel en tidsstämpel. 
 
 ## <a name="troubleshoot-and-support"></a>Felsökning och support
 

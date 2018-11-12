@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: f1fe45283ef2886a50bf6a36e50e7ffe42055ee2
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: e266b239a44907e8e38e60cfc217aa21e46ab17e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49312352"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263938"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Standard Storage med kostnadseffektiv lagring och ohanterade och hanterade Virtuella Azure-diskar
 
@@ -61,10 +61,10 @@ I det här avsnittet beskrivs de mål för skalbarhet och prestanda som du behö
 | **Resurs** | **Standardgräns** |
 |--------------|-------------------|
 | TB per lagringskonto  | 500 TB |
-| Maximalt antal inkommande<sup>1</sup> per lagringskonto (oss regioner) | 10 Gbit/s, om aktiverad GRS/ZRS, 20 Gbit/s för LRS |
-| Maximalt antal utgående<sup>1</sup> per lagringskonto (oss regioner) | 20 Gbit/s, om aktiverad RA-GRS/GRS/ZRS, 30 Gbit/s för LRS |
-| Maximalt antal inkommande<sup>1</sup> per lagringskonto (Europeiska och asiatiska regioner) | 5 Gbit/s, om aktiverad GRS/ZRS, 10 Gbit/s för LRS |
-| Maximalt antal utgående<sup>1</sup> per lagringskonto (Europeiska och asiatiska regioner) | 10 Gbit/s, om aktiverad RA-GRS/GRS/ZRS, 15 Gbit/s för LRS |
+| Maximalt antal inkommande<sup>1</sup> per lagringskonto (oss regioner) | 10 Gbit/s, om aktiverad GRS/ZRS, 20 Gbit/s för LRS |
+| Maximalt antal utgående<sup>1</sup> per lagringskonto (oss regioner) | 20 Gbit/s, om aktiverad RA-GRS/GRS/ZRS, 30 Gbit/s för LRS |
+| Maximalt antal inkommande<sup>1</sup> per lagringskonto (Europeiska och asiatiska regioner) | 5 Gbit/s, om aktiverad GRS/ZRS, 10 Gbit/s för LRS |
+| Maximalt antal utgående<sup>1</sup> per lagringskonto (Europeiska och asiatiska regioner) | 10 Gbit/s, om aktiverad RA-GRS/GRS/ZRS, 15 Gbit/s för LRS |
 | Begär frekvens (förutsatt 1 KB Objektstorlek) per lagringskonto | Upp till 20 000 IOPS, enheter per sekund eller meddelanden per sekund |
 
 <sup>1</sup> ingående syftar på alla data (förfrågningar) som skickas till ett lagringskonto. Utgående data syftar på alla data (svar) som tas emot från ett lagringskonto.
@@ -111,7 +111,7 @@ Om en hanterad disk är kopplat till en virtuell dator, tillåts inte vissa API-
 
 När du använder Standard-lagring, gäller följande för debitering:
 
-* Standardlagring ohanterade diskar/datastorlek 
+* Standardlagring ohanterade diskar/datastorlek
 * Hanterade standarddiskar
 * Standard storage-ögonblicksbilder
 * Utgående dataöverföringar
@@ -121,14 +121,16 @@ När du använder Standard-lagring, gäller följande för debitering:
 
 **Hanterade diskar:** faktureringen för hanterade standarddiskar beror på den etablerade storleken på disken. Azure maps-Allokerad storlek (avrundas uppåt) till närmaste Managed Disks-alternativ som anges i tabellerna nedan. Varje hanterad disk mappar till en av de etablerade storlekarna som stöds och debiteras därefter. Till exempel att om du skapar en hanterad disk som standard och ange en etablerad storlek på 200 GiB, kommer du att debiteras enligt priserna för S15 disktypen.
 
-| **Standard HDD hanteras <br>disktyp** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
+Storlekar som är markerad med en asterisk finns för närvarande i förhandsversion.
+
+| **Standard HDD hanteras <br>disktyp** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Diskstorlek        | 32 giB  | 64 giB  | 128 GiB | 256 GB | 512 GiB | 1 024 giB (1 TiB) | 2 048 giB (2 TiB) | 4 095 giB (4 TiB) | 8 192 giB (8 TiB) | 16,385 giB (16 TiB) | 32 767 giB (32 TiB) |
 
 
 **Ögonblicksbilder**: ögonblicksbilder av standarddiskar faktureras för ytterligare kapacitet som används av ögonblicksbilder. Information om ögonblicksbilder finns [skapa en ögonblicksbild av en Blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
-**Utgående dataöverföringar**: [utgående dataöverföringar](https://azure.microsoft.com/pricing/details/data-transfers/) (data som går ut från Azures datacenter) debiteras för bandbreddsanvändning.
+**Utgående dataöverföringar**: [utgående dataöverföringar](https://azure.microsoft.com/pricing/details/data-transfers/) (data som går ut från Azures datacenter) debiteras för bandbreddsanvändning.
 
 **Transaktionen**: Azure debiterar $0.0036 per 100 000 transaktioner för standard-lagring. Transaktioner omfattar både läs- och skrivåtgärder till lagringsutrymmet.
 

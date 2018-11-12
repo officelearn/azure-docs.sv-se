@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 11/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1def5686933a971b1192ec58bc72d64cbc5e8931
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: 31ae13fb84453a7014b66499c983e1f52554775e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219332"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279134"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Lägg till AD FS som en SAML-identitetsprovider med anpassade principer i Azure Active Directory B2C
 
@@ -26,11 +26,11 @@ Den här artikeln visar hur du aktiverar inloggning för ett användarkonto i AD
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Utför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
-- Kontrollera att du har åtkomst till certifikatets PFX-fil med den privata nyckeln som har utfärdats av AD FS.
+- Kontrollera att du har åtkomst till en .pfx-certifikatfil med en privat nyckel. Du kan skapa egna certifikat och ladda upp den till Azure AD B2C. Azure AD B2C använder det här certifikatet för att signera SAML-begäran skickas till SAML-identitetsprovider.
 
 ## <a name="create-a-policy-key"></a>Skapa en principnyckel
 
-Du behöver lagra certifikatet AD FS i din Azure AD B2C-klient.
+Du behöver lagra certifikatet i din Azure AD B2C-klient.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
@@ -38,7 +38,7 @@ Du behöver lagra certifikatet AD FS i din Azure AD B2C-klient.
 4. På sidan Översikt väljer **Identitetsupplevelse – FÖRHANDSVERSION**.
 5. Välj **Principnycklar** och välj sedan **Lägg till**.
 6. För **alternativ**, Välj `Upload`.
-7. Ange en **namn** för principnyckeln. Till exempel `ADFSSamlCert`. Prefixet `B2C_1A_` läggs automatiskt till namnet på din nyckel.
+7. Ange en **namn** för principnyckeln. Till exempel `SamlCert`. Prefixet `B2C_1A_` läggs automatiskt till namnet på din nyckel.
 8. Bläddra till och välj din .pfx-certifikatfil med privat nyckel.
 9. Klicka på **Skapa**.
 

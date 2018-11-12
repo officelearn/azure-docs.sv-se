@@ -1,7 +1,21 @@
-Rubrik: API-referens - Ansikts-API titleSuffix: Azure Cognitive Services-beskrivning: API-referensen innehåller information om Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management och API: er för Ansikts-algoritmer.
-tjänster: cognitive services författare: SteveMSFT manager: cgronlun
-
-MS.Service: cognitive services ms.component: ansikts-api ms.topic: referera ms.date: 03/01/2018 ms.author: sbowles
+---
+title: API-referens - API för Ansiktsigenkänning
+titleSuffix: Azure Cognitive Services
+description: 'API-referens ger information om Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management och API: er för Ansikts-algoritmer.'
+services: cognitive-services
+author: SteveMSFT
+manager: cgronlun
+ms.service: cognitive-services
+ms.component: face-api
+ms.topic: reference
+ms.date: 03/01/2018
+ms.author: sbowles
+ms.openlocfilehash: 21bda39c8b014b13fef0b96f554c4dff91b72743
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287055"
 ---
 # <a name="api-reference"></a>API-referens
 

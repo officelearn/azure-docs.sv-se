@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 19963edc3742cc5f09ed02249d313728410711c8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d55eab128c8ad295b09ee4fe54f803330a1cb1b4
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973511"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298810"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Skapa, visa eller ta bort en Användartilldelad hanterad identitet med hjälp av Azure CLI
 
@@ -33,9 +33,6 @@ I den här artikeln får du lära dig hur du skapar, lista och ta bort en Använ
 
 - Om du är bekant med hanterade identiteter för Azure-resurser kan du kolla den [översiktsavsnittet](overview.md). **Se till att granska den [skillnaden mellan en hanterad identitet systemtilldelade och användartilldelade](overview.md#how-does-it-work)**.
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
-- Ditt konto måste följande rolltilldelningar för att utföra vilka hanteringsåtgärder i den här artikeln:
-    - [Hanterad Identitetsdeltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rollen kan skapa, läsa (lista), uppdatera och ta bort en hanterad Användartilldelad identitet.
-    - [Hanterade Identitetsoperatör](/azure/role-based-access-control/built-in-roles#managed-identity-operator) roll att läsa (lista) egenskaperna för en hanterad Användartilldelad identitet.
 - Om du vill köra CLI-exempelskript, finns det tre alternativ:
     - Använd [Azure Cloud Shell](../../cloud-shell/overview.md) från Azure-portalen (se nästa avsnitt).
     - Använd inbäddad Azure Cloud Shell via ”Prova” knappen, finns i det övre högra hörnet av varje kodblock.
@@ -45,7 +42,9 @@ I den här artikeln får du lära dig hur du skapar, lista och ta bort en Använ
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Skapa en användartilldelad hanterad identitet 
 
-Du kan skapa en hanterad Användartilldelad identitet med den [az identitet skapa](/cli/azure/identity#az-identity-create) kommando. Den `-g` parametern anger resursgruppens namn var du vill skapa en hanterad identitet användartilldelade och `-n` parametern anger dess namn. Ersätt den `<RESOURCE GROUP>` och `<USER ASSIGNED IDENTITY NAME>` parametervärden med dina egna värden:
+Om du vill skapa en hanterad Användartilldelad identitet, ditt konto måste den [hanterad Identitetsdeltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rolltilldelning.
+
+Använd den [az identitet skapa](/cli/azure/identity#az-identity-create) kommando för att skapa en Användartilldelad hanterad identitet. Den `-g` parametern anger resursgruppens namn var du vill skapa en hanterad identitet användartilldelade och `-n` parametern anger dess namn. Ersätt den `<RESOURCE GROUP>` och `<USER ASSIGNED IDENTITY NAME>` parametervärden med dina egna värden:
 
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -53,6 +52,8 @@ Du kan skapa en hanterad Användartilldelad identitet med den [az identitet skap
 az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
 ```
 ## <a name="list-user-assigned-managed-identities"></a>Lista användartilldelade hanterade identiteter
+
+Om du vill lista/läsa en hanterad Användartilldelad identitet, ditt konto måste den [hanterade Identitetsoperatör](/azure/role-based-access-control/built-in-roles#managed-identity-operator) eller [hanterad Identitetsdeltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rolltilldelning.
 
 Använd om du vill visa användartilldelade hanterade identiteter på [az identitet lista](/cli/azure/identity#az-identity-list) kommando. Ersätt den `<RESOURCE GROUP>` med ditt eget värde:
 
@@ -64,6 +65,8 @@ I json-responsen användartilldelade hanterade identiteter har `"Microsoft.Manag
 `"type": "Microsoft.ManagedIdentity/userAssignedIdentities"`
 
 ## <a name="delete-a-user-assigned-managed-identity"></a>Ta bort en hanterad Användartilldelad identitet
+
+Om du vill ta bort en hanterad Användartilldelad identitet måste ditt konto måste den [hanterad Identitetsdeltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rolltilldelning.
 
 Ta bort en hanterad Användartilldelad identitet genom att använda den [az identitet ta bort](/cli/azure/identity#az-identity-delete) kommando.  Parametern - n anger dess namn och -g-parametern anger resursgruppen där den hanterade Användartilldelad identitet har skapats. Ersätt den `<USER ASSIGNED IDENTITY NAME>` och `<RESOURCE GROUP>` parametervärdena med dina egna värden:
 

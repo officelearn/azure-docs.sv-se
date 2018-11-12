@@ -15,15 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: acb02df7a1ca49e822062ec5658b4875388b85ab
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 043d19e3917bcdac7e963225af7e614315e414bd
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586027"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344713"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Översikt över datavetenskap med Spark på Azure HDInsight
-[!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
 
 Den här programsviten avsnitt visar hur du kan utföra vanliga datavetenskapsuppgifter som datainmatning, funktionsframställning, modellering och utvärdering av modellen med hjälp av HDInsight Spark. De data som används är ett exempel på 2013 NYC taxi resa och avgiften datauppsättningen. Modeller som byggts är logistic och linjär regression, slumpmässiga skogar och gradient bättre träd. Avsnitten visar också hur du lagrar dessa modeller i Azure blob storage (WASB) och hur du bedöma och utvärdera deras förutsägande prestanda. Mer avancerade avsnitt beskriver hur modeller kan vara tränas med hjälp av oinskränkt korsvalidering och hyper-parametern. Det här översiktsavsnittet refererar även till de avsnitt som beskriver hur du ställer in Spark-kluster som du behöver för att slutföra stegen i anvisningarna tillgängliga. 
 

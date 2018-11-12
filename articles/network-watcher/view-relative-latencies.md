@@ -1,6 +1,6 @@
 ---
-title: Visa relativa svarstiderna till Azure-regioner från specifika platser | Microsoft Docs
-description: Lär dig mer om att visa relativa svarstiderna över Internetleverantörer till Azure-regioner från specifika platser.
+title: Visa relativa fördröjning till Azure-regioner från specifika platser | Microsoft Docs
+description: Lär dig mer om att visa relativa fördröjning mellan Internetleverantörer till Azure-regioner från specifika platser.
 services: network-watcher
 documentationcenter: ''
 author: jimdial
@@ -16,34 +16,34 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: a6c2ffa619eeff8b455df8a8b2157525af12c640
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 6ac37c3a53b0cc71bdab85fb86e0e85d998867aa
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27600959"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300616"
 ---
-# <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Visa relativa fördröjning till Azure-regioner från specifika platser
+# <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Visa relativ svarstid till Azure-regioner från specifika platser
 
-I den här kursen lär du dig hur du använder Azure [Nätverksbevakaren](network-watcher-monitoring-overview.md) för att hjälpa dig att avgöra vilka Azure-region för att använda programmet eller tjänsten i, baserat på din demografisk användare. Dessutom kan du använda den för att utvärdera-leverantörer anslutningar till Azure.  
+I de här självstudierna lär du dig hur du använder Azure [Network Watcher](network-watcher-monitoring-overview.md) tjänsten för att hjälpa dig att avgöra vilka Azure-regionen att distribuera programmet eller tjänsten i, baserat på demografiska användaren. Du kan dessutom använda det för att utvärdera tjänstleverantörers anslutningar till Azure.  
         
-## <a name="create-a-network-watcher"></a>Skapa en nätverksbevakaren
+## <a name="create-a-network-watcher"></a>Skapa en network watcher
 
-Om du redan har en nätverksbevakaren i minst en Azure [region](https://azure.microsoft.com/regions), kan du hoppa över aktiviteter i det här avsnittet. Skapa en resursgrupp för nätverksbevakaren. Resursgruppen har skapats i östra USA i det här exemplet, men du kan skapa resursgruppen i Azure-region.
+Om du redan har en nätverksbevakare i minst en Azure [region](https://azure.microsoft.com/regions), kan du hoppa över aktiviteterna i det här avsnittet. Skapa en resursgrupp för network watcher. I det här exemplet resursgruppen har skapats i regionen östra USA, men du kan skapa resursgruppen i alla Azure-regioner.
 
 ```powershell
 New-AzureRmResourceGroup -Name NetworkWatcherRG -Location eastus
 ```
 
-Skapa en nätverksbevakaren. Du måste ha en nätverksbevakaren som skapats i minst en Azure-region. I det här exemplet skapas en nätverksbevakaren i East oss Azure-region.
+Skapa en network watcher. Du måste ha en nätverksbevakare som skapats i minst en Azure-region. I det här exemplet skapas en network watcher i regionen östra USA Azure.
 
 ```powershell
 New-AzureRmNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -Location eastus
 ```
 
-## <a name="compare-relative-network-latencies-to-a-single-azure-region-from-a-specific-location"></a>Jämför relativa nätverksfördröjningar med en enda Azure region från en viss plats
+## <a name="compare-relative-network-latencies-to-a-single-azure-region-from-a-specific-location"></a>Jämför relativa nätverksfördröjningar med en enda Azure-region från en viss plats
 
-Utvärdera leverantörer eller felsöka en användare som rapporterade problemet som ”platsen har långsam”, från en specifik plats till azure-regionen där en tjänst har distribuerats. Följande kommando returnerar de genomsnittliga relativa Internet service provider fördröjningar mellan delstaten Washington i USA och West US 2 Azure-region mellan December 13-15 2017:
+Utvärdera tjänstleverantörer eller felsöka en användare rapporterar ett problem som ”platsen har långsam”, från en specifik plats till azure-region där du distribuerar en tjänst. Följande kommando returnerar de genomsnittliga relativa Internet service provider svarstiderna mellan delstaten Washington i USA och västra USA 2 Azure-region mellan 13 – 15 December 2017:
 
 ```powershell
 Get-AzureRmNetworkWatcherReachabilityReport `
@@ -57,12 +57,12 @@ Get-AzureRmNetworkWatcherReachabilityReport `
 ```
 
 > [!NOTE]
-> Den region som du anger i det föregående kommandot behöver inte vara samma som den region som du angav när du hämtade nätverksbevakaren. Föregående kommando kräver bara att ange en befintlig nätverksbevakaren. Nätverksbevakaren kan finnas i en region. Om du anger värden för `-Country` och `-State`, de måste vara giltig. Värdena är skiftlägeskänsliga. Data är tillgängliga för ett begränsat antal länder, tillstånd och städer. Kör kommandon [visa tillgängliga land, tillstånd, orter och providers](#view-available) att visa en lista över tillgängliga land och orter tillstånd att använda med det föregående kommandot. 
+> Den region som du anger i det föregående kommandot behöver inte vara samma som den region som du angav när du hämtade nätverksbevakaren. Föregående kommando kräver bara att ange en befintlig nätverksbevakaren. Nätverksbevakaren kan finnas i alla regioner. Om du anger värden för `-Country` och `-State`, de måste vara giltig. Värdena är skiftlägeskänsliga. Data är tillgängliga för ett begränsat antal länder, stater och städer. Kör kommandon [visa tillgängliga länder, stater, städer och providers](#view-available) att visa en lista över tillgängliga länder/regioner, orter och delstater för att använda med det föregående kommandot. 
 
 > [!WARNING]
-> Du måste ange ett datum efter 14 November 2017 för `-StartTime` och `-EndTime`. Ange ett datum före 14 November 2017 returnerar inga data. 
+> Du måste ange ett datum inom de senaste 30 dagarna för `-StartTime` och `-EndTime`. Tidigare datum resulterar i att inga data returnerades.
 
-Utdata från det föregående kommandot visas nedan:
+Utdata från föregående kommando visas nedan:
 
 ```powershell
 AggregationLevel   : State
@@ -102,11 +102,11 @@ ReachabilityReport : [
                      ]
 ```
 
-I returnerade resultatet är värdet för **poäng** är den relativa svarstiden över regioner och leverantörer. Ett resultat på 1 är sämsta (högsta) latens, medan 100 är den lägsta fördröjningen. De relativa svarstiderna medelvärdet för dagen. I föregående exempel, när den har Rensa som latens har samma båda dagarna och att det finns en liten skillnad mellan svarstiden för två leverantörer, den har även radera som svarstiderna för båda providers är låg på skalan 1-100. När detta är förväntat, eftersom delstaten Washington i USA fysiskt ligger nära den West US 2 Azure-regionen, ibland resultatet inte som förväntat. Ju större datumintervall du anger, Ju mer du kan genomsnittlig svarstid över tid.
+I den returnerade utdatan, värdet för **poäng** är relativ svarstid mellan regioner och leverantörer. Ett resultat på 1 är den sämsta (högsta) svarstiden, medan 100 är kortast svarstid. De relativa svarstiderna genomsnitt för dagen. I exemplet ovan när den har Rensa som befinner har samma båda dagarna och att det finns en liten skillnad mellan svarstiden för två providrar, det har även radera som svarstiderna för både providers är låg på 1-100 skala. Medan detta förväntas, eftersom delstaten Washington i USA är fysiskt nära västra USA 2 Azure-region, ibland resultat är inte som förväntat. Ju större datumintervall som du anger, Ju mer du kan genomsnittlig svarstid för över tid.
 
 ## <a name="compare-relative-network-latencies-across-azure-regions-from-a-specific-location"></a>Jämför relativa nätverksfördröjningar mellan Azure-regioner från en viss plats
 
-Om istället för att ange de relativa fördröjningar mellan en specifik plats och en viss Azure-region med hjälp av `-Location`du vill avgöra relativa svarstider för alla Azure-regioner från en specifik fysisk plats, kan du göra det för. Till exempel hjälper följande kommando dig att utvärdera vilka azure-region för att distribuera en tjänst i om din primära användare Comcast användare finns i staten Washington:
+IF, i stället för att ange de relativa fördröjning mellan en specifik plats och en specifik Azure-region med hjälp av `-Location`, du vill avgöra relativa svarstider till alla Azure-regioner från en specifik fysisk plats, kan du göra det för. Till exempel följande kommando hjälper dig att utvärdera vilka azure-region du distribuerar en tjänst i om dina primära användare finns Comcast användare finns i delstaten Washington:
 
 ```powershell
 Get-AzureRmNetworkWatcherReachabilityReport `
@@ -120,19 +120,19 @@ Get-AzureRmNetworkWatcherReachabilityReport `
 ```
 
 >[!NOTE]
-Till skillnad från måste när du anger en enda plats, om du inte ange en plats eller ange flera platser, till exempel ”Väst US2”, ”West US”, du ange en Internet-leverantör när du kör kommandot. 
+Till skillnad från måste när du anger en enda plats, om du inte ange en plats eller ange flera platser, till exempel ”västra 2”, ”West US”, du ange en Internet-leverantör när du kör kommandot. 
 
-## <a name="view-available"></a>Visa tillgängliga land, tillstånd, orter och providers
+## <a name="view-available"></a>Visa tillgängliga länder, stater, städer och providers
 
-Data är tillgängliga för vissa Internetleverantörer, land, tillstånd och städer. Om du vill visa en lista över alla tillgängliga Internetleverantörer länder, tillstånd och orter som du kan visa data för, kan du ange följande kommando:
+Data är tillgängliga för specifika Internetleverantörer, länder, stater och städer. Om du vill visa en lista över alla tillgängliga Internetleverantörer länder, stater och städer, som du kan visa data för, kan du ange följande kommando:
 
 ```powershell
 Get-AzureRmNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
 ```
 
-Data är bara tillgängliga för länder, tillstånd och orter som returneras av kommandot tidigare. Föregående kommando måste du ange en befintlig nätverksbevakaren. I exemplet som anges i *NetworkWatcher_eastus* nätverksbevakaren i en resursgrupp med namnet *NetworkWatcherRG*, men du kan ange alla befintliga nätverksbevakaren. Om du inte har en befintlig nätverksbevakaren, skapa en genom att slutföra uppgifterna i [skapa en nätverksbevakaren](#create-a-network-watcher). 
+Data är endast tillgängliga för länder, stater och städer som returneras av det föregående kommandot. Föregående kommando måste du ange en befintlig nätverksbevakaren. I exemplet som anges i *NetworkWatcher_eastus* network watcher i en resursgrupp med namnet *NetworkWatcherRG*, men du kan ange eventuella befintliga nätverksbevakaren. Om du inte har en befintlig nätverksbevakaren kan skapa en när du har slutfört uppgifterna i [skapa en network watcher](#create-a-network-watcher). 
 
-När du har kört kommandot tidigare, kan du filtrera resultatet som returneras genom att ange giltiga värden för **land**, **tillstånd**, och **Stad**om det behövs.  Till exempel om du vill visa listan över Internetleverantörer som är tillgängliga i Seattle, Washington i USA, anger du följande kommando:
+När det föregående kommandot har körts kan du filtrera utdata som returneras genom att ange giltiga värden för **land**, **tillstånd**, och **Stad**om det behövs.  Exempel: Om du vill visa listan över Internetleverantörer som är tillgängliga i Seattle, Washington i USA, anger du följande kommando:
 
 ```powershell
 Get-AzureRmNetworkWatcherReachabilityProvidersList `
@@ -144,4 +144,4 @@ Get-AzureRmNetworkWatcherReachabilityProvidersList `
 ```
 
 > [!WARNING]
-> Det angivna värdet för **land** måste vara versaler och gemener. De angivna värdena för **tillstånd** och **Stad** måste vara gemener. Värden måste anges i utdatan efter körning av kommandot utan värden för **land**, **tillstånd**, och **Stad**. Om du anger felaktigt fallet eller ange ett värde för **land**, **tillstånd**, eller **Stad** som inte är i utdatan efter körning av kommandot utan värden för dessa Egenskaper för returnerade resultatet är tom.
+> Det angivna värdet för **land** måste vara versaler och gemener. De angivna värdena för **tillstånd** och **Stad** måste vara i gemener. Värdena måste anges i utdata som returneras när du har kört kommandot utan värden för **land**, **tillstånd**, och **Stad**. Om du anger fel skiftläge eller ange ett värde för **land**, **tillstånd**, eller **Stad** som inte är i utdata som returneras när du har kört kommandot utan värden för dessa egenskaperna för returnerade resultatet är tom.

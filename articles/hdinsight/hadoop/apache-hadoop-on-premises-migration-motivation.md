@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: f899c2fb871ee528219bd48e94de62746626447f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 82792414da9df32524e48031089dc18d2dc521cc
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416128"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288126"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - motivation och fördelar
 
@@ -180,7 +180,7 @@ Det här avsnittet innehåller mallen enkäter för att samla in viktig informat
 |Använda Azure övervakning och avisering Vs integrera övervakning från tredje part|Använd Azure övervakning och avisering||
 |**Avsnittet**: **skyddsinställningar** |||
 |Privata och skyddade datapipeline?|Ja||
-|Domänen anslutits kluster (ESPP)?|     Ja||
+|Domänen anslutits kluster (ESP)?|     Ja||
 |Den lokala AD Sync till molnet?|     Ja||
 |Nej. AD-användare att synkronisera?|          100||
 |OK för att synkronisera lösenord till molnet?|    Ja||

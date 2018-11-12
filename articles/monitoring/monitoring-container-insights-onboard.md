@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/04/2018
+ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: 505abe8f3dc19458b3f0e18f349974199ae4ba58
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 2b7045f74a22732337ceb8dc9136da1c93ee7c2c
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212122"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037795"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers-preview"></a>Hur du integrera Azure Monitor för behållare (förhandsgranskning) 
 Den här artikeln beskriver hur du ställer in Azure Monitor för behållare för att övervaka prestanda för arbetsbelastningar som distribueras till Kubernetes-miljöer och finns på [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
@@ -110,7 +110,7 @@ När du har aktiverat övervakning, kan det ta ungefär 15 minuter innan du kan 
 ### <a name="enable-monitoring-from-aks-cluster-in-the-portal"></a>Aktivera övervakning från AKS-kluster i portalen
 Om du vill aktivera övervakning av din AKS-behållare i Azure-portalen, gör du följande:
 
-1. I Azure-portalen väljer du **alla tjänster**. 
+1. Välj **Alla tjänster** i Azure-portalen. 
 2. I listan över resurser, börjar du skriva **behållare**.  
     Filtreras listan baserat på dina indata. 
 3. Välj **Kubernetes-tjänster**.  
@@ -244,7 +244,7 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
 
     ```json
     {
-       "$schema": "https://schema.management.azure.com/  schemas/2015-01-01/deploymentParameters.json#",
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
        "contentVersion": "1.0.0.0",
        "parameters": {
          "aksResourceId": {

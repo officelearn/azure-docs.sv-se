@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 8fa183c22b9b6830c57b0a16b7f5d20ca38e3ef3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d6feb24b1e59aee70204d8438f1a4c51f71d1835
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166528"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281820"
 ---
 # <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Självstudie 8: Extrahera nyckelfraser från yttranden
 I den här självstudien använder du den fördefinierade keyPhrase-entiteten till att extrahera nyckelämnen från yttranden. Du behöver inte märka upp några yttranden med fördefinierade entiteter. Entiteten identifieras automatiskt.
@@ -56,11 +56,11 @@ Om du inte har appen HumanResources från föregående självstudie gör du så 
 ## <a name="add-keyphrase-entity"></a>Lägga till keyPhrase-entitet 
 Lägg till den fördefinierade keyPhrase-entiteten för att extrahera ämnesinnehåll från yttranden.
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Välj **Entities** (Entiteter) på den vänstra menyn.
 
-3. Välj **Manage prebuilt entities** (Hantera fördefinierade entiteter).
+3. Välj alternativet för att **lägga till en fördefinierad entitet**.
 
 4. I popup-dialogrutan väljer du **keyPhrase** och sedan **Done** (Klar). 
 

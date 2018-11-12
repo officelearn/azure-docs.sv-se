@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 8201e1569bd3030a205ab0ec5adb8a1f39a0ecc3
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0ee38eb32886c050eb87b2d6ed91252ee7bcfea0
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960743"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280717"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook-åtgärder för loggaviseringsregler
 När en [log aviseringen har skapats i Azure](alert-log.md), har möjlighet att [konfigurera med åtgärdsgrupper](monitoring-action-groups.md) att utföra en eller flera åtgärder.  Den här artikeln beskrivs olika webhook-åtgärder som är tillgängliga och information om hur du konfigurerar anpassade JSON-baserade webhooken.
@@ -79,7 +79,7 @@ För att inkludera sökresultat i en anpassad nyttolast, kontrollerar du att **I
 Det här avsnittet visas exempel på en nyttolast för webhook för Loggaviseringar, inklusive när nyttolasten är standard och när dess anpassade.
 
 > [!NOTE]
-> För att säkerställa bakåtkompatibilitet standard webhook-nyttolasten för aviseringar med hjälp av Azure Log Analytics är samma som [Log Analytics Avisera management](../log-analytics/log-analytics-alerts-creating.md). Men för loggvarningar med [Application Insights](../application-insights/app-insights-analytics.md), standard webhook-nyttolasten är baserad på åtgärdsgruppen schema.
+> För att säkerställa bakåtkompatibilitet standard webhook-nyttolasten för aviseringar med hjälp av Azure Log Analytics är samma som [Log Analytics Avisera management](../monitoring-and-diagnostics/alert-metric.md). Men för loggvarningar med [Application Insights](../application-insights/app-insights-analytics.md), standard webhook-nyttolasten är baserad på åtgärdsgruppen schema.
 
 ### <a name="standard-webhook-for-log-alerts"></a>Standard-Webbhook för Loggaviseringar 
 Båda exemplen ha angett en dummy-nyttolast med bara två kolumner och två rader.

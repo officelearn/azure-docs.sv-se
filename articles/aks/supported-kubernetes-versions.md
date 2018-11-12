@@ -7,31 +7,31 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: saudas
-ms.openlocfilehash: d8da717b83b43395309c695a4f9edaeda8144a8b
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: a17e2fa4bef6890d59f7e66c6ede349f8dee3b8a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379203"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280461"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Kubernetes-versioner som stöds i Azure Kubernetes Service (AKS)
 
-Kubernetes-communityt Frigör delversioner ungefär var tredje månad. Dessa versioner innehåller nya funktioner och förbättringar. Patch-versioner är oftare (ibland varje vecka) och är endast avsedda för viktiga felkorrigeringar i en mindre version. Dessa patch-versioner innehåller korrigeringar av säkerhetsrisker eller större buggar som påverkar ett stort antal kunder och produkter som körs i produktionsmiljön baserat på Kubernetes.
+Kubernetes-communityn släpper nya lägre versioner ungefär var tredje månad. Dessa versioner inkluderar nya funktioner och förbättringar. Korrigeringsversioner släpps oftare (ibland varje vecka) och avser endast korrigeringar av allvarliga buggar i en lägre version. Dessa patch-versioner innehåller korrigeringar av säkerhetsrisker eller större buggar som påverkar ett stort antal kunder och produkter som körs i produktionsmiljön baserat på Kubernetes.
 
-En ny Kubernetes minor-version är tillgänglig i [acs-engine] [ acs-engine] från dag ett. Målen för AKS tjänsten för servicenivåmål (SNM) som publicerar den lägre versionen för AKS-kluster inom 30 dagar, omfattas av stabiliteten för versionen.
+En ny Kubernetes minor-version är tillgänglig i [acs-engine] [ acs-engine] från dag ett. AKS-servicenivåmål släpper den lägre versionen för AKS-kluster inom 30 dagar beroende på versionens stabilitet.
 
-## <a name="kubernetes-version-support-policy"></a>Supportpolicy för Kubernetes-version
+## <a name="kubernetes-version-support-policy"></a>Stödprincip för Kubernetes-version
 
-AKS stöder fyra delversioner kubernetes:
+AKS har stöd för fyra lägre Kubernetes-versioner:
 
 - Den aktuella delversionen som är publicerad överordnade (n)
-- Tre föregående delversioner. Varje mindre version som stöds stöder också två stabil korrigeringar.
+- Tre tidigare lägre versioner. Varje lägre version som stöds har även stöd för två stabila korrigeringsversioner.
 
 Exempel: om AKS introducerar *1.11.x* idag finns också stöd för *1.10.a* + *1.10.b*, *1.9.c*  +  *1,9 d*, *1.8.e* + *1.8F* (där bokstäver patch-versioner är två senaste stabil versioner).
 
-När en ny delversion introduceras är de äldsta mindre version och patch versioner som stöds föråldrade. 15 dagar före lanseringen av den nya minor-version och kommande versionen dras tillbaka görs ett meddelande via uppdatering av Azure-kanaler. I exemplet ovan var *1.11.x* har lanserats utgångna versioner är *1.7.g* + *1.7.h*.
+När en ny lägre version släpps tas den äldsta lägre versionen och dess korrigeringsversioner ur bruk. 15 dagar före lanseringen av den nya minor-version och kommande versionen dras tillbaka ett meddelande görs via den [Azure uppdateringskanaler][azure-update-channel]. I exemplet ovan var *1.11.x* har lanserats utgångna versioner är *1.7.g* + *1.7.h*.
 
-När du distribuerar ett AKS-kluster i portalen eller med Azure CLI kan har klustret alltid värdet n-1 minor-version och senaste korrigeringen. Exempel: om AKS stöder *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1,9 d*, *1.8.e* + *1.8F*, standardversionen för nya kluster är *1.10.b*.
+När du distribuerar ett AKS-kluster i portalen eller med Azure CLI konfigureras klustret alltid till den lägre versionen n-1 och den senaste korrigeringsversionen. Exempel: om AKS stöder *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1,9 d* , *1.8.e* + *1.8F*, standardversionen för nya kluster är *1.10.b*.
 
 ## <a name="list-currently-supported-versions"></a>Lista över versioner som stöds för närvarande
 
@@ -62,7 +62,7 @@ KubernetesVersion    Upgrades
 
 Om du använder den *n-4* version kan du ligger utanför Servicenivåmål. Om din uppgradering från version n-4 till n-3 lyckas, och sedan är du tillbaka i på SLO. Exempel:
 
-- Om AKS-versioner som stöds är *1.10.a* + *1.10.b*, *1.9.c* + *1,9 d*, *1.8.e* + *1.8F* och du har en *1.7.g* eller *1.7.h*, är slut på SLO.
+- Om AKS-versioner som stöds är *1.10.a* + *1.10.b*, *1.9.c* + *1,9 d*,  *1.8.e* + *1.8F* och du har en *1.7.g* eller *1.7.h*, är slut på SLO.
 - Om uppgraderingen från *1.7.g* eller *1.7.h* till *1.8.e* eller *1.8.f* lyckas, är du tillbaka i på SLO.
 
 Uppgraderingar till versioner som är äldre än *n-4* stöds inte. I sådana fall rekommenderar vi kunder skapar nya AKS-kluster och distribuera om sina arbetsbelastningar.
@@ -85,6 +85,7 @@ Information om hur du uppgraderar klustret finns i [uppgradera ett kluster i Azu
 
 <!-- LINKS - External -->
 [acs-engine]: https://github.com/Azure/acs-engine
+[azure-update-channel]: https://azure.microsoft.com/updates/?product=kubernetes-service
 
 <!-- LINKS - Internal -->
 [aks-upgrade]: upgrade-cluster.md

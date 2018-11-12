@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: cc7bcefe43eed524f50fcad09d7fb31a80d22b83
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: e06b9ff2134c0bd1fb1ee8515827e9e8c06a3108
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025811"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008478"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Utföra mellan resurser loggsökningar i Log Analytics  
 
@@ -38,7 +38,7 @@ Identifiera en arbetsyta kan vara på flera olika sätt:
 
 * Resursnamnet - är ett läsbart namn på arbetsytan, kallas ibland *komponentnamn*. 
 
-    `workspace("contosoretail").Update | count`
+    `workspace("contosoretail-it").Update | count`
  
     >[!NOTE]
     >Identifierar en arbetsyta med namnet förutsätter unikhet för alla tillgängliga prenumerationer. Om du har flera program med det angivna namnet kan misslyckas på grund av tvetydighet. I det här fallet måste du använda en av de andra identifierarna.
@@ -59,7 +59,7 @@ Identifiera en arbetsyta kan vara på flera olika sätt:
 
     Exempel:
     ``` 
-    workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Update | count
+    workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
     ```
 
 ### <a name="identifying-an-application"></a>Identifiera ett program

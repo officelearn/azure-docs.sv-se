@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7a630de281932358b0cecf841dc745a4d818aad4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4d00da4adf3069069a66c02e391f0a1a3298ac29
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424178"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299681"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Låsresurser för att förhindra oväntade ändringar 
 
@@ -104,7 +104,7 @@ I följande exempel visas en mall som skapar en app service-plan, en webbplats o
 
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name sitegroup -Location southcentralus
 New-AzureRmResourceGroupDeployment -ResourceGroupName sitegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json -hostingPlanName plan0103
 ```
@@ -121,37 +121,37 @@ Du Lås distribuerade resurser med Azure PowerShell med hjälp av den [New Azure
 
 Ange namnet på resursen och dess resurstyp dess resursgruppens namn om du vill låsa en resurs.
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
 Om du vill låsa en resursgrupp, ange namnet på resursgruppen.
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
 ```
 
 Hämta information om ett lås [Get-AzureRmResourceLock](/powershell/module/azurerm.resources/get-azurermresourcelock). Hämta alla Lås i din prenumeration med:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmResourceLock
 ```
 
 Hämta alla Lås för en resurs med:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
 Hämta alla Lås för en resursgrupp med:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup
 ```
 
 Om du vill ta bort ett lås, använder du:
 
-```powershell
+```azurepowershell-interactive
 $lockId = (Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup -ResourceName examplesite -ResourceType Microsoft.Web/sites).LockId
 Remove-AzureRmResourceLock -LockId $lockId
 ```

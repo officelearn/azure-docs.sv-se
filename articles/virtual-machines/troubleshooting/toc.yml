@@ -31,6 +31,8 @@ items:
     href: troubleshoot-authentication-error-rdp-vm.md
   - name: Felsöka Azure VM RDP-anslutningsfel efter händelse-ID
     href: event-id-troubleshoot-vm-rdp-connecton.md
+  - name: Felsöka RDP-fel i virtuella datorer på grund av statisk IP-adress
+    href: troubleshoot-rdp-static-ip.md
 - name: SSH
   items:
   - name: Felsökning av SSH
@@ -141,9 +143,9 @@ items:
   href: understand-vm-reboot.md
 - name: Fjärrfelsökningsverktyg
   href: remote-tools-troubleshoot-azure-vm-issues.md
-ms.openlocfilehash: 677fad7f648d88d5598d1c58da205d6cbb859408
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4bee38c4ca68ce3bacade4542e67ce33d54a69e2
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414768"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345920"

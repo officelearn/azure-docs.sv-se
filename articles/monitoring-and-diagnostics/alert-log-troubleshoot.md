@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 0e1cb2cdd6270590def11479cc5859d996d84caa
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 5572c80879584e7f6df650263ae455a134ee4088
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50749057"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283605"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Felsökning av aviseringar i Azure Monitor  
 
@@ -79,10 +79,10 @@ Beroende på hur regeln har konfigurerats, det kan finnas argumentantal firing o
 ### <a name="alert-query-output-misunderstood"></a>Aviseringsfråga utdata tror många
 För loggaviseringar tillhandahålls logiken för avisering av användaren via analytics-fråga. Den angivna analytics-frågan kan använda olika Big Data och matematiska funktioner för att skapa specifika konstruktioner. Tjänsten aviseringar ska köra kunden tillhandahåller frågan med intervall som angetts med data för tidsperiod som angetts. avisering service gör vissa ändringar i fråga tillhandahålls, baserat på den aviseringstyp som valts och samma kan närvara i avsnittet ”fråga för att köras” konfigurera signalen logik på skärmen som på bilden nedan: ![fråga som ska köras](./media/monitor-alerts-unified/LogAlertPreview.png)
  
-Vad som anges i **fråga som ska köras** avsnittet är vilka log avisering service körs; användare kan köra den angivna frågan samt timespan via [analysportalen](../log-analytics/log-analytics-log-search-portals.md) eller [API för textanalys](https://docs.microsoft.com/en-us/rest/api/loganalytics/) – Om de vill förstå innan du skapande av varning vilken aviseringsfråga utgående kan vara.
+Vad som anges i **fråga som ska köras** avsnittet är vilka log avisering service körs; användare kan köra den angivna frågan samt timespan via [analysportalen](../log-analytics/log-analytics-log-search-portals.md) eller [API för textanalys](https://docs.microsoft.com/rest/api/loganalytics/) – Om de vill förstå innan du skapande av varning vilken aviseringsfråga utgående kan vara.
  
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om [Loggaviseringar i Azure-aviseringar](monitor-alerts-unified-log.md)
 * Läs mer om [Application Insights](../application-insights/app-insights-analytics.md)
-* Läs mer om [Log Analytics](../log-analytics/log-analytics-overview.md). 
+* Läs mer om [Log Analytics](../log-analytics/log-analytics-queries.md). 

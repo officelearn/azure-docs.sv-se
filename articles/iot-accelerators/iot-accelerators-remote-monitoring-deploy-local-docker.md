@@ -1,6 +1,6 @@
 ---
 title: Distribuera lösningen för fjärrövervakning lokalt - Docker – Azure | Microsoft Docs
-description: Den här guiden visar hur du distribuerar den lösningsacceleratorn för fjärrövervakningen till din lokala dator för utveckling och testning.
+description: Den här guiden visar hur du distribuerar den lösningsacceleratorn för fjärrövervakningen till den lokala datorn med Docker för utveckling och testning.
 author: avneet723
 manager: hegate
 ms.author: avneet723
@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 91f43473a5648be5264038993f43b61887e0c363
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 46cd16c1667d3b33501c1b5680baabf243509f67
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/08/2018
-ms.locfileid: "51284977"
+ms.locfileid: "51288552"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Distribuera lösningsacceleratorn för fjärrövervakning lokalt - Docker
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-Den här artikeln visar hur du distribuerar lösningsacceleratorn för fjärrövervakning till din lokala dator för utveckling och testning. Artikeln visar hur du distribuerar mikrotjänsterna till lokala Docker-behållare. En lokal mikrotjänster distribution använder följande molntjänster: IoT Hub, Cosmos DB, Azure Streaming Analytics och Azure Time Series Insights-tjänster i molnet.
+Den här artikeln visar hur du distribuerar lösningsacceleratorn för fjärrövervakning till din lokala dator för utveckling och testning. Du lär dig hur du distribuerar mikrotjänsterna till lokala Docker-behållare. En lokal mikrotjänster distribution använder följande molntjänster: IoT Hub, Cosmos DB, Azure Streaming Analytics och Azure Time Series Insights-tjänster i molnet.
 
 Om du vill köra lösningsacceleratorn för fjärrövervakning i IDE på din lokala dator, se [och distribuera lösningsacceleratorn för fjärrövervakning lokalt – Visual Studio](iot-accelerators-remote-monitoring-deploy-local.md).
 
@@ -70,13 +70,13 @@ docker-compose up
 Första gången du kör det här kommandot hämtar Docker mikrotjänst-avbildningar från Docker hub att skapa behållare lokalt. På följande körningar kör Docker behållarna omedelbart.
 
 > [!TIP]
-> Vi publicerar ofta nya Docker-avbildningar med nya funktioner. Du kan använda följande uppsättning kommandon för att rensa dina lokala Docker-behållare och motsvarande bilder innan du hämtar de senaste. 
+> Microsoft publicerar ofta nya Docker-avbildningar med nya funktioner. Du kan använda följande uppsättning kommandon för att rensa dina lokala Docker-behållare och motsvarande bilder innan du hämtar de senaste:
 
-```cmd/sh
-docker list
-docker rm <list_of_containers>
-docker rmi <list_of_images>
-```
+    ```cmd/sh
+    docker list
+    docker rm <list_of_containers>
+    docker rmi <list_of_images>
+    ```
 
 Du kan använda ett separat gränssnitt för att visa loggar från behållaren. Hitta först ID behållaren med den `docker ps` kommando. Använd sedan `docker logs {container-id} --tail 1000` att visa de senaste 1 000 posterna för den angivna behållaren.
 
@@ -101,14 +101,4 @@ Använd den `docker-compose down --rmi all` kommando för att ta bort Docker-avb
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig att:
-
-> [!div class="checklist"]
-> * Konfigurera en lokal utvecklingsmiljö
-> * Konfigurera lösningsacceleratorn
-> * Distribuera solution accelerator
-> * Logga in på solution accelerator
-
 Nu när du har distribuerat av lösningen för fjärrövervakning, nästa steg är att [utforska funktionerna i lösningens instrumentpanel](quickstart-remote-monitoring-deploy.md).
-
-<!-- Next tutorials in the sequence -->

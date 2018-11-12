@@ -1,36 +1,33 @@
 ---
-title: Åtkomst till Hadoop YARN-programloggar på Linux-baserade HDInsight - Azure
-description: Lär dig mer om att få åtkomst till YARN-programloggar i ett kluster för Linux-baserat HDInsight (Hadoop) med hjälp av kommandoraden och en webbläsare.
+title: Åtkomst Apache Hadoop YARN-programloggar på Linux-baserade HDInsight - Azure
+description: Lär dig mer om att få åtkomst till YARN-programloggar i ett kluster för Linux-baserat HDInsight (Apache Hadoop) med hjälp av kommandoraden och en webbläsare.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: jasonh
-ms.openlocfilehash: 179349d059fd75e2da01eb908a786e2e7ac91307
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: 302f2f96a7f17699411ab9fdbdb6ab1f9de149c8
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092268"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277608"
 ---
-# <a name="access-yarn-application-logs-on-linux-based-hdinsight"></a>Åtkomst till YARN-programloggar på Linux-baserat HDInsight
+# <a name="access-apache-yarn-application-logs-on-linux-based-hdinsight"></a>Åtkomst Apache YARN-programloggar på Linux-baserat HDInsight
 
-Lär dig hur du kommer åt loggar för YARN (ännu en annan Resource Negotiator)-program på ett Hadoop-kluster i Azure HDInsight.
+Lär dig hur du kommer åt loggarna för Apache YARN (ännu en annan Resource Negotiator)-program på ett Apache Hadoop-kluster i Azure HDInsight.
 
 > [!IMPORTANT]
-> Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Linux. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [versionshantering för HDInsight](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Linux. Linux är det enda operativsystem som används på HDInsight version 3.6 eller senare. Mer information finns i [versionshantering för HDInsight](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="YARNTimelineServer"></a>YARN Timeline Server
 
-Den [YARN Timeline Server](http://hadoop.apache.org/docs/r2.7.3/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) visar allmän information om slutförda program och ramverksspecifik programinformation via två olika gränssnitt. Närmare bestämt:
+Den [Apache YARN Timeline Server](http://hadoop.apache.org/docs/r2.7.3/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) visar allmän information om slutförda program
 
-* Lagring och hämtning av information om allmänna program på HDInsight-kluster har varit aktiverat med version 3.1.1.374 eller högre.
-* Ramverksspecifik information PROGRAMKOMPONENTEN för tidslinje-servern är inte tillgänglig på HDInsight-kluster.
-
-Allmän information om program innehåller följande typ av data:
+YARN Timeline Server innehåller följande typ av data:
 
 * Program-ID, ett unikt ID för ett program
 * Den användare som startade programmet

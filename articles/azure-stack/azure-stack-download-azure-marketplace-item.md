@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/19/2018
+ms.date: 11/08/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: b5c2c51429e37eea2473ae5966b1f41295875cb6
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: ec73083d1bb66e7c7735a2bee8e89eeb56cf7620
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638179"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282509"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Hämta marketplace-objekt från Azure till Azure Stack
 
@@ -168,8 +168,10 @@ Det finns två delar i det här scenariot:
 
    Du kan hämta den *publisher*, *erbjuder*, och *sku* värdena för avbildningen från textfilen som hämtar filen AZPKG. Filen lagras på målplatsen. Den *version* värde är den version som anges när du laddar ned objektet från Azure i föregående procedur. 
  
-   I följande exempelskript används värdena för den Windows Server 2016 Datacenter - Server Core-VM. Värdet för *- Osuri* är ett exempel på sökväg till blob-lagringsplats för objektet.
+   I följande exempelskript används värdena för den Windows Server 2016 Datacenter - Server Core-VM. Värdet för *- Osuri* är ett exempel på sökväg till blob-lagringsplats för objektet. 
 
+   Som ett alternativ till det här skriptet kan du använda den [proceduren som beskrivs i den här artikeln](azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal) att importera den. VHD-avbildning med hjälp av Azure portal.
+ 
    ```PowerShell  
    Add-AzsPlatformimage `
     -publisher "MicrosoftWindowsServer" `
@@ -179,6 +181,7 @@ Det finns två delar i det här scenariot:
     -Version "2016.127.20171215" `
     -OsUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.vhd"  
    ```
+   
    **Om lösningsmallar:** vissa mallar kan innehålla en liten 3 MB. VHD-fil med namnet **fixed3.vhd**. Du behöver inte importera den till Azure Stack. Fixed3.VHD.  Den här filen som ingår i vissa lösningsmallar att uppfylla publishing krav för Azure Marketplace.
 
    Granska beskrivningen mallar och hämta och importera sedan ytterligare krav som virtuella hårddiskar som krävs för att arbeta med lösningsmallen.  

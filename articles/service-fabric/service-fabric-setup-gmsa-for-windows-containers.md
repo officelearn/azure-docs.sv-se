@@ -1,9 +1,9 @@
 ---
 title: Konfigurera gMSA för Azure Service Fabric-behållartjänster | Microsoft Docs
-description: Lär dig att konfigurera gMSA för en behållare som körs i Azure Service Fabric.
+description: Lär dig att konfigurera gMSA för en behållare i Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
-ms.author: subramar
-ms.openlocfilehash: e4cd0b42e21609f88edc28c8fd7b5c433d56b3c1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney, subramar
+ms.openlocfilehash: 1adb2e7fcf5542c3f422bf073e5085717c5b82e4
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209101"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299749"
 ---
-# <a name="set-up-gmsa-for-windows-containers-running-on-service-fabric"></a>Ställ in gMSA för Windows-behållare som körs på Service Fabric
+# <a name="set-up-gmsa-for-windows-containers-running-on-service-fabric"></a>Konfigurera gMSA för Windows-behållare som körs på Service Fabric
 
-Att ställa in gMSA (grupp hanterade tjänstkonton), en fil för specifikation av autentiseringsuppgifter (`credspec`) är placerad på alla noder i klustret. Filen kan kopieras på alla noder som använder ett tillägg för virtuell dator.  Den `credspec` filen måste innehålla gMSA-kontoinformation. Mer information om den `credspec` fil, se [tjänstkonton](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/windows-server-container-tools/ServiceAccounts). Specifikationen autentiseringsuppgifter och `Hostname` taggen har angetts i applikationsmanifestet. Den `Hostname` taggen måste matcha namnet på gMSA-kontot som behållaren körs under.  Den `Hostname` tillåter behållare för att autentisera sig till andra tjänster i domänen via Kerberos-autentisering.  Ett exempel för att ange den `Hostname` och `credspec` manifestet i programmet visas i följande utdrag:
+Konfigurera gMSA (gruppen hanterade tjänstkonton), en credential-specifikationsfilen (`credspec`) placeras på alla noder i klustret. Filen kopieras på alla noder med hjälp av ett VM-tillägg.  Den `credspec` filen måste innehålla uppgifterna för ett gMSA-konto. Mer information om den `credspec` fil, se [tjänstkonton](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/windows-server-container-tools/ServiceAccounts). Specifikationen autentiseringsuppgifter och `Hostname` tagg har angetts i manifestet. Den `Hostname` taggen måste matcha namnet på gMSA-kontot som behållaren körs under.  Den `Hostname` tagg kan behållare för att autentisera sig själv till andra tjänster i domänen via Kerberos-autentisering.  Ett exempel för att ange den `Hostname` och `credspec` i programmet manifest visas i följande kodavsnitt:
 
 ```xml
 <Policies>
@@ -32,7 +32,7 @@ Att ställa in gMSA (grupp hanterade tjänstkonton), en fil för specifikation a
   </ContainerHostPolicies>
 </Policies>
 ```
-Läs följande artiklar som ett nästa steg:
+Som ett nästa steg kan du läsa följande artiklar:
 
-* [Distribuera en Windows-behållare till Service Fabric på Windows Server 2016](service-fabric-get-started-containers.md)
-* [Distribuera en dockerbehållare till Service Fabric på Linux](service-fabric-get-started-containers-linux.md)
+* [Distribuera en Windows-behållare till Service Fabric i Windows Server 2016](service-fabric-get-started-containers.md)
+* [Distribuera en Docker-behållare till Service Fabric i Linux](service-fabric-get-started-containers-linux.md)

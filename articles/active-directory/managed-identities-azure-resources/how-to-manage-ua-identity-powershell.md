@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: c7191f60b8780e8ccee9b330aa21d8174f0f0148
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: bbac82b272b7f7beea6e43f000d265ab6f87c796
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47107043"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300531"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-azure-powershell"></a>Skapa, visa eller ta bort en Användartilldelad hanterad identitet med hjälp av Azure PowerShell
 
@@ -40,11 +40,10 @@ I den här artikeln får du lära dig hur du skapar, lista och ta bort en Använ
     - Installera [den senaste versionen av PowerShellGet](/powershell/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
     - Kör `Install-Module -Name PowerShellGet -AllowPrerelease` för att hämta förhandsversionen av `PowerShellGet`-modulen (du kan behöva `Exit` ur den aktuella PowerShell-sessionen när du har kört det här kommandot för att installera `AzureRM.ManagedServiceIdentity`-modulen).
     - Kör `Install-Module -Name AzureRM.ManagedServiceIdentity -AllowPrerelease` du installerar förhandsversionen av den `AzureRM.ManagedServiceIdentity` modulen för att utföra den användartilldelade hanterad identitet åtgärder i den här artikeln.
-- Ditt konto måste följande rolltilldelningar för att utföra vilka hanteringsåtgärder i den här artikeln:
-    - [Hanterad Identitetsdeltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rollen kan skapa, läsa (lista), uppdatera och ta bort en hanterad Användartilldelad identitet.
-    - [Hanterade Identitetsoperatör](/azure/role-based-access-control/built-in-roles#managed-identity-operator) roll att läsa (lista) egenskaperna för en hanterad Användartilldelad identitet.
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Skapa en användartilldelad hanterad identitet
+
+Om du vill skapa en hanterad Användartilldelad identitet, ditt konto måste den [hanterad Identitetsdeltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rolltilldelning.
 
 Du kan skapa en hanterad Användartilldelad identitet med den [New AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/new-azurermuserassignedidentity) kommando. Den `ResourceGroupName` parametern anger resursgruppens namn var du vill skapa en hanterad identitet användartilldelade och `-Name` parametern anger dess namn. Ersätt den `<RESOURCE GROUP>` och `<USER ASSIGNED IDENTITY NAME>` parametervärden med dina egna värden:
 
@@ -54,6 +53,8 @@ Du kan skapa en hanterad Användartilldelad identitet med den [New AzureRmUserAs
 New-AzureRmUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
 ```
 ## <a name="list-user-assigned-managed-identities"></a>Lista användartilldelade hanterade identiteter
+
+Om du vill lista/läsa en hanterad Användartilldelad identitet, ditt konto måste den [hanterade Identitetsoperatör](/azure/role-based-access-control/built-in-roles#managed-identity-operator) eller [hanterad Identitetsdeltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rolltilldelning.
 
 Använd om du vill visa användartilldelade hanterade identiteter på [Get-AzureRmUserAssigned](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity) kommando.  Den `-ResourceGroupName` parametern anger resursgruppen där den hanterade Användartilldelad identitet har skapats. Ersätt den `<RESOURCE GROUP>` med ditt eget värde:
 
@@ -65,6 +66,8 @@ I svaret, användartilldelade hanterade identiteter har `"Microsoft.ManagedIdent
 `Type :Microsoft.ManagedIdentity/userAssignedIdentities`
 
 ## <a name="delete-a-user-assigned-managed-identity"></a>Ta bort en hanterad Användartilldelad identitet
+
+Om du vill ta bort en hanterad Användartilldelad identitet måste ditt konto måste den [hanterad Identitetsdeltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rolltilldelning.
 
 Ta bort en hanterad Användartilldelad identitet genom att använda den [Remove-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/remove-azurermuserassignedidentity) kommando.  Den `-ResourceGroupName` parametern anger resursgruppen där Användartilldelad identitet har skapats och `-Name` parametern anger dess namn. Ersätt den `<RESOURCE GROUP>` och `<USER ASSIGNED IDENTITY NAME>` parametervärdena med dina egna värden:
 

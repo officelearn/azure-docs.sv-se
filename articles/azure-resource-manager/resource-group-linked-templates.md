@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: ea926a64e3df853d6845266ff20255b76d9ff387
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: fbfe7255f2b848187c74fd832f349186eef5eaef
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386730"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287582"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Med hjälp av länkade och kapslade mallar när du distribuerar Azure-resurser
 
@@ -27,7 +27,7 @@ För att distribuera din lösning, kan du använda samma mall eller en Huvudmall
 
 För små till medelstora lösningar är lättare att förstå och hantera en enda mall. Du kan se alla resurser och värden i en enda fil. För avancerade scenarier länkade mallar gör det möjligt att bryta ned lösningen till riktade komponenter och återanvända mallar.
 
-När du använder länkad mall kan skapa du en Huvudmall som tar emot parametervärdena under distributionen. Den huvudsakliga mallen innehåller alla länkade mallar och skickar värden till dessa mallar efter behov.
+När du använder länkade mallar kan skapa du en Huvudmall som tar emot parametervärdena under distributionen. Den huvudsakliga mallen innehåller alla länkade mallar och skickar värden till dessa mallar efter behov.
 
 En självstudiekurs finns i [självstudie: Skapa länkade Azure Resource Manager-mallar](./resource-manager-tutorial-create-linked-templates.md).
 
@@ -167,7 +167,7 @@ Du kan också använda [deployment()](resource-group-template-functions-deployme
 }
 ```
 
-## <a name="get-values-from-linked-template"></a>Hämta värden från länkad mall
+## <a name="get-values-from-linked-template"></a>Hämta värden från den länkade mallen
 
 För att få utdatavärde från en länkad mall kan hämta egenskapens värde med syntax som: `"[reference('<name-of-deployment>').outputs.<property-name>.value]"`.
 

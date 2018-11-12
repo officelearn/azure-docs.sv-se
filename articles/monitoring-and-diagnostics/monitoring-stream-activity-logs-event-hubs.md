@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: af8248bb68068c20d62a2d8cc1e86fd9997a740c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 41965c4a498cfa4c1f0dfefaf7615e43083eb94c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962971"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011841"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Stream Azure-aktivitetsloggen till Event Hubs
 Du kan strömma den [Azure-aktivitetsloggen](monitoring-overview-activity-logs.md) i nära realtid för program genom att antingen:
@@ -39,10 +39,10 @@ Om du vill uppdatera aktivitetsloggen log profilen om du vill inkludera streamin
 ### <a name="via-the-azure-portal"></a>Via Azure portal
 1. Bläddra till den **aktivitetsloggen** avsnittet med hjälp av den **alla tjänster** sökning på vänster sida av portalen.
    
-   ![Att välja aktivitetsloggen i listan över tjänster i portalen](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
-2. Välj den **exportera** längst upp i loggen.
+   ![Att välja aktivitetsloggen i listan över tjänster i portalen](./media/monitoring-stream-activity-logs-event-hubs/activity-logs-portal-navigate-v2.png)
+2. Välj den **exportera till Event Hub** längst upp i loggen.
    
-   ![Exportera-knappen i portalen](./media/monitoring-stream-activity-logs-event-hubs/export.png)
+   ![Exportera-knappen i portalen](./media/monitoring-stream-activity-logs-event-hubs/activity-logs-portal-export-v2.png)
 
    Observera att inställningarna i filtret som du har tillämpat när du visar aktivitetsloggen i den föregående vyn har ingen inverkan på dina exportinställningar. Här är bara för att filtrera vad som visas när de bläddrar igenom din aktivitetsloggen i portalen.
 3. I avsnittet som visas, väljer **alla regioner**. Markera inte specifika regioner.

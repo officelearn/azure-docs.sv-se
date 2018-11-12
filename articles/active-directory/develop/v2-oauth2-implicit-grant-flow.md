@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 1722f81c55c490d6030dd04e5907e93012051492
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: d063c5e5a5b81f16d8921864ab2e2a0c3504e334
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817114"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289027"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protokoll – SPA med det implicita flödet
 
@@ -145,7 +145,7 @@ När du har helt verifierat id_token, du starta en session med användaren och a
 
 ## <a name="get-access-tokens"></a>Få åtkomst-token
 
-Nu när du har registrerat användaren till din ensidesapp kan du kan få åtkomst-token för anropande webb-API: er som skyddas av Azure AD, till exempel den [Microsoft Graph](https://graph.microsoft.io). Även om du redan fått en token med den `token` response_type, du kan använda den här metoden för att hämta token till ytterligare resurser utan att behöva omdirigera användaren att logga in igen.
+Nu när du har registrerat användaren till din ensidesapp kan du kan få åtkomst-token för anropande webb-API: er som skyddas av Azure AD, till exempel den [Microsoft Graph](https://developer.microsoft.com/graph). Även om du redan fått en token med den `token` response_type, du kan använda den här metoden för att hämta token till ytterligare resurser utan att behöva omdirigera användaren att logga in igen.
 
 I det normala OpenID Connect/OAuth-flödet ska du göra detta genom att göra en begäran till v2.0 `/token` slutpunkt. V2.0-slutpunkten har inte stöd CORS-förfrågningar, så gör AJAX-anrop för att hämta och uppdatera token ligger utanför frågan. Du kan i stället använda det implicita flödet i en dold iframe för att hämta nya token för andra webb-API: er: 
 

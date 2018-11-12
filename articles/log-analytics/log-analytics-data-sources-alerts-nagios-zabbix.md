@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9c2b5db4fe35227600e7ab8d94f2cc8701cf529b
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 469d97385fd86952c2d287e2b5d15d7470a9e34e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963791"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008342"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-log-analytics-agent-for-linux"></a>Samla in varningar från Nagios och Zabbix i Log Analytics från Log Analytics-agenten för Linux 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
@@ -80,7 +80,7 @@ Utför följande steg för att samla in aviseringar på Nagios-servern.
 
 
 ## <a name="alert-records"></a>Aviseringsposter
-Du kan hämta aviseringsposter från Nagios och Zabbix med [loggsökningar](log-analytics-log-search.md) i Log Analytics.
+Du kan hämta aviseringsposter från Nagios och Zabbix med [loggsökningar](log-analytics-queries.md) i Log Analytics.
 
 ### <a name="nagios-alert-records"></a>Nagios-avisering poster
 
@@ -119,4 +119,4 @@ Avisera poster som samlas in av Zabbix har en **typ** av **avisering** och en **
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [aviseringar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) i Log Analytics.
-* Lär dig mer om [loggsökningar](log-analytics-log-search.md) att analysera data som samlas in från datakällor och lösningar. 
+* Lär dig mer om [loggsökningar](log-analytics-queries.md) att analysera data som samlas in från datakällor och lösningar. 

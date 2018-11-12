@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/05/2018
 ms.author: juliako
-ms.openlocfilehash: dccbc6e57e970ec7089f81fccb33b741b9c00e74
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 26661a213b5df5424bf9ab9ad799345ae35620ea
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376728"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036775"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Vanliga och frågor svar om Azure Media Services v3
 
@@ -28,7 +28,7 @@ Inte ännu. Du kan använda någon av de stödda SDK: erna. Se självstudier och
 
 ## <a name="is-there-an-api-for-configuring-media-reserved-units"></a>Finns det ett API för att konfigurera Mediereserverade enheter?
 
-Media Services-teamet är eliminera ru: er i v3. Men tjänst som är nödvändig arbetet har inte slutförts. Fram till dess kommer kunder har du använder Azure portal eller AMS v2 API: er för att ange ru: er (enligt beskrivningen i [skala mediebearbetning](../previous/media-services-scale-media-processing-overview.md). 
+För närvarande kan du behöva använda AMS v2 API: er för att konfigurera Mediereserverade enheter (enligt beskrivningen i [skala mediebearbetning](../previous/media-services-scale-media-processing-overview.md). 
 
 När du använder **VideoAnalyzerPreset** och/eller **AudioAnalyzerPreset**, ange ditt Media Services-konto till 10 Mediereserverade S3-enheter.
 

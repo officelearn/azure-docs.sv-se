@@ -12,21 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 17fd9907a5e3e3f4485b35c8e74d6e46fecb7fda
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 01c8f864d25a35d42abcd624e31728f4fee0d80c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303514"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012079"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Övervaka identitet och åtkomst i Azure Security Center (förhandsversion)
 Den här artikeln hjälper dig att använda Azure Security Center för att övervaka användarnas identitets- och åtkomstrelaterade aktiviteter.
 
 > [!NOTE]
 > Övervaka identitet och åtkomst finns i förhandsversion och bara tillgängliga på standardnivån i Security Center. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
->
 >
 
 Identiteten bör vara kontrollplanet för ditt företag, och din högsta prioritet bör vara att skydda din identitet. Säkerhetsperimeter har utvecklats ur en nätverksperimeter en perimeter-identitet. Säkerheten blir mindre om försvar ditt nätverk och mer information om försvar dina data, samt hanterar säkerheten för dina appar och användare. Nuförtiden, då mer data och fler appar flyttas till molnet, blir identiteten den nya perimetern.
@@ -107,18 +106,25 @@ Under **prenumerationer**, det finns en lista över prenumerationer. Den första
 ## <a name="recommendations"></a>Rekommendationer
 Använd tabellen nedan som referens för att förstå de tillgängliga rekommendationerna för identitet och åtkomst och vad var och en gör om du använder den.
 
-| Rekommendation | Beskrivning |
-| --- | --- |
-| Ange mer än en ägare av din prenumeration | Rekommenderar att du anger mer än en prenumerationsägare för att du har administratörsåtkomst. |
-| Ange upp till 3 ägare av din prenumeration | Rekommenderar att du anger färre än 3 prenumerationsägare för att minska risken för intrång genom en komprometterad ägare. |
-| Aktivera MFA för konton med ägarbehörigheter för din prenumeration | Rekommenderar att du aktiverar Multi-Factor Authentication (MFA) för alla prenumerationskonton med administratörsbehörighet för att förhindra att överträdelser görs avseende konton och resurser. |
-| Aktivera MFA för konton med skrivbehörigheter för din prenumeration | Rekommenderar att du aktiverar Multi-Factor Authentication (MFA) för alla prenumerationskonton med skrivbehörighet för att förhindra att överträdelser görs avseende konton och resurser. |
-| Aktivera MFA för konton med läsbehörigheter för din prenumeration | Rekommenderar att du aktiverar Multi-Factor Authentication (MFA) för alla prenumerationskonton med läsbehörighet för att förhindra att överträdelser görs avseende konton och resurser. |
-| Ta bort externa konton med läsbehörigheter från prenumerationen | Rekommenderar att du tar bort externa konton med läsprivilegier från din prenumeration för att förhindra oövervakad åtkomst. |
-| Ta bort externa konton med skrivbehörigheter från prenumerationen | Rekommenderar att du tar bort externa konton med skrivprivilegier från din prenumeration för att förhindra oövervakad åtkomst. |
-| Ta bort externa konton med ägarbehörigheter från prenumerationen | Rekommenderar att du tar bort externa konton med ägarbehörigheter från prenumerationen för att förhindra oövervakad åtkomst. |
-| Ta bort inaktuella konton från prenumerationen | Rekommenderar att du tar bort inaktuella konton från dina prenumerationer. |
-| Ta bort inaktuella konton med ägarbehörigheter från prenumerationen | Rekommenderar att du tar bort inaktuella konton med ägarbehörigheter från dina prenumerationer. |
+|Resurstyp|Säkerhetspoäng|Rekommendation|Beskrivning|
+|----|----|----|----|
+|Prenumeration|50|Aktivera MFA för Azure-appen för enhetshantering konton med ägarbehörigheter för din prenumeration|Aktivera Multi-Factor Authentication (MFA) för alla prenumerationskonton med administratörsbehörighet för att förhindra att överträdelser görs avseende konton och resurser.|
+|Prenumeration|50|Aktivera security center på dina prenumerationer |Aktivera Security center på alla dina prenumerationer för avancerad hotidentifiering, JIT, listan över tillåtna program och avancerade rekommendationer |
+|Prenumeration|50|Aktivera security center standard-nivån på dina prenumerationer |Aktivera Security center Standard-nivån på alla dina prenumerationer för avancerad hotidentifiering, JIT, listan över tillåtna program och avancerade rekommendationer.|
+|Prenumeration|40|Aktivera MFA för Azure-appen för enhetshantering konton med skrivbehörigheter för din prenumeration|Aktivera Multi-Factor Authentication (MFA) för alla prenumerationskonton med skrivbehörighet för att förhindra att överträdelser görs avseende konton och resurser.|
+|Prenumeration|30|Ta bort externa konton med ägarbehörigheter från prenumerationen|Ta bort externa konton med ägarbehörigheter från prenumerationen för att förhindra oövervakad åtkomst. |
+|Prenumeration|30|Aktivera MFA för Azure-appen för enhetshantering konton med läsbehörigheter för din prenumeration|Aktivera Multi-Factor Authentication (MFA) för alla prenumerationskonton med läsbehörighet för att förhindra att överträdelser görs avseende konton och resurser.|
+|Prenumeration|25|Ta bort externa konton med skrivbehörigheter från prenumerationen|Ta bort externa konton med skrivbehörigheter från prenumerationen för att förhindra oövervakad åtkomst. |
+|Prenumeration|20|Ta bort inaktuella konton med ägarbehörigheter från prenumerationen|Ta bort inaktuella konton med ägarbehörigheter från dina prenumerationer.|
+|Prenumeration|5|Ta bort inaktuella konton från prenumerationen|Ta bort inaktuella konton från dina prenumerationer för att aktivera åtkomst till endast användare. |
+|Prenumeration|5|Ange mer än en ägare av din prenumeration|Ange mer än en prenumerationsägare för att du har administratörsåtkomst.|
+|Prenumeration|5|Ange upp till 3 ägare av din prenumeration|Ange färre än 3 prenumerationsägare för att minska risken för intrång genom en komprometterad ägare.|
+|Nyckelvalv|5|Aktivera diagnostikloggar i Key Vault|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. |
+|Prenumeration|15|Ta bort externa konton med läsbehörigheter från prenumerationen|Ta bort externa konton med läsprivilegier från din prenumeration för att förhindra oövervakad åtkomst.|
+|Prenumeration|1|Ange säkerhetskontaktinformation|Ange kontaktinformation för säkerhet för var och en av dina prenumerationer. Kontaktinformation är ett e-postadress och telefonnummer tal. Informationen används för att kontakta dig om vårt säkerhetsteam skulle upptäcka att dina resurser äventyras|
+
+> ! [OBS] Om du har skapat en princip för villkorlig åtkomst som kräver MFA men innehåller undantag ange Security Center MFA rekommendation utvärderingen tittar på principen icke-kompatibla, eftersom det gör det möjligt för vissa användare att logga in på Azure utan MFA.
+>
 
 ## <a name="next-steps"></a>Nästa steg
 Om du vill veta mer om rekommendationer som gäller för andra Azure-resurstyper finns i:

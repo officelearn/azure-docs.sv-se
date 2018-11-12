@@ -2,25 +2,25 @@
 title: Åtkomst till Hadoop YARN-programloggar via programmering - Azure
 description: Få åtkomst till-programloggar som programmässigt på ett Hadoop-kluster i HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: e92f9f7bb49b0b7cc33c73a9c5eb2d0ca7532592
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: b7b93ca9c8638451d23a27edeed823e593a95b23
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094409"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035653"
 ---
-# <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>Åtkomst till YARN-programloggar på Windows-baserade HDInsight
-Det här dokumentet beskriver hur du kommer åt loggar för YARN-program som har gått ut på en Windows-baserade Hadoop-kluster i Azure HDInsight
+# <a name="access-apache-yarn-application-logs-on-windows-based-hdinsight"></a>Åtkomst Apache YARN-programloggar på Windows-baserade HDInsight
+Det här dokumentet beskriver hur du kommer åt loggarna för Apache YARN-program som har gått ut på en Windows-baserade Hadoop-kluster i Azure HDInsight
 
 > [!IMPORTANT]
-> Informationen i det här dokumentet gäller endast för Windows-baserade HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Information om åtkomst till YARN-loggar i Linux-baserade HDInsight-kluster finns i [åtkomst till YARN-programloggar på Linux-baserat Hadoop i HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+> Informationen i det här dokumentet gäller endast för Windows-baserade HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Information om åtkomst till YARN-loggar i Linux-baserade HDInsight-kluster finns i [åtkomst Apache YARN-programloggar på Linux-baserat Hadoop i HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 >
 
 

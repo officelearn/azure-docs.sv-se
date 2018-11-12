@@ -1,6 +1,6 @@
 ---
-title: Förstå enheten mallen versionshantering för dina Azure IoT centrala appar | Microsoft Docs
-description: Iterera över mallarna enheten genom att skapa nya versioner och utan att påverka dina live anslutna enheter
+title: Förstå enheten mall versionshantering för dina appar med Azure IoT Central | Microsoft Docs
+description: Iterera över mallarna för din enhet genom att skapa nya versioner och utan att påverka dina live anslutna enheter
 author: sandeeppujar
 ms.author: sandeepu
 ms.date: 01/19/2018
@@ -8,64 +8,64 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b125d822596675b138560c14c76f9a3120ce3424
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3b9e6a59b44db9295d86e3bc8a8dda9ec9761f38
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628835"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009216"
 ---
 # <a name="create-a-new-device-template-version"></a>Skapa en ny enhet mallversion
 
-Microsoft Azure IoT Central tillåter snabb utveckling av IoT-appar. Du kan snabbt iterera över din enhet mallar som genom att lägga till, redigera eller ta bort mått, inställningar eller egenskaper. Några av de här ändringarna kan vara störande för de anslutna enheterna. Azure IoT Central identifierar dessa viktiga förändringar för och ger ett sätt att distribuera uppdateringarna på ett säkert sätt till enheter.
+Azure IoT Central kan snabb utveckling av IoT-program. Du kan snabbt iterera över din enhet mallar som genom att lägga till, redigera eller ta bort mätning av faktisk användning, inställningar eller egenskaper. Några av de här ändringarna kan vara störande för de anslutna enheterna. Azure IoT Central identifierar dessa ändringar och gör det möjligt att distribuera uppdateringarna på ett säkert sätt till enheter.
 
-En mall för enheten har ett versionsnummer när du skapar den. Som standard är versionsnumret 1.0.0. Om du redigerar en mall för enheten och som kan påverka live anslutna enheter, Azure IoT centrala uppmanas du att skapa en ny enhet mallversion.
+En mall för enheten har ett versionsnummer när du skapar den. Som standard är versionsnumret 1.0.0. Om du redigerar en mall för enheten, och om den ändringen kan påverka live-anslutna enheter, Azure IoT Central uppmanas du att skapa en ny enhet mallversion.
 
 > [!NOTE]
 > Mer information om hur du skapar en mall för enheten finns [ställa in en mall för enhet](howto-set-up-template.md)
 
-## <a name="changes-that-prompt-a-version-change"></a>Ändringar som begär en ändringsbegäran för version
+## <a name="changes-that-prompt-a-version-change"></a>Ändringar som uppmanar en ändring av version
 
-Ändringar av inställningar eller egenskaper för enhet mallen fråga i allmänhet en ändring av version.
+I allmänhet uppmana ändringar i inställningar eller egenskaperna för din mall för enheten versionen ändras.
 
 > [!NOTE]
-> Fråga inte ändringar av mallen för enheten för att skapa en ny version när ingen enhet eller på de flesta en enhet är ansluten.
+> Fråga inte ändringar som gjorts i mallen för enheten för att skapa en ny version när ingen enhet eller på de flesta en enhet är ansluten.
 
-I följande lista beskrivs användaråtgärder som kräver att en ny version:
+I följande lista beskrivs de användaråtgärder som kräver att en ny version:
 
 * Egenskaper (krävs)
-    * Lägga till eller ta bort en obligatorisk egenskap
+    * Att lägga till eller ta bort en obligatorisk egenskap
     * Ändra namnet på en egenskap, fältnamn som används av dina enheter för att skicka meddelanden.
 *  Egenskaper (valfritt)
-    * Om du tar bort en valfri egenskap
+    * Tar bort en valfri egenskap
     * Ändra namnet på en egenskap, fältnamn som används av dina enheter för att skicka meddelanden.
     * Ändra en valfri egenskap till en obligatorisk egenskap
 *  Inställningar
-    * Lägga till eller ta bort en inställning
-    * Ändra namnet på en inställning fältnamn som används av dina enheter för att skicka och ta emot meddelanden.
+    * Att lägga till eller ta bort en inställning
+    * Ändra namnet på en inställning, fältnamn som används av dina enheter för att skicka och ta emot meddelanden.
 
-## <a name="what-happens-on-version-change"></a>Vad som händer på version ändringen?
+## <a name="what-happens-on-version-change"></a>Vad händer vid ändring av version?
 
-Vad händer med regler och enheten instrumentpaneler när en ändring har gjorts version?
+Vad händer med regler och enheten instrumentpaneler när versionen ändras?
 
-**Regler** kan innehålla villkor som är beroende av egenskaper. Om du har tagit bort en eller flera av de här egenskaperna kan reglerna delas i den nya enhet mallen versionen. Du kan gå till dessa specifika regler och uppdatera villkoren för att åtgärda reglerna. Regler för en tidigare version bör fungera utan att påverka.
+**Regler** kan innehålla villkor som är beroende av egenskaper. Om du har tagit bort en eller flera av de här egenskaperna, kan de här reglerna delas i din nya mall enhetsversion. Du kan gå till dessa specifika regler och uppdatera villkor för att åtgärda reglerna. Regler för en tidigare version bör fungera utan att påverka.
 
-**Enheten instrumentpaneler** kan innehålla flera typer av paneler. Vissa av panelerna kan innehålla inställningar och egenskaper. När en egenskap eller inställningen som används i en panel tas bort bryts panelen helt eller delvis. Du kan gå till panelen och åtgärda problemet genom att ta bort panelen eller uppdaterar innehållet i panelen.
+**Enheten instrumentpaneler** kan innehålla flera typer av paneler. Vissa av paneler kan innehålla inställningar och egenskaper. När en egenskap eller en inställning som används i en panel tas bort, bryts panelen helt eller delvis. Du kan gå till panelen och åtgärda problemet antingen genom att ta bort panelen eller uppdaterar innehållet i panelen.
 
 ## <a name="migrate-a-device-across-device-template-versions"></a>Migrera en enhet över mallversioner för enhet
 
-Du kan skapa flera versioner av mallen för enheten. Över tiden har du flera anslutna enheter med hjälp av dessa mallar för enheten. Du kan migrera enheter från en version av mallen för enheten till en annan. Följande steg beskriver hur du migrerar en enhet:
+Du kan skapa flera versioner av mallen för enheten. Med tiden har du flera anslutna enheter med hjälp av dessa mallar för enheten. Du kan migrera enheter från en version av din enhet-mall till en annan. Följande steg beskriver hur du migrerar en enhet:
 
 1. Gå till den **Explorer** sidan.
-1. Välj den enhet som du måste migrera till en annan version.
+1. Välj den enhet som du behöver migrera till en annan version.
 1. Välj **migrera enheten**.
-1. Välj versionsnumret som du vill migrera enheten och välj **migrera**.
+1. Välj det lägre versionsnumret som du vill migrera till enheten och välj **migrera**.
 
 ![Så här migrerar du en enhet](media\howto-version-devicetemplate\pick-version.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du använder enheten mallversioner i dina Azure IoT centralt program, är här det föreslagna nästa steget:
+Nu när du har lärt dig hur du använder enheten mallversioner i Azure IoT Central programmet, är här nästa föreslagna steg:
 
 > [!div class="nextstepaction"]
 > [Hur du skapar regler för telemetri](howto-create-telemetry-rules.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 1a135b0e17889c544a99ad677e9fa42ad6de994c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 507bbc9013d8b02084b639f8d9fac0c7d97503f4
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231890"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014286"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -368,7 +368,7 @@ Det här felet uppstår när lagringsgränsen för Azure file-resursen har nått
 
     ![En skärmbild av Azure filresursegenskaperna.](media/storage-sync-files-troubleshoot/file-share-limit-reached-1.png)
 
-Om resursen är full och en kvot har inte angetts, är ett sätt för att åtgärda det här problemet att göra egen server-slutpunkt i sina egna separata synkroniseringsgrupper varje undermapp i den aktuella server-slutpunkten. Det här sättet synkroniseras varje undermapp till enskilda Azure-filresurser.
+Om resursen är full och en kvot har inte angetts, är ett sätt för att åtgärda det här problemet att göra sin egen serverslutpunkt i sina egna separata synkroniseringsgrupper varje undermapp i den aktuella server-slutpunkten. Det här sättet synkroniseras varje undermapp till enskilda Azure-filresurser.
 
 <a id="-2134351824"></a>**Det går inte att hitta Azure-filresursen.**  
 | | |

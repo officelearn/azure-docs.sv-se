@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: e765739384aa7d18b95394cb0a9b2b6748174e7c
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: MT
+ms.openlocfilehash: d1c5c9a8709467c9f9ca87c841cffcf77a5b5f0b
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51525669"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219905"
 ---
 <a name="virtual-networking-limits-classic"></a>Följande begränsningar gäller endast för nätverksresurser som hanteras via den klassiska distributionsmodellen per prenumeration. Lär dig hur du [visa din aktuella användning mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md).
 
@@ -45,7 +45,7 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Virtuella nätverk |1000 |
 | Undernät per virtuellt nätverk |3000 |
 | Vnet-peering per virtuellt nätverk |100 |
-| DNS-servrar per virtuellt nätverk |20 |
+| DNS-servrar per virtuellt nätverk |25 |
 | Privata IP-adresser per virtuellt nätverk |65536 |
 | Privata IP-adresser per nätverksgränssnitt |256 |
 | Samtidiga TCP eller UDP flöden per nätverkskort för en virtuell dator eller rollinstans |500 000 |

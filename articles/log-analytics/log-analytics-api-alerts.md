@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 5effed58ea0fab9051470a44be30fbb3a7fd7feb
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: aa5e0887f6dfb3e983c08d1bbcf1f56f41a9543d
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962664"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012810"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Skapa och hantera Varningsregler i Log Analytics med REST API
 Log Analytics avisering REST-API kan du skapa och hantera aviseringar i Log Analytics.  Den här artikeln innehåller information om API: et och flera exempel för att utföra olika åtgärder.
@@ -28,7 +28,7 @@ Log Analytics avisering REST-API kan du skapa och hantera aviseringar i Log Anal
 Log Analytics Search REST API är RESTful och kan nås via Azure Resource Manager REST API. I det här dokumentet hittar du exempel där API: T hämtas från en PowerShell från kommandoraden med hjälp av [ARMClient](https://github.com/projectkudu/ARMClient), ett kommandoradsverktyg för öppen källkod som förenklar anropar API: et för Azure Resource Manager. Användning av ARMClient och PowerShell är ett av många alternativ för att få åtkomst till Log Analytics Search-API. Du kan använda RESTful Azure Resource Manager-API för att göra anrop till Log Analytics-arbetsytor och utföra sökkommandon i dem med de här verktygen. API: et kommer mata ut sökresultat till dig i JSON-format, så att du kan använda sökresultaten på många olika sätt programmässigt.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Aviseringar kan för närvarande kan bara skapas med en sparad sökning i Log Analytics.  Du kan referera till den [Log Search REST API](log-analytics-log-search.md) för mer information.
+Aviseringar kan för närvarande kan bara skapas med en sparad sökning i Log Analytics.  Du kan referera till den [Log Search REST API](log-analytics-queries.md) för mer information.
 
 ## <a name="schedules"></a>Scheman
 En sparad sökning kan ha ett eller flera scheman. Schemat definierar hur ofta sökningen är kör och det tidsintervall som villkoren har identifierats.
@@ -510,6 +510,6 @@ Använda Put-metoden med en befintlig åtgärds-ID om du vill ändra en webhook-
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd den [REST API för att utföra sökningar i loggen](log-analytics-log-search.md) i Log Analytics.
+* Använd den [REST API för att utföra sökningar i loggen](log-analytics-queries.md) i Log Analytics.
 * Lär dig mer om [loggaviseringar i azure-aviseringar](../monitoring-and-diagnostics/monitor-alerts-unified-log.md)
 

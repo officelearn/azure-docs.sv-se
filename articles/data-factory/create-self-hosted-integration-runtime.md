@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 2dc81a96f1e83c3a6b1ddee92f57b2f0bae4196d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: cae81bd2b856ae0fb4a648c03cbec1f87f222902
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248939"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038476"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Skapa och konfigurera en lokal integration runtime
 Integration runtime (IR) är beräkningsinfrastrukturen som Azure Data Factory använder för att tillhandahålla funktioner för dataintegrering olika nätverksmiljöer integrationsfunktioner. Mer information om IR finns [översikten över Integration runtime](concepts-integration-runtime.md).
@@ -148,6 +148,10 @@ Här följer kraven för TLS/SSL-certifikatet som används för att säkra kommu
 Du kan återanvända en befintlig lokal integration runtime-infrastruktur som du redan har konfigurerat i en datafabrik. Detta kan du skapa en *länkad lokal integration runtime* i en annan data factory genom att referera till en befintlig lokal IR (delad).
 
 Om du vill dela en lokal integration runtime med hjälp av PowerShell, se [skapa en delad lokal integration runtime i Azure Data Factory med PowerShell](create-shared-self-hosted-integration-runtime-powershell.md).
+
+Titta på följande videoklipp för en tolv minuters introduktion och demonstration av den här funktionen:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
 
 ### <a name="terminology"></a>Terminologi
 

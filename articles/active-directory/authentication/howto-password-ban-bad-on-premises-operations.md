@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: e728162da8221046b8496cced8671695c7794164
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 92c8de0961f64eea8eef830ad99c7baa268099d9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978391"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007594"
 ---
 # <a name="preview-azure-ad-password-protection-operational-procedures"></a>Förhandsversion: Azure AD lösenord protection operativa procedurer
 
@@ -67,7 +67,7 @@ Den här inställningen bör normalt lämnas i aktiverad (Ja) standardtillstånd
 
 Den `Get-AzureADPasswordProtectionSummaryReport` cmdlet kan användas för att generera en övergripande vy över aktiviter. Ett exempel på utdata från denna cmdlet är följande:
 
-```Powershell
+```PowerShell
 Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
 DomainController                : bplrootdc2
 PasswordChangesValidated        : 6677
@@ -83,7 +83,7 @@ PasswordSetErrors               : 1
 Omfånget för cmdletens reporting kan påverkas med någon av parametrarna – skog, - domän eller – DomainController. Inte anger en parameter innebär – skog.
 
 > [!NOTE]
-> Denna cmdlet fungerar genom att öppna en Powershell-session till varje domänkontrollant. För att lyckas, stöd för Powershell-fjärrsession måste vara aktiverat på varje domänkontrollant och klienten måste ha tillräcklig behörighet. Mer information om kraven för Powershell-fjärrsession kör du ”Get-Help about_Remote_Troubleshooting” i ett Powershell-fönster.
+> Denna cmdlet fungerar genom att öppna en PowerShell-session till varje domänkontrollant. För att lyckas, stöd för PowerShell-fjärrsession måste vara aktiverat på varje domänkontrollant och klienten måste ha tillräcklig behörighet. Mer information om kraven för PowerShell-fjärrsession kör du ”Get-Help about_Remote_Troubleshooting” i ett PowerShell-fönster.
 
 > [!NOTE]
 > Denna cmdlet fungerar genom att via fjärranslutning fråga varje DC agenttjänsten Admin-händelseloggen. Om Loggboken innehåller stora mängder händelser, kan cmdlet: en ta lång tid att slutföra. Massinläsning nätverket förfrågningar av stora datauppsättningar kan också påverka domänkontrollantens prestanda. Den här cmdleten bör därför användas noggrant i produktionsmiljöer.
@@ -92,7 +92,7 @@ Omfånget för cmdletens reporting kan påverkas med någon av parametrarna – 
 
 Den `Get-AzureADPasswordProtectionDCAgent` cmdlet kan användas för att visa grundläggande information om de olika DC-agenter som körs i en domän eller skog. Den här informationen hämtas från serviceConnectionPoint-objekt som har registrerats av körs DC agenten tjänster. Ett exempel på utdata från denna cmdlet är följande:
 
-```Powershell
+```PowerShell
 Get-AzureADPasswordProtectionDCAgent
 ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
 Domain                : bplchild.bplRootDomain.com

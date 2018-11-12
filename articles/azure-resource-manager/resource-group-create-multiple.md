@@ -10,24 +10,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
+ms.date: 11/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8828ba3c91df7b0a2fde3c42ecd81bd4ee4d17a3
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e1edf0ed0c9efcb9f0c81718621706550bf3c4d7
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295945"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012011"
 ---
-# <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Distribuera flera instanser av en resurs eller egenskapen i Azure Resource Manager-mallar
+# <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Distribuera fler än en instans av en resurs eller egenskapen i Azure Resource Manager-mallar
 
-Den här artikeln visar hur du iterera på dina Azure Resource Manager-mall för att skapa flera instanser av en resurs. Om du vill ange om en resurs är distribuerad på alla, se [elementet](resource-manager-templates-resources.md#condition).
+Den här artikeln visar hur du iterera på dina Azure Resource Manager-mall för att skapa fler än en instans av en resurs. Om du vill ange om en resurs är distribuerad på alla, se [elementet](resource-manager-templates-resources.md#condition).
 
 En självstudiekurs finns i [självstudie: skapa flera resursinstanser med hjälp av Resource Manager-mallar](./resource-manager-tutorial-create-multiple-instances.md).
 
 ## <a name="resource-iteration"></a>Resursen iteration
 
-När du måste välja under distributionen för att skapa en eller flera instanser av en resurs, lägga till en `copy` elementet så att den resurstypen. I elementet kopia anger du antalet iterationer och ett namn för den här loopen. Värdet för antal måste vara ett positivt heltal och får inte överskrida 800. 
+När du måste välja under distributionen för att skapa en eller flera instanser av en resurs, lägga till en `copy` elementet så att den resurstypen. I kopieringselementet anger du antalet iterationer och ett namn för den här loopen. Värdet för antal måste vara ett positivt heltal och får inte vara mer än 800. 
 
 Resursen att skapa flera gånger tar följande format:
 
@@ -68,7 +68,7 @@ Skapar de här namnen:
 * storage1
 * storage2.
 
-Du kan skicka ett värde i funktionen copyIndex() för förskjutningen indexvärdet. Antal upprepningar att utföra fortfarande har angetts i elementet kopia, men värdet för copyIndex förskjutas av det angivna värdet. Detta visas i följande exempel:
+Om du vill åsidosätta indexvärdet kan du skicka ett värde i funktionen copyIndex(). Antal upprepningar att utföra fortfarande har angetts i elementet kopia, men värdet för copyIndex förskjutas av det angivna värdet. Detta visas i följande exempel:
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -111,9 +111,9 @@ Skapar de här namnen:
 * storagefabrikam
 * storagecoho
 
-Som standard skapar Resource Manager resurserna parallellt. Därför kan är inte den ordning som de skapas garanterad. Dock kan du ange att resurserna distribueras i följd. Till exempel när du uppdaterar en produktionsmiljö, kanske du vill att sprida ut uppdateringarna så bara ett visst antal uppdateras samtidigt.
+Som standard skapar Resource Manager resurserna parallellt. Den ordning som de skapas är inte garanterad. Dock kan du ange att resurserna distribueras i följd. Till exempel när du uppdaterar en produktionsmiljö, kanske du vill att sprida ut uppdateringarna så bara ett visst antal uppdateras samtidigt.
 
-För att distribuera seriellt flera instanser av en resurs, ange `mode` till **seriell** och `batchSize` för antalet instanser som ska distribueras i taget. Med seriell läge skapar Resource Manager ett beroende på tidigare instanser i loopen, så att den inte startar en batch tills den föregående batchen har slutförts.
+För att distribuera seriellt fler än en instans av en resurs, ange `mode` till **seriell** och `batchSize` för antalet instanser som ska distribueras i taget. Med seriell läge skapar Resource Manager ett beroende på tidigare instanser i loopen, så att den inte startar en batch tills den föregående batchen har slutförts.
 
 Till exempel för att distribuera seriellt lagringskonton två i taget, använder du:
 
@@ -148,10 +148,10 @@ Egenskapen läge också godkänner **parallella**, vilket är standardvärdet.
 
 ## <a name="property-iteration"></a>Egenskapen iteration
 
-Om du vill skapa flera värden för en egenskap för en resurs lägger du till en `copy` matris i properties-elementet. Den här matrisen innehåller objekt och varje objekt har följande egenskaper:
+Om du vill skapa fler än ett värde för en egenskap för en resurs lägger du till en `copy` matris i properties-elementet. Den här matrisen innehåller objekt och varje objekt har följande egenskaper:
 
 * namn – namnet på egenskapen att skapa flera värden för
-* antal – hur många värden för att skapa
+* antal – hur många värden för att skapa. Värdet för antal måste vara ett positivt heltal och får inte vara mer än 800.
 * indata - ett objekt som innehåller värdena för att tilldela egenskapen  
 
 I följande exempel visas hur du använder `copy` till egenskapen dataDisks på en virtuell dator:
@@ -381,7 +381,7 @@ Du anger att en resurs distribueras efter en annan resurs med hjälp av den `dep
 <a id="looping-on-a-nested-resource" />
 
 ## <a name="iteration-for-a-child-resource"></a>Upprepningen för en underordnad resurs
-Du kan inte använda en kopia skapas för en underordnad resurs. Om du vill skapa flera instanser av en resurs som du vanligtvis definierar som kapslade i en annan resurs, måste du i stället skapa resursen som en resurs på toppnivå. Du definierar relationen med den överordnade resursen via egenskaperna typ och namn.
+Du kan inte använda en kopia skapas för en underordnad resurs. Om du vill skapa fler än en instans av en resurs som du vanligtvis definierar som kapslade i en annan resurs, måste du i stället skapa resursen som en resurs på toppnivå. Du definierar relationen med den överordnade resursen via egenskaperna typ och namn.
 
 Anta exempelvis att du vanligtvis definierar en datauppsättning som en underordnad resurs i en data factory.
 
@@ -403,7 +403,7 @@ Anta exempelvis att du vanligtvis definierar en datauppsättning som en underord
 }]
 ```
 
-Om du vill skapa flera instanser av uppsättningar måste du flytta den utanför data factory. Datauppsättningen måste vara på samma nivå som data factory, men det är fortfarande en underordnad resurs på data factory. Du bevara relationen mellan datauppsättning och data factory via egenskaperna typ och namn. Eftersom typen kan inte längre härledas från dess position i mallen, måste du ange den fullständiga typen i formatet: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
+Om du vill skapa fler än en datauppsättning, flytta den utanför data factory. Datauppsättningen måste vara på samma nivå som data factory, men det är fortfarande en underordnad resurs på data factory. Du bevara relationen mellan datauppsättning och data factory via egenskaperna typ och namn. Eftersom typen kan inte längre härledas från dess position i mallen, måste du ange den fullständiga typen i formatet: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
 
 Ange ett namn för den datauppsättning som innehåller namnet på överordnade resursen för att upprätta en överordnad/underordnad relation med en instans av data factory. Använd formatet: `{parent-resource-name}/{child-resource-name}`.  
 
@@ -432,11 +432,11 @@ I följande exempel visas implementeringen:
 
 ## <a name="example-templates"></a>Exempel på mallar
 
-I följande exempel visas vanliga scenarier för att skapa flera resurser eller egenskaper.
+I följande exempel visas vanliga scenarier för att skapa fler än en instans av en resurs eller en egenskap.
 
 |Mall  |Beskrivning  |
 |---------|---------|
-|[Lagringsutrymme på skuggkopian](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Distribuerar flera lagringskonton med index i namnet. |
+|[Lagringsutrymme på skuggkopian](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Distribuerar mer än ett lagringskonto med index i namnet. |
 |[Seriell lagringsutrymmet](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Distribuerar flera lagringskonton som på gång. Namnet innehåller antalet index. |
 |[Lagringsutrymmet med matris](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Distribuerar flera lagringskonton. Namnet innehåller ett värde från en matris. |
 |[Distribution av virtuella datorer med ett variabelt antal datadiskar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Distribuerar flera datadiskar med en virtuell dator. |

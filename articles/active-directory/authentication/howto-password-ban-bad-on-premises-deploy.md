@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6599d634ec1e13715bdd34b6e8ab6fbd9f4f3e61
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 02c2b7560a0a609f6d902af78877d5f0236615d3
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743270"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011501"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Förhandsversion: Distribuera Azure AD-lösenordsskydd
 
@@ -53,6 +53,13 @@ När funktionen har körts i granskningsläge i rimlig tid, tvingande konfigurat
 * Alla datorer där Azure AD lösenord protection komponenter är installerade, inklusive domänkontrollanter måste ha den universella C som är installerad.
 Detta åstadkoms helst genom att helt åtgärda datorn via Windows Update. I annat fall ett lämpligt operativsystemspecifika uppdateringspaketet vara installerat – Se [uppdatera för Universal C-körning i Windows](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows)
 * Nätverksanslutning måste det finnas mellan minst en domänkontrollant i varje domän och minst en server som är värd för Azure AD lösenord protection proxy-tjänsten. Den här anslutningen måste tillåta domänkontrollanten för att få åtkomst till RPC-mapper slutpunktsport (135) och RPC-server-porten i proxy-tjänsten.  RPC-serverport är som standard en dynamisk RPC-port, men kan konfigureras (se nedan) för att använda en statisk port.
+* Alla datorer som är värd för tjänsten Azure AD lösenord protection proxy måste ha nätverksåtkomst till följande slutpunkter:
+
+    |Slutpunkt |Syfte|
+    | --- | --- |
+    |`https://login.microsoftonline.com`|Begäranden om autentisering|
+    |`https://enterpriseregistration.windows.net`|Skyddsfunktioner för Azure AD-lösenord|
+
 * Ett globalt administratörskonto för att registrera Azure AD-lösenord protection proxy-tjänsten och skog med Azure AD.
 * Ett konto med administratörsbehörighet för Active Directory-domänen i rotdomänen i skogen för att registrera Windows Server Active Directory-skog med Azure AD.
 * Alla Active Directory-domän som kör domänkontrollanten agentprogramvaran för tjänsten måste använda DFSR för sysvol-replikering.

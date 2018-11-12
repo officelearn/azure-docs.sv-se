@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c248e126d99c7cb83895871ec24d41ffcfd84d29
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 08d17566faa61c5dcac01a49f99f0f39eb280946
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960692"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009750"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Övervaka status för Active Directory-replikering med Log Analytics
 
@@ -110,7 +110,7 @@ När du klickar på ett objekt i någon av listor visas ytterligare information 
 
 ![AD-replikering status fel i sökresultaten](./media/log-analytics-ad-replication-status/oms-ad-replication-search-details.png)
 
-Härifrån kan du filtrera ytterligare, ändra sökfrågan och så vidare. Läs mer om hur du använder Log Search [Loggsökningar](log-analytics-log-search.md).
+Härifrån kan du filtrera ytterligare, ändra sökfrågan och så vidare. Läs mer om hur du använder Log Search [Loggsökningar](log-analytics-queries.md).
 
 Den **HelpLink** fältet visar Webbadressen till en TechNet-sida med ytterligare information om det specifika felet. Du kan kopiera och klistra in den här länken i webbläsarfönstret för att visa information om felsökning och åtgärda felet.
 
@@ -154,4 +154,4 @@ Om du behöver hjälp med att ansluta en av domänkontrollanterna kan du visa do
 Om du inte vill att någon av dina domänkontrollanter ansluta direkt till Log Analytics eller till System Center Operations Manager, se [att aktivera en icke-domänkontrollant att skicka AD-data till Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd [Loggsökningar i Log Analytics](log-analytics-log-search.md) att visa detaljerad status för data för Active Directory-replikering.
+* Använd [Loggsökningar i Log Analytics](log-analytics-queries.md) att visa detaljerad status för data för Active Directory-replikering.

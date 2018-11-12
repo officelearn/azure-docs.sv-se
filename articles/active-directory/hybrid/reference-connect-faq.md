@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 11/02/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 3cb44779f376dca1844f42f346ed0fa3bfaa93cf
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 50ec49c22c64780c8f887b12eef1dd0e75c379ed
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269453"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010612"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect – vanliga frågor och svar
 
@@ -75,6 +75,9 @@ Nej, Azure AD Connect har inte stöd för lokala skogar eller domäner där NetB
 
 **F: är endast IPv6-miljö som stöds?**  
 Nej, Azure AD Connect har inte stöd för en ren IPv6-miljö.
+
+**Q: Jag har en miljö med flera skogar och nätverket mellan de två skogarna använder NAT (Network Address Translation). Azure AD Connect använder mellan dessa två skogar som stöds?**</br>
+ Nej, med hjälp av Azure AD Connect via NAT stöds inte. 
 
 ## <a name="federation"></a>Federation
 **F: Vad gör jag om jag får ett e-postmeddelande som ber mig att förnya min Office 365-certifikat?**  

@@ -2,18 +2,18 @@
 title: Använda en Windows-dator med Hadoop i HDInsight - Azure
 description: Arbeta i en Windows-dator i Hadoop på HDInsight. Hantera och fråga kluster med PowerShell, Visual Studio och Linux-verktyg. Utveckla big data-lösningar med .NET.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 05/17/2017
-ms.openlocfilehash: a3fbd9cca038547e92c034577042aebbac6fc1fe
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: c80c7a075b8a7735a4e9d2438c94eaac89f2b50e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593068"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006975"
 ---
 # <a name="work-in-the-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Arbeta i Hadoop-ekosystemet i HDInsight från en Windows-dator
 

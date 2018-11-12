@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: raiye
-ms.openlocfilehash: c153e87224c596929440d814d30b94cc49d7ba76
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 35888b205822e5d7c9576c9855610bad814901b6
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978748"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346175"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure gäst-OS-versioner och SDK-kompatibilitetsöversikten
 Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem släpper för molntjänster. Den här informationen hjälper dig att planera din uppgraderingsväg innan en gäst-OS är inaktiverad. Om du konfigurerar dina roller att använda *automatisk* gäst-OS uppdateras enligt beskrivningen i [Azure Guest OS uppdateringsinställningar][Azure Guest OS Update Settings], inte är det viktigt att du läser den här sidan.
@@ -42,6 +42,9 @@ Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem slä
 Osäker på om hur du uppdaterar din gäst-OS? Kontrollera [detta] [ cloud updates] ut.
 
 ## <a name="news-updates"></a>Nyheter
+
+###### <a name="november-8-2018"></a>**8 november 2018**
+Gäst-OS oktober har publicerat.
 
 ###### <a name="october-12-2018"></a>**12 oktober 2018**
 Gästoperativsystemet i September har publicerat.
@@ -74,8 +77,9 @@ Gäst-OS April har publicerat.
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
+| WA-GUEST-OS-5.24_201810-01 |8 november 2018 |Post 5.26 |
 | WA-GUEST-OS-5.23_201809-01 |12 oktober 2018 |Post 5,25 |
-| WA-GUEST-OS-5.22_201808-01 |Den 12 september 2018 |Post 5,24 |
+|~~WA-GUEST-OS-5.22_201808-01~~ |Den 12 september 2018 |8 november 2018 |
 |~~WA-GUEST-OS-5.21_201807-02~~ |Den 3 augusti 2018 |12 oktober 2018 |
 |~~WA-GUEST-OS-5.20_201806-01~~ |3 juli 2018 |Den 12 september 2018 |
 |~~WA-GUEST-OS-5.19_201805-01~~ |Den 1 juni 2018 |Den 3 augusti 2018 |
@@ -88,8 +92,9 @@ Gäst-OS April har publicerat.
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
+| WA-GUEST-OS-4.59_201810-01 |8 november 2018 |Post 4.61 |
 | WA-GUEST-OS-4.58_201809-01 |12 oktober 2018 |Post 4.60 |
-| WA-GUEST-OS-4.57_201808-01 |Den 12 september 2018 |Post 4.59 |
+|~~WA-GUEST-OS-4.57_201808-01~~ |Den 12 september 2018 |8 november 2018 |
 |~~WA-GUEST-OS-4.56_201807-02~~ |Den 3 augusti 2018 |12 oktober 2018 |
 |~~WA-GUEST-OS-4.55_201806-01~~ |3 juli 2018 |Den 12 september 2018 |
 |~~WA-GUEST-OS-4.54_201805-01~~ |Den 1 juni 2018 |Den 3 augusti 2018 |
@@ -102,8 +107,9 @@ Gäst-OS April har publicerat.
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
+| WA-GUEST-OS-3.66_201810-01 |8 november 2018 |Post 3.68 |
 | WA-GUEST-OS-3.65_201809-01 |12 oktober 2018 |Post 3.67 |
-| WA-GUEST-OS-3.64_201808-01 |Den 12 september 2018 |Post 3.66 |
+|~~WA-GUEST-OS-3.64_201808-01~~ |Den 12 september 2018 |8 november 2018 |
 |~~WA-GUEST-OS-3.63_201807-02~~ |Den 3 augusti 2018 |12 oktober 2018 |
 |~~WA-GUEST-OS-3.62_201806-01~~ |3 juli 2018 |Den 12 september 2018 |
 |~~WA-GUEST-OS-3.61_201805-01~~ |Den 1 juni 2018 |Den 3 augusti 2018 |
@@ -116,8 +122,9 @@ Gäst-OS April har publicerat.
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
+| WA-GUEST-OS-2.79_201810-01 |8 november 2018 |Post 2.81 |
 | WA-GUEST-OS-2.78_201809-01 |12 oktober 2018 |Post 2,80 |
-| WA-GUEST-OS-2.77_201808-01 |Den 12 september 2018 |Post 2.79 |
+|~~WA-GUEST-OS-2.77_201808-01~~ |Den 12 september 2018 |8 november 2018 |
 |~~WA-GUEST-OS-2.76_201807-02~~ |Den 3 augusti 2018 |12 oktober 2018 |
 |~~WA-GUEST-OS-2.75_201806-01~~ |3 juli 2018 |Den 12 september 2018 |
 |~~WA-GUEST-OS-2.74_201805-01~~ |Den 1 juni 2018 |Den 3 augusti 2018|

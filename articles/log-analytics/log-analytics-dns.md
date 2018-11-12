@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a621cba2eda0156cbe191f330c805d2cca64b3ba
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: bd72b93d31a25a6aa848fc08a7db4d9d0fcece9f
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960896"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010753"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Samla in information om DNS-infrastrukturen med förhandsversionen av DNS Analytics-lösning
 
@@ -190,4 +190,4 @@ Det finns två sätt som du kan ge feedback:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Söka loggarna](log-analytics-log-search.md) att visa detaljerad DNS-poster.
+[Söka loggarna](log-analytics-queries.md) att visa detaljerad DNS-poster.

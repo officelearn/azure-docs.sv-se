@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 4c60474c07a3853e409436359713578178b639fb
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 289aa893a0ffa598d5b9fae67a81e9bf0c9782f7
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024874"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014405"
 ---
 # <a name="configure-advanced-networking-in-azure-kubernetes-service-aks"></a>Konfigurera avancerade nätverk i Azure Kubernetes Service (AKS)
 
@@ -35,12 +35,21 @@ Kluster som har konfigurerats med avancerade nätverk kräver ytterligare planer
 
 IP-adresser för poddarna och klustrets noder tilldelas från det angivna undernätet i det virtuella nätverket. Varje nod har konfigurerats med en primär IP-adress. Som standard konfigureras före 30 ytterligare IP-adresser genom Azure CNI som har tilldelats poddar som schemalagts på noden. När du skalar ut ditt kluster konfigureras varje nod på samma sätt med IP-adresser från undernätet. Du kan också visa den [maximala poddar per nod](#maximum-pods-per-node).
 
+> [!IMPORTANT]
+> Antal IP-adresser som krävs ska inkludera överväganden för uppgradering och skalning. Om du ställer in IP-adressintervall som endast stöd för ett fast antal noder kan du uppgradera eller skala ditt kluster.
+>
+> - När du **uppgradera** distribueras AKS-klustret, en ny nod i klustret. Tjänster och arbetsbelastningar från och med den nya noden och ett äldre noden tas bort från klustret. Den här processen för löpande uppgradering kräver minst en ytterligare block av IP-adresser ska vara tillgängliga. Din nodantal är sedan `n + 1`.
+>
+> - När du **skala** distribueras ett AKS-kluster, en ny nod i klustret. Tjänster och arbetsbelastningar från och med den nya noden. IP-adressintervall behöver beakta att tänka på hur kan du skala upp antalet noder och poddar som har stöd för ditt kluster. En ny nod för uppgraderingsåtgärderna bör också ingå. Din nodantal är sedan `n + number-of-additional-scaled-nodes-you-anticipate + 1`.
+
+Om du räknar med att köra det maximala antalet poddar, och regelbundet ta bort och distribuera poddar noderna, bör du också räkna in vissa ytterligare IP-adresser per nod. Dessa ytterligare IP-adresser som tar hänsyn det kan ta några sekunder för en tjänst som ska tas bort och IP-adressen är för en ny tjänst kan distribueras och hämta adressen.
+
 Plan för IP-adress för ett AKS-kluster består av en virtuell nätverks-, minst ett undernät för noder och poddar och Kubernetes service-adressintervall.
 
 | Adressintervall / Azure resurs | Gränser och storlek |
 | --------- | ------------- |
 | Virtuellt nätverk | Azure-nätverket kan vara så stora/8 som, men är begränsad till 65 536 konfigurerade IP-adresser. |
-| Undernät | Måste vara tillräckligt stor för att hantera noder, poddar och alla Kubernetes och Azure-resurser som kan etableras i klustret. Om du distribuerar en intern Azure Load Balancer, exempelvis dess frontend IP-adresser tilldelas från klustret undernätet inte offentliga IP-adresser. <p/>Att beräkna *minsta* undernätets storlek: `(number of nodes) + (number of nodes * maximum pods per node that you configure)` <p/>Exempel för ett kluster med 50 noder: `(50) + (50 * 30 (default)) = 1,550` (/ 21 eller större)<p>Om du inte anger ett maximalt antal poddar per nod när du skapar klustret, det maximala antalet poddar per nod är inställd på *30*. Det minsta antalet IP-adresser som krävs baserat på det värdet. Om du beräkna din IP-adress minimikraven på ett annat värde för maximal [så här konfigurerar du det maximala antalet poddar per nod](#configure-maximum---new-clusters) för att ange värdet när du distribuerar ditt kluster. |
+| Undernät | Måste vara tillräckligt stor för att hantera noder, poddar och alla Kubernetes och Azure-resurser som kan etableras i klustret. Om du distribuerar en intern Azure Load Balancer, exempelvis dess frontend IP-adresser tilldelas från klustret undernätet inte offentliga IP-adresser. Storleken på undernätet bör också ta konto uppgraderingsåtgärderna eller framtida skalningsbehov.<p />Att beräkna den *minsta* undernätets storlek, inklusive en ny nod för åtgärder för uppgradering: `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Exempel för ett kluster med 50 noder: `(51) + (51  * 30 (default)) = 1,581` (/ 21 eller större)<p/>Exempel för ett kluster med 50 noder som innehåller också etablera att skala upp en ytterligare 10 noder: `(61) + (61 * 30 (default)) = 2,440` (/ 20 eller större)<p>Om du inte anger ett maximalt antal poddar per nod när du skapar klustret, det maximala antalet poddar per nod är inställd på *30*. Det minsta antalet IP-adresser som krävs baserat på det värdet. Om du beräkna din IP-adress minimikraven på ett annat värde för maximal [så här konfigurerar du det maximala antalet poddar per nod](#configure-maximum---new-clusters) för att ange värdet när du distribuerar ditt kluster. |
 | Kubernetes service-adressintervall | Det här intervallet bör inte används av alla nätverkselement på eller ansluten till det här virtuella nätverket. CIDR-tjänstadress måste vara mindre än /12. |
 | IP-adress för Kubernetes DNS-tjänsten | IP-adress inom Kubernetes service-adressintervall som ska användas av klustertjänstidentifiering (kube-dns). |
 | Docker bridge-adress | IP-adress (i CIDR-notation) som används som Docker-brygga IP-adress på noder. Standardvärdet 172.17.0.1/16. |
@@ -73,7 +82,7 @@ När du skapar ett AKS-kluster, konfigureras följande parametrar för avancerad
 
 **Virtuellt nätverk**: det virtuella nätverket dit du vill distribuera Kubernetes-klustret. Om du vill skapa ett nytt virtuellt nätverk för klustret, väljer *Skapa nytt* och följ stegen i den *skapa virtuellt nätverk* avsnittet. Information om begränsningar och kvoter för ett Azure-nätverk finns i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
-**Undernät**: undernätet i det virtuella nätverket där du vill distribuera klustret. Om du vill skapa ett nytt undernät i det virtuella nätverket för klustret, väljer *Skapa nytt* och följ stegen i den *skapa undernät* avsnittet.
+**Undernät**: undernätet i det virtuella nätverket där du vill distribuera klustret. Om du vill skapa ett nytt undernät i det virtuella nätverket för klustret, väljer *Skapa nytt* och följ stegen i den *skapa undernät* avsnittet. Adressintervallet får inte överlappa med andra virtuella nätverk i din miljö för hybridanslutning.
 
 **Kubernetes-tjänst-adressintervall**: det här är en uppsättning virtuella IP-adresser som Kubernetes tilldelar [services] [ services] i klustret. Du kan använda alla privata adressintervall som uppfyller följande krav:
 

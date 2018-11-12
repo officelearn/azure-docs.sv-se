@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 70ea33f2c3e3a79d1754b72d12e8fc27689e38ea
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 434f0639baa45dc83ee2fae4ec8b67a80517db14
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387946"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035940"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>DNS-tjänsten i Azure Service Fabric
 DNS-tjänsten är en valfri systemtjänst som du kan aktivera i klustret för att identifiera andra tjänster med hjälp av DNS-protokollet. 
@@ -43,6 +43,9 @@ Följande diagram visar hur tjänsten DNS fungerar för partitionerade tillstån
 Dynamiska portar stöds inte av DNS-tjänsten. Lös tjänster som är tillgängliga på dynamiska portar med de [omvänd proxy-tjänst](./service-fabric-reverseproxy.md).
 
 ## <a name="enabling-the-dns-service"></a>Aktivera DNS-tjänsten
+> [!NOTE]
+> DNS-tjänst för Service Fabric-tjänster stöds inte ännu i Linux.
+
 När du skapar ett kluster med hjälp av portalen, DNS-tjänsten är aktiverad som standard i den **inkluderar DNS-tjänsten** kryssrutan på den **klusterkonfiguration** menyn:
 
 ![Aktivera DNS-tjänsten via portalen](./media/service-fabric-dnsservice/enable-dns-service.png)
@@ -251,6 +254,8 @@ public class ValuesController : Controller
 
 ## <a name="known-issues"></a>Kända problem
 * Det finns ett problem med DNS-sökning för tjänstnamn som innehåller ett bindestreck i DNS-namnet för Service Fabric versioner 6.3 och högre. Mer information om det här problemet spåra följande [GitHub-ärende](https://github.com/Azure/service-fabric-issues/issues/1197). En korrigering för detta kommer i nästa 6.3-uppdateringen. 
+
+* DNS-tjänst för Service Fabric-tjänster stöds inte ännu i Linux. DNS-tjänsten har stöd för behållare på Linux. Manuell lösning med hjälp av Fabric klient/ServicePartitionResolver är tillgängliga alternativ.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om kommunikation inom klustret med [ansluta och kommunicera med tjänster](service-fabric-connect-and-communicate-with-services.md)

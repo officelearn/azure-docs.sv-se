@@ -1,6 +1,6 @@
 ---
-title: 'Verbet åtgärd för tjänsten Azure Machine Learning i 59 tecken eller mindre. Inkludera namnet Azure Machine Learning. Testa rubrik här https://moz.com/learn/seo/title-tag (exempel: distribuera webbtjänster i Python med Azure Machine Learning-tjänsten)'
-description: Lär dig hur du gör detta och att kunden med ord i Azure Machine Learning. Den här strängen beskrivs i artikeln i 115 145 tecken. Använda SEO slags uppmaningsverb här. Den här informationen visas på Sök sidan infogade med datumstämpel för artikeln. Om din introduktion para beskriver din artikel avsikt, kan du använda den här redigeras för längd.
+title: 'Verb åtgärd för Azure Machine Learning-tjänsten på 59 tecken eller mindre. Inkludera namnet Azure Machine Learning. Testa titel här https://moz.com/learn/seo/title-tag (exempel: distribuera webbtjänster i Python med Azure Machine Learning-tjänsten)'
+description: Lär dig hur du gör detta och att med hjälp av kunden ord i Azure Machine Learning. Den här strängen beskrivs i artikeln i 115 145 tecken. Använd SEO slags åtgärdsverb här. Den här informationen visas search sida inbäddad med datumstämpel för artikeln. Om din introduktion stycke beskriver din artikeln måste använda du den här redigeras för längd.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,49 +10,49 @@ ms.author: your-msft-alias
 author: your-github-account-name
 ms.date: 04/10/2018
 ms.openlocfilehash: 1fd64cca8eb51cdcaa2eb6e8cbce853b6a55b0e6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188165"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013011"
 ---
-# <a name="this-h1-is-the-title-of-the-article-it-appears-in-search-appears-at-the-top-of-article-second-greatest-impact-on-search-100-chars-or-less"></a>Den här H1 är artikelns rubrik. Den visas i sökning, visas överst i artikeln, andra störst inverkan på sökning, 100 tecken eller mindre
+# <a name="this-h1-is-the-title-of-the-article-it-appears-in-search-appears-at-the-top-of-article-second-greatest-impact-on-search-100-chars-or-less"></a>Den här H1 är artikelns rubrik. Den visas i search visas överst i artikeln, andra störst inverkan på sökning, 100 tecken eller mindre
 
-Här riktlinjer: https://review.docs.microsoft.com/help/contribute/contribute-how-to-write-seo-basics?branch=master
+Här vägledning: https://review.docs.microsoft.com/help/contribute/contribute-how-to-write-seo-basics?branch=master
 
 
 1 punkt innehåller primära syftet med artikeln i 1 eller 2 korta meningar. 
 
 ## <a name="prerequisites"></a>Förutsättningar
-Du behöver följande för att gå igenom den här instruktioner:
-- [Ett machine learning-konto](template-howto.md)
+För att gå igenom den här guiden, måste du:
+- [Ett konto för machine learning](template-howto.md)
 
 ## <a name="section-here-h2"></a>Avsnittet här H2 
-Här punkt. 
-**Frasen är i fet stil. ** 
+Här stycke. 
+**Den här frasen är fet. ** 
  *Frasen är kursiv stil.*
 
 Det här är en [hyperlänk till en artikel](./template-concepts.md)
 
-Det här är en bild:
+Det här är en avbildning:
 
-![Detta är en beskrivning av avbildningen](media/overview-what-is-azure-ml/aml-concepts.png) Observera att avbildningar lagras i mediamappen med en underkatalog som matchar namnet på artikeln och filnamnet.
+![Det här är en Bildbeskrivning](media/overview-what-is-azure-ml/aml-concepts.png) Observera att avbildningar lagras i mappen media med en underkatalog som matchar namnet på artikeln och sedan filnamnet.
 
 ## <a name="section-here-h2"></a>Avsnittet här H2
-Den här tabellen har rubriker:
+Den här tabellen innehåller rubriker:
 
-|Column1  |Column2  |Column3  |
+|Kolumn1  |Kolumn2  |Kolumn3  |
 |---------|---------|---------|
-|Row1|Värdet 1|Värdet A|
-|Row2|Värdet 2|Värdet B|
-|Row3|Värdet 3|Värdet C|
+|Row1|Värde 1|Värdet A|
+|Row2|Värde 2|Värdet B|
+|Row3|Värde 3|Värdet C|
 
 ## <a name="section-here-h2"></a>Avsnittet här H2
 Det här är en numrerad lista:
 
 1. Första objektet
 
-   Denna punkt dras så att samma avstånd som det första numrerade objektet.
+   Detta stycke dras in om du vill att samma avstånd är den första numrerade posten.
 
 2. Andra objekt
    - den här meningen är en punkt
@@ -62,7 +62,7 @@ Det här är en numrerad lista:
 
 4. Objektet tillbaka
 
-5. Femte objekt
+5. Femte objektet
 
 ## <a name="this-list-is-bulleted-list"></a>Den här listan är numrerad lista:
 - Objekt 1
@@ -74,4 +74,4 @@ Det här är en numrerad lista:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om maskininlärning finns [en annan artikel](template-howto.md)
+Information om machine learning finns i [en annan artikel](template-howto.md)

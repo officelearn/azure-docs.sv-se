@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 6c58967255270231f61c59205ed12a9cdfec6897
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: b50e6de9de6498f57fd9b599c45a35f2367b84ba
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958703"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012147"
 ---
 # <a name="collect-data-in-a-hybrid-environment-with-log-analytics-agent"></a>Samla in data i en hybridmiljö med Log Analytics-agenten
 
@@ -127,6 +127,6 @@ Ansluta dina lokala datorer direkt med Log Analytics kan utföras med hjälp av 
 
 * Granska [datakällor](log-analytics-data-sources.md) att förstå datakällorna som är tillgängliga för att samla in data från din Windows- eller Linux-system. 
 
-* Lär dig mer om [loggsökningar](log-analytics-log-search.md) att analysera data som samlas in från datakällor och lösningar. 
+* Lär dig mer om [loggsökningar](log-analytics-queries.md) att analysera data som samlas in från datakällor och lösningar. 
 
 * Lär dig mer om [lösningar](../monitoring/monitoring-solutions.md) som lägger till funktioner i Log Analytics och också samla in data till Log Analytics-arbetsytan.

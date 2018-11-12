@@ -1,6 +1,6 @@
 ---
 title: Förstå Azure Digital Twins enhetsanslutning och autentisering | Microsoft Docs
-description: Med hjälp av Azure Digital Twins att ansluta och autentisera enheter
+description: Använd Azure Digital Twins att ansluta och autentisera enheter
 author: lyrana
 manager: alinast
 ms.service: digital-twins
@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lyrana
-ms.openlocfilehash: adfb4c369ea1b324da8562a5b0b245ebdecff602
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 42c1b0fbb6d87e9ed35d4ecce3971d8512eed4d4
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324190"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012470"
 ---
 # <a name="create-and-manage-role-assignments"></a>Skapa och hantera rolltilldelningar
 
@@ -21,15 +21,15 @@ Azure Digital Twins använder rollbaserad åtkomstkontroll ([RBAC](./security-ro
 
 Varje rolltilldelningen omfattar:
 
-* En **objektidentifierare** (ett ID för Azure Active Directory, service principal objekt-ID eller domännamn).
-* En **objekt-ID-typ**.
-* En **rolldefinitions-ID:**.
-* En **utrymme sökvägen**.
-* (I de flesta fall) en Azure Active Directory **klient-ID**.
+* **Objekt-ID:**: en Azure Active Directory-ID, tjänstens huvudnamn objekt-ID eller domännamn
+* **Typ av identifierare**
+* **Rolldefinitions-ID**
+* **Utrymme sökväg**
+* **Klient-ID**: I de flesta fall en Azure Active Directory klient-ID
 
 ## <a name="role-definition-identifiers"></a>Rollen definition identifierare
 
-Tabellen nedan visar vad som kan hämtas genom att fråga Systemroller/API: et:
+I följande tabell visas vad som kan hämtas genom att fråga system/roller API.
 
 | **Roll** | **identifierare** |
 | --- | --- |
@@ -41,11 +41,11 @@ Tabellen nedan visar vad som kan hämtas genom att fråga Systemroller/API: et:
 | Användare | b1ffdb77-c635-4E7E-ad25-948237d85b30 |
 | Support-expert | 6e46958b-dc62-4e7c-990c-c3da2e030969 |
 | Installationsprogram för enhet | b16dd9fe-4efe-467b-8c8c-720e2ff8817c |
-| GatewayDevice | d4c69766-e9bd-4e61-BFC1-d8b6e686c7a8 |
+| Gateway-enhet | d4c69766-e9bd-4e61-BFC1-d8b6e686c7a8 |
 
 ## <a name="supported-objectidtypes"></a>Stöds ObjectIdTypes
 
-Den stöds `ObjectIdTypes` är:
+Den stöds `ObjectIdTypes`:
 
 * `UserId`
 * `DeviceId`
@@ -62,15 +62,15 @@ HTTP POST /api/v1.0/roleassignments
 
 | **Namn** | **Krävs** | **Typ** | **Beskrivning** |
 | --- | --- | --- | --- |
-| RoleId| Ja |sträng | Rollen definition identifierare. Roll- och deras identifierare kan hittas genom att fråga systemet API. |
-| objekt-ID | Ja |sträng | Objekt-ID för den rolltilldelning som måste vara formaterad enligt dess associerade typ. För den `DomainName` ObjectIdType, ObjectId måste börja med den `“@”` tecken. |
-| objectIdType | Ja |sträng | Typ av rolltilldelningen. Måste vara något av följande rader i den här tabellen. |
-| TenantId | Varierar | sträng |Klient-ID. Tillåts inte för `DeviceId` och `TenantId` ObjectIdTypes. Krävs för `UserId` och `ServicePrincipalId` ObjectIdTypes. Valfritt för DomainName ObjectIdType. |
-| sökvägen * | Ja | sträng |Fullständig åtkomst till sökvägen till den `Space` objekt. Exempel: `/{Guid}/{Guid}` om en identifierare som behöver rolltilldelningen för hela diagrammet, ange `"/"` (vilket betyder rot). Men med hjälp av det vill säga det rekommenderas inte och **du bör alltid följa principen för lägsta behörighet**. |
+| RoleId| Ja |Sträng | Rollen definition identifierare. Hitta roll- och deras identifierare genom att fråga systemet API. |
+| objekt-ID | Ja |Sträng | Objekt-ID för den rolltilldelning som måste vara formaterad enligt dess associerade typ. För den `DomainName` ObjectIdType, ObjectId måste börja med den `“@”` tecken. |
+| objectIdType | Ja |Sträng | Typ av rolltilldelningen. Måste vara något av följande rader i den här tabellen. |
+| TenantId | Varierar | Sträng |Klient-ID. Tillåts inte för `DeviceId` och `TenantId` ObjectIdTypes. Krävs för `UserId` och `ServicePrincipalId` ObjectIdTypes. Valfritt för DomainName ObjectIdType. |
+| sökvägen * | Ja | Sträng |Fullständig åtkomst till sökvägen till den `Space` objekt. Ett exempel är `/{Guid}/{Guid}`. Om en identifierare som behöver rolltilldelningen för hela diagrammet, ange `"/"`. Det här tecknet betecknar roten, men dess användning rekommenderas inte. Alltid följa principen för lägsta behörighet. |
 
 ## <a name="sample-configuration"></a>Exempel på konfiguration
 
-En användare behöver administrativ åtkomst till en våning av klienten kan:
+En användare behöver administrativ åtkomst till en våning utrymme för en klient i det här exemplet.
 
   ```JSON
     {
@@ -82,7 +82,7 @@ En användare behöver administrativ åtkomst till en våning av klienten kan:
     }
   ```
 
-Ett program som körs testscenarion simulerade enheter och sensorer:
+I det här exemplet kör ett program testscenarier simulerade enheter och sensorer.
 
   ```JSON
     {
@@ -94,7 +94,7 @@ Ett program som körs testscenarion simulerade enheter och sensorer:
     }
   ```
 
-Alla användare som en del av en domän får läsbehörighet för blanksteg, sensorer och användare, inklusive deras motsvarande relaterade objekt:
+Alla användare som tillhör en domän får läsbehörighet för blanksteg, sensorer och användare. Den här åtkomsten innehåller motsvarande relaterade objekt.
 
   ```JSON
     {
@@ -105,7 +105,7 @@ Alla användare som en del av en domän får läsbehörighet för blanksteg, sen
     }
   ```
 
-Hämta en rolltilldelning:
+Använd får att få en rolltilldelning.
 
 ```plaintext
 HTTP GET /api/v1/roleassignments?path={path}
@@ -115,7 +115,7 @@ HTTP GET /api/v1/roleassignments?path={path}
 | --- | --- | --- | --- | --- |
 | Sökväg | Sökväg | True | Sträng | Den fullständiga sökvägen till området |
 
-Ta bort en rolltilldelning:
+Använd ta bort för att ta bort en rolltilldelning.
 
 ```plaintext
 HTTP DELETE /api/v1/roleassignments/{id}

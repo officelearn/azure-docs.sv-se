@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: bb95caf7f50b52d2c423de31d4fda701f4c16b40
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f96d18c2e1a00008f2e391302a41d145d6b47efd
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963790"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016613"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Datorgrupper i Log Analytics loggsökningar
 
-Datorgrupper i Log Analytics kan du även agera omfång [loggsökningar](log-analytics-log-search.md) till en viss uppsättning datorer.  Varje grupp har fyllts i med datorer som antingen med hjälp av en fråga som du definierar eller genom att importera grupper från olika källor.  När gruppen ingår i en loggsökning, är resultatet begränsade till poster som matchar datorerna i gruppen.
+Datorgrupper i Log Analytics kan du även agera omfång [loggsökningar](log-analytics-queries.md) till en viss uppsättning datorer.  Varje grupp har fyllts i med datorer som antingen med hjälp av en fråga som du definierar eller genom att importera grupper från olika källor.  När gruppen ingår i en loggsökning, är resultatet begränsade till poster som matchar datorerna i gruppen.
 
 ## <a name="creating-a-computer-group"></a>Skapa en datorgrupp
 Du kan skapa en datorgrupp i Log Analytics med hjälp av någon av metoderna i följande tabell.  Information om varje metod finns i avsnitten nedan. 
@@ -136,5 +136,5 @@ En post skapas i Log Analytics-arbetsyta för varje datorgruppmedlemskap som ska
 | TimeGenerated |Datum och tid i datorgruppen skapades eller uppdaterades. |
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [loggsökningar](log-analytics-log-search.md) att analysera data som samlas in från datakällor och lösningar.  
+* Lär dig mer om [loggsökningar](log-analytics-queries.md) att analysera data som samlas in från datakällor och lösningar.  
 

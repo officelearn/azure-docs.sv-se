@@ -2,19 +2,19 @@
 title: Hantera resurser för Apache Spark-kluster i Azure HDInsight
 description: Lär dig hur du använder hantera resurser för Spark-kluster på Azure HDInsight får du bättre prestanda.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.author: jasonh
-ms.openlocfilehash: d7395231662d79d284bdf061e651602dea392c28
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: 166d52322504e57e01a4bd798252fc956c1a3e44
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051506"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014592"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Hantera resurser för Apache Spark-kluster i Azure HDInsight 
 
@@ -76,7 +76,7 @@ De tre konfigurationsparametrarna kan konfigureras på klusternivå (för alla p
 2. Standardvärdena är bra om du har fyra Spark-program som körs samtidigt på klustret. Du kan ändra dessa värden från användargränssnittet, enligt följande skärmbild:
 
     ![Ange parametrar med Ambari](./media/apache-spark-resource-manager/set-executor-parameters.png)
-3. Klicka på **spara** att spara konfigurationsändringarna. Högst upp på sidan uppmanas du att starta om alla tjänster som påverkas. Klicka på **starta om**.
+3. Klicka på **spara** att spara konfigurationsändringarna. Högst upp på sidan uppmanas du att starta om alla tjänster som påverkas. Klicka på **Starta om**.
 
     ![Starta om tjänsterna](./media/apache-spark-resource-manager/restart-services.png)
 

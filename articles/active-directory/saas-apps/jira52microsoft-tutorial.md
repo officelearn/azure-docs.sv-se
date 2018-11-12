@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: jeedes
-ms.openlocfilehash: 85004852b4e67f1a3f030a5cf97abea7c16c5695
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 43ad99d4814923204b3b1993969bd6a0730530c5
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741750"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016139"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Självstudier: Azure Active Directory-integration med JIRA SAML SSO av Microsoft (V5.2)
 
@@ -62,7 +62,7 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 **Versioner som stöds:**
 
 * JIRA Core- och programvara: 5.2
-* JIRA stöder också 6.0 och 7,12. Mer information klickar du på [JIRA SAML SSO av Microsoft](jiramicrosoft-tutorial.md)
+* JIRA stöder också 6.0 7,12. Mer information klickar du på [JIRA SAML SSO av Microsoft](jiramicrosoft-tutorial.md)
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 

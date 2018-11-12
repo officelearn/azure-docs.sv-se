@@ -3,18 +3,18 @@ title: Tips för att använda Hadoop på Linux-baserade HDInsight - Azure
 description: Få implementering tips för att använda kluster för Linux-baserat HDInsight (Hadoop) på en välbekant miljö för Linux som körs i Azure-molnet.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: d725bbe31de0f93d1b741ffd008bf39086904b61
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 89f2178af3f1a1a6ede9b97d79568798a25985b1
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997513"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015697"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Information om hur du använder HDInsight på Linux
 
@@ -185,7 +185,7 @@ Om du använder __Azure Storage__, se följande länkar för sätt att du kan ko
     * [PHP](https://github.com/Azure/azure-sdk-for-php)
     * [Python](https://github.com/Azure/azure-sdk-for-python)
     * [Ruby](https://github.com/Azure/azure-sdk-for-ruby)
-    * [.NET](https://github.com/Azure/azure-sdk-for-net)
+    * [NET](https://github.com/Azure/azure-sdk-for-net)
     * [Storage REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx)
 
 Om du använder __Azure Data Lake Store__, se följande länkar för sätt att du kan komma åt dina data:
@@ -195,7 +195,7 @@ Om du använder __Azure Data Lake Store__, se följande länkar för sätt att d
 * [Azure CLI](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
 * [WebHDFS REST API](../data-lake-store/data-lake-store-get-started-rest-api.md)
 * [Data Lake Tools för Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
-* [.NET](../data-lake-store/data-lake-store-get-started-net-sdk.md)
+* [NET](../data-lake-store/data-lake-store-get-started-net-sdk.md)
 * [Java](../data-lake-store/data-lake-store-get-started-java-sdk.md)
 * [Python](../data-lake-store/data-lake-store-get-started-python.md)
 

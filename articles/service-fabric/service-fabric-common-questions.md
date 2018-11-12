@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 70372f30ffaea1fafda3f76d4754489ae89a0a7c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: cc86a18b0db67bf968006c42f5791e1ad7a093f0
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390184"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016709"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Vanliga frågor och svar om Service Fabric
 
@@ -48,13 +48,9 @@ Några saker som du bör tänka på:
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Tar emot Service Fabric-noder automatiskt OS-uppdateringar?
 
-Inte idag, men det är också en gemensam begäran som Azure har för avsikt att leverera.
+Du kan använda [VM Scale ställa in automatisk OS uppdateringar](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) allmänt tillgänglig funktion i dag.
 
-Under tiden kan vi har [tillhandahålls ett program](service-fabric-patch-orchestration-application.md) att operativsystemen under dina Service Fabric-noder förblir korrigerad och uppdaterade.
-
-Den stora utmaningen med uppdateringar av Operativsystemet är de vanligtvis kräver en omstart av datorn, vilket resulterar i förlust av tillfälliga tillgänglighet. Som är inte ett problem Eftersom Service Fabric kommer automatiskt att omdirigera trafik för dessa tjänster till andra noder. Om du inte är är samordnade uppdateringar av Operativsystemet i klustret, finns det dock risk att många noder gå ned på samma gång. Sådana samtidiga omstarter kan orsaka förlust av fullständig tillgänglighet för en tjänst eller på minst för en specifik partition (för en tillståndskänslig tjänst).
-
-I framtiden kommer planerar vi att stödja en OS-uppdateringsprincip som är helt automatiserad och över uppdateringsdomäner, säkerställer att tillgänglighet upprätthålls trots omstarter och andra oväntade fel.
+För kluster som inte körs i Azure, har vi [tillhandahålls ett program](service-fabric-patch-orchestration-application.md) att korrigera operativsystem under dina Service Fabric-noder.
 
 ### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>Kan jag använda stora VM-skalningsuppsättningar i mitt SF-kluster? 
 

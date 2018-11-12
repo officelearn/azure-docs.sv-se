@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: f5db8c4e8137d9758113210ad433278eb8f5a2ee
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: fab4bcb62d15be11ab0a588b7a58447f05b4466a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962137"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014677"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Samla in och analysera Azure-aktivitetsloggar i Log Analytics
 
@@ -100,5 +100,5 @@ Aktivitetsloggdata visas bara *när* du har konfigurerat din aktivitetsloggar f�
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Skapa en [avisering](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) när en specifik aktivitet inträffar.
-- Använd [Loggsökning](log-analytics-log-search.md) att visa detaljerad information från din aktivitetsloggar.
+- Skapa en [avisering](../monitoring-and-diagnostics/alert-metric.md) när en specifik aktivitet inträffar.
+- Använd [Loggsökning](log-analytics-queries.md) att visa detaljerad information från din aktivitetsloggar.

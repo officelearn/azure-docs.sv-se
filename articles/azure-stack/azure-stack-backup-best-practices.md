@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 08d8822410545fb0ae3a2a99de00b38566c9834c
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: ec17f6923fc1c928f24fcb762daedbaea5b688ac
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42058774"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035109"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Metodtips för infrastruktur Backup-tjänsten
 
@@ -52,9 +52,8 @@ Nyckeln måste lagras på en säker plats (till exempel offentliga Azure Key Vau
 
 ### <a name="backups"></a>Säkerhetskopior
 
- - Infrastruktur för måste säkerhetskopiering aktiveras på begäran. Rekommendationen är att säkerhetskopiera minst två gånger per dag.
  - Säkerhetskopieringsjobb körs medan systemet körs så att det finns inga driftstopp för hanteringsupplevelser eller användarprogram. Förvänta dig säkerhetskopieringsjobb ska börja 20 – 40 minuter efter en lösning som är rimligt belastning.
- - Med OEM tillhandahålls instruktion bör manuellt säkerhetskopiering nätverksväxlar och maskinvara livscykel värden (HLH) lagras på den samma säkerhetskopieringsresursen där-dataplaner kontrollen infrastruktur för säkerhetskopiering Controller lagrar säkerhetskopierade data. Överväg att lagra växel och HLH konfigurationer i mappen region. Om du har flera Azure Stack-instanser i samma region kan du använda en identifierare för varje konfiguration som tillhör en skalningsenhet.
+ - Med hjälp av OEM instruktioner, bör manuellt säkerhetskopiering nätverksväxlar och maskinvara livscykel värden (HLH) lagras på den samma säkerhetskopieringsresursen där-dataplaner kontrollen infrastruktur för säkerhetskopiering Controller lagrar säkerhetskopierade data. Överväg att lagra växel och HLH konfigurationer i mappen region. Om du har flera Azure Stack-instanser i samma region kan du använda en identifierare för varje konfiguration som tillhör en skalningsenhet.
 
 ### <a name="folder-names"></a>Mappnamn
 
@@ -95,5 +94,6 @@ Följande aviseringar som stöds av systemet:
 
 ## <a name="next-steps"></a>Nästa steg
 
- - Granska referensmaterial för den [infrastruktur Backup-tjänsten](azure-stack-backup-reference.md).  
- - Aktivera den [infrastruktur säkerhetskopieringstjänsten](azure-stack-backup-enable-backup-console.md).
+Granska referensmaterial för den [infrastruktur Backup-tjänsten](azure-stack-backup-reference.md).
+
+Aktivera den [infrastruktur säkerhetskopieringstjänsten](azure-stack-backup-enable-backup-console.md).

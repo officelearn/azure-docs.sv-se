@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 042271594893350e4883c6dc7dbdd21d84db0520
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 5e736992b16782b87c62ccb59f88798cbce925a6
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958329"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015119"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Skapa anpassade vyer med hjälp av Vydesigner i Log Analytics
 Med hjälp av Vydesigner i [Azure Log Analytics](log-analytics-queries.md), du kan skapa en mängd olika anpassade vyer i Azure portal som kan hjälpa dig att visualisera data i Log Analytics-arbetsytan. Den här artikeln presenteras en översikt över Vydesigner och procedurer för att skapa och redigera anpassade vyer.
@@ -42,7 +42,7 @@ De vyer som du skapar med Vydesigner innehålla de delar som beskrivs i följand
 |:--- |:--- |
 | Paneler | Visas på Log Analytics-arbetsytan **översikt** sidan. Varje panel visar en visuell översikt över den anpassade vyn som representerar. Varje Paneltyp av innehåller en annan visualisering av posterna. Du väljer en panel för att visa en anpassad vy. |
 | Anpassad vy | Visas när du väljer en panel. Varje vy innehåller en eller flera delar av visualiseringen. |
-| Delar av visualiseringen | Presentera en visualisering av data i Log Analytics-arbetsytan baserat på en eller flera [loggsökningar](log-analytics-log-search.md). De flesta delar är en rubrik som ger en övergripande visualisering, och en lista som visar de bästa resultaten. Varje Deltyp av en innehåller en annan visualisering av posterna i Log Analytics-arbetsytan. Du kan välja element i delen att utföra en loggsökning som ger detaljerad poster. |
+| Delar av visualiseringen | Presentera en visualisering av data i Log Analytics-arbetsytan baserat på en eller flera [loggsökningar](log-analytics-queries.md). De flesta delar är en rubrik som ger en övergripande visualisering, och en lista som visar de bästa resultaten. Varje Deltyp av en innehåller en annan visualisering av posterna i Log Analytics-arbetsytan. Du kan välja element i delen att utföra en loggsökning som ger detaljerad poster. |
 
 
 ## <a name="work-with-an-existing-view"></a>Arbeta med en befintlig vy

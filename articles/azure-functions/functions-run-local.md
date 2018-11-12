@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: cc3a835c0322aded4a92b15c1320259780ffb6d2
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 6ba2fd85e23f3a0b634319f7399f97bec9ef3954
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249228"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346430"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -114,16 +114,6 @@ I följande anvisningar används [APT](https://wiki.debian.org/Apt) installera C
     sudo apt-get install azure-functions-core-tools
     ```
 
-### <a name="v1"></a>Version 1.x
-
-Den ursprungliga versionen av verktygen använder Functions 1.x-körningen. Den här versionen använder .NET Framework (4.7.1) och stöds endast på Windows-datorer. Innan du installerar version 1.x-verktyg, måste du [installera NodeJS](https://docs.npmjs.com/getting-started/installing-node), vilket inkluderar npm.
-
-Använd följande kommando för att installera version 1.x-verktyg:
-
-```bash
-npm install -g azure-functions-core-tools@v1
-```
-
 ## <a name="create-a-local-functions-project"></a>Skapa ett lokalt Functions-projekt
 
 En functions projektkatalogen innehåller filerna som [host.json](functions-host-json.md) och [local.settings.json](#local-settings-file), tillsammans med undermappar som innehåller koden för enskilda funktioner. Den här katalogen är motsvarigheten till en funktionsapp i Azure. Läs mer om funktioner mappstrukturen i den [utvecklarguide för Azure Functions](functions-reference.md#folder-structure).
@@ -214,7 +204,7 @@ Funktionen appen inställningsvärden kan också läsa i koden som miljövariabl
 
 + [C#-förkompilerad version](functions-dotnet-class-library.md#environment-variables)
 + [C#-skript (.csx)](functions-reference-csharp.md#environment-variables)
-+ [F #-skript (.fsx)](functions-reference-fsharp.md#environment-variables)
++ [F#skript (.fsx)](functions-reference-fsharp.md#environment-variables)
 + [Java](functions-reference-java.md#environment-variables) 
 + [JavaScript](functions-reference-node.md#environment-variables)
 
@@ -288,7 +278,7 @@ Du kan också ange alternativen i kommandot med följande argument:
 | Argument     | Beskrivning                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Version 2.x) Genererar samma C#-skript (.csx) mallarna som används i version 1.x och i portalen. |
-| **`--language -l`**| Mallen programmeringsspråk som C#, F # eller JavaScript. Det här alternativet krävs i version 1.x. I version 2.x kan inte använda det här alternativet eller välj ett språk som matchar worker-runtime. |
+| **`--language -l`**| Mallen programmeringsspråk, till exempel C#, F#, eller JavaScript. Det här alternativet krävs i version 1.x. I version 2.x kan inte använda det här alternativet eller välj ett språk som matchar worker-runtime. |
 | **`--name -n`** | Funktionsnamnet. |
 | **`--template -t`** | Använd den `func templates list` kommando för att se den fullständiga listan över tillgängliga mallar för varje språk som stöds.   |
 

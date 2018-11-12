@@ -8,19 +8,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 9759e209f15622d70aaa833a993234863ac1053c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: caef9a93e7d388ab55939876b7cc8344ce6370d0
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918874"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012521"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Återaktivering av skydd redundansväxlade virtuella Azure-datorer till den primära regionen
 
 
 När du [redundansväxla](site-recovery-failover.md) Azure virtuella datorer från en region till en annan med [Azure Site Recovery](site-recovery-overview.md), virtuella datorer startas i den sekundära regionen oskyddad. Om de virtuella datorerna återställa till den primära regionen, måste du göra följande:
 
-- Återaktivera skyddet av de virtuella datorerna i den sekundära regionen så att de börjar replikera till den primära regionen. 
+- Återaktivera skyddet av de virtuella datorerna i den sekundära regionen så att de börjar replikera till den primära regionen.
 - När återaktiveringen av skyddet har slutförts och de virtuella datorerna replikeras, kan du växla över dem från sekundär till primär region.
 
 > [!WARNING]
@@ -33,7 +33,7 @@ När du [redundansväxla](site-recovery-failover.md) Azure virtuella datorer fr�
 
 ## <a name="reprotect-a-vm"></a>Återaktivera skyddet av en virtuell dator
 
-1. I **Vault** > **replikerade objekt**, högerklicka på den redundansväxlade virtuella datorn och välj **skydda igen**. Riktning för återaktiveringen av skyddet ska visa från sekundär till primär. 
+1. I **Vault** > **replikerade objekt**, högerklicka på den redundansväxlade virtuella datorn och välj **skydda igen**. Riktning för återaktiveringen av skyddet ska visa från sekundär till primär.
 
   ![Återaktivering av skydd](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
@@ -53,7 +53,7 @@ Du kan anpassa följande egenskaper för mål VMe under återaktiveringen av sky
 |Målresursgrupp     | Ändra målresursgruppen som den virtuella datorn har skapats. Den Virtuella måldatorn som en del av återaktiveringen av skyddet har tagits bort. Du kan välja en ny resursgrupp som du skapar den virtuella datorn efter redundans.        |
 |Virtuellt Målnätverk     | Målnätverket kan inte ändras under jobbet för återaktivering av skydd. Om du vill ändra nätverket, gör du om nätverksmappningen.         |
 |Mål-Lagringskontot (sekundära virtuella datorn inte använder hanterade diskar)     | Du kan ändra det lagringskonto som den virtuella datorn använder efter en redundansväxling.         |
-|Hanterade replikeringsdiskar (sekundära virtuella datorn använder hanterade diskar)    | Hanterade replikeringsdiskar skapar site Recovery i den primära regionen för spegling av hanterade diskar för den sekundära virtuella datorn.         | 
+|Hanterade replikeringsdiskar (sekundära virtuella datorn använder hanterade diskar)    | Hanterade replikeringsdiskar skapar site Recovery i den primära regionen för spegling av hanterade diskar för den sekundära virtuella datorn.         |
 |Cachelagring     | Du kan ange ett cachelagringskonto som ska användas vid replikering. Som standard är ett nytt cachelagringskonto skapas, om det inte finns.         |
 |Tillgänglighetsuppsättning     |Om den virtuella datorn i den sekundära regionen är en del av en tillgänglighetsuppsättning, kan du välja en tillgänglighetsuppsättning för den Virtuella måldatorn i den primära regionen. Som standard Site Recovery försöker hitta befintliga tillgänglighetsuppsättningen i den primära regionen och använda den. Vid anpassning, kan du ange en ny tillgänglighetsuppsättning.         |
 
@@ -62,23 +62,25 @@ Du kan anpassa följande egenskaper för mål VMe under återaktiveringen av sky
 
 Som standard inträffar följande:
 
-1. Ett cachelagringskonto har skapats i den primära regionen
+1. Ett cachelagringskonto skapas i regionen där den redundansväxlade virtuella datorn körs.
 2. Om mål-lagringskontot (ursprungliga lagringskontot i den primära regionen) inte finns, skapas en ny. Tilldelade lagringskontonamn är namnet på det lagringskonto som används av den sekundära virtuella datorn, suffix med ”asr”.
-3. Om den virtuella datorn använder hanterade diskar, hanterade diskar skapas i den primära regionen att lagra de data som replikeras från den sekundära Virtuella diskar. 
+3. Om den virtuella datorn använder hanterade diskar, hanterade diskar skapas i den primära regionen att lagra de data som replikeras från den sekundära Virtuella diskar.
 4. Om målets tillgänglighetsuppsättning inte finns, skapas en ny som en del av jobbet återaktivering av skydd om det behövs. Om du har anpassade inställningar för återaktivering av skydd, används den valda uppsättningen.
 
 När du utlöser ett jobb för återaktivering av skydd och de mål som den virtuella datorn finns, inträffar följande:
 
-1. Komponenterna som krävs skapas som en del av återaktivering av skydd. Om det redan finns, så återanvänds.
-2. Målsidan virtuella datorn stängs av om den körs.
-3. Måldisken sida VM kopieras till en behållare som en seedblob av Site Recovery.
-4. Målsidan VM raderas sedan.
-5. Seedbloben används av den aktuella källan sida (sekundär) virtuell dator för att replikera. Detta säkerställer att endast deltan replikeras.
-6. Större ändringar mellan källdisken och seedbloben synkroniseras. Det kan ta lite tid att slutföra.
-7. När återaktivering av skydd jobbet har slutförts, deltareplikeringen börjar och skapar en återställningspunkt i enlighet med replikeringsprincipen.
-8. När jobbet återaktivering av skydd har genomförts, försätts den virtuella datorn i ett skyddat läge.
+1. Målsidan virtuella datorn stängs av om den körs.
+2. Om den virtuella datorn använder hanterade diskar, skapas en kopia av ursprungliga diskarna med ”-ASRReplica” suffix. De ursprungliga diskarna tas bort. Den ”-ASRReplica” kopior som används för replikering.
+3. Om den virtuella datorn använder ohanterade diskar, är oberoende av den Virtuella måldatorns datadiskar och används för replikering. En kopia av OS-disken skapas och kopplas på den virtuella datorn. Den ursprungliga OS-disken är oberoende och används för replikering.
+4. Endast ändringar mellan källdisken och måldisken är synkroniserade. Skillnader i beräknas genom att jämföra båda diskarna och sedan överföras. Detta tar några timmar att slutföra.
+5. När synkroniseringen är klar börjar deltareplikeringen och skapar en återställningspunkt i enlighet med replikeringsprincipen.
+
+När du utlöser ett jobb för återaktivering av skydd och den Virtuella måldatorn och diskar finns inte, inträffar följande:
+1. Om den virtuella datorn använder hanterade diskar, replikeringsdiskar skapas med ”-ASRReplica” suffix. Den ”-ASRReplica” kopior som används för replikering.
+2. Om den virtuella datorn använder ohanterade diskar kan skapas replikeringsdiskar i mållagringskontot.
+3. Hela diskarna kopieras från den misslyckade över regionen till den nya målregionen.
+4. När synkroniseringen är klar börjar deltareplikeringen och skapar en återställningspunkt i enlighet med replikeringsprincipen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 När den virtuella datorn är skyddad, kan du initiera redundans. Redundansen stänger av den virtuella datorn i den sekundära regionen och skapar och startar virtuella datorer i den primära regionen, med vissa små avbrott. Vi rekommenderar att du väljer en tid i enlighet med detta och att du kör ett redundanstest men initiera en fullständig växling till den primära platsen. [Läs mer](site-recovery-failover.md) om redundans.
-

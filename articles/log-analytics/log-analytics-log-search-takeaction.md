@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d86a4de5f54d0c1c492fa17081623366692712af
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c6206d4aa98ab3c9744f1f82840817b4bdb000ef
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959791"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016343"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Vidta åtgärder med en Automation-Runbook från en Log Analytics log search-resultat
 
@@ -32,7 +32,7 @@ Från en log sökresultat i Azure Log Analytics kan du nu välja **vidta åtgär
 
 ## <a name="to-initiate-runbook-from-log-search"></a>Att starta runbook från loggsökning
 
-Om du vill vidta åtgärder för en händelse och starta en runbook från sökresultaten log, börja med att skapa en loggsökning och från resultat som du kan anropa en runbook på begäran.  Du kan göra detta från funktionen log search i den [Azure-portalen](log-analytics-log-search.md).  I det här exemplet utför vi en loggsökning från Azure-portalen med en grundläggande demonstration av den här funktionen.
+Om du vill vidta åtgärder för en händelse och starta en runbook från sökresultaten log, börja med att skapa en loggsökning och från resultat som du kan anropa en runbook på begäran.  Du kan göra detta från funktionen log search i den [Azure-portalen](log-analytics-queries.md).  I det här exemplet utför vi en loggsökning från Azure-portalen med en grundläggande demonstration av den här funktionen.
 
 1. I Azure-portalen klickar du på **alla tjänster** och välj **Log Analytics**.  
 2. Välj Log Analytics-arbetsytan.
@@ -51,5 +51,5 @@ Om du väljer en runbook som har konfigurerats för att vara [anropas från en L
     
 ## <a name="next-steps"></a>Nästa steg
 
-* Granska den [Log Analytics logga sökreferens](log-analytics-log-search.md) att visa alla sökfält och aspekter som är tillgängliga i Log Analytics.
+* Granska den [Log Analytics logga sökreferens](log-analytics-queries.md) att visa alla sökfält och aspekter som är tillgängliga i Log Analytics.
 * Information om hur du anropar en Automation-runbook automatiskt, granska [anropa en Azure Automation-runbook från en Log Analytics-aviseringen](../automation/automation-create-alert-triggered-runbook.md).  

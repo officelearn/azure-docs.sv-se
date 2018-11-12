@@ -1,5 +1,5 @@
-# [Dokumentation om Azure Marketplace och AppSource](index.md)  
-
+# [Dokumentation om Azure Marketplace och AppSource](index.md)
+## [Principer för klassificering och recension](./rating-review-policies.md)   
 ## [Översikt och fördelar med Azure Marketplace och AppSource](./marketplace-publishers-guide.md)  
 
 ### [Publicera på marknadsplatsen](./become-publisher.md)  
@@ -34,6 +34,14 @@
 <!-- Following section is for Cloud Partner Portal (CPP). -->
 
 # [Partnerportalen i molnet](./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md) 
+
+## Portalhantering
+### [Kontoregistrering i Dev Center](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
+### [Privata SKU:er](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)
+### [Riktlinjer för SEO](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
+### [Hantera utgivarprofil](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
+### [Hantera användare](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
+### [GDPR-efterlevnad](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
 
 ## [Erbjudande på virtuella datorer](./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md)
 ### [Förutsättningar](./cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
@@ -70,8 +78,7 @@
 ### [Automate offer publishing](./cloud-partner-portal-orig/cloud-partner-portal-automate-offer-publishing.md)
 -->
 
-## Azure-program
-### [Kontoregistrering i Dev Center](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
+## [Erbjudande för Azure-program](./cloud-partner-portal-orig/cpp-azure-app-offer.md)
 ### [Skapa hanterat program](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-publish.md)
 ### [Skapa lösningsmall](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md)
 ### [Publicera en hanteringslösning](./cloud-partner-portal-orig/cloud-partner-portal-management-solution-publish.md)
@@ -79,14 +86,12 @@
 ### [Sätt igång med erbjudande](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-go-live.md)
 ### [Uppdatera befintligt erbjudande](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-update.md)
 ### [Ta bort erbjudande](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-delete.md)
-### [Migrera erbjudanden](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
+<!-- Obsolete ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)  -->
 
-## SaaS-program
+## [Erbjudande för SaaS-program](./cloud-partner-portal-orig/cpp-saas-app-offer.md)
 ### [SaaS-appar – guide för teknisk publicering](./cloud-partner-portal-orig/cloud-partner-portal-saas-offers-tech-publishing-guide.md)
 ### [SaaS-försäljning genom Azure](./cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md)
 ### [SaaS-API:er](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
-
-<!-- Legacy ## [Containers](./cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md) -->
 
 ## [Containererbjudande](./cloud-partner-portal/containers/cpp-containers-offer.md)
 ### [Förutsättningar](./cloud-partner-portal/containers/cpp-prerequisites.md)
@@ -98,6 +103,7 @@
 ### [Tekniska tillgångar för att skapa containrar](./cloud-partner-portal/containers/cpp-create-technical-assets.md)
 ### [Erbjudande om att skapa containrar](./cloud-partner-portal/containers/cpp-publish-offer.md)
 ### [Uppdatera befintligt erbjudande](./cloud-partner-portal/containers/cpp-update-existing-offer.md)
+<!-- Legacy ## [Containers](./cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md) -->
 
 ## [Erbjudande för IoT Edge-moduler](./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md)
 ### [Förutsättningar](./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md)
@@ -118,24 +124,16 @@
 ### [IoT Edge module FAQ](./cloud-partner-portal-orig/cloud-partner-portal-iot-edge-module-faq.md)
 -->
 
-## Hantera leads
-### [Konfigurera kundleads](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md)
-### [Azure Table](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md)
-### [Dynamics](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md)
-### [HTTPS-slutpunkt](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md)
-### [Marketo](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md)
-### [Salesforce](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md)
-
 <!-- ## [Cortana Intelligence](./cloud-partner-portal-orig/cloud-partner-portal-publish-cortana-intelligence-app.md)  -->
 
-## Dynamics 365 för Customer Engagement
+## [Erbjudande för Dynamics 365 for Customer Engagement](./cloud-partner-portal-orig/cpp-customer-engagement-offer.md)
 ### [Skapa lösning](./cloud-partner-portal-orig/dynamics-365-solution-preparation.md)
 ### [Skapa paket](./cloud-partner-portal-orig/appSource-package-preparation.md)
 ### [Generera SAS-nyckel](./cloud-partner-portal-orig/store-your-appSource-package-to-azure-storage-and-generate-sas-key.md)
 ### [Skapa erbjudande](./cloud-partner-portal-orig/setup-your-application-in-the-publishing-portal.md)
 ### [Publicera erbjudande](./cloud-partner-portal-orig/request-to-publish-the-app.md)
 
-## Dynamics 365 för Business Central
+## [Erbjudande för Dynamics 365 for Business Central](./cloud-partner-portal-orig/cpp-business-central-offer.md)
 ### [Publicera översikt](./cloud-partner-portal-orig/d365-finance-overview-publish-your-app.md)
 ### [Skapa nytt erbjudande](./cloud-partner-portal-orig/d365-finance-create-new-offer.md)
 ### [Erbjudandeinställningar](./cloud-partner-portal-orig/d365-finance-create-offer-settings.md)
@@ -143,7 +141,7 @@
 ### [Butiksinformation](./cloud-partner-portal-orig/d365-finance-create-storefront-details.md)
 ### [Publicera process](./cloud-partner-portal-orig/d365-finance-app-publishing-process.md)
 
-## Dynamics 365 for Operations
+## [Erbjudande för Dynamics 365 for Operations](./cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md)
 ### [Förutsättningar](./cloud-partner-portal-orig/pre-requisites.md)
 ### [Så här publicerar du](./cloud-partner-portal-orig/manage-dynamics-365-for-operations.md)
 ### [LCS-prenumeration](./cloud-partner-portal-orig/lcs-subscription.md)
@@ -151,6 +149,11 @@
 ### [Dataentiteter](./cloud-partner-portal-orig/data-entities.md)
 ### [BPM och metoder](./cloud-partner-portal-orig/bpm-and-methodologies.md)
 ### [Hjälp-wiki](./cloud-partner-portal-orig/help-wiki.md)
+
+## [Konsulttjänster](./cloud-partner-portal-orig/cloud-partner-portal-consulting-services-publishing-offer.md)
+## [Hantera utgivarprofil](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
+## [Hantera användare](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
+## [GDPR-efterlevnad](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
 
 ## Test Drive
 ### [Vad är Test Drive?](./cloud-partner-portal-orig/what-is-test-drive.md)
@@ -160,12 +163,15 @@
 ### [Omvandla exempel för Test Drive](./cloud-partner-portal-orig/transforming-examples-for-test-drive.md)
 ### [Marknadsföring och regelverk](./cloud-partner-portal-orig/marketing-and-best-practices.md)
 
-## [Konsulttjänster](./cloud-partner-portal-orig/cloud-partner-portal-consulting-services-publishing-offer.md)
-## [Hantera utgivarprofil](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
-## [Hantera användare](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
-## [GDPR-efterlevnad](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
+## Hantera leads
+### [Konfigurera kundleads](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md)
+### [Azure Table](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md)
+### [Dynamics](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md)
+### [HTTPS-slutpunkt](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md)
+### [Marketo](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md)
+### [Salesforce](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md)
 
-## Insikter
+## Säljarinsikter
 ### [Komma igång](./cloud-partner-portal-orig/si-getting-started.md)
 ### [Nyheter](./cloud-partner-portal-orig/si-changes.md)
 ### [Webbanalys](./cloud-partner-portal-orig/web-analytics.md)

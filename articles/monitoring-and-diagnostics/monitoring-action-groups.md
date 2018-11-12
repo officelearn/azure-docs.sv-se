@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 6163a099894a823614355f71a3e1af4a6a9026ec
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 3ce7c5111fa176bb7fa734f54084b9e14e7afbef
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717683"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016054"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure portal
 ## <a name="overview"></a>Översikt ##
@@ -24,8 +24,8 @@ Den här artikeln visar hur du skapar och hanterar åtgärdsgrupper i Azure-port
 Varje åtgärd består av följande egenskaper:
 
 * **Namn på**: en unik identifierare i åtgärdsgruppen.  
-* **Åtgärdstyp**: skicka ett röstsamtal eller SMS, skicka ett e-postmeddelande, anropa en webhook, skicka data till ett ITSM-verktyg, anropa en Logikapp, skicka push-meddelanden till Azure-app eller köra en Automation-runbook.
-* **Information om**: motsvarande phone tal, e-postadress, webhook URI eller ITSM-anslutningsinformation.
+* **Åtgärdstyp**: åtgärden som ska utföras. Exempel är att skicka en röst-anrop, SMS, e-postmeddelandet, eller utlösa olika typer av automatiska åtgärder. Se typer senare i den här artikeln. 
+* **Information om**: motsvarande information som kan variera efter *åtgärdstyp*. 
 
 Information om hur du använder Azure Resource Manager-mallar för att konfigurera åtgärdsgrupper finns i [åtgärd grupp Resource Manager-mallar](monitoring-create-action-group-with-resource-manager-template.md).
 
@@ -57,64 +57,45 @@ Information om hur du använder Azure Resource Manager-mallar för att konfigure
 
 1. Välj **OK** skapa åtgärdsgruppen.
 
-## <a name="action-specific-information"></a>Information om specifika
-<dl>
-<dt>Azure-app-Push</dt>
-<dd>Du kan ha upp till 10 Azure åtgärder i en åtgärdsgrupp.</dd>
-<dd>Azure-app-åtgärden stöder endast ServiceHealth aviseringar just nu. En annan tidpunkt som aviseringen kommer att ignoreras. Se [konfigurera aviseringar när en avisering om tjänstens hälsa publiceras](monitoring-activity-log-alerts-on-service-notifications.md).</dd>
-
-<dt>E-post</dt>
-<dd>E-postmeddelanden skickas från följande e-postadresser. Kontrollera att din e-filtrering har konfigurerats på rätt sätt
-<ul>
-    <li>azure-noreply@microsoft.com</li>
-    <li>azureemail-noreply@microsoft.com</li>
-    <li>alerts-noreply@mail.windowsazure.com</li>
-</ul>
-</dd>
-<dd>Du kan ha upp till 1 000 e poståtgärder i en åtgärdsgrupp</dd>
-<dd>Se den [begränsar information frekvensbegränsningen](./monitoring-alerts-rate-limiting.md) artikel</dd>
-
-<dt>ITSM</dt>
-<dd>Du kan ha upp till 10 ITSM-åtgärder i en åtgärdsgrupp</dd>
-<dd>ITSM-åtgärden kräver en ITSM-anslutningen. Lär dig hur du skapar en [ITSM-anslutningen](../log-analytics/log-analytics-itsmc-overview.md).</dd>
-
-<dt>Logikapp</dt>
-<dd>Du kan ha upp till 10 Logic App-åtgärder i en åtgärdsgrupp</dd>
-
-<dt>Runbook</dt>
-<dd>Du kan ha upp till 10 Runbook-åtgärder i en åtgärdsgrupp</dd>
-<dd>Referera till den [Azure-prenumerationstjänsten](../azure-subscription-service-limits.md) för gränser för Runbook-nyttolaster</dd>
-
-<dt>SMS</dt>
-<dd>Du kan ha upp till 10 SMS-åtgärder i en åtgärdsgrupp</dd>
-<dd>Se den [begränsar information frekvensbegränsningen](./monitoring-alerts-rate-limiting.md) artikel</dd>
-<dd>Se den [SMS Avisera beteende](monitoring-sms-alert-behavior.md) artikel</dd>
-
-<dt>Röst</dt>
-<dd>Du kan ha upp till 10 Voice-åtgärder i en åtgärdsgrupp</dd>
-<dd>Se den [begränsar information frekvensbegränsningen](./monitoring-alerts-rate-limiting.md) artikel</dd>
-
-<dt>Webhook</dt>
-<dd>Du kan ha upp till 10 Webhook-åtgärder i en åtgärdsgrupp
-<dd>Logik för omprövning - tidsgränsen för svar är 10 sekunder. Webhook-anrop kommer att göras upp till 2 gånger när följande HTTP-Statuskoder returneras: 408, 429, 503, 504 eller HTTP-slutpunkten inte svarar. Det första återförsöket sker efter 10 sekunder. Andra och sista återförsök sker efter 100 sekunder.</dd>
-<dd>Käll-IP-adressintervall
-<ul>
-    <li>13.106.57.181</li>
-    <li>13.106.54.3</li>
-    <li>13.106.54.19</li>
-    <li>13.106.38.142</li>
-    <li>13.106.38.148</li>
-    <li>13.106.57.196</li>
-</ul>
-Att ta emot uppdateringar om ändringar av dessa IP-adresser som vi rekommenderar att du konfigurerar en [hälsoavisering för tjänst](./monitoring-service-notifications.md) som övervakar för informationsmeddelanden om tjänsten åtgärdsgrupper.
-</dd>
-</dl>
-
 ## <a name="manage-your-action-groups"></a>Hantera din åtgärdsgrupper ##
 När du har skapat en åtgärdsgrupp den syns i den **åtgärdsgrupper** delen av den **övervakaren** bladet. Välj åtgärdsgrupp som du vill hantera att:
 
 * Lägga till, redigera eller ta bort åtgärder.
 * Ta bort åtgärdsgruppen.
+
+## <a name="action-specific-information"></a>Information om specifika
+**Azure-app Push** – du kan ha upp till 10 Azure åtgärder i en åtgärdsgrupp. Azure-app-åtgärden stöder endast ServiceHealth aviseringar just nu. En annan tidpunkt som aviseringen kommer att ignoreras. Se [konfigurera aviseringar när en avisering om tjänstens hälsa publiceras](monitoring-activity-log-alerts-on-service-notifications.md).
+
+**E-post** -e-postmeddelanden ska skickas från följande e-postadresser. Kontrollera att din e-filtrering har konfigurerats på rätt sätt
+   - azure-noreply@microsoft.com
+   - azureemail-noreply@microsoft.com
+   - alerts-noreply@mail.windowsazure.com
+
+Du kan ha upp till 1 000 e poståtgärder i en åtgärdsgrupp. Se den [begränsar information frekvensbegränsningen](./monitoring-alerts-rate-limiting.md) artikel
+
+**ITSM** – du kan ha upp till 10 ITSM-åtgärder i en åtgärd grupp ITSM-åtgärden kräver en ITSM-anslutningen. Lär dig hur du skapar en [ITSM-anslutningen](../log-analytics/log-analytics-itsmc-overview.md).
+
+**Logic App** – du kan ha upp till 10 Logic App-åtgärder i en åtgärdsgrupp
+
+**Runbook** -du kan ha upp till 10 Runbook-åtgärder i en åtgärd grupp referera till den [Azure-prenumerationstjänsten](../azure-subscription-service-limits.md) för gränser för Runbook-nyttolaster
+
+**SMS** – du kan ha upp till 10 SMS-åtgärder i en grupp finns åtgärd i den [begränsar information frekvensbegränsningen](./monitoring-alerts-rate-limiting.md) artikel se den [SMS Avisera beteende](monitoring-sms-alert-behavior.md) artikeln
+
+**Röst** – du kan ha upp till 10 Voice-åtgärder i en åtgärdsgrupp</dd>
+Se den [begränsar information frekvensbegränsningen](./monitoring-alerts-rate-limiting.md) artikel</dd>
+
+**Webhook** – du kan ha upp till 10 Webhook-åtgärder i en åtgärdsgrupp. Logik för omprövning - tidsgränsen för svar är 10 sekunder. Webhook-anrop kommer att göras upp till 2 gånger när följande HTTP-Statuskoder returneras: 408, 429, 503, 504 eller HTTP-slutpunkten inte svarar. Det första återförsöket sker efter 10 sekunder. Andra och sista återförsök sker efter 100 sekunder.
+
+Käll-IP-adressintervall
+    - 13.106.57.181
+    - 13.106.54.3
+    - 13.106.54.19
+    - 13.106.38.142
+    - 13.106.38.148
+    - 13.106.57.196
+
+Att ta emot uppdateringar om ändringar av dessa IP-adresser som vi rekommenderar att du konfigurerar en [hälsoavisering för tjänst](./monitoring-service-notifications.md) som övervakar för informationsmeddelanden om tjänsten åtgärdsgrupper.
+
 
 ## <a name="next-steps"></a>Nästa steg ##
 * Läs mer om [SMS Avisera beteende](monitoring-sms-alert-behavior.md).  

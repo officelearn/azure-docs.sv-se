@@ -1,5 +1,5 @@
 ---
-title: Migrera från Azure Access Control service | Microsoft Docs
+title: Migrera från Azure Access Control Service | Microsoft Docs
 description: Läs mer om alternativ för att flytta appar och tjänster från Azure Access Control Service (ACS).
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 4fd7617bf45608cdae15919a40920ea0d214acb8
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: da114cc343d04165d5a6a2137aeb2b675258230a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407479"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015340"
 ---
-# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Så här: migrera från Azure Access Control service
+# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Så här: migrera från Azure Access Control Service
 
 Microsoft Azure Access Control Service (ACS), en tjänst i Azure Active Directory (Azure AD), tas ur bruk 7 November 2018. Program och tjänster som använder åtkomstkontroll måste fullständigt flyttas till en annan autentiseringsmekanism innan dess. Den här artikeln beskriver rekommendationer för befintliga kunder som du planerar att inaktualisera din användning av Access Control. Om du inte använder åtkomstkontroll, behöver du inte vidta några åtgärder.
 

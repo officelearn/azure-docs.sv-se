@@ -1,19 +1,19 @@
 ---
 title: Ansluta HDInsight till ditt lokala nätverk – Azure HDInsight
 description: Lär dig hur du skapar ett HDInsight-kluster i Azure Virtual Network och sedan ansluter den till ditt lokala nätverk. Lär dig mer om att konfigurera namnmatchning mellan HDInsight och ditt lokala nätverk med hjälp av en anpassad DNS-server.
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/23/2018
-ms.author: jasonh
-ms.openlocfilehash: b9b744edbcb2abce70487c84c85a0aae71494e52
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: d8ab61d99b617f21557b6f1ef476418e25bcee55
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105876"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016938"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ansluta HDInsight till det lokala nätverket
 

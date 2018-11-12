@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9cd5789cd2ee6e167f3d3ed05c2fde077f7ec9a3
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 2043e0fc9fa63903073311856e7e8d31fb34c506
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344949"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015357"
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: Begär åtkomsttoken
 
-En åtkomsttoken (betecknas som **åtkomst\_token** i svar från Azure AD B2C) är en typ av säkerhetstoken som en klient kan använda för att få åtkomst till resurser som skyddas av en [auktoriseringsservern](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-protocols#the-basics), till exempel ett webb-API. Åtkomsttoken visas i form av [JWTs](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#types-of-tokens) och innehåller information om den avsedda resursservern och beviljade behörigheter till servern. När du anropar resursservern måste åtkomsttoken finnas i HTTP-begäran.
+En åtkomsttoken (betecknas som **åtkomst\_token** i svar från Azure AD B2C) är en typ av säkerhetstoken som en klient kan använda för att få åtkomst till resurser som skyddas av en [auktoriseringsservern](active-directory-b2c-reference-protocols.md), till exempel ett webb-API. Åtkomsttoken visas i form av [JWTs](active-directory-b2c-reference-tokens.md) och innehåller information om den avsedda resursservern och beviljade behörigheter till servern. När du anropar resursservern måste åtkomsttoken finnas i HTTP-begäran.
 
 Den här artikeln beskrivs hur du konfigurerar ett klientprogram och webb-API för att få en **åtkomst\_token**.
 
@@ -37,22 +37,22 @@ Innan du begär en åtkomsttoken, måste du först registrera ett webb-API och p
 ### <a name="register-a-web-api"></a>Registrera ett webb-API
 
 1. På menyn för Azure AD B2C-funktioner på Azure portal klickar du på **program**.
-1. Klicka på **+ Lägg till** högst upp på menyn.
-1. Ange ett **namn** för programmet som beskriver det för konsumenterna. Du kan till exempel skriva ”Contoso-API”.
-1. Ändra **Include web app/web API** (Ta med webbapp/webb-API) till **Ja**.
-1. Ange ett godtyckligt värde för den **Svarswebbadresser**. Ange till exempel `https://localhost:44316/`. Värdet har ingen betydelse eftersom ett API inte bör ta emot token direkt från Azure AD B2C.
-1. Ange en **App-ID-URI**. Det här är identifieraren som används för ditt webb-API. Ange till exempel ”information” i rutan. Den **Appidentitets-URI** blir `https://{tenantName}.onmicrosoft.com/notes`.
-1. Klicka på **Skapa** för att registrera ditt program.
-1. Klicka på det program som du just har skapat och kopiera det globalt unika **klient-ID:t** som du ska använda senare i koden.
+2. Klicka på **+ Lägg till** högst upp på menyn.
+3. Ange ett **namn** för programmet som beskriver det för konsumenterna. Du kan till exempel skriva ”Contoso-API”.
+4. Ändra **Include web app/web API** (Ta med webbapp/webb-API) till **Ja**.
+5. Ange ett godtyckligt värde för den **Svarswebbadresser**. Ange till exempel `https://localhost:44316/`. Värdet har ingen betydelse eftersom ett API inte bör ta emot token direkt från Azure AD B2C.
+6. Ange en **App-ID-URI**. Det här är identifieraren som används för ditt webb-API. Ange till exempel ”information” i rutan. Den **Appidentitets-URI** blir `https://{tenantName}.onmicrosoft.com/notes`.
+7. Klicka på **Skapa** för att registrera ditt program.
+8. Klicka på det program som du just har skapat och kopiera det globalt unika **klient-ID:t** som du ska använda senare i koden.
 
 ### <a name="publishing-permissions"></a>Publicera behörigheter
 
 Scope, som är detsamma som behörighet, behövs när appen anropar ett API. Några exempel på scope är ”läsa” eller ”skriva”. Anta att du vill att dina webb- eller inbyggd app att ”läsa” från ett API. Din app skulle anropa Azure AD B2C och begär en åtkomsttoken som ger åtkomst till området ”läsa”. Appen måste ha behörighet att ”läsa” från den specifika API: et för Azure AD B2C att skapa en åtkomsttoken. Detta gör måste ditt API först publicera området ”Läs”.
 
 1. I Azure AD B2C **program** menyn Öppna webb-API-program (”Contoso-API”).
-1. Klicka på alternativet för **publicerade omfång**. Här definierar du behörigheterna (omfång) som kan beviljas till andra program.
-1. Lägg till **omfångsvärden** vid behov (till exempel ”läsa”). Som standard definieras omfånget ”user_impersonation”. Du kan ignorera detta om du vill. Ange en beskrivning av detta scope i den **scopenamn** kolumn.
-1. Klicka på **Spara**.
+2. Klicka på alternativet för **publicerade omfång**. Här definierar du behörigheterna (omfång) som kan beviljas till andra program.
+3. Lägg till **omfångsvärden** vid behov (till exempel ”läsa”). Som standard definieras omfånget ”user_impersonation”. Du kan ignorera detta om du vill. Ange en beskrivning av detta scope i den **scopenamn** kolumn.
+4. Klicka på **Spara**.
 
 > [!IMPORTANT]
 > Den **scopenamn** är beskrivningen av den **Omfattningsvärde**. När du använder området, se till att använda den **Omfattningsvärde**.
@@ -62,11 +62,11 @@ Scope, som är detsamma som behörighet, behövs när appen anropar ett API. Nå
 När ett API har konfigurerats för att publicera scope, måste klientprogrammet beviljas sådana omfattningar via Azure portal.
 
 1. Navigera till den **program** menyn för Azure AD B2C-funktioner.
-1. Registrera ett klientprogram ([webbapp](active-directory-b2c-app-registration.md#register-a-web-app) eller [inbyggd klient](active-directory-b2c-app-registration.md#register-a-mobile-or-native-app)) om du inte redan har en. Om du följer den här guiden som startpunkt när behöver du registrera ett klientprogram.
-1. Klicka på **API-åtkomst**.
-1. Klicka på **Lägg till**.
-1. Välj ditt webb-API och scope (behörigheter) som du vill bevilja.
-1. Klicka på **OK**.
+2. Registrera ett klientprogram ([webbapp](active-directory-b2c-app-registration.md) eller [inbyggd klient](active-directory-b2c-app-registration.md)) om du inte redan har en. Om du följer den här guiden som startpunkt när behöver du registrera ett klientprogram.
+3. Klicka på **API-åtkomst**.
+4. Klicka på **Lägg till**.
+5. Välj ditt webb-API och scope (behörigheter) som du vill bevilja.
+6. Klicka på **OK**.
 
 > [!NOTE]
 > Azure AD B2C ombeds du inte klienten programanvändare sitt samtycke. I stället tillhandahålls alla medgivande av administratören, baserat på de behörigheter som konfigurerats mellan de program som beskrivs ovan. En behörighetsbeviljande för ett program har återkallats, längre alla användare som har tidigare kan få behörighet inte kunna göra detta.

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: be2fd826ffa658ec04bd937036e37bf55cbf65a4
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 96163188fad464bc4b94457f7061a78b3f4997a9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964143"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014507"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimera din SQL-miljö med lösningen för hälsokontroll för SQL Server i Log Analytics
 
@@ -184,7 +184,7 @@ Om du har synpunkter som du vill ignorera kan du skapa en textfil som Log Analyt
     ```
 
     >[!NOTE]
-    > Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search.md), och sedan frågan ovan skulle ändras till följande.
+    > Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-queries.md), och sedan frågan ovan skulle ändras till följande.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -209,7 +209,7 @@ Om du har synpunkter som du vill ignorera kan du skapa en textfil som Log Analyt
     ```
 
     >[!NOTE]
-    > Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search.md), och sedan frågan ovan skulle ändras till följande.
+    > Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-queries.md), och sedan frågan ovan skulle ändras till följande.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -265,4 +265,4 @@ Om du har synpunkter som du vill ignorera kan du skapa en textfil som Log Analyt
 * Ja, se [Ignorera rekommendationer](#ignore-recommendations) ovan.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Söka loggarna](log-analytics-log-search.md) att lära dig hur du analyserar detaljerade SQL-hälsokontroll data och rekommendationer.
+* [Söka loggarna](log-analytics-queries.md) att lära dig hur du analyserar detaljerade SQL-hälsokontroll data och rekommendationer.

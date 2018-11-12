@@ -3,18 +3,18 @@ title: Köra Hive-frågor med hjälp av HDInsight .NET SDK - Azure
 description: Lär dig mer om att skicka Hadoop-jobb till Azure HDInsight Hadoop med HDInsight .NET SDK.
 ms.reviewer: jasonh
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
-ms.openlocfilehash: ac02e67791cde4d67f126da46c86896fb80ee1b9
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: 5cababaa7c808969e6e24a70581f54639f269621
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049924"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016020"
 ---
 # <a name="run-hive-queries-using-hdinsight-net-sdk"></a>Köra Hive-frågor med hjälp av HDInsight .NET SDK
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]

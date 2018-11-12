@@ -1,24 +1,24 @@
 ---
-title: Installera egna anpassade Hadoop-program i Azure HDInsight
+title: Installera egna anpassade Apache Hadoop-program i Azure HDInsight
 description: Ta reda på hur du installerar HDInsight-program på HDInsight-appar.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 5e3194b856766502e4cc8c68ffa4bb936634adfa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: b5870d53053511cb56f668943678aeb91bf23b3b
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983148"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035364"
 ---
-# <a name="install-custom-hadoop-applications-on-azure-hdinsight"></a>Installera anpassade Hadoop-program i Azure HDInsight
+# <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Installera anpassade Apache Hadoop-program i Azure HDInsight
 
-I den här artikeln får du lära dig hur du installerar ett Hadoop-program i Azure HDInsight, som inte har publicerats på Azure-portalen. Programmet som du ska installera i den här artikeln är [Hue](http://gethue.com/).
+I den här artikeln får du lära dig hur du installerar ett Apache Hadoop-program på Azure HDInsight, som inte har publicerats på Azure Portal. Programmet som du ska installera i den här artikeln är [Hue](http://gethue.com/).
 
 Ett HDInsight-program är ett program som användarna kan installera på ett Linux-baserat HDInsight-kluster.  Dessa program kan utvecklas av Microsoft, oberoende programvaruleverantörer och av dig själv.  
 

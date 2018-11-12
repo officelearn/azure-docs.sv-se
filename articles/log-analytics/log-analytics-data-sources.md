@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 776033bde46f170295900d154cbbb3c7df73ab11
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: d514728b892126522a73827bb79952612f34704b
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960267"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014031"
 ---
 # <a name="data-sources-in-log-analytics"></a>Datakällor i Log Analytics
 Log Analytics samlar in data från dina anslutna källor och lagrar dem i Log Analytics-arbetsytan.  De data som samlas in från varje definieras av datakällor som du konfigurerar.  Data i Log Analytics lagras som en uppsättning poster.  Varje datakälla skapar poster i en viss typ med varje typ av att ha en egen uppsättning egenskaper.
@@ -68,5 +68,5 @@ Alla data som samlas in av Log Analytics lagras som poster i arbetsytan.  Poster
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [lösningar](../monitoring/monitoring-solutions.md) som lägger till funktioner i Log Analytics och också samla in data till arbetsytan.
-* Lär dig mer om [loggsökningar](log-analytics-log-search.md) att analysera data som samlas in från datakällor och lösningar.  
+* Lär dig mer om [loggsökningar](log-analytics-queries.md) att analysera data som samlas in från datakällor och lösningar.  
 * Konfigurera [aviseringar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) att informera dig om viktiga data som samlas in från datakällor och lösningar.

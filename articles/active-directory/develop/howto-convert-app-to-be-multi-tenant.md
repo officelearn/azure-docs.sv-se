@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: abca81e0db565c6c84d9be9df07b46c8c338030b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: 61238482339250e45be36162e7eef252f78c74b1
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960285"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288993"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Så här: Logga in alla Azure Active Directory-användare med programmönstret för flera innehavare
 
@@ -46,9 +46,9 @@ Låt oss titta på varje steg i detalj. Du kan även gå direkt till [den här l
 
 Som standard är enskild klient i web app/API registreringar i Azure AD. Du kan göra din registrering för flera innehavare genom att söka efter den **flera innehavare** växla den **egenskaper** rutan i din programregistrering i den [Azure-portalen] [ AZURE-portal] och ange värdet till **Ja**.
 
-Innan ett program kan göras med flera innehavare, kräver Azure AD App-ID-URI för programmet som ska vara globalt unikt. App-ID-URI är en av de sätt som ett program har identifierats i protokollmeddelanden. För en enda klient-program är det tillräckligt för URI: N för App-ID vara unikt inom den klienten. För ett program med flera innehavare, måste den vara globalt unikt så att Azure AD kan hitta programmet över alla klienter. Globala unika tillämpas genom att kräva att App-ID-URI att ha ett värdnamn som matchar en verifierad domän i Azure AD-klient. 
+Innan ett program kan göras med flera innehavare, kräver Azure AD App-ID-URI för programmet som ska vara globalt unikt. App-ID-URI är en av de sätt som ett program identifieras i protokollmeddelanden. För ett program för en enskild klientorganisation räcker det att app-ID-URI är unikt i den klientorganisationen. För ett program för flera klientorganisationer måste den vara globalt unikt så att Azure AD kan hitta programmet bland alla klientorganisationer. Global unikhet framtvingas genom att det krävs att app-ID-URI har ett värdnamn som matchar en verifierad domän i Azure AD-klientorganisationen. 
 
-Appar som har skapats via Azure-portalen har ett globalt unikt Appidentitets-URI på skapa appar som standard, men du kan ändra det här värdet. Till exempel om namnet på din klient har contoso.onmicrosoft.com och sedan en giltig URI för App-ID blir `https://contoso.onmicrosoft.com/myapp`. Om din klientorganisation har en verifierad domän för `contoso.com`, och sedan en giltig App-ID: T URI vore `https://contoso.com/myapp`. Om App-ID-URI inte följer detta mönster, ställa in ett program som misslyckas av flera innehavare.
+Appar som har skapats via Azure-portalen har ett globalt unikt Appidentitets-URI på skapa appar som standard, men du kan ändra det här värdet. Till exempel om namnet på din klient har contoso.onmicrosoft.com och sedan en giltig URI för App-ID blir `https://contoso.onmicrosoft.com/myapp`. Om din klientorganisation har en verifierad domän för `contoso.com`, och sedan en giltig App-ID: T URI vore `https://contoso.com/myapp`. Om App-ID-URI inte följer detta mönster misslyckas konfigurationen av ett program som ett program för flera klientorganisationer.
 
 > [!NOTE] 
 > Inbyggd klientregistreringar samt [v2.0 program](./active-directory-appmodel-v2-overview.md) flera klientorganisationer som standard. Du behöver inte vidta några åtgärder för att göra dessa programregistreringar flera innehavare.
@@ -201,8 +201,8 @@ I den här artikeln beskrivs hur du skapar en App som kan logga in en användare
 [AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
-[MSFT-Graph-overview]: https://graph.microsoft.io/en-us/docs/overview/overview
-[MSFT-Graph-permision-scopes]: https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference
+[MSFT-Graph-overview]: https://developer.microsoft.com/graph/docs/overview/overview
+[MSFT-Graph-permision-scopes]: https://developer.microsoft.com/graph/docs/concepts/permissions_reference
 
 <!--Image references-->
 [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

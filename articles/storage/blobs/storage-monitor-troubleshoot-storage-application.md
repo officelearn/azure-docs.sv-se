@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: ff4d39a69df90c31186153c077b1b6183a08dd34
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 1bd237d4b8ecd826caf4ba9a150f1dd50f0c5bb6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397226"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259997"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Övervaka och felsöka ett molnlagringsprogram
 
@@ -83,7 +83,7 @@ På bilden nedan visas ett exempel på hur det kan se ut när ett sådant simule
 
 Storage-loggar lagrar data i en uppsättning blobar i en blobcontainer med namnet **$logs** i ditt lagringskonto. Den här containern visas inte om du visar alla blobcontainrar i ditt konto i en lista, men du kan se innehållet om du går direkt till containern.
 
-I det här scenariot använder du [Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx) för att interagera med ditt Azure-lagringskonto.
+I det här scenariot använder du [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx) för att interagera med ditt Azure-lagringskonto.
 
 ### <a name="download-microsoft-message-analyzer"></a>Ladda ned Microsoft Message Analyzer
 
@@ -105,8 +105,7 @@ När loggen har öppnats kan du se lagringshändelserna. Som du ser på följand
 
 ![Microsoft Message Analyzer – Visa händelser](media/storage-monitor-troubleshoot-storage-application/figure5.png)
 
-
-  [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) är ett annat verktyg som du kan använda för att interagera med dina lagringskonton, till exempel **$logs**-containern och de loggar som finns i containern.
+[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) är ett annat verktyg som du kan använda för att interagera med dina lagringskonton, till exempel **$logs**-containern och de loggar som finns i containern.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a1459e3cbd433e2997ffd822b961ac781a72ca90
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: b05492941defc6ac3aa252d6bb29043d55e6b66c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423535"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261782"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-nodejs-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och Felsök Node.js-moduler för Azure IoT Edge
 
@@ -123,7 +123,7 @@ IoT Edge Node.js-modulen beror på Azure IoT Node.js enhets-SDK. I modul standar
 
 5. I VS Code-integrerade terminalen, kör du följande kommando för att skicka en **Hello World** meddelande till din modul. Det här är kommandot visade i föregående steg när har installationen IoT Edge-simulatorn. Du kan behöva skapa eller växla till en annan integrerade terminalen om aktuella blockeras.
 
-    ```cmd
+    ```bash
     curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
     ```
 

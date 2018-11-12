@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: b2e7cc46a844ff866ae2d325b610653cd3179d8d
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 04211a00bcdce3baf8060e00a9ce81831a39acb9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914574"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257671"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Lösning för Office 365 i Azure (förhandsversion)
 
@@ -709,6 +709,6 @@ Följande tabell innehåller exempel på sökningar i loggen för uppdateringspo
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd loggsökningar i [Log Analytics](../log-analytics/log-analytics-log-search.md) för att visa detaljerad uppdateringsinformation.
+* Använd loggsökningar i [Log Analytics](../log-analytics/log-analytics-queries.md) för att visa detaljerad uppdateringsinformation.
 * [Skapa dina egna instrumentpaneler](../log-analytics/log-analytics-dashboards.md) att visa dina favorit Office 365-sökfrågor.
 * [Skapa aviseringar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) för att proaktivt aviseras om viktiga Office 365-aktiviteter.  

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: ca93d97c3e0ddab0377ef437a04e7e3e31197b97
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 6967805044bb11e9aed3fe66d580df059f7a461a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166392"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231405"
 ---
 # <a name="split-merge-security-configuration"></a>Dela / sammanslå säkerhetskonfiguration
 Om du vill använda tjänsten dela/Sammanslå, måste du konfigurera säkerhet på rätt sätt. Tjänsten är en del av funktionen elastisk skalning av Microsoft Azure SQL Database. Mer information finns i [elastisk skala dela och slå samman Service-självstudie](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -29,21 +29,21 @@ Certifikat är konfigurerade på två sätt.
 2. [Konfigurera klientcertifikat](#to-configure-client-certificates) 
 
 ## <a name="to-obtain-certificates"></a>Hämta certifikat
-Certifikat kan hämtas från offentliga certifikatutfärdare (CA) eller från den [Windows Certifikattjänsten](http://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Det här är de här metoderna att hämta certifikat.
+Certifikat kan hämtas från offentliga certifikatutfärdare (CA) eller från den [Windows Certifikattjänsten](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Det här är de här metoderna att hämta certifikat.
 
 Om dessa alternativ inte är tillgängliga kan du generera **självsignerade certifikat**.
 
 ## <a name="tools-to-generate-certificates"></a>Verktyg för att generera certifikat
-* [makecert.exe](http://msdn.microsoft.com/library/bfsktky3.aspx)
-* [pvk2pfx.exe](http://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
+* [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
+* [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ### <a name="to-run-the-tools"></a>Att köra verktyg
-* Från en Kommandotolken för utvecklare för Visual Studios Se [Visual Studio-kommandotolk](http://msdn.microsoft.com/library/ms229859.aspx) 
+* Från en Kommandotolken för utvecklare för Visual Studios Se [Visual Studio-kommandotolk](https://msdn.microsoft.com/library/ms229859.aspx) 
   
     Om installerat kan du gå till:
   
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
-* Hämta WDK från [Windows 8.1: Hämta paket och verktyg](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* Hämta WDK från [Windows 8.1: Hämta paket och verktyg](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-ssl-certificate"></a>Konfigurera SSL-certifikat
 Ett SSL-certifikat krävs för att kryptera kommunikationen och autentisera servern. Välj den lämpligaste av tre scenarierna nedan och kör alla steg:
@@ -411,7 +411,7 @@ I den **certifikat exportguiden**:
 11. Klicka på **Slutför**.
 12. Klicka på **OK**.
 
-## <a name="import-certificate"></a>Importera certifikat
+## <a name="import-certificate"></a>Importera certifikatet
 I guiden Importera certifikat:
 
 1. Välj lagringsplatsen.

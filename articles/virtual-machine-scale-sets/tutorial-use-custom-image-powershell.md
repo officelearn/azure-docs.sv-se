@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a70bb09edb5ccaf4e216785933af80e2fcb2153a
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 924fea7a8a8e6fb1ab25584a49f38b25156d1ec6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363614"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230520"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Självstudie: Skapa och använd en anpassad avbildning för VM-skalningsuppsättningar med Azure PowerShell
 När du skapar en skalningsuppsättning, kan du ange en avbildning som ska användas när de virtuella datorinstanserna distribueras. Om du vill minska antalet uppgifter när de virtuella datorinstanserna distribueras, kan du använda en anpassad virtuell datoravbildning. Den här anpassade virtuella datoravbildningen inkluderar alla nödvändiga programinstallationer eller konfigurationer. Alla virtuella datorinstanser som skapats i skalningsuppsättningen använder den anpassade virtuella datoravbildningen och är redo att hantera din programtrafik. I den här självstudiekursen får du lära du dig att:
@@ -76,7 +76,7 @@ Nu ska vi installera en grundläggande webbserver för att anpassa din virtuella
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Det sista steget för att förbereda din virtuella dator för användning som en anpassad avbildning är att generalisera den virtuella datorn. Sysprep tar bort all personlig kontoinformation och konfigurationer och återställer den virtuella datorn till ett rent tillstånd för framtida distributioner. Mer information finns i [Så här använder du Sysprep: en introduktion](http://technet.microsoft.com/library/bb457073.aspx).
+Det sista steget för att förbereda din virtuella dator för användning som en anpassad avbildning är att generalisera den virtuella datorn. Sysprep tar bort all personlig kontoinformation och konfigurationer och återställer den virtuella datorn till ett rent tillstånd för framtida distributioner. Mer information finns i [Så här använder du Sysprep: en introduktion](https://technet.microsoft.com/library/bb457073.aspx).
 
 Om du vill generalisera den virtuella datorn, kör du Sysprep och konfigurerar den virtuella datorn för en helt ny upplevelse. När du är klar, instruerar du Sysprep att stänga av den virtuella datorn:
 

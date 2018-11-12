@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/05/2018
+ms.date: 11/07/2018
 ms.author: juliako
-ms.openlocfilehash: 2f5c0ef63ba150fdad4aea1a0c65269611d56815
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 1c8bacf4c6cb22240609fb9f5dc0c3c456bc4531
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247695"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287548"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Riktlinjer för att flytta från Media Services v2 till v3
 
@@ -45,7 +45,7 @@ Om du har en videotjänst som har utvecklats i dag ovanpå den [äldre Media Ser
 * Introducerar begreppet [omvandlar](transforms-jobs-concept.md) för filbaserade Jobbearbetning. En transformering kan användas för att skapa återanvändbara konfigurationer för att skapa Azure Resource Manager-mallar och isolera bearbetning av inställningar mellan flera kunder eller klienter.
 * En tillgång kan ha [flera StreamingLocators](streaming-locators-concept.md) med olika inställningar för dynamisk paketering och dynamisk kryptering.
 * [Innehållsskydd](content-key-policy-concept.md) har stöd för flera viktiga funktioner.
-* Du kan strömma direktsända händelser som är upp till 24 timmar.
+* Du kan strömma direktsända händelser som är upp till 24 timmar lång när använder Media Services för transkodning ett bidrag, enkel bithastighet, skicka till en utdataström som har flera olika bithastigheter.
 * Ny låg latens live direktuppspelning support på LiveEvents.
 * LiveEvent Preview stöder dynamisk paketering och dynamisk kryptering. Detta gör det möjligt för innehållsskydd på förhandsversion som DASH och HLS paketering.
 * LiveOutput är enklare att använda än programmet entiteten i v2-API: er. 

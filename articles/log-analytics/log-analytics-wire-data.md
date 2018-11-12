@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 7f2ced1d6e5a7368fbf136d31889a763b3306e37
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: e3944defa24437fdddf8b61189034d330f89dd4c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964075"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011960"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Wire Data 2.0-lösning (förhandsversion) i Log Analytics
 
@@ -451,4 +451,4 @@ En post av typen _WireData_ skapas för varje typ av indata. WireData-poster har
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Sök i loggar](log-analytics-log-search.md) för att se detaljerade sökposter för wire-data.
+- [Sök i loggar](log-analytics-queries.md) för att se detaljerade sökposter för wire-data.

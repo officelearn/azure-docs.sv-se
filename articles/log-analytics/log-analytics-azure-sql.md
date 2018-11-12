@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: ''
-ms.openlocfilehash: f43db05cac03d090116d227536e343c4a7bb0df4
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: b20a142007b3422d071de47410f4c9cdd1ff62a7
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958882"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006744"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Övervaka Azure SQL Database med Azure SQL Analytics (förhandsversion)
 
@@ -192,7 +192,7 @@ Automatiserade aviseringar i lösningen baseras på skriva en Log Analytics-frå
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Skapa aviseringar för Azure SQL Database
 
-Du kan enkelt [skapa aviseringar](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) med data från Azure SQL Database-resurser. Här är några användbara [loggsökning](log-analytics-log-search.md) frågor som du kan använda med en logg-avisering:
+Du kan enkelt [skapa aviseringar](../monitoring-and-diagnostics/alert-metric.md) med data från Azure SQL Database-resurser. Här är några användbara [loggsökning](log-analytics-queries.md) frågor som du kan använda med en logg-avisering:
 
 *Hög CPU i Azure SQL-databas*
 
@@ -289,6 +289,6 @@ Medan lösningen kostar ingenting att använda gäller förbrukning av diagnosti
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Använd [Loggsökningar](log-analytics-log-search.md) i Log Analytics för att visa detaljerad Azure SQL-data.
+- Använd [Loggsökningar](log-analytics-queries.md) i Log Analytics för att visa detaljerad Azure SQL-data.
 - [Skapa dina egna instrumentpaneler](log-analytics-dashboards.md) visar Azure SQL-data.
 - [Skapa aviseringar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) när specifika Azure SQL-händelser inträffar.

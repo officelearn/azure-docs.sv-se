@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 10/29/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 086acdd74932836627c600b5545bc4353052ad6f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 05f878d244647a79a2b3e9d0c789ba811dad71ee
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215454"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012113"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Vanliga frågor – VMware till Azure replikering
 
@@ -59,6 +59,8 @@ För att identifiera steg för att distribuera konfigurationsservern på dina eg
 ### <a name="where-do-on-premises-vms-replicate-to"></a>Där replikerar lokala virtuella datorer till?
 Data replikeras till Azure storage. När du kör en redundansväxling skapar Site Recovery automatiskt virtuella datorer i Azure från storage-kontot.
 
+## <a name="replication"></a>Replikering
+
 ### <a name="what-apps-can-i-replicate"></a>Vilka appar kan jag replikera?
 Du kan replikera en app eller arbetsbelastning som körs på en VMware-VM som uppfyller [replikeringskraven](vmware-physical-azure-support-matrix.md##replicated-machines). Site Recovery har stöd för Programmedveten replikering så att appar kan växlas över och återställde till en intelligent tillstånd. Site Recovery kan integreras med Microsoft-program som SharePoint, Exchange, Dynamics, SQL Server och Active Directory och har ett nära samarbete med ledande leverantörer, som Oracle, SAP, IBM och Red Hat. [Lär dig mer](site-recovery-workload.md) om arbetsbelastningsskydd.
 
@@ -74,18 +76,17 @@ Ja, ExpressRoute kan användas för att replikera datorer till Azure. Site Recov
 När du replikerar till Azure replikeringstrafik når de offentliga slutpunkterna för ett Azure Storage-konto och därför kan du bara replikera via det offentliga internet med ExpressRoute (offentlig peering) VPN fungerar inte.
 
 
-
-## <a name="what-are-the-replicated-vm-requirements"></a>Vilka är kraven för replikerade virtuella datorer?
+### <a name="what-are-the-replicated-vm-requirements"></a>Vilka är kraven för replikerade virtuella datorer?
 
 För replikering, måste en VMware VM köra ett operativsystem som stöds. Dessutom kan måste den virtuella datorn uppfylla kraven för virtuella Azure-datorer. [Läs mer](vmware-physical-azure-support-matrix.md##replicated-machines) i supportmatrisen.
 
-## <a name="how-often-can-i-replicate-to-azure"></a>Hur ofta kan jag replikera till Azure?
+### <a name="how-often-can-i-replicate-to-azure"></a>Hur ofta kan jag replikera till Azure?
 Replikeringen är kontinuerlig när du replikerar virtuella VMware-datorer till Azure.
 
-## <a name="can-i-extend-replication"></a>Kan jag utöka replikeringen?
+### <a name="can-i-extend-replication"></a>Kan jag utöka replikeringen?
 Utökad eller länkad replikering stöds inte. Begär den här funktionen i [Feedbackforum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
 
-## <a name="can-i-do-an-offline-initial-replication"></a>Kan jag göra en offlinereplikering första?
+### <a name="can-i-do-an-offline-initial-replication"></a>Kan jag göra en offlinereplikering första?
 Det stöds inte. Begär den här funktionen i den [Feedbackforum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-disks"></a>Kan jag utesluta diskar?
@@ -141,7 +142,7 @@ Vi rekommenderar att utföra regelbundna schemalagda säkerhetskopieringar av ko
 Installationsprogram för hålls kvar i den **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** mapp på konfigurationsservern.
 
 ## <a name="how-do-i-install-the-mobility-service"></a>Hur gör jag för att installera mobilitetstjänsten?
-Installera på varje virtuell dator som du vill replikera, med hjälp av en [push-installation](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery), eller en manuell installation från [Användargränssnittet](vmware-azure-install-mobility-service.md#install-mobility-service-manually-by-using-the-gui), eller [med hjälp av PowerShell](vmware-azure-install-mobility-service.md#install-mobility-service-manually-at-a-command-prompt). Du kan också distribuera med ett distributionsverktyg som [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md), eller [Azure Automation och DSC](vmware-azure-mobility-deploy-automation-dsc.md).
+Installera på varje virtuell dator som du vill replikera, med hjälp av en [push-installation](vmware-azure-install-mobility-service.md), eller [manuell installation](vmware-physical-mobility-service-install-manual.md) från Användargränssnittet eller Powershell. Du kan också distribuera med ett distributionsverktyg som [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
 
 
 

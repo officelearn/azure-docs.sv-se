@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: b33cbce582fde24e4cad6f0c208de3796a04f116
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 5f07488e526a15fb067d6ea7a265d069fbe3aee3
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963344"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009563"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Övervaka Surface Hub med Log Analytics för att spåra deras hälsa
 
@@ -87,5 +87,5 @@ Om huruvida konfigurationen tillämpades på enheten visas en bekräftelse. Om d
 Du kan skapa [aviseringar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) baserat på befintliga eller anpassade sökningar i loggen. Med hjälp av data som Log Analytics samlar in från Surface Hub, kan du söka efter problem och avisering på de villkor som du definierar för dina enheter.
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd [Loggsökningar i Log Analytics](log-analytics-log-search.md) att visa detaljerad Surface Hub-data.
+* Använd [Loggsökningar i Log Analytics](log-analytics-queries.md) att visa detaljerad Surface Hub-data.
 * Skapa [aviseringar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) att meddela dig när problem uppstår med Surface hub.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 11babf8a66c38354499ce85fad424fed04c07c15
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 340c4715f8b8cf0b73fc9db9612887f91d1700fb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33780610"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234519"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Kom igång med att leverera innehåll på begäran med hjälp av Azure-portalen
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -123,7 +123,7 @@ En URL för signatur för delad åtkomst har följande format:
 > 
 > 
 
-Om du vill uppdatera utgångsdatumet för en lokaliserare kan du använda en [REST API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) eller en [.NET API](http://go.microsoft.com/fwlink/?LinkID=533259). 
+Om du vill uppdatera utgångsdatumet för en lokaliserare kan du använda en [REST API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) eller en [.NET API](https://go.microsoft.com/fwlink/?LinkID=533259). 
 
 > [!NOTE]
 > URL:en ändras när du uppdaterar utgångsdatumet för en SAS-lokaliserare.

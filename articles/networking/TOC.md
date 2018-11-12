@@ -72,7 +72,7 @@
 ## [Skapa mallar](/azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json)
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Community-mallar](https://azure.microsoft.com/resources/templates/)
-## [Nätverksblogg](http://azure.microsoft.com/blog/topics/networking)
+## [Nätverksblogg](https://azure.microsoft.com/blog/topics/networking)
 ## [Prissättning](https://azure.microsoft.com/pricing)
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Regional tillgänglighet](https://azure.microsoft.com/regions/services/)

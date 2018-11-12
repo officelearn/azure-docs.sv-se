@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
 ms.component: disks
-ms.openlocfilehash: 53b44d47d9421f1b37aef7ca4d30c2c753b79740
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: eec7b64836819f840702bb715f4fcc0573a94b00
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218329"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251857"
 ---
 # <a name="about-disks-storage-for-azure-linux-vms"></a>Om disklagring för virtuella Linux-datorer
 Precis som alla andra datorer Använd virtuella datorer i Azure diskar som en plats för att lagra ett operativsystem, program och data. Alla Azure virtuella datorer har minst två diskar – en operativsystemdisk för Linux och en tillfällig disk. Operativsystemdisken har skapats från en avbildning och både operativsystemdisken och avbildningen är virtuella hårddiskar (VHD) lagras i ett Azure storage-konto. Virtuella datorer kan också ha en eller flera datadiskar som lagras också som virtuella hårddiskar.
@@ -50,10 +50,13 @@ Du kan lägga till datadiskar till en virtuell dator när som helst av **koppla*
 
 [!INCLUDE [storage-about-vhds-and-disks-windows-and-linux](../../../includes/storage-about-vhds-and-disks-windows-and-linux.md)]
 
+Förhandsgranska storlekar, se vår [vanliga frågor och svar](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) vill veta vilka regioner som de är tillgängliga i.
+
 ## <a name="troubleshooting"></a>Felsökning
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Anslut en disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) att lägga till ytterligare lagringsutrymme för din virtuella dator.
 * [Skapa en ögonblicksbild](snapshot-copy-managed-disk.md).
 * [Konvertera till managed disks](convert-unmanaged-to-managed-disks.md).

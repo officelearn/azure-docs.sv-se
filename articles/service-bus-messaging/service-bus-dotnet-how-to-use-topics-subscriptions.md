@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/03/2018
 ms.author: spelluru
-ms.openlocfilehash: ea145a1f5ccad98c19b3f779ea297644350b984b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: d48d658883324637e1026ac00312ade86ccc1400
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393323"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230588"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Kom igång med Service Bus-ämnen
 
@@ -35,7 +35,7 @@ Den här självstudien omfattar följande steg:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) eller senare.
+1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) eller senare.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 eller senare.
 2. En Azure-prenumeration.
 

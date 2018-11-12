@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 97953779f1132d89c7ad07abdb4e08c0f476f4b9
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 182a0232b5317b1a375a20bdd4c6467578dc775b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841821"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232750"
 ---
 # <a name="security-frame-session-management"></a>Security ram: Sessionshantering
 | Produkt/tjänst | Artikel |
@@ -157,7 +157,7 @@ Det bör också ta bort användarens session genom att anropa metoden Session.Ab
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | EnvironmentType - OnPrem |
-| **Referenser**              | [httpCookies Element (ASP.NET inställningsschema)](http://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [HttpCookie.Secure egenskap](http://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
+| **Referenser**              | [httpCookies Element (ASP.NET inställningsschema)](https://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [HttpCookie.Secure egenskap](https://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
 | **Steg** | Cookies är normalt endast är tillgängliga för den domän som de har begränsad. Tyvärr omfattas definitionen av ”domän” inte av protokollet så att cookies som skapas via HTTPS är tillgängliga via HTTP. Attributet ”säkra” anger att webbläsaren att cookien ska endast göras tillgängliga via HTTPS. Kontrollera att alla cookies över HTTPS-användning i **säker** attribut. Kravet på tillämpas i web.config-filen genom att ange attributet requireSSL till true. Det är att föredra eftersom den kommer att tillämpa den **säker** attribut för alla nuvarande och framtida-cookies utan att behöva göra några ytterligare kodändringar.|
 
 ### <a name="example"></a>Exempel

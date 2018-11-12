@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: fea3455b31ff2ea7119fa4146aa84f855a3b6e35
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: cd3b5f49788282b535f07c6f84bf7e4002132ab9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054680"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237595"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Hur fungerar dataindexeringen i Azure Cosmos DB?
 
@@ -323,7 +323,7 @@ Du kan välja om du vill att samlingen som automatiskt indexerar alla dokument. 
 
 Med automatisk indexering stängs av, kan du fortfarande selektivt lägga till endast specifika dokument till indexet. Däremot kan du lämna automatisk indexering för och selektivt vill undanta specifika dokument. Indexering på/av konfigurationer är användbara när du har endast en delmängd av dokument som ska efterfrågas.
 
-I följande exempel visas hur du lägger till ett dokument uttryckligen med hjälp av den [SQL API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) och [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) egenskapen.
+I följande exempel visas hur du lägger till ett dokument uttryckligen med hjälp av den [SQL API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) och [RequestOptions.IndexingDirective](https://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) egenskapen.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a document in indexing,
@@ -413,7 +413,7 @@ När blir du indexering principändringar till din Azure Cosmos DB-samlingar Hä
 ## <a name="performance-tuning"></a>Prestandajustering
 SQL-API: er ger information om prestandavärden, till exempel index lagringsutrymme och dataflöde kostnaden (begäransenheter) för varje åtgärd. Du kan använda den här informationen för att jämföra olika principer för indexering, och för prestandajustering.
 
-Du kan kontrollera lagringskvoten och användning av en samling genom att köra en **HEAD** eller **hämta** begäran mot samlingen resursen. Granska sedan de **x-ms-begäran-quota** och **x-ms-begäran-användning** rubriker. I .NET-SDK i [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) och [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) egenskaper i [ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) innehålla dessa motsvarande värden.
+Du kan kontrollera lagringskvoten och användning av en samling genom att köra en **HEAD** eller **hämta** begäran mot samlingen resursen. Granska sedan de **x-ms-begäran-quota** och **x-ms-begäran-användning** rubriker. I .NET-SDK i [DocumentSizeQuota](https://msdn.microsoft.com/library/dn850325.aspx) och [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) egenskaper i [ResourceResponse < T\> ](https://msdn.microsoft.com/library/dn799209.aspx) innehålla dessa motsvarande värden.
 
      // Measure the document size usage (which includes the index size) against   
      // different policies.
@@ -421,7 +421,7 @@ Du kan kontrollera lagringskvoten och användning av en samling genom att köra 
      Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentQuota, collectionInfo.DocumentUsage);
 
 
-Att mäta arbetet med att indexering för varje skrivåtgärd (skapa, uppdatera eller ta bort), granska de **x-ms-begäran-kostnad** rubrik (eller motsvarande [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) -egenskapen i [ ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) i .NET SDK) att mäta antalet enheter för programbegäran som förbrukas av de här åtgärderna.
+Att mäta arbetet med att indexering för varje skrivåtgärd (skapa, uppdatera eller ta bort), granska de **x-ms-begäran-kostnad** rubrik (eller motsvarande [RequestCharge](https://msdn.microsoft.com/library/dn799099.aspx) -egenskapen i [ ResourceResponse < T\> ](https://msdn.microsoft.com/library/dn799209.aspx) i .NET SDK) att mäta antalet enheter för programbegäran som förbrukas av de här åtgärderna.
 
      // Measure the performance (request units) of writes.     
      ResourceResponse<Document> response = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), myDocument);              

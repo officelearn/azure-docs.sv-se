@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 7c01940c41067029bc3d47d19c2ded1d710cc2c6
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 51404c35b42d1c98116e74b5b7a47afe05b7d2a9
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470072"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300565"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage-brandväggar och virtuella nätverk
 Azure Storage tillhandahåller en skiktbaserad säkerhetsmodell som gör att du kan skydda dina storage-konton till en specifik uppsättning tillåtna nätverk.  Om Nätverksregler har konfigurerats endast program från tillåtna nätverk kan komma åt ett storage-konto.  När du anropar från ett tillåtna nätverk programmen kräver rätt auktorisering (en giltig åtkomstnyckel eller SAS-token) att komma åt lagringskontot.
@@ -201,7 +201,7 @@ Varje lagringskonto har stöd för upp till 100 IP-nätverk (MPR) som kan kombin
 ### <a name="configuring-access-from-on-premises-networks"></a>Konfigurera åtkomst från lokala nätverk
 För att bevilja åtkomst från ditt lokala nätverk till ditt lagringskonto med en regel för IP-nätverk, måste du identifiera den internetuppkopplade IP-adresser som används av nätverket.  Kontakta nätverksadministratören om du behöver hjälp.
 
-Om nätverket är anslutet till en Azure-nätverk med hjälp av [ExpressRoute](/azure/expressroute/expressroute-introduction), varje krets har konfigurerats med två offentliga IP-adresser i Microsoft Edge som används för att ansluta till Microsoft Services som Azure Storage med [Azures offentliga Peering](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains).  Om du vill tillåta kommunikation från din krets till Azure Storage, måste du skapa IP-Nätverksregler för offentliga IP-adresserna för dina kretsar.  För att kunna hitta ExpressRoute-kretsen offentliga IP-adresser, [öppnar ett supportärende hos ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via Azure portal.
+Om nätverket är anslutet till en Azure-nätverk med hjälp av [ExpressRoute](/azure/expressroute/expressroute-introduction), varje krets har konfigurerats med två offentliga IP-adresser i Microsoft Edge som används för att ansluta till Microsoft Services som Azure Storage med [Azures offentliga Peering](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains).  Om du vill tillåta kommunikation från din krets till Azure Storage, måste du skapa IP-Nätverksregler för offentliga IP-adresserna för dina kretsar.  För att kunna hitta ExpressRoute-kretsen offentliga IP-adresser, [öppnar ett supportärende hos ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via Azure portal.
 
 
 ### <a name="managing-ip-network-rules"></a>Hantera regler för IP-nätverk
@@ -294,7 +294,7 @@ När undantaget ”betrodda Microsoft-tjänster” är aktiverad, beviljas åtko
 |Azure Event Grid|Microsoft.EventGrid|Aktivera publicering av Blob Storage-händelser.  [Läs mer](https://docs.microsoft.com/azure/event-grid/overview).|
 |Azure Event Hubs|Microsoft.EventHub|Arkivera data med Event Hubs Capture.  [Läs mer](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
 |Azure-nätverk|Microsoft.Networking|Store och analysera loggar med webbtrafik.  [Läs mer](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure Monitor|Microsoft.Insights| Tillåter skrivning av övervakning av data till ett konto för säker storaage [mer](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
+|Azure Monitor|Microsoft.Insights| Tillåter skrivning av övervakning av data till en säker lagringskonto [mer](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
 |
 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 07a86345e49081320663d7706310a71a40ace134
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: fe6251f70ae62440bbbefc8c3aa5d92d934d8ba0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302115"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249361"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Security ram: Konfigurationshantering | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -210,7 +210,7 @@ Observera att begära valideringsfunktionen stöds inte och är inte en del av M
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
-| **Referenser**              | [En del IE8 Security V: heltäckande skydd](http://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx), [MIME-typ](http://en.wikipedia.org/wiki/Mime_type) |
+| **Referenser**              | [En del IE8 Security V: heltäckande skydd](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx), [MIME-typ](http://en.wikipedia.org/wiki/Mime_type) |
 | **Steg** | Rubriken X-innehåll-typ-Options är ett HTTP-huvud som gör att utvecklare kan ange att innehållet inte ska vara MIME-någon lyssnar. Den här rubriken är utformad för att minska MIME-kontroll attacker. För varje sida som kan innehålla användare kontrolleras innehåll, måste du använda HTTP-huvud X-innehåll-typ-alternativ: nosniff. Om du vill aktivera nödvändiga huvudet globalt för alla sidor i programmet, kan du göra något av följande|
 
 ### <a name="example"></a>Exempel

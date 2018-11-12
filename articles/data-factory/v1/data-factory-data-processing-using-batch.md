@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 511a0122b37f5f34097da38a645790d99212ad18
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b8a9973738ac28a686488a816da0f7da5fe2ac3e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737421"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238530"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Bearbeta datauppsättningar i stor skala med hjälp av Data Factory och Batch
 > [!NOTE]
@@ -61,9 +61,9 @@ Du kan också skapa anpassade .NET-aktiviteter för att flytta eller bearbeta da
 ## <a name="architecture-of-a-sample-solution"></a>Arkitekturen för en exempellösning
   Den arkitektur som beskrivs i den här artikeln är en enkel lösning. Det är också relevant för komplexa scenarier, till exempel riskmodellering genom finansiella tjänster, bildbearbetning och rendering och stora uppsättningar genomiska analys.
 
-Diagrammet visar hur samordnar Data Factory dataförflyttning och bearbetning. Den visar även hur Batch bearbetar data i en parallell sätt. Hämta och skriva ut det till hands (11 x 17 tum eller A3-storlek). Du hittar diagrammet så att du kan skriva ut den i [HPC och datadirigering med hjälp av Batch och Data Factory](http://go.microsoft.com/fwlink/?LinkId=717686).
+Diagrammet visar hur samordnar Data Factory dataförflyttning och bearbetning. Den visar även hur Batch bearbetar data i en parallell sätt. Hämta och skriva ut det till hands (11 x 17 tum eller A3-storlek). Du hittar diagrammet så att du kan skriva ut den i [HPC och datadirigering med hjälp av Batch och Data Factory](https://go.microsoft.com/fwlink/?LinkId=717686).
 
-[![Bearbetning av storskaliga diagram](./media/data-factory-data-processing-using-batch/image1.png)](http://go.microsoft.com/fwlink/?LinkId=717686)
+[![Bearbetning av storskaliga diagram](./media/data-factory-data-processing-using-batch/image1.png)](https://go.microsoft.com/fwlink/?LinkId=717686)
 
 Följande lista innehåller de grundläggande stegen för processen. Lösningen innehåller koden och förklaringar för att skapa slutpunkt till slutpunkt-lösningen.
 

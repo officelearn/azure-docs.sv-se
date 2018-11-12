@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 09/28/2018
+ms.date: 10/30/2018
 ms.author: alkohli
-ms.openlocfilehash: 8acb808e4b60926fbe6b3faa3fa6a7174a190884
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 5e4461a910f13c5047c4a2aadd7326c4e12c533f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094249"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238139"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Vad är Azure Data Box Disk? (Förhandsversion)
 
@@ -44,10 +44,10 @@ Diskarna krypteras med hjälp av Microsoft BitLocker-enhetskryptering, och dina 
 A. Om du har högst 40 TB data som du vill överföra till Azure kan du använda Data Box-diskar.
 
 ### <a name="q-what-is-the-price-of-data-box-disks"></a>F. Hur mycket kostar Data Box-diskarna?
-A. Under förhandsversionen är Data Box-diskarna tillgängliga kostnadsfritt. Leveransen kostar inte heller någonting, men vi tar ut avgifter för Azure-lagringen.
+A. Information om priset för Data Box-diskar finns på [sidan med priser för förhandsversion](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
 
 ### <a name="q-how-do-i-get-data-box-disks"></a>F. Hur får jag Data Box-diskarna? 
-A.  Om du vill ha Azure Data Box-diskar registrerar du dig för [Data Box-diskförhandsversionen](http://aka.ms/AzureDataBox). Logga sedan in på Azure-portalen och skapa en Data Box-diskbeställning. Ange din kontakt- och aviseringsinformation. Beroende på tillgängligheten skickas diskarna till dig inom tio dagar.   
+A.  Om du vill ha Azure Data Box-diskar registrerar du dig för [Data Box-diskförhandsversionen](https://aka.ms/AzureDataBox). Logga sedan in på Azure-portalen och skapa en Data Box-diskbeställning. Ange din kontakt- och aviseringsinformation. Beroende på tillgängligheten skickas diskarna till dig inom tio dagar.   
 
 ### <a name="q-what-is-the-maximum-amount-of-data-i-can-transfer-with-data-box-disks-in-one-instance"></a>F. Vad är den maximala mängden data kan överföra med Data Box-diskar?
 A. Om du får fem diskar om vardera 8 TB (7 TB användbar kapacitet) är den maximala användbara kapaciteten 35 TB. Du kan då överföra 35 TB data.  Om du vill överföra en större datamängd måste du beställa fler diskar.
@@ -72,7 +72,7 @@ A.  Öppna Azure-portalen och öppna din Data Box-diskbeställning. Navigera til
 Stegvisa instruktioner finns i [Låsa upp diskar på en Windows-klient](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) eller [Låsa upp diskar på en Linux-klient](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client).
 
 ### <a name="q-can-i-use-a-linux-host-computer-to-connect-and-copy-the-data-on-to-the-data-box-disks"></a>F. Kan jag använda en Linux-dator som värd och ansluta och kopiera data till Data Box-diskar?
-A.  Ja. Både Linux- och Windows-klienten kan användas till att ansluta och kopiera data på Data Box-diskarna. Mer information finns i listan över [operativsystem som stöds](data-box-disk-system-requirements.md) för värddatorn.
+A.  Ja. Både Linux-klienten och Windows-klienten kan användas till att ansluta och kopiera data på Data Box-diskarna. Mer information finns i listan över [operativsystem som stöds](data-box-disk-system-requirements.md) för värddatorn.
 
 ### <a name="q-my-disks-are-dispatched-but-now-i-want-to-cancel-this-order-why-is-the-cancel-button-not-available"></a>F. Mina diskar har skickats men jag vill avbryta beställningen. Varför kan jag inte trycka på knappen och avbryta?
 A.  Det går bara att avbryta redan beställda diskar innan de skickas till dig. När diskarna har skickats iväg går det inte att avbryta beställningen. Under förhandsversionen kan du skicka tillbaka diskarna utan kostnad. När lösningen i framtiden blir allmänt tillgängligt läggs förmodligen en avgift på. 

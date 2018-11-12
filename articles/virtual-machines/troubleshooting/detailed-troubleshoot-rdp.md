@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 3b6b505be4a0084059d8c37a21099a784cacbed1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: af36f033dbca6c9f594b3568bfe7567a959e2d2f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414139"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237160"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Detaljerade felsökningsanvisningar för problem med anslutning till fjärrskrivbord till Windows virtuella datorer i Azure
 Den här artikeln innehåller detaljerade felsökningsanvisningar för att diagnostisera och åtgärda komplexa Remote Desktop-fel för Windows-baserade Azure-datorer.
@@ -130,7 +130,7 @@ Testa anslutningen från datorn igen. Om du är fortfarande inte kan ansluta via
 * Windows-brandväggen eller en annan lokal brandvägg har en utgående regel som hindrar Remote Desktop-trafik.
 * Intrångsidentifiering eller programvara som körs på virtuella Azure-datorer för nätverksövervakning förhindrar anslutning till fjärrskrivbord.
 
-För virtuella datorer som skapas med hjälp av den klassiska distributionsmodellen, kan du använda en Azure PowerShell-fjärrsession till Azure-dator. Först måste du installera ett certifikat för den virtuella datorns moln-värdtjänst. Gå till [konfigurera säker PowerShell fjärråtkomst till Azure Virtual Machines](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) och ladda ned den **InstallWinRMCertAzureVM.ps1** skriptfil till din lokala dator.
+För virtuella datorer som skapas med hjälp av den klassiska distributionsmodellen, kan du använda en Azure PowerShell-fjärrsession till Azure-dator. Först måste du installera ett certifikat för den virtuella datorns moln-värdtjänst. Gå till [konfigurera säker PowerShell fjärråtkomst till Azure Virtual Machines](https://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) och ladda ned den **InstallWinRMCertAzureVM.ps1** skriptfil till din lokala dator.
 
 Installera Azure PowerShell om du inte redan har gjort. Se [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 

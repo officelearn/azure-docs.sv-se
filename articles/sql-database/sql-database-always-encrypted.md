@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviwer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 343782448d4b508e678108ece268f2ce57b6ac1d
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 13e87ef0150924380c18c66c0362974ef599d4bf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868149"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231727"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Alltid krypterad: Skydda känsliga data och lagra krypteringsnycklar i Windows-certifikatarkiv
 
@@ -45,7 +45,7 @@ Den här självstudien behöver du:
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 
 ## <a name="create-a-blank-sql-database"></a>Skapa en tom SQL-databas
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Klicka på **skapa en resurs** > **Data + lagring** > **SQL Database**.
 3. Skapa en **tom** databas med namnet **Clinic** på en ny eller befintlig server. Detaljerade anvisningar om hur du skapar en databas i Azure-portalen finns i [din första Azure SQL database](sql-database-get-started-portal.md).
    
@@ -514,5 +514,5 @@ När du skapar en databas som använder Always Encrypted kan behöva du göra f�
 * [Transparent datakryptering](https://msdn.microsoft.com/library/bb934049.aspx)
 * [SQL Server-kryptering](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Alltid krypterad guiden](https://msdn.microsoft.com/library/mt459280.aspx)
-* [Alltid krypterad blogg](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+* [Alltid krypterad blogg](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 

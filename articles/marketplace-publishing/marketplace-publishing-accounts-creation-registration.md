@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: hascipio
-ms.openlocfilehash: 24dc50a6c78769877bdc07b9521a9d2e33837937
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3b1d0a7476cff2be00aa44bb8b859261099298d8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579623"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236701"
 ---
 # <a name="create-a-microsoft-developer-account"></a>Skapa ett Microsoft Developer-konto
 Den här artikeln vägleder dig genom de nödvändiga kontoskapandet och registreringen ska bli en godkänd Microsoft Developer för Azure Marketplace.
@@ -98,7 +98,7 @@ Microsoft Developer Center för att registrera företagsinformation en gång. Av
     ![Rita](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_04.png)
 
    > [!WARNING]
-   > **”” Försäljningsländer:** för att kunna sälja dina tjänster på Azure Marketplace, registrerade entiteten måste vara från en av de godkända ”” försäljningsländer ovan. Den här begränsningen är payout och skatt skäl. Vi letar aktivt så Håll ögonen öppna om du vill expandera den här listan över länder inom en snar framtid. Mer information finns i den [deltagandepolicyer för Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
+   > **”” Försäljningsländer:** för att kunna sälja dina tjänster på Azure Marketplace, registrerade entiteten måste vara från en av de godkända ”” försäljningsländer ovan. Den här begränsningen är payout och skatt skäl. Vi letar aktivt så Håll ögonen öppna om du vill expandera den här listan över länder inom en snar framtid. Mer information finns i den [deltagandepolicyer för Marketplace](https://go.microsoft.com/fwlink/?LinkID=526833).
    >
    >
 5. Välj din ”kontotyp” som **företagets** och klicka sedan på den **nästa** knappen.
@@ -127,7 +127,7 @@ Microsoft Developer Center för att registrera företagsinformation en gång. Av
 9. Ange din betalningsinformation för att betala för ditt konto. Om du har en kampanjkod som täcker kostnaden för registrering kan ange du som här. I annat fall ger ditt kreditkort info (eller PayPal på marknader som stöds). När du är klar klickar du på **nästa** att gå vidare till den **”granska skärmen”**.
 
     ![Rita](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_09.png)
-10. Granska din kontoinformation och bekräfta att allt är korrekt. Sedan läser och godkänner villkoren i den [Publiceringsavtalet för Microsoft Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=699560). Markera rutan som indikerar att du har läst och godkänt villkoren.
+10. Granska din kontoinformation och bekräfta att allt är korrekt. Sedan läser och godkänner villkoren i den [Publiceringsavtalet för Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560). Markera rutan som indikerar att du har läst och godkänt villkoren.
 11. Klicka på **Slutför** att bekräfta din registrering. Vi skickar ett bekräftelsemeddelande till din e-postadress.
 12. Om du planerar att publicera endast kostnadsfria erbjudanden, klickar du på **går du till Azure Marketplace Publisher-portalen** och du kan gå vidare till avsnitt 3 i det här dokumentet [registrera ditt konto i publiceringsportalen](#3-register-your-account-in-the-publishing-portal).
 

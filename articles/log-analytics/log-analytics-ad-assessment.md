@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 92d456ae4db1b4016c1a3676b5adfd7cbc2e7867
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: d40759a53842ca3c39e67850eb727897019a25ec
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962783"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012062"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimera din Active Directory-miljö med kontroll av Active Directory hälsotillstånd lösningen i Log Analytics
 
@@ -186,4 +186,4 @@ I nästa schemalagda hälsotillstånd kontroll körs som standard var sjunde dag
 * Ja, se [Ignorera rekommendationer](#ignore-recommendations) ovan.
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd [Loggsökningar i Log Analytics](log-analytics-log-search.md) och lär dig att analysera detaljerad AD-hälsokontroll data och rekommendationer.
+* Använd [Loggsökningar i Log Analytics](log-analytics-queries.md) och lär dig att analysera detaljerad AD-hälsokontroll data och rekommendationer.

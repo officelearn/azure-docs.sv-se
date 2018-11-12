@@ -1,6 +1,6 @@
 ---
 title: Skapa och hantera Hybridanslutningar | Microsoft Docs
-description: Lär dig hur du skapar en hybridanslutning, hantera anslutningen och installera Hybridanslutningshanteraren. MABS WABS
+description: Lär dig mer om att skapa en hybridanslutning, hantera anslutningen och installera Hybridanslutningshanteraren. MABS, WABS
 services: biztalk-services
 documentationcenter: ''
 author: MandiOhlinger
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 1751d33b5f6f6a506654daedd15bbd75ae271483
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c05a50f82f5c235c76ff234efe183172e0863bf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26628856"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232988"
 ---
 # <a name="create-and-manage-hybrid-connections"></a>Skapa och hantera hybridanslutningar
 
@@ -29,17 +29,17 @@ ms.locfileid: "26628856"
 >[!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## <a name="overview-of-the-steps"></a>Översikt över stegen
-1. Skapa en Hybridanslutning genom att ange den **värdnamn** eller **FQDN** av lokal resurs i ditt privata nätverk.
-2. Länka ditt Azure-webbappar eller Azure mobilappar till Hybrid-anslutningen.
-3. Installera Hybridanslutningshanteraren på din lokala resursen och ansluta till specifika Hybridanslutning. Azure-portalen tillhandahåller en enda musklick för att installera och ansluta.
-4. Hantera Hybridanslutningar och deras anslutningsnycklar.
+1. Skapa en Hybridanslutning genom att ange den **värdnamn** eller **FQDN** av en lokal resurs i ditt privata nätverk.
+2. Länka ditt Azure web apps eller Azure-appar till Hybridanslutningen.
+3. Installera Hybridanslutningshanteraren på den lokala resursen och ansluta till specifika Hybridanslutningen. Azure-portalen är det enda musklick för att installera och ansluta.
+4. Hantera Hybridanslutningar och anslutningsnycklar.
 
 Det här avsnittet listar de här stegen. 
 
 > [!IMPORTANT]
-> Det är möjligt att ställa in en Hybridanslutning slutpunkt på en IP-adress. Om du använder en IP-adress kan eller inte kan nå lokala resursen, beroende på din klient. Hybrid-anslutningen beror på klienten gör en DNS-sökning. I de flesta fall den **klienten** är programkoden. Om klienten inte att utföra en DNS-sökning (den inte försöker matcha IP-adressen som om det vore ett domännamn (x.x.x.x)), och sedan trafik inte skickas via Hybrid-anslutningen.
+> Det är möjligt att ställa in en Hybridanslutning slutpunkt på en IP-adress. Om du använder en IP-adress kan du kanske eller kanske inte att nå den lokala resursen, beroende på din klient. Hybridanslutningen är beroende av klienten gör en DNS-sökning. I de flesta fall den **klienten** är din programkod. Om klienten inte utför en DNS-sökning (det görs inga försök att matcha IP-adressen som om det är ett domännamn (x.x.x.x)), och sedan trafik inte skickas via Hybridanslutningen.
 > 
-> Till exempel (pseudocode) som du definierar **10.4.5.6** som värden lokalt:
+> Till exempel (pseudocode) som du definierar **10.4.5.6** som din lokala värd:
 > 
 > **Följande scenario fungerar:**  
 > `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on-prem host`
@@ -50,20 +50,20 @@ Det här avsnittet listar de här stegen.
 > 
 
 ## <a name="CreateHybridConnection"></a>Skapa en Hybridanslutning
-En Hybridanslutning kan skapas i [Azure App Service-Hybridanslutningar](../app-service/app-service-hybrid-connections.md) **eller** med [BizTalk Services REST API: er](https://msdn.microsoft.com/library/azure/dn232347.aspx). 
+Du kan skapa en Hybridanslutning i [Azure App Service-Hybridanslutningar](../app-service/app-service-hybrid-connections.md) **eller** med [BizTalk Services REST API: er](https://msdn.microsoft.com/library/azure/dn232347.aspx). 
 
 <!-- **To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md). You can also install the Hybrid Connection Manager (HCM) from your web app, which is the preferred method.  -->
 
 #### <a name="additional"></a>Ytterligare adresser
-* Du kan skapa flera Hybridanslutningar. Finns det [BizTalk-tjänst: utgåvor diagram](biztalk-editions-feature-chart.md) för antalet tillåtna anslutningar. 
-* Varje Hybridanslutningen har skapats med ett par anslutningssträngar: programmet nycklar för att skicka och lokala nycklar som lyssnar. Varje par har en primär och en sekundär nyckel. 
+* Du kan skapa flera Hybridanslutningar. Se den [BizTalk Services: diagram över utgåvor](biztalk-editions-feature-chart.md) för antalet tillåtna anslutningar. 
+* Varje Hybridanslutning har skapats med ett par anslutningssträngar: program-nycklar för att skicka och lokala nycklar som lyssnar. Varje par har en primär och en sekundär nyckel. 
 
-## <a name="LinkWebSite"></a>Länka ditt Azure App Service Webbapp eller Mobilapp
-Om du vill länka en Webbapp eller Mobilapp i Azure App Service till en befintlig Hybridanslutning, Välj **använder en befintlig Hybridanslutning** i bladet Hybridanslutningar. 
+## <a name="LinkWebSite"></a>Länka ditt Azure App Service-Webbapp eller Mobilapp
+Om du vill länka en Webbapp eller Mobilapp i Azure App Service till en befintlig Hybridanslutning, Välj **använda en befintlig anslutning för Hybrid** på bladet Hybrid Connections. 
 <!-- See [Access on-premises resources using hybrid connections in Azure App Service](../app-service-web/web-sites-hybrid-connection-get-started.md). -->
 
-## <a name="InstallHCM"></a>Installera den Hybridanslutningshanteraren lokalt
-När en Hybridanslutning har skapats kan du installera Hybridanslutningshanteraren på den lokala resursen. Du kan hämta från Azure-webbappar eller BizTalk Service. 
+## <a name="InstallHCM"></a>Installera Hybridanslutningshanteraren lokala platser
+När en Hybridanslutning har skapats kan du installera Hybridanslutningshanteraren på lokal resurs. Den kan hämtas från Azure-webbappar eller från BizTalk Service. 
 
 [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
  
@@ -87,10 +87,10 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
   * Windows Server 2012 R2
 * När du har installerat Hybridanslutningshanteraren inträffar följande: 
   
-  * Hybridanslutningen i Azure konfigureras automatiskt för att använda programmet primära anslutningssträngen. 
-  * Den lokala resursen konfigureras automatiskt för att använda primära lokala anslutningssträngen.
-* Hybridanslutningshanteraren måste använda en giltig lokal anslutningssträng för auktorisering. Azure-Webbappar eller Mobilappar måste använda ett giltigt program-anslutningssträngen för auktorisering.
-* Du kan skala Hybridanslutningar genom att installera en annan instans av Hybridanslutningshanteraren på en annan server. Konfigurera lokala lyssnaren för att använda samma adress som den första lokala lyssnaren. I så fall är trafiken slumpmässigt distribuerade (round robin) mellan active lokalt lyssnare. 
+  * Hybridanslutningen finns i Azure konfigureras automatiskt för att använda primär anslutningssträng i programmet. 
+  * Den lokala resursen konfigureras automatiskt för att använda lokal primär anslutningssträng.
+* Hybridanslutningshanteraren måste använda en giltig lokal anslutningssträng för auktorisering. Azure Web Apps eller Mobile Apps måste använda ett giltigt program-anslutningssträngen för auktorisering.
+* Du kan skala Hybrid Connections genom att installera en annan instans av Hybridanslutningshanteraren på en annan server. Konfigurera lokala lyssnaren för att använda samma adress som den första lyssnaren på plats. I det här fallet är trafiken slumpmässigt distribuerade (round robin) mellan de aktiva lokala lyssnarna. 
 
 ## <a name="ManageHybridConnection"></a>Hantera Hybridanslutningar
 
@@ -98,27 +98,27 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 
 [Azure App Service-Hybridanslutningar](../app-service/app-service-hybrid-connections.md) är också en bra resurs.
 
-#### <a name="copyregenerate-the-hybrid-connection-strings"></a>Kopiera/generera Hybrid-anslutningssträngar
+#### <a name="copyregenerate-the-hybrid-connection-strings"></a>Kopiera/återskapa Hybrid-anslutningssträngar
 
 [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)] 
 
 [Azure App Service-Hybridanslutningar](../app-service/app-service-hybrid-connections.md) är också en bra resurs.
 
-#### <a name="use-group-policy-to-control-the-on-premises-resources-used-by-a-hybrid-connection"></a>Använda grupprincipinställningar för att styra vilka lokala resurser som används av en Hybridanslutning
-1. Hämta den [Hybridanslutningshanteraren Administrationsmallar](http://www.microsoft.com/download/details.aspx?id=42963).
+#### <a name="use-group-policy-to-control-the-on-premises-resources-used-by-a-hybrid-connection"></a>Använd grupprinciper för att styra de lokala resurser som används av en Hybridanslutning
+1. Ladda ned den [Hybridanslutningshanteraren Administrationsmallar](https://www.microsoft.com/download/details.aspx?id=42963).
 2. Extrahera filerna.
 3. På den dator som ändrar en Grupprincip, gör du följande:  
    
    * Kopiera den. ADMX-filer till den *%WINROOT%\PolicyDefinitions* mapp.
    * Kopiera den. ADML-filer till den *%WINROOT%\PolicyDefinitions\en-us* mapp.
 
-När de har kopierats, kan du använda redigeraren för att ändra principen.
+Har kopierats kan använda du Redigeraren för att ändra principen.
 
 ## <a name="next"></a>Nästa
-[Översikt över hybrid-anslutningar](integration-hybrid-connection-overview.md)
+[Översikt över hybridanslutningar](integration-hybrid-connection-overview.md)
 
 ## <a name="see-also"></a>Se även
-[REST-API för att hantera BizTalk-tjänster på Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)  
+[REST API för att hantera BizTalk Services i Microsoft Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
 [BizTalk Services: Diagram över utgåvor](biztalk-editions-feature-chart.md)  
 [Skapa en BizTalk-tjänst](biztalk-provision-services.md)  
 [BizTalk Services: Flikarna Instrumentpanel, Övervakare och Skalning](biztalk-dashboard-monitor-scale-tabs.md)

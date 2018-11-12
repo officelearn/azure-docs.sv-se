@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b3b686815b86e28c0473668825b89736b9af5bf1
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: f2e18db7bd1766901ffb36cc74172f4c8414135c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740493"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232901"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Självstudie: Packa upp, ansluta och låsa upp en Azure Data Box-disk
 
@@ -75,7 +75,7 @@ Anslut och lås upp diskarna genom att följa stegen nedan.
     I den här proceduren använder du endast verktyget Data Box Disk Unlock. De andra två verktygen används senare.
 
     > [!div class="nextstepaction"]
-    > [Ladda ned Data Box Disk-verktyg för Windows](http://aka.ms/databoxdisktoolswin)         
+    > [Ladda ned Data Box Disk-verktyg för Windows](https://aka.ms/databoxdisktoolswin)         
 
 3. Extrahera verktygsuppsättningen på samma dator som du använder för att kopiera data. 
 4. Öppna ett kommandotolksfönster eller kör Windows PowerShell som administratör på samma dator.
@@ -131,7 +131,7 @@ Anslut och lås upp diskarna genom att följa stegen nedan.
 2. Ladda ned de Data Box Disk-verktyg som motsvarar Linux-klienten.  
 
     > [!div class="nextstepaction"]
-    > [Ladda ned Data Box Disk-verktyg för Linux](http://aka.ms/databoxdisktoolslinux) 
+    > [Ladda ned Data Box Disk-verktyg för Linux](https://aka.ms/databoxdisktoolslinux) 
 
 3. Öppna en terminal på Linux-klienten. Gå till den mapp där du har laddat ned programvaran. Ändra filbehörigheterna så att du kan använda filerna. Ange följande kommando: 
 

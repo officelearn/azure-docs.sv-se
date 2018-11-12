@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2018
+ms.date: 11/06/2018
 ms.author: genli
-ms.openlocfilehash: 8d1415e996f65f0791b3e449a61fb30053add523
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 937d0be2e86adf00ac2707d5fd57eb905dcea3fb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240213"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238336"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Felsökning: Problem med Azure punkt-till-plats-anslutning
 
@@ -221,7 +221,7 @@ Lös problemet genom att distribuera om punkten till plats paketet på alla klie
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>För många VPN-klienter är anslutna på samma gång
 
-För varje VPN-gateway är det maximala antalet tillåtna anslutningar 128. Du kan se det totala antalet anslutna klienter i Azure-portalen.
+Det maximala antalet tillåtna anslutningar har nåtts. Du kan se det totala antalet anslutna klienter i Azure-portalen.
 
 ## <a name="point-to-site-vpn-incorrectly-adds-a-route-for-100008-to-the-route-table"></a>Punkt-till-plats VPN felaktigt lägger till en väg för 10.0.0.0/8 till i routningstabellen
 
@@ -282,7 +282,7 @@ Lös problemet genom att ta bort de gamla VPN-klientkonfigurationsfilerna från 
 
 ### <a name="symptom"></a>Symtom
 
-När klienten ansluter till Azure med hjälp av punkt-till-plats VPN-anslutning, kan den inte kan lösa FQND resurser i den lokala domänen.
+När klienten ansluter till Azure med hjälp av punkt-till-plats VPN-anslutning, kan den inte kan lösa det fullständiga Domännamnet för resurserna i den lokala domänen.
 
 ### <a name="cause"></a>Orsak
 

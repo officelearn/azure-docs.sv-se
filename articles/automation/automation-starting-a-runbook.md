@@ -9,19 +9,19 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 00143ab1f4aaba0f700e084d9225570c28713d0d
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 020923a76c94b10165e95bb4c5950419595dff0b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42055575"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252351"
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>Starta en runbook i Azure Automation
 Tabellen nedan hjälper dig att fastställa metod för att starta en runbook i Azure Automation som är mest lämpliga för ditt specifika scenario. Den här artikeln innehåller mer information om hur du startar en runbook med Azure-portalen och med Windows PowerShell. Information om de andra metoderna finns i annan dokumentation som du kan komma åt via länkarna nedan.
 
 | **METODEN** | **EGENSKAPER** |
 | --- | --- |
-| [Azure-portalen](#starting-a-runbook-with-the-azure-portal) |<li>Enklaste metoden med interaktivt användargränssnitt.<br> <li>Formulär med enkla parametervärden.<br> <li>Spåra jobbets status.<br> <li>Åtkomst som autentiseras med Azure-inloggningsförfrågningar. |
+| [Azure Portal](#starting-a-runbook-with-the-azure-portal) |<li>Enklaste metoden med interaktivt användargränssnitt.<br> <li>Formulär med enkla parametervärden.<br> <li>Spåra jobbets status.<br> <li>Åtkomst som autentiseras med Azure-inloggningsförfrågningar. |
 | [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/start-azureautomationrunbook) |<li>Anropa från kommandoraden med Windows PowerShell-cmdlets.<br> <li>Kan ingå i automatiserad lösning med flera steg.<br> <li>Begäran har autentiserats med certifikat eller OAuth användarens huvudnamn / service principal.<br> <li>Ange enkla och komplexa parametervärden.<br> <li>Spåra jobbets status.<br> <li>Klient krävs för stöd av PowerShell-cmdletar. |
 | [Azure Automation-API](https://msdn.microsoft.com/library/azure/mt662285.aspx) |<li>Mest flexibla metoden men även de flesta komplexa.<br> <li>Anropa från anpassad kod som kan göra HTTP-förfrågningar.<br> <li>Begäran som autentiserats med certifikat eller Oauth användarens huvudnamn / service principal.<br> <li>Ange enkla och komplexa parametervärden. *Om du anropar en Python-runbook med hjälp av API måste JSON-nyttolasten serialiseras.*<br> <li>Spåra jobbets status. |
 | [Webhooks](automation-webhooks.md) |<li>Starta runbook från HTTP-begäran.<br> <li>Autentiserade med säkerhetstoken i URL: en.<br> <li>Klienten kan inte åsidosätta parametervärden har angetts när webhooken skapas. Runbook kan definiera en enda parameter som fylls i med information för HTTP-begäran.<br> <li>Ingen möjlighet att spåra jobbstatus via webhook-URL. |
@@ -66,7 +66,7 @@ While ($doLoop) {
 Get-AzureRmAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup –Stream Output
 ```
 
-Om runbook kräver parametrar och sedan måste du ange dem som en [hash-tabell](http://technet.microsoft.com/library/hh847780.aspx) där nyckeln för hash-tabellen matchar parameternamnet och värdet är parametervärdet. I följande exempel visas hur du startar en runbook med två strängparametrar som heter FirstName och LastName, ett heltal som heter RepeatCount och en boolesk parameter som heter Show. Mer information om parametrar finns i [Runbookparametrar](#Runbook-parameters) nedan.
+Om runbook kräver parametrar och sedan måste du ange dem som en [hash-tabell](https://technet.microsoft.com/library/hh847780.aspx) där nyckeln för hash-tabellen matchar parameternamnet och värdet är parametervärdet. I följande exempel visas hur du startar en runbook med två strängparametrar som heter FirstName och LastName, ett heltal som heter RepeatCount och en boolesk parameter som heter Show. Mer information om parametrar finns i [Runbookparametrar](#Runbook-parameters) nedan.
 
 ```
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}

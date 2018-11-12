@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.component: tables
-ms.openlocfilehash: b06f5a66566c250eef608ddccc551aaebe24ef74
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: d055ea9b30732e1cc0fc4ae5471bae26adc08b35
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522806"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238904"
 ---
 # <a name="table-design-patterns"></a>Mönster för tabelldesign
 Den här artikeln beskrivs vissa mönster som är lämplig för användning med lösningar för Table service. Dessutom visas hur du praktiskt taget kan lösa vissa problem och kompromisser diskuteras i andra artiklar i Table storage design. Följande diagram sammanfattar relationerna mellan de olika mönster:  
@@ -48,7 +48,7 @@ Om du frågar efter ett intervall med anställdas enheter, du kan ange ett inter
 * Du hittar ID alla anställda på försäljningsavdelningen med en medarbetare i intervallet 000100 000199 användning: $filter = (PartitionKey eq ”försäljning”) och (RowKey ge ”empid_000100”) och (RowKey le 'empid_000199 ”)  
 * Du hittar alla anställda på försäljningsavdelningen med en e-postadress som börjar med bokstaven ”a” Använd: $filter = (PartitionKey eq ”försäljning”) och (RowKey ge ”email_a”) och (RowKey ll ”email_b”)  
   
-  Observera att syntaxen för filtret som används i exemplen ovan är från tabelltjänsten REST API för mer information finns i [fråga entiteter](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+  Observera att syntaxen för filtret som används i exemplen ovan är från tabelltjänsten REST API för mer information finns i [fråga entiteter](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 ### <a name="issues-and-considerations"></a>Problem och överväganden
 Tänk på följande när du bestämmer hur du ska implementera mönstret:  
@@ -104,7 +104,7 @@ Om du frågar efter ett intervall med anställdas enheter, du kan ange ett inter
 * Du hittar alla anställda på försäljningsavdelningen med en anställnings-ID i intervallet **000100** till **000199** sorterade medarbetare ID kunna använda: $filter = (PartitionKey eq ' empid_Sales ”) och (RowKey ge '000100') och (RowKey le '000199 ”)  
 * Du hittar alla anställda på försäljningsavdelningen med en e-postadress som börjar med ”a” i e-postadress kunna använda: $filter = (PartitionKey eq ' email_Sales ”) och (RowKey ge” a ”) och (RowKey ll” b ”)  
 
-Observera att syntaxen för filtret som används i exemplen ovan är från tabelltjänsten REST API för mer information finns i [fråga entiteter](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Observera att syntaxen för filtret som används i exemplen ovan är från tabelltjänsten REST API för mer information finns i [fråga entiteter](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 ### <a name="issues-and-considerations"></a>Problem och överväganden
 Tänk på följande när du bestämmer hur du ska implementera mönstret:  
@@ -617,7 +617,7 @@ En optimal frågan returnerar en enskild entitet baserat på en **PartitionKey**
 
 I sådana situationer bör du alltid helt testa programmets prestanda.  
 
-En fråga till tabelltjänsten kan returnera högst 1 000 entiteter i taget och kan köras i högst fem sekunder. Om resultatet innehåller fler än 1 000 entiteter om frågan inte slutfördes inom fem sekunder, eller om frågan överskrider gränsen för partition, returnerar Table service ett fortsättningstoken för att aktivera klientprogram för att begära en uppsättning entiteter. Mer information om hur fortsättning tokens arbete finns i [tidsgräns för fråga och sidbrytning](http://msdn.microsoft.com/library/azure/dd135718.aspx).  
+En fråga till tabelltjänsten kan returnera högst 1 000 entiteter i taget och kan köras i högst fem sekunder. Om resultatet innehåller fler än 1 000 entiteter om frågan inte slutfördes inom fem sekunder, eller om frågan överskrider gränsen för partition, returnerar Table service ett fortsättningstoken för att aktivera klientprogram för att begära en uppsättning entiteter. Mer information om hur fortsättning tokens arbete finns i [tidsgräns för fråga och sidbrytning](https://msdn.microsoft.com/library/azure/dd135718.aspx).  
 
 Om du använder Storage-klientbiblioteket, hanterar den automatiskt fortsättning token åt dig när den returnerar entiteter från tabelltjänsten. Följande C# kodexemplet använder Storage-klientbiblioteket automatiskt hanterar fortsättning token om table service returnerar dem i ett svar:  
 

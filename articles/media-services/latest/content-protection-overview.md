@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: f8ef92a335dd6faee076356dbffc873b08afbdc0
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 1c7454aead07c728d55ff2c309cca83a792aac88
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394294"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238357"
 ---
 # <a name="content-protection-overview"></a>Content protection-översikt
 
@@ -59,7 +59,7 @@ För att slutföra utformningen ”content protection” system/program, måste 
 
     För testning AES eller CENC (Widevine och/eller PlayReady) krypterat innehåll, du kan använda [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Kontrollera att du klickar på ”Avancerat” och kontrollera dina alternativ för kryptering.
 
-    Om du vill testa FairPlay krypterat innehåll, använda [det här testet player](http://aka.ms/amtest). Media player stöder Widevine, PlayReady, och FairPlay DRM: er samt AES-128 Rensa nyckelkryptering. Du måste välja rätt webbläsaren om du vill testa olika DRM: er: Chrome/Opera/Firefox för Widevine, MS Edge/IE11 för PlayReady, Safari på macOS för FairPlay.
+    Om du vill testa FairPlay krypterat innehåll, använda [det här testet player](https://aka.ms/amtest). Media player stöder Widevine, PlayReady, och FairPlay DRM: er samt AES-128 Rensa nyckelkryptering. Du måste välja rätt webbläsaren om du vill testa olika DRM: er: Chrome/Opera/Firefox för Widevine, MS Edge/IE11 för PlayReady, Safari på macOS för FairPlay.
 
 3. Skydda säkerhetstokentjänst (STS), som utfärdar JSON Web Token (JWT) som åtkomsttoken för åtkomst till serverdelen. Du kan använda AMS-licensleveranstjänster som backend-resurs. En STS har du definiera följande:
 
@@ -149,7 +149,7 @@ I exempel visas hur du:
 
 2. Skapa en StreamingLocator som är konfigurerad för att strömma en krypterad tillgång. 
 
-  Du kan till exempel ange StreamingLocator.StreamingPolicyName till principen ”Predefined_MultiDrmCencStreaming”. Den här principen indikerar att du vill att två innehållsnycklar (kuvert och CENC) ska skapas och ställas in för positioneraren. Krypteringarna för kuvert, PlayReady och Widevine tillämpas därför (nyckeln levereras till uppspelningsklienten utifrån de konfigurerade DRM-licenserna). Om du vill kryptera dataströmmen med CBCS (FairPlay), använder du ”Predefined_MultiDrmStreaming”.
+  Du kan till exempel ange StreamingLocator.StreamingPolicyName till principen ”Predefined_MultiDrmCencStreaming”. Den här principen indikerar att du vill att två innehållsnycklar (kuvert och CENC) ska skapas och ställas in för positioneraren. Krypteringarna för kuvert, PlayReady och Widevine tillämpas därför (nyckeln levereras till uppspelningsklienten utifrån de konfigurerade DRM-licenserna). Om du dessutom vill kryptera strömmen med CBCS (FairPlay) använder du ”Predefined_MultiDrmStreaming”.
 
 3. Skapa en test-token.
 
@@ -168,8 +168,8 @@ Hur och var du vill hämta JWT-token innan det att begäran licens eller nyckel?
 1. Du måste ha en säker Token tjänster (STS) (webbtjänst) som utfärdar JWT-token på en HTTPS-begäran för produktion. För testning kan du använda koden som visas i **GetTokenAsync** metod som definieras i [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
 2. Player behöver du göra en begäran när en användare autentiseras till STS för sådana en token och tilldela den som värde för token. Du kan använda den [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/).
 
-* Ett exempel för att köra STS, med symmetriska och asymmetrisk nyckel finns i [ http://aka.ms/jwt ](http://aka.ms/jwt). 
-* Ett exempel på en spelare baserat på Azure Media Player med hjälp av sådana JWT-token finns i [ http://aka.ms/amtest ](http://aka.ms/amtest) (expandera ”player_settings”-länk om du vill se token indata).
+* Ett exempel för att köra STS, med symmetriska och asymmetrisk nyckel finns i [ http://aka.ms/jwt ](https://aka.ms/jwt). 
+* Ett exempel på en spelare baserat på Azure Media Player med hjälp av sådana JWT-token finns i [ http://aka.ms/amtest ](https://aka.ms/amtest) (expandera ”player_settings”-länk om du vill se token indata).
 
 ### <a name="question"></a>Fråga
 

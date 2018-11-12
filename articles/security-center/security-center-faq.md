@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 10/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: d8313ec66f8b71102e63751e7cf07885c899a7e8
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 16291e4f4915dd6328a2015407fa06dc8f62fba1
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301046"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011892"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Security Center
 Den här vanliga frågor och svar innehåller frågor och svar om Azure Security Center, en tjänst som hjälper dig att förhindra, upptäcka och svara på hot med ökad insyn i och kontroll över säkerheten hos dina Microsoft Azure-resurser.
@@ -45,7 +45,7 @@ Den **kostnadsfria nivån** ger insyn i säkerhetsläget för din Azure-resurser
 Den **standardnivån** lägger till Avancerat funktioner, inklusive hot intelligens, beteendeanalys, avvikelseidentifiering, säkerhetsincidenter och hotidentifiering attribution rapporter. Standardnivån är kostnadsfri de första 60 dagarna. Om du väljer att fortsätta att använda tjänsten efter 60 dagar, börjar vi automatiskt att debitera för tjänsten.  Om du vill uppgradera, Välj [prisnivå](https://docs.microsoft.com/azure/security-center/security-center-pricing) i säkerhetsprincipen.
 
 ## <a name="permissions"></a>Behörigheter
-Azure Security Center använder [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/role-assignments-portal.md), som tillhandahåller [inbyggda roller](../role-based-access-control/built-in-roles.md) som kan tilldelas till användare, grupper och tjänster i Azure.
+I Azure Security Center tillämpas [rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md), vilket innebär att det finns [förinställda roller](../role-based-access-control/built-in-roles.md) som kan ges till användare, grupper och tjänster i Azure.
 
 Security Center utvärderar konfigurationen av dina resurser för att identifiera säkerhetsproblem och säkerhetsproblem. I Security Center kan se du bara information relaterad till en resurs när du har tilldelats rollen ägare, deltagare eller läsare för prenumeration eller resursgrupp som en resurs hör till.
 
@@ -253,7 +253,7 @@ Om du vill ändra en säkerhetsprincip måste du vara en administratör eller ä
 Läs hur du konfigurerar en säkerhetsprincip i [ange säkerhetsprinciper i Azure Security Center](security-center-policies.md).
 
 ### <a name="what-is-a-security-recommendation"></a>Vad är en säkerhetsrekommendation?
-Azure Security Center analyserar säkerhetstillståndet hos dina Azure-resurser. När eventuella säkerhetsproblem identifieras visas skapas rekommendationer. Via rekommendationerna får du genom processen att konfigurera nödvändig kontroll. Exempel är:
+Azure Security Center analyserar säkerhetstillståndet hos dina Azure-resurser. När eventuella säkerhetsproblem identifieras visas skapas rekommendationer. Via rekommendationerna får du genom processen att konfigurera nödvändig kontroll. Några exempel:
 
 * Etablering av program mot skadlig kod för att identifiera och ta bort skadlig programvara
 * [Nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) och regler för trafiken till virtuella datorer
@@ -308,7 +308,7 @@ Fördröjning i Security Center söker efter sårbarheter, uppdateringar, och pr
 - Systemuppdateringar – data uppdateras inom 24 timmar
 - Endpoint Protection utfärdar – data uppdateras inom 8 timmar
 
-Security Center vanligtvis söker efter nya data varje timme. Svarstid värdena ovan är ett värsta scenario där det finns inte en senaste genomsökning eller inte det gick att utföra en genomsökning.
+Security Center kan du vanligtvis söker efter nya data varje timme, och uppdaterar rekommendationer i enlighet med detta. 
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Varför visas meddelandet ”VM-agenten är saknas”?
 VM-agenten måste installeras på virtuella datorer för att aktivera insamling av Data. VM-agenten installeras som standard för virtuella datorer som distribueras från Azure Marketplace. Information om hur du installerar VM-agenten på andra virtuella datorer finns i bloggposten [VM-agenten och tillägg](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).

@@ -1,10 +1,10 @@
 ---
-title: Hur kan följa jobbförloppet med hjälp av REST API | Microsoft Docs
-description: Lär dig hur du kan följa jobbförloppet.
+title: Hur du kontrollerar jobbförloppet med hjälp av REST API | Microsoft Docs
+description: Lär dig hur du följa jobbförloppet.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: a1a1f956-c035-448a-af9c-5ac15fcce9dd
 ms.service: media-services
@@ -12,28 +12,28 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 11/05/2018
 ms.author: juliako
-ms.openlocfilehash: 0065b12c9ee01bddef664e5c78a4e40af759826a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dc78dce667bf00dd6e923b86b9859e29e4a5fde6
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790288"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035007"
 ---
-# <a name="how-to-check-job-progress"></a>Så här: följa jobbförloppet
+# <a name="how-to-check-job-progress"></a>Så här: Kontrollera jobbförlopp
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-check-job-progress.md)
-> * [.NET](media-services-check-job-progress.md)
+> * [NET](media-services-check-job-progress.md)
 > * [REST](media-services-rest-check-job-progress.md)
 > 
 > 
 
-När du kör jobb behöver du ofta ett sätt att spåra jobbförloppet. Du kan ta reda jobbstatus med jobbets status-egenskapen. Mer information om egenskapen tillstånd finns [jobbet Entitetsegenskaper](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties).
+När du kör jobb kräver ofta ett sätt att spåra jobbförloppet. Du kan ta reda på status för jobbet med hjälp av egenskapen för jobbets tillstånd. Läs mer på egenskapen State [jobbet Entitetsegenskaper](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties).
 
 ## <a name="connect-to-media-services"></a>Ansluta till Media Services
 
-Information om hur du ansluter till AMS API: et finns [åtkomst till Azure Media Services-API med Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
+Information om hur du ansluter till AMS API finns i [åtkomst till Azure Media Services-API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
 
 
 ## <a name="check-job-progress"></a>Kontrollera jobbförlopp

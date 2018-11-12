@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
-ms.reviewer: asteen
-ms.openlocfilehash: 98dc3981e0f34ebfe7d8881d77b84cfe252e3f4f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.reviewer: japere
+ms.openlocfilehash: 2d528c04a9301998220b5564330f20ed014b68d6
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357596"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036945"
 ---
-# <a name="problem-installing-the-application-proxy-agent-connector"></a>Problem med att installera den anslutningsprogrammet för Programproxyagenten
+# <a name="problem-installing-the-application-proxy-agent-connector"></a>Problem med att installera anslutningsappen för programproxyagenten
 
 Microsoft AAD Application Proxy Connector är en intern domän-komponent som använder utgående anslutningar för att upprätta en anslutning från tillgängliga molnslutpunkt till den interna domänen.
 
@@ -63,13 +63,13 @@ När en anslutning misslyckas, är den grundläggande orsaken vanligtvis en av f
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Kontrollera att administratören används för att installera connector
 
-**Mål:** Kontrollera att den användare som försöker installera connector är en administratör med rätt autentiseringsuppgifter. För närvarande måste användaren vara en global administratör för att installationen ska lyckas.
+**Mål:** Kontrollera att den användare som försöker installera connector är en administratör med rätt autentiseringsuppgifter. För närvarande måste användaren vara en program-administratören eller global administratör för att installationen ska lyckas.
 
 **För att verifiera autentiseringsuppgifterna är korrekta:**
 
 Ansluta till <https://login.microsoftonline.com> och använda samma autentiseringsuppgifter. Kontrollera att inloggningen är klar. Du kan kontrollera rollen genom att gå till **Azure Active Directory**  - &gt; **användare och grupper**  - &gt; **alla användare**. 
 
-Välj ditt användarkonto, sedan ”Katalogroll” på menyn. Kontrollera att den valda rollen är ”Global administratör”. Om det inte går att få åtkomst till någon av sidorna med de här stegen kan är du inte en global administratör.
+Välj ditt användarkonto, sedan ”Katalogroll” på menyn. Kontrollera att den valda rollen ”programadministratör” eller ”Global administratör”. Om det inte går att få åtkomst till någon av sidorna med de här stegen kan har du inte de nödvändiga rolltjänsterna.
 
 ## <a name="next-steps"></a>Nästa steg
 [Förstå Azure AD Application Proxy-anslutningar](application-proxy-connectors.md)

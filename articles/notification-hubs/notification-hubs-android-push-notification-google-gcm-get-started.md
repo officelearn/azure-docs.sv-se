@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/05/2018
 ms.author: dimazaid
-ms.openlocfilehash: 1e9ed9d3500b112f98492e6a85d02a1f1843c7c3
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: ab47db7629c92b0e6a5b268c9d233135485a37a1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365585"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237729"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging"></a>Självstudier: Skicka push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -46,7 +46,7 @@ I de här självstudierna gör du följande:
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. 
-- [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797).
+- [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797).
 
 ## <a name="creating-a-project-that-supports-google-cloud-messaging"></a>Skapa ett projekt som har stöd för Google Cloud Messaging
 [!INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
@@ -524,7 +524,7 @@ Normalt sett skickar du meddelanden med hjälp av en backend-server. I vissa fal
     private String HubSasKeyName = null;
     private String HubSasKeyValue = null;
     ```
-6. Skapa en SaS-token (Software Access Signature) för att autentisera en POST-begäran för att skicka meddelanden till meddelandehubben. Parsa nyckeluppgifterna från anslutningssträngen och skapa sedan ett SaS-token enligt REST API-referensen [Vanliga koncept](http://msdn.microsoft.com/library/azure/dn495627.aspx). Följande kod är ett exempel på en implementering.
+6. Skapa en SaS-token (Software Access Signature) för att autentisera en POST-begäran för att skicka meddelanden till meddelandehubben. Parsa nyckeluppgifterna från anslutningssträngen och skapa sedan ett SaS-token enligt REST API-referensen [Vanliga koncept](https://msdn.microsoft.com/library/azure/dn495627.aspx). Följande kod är ett exempel på en implementering.
    
     I `MainActivity.java` lägger du till följande metod i klassen `MainActivity` för att parsa anslutningssträngen.
    

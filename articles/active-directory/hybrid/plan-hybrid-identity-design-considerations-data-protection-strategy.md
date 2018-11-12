@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: a3cbbf887c4b7df57f2df89dfb8649967d6d9b1b
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 9f02c6779b3561f6eea57512ecb27dd2fd451d90
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434763"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238156"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definiera en strategi för skydd av data för din hybrididentitetslösning
 I det här steget definierar du strategin för din hybrididentitetslösning att uppfylla affärskrav som du definierade i dataskydd:
@@ -74,7 +74,7 @@ En viktig del av innehållshantering är att förstå vem har åtkomst till vilk
 * Att lägga till eller ta bort licenser
 
 > [!NOTE]
-> Läs [Microsoft Azure-säkerhet och hantering av granskningslogg](http://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) vill veta mer om funktioner för loggning i Azure.
+> Läs [Microsoft Azure-säkerhet och hantering av granskningslogg](https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) vill veta mer om funktioner för loggning i Azure.
 > Beroende på hur du besvarade frågorna i [fastställa krav för innehållshantering](plan-hybrid-identity-design-considerations-contentmgt-requirements.md), du ska kunna avgöra hur du vill att innehållet ska hanteras i din hybrididentitetslösning. Alla alternativ som visas i tabell 6 är kan integreras med Azure AD, är det viktigt att definiera vilket är mer lämpliga för dina affärsbehov.
 >
 >

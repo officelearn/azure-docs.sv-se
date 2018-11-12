@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 3b1fb14fbb21876d0b3f7d98327353d54bb1cfb2
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 56d5f3b480ddb000f9118fbcc36e39817cb0bce8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42022358"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238513"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Jämförelse mellan Azure App Service, Virtual Machines, Service Fabric och Cloud Services
 
@@ -47,7 +47,7 @@ I följande tabell jämförs funktionerna i App Service, Cloud Services, Virtual
 | WebMatrix-stöd |X | |X | | |
 | Åtkomst till tjänster som Service Bus, Storage och SQL Database |X |X |X |X | |
 | Värd för webb- eller webbtjänstnivå i en arkitektur med flera nivåer |X |X |X |X | |
-| Värd för mellannivå i en arkitektur med flera nivåer |X |X |X |X |En App Service-webbapp kan enkelt vara värd för en REST API-mellannivå och [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226)-funktionen kan vara värd för jobb som bearbetas i bakgrunden. Du kan köra WebJobs på en dedikerad webbplats för att få oberoende skalbarhet för nivån. |
+| Värd för mellannivå i en arkitektur med flera nivåer |X |X |X |X |En App Service-webbapp kan enkelt vara värd för en REST API-mellannivå och [WebJobs](https://go.microsoft.com/fwlink/?linkid=390226)-funktionen kan vara värd för jobb som bearbetas i bakgrunden. Du kan köra WebJobs på en dedikerad webbplats för att få oberoende skalbarhet för nivån. |
 | Integrerat stöd för MySQL som en tjänst |X |X | | | |
 | Stöd för ASP.NET, klassisk ASP, Node.js, PHP, Python |X |X |X |X |Service Fabric stöder skapande av frontwebb med [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) eller så kan du distribuera valfri programtyp (Node.js, Java m.m.) som en [körbar gästfil](../service-fabric/service-fabric-guest-executables-introduction.md). |
 | Skala ut till flera instanser utan omdistribution |X |X |X |X |Virtual Machines kan skala ut till flera instanser, men tjänsterna som körs på dem måste skrivas om för att hantera utskalningen. Du måste konfigurera en lastbalanserare för att dirigera begäranden mellan datorerna och kontrollera att du har fler än en VM-instans i [tillgänglighetsuppsättningen](../virtual-machines/windows/manage-availability.md). |

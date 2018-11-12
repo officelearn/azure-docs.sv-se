@@ -1,6 +1,6 @@
 ---
-title: Felsöka din distribution till Kubernetes (K8) till Azure Stack | Microsoft Docs
-description: Lär dig hur du felsöker din distribution till Kubernetes (K8) till Azure Stack.
+title: Felsöka din distribution till Kubernetes i Azure Stack | Microsoft Docs
+description: Lär dig hur du felsöker din distribution till Kubernetes i Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 7071e22d703ab7ec3a51eff02d1694fc04cb3417
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: f7f23a6d645a1d8e16e42e751050d8d91b49e2b3
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231244"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007833"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Felsöka din distribution till Kubernetes i Azure Stack
 
@@ -28,11 +28,11 @@ ms.locfileid: "50231244"
 > [!Note]  
 > Kubernetes på Azure Stack är en förhandsversion.
 
-I följande artikel tittar på felsökning av ditt Kubernetes-kluster. Du kan granska aviseringen för distribution och granska statusen för distributionen genom att titta på de element som krävs för distributionen. Du kan behöva samlar in distributionsloggarna från Azure Stack- eller Linux-datorer som är värdar för Kubernetes. Du kan dessutom behöva arbeta med Azure Stack-administratören om du vill hämta loggar från en administrativ slutpunkt.
+I följande artikel tittar på felsökning av ditt Kubernetes-kluster. Du kan granska aviseringen för distribution och granska statusen för distributionen av element som krävs för distributionen. Du kan behöva samlar in distributionsloggarna från Azure Stack- eller Linux-datorer som är värdar för Kubernetes. Du kan också behöva arbeta med Azure Stack-administratören om du vill hämta loggar från en administrativ slutpunkt.
 
 ## <a name="overview-of-deployment"></a>Översikt över distribution
 
-Innan du får i steg du felsöker ditt kluster kan du granska distributionsprocessen för Azure Stack Kubernetes-kluster. Distributionen använder en lösningsmall för Azure Resource Manager-för att skapa de virtuella datorerna och installerar ACS-motor för klustret.
+Innan du felsöker ditt kluster, kanske du vill granska distributionsprocessen för Azure Stack Kubernetes-kluster. Distributionen använder en lösningsmall för Azure Resource Manager-för att skapa de virtuella datorerna och installera ACS-motor för klustret.
 
 ### <a name="deployment-workflow"></a>Arbetsflöde för distribution
 
@@ -42,72 +42,72 @@ Följande diagram visar den allmänna processen för att distribuera klustret.
 
 ### <a name="deployment-steps"></a>Distributionssteg
 
-1. Samlar in indataparametrar från marketplace-objekt.
+1. Samla in indataparametrar från marketplace-objekt.
 
-    Ange de värden som du behöver du ställer in Kubernetes-kluster för inklusive:
-    -  **Användarnamn** användarnamn för Linux-datorer som ingår i Kubernetes-klustret och DVM.
-    -  **Offentlig SSH-nyckel** den nyckel som används för alla Linux-datorer som skapats som en del av Kubernetes-kluster och DVM godkännande
-    -  **Tjänsten princip** ID. används av providern för Kubernetes Azure-molnet. Klient-ID har identifierats som program-ID när du har skapat tjänsten huvudnamn. 
-    -  **Klienthemlighet** de nycklar som du skapade när du skapar tjänstens huvudnamn.
+    Ange de värden som du behöver ställa in Kubernetes-kluster, inklusive:
+    -  **Användarnamnet**: användarnamn för Linux-datorer som ingår i Kubernetes-kluster och DVM.
+    -  **Offentlig SSH-nyckel**: den nyckel som används för godkännande av alla Linux-datorer som har skapats som en del av Kubernetes-kluster och DVM.
+    -  **Tjänsten princip**: ID som används av providern för Kubernetes Azure-molnet. Klient-ID som identifieras som program-ID när du skapade tjänstens huvudnamn. 
+    -  **Klienthemlighet**: de nycklar som du skapade när du har skapat tjänstens huvudnamn.
 
-2. Skapar distribution VM och tillägget för anpassat skript.
-    -  Skapar distribution Linux VM med hjälp av marketplace-avbildning för Linux **Ubuntu Server 16.04-LTS**.
-    -  Hämta och kör kundskriptstillägget från marketplace. Skriptet är den **anpassat skript för Linux 2.0**.
-    -  Kör det anpassade skriptet DVM. Skriptet:
+2. Skapa VM-distribution och tillägget för anpassat skript.
+    -  Skapa distribution Linux VM med hjälp av Linux-avbildning marketplace **Ubuntu Server 16.04-LTS**.
+    -  Hämtar och kör kundskriptstillägget från marketplace. Skriptet är **anpassat skript för Linux 2.0**.
+    -  Kör DVM anpassade skript. Skriptet utför följande uppgifter:
         1. Hämtar slutpunkt för galleri från Azure Resource Manager metadataslutpunkt.
         2. Hämtar active directory-resurs-ID från Azure Resource Manager metadataslutpunkt.
         3. Läser in API-modellen för ACS-motor.
         4. Distribuerar ACS-Engine till Kubernetes-klustret och sparar profilen för Azure Stack-molnet till `/etc/kubernetes/azurestackcloud.json`.
-3. Skapar överordnade virtuella datorer.
+3. Skapa överordnade virtuella datorer.
 
-    Hämtar och kör kundskriptstillägget.
+4. Hämta och kör kunden skripttillägg.
 
-4. Kör skriptet master.
+5. Kör skriptet master.
 
-    Skriptet:
-    - Installerar etcd, Docker och Kubernetes resurser, till exempel kubelet. etcd är en distribuerad nyckelvärde som gör det möjligt att lagra data i ett kluster med datorer. Docker har stöd för utan ben operativsystemet på virtualizations kallas behållare. Kubelet är noden agenten som körs på varje nod i Kubernetes.
+    Skriptet utför följande uppgifter:
+    - Installerar etcd, Docker och Kubernetes resurser, till exempel kubelet. etcd är en distribuerad nyckelvärde som gör det möjligt att lagra data i ett kluster med datorer. Docker har stöd för utan ben operativsystemet på servernivå virtualizations kallas behållare. Kubelet är noden agenten som körs på varje nod i Kubernetes.
     - Ställer in etcd-tjänsten.
-    - Ställer in Kubelet-tjänsten.
-    - Startar kubelet. Detta omfattar följande:
-        1. Startar API-tjänsten.
-        2. Startar tjänsten Controller.
+    - Ställer in kubelet-tjänsten.
+    - Startar kubelet. Detta omfattar följande steg:
+        1. Startar tjänsten API.
+        2. Startar tjänsten controller.
         3. Startar tjänsten Schemaläggaren.
-5. Skapar virtuella datorer för agenten.
+6. Skapa virtuella datorer för agenten.
 
-    Hämtar och kör kundskriptstillägget.
+7. Hämtar och kör kundskriptstillägget.
 
-6. Kör skript för agenten. Det anpassade skriptet för agenten:
-    - Installera etcd.
-    - Konfigurera Kubelet-tjänst.
-    - Ansluter till Kubernetes-klustret.
+7. Kör skriptet agent. Det anpassade skriptet för agenten har följande uppgifter:
+    - Installerar etcd
+    - Ställer in kubelet-tjänsten
+    - Ansluter till Kubernetes-kluster
 
 ## <a name="steps-for-troubleshooting"></a>Anvisningar för att felsöka
 
-Du kan samla in loggar på de virtuella datorerna som stöd för Kubernetes-klustret. Du kan också granska loggen för distribution. Du kan också behöva kontakta Azure Stack-administratören att kontrollera vilken version av Azure Stack som du använder och för att hämta loggar från Azure Stack som är relevanta för din distribution.
+Du kan samla in loggar på de virtuella datorerna som har stöd för Kubernetes-klustret. Du kan också granska loggen för distribution. Du kan behöva tala med din Azure Stack-administratör för att kontrollera vilken version av Azure Stack som du behöver för att använda och hämta loggar från Azure Stack som är relaterade till din distribution.
 
 1. Granska den [Distributionsstatus](#review-deployment-status) och [hämta loggarna](#get-logs-from-a-vm) från huvudnoden i Kubernetes-klustret.
-2. Du måste använda den senaste versionen av Azure Stack. Om du är osäker på din version av Azure Stack kan du kontakta administratören för Azure Stack. Kubernetes-kluster marketplace tiden 0.3.0-betaversionen kräver Azure Stack-version 1808 eller senare.
-3.  Granska dina filer för virtuell dator skapas. Du kan ha uppstått följande problem:  
-    - Den offentliga nyckeln kan vara ogiltig. Granska den nyckel som du har skapat.  
-    - Skapa en virtuell dator kan ha utlöses ett internt fel eller utlöses ett fel när skapades. Fel kan ha orsakats av ett antal faktorer, bland annat kapacitetsbegränsningar för Azure Stack-prenumerationen.
-    - Börjar det fullständigt kvalificerade domännamnet (fullständigt domännamn) för den virtuella datorn med dubbla prefixet?
+2. Var noga med att du använder den senaste versionen av Azure Stack. Om du är osäker på vilken version du använder administratören Azure Stack. Kubernetes-kluster marketplace tid 0.3.0-betaversionen kräver Azure Stack-version 1808 eller senare.
+3.  Granska dina filer för virtuell dator skapas. Du kanske har haft följande problem:  
+    - Den offentliga nyckeln kan vara ogiltig. Granska den nyckel som du skapade.  
+    - Skapa en virtuell dator kan ha utlöses ett internt fel eller utlöses ett fel när skapades. Ett antal faktorer kan orsaka sådana fel, inklusive kapacitetsbegränsningar för Azure Stack-prenumerationen.
+    - Se till att det fullständigt kvalificerade domännamnet (fullständigt domännamn) för den virtuella datorn börjar med en duplicerad prefix.
 4.  Om den virtuella datorn är **OK**, sedan utvärderar DVM. Om DVM har ett felmeddelande visas:
 
-    - Den offentliga nyckeln kan vara ogiltig. Granska den nyckel som du har skapat.  
-     - Du behöver kontakta Azure Stack-administratören om du vill hämta loggar för Azure Stack med hjälp av de Privilegierade slutpunkterna. Mer information finns i [Azure Stack diagnosverktyg](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostics).
-5. Om du har frågor om distributionen kan du publicera din fråga eller se om någon redan har besvarat frågan i den [Azure Stack-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
+    - Den offentliga nyckeln kan vara ogiltig. Granska den nyckel som du skapade.  
+    - Du måste kontakta Azure Stack-administratören om du vill hämta loggar för Azure Stack med hjälp av Privilegierade slutpunkter. Mer information finns i [Azure Stack diagnosverktyg](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostics).
+5. Om du har en fråga om distributionen kan du publicera den eller se om någon redan har besvarat frågan i den [Azure Stack-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 ## <a name="review-deployment-status"></a>Granska status för distribution
 
-Du kan granska status för distribution när du distribuerar Kubernetes-klustret att granska eventuella problem.
+När du distribuerar ett Kubernetes-kluster kan granska du distributionsstatusen för om eventuella problem.
 
 1. Öppna den [Azure Stack-portalen](https://portal.local.azurestack.external).
-2. Välj **resursgrupper**, och sedan väljer du namnet på resursgruppen användas när du distribuerar Kubernetes-klustret.
-3. Välj **distributioner** och sedan den **distributionsnamn**.
+2. Välj **resursgrupper**, och välj sedan namnet på resursgruppen som du använde när du distribuerar Kubernetes-klustret.
+3. Välj **distributioner**, och välj sedan den **distributionsnamn**.
 
     ![Felsökning](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
 
-4.  Läs fönstret felsökning. Alla distribuerade resurser innehåller följande information.
+4.  Läs fönstret felsökning. Alla distribuerade resurser innehåller följande information:
     
     | Egenskap  | Beskrivning |
     | ----     | ----        |
@@ -115,21 +115,23 @@ Du kan granska status för distribution när du distribuerar Kubernetes-klustret
     | Typ | Resursprovidern och typ av resurs. |
     | Status | Status för objektet. |
     | Tidsstämpel | UTC-tidsstämpel av tiden. |
-    | Åtgärdsinformation | Åtgärdsinformationen som till exempel resursprovidern som ingår i åtgärden, resurs-slutpunkten och namnet på resursen. |
+    | Åtgärdsinformation | Åtgärdsinformationen som till exempel resursprovidern som ingick i åtgärden, resurs-slutpunkten och namnet på resursen. |
 
-    Varje objekt har en statusikon grön eller röd.
+    Varje objekt har en statusikon av grönt eller rött.
 
 ## <a name="get-logs-from-a-vm"></a>Hämta loggar från en virtuell dator
 
-Du behöver ansluta till Virtuella huvuddatorn för klustret, öppna en bash-kommandotolk, och köra ett skript för att generera loggarna. Huvudservern finns i klusterresursgruppen och har namnet `k8s-master-<sequence-of-numbers>`. 
+För att generera loggarna måste ansluta till Virtuella huvuddatorn för klustret, öppna en bash-kommandotolk och köra ett skript. Master VM finns i klusterresursgruppen och har namnet `k8s-master-<sequence-of-numbers>`. 
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-Du behöver en bash fråga din användning för att hantera Azure Stack på datorn. Använd bash för att köra skript som har åtkomst till loggarna. Du kan använda installeras med Git bash-Kommandotolken på en Windows-dator. Om du vill hämta den senaste versionen av git, se [git hämtar](https://git-scm.com/downloads).
+Du behöver en bash fråga på den dator som används för att hantera Azure Stack. Använd bash för att köra skript som har åtkomst till loggarna. Du kan använda som installeras med Git bash-Kommandotolken på en Windows-dator. Om du vill hämta den senaste versionen av git, se [Git hämtar](https://git-scm.com/downloads).
 
 ### <a name="get-logs"></a>Hämta loggar
 
-1. Öppna en bash-Kommandotolken. Om du använder git på en Windows-dator kan du öppna en bash-Kommandotolken från följande sökväg: `c:\programfiles\git\bin\bash.exe`.
+Om du vill hämta loggar, gör du följande:
+
+1. Öppna en bash-Kommandotolken. Om du använder Git på en Windows-dator, kan du öppna en bash-Kommandotolken från följande sökväg: `c:\programfiles\git\bin\bash.exe`.
 2. Kör följande bash-kommandon:
 
     ```Bash  
@@ -140,23 +142,23 @@ Du behöver en bash fråga din användning för att hantera Azure Stack på dato
     ```
 
     > [!Note]  
-    > På Windows, behöver du inte köra `sudo` och kan bara använda `chmod 744 getkuberneteslogs.sh`.
+    > På Windows, behöver du inte köra `sudo`. I stället kan du bara använda `chmod 744 getkuberneteslogs.sh`.
 
-3. I samma session, kör du följande kommando med parametrar uppdateras så att den matchar din miljö.
+3. I samma session, kör du följande kommando med parametrar uppdateras så att den matchar din miljö:
 
     ```Bash  
     ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmdhost 192.168.102.37
     ```
 
-    Granska parametrarna och ange värden baserat på din miljö.
+4. Granska parametrarna och ange värden baserat på din miljö.
     | Parameter           | Beskrivning                                                                                                      | Exempel                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -i,--identity-fil | Filen RSA privat nyckel för att ansluta kubernetes master VM. Nyckeln måste börja med `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.PEM                                                        |
-    | h-,--värd          | Den offentliga IP-adressen eller det fullständigt kvalificerade domännamnet (FQDN) för Kubernetes-kluster huvudservern VM. VM-namnet börjar med `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
-    | -u,--användare          | Användarnamn för Kubernetes-kluster huvudservern VM. Du kan ställa in det här namnet när du konfigurerar marketplace-objekt.                                                                    | azureuser                                                                     |
-    | -d,--vmdhost       | Den offentliga IP-adressen eller det fullständiga Domännamnet för DVM. VM-namnet börjar med `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
+    | -i,--identity-fil | RSA filen för privat nyckel att ansluta den Kubernetes-Virtuellt huvuddatorn. Nyckeln måste börja med `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.PEM                                                        |
+    | h-,--värd          | Den offentliga IP-Adressen eller det fullständigt kvalificerade domännamnet (FQDN) för Kubernetes-kluster huvudservern VM. VM-namnet börjar med `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
+    | -u,--användare          | Användarnamn för Kubernetes-kluster huvudservern VM. Du kan ange det här namnet när du konfigurerar marketplace-objekt.                                                                    | azureuser                                                                     |
+    | -d,--vmdhost       | Den offentliga IP-Adressen eller det fullständiga Domännamnet för DVM. VM-namnet börjar med `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
 
-   När du lägger till din parametervärdena kan det se ut ungefär som:
+   När du lägger till parametervärden kan det se ut ungefär som följande kod:
 
     ```Bash  
     ./getkuberneteslogs.sh --identity-file "C:\secretsecret.pem" --user azureuser --vmdhost 192.168.102.37
@@ -167,15 +169,15 @@ Du behöver en bash fråga din användning för att hantera Azure Stack på dato
     ![Genererade loggar](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-generated-logs.png)
 
 
-4. Hämta loggarna i mappar som skapas av kommandot. Kommandot skapar en ny mapp och tidsstämpeln den.
+4. Hämta loggarna i mappar som har skapats av kommandot. Kommandot skapar nya mappar och tidsstämpel för dem.
     - KubernetesLogs*YYYY-MM-DD-XX-XX-XX-XXX*
         - Dvmlogs
         - Acsengine-kubernetes-dvm.log
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Distribuera Kubernetes till Azure Stack](azure-stack-solution-template-kubernetes-deploy.md).
+[Distribuera Kubernetes till Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)
 
-[Lägga till ett Kubernetes i Marketplace (för Azure Stack-operatör)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[Lägga till ett Kubernetes-kluster i Marketplace (för Azure Stack-operatör)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Kubernetes på Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

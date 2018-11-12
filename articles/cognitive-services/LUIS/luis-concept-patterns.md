@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fbd11eb23b10800e115a63549f233e0239763420
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 09c869bf28b804d8fabe331c4a9c2d222accc1e5
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638161"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300378"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Mönster förbättra prognosens noggrannhet
 Mönster är utformade för att förbättra noggrannheten när flera uttryck är mycket lika.  Ett mönster kan du få mer precision för en avsikt utan att ange många fler yttranden. 
@@ -89,7 +89,7 @@ Att lägga till en **Pattern.any** entiteten i mallen mönstret omger Pattern.an
 I det här boken rubrik är sammanhangsberoende orden i rubriken för boken inte förvirrande för LUIS. LUIS vet var Bokens titel slutar eftersom den är i ett mönster och markeras med en Pattern.any entitet.
 
 ### <a name="explicit-lists"></a>Explicit listor
-Om mönstret innehåller en Pattern.any och syntaxen mönstret gör möjligheten för ett ogiltigt entitetextrahering baserat på uttryck kan skapa en [Explicit lista](https://aka.ms/ExplicitList) via redigering API för att tillåta undantag. 
+Om mönstret innehåller en Pattern.any och syntaxen mönstret gör möjligheten för ett ogiltigt entitetextrahering baserat på uttryck kan skapa en [Explicit lista](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8) via redigering API för att tillåta undantag. 
 
 Anta exempelvis att du har ett mönster som innehåller både valfria syntax `[]`, och entiteten syntax `{}`, kombinerade på ett sätt att extrahera data felaktigt.
 
@@ -102,7 +102,7 @@ Att kartlägga mönstret ”[Sök efter] e-post om {ämne} [från {namn}]. I fö
 
 I den föregående tabellen gäller uttryck `email about the man from La Mancha`, ämnet bör vara `the man from La Mancha` (en bok rubrik) men eftersom ämnet innehåller valfria ordet `from`, rubriken felaktigt förväntas. 
 
-Åtgärda det här undantaget i mönstret genom att lägga till `the man from la mancha` som en explicit lista matchning för entiteten {subject} med den [redigering API för explicit lista](https://aka.ms/ExplicitList).
+Åtgärda det här undantaget i mönstret genom att lägga till `the man from la mancha` som en explicit lista matchning för entiteten {subject} med den [redigering API för explicit lista](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8).
 
 ### <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>Syntaxen för att markera valfri text i en mall-uttryck
 Markera valfri text i uttryck som använder syntax för reguljära uttryck hakparentes, `[]`. Valfri text kan kapsla hakparenteser upp till två hakparenteser.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 85a493e05fb87292f303bccdcef65d119223bc76
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 34648426086bdd67f19ec227ddf0d931f3837c0d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698621"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238003"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Distribuera en lokal StorSimple-enhet (Update 3 och senare)
 
@@ -51,7 +51,7 @@ Utför dessa obligatoriska steg för att konfigurera StorSimple-enheten och ansl
 | [Steg 2: Hämta tjänstregistreringsnyckeln](#step-2-get-the-service-registration-key) |Använd nyckeln för att registrera och ansluta din StorSimple-enhet till hanteringstjänsten. |
 | [Steg 3: Konfigurera och registrera enheten via Windows PowerShell för StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |Anslut enheten till nätverket och registrera den med Azure för att slutföra installationen med hjälp av hanteringstjänsten. |
 | [Steg 4: Slutför de minsta enhetsinställningarna](#step-4-complete-minimum-device-setup)</br>[Bäst praxis: Uppdatera din StorSimple-enhet](#scan-for-and-apply-updates) |Använd hanteringstjänsten för att slutföra installationen av enheten och aktivera den för att tillhandahålla lagring. |
-| [Steg 5: Skapa en volymbehållare](#step-5-create-a-volume-container) |Skapa en behållare för att etablera volymer. En volymbehållare har lagringskonto, bandbredd och krypteringsinställningar för de volymer som finns i den. |
+| [Steg 5: Skapa en volymcontainer](#step-5-create-a-volume-container) |Skapa en container för att etablera volymer. En volymcontainer har lagringskonto, bandbredd och krypteringsinställningar för de volymer som finns i den. |
 | [Steg 6: Skapa en volym](#step-6-create-a-volume) |Etablera lagringsvolymer på StorSimple-enheten för dina servrar. |
 | [Steg 7: Montera, initiera och formatera en volym](#step-7-mount-initialize-and-format-a-volume)</br>[Valfritt: Konfigurera MPIO](storsimple-8000-configure-mpio-windows-server.md) |Anslut dina servrar till den iSCSI-lagring som ingår i enheten. Du kan även välja att konfigurera MPIO för att säkerställa att dina servrar kan tolerera fel på länkar, nätverk och gränssnitt. |
 | [Steg 8: Ta en säkerhetskopia](#step-8-take-a-backup) |Konfigurera din säkerhetskopieringsprincip för att skydda dina data |
@@ -66,7 +66,7 @@ Utför dessa obligatoriska steg för att konfigurera StorSimple-enheten och ansl
 ## <a name="deployment-configuration-checklist"></a>Checklista för distributionskonfiguration
 Innan du distribuerar enheten måste du samla in information för att konfigurera programvaran på StorSimple-enheten. Det blir lättare att distribuera StorSimple-enheten i din miljö om en del av den här informationen förbereds i förväg. Hämta och använd den här checklistan för att notera konfigurationsinformationen när du distribuerar din enhet.
 
-* [Hämta konfigurationschecklistan för StorSimple-distributionen](http://www.microsoft.com/download/details.aspx?id=49159)
+* [Hämta konfigurationschecklistan för StorSimple-distributionen](https://www.microsoft.com/download/details.aspx?id=49159)
 
 ## <a name="deployment-prerequisites"></a>Distributionskrav
 I följande avsnitt beskrivs konfigurationskraven för StorSimple Device Manager-tjänsten och StorSimple-enheten.
@@ -99,7 +99,7 @@ En StorSimple Device Manager-tjänst kan hantera flera StorSimple-enheter. Skapa
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-8000-create-new-service.md)]
 
 > [!IMPORTANT]
-> Om du inte har aktiverat automatiskt skapande av lagringskonton med din tjänst måste du skapa minst ett lagringskonto efter att du har skapat en tjänst. Det här lagringskontot används när du skapar en volymbehållare.
+> Om du inte har aktiverat automatiskt skapande av lagringskonton med din tjänst måste du skapa minst ett lagringskonto efter att du har skapat en tjänst. Det här lagringskontot används när du skapar en volymcontainer.
 >
 > * Om du inte har skapat ett lagringskonto automatiskt går du till [Konfigurera ett nytt lagringskonto för tjänsten](#configure-a-new-storage-account-for-the-service) för detaljerade anvisningar.
 > * Om du har aktiverat automatiskt skapande av ett lagringskonto går du till [steg 2: hämta nyckel för tjänstregistrering](#step-2-get-the-service-registration-key).
@@ -130,15 +130,15 @@ Konfigurera de minsta enhetsinställningar som krävs genom att följa stegen ne
 
 När du slutför den minimala enhetsinstallationen är det en bra idé att [söka efter och installera de senaste uppdateringarna](#scan-for-and-apply-updates).
 
-## <a name="step-5-create-a-volume-container"></a>Steg 5: Skapa en volymbehållare
-En volymbehållare har lagringskonto, bandbredd och krypteringsinställningar för de volymer som finns i den. Du måste skapa en volymbehållare innan du kan börja etablera volymer på StorSimple-enheten.
+## <a name="step-5-create-a-volume-container"></a>Steg 5: Skapa en volymcontainer
+En volymcontainer har lagringskonto, bandbredd och krypteringsinställningar för de volymer som finns i den. Du måste skapa en volymcontainer innan du kan börja etablera volymer på StorSimple-enheten.
 
-Skapa en volymbehållare genom att utföra stegen nedan på Azure Portal.
+Skapa en volymcontainer genom att utföra stegen nedan på Azure Portal.
 
 [!INCLUDE [storsimple-8000-create-volume-container](../../includes/storsimple-8000-create-volume-container.md)]
 
 ## <a name="step-6-create-a-volume"></a>Steg 6: Skapa en volym
-När du har skapat en volymbehållare kan du etablera en lagringsvolym på StorSimple-enheten för dina servrar. Skapa en volym genom att utföra stegen nedan på Azure Portal.
+När du skapar en volymcontainer kan du etablera du en lagringsvolym på StorSimple-enheten för dina servrar. Skapa en volym genom att utföra stegen nedan på Azure Portal.
 
 > [!IMPORTANT]
 > StorSimple Device Manager kan både skapa tunna eller helt allokerade volymer. Du kan dock inte skapa delvis allokerade volymer.
@@ -170,7 +170,7 @@ Du kan utföra en manuell säkerhetskopiering när som helst. Gå till [Skapa en
 Du har slutfört enhetskonfigurationen.
 
 ## <a name="configure-a-new-storage-account-for-the-service"></a>Konfigurera ett nytt lagringskonto för tjänsten
-Det här är ett valfritt steg som du endast måste utföra om du inte har aktiverat automatiskt skapande av lagringskonton med din tjänst. Ett Microsoft Azure-lagringskonto krävs för att skapa en behållare för StorSimple-volymer.
+Det här är ett valfritt steg som du endast måste utföra om du inte har aktiverat automatiskt skapande av lagringskonton med din tjänst. Ett Microsoft Azure-lagringskonto krävs för att skapa en container för StorSimple-volymer.
 
 Om du behöver skapa ett Azure-lagringskonto i en annan region finns stegvisa instruktioner i [Om Azure lagringskonton](../storage/common/storage-create-storage-account.md).
 

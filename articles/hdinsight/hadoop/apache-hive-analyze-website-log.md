@@ -2,19 +2,19 @@
 title: Använda Hive med Hadoop för webbplatslogganalys - Azure HDInsight
 description: Lär dig använda Hive med HDInsight för att analysera webbplatsloggar. Du använder en loggfil som indata till ett HDInsight-tabell och Använd HiveQL för att fråga efter data.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/17/2016
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 47175ed4bc01a43d1f21cbfc84b8a788f11b7338
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c0a15bacd3aaf97a3caa54ee8bf70a9c4cf54663
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048032"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233606"
 ---
 # <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Använda Hive med Windows-baserade HDInsight för att analysera loggar från webbplatser
 Lär dig använda HiveQL med HDInsight för att analysera loggar från en webbplats. Webbplatslogganalys kan användas för att segmentera målgruppen utifrån liknande aktiviteter, kategorisera besökarna genom demografi och ta reda på innehållet de vy, de kommer från webbplatser och så vidare.
@@ -34,7 +34,7 @@ I det här exemplet använder du ett HDInsight-kluster för att analysera webbpl
 ## <a name="prerequisites"></a>Förutsättningar
 * Du måste har etablerat ett Hadoop-kluster på Azure HDInsight. Anvisningar finns i [etablera HDInsight-kluster](../hdinsight-hadoop-provision-linux-clusters.md).
 * Du måste ha Microsoft Excel 2013 eller Excel 2010 installerat.
-* Du måste ha [Microsoft Hive ODBC-drivrutin](http://www.microsoft.com/download/details.aspx?id=40886) att importera data från Hive till Excel.
+* Du måste ha [Microsoft Hive ODBC-drivrutin](https://www.microsoft.com/download/details.aspx?id=40886) att importera data från Hive till Excel.
 
 ## <a name="to-run-the-sample"></a>Att köra exemplet
 1. Från den [Azure-portalen](https://portal.azure.com/), från startsidan (om du har fäst klustret det), klickar du på klusterikonen som du vill köra exemplet.

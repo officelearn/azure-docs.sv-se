@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: a5d031622103183fa9aa7a3f3771a055fc16edb2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 632558760d0b4a00384763cc30de3b9241bb1ae6
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049984"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300174"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrera ett aktivt DNS-namn till Azure App Service
 
@@ -60,6 +60,13 @@ TXT-posten som du behöver beror på DNS-posten som du vill migrera. Exempel fin
 | \* (med jokertecken) | _awverify.\*_ | _&lt;AppName >. azurewebsites.net_ |
 
 Observera postens typ av DNS-namnet som du vill migrera på sidan DNS-poster. App Service stöder mappningar från CNAME- och A-poster.
+
+> [!NOTE]
+> För vissa leverantörer, till exempel CloudFlare, `awverify.*` är inte en giltig post. Använd `*` endast i stället.
+
+> [!NOTE]
+> Jokertecken `*` poster inte att valideras underdomäner med ett befintligt CNAME-post. Du kan behöva skapa en TXT-post för varje underdomän explicit.
+
 
 ### <a name="enable-the-domain-for-your-app"></a>Aktivera domänen för din app
 

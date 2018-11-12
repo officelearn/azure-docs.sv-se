@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2018
 ms.author: mabrigg
-ms.openlocfilehash: ae6539900e201f0559d998ad2d9be24c39d42e3b
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 608525a1f06a396c7df7d764f236f33af77dccc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713501"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235351"
 ---
 # <a name="storage-accounts-in-azure-stack"></a>Lagringskonton i Azure Stack
 Lagringskonton omfattar Blob- och tabelltjänster och det unika namnområdet för dina lagrade dataobjekt. Som standard är data i ditt konto endast tillgängliga för dig, kontoägaren.
@@ -38,4 +38,4 @@ Lagringskonton omfattar Blob- och tabelltjänster och det unika namnområdet fö
 
 [Lär dig mer om Azure storage-konton](../storage/common/storage-create-storage-account.md)
 
-[Ladda ned guiden för Azure Stack Azure-konsekvent verifiering](http://aka.ms/azurestacktp1doc)
+[Ladda ned guiden för Azure Stack Azure-konsekvent verifiering](https://aka.ms/azurestacktp1doc)

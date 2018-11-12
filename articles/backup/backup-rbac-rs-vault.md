@@ -6,14 +6,14 @@ author: trinadhk
 manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/11/2018
+ms.date: 11/1/2018
 ms.author: trinadhk
-ms.openlocfilehash: f293f642db2bd526e761ff570ce97a33845808b7
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: cf06fc9c12493e208832596a27b479dc9dfea942
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412813"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011331"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Använda rollbaserad åtkomstkontroll för att hantera Azure Backup-återställningspunkter
 Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkomsthantering för Azure. Med hjälp av RBAC kan du hålla isär uppgifter i ditt team och bevilja endast den omfattning av åtkomst till användare som de behöver för att utföra sitt arbete.
@@ -40,23 +40,27 @@ Följande tabell visar de hanteringsåtgärder för säkerhetskopiering och mots
 | Aktivera säkerhetskopiering av virtuella Azure-datorer | Säkerhetskopieringsoperatör | Resursgruppen som innehåller valvet |
 | | Virtuell datordeltagare | VM-resurs |
 | Säkerhetskopiering på begäran för virtuell dator | Säkerhetskopieringsoperatör | Recovery vault-resursen |
-| Återställa en virtuell dator | Säkerhetskopieringsoperatör | Resursgruppen där virtuella datorn ska distribueras |
+| Återställa en virtuell dator | Säkerhetskopieringsoperatör | Recovery Services-valv |
 | | Virtuell datordeltagare | Resursgruppen där virtuella datorn ska distribueras |
+| | Virtuell datordeltagare | Virtuella säkerhetskopierades källdatorn |
 | Återställa ohanterade diskar säkerhetskopiering av virtuella datorer | Säkerhetskopieringsoperatör | Recovery vault-resursen |
-| | Virtuell datordeltagare | VM-resurs |
-| | Lagringskontodeltagare | Resursen för lagringskonton |
+| | Virtuell datordeltagare | Virtuella säkerhetskopierades källdatorn |
+| | Lagringskontodeltagare | Resursen för lagringskonton där diskar ska återställas |
 | Återställa hanterade diskar från säkerhetskopiering av virtuella datorer | Säkerhetskopieringsoperatör | Recovery vault-resursen |
-| | Virtuell datordeltagare | VM-resurs |
-| | Lagringskontodeltagare | Resursen för lagringskonton |
-| | Deltagare | Resursgruppen som hanterad disk ska återställas |
+| | Virtuell datordeltagare | Virtuella säkerhetskopierades källdatorn |
+| | Lagringskontodeltagare | Tillfällig lagringskonto har valts som en del av återställning för att lagra data från valvet innan du konverterar dem till hanterade diskar |
+| | Deltagare | Resursgruppen som hanterade diskar ska återställas |
 | Återställa enskilda filer från säkerhetskopiering av virtuella datorer | Säkerhetskopieringsoperatör | Recovery vault-resursen |
-| | Virtuell datordeltagare | VM-resurs |
+| | Virtuell datordeltagare | Virtuella säkerhetskopierades källdatorn |
 | Skapa säkerhetskopieringsprincip för virtuell Azure-säkerhetskopiering | Säkerhetskopieringsmedarbetare | Recovery vault-resursen |
 | Ändra princip för säkerhetskopiering av virtuell Azure-säkerhetskopiering | Säkerhetskopieringsmedarbetare | Recovery vault-resursen |
 | Ta bort princip för säkerhetskopiering av virtuell Azure-säkerhetskopiering | Säkerhetskopieringsmedarbetare | Recovery vault-resursen |
 | Stoppa säkerhetskopiering (och behålla data eller ta bort data) säkerhetskopiering av virtuella datorer | Säkerhetskopieringsmedarbetare | Recovery vault-resursen |
 | Registrera den lokala Windows Server/klient-/ SCDPM eller Azure Backup Server | Säkerhetskopieringsoperatör | Recovery vault-resursen |
 | Ta bort registrerade lokala Windows Server/klient-/ SCDPM eller Azure Backup Server | Säkerhetskopieringsmedarbetare | Recovery vault-resursen |
+
+> [!IMPORTANT]
+> Om du anger VM deltagare i ett omfång för VM-resurs och klicka på säkerhetskopiering som en del av inställningarna för virtuella datorer, öppnas ”Aktivera säkerhetskopiering” skärmen även om den virtuella datorn redan har säkerhetskopierats som anropet för att kontrollera status för säkerhetskopiering fungerar endast på prenumerationsnivån. För att undvika detta kan antingen går du till valvet och öppna vyn säkerhetskopieringsobjekt för den virtuella datorn eller ange VM-deltagarroll på prenumerationsnivå. 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md): Kom igång med RBAC i Azure-portalen.

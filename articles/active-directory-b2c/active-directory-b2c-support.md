@@ -10,23 +10,24 @@ ms.topic: conceptual
 ms.date: 12/06/2016
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4ceef533145bea75247eb26998b998552293ef63
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 04eae00d40470d5f6c992d9a0c8c9b0b49d7495f
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450351"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007645"
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: Filen supportärenden
 Du kan supportförfrågningar för Azure Active Directory (Azure AD) B2C på Azure-portalen med följande steg:
 
-1. [Följ dessa steg för att gå till B2C-funktionsbladet på Azure portal](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
-2. Växla från din B2C-klient till en annan klient som har en Azure-prenumeration som är associerade med den. Dessa är vanligtvis dina anställda eller standard-klient som skapas åt dig när du registrerade dig för en Azure-prenumeration. Mer information finns i [hur en Azure-prenumeration är kopplad till Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+1. Växla från din B2C-klient till en annan klient som har en Azure-prenumeration som är associerade med den. Dessa är vanligtvis dina anställda eller standard-klient som skapas åt dig när du registrerade dig för en Azure-prenumeration. Mer information finns i [hur en Azure-prenumeration är kopplad till Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
    
     ![Support – växel klienter](./media/active-directory-b2c-support/support-switch-dir.png)
+
 3. När du har växlat klienter, klickar du på **hjälp + support**.
    
     ![Support – hjälp + Support](./media/active-directory-b2c-support/support-support.png)
+    
 4. Klicka på **ny supportbegäran**.
    
     ![Support – ny](./media/active-directory-b2c-support/support-new.png)

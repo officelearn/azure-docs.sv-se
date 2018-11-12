@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: 32be46fb0c41909ce8a8014b13843970555d366f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 32be473ab93231805cdae097e3e984a2e74da973
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057022"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233090"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Använd PowerShell för att skapa en virtuell Azure-dator med en rapportserver i enhetligt läge
 > [!IMPORTANT] 
@@ -81,7 +81,7 @@ Det här avsnittet beskriver och vägleder dig genom distributionen och konfigur
      * **HTTPS**: de offentliga och privata portarna som standard är **443**. Det är en bra säkerhetsrutin att ändra den privata porten och konfigurera din brandvägg och rapportservern för att använda den privata porten. Läs mer på slutpunkter [så ange kommunikation med en virtuell dator](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Observera att om du använder en annan port än 443, ändra parametern **$HTTPsport = 443** i HTTPS-skriptet.
    * Klicka på Nästa. ![nästa](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. På den sista sidan i guiden, behåller du standardvärdet **installera VM-agenten** valda. Stegen i det här avsnittet använder inte VM-agenten, men om du planerar att behålla den här virtuella datorn VM-agenten och tillägg kan du förbättra han CM.  Mer information om VM-agenten finns i [VM-agenten och tillägg – del 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). En av standard tillägg installerade ad som körs är tillägget ”BGINFO” som visas på den virtuella datorns skrivbord, Systeminformation som intern IP-adress och ledigt diskutrymme.
-9. Klicka på klar. ![Ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
+9. Klicka på klar. ![Okej](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
 10. Den **Status** för den virtuella datorn visas som **startar (etablering)** under processen för etablering och sedan visar som **kör** när den virtuella datorn är allokerade och redo för användning.
 
 ## <a name="step-2-create-a-server-certificate"></a>Steg 2: Skapa ett certifikat
@@ -90,7 +90,7 @@ Det här avsnittet beskriver och vägleder dig genom distributionen och konfigur
 
 Du behöver ett betrott SSL-certifikat för att kunna använda HTTPS på den virtuella datorn. Beroende på ditt scenario kan du använda något av följande två metoder:
 
-* Ett giltigt SSL-certifikat utfärdat av en certifikatutfärdare (CA) och betrodd av Microsoft. Rotcertifikat för CA: N behöver distribueras via Microsoft Root Certificate Program. Mer information om det här programmet finns i [Windows och Windows Phone 8 SSL Root Certificate Program (medlem CAs)](http://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) och [introduktion till Microsoft Root Certificate Program](http://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx).
+* Ett giltigt SSL-certifikat utfärdat av en certifikatutfärdare (CA) och betrodd av Microsoft. Rotcertifikat för CA: N behöver distribueras via Microsoft Root Certificate Program. Mer information om det här programmet finns i [Windows och Windows Phone 8 SSL Root Certificate Program (medlem CAs)](https://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) och [introduktion till Microsoft Root Certificate Program](https://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx).
 * Ett självsignerat certifikat. Självsignerade certifikat rekommenderas inte för produktionsmiljöer.
 
 ### <a name="to-use-a-certificate-created-by-a-trusted-certificate-authority-ca"></a>Använda ett certifikat som skapats av en betrodd certifikatutfärdare (CA)
@@ -547,7 +547,7 @@ För att kontrollera att porten är öppen, öppna ett Windows PowerShell-fönst
 
     get-netfirewallrule | where {$_.displayname -like "*report*"} | select displayname,enabled,action
 
-## <a name="verify-the-configuration"></a>Kontrollera att konfigurationen
+## <a name="verify-the-configuration"></a>Kontrollera konfigurationen
 Öppna din webbläsare med administratörsbehörighet för att verifiera att den grundläggande rapportfunktioner för server fungerar nu, och bläddra till följande rapport server ad report manager URL: er:
 
 * Bläddra till rapportserverns URL på den virtuella datorn:

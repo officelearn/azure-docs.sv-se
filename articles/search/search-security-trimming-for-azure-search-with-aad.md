@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: e19f1a63c478d17154a24c14f6700e2fb07f2467
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: ea69befb1084b08352eb3cf38db0364c5c82c45b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42060707"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237068"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Säkerhetsfilter för att trimma Azure-sökresultaten med hjälp av Active Directory-identiteter
 
@@ -28,7 +28,7 @@ Den här artikeln beskriver följande uppgifter:
 - Utfärda en sökbegäran med grupp-ID: n-filter
 
 >[!NOTE]
-> Exemplet kodfragment i den här artikeln är skrivna i C#. Du hittar den fullständiga källkoden [på GitHub](http://aka.ms/search-dotnet-howto). 
+> Exemplet kodfragment i den här artikeln är skrivna i C#. Du hittar den fullständiga källkoden [på GitHub](https://aka.ms/search-dotnet-howto). 
 
 ## <a name="prerequisites"></a>Förutsättningar
 

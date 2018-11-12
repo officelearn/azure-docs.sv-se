@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e896392404c23e88d697d45146f802576d6045d3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: b7b8ccf7e84239db4eef0914346c453a2f205f91
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870833"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237901"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Bevilja åtkomst till Azure Active Directory-webbprogram med hjälp av kod grant-flöde för OAuth 2.0
 
@@ -183,7 +183,7 @@ Ett lyckat svar kan se ut så här:
 | refresh_token |OAuth 2.0-uppdateringstoken. Appen kan använda den här token för att hämta ytterligare åtkomst-token när den aktuella åtkomst-token upphör att gälla. Uppdatera token är långlivade och kan användas för att behålla åtkomst till resurser i längre tid. |
 | id_token |En osignerad JSON Web Token (JWT) som representerar en [ID-token](id-tokens.md). Appen kan base64Url avkoda segmenten i den här token för att begäraninformation om den användare som loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser. |
 
-Mer information om JSON web token finns i den [JWT IETF utkast till en specifikation](http://go.microsoft.com/fwlink/?LinkId=392344).   Mer information om `id_tokens`, finns i den [v1.0 OpenID Connect-flöde](v1-protocols-openid-connect-code.md).
+Mer information om JSON web token finns i den [JWT IETF utkast till en specifikation](https://go.microsoft.com/fwlink/?LinkId=392344).   Mer information om `id_tokens`, finns i den [v1.0 OpenID Connect-flöde](v1-protocols-openid-connect-code.md).
 
 ### <a name="error-response"></a>Felsvar
 Utfärdande endpoint felen är HTTP-felkoder, eftersom klienten anropar utfärdande slutpunkten direkt. Utöver HTTP-statuskod returnerar Azure AD-slutpunkten för utfärdande också ett JSON-dokument med objekt som beskriver felet.

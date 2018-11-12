@@ -1,20 +1,20 @@
 ---
-title: VMware/fysiska servern disaster recovery-arkitekturen i Azure Site Recovery | Microsoft Docs
-description: Den här artikeln innehåller en översikt över komponenter och arkitektur som används under haveriberedskap för lokala virtuella VMware-datorer eller fysiska Windows/Linux-servrar till en sekundär VMware-plats med Azure Site Recovery
+title: Arkitekturen för haveriberedskap för VMware/fysisk till en sekundär plats med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln innehåller en översikt över komponenter och arkitektur som används under haveriberedskap för lokala virtuella VMware-datorer eller fysiska Windows/Linux-servrar till en sekundär VMware-plats med Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 16e8a9719280b55e86d1d4622a32470b37287dd4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 77387b52003923dffce7519df9cca47fad8f6e6c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215131"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007441"
 ---
-# <a name="vmware-vmphysical-server-to-vmware-disaster-recovery-architecture"></a>VMware VM/fysiska servern till VMware disaster recovery-arkitekturen
+# <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>Arkitektur för VMware/fysisk serverreplikering till en sekundär lokal plats
 
 Den här artikeln beskrivs arkitekturen och processer som används när ställer in disaster recovery-replikering, redundans och återställning av lokala virtuella VMware-datorer (VM) eller fysiska Windows/Linux-servrar till en sekundär VMware plats med hjälp av [Azure Site Recovery](site-recovery-overview.md).
 

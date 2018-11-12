@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: e0bc49fb3b85decb97366b62771a191702149b1a
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: fa76ccf7019097c5f27aa126b0a5a7dc81ffbd41
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960539"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008155"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Lösning i Azure Log Analytics för aviseringshantering
 
@@ -74,7 +74,7 @@ Klicka på den **aviseringshantering** panelen för att öppna den **aviseringsh
 | Aktiva SCOM-aviseringar |Alla aviseringar som samlas in från Operations Manager med några tillstånd än *stängd* grupperade efter källa som skapade aviseringen. |
 | Alla aktiva aviseringar |Alla aviseringar med alla allvarlighetsgrad grupperade efter aviseringens namn. Bara innehåller Operations Manager-varningar med några tillstånd än *stängd*. |
 
-Om du bläddrar till höger på instrumentpanelen visar flera vanliga frågor som du kan klicka på för att utföra en [loggsökning](log-analytics-log-search.md) för aviseringsdata.
+Om du bläddrar till höger på instrumentpanelen visar flera vanliga frågor som du kan klicka på för att utföra en [loggsökning](log-analytics-queries.md) för aviseringsdata.
 
 ![Hanteringspanel för avisering](media/log-analytics-solution-alert-management/dashboard.png)
 

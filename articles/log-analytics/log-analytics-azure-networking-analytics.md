@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
 ms.component: ''
-ms.openlocfilehash: 2ba921a45619c74af230b282c23adff502ae5b6d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 7d93b8e37c2025ebe47f9351da26f0913107585d
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961457"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009376"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Azure-nätverk övervakningslösningar i Log Analytics
 
@@ -236,4 +236,4 @@ Data som samlas in innan ändringen inte visas i den nya lösningen. Du kan fort
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd [Loggsökningar i Log Analytics](log-analytics-log-search.md) att visa detaljerad Azure diagnostics-data.
+* Använd [Loggsökningar i Log Analytics](log-analytics-queries.md) att visa detaljerad Azure diagnostics-data.

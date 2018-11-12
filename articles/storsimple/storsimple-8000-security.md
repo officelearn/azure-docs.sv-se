@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 578fb3f8bfe68ccd9bbade0ad04f3a811a249c08
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: fb8c3fe9dd5ca207e4ae37faf9a5a1c4edfffc63
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37908345"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233821"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple säkerhet och dataskydd
 
@@ -35,7 +35,7 @@ Microsoft Azure StorSimple-lösningen består av fyra huvudsakliga komponenter s
 * **StorSimple Device Manager-tjänsten finns i Microsoft Azure** – management-tjänsten som används för att konfigurera och etablera StorSimple-enheten.
 * **StorSimple-enheten** – en fysisk enhet som är installerad i datacentret. Alla värdar och -klienter som genererar data ansluta till StorSimple-enheten och enheten hanterar data och flyttar det till Azure-molnet efter behov.
 * **Klienter/värdar som är anslutna till enheten** – klienter i din infrastruktur som ansluter till StorSimple-enheten och genererar data som behöver skyddas.
-* **Molnlagring** – plats i Azure-molnet där data lagras.
+* **Molnlagring** – Platsen i Azure-molnet där data lagras.
 
 I följande avsnitt beskrivs StorSimple-säkerhetsfunktioner som skyddar var och en av dessa komponenter och de data som lagras på dem. Den innehåller också en lista med frågor som kan uppstå om Microsoft Azure StorSimple-säkerhet och motsvarande svaren.
 
@@ -43,9 +43,9 @@ I följande avsnitt beskrivs StorSimple-säkerhetsfunktioner som skyddar var och
 
 StorSimple Device Manager-tjänsten är en tjänst för hantering i Microsoft Azure och används för att hantera alla StorSimple-enheter som din organisation har skaffat. Du kan komma åt StorSimple Device Manager-tjänsten genom att använda din organisations autentiseringsuppgifter för att logga in på Azure-portalen via en webbläsare.
 
-Åtkomst till StorSimple Device Manager-tjänsten kräver att din organisation har en Azure-prenumeration som innehåller StorSimple. Prenumerationen styr funktioner som du kan komma åt i Azure-portalen. Om din organisation inte har en Azure-prenumeration och du vill veta mer om dem, se [registrera dig för Azure som en organisation](../active-directory/fundamentals/sign-up-organization.md).
+Åtkomst till StorSimple Device Manager-tjänsten kräver att din organisation har en Azure-prenumeration som innehåller StorSimple. Prenumerationen styr vilka funktioner du kan komma åt på Azure Portal. Om din organisation inte har en Azure-prenumeration och du vill veta mer om dem, se [registrera dig för Azure som en organisation](../active-directory/fundamentals/sign-up-organization.md).
 
-Eftersom StorSimple Device Manager-tjänsten finns i Azure, är den skyddad med säkerhet i Azure-funktioner. Läs mer om säkerhetsfunktioner som tillhandahålls av Microsoft Azure, gå till den [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/).
+Eftersom StorSimple Device Manager-tjänsten finns i Azure, är den skyddad med säkerhet i Azure-funktioner. Läs mer om säkerhetsfunktionerna i Microsoft Azure på [Microsoft Azure Säkerhetscenter](https://azure.microsoft.com/support/trust-center/security/).
 
 ## <a name="storsimple-device-protection"></a>Skydd för StorSimple-enhet
 
@@ -53,7 +53,7 @@ StorSimple-enheten är en lokal hybrid-lagringsenhet som innehåller solid state
 
 Endast behörighet StorSimple enheter tillåts att ansluta till StorSimple Device Manager-tjänsten som du skapade i Azure-prenumerationen. För att auktorisera en enhet, måste du registrera den med StorSimple Device Manager-tjänsten genom att ange Registreringsnyckeln för tjänsten. Tjänstregistreringsnyckeln är en 128-bitars slumpmässig nyckel genereras i Azure-portalen.
 
-![Nyckel för tjänstregistrering](./media/storsimple-security/ServiceRegistrationKey.png)
+![nyckel för tjänstregistrering](./media/storsimple-security/ServiceRegistrationKey.png)
 
 Läs hur hämta en tjänstregistreringsnyckel, gå till [steg 2: hämta tjänstregistreringsnyckeln](storsimple-8000-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
 
@@ -121,7 +121,7 @@ Mer information om StorSimple Snapshot Manager går du till [vad är StorSimple 
 Vi rekommenderar att du använder följande riktlinjer för att säkerställa att StorSimple-lösenord är stark och väl skyddade:
 
 * Ändra ditt lösenord var tredje månad. Ändra lösenorden tillämpas per år.
-* Använd starka lösenord. Mer information går du till [skapa starkare lösenord och skydda dem](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
+* Använd starka lösenord. Mer information går du till [skapa starkare lösenord och skydda dem](https://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
 * Alltid använda olika lösenord för olika mekanismer; var och en av de lösenord som du anger måste vara unika.
 * Dela inte lösenord med vem som helst som inte har behörighet att få åtkomst till StorSimple-enheten.
 * Om ett lösenord framför andra eller inte tipset på formatet för ett lösenord.
@@ -166,7 +166,7 @@ Krypteringsnyckeln för tjänstdata och krypteringscertifikat data inte upphör 
 
 StorSimple-enheten hanterar data genom att lagra det nivåerna lokalt och i molnet, beroende på Användningsfrekvens. Alla värddatorer som är anslutna till enheten skicka data till enheten, vilket flyttar data till molnet, efter behov. Data överförs från enheten till molnet på ett säkert sätt via Internet. Varje enhet har en iSCSI-mål som hämtar alla klusterdelade volymer på den enheten. Alla data krypteras innan det skickas till molnlagring. 
 
-![Krypteringsnyckel för molnlagring](./media/storsimple-security/CloudStorageEncryption.png)
+![krypteringsnyckel för molnlagring](./media/storsimple-security/CloudStorageEncryption.png)
 
 För att säkerställa säkerheten och integriteten hos data som flyttas till molnet, kan StorSimple du definiera cloud storage krypteringsnycklar enligt följande:
 
@@ -215,7 +215,7 @@ StorSimple Device Manager för serien för både fysiska och virtuella samlar in
 - Användare som har åtkomst till data som finns på filresurser. En lista över användare som har åtkomst till resursdata visas och kan visas. Den här listan är också tas bort när filresurser tas bort. Detta gäller endast för StorSimple Virtual Array.
  * Visa listan över användare som kan komma åt eller att ta bort en resurs, följer du stegen i [hantera resurser på StorSimple Virtual Array](storsimple-virtual-array-manage-shares.md)
 
-Mer information finns i Microsoft Privacy-policy på [Säkerhetscenter](https://www.microsoft.com/trustcenter).
+Mer information finns i Microsofts sekretesspolicy på [Säkerhetscenter](https://www.microsoft.com/trustcenter).
 
 ## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ)
 

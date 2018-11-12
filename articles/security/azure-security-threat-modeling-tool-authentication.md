@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 23e219fa49146158c97f392427eee7c42c347a7a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: b4b6e91f9b20166f63a4710f42726bf1d4090022
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307428"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251567"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Security ram: Autentisering | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -156,7 +156,7 @@ ms.locfileid: "43307428"
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | OnPrem, SQL Azure |
 | **Attribut**              | SQL-Version - MSSQL2012, SQL-Version - V12 |
-| **Referenser**              | [Rekommenderade säkerhetsmetoder med inneslutna databaser](http://msdn.microsoft.com/library/ff929055.aspx) |
+| **Referenser**              | [Rekommenderade säkerhetsmetoder med inneslutna databaser](https://msdn.microsoft.com/library/ff929055.aspx) |
 | **Steg** | Avsaknad av en tvingande lösenordsprincip kan öka sannolikheten för en svag autentiseringsuppgift upprättas i en innesluten databas. Använda Windows-autentisering. |
 
 ## <a id="authn-sas-tokens"></a>Använda per enhet autentiseringsuppgifter med hjälp av SaS-token

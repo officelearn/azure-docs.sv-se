@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: f07d830e90045c11d870a921d091b45de6d2a89b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a6752f9127a176eef9fd03e7ffddfa7450772def
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418542"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037696"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide för App Service på Linux
 
@@ -147,7 +147,7 @@ Följ instruktionerna i den [binda ett befintligt anpassat SSL-certifikat](/azur
 >[!NOTE]
 > Om programmet använder Spring Framework eller Spring Boot, kan du ange anslutningsinformation för databasen för Spring Data JPA som miljövariabler för [i filen programmet egenskaper]. Använd sedan [appinställningar](/azure/app-service/web-sites-configure#app-settings) att definiera dessa värden för ditt program i Azure-portalen eller CLI.
 
-Exempelavsnitt för konfiguration i det här avsnittet använda MySQL-databas. Mer information finns i dokumentationen för configuration [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html) , [SQL Server JDBC](https://docs.microsoft.com/en-us/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017), och [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html).
+Exempelavsnitt för konfiguration i det här avsnittet använda MySQL-databas. Mer information finns i dokumentationen för configuration [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html) , [SQL Server JDBC](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017), och [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html).
 
 Om du vill konfigurera Tomcat för att använda hanterade anslutningar till databaser med hjälp av Java Database Connectivity (JDBC) eller Java Persistence API (JPA) först anpassa CATALINA_OPTS miljövariabeln läses i av Tomcat vid start. Ange dessa värden via en appinställning i App Service-Maven-pluginprogrammet:
 

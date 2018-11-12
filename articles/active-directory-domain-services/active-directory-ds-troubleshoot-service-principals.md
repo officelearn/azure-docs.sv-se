@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: 5bc1212cc6e894cd82a60abb42f92893c0bb2d43
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: bba7c70a5078d309a55f898c24389d42a8a604ab
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579552"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035043"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Felsökning av ogiltig konfiguration för tjänstens huvudnamn för din hanterade domän
 
@@ -45,7 +45,7 @@ Använd följande steg för att avgöra vilken tjänst som huvudnamn måste åte
 | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [Återskapa saknas tjänstens huvudnamn med PowerShell](#recreate-a-missing-service-principal-with-powershell) |
 | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Registrera till Microsoft.AAD-namnområde](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
 | abba844e-bc0e-44b0-947a-dc74e5d09022  | [Registrera till Microsoft.AAD-namnområde](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
-| d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [Tjänstens huvudnamn som self korrigera](#service-principals-that-self-correct) |
+| d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [Registrera till Microsoft.AAD-namnområde](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
 
 ## <a name="recreate-a-missing-service-principal-with-powershell"></a>Återskapa saknas tjänstens huvudnamn med PowerShell
 Följ stegen nedan om ett huvudnamn för tjänsten med ID ```2565bd9d-da50-47d4-8b85-4c97f669dc36``` saknas från Azure AD-katalogen.
@@ -76,7 +76,7 @@ Skriv följande kommandon i ett PowerShell-fönster för att åtgärda problemet
 
 
 ## <a name="re-register-to-the-microsoft-aad-namespace-using-the-azure-portal"></a>Registrera till Microsoft AAD-namnområde med Azure portal
-Följ stegen nedan om ett huvudnamn för tjänsten med ID ```443155a6-77f3-45e3-882b-22b3a8d431fb``` eller ```abba844e-bc0e-44b0-947a-dc74e5d09022``` saknas från Azure AD-katalogen.
+Följ stegen nedan om ett huvudnamn för tjänsten med ID ```443155a6-77f3-45e3-882b-22b3a8d431fb``` eller ```abba844e-bc0e-44b0-947a-dc74e5d09022``` eller ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` saknas från Azure AD-katalogen.
 
 **Lösning:** Använd följande steg för att återställa Domain Services för din katalog:
 
@@ -85,12 +85,6 @@ Följ stegen nedan om ett huvudnamn för tjänsten med ID ```443155a6-77f3-45e3-
 3. Med hjälp av det vänstra navigeringsfältet väljer **Resursprovidrar**
 4. Sök efter ”Microsoft.AAD” i tabellen och klicka på **Omregistrera**
 5. Visa sidan hälsotillståndet för din hanterade domän för att säkerställa att aviseringen har lösts, på två timmar.
-
-
-## <a name="service-principals-that-self-correct"></a>Tjänstens huvudnamn som self korrigera
-Följ stegen nedan om ett huvudnamn för tjänsten med ID ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` saknas från Azure AD-katalogen.
-
-**Lösning:** Azure AD Domain Services kan identifiera när den här specifika tjänstens huvudnamn saknas, felkonfigurerad eller tas bort. Tjänsten återskapas automatiskt huvudnamnet för tjänsten. Men du måste ta bort programmet och objekt som fungerade med borttagna program, liksom när certifieringen rullar, program och objektet inte längre att kunna ändras för nya tjänstens huvudnamn. Detta leder till ett nytt fel på din domän. Följ stegen som beskrivs i den [för AADDS105](#alert-aadds105-password-synchronization-application-is-out-of-date) förhindra det här problemet. När du har, kontrollera hälsan för hanterade domänen efter två timmar att säkerställa att den nya tjänstens huvudnamnet har återskapats.
 
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Varning AADDS105: Program för synkronisering av lösenord är inaktuell
@@ -110,8 +104,8 @@ Skriv följande kommandon i ett PowerShell-fönster för att åtgärda problemet
 2. Ta bort gamla program och -objektet med följande PowerShell-kommandon
 
     ```powershell
-    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
-    Remove-AzureADApplication -ObjectId $app.ObjectId
+    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
+    Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
     Remove-AzureADServicePrincipal -ObjectId $app.ObjectId
     ```

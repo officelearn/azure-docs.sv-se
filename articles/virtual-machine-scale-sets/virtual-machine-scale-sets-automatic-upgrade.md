@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: rajraj
-ms.openlocfilehash: cf25d08fc9a0e1ae458d350be93af31447928ecb
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: c8ba9ac3150b5a84b2902afaaefcf78c76764fed
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069462"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036198"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Azure VM-skalningsuppsättningen automatisk operativsystemuppgradering för avbildning
 
@@ -121,7 +121,7 @@ Avsökningen belastningsutjämnare kan refereras i den *networkProfile* skalans 
   ...
 ```
 > [!NOTE]
-> När du använder automatisk Operativsystemuppgradering med Service Fabric, distribueras den nya operativsystemavbildningen Uppdateringsdomän av Uppdateringsdomänen att upprätthålla hög tillgänglighet för de tjänster som körs i Service Fabric. Mer information om hållbarhet egenskaperna för Service Fabric-kluster finns i [den här dokumentationen](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+> När du använder automatisk Operativsystemuppgradering med Service Fabric, distribueras den nya operativsystemavbildningen Uppdateringsdomän av Uppdateringsdomänen att upprätthålla hög tillgänglighet för de tjänster som körs i Service Fabric. Om du vill använda automatiska uppgraderingar av Operativsystemet i Service Fabric måste klustret vara konfigurerad för att använda Hållbarhetsnivån Silver eller högre. Mer information om hållbarhet egenskaperna för Service Fabric-kluster finns i [den här dokumentationen](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
 ### <a name="keep-credentials-up-to-date"></a>Hålla det uppdaterade autentiseringsuppgifter
 Om din skalningsuppsättning använder autentiseringsuppgifter för att komma åt externa resurser, till exempel om en VM-tillägget har konfigurerats som använder en SAS-token för storage-konto behöver du kontrollera autentiseringsuppgifterna som hålls uppdaterade. Om några autentiseringsuppgifter, inklusive certifikat och token har upphört att gälla, så misslyckas uppgraderingen och den första batchen med virtuella datorer kommer att lämnas i ett felaktigt tillstånd.

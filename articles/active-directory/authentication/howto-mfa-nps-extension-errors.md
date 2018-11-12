@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 4097fab5610bf4bee6c14c65d3b45e0de818a0cc
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 58bb3ae39ecd5631508ca1d09bf1d9d8f4d75063
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160917"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036673"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Åtgärda felmeddelanden från NPS-tillägget för Azure Multi-Factor Authentication
 
@@ -30,6 +30,7 @@ Om det uppstår fel med NPS-tillägget för Azure Multi-Factor Authentication, k
 | **ESTS_TOKEN_ERROR** | Följ instruktionerna i [felsökning MFA NPS-tillägget](howto-mfa-nps-extension.md#troubleshooting) för att undersöka klientcertifikatet och ADAL token problem. |
 | **HTTPS_COMMUNICATION_ERROR** | NPS-servern kan inte ta emot svar från Azure MFA. Kontrollera att dina brandväggar är öppen i två riktningar för trafik till och från https://adnotifications.windowsazure.com |
 | **HTTP_CONNECT_ERROR** | På den server som kör NPS-tillägget, kontrollerar du att du kan nå https://adnotifications.windowsazure.com och https://login.microsoftonline.com/. Om dessa platser inte läsa in, felsöka anslutning på den servern. |
+| **NPS-tillägget för Azure MFA:** <br> NPS-tillägget för Azure MFA utför endast sekundär autentisering för Radius-förfrågningar i AccessAccept tillstånd. Begäran mottagen för användarnamnet för användaren med svar tillstånd AccessReject, ignorerar begäran. | Det här felet återspeglar vanligtvis ett autentiseringsfel i AD eller som NPS-servern inte kan ta emot svar från Azure AD. Kontrollera att dina brandväggar är öppen i två riktningar för trafik till och från https://adnotifications.windowsazure.com och https://login.microsoftonline.com med hjälp av portarna 80 och 443. Det är också viktigt att kontrollera att inställningen anges till ”styra åtkomst genom NPS-nätverksprinciper” på fliken DIAL-IN åtkomstbehörighet för nätverket. |
 | **REGISTRY_CONFIG_ERROR** | En nyckel saknas i registret för programmet, vilket kan bero på att den [PowerShell-skript](howto-mfa-nps-extension.md#install-the-nps-extension) inte kör efter installationen. Felmeddelandet ska innehålla nyckeln som saknas. Kontrollera att du har nyckeln under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa. |
 | **REQUEST_FORMAT_ERROR** <br> RADIUS-begäran saknar det obligatoriska attributet för Radius-userName\Identifier. Kontrollera att NPS tar emot RADIUS-begäranden | Det här felet återspeglar vanligtvis ett installationsproblem. NPS-tillägget måste installeras i NPS-servrar som kan ta emot RADIUS-förfrågningar. NPS-servrar som är installerade som beroenden för tjänster som RDG och RRAS inte ta emot radius-förfrågningar. NPS-tillägget fungerar inte när du installerar över sådana installationer och fel ut eftersom det inte går att läsa information från autentiseringsbegäran. |
 | **REQUEST_MISSING_CODE** | Kontrollera att lösenordet krypteringsprotokollet mellan NPS- och NAS-servrarna har stöd för den sekundära autentiseringsmetoden som du använder. **PAP** har stöd för alla autentiseringsmetoder av Azure MFA i molnet: telefonsamtal, enkelriktad SMS, mobilapp och mobilapp-Verifieringskod. **CHAPv2** och **EAP** stöd för telefonsamtal och mobilapp. |

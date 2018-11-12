@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 2edaea1cfb02b250b27c47d58b6c1d1ef6501480
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: df020fc3a4e2f57730dea7329b08e1e46660e610
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420276"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037047"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Anpassa installationsprogrammet för Azure-SSIS integration runtime
 
@@ -141,7 +141,7 @@ För att anpassa din Azure-SSIS IR, behöver du följande:
 
        1. En `.NET FRAMEWORK 3.5` mappen som innehåller en anpassad installation om du vill installera en tidigare version av .NET Framework som kan krävas för anpassade komponenter på varje nod i din Azure-SSIS IR.
 
-       1. En `AAS` mappen som innehåller en anpassad installation om du vill installera klientbibliotek på varje nod i din Azure-SSIS IR som gör att dina Analysis Services-aktiviteter att ansluta till Azure Analysis Services (AAS)-instans med autentisering av tjänstens huvudnamn. Först laddar du ned senast **MSOLAP (amd64)** och **AMO** klienten bibliotek/Windows installationsprogram – till exempel `x64_15.0.900.108_SQL_AS_OLEDB.msi` och `x64_15.0.900.108_SQL_AS_AMO.msi` – från [här](https://docs.microsoft.com/en-us/azure/analysis-services/analysis-services-data-providers), sedan ladda upp dem alla tillsammans med `main.cmd` i din behållare.  
+       1. En `AAS` mappen som innehåller en anpassad installation om du vill installera klientbibliotek på varje nod i din Azure-SSIS IR som gör att dina Analysis Services-aktiviteter att ansluta till Azure Analysis Services (AAS)-instans med autentisering av tjänstens huvudnamn. Först laddar du ned senast **MSOLAP (amd64)** och **AMO** klienten bibliotek/Windows installationsprogram – till exempel `x64_15.0.900.108_SQL_AS_OLEDB.msi` och `x64_15.0.900.108_SQL_AS_AMO.msi` – från [här](https://docs.microsoft.com/azure/analysis-services/analysis-services-data-providers), sedan ladda upp dem alla tillsammans med `main.cmd` i din behållare.  
 
        1. En `BCP` mappen som innehåller en anpassad installation för att installera SQL Server kommandoradsverktyg (`MsSqlCmdLnUtils.msi`), inklusive program bulk copy program (`bcp`), på varje nod i din Azure-SSIS IR.
 

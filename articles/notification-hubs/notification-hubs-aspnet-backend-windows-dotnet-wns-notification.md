@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
 ms.author: dimazaid
-ms.openlocfilehash: ee0e78402515a733731e6faf21b09886674cda51
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d2d0e878aed5b200852e56a29ce0430305d4efc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452421"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251550"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Självstudier: Skicka meddelanden till specifika användare med Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
@@ -222,7 +222,7 @@ I det här avsnittet kommer du att uppdatera koden i det projekt som du slutför
     ```
 1. Högerklicka på **WindowsApp**-projektet, klicka på **Lägg till** och sedan på **Klass**. Namnge klassen **RegisterClient.cs** och generera sedan klassen genom att klicka på **OK**.
    
-   Den här klassen omsluter de REST-anrop som krävs för att kontakta appens serverdel och registrera push-meddelanden. Den lagrar även lokalt de *registrationIds* som skapas av den meddelandehubb som anges i [Registrering från din apps serverdel](http://msdn.microsoft.com/library/dn743807.aspx). Den använder en autentiseringstoken som lagras lokalt när du klickar på knappen **Logga in och registrera**.
+   Den här klassen omsluter de REST-anrop som krävs för att kontakta appens serverdel och registrera push-meddelanden. Den lagrar även lokalt de *registrationIds* som skapas av den meddelandehubb som anges i [Registrering från din apps serverdel](https://msdn.microsoft.com/library/dn743807.aspx). Den använder en autentiseringstoken som lagras lokalt när du klickar på knappen **Logga in och registrera**.
 2. Lägg till följande `using`-uttryck högst upp i filen RegisterClient.cs:
 
     ```csharp   

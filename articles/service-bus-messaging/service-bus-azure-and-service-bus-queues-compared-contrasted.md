@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: f48e9a5600dca1e13d6ee94a675d5bc824915118
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 0254762de49f37c591a7847fe9b40b3ecbabe1bd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393969"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261068"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Storage-köer och Service Bus-köer – jämförelser och skillnader
 Den här artikeln analyserar både skillnader och likheter mellan de två typerna av köer som erbjuds av Microsoft Azure idag: Storage-köer och Service Bus-köer. Med hjälp av informationen kan du jämföra de olika teknikerna och fatta klokare beslut när du ska avgöra vilken lösning som passar dig bäst.
@@ -70,7 +70,7 @@ Det här avsnittet jämför några av de grundläggande funktioner för meddelan
 | Sorteringen garanti |**Nej** <br/><br>Mer information finns i den första anteckningen i avsnittet ”Mer Information”.</br> |**Ja - först-In-först-ut (FIFO)**<br/><br>(med hjälp av messaging sessioner) |
 | Garanti om leverans |**På minst en gång** |**På minst en gång**<br/><br/>**I de flesta – en gång** |
 | Stöd för atomisk åtgärd |**Nej** |**Ja**<br/><br/> |
-| Ta emot beteende |**Icke-blockerande**<br/><br/>(slutförs omedelbart om inget nytt meddelande hittas) |**Blockerar med och utan tidsgräns**<br/><br/>(erbjuder longpolling eller [”Comet-tekniken”](http://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Icke-blockerande**<br/><br/>(med hjälp av .NET-hanterade API: et endast) |
+| Ta emot beteende |**Icke-blockerande**<br/><br/>(slutförs omedelbart om inget nytt meddelande hittas) |**Blockerar med och utan tidsgräns**<br/><br/>(erbjuder longpolling eller [”Comet-tekniken”](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Icke-blockerande**<br/><br/>(med hjälp av .NET-hanterade API: et endast) |
 | Push-style-API |**Nej** |**Ja**<br/><br/>[OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) och **OnMessage** sessioner .NET API. |
 | Ta emot läge |**Peek & lån** |**Peek & Lås**<br/><br/>**Ta emot och ta bort** |
 | Exklusivt läge |**Lån-baserad** |**Lås-baserad** |

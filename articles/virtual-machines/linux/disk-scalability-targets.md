@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.component: disks
-ms.openlocfilehash: f93b2d39f3aba21351fabe4c60195adead903923
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 92bf808da3791b84eb0beeb347b450fd24215e39
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39713422"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259402"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Mål för skalbarhet och prestanda för Virtuella datordiskar i Linux
 
@@ -23,6 +23,8 @@ ms.locfileid: "39713422"
 Se [Linux VM-storlekar](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) för ytterligare information.
 
 ## <a name="managed-virtual-machine-disks"></a>Hanterade virtuella datordiskar
+
+Storlekar som är markerad med en asterisk finns för närvarande i förhandsversion. Se våra [vanliga frågor och svar](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) vill veta vilka regioner som de är tillgängliga i.
 
 [!INCLUDE [azure-storage-limits-vm-disks-managed](../../../includes/azure-storage-limits-vm-disks-managed.md)]
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: szark
-ms.openlocfilehash: 43253423e3a27a61000c3f93868dd8b42809b7ae
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 81327c083b9517974780ac73284259b4408c2890
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650170"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262224"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Förbered en Red Hat-baserad virtuell dator för Azure
 I den här artikeln får lära du dig att förbereda en virtuell dator för Red Hat Enterprise Linux (RHEL) för användning i Azure. RHEL-versioner som beskrivs i den här artikeln är 6.7 + och 7.1 +. Hypervisorer för förberedelse av som beskrivs i den här artikeln är Hyper-V, kernel-baserad virtuell dator (KVM) och VMware. Läs mer om krav för berättigande för att du deltar i programmet för Red Hat Cloud Access [Red Hat Cloud Access webbplats](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) och [kör RHEL på Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
@@ -28,7 +28,7 @@ I den här artikeln får lära du dig att förbereda en virtuell dator för Red 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Förbered en Red Hat-baserad virtuell dator från Hyper-V Manager
 
 ### <a name="prerequisites"></a>Förutsättningar
-Det här avsnittet förutsätter att du redan har fått en ISO-fil från Red Hat-webbplats och installerade RHEL-avbildning till en virtuell hårddisk (VHD). Mer information om hur du använder Hyper-V Manager för att installera en operativsystemavbildning finns i [installera Hyper-V-rollen och konfigurera en virtuell dator](http://technet.microsoft.com/library/hh846766.aspx).
+Det här avsnittet förutsätter att du redan har fått en ISO-fil från Red Hat-webbplats och installerade RHEL-avbildning till en virtuell hårddisk (VHD). Mer information om hur du använder Hyper-V Manager för att installera en operativsystemavbildning finns i [installera Hyper-V-rollen och konfigurera en virtuell dator](https://technet.microsoft.com/library/hh846766.aspx).
 
 **RHEL-installationsinformation**
 

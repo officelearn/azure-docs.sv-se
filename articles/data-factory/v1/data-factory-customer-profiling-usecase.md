@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b60e4f3547e049dc35c08ce115bdfcbbf6ebb18a
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 5345ca3a9c2f35b45669a3a54ecb42ca627cde32
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42061134"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259827"
 ---
 # <a name="use-case---customer-profiling"></a>Användningsfall - Kundprofilering
-Azure Data Factory är en av många tjänster som används för att implementera Cortana Intelligence Suite med Lösningsacceleratorer.  Mer information om Cortana Intelligence finns [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics). I det här dokumentet beskriver vi ett enkelt exempel som hjälper dig att komma igång med att förstå hur Azure Data Factory kan lösa vanliga problem med analytics.
+Azure Data Factory är en av många tjänster som används för att implementera Cortana Intelligence Suite med Lösningsacceleratorer.  Mer information om Cortana Intelligence finns [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). I det här dokumentet beskriver vi ett enkelt exempel som hjälper dig att komma igång med att förstå hur Azure Data Factory kan lösa vanliga problem med analytics.
 
 ## <a name="scenario"></a>Scenario
 Contoso är ett spelföretag som skapar spel för flera plattformar: konsoler, som när enheter och datorer (datorer). När spelare spelar dessa spel, produceras stort antal loggdata som spårar de användningsmönster, spel-format och användarens inställningar.  När de kombineras med demografiska, regionala och produktdata, Contoso kan utföra analyser som hjälper dem om hur du förbättrar spelarnas upplevelse och mål för uppgraderingar och i spelet inköp. 

@@ -10,23 +10,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: maquaran
-ms.openlocfilehash: 3c97c89bde40357981d82dce8dd53febff25c8f3
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: bc31c7ebec7c1f7a02be65b15805fb48b1ef275d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239890"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260320"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Socialt med Azure Cosmos DB
 Att leva i ett enormt sammankopplade society innebär att vid en viss tidpunkt i vardagen du bli en del av en **socialt nätverk**. Du kan använda sociala nätverk för att hålla kontakten med vänner, kolleger, familj, eller ibland att dela din passion med personer med gemensamma intressen.
 
 Som tekniker eller utvecklare kan du kanske har undrat hur dessa nätverk lagra och sammankoppling dina data, eller kanske har även har gett för att skapa eller skapa ett nytt sociala nätverk för en specifik nischmarknader marknad yourselves. Det är då betydande frågan: hur lagras alla dessa data?
 
-Anta att du skapar ett nytt och shiny sociala nätverk, där användarna kan publicera artiklar med relaterade media som bilder, videor och musik. Användare kan kommentera inlägg och ge punkter för betygsättning. Det blir en feed med inlägg som användarna ser och kan interagera med på landningssidan för webbplats. Detta inte ljud komplexa (vid första), men för enkelhetens skull, vi stoppa det (du gräver anpassade flöden som påverkas av relationer, men det överskrider målet med den här artikeln).
+Anta att du skapar ett nytt och shiny sociala nätverk, där användarna kan publicera artiklar med relaterade media som bilder, videor och musik. Användare kan kommentera inlägg och ge punkter för betygsättning. Det blir en feed med inlägg som användarna ser och kan interagera med på landningssidan för webbplats. Den här metoden inte ljud komplexa (vid första), men för enkelhetens skull, vi stoppa det (du gräver anpassade flöden som påverkas av relationer, men det överskrider målet med den här artikeln).
 
 Så, hur du sparar du den och var?
 
-Många av er kan ha upplevelse på SQL-databaser eller minst ha begreppet [relationella modellering av data](https://en.wikipedia.org/wiki/Relational_model) och du kanske att tro att starta Rita ungefär så här:
+Du kan ha upplevelse på SQL-databaser eller har begreppet [relationella modellering av data](https://en.wikipedia.org/wiki/Relational_model) och du kan börja rita något på följande sätt:
 
 ![Diagram som illustrerar en relativ relationsmodellen](./media/social-media-apps/social-media-apps-sql.png) 
 
@@ -34,9 +34,9 @@ En perfekt normaliserade och snyggt datastruktur... som inte kan skalas.
 
 Får inte mig fel, jag har jobbat med SQL-databaser mitt arbete, de är bra, men som alla plattformar för mönster, tips och programvara, den är inte perfekt för alla scenarier.
 
-Varför inte SQL det bästa valet i det här scenariot? Låt oss titta på strukturen för ett enskilt inlägg om jag vill visa inlägget i en webbplats eller ett program, måste göra en fråga med... Att bara visa en enda post, nu bild som en dataström med inlägg som dynamiskt läsa in och visas på skärmen och du kan se där jag åtta tabellkopplingar (!).
+Varför inte SQL det bästa valet i det här scenariot? Låt oss titta på strukturen för ett enskilt inlägg om jag vill visa inlägget i en webbplats eller ett program, måste göra en fråga med... genom att gå med åtta tables(!) bara för att visa ett enskilt inlägg, nu kan bild en dataström med inlägg som dynamiskt läsa in och visas på skärmen och du se där jag.
 
-Naturligtvis kan du använda en enorma SQL-instans med tillräckligt med för att lösa tusentals frågor med dessa många kopplingar för att leverera ditt innehåll, men verkligt, varför skulle du, när det finns en enklare lösning?
+Du kan använda en enorma SQL-instans med tillräckligt med för att lösa tusentals frågor med många kopplingar för att leverera ditt innehåll, men verkligt, varför skulle du, när det finns en enklare lösning?
 
 ## <a name="the-nosql-road"></a>NoSQL-väg
 Den här artikeln vägleder dig i din sociala plattform datamodellering med Azures NoSQL-databas [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) på ett kostnadseffektivt sätt samtidigt som du använder andra Azure Cosmos DB funktioner som den [Gremlin-API](../cosmos-db/graph-introduction.md). Med hjälp av en [NoSQL](https://en.wikipedia.org/wiki/NoSQL) metoden kan lagra data i JSON-format och tillämpa [denormalisering](https://en.wikipedia.org/wiki/Denormalization), tidigare komplicerad inlägget kan omvandlas till en enda [dokumentet](https://en.wikipedia.org/wiki/Document-oriented_database):
@@ -59,7 +59,7 @@ Den här artikeln vägleder dig i din sociala plattform datamodellering med Azur
         ]
     }
 
-Och kan hämtas med en enda fråga, och inga kopplingar. Detta är mycket mer lätt och budget-wise, den kräver färre resurser för att få ett bättre resultat.
+Och kan hämtas med en enda fråga, och inga kopplingar. Den här frågan är mycket enkel och problemfri och budget-wise, den kräver färre resurser för att få ett bättre resultat.
 
 Azure Cosmos DB ser till att alla egenskaper som indexeras med dess automatisk indexering, vilket kan även vara [anpassade](indexing-policies.md). Schemafria-metoden kan vi lagra dokument med olika och dynamiska strukturer, kanske morgon du vill inlägg till har en lista över kategorier eller hash som är associerade med dem, Cosmos DB kommer att hantera nya dokument med tillagda attribut med inget extra arbete krävs av oss.
 
@@ -165,7 +165,7 @@ Det minsta steget kallas en UserChunk minimal typ av information som identifiera
 
 Det mellersta steget kallas användaren, är det fullständiga data som ska användas på de flesta frågor för prestanda-beroende på de mest använda och kritiska Cosmos DB. Den innehåller den information som representeras av en UserChunk.
 
-Den största är den utökade användaren. Den innehåller alla kritiska användarinformation samt andra data som inte verkligen behöver läsas snabbt eller dess användning är eventuell (till exempel inloggningen). Dessa data kan lagras utanför Cosmos-DB i Azure SQL Database eller Azure Storage-tabeller.
+Den största är den utökade användaren. Den innehåller alla kritiska användarinformation och andra data som inte verkligen behöver läsas snabbt eller användning är eventuell (till exempel inloggningen). Dessa data kan lagras utanför Cosmos-DB i Azure SQL Database eller Azure Storage-tabeller.
 
 Varför skulle du dela upp användaren och även spara informationen på olika platser? Eftersom från en prestanda synvinkel, desto större blir dokument, desto costlier frågor. Behåll dokument slimmade med rätt information, så gör alla prestanda-beroende frågor för ditt sociala nätverk och lagring av andra extra information för slutlig scenarier som fullständig profil ändringar, inloggningar, även datautvinning för användningsanalys och Big Data initiativ. Du egentligen bryr dig inte om datainsamling för datautvinning är långsammare eftersom den körs på Azure SQL Database kan du har gäller dock att användarna får en snabb och smidig upplevelse. En användare som lagras på Cosmos DB, skulle se ut så här:
 
@@ -216,12 +216,12 @@ Nu när jag något för dig låst, kommer du förmodligen tycker du behöver en 
 
 Om du vill åstadkomma något av dessa scenarier för Machine Learning kan du använda [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) att mata in information från olika källor och använda [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) att bearbeta informationen och skapa utdata som kan bearbetas av Azure Machine Learning.
 
-Ett annat tillgängliga alternativ är att använda [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services) att analysera innehåll, inte bara kan du lättare att förstå dem användarna (genom att analysera de skriver med [Textanalys](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)), men Du kan också identifiera oönskade eller mogen innehåll och agera utifrån dessa med [API för visuellt innehåll](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). Cognitive Services innehåller många out-of the box-lösningar som inte kräver att alla typer av Machine Learning kunskaper.
+Ett annat tillgängliga alternativ är att använda [Azure Cognitive Services](https://www.microsoft.com/cognitive-services) att analysera innehåll, inte bara kan du lättare att förstå dem användarna (genom att analysera de skriver med [Textanalys](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)), men du kan också identifiera oönskade eller mogen innehåll och agera utifrån dessa med [API för visuellt innehåll](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). Cognitive Services innehåller många out-of the box-lösningar som inte kräver att alla typer av Machine Learning kunskaper.
 
 ## <a name="a-planet-scale-social-experience"></a>En global skala-upplevelsen
 Det finns en sista, men inte minst viktiga artikeln jag måste åtgärda: **skalbarhet**. När du utformar en arkitektur som är det viktigt att varje komponent kan skala på egen hand, antingen eftersom du behöver att bearbeta mer data eller eftersom du vill ha en större geografiska täckning (eller båda!). Testningskostnader uppnå en komplicerad uppgift är en **nyckelfärdiga** med Cosmos DB.
 
-Cosmos DB stöder [dynamisk partitionering](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) out-of the box genom att automatiskt skapa partitioner som baseras på en viss **partitionsnyckel** (definieras som ett attribut i dina dokument). Definiera rätt partitionsnyckel som måste göras vid designtillfället och Kom ihåg den [bästa praxis](../cosmos-db/partition-data.md#designing-for-partitioning) tillgänglig; när det gäller en social upplevelse, partitioneringsstrategin måste vara lika justerade med hur du frågar (läsningar inom samma partitionen är önskvärt) och skriva (undviker ”aktiva punkter” genom att sprida skrivningar på flera partitioner). Vissa alternativ är: partitioner baserat på en temporal key (dag/månad/vecka), med Innehållskategori efter geografisk region, av användaren. allt beror på hur du ska fråga efter data och visa den i din-upplevelsen. 
+Cosmos DB stöder [dynamisk partitionering](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) out-of the box genom att automatiskt skapa partitioner som baseras på en viss **partitionsnyckel** (definieras som ett attribut i dina dokument). Definiera rätt partitionsnyckel måste göras vid designtillfället, Läs mer i [välja rätt partitionsnyckel](partitioning-overview.md#choose-partitionkey) artikeln. Vid en social upplevelse, partitioneringsstrategin måste vara lika justerade med hur du frågar (läsningar inom samma partition är önskvärt) och skriva (undviker ”aktiva punkter” genom att sprida skrivningar på flera partitioner). Vissa alternativ är: partitioner baserat på en temporal key (dag/månad/vecka), med Innehållskategori efter geografisk region, av användaren. allt beror på hur du ska fråga efter data och visa den i din-upplevelsen. 
 
 En intressant punkt värt att nämna är att dina frågor körs Cosmos DB (inklusive [aggregeringar](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) för alla partitioner transparent, du behöver inte lägga till någon logik när dina data växer.
 

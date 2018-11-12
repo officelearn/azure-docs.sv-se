@@ -1,6 +1,6 @@
 ---
 title: Registrera TPM-enhet på Azure Device Provisioning Service-tjänsten med Python | Microsoft Docs
-description: Azure snabbstart – Registrera TPM-enhet på Azure IoT Hub Device Provisioning-tjänsten med SDK för Python-etableringtjänst
+description: Azure snabbstart – Registrera TPM-enhet på Azure IoT Hub Device Provisioning-tjänsten med SDK för Python-etableringstjänst. Den här snabbstarten använder enskilda registreringar.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/26/2018
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: ff6200abd88144a530a243b508fd4878126fdb4b
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 6e38d5f3a959d363347c8b266b7bbaf165f34937
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234063"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249072"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>Registrera TPM-enhet på IoT Hub Device Provisioning-tjänsten med SDK för Python-etableringtjänst
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
@@ -33,7 +33,7 @@ Se till att [konfigurera IoT Hub Device Provisioning-tjänsten med Azure-portale
 
 1. Välj ett av följande alternativ:
 
-    - Bygg och kompilera **Azure IoT Python SDK**. Skapa Python-paketen med hjälp av [de här instruktionerna](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md). Om du använder Windows OS installerar du även [Visual C++ redistributable package](http://www.microsoft.com/download/confirmation.aspx?id=48145) så att du kan använda interna DLL:er från Python.
+    - Bygg och kompilera **Azure IoT Python SDK**. Skapa Python-paketen med hjälp av [de här instruktionerna](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md). Om du använder Windows OS installerar du även [Visual C++ redistributable package](https://www.microsoft.com/download/confirmation.aspx?id=48145) så att du kan använda interna DLL:er från Python.
 
     - [Installera eller uppgradera *pip*, pakethanteringssystemet för Python](https://pip.pypa.io/en/stable/installing/) och installera paketet med följande kommando:
 
@@ -54,7 +54,7 @@ I det här avsnittet visas hur du lägger till etableringsinformationen för TPM
 
 1. Skapa en ny **TpmEnrollment.py**-fil med en texteditor.
 
-1. Lägg till följande `import`-instruktioner och variabler längst upp i **TpmEnrollment.py**-filen. Byt sedan `dpsConnectionString` mot din anslutningssträng som finns under **Policyer för delad åtkomst** i **Device Provisioning-tjänsten** på **Azure Portal**. Byt ut `endorsementKey` med värdet du tidigare antecknade i [Förbereda miljön](quick-enroll-device-tpm-python.md#prepareenvironment). Skapa slutligen ett unikt `registrationid` och se till att det endast innehåller små bokstäver, siffror och bindestreck.  
+1. Lägg till följande `import`-instruktioner och variabler längst upp i **TpmEnrollment.py**-filen. Byt sedan `dpsConnectionString` mot din anslutningssträng som finns under **Policyer för delad åtkomst** i **Device Provisioning-tjänsten** på **Azure-portalen**. Byt ut `endorsementKey` med värdet du tidigare antecknade i [Förbereda miljön](quick-enroll-device-tpm-python.md#prepareenvironment). Skapa slutligen ett unikt `registrationid` och se till att det endast innehåller små bokstäver, siffror och bindestreck.  
    
     ```python
     from provisioningserviceclient import ProvisioningServiceClient

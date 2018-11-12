@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: cc327695a91a39c4d910a4f2421b22cc3b100627
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 803fa89145d3a38b2df34666754fe8949a74eb53
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747889"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262343"
 ---
 # <a name="api-management-advanced-policies"></a>API Management avancerade principer
-Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](http://go.microsoft.com/fwlink/?LinkID=398186).
+Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
 
 ##  <a name="AdvancedPolicies"></a> Avancerade principer
 
@@ -136,7 +136,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |villkor = ”booleskt uttryck &#124; booleskt konstant”|Booleska uttryck eller konstant som utvärderas när den som innehåller `when` Principframställning utvärderas.|Ja|
 
 ###  <a name="ChooseUsage"></a> Användning
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Princip-avsnitt:** inkommande, utgående serverdelen, vid fel
 
@@ -247,7 +247,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |Följ omdirigeringar = ”true &#124; FALSKT”|Anger om omdirigeringar från backend-tjänsten är följt av gatewayen eller returneras till anroparen.|Nej|false|
 
 ### <a name="usage"></a>Användning
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Princip-avsnitt:** serverdel
 -   **Princip-scope:** alla omfattningar
@@ -294,7 +294,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |Maximalt antal|Ett heltal. Anger ett maximalt antal begäranden som tillåts att ange principen.|Ja|Gäller inte|
 
 ### <a name="usage"></a>Användning
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Princip-avsnitt:** inkommande, utgående serverdelen, vid fel
 
@@ -345,7 +345,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |partitionsnyckel|Anger det värde som används för partitionstilldelningen när meddelanden skickas.|Valfri. Det här attributet kan inte användas om `partition-id` används.|
 
 ### <a name="usage"></a>Användning
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Princip-avsnitt:** inkommande, utgående serverdelen, vid fel
 
@@ -387,7 +387,7 @@ status code and media type. If no example or schema found, the content is empty.
 |innehållstyp|Anger `Content-Type` svar huvudets värde och används för att välja motsvarande exempel eller schema.|Nej|Ingen|
 
 ### <a name="usage"></a>Användning
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Princip-avsnitt:** inkommande, utgående, vid fel
 
@@ -452,7 +452,7 @@ status code and media type. If no example or schema found, the content is empty.
 > När den `interval`, `max-interval` och `delta` anges, **exponentiell** intervall för återförsök algoritmen används, där väntetiden mellan återförsöken ökar exponentiellt från värdet för `interval` till värdet `max-interval` enligt följande forumula - `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
 
 ### <a name="usage"></a>Användning
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) . Observera att användning av underordnade principbegränsningar ärvs av den här principen.
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) . Observera att användning av underordnade principbegränsningar ärvs av den här principen.
 
 -   **Princip-avsnitt:** inkommande, utgående serverdelen, vid fel
 
@@ -500,7 +500,7 @@ status code and media type. If no example or schema found, the content is empty.
 |svaret variabelnamn|Namnet på sammanhangsvariabeln refereras från, till exempel en uppströms [-begäran om att skicka](api-management-advanced-policies.md#SendRequest) principen och som innehåller en `Response` objekt|Valfri.|
 
 ### <a name="usage"></a>Användning
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Princip-avsnitt:** inkommande, utgående serverdelen, vid fel
 
@@ -572,7 +572,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Det finns åtgärder|Anger vilken åtgärd som ska vidtas när rubriken har redan angetts. Det här attributet måste ha något av följande värden.<br /><br /> -åsidosätt - ersätter värdet för befintlig rubrik.<br />-skip - ersätter inte befintliga huvudets värde.<br />-Tillägg - lägger till värdet till det befintliga värdet för sidhuvudet.<br />-delete - tar bort huvudet i begäran.<br /><br /> När värdet `override` ta med flera poster med samma namn resulterar i rubriken anges enligt alla poster (som visas flera gånger); endast listade värdena anges i resultatet.|Nej|åsidosättning|
 
 ### <a name="usage"></a>Användning
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Princip-avsnitt:** inkommande, utgående serverdelen, vid fel
 
@@ -656,7 +656,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Det finns åtgärder|Anger vilken åtgärd som ska vidtas när rubriken har redan angetts. Det här attributet måste ha något av följande värden.<br /><br /> -åsidosätt - ersätter värdet för befintlig rubrik.<br />-skip - ersätter inte befintliga huvudets värde.<br />-Tillägg - lägger till värdet till det befintliga värdet för sidhuvudet.<br />-delete - tar bort huvudet i begäran.<br /><br /> När värdet `override` ta med flera poster med samma namn resulterar i rubriken anges enligt alla poster (som visas flera gånger); endast listade värdena anges i resultatet.|Nej|åsidosättning|
 
 ### <a name="usage"></a>Användning
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Princip-avsnitt:** inkommande, utgående serverdelen, vid fel
 
@@ -695,7 +695,7 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
 |lösenord = ”string”|Lösenordet som ska användas för autentisering med proxyn.|Nej|Gäller inte|
 
 ### <a name="usage"></a>Användning
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Princip-avsnitt:** inkommande
 
@@ -747,7 +747,7 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
 |set-metod|Rotelement. Värdet för elementet anger HTTP-metoden.|Ja|
 
 ### <a name="usage"></a>Användning
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Princip-avsnitt:** inkommande trafik och vid fel
 
@@ -794,7 +794,7 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
 |Orsak = ”string”|En beskrivning av orsaken för att returnera statuskod.|Ja|Gäller inte|
 
 ### <a name="usage"></a>Användning
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Princip-avsnitt:** utgående, serverdel, vid fel
 -   **Princip-scope:** alla omfattningar
@@ -829,7 +829,7 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
 |värde|Värdet på variabeln. Detta kan vara ett uttryck eller ett literalvärde.|Ja|
 
 ### <a name="usage"></a>Användning
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Princip-avsnitt:** inkommande, utgående serverdelen, vid fel
 -   **Princip-scope:** alla omfattningar
@@ -895,7 +895,7 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
 |källa|Exakt sträng är meningsfulla för visningsprogram och ange källan för meddelandet.|Ja|Gäller inte|
 
 ### <a name="usage"></a>Användning
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .
 
 -   **Princip-avsnitt:** inkommande, utgående serverdelen, vid fel
 
@@ -963,7 +963,7 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
 
 ### <a name="usage"></a>Användning
 
-Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Princip-avsnitt:** inkommande, utgående serverdel
 -   **Princip-scope:** alla omfattningar

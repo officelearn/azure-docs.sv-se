@@ -8,12 +8,12 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.openlocfilehash: ae5334dcb93e34569131ab51dca99c310831082d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6a73ef058a76152678099eca3f1bd15590b0b03d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052095"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238802"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Kör och testa U-SQL med Azure Data Lake U-SQL SDK
 
@@ -36,7 +36,7 @@ Data Lake U-SQL SDK: N kräver följande beroenden:
 
     ![Data Lake Tools för Visual Studio körs lokalt SDK för Windows 10](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-    - Installera [Data Lake Tools för Visual Studio](http://aka.ms/adltoolsvs). Du kan hitta förpaketerade Visual C++ och Windows SDK filer i C:\Program Files (x86) \Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. I det här fallet hittar lokal U-SQL-kompilatorn beroenden automatiskt. Du måste ange CppSDK sökvägen för den. Du kan kopiera filer till en annan plats, eller så kan du använda det som det är.
+    - Installera [Data Lake Tools för Visual Studio](https://aka.ms/adltoolsvs). Du kan hitta förpaketerade Visual C++ och Windows SDK filer i C:\Program Files (x86) \Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. I det här fallet hittar lokal U-SQL-kompilatorn beroenden automatiskt. Du måste ange CppSDK sökvägen för den. Du kan kopiera filer till en annan plats, eller så kan du använda det som det är.
 
 ## <a name="understand-basic-concepts"></a>Förstå grundläggande begrepp
 
@@ -137,7 +137,7 @@ Den **kör** används för att kompilera skriptet och sedan köra kompilerade re
 Följande är valfria argument för **kör**:
 
 
-|Argumentet|Standardvärde|Beskrivning|
+|Argument|Standardvärde|Beskrivning|
 |--------|-------------|-----------|
 |-Bakomliggande koden|False|Skriptet har .cs koden bakom|
 |-CppSDK| |CppSDK Directory|
@@ -169,7 +169,7 @@ Den **Kompilera** används för att kompilera ett U-SQL-skript för att körbara
 Följande är valfria argument för **Kompilera**:
 
 
-|Argumentet|Beskrivning|
+|Argument|Beskrivning|
 |--------|-----------|
 | -Bakomliggande koden [standardvärdet 'False']|Skriptet har .cs koden bakom|
 | -CppSDK [standardvärde '']|CppSDK Directory|
@@ -207,7 +207,7 @@ Den **köra** används för att köra kompilerade resultat.
 
 Följande är valfria argument för **köra**:
 
-|Argumentet|Standardvärde|Beskrivning|
+|Argument|Standardvärde|Beskrivning|
 |--------|-------------|-----------|
 |-DataRoot | '' |Dataroten för körning av metadata. Den som standard den **LOCALRUN_DATAROOT** miljövariabeln.|
 |-MessageOut | '' |Dumpa meddelanden i konsolen till en fil.|
@@ -362,7 +362,7 @@ offentliga LocalRunHelper ([System.IO.TextWriter messageOutput = null])
 |WorkDir|sträng|Prioriterade arbetskatalog|
 
 
-**Metoden**
+**Metod**
 
 |Metod|Beskrivning|Gå tillbaka|Parameter|
 |------|-----------|------|---------|

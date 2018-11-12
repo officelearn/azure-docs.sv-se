@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 2/1/2018
-ms.openlocfilehash: 0d0274b88a15688106f185ede87f576443bdadb0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: ed3fc6d1d2a4b674e2866d2e168fb72490575869
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229363"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281841"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Excel-tillägget för Azure Machine Learning Studio-webbtjänster
 Excel gör det enkelt att anropa webbtjänster direkt utan att behöva skriva någon kod.
@@ -28,7 +28,7 @@ Excel gör det enkelt att anropa webbtjänster direkt utan att behöva skriva n�
 1. Öppna den [Excel-exempelfilen](https://aka.ms/amlexcel-sample-2), som innehåller Excel-tillägg och data om passagerare på den på Titanic. 
  
 > [!NOTE]
-> Du kan se listan över de webbtjänster relaterade till filen och längst ned på sidan en kryssruta för ”automatisk förutsäga”. Om du aktiverar automatisk-förutsäga förutsägelser för **alla** dina tjänster kommer att vara uppdaterade varje gång som har ändrats på indata. Om alternativet är avmarkerat måste du klicka på ”förutse alla” för uppdatering. För att aktivera automatisk-förutsäga på en tjänst på Gå till steg 6.
+> Du kan se listan över de webbtjänster relaterade till filen och längst ned på sidan en kryssruta för ”automatisk förutsäga”. Om du aktiverar automatisk-förutsäga förutsägelser för **alla** dina tjänster kommer att uppdateras varje gång en ändring på indata. Om alternativet är avmarkerat måste du klicka på ”förutse alla” för uppdatering. För att aktivera automatisk-förutsäga på en tjänst på Gå till steg 6.
 
 2. Välj webbtjänsten genom att klicka på den-”Titanic efterlevande ge säkrare prognoser (Excel-tillägget prov) [poäng]” i det här exemplet.
    

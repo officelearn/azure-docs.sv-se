@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 18a6234eb56902625fdcc8f150a41b7551d229cc
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 199095c3cffc8df7f9755f1f2c4bb5a1acba3748
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318545"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260388"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Granskning i Azure SQL Data Warehouse
 
@@ -150,7 +150,7 @@ Det finns flera metoder som du kan använda för att visa blob granskningsloggar
 ### <a name="database-level-policy-audit-logs"></a>Loggar för granskning på databasnivå
 Databasnivå granskningsloggar räknas samman i en samling med Store-tabeller med en **SQLDBAuditLogs** prefixet i Azure storage-kontot som du valde i installationsprogrammet. Du kan visa loggfiler med hjälp av ett verktyg som [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com).
 
-En förkonfigurerad instrumentpanel rapportmall är tillgänglig som en [nedladdningsbara Excel-kalkylblad](http://go.microsoft.com/fwlink/?LinkId=403540) för att snabbt analysera loggdata. Om du vill använda mallen på dina granskningsloggar, behöver du Excel 2013 eller senare och Power Query, som du kan [ladda ned här](http://www.microsoft.com/download/details.aspx?id=39379).
+En förkonfigurerad instrumentpanel rapportmall är tillgänglig som en [nedladdningsbara Excel-kalkylblad](https://go.microsoft.com/fwlink/?LinkId=403540) för att snabbt analysera loggdata. Om du vill använda mallen på dina granskningsloggar, behöver du Excel 2013 eller senare och Power Query, som du kan [ladda ned här](https://www.microsoft.com/download/details.aspx?id=39379).
 
 Mallen innehåller fiktiva exempeldata och du kan ställa in Power Query för att importera din granskningslogg direkt från Azure storage-kontot.
 

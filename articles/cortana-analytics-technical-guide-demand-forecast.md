@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: 8ff5c52b324c95bb48de0f9bbb1011ede737efb0
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: e18e1fb3e97dd9f846ee71be4f0fbb66aeca3d88
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387675"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238870"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Teknisk guide till lösningsmallen Cortana Intelligence för begäran Prognostisera i energi
 ## <a name="overview"></a>**Översikt**
@@ -47,7 +47,7 @@ Den [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) tjänste
 Den [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) används för att tillhandahålla analys på Indataströmmen från nära realtid den [Azure Event Hub](#azure-event-hub) -tjänsten och publicera resultaten på en [Power BI](https://powerbi.microsoft.com)instrumentpanelen som arkiverar alla inkommande råhändelser i [Azure Storage](https://azure.microsoft.com/services/storage/) för senare bearbetning av den [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) service.
 
 ### <a name="hdinsight-custom-aggregation"></a>HDInsight anpassad aggregering
-Tjänsten Azure HDInsight används till att köra [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript (som orkestreras via Azure Data Factory) att tillhandahålla sammansställningar av råhändelser som arkiverats med hjälp av Azure Stream Analytics-tjänsten.
+Tjänsten Azure HDInsight används till att köra [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript (som orkestreras via Azure Data Factory) att tillhandahålla sammansställningar av råhändelser som arkiverats med hjälp av Azure Stream Analytics-tjänsten.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 Den [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) tjänsten används (orkestreras via Azure Data Factory) till att göra prognoser för framtida energiförbrukningen för en viss region givet mottagna indata.
@@ -102,14 +102,14 @@ Det här avsnittet beskrivs nödvändiga [pipelines](data-factory/concepts-pipel
 
 ![](media/cortana-analytics-technical-guide-demand-forecast/ADF2.png)
 
-Fem av pipelines för den här fabriken innehåller [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript som används för att partitionera och aggregera data. När anges är skript som finns i den [Azure Storage](https://azure.microsoft.com/services/storage/) konto som skapades under konfigurationen. Var de är: demandforecasting\\\\skriptet\\\\hive\\ \\ (eller https://[Your lösning name].blob.core.windows.net/demandforecasting).
+Fem av pipelines för den här fabriken innehåller [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript som används för att partitionera och aggregera data. När anges är skript som finns i den [Azure Storage](https://azure.microsoft.com/services/storage/) konto som skapades under konfigurationen. Var de är: demandforecasting\\\\skriptet\\\\hive\\ \\ (eller https://[Your lösning name].blob.core.windows.net/demandforecasting).
 
-Liknar den [Azure Stream Analytics](#azure-stream-analytics-1) frågor, den [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skripten har implicit kunskap om dataformat för inkommande, de här frågorna skulle behöva ändras beroende på dataformat och [funktionstekniker](machine-learning/team-data-science-process/create-features.md) krav.
+Liknar den [Azure Stream Analytics](#azure-stream-analytics-1) frågor, den [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skripten har implicit kunskap om dataformat för inkommande, de här frågorna skulle behöva ändras beroende på dataformat och [funktionstekniker](machine-learning/team-data-science-process/create-features.md) krav.
 
 #### <a name="aggregatedemanddatato1hrpipeline"></a>*AggregateDemandDataTo1HrPipeline*
-Detta [pipeline](data-factory/concepts-pipelines-activities.md) innehåller en enda aktivitet – en [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) med en [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) som kör en [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript till sammanställda strömmas i begäran data var tionde sekund i omformaren nivå till varje timme regionnivå och placera i [Azure Storage](https://azure.microsoft.com/services/storage/) via Azure Stream Analytics-jobbet.
+Detta [pipeline](data-factory/concepts-pipelines-activities.md) innehåller en enda aktivitet – en [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) med en [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) som kör en [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript till sammanställda strömmas i begäran data var tionde sekund i omformaren nivå till varje timme regionnivå och placera i [Azure Storage](https://azure.microsoft.com/services/storage/) via Azure Stream Analytics-jobbet.
 
-Den [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript för detta partitionering är ***AggregateDemandRegion1Hr.hql***
+Den [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript för detta partitionering är ***AggregateDemandRegion1Hr.hql***
 
 #### <a name="loadhistorydemanddatapipeline"></a>*LoadHistoryDemandDataPipeline*
 Detta [pipeline](data-factory/concepts-pipelines-activities.md) innehåller två aktiviteter:
@@ -117,7 +117,7 @@ Detta [pipeline](data-factory/concepts-pipelines-activities.md) innehåller två
 * [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) med en [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) som kör ett Hive-skript för att aggregera data per timme historik begäran i omformaren nivå till varje timme regionnivå och placera i Azure Storage under Azure Stream Analytics-jobb
 * [Kopiera](https://msdn.microsoft.com/library/azure/dn835035.aspx) aktivitet som flyttar sammanställda data från Azure Storage-blob till Azure SQL-databasen som har etablerats som en del av lösningen mall installationen.
 
-Den [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript för den här uppgiften är ***AggregateDemandHistoryRegion.hql***.
+Den [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript för den här uppgiften är ***AggregateDemandHistoryRegion.hql***.
 
 #### <a name="mlscoringregionxpipeline"></a>*MLScoringRegionXPipeline*
 Dessa [pipelines](data-factory/concepts-pipelines-activities.md) innehåller flera aktiviteter och vars slutresultatet är poängsatta förutsägelser från Azure Machine Learning-experiment som är associerade med den här lösningsmallen. De är nästan identiska förutom dem endast hanterar annan region, som görs av olika RegionID som skickades i ADF pipelinen och hive-skriptet för varje region.  
@@ -231,7 +231,7 @@ Se till att du stoppar datageneratorn när du inte aktivt använder lösningen s
 Följande två verktyg är tillgängliga för att bättre förstå totala kostnader för att köra Efterfrågeprognostisering för energi lösningsmallen i din prenumeration:
 
 * [Microsoft Azure Cost Estimator Tool (online)](https://azure.microsoft.com/pricing/calculator/)
-* [Microsoft Azure Cost Estimator Tool (skrivbord)](http://www.microsoft.com/download/details.aspx?id=43376)
+* [Microsoft Azure Cost Estimator Tool (skrivbord)](https://www.microsoft.com/download/details.aspx?id=43376)
 
 ## <a name="acknowledgements"></a>**Bekräftelser**
 Den här artikeln har skrivits av dataexpert Yijing Chen och programvaruutvecklare Qiu Min på Microsoft.

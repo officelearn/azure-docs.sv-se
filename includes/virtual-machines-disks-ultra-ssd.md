@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: bb9a2a884439b00f52adfa9b7c1010a4610a77f7
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 050308e1c8de160f1671ded991e550087299ae2f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47401600"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285804"
 ---
 # <a name="ultra-ssd-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Ultra SSD (förhandsversion) Managed Disks för Azure-datorbelastningar
 
@@ -23,7 +23,7 @@ Azure Ultra SSD (förhandsversion) ger hög genomströmning, hög IOPS och konse
 
 **Hanterade diskar**: Ultra SSD: er är endast tillgängliga som Managed Disks. Ultra SSD: er kan inte distribueras som en ohanterad Disk eller en Sidblob. När du skapar en hanterad Disk måste ange du disk-sku som UltraSSD_LRS och anger storleken på disken, IOPS, dataflöde som du behöver och Azure skapar och hanterar disken åt dig.  
 
-**Virtuella datorer**: Ultra SSD: er är utformade att fungera med alla Premium SSD aktiverat Azure VM SKU: er, men när förhandsversionen VM-storlekar begränsas till ES/DS v3 VM-instanser.
+**Virtuella datorer**: Ultra SSD: er är utformade att fungera med alla SKU: er med Premium SSD aktiverat Azure-dator, men eftersom den är för närvarande i förhandsversion, de virtuella datorerna har storleken som ES/DS v3.
 
 **Dynamisk Prestandakonfiguration**: Ultra SSD-enheter kan du ändra dynamiskt prestanda för disken tillsammans med dina arbetsbelastningsbehov (IOPS och dataflöde) utan att behöva starta om dina virtuella datorer.
 
@@ -55,7 +55,7 @@ I följande tabell sammanfattas de olika konfigurationerna som stöds för olika
 
 ## <a name="pricing-and-billing"></a>Priser och fakturering
 
-När du använder Ultra SSD, gäller följande för debitering:
+När du använder Ultra SSD, används följande för debitering:
 
 - Hanterade diskens storlek
 - Hanterad Disk etablerad IOPS
@@ -64,11 +64,11 @@ När du använder Ultra SSD, gäller följande för debitering:
 
 ### <a name="managed-disk-size"></a>Hanterade diskens storlek
 
-Hanterade diskar faktureras med storlekarna som är etablerade. Azure mappar den etablerade storleken (avrundad uppåt) till närmaste diskstorlekserbjudande. Se tabellen i skalbarhets- och prestandamål ovan för information om diskstorlekar som erbjuds. Varje disk som mappar till en etablerad diskstorleken som stöds och därefter faktureras per timme. Om du har etablerat en 200 GiB Ultra SSD-Disk och tar bort den efter 20 timmar, det mappas till disk storlek erbjudandet om 256 GB och du debiteras för 256 GB för 20 timmar. Det här är oavsett mängden faktiska data som skrivs till disken.
+Hanterade diskar faktureras i Virtuella datorer du choosed när provisionning en ny virtuell Azure-dator. Azure mappar den etablerade storleken (avrundad uppåt) till närmaste diskstorlekserbjudande. Se tabellen i skalbarhets- och prestandamål ovan för information om diskstorlekar som erbjuds. Varje disk som mappar till en etablerad diskstorleken som stöds och kommer därefter faktureras per timme. Om du har etablerat en 200 GiB Ultra SSD-Disk och tar bort den efter 20 timmar, det mappas till disk storlek erbjudandet om 256 GB och du debiteras för 256 GB för 20 timmar. Den här Faktureringsmetoden baserades på compute-timförbrukning oavsett mängden data som faktiskt skrivs till disken.
 
 ### <a name="managed-disk-provisioned-iops"></a>Hanterad Disk etablerad IOPS
 
-IOPS är antalet begäranden som programmet skickar till diskar i en sekund. En i/o-åtgärd kan vara sekventiella eller slumpmässiga, läser eller skriver. Etablerad IOPS, t.ex. diskstorlek faktureras per timme. Se tabellen i skalbarhets- och prestandamål ovan för information om den disk som erbjuds av IOPS.
+IOPS är antalet begäranden som programmet skickar till diskar per sekund. En i/o-åtgärd kan vara sekventiell Läs- eller Skriv- eller icke-sekventiella Läs eller Skriv. Baserat på diskens storlek eller antalet diskar som är anslutna till den virtuella datorn, faktureras det genomsnittliga antalet IOPS per timme. Se tabellen i skalbarhets- och prestandamål ovan för information om den disk som erbjuds av IOPS.
 
 ### <a name="managed-disk-provisioned-throughput"></a>Dataflöde för hanterad Disk
 

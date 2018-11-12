@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 8c669e13ec3345ff75024c54eda8c13ad194705a
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 2e254faae0289cd00c7e66d430ec3148fccb364a
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741138"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288160"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Självstudier: Azure Active Directory-integration med växer samman SAML SSO av Microsoft
 
@@ -65,9 +65,17 @@ Från och med nu stöds följande versioner av växer samman:
 
 - Antal samverkande: 5.0 till 5.10
 - Antal samverkande: 6.0.1
+- Antal samverkande: 6.1.1
 - Antal samverkande: 6.2.1
+- Antal samverkande: 6.3.4
+- Antal samverkande: 6.4.0
+- Antal samverkande: 6.5.0
 - Antal samverkande: 6.6.2
+- Antal samverkande: 6.7.0
 - Antal samverkande: 6.8.1
+- Antal samverkande: 6.9.0
+- Antal samverkande: 6.10.0
+- Antal samverkande: 6.11.0
 - Antal samverkande: 6.12.0
 
 ## <a name="scenario-description"></a>Scenariobeskrivning

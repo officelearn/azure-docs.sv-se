@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: trinadhk
-ms.openlocfilehash: 32eba23202eca1c71c4f3b01dcb364281cb2eb60
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 62b2744494fcd4d98bf75892dc95d86130dd04bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42060972"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261748"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Säkerhetsfunktioner som hjälper att skydda hybridsäkerhetskopieringar som använder Azure Backup
 Frågor om säkerhetsproblem, t.ex. skadlig kod, utpressningstrojaner och intrång, ökar. Dessa säkerhetsproblem kan vara kostsamma när det gäller både pengar och data. För att skydda mot sådana attacker, ger Azure Backup nu säkerhetsfunktioner för att skydda hybridsäkerhetskopieringar. Den här artikeln beskriver hur du aktiverar och använder dessa funktioner med hjälp av ett Azure Recovery Services-agenten och Azure Backup Server. Dessa funktioner:
@@ -114,6 +114,6 @@ Säkerhetsfunktioner som nämns i den här artikeln har funktioner för skydd mo
 
 ## <a name="next-steps"></a>Nästa steg
 * [Kom igång med Azure Recovery Services-valv](backup-azure-vms-first-look-arm.md) att aktivera dessa funktioner.
-* [Hämta den senaste Azure Recovery Services-agenten](http://aka.ms/azurebackup_agent) för att skydda Windows-datorer och skydda dina säkerhetskopierade data mot attacker.
+* [Hämta den senaste Azure Recovery Services-agenten](https://aka.ms/azurebackup_agent) för att skydda Windows-datorer och skydda dina säkerhetskopierade data mot attacker.
 * [Ladda ned den senaste Azure Backup Server](https://aka.ms/latest_azurebackupserver) för att skydda arbetsbelastningar och skydda dina säkerhetskopierade data mot attacker.
 * [Ladda ned UR12 för System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) eller [hämta UR2 för System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) för att skydda arbetsbelastningar och skydda dina säkerhetskopierade data mot attacker.

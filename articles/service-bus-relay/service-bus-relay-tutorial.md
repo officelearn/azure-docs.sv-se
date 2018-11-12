@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: spelluru
-ms.openlocfilehash: 12902fef0a27aa0af5995d2fd6ab87d951413d1d
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 9c76e535fe0585ec6ff08a0c9dcab700d8eb5424
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857983"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262020"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Självstudie för Azure WCF Relay
 
@@ -35,7 +35,7 @@ I de tre sista stegen beskriver vi hur du skapar ett klientprogram, konfigurerar
 
 För att kunna genomföra den här kursen behöver du följande:
 
-* [Microsoft Visual Studio 2015 eller senare](http://visualstudio.com). Den här självstudiekursen används Visual Studio 2017.
+* [Microsoft Visual Studio 2015 eller senare](https://visualstudio.com). Den här självstudiekursen används Visual Studio 2017.
 * Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett utan kostnad på ett par minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/free/).
 
 ## <a name="create-a-service-namespace"></a>Skapa ett namnområde för tjänsten
@@ -55,7 +55,7 @@ Tjänstekontraktet anger vilka åtgärder (webbserviceterminologin för metoder 
 
 3. Installera Service Bus NuGet-paketet. Det här paketet lägger automatiskt till referenser till Service Bus-bibliotek, samt även WCF **System.ServiceModel**. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) är det namnområde som ger dig programmatisk åtkomst till de grundläggande funktionerna i WCF. Service Bus använder många av WFC:s objekt och attribut för att definiera tjänstekontrakt.
 
-    Högerklicka på projektet i Solution Explorer och klicka sedan på **hantera NuGet-paket...** . Klicka på fliken **Bläddra** och sök sedan efter **WindowsAzure.ServiceBus**. Kontrollera att projektnamnet är markerat i rutan **Versioner**. Klicka på **Installera** och godkänn användningsvillkoren.
+    Högerklicka på projektet i Solution Explorer och klicka sedan på **hantera NuGet-paket...** . Klicka på fliken Bläddra och sök sedan efter **WindowsAzure.ServiceBus**. Kontrollera att projektnamnet är markerat i rutan **Versioner**. Klicka på **Installera** och godkänn användningsvillkoren.
 
     ![][3]
 4. Dubbelklicka på filen Program.cs i Solution Explorer för att öppna den i redigeraren, om den inte redan är öppen.
@@ -81,7 +81,7 @@ Tjänstekontraktet anger vilka åtgärder (webbserviceterminologin för metoder 
     ```
 
    > [!NOTE]
-   > Namnområdet för tjänstekontraktet innehåller vanligtvis ett namngivningsschema som inkluderar information om versionen. Om du tar med versionsinformation i namnområdet för tjänstekontraktet kan tjänsterna isolera större ändringar genom att definiera ett nytt tjänstkontrakt med ett nytt namnområde och sedan exponera det på en ny slutpunkt. På så sätt kan klienter fortsätta att använda det gamla tjänstkontraktet utan att behöva uppdateras. Versionsinformation kan bestå av ett datum eller ett build-nummer. Mer information finns i [Versionhantering för tjänster](http://go.microsoft.com/fwlink/?LinkID=180498). I just den här självstudiekursen innehåller namngivningsschemat för tjänstekontraktets namnområde inte någon information om versionerna.
+   > Namnområdet för tjänstekontraktet innehåller vanligtvis ett namngivningsschema som inkluderar information om versionen. Om du tar med versionsinformation i namnområdet för tjänstekontraktet kan tjänsterna isolera större ändringar genom att definiera ett nytt tjänstkontrakt med ett nytt namnområde och sedan exponera det på en ny slutpunkt. På så sätt kan klienter fortsätta att använda det gamla tjänstkontraktet utan att behöva uppdateras. Versionsinformation kan bestå av ett datum eller ett build-nummer. Mer information finns i [Versionhantering för tjänster](https://go.microsoft.com/fwlink/?LinkID=180498). I just den här självstudiekursen innehåller namngivningsschemat för tjänstekontraktets namnområde inte någon information om versionerna.
    >
    >
 8. I den `IEchoContract` gränssnitt, deklarerar du en metod för den enda åtgärden i `IEchoContract` kontraktet exponerar i gränssnittet och tillämpa den `OperationContractAttribute` attributet den metod som du vill exponera som en del av det offentliga WCF Relay-kontraktet, enligt följande:

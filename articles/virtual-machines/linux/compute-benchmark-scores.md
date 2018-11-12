@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn;davberg
-ms.openlocfilehash: 6127da5bfd8824537ea3b4de46e26ae47da0ce01
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 1d7f11b7d9db87ebea5cb31b2918dba3fe8a56b2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056910"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262360"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Beräkna benchmark-poäng för virtuella Linux-datorer
 Följande CoreMark benchmark-poäng visar prestanda för databearbetning för Azures högpresterande VM utbud som kör Ubuntu. Compute benchmark-poäng kan också användas för [Windows virtuella datorer](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -373,5 +373,5 @@ Linux-värdena är beräknade genom att köra [CoreMark](http://www.eembc.org/co
 
 ## <a name="next-steps"></a>Nästa steg
 * Lagringskapacitet, diskinformation och ytterligare överväganden för att välja bland VM-storlekar finns i [storlekar för virtuella datorer](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Kör CoreMark-skript på virtuella Linux-datorer genom att ladda ned den [CoreMark skriptet pack](http://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip).
+* Kör CoreMark-skript på virtuella Linux-datorer genom att ladda ned den [CoreMark skriptet pack](https://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip).
 

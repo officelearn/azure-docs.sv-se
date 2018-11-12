@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 9d2745f1211aa6f818f89d9597867e1b3b2de03f
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 4e89664bf980717dbfd7994d6469fc4a412307a0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362661"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258552"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Lead-hantering för marknadsplats i molnet
 
@@ -97,7 +97,7 @@ När de tekniska konfigurera är på plats, ska du införliva dessa leads i din 
 
 **Vilka leads och varför de viktiga för mig som utgivare på Marketplace?** 
 
-Leads är kunder som distribuerar dina produkter från Marketplace. Om din produkt visas på [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us) eller [AppSource](http://appsource.microsoft.com/), du kommer att kunna ta emot leads kunder som är intresserade av din produkt om du har konfigurerat lead-målet på ditt erbjudande.  
+Leads är kunder som distribuerar dina produkter från Marketplace. Om din produkt visas på [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us) eller [AppSource](https://appsource.microsoft.com/), du kommer att kunna ta emot leads kunder som är intresserade av din produkt om du har konfigurerat lead-målet på ditt erbjudande.  
 
 
 **Var kan jag få hjälp att konfigurera min lead-mål?** 

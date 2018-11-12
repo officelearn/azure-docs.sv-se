@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: f600471e8a3602628a5040051f382e6e020f29d5
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d53e8fe6588b7e1b068431a4cd530d0a80a603e6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211425"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261884"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planera kapacitet för Hyper-V VM-katastrofåterställning 
 
@@ -43,7 +43,7 @@ Du kan köra verktyget i två lägen:
 
 
 ## <a name="run-the-quick-planner"></a>Kör Quick Planeringsverktyget
-1. Ladda ned och öppna [Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel). Du måste köra makron. När du uppmanas göra val för att aktivera redigering och innehåll.
+1. Ladda ned och öppna [Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel). Du måste köra makron. När du uppmanas göra val för att aktivera redigering och innehåll.
 
 2. I den **Välj en typ av planner** listrutan Välj **snabb Planner**.
 
@@ -81,7 +81,7 @@ Du kan köra verktyget i två lägen:
 
 ## <a name="run-the-detailed-planner"></a>Kör detaljerad Planeringsverktyget
 
-1. Ladda ned och öppna [Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel). Du måste köra makron. När du uppmanas göra val för att aktivera redigering och innehåll.
+1. Ladda ned och öppna [Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel). Du måste köra makron. När du uppmanas göra val för att aktivera redigering och innehåll.
 
 2. I **Välj en typ av planner**väljer **detaljerad Planner** i listrutan.
 

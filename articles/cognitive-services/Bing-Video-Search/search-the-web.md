@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: overview
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: cf37db9bffa8b2a54a6327c29ec806e0eefc8c91
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: e48a0a056628e0c863330de792f8edfaa48aae34
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225420"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261867"
 ---
 # <a name="what-is-bing-video-search"></a>Vad är videosökning i Bing?
 
@@ -43,11 +43,11 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Alla förfrågningar måste ske från en server.
+Alla begäranden måste ske från en server.
 
 Om det är den första gången du anropar ett Bing-API inkluderar du inte klientens ID-huvud. Inkludera endast klient-ID om du har anropat ett Bing-API förut och om Bing returnerade ett klient-ID för användar- och enhetskombinationen.
 
-Om du vill hämta videor från en specifik domän använder du frågeoperatorn [site:](http://msdn.microsoft.com/library/ff795613.aspx).
+Om du vill hämta videor från en specifik domän använder du frågeoperatorn [site:](https://msdn.microsoft.com/library/ff795613.aspx).
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
@@ -131,7 +131,7 @@ Som standard returnerar API för videosökning i Bing alla videor som är releva
 - [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videolength)&mdash;Filtrera videor efter deras längd (till exempel videor som är kortare än fem minuter)
 - [freshness](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#freshness)&mdash;Filtrera videor efter ålder (till exempel videor som upptäckts av Bing den senaste veckan)
 
-Om du vill hämta videor från en specifik domän tar du med frågeoperatorn [site:](http://msdn.microsoft.com/library/ff795613.aspx) i frågesträngen.
+Om du vill hämta videor från en specifik domän tar du med frågeoperatorn [site:](https://msdn.microsoft.com/library/ff795613.aspx) i frågesträngen.
 
 > [!NOTE]
 > Beroende på frågan finns det en risk när du använder frågeoperatorn `site:` att svaret har innehåll som är olämpligt för barn, oberoende av inställningen för [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#safesearch). Du bör endast använda `site:` om du är medveten om innehållet på webbplatsen och ditt scenario tillåter möjligheten att det förekommer innehåll som är olämpligt för barn.

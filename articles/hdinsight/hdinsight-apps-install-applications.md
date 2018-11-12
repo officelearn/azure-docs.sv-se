@@ -1,24 +1,24 @@
 ---
-title: Installera Hadoop-program från tredje part i Azure HDInsight
+title: Installera program från tredje part på Azure HDInsight
 description: Lär dig hur du installerar Hadoop-program från tredje part i Azure HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: c50bd7c314c88c0950478cc3068d9a5873b65263
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 71c371594a0ee2b2b8e976fffb7641ccb6b72c0a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996973"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261799"
 ---
-# <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Installera Hadoop-program från tredje part i Azure HDInsight
+# <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Installera från tredje part Apache Hadoop-program på Azure HDInsight
 
-Lär dig hur du installerar ett Hadoop-program från tredje part i Azure HDInsight. Anvisningar om hur du installerar ett eget program finns i [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).
+Lär dig hur du installerar ett tredje parts Apache Hadoop-program på Azure HDInsight. Anvisningar om hur du installerar ett eget program finns i [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).
 
 Ett HDInsight-program är ett program som användarna kan installera på ett HDInsight-kluster. Dessa program kan utvecklas av Microsoft, oberoende programvaruleverantörer och av dig själv.  
 
@@ -27,13 +27,18 @@ I följande lista visas de publicerade programmen:
 * **Plattform för AtScale Intelligence** stängs ditt HDInsight-kluster i en skalbar OLAP-server. Du kan fråga miljarder rader med data interaktivt med BI-verktyg från Microsoft Excel, Power BI, Tableau Software till QlikView i programmet.
 * **Cask CDAP för HDInsight** ger den första enhetliga-plattformen för stordata som minskar tiden till produktion för dataprogram och datasjöar med 80%. Det här programmet stöder endast Standard HBase 3.4-kluster.
 * **DATAIKU DDS på HDInsight** kan data-experter kan skapa prototyper samt bygga och distribuera specifika tjänster som omvandlar rådata till effektfulla affärsförutsägelser.
+* **Datameer** är en självbetjäning skalbar plattform för att förbereda, utforska, och styr dina data för analys går det snabbare att omvandla komplexa flerkällig data till värdefull information i business ready, leverera snabbare, smartare insikter på en Enterprise-skalan.
 * **H2O artificiell intelligens för HDInsight (Beta)** H2O Sparkling Water har stöd för följande distribuerade algoritmer: GLM, Naïve Bayes, distribuerade slumpmässiga skog, Gradient Boosting-dator, djupa Neurala nätverk, Djupinlärning, K-means, PCA, Generaliserad med låg rangordnas modeller, Avvikelseidentifiering och Autoencoders.
-* **Kyligence Analytics Platform** Kyligence Analytics Platform (KAP) är ett informationslager för företag som drivs av Apache kylin med och Apache Hadoop, ger subsekundära fråga svarstid på massiv skala datauppsättning och förenklar dataanalys för användare i verksamheten och analytiker. 
+* **Kyligence Analytics Platform** Kyligence Analytics Platform (KAP) är ett informationslager för företag som drivs av Apache kylin med och Apache Hadoop, ger subsecond fråga svarstid på massiv skala datauppsättning och förenklar dataanalys för användare i verksamheten och analytiker. 
 * **Paxata självbetjäning förberedelse av Data**
 * **Spark-jobbserver för KNIME Spark-Executor** Spark-jobbserver för KNIME Spark-Executor används för att ansluta analysplattform KNIME till HDInsight-kluster.
+* **Stjärnexplosion Presto** Presto är en snabb och skalbar distribuerad SQL frågemotor. Byggt för uppdelning av lagring och beräkning, är Presto perfekt för att fråga efter data i Azure Data Lake Storage, Azure Blob Storage, SQL och NoSQL-databaser och andra datakällor.
 * **Streamsets Data Collector för HDnsight** tillhandahåller en komplett integrerad utvecklingsmiljö (IDE) som du kan använda för att utforma, testa, distribuera och hantera pipelines för ”alla-till-alla”-inmatningar som kopplar ihop dataströms- och batchdata. Du kan också ta med olika interna dataströmstransformationer, allt utan att skriva anpassad kod. 
-* **[Trifacta](http://www.trifacta.com/)**  kan datatekniker och analytiker att mer effektivt och förbereda varierad för dagens genom att använda maskininlärning att ange banbrytande användarupplevelse, arbetsflöde och arkitektur.
+* **Striims** (uttalas ”strömma”) är en slutpunkt till slutpunkt för direktuppspelning dataintegrering + intelligence-plattformen, att aktivera kontinuerlig datainmatning, bearbetning och analyser av olika dataströmmar.
+* **[Trifacta](http://www.trifacta.com/)**  kan datatekniker och analytiker att mer effektivt och förbereda varierad för dagens genom att använda maskininlärning att tillhandahålla en banbrytande användarupplevelse, arbetsflöde och arkitektur.
+* **Unifi dataplattform** är en sömlöst integrerad uppsättning med självbetjänad verktyg som utformats för att ge företagsanvändare att datautmaningarna den inkrementella intäkten, minska kostnaderna och komplexiteten i driften. 
 * **WANdisco Fusion HDI App** möjliggör kontinuerlig konsekvent anslutning till data ändras, oavsett var de finns. Den ger dig åtkomst till dina data när som helst och var som helst utan driftavbrott eller utan avbrott.
+* **Vattenlinjen** katalogiserar organiserar och reglerar data med hjälp av AI till Märk automatiskt data med termer. Vattenlinjens företag literate catalog är en kritisk, lyckades-komponent för självbetjäning analys, efterlevnad och styrning och IT-hantering initiativ.
 
 I artikelns instruktioner används Azure-portalen. Du kan också exportera Azure Resource Manager-mallen från portalen eller skaffa en kopia av Resource Manager-mallen från leverantörer och distribuera mallen med hjälp av Azure PowerShell och Azure klassiskt CLI.  Se [skapa Hadoop-kluster på HDInsight med hjälp av Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 

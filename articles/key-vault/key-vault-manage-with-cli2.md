@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: 16b5aed4d034d989bf34b92975b2a743b82903b0
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f3b91e73cbfe9972969f5a061768a2c2bbfa7d1b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954357"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256467"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Hantera Nyckelvalv med hjälp av Azure CLI 
 
@@ -50,7 +50,7 @@ Om du vill använda Azure CLI-kommandon i den här artikeln, måste du ha följa
 
 * En prenumeration på Microsoft Azure. Om du inte har ett konto kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial).
 * Azure-kommandoradsgränssnittet 2.0 eller senare. Om du vill installera den senaste versionen, se [installera Azure CLI](/cli/azure/install-azure-cli).
-* Ett program som ska konfigureras för att använda nyckeln eller lösenordet som du skapar i den här artikeln. Ett exempelprogram är tillgängligt från [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=45343). Anvisningar finns i den inkluderade filen Viktigt-filen.
+* Ett program som ska konfigureras för att använda nyckeln eller lösenordet som du skapar i den här artikeln. Ett exempelprogram är tillgängligt från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45343). Anvisningar finns i den inkluderade filen Viktigt-filen.
 
 ### <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Få hjälp med kommandoradsgränssnittet för Azure plattformsoberoende
 

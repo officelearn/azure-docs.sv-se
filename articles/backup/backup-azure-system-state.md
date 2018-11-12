@@ -1,5 +1,5 @@
 ---
-title: Säkerhetskopiera Windows systemtillståndet till Azure
+title: Säkerhetskopiera Windows-systemtillstånd till Azure
 description: Lär dig hur du säkerhetskopierar systemtillståndet för Windows Server och/eller Windows datorer till Azure.
 services: backup
 author: saurabhsensharma
@@ -9,22 +9,22 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: saurse
-ms.openlocfilehash: 61ee1ce7d5cc6dc2aa4b7a8b02c2e5ba77539725
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a28e3fb18f2c0b65557034e388d08918c622b8f4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606077"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255872"
 ---
-# <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Säkerhetskopiera systemtillståndet för Windows i Resource Manager-distribution
-Den här artikeln förklarar hur du säkerhetskopierar systemtillståndet Windows Server till Azure. I den här självstudiekursen går vi igenom grunderna.
+# <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Säkerhetskopiering av systemtillstånd för Windows i Resource Manager-distribution
+Den här artikeln förklarar hur du säkerhetskopierar dina Windows Server-systemtillstånd till Azure. I den här självstudiekursen går vi igenom grunderna.
 
 Om du vill veta mer om Azure Backup läser du den här [översikten](backup-introduction-to-azure-backup.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) som ger dig åtkomst till Azure-tjänsten.
 
 ## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
-Om du vill säkerhetskopiera systemtillståndet Windows Server, måste du skapa ett Recovery Services-valv i den region där du vill lagra data. Du måste också bestämma hur du vill att lagringen ska replikeras.
+Om du vill säkerhetskopiera Windows Server System-tillstånd, måste du skapa ett Recovery Services-valv i regionen där du vill lagra data. Du måste också bestämma hur du vill att lagringen ska replikeras.
 
 ### <a name="to-create-a-recovery-services-vault"></a>Så här skapar du ett Recovery Services-valv
 1. Om du inte redan gjort det loggar du in på [Azure-portalen](https://portal.azure.com/) med din Azure-prenumeration.
@@ -84,7 +84,7 @@ När du skapar ett Recovery Services-valv ska du alltid kontrollera att lagrings
 
     Valvet använder geo-redundant lagring som standard. Om du använder Azure som primär slutpunkt för lagring av säkerhetskopior fortsätter du att använda **geo-redundant** lagring. Om du inte använder Azure som en slutpunkt för primär lagring av säkerhetskopior väljer du **Lokalt redundant**, vilket minskar kostnaderna för Azure-lagring. Läs mer om alternativen för [geo-redundant](../storage/common/storage-redundancy-grs.md) och [lokalt redundant](../storage/common/storage-redundancy-lrs.md) i denna [översikt av lagringsredundans](../storage/common/storage-redundancy.md).
 
-Nu när du har skapat ett valv, kan du konfigurera den för att säkerhetskopiera systemtillståndet i Windows.
+Nu när du har skapat ett valv kan du konfigurera den för att säkerhetskopiera systemtillståndet i Windows.
 
 ## <a name="configure-the-vault"></a>Konfigurera valvet
 1. På bladet Recovery Services-valv (för valvet som du precis har skapat) klickar du på **Säkerhetskopiering** i avsnittet Komma igång och väljer sedan **Säkerhetskopieringsmål** på bladet **Kom igång med säkerhetskopiering**.
@@ -99,7 +99,7 @@ Nu när du har skapat ett valv, kan du konfigurera den för att säkerhetskopier
 
     Du väljer **Lokalt** eftersom din Windows Server- eller Windows-dator är en fysisk dator som inte finns i Azure.
 
-3. Från den **vad vill du säkerhetskopiera?** väljer du **systemtillstånd**, och klicka på **OK**.
+3. Från den **vad vill du säkerhetskopiera?** menyn och välj **systemtillstånd**, och klicka på **OK**.
 
     ![Konfigurera filer och mappar](./media/backup-azure-system-state/backup-goal-system-state.png)
 
@@ -131,7 +131,7 @@ Nu när du har skapat ett valv, kan du konfigurera den för att säkerhetskopier
 
     ![valvautentiseringsuppgifterna har hämtats](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
 > [!NOTE]
-> Autentiseringsuppgifter för valv måste sparas endast till en plats som är lokala för Windows-Server som du tänker använda agenten. 
+> Autentiseringsuppgifterna för valvet måste sparas endast till en plats som är lokala Windows-Server som du tänker använda agenten. 
 >
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
@@ -139,7 +139,7 @@ Nu när du har skapat ett valv, kan du konfigurera den för att säkerhetskopier
 ## <a name="install-and-register-the-agent"></a>Installera och registrera agenten
 
 > [!NOTE]
-> Aktivering av säkerhetskopiering via Azure Portal är inte tillgängligt ännu. Använda Microsoft Azure Recovery Services-agenten för säkerhetskopiering av systemtillstånd för Windows Server.
+> Aktivering av säkerhetskopiering via Azure Portal är inte tillgängligt ännu. Använd Microsoft Azure Recovery Services-agenten för säkerhetskopiering av systemtillstånd för Windows Server.
 >
 
 1. Leta upp och dubbelklicka på **MARSagentinstaller.exe** från mappen för nedladdade filer (eller en annan lagringsplats).
@@ -164,15 +164,15 @@ Nu när du har skapat ett valv, kan du konfigurera den för att säkerhetskopier
 Nu installeras agenten och datorn registreras i valvet. Nu kan du konfigurera och schemalägga säkerhetskopieringen.
 
 ## <a name="back-up-windows-server-system-state"></a>Säkerhetskopiera Windows Server System-tillstånd 
-Den första säkerhetskopian innehåller två aktiviteter:
+Den första säkerhetskopieringen omfattar två aktiviteter:
 
 * Schemalägg säkerhetskopieringen
-* Säkerhetskopiera systemtillståndet för första gången
+* Säkerhetskopiering av systemtillstånd för första gången
 
 För att slutföra den första säkerhetskopieringen använder du Microsoft Azure Recovery Services-agenten.
 
 > [!NOTE]
-> Du kan säkerhetskopiera systemtillståndet på Windows Server 2008 R2 till Windows Server 2016. Systemtillstånd tillbaka stöds upp inte på klienten SKU: er. Systemtillstånd visas inte som ett alternativ för Windows-klienter eller Windows Server 2008 SP2-datorer.
+> Du kan säkerhetskopiera systemtillståndet i Windows Server 2008 R2 till Windows Server 2016. Systemtillstånd tillbaka finns upp inte stöd för SKU: er för klienten. Systemtillstånd visas inte som ett alternativ för Windows-klienter eller Windows Server 2008 SP2-datorer.
 >
 >
 
@@ -194,13 +194,13 @@ För att slutföra den första säkerhetskopieringen använder du Microsoft Azur
 
 6. Klicka på **Nästa**.
 
-7. Välj den obligatoriska säkerhetskopieringsfrekvens och bevarandeprincipen för säkerhetskopior av systemtillståndet på de efterföljande sidorna. 
+7. Välj säkerhetskopieringsfrekvens som krävs och bevarandeprincipen för dina säkerhetskopior av systemtillståndet i de efterföljande sidorna. 
 
 8. Läs informationen på sidan Bekräftelse och klicka sedan på **Slutför**.
 
 9. När guiden har skapat säkerhetskopieringsschemat klickar du på **Stäng**.
 
-### <a name="to-back-up-windows-server-system-state-for-the-first-time"></a>Säkerhetskopiera Windows Server System tillstånd för första gången
+### <a name="to-back-up-windows-server-system-state-for-the-first-time"></a>Säkerhetskopiera Windows Server System-tillstånd för första gången
 
 1. Kontrollera att det finns inga väntande uppdateringar för Windows Server som kräver en omstart.
 
@@ -208,7 +208,7 @@ För att slutföra den första säkerhetskopieringen använder du Microsoft Azur
 
     ![Säkerhetskopiera Windows Server nu](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 
-3. Välj **systemtillstånd** på den **Välj säkerhetskopieringsobjektet** skärm som visas och klicka på **nästa**.
+3. Välj **systemtillstånd** på den **Välj Säkerhetskopieringsobjekt** skärmen som visas och klicka på **nästa**.
 
 4. Gå igenom inställningarna på sidan Bekräftelse som guiden Säkerhetskopiera nu ska använda för att säkerhetskopiera datorn. Klicka på **Säkerhetskopiera**.
 
@@ -220,9 +220,9 @@ När den första säkerhetskopieringen har slutförts visas statusen **Jobbet ha
   ![IR slutfört](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
 ## <a name="questions"></a>Har du några frågor?
-Om du har frågor eller om du saknar en funktion är du välkommen att [lämna feedback](http://aka.ms/azurebackup_feedback).
+Om du har frågor eller om du saknar en funktion är du välkommen att [lämna feedback](https://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Nästa steg
 * Få mer information om hur du [säkerhetskopierar Windows-datorer](backup-configure-vault.md).
-* Nu när du säkerhetskopierade systemtillståndet Windows Server, kan du [hantera ditt valv och servrar](backup-azure-manage-windows-server.md).
+* Nu när du har säkerhetskopierat dina Windows Server System-tillstånd, kan du [hantera dina valv och servrar](backup-azure-manage-windows-server.md).
 * Om du behöver återställa en säkerhetskopia använder du den här artikeln för att [återställa filer till en Windows-dator](backup-azure-restore-windows-server.md).

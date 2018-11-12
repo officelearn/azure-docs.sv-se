@@ -10,16 +10,16 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: wolfma
-ms.openlocfilehash: fb80a3462caa59af423ef4f2f80e43f5d75e89e2
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 0eae4cd9919e555453bfc6d44e2ddee51f30e809
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470905"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257379"
 ---
 # <a name="speech-sdk-api-reference"></a>SDK API-referens för taligenkänning
 
-Tal Software Development Kit (SDK) ger dina program åtkomst till funktioner i tjänsten tal, vilket gör det enklare att utveckla talbaserade programvara. För närvarande SDK: erna ger åtkomst till **tal till Text**, **Talöversättning**, och **avsikt erkännande**. En allmän översikt över funktioner och plattformar som stöds finns i dokumentationen [startsidan](http://aka.ms/csspeech).
+Tal Software Development Kit (SDK) ger dina program åtkomst till funktioner i tjänsten tal, vilket gör det enklare att utveckla talbaserade programvara. För närvarande SDK: erna ger åtkomst till **tal till Text**, **Talöversättning**, och **avsikt erkännande**. En allmän översikt över funktioner och plattformar som stöds finns i dokumentationen [startsidan](https://aka.ms/csspeech).
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 

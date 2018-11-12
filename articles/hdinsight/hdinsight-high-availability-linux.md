@@ -3,19 +3,19 @@ title: Hög tillgänglighet för Hadoop - Azure HDInsight
 description: Lär dig hur HDInsight-kluster använder för att förbättra tillförlitlighet och tillgänglighet genom att använda en ytterligare huvudnod. Lär dig hur detta påverkar Hadoop-tjänster, till exempel Ambari och Hive, och hur ansluta individuellt till varje huvudnod via SSH.
 services: hdinsight
 ms.reviewer: jasonh
-author: jasonwhowell
+author: hrasheed-msft
 keywords: hög tillgänglighet för hadoop
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: jasonh
-ms.openlocfilehash: 33458794ad74b367f1278364d7b4ace30f7d13a8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: d3326ef4bba5649f5420c1d92b6117d44edba47b
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953603"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281990"
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Tillgänglighet och pålitlighet för Hadoop-kluster i HDInsight
 
@@ -23,8 +23,7 @@ HDInsight-kluster tillhandahåller två huvudnoder för att öka tillgänglighet
 
 Hadoop uppnår hög tillgänglighet och tillförlitlighet genom att replikera data och tjänster över flera noder i ett kluster. Men standard Hadoop-distributioner har vanligtvis bara en enda huvudnod. Eventuella avbrott i enkel huvudnoden kan orsaka att klustret slutar fungera. HDInsight tillhandahåller två huvudnoder för att förbättra Hadoops tillgänglighet och tillförlitlighet.
 
-> [!IMPORTANT]
-> Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+[!INCLUDE [windows-retirement-notice](../../includes/windows-retirement-notice.md)]
 
 ## <a name="availability-and-reliability-of-nodes"></a>Tillgänglighet och tillförlitlighet för noder
 
@@ -224,7 +223,7 @@ Använd följande länkar om du vill veta mer om saker som nämns i det här dok
 
 * [Ambari REST-referens](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [Installera och konfigurera den klassiska Azure-CLI](../cli-install-nodejs.md)
-* Installera och konfigurera [Azure PowerShell](/powershell/azure/overview)
+* [Installera och konfigurera Azure PowerShell](/powershell/azure/overview)
 * [Hantera HDInsight med Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Etablera Linux-baserade HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md)
 

@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/10/2018
-ms.openlocfilehash: 39bcea36f3599530413aa9fc4dbb308ee2fb1681
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.date: 11/8/2018
+ms.openlocfilehash: 9b036b74141ce2091d2e68b68d10c44a56a8696d
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49066861"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300700"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Nätverkstopologier för Azure SQL DB Managed Instance-migrering med hjälp av Azure Database Migration Service
 Den här artikeln beskrivs olika nätverkstopologier som Azure Database Migration Service kan arbeta med för att tillhandahålla en omfattande migreringen från en lokal SQL-servrar till Azure SQL Database Managed Instance.
@@ -64,10 +64,26 @@ Använd den här nätverkstopologi om miljön kräver en eller flera av följand
 **Krav**
 - Konfigurera [VNET nätverkspeering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) mellan det virtuella nätverket som används för Azure SQL Database Managed Instance och Azure Database Migration Service.
 
+## <a name="inbound-security-rules"></a>Ingående säkerhetsregler
+
+| **NAMN**   | **PORT** | **PROTOKOLL** | **KÄLLA** | **MÅL** | **ÅTGÄRD** |
+|------------|----------|--------------|------------|-----------------|------------|
+| DMS_subnet | Alla      | Alla          | DMS-UNDERNÄT | Alla             | Tillåt      |
+
+## <a name="outbound-security-rules"></a>Utgående säkerhetsregler
+
+| **NAMN**                  | **PORT**                                              | **PROTOKOLL** | **KÄLLA** | **MÅL**           | **ÅTGÄRD** | **Orsak för regeln**                                                                                                                                                                              |
+|---------------------------|-------------------------------------------------------|--------------|------------|---------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| hantering                | 443,9354                                              | TCP          | Alla        | Alla                       | Tillåt      | Hantering av plan kommunikation via service bus och Azure blob storage. <br/>(Om Microsoft-peering är aktiverad, du kanske inte behöver den här regeln.)                                                             |
+| Diagnostik               | 12000                                                 | TCP          | Alla        | Alla                       | Tillåt      | DMS använder den här regeln för att samla in diagnostisk information för felsökning.                                                                                                                      |
+| SQL-källservern         | 1433 (eller TCP IP-porten som SQL Server lyssnar på) | TCP          | Alla        | Lokalt adressutrymme | Tillåt      | SQL Server källa anslutningen från DMS <br/>(Om du har plats-till-plats-anslutning kan du kanske inte behöver den här regeln.)                                                                                       |
+| SQL Server-namngivna instanser | 1434                                                  | UDP          | Alla        | Lokalt adressutrymme | Tillåt      | Namngivna SQL Server-instansen källa anslutningen från DMS <br/>(Om du har plats-till-plats-anslutning kan du kanske inte behöver den här regeln.)                                                                        |
+| SMB-resurs                 | 445                                                   | TCP          | Alla        | Lokalt adressutrymme | Tillåt      | SMB-nätverksresurs för att DMS ska lagra säkerhetskopierade databasfilerna för migrering till Azure SQL Database MI och SQL-servrar på Azure VM <br/>(Om du har plats-till-plats-anslutning kan du kanske inte behöver den här regeln). |
+| DMS_subnet                | Alla                                                   | Alla          | Alla        | DMS_Subnet                | Tillåt      |                                                                                                                                                                                                  |
 
 ## <a name="see-also"></a>Se även
 - [Migrera SQLServer till Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance)
-- [Översikt över krav för att använda Azure Database Migration Service](https://docs.microsoft.com/azure/dms/pre-reqs)
+- [Översikt över förutsättningar för att använda Azure Database Migration Service](https://docs.microsoft.com/azure/dms/pre-reqs)
 - [Skapa ett virtuellt nätverk med Azure Portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
 
 ## <a name="next-steps"></a>Nästa steg

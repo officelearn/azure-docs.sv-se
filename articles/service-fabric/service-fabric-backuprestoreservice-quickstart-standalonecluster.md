@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – regelbunden säkerhetskopiering och återställning i Azure Service Fabric (förhandsversion) | Microsoft Docs
+title: Regelbunden säkerhetskopiering och återställning i Azure Service Fabric (förhandsversion) | Microsoft Docs
 description: Använd Service Fabric regelbunden säkerhetskopiering och återställning av funktionen för att aktivera säkerhetskopiering av periodiska data för dina programdata.
 services: service-fabric
 documentationcenter: .net
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: 5666ed4226104104b91b6f964abeb0490ef80866
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: bcbb8e60d14615d4bddb4a1efa5ecf1487aab093
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990752"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234688"
 ---
-# <a name="quickstart-periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Snabbstart: Regelbunden säkerhetskopiering och återställning i Azure Service Fabric (förhandsversion)
+# <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Regelbunden säkerhetskopiering och återställning i Azure Service Fabric (förhandsversion)
 > [!div class="op_single_selector"]
 > * [Kluster på Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Fristående kluster](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)

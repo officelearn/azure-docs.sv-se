@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: f5d1968503c7aa82ba58c80eec886b19fc44b4f5
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: b01dafcda9ed8fe14e3f0d50daf25bae1658faee
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913602"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282636"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Använda övervakningsdata från Azure
 
@@ -24,17 +24,17 @@ I Azure-plattformen samman vi övervakningsdata i en enda plats med Azure Monito
 | Datatyp | Kategori | Tjänster som stöds | Åtkomstmetoder |
 | --- | --- | --- | --- |
 | Azure Monitor på plattformsnivå-mått | Mått | [Se listan här](monitoring-supported-metrics.md) | <ul><li>**REST API:** [Azure Monitor mått-API](https://docs.microsoft.com/rest/api/monitor/metrics)</li><li>**Storage blob eller event hub:** [diagnostikinställningar](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)</li></ul> |
-| Compute OS gästmått (t.ex.) prestandaräknare) | Mått | [Windows](../virtual-machines-dotnet-diagnostics.md) och Linux-datorer (v2), [molntjänster](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Storage-tabell eller blob:** [Windows eller Linux Azure-diagnostik](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**Händelsehubb:** [Windows Azure diagnostics](azure-diagnostics-streaming-event-hubs.md)</li></ul> |
+| Compute OS gästmått (t.ex.) prestandaräknare) | Mått | [Windows](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) och Linux-datorer (v2), [molntjänster](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Storage-tabell eller blob:** [Windows eller Linux Azure-diagnostik](azure-diagnostics-storage.md)</li><li>**Händelsehubb:** [Windows Azure diagnostics](azure-diagnostics-streaming-event-hubs.md)</li></ul> |
 | Anpassade eller programmet mått | Mått | Alla program som instrumenteras med Application Insights | <ul><li>**REST API:** [Application Insights REST API](https://dev.applicationinsights.io/reference)</li></ul> |
 | Storage-mått | Mått | Azure Storage | <ul><li>**Storage-tabell:** [Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Faktureringsinformation | Mått | Alla Azure-tjänster | <ul><li>**REST API:** [Azure användning och RateCard-API: er](../billing/billing-usage-rate-card-overview.md)</li></ul> |
 | Aktivitetslogg | Händelser | Alla Azure-tjänster | <ul><li>**REST API:** [Azure Monitor händelser API](https://docs.microsoft.com/rest/api/monitor/eventcategories)</li><li>**Storage blob eller event hub:** [Loggprofil](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
 | Diagnostikloggar för Azure Monitor | Händelser | [Se listan här](monitoring-diagnostic-logs-schema.md) | <ul><li>**Storage blob eller event hub:** [diagnostikinställningar](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)</li></ul> |
-| Compute-loggarna för gästoperativsystemet (t.ex.) IIS, ETW, Syslog-poster) | Händelser | [Windows](../virtual-machines-dotnet-diagnostics.md) och Linux-datorer (v2), [molntjänster](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Storage-tabell eller blob:** [Windows eller Linux Azure-diagnostik](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**Händelsehubb:** [Windows Azure diagnostics](azure-diagnostics-streaming-event-hubs.md)</li></ul> |
+| Compute-loggarna för gästoperativsystemet (t.ex.) IIS, ETW, Syslog-poster) | Händelser | [Windows](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) och Linux-datorer (v2), [molntjänster](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Storage-tabell eller blob:** [Windows eller Linux Azure-diagnostik](azure-diagnostics-storage.md)</li><li>**Händelsehubb:** [Windows Azure diagnostics](azure-diagnostics-streaming-event-hubs.md)</li></ul> |
 | App Service-loggar | Händelser | App Services | <ul><li>**Fil, tabell eller blob-lagring:** [Web appdiagnostik](../app-service/web-sites-enable-diagnostic-log.md)</li></ul> |
 | Storage-loggar | Händelser | Azure Storage | <ul><li>**Storage-tabell:** [Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Security Center-aviseringar | Händelser | Azure Security Center | <ul><li>**REST API:** [säkerhetsaviseringar](https://msdn.microsoft.com/library/mt704050.aspx)</li></ul> |
-| Active Directory-rapportering | Händelser | Azure Active Directory | <ul><li>**REST API:** [Azure Active Directory graph API](../active-directory/active-directory-reporting-api-getting-started-azure-portal.md)</li></ul> |
+| Active Directory-rapportering | Händelser | Azure Active Directory | <ul><li>**REST API:** [Azure Active Directory graph API](../active-directory/reports-monitoring/concept-reporting-api.md)</li></ul> |
 | Security Center resursstatus | Status | [Alla resurser](https://msdn.microsoft.com/library/mt704041.aspx#Anchor_1) | <ul><li>**REST API:** [Security statusar](https://msdn.microsoft.com/library/mt704041.aspx)</li></ul> |
 | Resource Health | Status | Tjänster som stöds | <ul><li>**REST API:** [resurshälsa REST API](https://azure.microsoft.com/blog/reduce-troubleshooting-time-with-azure-resource-health/)</li></ul> |
 | Azure Monitor-måttaviseringar | Meddelanden | [Se listan här](monitoring-supported-metrics.md) | <ul><li>**Webhook:** [Azure måttaviseringar](insights-webhooks-alerts.md)</li></ul> |

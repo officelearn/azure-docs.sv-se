@@ -3,7 +3,7 @@ title: Azure AD Connect Health - diagnostisera Duplicerat attribut synkroniserin
 description: Det här dokumentet beskriver processen för diagnos av Duplicerat attribut synkroniseringsfel och en potentiell korrigering av överblivna objektet scenarier direkt från Azure-portalen.
 services: active-directory
 documentationcenter: ''
-author: zhiweiw
+author: zhiweiwangmsft
 manager: maheshu
 editor: billmath
 ms.service: active-directory
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: zhiweiw
-ms.openlocfilehash: 2d525056f42b35c573943a4db281c8a74605a4c5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c077e8592157b5c09dd1bc99934afd9f687b1da1
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315261"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282534"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnostisera och åtgärda synkroniseringsfel Duplicerat attribut
 
@@ -105,7 +105,7 @@ För den **överblivna objektet scenariot**, endast enanvändarläge **Joe Johns
 Den här frågan kontrollerar en inkommande motstridiga användare och Dete befintliga användarobjekt i Azure AD för att se om de hör till samma användare.  
 1.  Objektet i konflikt har nyligen synkroniserats till Azure Active Directory. Jämför objektets attribut:  
   - Visningsnamn
-  - Användarens huvudnamn
+  - User Principal Name
   - Objekt-ID
 2.  Om Azure AD inte kan jämföra dem, kontrollerar om Active Directory innehåller objekt med de angivna **UserPrincipalNames**. Svar **nr** om du hittar båda.
 

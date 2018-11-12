@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c0045af02b307bff686d47dd8fc4aabb290711a4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: dadff0dc501c20ef525fdfb7578cb391f29b3302
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49400196"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264310"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
 
@@ -292,7 +292,7 @@ Det finns inga Nackdelen med att användningen av TRIMNING på Azure-diskar på 
 
 **Vad är den största Managed diskstorlek som stöds för operativsystem och datadiskar?**
 
-Partitionstypen som stöds av Azure för en operativsystemdisk är master boot record (MBR). MBR-formatet stöder en diskstorlek upp till 2 TiB. Den största storlek som stöds av Azure för en operativsystemdisk är 2 TiB. Azure stöder upp till 32 TiB för hanterade diskar. Hanterade diskar som är större än 4 TiB finns i förhandsversion. Mer information om dem finns i vår [blogginlägget](http://aka.ms/azure-large-disk-32TB-preview-blog).
+Partitionstypen som stöds av Azure för en operativsystemdisk är master boot record (MBR). MBR-formatet stöder en diskstorlek upp till 2 TiB. Den största storlek som stöds av Azure för en operativsystemdisk är 2 TiB. Azure stöder upp till 32 TiB för hanterade diskar. Hanterade diskar som är större än 4 TiB finns i förhandsversion. Mer information om dem finns i vår [blogginlägget](https://aka.ms/azure-large-disk-32TB-preview-blog).
 
 **Vad är den största ohanterad Disk-storlek som stöds för operativsystem och datadiskar?**
 
@@ -309,7 +309,7 @@ Du behöver inte uppgradera din befintliga Azure-verktyg för att skapa, koppla 
 |Azure-verktyg      | Versioner som stöds                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Versionsnumret 4.1.0: juni 2017-versionen eller senare|
-|Azure CLI v1     | Versionsnumret 0.10.13: maj 2017-versionen eller senare|
+|Azure CLI v1     | Versionsnumret 0.10.13: maj 2017-versionen eller senare|
 |Azure CLI v2     | Versionsnumret 2.0.12: versionen för juli 2017 eller senare|
 |AzCopy           | Versionsnumret 6.1.0: juni 2017-versionen eller senare|
 

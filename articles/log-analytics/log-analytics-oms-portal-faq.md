@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 6f28a636f4df1343431762cf1eb8aec9b660f2e2
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 442371ffc63e32906d9faafc3b803bb5e6386905
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962511"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283452"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Vanliga frågor för övergången från OMS-portalen till Azure-portalen för Log Analytics-användare
 Log Analytics används först en egen portal kallas OMS-portalen för att hantera konfigurationen och analysera insamlade data.  Alla funktioner från den här portalen har flyttats till Azure-portalen där den kommer att fortsätta att utvecklas.
@@ -35,7 +35,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 ![Log Analytics-arbetsyta](media/log-analytics-oms-portal-faq/log-analytics.png)
 
 ## <a name="how-do-i-manage-permissions"></a>Hur gör jag för att hantera behörigheter?
-Om du inte har åtkomst till Log Analytics-arbetsytan i Azure-portalen kan du behöva konfigurera behörigheter genom [Azure rollbaserad åtkomst](../active-directory/role-based-access-control-configure.md). Mer information om hur du hanterar behörigheter för arbetsytan finns i [hantera arbetsytor](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). Information om hur du hanterar behörigheter för aviseringar finns i [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
+Om du inte har åtkomst till Log Analytics-arbetsytan i Azure-portalen kan du behöva konfigurera behörigheter genom [Azure rollbaserad åtkomst](../role-based-access-control/role-assignments-portal.md). Mer information om hur du hanterar behörigheter för arbetsytan finns i [hantera arbetsytor](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). Information om hur du hanterar behörigheter för aviseringar finns i [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
 
 ## <a name="how-do-i-create-a-new-workspace"></a>Hur gör jag för att skapa en ny arbetsyta? 
 I listan över arbetsytor i Azure-portalen klickar du på **Lägg till** i listan över arbetsytor.  Fullständig information finns i [skapa en Log Analytics-arbetsyta i Azure-portalen](../log-analytics/log-analytics-quick-create-workspace.md).
@@ -110,7 +110,7 @@ Hantera lösningar i den **lösningar** menyn för arbetsytan.
 I OMS-portalen kan du installera lösningar från lösningsgalleriet och bort dem från **inställningar**. I Azure-portalen [installera hanteringslösningar](../monitoring/monitoring-solutions.md#install-a-management-solution) från Azure Marketplace. [Ta bort lösningar](../monitoring/monitoring-solutions.md#remove-a-management-solution) i listan över installerade lösningar.
 
 ## <a name="how-do-i-create-and-manage-alerts"></a>Hur jag för att skapa och hantera aviseringar?
-Varningsregler baserat på Log Analytics-frågor hanteras nu i den [unified avisering upplevelse](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). Se [utöka aviseringar från Log Analytics i Azure Alerts](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) för information om hur du konfigurerar och använder aviseringar i Azure-portalen.
+Varningsregler baserat på Log Analytics-frågor hanteras nu i den [unified avisering upplevelse](../monitoring-and-diagnostics/alert-metric.md). Se [utöka aviseringar från Log Analytics i Azure Alerts](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) för information om hur du konfigurerar och använder aviseringar i Azure-portalen.
 
 ## <a name="how-do-i-access-my-dashboards"></a>Hur kommer jag åt mina instrumentpaneler?
 Den [min instrumentpanel](../log-analytics/log-analytics-dashboards.md) funktionen i Log Analytics är inaktuell. Den här funktionen har tillåtit dig att ha en privat samling av Vydesigner delar och ersätts av den inbyggda funktionen för Azure-instrumentpanelen. Du kan fortsätta att visualisera data i Log Analytics med hjälp av [Vydesigner](../log-analytics/log-analytics-view-designer.md) för delade vyer. Du kan även fästa visualiseringar från dessa vyer eller [enskilda frågor](../log-analytics/log-analytics-tutorial-dashboards.md) till Azure-instrumentpaneler.

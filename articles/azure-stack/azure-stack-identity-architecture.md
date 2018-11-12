@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/01/2018
+ms.date: 11/07/2018
 ms.author: patricka
-ms.reviewer: ''
-ms.openlocfilehash: f2d843b343fa830adf41352ae692ea98bed52ecc
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.reviewer: fiseraci
+ms.openlocfilehash: a16a6596d6bc33200f87a1dfd3b2ea5b02628e10
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713654"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277825"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Identitetsarkitektur för Azure Stack
 Innan du väljer en identitetsprovider som ska användas med Azure Stack, Förstå viktiga skillnader mellan alternativen i Azure Active Directory (Azure AD) och Active Directory Federation Services (AD FS). 
@@ -44,7 +44,7 @@ Den identitetsprovider som du väljer kan begränsa dina alternativ, inklusive s
 |Program kan använda identitetsleverantör för att logga in |Ja |Ja. Kräver program att federera med en lokal AD FS-instanser. |
 
 ## <a name="topologies"></a>Topologier
-I de följande avsnitten Diskus olika identity-topologier som du kan använda.
+I följande avsnitt beskrivs de olika identity-topologier som du kan använda.
 
 ### <a name="azure-ad-single-tenant-topology"></a>Azure AD: enda klient-topologi 
 Som standard använder Azure Stack en enda klient-topologi när du installerar Azure Stack och använda Azure AD. 

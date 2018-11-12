@@ -5,38 +5,41 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 11/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: fcf3ecaff6e8ba1421496a96d01428946cf8ab8e
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 0a89a315f9c97f3cc6a8683f13c22b5066dc5dab
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077790"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277757"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Obeställbara meddelanden och principer för återförsök
 
 När du skapar en händelseprenumeration kan anpassa du inställningarna för händelseleverans. Den här artikeln visar hur du konfigurerar en plats för obeställbara meddelanden och anpassa återförsöksinställningar för. Information om dessa funktioner finns i [Event Grid meddelandeleverans och försök igen](delivery-and-retry.md).
 
+## <a name="install-preview-feature"></a>Installera funktionen för förhandsgranskning
+
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="set-dead-letter-location"></a>Ange platsen för obeställbara meddelanden
 
-Om du vill ange en plats för obeställbara meddelanden, behöver du ett storage-konto för att lagra händelser som inte kan levereras till en slutpunkt. Följande skript hämtar resurs-ID för ett befintligt lagringskonto och skapas en händelseprenumeration som använder en behållare i det lagringskontot för förlorade-slutpunkten.
+Om du vill ange en plats för obeställbara meddelanden, behöver du ett storage-konto för att lagra händelser som inte kan levereras till en slutpunkt. Exemplen hämta resurs-ID för ett befintligt lagringskonto. De skapa en händelseprenumeration som använder en behållare i det lagringskontot för förlorade-slutpunkten.
+
+### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli-interactive
-# if you have not already installed the extension, do it now.
+# If you have not already installed the extension, do it now.
 # This extension is required for preview features.
 az extension add --name eventgrid
 
-storagename=demostorage
 containername=testcontainer
 
-storageid=$(az storage account show --name $storagename --resource-group gridResourceGroup --query id --output tsv)
+topicid=$(az eventgrid topic show --name demoTopic -g gridResourceGroup --query id --output tsv)
+storageid=$(az storage account show --name demoStorage --resource-group gridResourceGroup --query id --output tsv)
 
 az eventgrid event-subscription create \
-  -g gridResourceGroup \
-  --topic-name <topic_name> \
+  --source-resource-id $topicid \
   --name <event_subscription_name> \
   --endpoint <endpoint_URL> \
   --deadletter-endpoint $storageid/blobServices/default/containers/$containername
@@ -44,11 +47,34 @@ az eventgrid event-subscription create \
 
 Om du vill inaktivera dead-lettering, kör kommandot för att skapa händelseprenumerationen men inte anger ett värde för `deadletter-endpoint`. Du behöver inte ta bort händelseprenumerationen.
 
+### <a name="powershell"></a>PowerShell
+
+```azurepowershell-interactive
+# If you have not already installed the module, do it now.
+# This module is required for preview features.
+Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
+
+$containername = "testcontainer"
+
+$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
+$storageid = (Get-AzureRmStorageAccount -ResourceGroupName gridResourceGroup -Name demostorage).Id
+
+New-AzureRmEventGridSubscription `
+  -ResourceId $topicid `
+  -EventSubscriptionName <event_subscription_name> `
+  -Endpoint <endpoint_URL> `
+  -DeadLetterEndpoint "$storageid/blobServices/default/containers/$containername"
+```
+
+Om du vill inaktivera dead-lettering, kör kommandot för att skapa händelseprenumerationen men inte anger ett värde för `DeadLetterEndpoint`. Du behöver inte ta bort händelseprenumerationen.
+
 ## <a name="set-retry-policy"></a>Ange återförsöksprincipen
 
-När du skapar en Event Grid-prenumeration kan ange du värden för hur länge Event Grid bör försöka leverera händelsen. Event Grid som standard försöker i 24 timmar (1 440 minuter) och försöker upp till 30 gånger. Du kan ange något av dessa värden för event grid-prenumeration. Värdet för time to live-händelse måste vara ett heltal mellan 1 och 1440. Värdet för maximal leveransförsök måste vara ett heltal mellan 1 och 30.
+När du skapar en Event Grid-prenumeration kan ange du värden för hur länge Event Grid bör försöka leverera händelsen. Som standard försöker Event Grid i 24 timmar (1 440 minuter) eller 30 gånger. Du kan ange något av dessa värden för event grid-prenumeration. Värdet för time to live-händelse måste vara ett heltal mellan 1 och 1440. Värdet för max återförsök måste vara ett heltal mellan 1 och 30.
 
 Du kan inte konfigurera den [försök schema](delivery-and-retry.md#retry-schedule-and-duration).
+
+### <a name="azure-cli"></a>Azure CLI
 
 För att ange händelsen time-to-live för ett annat värde än 1 440 minuter, använder du:
 
@@ -65,7 +91,7 @@ az eventgrid event-subscription create \
   --event-ttl 720
 ```
 
-Om du vill ange maximalt antal synkroniseringsförsök till ett annat värde än 30, använder du:
+För att ange de maximala återförsök för ett annat värde än 30, använder du:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -76,7 +102,39 @@ az eventgrid event-subscription create \
   --max-delivery-attempts 18
 ```
 
-Om du anger både `event-ttl` och `max-deliver-attempts`, Event Grid använder först att upphöra för att gälla för omförsök.
+Om du anger både `event-ttl` och `max-deliver-attempts`, Event Grid använder först att upphöra för att gälla för att avgöra när du ska stoppa händelseleverans.
+
+### <a name="powershell"></a>PowerShell
+
+För att ange händelsen time-to-live för ett annat värde än 1 440 minuter, använder du:
+
+```azurepowershell-interactive
+# If you have not already installed the module, do it now.
+# This module is required for preview features.
+Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
+
+$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
+
+New-AzureRmEventGridSubscription `
+  -ResourceId $topicid `
+  -EventSubscriptionName <event_subscription_name> `
+  -Endpoint <endpoint_URL> `
+  -EventTtl 720
+```
+
+För att ange de maximala återförsök för ett annat värde än 30, använder du:
+
+```azurepowershell-interactive
+$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
+
+New-AzureRmEventGridSubscription `
+  -ResourceId $topicid `
+  -EventSubscriptionName <event_subscription_name> `
+  -Endpoint <endpoint_URL> `
+  -MaxDeliveryAttempt 18
+```
+
+Om du anger både `EventTtl` och `MaxDeliveryAttempt`, Event Grid använder först att upphöra för att gälla för att avgöra när du ska stoppa händelseleverans.
 
 ## <a name="next-steps"></a>Nästa steg
 

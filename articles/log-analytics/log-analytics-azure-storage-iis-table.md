@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: f88290043f750122327ddb1fd9b381b6bc24110c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 83c7862e8a9e3ce069765f81607bfbbeee272be2
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959332"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278658"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Använda Azure blob storage för IIS och Azure table storage för händelser med Log Analytics
 
@@ -151,7 +151,7 @@ Du ska kunna visa data från storage-konto i Log Analytics i cirka 30 minuter. D
 Följ stegen i [konfigurerar Log Analytics för att indexera Azure-diagnostik](log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) du använder PowerShell för att läsa från Azure-diagnostik som skrivs till table storage.
 
 Med Azure PowerShell kan du mer exakt ange de händelser som skrivs till Azure Storage.
-Mer information finns i [hur du aktiverar diagnostik i Azure Virtual Machines](../virtual-machines/virtual-machines-dotnet-diagnostics.md).
+Mer information finns i [hur du aktiverar diagnostik i Azure Virtual Machines](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 
 Du kan aktivera och uppdatera Azure-diagnostik med hjälp av följande PowerShell-skript.
 Du kan också använda det här skriptet med en konfiguration för anpassad loggning.
@@ -195,4 +195,4 @@ Granska följande skriptexempel, kopiera, ändra det efter behov, spara exemplet
 ## <a name="next-steps"></a>Nästa steg
 * [Samla in loggar och mått för Azure-tjänster](log-analytics-azure-storage.md) för Azure-tjänster som stöds.
 * [Aktivera lösningar](../monitoring/monitoring-solutions.md) att ge insikter i data.
-* [Använda sökfrågor](log-analytics-log-search.md) att analysera data.
+* [Använda sökfrågor](log-analytics-queries.md) att analysera data.

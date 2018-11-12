@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 2e4ff84c957540aa6863cd9836b1744e73c5b2f5
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 770d8950e25431e1edc496e0710cf199b45e5847
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854889"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283844"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Distribuerad spårning och korrelation via Service Bus-meddelanden
 
@@ -181,7 +181,7 @@ I varje händelse kan du komma åt `Activity.Current` som innehåller den aktuel
 
 #### <a name="logging-additional-properties"></a>Ytterligare egenskaper för loggning
 
-`Activty.Current` tillhandahåller detaljerad kontexten för den aktuella åtgärden och dess överordnade klasser. Mer information finns i [aktivitet dokumentation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) för mer information.
+`Activity.Current` tillhandahåller detaljerad kontexten för den aktuella åtgärden och dess överordnade klasser. Mer information finns i [aktivitet dokumentation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) för mer information.
 Service Bus instrumentation tillhandahåller ytterligare information i den `Activity.Current.Tags` – de har `MessageId` och `SessionId` när de är tillgängliga.
 
 Aktiviteter som spårar 'Får', 'Peek' och 'ReceiveDeferred' händelse kan också ha `RelatedTo` tagg. Den innehåller distinkta lista över `Diagnostic-Id`(s) av meddelandena som tagits emot som ett resultat.

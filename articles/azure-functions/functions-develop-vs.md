@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: b2676e8f86955a7601f9656f0a038b5ba904a462
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: 888b9a256a68b77b91145bb3ccfeea820c97ccfa
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036435"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515383"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Utveckla Azure-funktioner med hjälp av Visual Studio  
 
@@ -189,7 +189,7 @@ Mer information om hur du använder Azure Functions Core Tools finns [kod och te
 
 Alla inställningar som du lade till i local.settings.json måste också läggas till funktionsappen i Azure. Dessa inställningar överförs inte automatiskt när du publicerar projektet.
 
-Det enklaste sättet att ladda upp inställningarna som krävs till funktionsappen i Azure är att använda den **hantera programinställningar...**  länken som visas när du har publicerat ditt projekt. 
+Det enklaste sättet att ladda upp inställningarna som krävs till funktionsappen i Azure är att använda den **hantera programinställningar...**  länken som visas när du har publicerat ditt projekt.
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings.png)
 
@@ -197,11 +197,13 @@ Detta visar den **programinställningar** dialogrutan för funktionsappen, där 
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
+**Lokala** representerar ett inställningsvärde i filen local.settings.json och **Remote** är den aktuella inställningen i funktionsappen i Azure.  Välj **Lägg till inställning** att skapa en ny appinställning. Använd den **Infoga värde från lokala** länk för att kopiera ett inställningsvärde för för att den **Remote** fält. Väntande ändringar har skrivits till den lokala filen och funktionsappen när du väljer **OK**.
+
 Du kan också hantera programinställningar i någon av dessa andra sätt:
 
 * [Med Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Med hjälp av den `--publish-local-settings` alternativet Publicera i Azure Functions Core Tools](functions-run-local.md#publish).
-* [Med hjälp av Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+* [Med hjälp av Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 
 ## <a name="monitoring-functions"></a>Övervakningsfunktioner
 

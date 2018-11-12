@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 2ae2ea14bc712563867f32b83eddbd9d4129ac1d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c7d8ab8beced055d10cebcecf36d957b155c63b7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409500"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256229"
 ---
 # <a name="azure-operational-security"></a>Azure driftsäkerhet
 ## <a name="introduction"></a>Introduktion
@@ -74,7 +74,7 @@ Huvudfunktionerna i Log Analytics tillhandahåller en uppsättning tjänster som
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) tillhandahåller övervakning genom att samla in data från hanterade resurser i en central databas. Dessa data kan omfatta händelser, prestandadata eller anpassade data via API:t. När data har samlats in är de tillgängliga för avisering, analys och export.
+[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics) tillhandahåller övervakning genom att samla in data från hanterade resurser i en central databas. Dessa data kan omfatta händelser, prestandadata eller anpassade data via API:t. När data har samlats in är de tillgängliga för avisering, analys och export.
 
 
 Den här metoden kan du konsolidera data från olika källor, så att du kan kombinera data från dina Azure-tjänster med din befintliga lokala miljö. Metoden innebär också en tydlig separation mellan insamling av data från de åtgärder som vidtas för dessa data, vilket gör att alla åtgärder är tillgängliga för alla typer av data.
@@ -92,7 +92,7 @@ Log Analytics-tjänsten hanterar dina molnbaserade data på ett säkert sätt me
 
 ### <a name="azure-backup"></a>Azure Backup
 
-[Azure Backup](http://azure.microsoft.com/documentation/services/backup) tillhandahåller data säkerhetskopiera och återställa tjänster och är en del av Log Analytics-programsviten produkter och tjänster.
+[Azure Backup](https://azure.microsoft.com/documentation/services/backup) tillhandahåller data säkerhetskopiera och återställa tjänster och är en del av Log Analytics-programsviten produkter och tjänster.
 Tjänsten skyddar dina programdata och sparar dem i åratal utan stora investeringar och med minimala driftkostnader. Det kan säkerhetskopiera data från fysiska och virtuella Windows-servrar samt programarbetsbelastningar som SQL Server och SharePoint. Det kan även användas av [System Center Data Protection Manager (DPM)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) att replikera skyddade data till Azure för redundans och långsiktig lagring.
 
 

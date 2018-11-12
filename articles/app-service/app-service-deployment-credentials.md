@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: a17260770f0b2e0a73585ce4108bd5625ac22229
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 79841887ce8413970cb7dff0ca0099d4e0745a68
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436156"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259317"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Konfigurera autentiseringsuppgifter för distribution för Azure App Service
-[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) stöder två typer av autentiseringsuppgifter för [lokal Git-distribution](app-service-deploy-local-git.md) och [FTP/S distribution](app-service-deploy-ftp.md). Det är inte samma som din Azure Active Directory-autentiseringsuppgifter.
+[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) stöder två typer av autentiseringsuppgifter för [lokal Git-distribution](app-service-deploy-local-git.md) och [FTP/S distribution](app-service-deploy-ftp.md). Det är inte samma som din Azure Active Directory-autentiseringsuppgifter.
 
 * **Användarnivå autentiseringsuppgifter**: en uppsättning autentiseringsuppgifter för hela Azure-konto. Den kan användas för att distribuera till App Service för en app i alla prenumerationer som Azure-kontot har behörighet att komma åt. Det här är en standarduppsättning autentiseringsuppgifter som du konfigurerar i **Apptjänster** > **&lt;app_name >** > **distributionsbehörigheterna**. Detta är standardinställningen som visas i portalen GUI (till exempel den **översikt** och **egenskaper** för din app [resurssida](../azure-resource-manager/resource-group-portal.md#manage-resources)).
 

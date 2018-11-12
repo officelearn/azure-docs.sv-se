@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: fc4b2d0beef1c91cd937ba901974796441657441
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8c4946ebef8d17d2016d482010768207d5e859ff
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234773"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300956"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Vehicle Telemetry Analytics-lösning, playbook: fördjupa dig i lösningen
-Den här menyn länkar till avsnitt i den här spelbok: 
 
-[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
+Den här artikeln flyttar ned till var och en av de steg som visas i lösningsarkitekturen. Instruktioner och pekare för anpassning ingår. 
 
-Det här dokumentet flyttar ned till var och en av de steg som visas i lösningsarkitekturen. Instruktioner och pekare för anpassning ingår. 
+Sammanfattande beskrivning av den här lösningen finns i [Vehicle Telemetry Analytics-lösning, playbook](cortana-analytics-playbook-vehicle-telemetry.md).
+
 
 ## <a name="data-sources"></a>Datakällor
 Lösningen använder två olika datakällor:
@@ -675,3 +675,7 @@ Det här dokumentet innehåller en detaljerad nedåt i Vehicle Telemetry Analyti
 * [Azure Data Factory data movement-funktioner](../../data-factory/copy-activity-overview.md)
 * [Azure Data Factory .NET-aktivitet](../../data-factory/transform-data-using-dotnet-custom-activity.md)
 * [Azure Data Factory .NET-aktivitet Visual Studio-lösning som används för att förbereda exempeldata](https://go.microsoft.com/fwlink/?LinkId=717077) 
+
+## <a name="next-steps"></a>Nästa steg
+
+Läs hur du konfigurerar Power BI-rapporter och instrumentpaneler för den här lösningen i [Vehicle Telemetry Analytics-lösningen mall Power BI-instrumentpanel, konfigurationsanvisningar](cortana-analytics-playbook-vehicle-telemetry-powerbi.md).

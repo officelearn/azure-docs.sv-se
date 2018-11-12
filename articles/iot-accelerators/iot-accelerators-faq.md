@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 154d82ab5e309631df0bfa40df7fe14902327f46
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 294eae1dd5e591d12fdb82f62ea013ba54489686
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884283"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253354"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Vanliga frågor om IoT-Lösningsacceleratorer
 
@@ -80,7 +80,7 @@ För närvarande kan du inte skapa en lösningsaccelerator med en [Microsoft Azu
 
 ### <a name="how-do-i-delete-an-aad-tenant"></a>Hur tar jag bort en AAD-klient?
 
-Finns i Eric Golpes blogginlägg [genomgång av att ta bort en Azure AD-klient](http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx).
+Finns i Eric Golpes blogginlägg [genomgång av att ta bort en Azure AD-klient](https://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx).
 
 ### <a name="next-steps"></a>Nästa steg
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
-ms.openlocfilehash: ff30afdcfebe51d914d2f7504ab3bf530309c222
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: d201d8848891038355fad01f610070259ad1e42a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054589"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259198"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Livscykelhantering för program i Azure Machine Learning Studio
 Azure Machine Learning Studio är ett verktyg för utveckling av machine learning-experiment som operationaliserat i Azure-molnplattformen. Det sammanfogas som Visual Studio IDE och skalbar molntjänst i en enda plattform. Du kan införliva standardmetoder Application Lifecycle Management (ALM) från versionshantering olika tillgångar för automatisk körning och distribution i Azure Machine Learning Studio. Den här artikeln beskrivs några av alternativen och metoder.
@@ -43,7 +43,7 @@ När du har öppnat du spara ögonblicksbild experiment som ett nytt experiment 
 Om du tar bort experimentet raderas alla ögonblicksbilder av försöket.
 
 ### <a name="exportimport-experiment-in-json-format"></a>Exportera/importera experiment i JSON-format
-Körningshistorik ögonblicksbilder behålla en oföränderligt version av experiment i Azure Machine Learning Studio varje gång det har skickats för att köra. Du kan också spara en lokal kopia av experimentet och checka in den i din favorit källkontrollsystem, till exempel Team Foundation Server och skapa senare på ett experiment från den lokala filen igen. Du kan använda den [Azure Machine Learning PowerShell](http://aka.ms/amlps) commandlets [ *Export AmlExperimentGraph* ](https://github.com/hning86/azuremlps#export-amlexperimentgraph) och [  *Importera AmlExperimentGraph* ](https://github.com/hning86/azuremlps#import-amlexperimentgraph) att göra det.
+Körningshistorik ögonblicksbilder behålla en oföränderligt version av experiment i Azure Machine Learning Studio varje gång det har skickats för att köra. Du kan också spara en lokal kopia av experimentet och checka in den i din favorit källkontrollsystem, till exempel Team Foundation Server och skapa senare på ett experiment från den lokala filen igen. Du kan använda den [Azure Machine Learning PowerShell](https://aka.ms/amlps) commandlets [ *Export AmlExperimentGraph* ](https://github.com/hning86/azuremlps#export-amlexperimentgraph) och [  *Importera AmlExperimentGraph* ](https://github.com/hning86/azuremlps#import-amlexperimentgraph) att göra det.
 
 JSON-filen är en textrepresentation av experimentdiagram, vilket kan innebära en referens till tillgångar på arbetsytan, till exempel en datauppsättning eller en tränad modell. Den innehåller inte en serialiserade version av tillgången. Om du försöker importera JSON-dokumentet tillbaka till arbetsytan måste refererade tillgångar redan finnas med samma tillgång ID: N som refereras till i experimentet. Annars kan du komma åt importerade experimentet.
 
@@ -85,7 +85,7 @@ Om du skapar en ny Azure Resource Manager-baserad webbtjänst, är endpoint-kons
 När du har exporterat WSD fil- och kontroll över den version distribuera du även WSD som en ny webbtjänst i en annan web service-plan i en annan Azure-region. Se bara till att du anger rätt konto lagringskonfigurationen samt nya web service-plan-ID. Om du vill korrigera i olika iLearner filer du ändrar WSD-filen och uppdatera platsreferensen av den tränade modellen och distribuera den som en ny webbtjänst.
 
 ## <a name="automate-experiment-execution-and-deployment"></a>Körning av experiment och distribuera automatiskt
-Det är en viktig aspekt av ALM ska kunna automatisera körning och processen för distribution av programmet. I Azure Machine Learning kan du göra detta med hjälp av den [PowerShell-modulen](http://aka.ms/amlps). Här är ett exempel på åtgärder för slutpunkt till slutpunkt som är relevanta för en standard ALM automatisk körning/distributionsprocessen genom att använda den [Azure Machine Learning Studio PowerShell-modulen](http://aka.ms/amlps). Varje steg är länkad till en eller flera PowerShell-kommandon som du kan använda för att utföra steget.
+Det är en viktig aspekt av ALM ska kunna automatisera körning och processen för distribution av programmet. I Azure Machine Learning kan du göra detta med hjälp av den [PowerShell-modulen](https://aka.ms/amlps). Här är ett exempel på åtgärder för slutpunkt till slutpunkt som är relevanta för en standard ALM automatisk körning/distributionsprocessen genom att använda den [Azure Machine Learning Studio PowerShell-modulen](https://aka.ms/amlps). Varje steg är länkad till en eller flera PowerShell-kommandon som du kan använda för att utföra steget.
 
 1. [Överföra en datauppsättning](https://github.com/hning86/azuremlps#upload-amldataset).
 2. Kopiera ett träningsexperiment till arbetsytan från en [arbetsytan](https://github.com/hning86/azuremlps#copy-amlexperiment) eller från [galleriet](https://github.com/hning86/azuremlps#copy-amlexperimentfromgallery), eller [importera](https://github.com/hning86/azuremlps#import-amlexperimentgraph) en [exporteras](https://github.com/hning86/azuremlps#export-amlexperimentgraph) experiment från lokal disk.
@@ -99,6 +99,6 @@ Det är en viktig aspekt av ALM ska kunna automatisera körning och processen f�
 10. Testa webbtjänsten [RRS](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) eller [BES](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint) slutpunkt.
 
 ## <a name="next-steps"></a>Nästa steg
-* Ladda ned den [Azure Machine Learning Studio PowerShell](http://aka.ms/amlps) modulen och börja automatisera dina ALM-hanteringsuppgifter.
+* Ladda ned den [Azure Machine Learning Studio PowerShell](https://aka.ms/amlps) modulen och börja automatisera dina ALM-hanteringsuppgifter.
 * Lär dig hur du [skapa och hantera stora antal ML-modeller med bara ett enda experiment](create-models-and-endpoints-with-powershell.md) via PowerShell och träna API.
 * Läs mer om [distribuera Azure Machine Learning-webbtjänster](publish-a-machine-learning-web-service.md).

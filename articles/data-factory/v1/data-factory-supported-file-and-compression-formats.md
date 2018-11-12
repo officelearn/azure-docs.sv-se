@@ -1,6 +1,6 @@
 ---
 title: Format och komprimering i Azure Data Factory | Microsoft Docs
-description: Lär dig mer om vilka filformat som stöds av Azure Data Factory.
+description: Läs mer om vilka filformat som stöds av Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,33 +13,33 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5afc89e774595952adf860fc6bcdc0e2403c617a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: be0377e7234e507bdc05aee2502e742dbdaa8e1c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047102"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258382"
 ---
-# <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Fil- och komprimering format som stöds av Azure Data Factory
-*Det här avsnittet gäller följande kopplingar: [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [Azure Blob](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [filsystemet](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md), och [SFTP](data-factory-sftp-connector.md).*
+# <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Fil- och komprimeringsformat format som stöds av Azure Data Factory
+*Det här avsnittet avser följande kopplingar: [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [Azure Blob](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [filsystem](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md), och [SFTP](data-factory-sftp-connector.md).*
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Azure Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [filformat och komprimering codec som stöds i Data Factory](../supported-file-formats-and-compression-codecs.md).
+> Den här artikeln gäller för version 1 av Azure Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [filformat och komprimering codec som stöds i Data Factory](../supported-file-formats-and-compression-codecs.md).
 
-Azure Data Factory har stöd för följande filtyper format:
+Azure Data Factory stöder följande filtyper format:
 
 * [Textformat](#text-format)
 * [JSON-format](#json-format)
-* [Avro-formatet](#avro-format)
+* [Avro-format](#avro-format)
 * [ORC-format](#orc-format)
-* [Parkettgolv format](#parquet-format)
+* [Parquet-format](#parquet-format)
 
 ## <a name="text-format"></a>Textformat
-Om du vill läsa från en textfil eller skriva till en textfil, ange den `type` egenskap i den `format` avsnitt i datamängden som **TextFormat**. Du kan också ange följande **valfria** egenskaper i avsnittet `format`. Konfigurationsinformation finns i avsnittet med [TextFormat-exempel](#textformat-example).
+Om du vill läsa från en textfil eller skriva till en textfil, anger den `type` -egenskapen i den `format` avsnittet på datauppsättningen till **TextFormat**. Du kan också ange följande **valfria** egenskaper i avsnittet `format`. Konfigurationsinformation finns i avsnittet med [TextFormat-exempel](#textformat-example).
 
 | Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| columnDelimiter |Det tecken som används för att avgränsa kolumner i en fil. Du kan överväga för att använda en sällsynta icke utskrivbara tecken som kan förmodligen inte finns i dina data. Till exempel ange ”\u0001” som representerar Start av rubriken (SOH). |Endast ett tecken är tillåtet. **Standardvärdet** är **kommatecken (,)**. <br/><br/>Om du vill använda Unicode-tecken, referera till [Unicode-tecken](https://en.wikipedia.org/wiki/List_of_Unicode_characters) att hämta motsvarande kod för den. |Nej |
+| columnDelimiter |Det tecken som används för att avgränsa kolumner i en fil. Du kan överväga för att använda ett sällsynt icke utskrivbart tecken som inte kan troligen finns i dina data. Ange till exempel ”\u0001” som representerar Start av rubriken (SOH). |Endast ett tecken är tillåtet. **Standardvärdet** är **kommatecken (,)**. <br/><br/>Om du vill använda ett Unicode-tecken, som avser [Unicode-tecken](https://en.wikipedia.org/wiki/List_of_Unicode_characters) att hämta motsvarande kod för den. |Nej |
 | rowDelimiter |Det tecken som används för att avgränsa rader i en fil. |Endast ett tecken är tillåtet. **Standardvärdet** är något av följande värden vid läsning: **["\r\n", "\r", "\n"]** och **"\r\n"** vid skrivning. |Nej |
 | escapeChar |Det specialtecken som används för att undanta en kolumnavgränsare i innehållet i indatafilen. <br/><br/>Du kan inte ange både escapeChar och quoteChar för en tabell. |Endast ett tecken är tillåtet. Inget standardvärde. <br/><br/>Exempel: Om du använder kommatecken (,) som kolumnavgränsare, men vill använda ett kommatecken i texten (till exempel: "Hello, world") kan du definiera "$" som escape-tecken och använda strängen "$Hello, world" i källan. |Nej |
 | quoteChar |Det tecken som används för att referera till ett strängvärde. Kolumn- och radavgränsarna innanför citattecknen behandlas som en del av strängvärdet. Den här egenskapen gäller både in- och utdatauppsättningar.<br/><br/>Du kan inte ange både escapeChar och quoteChar för en tabell. |Endast ett tecken är tillåtet. Inget standardvärde. <br/><br/>Om du till exempel använder kommatecken (,) som kolumnavgränsare, men vill använda ett kommatecken i texten (till exempel <Hello, world>), kan du definiera " (dubbla citattecken) som citattecknet och använda strängen "Hello, world" i källan. |Nej |
@@ -50,7 +50,7 @@ Om du vill läsa från en textfil eller skriva till en textfil, ange den `type` 
 | treatEmptyAsNull |Anger om du vill hantera null-strängar eller tomma strängar som ett null-värde vid läsning av data från en indatafil. |**True (standard)**<br/>False |Nej |
 
 ### <a name="textformat-example"></a>TextFormat-exempel
-Vissa valfria egenskaper har angetts i den följande JSON-definitionen för en dataset.
+I följande JSON-definition för en datauppsättning anges några av valfria egenskaper.
 
 ```json
 "typeProperties":
@@ -83,9 +83,9 @@ Om du vill använda ett `escapeChar` i stället för `quoteChar` ersätter du ra
 * Du kopierar från en textfil och vill hoppa över några rader i början som antingen inte innehåller några data eller som innehåller rubrikinformation. Ange `skipLineCount` för att ange antalet rader som ska hoppas över. Om resten av filen innehåller en rubrikrad kan du också ange `firstRowAsHeader`. Om både `skipLineCount` och `firstRowAsHeader` anges hoppas raderna över först, varefter rubrikinformationen läses från indatafilen
 
 ## <a name="json-format"></a>JSON-format
-Att **importera och exportera en JSON-fil som-är i/från Azure Cosmos DB**, se [Import/export JSON-dokument](data-factory-azure-documentdb-connector.md#importexport-json-documents) i avsnittet [flytta data till/från Azure Cosmos DB](data-factory-azure-documentdb-connector.md) artikel.
+Att **import/export JSON-fil som – är till/från Azure Cosmos DB**, se [Import/export JSON-dokument](data-factory-azure-documentdb-connector.md#importexport-json-documents) i avsnittet [flytta data till och från Azure Cosmos DB](data-factory-azure-documentdb-connector.md) artikeln.
 
-Om du vill att parsa JSON-filer eller skriva data i JSON-format, ange den `type` egenskap i den `format` avsnittet till **JsonFormat**. Du kan också ange följande **valfria** egenskaper i avsnittet `format`. Konfigurationsinformation finns i avsnittet med [JsonFormat-exempel](#jsonformat-example).
+Om du vill parsa JSON-filerna eller skriva data i JSON-format anger den `type` -egenskapen i den `format` avsnitt **JsonFormat**. Du kan också ange följande **valfria** egenskaper i avsnittet `format`. Konfigurationsinformation finns i avsnittet med [JsonFormat-exempel](#jsonformat-example).
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
@@ -97,7 +97,7 @@ Om du vill att parsa JSON-filer eller skriva data i JSON-format, ange den `type`
 
 ### <a name="json-file-patterns"></a>JSON-filmönster
 
-Kopieringsaktiviteten kan parsa JSON-filer följande mönster:
+Kopieringsaktiviteten kan parsa JSON-filmönster följande mönster:
 
 - **Typ I: setOfObjects**
 
@@ -190,7 +190,7 @@ Kopieringsaktiviteten kan parsa JSON-filer följande mönster:
 
 **Fall 1: Kopiera data från JSON-filer**
 
-När du kopierar data från JSON-filer finns i följande två exemplen. Den allmänna pekar på Observera:
+Se följande två exempel när du kopierar data från JSON-filer. Punkter att notera:
 
 **Exempel 1: hämta data från objektet och matrisen**
 
@@ -227,8 +227,8 @@ och du vill kopiera den till en Azure SQL-tabell i följande format, genom att e
 
 Indatauppsättningen med typen **JsonFormat** definieras så här: (partiell definition med endast de relevanta delarna). Mer specifikt:
 
-- Avsnittet `structure` definierar de anpassade kolumnnamnen och den motsvarande datatypen vid konverteringen till data i tabellformat. Det här avsnittet är **valfritt** såvida inte kolumnmappning krävs. Se [mappar dataset källkolumner till målet dataset kolumner](data-factory-map-columns.md) mer information.
-- `jsonPathDefinition` anger JSON-sökvägen för varje kolumn och anger var data ska extraheras från. Du kan använda för att kopiera data från en matris **matris [x] .property** att extrahera värdet för den angivna egenskapen från x-objektet, eller om du kan använda **matris [*] .property** att hitta värdet från objekt som innehåller exempel Egenskapen.
+- Avsnittet `structure` definierar de anpassade kolumnnamnen och den motsvarande datatypen vid konverteringen till data i tabellformat. Det här avsnittet är **valfritt** såvida inte kolumnmappning krävs. Se [mappa kolumner för datauppsättningar för källa till målkolumner för datauppsättningar](data-factory-map-columns.md) mer information.
+- `jsonPathDefinition` anger JSON-sökvägen för varje kolumn och anger var data ska extraheras från. Du kan använda för att kopiera data från en matris, **matris [x] .egenskap** att extrahera värdet för en viss egenskap från objekt nr x, eller om du kan använda **matris [*] .egenskap** att hitta värdet från alla objekt som innehåller till exempel Egenskapen.
 
 ```json
 "properties": {
@@ -300,7 +300,7 @@ som du vill kopiera till en Azure SQL-tabell i följande format genom att fören
 
 Indatauppsättningen med typen **JsonFormat** definieras så här: (partiell definition med endast de relevanta delarna). Mer specifikt:
 
-- Avsnittet `structure` definierar de anpassade kolumnnamnen och den motsvarande datatypen vid konverteringen till data i tabellformat. Det här avsnittet är **valfritt** såvida inte kolumnmappning krävs. Se [mappar dataset källkolumner till målet dataset kolumner](data-factory-map-columns.md) mer information.
+- Avsnittet `structure` definierar de anpassade kolumnnamnen och den motsvarande datatypen vid konverteringen till data i tabellformat. Det här avsnittet är **valfritt** såvida inte kolumnmappning krävs. Se [mappa kolumner för datauppsättningar för källa till målkolumner för datauppsättningar](data-factory-map-columns.md) mer information.
 - `jsonNodeReference` anger att data ska itereras och extraheras från objekten med samma mönster under **matrisens** orderLines.
 - `jsonPathDefinition` anger JSON-sökvägen för varje kolumn och anger var data ska extraheras från. I det här exemplet finns ”ordernumber”, ”orderdate” och ”city” under rotobjektet med JSON-sökvägen som börjar med ”$.”, medan ”order_pd” och ”order_price” definieras med sökvägen från matriselementet utan ”$.”.
 
@@ -357,7 +357,7 @@ Om du har följande tabell i SQL-databas:
 | 2 | 20170120 | 3500 | Patrick |
 | 3 | 20170121 | 4000 | Jason |
 
-och för varje post du förväntar dig att skriva till en JSON-objekt i följande format:
+och för varje post anger du förväntar dig att skriva till ett JSON-objekt i följande format:
 ```json
 {
     "id": "1",
@@ -369,7 +369,7 @@ och för varje post du förväntar dig att skriva till en JSON-objekt i följand
 }
 ```
 
-Utdatauppsättningen med typen **JsonFormat** definieras så här: (partiell definition med endast de relevanta delarna). Mer specifikt `structure` avsnittet definierar de anpassade egenskapsnamn i målfilen och `nestingSeparator` (standardvärdet är ””.) används för att identifiera kapsla lagret från namn. Det här avsnittet är **valfritt** såvida du inte vill ändra egenskapsnamnet som jämförs med källkolumnnamnet, eller kapsla vissa av egenskaperna.
+Utdatauppsättningen med typen **JsonFormat** definieras så här: (partiell definition med endast de relevanta delarna). Mer specifikt `structure` avsnittet definierar de anpassade egenskapsnamnen i målfilen, `nestingSeparator` (standardvärdet är ””.) används för att identifiera kapslingslagret från namnet. Det här avsnittet är **valfritt** såvida du inte vill ändra egenskapsnamnet som jämförs med källkolumnnamnet, eller kapsla vissa av egenskaperna.
 
 ```json
 "properties": {
@@ -400,7 +400,7 @@ Utdatauppsättningen med typen **JsonFormat** definieras så här: (partiell def
 }
 ```
 
-## <a name="avro-format"></a>AVRO-formatet
+## <a name="avro-format"></a>AVRO-format
 Om du vill parsa Avro-filerna eller skriva data i Avro-format anger du egenskapen `format` `type` till **AvroFormat**. Du behöver inte ange några egenskaper i avsnittet Format i avsnittet typeProperties. Exempel:
 
 ```json
@@ -414,7 +414,7 @@ Om du vill använda Avro-formatet i en Hive-tabell går du [självstudiekursen o
 
 Observera följande punkter:  
 
-* [Komplexa datatyper](http://avro.apache.org/docs/current/spec.html#schema_complex) stöds inte (registrerar uppräkningar, matriser, kartor, unioner, och fast).
+* [Komplexa datatyper](http://avro.apache.org/docs/current/spec.html#schema_complex) stöds inte (poster, uppräkningar, matriser, mappningar, unioner, och fasta).
 
 ## <a name="orc-format"></a>ORC-format
 Om du vill parsa ORC-filerna eller skriva data i ORC-format ange du egenskapen `format` `type` till **OrcFormat**. Du behöver inte ange några egenskaper i avsnittet Format i avsnittet typeProperties. Exempel:
@@ -427,7 +427,7 @@ Om du vill parsa ORC-filerna eller skriva data i ORC-format ange du egenskapen `
 ```
 
 > [!IMPORTANT]
-> Om du inte kopierar ORC-filer **som de är** mellan lokala och molnbaserade datalager måste du installera JRE 8 (Java Runtime Environment) på din gateway-dator. En 64-bitars gateway kräver 64-bitars JRE och en 32-bitars gateway kräver 32-bitars JRE. Du hittar båda versionerna [här](http://go.microsoft.com/fwlink/?LinkId=808605). Välj lämplig version.
+> Om du inte kopierar ORC-filer **som de är** mellan lokala och molnbaserade datalager måste du installera JRE 8 (Java Runtime Environment) på din gateway-dator. En 64-bitars gateway kräver 64-bitars JRE och en 32-bitars gateway kräver 32-bitars JRE. Du hittar båda versionerna [här](https://go.microsoft.com/fwlink/?LinkId=808605). Välj lämplig version.
 >
 >
 
@@ -436,7 +436,7 @@ Observera följande punkter:
 * Komplexa datatyper stöds inte (STRUCT, MAP, LIST, UNION)
 * ORC-filen har tre [komprimeringsrelaterade alternativ](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB och SNAPPY. Data Factory stöder läsning av data från ORC-filer i alla dessa komprimerade format. Data Factory använder komprimerings-codec i metadata för att läsa data. Men vid skrivning till en ORC-fil väljer Data Factory ZLIB, som är standard för ORC. För närvarande finns det inget alternativ för att åsidosätta det här beteendet.
 
-## <a name="parquet-format"></a>Parkettgolv format
+## <a name="parquet-format"></a>Parquet-format
 Om du vill parsa Parquet-filer eller skriva data i Parquet-format anger du egenskapen `format` `type` till **ParquetFormat**. Du behöver inte ange några egenskaper i avsnittet Format i avsnittet typeProperties. Exempel:
 
 ```json
@@ -446,7 +446,7 @@ Om du vill parsa Parquet-filer eller skriva data i Parquet-format anger du egens
 }
 ```
 > [!IMPORTANT]
-> Om du inte kopierar Parquet-filer **som de är** mellan lokala och molnbaserade datalager måste du installera JRE 8 (Java Runtime Environment) på din gateway-dator. En 64-bitars gateway kräver 64-bitars JRE och en 32-bitars gateway kräver 32-bitars JRE. Du hittar båda versionerna [här](http://go.microsoft.com/fwlink/?LinkId=808605). Välj lämplig version.
+> Om du inte kopierar Parquet-filer **som de är** mellan lokala och molnbaserade datalager måste du installera JRE 8 (Java Runtime Environment) på din gateway-dator. En 64-bitars gateway kräver 64-bitars JRE och en 32-bitars gateway kräver 32-bitars JRE. Du hittar båda versionerna [här](https://go.microsoft.com/fwlink/?LinkId=808605). Välj lämplig version.
 >
 >
 
@@ -456,9 +456,9 @@ Observera följande punkter:
 * Parquet-filer har följande komprimeringsrelaterade alternativ: NONE, SNAPPY, GZIP och LZO. Data Factory stöder läsning av data från ORC-filer i alla dessa komprimerade format. Data Factory använder komprimerings-codec i metadata för att läsa data. Men vid skrivning till en Parquet-fil väljer Data Factory SNAPPY, som är standard för Parquet-formatet. För närvarande finns det inget alternativ för att åsidosätta det här beteendet.
 
 ## <a name="compression-support"></a>Komprimeringsstöd för
-Bearbetning av stora datamängder kan det orsaka flaskhalsar i i/o och nätverk. Därför kan komprimerade data i appbutiker inte bara påskynda dataöverföringen över nätverket och sparar diskutrymme, men också sätta betydande prestandaförbättringar vid bearbetning av stordata. Komprimering stöds för närvarande för filbaserade datalager, till exempel Azure Blob- eller lokala filsystem.  
+Bearbetning av stora datamängder kan det orsaka flaskhalsar i i/o och nätverk. Därför kan komprimerade data i butiker inte bara påskynda dataöverföring via nätverket och spara diskutrymme, men också hämta betydande prestandaförbättringar vid bearbetning av stordata. Komprimering stöds för närvarande för filbaserat datalager, till exempel Azure Blob eller lokala filsystem.  
 
-Om du vill ange komprimering för en dataset i **komprimering** egenskap i datauppsättningen JSON som i följande exempel:   
+Om du vill ange komprimering för en datauppsättning, använder den **komprimering** egenskap i JSON-datauppsättningen som i följande exempel:   
 
 ```json
 {  
@@ -482,31 +482,31 @@ Om du vill ange komprimering för en dataset i **komprimering** egenskap i datau
 }  
 ```
 
-Anta att exempel dataset används som utdata för en kopieringsaktiviteten kopieringsaktiviteten komprimerar utdata med GZIP codec med optimala och sedan skriva komprimerade data i en fil med namnet pagecounts.csv.gz i Azure Blob Storage.
+Anta att exempeldatauppsättningen används som utdata för en Kopieringsaktivitet, kopieringsaktiviteten utdata data komprimeras med GZIP-codec med optimala och sedan skriva komprimerade data till en fil med namnet pagecounts.csv.gz i Azure Blob Storage.
 
 > [!NOTE]
-> Inställningarna för komprimering stöds inte för data i den **AvroFormat**, **OrcFormat**, eller **ParquetFormat**. Vid läsning av filer i dessa format, Data Factory identifierar och använder komprimerings-codec i metadata. Vid skrivning till filer i dessa format, väljer Data Factory standard komprimerings-codec för detta format. Till exempel ZLIB för OrcFormat och SNAPPY för ParquetFormat.   
+> Inställningarna för komprimering stöds inte för data i den **AvroFormat**, **OrcFormat**, eller **ParquetFormat**. Vid läsning av filer i formaten, Data Factory identifierar och använder komprimerings-codec i metadata. Vid skrivning till filer i formaten, väljer Data Factory standard komprimerings-codec för formatet. Till exempel ZLIB för OrcFormat och SNAPPY för ParquetFormat.   
 
-Den **komprimering** avsnitt har två egenskaper:  
+Den **komprimering** avsnittet har två egenskaper:  
 
 * **Typ:** komprimerings-codec som kan vara **GZIP**, **Deflate**, **BZIP2**, eller **ZipDeflate**.  
-* **Nivå:** komprimeringsförhållandet som kan vara **Optimal** eller **snabbast**.
+* **Nivå:** komprimeringsförhållandet, vilket kan vara **Optimal** eller **snabbast**.
 
-  * **Snabbaste:** komprimeringsåtgärden bör slutföras så snabbt som möjligt, även om den resulterande filen inte komprimeras optimalt.
+  * **Snabbaste:** komprimeringsåtgärden bör slutföras så snabbt som möjligt, även om den resulterande filen inte är optimalt komprimerad.
   * **Optimal**: komprimeringsåtgärden ska optimalt komprimeras, även om åtgärden tar längre tid att slutföra.
 
     Mer information finns i [komprimeringsnivå](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) avsnittet.
 
-När du anger `compression` egenskap i en inkommande datauppsättning JSON pipeline kan läsa komprimerade data från källa, och när du anger egenskapen i ett utdatauppsättningen JSON kopieringsaktiviteten kan skriva komprimerade data till målet. Här följer några exempelscenarier:
+När du anger `compression` egenskap i en indatauppsättning JSON pipelinen kan läsa komprimerade data från källa, och när du anger egenskapen i en utdatauppsättning JSON kopieringsaktiviteten kan skriva komprimerade data till målet. Här följer några exempelscenarier:
 
-* Läs GZIP komprimerade data från en Azure blob packa upp den och skriva Resultatdata till en Azure SQL database. Du definierar för inkommande Azure Blob-datauppsättningen med den `compression` `type` JSON-egenskap som GZIP.
-* Läsa data från en fil med oformaterad text från lokalt filsystem, komprimera formatet GZip och skriva komprimerade data till en Azure blob. Du definierar ett Azure Blob-datamängd för utdata med den `compression` `type` JSON-egenskap som GZip.
-* Läs ZIP-filen från FTP-servern, expandera att hämta filerna i och mark filerna i Azure Data Lake Store. Du definierar en inkommande FTP datauppsättning med det `compression` `type` JSON-egenskap som ZipDeflate.
-* Läsa in en GZIP-komprimerade data från en Azure blob, expandera den, komprimera den med hjälp av BZIP2 och skriva Resultatdata till en Azure blob. Du definierar för inkommande Azure Blob-datauppsättningen med `compression` `type` GZIP och datamängd för utdata med `compression` `type` inställd på BZIP2 i det här fallet.   
+* Läs GZIP-komprimerade data från en Azure-blob, expandera den och skriva Resultatdata till Azure SQL database. Du definierar den inkommande Azure Blob-datauppsättningen med den `compression` `type` JSON-egenskap som GZIP.
+* Läsa data från en oformaterad textfil från den lokala filsystem, komprimeras med GZip-format och skriva komprimerade data till en Azure-blob. Du definierar en Azure Blob-datauppsättning för utdata med den `compression` `type` JSON-egenskap som GZip.
+* Läs .zip-filen från FTP-servern, expandera den för att hämta filer inuti och landa filerna i Azure Data Lake Store. Du definierar en indatauppsättning FTP med den `compression` `type` JSON-egenskap som ZipDeflate.
+* Läsa en GZIP-komprimerade data från en Azure-blob, expandera den, komprimera den med hjälp av BZIP2 och skriva Resultatdata till en Azure-blob. Du definierar den inkommande Azure Blob-datauppsättningen med `compression` `type` GZIP och datauppsättningen för utdata med `compression` `type` inställd BZIP2 i det här fallet.   
 
 
 ## <a name="next-steps"></a>Nästa steg
-Se följande artiklar för filbaserade datakällor som stöds av Azure Data Factory:
+Se följande artiklar om filbaserat datalager som stöds av Azure Data Factory:
 
 - [Azure Blob Storage](data-factory-azure-blob-connector.md)
 - [Azure Data Lake Store](data-factory-azure-datalake-connector.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/08/2018
 ms.author: alkohli
-ms.openlocfilehash: 5a0da47b854e625f2f4a2fcf4c95ec566ba63093
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 3a76063b05327e0dcb3ce5c8c9a46113a4c63ef8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095686"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255139"
 ---
 # <a name="migrate-subscriptions-and-storage-accounts-associated-with-storsimple-device-manager-service"></a>Migrera prenumerationer och lagringskonton som är associerade med StorSimple Device Manager-tjänsten
 
@@ -29,8 +29,8 @@ Du kan behöva flytta din StorSimple-tjänsten till en ny registrering eller til
 
 | Du kan flytta...| Stöds| Stilleståndstid| Azure supportprocessen| Metoden|
 |-----|-----|-----|-----|-----|
-| En hela prenumerationen (inklusive StorSimple-tjänsten och storage-konton) till en annan registrering? | Ja       | Nej       | **Överföring av registrering**<br>Användning:<li>När du köper en ny Azure utfästelse under ett nytt avtal.</li><li>Du vill migrera alla konton och prenumerationer från den gamla registreringen till den nya. Detta inkluderar alla Azure-tjänster under den gamla prenumerationen.</li> | **Steg 1: Öppna ett supportärende för Azure Enterprise igen.**<li>Gå till [http://aka.ms/AzureEntSupport](http://aka.ms/AzureEntSupport).</li><li> Välj **registrering Administration** och välj sedan **överföra från en registrering till en ny registrering**.<br>**Steg 2: Ange informationen som efterfrågas**<br>Omfatta:<li>registreringsnummer för källa</li><li> mål-registreringsnummer</li><li>ikraftträdandedatum för överföring|
-| StorSimple-tjänster från ett befintligt konto till en ny registrering?    | Ja       | Nej       | **Kontoöverföring**<br>Användning:<li>När du inte vill att en fullständig registrering-överföring.</li><li>Du bara vill flytta specifika konton till en ny registrering.</li>| **Steg 1: Öppna ett supportärende för Azure Enterprise igen.**<li>Gå till [http://aka.ms/AzureEntSupport](http://aka.ms/AzureEntSupport).</li><li>Välj **registrering Administration** och välj sedan **överföra ett EA-konto till en ny registrering**.<br>**Steg 2: Ange informationen som efterfrågas**<br>Omfatta:<li>registreringsnummer för källa</li><li> mål-registreringsnummer</li><li>ikraftträdandedatum för överföring|
+| En hela prenumerationen (inklusive StorSimple-tjänsten och storage-konton) till en annan registrering? | Ja       | Nej       | **Överföring av registrering**<br>Användning:<li>När du köper en ny Azure utfästelse under ett nytt avtal.</li><li>Du vill migrera alla konton och prenumerationer från den gamla registreringen till den nya. Detta inkluderar alla Azure-tjänster under den gamla prenumerationen.</li> | **Steg 1: Öppna ett supportärende för Azure Enterprise igen.**<li>Gå till [http://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).</li><li> Välj **registrering Administration** och välj sedan **överföra från en registrering till en ny registrering**.<br>**Steg 2: Ange informationen som efterfrågas**<br>Omfatta:<li>registreringsnummer för källa</li><li> mål-registreringsnummer</li><li>ikraftträdandedatum för överföring|
+| StorSimple-tjänster från ett befintligt konto till en ny registrering?    | Ja       | Nej       | **Kontoöverföring**<br>Användning:<li>När du inte vill att en fullständig registrering-överföring.</li><li>Du bara vill flytta specifika konton till en ny registrering.</li>| **Steg 1: Öppna ett supportärende för Azure Enterprise igen.**<li>Gå till [http://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).</li><li>Välj **registrering Administration** och välj sedan **överföra ett EA-konto till en ny registrering**.<br>**Steg 2: Ange informationen som efterfrågas**<br>Omfatta:<li>registreringsnummer för källa</li><li> mål-registreringsnummer</li><li>ikraftträdandedatum för överföring|
 | StorSimple-tjänsten från en prenumeration till en annan prenumeration?      | Nej        |    Ja         | Ingen, manuell process|<li>Migrera data från StorSimple-enhet.</li><li>Utföra en fabriksåterställning av enheten, detta tar bort eventuella lokala data på enheten.</li><li>Registrera enheten med den nya prenumerationen till en StorSimple Device Manager-tjänst.</li><li>Migrera data till enheten.|
   |Kan jag överföra ägarskap för en Azure-prenumeration till en annan katalog? | Ja       | Nej       | Koppla en befintlig prenumeration till din Azure AD-katalog | Se [att koppla en befintlig prenumeration i Azure AD-katalogen](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md). Det kan ta upp till 10 minuter innan allt visas korrekt.|
 | StorSimple-enhet från en StorSimple Device Manager-tjänst till en annan tjänst i en annan region?      | Nej        | Ja            | Ingen, manuell process |Samma som ovan.|

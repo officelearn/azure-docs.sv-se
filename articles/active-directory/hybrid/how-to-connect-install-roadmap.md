@@ -12,12 +12,12 @@ ms.topic: get-started-article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 04d950b0a8001fd76e3754b73a9d7c4c5fe2893d
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 5da946ff0c9bdda91668999db2fccdd12a67c0d2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318647"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253201"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Installationsplan för Azure AD Connect och Azure AD Connect Health
 
@@ -26,7 +26,7 @@ ms.locfileid: "49318647"
 > [!IMPORTANT]
 > Microsoft stöder inte ändring eller hantering av Azure AD Connect-synkronisering utöver de åtgärder som är formellt dokumenterade. Sådana åtgärder kan göra att Azure AD Connect-synkroniseringen hamnar i ett inkonsekvent tillstånd eller ett tillstånd som inte stöds. Därför kan Microsoft inte tillhandahålla teknisk support för sådana distributioner.
 
-Du kan ladda ned Azure AD Connect från [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=615771).
+Du kan ladda ned Azure AD Connect från [Microsoft Download Center](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 | Lösning | Scenario |
 | --- | --- |
@@ -41,7 +41,7 @@ Du kan ladda ned Azure AD Connect från [Microsoft Download Center](http://go.mi
 ### <a name="next-steps-to-install-azure-ad-connect"></a>Nästa steg för att installera Azure AD Connect
 |Avsnitt |Länk|  
 | --- | --- |
-|Ladda ned Azure AD Connect | [Ladda ned Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|Ladda ned Azure AD Connect | [Ladda ned Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Installera med standardinställningar | [Snabbinstallation av Azure AD Connect](./how-to-connect-install-express.md)|
 |Installera med anpassade inställningar | [Anpassad installation av Azure AD Connect](./how-to-connect-install-custom.md)|
 |Uppgradera från DirSync | [Uppgradera från Azure AD-synkroniseringsverktyg (DirSync)](./how-to-dirsync-upgrade-get-started.md)|
@@ -141,12 +141,12 @@ Använd följande steg för att komma igång med Azure AD Connect Health:
 ## <a name="download-and-install-azure-ad-connect-health-agent"></a>Ladda ned och installera Azure AD Connect Health-agenten
 * Säkerställ att du [uppfyller kraven](how-to-connect-health-agent-install.md#requirements) för Azure AD Connect Health.
 * Kom igång med Azure AD Connect Health för AD FS
-    * [Hämta Azure AD Connect Health Agent för AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [Hämta Azure AD Connect Health Agent för AD FS.](https://go.microsoft.com/fwlink/?LinkID=518973)
     * [Se installationsinstruktionerna](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs).
 * Kom igång med Azure AD Connect Health för synkronisering
-    * [Hämta och installera den senaste versionen av Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771). Hälsoagenten för synkronisering installeras som en del av installationen av Azure AD Connect (version 1.0.9125.0 eller senare).
+    * [Hämta och installera den senaste versionen av Azure AD Connect](https://go.microsoft.com/fwlink/?linkid=615771). Hälsoagenten för synkronisering installeras som en del av installationen av Azure AD Connect (version 1.0.9125.0 eller senare).
 * Kom igång med Azure AD Connect Health för AD DS
-    * [Ladda ned Azure AD Connect Health Agent för AD DS](http://go.microsoft.com/fwlink/?LinkID=820540).
+    * [Ladda ned Azure AD Connect Health Agent för AD DS](https://go.microsoft.com/fwlink/?LinkID=820540).
     * [Se installationsinstruktionerna](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-ds).
 
 

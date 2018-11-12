@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 63cc8a698c9e383c4b5908286d28b51d89842bdc
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 236103861ce8a296c77f708dbb4a7cc7e03f10f3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585704"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258960"
 ---
 # <a name="azure-event-hubs-event-processor-host-overview"></a>Översikt över Azure Event Hubs Event Processor Host
 
 Azure Event Hubs är en kraftfull telemetriintegreringstjänst som kan användas för att strömma miljontals händelser till en låg kostnad. Den här artikeln beskriver hur du använder insamlade händelser med hjälp av den *Eventprocessorhost* (EPH); en intelligent konsumentagent som förenklar hanteringen av kontrollpunkter, leasing och händelseläsare för parallell.  
 
-Nyckeln kan skalas för Event Hubs är tanken med partitionerade konsumenter. Jämfört med den [konkurrerande konsumenter](http://msdn.microsoft.com/library/dn568101.aspx) mönstret partitionerat konsumentmönster möjliggör hög skala genom att ta bort flaskhalsen konkurrens och underlätta från slutpunkt till slutpunkt parallellitet.
+Nyckeln kan skalas för Event Hubs är tanken med partitionerade konsumenter. Jämfört med den [konkurrerande konsumenter](https://msdn.microsoft.com/library/dn568101.aspx) mönstret partitionerat konsumentmönster möjliggör hög skala genom att ta bort flaskhalsen konkurrens och underlätta från slutpunkt till slutpunkt parallellitet.
 
 ## <a name="home-security-scenario"></a>Säkerhet hemma scenario
 

@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: 35027b4eadba72776fd27826a389763cc0832eee
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: ea9167404034911a0e917374fbdb9962da1578d5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044322"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257841"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurera mellanlagringsmiljöer i Azure App Service
 <a name="Overview"></a>
 
-När du distribuerar din webbapp, web Apps i Linux-, mobil serverdel och API-app till [Apptjänst](http://go.microsoft.com/fwlink/?LinkId=529714), du kan distribuera till en separat distributionsplats i stället för standard-produktionsplatsen när de körs i den **Standard** eller **Premium** nivå för App Service-plan. Distributionsplatser är faktiskt liveappar med egna värddatornamn. App webbappsinnehåll och konfigurationselement kan bytas mellan två distributionsfack, inklusive produktionsplatsen. Distribuera programmet till en distributionsplats har följande fördelar:
+När du distribuerar din webbapp, web Apps i Linux-, mobil serverdel och API-app till [Apptjänst](https://go.microsoft.com/fwlink/?LinkId=529714), du kan distribuera till en separat distributionsplats i stället för standard-produktionsplatsen när de körs i den **Standard** eller **Premium** nivå för App Service-plan. Distributionsplatser är faktiskt liveappar med egna värddatornamn. App webbappsinnehåll och konfigurationselement kan bytas mellan två distributionsfack, inklusive produktionsplatsen. Distribuera programmet till en distributionsplats har följande fördelar:
 
 * Du kan validera appändringar i en mellanlagringsplats för distributionen innan du växlar med produktionsplatsen.
 * Distribuera en app till en plats först och växlar den till produktionen säkerställer du att alla instanser av facket värmas upp innan du håller på att växlas till produktion. Detta eliminerar avbrott när du distribuerar din app. Trafik-omdirigering sker sömlös och inga förfrågningar ignoreras på grund av swap-åtgärder. Den här hela arbetsflödet kan automatiseras genom att konfigurera [automatiskt växla](#Auto-Swap) när före swap-verifiering krävs inte.

@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/26/2018
+ms.date: 10/29/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 8a4c0c1426200e6c2d5041131fd0dd9cde4761cf
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e3d1a79dc7dd775cea71df2f36a5f34d85f3e240
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409294"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261816"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Självstudie: Skapa en punkt-till-plats-anslutning med Azure Virtual WAN (förhandsversion)
 
@@ -79,7 +79,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 ## <a name="openvwan"></a>2. Skapa ett virtuellt WAN
 
-Öppna en webbläsare, navigera till [Azure-portalen (förhandsversion)](http://aka.ms/azurevirtualwanpreviewfeatures) och logga in med ditt Azure-konto.
+Öppna en webbläsare, navigera till [Azure-portalen (förhandsversion)](https://aka.ms/azurevirtualwanpreviewfeatures) och logga in med ditt Azure-konto.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
@@ -111,12 +111,13 @@ En P2S-konfiguration definierar parametrarna för att ansluta fjärrklienter.
 
 ## <a name="hub"></a>5. Redigera hubbtilldelning
 
-1. På sidan för ditt virtuella WAN klickar du på **Point-to-site configurations** (Punkt-till-plats-konfigurationer).
-2. Under **Hubb** visas en lista över konfigurationer som inte har anslutits till en hubb än.
-3. Välj den konfiguration som du vill associera och klicka på **Edit hub assignment** (Redigera hubbtilldelning)
-4. Välj den eller de hubbar i listrutan som du vill associera konfigurationen med.
-5. Klicka på **Tilldela**. 
-6. Åtgärden kan ta upp till 30 minuter att slutföra.
+1. Klicka på **Hubbar** på sidan för det virtuella WAN-nätverket.
+2. Välj den hubb som du vill tilldela punkt-till-plats-konfigurationen till.
+3. Klicka på **”...”** och välj **Redigera virtuell hubb**
+4. Markera **Inkludera punkt-till-plats-gateway**.
+5. Välj **Gateway-skalningsenheter** och **Punkt-till-plats-konfiguration** samt en **Adresspool** för klienterna.
+6. Klicka på **Bekräfta**. 
+7. Åtgärden kan ta upp till 30 minuter att slutföra.
 
 ## <a name="vnet"></a>6. Ansluta ett virtuellt nätverk till en hubb
 
@@ -135,9 +136,10 @@ I det här steget skapar du peeringanslutningen mellan hubben och ett virtuellt 
 
 Använd VPN-profilen för att konfigurera dina klienter.
 
-1. På sidan för ditt virtuella WAN klickar du på **Point-to-site configurations** (Punkt-till-plats-konfigurationer).
-2. Överst på sidan klickar du på **Download point-to-site profile** (Ladda ned punkt-till-plats-profil). 
-3. När filen har skapats klickar du på länken för att ladda ned den.
+1. Klicka på **Hubbar** på sidan för det virtuella WAN-nätverket.
+2. Välj den hubb som du vill ladda ned profilen för.
+3. Klicka på **”...”** och välj **Ladda ned profil**. 
+4. När filen har skapats klickar du på länken för att ladda ned den.
 4. Använd profilfilen för att konfigurera punkt-till-plats-klienterna.
 
 ## <a name="device"></a>8. Konfigurera punkt-till-plats-klienter

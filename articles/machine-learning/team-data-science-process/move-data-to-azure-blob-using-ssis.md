@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 1a0d8106c6a48494a938ee7a9da6f43f467516f6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 2fe57480f7d8e22cfffafec6845372718587958e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394025"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258433"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Flytta data till eller från Azure Blob Storage med SSIS-anslutningsappar
 Den [Funktionspaketet för SQL Server Integration Services för Azure](https://msdn.microsoft.com/library/mt146770.aspx) innehåller komponenter för att ansluta till Azure, överföra data mellan Azure och lokala datakällor och bearbeta data som lagras i Azure.
@@ -31,7 +31,7 @@ När kunder har flyttat lokala data till molnet kan de komma åt den från alla 
 
 Detta är vanligtvis vara det första steget för den [SQL](sql-walkthrough.md) och [HDInsight](hive-walkthrough.md) genomgångar.
 
-En beskrivning av canonical scenarier som använder SSIS för att utföra affärsbehov som är vanliga i hybrid för dataintegrering, finns i [göra mer med Funktionspaketet för SQL Server Integration Services för Azure](http://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) blogg.
+En beskrivning av canonical scenarier som använder SSIS för att utföra affärsbehov som är vanliga i hybrid för dataintegrering, finns i [göra mer med Funktionspaketet för SQL Server Integration Services för Azure](https://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) blogg.
 
 > [!NOTE]
 > En fullständig introduktion till Azure blob storage finns [grunderna i Azure Blob](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) och [Azure Blob-tjänsten](https://msdn.microsoft.com/library/azure/dd179376.aspx).
@@ -47,10 +47,10 @@ Du måste ha en Azure-prenumeration och konfigurera Azure-lagringskonton för at
 Du använder den **SSIS-anslutningsappar**, måste du ladda ned:
 
 * **SQL Server 2014 eller 2016 Standard (eller senare)**: installationen inkluderar SQL Server Integration Services.
-* **Microsoft SQL Server 2014 eller 2016 Integration Services Feature Pack för Azure**: dessa kan laddas ned, från den [SQL Server 2014 Integration Services](http://www.microsoft.com/download/details.aspx?id=47366) och [SQL Server 2016-Integration Tjänster](https://www.microsoft.com/download/details.aspx?id=49492) sidor.
+* **Microsoft SQL Server 2014 eller 2016 Integration Services Feature Pack för Azure**: dessa kan laddas ned, från den [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) och [SQL Server 2016-Integration Tjänster](https://www.microsoft.com/download/details.aspx?id=49492) sidor.
 
 > [!NOTE]
-> SSIS installeras med SQL Server, men ingår inte i Express-version. Information om vilka program som ingår i olika utgåvor av SQL Server finns i [SQL Server-versioner](http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
+> SSIS installeras med SQL Server, men ingår inte i Express-version. Information om vilka program som ingår i olika utgåvor av SQL Server finns i [SQL Server-versioner](https://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
 > 
 > 
 

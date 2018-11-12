@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: b45328425cff978377d5e05de487d42e786c063b
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1e18db960b9e07ae412d0c41c4544ef6bb35977c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345115"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261168"
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Hantera Azure Cosmos DB i Azure Storage Explorer
 
@@ -130,7 +130,7 @@ Genom att högerklicka på en prenumeration i Explorer-fönstret kan du utföra 
 
 2. Välj **obegränsad** för att kunna ange partitionsnyckel och klicka sedan på **OK** för att slutföra.
 
-    Om en partitionsnyckel används när du skapar en samling kan partitionsnyckelvärdet inte ändras i samlingen när den väl har skapats. Mer information om inställningar för partitionsnycklar finns i [Design för partitionering](partition-data.md#designing-for-partitioning).
+    Om en partitionsnyckel används när du skapar en samling kan partitionsnyckelvärdet inte ändras i samlingen när den väl har skapats.
 
     ![Partitionsnyckeln](./media/storage-explorer/partitionkey.png)
 

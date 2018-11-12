@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 43f4a37ce0425503337cffa58570f3468fca6b29
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: f685b584b701d2772ec5b3915facb97f0d15658a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634260"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259181"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Användningsexempel: Kontinuerlig distribution till virtuella datorer med Automation-Tillståndskonfiguration och Chocolatey
 
@@ -87,7 +87,7 @@ Eller så finns den manuella metoden. Mappstrukturen i en PowerShell-modul för 
 Detta kräver lite justera från din sida. Men det är inte svårt och det görs bara en gång per resurs (såvida du inte vill uppgradera den i framtiden.) Mer information om redigering PowerShell integreringsmoduler finns i den här artikeln: [redigering integreringsmoduler för Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 - Installera modulen som du behöver på din arbetsstation, enligt följande:
-  - Installera [Windows Management Framework, v5](http://aka.ms/wmf5latest) (behövs inte för Windows 10)
+  - Installera [Windows Management Framework, v5](https://aka.ms/wmf5latest) (behövs inte för Windows 10)
   - `Install-Module –Name MODULE-NAME`    < – hämtar modulen från PowerShell-galleriet
 - Kopiera modulmappen från `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` till en tillfällig mapp
 - Ta bort exempel och dokumentation från den huvudsakliga mappen

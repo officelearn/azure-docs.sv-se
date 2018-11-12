@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 14b9a4ed66995a73f00234f4b25f52fccbcbe556
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e055b51af19ad3958c0c9155490c598ed0f4a80e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38562612"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235215"
 ---
 # <a name="tutorial-push-notifications-to-windows-phone-apps-by-using-azure-notification-hubs"></a>Självstudier: Skicka meddelanden till Windows Phone-appar med hjälp av Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -33,7 +33,7 @@ I denna självstudiekurs skapar du en tom Windows Phone 8-app som tar emot push-
 > [!NOTE]
 > SDK:erna för Windows Phone på Notification Hubs stöder inte användning av Windows Push Notification Service (WNS) med Silverlight-appar för Windows Phone 8.1. Om du vill använda WNS (istället för MPNS) med Silverlight-appar för Windows Phone 8.1, ska du följa anvisningarna i [Notification Hubs – självstudiekurs för Windows Phone Silverlight]. Där används istället REST-API:er.
 
-I den här guiden får du lära dig hur man: 
+I den här guiden får du lära dig att: 
 
 > [!div class="checklist"]
 > * Skapa en meddelandehubb
@@ -61,7 +61,7 @@ Du måste slutföra den här självstudiekursen innan du påbörjar någon annan
     Hubben har nu skapats och konfigurerats för att skicka ej autentiserade meddelanden till Windows Phone.
 
     > [!NOTE]
-    > I den här kursen används MPNS i ej autentiserat läge. MPNS i ej autentiserat läge har begränsningar för vilka meddelanden du kan skicka till varje kanal. Notification Hubs stöder [MPNS i autentiserat läge](http://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx) genom att låta dig överföra ditt certifikat.
+    > I den här kursen används MPNS i ej autentiserat läge. MPNS i ej autentiserat läge har begränsningar för vilka meddelanden du kan skicka till varje kanal. Notification Hubs stöder [MPNS i autentiserat läge](https://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx) genom att låta dig överföra ditt certifikat.
 
 ## <a name="create-a-windows-phone-application"></a>Skapa ett Windows Phone-program
 I det här avsnittet skapar du ett Windows Phone-program som registrerar sig självt med din meddelandehubb. 

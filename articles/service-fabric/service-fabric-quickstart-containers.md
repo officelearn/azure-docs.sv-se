@@ -1,6 +1,6 @@
 ---
 title: Skapa en Windows-containerapp för Service Fabric i Azure | Microsoft Docs
-description: I den här snabbstarten skapar du ditt första Windows-behållarprogram i Azure Service Fabric.
+description: I den här snabbstarten skapar du ditt första Windows-containerprogram i Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,27 +15,27 @@ ms.workload: NA
 ms.date: 04/30/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 081b2be82b15c36566e8eb9fe4af0037804d0e7e
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: be6c13b998664cda65b1002c23726cbe89359a59
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951203"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261204"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Snabbstart: Distribuera Windows-containers till Service Fabric
 
-Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av skalbara och tillförlitliga mikrotjänster och behållare.
+Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av skalbara och tillförlitliga mikrotjänster och containrar.
 
-Du behöver inga göra några ändringar i din app för att köra en befintlig app i en Windows-behållare i ett Service Fabric-kluster. Den här snabbstarten beskriver hur du distribuerar en fördefinierad Docker-behållaravbildning i ett Service Fabric-program. När du har slutfört kursen har du en fungerande Windows Server 2016-baserad Nano Server- och IIS-behållare. Den här snabbstarten beskriver hur du distribuerar en Windows-behållare. Läs [den här snabbstarten](service-fabric-quickstart-containers-linux.md) om du vill distribuera en Linux-behållare.
+Du behöver inga göra några ändringar i din app för att köra en befintlig app i en Windows-container i ett Service Fabric-kluster. Den här snabbstarten beskriver hur du distribuerar en fördefinierad Docker-containeravbildning i ett Service Fabric-program. När du har slutfört kursen har du en fungerande Windows Server 2016-baserad Nano Server- och IIS-container. Den här snabbstarten beskriver hur du distribuerar en Windows-container. Läs [den här snabbstarten](service-fabric-quickstart-containers-linux.md) om du vill distribuera en Linux-container.
 
 ![IIS-standardwebbsidan][iis-default]
 
 I den här snabbstarten lär du dig att:
 
-* Paketera en Docker-avbildningsbehållare
+* Paketera en Docker-avbildningscontainer
 * Konfigurera kommunikation
 * Utveckla och distribuera ett Service Fabric-program
-* Distribuera behållarprogrammet till Azure
+* Distribuera containerprogrammet till Azure
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -44,9 +44,9 @@ I den här snabbstarten lär du dig att:
   * Visual Studio 2015 eller Visual Studio 2017.
   * [Service Fabric SDK och verktyg](service-fabric-get-started.md).
 
-## <a name="package-a-docker-image-container-with-visual-studio"></a>Paketera en Docker-avbildningsbehållare med Visual Studio
+## <a name="package-a-docker-image-container-with-visual-studio"></a>Paketera en Docker-avbildningscontainer med Visual Studio
 
-Service Fabric SDK och verktygen innehåller en tjänstmall som hjälper dig att distribuera en behållare till ett Service Fabric-kluster.
+Service Fabric SDK och verktygen innehåller en tjänstmall som hjälper dig att distribuera en container till ett Service Fabric-kluster.
 
 Starta Visual Studio som Administratör.  Välj **Arkiv** > **Nytt** > **Projekt**.
 
@@ -56,18 +56,18 @@ Välj **Behållare** från mallarna **Hosted Containers and Applications** (Vär
 
 I **Avbildningsnamn** anger du "microsoft/iis:nanoserver", [Windows Server Nano Server och IIS-avbildningsnamn](https://hub.docker.com/r/microsoft/iis/).
 
-Konfigurera behållarens portmappning från port till värd så att inkommande begäranden till tjänsten på port 80 mappas till port 80 i behållaren.  Ge **Behållareport** värdet 80 och **Värdport** värdet 80.  
+Konfigurera containerns portmappning från port till värd så att inkommande begäranden till tjänsten på port 80 mappas till port 80 i containern.  Ge **Containerport** värdet 80 och **Värdport** värdet 80.  
 
 Ge tjänsten namnet ”MyContainerService” och klicka på **OK**.
 
 ![Dialogrutan Ny tjänst][new-service]
 
-## <a name="specify-the-os-build-for-your-container-image"></a>Ange operativsystemets version för behållaravbildningen
-Behållare som skapats med en viss Windows Server-version kan kanske inte köras på en värd som kör en annan Windows Server-version. Behållare som t.ex. har skapats med version 1709 av Windows Server kan inte köras på värdar som kör Windows Server 2016. Mer information finns i [Kompatibilitet mellan operativsystem för Windows Server-behållare och värdoperativsystem](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). 
+## <a name="specify-the-os-build-for-your-container-image"></a>Ange operativsystemets version för containeravbildningen
+Containrar som skapats med en viss Windows Server-version kan kanske inte köras på en värd som kör en annan Windows Server-version. Containrar som t.ex. har skapats med version 1709 av Windows Server kan inte köras på värdar som kör Windows Server 2016. Mer information finns i [Kompatibilitet mellan operativsystem för Windows Server-containrar och värdoperativsystem](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). 
 
-Med version 6.1 och senare av Service Fabric Runtime kan du ange flera operativsystemsavbildningar per behållare och tagga var och en med den version av operativsystemet som de ska distribueras till. Detta hjälper dig att säkerställa att programmet kan köras på värdar som kör olika versioner av Windows operativsystem. Mer information finns i [Ange specifika behållaravbildningar för operativsystemet](service-fabric-get-started-containers.md#specify-os-build-specific-container-images). 
+Med version 6.1 och senare av Service Fabric Runtime kan du ange flera operativsystemsavbildningar per container och tagga var och en med den version av operativsystemet som de ska distribueras till. Detta hjälper dig att säkerställa att programmet kan köras på värdar som kör olika versioner av Windows operativsystem. Mer information finns i [Ange specifika containeravbildningar för operativsystemet](service-fabric-get-started-containers.md#specify-os-build-specific-container-images). 
 
-Microsoft publicerar olika avbildningar för de olika versioner av IIS som har skapats på olika versioner av Windows Server. Om du vill säkerställa att Service Fabric distribuerar en behållare som är kompatibel med den version av Windows Server som körs på de klusternoder där dina program distribueras, så lägger du till följande rader i filen *ApplicationManifest.xml*. Versionen för Windows Server 2016 är 14393, och versionen för Windows Server version 1709 är 16299. 
+Microsoft publicerar olika avbildningar för de olika versioner av IIS som har skapats på olika versioner av Windows Server. Om du vill säkerställa att Service Fabric distribuerar en container som är kompatibel med den version av Windows Server som körs på de klusternoder där dina program distribueras, så lägger du till följande rader i filen *ApplicationManifest.xml*. Versionen för Windows Server 2016 är 14393, och versionen för Windows Server version 1709 är 16299. 
 
 ```xml
     <ContainerHostPolicies CodePackageRef="Code"> 
@@ -84,14 +84,14 @@ Tjänstmanifestet fortsätter att ange endast en avbildning för nanoservern, `m
 
 ## <a name="create-a-cluster"></a>Skapa ett kluster
 
-Om du vill distribuera programmet till ett kluster i Azure, kan du ansluta till ett partykluster. Partykluster är kostnadsfria, tidsbegränsade Service Fabric-kluster i Azure som körs av Service Fabric-teamet där vem som helst kan distribuera program och lära sig mer om plattformen.  Klustret använder ett enda självsignerade certifikat för nod-till nod- samt klient-till-nod-säkerhet. Partykluster stöder behållare. Om du vill ställa in och använda ditt eget kluster, måste klustret köras på en SKU som stöder behållare (till exempel Windows Server 2016 Datacenter med behållare).
+Om du vill distribuera programmet till ett kluster i Azure, kan du ansluta till ett partykluster. Partykluster är kostnadsfria, tidsbegränsade Service Fabric-kluster i Azure som körs av Service Fabric-teamet där vem som helst kan distribuera program och lära sig mer om plattformen.  Klustret använder ett enda självsignerade certifikat för nod-till nod- samt klient-till-nod-säkerhet. Partykluster stöder containrar. Om du vill ställa in och använda ditt eget kluster, måste klustret köras på en SKU som stöder containrar (till exempel Windows Server 2016 Datacenter med Containers).
 
-Logga in och [ansluta till ett Windows-kluster](http://aka.ms/tryservicefabric). Hämta PFX-certifikatet till datorn genom att klicka på **PFX**-länken. Klicka på länken **Hur ansluter man till ett säkert partkluster?** och kopiera lösenordet för certifikatet. Certifikatet, certifikatlösenordet och värdet **Anslutningsslutpunkt** används i följande steg.
+Logga in och [ansluta till ett Windows-kluster](https://aka.ms/tryservicefabric). Hämta PFX-certifikatet till datorn genom att klicka på **PFX**-länken. Klicka på länken **Hur ansluter man till ett säkert partkluster?** och kopiera lösenordet för certifikatet. Certifikatet, certifikatlösenordet och värdet **Anslutningsslutpunkt** används i följande steg.
 
 ![PFX och klientanslutningsslutpunkt](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
 
 > [!Note]
-> Det finns ett begränsat antal tillgängliga partkluster per timme. Om du får ett felmeddelande när du försöker registrera dig för ett partkluster, kan du vänta en stund och försöka igen, eller följa stegen i självstudien [Distribuera en .NET-app](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) som hjälper dig att skapa ett Service Fabric-kluster i din Azure-prenumeration och distribuera programmet till den. Klustret som skapats med Visual Studio stöder behållare. När du har distribuerat och verifierat programmet i ditt kluster kan du hoppa vidare till [Fullständigt Service Fabric-exempelprogram och tjänstmanifest](#complete-example-service-fabric-application-and-service-manifests) i denna snabbstart.
+> Det finns ett begränsat antal tillgängliga partkluster per timme. Om du får ett felmeddelande när du försöker registrera dig för ett partkluster, kan du vänta en stund och försöka igen, eller följa stegen i självstudien [Distribuera en .NET-app](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) som hjälper dig att skapa ett Service Fabric-kluster i din Azure-prenumeration och distribuera programmet till den. Klustret som skapats med Visual Studio stöder containrar. När du har distribuerat och verifierat programmet i ditt kluster kan du hoppa vidare till [Fullständigt Service Fabric-exempelprogram och tjänstmanifest](#complete-example-service-fabric-application-and-service-manifests) i denna snabbstart.
 >
 
 På en Windows-dator ska du installera PFX i certifikatarkivet *CurrentUser\My*.
@@ -129,15 +129,15 @@ Varje program i klustret måste ha ett unikt namn.  Partkluster är en offentlig
 
 I den här snabbstarten har du lärt dig att:
 
-* Paketera en Docker-avbildningsbehållare
+* Paketera en Docker-avbildningscontainer
 * Konfigurera kommunikation
 * Utveckla och distribuera ett Service Fabric-program
-* Distribuera behållarprogrammet till Azure
+* Distribuera containerprogrammet till Azure
 
-Om du vill veta mer om att arbeta med Windows-behållare i Service Fabric, kan du fortsätta till självstudien för appar i Windows-behållaren.
+Om du vill veta mer om att arbeta med Windows-containrar i Service Fabric, kan du fortsätta till självstudien om Windows-containerappar.
 
 > [!div class="nextstepaction"]
-> [Skapa en app för Windows-behållare](./service-fabric-host-app-in-a-container.md)
+> [Skapa en Windows-containerapp](./service-fabric-host-app-in-a-container.md)
 
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png

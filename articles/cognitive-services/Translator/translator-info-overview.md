@@ -10,26 +10,28 @@ ms.component: translator-text
 ms.topic: overview
 ms.date: 05/10/2018
 ms.author: erhopf
-ms.openlocfilehash: 6c89ff41531b130843eb288b98ffe7def1d8915e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 9d1c5fac9e305e397e0184653e6d8965f9098ee3
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645084"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037455"
 ---
 # <a name="what-is-translator-text-api"></a>Vad är Translator Text API?
 
-Translator Text API kan integreras smidigt i program, på webbplatser och i verktyg och andra lösningar för att tillhandahålla användarupplevelser på [fler än 60 språk](languages.md). Lösningen kan användas på valfri maskinvaruplattform och i alla operativsystem för översättningar av text till text.
+Translator Text API är enkelt att integrera i dina program, webbplatser, verktyg och lösningar. Det gör att du kan flerspråksanvändarupplevelser med [fler än 60 språk](languages.md), och det kan användas på alla maskinvaruplattformar med alla operativsystem för text-till-text-språköversättningar.
 
-Translator Text API är en del av Azure [API för Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=ai) med maskininlärning och AI-algoritmer i molnet, som lätt kan användas i dina utvecklingsprojekt.
+Translator Text API är en del av Azure [Cognitive Services API](https://docs.microsoft.com/azure/#pivot=products&panel=ai)-samlingen med maskininlärnings- och AI-algoritmer i molnet, och det kan enkelt användas i dina utvecklingsprojekt.
 
 ## <a name="about-microsoft-translator"></a>Om Microsoft Translator
 
-Microsoft Translator är en molnbaserad maskinöversättningstjänst. Kärnan i tjänsten är Translator Text API och [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-translation). De finns i olika Microsoft-produkter och tjänster och används av tusentals företag över hela världen i program och arbetsflöden i syfte att nå en världsomspännande publik.
+Microsoft Translator är en molnbaserad maskinöversättningstjänst. Den viktigaste tjänsten är Translator Text API, som driver ett antal produkter och tjänster från Microsoft och används av tusentals företag över hela världen i program och arbetsflöden, vilket gör att deras innehåll kan nå en världsomspännande publik.
 
-Vi erbjuder också talöversättning via [förhandsversionen av taltjänsten i Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Här kombineras det befintliga Translator Speech API, API för Bing-taligenkänning och Custom Speech Service (förhandsversion) till en enhetlig och helt anpassningsbar tjänst.  
+Talöversättning, som drivs av Translator Text API, är också tillgängligt via [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Den kombinerar funktionen från Translator Speech API, API för Bing-taligenkänning och Custom Speech Service (förhandsversion) till en enhetlig och fullt anpassningsbar tjänst. Speech Service ersätter Translator Speech API, som tas ur drift 15 oktober 2019.
 
-Läs mer om [Microsoft Translator-tjänsten](https://www.microsoft.com/en-us/translator/home.aspx)
+## <a name="language-support"></a>Stöd för språk
+
+Microsoft Translator ger flerspråksstöd för översättning, translitteration, språkidentifiering och ordlistor. Se [språkstöd](language-support.md) för en fullständig lista, eller kom åt listan programmatiskt med [REST API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).  
 
 ## <a name="language-customization"></a>Språkanpassning
 

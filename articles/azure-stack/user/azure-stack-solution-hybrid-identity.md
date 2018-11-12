@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 7cea11f448f20ace2dd50454834e60ce3a3c3b70
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: e1ace09ba293cf80b2dbbe8f746eb7fd5bc8d7cb
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584276"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036401"
 ---
 # <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>Självstudie: Konfigurera hybrid cloud-identitet för Azure och Azure Stack-program
 
@@ -74,7 +74,7 @@ En installation av Azure Stack är anslutna till Azure Active Directory med en p
 Om du vill ansluta till Azure Stack med hjälp av kod använder du Azure Resource Manager-slutpunkter API att hämta autentisering och graph-slutpunkter för Azure Stack-installationen och sedan autentisera med hjälp av REST-begäranden. Du hittar ett exempelklientprogram på [GitHub](https://github.com/shriramnat/HybridARMApplication).
 
 >[!Note]
->Om inte Azure SDK för ditt språkval har stöd för Azure API-profiler, fungerar SDK: N inte med Azure Stack. Läs mer om Azure API-profiler i den [hantera API-versionsprofiler](https://docs.microsoft.com/da-dk/azure/azure-stack/user/azure-stack-version-profiles) artikeln.
+>Om inte Azure SDK för ditt språkval har stöd för Azure API-profiler, fungerar SDK: N inte med Azure Stack. Läs mer om Azure API-profiler i den [hantera API-versionsprofiler](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles) artikeln.
 
 ## <a name="next-steps"></a>Nästa steg
 

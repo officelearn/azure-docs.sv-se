@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 09/05/2018
+ms.date: 11/05/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 7a5c6875f080655e69f549e45ec474958128754f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a0dc3405cc0e1deb25c1f2772a5018dad95b87e9
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575821"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036605"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Göra en avbildning av virtuell dator som är tillgängliga i Azure Stack
 
@@ -30,7 +30,7 @@ I Azure Stack, kan du tillgängliggöra avbildningar av virtuella datorer till d
 
 ## <a name="add-a-vm-image-through-the-portal"></a>Lägg till en VM-avbildning via portalen
 
-> [!NOTE]
+> [!NOTE]  
 > Med den här metoden måste du skapa Marketplace-objekt separat.
 
 Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda en Windows- eller Linux operativsystemavbildning i VHD-format (inte VHDX) och sedan ladda upp avbildningen till ett lagringskonto i Azure eller Azure Stack. Om din avbildning har redan överförts till bloblagringen i Azure eller Azure Stack, kan du hoppa över steg 1.
@@ -39,7 +39,7 @@ Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda
 
    - Azure Stack som endast stöder generering en (1) virtuell dator i hårddisk VHD-format. Det fasta formatet strukturer den logiska disken linjärt i filen så att diskförskjutning X lagras vid blob-förskjutning X. En liten sidfot i slutet av bloben beskriver egenskaperna för den virtuella Hårddisken. För att bekräfta om disken är fast, använda den [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell-kommando.  
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     >  Azure Stack har inte stöd för dynamisk disk virtuella hårddiskar. Ändra storlek på en dynamisk disk som är kopplad till en virtuell dator lämnar den virtuella datorn i ett felaktigt tillstånd. Om du vill minimera detta problem genom att ta bort den virtuella datorn utan att ta bort den Virtuella datorns disk, en VHD-blob i ett lagringskonto. Konvertera den virtuella Hårddisken från en dynamisk disk till en fast disk och återskapa den virtuella datorn i.
 
    * Det är mer effektivt att överföra en avbildning till Azure Stack blob-lagring än till Azure blob-lagring eftersom det tar mindre tid att överföra avbildningen till Azure Stack-avbildningslagringsplatsen.

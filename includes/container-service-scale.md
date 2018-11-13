@@ -1,3 +1,16 @@
+---
+author: dlepow
+ms.service: container-service
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+ms.openlocfilehash: 15f582e80c486a1d12f98e34063af7af84ed6f0a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572752"
+---
 När du har [distribuerat ett Azure Container Service-kluster](../articles/container-service/dcos-swarm/container-service-deployment.md) kanske du behöver ändra antalet agentnoder. Till exempel kan du behöva fler agenter så att du kan köra flera containerprogram eller instanser. 
 
 Du kan ändra antalet agentnoder i ett DC/OS, Docker Swarm eller Kubernetes-kluster med hjälp av Azure portal eller Azure CLI. 

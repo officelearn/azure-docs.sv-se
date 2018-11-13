@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 06d78c9a9754638054a07c15ef67bfc703dd77ca
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 78920bfe000287daef7b4efcaa8339d599d6f57e
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428768"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578509"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Konfigurera hanterade identiteter för Azure-resurser på en Azure-dator med hjälp av mallar
 
@@ -33,14 +33,6 @@ I den här artikeln med distributionsmallen Azure Resource Manager-du lära dig 
 
 - Om du är bekant med hjälp av mall för distribution av Azure Resource Manager kan du kolla den [översiktsavsnittet](overview.md). **Se till att granska den [skillnaden mellan en hanterad identitet systemtilldelade och användartilldelade](overview.md#how-does-it-work)**.
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
-- Ditt konto måste följande Azure rollbaserad åtkomstkontroll tilldelningar för att utföra vilka hanteringsåtgärder i den här artikeln:
-
-    > [!NOTE]
-    > Inga ytterligare Azure AD directory rolltilldelningar krävs.
-
-    - [Virtuell Datordeltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) att skapa en virtuell dator och aktivera och ta bort system och/eller användartilldelade hanterad identitet från en Azure-dator.
-    - [Hanterad Identitetsdeltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) roll för att skapa en Användartilldelad hanterad identitet.
-    - [Hanterade Identitetsoperatör](/azure/role-based-access-control/built-in-roles#managed-identity-operator) roll att tilldela och ta bort en Användartilldelad hanterad identitet från och till en virtuell dator.
 
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
 
@@ -58,6 +50,8 @@ Oavsett vilket alternativ som väljs, är densamma under den första distributio
 I det här avsnittet ska du aktivera och inaktivera en automatiskt genererad hanterad identitet med en Azure Resource Manager-mall.
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm"></a>Aktivera systemtilldelade hanterad identitet när du skapar en Azure-dator eller på en befintlig virtuell dator
+
+Om du vill aktivera systemtilldelade hanterad identitet på en virtuell dator, ditt konto måste den [virtuell Datordeltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) rolltilldelning.  Inga ytterligare Azure AD directory rolltilldelningar krävs.
 
 1. Om du loggar in till Azure lokalt eller via Azure portal kan du använda ett konto som är associerad med Azure-prenumerationen som innehåller den virtuella datorn.
 
@@ -136,6 +130,8 @@ I det här avsnittet ska du aktivera och inaktivera en automatiskt genererad han
 
 När du har aktiverat systemtilldelade hanterad identitet på den virtuella datorn kan du behöva ge det en roll som **läsare** åtkomst till resursgruppen där den skapades.
 
+Om du vill tilldela en roll till den Virtuella datorns systemtilldelade identiteter, ditt konto måste den [administratör för användaråtkomst](/azure/role-based-access-control/built-in-roles#user-access-administrator) rolltilldelning.
+
 1. Om du loggar in till Azure lokalt eller via Azure portal kan du använda ett konto som är associerad med Azure-prenumerationen som innehåller den virtuella datorn.
  
 2. Läsa in mallen till en [redigeraren](#azure-resource-manager-templates) och Lägg till följande information för att ge din virtuella dator **läsare** åtkomst till resursgruppen där den skapades.  Mallstruktur kan variera beroende på redigeraren och den distributionsmodell som du väljer.
@@ -178,7 +174,7 @@ När du har aktiverat systemtilldelade hanterad identitet på den virtuella dato
 
 ### <a name="disable-a-system-assigned-managed-identity-from-an-azure-vm"></a>Inaktivera en automatiskt genererad hanterad identitet från en Azure virtuell dator
 
-Om du har en virtuell dator som inte längre behöver en automatiskt genererad hanterad identitet:
+Om du vill ta bort systemtilldelade hanterad identitet från en virtuell dator, ditt konto måste den [virtuell Datordeltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) rolltilldelning.  Inga ytterligare Azure AD directory rolltilldelningar krävs.
 
 1. Om du loggar in till Azure lokalt eller via Azure portal kan du använda ett konto som är associerad med Azure-prenumerationen som innehåller den virtuella datorn.
 
@@ -213,6 +209,8 @@ I det här avsnittet tilldelar du en hanterad Användartilldelad identitet till 
 > För att skapa en Användartilldelad hanterad identitet med en Azure Resource Manager-mall, se [skapa en hanterad Användartilldelad identitet](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity).
 
  ### <a name="assign-a-user-assigned-managed-identity-to-an-azure-vm"></a>Tilldela en hanterad Användartilldelad identitet till en Azure-dator
+
+Om du vill tilldela en Användartilldelad identitet till en virtuell dator, ditt konto måste den [virtuell Datordeltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) och [hanterade Identitetsoperatör](/azure/role-based-access-control/built-in-roles#managed-identity-operator) rolltilldelningar. Inga ytterligare Azure AD directory rolltilldelningar krävs.
 
 1. Under den `resources` element, Lägg till följande post om du vill tilldela en hanterad Användartilldelad identitet till den virtuella datorn.  Se till att ersätta `<USERASSIGNEDIDENTITY>` hanteras med namnet på den Användartilldelad identitet som du skapade.
 
@@ -356,7 +354,7 @@ I det här avsnittet tilldelar du en hanterad Användartilldelad identitet till 
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Ta bort en hanterad Användartilldelad identitet från en Azure-dator
 
-Om du har en virtuell dator som inte längre behövs en hanterad Användartilldelad identitet:
+Om du vill ta bort en Användartilldelad identitet från en virtuell dator, ditt konto måste den [virtuell Datordeltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) rolltilldelning. Inga ytterligare Azure AD directory rolltilldelningar krävs.
 
 1. Om du loggar in till Azure lokalt eller via Azure portal kan du använda ett konto som är associerad med Azure-prenumerationen som innehåller den virtuella datorn.
 

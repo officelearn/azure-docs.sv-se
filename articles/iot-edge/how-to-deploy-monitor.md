@@ -3,18 +3,18 @@ title: Distribuera, övervaka moduler för Azure IoT Edge | Microsoft Docs
 description: Hantera de moduler som körs på edge-enheter
 keywords: ''
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c6700dc4bc0cc458e34e129b2468daad88ecc8be
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 6ebd2a4e24a5f0bd9a9adad97bf26ae61219c8e0
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393465"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566253"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Distribuera och övervaka IoT Edge-moduler i stor skala med Azure portal
 
@@ -106,7 +106,7 @@ Använd egenskapen taggar från dina enheter för att fokusera på specifika enh
 Eftersom flera distributioner kan samma enhet som mål, bör du ge varje distribution flera prioritet. Om du har en konflikt, wins-distributionen med högst prioritet (högre värden ange högre prioritet). Om två distributioner har samma prioritetsnummer, det som har skapats i de flesta WINS-nyligen. 
 
 1. Ange ett positivt heltal för distributionen **prioritet**. I händelse av att två eller fler distributioner är inriktade på samma enhet, gäller distribution med det högsta numeriska värdet för prioritet.
-1. Ange en **rikta villkor** att avgöra vilka enheter som ska användas med den här distributionen. Villkoret är baserat på enhet twin taggar eller enhetstvillingen rapporterade egenskaper och måste matcha uttrycket-format. Till exempel `tags.environment='test'` eller `properties.reported.devicemodel='4000x'`. 
+1. Ange en **rikta villkor** att avgöra vilka enheter som ska användas med den här distributionen. Villkoret är baserat på enhet twin taggar eller enhetstvillingen rapporterade egenskaper och måste matcha uttrycket-format. Till exempel `tags.environment='test'` eller `properties.reported.devicemodel='4000x'`. 
 1. Välj **nästa** att gå vidare till det sista steget.
 
 ### <a name="step-5-review-template"></a>Steg 5: Granska mallen
@@ -123,14 +123,14 @@ Använd följande steg för att visa information om en distribution och övervak
 
    ![Visa IoT Edge-distributioner](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
-1. Granska listan över distributionen. Du kan visa följande information för varje distribution:
+1. Granska listan över distributionen. Du kan visa följande information för varje distribution:
    * **ID** -namnet på distributionen.
    * **Rikta villkor** -taggen används för att definiera målenheter.
    * **Prioritet** -prioritetsnummer för distributionen.
    * **Systemmått** - **riktad** anger hur många enhetstvillingar i IoT-hubb som matchar villkoret Sök mål och **kopplat** anger hur många enheter som har hade i distributionsinformationen tillämpas på deras modultvillingar i IoT Hub. 
    * **Enhetsmått** -antalet Edge-enheter i distributionen rapporterar lyckades eller fel från klienten IoT Edge-körningen.
    * **Skapandetid** -tidsstämpel från när distributionen har skapats. Den här tidsstämpeln används för att bryta ties när två distributioner har samma prioritet. 
-2. Välj distributionen som du vill övervaka.  
+2. Välj distributionen som du vill övervaka.  
 3. Kontrollera distributionen. Du kan använda flikarna för att få mer information om distributionen.
 
 ## <a name="modify-a-deployment"></a>Ändra en distribution
@@ -151,10 +151,10 @@ Om du vill ändra en distribution, använder du följande steg:
    ![Visa IoT Edge-distributioner](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Välj distributionen som du vill ändra. 
-1. Gör uppdateringar i följande fält: 
-   * Målvillkor 
-   * Etiketter 
-   * Prioritet 
+1. Gör uppdateringar i följande fält: 
+   * Målvillkor 
+   * Etiketter 
+   * Prioritet 
 1. Välj **Spara**.
 1. Följ stegen i [övervaka en distribution](#monitor-a-deployment) och se ändringarna lanseras. 
 
@@ -170,7 +170,7 @@ När du tar bort en distribution kan ta några enheter på deras nästa högsta 
 
 1. Använd kryssrutan för att välja den distribution som du vill ta bort. 
 1. Välj **Ta bort**.
-1. En uppmaning informerar om att den här åtgärden tar bort den här distributionen och återgå till det tidigare tillståndet för alla enheter.  Det innebär att en distribution med lägre prioritet kommer att gälla.  Om inga andra distribueringen är avsedd tas några moduler bort. Om du vill ta bort alla moduler från din enhet, skapa en distribution med noll moduler och distribuera den till samma enheter. Välj **Ja** att fortsätta. 
+1. En uppmaning informerar om att den här åtgärden tar bort den här distributionen och återgå till det tidigare tillståndet för alla enheter.  Det innebär att en distribution med lägre prioritet kommer att gälla.  Om inga andra distribueringen är avsedd tas några moduler bort. Om du vill ta bort alla moduler från din enhet, skapa en distribution med noll moduler och distribuera den till samma enheter. Välj **Ja** att fortsätta. 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: cef3eef86cbb4abde5005f7a5bc278f9cd831b64
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 7ea379516c6e636abd1309416374be75bcdbb686
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515275"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578747"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Hög tillgänglighet med Azure Cosmos DB
 
@@ -55,17 +55,7 @@ Regionala avbrott är inte ovanligt och Azure Cosmos DB gör att din databas är
 
 - En region konton kan förlora tillgänglighet efter ett regionalt strömavbrott. Vi rekommenderar att du ställa in minst två regioner (helst minst två Skriv-regioner) med ditt Cosmos-konto för att garantera hög tillgänglighet vid alla tidpunkter.
 
-### <a name="durability-following-a-regional-disaster"></a>Efter ett regionalt haveri hållbarhet
-
-Innan skrivning bekräftas till klienten, är data hållbarheten har säkerställts genom att ett kvorum av repliker i den region som accepterar skrivåtgärder. Tabellen nedan visar den potentiella dataförlustfönstret för varje konsekvensnivå följa ett oåterkalleligt regionalt haveri för Cosmos-konton som sträcker sig över flera regioner.
-
-| **Konsekvensnivå** | **Potentiella dataförlustfönstret följa ett regionalt haveri** |
-| - | - |
-| Stark | Noll |
-| Begränsad föråldring | Begränsat till ”föråldring fönstret” du konfigurerar på Cosmos-konto. |
-| Session | Upp till 5 sekunder |
-| Konsekvent prefix | Upp till 5 sekunder |
-| Eventuell | Upp till 5 sekunder |
+- Även i en mycket sällsynt och olycklig händelse när Azure-regionen är permanent oåterkalleligt, finns det ingen potentiell dataförlust om ditt konto för flera regioner Cosmos är konfigurerad med standard-konsekvensnivå av stark. I händelse av en permanent oåterkalleligt skrivregionen för flera regioner Cosmos-konton som konfigurerats med begränsad föråldring, konsekvens, är potentiella dataförlustfönstret begränsad till föråldring-fönstret. för sessionen, konsekvent prefix och slutlig konsekvensnivåer är potentiella dataförlustfönstret begränsad till högst fem sekunder.
 
 ## <a name="building-highly-available-applications"></a>Att skapa program med hög tillgänglighet
 

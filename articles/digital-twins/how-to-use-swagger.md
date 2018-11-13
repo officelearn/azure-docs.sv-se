@@ -6,20 +6,23 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 11/12/2018
 ms.author: adgera
-ms.openlocfilehash: 69b8f64574427a6b3d3d2cf0312eac88d86e5907
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0fae059db53668da2d71906bbe94e9dabae931bc
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960215"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578594"
 ---
 # <a name="use-azure-digital-twins-swagger"></a>Använd Azure Digital Twins Swagger
 
 Varje etablerade Azure Digital Twins-instans innehåller en egen automatiskt genererade Swagger-referensdokumentation.
 
 [Swagger](https://swagger.io/), eller [OpenAPI](https://www.openapis.org/), unites komplex API-information till en resurs för interaktiva och språkoberoende referens. Swagger innehåller viktiga referensmaterial om vilken JSON-nyttolaster, HTTP-metoder och slutpunkter du använder för att utföra åtgärder mot ett API.
+
+> [!IMPORTANT]
+> Stöd för Swagger-autentisering är tillfälligt inaktiverad under den allmänna förhandsvisningen.
 
 ## <a name="swagger-summary"></a>Swagger-sammanfattning
 
@@ -43,10 +46,10 @@ Du kan komma åt dina egna genererade Management API Swagger-dokumentationen på
 https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 ```
 
-| Anpassade attributets namn | Ersätt med |
+| Anpassat namn | Ersätt med |
 | --- | --- |
-| *dittinstansnamn* | Namnet på din digitala Twins för Azure-instans |
-| *yourLocation* | Vilken server-region som din instans är värd för |
+| dittinstansnamn | Namnet på din digitala Twins för Azure-instans |
+| yourLocation | Vilken server-region som din instans är värd för |
 
 ## <a name="reference-material"></a>Referensmaterial
 
@@ -104,7 +107,10 @@ Exemplen omfattar också felkoder för att felsöka eller förbättra misslyckas
 
 ## <a name="swagger-oauth-20-authorization"></a>Swagger OAuth 2.0-auktorisering
 
-För att interaktivt testa förfrågningar mot API-resurserna som skyddas av OAuth 2.0, finns det [officiella dokumentationen](https://swagger.io/docs/specification/authentication/oauth2/).
+Mer information om hur du testar interaktivt begäranden som skyddas av OAuth 2.0 finns i [officiella dokumentationen](https://swagger.io/docs/specification/authentication/oauth2/).
+
+> [!NOTE]
+> Stöd för OAuth 2.0-autentisering är tillfälligt inaktiverad under den allmänna förhandsvisningen.
 
 ## <a name="next-steps"></a>Nästa steg
 

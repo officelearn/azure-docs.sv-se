@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7c7671578dc22926dabfe7735038186ab1c2c2b3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 75b3934a7329b4e83a0f36f79bbc8365eaf8a086
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264287"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572775"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Standard SSD Managed Disks för virtuella Azure-datorbelastningar
 
@@ -46,9 +46,9 @@ I följande tabell innehåller diskstorlekar som för närvarande erbjuds för S
 |E70 *    |16 384 giB      |Upp till 2 000       |Upp till 500 MiB per sekund        |
 |E80 *    |32 767 giB      |Upp till 2 000       |Upp till 500 MiB per sekund        |
 
-Standard SSD-enheter är utformade för att tillhandahålla ensiffrig svarstid för de flesta i/o-åtgärder och leverera IOPS och dataflöde upp till de gränser som beskrivs i tabellen ovan. Faktiska IOPS och dataflöden varierar ibland beroende på trafikmönster. Standard SSD-enheter ger mer konsekventa prestanda än HDD-diskar med kortare svarstider.
+Standard SSD-enheter är utformade för att tillhandahålla ensiffrig svarstid för de flesta i/o-åtgärder och leverera IOPS och dataflöde upp till de gränser som beskrivs i ovanstående tabellen 99% av tiden. Faktiska IOPS och dataflöden varierar ibland beroende på trafikmönster. Standard SSD-enheter ger mer konsekventa prestanda än HDD-diskar med kortare svarstider.
 
-Premium SSD å andra sidan, prestanda bättre än Standard SSD-diskar med låg latens, högt IOPS/dataflöde och ännu bättre konsekvens med etablerad diskprestanda. Det är den rekommenderade disktypen för kritiska produktionsarbetsbelastningar. Om arbetsbelastningen kräver stöd för diskar med höga prestanda och låg latens, bör du överväga att använda Premium Storage.
+Premium SSD å andra sidan, prestanda bättre än Standard SSD-diskar med låg latens, högt IOPS/dataflöde och ännu bättre konsekvens med etablerad diskprestanda. Premium SSD är den rekommenderade disktypen för kritiska produktionsarbetsbelastningar. Om arbetsbelastningen kräver stöd för diskar med höga prestanda och låg latens, bör du överväga att använda Premium Storage.
 
 Som Premium SSD använda Standard SSD-enheter även i/o-enhet storleken på 256 KiB. Om de data som överförs är mindre än 256 KiB, betraktas den 1 i/o-enhet. Större i/o-storlekar räknas som flera I/o med storleken 256 KiB. Till exempel räknas en 1 100 KiB-i/o som fem i/o-enheter.
 

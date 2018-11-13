@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: eb0f5a4a4219c63334e0a5be3ea4378c3c317bec
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: c8bad3642f1e98cac3857d536f539554235e1a51
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288109"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578645"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Distribuera vFXT-klustret
 
@@ -90,6 +90,7 @@ Under **villkor**:
 
   > [!NOTE] 
   > Om du inte är en prenumerationsägare kan ha en ägare som accepterar villkoren för du genom att följa nödvändiga stegen i [acceptera programvara villkoren i förväg](avere-vfxt-prereqs.md#accept-software-terms-in-advance). 
+
 
 Klicka på **köp** när du är klar. När du har fem eller sex minuter kommer controller noden vara igång.
 
@@ -225,7 +226,9 @@ Om du vill göra resten av stegen för distributionen, måste du ansluta till kl
 ## <a name="create-the-cluster-node-access-role"></a>Skapa klusterrollen noden åtkomst
 
 > [!NOTE] 
-> Om du inte är en prenumerationsägare och rollen inte redan har skapats, har en prenumerant gör så här eller använda proceduren i [skapa Avere vFXT runtime åtkomst klusterrollen utan en kontrollant](avere-vfxt-pre-role.md).
+> * Om du inte är en prenumerationsägare och rollen inte redan har skapats, har en prenumerant gör så här eller använda proceduren i [skapa Avere vFXT runtime åtkomst klusterrollen utan en kontrollant](avere-vfxt-pre-role.md).
+> 
+> * Interna Microsoft-användare bör använda befintlig roll med namnet ”Avere kluster Runtime-operatör” i stället för att försök för att skapa en. 
 
 [Rollbaserad åtkomstkontroll](https://docs.microsoft.com/azure/role-based-access-control/) (RBAC) ger klusternoderna vFXT behörighet att utföra åtgärderna.  
 

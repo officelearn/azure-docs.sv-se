@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/08/2018
+ms.date: 11/12/2018
 ms.author: raiye
-ms.openlocfilehash: cfd0d9d7484e82ee130f4de860190238718c149c
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 19f9584c86993942e949716e14d2190fc5b31ce0
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51301075"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578781"
 ---
 # <a name="azure-guest-os"></a>Azure gäst-OS
 Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringarna tillämpas på Gästoperativsystemet i Azure. Sök i den här artikeln för att avgöra om en viss uppdatering gäller för Gästoperativsystem som du använder. Uppdateringar alltid överför för speciellt [familj] [ family-explain] de introducerades i.
@@ -28,11 +28,10 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | Rel 18-10 | [4462917] | Windows 10-säkerhet | 5,24 | 9 oktober 2018 |
-| Rel 18-10 | [4464330] | Windows 10-säkerhet | 6.0 | 9 oktober 2018 |
 | Rel 18-10 | [4462915] | Windows-säkerhet | 2.79 | 9 oktober 2018 |
 | Rel 18-10 | [4462931] | Windows-säkerhet | 3.66 | 9 oktober 2018 |
 | Rel 18-10 | [4462941] | Windows-säkerhet | 4.59 | 9 oktober 2018 |
-| Rel 18-10 | [4462930] | Flash | 3.66, 4.59, 5,24, 6.0 | 9 oktober 2018 |
+| Rel 18-10 | [4462930] | Flash | 3.66, 4.59, 5,24 | 9 oktober 2018 |
 | Rel 18-10 | [4462949] | Internet Explorer | 2.79, 3.66, 4.59 | 9 oktober 2018 |
 | Gäller inte | [4339284] | Time zone update | 2.79, 3.66, 4.59 | 24 juli 2018 |
 | Gäller inte | [4457144] | Insamling av september icke-säkerhet | 2.79 | Den 11 september 2018 |
@@ -46,7 +45,6 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Gäller inte | [4457036] | Insamling av september ej säkerhet .NET 4.5.2 | 4.59 | Den 11 september 2018 |
 
 [4462917]: http://support.microsoft.com/kb/4462917
-[4464330]: http://support.microsoft.com/kb/4464330
 [4462915]: http://support.microsoft.com/kb/4462915
 [4462931]: http://support.microsoft.com/kb/4462931
 [4462941]: http://support.microsoft.com/kb/4462941

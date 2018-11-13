@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 11/08/2018
-ms.openlocfilehash: 9e873de5899f0cf84fe76b70ffb70b38638055ef
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.date: 11/12/2018
+ms.openlocfilehash: 08585b795b8c407bc66162a961fca92777f78076
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299902"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578630"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Data Sync-agenten för Azure SQL Data Sync
 
@@ -31,8 +31,14 @@ För att hämta Data Sync-agenten, gå till [SQL Azure Data Sync-agenten](https:
 
 Installera Data Sync-agenten obevakat från Kommandotolken genom att ange ett kommando som liknar följande exempel. Kontrollera namnet på den hämtade MSI-filen och ange egna värden för den **TARGETDIR** och **SERVICEACCOUNT** argument.
 
+- Om du inte anger ett värde för **TARGETDIR**, standardvärdet är `C:\Program Files (x86)\Microsoft SQL Data Sync 2.0`.
+
+- Om du anger `LocalSystem` som värde för **SERVICEACCOUNT**, använda SQL Server-autentisering när du konfigurerar agenten att ansluta till en lokal SQL Server.
+
+- Om du anger ett domänanvändarkonto eller ett lokalt användarkonto som värde för **SERVICEACCOUNT**, du måste också ange lösenordet med den **SERVICEPASSWORD** argumentet. Till exempel `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`.
+
 ```cmd
-msiexec /i SQLDataSyncAgent-2.0--ENU.msi TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn 
+msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn
 ```
 
 ## <a name="sync-data-with-sql-server-on-premises"></a>Synkronisera data med SQL Server on-premises
@@ -91,10 +97,10 @@ Om du vill köra lokal agent från en annan dator än den för närvarande finns
 
 - **Orsak**. Det här felet kan leda till många scenarier. Titta på loggarna för att fastställa orsaken till felet.
 
-- **Lösning**. Du hittar den specifika orsaken till felet genom att generera och titta på loggarna för Windows Installer. Du kan aktivera loggning i en kommandotolk. Om den hämta filen AgentServiceSetup.msi är LocalAgentHost.msi, generera och undersöka loggfiler med hjälp av följande kommandorader:
+- **Lösning**. Du hittar den specifika orsaken till felet genom att generera och titta på loggarna för Windows Installer. Du kan aktivera loggning i en kommandotolk. Exempel: om den nedladdade installationsfilen är `SQLDataSyncAgent-2.0-x86-ENU.msi`, generera och undersöka loggfiler med hjälp av följande kommandorader:
 
-    -   För installationer: `msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`
-    -   Så här avinstallerar för: `msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`
+    -   För installationer: `msiexec.exe /i SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
+    -   Så här avinstallerar för: `msiexec.exe /x SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
 
     Du kan också aktivera loggning för alla installationer som utförs av Windows Installer. I Microsoft Knowledge Base-artikeln [så här aktiverar du Windows Installer-loggning](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) tillhandahåller en lösning för ett klick att aktivera loggning för Windows Installer. Det ger också platsen för loggarna.
 
@@ -275,6 +281,8 @@ SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -da
 ```
 
 ### <a name="unregister-a-database"></a>Avregistrera en databas
+
+När du använder det här kommandot för att avregistrera en databas, deprovisions databasen helt. Om databasen tillhör andra synkroniseringsgrupper kan delar den här åtgärden andra synkroniseringsgrupper.
 
 #### <a name="usage"></a>Användning
 

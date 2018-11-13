@@ -1,7 +1,7 @@
 ---
-title: Lär dig att hantera AzureML-webbtjänster med hjälp av API-hantering | Microsoft Docs
-description: En guide som visar hur du hanterar AzureML-webbtjänster som använder API-hantering.
-keywords: Machine learning api-hantering
+title: Lär dig hur du hanterar AzureML-webbtjänster som använder API Management | Microsoft Docs
+description: En guide som visar hur du hanterar AzureML-webbtjänster som använder API Management.
+keywords: Machine learning api management
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
@@ -16,42 +16,42 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: 4ca551ed07447e41ec94b0334eac0d235e0a5b6f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 9543b1f3b10c246dadaf21b6960c7b6785fb66f4
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835091"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566388"
 ---
 # <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>Lär dig hur du hanterar AzureML-webbtjänster som använder API Management
 ## <a name="overview"></a>Översikt
-Den här guiden visar hur du Kom snabbt igång med API-hantering för att hantera AzureML-webbtjänster.
+Den här guiden visar hur du snabbt kommer igång med att använda API Management för att hantera dina AzureML-webbtjänster.
 
 ## <a name="what-is-azure-api-management"></a>Vad är Azure API Management?
-Azure API Management är en Azure-tjänst som låter dig hantera REST API-slutpunkter genom att definiera användaråtkomst, begränsning och instrumentpanelen för övervakning. Klicka på [här](https://azure.microsoft.com/services/api-management/) information om Azure API Management. Klicka på [här](../../api-management/api-management-get-started.md) en guide om hur du kommer igång med Azure API Management. Den här andra guiden som den här guiden bygger på omfattar flera ämnen, t.ex. meddelande konfigurationer, nivå prissättning, svar hantering, autentisering av användare, skapa produkter, developer prenumerationer och användning dashboarding.
+Azure API Management är en Azure-tjänst som låter dig hantera REST API-slutpunkter genom att definiera användaråtkomst, begränsning av nätverksbandbredd och instrumentpanelen för övervakning. Klicka på [här](https://azure.microsoft.com/services/api-management/) för information om Azure API Management. Klicka på [här](../../api-management/api-management-get-started.md) en guide om hur du kommer igång med Azure API Management. Den här andra guiden som den här guiden är baserad på omfattar flera ämnen, t.ex. meddelande-konfigurationer, priserna för nivån, hantering av svar, autentisering av användare, skapa produkter, developer prenumerationer och användning dashboarding.
 
 ## <a name="what-is-azureml"></a>Vad är AzureML?
-AzureML är en Azure-tjänst för maskininlärning där du kan enkelt skapa, distribuera och dela avancerade Analyslösningar. Klicka på [här](https://azure.microsoft.com/services/machine-learning/) information om AzureML.
+AzureML är en Azure-tjänst för maskininlärning som hjälper dig att enkelt bygga, distribuera och dela avancerade Analyslösningar. Klicka på [här](https://azure.microsoft.com/services/machine-learning/) mer information om AzureML.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Du behöver följande för att slutföra den här guiden:
 
-* Ett Azure-konto. Om du inte har ett Azure-konto, klickar du på [här](https://azure.microsoft.com/pricing/free-trial/) mer information om hur du skapar ett kostnadsfritt utvärderingskonto.
-* AzureML-konto. Om du inte har en AzureML-konto, klickar du på [här](https://studio.azureml.net/) mer information om hur du skapar ett kostnadsfritt utvärderingskonto.
-* Arbetsytan, tjänst och api_key för en AzureML-experiment som distribueras som en webbtjänst. Klicka på [här](create-experiment.md) mer information om hur du skapar ett AzureML-experiment. Klicka på [här](publish-a-machine-learning-web-service.md) för information om hur du distribuerar en AzureML experiment som en webbtjänst. Bilaga A har också anvisningar för hur du skapar och testar ett enkelt experiment AzureML och distribuera det som en webbtjänst.
+* Ett Azure-konto. Om du inte har ett Azure-konto, klickar du på [här](https://azure.microsoft.com/pricing/free-trial/) mer information om hur du skapar ett kostnadsfritt konto.
+* Ett AzureML-konto. Om du inte har en AzureML-konto, klickar du på [här](https://studio.azureml.net/) mer information om hur du skapar ett kostnadsfritt konto.
+* Arbetsytan, service och api_key för en AzureML-experiment som distribueras som en webbtjänst. Klicka på [här](create-experiment.md) mer information om hur du skapar ett AzureML-experiment. Klicka på [här](publish-a-machine-learning-web-service.md) för information om hur du distribuerar en AzureML experiment som en webbtjänst. Bilaga A har också instruktioner för hur du skapar och testar ett enkelt AzureML-experiment och distribuera den som en webbtjänst.
 
 ## <a name="create-an-api-management-instance"></a>Skapa en API Management-instans
 
-Du kan hantera dina Azure Machine Learning-webbtjänst med en API Management-instans.
+Du kan hantera din Azure Machine Learning-webbtjänst med en API Management-instans.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **+ Skapa en resurs**.
-3. I sökrutan skriver du ”API management”, och välj sedan ”API management”-resursen.
+3. Skriv ”API management” i sökrutan och välj ”API management”-resursen.
 4. Klicka på **Skapa**.
-5. Den **namn** värde används för att skapa en unik URL (det här exemplet använder ”demoazureml”).
-6. Välj en **prenumeration**, **resursgruppen**, och **plats** för service-instans.
-7. Ange ett värde för **organisationsnamn** (det här exemplet använder ”demoazureml”).
-8. Ange din **administratör e-post** -e-postmeddelandet ska användas för meddelanden från API Management-systemet.
+5. Den **namn** värde som används för att skapa en unik URL (det här exemplet används ”demoazureml”).
+6. Välj en **prenumeration**, **resursgrupp**, och **plats** för din tjänstinstans.
+7. Ange ett värde för **organisationsnamn** (det här exemplet används ”demoazureml”).
+8. Ange din **administratörens e-postadress** -e-postmeddelandet som ska användas för meddelanden från API Management-systemet.
 9. Klicka på **Skapa**.
 
 Det kan ta upp till 30 minuter för en ny tjänst skapas.
@@ -60,106 +60,106 @@ Det kan ta upp till 30 minuter för en ny tjänst skapas.
 
 
 ## <a name="create-the-api"></a>Skapa API: et
-När instansen för tjänsten har skapats, är nästa steg att skapa API: et. Ett API består av en uppsättning åtgärder som kan anropas från ett klientprogram. API-åtgärder körs via en proxy till befintliga webbtjänster. Den här guiden skapar API: er proxyinställningarna så att de befintliga AzureML RRS och BES-webbtjänsterna.
+När tjänstinstansen har skapats är nästa steg att skapa API: et. Ett API består av en uppsättning åtgärder som kan anropas från ett klientprogram. API-åtgärder körs via en proxy till befintliga webbtjänster. Den här guiden skapar API: er som proxy för att de befintliga AzureML RRS och BES-webbtjänsterna.
 
 Skapa API: et:
 
-1. Öppna service-instans som du skapade i Azure-portalen.
+1. Öppna den tjänstinstans som du just har skapat i Azure-portalen.
 2. I det vänstra navigeringsfönstret väljer **API: er**.
 
-   ![management-API-menyn](./media/manage-web-service-endpoints-using-api-management/api-management.png)
+   ![API-hantering-menyn](./media/manage-web-service-endpoints-using-api-management/api-management.png)
 
-1. Klicka på **lägga till API**.
-2. Ange en **Web API-namnet** (det här exemplet använder ”AzureML Demo-API”).
+1. Klicka på **Lägg till API**.
+2. Ange en **Web API-namn** (det här exemplet används ”AzureML Demo-API”).
 3. För **-webbtjänstens URL**, ange ”`https://ussouthcentral.services.azureml.net`”.
-4. Ange en ** URL för Web API-suffixet ”. Detta blir den sista delen av den URL som kunder använder för att skicka begäranden till instansen för tjänsten (i det här exemplet används ”azureml-demo”).
-5. För **Web API-URL-schema**väljer **HTTPS**.
+4. Ange en ** webb-API: ets webbadressuffix ”. Detta blir den sista delen av URL: en som kunder använder för att skicka förfrågningar till tjänstinstansen (det här exemplet används ”azureml-demo”).
+5. För **Web API URL-schema**väljer **HTTPS**.
 6. För **produkter**väljer **Starter**.
 7. Klicka på **Spara**.
 
 
 ## <a name="add-the-operations"></a>Lägg till åtgärder
 
-Åtgärder läggs till och konfigurerats för att en API i portalen utgivare. Publisher-portalen, klicka på **Publisher portal** i Azure-portalen för API Management-tjänsten väljer **API: er**, **Operations**, klicka på **Lägga till åtgärden**.
+Åtgärder läggs till och konfigurerat till ett API i publisher-portalen. Du kommer åt utgivarportalen genom att klicka på **utgivarportalen** i Azure-portalen för API Management-tjänsten väljer **API: er**, **Operations**, klicka sedan på **Lägg till åtgärden**.
 
-![lägga till åtgärden](./media/manage-web-service-endpoints-using-api-management/add-an-operation.png)
+![Lägg till åtgärd](./media/manage-web-service-endpoints-using-api-management/add-an-operation.png)
 
-Den **nya åtgärden** visas och **signatur** fliken väljs som standard.
+Den **nya åtgärden** visas fönstret och **signatur** fliken väljs som standard.
 
-## <a name="add-rrs-operation"></a>Lägg till RR-åtgärd
-Först skapa en åtgärd för AzureML RRS-tjänsten:
+## <a name="add-rrs-operation"></a>Lägg till RRS-åtgärd
+Skapa en åtgärd för AzureML RRS-tjänsten:
 
-1. För den **HTTP-verbet**väljer **efter**.
-2. För den **URL mallen**, typ ”`/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}`”.
-3. Ange en **visningsnamn** (det här exemplet använder ”Resursposter köra”).
+1. För den **HTTP-verbet**väljer **POST**.
+2. För den **URL: en mall**, typ ”`/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}`”.
+3. Ange en **visningsnamn** (det här exemplet används ”RRS kör”).
 
-   ![Lägg till RR-åtgärden-signaturer](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
+   ![Lägg till rrs-åtgärden-signaturer](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
 
 4. Klicka på **svar** > **lägga till** till vänster och välj **200 OK**.
 5. Klicka på **spara** att spara den här åtgärden.
 
-   ![Lägg till-RR-åtgärden-svar](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
+   ![Lägg till rrs-åtgärden-svar](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
 
 ## <a name="add-bes-operations"></a>Lägga till BES-åtgärder
 
 > [!NOTE]
-> Skärmbilder ingår inte för BES-åtgärder som de är mycket lik dem för att lägga till åtgärden Resursposter.
+> Skärmbilder ingår inte för BES-åtgärder som de är mycket likartade de för att lägga till RRS-åtgärden.
 
-### <a name="submit-but-not-start-a-batch-execution-job"></a>Skicka (men inte startar) ett Batch Execution-jobb
+### <a name="submit-but-not-start-a-batch-execution-job"></a>Skicka (men inte att starta) en Batch Execution-jobb
 
-1. Klicka på **lägga till åtgärden** att lägga till en åtgärd för BES-API: et.
-2. För den **HTTP-verbet**väljer **efter**.
-3. För den **URL mallen**, typ ”`/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}`”.
-4. Ange en **visningsnamn** (det här exemplet använder ”BES skicka”).
+1. Klicka på **Lägg till åtgärd** att lägga till en åtgärd för BES-API: et.
+2. För den **HTTP-verbet**väljer **POST**.
+3. För den **URL: en mall**, typ ”`/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}`”.
+4. Ange en **visningsnamn** (det här exemplet används ”BES skicka”).
 5. Klicka på **svar** > **lägga till** till vänster och välj **200 OK**.
 6. Klicka på **Spara**.
 
 ### <a name="start-a-batch-execution-job"></a>Starta ett jobb i Batch Execution
 
-1. Klicka på **lägga till åtgärden** att lägga till en åtgärd för BES-API: et.
-2. För den **HTTP-verbet**väljer **efter**.
+1. Klicka på **Lägg till åtgärd** att lägga till en åtgärd för BES-API: et.
+2. För den **HTTP-verbet**väljer **POST**.
 3. För den **HTTP-verbet**, typ ”`/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}`”.
-4. Ange en **visningsnamn** (det här exemplet använder ”BES Start”).
+4. Ange en **visningsnamn** (det här exemplet används ”BES Start”).
 6. Klicka på **svar** > **lägga till** till vänster och välj **200 OK**.
 7. Klicka på **Spara**.
 
-### <a name="get-the-status-or-result-of-a-batch-execution-job"></a>Hämta status eller resultatet av ett Batch Execution-jobb
+### <a name="get-the-status-or-result-of-a-batch-execution-job"></a>Hämta status eller resultatet av ett jobb i Batch Execution
 
-1. Klicka på **lägga till åtgärden** att lägga till en åtgärd för BES-API: et.
+1. Klicka på **Lägg till åtgärd** att lägga till en åtgärd för BES-API: et.
 2. För den **HTTP-verbet**väljer **hämta**.
-3. För den **URL mallen**, typ ”`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`”.
-4. Ange en **visningsnamn** (det här exemplet använder ”BES Status”).
+3. För den **URL: en mall**, typ ”`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`”.
+4. Ange en **visningsnamn** (det här exemplet används ”BES Status”).
 6. Klicka på **svar** > **lägga till** till vänster och välj **200 OK**.
 7. Klicka på **Spara**.
 
-### <a name="delete-a-batch-execution-job"></a>Ta bort en Batch Execution-jobb
+### <a name="delete-a-batch-execution-job"></a>Ta bort ett jobb i Batch Execution
 
-1. Klicka på **lägga till åtgärden** att lägga till en åtgärd för BES-API: et.
+1. Klicka på **Lägg till åtgärd** att lägga till en åtgärd för BES-API: et.
 2. För den **HTTP-verbet**väljer **ta bort**.
-3. För den **URL mallen**, typ ”`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`”.
-4. Ange en **visningsnamn** (det här exemplet använder ”BES bort”).
+3. För den **URL: en mall**, typ ”`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`”.
+4. Ange en **visningsnamn** (det här exemplet används ”BES bort”).
 5. Klicka på **svar** > **lägga till** till vänster och välj **200 OK**.
 6. Klicka på **Spara**.
 
-## <a name="call-an-operation-from-the-developer-portal"></a>Anropa en åtgärd från Developer-portalen
+## <a name="call-an-operation-from-the-developer-portal"></a>Anropa en åtgärd från utvecklarportalen
 
-Åtgärder kan anropas direkt från Developer-portalen, vilket ger ett bekvämt sätt att visa och testa driften av ett API. I det här steget kommer du anropar den **Resursposter köra** metod som har lagts till i den **AzureML Demo API**. 
+Kan anropa åtgärder direkt från utvecklarportalen, vilket är ett enkelt sätt att visa och testa åtgärderna i ett API. I det här steget ska du ringa det **RRS köra** metod som har lagts till i den **AzureML Demo API**. 
 
 1. Klicka på **utvecklarportalen**.
 
    ![Developer-portalen](./media/manage-web-service-endpoints-using-api-management/developer-portal.png)
 
-2. Klicka på **API: er** från den översta menyn och klicka sedan på **AzureML Demo API** att se åtgärderna som är tillgängliga.
+2. Klicka på **API: er** från den översta menyn och sedan på **AzureML Demo API** att se de tillgängliga åtgärderna.
 
    ![demoazureml-api](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
 
-3. Välj **Resursposter köra** för åtgärden. Klicka på **prova**.
+3. Välj **RRS köra** för åtgärden. Klicka på **prova**.
 
    ![Försök it](./media/manage-web-service-endpoints-using-api-management/try-it.png)
 
-4. För **parametrar för begäran**, Skriv din **arbetsytan** och **service**, typ ”2.0 för den **apiversion**, och” true ”för **information**. Du hittar din **arbetsytan** och **service** i instrumentpanelen för AzureML web service (se **testa webbtjänsten** i bilaga A).
+4. För **Begäranparametrar**, typ din **arbetsytan** och **service**, typ ”2.0 för den **apiversion**, och det är” true ”för **information**. Du kan hitta din **arbetsytan** och **service** i instrumentpanelen för webbtjänsten AzureML (se **testa webbtjänsten** i bilaga A).
 
-   För **Begäransrubriker**, klickar du på **Lägg till sidhuvud** och Skriv ”Content-Type” och ”application/json”. Klicka på **Lägg till sidhuvud** igen och Skriv ”tillstånd” och ”ägar  *\<tjänsten API-nyckel\>*”. Du kan hitta din API-nyckel i instrumentpanelen för AzureML web service (se **testa webbtjänsten** i bilaga A).
+   För **begärandehuvuden**, klickar du på **Lägg till sidhuvud** och Skriv ”Content-Type” och ”application/json”. Klicka på **Lägg till sidhuvud** igen och Skriv ”Authorization” och ”ägar  *\<din tjänst API-NYCKELN\>*”. Du hittar din API-nyckel i instrumentpanelen för webbtjänsten AzureML (se **testa webbtjänsten** i bilaga A).
 
    För **Begärandetext**, typen `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}`.
 
@@ -169,27 +169,27 @@ Först skapa en åtgärd för AzureML RRS-tjänsten:
 
    ![Skicka](./media/manage-web-service-endpoints-using-api-management/send.png)
 
-När en åtgärd har anropats developer-portalen visar den **begärda URL: en** från backend-tjänsten, den **svarsstatusen**, **svarshuvuden**, och en **svar innehåll**.
+När en åtgärd har anropats visar utvecklarportalen den **begärda URL: en** från backend-tjänsten, den **svarsstatus**, **svarshuvuden**, och alla  **Svarsinnehållet**.
 
-![Response-status](./media/manage-web-service-endpoints-using-api-management/response-status.png)
+![status för Webbsvar](./media/manage-web-service-endpoints-using-api-management/response-status.png)
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>Bilaga A – skapa och testa en enkel AzureML webbtjänsten
 ### <a name="creating-the-experiment"></a>Skapa experimentet
-Nedan följer du stegen för att skapa ett enkelt experiment AzureML och distribuera den som en webbtjänst. Tar för web-tjänst som indata för en kolumn med valfri text och returnerar en uppsättning funktioner som visas i form av heltal. Exempel:
+Nedan visas stegen för att skapa ett enkelt AzureML-experiment och distribuera den som en webbtjänst. Tar för web-tjänst som indata för en kolumn med valfri text och returnerar en uppsättning funktioner som representeras som heltal. Exempel:
 
-| Text | Hashformaterats Text |
+| Text | Hashade Text |
 | --- | --- |
 | Det här är en bra dag |1 1 2 2 0 2 0 1 |
 
-Börja med en webbläsare, navigera till: [ https://studio.azureml.net/ ](https://studio.azureml.net/) och ange dina autentiseringsuppgifter för att logga in. Skapa sedan ett nytt tomt experiment.
+Börja med en webbläsare, navigera till: [ https://studio.azureml.net/ ](https://studio.azureml.net/) och ange dina autentiseringsuppgifter för inloggning. Skapa sedan ett nytt tomt experiment.
 
-![Sök-experiment-mallar](./media/manage-web-service-endpoints-using-api-management/search-experiment-templates.png)
+![Sök efter-experiment-mallar](./media/manage-web-service-endpoints-using-api-management/search-experiment-templates.png)
 
-Byt namn på den till **SimpleFeatureHashingExperiment**. Expandera **sparade datauppsättningar** och dra **Book granskningar från Amazon** på experimentet.
+Byt namn på den till **SimpleFeatureHashingExperiment**. Expandera **sparade datauppsättningar** och dra **boken granskningar från Amazon** till ditt experiment.
 
-![enkel-funktionen-hash-experiment](./media/manage-web-service-endpoints-using-api-management/simple-feature-hashing-experiment.png)
+![enkel-funktion-hash-experiment](./media/manage-web-service-endpoints-using-api-management/simple-feature-hashing-experiment.png)
 
-Expandera **Dataomvandling** och **manipulering** och dra **Välj kolumner i datauppsättning** på experimentet. Ansluta **bok granskningar från Amazon** till **Välj kolumner i datauppsättning**.
+Expandera **Dataomvandling** och **manipulering av** och dra **Välj kolumner i datauppsättning** till ditt experiment. Ansluta **boka granskningar från Amazon** till **Välj kolumner i datauppsättning**.
 
 ![select-columns](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
 
@@ -197,49 +197,49 @@ Klicka på **Välj kolumner i datauppsättning** och klicka sedan på **starta k
 
 ![select-columns](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
 
-Expandera **textanalys** och dra **funktions-hashning** på experimentet. Ansluta **Välj kolumner i datauppsättning** till **hash-funktionen**.
+Expandera **textanalys** och dra **funktions-hashning** till experimentet. Ansluta **Välj kolumner i datauppsättning** till **funktions-hashning**.
 
 ![ansluta projektkolumner](./media/manage-web-service-endpoints-using-api-management/connect-project-columns.png)
 
-Typen **3** för den **Hashing bitsize**. Detta skapar 8 (23) kolumner.
+Typ **3** för den **hash-bitsize**. Detta skapar 8 (23) kolumner.
 
 ![hash-bitsize](./media/manage-web-service-endpoints-using-api-management/hashing-bitsize.png)
 
-Du kan nu vill klickar du på **kör** att testa experimentet.
+Nu kan du klicka på **kör** att testa experimentet.
 
 ![Kör](./media/manage-web-service-endpoints-using-api-management/run.png)
 
 ### <a name="create-a-web-service"></a>Skapa en webbtjänst
-Nu skapa en webbtjänst. Expandera **webbtjänsten** och dra **indata** på experimentet. Ansluta **indata** till **hash-funktionen**. Också dra **utdata** på experimentet. Ansluta **utdata** till **hash-funktionen**.
+Nu ska du skapa en webbtjänst. Expandera **webbtjänsten** och dra **indata** till ditt experiment. Ansluta **indata** till **funktions-hashning**. Också dra **utdata** till ditt experiment. Ansluta **utdata** till **funktions-hashning**.
 
 ![utdata-till-funktionen för-hashing](./media/manage-web-service-endpoints-using-api-management/output-to-feature-hashing.png)
 
-Klicka på **publicerar webbtjänst**.
+Klicka på **publicera webbtjänst**.
 
 ![publish-web-service](./media/manage-web-service-endpoints-using-api-management/publish-web-service.png)
 
 Klicka på **Ja** att publicera experimentet.
 
-![Ja för att publicera](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
+![Ja att publicera](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### <a name="test-the-web-service"></a>Testa webbtjänsten
-En AzureML-webbtjänst består av RSS-(begäranden/svar-tjänsten) och slutpunkter för BES (batch execution service). RSS är för synkron körning. BES är asynkron jobbkörningen. Om du vill testa webbtjänsten med exempel Python källan nedan, du kan behöva hämta och installera Azure SDK för Python (se: [hur du installerar Python](../../python-how-to-install.md)).
+En AzureML-webbtjänst består av skalning på Mottagarsidan (begäran/svar-service) och BES (batch execution service) slutpunkter. RSS är för synkron körning. BES är för asynkron jobbkörning. Om du vill testa din webbtjänst med exemplet Python källan nedan, du kan behöva hämta och installera Azure SDK för Python (se: [så här installerar du Python](../../python-how-to-install.md)).
 
-Du måste också den **arbetsytan**, **service**, och **api_key** av experimentet för källan exemplet nedan. Du kan hitta arbetsytan och tjänsten genom att klicka på antingen **frågor och svar** eller **Batch Execution** för experimentet web service-instrumentpanelen.
+Du måste också den **arbetsytan**, **service**, och **api_key** av experimentet för källan exemplet nedan. Du hittar den arbetsytan och tjänsten genom att klicka på antingen **begäran/svar** eller **batchkörning** för experimentet i instrumentpanelen för webbtjänsten.
 
-![Sök-arbetsytan-och-tjänst](./media/manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
+![Sök-arbetsyta-och-tjänst](./media/manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
 
-Du hittar den **api_key** genom att klicka på experimentet web service-instrumentpanelen.
+Du hittar den **api_key** genom att klicka på ditt experiment i instrumentpanelen för webbtjänsten.
 
 ![Sök-api-nyckel](./media/manage-web-service-endpoints-using-api-management/find-api-key.png)
 
-#### <a name="test-rrs-endpoint"></a>Testa Resursposter slutpunkt
+#### <a name="test-rrs-endpoint"></a>Testa RRS-slutpunkt
 ##### <a name="test-button"></a>Knappen Testa
-Ett enkelt sätt att testa RR-slutpunkten är att klicka på **testa** på instrumentpanelen web service.
+Ett enkelt sätt att testa RRS-slutpunkten är att klicka på **testa** på instrumentpanelen för webbtjänsten.
 
 ![test](./media/manage-web-service-endpoints-using-api-management/test.png)
 
-Typen **detta är en bra dag** för **col2**. Klicka på bockmarkeringen.
+Typ **det här är en bra dag** för **col2**. Klicka på bockmarkeringen.
 
 ![enter-data](./media/manage-web-service-endpoints-using-api-management/enter-data.png)
 
@@ -248,9 +248,9 @@ Du ser något som liknar
 ![exempel på-utdata](./media/manage-web-service-endpoints-using-api-management/sample-output.png)
 
 ##### <a name="sample-code"></a>Exempelkod
-Ett annat sätt att testa din RRS är från din klientkod. Om du klickar på **frågor och svar** på instrumentpanelen och rullar du längst ned visas exempelkod för C#, Python och R. Du kan även se syntaxen för RRS-förfrågan, inklusive URI, rubriker och brödtext.
+Ett annat sätt att testa din RRS är från klientkoden. Om du klickar på **begäran/svar** på instrumentpanelen och bläddra till slutet ser du exempelkod för C#, Python och R. Du kan även se syntaxen för RRS-begäran, inklusive begärande-URI, rubriker och brödtext.
 
-Den här guiden visar en fungerande Python exempel. Du behöver ändra den med den **arbetsytan**, **service**, och **api_key** av experimentet.
+Den här guiden visar en fungerande Python-exemplet. Du kommer att behöva ändra den med den **arbetsytan**, **service**, och **api_key** av experimentet.
 
     import urllib2
     import json
@@ -279,10 +279,10 @@ Den här guiden visar en fungerande Python exempel. Du behöver ändra den med d
         print(error.info())
         print(json.loads(error.read()))
 
-#### <a name="test-bes-endpoint"></a>Testa BES slutpunkt
-Klicka på **Batch-körningen** på instrumentpanelen och rullar du längst ned. Du kommer att se exempelkod för C#, Python och R. Du kan även se syntaxen för BES-förfrågningar till skickar ett jobb, starta ett jobb, status eller resultatet av ett jobb och ta bort ett jobb.
+#### <a name="test-bes-endpoint"></a>Testa BES-slutpunkt
+Klicka på **Batch-körningen** på instrumentpanelen och bläddra till slutet. Exempelkod för visas C#, Python och R. Du kan även se syntaxen för BES-begäranden för att skicka ett jobb startar ett jobb, få status eller resultat för ett jobb och ta bort ett jobb.
 
-Den här guiden visar en fungerande Python exempel. Du behöver ändra den med den **arbetsytan**, **service**, och **api_key** av experimentet. Dessutom måste du ändra den **lagringskontonamnet**, **lagringskontonyckel**, och **namnet på lagringsbehållaren**. Till sist ska du behöver ändra platsen för den **indatafilen** och platsen för den **utdatafilen**.
+Den här guiden visar en fungerande Python-exemplet. Du måste ändra den med den **arbetsytan**, **service**, och **api_key** av experimentet. Dessutom kan du behöva ändra den **lagringskontonamn**, **lagringskontonyckel**, och **namnet på lagringsbehållaren**. Slutligen behöver du ändra platsen för den **indatafilen** och platsen för den **utdatafilen**.
 
     import urllib2
     import json
@@ -377,7 +377,7 @@ Den här guiden visar en fungerande Python exempel. Du behöver ändra den med d
 
     while True:
         print("Checking the job status...")
-        # If you are using Python 3+, replace urllib2 with urllib.request in the follwing code
+        # If you are using Python 3+, replace urllib2 with urllib.request in the following code
         req = urllib2.Request(url2, headers = { "Authorization":("Bearer " + api_key) })
         try:
             response = urllib2.urlopen(req)

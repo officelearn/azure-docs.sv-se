@@ -1,31 +1,31 @@
 ---
-title: Tyst installation av Azure Backup Server v2
-description: Använda ett PowerShell-skript för att installera Azure Backup Server v2. Den här typen av installation kallas även en obevakad installation.
+title: Tyst installation av Azure Backup Server V2
+description: Använda ett PowerShell-skript för obevakad installation Azure Backup Server V2. Den här typen av installation är en förkortning av en obevakad installation.
 services: backup
 author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/30/2017
+ms.date: 11/06/2018
 ms.author: markgal
-ms.openlocfilehash: 126c1971d83a8874c096caf407231fb6dee2ff59
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3e106d7f669cf14014114ed0fe63651a1a2fe0eb
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606417"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578126"
 ---
-# <a name="run-an-unattended-installation-of-azure-backup-server-v2"></a>Kör en obevakad installation av Azure Backup Server v2
+# <a name="run-an-unattended-installation-of-azure-backup-server"></a>Kör en obevakad installation av Azure Backup Server
 
-Lär dig hur du kör en obevakad installation av Azure Backup Server v2. 
+Lär dig hur du kör en obevakad installation av Azure Backup Server.
 
-De här stegen gäller inte om du installerar Azure Backup Server v1.
+De här stegen gäller inte om du installerar Azure Backup Server V1.
 
-## <a name="install-backup-server-v2"></a>Installera reservserver v2
+## <a name="install-backup-server"></a>Installera säkerhetskopieringsserver
 
-1. Skapa en textfil på den server som är värd för Azure Backup Server v2. (Du kan skapa filen i anteckningar eller något annat textredigeringsprogram.) Spara filen som MABSSetup.ini. 
+1. På den server som är värd för Azure Backup Server V2 eller senare, skapa en textfil. (Du kan skapa filen i anteckningar eller något annat textredigeringsprogram.) Spara filen som MABSSetup.ini.
 
-2. Klistra in följande kod i filen MABSSetup.ini. Ersätt texten inom hakparentes (\< \>) med värden från din miljö. Följande är ett exempel:
+2. Klistra in följande kod i filen MABSSetup.ini. Ersätt texten inom klamrarna (\< \>) med värden från din miljö. Följande text är ett exempel:
 
   ```
   [OPTIONS]
@@ -56,14 +56,14 @@ De här stegen gäller inte om du installerar Azure Backup Server v1.
 
 Du kan använda dessa flaggor för installationen:</br>
 **/f**: ini-filsökväg</br>
-**/l**: loggsökvägen</br>
-**/i**: installationssökväg</br>
+**/l**: loggsökväg</br>
+**/i**: installationssökvägen</br>
 **/x**: avinstallera sökväg</br>
 
 ## <a name="next-steps"></a>Nästa steg
-När du har installerat Backup Server lär du dig hur du förbereder din server eller börja skydda en arbetsbelastning.
+När du har installerat Backup Server lär du dig hur du förbereder din server eller börjar skydda en arbetsbelastning.
 
-- [Förbereda säkerhetskopiering serverarbetsbelastningar](backup-azure-microsoft-azure-backup.md)
-- [Använd Backup Server för att säkerhetskopiera en VMware-server](backup-azure-backup-server-vmware.md)
-- [Använd Backup Server för att säkerhetskopiera SQL Server](backup-azure-sql-mabs.md)
-- [Lägg till moderna Säkerhetskopieringslagring Backup-Server](backup-mabs-add-storage.md)
+- [Förbereda Backup Server-arbetsbelastningar](backup-azure-microsoft-azure-backup.md)
+- [Säkerhetskopiera en VMware-server med hjälp av Backup Server](backup-azure-backup-server-vmware.md)
+- [Säkerhetskopiera SQL Server med hjälp av Backup Server](backup-azure-sql-mabs.md)
+- [Lägga till Modern Backup Storage till säkerhetskopieringsserver](backup-mabs-add-storage.md)

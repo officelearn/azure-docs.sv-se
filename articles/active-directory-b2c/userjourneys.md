@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 65b34a49006e6a2f9be003414498d9a8fc9955ae
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 231a3e87692e47ec33f8a613832acf5102257c96
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161836"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567068"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -49,8 +49,7 @@ Den **UserJourney** elementet innehåller följande element:
 
 En användarresa representeras som en orchestration-sekvens som måste följas för en lyckad transaktion. Om ett steg misslyckas, misslyckas transaktionen. Dessa orchestration-steg referera till båda byggstenarna och Anspråksproviders som tillåts i policyfilen. Orchestration-steg som ansvarar för att visa eller göra en användarupplevelsen har också en referens till motsvarande innehållsdefinition identifierare.
 
-Orchestration-steg kan vara conditionaly ecxetuted, baserat på villkor som definierats i orchestration-steg-elementet. Du kan kontrollera om du vill utföra en orkestreringssteget endast om specifika anspråksproviderförtroendet finns, eller om ett anspråk är lika med eller inte med det angivna värdet för examle. 
-
+Orchestration-steg kan vara conditionaly körs, baserat på villkor som definierats i orchestration-steg-elementet. Du kan kontrollera om du vill utföra en orkestreringssteget endast om specifika anspråksproviderförtroendet finns, eller om ett anspråk är lika med eller inte med det angivna värdet för examle. 
 
 Att ange en sorterad lista orchestration-steg, en **OrchestrationSteps** element har lagts till som en del av principen. Det här elementet krävs.
 

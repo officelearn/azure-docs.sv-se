@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
-ms.openlocfilehash: 962090340cad6bcd95245cffe16c25f08a98226b
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 285486d5fe641d49ee21d7340b62f83d75862553
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300769"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578309"
 ---
 # <a name="monitor-your-azure-machine-learning-models-in-production-with-application-insights"></a>Övervaka dina Azure Machine Learning-modeller i produktion med Application Insights
 
@@ -24,6 +24,10 @@ I den här artikeln får du lära dig hur du ställer in Azure Application Insig
 * Undantag.
 
 [Läs mer om Application Insights](../../application-insights/app-insights-overview.md). 
+
+>[!NOTE]
+> Koden i den här artikeln har testats med Azure Machine Learning SDK version 0.1.74
+
 
 ## <a name="prerequisites"></a>Förutsättningar
 * En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.

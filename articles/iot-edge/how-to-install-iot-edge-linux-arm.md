@@ -2,19 +2,19 @@
 title: Installera Azure IoT Edge på Linux ARM32 | Microsoft Docs
 description: Azure IoT Edge instruktioner för installation på Linux på ARM32 enheter, till exempel en Raspberry PI
 author: kgremban
-manager: timlt
+manager: philmea
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 874e72a0c76a5935f4a3451ba5ffbd6e9e3eecd6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: ccd38dd7570dc451a1a5b87163bfdd7aea51dad5
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393855"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567442"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Installera Azure IoT Edge-körningen på Linux (ARM32v7/armhf)
 

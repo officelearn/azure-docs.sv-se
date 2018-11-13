@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: cb1c525527f7261c10b502a25b3cab3db89dd85f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8ce75efae2d735c5653f9dae72c670b0714351ac
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515151"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567958"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att skydda din infrastruktur för Identitetshantering
 
@@ -51,8 +51,6 @@ Allt klart? Nu sätter vi igång på checklistan.
 De flesta enterprise säkerhetsöverträdelser som drabbar kommer med ett konto komprometteras med någon av några olika metoder, till exempel lösenord sprutar, brott repetitionsattacker eller nätfiske. Läs mer om dessa attacker i den här videon (45 minuter):
 > [!VIDEO https://www.youtube.com/embed/uy0j1_t5Hd4]
 
-Om användare i identitetssystemet med hjälp av svaga lösenord och stärka dem inte med Multi-Factor authentication, det är inte bara några om eller när du blivit komprometterade – bara ”hur ofta”.
-
 ### <a name="make-sure-your-organization-use-strong-authentication"></a>Kontrollera att din organisation använda stark autentisering
 
 Angivna frekvensen för att gissa lösenord phished, blir stulen med skadlig kod eller återanvänds, det är viktigt att bakåt lösenord med någon form av starka autentiseringsuppgifter – Lär dig mer om [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication).
@@ -69,7 +67,7 @@ Microsoft rekommenderar att du använder följande moderna lösenordsprincipen u
 2. Inaktivera upphör att gälla regler som få användarna att enkelt att gissa lösenord som **Summer2018!**
 3. Inaktivera tecken sammansättning krav och hindra användare från att välja ofta angripna lösenord, eftersom de orsakar användare att välja ersättningar för förutsägbar tecken i lösenord.
 
-Du kan använda [PowerShell för att förhindra att lösenord upphör att gälla](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) för användare om du skapar identiteter i Azure AD direkt. Hybridorganisationer bör implementera dessa principer med hjälp av [domän grupprincipinställningar] (https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10) eller [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
+Du kan använda [PowerShell för att förhindra att lösenord upphör att gälla](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) för användare om du skapar identiteter i Azure AD direkt. Hybridorganisationer bör implementera dessa principer med hjälp av [domän grupprincipinställningar](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) eller [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
 
 ### <a name="protect-against-leaked-credentials-and-add-resilience-against-outages"></a>Skydda mot läckta autentiseringsuppgifter och lägga till återhämtning mot avbrott
 

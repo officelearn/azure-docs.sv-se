@@ -1,3 +1,16 @@
+---
+author: sdwheeler
+ms.service: azure-powershell
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: sewhee
+ms.openlocfilehash: 5f224ab3b0040bcba6b99d8db744e9dbde4a63c9
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572806"
+---
 ## <a name="setting-up-powershell-for-resource-manager-templates"></a>Konfigurera PowerShell för Resource Manager-mallar
 Innan du kan använda Azure PowerShell med Resource Manager, måste du har rätt Windows PowerShell och Azure PowerShell-versioner.
 

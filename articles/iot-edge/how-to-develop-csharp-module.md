@@ -4,17 +4,17 @@ description: Använd Visual Studio Code för att utveckla, skapa och Felsök en 
 services: iot-edge
 keywords: ''
 author: shizn
-manager: timlt
+manager: philmea
 ms.author: xshi
 ms.date: 09/27/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 88659d31b64b4a98043606a71602f7c29316a31e
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: abfd65920348bd51a9923d0a7c74f0f980a01540
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423297"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567833"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka C#-moduler för Azure IoT Edge
 
@@ -81,7 +81,7 @@ Det finns fyra objekt inne i lösningen:
 
 ## <a name="develop-your-module"></a>Utveckla din modell
 
-C#-modul som medföljer lösningen standardkoden finns på **moduler** > ** [Modulnamn] ** > **Program.cs**. Modulen och filen deployment.template.json ställs in så att du kan skapa lösningen, push-överföra den till behållarregistret och distribuera den till en enhet för att börja testa utan att röra kod. Modulen är utformat för att helt enkelt ta indata från en källa (i det här fallet modulen tempSensor som simulerar data) och skicka det till IoT Hub. 
+Standard C# modulen kod som medföljer lösningen finns i **moduler** > ** [Modulnamn] ** > **Program.cs**. Modulen och filen deployment.template.json ställs in så att du kan skapa lösningen, push-överföra den till behållarregistret och distribuera den till en enhet för att börja testa utan att röra kod. Modulen är utformat för att helt enkelt ta indata från en källa (i det här fallet modulen tempSensor som simulerar data) och skicka det till IoT Hub. 
 
 När du är redo att anpassa mallen C# med din egen kod kan använda den [Azure IoT Hub SDK: er](../iot-hub/iot-hub-devguide-sdks.md) att skapa moduler adressen nyckeln måste för IoT-lösningar som säkerhet, hantering av enheter och tillförlitlighet. 
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: f44b267a28abd64acdd6bc74a43f1c5be8daf0ab
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8d13d6df1b168183e3794bf357ad86bfcfd77057
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515615"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567918"
 ---
 # <a name="azure-stack-1809-update"></a>Uppdatering av Azure Stack 1809
 
@@ -221,6 +221,8 @@ Här följer efter installation kända problem för den här build-versionen.
    - *Skala enhet noden är offline*
    
   Kör den [Test AzureStack](azure-stack-diagnostic-test.md) cmdlet för att kontrollera hälsotillståndet för rollinstanser för infrastruktur och skala enhet noder. Om inga problem har identifierats av [Test-AzureStack](azure-stack-diagnostic-test.md), du kan ignorera dessa aviseringar. Om ett problem har identifierats, kan du försöker starta rollinstansen infrastruktur eller nod med hjälp av administrationsportalen eller PowerShell.
+
+  Det här problemet löses i senast [1809 snabbkorrigering versionen](https://support.microsoft.com/help/4471993/), så var noga med att installera snabbkorrigeringen om du upplever problemet. 
 
 <!-- 1264761 - IS ASDK -->  
 - Du kan se aviseringar för den **hälsotillstånd controller** komponent som har följande information:  

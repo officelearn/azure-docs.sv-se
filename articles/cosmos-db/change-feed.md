@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 09f827e8784fe2a97c587524d70baf76ae4458ba
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: ad2032345332519713b177596df0556e4c35c18c
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741869"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567748"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Arbeta med stöd för ändringsflödet i Azure Cosmos DB
 
@@ -177,7 +177,7 @@ Biblioteket för change feed processor förenklar läsning ändringar i partitio
 
 Vänstra klienten startades första och det igång med att övervaka alla partitionerna och andra klienten har startats och sedan först släpper några av lån till andra klienter. Som du ser det här är bra sätt att fördela arbetet mellan olika datorer och klienter.
 
-Observera att om du har två serverlösa Azure funktioner som krävs för övervakning i samma samling och använder samma lånet och sedan de två funktionerna kan få olika dokument, beroende på hur processor-biblioteket beslutar att processen partitionerna.
+Observera att om du har två serverlösa Azure functions övervakning i samma samling och använder samma lånet sedan de två funktionerna kan få olika dokument, beroende på hur processor-biblioteket bestämmer sig för att bearbeta partitioner.
 
 <a id="understand-cf"></a>
 ### <a name="understanding-the-change-feed-processor-library"></a>Förstå ändringen feed processor-biblioteket

@@ -1,76 +1,89 @@
-Vissa Bing svar innehålla URL: er att miniatyrbilder som hanteras av Bing. Du kan ändra storlek och Beskär miniatyrbilder. 
+---
+author: nitinme
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: nitinme
+ms.openlocfilehash: b1cf3dc24482da70372f775d0ba63a203df1b285
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572803"
+---
+Vissa Bing-svar inkluderar URL: er till miniatyrbilder som hanteras av Bing. Du kan ändra storlek på och Beskär miniatyrbilder. 
 
 > [!NOTE]
-> Kontrollera storleken och med miniatyren tillhandahålla ett scenario för sökning och respektera tredje parts rättigheter som krävs av Bing Search API-användning och visa krav.
+> Kontrollera storleken och beskärning på miniatyrbilden som ger ett Sök-scenario och respekterar tredje parts rättigheter som krävs av Bing Search API-användning och visa kraven.
 
 
-Om du vill ändra storlek på en bild, inkludera bredd (b) och höjd () fråga parametrar i på miniatyrbilden URL. Ange bredd och höjd i bildpunkter. Exempel:  
+Om du vill ändra storlek på en bild, inkludera bredd (b) och höjd (h) Frågeparametrar i URL: en för den miniatyrbilden. Ange bredd och höjd i bildpunkter. Exempel:  
   
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=200&h=200`  
   
-Om du ändrar storlek på bilden bevaras dess proportionerna. Om du vill behålla proportionerna kan vit utfyllnad att lägga till kant för bilden. Om du ändrar storlek på en 480 x 359 avbildningen till 200 x 200 utan Beskär full bredd innehåller bilden men höjd innehåller 25 bildpunkter vit utfyllnad högst upp och längst ned i bilden. Samma skulle vara fallet om bilden var 359 x 480 utom till vänster och höger kantlinjer skulle innehålla vit utfyllnad. Om du Beskär bilden läggs inte vit utfyllnad.  
+Om du ändrar storlek på bilden, bibehålls dess proportionerna. Om du vill behålla proportioner kan vit utfyllnad läggas till kantlinjen för avbildningen. Om du ändrar storlek på en 480 x 359 avbildning till 200 x 200 utan beskärning full bredd innehåller bilden men höjden innehåller 25 bildpunkter vit utfyllnad högst upp och längst ned på bilden. Samma skulle vara fallet om avbildningen har 359 x 480 utom vänstra och högra kantlinjen innehåller vit utfyllnad. Om du Beskär bilden läggs inte vit utfyllnad.  
 
  
-Följande bild visar den ursprungliga storleken för en miniatyrbild (480 x 300).  
+Följande bild visar den ursprungliga storleken på en miniatyrbild (480 x 300).  
   
-![Den ursprungliga liggande avbildning](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape.PNG)  
+![Liggande originalbilden](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape.PNG)  
   
-Följande bild visar bildens storlek ska ändras till 200 x 200. Proportionerna underhålls och de övre och nedre kantlinjerna utfyllnad med vitt (svart kantlinje ingår att visa utfyllnaden).  
+Följande bild visar bildens storlek ska ändras till 200 x 200. Förhållandet underhålls och de övre och nedre gränser är utfyllnad med vitt (svart kantlinjen ingår att visa utfyllnaden).  
   
 ![Ändrade liggande bild](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape-resized.PNG)  
 
 
 
-Om du anger dimensioner som är större än bildens ursprungliga Breddoch höjd utfyllt avbildningen med vitt på den vänstra och övre kantlinjen.  
+Om du anger dimensioner som är större än en bilds ursprungliga Breddoch höjd utfyllnad avbildningen med vitt på den vänstra och övre kantlinjen.  
   
-Beskär bilden genom att inkludera c (Beskär) Frågeparametern. Följande är möjliga värden som du kan ange.  
+Beskär en avbildning genom att inkludera c (Beskär) frågeparameter. Här följer möjliga värden som du kan ange.  
   
-- 4&mdash;nedsatt syn förhållandet  
-- 7&mdash;förhållandet för smartkort  
+- 4&mdash;förhållande med nedsatt syn  
+- 7&mdash;förhållande för smartkort  
   
-Om du begär Smart förhållandet Beskär (c = 7), bilden beskärs från mitten av avbildningens region intressanta passiv Behåll bildens proportionerna. Intressant område är området bildens Bing anger innehåller de flesta importera delar. Nedan visas ett exempel region av intresse.  
+Om du begär förhållande Smart beskärning (c = 7), bilden beskärs från mitten av avbildningens intresseregionen passiv samtidigt bildens höjd-/ breddförhållandet. Det intressanta området är del av avbildningen som Bing avgör innehåller de flesta import delar. Nedan visas ett exempel intresseregionen.  
   
-![Intressant område](./media/cognitive-services-bing-resize-crop/bing-resize-crop-regionofinterest.PNG)
+![Intresseregionen](./media/cognitive-services-bing-resize-crop/bing-resize-crop-regionofinterest.PNG)
 
-Om du ändrar storlek på en avbildning och begära Smart förhållandet Beskär har bilden minskats till den begärda storleken samtidigt proportionerna. Bilden beskärs sedan baserat på de nya storleken dimensionerna. Till exempel om storleksändrade bredden är mindre än eller lika med höjden, beskärs bilden till vänster och höger i mitten av intressant område. Annars beskärs bilden upp och längst ned i mitten av intressant område.  
+Om du ändrar storlek på en bild och begära förhållande Smart beskärning reduceras avbildningen till den begärda storleken samtidigt som proportionerna. Bilden beskärs sedan baserat på de ändrade dimensionerna. Till exempel om den ändrade bredden är mindre än eller lika med höjden, beskärs bilden till vänster och höger i mitten av det intressanta området. I annat fall beskärs bilden längst upp och längst ned i mitten av det intressanta området.  
   
  
-Nedan visas minskas till 200 x 200 med Smart förhållandet Beskär bilden.  
+Nedan visas den avbildning som minskat till 200 x 200 med förhållandet Smart beskärning.  
   
-![Liggande bilden beskärs till 200 x 200](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape200x200c7.PNG)
+![Liggande bilden beskärs 200 x 200](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape200x200c7.PNG)
   
-Nedan visas minskas till 200 x 100 med Smart förhållandet Beskär bilden.  
+Nedan visas den avbildning som minskat till 200 x 100 med förhållandet Smart beskärning.  
    
-![Liggande bilden beskärs till 200 x 100](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape200x100c7.PNG)
+![Liggande bilden beskärs 200 × 100](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape200x100c7.PNG)
   
-Nedan visas minskas till 100 x 200 med Smart förhållandet Beskär bilden.  
+Nedan visas den avbildning som minskat till 100 x 200 med förhållandet Smart beskärning.  
   
-![Liggande bilden beskärs till 100 x 200](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape100x200c7.PNG)
+![Liggande bilden beskärs 100 x 200](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape100x200c7.PNG)
 
 
 
-Om Bing inte kan avgöra intressant bildens område, använder Bing hemlig förhållandet Beskär.  
+Om Bing inte kan avgöra avbildningens intresseregionen, använder Bing hemlig förhållande beskärning.  
   
-Om du begär hemlig förhållandet Beskär (c = 4), Bing används följande regler Beskär bilden.  
+Om du begär hemlig förhållande beskärning (c = 4), Bing använder följande regler för att Beskär bilden.  
   
-- Om (ursprungliga bredd / ursprungliga avbildningen höjd) < (begärt bredd / begärda avbildningen höjd) bilden mäts från övre vänstra hörnet och beskäras längst ned.  
-- Om (ursprungliga bredd / ursprungliga avbildningen höjd) > (begärt bredd / begärda avbildningen höjd) avbildningen mätt från center och beskäras till vänster och höger.  
+- Om (ursprungliga bredd / ursprungliga bildens höjd) < (begärt bredd / begärt bildens höjd) avbildningen mäts från övre vänstra hörnet och beskärs längst ned på sidan.  
+- Om (ursprungliga bredd / ursprungliga bildens höjd) > (begärt bredd / begärt bildens höjd) avbildningen mätt från center och beskärs till vänster och höger.  
 
 
 
-Nedan visas ett stående avbildning som 225 x 300.  
+Nedan visas en stående-avbildning som är 225 x 300.  
   
-![Ursprungliga direkt konsumtion avbildning](./media/cognitive-services-bing-resize-crop/bing-resize-crop-sunflower.PNG)
+![Direkt konsumtion originalbilden](./media/cognitive-services-bing-resize-crop/bing-resize-crop-sunflower.PNG)
   
-Nedan visas minskas till 200 x 200 med hemlig förhållandet Beskär bilden. Bilden mäts från det övre vänstra hörnet ledde till längst ned i bilden beskärs.  
+Nedan visas den avbildning som minskat till 200 x 200 med hemlig förhållande beskärning. Avbildningen mäts från det övre vänstra hörnet, vilket resulterar i längst ned i bilden beskärs.  
   
-![Direkt konsumtion bilden beskärs till 200 x 200](./media/cognitive-services-bing-resize-crop/bing-resize-crop-sunflower200x200c4.PNG)
+![Direkt konsumtion bilden beskärs 200 x 200](./media/cognitive-services-bing-resize-crop/bing-resize-crop-sunflower200x200c4.PNG)
   
-Nedan visas minskas till 200 x 100 med hemlig förhållandet Beskär bilden. Bilden mäts från det övre vänstra hörnet ledde till längst ned i bilden beskärs.  
+Nedan visas den avbildning som minskat till 200 x 100 med hemlig förhållande beskärning. Avbildningen mäts från det övre vänstra hörnet, vilket resulterar i längst ned i bilden beskärs.  
   
-![Direkt konsumtion bilden beskärs till 200 x 100](./media/cognitive-services-bing-resize-crop/bing-resize-crop-sunflower200x100c4.PNG)
+![Direkt konsumtion bilden beskärs 200 × 100](./media/cognitive-services-bing-resize-crop/bing-resize-crop-sunflower200x100c4.PNG)
   
-Nedan visas minskas till 100 x 200 med hemlig förhållandet Beskär bilden. Bilden mäts från vilket resulterar i de vänstra och högra delarna av bilden beskärs center.  
+Nedan visas den avbildning som minskat till 100 x 200 med hemlig förhållande beskärning. Avbildningen mäts från center vilket resulterar i de vänstra och högra delarna av bilden beskärs.  
   
-![Direkt konsumtion bilden beskärs till 100 x 200](./media/cognitive-services-bing-resize-crop/bing-resize-crop-sunflower100x200c4.PNG)
+![Direkt konsumtion bilden beskärs 100 x 200](./media/cognitive-services-bing-resize-crop/bing-resize-crop-sunflower100x200c4.PNG)
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 4dac0ed85500e4339f6389f05113dfd68b72c5ff
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: da9319934068709d5635352fdbd52c3ca6ac49be
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244346"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568894"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Ta bort servrar och inaktivera skydd
 
@@ -173,7 +173,7 @@ Hyper-V-värdar som inte hanteras av VMM har samlats i en Hyper-V-plats. Ta bort
 
     > [!NOTE]
     > Om du väljer den **ta bort** alternativ, och sedan följande skript för att rensa replikeringsinställningarna tun lokala VMM-servern.
-3. Kör skriptet på VMM-källservern, med hjälp av PowerShell (administratör krävs krävs) från VMM-konsolen. Ersätt platshållaren **SQLVM1** med namnet på den virtuella datorn.
+3. Kör skriptet på VMM-källservern, med hjälp av PowerShell (administratörsbehörighet krävs) från VMM-konsolen. Ersätt platshållaren **SQLVM1** med namnet på den virtuella datorn.
 
         $vm = get-scvirtualmachine -Name "SQLVM1"
         Set-SCVirtualMachine -VM $vm -ClearDRProtection
@@ -194,7 +194,7 @@ Hyper-V-värdar som inte hanteras av VMM har samlats i en Hyper-V-plats. Ta bort
 > [!NOTE]
 > Om du väljer den **ta bort** alternativ, och sedan följande skript för att rensa replikeringsinställningarna tun lokala VMM-servern.
 
-3. Kör skriptet på VMM-källservern, med hjälp av PowerShell (administratör krävs krävs) från VMM-konsolen. Ersätt platshållaren **SQLVM1** med namnet på den virtuella datorn.
+3. Kör skriptet på VMM-källservern, med hjälp av PowerShell (administratörsbehörighet krävs) från VMM-konsolen. Ersätt platshållaren **SQLVM1** med namnet på den virtuella datorn.
 
          $vm = get-scvirtualmachine -Name "SQLVM1"
          Set-SCVirtualMachine -VM $vm -ClearDRProtection

@@ -2,18 +2,18 @@
 title: Stöd för Azure IoT Edge-plattformar | Microsoft Docs
 description: Plattformar som stöds av Azure IoT Edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 11/07/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: adf017c57cf7c895a0da8fec70e89dda0a314693
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 45c5c7245a2af3b0d0e328bfcc43112eaee406ee
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277927"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51565011"
 ---
 # <a name="azure-iot-edge-support"></a>Support för Azure IoT Edge
 Det finns en mängd olika sätt att söka efter support för Azure IoT Edge-produkten.

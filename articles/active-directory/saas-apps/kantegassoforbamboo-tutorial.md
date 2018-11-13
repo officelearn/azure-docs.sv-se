@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: ceab1293b5bd1fbae9088783651d0effa8c5a78a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5e6e534aaa833d7c66216896765d20cdcf50a461
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449010"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568208"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>Självstudier: Azure Active Directory-integration med Kantega SSO för bambu
 
@@ -59,7 +59,7 @@ För att konfigurera integrering av Kantega SSO för bambu i Azure AD, som du be
 
 **Utför följande steg för att lägga till Kantega SSO för bambu från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 

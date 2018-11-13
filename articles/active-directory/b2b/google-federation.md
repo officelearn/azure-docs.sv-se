@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 11/07/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 396fb947a95ebc634ab0dea24d20f35126bc006e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 5bc94b6fe69a9ffec11fcbab952a6f8aa3e2259a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389453"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569013"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Lägga till Google som en identitetsprovider för gästanvändare för B2B
 
@@ -43,15 +43,21 @@ Skapa först ett nytt projekt i konsolen för Google-utvecklare att skaffa en kl
 
    ![Google API-autentiseringsuppgifter](media/google-federation/google-api.png)
  
-4. Välj den **Oauth godkännandeskärmen** fliken och ange en **produktnamn som visas för användare**. (Lämna de andra inställningarna.) Välj **Spara**.
+4. Välj den **OAuth godkännandeskärmen** fliken och ange en **programnamn**. (Lämna de andra inställningarna.)
 
    ![Google OAuth godkännandeskärmen](media/google-federation/google-oauth-consent-screen.png)
 
-5. Välj den **autentiseringsuppgifter** fliken. I den **skapa autentiseringsuppgifter** menyn, Välj **OAuth klient-ID**.
+5. Bläddra till den **auktoriserade domäner** och ange microsoftonline.com.
+
+   ![Avsnittet för auktoriserade domäner](media/google-federation/google-oauth-authorized-domains.png)
+
+6. Välj **Spara**.
+
+7. Välj den **autentiseringsuppgifter** fliken. I den **skapa autentiseringsuppgifter** menyn, Välj **OAuth klient-ID**.
 
    ![Google API-autentiseringsuppgifter](media/google-federation/google-api-credentials.png)
 
-6. Under **programtyp**, Välj **webbprogram**, och sedan under **auktoriserade omdirigerings-URI: er**, anger du följande URI: er:
+8. Under **programtyp**, Välj **webbprogram**, och sedan under **auktoriserade omdirigerings-URI: er**, anger du följande URI: er:
    - `https://login.microsoftonline.com` 
    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(där `<directory id>` är din katalog-ID)
    
@@ -60,7 +66,7 @@ Skapa först ett nytt projekt i konsolen för Google-utvecklare att skaffa en kl
 
    ![Skapa OAuth klient-ID](media/google-federation/google-create-oauth-client-id.png)
 
-7. Välj **Skapa**. Kopiera klient-ID och klienthemlighet som du ska använda när du lägger till identitetsleverantören i Azure AD-portalen.
+9. Välj **Skapa**. Kopiera klient-ID och klienthemlighet som du ska använda när du lägger till identitetsleverantören i Azure AD-portalen.
 
    ![OAuth-ID och klienthemlighet](media/google-federation/google-auth-client-id-secret.png)
 

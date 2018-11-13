@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: 24b6beec8ecda993667464be5c74dab50fd93201
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: MT
+ms.openlocfilehash: 49682a2d9ec5d3ce7c2139dc8b2e2fd6a1c3ec18
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278896"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236797"
 ---
 # <a name="provision-throughput-for-cosmos-db-containers-and-databases"></a>Etablera dataflöde för Cosmos DB-behållare och databaser
 
@@ -27,7 +27,7 @@ Ange dataflöde för en behållare är det vanliga alternativet. Medan du kan El
 
 Vi rekommenderar att du konfigurerar dataflöde med behållare precision när du vill att garanterade prestanda för behållaren.
 
-Dataflödet som etableras i en Cosmos-behållare är jämnt fördelade över alla logiska partitioner i behållaren. Eftersom en eller flera logiska partitioner för en behållare är värd för en resurspartition, de fysiska partitionerna tillhör exklusivt behållaren och stöd för dataflödet som tillhandahållits för behållaren. Följande bild visar hur en resurspartition är värd för en eller flera logiska partitioner för en behållare:
+Dataflödet som etableras i en Cosmos-behållare är jämnt fördelade över alla logiska partitioner i behållaren. Eftersom en eller flera logiska partitioner för en behållare är värd för en resurspartition, resurspartitioner tillhör exklusivt behållaren och stöd för dataflödet som tillhandahållits för behållaren. Följande bild visar hur en resurspartition är värd för en eller flera logiska partitioner för en behållare:
 
 ![Resurspartition](./media/set-throughput/resource-partition.png)
 
@@ -49,7 +49,7 @@ Vi rekommenderar att du konfigurerar dataflödet för en databas när du vill de
 
 Vid en given tidpunkt tid fördelas det dataflöde som allokeras till en behållare i en databas för alla logiska partitioner för behållaren. När du har en behållare som delar etablerat dataflöde på en databas, kan du selektivt använder dataflödet till en specifik behållare eller en logisk partition. Om arbetsbelastningen för en logisk partition förbrukar mer än det dataflöde som tilldelas en specifik logisk partition, kommer din verksamhet att rate-limited. När hastighetsbegränsande uppstår kan du antingen öka genomflödet för hela behållaren eller försök igen. Mer information om partitionering finns i [logiska partitioner](partition-data.md).
 
-Flera logiska partitioner som delar dataflödet som tillhandahållits till en databas kan finnas på en enskild resurs-partition. När en enskild logisk partition för en behållare är alltid begränsade inom en resurspartition, ”L” logiska partitioner mellan ”C”-behållare som delar det etablerade dataflödet för en databas mappade och finns i ”R” fysiska partitioner. Följande bild visar hur en resurspartition kan vara värd för en eller flera logiska partitioner som hör till olika behållare i en databas:
+Flera logiska partitioner som delar dataflödet som tillhandahållits till en databas kan finnas på en enskild resurs-partition. När en enskild logisk partition för en behållare är alltid begränsade inom en resurspartition, ”L” logiska partitioner mellan ”C”-behållare som delar det etablerade dataflödet för en databas mappade och finns i ”R” resurspartitioner. Följande bild visar hur en resurspartition kan vara värd för en eller flera logiska partitioner som hör till olika behållare i en databas:
 
 ![Resurspartition](./media/set-throughput/resource-partition2.png)
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 6d31e6a4d424b8e3c634c9d5075b1f02c512187b
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8c3c7e94db1f09164d6248cf0b9b093db0cf1d69
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651537"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578679"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Hur du använder hanterade identiteter med Azure Container Instances
 
@@ -38,7 +38,7 @@ Använda en hanterad identitet i en behållare som körs för att autentisera ti
 
 ### <a name="enable-a-managed-identity"></a>Aktivera en hanterad identitet
 
- I Azure Container Instances stöds hanterade identiteter för Azure-resurser från och med REST API-versionen 2018-10-01 och motsvarande SDK: er och verktyg. När du skapar en behållargrupp kan du aktivera en eller flera hanterade identiteter genom att ange en [ContainerGroupIdentity](/rest/api/container-instances/containergroups/containergroups_createorupdate#containergroupidentity) egenskapen. Du kan också aktivera eller uppdatera hanterade identiteter efter en behållargrupp körs på. antingen medför behållargruppen startas om. Ange identiteter på en ny eller befintlig behållargrupp med hjälp av Azure CLI, Resource Manager-mall eller en YAML-fil. 
+ I Azure Container Instances stöds hanterade identiteter för Azure-resurser från och med REST API-versionen 2018-10-01 och motsvarande SDK: er och verktyg. När du skapar en behållargrupp kan du aktivera en eller flera hanterade identiteter genom att ange en [ContainerGroupIdentity](/rest/api/container-instances/containergroups/createorupdate#containergroupidentity) egenskapen. Du kan också aktivera eller uppdatera hanterade identiteter efter en behållargrupp körs på. antingen medför behållargruppen startas om. Ange identiteter på en ny eller befintlig behållargrupp med hjälp av Azure CLI, Resource Manager-mall eller en YAML-fil. 
 
 Azure Container Instances stöder båda typerna av hanterade Azure-identiteter: användartilldelade och systemtilldelade. Du kan aktivera en systemtilldelad identitet, en eller flera användartilldelade identiteter eller båda typerna av identiteter på en behållargrupp. 
 

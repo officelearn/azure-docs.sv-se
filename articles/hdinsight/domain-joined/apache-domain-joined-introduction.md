@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: cf94ba73d57763f5e05ed9b33d10bb335103400a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a1b4565d4875b60ce36d74f8c99e4c7d79999c36
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946400"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578271"
 ---
 # <a name="an-introduction-to-hadoop-security-with-enterprise-security-package"></a>En introduktion till Hadoop-säkerhet med Enterprise Security Package
 
@@ -25,7 +25,7 @@ Du kan skapa ett HDInsight-kluster med Enterprise Security Package (ESP) och som
 Enterprise-administratör kan konfigurera rollbaserad åtkomstkontroll (RBAC) för Hive-säkerhet med hjälp av [Apache Ranger](http://hortonworks.com/apache/ranger/). Konfigurera RBAC begränsar dataåtkomsten till bara vad som behövs. Slutligen kan administratören granska dataåtkomst för anställda och eventuella ändringar som görs till principer för åtkomstkontroll. Administratören kan sedan få en hög styrningsgrad över företagets resurser.
 
 > [!NOTE]
-> De nya funktionerna som beskrivs i den här artikeln finns i förhandsversionerna endast på följande klustertyper: Hadoop, Spark och interaktiva frågor. Oozie har nu aktiverats på ESP-kluster. För att komma åt webbgränssnittet för Oozie användare bör aktivera [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).
+> Oozie har nu aktiverats på ESP-kluster. För att komma åt webbgränssnittet för Oozie användare bör aktivera [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).
 
 Enterprise security består av fyra större pelare: perimetersäkerhet, autentisering, auktorisering och kryptering.
 

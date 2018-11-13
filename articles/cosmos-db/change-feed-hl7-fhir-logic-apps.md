@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
-ms.openlocfilehash: d40ab5d6bb29878c633a2645810d6256ac661071
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: aab6e5247830ee444bcab0b15bda34e4464aaad1
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213708"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51565487"
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Meddela patienter av HL7 FHIR hälsovård poständringar med Logic Apps och Azure Cosmos DB
 
@@ -134,7 +134,7 @@ Vi använder den [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/
             /// <returns></returns>
             [Metadata("Get New or Modified FHIR Documents",
                 "Query for new or modifed FHIR Documents By Resource Type " +
-                "from Last Run Date or Begining of Collection creation"
+                "from Last Run Date or Beginning of Collection creation"
             )]
             [SwaggerResponse(HttpStatusCode.OK, type: typeof(Task<dynamic>))]
             [SwaggerResponse(HttpStatusCode.NotFound, "No New or Modifed Documents found")]

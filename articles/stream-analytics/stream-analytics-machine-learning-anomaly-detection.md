@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: a2bf6ef44a8698e802d9bbc25689988498c55f13
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 3f6d6f700ccf232dacb512f22dd1f9fb5d870740
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300276"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567051"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Avvikelseidentifiering i Azure Stream Analytics
 
@@ -131,7 +131,7 @@ Vi ska gå igenom strangeness beräkningen i detalj (antar finns en uppsättning
    - Luta om lutning är negativt  
    - 0, övrigt  
 
-När värdet för den inkommande händelsen strangeness beräknas ett martingale värde beräknas utifrån värdet strangeness (finns i den [Machine Learning-blogg](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) mer information om hur martingale värdet beräknas). Det här värdet martingale retuned som avvikelsepoäng. Värdet martingale ökar långsamt svar på onormalt värden detektor att vara robust sporadiska ändringar och således minskar falska aviseringar. Det finns också en användbar egenskap: 
+När värdet för den inkommande händelsen strangeness beräknas ett martingale värde beräknas utifrån värdet strangeness (finns i den [Machine Learning-blogg](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) mer information om hur martingale värdet beräknas). Det här martingale värdet returneras som avvikelsepoäng. Värdet martingale ökar långsamt svar på onormalt värden detektor att vara robust sporadiska ändringar och således minskar falska aviseringar. Det finns också en användbar egenskap: 
 
 Sannolikheten [det finns t sådana som M<sub>t</sub> > λ] < 1/λ där M<sub>t</sub> är martingale värdet vid omedelbar t och λ är en verkliga värdet. Exempel: om det finns en avisering när M<sub>t</sub>> 100 och sannolikheten för falska positiva identifieringar är mindre än 1/100.  
 

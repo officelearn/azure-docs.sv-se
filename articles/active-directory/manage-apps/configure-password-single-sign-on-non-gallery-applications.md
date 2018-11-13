@@ -2,24 +2,20 @@
 title: Så här konfigurerar du lösenord för enkel inloggning för en inte är ett galleriprogram applicationn | Microsoft Docs
 description: Hur du konfigurerar ett anpassad icke-galleriprogram för säker lösenordsbaserad enkel inloggning när det inte visas i Azure AD-Programgalleriet
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 11/12/2018
 ms.author: barbkess
-ms.openlocfilehash: 37ac3b5fb680a9966f5b8f3da43a2b3013554557
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d880a142b54d253cc1522b3dcc521c86119e0997
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357448"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578407"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Så här konfigurerar du lösenord för enkel inloggning för en icke-galleriprogram
 
@@ -115,7 +111,6 @@ Följ dessa steg om du vill konfigurera enkel inloggning för ett program:
 
 11. Du kan dessutom också ange autentiseringsuppgifter för användarens räkning genom att markera rader av användare och klicka på **uppdaterade autentiseringsuppgifter** och ange användarnamnet och lösenordet åt användarna. Annars kan uppmanas användare att ange autentiseringsuppgifterna sig vid start.
 
-12. **Valfritt:** för vissa sociala mediaprogram som Twitter eller Facebook och det finns också möjlighet att aktivera automatisk förnyelse av lösenord för programmet med en frekvens för valda. Att aktivera den här Välj **jag vill att Azure AD för att hantera den här användarens eller gruppens lösenord automatiskt** när du skriver in autentiseringsuppgifter för en användare eller grupp. Välj sedan den **förnyelsefrekvens (i veckor)**.
 
 ## <a name="assign-a-user-to-an-application-directly"></a>Tilldela en användare till ett program direkt
 

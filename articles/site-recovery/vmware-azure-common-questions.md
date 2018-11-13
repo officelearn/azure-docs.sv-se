@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 10/29/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 05f878d244647a79a2b3e9d0c789ba811dad71ee
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 2436a4e75045200a8d2f48586e31ebfa0c03705a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012113"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566269"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Vanliga frågor – VMware till Azure replikering
 
@@ -110,6 +110,8 @@ Konfigurationsservern körs lokalt Site Recovery-komponenter, inklusive:
 - Processervern som fungerar som en replikeringsgateway. Den tar emot replikeringsdata; optimerar dem med cachelagring, komprimering och kryptering och skickar det till Azure storage., processervern installerar också Mobilitetstjänsten på virtuella datorer du vill replikera och utför automatisk identifiering av lokala virtuella VMware-datorer.
 - Huvudmålservern som hanterar replikeringsdata vid återställning från Azure.
 
+[Läs mer](vmware-azure-architecture.md) om konfigurationsserverns komponenter och processer.
+
 ### <a name="where-do-i-set-up-the-configuration-server"></a>Var konfigurerar jag configuration server?
 Du behöver en enda med hög tillgänglighet lokal VMware VM för konfigurationsservern.
 
@@ -126,15 +128,35 @@ Nej. Om du vill göra detta måste du ställa in en konfigurationsserver i varje
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>Kan jag vara värd för en konfigurationsserver i Azure?
 Även om det går måste den virtuella Azure-datorer som kör konfigurationsservern kommunicera med dina lokala VMware-infrastruktur och virtuella datorer. Detta kan lägga till svarstider och påverka pågående replikering.
 
-
-### <a name="where-can-i-get-the-latest-version-of-the-configuration-server-template"></a>Var hittar jag den senaste versionen av konfigurationsservermallen?
-Hämta den senaste versionen från den [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
-
 ### <a name="how-do-i-update-the-configuration-server"></a>Hur uppdaterar jag configuration server?
-Du kan installera samlade uppdateringar. Du hittar den senaste uppdatering informationen i den [wiki-sida för uppdateringar](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+[Lär dig mer om](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) uppdaterar konfigurationsservern. Du hittar den senaste uppdatering informationen i den [uppdateringar i Azure-sidan](https://azure.microsoft.com/updates/?product=site-recovery). Du kan också direkt ladda ned den senaste versionen av konfigurationsservern från [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 
 ### <a name="should-i-backup-the-deployed-configuration-server"></a>Bör jag säkerhetskopiera distribuerade konfigurationsservern?
 Vi rekommenderar att utföra regelbundna schemalagda säkerhetskopieringar av konfigurationsservern. Den virtuella datorn att växlas tillbaka måste finnas i server-konfigurationsdatabasen för lyckad återställning efter fel och konfigurationsservern måste vara körs och är i anslutet tillstånd. Du kan lära dig mer om vanliga hanteringsaktiviteter för configuration server [här](vmware-azure-manage-configuration-server.md).
+
+### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>När jag ställer in konfigurationsservern, kan jag hämta och installera MySQL manuellt?
+Ja. Hämta MySQL och placera den i den **C:\Temp\ASRSetup** mapp. Installera den manuellt. När du ställer in konfigurationsservern VM och acceptera de villkor, MySQL listas som **redan installerat** i **ladda ned och installera**.
+
+### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>Kan jag undvika att överföra MySQL men låta Site Recovery installerar den?
+Ja. Ladda ned MySQL-installationsprogrammet och placera den i den **C:\Temp\ASRSetup** mapp.  När du ställer in konfigurationsservern VM godkänner den villkoren och klicka på **ladda ned och installera**, installationsprogram som du har lagt till för att installera MySQL används.
+ 
+### <a name="canl-i-use-the-configuration-server-vm-for-anything-else"></a>CanL jag använder configuration server VM för något annat?
+Nej, bör du endast använda den virtuella datorn för konfigurationsservern. 
+
+### <a name="can-i-change-the-vault-registered-in-the-configuration-server"></a>Kan jag ändra det valv som är registrerade på konfigurationsservern?
+Nej. När ett valv har registrerats med konfigurationsservern kan inte ändras.
+
+### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>Jag kan använda samma konfigurationsservern för haveriberedskap för både virtuella VMware-datorer och fysiska servrar
+Ja, men Observera att den fysiska datorn kan vara endast att växlas tillbaka till en VMware-VM.
+
+### <a name="where-can-i-download-the-passphrase-for-the-configuration-server"></a>Var kan jag hämta lösenfrasen för configuration server?
+[Läsa den här artikeln](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) att lära dig om hur du hämtar lösenfrasen.
+
+### <a name="where-can-i-download-vault-registration-keys"></a>Var kan jag hämta valv registreringsnycklar?
+
+I den **Recovery Services-valv**, **hantera** > **Site Recovery-infrastruktur** > **Konfigurationsservrar**. I **servrar**väljer **ladda ned Registreringsnyckeln** att hämta valvautentiseringsfilen.
+
+
 
 ## <a name="mobility-service"></a>Mobilitetstjänsten
 

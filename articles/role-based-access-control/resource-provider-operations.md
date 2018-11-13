@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 7d044559d72b07dc86a5ee1c2269452a9059de61
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fd5b0637ab21c9859f2ed06a96c69b51f4681097
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471517"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569292"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager åtgärder för resursprovider
 
@@ -77,7 +77,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ADHybridHealthService/addsservices/action | Skapa en ny skog för klienten. |
 > | Åtgärd | Microsoft.ADHybridHealthService/addsservices/addomainservicemembers/read | Hämtar alla servrar för det angivna tjänstnamnet. |
 > | Åtgärd | Microsoft.ADHybridHealthService/addsservices/alerts/read | Hämtar information om aviseringar för skogen som alertid, varning har aktiverats datum, senaste identifierade, avisering aviseringsbeskrivningen, senaste uppdaterade sätt, på sätt, tillstånd, aviseringar felsökning länkar osv. |
-> | Åtgärd | Microsoft.ADHybridHealthService/addsservices/configuration/read | Hämtar tjänstkonfigurationen för skogen. Exempel - skogsnamn, Functionla nivå, domäner master FSMO-rollen, FSMO schemahanterare osv. |
+> | Åtgärd | Microsoft.ADHybridHealthService/addsservices/configuration/read | Hämtar tjänstkonfigurationen för skogen. Exempel - skogsnamn, funktionsnivå, domäner master FSMO-rollen, FSMO schemahanterare osv. |
 > | Åtgärd | Microsoft.ADHybridHealthService/addsservices/delete | Tar bort en tjänst och det är servrar tillsammans med data för hälsotillstånd. |
 > | Åtgärd | Microsoft.ADHybridHealthService/addsservices/dimensions/read | Hämtar information om domäner och platser för skogen. Exempel-hälsostatus, aktiva aviseringar, lösta aviseringar, egenskaper som domänens funktionsnivå, skog, infrastrukturhanteraren, PDC och RID master osv.  |
 > | Åtgärd | Microsoft.ADHybridHealthService/addsservices/features/userpreference/read | Hämtar användarens inställning för skogen.<br>Exempel - MetricCounterName som ldapsuccessfulbinds, ntlmauthentications, kerberosauthentications, addsinsightsagentprivatebytes, ldapsearches.<br>Inställningar för Användargränssnittet diagram osv. |
@@ -104,7 +104,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ADHybridHealthService/reports/badpassword/read | Hämtar listan över försök med felaktigt lösenord för alla användare i Active Directory Federation Service. |
 > | Åtgärd | Microsoft.ADHybridHealthService/reports/badpassworduseridipfrequency/read | Hämtar Blob SAS-URI som innehåller status och eventuell resultatet av nyligen köas rapporten jobb för frekvensen av felaktigt användarnamn/lösenord försöker per användar-ID per IP-adress per dag för en viss klient. |
 > | Åtgärd | Microsoft.ADHybridHealthService/reports/consentedtodevopstenants/read | Hämtar listan över DevOps samtyckt klienter. Används vanligtvis för kundsupport. |
-> | Åtgärd | Microsoft.ADHybridHealthService/reports/isdevops/read | Hämtar ett värde som anger wheather teannt är DevOps godkänt villkoren eller inte. |
+> | Åtgärd | Microsoft.ADHybridHealthService/reports/isdevops/read | Hämtar ett värde som anger om teannt är DevOps godkänt villkoren eller inte. |
 > | Åtgärd | Microsoft.ADHybridHealthService/reports/selectdevopstenant/read | Uppdaterar userid(objectid) för den valda dev ops-klienten. |
 > | Åtgärd | Microsoft.ADHybridHealthService/reports/selecteddeployment/read | Hämtar valda distributionen för den angivna klienten. |
 > | Åtgärd | Microsoft.ADHybridHealthService/reports/tenantassigneddeployment/read | Får ett klient-id hämtar klient-lagringsplats. |
@@ -240,7 +240,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ApiManagement/service/apis/products/read | Hämta alla produkter som API: et är en del av |
 > | Åtgärd | Microsoft.ApiManagement/service/apis/read | Hämta lista över alla registrerade API: er eller hämta information om API |
 > | Åtgärd | Microsoft.ApiManagement/service/apis/releases/delete | Tar bort alla versioner av API: et eller ta bort API-versionen |
-> | Åtgärd | Microsoft.ApiManagement/service/apis/releases/read | Hämta versioner för en API eller hämta information om API: et reelase |
+> | Åtgärd | Microsoft.ApiManagement/service/apis/releases/read | Hämta versioner för en API eller hämta information om API-versionen |
 > | Åtgärd | Microsoft.ApiManagement/service/apis/releases/write | Skapa nya API-versionen eller uppdatera befintliga API-versionen |
 > | Åtgärd | Microsoft.ApiManagement/service/apis/revisions/delete | Tar bort alla revisioner av ett API |
 > | Åtgärd | Microsoft.ApiManagement/service/apis/revisions/read | Hämta revisioner som hör till ett API |
@@ -395,7 +395,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.Authorization/checkAccess/action | Kontrollerar att anroparen har behörighet att utföra en viss åtgärd |
 > | Åtgärd | Microsoft.Authorization/classicAdministrators/delete | Tar bort administratören från prenumerationen. |
-> | Åtgärd | Microsoft.Authorization/classicAdministrators/operationstatuses/read | Hämtar statusar för prenumerationens administratörsåtgärder. |
+> | Åtgärd | Microsoft.Authorization/classicAdministrators/operationstatuses/read | Hämtar status för administratörsåtgärder för prenumerationen. |
 > | Åtgärd | Microsoft.Authorization/classicAdministrators/read | Läser in prenumerationens administratörer. |
 > | Åtgärd | Microsoft.Authorization/classicAdministrators/write | Lägg till eller ta bort en administratör för en prenumeration. |
 > | Åtgärd | Microsoft.Authorization/denyAssignments/delete | Ta bort ett tilldelningsnekande för det angivna reservationsomfånget. |
@@ -672,20 +672,20 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
-> | Åtgärd | Microsoft.Blueprint/blueprintAssignments/delete | Ta bort eventuella skissartefakter |
-> | Åtgärd | Microsoft.Blueprint/blueprintAssignments/read | Läs eventuella skissartefakter |
-> | Åtgärd | Microsoft.Blueprint/blueprintAssignments/write | Skapa eller uppdatera eventuella skissartefakter |
-> | Åtgärd | Microsoft.Blueprint/blueprints/artifacts/delete | Ta bort eventuella skissartefakter |
-> | Åtgärd | Microsoft.Blueprint/blueprints/artifacts/read | Läs eventuella skissartefakter |
-> | Åtgärd | Microsoft.Blueprint/blueprints/artifacts/write | Skapa eller uppdatera eventuella skissartefakter |
+> | Åtgärd | Microsoft.Blueprint/blueprintAssignments/delete | Ta bort eventuella Skissartefakter |
+> | Åtgärd | Microsoft.Blueprint/blueprintAssignments/read | Läs eventuella Skissartefakter |
+> | Åtgärd | Microsoft.Blueprint/blueprintAssignments/write | Skapa eller uppdatera eventuella Skissartefakter |
+> | Åtgärd | Microsoft.Blueprint/blueprints/artifacts/delete | Ta bort eventuella Skissartefakter |
+> | Åtgärd | Microsoft.Blueprint/blueprints/artifacts/read | Läs eventuella Skissartefakter |
+> | Åtgärd | Microsoft.Blueprint/blueprints/artifacts/write | Skapa eller uppdatera eventuella Skissartefakter |
 > | Åtgärd | Microsoft.Blueprint/blueprints/delete | Ta bort eventuella skisser |
 > | Åtgärd | Microsoft.Blueprint/blueprints/read | Läs eventuella skisser |
-> | Åtgärd | Microsoft.Blueprint/blueprints/versions/artifacts/read | Läs eventuella skissartefakter |
+> | Åtgärd | Microsoft.Blueprint/blueprints/versions/artifacts/read | Läs eventuella Skissartefakter |
 > | Åtgärd | Microsoft.Blueprint/blueprints/versions/delete | Ta bort eventuella skisser |
 > | Åtgärd | Microsoft.Blueprint/blueprints/versions/read | Läs eventuella skisser |
 > | Åtgärd | Microsoft.Blueprint/blueprints/versions/write | Skapa eller uppdatera eventuella skisser |
 > | Åtgärd | Microsoft.Blueprint/blueprints/write | Skapa eller uppdatera eventuella skisser |
-> | Åtgärd | Microsoft.Blueprint/register/action | Registrerar skissresursprovidern |
+> | Åtgärd | Microsoft.Blueprint/register/action | Registrerar Skissresursprovidern |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
@@ -729,7 +729,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Cache/redis/patchSchedules/read | Hämtar uppdateringsschemat för Redis Cache |
 > | Åtgärd | Microsoft.Cache/redis/patchSchedules/write | Ändra uppdateringsschemat för Redis Cache |
 > | Åtgärd | Microsoft.Cache/redis/read | Visa inställningarna och konfigurationen för Redis-cache i hanteringsportalen |
-> | Åtgärd | Microsoft.Cache/redis/recommendations/read | Läsa rekommendationer för Azure Redis Cache |
+> | Åtgärd | Microsoft.Cache/redis/recommendations/read | Läs rekommendationer för Azure Redis Cache |
 > | Åtgärd | Microsoft.Cache/redis/regenerateKey/action | Ändra värdet för åtkomstnycklarna för Redis-cache i hanteringsportalen |
 > | Åtgärd | Microsoft.Cache/redis/start/action | Starta en cacheinstans. |
 > | Åtgärd | Microsoft.Cache/redis/start/action | Starta en cacheinstans. |
@@ -857,12 +857,12 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ClassicCompute/domainNames/capabilities/read | Visar domännamnsfunktionerna |
 > | Åtgärd | Microsoft.ClassicCompute/domainNames/delete | Ta bort resursernas domännamn. |
 > | Åtgärd | Microsoft.ClassicCompute/domainNames/deploymentslots/read | Visar distributionsplatserna. |
-> | Åtgärd | Microsoft.ClassicCompute/domainNames/deploymentslots/roles/read | Hämta rollen på distributionsplatsen för domännamn |
-> | Åtgärd | Microsoft.ClassicCompute/domainNames/deploymentslots/roles/roleinstances/read | Hämta rollinstans för rollen på distributionsplatsen för domännamn |
+> | Åtgärd | Microsoft.ClassicCompute/domainNames/deploymentslots/roles/read | Hämta roll i domännamnets distributionsfack |
+> | Åtgärd | Microsoft.ClassicCompute/domainNames/deploymentslots/roles/roleinstances/read | Hämta rollinstans för roll i domännamnets distributionsfack |
 > | Åtgärd | Microsoft.ClassicCompute/domainNames/deploymentslots/state/read | Hämta status för distributionsfacket. |
 > | Åtgärd | Microsoft.ClassicCompute/domainNames/deploymentslots/state/write | Lägg till status för distributionsfacket. |
-> | Åtgärd | Microsoft.ClassicCompute/domainNames/deploymentslots/upgradedomain/read | Hämta uppgraderingsdomän för distributionsplatsen på domännamnet |
-> | Åtgärd | Microsoft.ClassicCompute/domainNames/deploymentslots/upgradedomain/write | Uppdatera uppgraderingsdomän för distributionsfacket på domännamnet |
+> | Åtgärd | Microsoft.ClassicCompute/domainNames/deploymentslots/upgradedomain/read | Hämta uppgraderingsdomän för distributionsfack i domännamn |
+> | Åtgärd | Microsoft.ClassicCompute/domainNames/deploymentslots/upgradedomain/write | Uppdatera uppgraderingsdomän för distributionsfack i domännamn |
 > | Åtgärd | Microsoft.ClassicCompute/domainNames/deploymentslots/write | Skapar eller uppdaterar distributionen. |
 > | Åtgärd | Microsoft.ClassicCompute/domainNames/extensions/delete | Ta bort domännamnstilläggen. |
 > | Åtgärd | Microsoft.ClassicCompute/domainNames/extensions/operationStatuses/read | Läser domännamnstilläggens åtgärdsstatus. |
@@ -975,7 +975,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ClassicNetwork/networkSecurityGroups/delete | Tar bort nätverkssäkerhetsgruppen. |
 > | Åtgärd | Microsoft.ClassicNetwork/networkSecurityGroups/operationStatuses/read | Läser åtgärdsstatus för nätverkssäkerhetsgrupp. |
 > | Åtgärd | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/read | Hämtar diagnostikinställningarna för nätverkssäkerhetsgrupper |
-> | Åtgärd | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar diagnostikinställningar för nätverkssäkerhetsgrupper. Åtgärden kompletteras av resursprovidern för Insights. |
+> | Åtgärd | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar diagnostikinställningar för den här åtgärden kompletteras av resursprovidern för Insights Nätverkssäkerhetsgrupperna. | 
 > | Åtgärd | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/logDefinitions/read | Hämtar händelserna för nätverkssäkerhetsgrupp |
 > | Åtgärd | Microsoft.ClassicNetwork/networkSecurityGroups/read | Hämtar nätverkssäkerhetsgruppen. |
 > | Åtgärd | Microsoft.ClassicNetwork/networkSecurityGroups/securityRules/delete | Tar bort säkerhetsregeln. |
@@ -1029,7 +1029,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ClassicNetwork/virtualNetworks/remoteVirtualNetworkPeeringProxies/read | Hämtar peering-proxyservern för det virtuella fjärrnätverket. |
 > | Åtgärd | Microsoft.ClassicNetwork/virtualNetworks/remoteVirtualNetworkPeeringProxies/write | Lägger till eller uppdaterar peering-proxyservern för det virtuella fjärrnätverket. |
 > | Åtgärd | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/delete | Tar bort nätverkssäkerhetsgruppen som är kopplad till undernätet. |
-> | Åtgärd | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/operationStatuses/read | Läser åtgärdsstatus för nätverkssäkerhetsgrupp kopplad till virtuella nätverksundernät. |
+> | Åtgärd | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/operationStatuses/read | Läser Åtgärdsstatus för virtuella undernät kopplade nätverkssäkerhetsgruppen. |
 > | Åtgärd | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/read | Hämtar nätverkssäkerhetsgruppen som är kopplad till undernätet. |
 > | Åtgärd | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/write | Lägger till en nätverkssäkerhetsgrupp som är kopplad till undernätet. |
 > | Åtgärd | Microsoft.ClassicNetwork/virtualNetworks/validateMigration/action | Verifierar migreringen av ett virtuellt nätverk |
@@ -1100,7 +1100,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.CognitiveServices/accounts/skus/read | Läser tillgängliga SKU:er för en befintlig resurs. |
 > | Åtgärd | Microsoft.CognitiveServices/accounts/usages/read | Hämta kvotanvändning för en befintlig resurs. |
 > | Åtgärd | Microsoft.CognitiveServices/accounts/write | Skriver API-konton. |
-> | Åtgärd | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Läser tillgängliga SKU:er för en prenumeration. |
+> | Åtgärd | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Läser tillgängliga SKU: er för en prenumeration. |
 > | Åtgärd | Microsoft.CognitiveServices/Operations/read | Visa alla tillgängliga åtgärder i lista |
 > | Åtgärd | Microsoft.CognitiveServices/register/action | Registrerar prenumerationen med Cognitive Services |
 > | Åtgärd | Microsoft.CognitiveServices/skus/read | Läser tillgängliga SKU:er för Cognitive Services. |
@@ -1141,8 +1141,8 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Compute/images/write | Skapar en ny avbildning eller uppdaterar en befintlig |
 > | Åtgärd | Microsoft.Compute/locations/capsOperations/read | Hämtar status för en asynkron Caps-åtgärd |
 > | Åtgärd | Microsoft.Compute/locations/diskOperations/read | Hämtar status för en asynkron diskåtgärd |
-> | Åtgärd | Microsoft.Compute/locations/logAnalytics/getRequestRateByInterval/action | Skapa loggar för att visa totalt antal begäranden efter tidsintervall för att underlätta begränsning diagnostik. |
-> | Åtgärd | Microsoft.Compute/locations/logAnalytics/getThrottledRequests/action | Skapa loggar för att visa aggregeringar av begränsade begäranden grupperade efter ResourceName, OperationName eller den tillämpade begränsa principen. |
+> | Åtgärd | Microsoft.Compute/locations/logAnalytics/getRequestRateByInterval/action | Skapa loggar som visar det totala antalet förfrågningar per tidsintervall som hjälp vid begränsningsdiagnostik. |
+> | Åtgärd | Microsoft.Compute/locations/logAnalytics/getThrottledRequests/action | Skapa loggar som visar sammanställningar av begränsade förfrågningar grupperade efter ResourceName, OperationName eller den tillämpade begränsningsprincipen. |
 > | Åtgärd | Microsoft.Compute/locations/operations/read | Hämtar status för en asynkron åtgärd |
 > | Åtgärd | Microsoft.Compute/locations/publishers/artifacttypes/offers/read | Hämta egenskaperna för ett plattformsavbildningserbjudande |
 > | Åtgärd | Microsoft.Compute/locations/publishers/artifacttypes/offers/skus/read | Hämta egenskaperna för en plattformsavbildnings-SKU |
@@ -1207,14 +1207,14 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/instanceView/read | Hämtar instansvyn för VM-skalningsuppsättningen |
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/manualUpgrade/action | Uppdaterar manuellt instanser av den senaste modellen av VM-skalningsuppsättningen |
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/networkInterfaces/read | Hämta egenskaper för alla nätverksgränssnitt för en VM-skalningsuppsättning |
-> | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/osRollingUpgrade/action | Startar en löpande uppgradering för att flytta alla instanser för Virtual Machine Scale Sets till den senaste tillgängliga versionen plattform bild OS. |
+> | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/osRollingUpgrade/action | Startar löpande uppgradering för att flytta alla instanser av skalningsuppsättningar för virtuell dator till den senast tillgängliga operativsystemversionen av plattformsavbildningen. |
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/osUpgradeHistory/read | Hämtar historiken för operativsystemuppgraderingar för en VM-skalningsuppsättning |
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/performMaintenance/action | Utför planerat underhåll på VM-skalningsuppsättningens instanser |
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/powerOff/action | Stänger av VM-skalningsuppsättningens instanser |
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/diagnosticSettings/read | Hämtar diagnostikinställningen för skalningsuppsättningen för virtuell dator. |
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar diagnostikinställningen för skalningsuppsättningen för virtuell dator. |
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/logDefinitions/read | Hämtar tillgängliga loggar för skalningsuppsättningar för virtuell dator. |
-> | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/metricDefinitions/read | Läser måttdefinitioner för den virtuella datorns skalningsuppsättning |
+> | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/metricDefinitions/read | Läser Måttdefinitioner för VM Scale Set |
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/publicIPAddresses/read | Hämta egenskaper för alla offentliga IP-adresser för en VM-skalningsuppsättning |
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/read | Hämta egenskaperna för en VM-skalningsuppsättning |
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/redeploy/action | Distribuera om VM-skalningsuppsättningens instanser |
@@ -1342,24 +1342,24 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
-> | Åtgärd | Microsoft.ContainerService/containerServices/delete | Tar bort en behållartjänst |
-> | Åtgärd | Microsoft.ContainerService/containerServices/read | Hämta en behållartjänst |
-> | Åtgärd | Microsoft.ContainerService/containerServices/write | Skapar en ny behållartjänst eller uppdaterar en befintlig |
+> | Åtgärd | Microsoft.ContainerService/containerServices/delete | Tar bort en containertjänst |
+> | Åtgärd | Microsoft.ContainerService/containerServices/read | Hämta en containertjänst |
+> | Åtgärd | Microsoft.ContainerService/containerServices/write | Skapar en ny containertjänst eller uppdaterar en befintlig |
 > | Åtgärd | Microsoft.ContainerService/locations/operationresults/read | Hämtar status för en asynkron åtgärd-resultat |
 > | Åtgärd | Microsoft.ContainerService/locations/operations/read | Hämtar status för en asynkron åtgärd |
 > | Åtgärd | Microsoft.ContainerService/locations/orchestrators/read | Visar en lista över initierare som stöds |
-> | Åtgärd | Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action | Få en profil för åtkomst av hanterade kluster efter rollnamn med listan över autentiseringsuppgifter |
-> | Åtgärd | Microsoft.ContainerService/managedClusters/accessProfiles/read | Få en profil för åtkomst av hanterade kluster efter rollnamn |
+> | Åtgärd | Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action | Hämta en åtkomstprofil för hanterat kluster efter rollnamn med hjälp av listautentiseringsuppgift |
+> | Åtgärd | Microsoft.ContainerService/managedClusters/accessProfiles/read | Hämta en åtkomstprofil för hanterat kluster efter rollnamn |
 > | Åtgärd | Microsoft.ContainerService/managedClusters/delete | Tar bort ett hanterat kluster |
 > | Åtgärd | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Lista över clusterAdmin autentiseringsuppgifterna för ett hanterat kluster |
 > | Åtgärd | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Lista över clusterUser autentiseringsuppgifterna för ett hanterat kluster |
-> | Åtgärd | Microsoft.ContainerService/managedClusters/providers/Microsoft.Insights/diagnosticSettings/read | Hämta diagnostikinställning för en hanterad klusterresurs |
+> | Åtgärd | Microsoft.ContainerService/managedClusters/providers/Microsoft.Insights/diagnosticSettings/read | Hämta diagnostikinställningen för en hanterad klusterresurs |
 > | Åtgärd | Microsoft.ContainerService/managedClusters/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar diagnostikinställningen för en hanterad klusterresurs |
 > | Åtgärd | Microsoft.ContainerService/managedClusters/providers/Microsoft.Insights/logDefinitions/read | Hämtar tillgängliga loggar för hanterade kluster |
 > | Åtgärd | Microsoft.ContainerService/managedClusters/providers/Microsoft.Insights/metricDefinitions/read | Hämtar tillgängliga mått för hanterat kluster |
 > | Åtgärd | Microsoft.ContainerService/managedClusters/read | Hämta ett hanterat kluster |
 > | Åtgärd | Microsoft.ContainerService/managedClusters/upgradeprofiles/read | Hämtar uppgraderingsprofil i klustret |
-> | Åtgärd | Microsoft.ContainerService/managedClusters/write | Skapar ett nytt hanterade kluster eller uppdaterar en befintlig |
+> | Åtgärd | Microsoft.ContainerService/managedClusters/write | Skapar ett nytt hanterat kluster eller uppdaterar ett befintligt |
 > | Åtgärd | Microsoft.ContainerService/operations/read | Visar en lista över åtgärder som är tillgängliga på resursprovidern Microsoft.ContainerService |
 > | Åtgärd | Microsoft.ContainerService/register/action | Registrerar prenumerationen med Microsoft.ContainerService-resursprovidern |
 > | Åtgärd | Microsoft.ContainerService/unregister/action | Avregistrerar prenumeration med Microsoft.ContainerService-resursprovidern |
@@ -1503,7 +1503,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.DataBox/jobs/bookShipmentPickUp/action | Gör det möjligt att boka upphämtning för returleveranser. |
 > | Åtgärd | Microsoft.DataBox/jobs/cancel/action | Annullerar en pågående beställning. |
 > | Åtgärd | Microsoft.DataBox/jobs/delete | Ta bort order |
-> | Åtgärd | Microsoft.DataBox/jobs/listCredentials/action | Visar en lista över okrypterade autentiseringsuppgifter beställningen. |
+> | Åtgärd | Microsoft.DataBox/jobs/listCredentials/action | Visar lista med okrypterade autentiseringsuppgifter för beställningen. |
 > | Åtgärd | Microsoft.DataBox/jobs/read | Visa eller hämta beställningar |
 > | Åtgärd | Microsoft.DataBox/jobs/write | Skapa eller uppdatera order |
 > | Åtgärd | Microsoft.DataBox/locations/availableSkus/action | Den här metoden returnerar listan över tillgängliga SKU:er. |
@@ -2293,27 +2293,27 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Insights/ActionGroups/Delete | Ta bort en åtgärdsgrupp |
 > | Åtgärd | Microsoft.Insights/ActionGroups/Read | Läs en åtgärdsgrupp |
 > | Åtgärd | Microsoft.Insights/ActionGroups/Write | Skapa eller uppdatera en åtgärdsgrupp |
-> | Åtgärd | Microsoft.Insights/ActivityLogAlerts/Activated/Action | Aktivitet Log avisering aktiveras |
+> | Åtgärd | Microsoft.Insights/ActivityLogAlerts/Activated/Action | Aktivitetsloggavisering har utlösts |
 > | Åtgärd | Microsoft.Insights/ActivityLogAlerts/Delete | Ta bort en aktivitetsloggavisering |
 > | Åtgärd | Microsoft.Insights/ActivityLogAlerts/Read | Läs en aktivitetsloggavisering |
 > | Åtgärd | Microsoft.Insights/ActivityLogAlerts/Write | Skapa eller uppdatera en aktivitetsloggavisering |
-> | Åtgärd | Microsoft.Insights/AlertRules/Activated/Action | Klassisk måttavisering aktiverat |
+> | Åtgärd | Microsoft.Insights/AlertRules/Activated/Action | Klassisk måttavisering har aktiverats |
 > | Åtgärd | Microsoft.Insights/AlertRules/Delete | Ta bort en klassisk måttavisering |
-> | Åtgärd | Microsoft.Insights/AlertRules/Incidents/Read | Läsa en klassisk måttavisering incidentavisering |
-> | Åtgärd | Microsoft.Insights/AlertRules/Read | Läsa en klassisk måttavisering |
-> | Åtgärd | Microsoft.Insights/AlertRules/Resolved/Action | Klassisk måttavisering löst |
-> | Åtgärd | Microsoft.Insights/AlertRules/Throttled/Action | Klassiska måttaviseringsregel begränsas |
+> | Åtgärd | Microsoft.Insights/AlertRules/Incidents/Read | Läs en klassisk måttaviseringsincident |
+> | Åtgärd | Microsoft.Insights/AlertRules/Read | Läs en klassisk måttavisering |
+> | Åtgärd | Microsoft.Insights/AlertRules/Resolved/Action | Klassisk måttavisering har lösts |
+> | Åtgärd | Microsoft.Insights/AlertRules/Throttled/Action | Regel för klassisk måttavisering har begränsats |
 > | Åtgärd | Microsoft.Insights/AlertRules/Write | Skapa eller uppdatera en klassisk måttavisering |
 > | Åtgärd | Microsoft.Insights/AutoscaleSettings/Delete | Ta bort en autoskalningsinställning |
-> | Åtgärd | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/diagnosticSettings/Read | Läsa en resursdiagnostikinställning |
+> | Åtgärd | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/diagnosticSettings/Read | Läs en resursdiagnostikinställning |
 > | Åtgärd | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/diagnosticSettings/Write | Skapa eller uppdatera en resursdiagnostikinställning |
 > | Åtgärd | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/logDefinitions/Read | Läs loggdefinitioner |
 > | Åtgärd | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/MetricDefinitions/Read | Läs måttdefinitioner |
-> | Åtgärd | Microsoft.Insights/AutoscaleSettings/Read | Läsa en autoskalningsinställning |
-> | Åtgärd | Microsoft.Insights/AutoscaleSettings/Scaledown/Action | Automatisk skalning skala ned initierad |
-> | Åtgärd | Microsoft.Insights/AutoscaleSettings/ScaledownResult/Action | Automatisk skalning skala ned slutförd |
-> | Åtgärd | Microsoft.Insights/AutoscaleSettings/Scaleup/Action | Skala automatiskt skala upp initierad |
-> | Åtgärd | Microsoft.Insights/AutoscaleSettings/ScaleupResult/Action | Skala automatiskt skala upp slutförd |
+> | Åtgärd | Microsoft.Insights/AutoscaleSettings/Read | Läs en autoskalningsinställning |
+> | Åtgärd | Microsoft.Insights/AutoscaleSettings/Scaledown/Action | Autoskalning nedåt har initierats |
+> | Åtgärd | Microsoft.Insights/AutoscaleSettings/ScaledownResult/Action | Autoskalning nedåt har slutförts |
+> | Åtgärd | Microsoft.Insights/AutoscaleSettings/Scaleup/Action | Autoskalning uppåt har initierats |
+> | Åtgärd | Microsoft.Insights/AutoscaleSettings/ScaleupResult/Action | Autoskalning uppåt har slutförts |
 > | Åtgärd | Microsoft.Insights/AutoscaleSettings/Write | Skapa eller uppdatera en autoskalningsinställning |
 > | Åtgärd | Microsoft.Insights/Components/AnalyticsItems/Delete | Tar bort ett Application Insights Analytics-objekt |
 > | Åtgärd | Microsoft.Insights/Components/AnalyticsItems/Read | Läser ett Application Insights Analytics-objekt |
@@ -2370,20 +2370,20 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Insights/Components/WorkItemConfigs/Write | Skriver en konfiguration av ALM-integrering i Application Insights |
 > | Åtgärd | Microsoft.Insights/Components/Write | Skriver till en konfiguration av Application Insights-komponent |
 > | Åtgärd | Microsoft.Insights/DiagnosticSettings/Delete | Ta bort en resursdiagnostikinställning |
-> | Åtgärd | Microsoft.Insights/DiagnosticSettings/Read | Läsa en resursdiagnostikinställning |
+> | Åtgärd | Microsoft.Insights/DiagnosticSettings/Read | Läs en resursdiagnostikinställning |
 > | Åtgärd | Microsoft.Insights/DiagnosticSettings/Write | Skapa eller uppdatera en resursdiagnostikinställning |
-> | Åtgärd | Microsoft.Insights/EventCategories/Read | Läs tillgängliga aktivitetsloggen händelsekategorier |
+> | Åtgärd | Microsoft.Insights/EventCategories/Read | Läs tillgängliga kategorier av aktivitetslogghändelser |
 > | Åtgärd | Microsoft.Insights/eventtypes/digestevents/Read | Läs sammandrag av hanteringshändelsetyp |
 > | Åtgärd | Microsoft.Insights/eventtypes/values/Read | Läs aktivitetslogghändelser |
-> | Åtgärd | Microsoft.Insights/ExtendedDiagnosticSettings/Delete | Ta bort en nätverk flow log diagnostikinställning |
-> | Åtgärd | Microsoft.Insights/ExtendedDiagnosticSettings/Read | Läs diagnostikinställning en nätverk flow log |
-> | Åtgärd | Microsoft.Insights/ExtendedDiagnosticSettings/Write | Skapa eller uppdatera en nätverk flow log diagnostikinställning |
+> | Åtgärd | Microsoft.Insights/ExtendedDiagnosticSettings/Delete | Ta bort en diagnostikinställning för nätverksflödeslogg |
+> | Åtgärd | Microsoft.Insights/ExtendedDiagnosticSettings/Read | Läs en diagnostikinställning för nätverksflödeslogg |
+> | Åtgärd | Microsoft.Insights/ExtendedDiagnosticSettings/Write | Skapa eller uppdatera en diagnostikinställning för nätverksflödeslogg |
 > | Åtgärd | Microsoft.Insights/ListMigrationDate/Action | Hämta datum för prenumerationsmigrering |
 > | Åtgärd | Microsoft.Insights/ListMigrationDate/Read | Hämta datum för prenumerationsmigrering |
 > | Åtgärd | Microsoft.Insights/LogDefinitions/Read | Läs loggdefinitioner |
-> | Åtgärd | Microsoft.Insights/LogProfiles/Delete | Ta bort en aktivitetsloggen av loggprofil |
-> | Åtgärd | Microsoft.Insights/LogProfiles/Read | Läsa en aktivitetsloggen log-profil |
-> | Åtgärd | Microsoft.Insights/LogProfiles/Write | Skapa eller uppdatera en aktivitetsloggen av loggprofil |
+> | Åtgärd | Microsoft.Insights/LogProfiles/Delete | Ta bort en loggprofil för aktivitetslogg |
+> | Åtgärd | Microsoft.Insights/LogProfiles/Read | Läs en loggprofil för aktivitetslogg |
+> | Åtgärd | Microsoft.Insights/LogProfiles/Write | Skapa eller uppdatera en loggprofil för aktivitetslogg |
 > | Åtgärd | Microsoft.Insights/Logs/ADAssessmentRecommendation/Read | Läs data från ADAssessmentRecommendation-tabellen |
 > | Åtgärd | Microsoft.Insights/Logs/ADReplicationResult/Read | Läs data från ADReplicationResult-tabellen |
 > | Åtgärd | Microsoft.Insights/Logs/ADSecurityAssessmentRecommendation/Read | Läs data från ADSecurityAssessmentRecommendation-tabellen |
@@ -2532,8 +2532,8 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Insights/Logs/WUDOStatus/Read | Läs data från WUDOStatus-tabellen |
 > | Åtgärd | Microsoft.Insights/MetricAlerts/Delete | Ta bort en måttavisering |
 > | Åtgärd | Microsoft.Insights/MetricAlerts/Read | Läs en måttavisering |
-> | Åtgärd | Microsoft.Insights/MetricAlerts/Status/Read | Läs måttaviseringsstatus |
-> | Åtgärd | Microsoft.Insights/MetricAlerts/Write | Skapa eller uppdatera en metrisk varning |
+> | Åtgärd | Microsoft.Insights/MetricAlerts/Status/Read | Läs status för måttavisering |
+> | Åtgärd | Microsoft.Insights/MetricAlerts/Write | Skapa eller uppdatera en måttavisering |
 > | Åtgärd | Microsoft.Insights/MetricDefinitions/Microsoft.Insights/Read | Läs måttdefinitioner |
 > | Åtgärd | Microsoft.Insights/MetricDefinitions/providers/Microsoft.Insights/Read | Läs måttdefinitioner |
 > | Åtgärd | Microsoft.Insights/MetricDefinitions/Read | Läs måttdefinitioner |
@@ -2547,7 +2547,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Insights/ScheduledQueryRules/Delete | Tar bort en schemalagd frågeregel |
 > | Åtgärd | Microsoft.Insights/ScheduledQueryRules/Read | Läser en schemalagd frågeregel |
 > | Åtgärd | Microsoft.Insights/ScheduledQueryRules/Write | Skriver en schemalagd frågeregel |
-> | Åtgärd | Microsoft.Insights/Tenants/Register/Action | Initierar Microsoft Insights-providern |
+> | Åtgärd | Microsoft.Insights/Tenants/Register/Action | Startar Microsoft Insights-providern |
 > | Åtgärd | Microsoft.Insights/Unregister/Action | Registrera Microsoft Insights-providern |
 > | Åtgärd | Microsoft.Insights/Webtests/Delete | Tar bort en webbtestkonfiguration |
 > | Åtgärd | Microsoft.Insights/Webtests/GetToken/Read | Läser en token för webbtest |
@@ -2904,10 +2904,10 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Logic/integrationServiceEnvironments/join/action | Går med i integreringstjänstmiljön. |
 > | Åtgärd | Microsoft.Logic/integrationServiceEnvironments/managedApis/apiOperations/read | Läser den integreringstjänstmiljöhanterade API-åtgärden. |
 > | Åtgärd | Microsoft.Logic/integrationServiceEnvironments/managedApis/read | Läser det integreringstjänstmiljöhanterade API:et. |
-> | Åtgärd | Microsoft.Logic/integrationServiceEnvironments/providers/Microsoft.Insights/metricDefinitions/read | Läser måttdefinitioner för service-miljö för integrationen. |
+> | Åtgärd | Microsoft.Logic/integrationServiceEnvironments/providers/Microsoft.Insights/metricDefinitions/read | Läser måttdefinitionerna för integreringstjänstmiljö. |
 > | Åtgärd | Microsoft.Logic/integrationServiceEnvironments/read | Läser integreringstjänstmiljön. |
 > | Åtgärd | Microsoft.Logic/integrationServiceEnvironments/write | Skapar eller uppdaterar integreringstjänstmiljön. |
-> | Åtgärd | Microsoft.Logic/locations/workflows/recommendOperationGroups/action | Hämtar spåren av grupper med det rekommenderas att åtgärder. |
+> | Åtgärd | Microsoft.Logic/locations/workflows/recommendOperationGroups/action | Hämtar arbetsflödets rekommendationsåtgärdsgrupper. |
 > | Åtgärd | Microsoft.Logic/locations/workflows/validate/action | Verifierar arbetsflödet. |
 > | Åtgärd | Microsoft.Logic/operations/read | Hämtar åtgärden. |
 > | Åtgärd | Microsoft.Logic/register/action | Registrerar Microsoft.Logic-resursprovidern för en viss prenumeration. |
@@ -2933,8 +2933,8 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Logic/workflows/runs/actions/read | Läser arbetsflödets köråtgärd. |
 > | Åtgärd | Microsoft.Logic/workflows/runs/actions/repetitions/listExpressionTraces/action | Hämtar upprepningsspåren av arbetsflödeskörningens åtgärdsuttryck. |
 > | Åtgärd | Microsoft.Logic/workflows/runs/actions/repetitions/read | Läser upprepningen av arbetsflödets körningsåtgärd. |
-> | Åtgärd | Microsoft.Logic/workflows/runs/actions/repetitions/requestHistories/read | Läser arbetsflödeskörningen upprepning i historiken för begäran. |
-> | Åtgärd | Microsoft.Logic/workflows/runs/actions/requestHistories/read | Läser arbetsflödeskörningen i historiken för begäran. |
+> | Åtgärd | Microsoft.Logic/workflows/runs/actions/repetitions/requestHistories/read | Återställer frågehistoriken för arbetsflödets körningsupprepningsåtgärd. |
+> | Åtgärd | Microsoft.Logic/workflows/runs/actions/requestHistories/read | Återställer frågehistoriken för arbetsflödets körningsåtgärd. |
 > | Åtgärd | Microsoft.Logic/workflows/runs/actions/scoperepetitions/read | Läser upprepningen av reservationsomfånget för arbetsflödets körningsåtgärd. |
 > | Åtgärd | Microsoft.Logic/workflows/runs/cancel/action | Avbryter körningen av ett arbetsflöde. |
 > | Åtgärd | Microsoft.Logic/workflows/runs/operations/read | Läser åtgärdsstatus för arbetsflödeskörning. |
@@ -3090,9 +3090,9 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read | Returnerar ett avtal. |
-> | Åtgärd | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/write | Godkänner en signerad avtal. |
+> | Åtgärd | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/write | Accepterar ett undertecknat avtal. |
 > | Åtgärd | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/importImage/action | Importerar en avbildning till slutanvändarens ACR. |
-> | Åtgärd | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/read | Returnerar en konfiguration. |
+> | Åtgärd | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/read | Returnerar en konfig. |
 > | Åtgärd | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/write | Sparar en config. |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
@@ -3453,7 +3453,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Network/networkSecurityGroups/delete | Tar bort en grupp |
 > | Åtgärd | Microsoft.Network/networkSecurityGroups/join/action | Ansluter till en nätverkssäkerhetsgrupp |
 > | Åtgärd | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/read | Hämtar diagnostikinställningarna för nätverkssäkerhetsgrupper |
-> | Åtgärd | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar diagnostikinställningar för nätverkssäkerhetsgrupper. Åtgärden kompletteras av resursprovidern för Insights. |
+> | Åtgärd | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar diagnostikinställningar för den här åtgärden kompletteras av resursprovidern för Insights Nätverkssäkerhetsgrupperna. |
 > | Åtgärd | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/logDefinitions/read | Hämtar händelserna för nätverkssäkerhetsgrupp |
 > | Åtgärd | Microsoft.Network/networkSecurityGroups/read | Hämtar en Gruppdefinition för network security |
 > | Åtgärd | Microsoft.Network/networkSecurityGroups/securityRules/delete | Tar bort en säkerhetsregel |
@@ -3573,7 +3573,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Network/trafficManagerProfiles/nestedEndpoints/read | Hämtar en kapslad slutpunkt som tillhör en Traffic Manager-profilen, inklusive alla egenskaper för den kapslade slutpunkten. |
 > | Åtgärd | Microsoft.Network/trafficManagerProfiles/nestedEndpoints/write | Lägg till en ny kapslad slutpunkt i en befintlig Traffic Manager-profil eller uppdatera egenskaperna för en befintlig kapslad slutpunkt i Traffic Manager profilen. |
 > | Åtgärd | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/diagnosticSettings/read | Hämtar Traffic Manager Diagnostic-Settings |
-> | Åtgärd | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar diagnostikinställningar för Traffic Manager åtgärden kompletteras av resursprovidern för insights. |
+> | Åtgärd | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar Traffic Manager diagnostikinställningar för den här åtgärden kompletteras av resursprovidern för insights. |
 > | Åtgärd | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/logDefinitions/read | Hämtar händelser för Traffic Manager |
 > | Åtgärd | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/metricDefinitions/read | Hämtar tillgängliga mått för Traffic Manager. |
 > | Åtgärd | Microsoft.Network/trafficManagerProfiles/read | Hämta profilkonfiguration för Traffic Manager. Detta inkluderar DNS-inställningar, inställningar för routning av trafik, övervakningsinställningarna för slutpunkten och listan över slutpunkter som dirigeras genom den här Traffic Manager-profilen. |
@@ -3599,7 +3599,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Network/virtualnetworkgateways/getvpnclientipsecparameters/Action | Hämta Vpnclient Ipsec parametrar för VirtualNetworkGateway P2S-klient. |
 > | Åtgärd | Microsoft.Network/virtualnetworkgateways/getvpnprofilepackageurl/Action | Hämtar URL för en profil för förgenererade VPN-klientpaketet |
 > | Åtgärd | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/read | Hämtar diagnostikinställningar för Vnet-Gateway |
-> | Åtgärd | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar diagnostikinställningar för virtuell nätverksgateway åtgärden kompletteras av resursprovidern för insights. |
+> | Åtgärd | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar den virtuella Nätverksgatewayen diagnostikinställningar för den här åtgärden kompletteras av resursprovidern för insights. |
 > | Åtgärd | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/logDefinitions/read | Hämtar händelserna för virtuell nätverksgateway |
 > | Åtgärd | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/metricDefinitions/read | Hämtar tillgängliga mått för virtuell nätverksgateway |
 > | Åtgärd | Microsoft.Network/virtualNetworkGateways/read | Hämtar en VirtualNetworkGateway |
@@ -4012,13 +4012,13 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.PolicyInsights/policyStates/summarize/action | Fråga efter sammanfattning av senaste principtillstånd. |
 > | Åtgärd | Microsoft.PolicyInsights/policyStates/summarize/read | Fråga efter sammanfattning av senaste principtillstånd. |
 > | Åtgärd | Microsoft.PolicyInsights/policyStates/triggerEvaluation/action | Aktiverar en kompatibilitetsutvärdering för det valda omfånget. |
-> | Åtgärd | Microsoft.PolicyInsights/policyTrackedResources/queryResults/read | Fråga om information om resurser som krävs av DeployIfNotExists principer. |
+> | Åtgärd | Microsoft.PolicyInsights/policyTrackedResources/queryResults/read | Fråga efter information om resurser som krävs av DeployIfNotExists-principer. |
 > | Åtgärd | Microsoft.PolicyInsights/register/action | Registrerar Policy Insights-resursprovidern och aktiverar åtgärder på den. |
-> | Åtgärd | Microsoft.PolicyInsights/remediations/cancel/action | Avbryta pågående princip reparationer. |
-> | Åtgärd | Microsoft.PolicyInsights/remediations/delete | Ta bort princip reparationer. |
-> | Åtgärd | Microsoft.PolicyInsights/remediations/listDeployments/read | Visar en lista över distributioner som krävs av en princip för reparation. |
-> | Åtgärd | Microsoft.PolicyInsights/remediations/read | Hämta princip reparationer. |
-> | Åtgärd | Microsoft.PolicyInsights/remediations/write | Skapa eller uppdatera principen reparationer. |
+> | Åtgärd | Microsoft.PolicyInsights/remediations/cancel/action | Avbryt pågående principreparationer. |
+> | Åtgärd | Microsoft.PolicyInsights/remediations/delete | Ta bort principreparationer. |
+> | Åtgärd | Microsoft.PolicyInsights/remediations/listDeployments/read | Visar lista över distributioner som krävs av en principreparation. |
+> | Åtgärd | Microsoft.PolicyInsights/remediations/read | Hämta principreparationer. |
+> | Åtgärd | Microsoft.PolicyInsights/remediations/write | Skapa eller uppdatera principreparationer. |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 
@@ -4284,7 +4284,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Resourcehealth/healthevent/Resolved/action | Anger ändringen i hälsotillståndet för den angivna resursen |
 > | Åtgärd | Microsoft.Resourcehealth/healthevent/Updated/action | Anger ändringen i hälsotillståndet för den angivna resursen |
 > | Åtgärd | Microsoft.ResourceHealth/impactedResources/read | Hämta resurser som påverkas för angiven prenumeration |
-> | Åtgärd | Microsoft.ResourceHealth/Operations/read | Hämta åtgärderna som är tillgängliga för Microsoft ResourceHealth |
+> | Åtgärd | Microsoft.ResourceHealth/Operations/read | Hämta tillgängliga åtgärder för Microsoft ResourceHealth |
 > | Åtgärd | Microsoft.ResourceHealth/register/action | Registrerar prenumerationen för Microsoft ResourceHealth |
 > | Åtgärd | Microsoft.ResourceHealth/unregister/action | Avregistrerar prenumerationen för Microsoft ResourceHealth |
 
@@ -4906,7 +4906,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar diagnostikinställningen för resursen. |
 > | Åtgärd | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/logDefinitions/read | Hämtar loggdefinitionen för fil |
 > | Åtgärd | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/metricDefinitions/read | Hämta lista över Microsofts lagringsmåttdefinitioner. |
-> | Åtgärd | Microsoft.Storage/storageAccounts/lastsynctime/read | Returnerar storage-kontots senaste synkroniseringstid |
+> | Åtgärd | Microsoft.Storage/storageAccounts/lastsynctime/read | Returnerar lagringskontots senaste synkroniseringstid |
 > | Åtgärd | Microsoft.Storage/storageAccounts/listAccountSas/action | Returnerar SAS-token för konto för det angivna lagringskontot. |
 > | Åtgärd | Microsoft.Storage/storageAccounts/listkeys/action | Returnerar åtkomstnycklarna för det angivna lagringskontot. |
 > | Åtgärd | Microsoft.Storage/storageAccounts/listServiceSas/action | Returnerar SAS-token för tjänst för det angivna lagringskontot. |
@@ -4929,7 +4929,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Storage/storageAccounts/queueServices/write | Returnerar resultatet av att ställa in egenskaper för kötjänst |
 > | Åtgärd | Microsoft.Storage/storageAccounts/read | Returnerar listan med lagringskonton eller hämtar egenskaperna för det angivna lagringskontot. |
 > | Åtgärd | Microsoft.Storage/storageAccounts/regeneratekey/action | Återskapar åtkomstnycklarna för det angivna lagringskontot. |
-> | Åtgärd | Microsoft.Storage/storageAccounts/revokeUserDelegationKeys/action | Återkallar alla nycklar för delegering för det angivna lagringskontot. |
+> | Åtgärd | Microsoft.Storage/storageAccounts/revokeUserDelegationKeys/action | Återkallar alla användardelegeringsnycklar för det angivna lagringskontot. |
 > | Åtgärd | Microsoft.Storage/storageAccounts/services/diagnosticSettings/write | Skapa/uppdatera diagnostikinställningar för lagringskontot. |
 > | Åtgärd | Microsoft.Storage/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/read | Hämta diagnostikinställningen för resursen. |
 > | Åtgärd | Microsoft.Storage/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar diagnostikinställningen för resursen. |

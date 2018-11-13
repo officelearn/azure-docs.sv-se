@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: 8a9342a2354cd4c92fa0230965b4eef6284ee826
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d99b5d1fdca39466d5e09ca077329b7ffa8622bc
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209130"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568860"
 ---
 # <a name="manage-process-servers"></a>Hantera processervrar
 
@@ -79,4 +79,16 @@ Om processervern använder en proxyserver för att ansluta till Site Recovery i 
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
 
+## <a name="manage-anti-virus-software-on-process-servers"></a>Hantera ett antivirusprogram på processervrar
+
+Om ett antivirusprogram är aktiv på en fristående processerver eller huvudmålserver, undanta följande mappar från ett virusskyddsprogram åtgärder:
+
+
+- C:\Program Files\Microsoft Azure Recovery Services-agenten
+- C:\ProgramData\ASR
+- C:\ProgramData\ASRLogs
+- C:\ProgramData\ASRSetupLogs
+- C:\ProgramData\LogUploadServiceLogs
+- C:\ProgramData\Microsoft Azure Site Recovery
+- Installationskatalog processen, exempel: C:\Program Files (x86) \Microsoft Azure Site Recovery
 

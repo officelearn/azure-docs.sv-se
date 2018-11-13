@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 07/06/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 631225e6e0a7bb3bc42741e2761e3746c001c217
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 50dcd2a6a2c8dc703b4c8c0ee8fb6270e0840581
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211646"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566473"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Konfigurera haveriberedskap för virtuella VMware-datorer till Azure med PowerShell
 
@@ -23,7 +23,8 @@ Lär dig att:
 > [!div class="checklist"]
 > - Skapa ett Recovery Services-valv och ange valvets sammanhang.
 > - Verifiera registrera servern i valvet.
-> - Konfigurera replikering, inklusive en replikeringsprincip. Lägg till vCenter-servern och identifiera virtuella datorer. > – Lägg till en vCenter-server och identifiera 
+> - Konfigurera replikering, inklusive en replikeringsprincip. Lägg till vCenter-servern och identifiera virtuella datorer. 
+> - Lägg till en vCenter-server och identifiera 
 > - Skapa lagringskonton för att lagra data för replikering och replikera de virtuella datorerna.
 > - Utför en redundans. Konfigurera inställningar för växling vid fel, utföra en e-postinställningar för replikering av virtuella datorer.
 
@@ -93,7 +94,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    ```
 
 4. Använd hämtade valvregistreringsnyckeln och följ stegen i artiklar som anges nedan för att slutföra installationen och registreringen av konfigurationsservern.
-   - [Välja skyddsmål](vmware-azure-set-up-source.md#choose-your-protection-goals)
+   - [Välja skyddsmål](vmware-azure-set-up-source.md#choose-protection-goals)
    - [Konfigurera källmiljön](vmware-azure-set-up-source.md#set-up-the-configuration-server) 
 
 ### <a name="set-the-vault-context"></a>Ange valvets sammanhang

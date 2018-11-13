@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 11/09/2018
 ms.author: tulasim
-ms.openlocfilehash: 1a61d8f4008b0183ab5ddb51332d887217f52f48
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 8c47c4a59f03328b1dc8d3df7771bac81864bb34
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435601"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566643"
 ---
 # <a name="language-and-region-support-for-qna-maker"></a>Stöd för språk och din region för QnA Maker
 
@@ -34,6 +34,8 @@ QnA Maker stöder extrahering av fråga/svar i alla på sidan, men effektivitete
 
 ## <a name="query-matching-and-relevance"></a>Fråga matchar och relevans
 QnA Maker beror på [språkanalysverktyg](https://docs.microsoft.com/rest/api/searchservice/language-support) i Azure search för att tillhandahålla resultat. Särskilda igen rangordna funktioner är tillgängliga för En-* språk som gör bättre relevant.
+
+Funktioner för Azure Search finns på par för språk som stöds, har QnA Maker en ytterligare rankningen som är placerad ovanför Azure-sökresultaten. I den här rankningen modellen vi använder vissa semantiska special och word-baserade funktioner i en-*, som ännu inte är tillgänglig för andra språk. Vi gör inte dessa tillgänglig, eftersom de är en del av en intern fungerande rankningen. 
 
 QnA Maker upptäcker automatiskt språket i kunskapsbasen när du skapar och ställer in analysatorn därefter. Du kan skapa kunskapsbaser på följande språk. Läs [detta](../How-To/language-knowledge-base.md) för mer information om hur QnA Maker hanterar språk.
 

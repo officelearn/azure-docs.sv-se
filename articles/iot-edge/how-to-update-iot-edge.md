@@ -3,18 +3,18 @@ title: Uppdatera enheter till den senaste versionen av Azure IoT Edge | Microsof
 description: Så här uppdaterar du IoT Edge-enheter för att köra de senaste versionerna av security-daemon och IoT Edge-körningen
 keywords: ''
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 10/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b04f909d58e1555cad9f34b682f9062bbd96cd0e
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 1522d9c9bc4fda178d8571fb57cb9c94ed1044ae
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394739"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567799"
 ---
 # <a name="update-the-iot-edge-runtime"></a>Uppdatera IoT Edge-körningen
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: mfussell
-ms.openlocfilehash: 8d5017cbd2177d080e5cef3d99a9f6b62eae08d5
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: dac15f0b96e9e295f92f250fe387e5b6ba9ae000
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978969"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567612"
 ---
 # <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>Tilldela en säkerhetsåtkomstprincip för HTTP och HTTPS-slutpunkter
 Om du använder en Kör som-princip och tjänstmanifestet deklarerar HTTP-slutpunkt resurser, måste du ange en **SecurityAccessPolicy**.  **SecurityAccessPolicy** säkerställer att portar som allokerats till de här slutpunkterna är begränsad till det användarkonto som tjänsten körs under korrekt. I annat fall **http.sys** inte åtkomst till tjänsten och du får fel med anrop från klienten. I följande exempel gäller Customer1-konto till en slutpunkt som kallas **EndpointName**, vilket ger det fullständiga åtkomsträttigheter.

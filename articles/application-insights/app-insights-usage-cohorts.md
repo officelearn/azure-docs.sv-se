@@ -14,12 +14,12 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 35737b91d8ef0b58223f51530f56408df1c7eb8e
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: d8bb7a975bd5bab8698d20e5d21514b79945eac6
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138800"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564926"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights kohorter
 
@@ -49,9 +49,9 @@ Ditt team definierar en engagerade användare som alla som använder din app fem
     Det finns tre parametrar för den här kohorten:
     * **Aktiviteter**, där du väljer vilka händelser och sidvisningar räknas som ”användning”.
     * **Period**, definitionen av en månad.
-    * **UsedAtleastCustom**, antalet gånger som användare måste du använda något inom en period räkna när engagerade.
+    * **UsedAtLeastCustom**, antalet gånger som användare måste du använda något inom en period räkna när engagerade.
 
-4. Ändra **UsedAtleastCustom** till **5 + dagar**, och lämna **Period** på standardvärdet 28 dagar.
+4. Ändra **UsedAtLeastCustom** till **5 + dagar**, och lämna **Period** på standardvärdet 28 dagar.
 
     ![Engagerade användare](.\media\app-insights-usage-cohorts\003.png)
 

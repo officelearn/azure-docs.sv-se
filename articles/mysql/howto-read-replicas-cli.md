@@ -8,12 +8,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.openlocfilehash: 5709c71210b1e4ae4b2b0ccb959669a5ac6a3b1f
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: c1c550e6b99b9933b66c85e1de7e0a5cc2eb711d
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289724"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564851"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli"></a>Hur du skapar och hanterar Läs repliker i Azure Database för MySQL med Azure CLI
 
@@ -64,7 +64,7 @@ Den `az mysql server replica stop` kommandot kräver följande parametrar:
 
 ## <a name="delete-a-replica-server"></a>Ta bort en replikserver
 
-Tar bort en skrivskyddad replikserver kan göras genom att köra den i **[az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete)** kommando.
+Tar bort en skrivskyddad replikserver kan göras genom att köra den **[az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete)** kommando.
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoreplicaserver

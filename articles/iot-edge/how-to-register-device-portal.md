@@ -1,51 +1,51 @@
 ---
 title: Registrera en ny Azure IoT Edge-enhet (portal) | Microsoft Docs
-description: Använda Azure portal för att registrera en ny IoT Edge-enhet
+description: Använd Azure-portalen för att registrera en ny IoT Edge-enhet
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b61594469df33e11c23c9cbe0b9542da374fefa3
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 6657203c76bc03a262fbcbd30b5bf74b5be140eb
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036306"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51577506"
 ---
-# <a name="register-a-new-azure-iot-edge-device-from-the-azure-portal"></a>Registrera en ny Azure IoT Edge-enhet från Azure-portalen
+# <a name="register-a-new-azure-iot-edge-device-from-the-azure-portal"></a>Registrera en ny Azure IoT Edge-enhet från Azure portal
 
-Innan du kan använda din IoT-enheter med Azure IoT gräns, måste du registrera dem med din IoT-hubb. När du registrerar en enhet kan få du en anslutningssträng som kan användas för att konfigurera din enhet för Edge arbetsbelastningar. 
+Innan du kan använda dina IoT-enheter med Azure IoT Edge, måste du registrera dem med IoT-hubben. När du registrerar en enhet får du en anslutningssträng som kan användas för att konfigurera din enhet för Edge-arbetsbelastningar. 
 
-Den här artikeln visar hur du registrerar en ny IoT Edge-enhet med Azure-portalen.
+Den här artikeln visar hur du registrerar en ny IoT Edge-enhet med hjälp av Azure portal.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En [IoT-hubb](../iot-hub/iot-hub-create-through-portal.md) i din Azure-prenumeration. 
+* En [IoT-hubb](../iot-hub/iot-hub-create-through-portal.md) i Azure-prenumerationen. 
 
 ## <a name="create-a-device"></a>Skapa en enhet
 
-I Azure-portalen IoT-gränsenheterna skapas och hanteras separat från enheter som ansluter till din IoT-hubb och som inte edge-aktiverade. 
+I Azure portal, IoT Edge-enheter skapas och hanteras separat från enheter som ansluter till IoT-hubben och som inte edge-aktiverade. 
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) och navigera till din IoT-hubb. 
-2. Välj **IoT kant** på menyn.
-3. Välj **lägga till IoT Gränsenheten**. 
-4. Ange en beskrivande enhets-ID. 
+2. Välj **IoT Edge** på menyn.
+3. Välj **Lägg till IoT Edge-enhet**. 
+4. Ange ett beskrivande enhets-ID. 
 5. Välj **Spara**. 
 
 ## <a name="view-all-devices"></a>Visa alla enheter
 
-Alla edge-aktiverade enheter som ansluter till din IoT-hubb visas på den **IoT kant** sidan. 
+Alla edge-aktiverade enheter som ansluter till IoT-hubben visas på den **IoT Edge** sidan. 
 
 ## <a name="retrieve-the-connection-string"></a>Hämta anslutningssträngen
 
-När du är redo att konfigurera din enhet måste den anslutningssträng som länkar den fysiska enheten med sin identitet i IoT-hubben.
+När du är redo att konfigurera din enhet, måste den anslutningssträng som länkar den fysiska enheten med sin identitet i IoT hub.
 
-1. Från den **IoT kant** på portalen, klicka på enhets-ID i listan över enheter. 
-2. Kopiera värdet för antingen **anslutningssträngen – primärnyckel** eller **anslutningssträngen – sekundärnyckeln**. 
+1. Från den **IoT Edge** på portalen, klickar du på enhets-ID från listan över Edge-enheter. 
+2. Kopiera värdet för antingen **anslutningssträngen (primärnyckel)** eller **anslutningssträngen (sekundärnyckel)**. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [distribuerar moduler på en enhet med Azure-portalen](how-to-deploy-modules-portal.md)
+Lär dig hur du [distribuerar moduler på en enhet med Azure portal](how-to-deploy-modules-portal.md)

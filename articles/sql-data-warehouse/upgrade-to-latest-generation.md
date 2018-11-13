@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/22/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 9b2c5fa38d0ad21a374d3e5acee8534aeb9c0384
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: fe1f2e026aaa4260d34b9b1cb96064053af1c3c7
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580556"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568020"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Optimera prestanda genom att uppgradera SQL Data Warehouse
 Uppgradera Azure SQL Data Warehouse till senaste generationen i Azure maskin- och storage-arkitektur.
@@ -30,7 +30,7 @@ Den här uppgraderingen gäller för informationslager för Compute Optimized Ge
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 > [!NOTE]
@@ -45,13 +45,17 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="start-the-upgrade"></a>Starta uppgraderingen
 
-1. Gå till din Compute Optimized Gen1 nivån datalager i Azure-portalen och klicka på **uppgradera till Gen2**: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+1. Gå till din Compute Optimized Gen1 nivån datalager i Azure-portalen och klicka på den **uppgradera till Gen2** kortet under fliken aktiviteter: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+    
+> [!NOTE]
+> Om du inte ser den **uppgradera till Gen2** kortet under fliken aktiviteter, typ av prenumeration är begränsad i den aktuella regionen. [Skicka in ett supportärende](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) att hämta din prenumeration i listan över godkända.
 
 2. Som standard **väljer den föreslagna prestandanivån** för datalagret baserat på din aktuella prestandanivå på Compute Optimized Gen1 nivån med hjälp av mappningen nedan:
     
    | Optimerad Gen1 Beräkningsnivån | Beräkningsnivån optimerade Gen2 |
    | :----------------------: | :-------------------: |
-   |      DW100 – DW1000      |        DW1000c        |
+   |      DW100 – DW600       |        DW500c         |
+   |          DW1000          |        DW1000c        |
    |          DW1200          |        DW1500c        |
    |          DW1500          |        DW1500c        |
    |          DW2000          |        DW2000c        |

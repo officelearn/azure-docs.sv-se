@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: fce96cf5be9e70863fd75e5d4b3045bc49f638cf
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 08991829c9c3d628b5028e04dbd4836647d94826
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432631"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567493"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Åtkomstkontroll i Azure Data Lake Storage Gen1
 
@@ -128,9 +128,11 @@ Användaren som skapade objektet är automatiskt ägande användare för objekte
 
 I POSIX-ACL:er är varje användare associerad med en "primär grupp". Användaren "Alice" kan t.ex. tillhöra gruppen "Ekonomi". Alice kan också tillhöra flera grupper, men en grupp anges alltid som hennes primära grupp. När Alice skapar en fil i POSIX ställs den ägande gruppen för filen in som hennes primära grupp, som i det här fallet är "Ekonomi". Den ägande gruppen fungerar annars ungefär som tilldelade behörigheter för andra användare/grupper.
 
-**Koppla den ägande gruppen för en ny fil eller mapp**
+Eftersom det finns inga ”primär grupp” som tillhör användare i Data Lake Storage Gen1, tilldelas den ägande gruppen enligt nedan.
 
-* **Fall 1**: Rotmappen "/". Den här mappen skapas när ett Data Lake Storage Gen1 konto skapas. I det här fallet har den ägande gruppen angetts till den användaren som skapade kontot.
+**Tilldela den ägande gruppen för en ny fil eller mapp**
+
+* **Fall 1**: Rotmappen "/". Den här mappen skapas när ett Data Lake Storage Gen1 konto skapas. I det här fallet har den ägande gruppen tilldelats en all-noll-GUID.  Det här värdet tillåter inte någon åtkomst.  Det är en platshållare till dess att en grupp har tilldelats.
 * **Fall 2** (alla andra fall): När ett nytt objekt skapas, kopieras den ägande gruppen från den överordnade mappen.
 
 **Ändra den ägande gruppen**
@@ -140,7 +142,9 @@ Den ägande gruppen kan ändras av:
 * Den ägande användaren, om den ägande användaren också är medlem i målgruppen.
 
 > [!NOTE]
-> Den ägande gruppen *kan inte* ändra ACL:er för en fil eller mapp.  Även om den ägande gruppen har angetts till användaren som skapade kontot för rotmappen i **Fall 1** ovan, är ett enda användarkonto inte giltigt för att ge behörighet via den ägande gruppen.  Du kan tilldela den här behörigheten till en giltig användargrupp, om det är lämpligt.
+> Den ägande gruppen *kan inte* ändra ACL:er för en fil eller mapp.
+>
+> För konton som skapats på eller före September 2018, har den ägande gruppen angetts för användaren som skapade kontot för rotmappen för **fall 1**ovan.  Ett enda användarkonto inte är giltig för att ge behörighet via den ägande gruppen, så beviljas inga behörigheter som den här standardinställningen. Du kan tilldela den här behörigheten till en giltig användargrupp.
 
 
 ## <a name="access-check-algorithm"></a>Algoritm för åtkomstkontroll

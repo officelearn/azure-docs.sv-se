@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: f99c0fe798baa272bc2c74e8a171dd6bc7ca4304
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 506bbcf31833b20a6ee06e85fbad166d1f0b80e2
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036554"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567153"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarguide för Azure Functions JavaScript
 
@@ -419,7 +419,7 @@ I följande tabell visas Node.js-version som används av varje huvudversion av F
 | Functions-version | Node.js-version | 
 |---|---|
 | 1.x | 6.11.2 (låst av körningen) |
-| 2.x  | _Aktiva LTS_ och _aktuella_ Node.js-versioner (8.11.1 och 10.6.0 rekommenderas). Ange version med hjälp av WEBSITE_NODE_DEFAULT_VERSION [appinställningen](functions-how-to-use-azure-function-app-settings.md#settings).|
+| 2.x  | _Aktiva LTS_ och jämna _aktuella_ Node.js-versioner (8.11.1 och 10.6.0 rekommenderas). Ange version med hjälp av WEBSITE_NODE_DEFAULT_VERSION [appinställningen](functions-how-to-use-azure-function-app-settings.md#settings).|
 
 Du kan se den aktuella versionen som körningen använder genom att kontrollera inställningarna ovan appen eller genom att skriva ut `process.version` från valfri funktion.
 

@@ -7,14 +7,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 11/12/2018
 ms.author: erhopf
-ms.openlocfilehash: be2f6c49a260477e907f1f8f29f64b9eb08e6926
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a8aa2600c8f3bcbc9d2ebc7f55ac0d2f038d8ecd
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038611"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566626"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API: er
 
@@ -127,14 +127,43 @@ HTTP-kod|Betydelse|Möjlig orsak
 
 ### <a name="json-response"></a>JSON-svar
 
-Resultaten returneras i JSON-format. Den `simple` format innehåller endast följande översta fält.
+Resultaten returneras i JSON-format. Beroende på dina frågeparametrar en `simple` eller `detailed` format returneras.
+
+#### <a name="the-simple-format"></a>Den `simple` format 
+
+Det här formatet innehåller följande översta fält.
 
 |Fältnamn|Innehåll|
 |-|-|
-|`RecognitionStatus`|Status, till exempel `Success` för lyckad erkännande. Se nästa tabell.|
+|`RecognitionStatus`|Status, till exempel `Success` för lyckad erkännande. Se den här [tabell](rest-apis.md#recognitionstatus).|
 |`DisplayText`|Den tolkade texten efter versaler, skiljetecken, inverterade text normalisering (konvertera tal till kortare former, till exempel 200 för ”tvåhundra” eller ”Dr. Smith ”för” läkare smith ”), och svordomar Maskning. Visa endast om åtgärden lyckades.|
 |`Offset`|Tid (i 100 nanosekunder enheter) som okänt tal som börjar gälla i ljudströmmen.|
 |`Duration`|Tiden (i 100 nanosekunder enheter) för den identifierade tal i ljudströmmen.|
+
+#### <a name="the-detailed-format"></a>Den `detailed` format 
+
+Det här formatet innehåller följande översta fält.
+
+|Fältnamn|Innehåll|
+|-|-|
+|`RecognitionStatus`|Status, till exempel `Success` för lyckad erkännande. Se den här [tabell](rest-apis.md#recognition-status).|
+|`Offset`|Tid (i 100 nanosekunder enheter) som okänt tal som börjar gälla i ljudströmmen.|
+|`Duration`|Tiden (i 100 nanosekunder enheter) för den identifierade tal i ljudströmmen.|
+|`NBest`|En lista över alternativ tolkningar av samma tal, rangordnas från sannolikt att inte troligt. Se den [NBest beskrivning](rest-apis.md#nbest).|
+
+#### <a name="nbest"></a>NBest
+
+Den `NBest` fält är en lista över alternativ tolkningar av samma tal, rangordnas från mest sannolikt minst sannolikt. Den första posten är samma som den huvudsakliga igenkänningsresultatet. Varje post innehåller följande fält:
+
+|Fältnamn|Innehåll|
+|-|-|
+|`Confidence`|Förtroendepoäng för registerposten från 0,0 (inget förtroende) 1.0 (fullt förtroende)
+|`Lexical`|Lexikal form av den tolkade texten: de ord känns igen.
+|`ITN`|(”Canonical”) inverterade-text-normaliserat form av den tolkade texten med phone tal, tal, förkortningar (”läkare smith” till ”dr smith”) och andra omformningen.
+|`MaskedITN`| Formuläret ITN med svordomar maskning tillämpas, om så krävs.
+|`Display`| Visningsformulär för den tolkade texten med skiljetecken och gemener/versaler har lagts till.
+
+#### <a name="recognitionstatus"></a>RecognitionStatus
 
 Den `RecognitionStatus` fältet kan innehålla följande värden.
 
@@ -148,17 +177,6 @@ Den `RecognitionStatus` fältet kan innehålla följande värden.
 
 > [!NOTE]
 > Om ljudet består endast av svordomar, och `profanity` Frågeparametern anges till `remove`, tjänsten inte returnerar ett tal resultat.
-
-
-Den `detailed` format innehåller samma fält som den `simple` format tillsammans med en `NBest` fält. Den `NBest` fält är en lista över alternativ tolkningar av samma tal, rangordnas från mest sannolikt minst sannolikt. Den första posten är samma som den huvudsakliga igenkänningsresultatet. Varje post innehåller följande fält:
-
-|Fältnamn|Innehåll|
-|-|-|
-|`Confidence`|Förtroendepoäng för registerposten från 0,0 (inget förtroende) 1.0 (fullt förtroende)
-|`Lexical`|Lexikal form av den tolkade texten: de ord känns igen.
-|`ITN`|(”Canonical”) inverterade-text-normaliserat form av den tolkade texten med phone tal, tal, förkortningar (”läkare smith” till ”dr smith”) och andra omformningen.
-|`MaskedITN`| Formuläret ITN med svordomar maskning tillämpas, om så krävs.
-|`Display`| Visningsformulär för den tolkade texten med skiljetecken och gemener/versaler har lagts till. Samma som `DisplayText` i översta resultat.
 
 ### <a name="sample-responses"></a>Exempel-svar
 

@@ -4,17 +4,17 @@ description: Använd Visual Studio Code för att utveckla, skapa och Felsök en 
 services: iot-edge
 keywords: ''
 author: shizn
-manager: timlt
+manager: philmea
 ms.author: xshi
 ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 3ec7f6043c1d2e8e8f090ffc60822768ab9bc9d9
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: d40b82b5beac2da78038e303cb50402d6fa0be7a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984009"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566032"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka C-moduler för Azure IoT Edge
 
@@ -94,7 +94,7 @@ Det finns flera Docker-filer för olika behållartyper i varje modul-mapp. Anvä
 2. Ersätt C modulen createOptions i **deployment.template.json** med nedan innehåll och spara den här filen: 
     
     ```json
-    "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
+    "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
     ```
 
 2. Ange i kommandopaletten VS Code och kör kommandot **Azure IoT Edge: Build and Push IoT Edge-lösningen**.

@@ -1,8 +1,18 @@
 ---
-Rubrik: Aktivera replikering av virtuella VMware-datorer för VMware-haveriberedskap till Azure med Azure Site Recovery | Microsoft Docs beskrivning: den här artikeln beskriver hur du aktiverar replikering av virtuella VMware-datorer för haveriberedskap till Azure med Azure Site Recovery.
-Författare: asgang ms.service: site recovery ms.date: 07/06/2018 ms.topic: Konceptuell ms.author: asgang
-
-
+title: Aktivera replikering av virtuella VMware-datorer för VMware-haveriberedskap till Azure med Azure Site Recovery | Microsoft Docs
+description: Den här artikeln beskriver hur du aktiverar replikering av virtuella VMware-datorer för haveriberedskap till Azure med Azure Site Recovery.
+author: asgang
+ms.service: site-recovery
+ms.date: 07/06/2018
+ms.topic: conceptual
+ms.author: asgang
+ms.openlocfilehash: c6c5aeece9e49a44654d63a7dc243991a62f2d9a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566371"
+---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Aktivera replikering till Azure för virtuella VMware-datorer
 
 
@@ -68,10 +78,7 @@ När du replikerar virtuella VMware-datorer:
     ![Aktivera replikering](./media/vmware-azure-enable-replication/enable-replication7.png)
 14. Klicka på **Aktivera replikering**. Du kan följa förloppet för jobbet **Aktivera skydd** i **Inställningar** > **Jobb** > **Site Recovery-jobb**. När jobbet **Slutför skydd** har körts är datorn redo för redundans.
 
-> [!NOTE]
-> Om datorn förbereds för push-installation, är komponenten Mobilitetstjänsten installerad när skyddsinställningarna är aktiverade. När komponenten är installerad på datorn, ett skyddsjobb startar och misslyckas. Efter fel måste du manuellt starta om varje dator. Efter omstarten protection jobbet börjar igen och den inledande replikeringen sker.
->
->
+
 
 ## <a name="view-and-manage-vm-properties"></a>Visa och hantera egenskaper för virtuella datorer
 

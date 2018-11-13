@@ -1,41 +1,32 @@
 ---
-title: Azure Storage skalbarhets- och prestandamål | Microsoft Docs
-description: Läs mer om mål för skalbarhet och prestanda för Azure Storage, inklusive kapaciteten, förfrågningar och inkommande och utgående bandbredd för både standard och premium storage-konton. Förstå prestandamål för partitioner i var och en av Azure Storage-tjänsterna.
+title: Skalbarhets- och prestandamål i Azure Storage
+description: Läs mer om skalbarhets- och prestandamål, inklusive kapaciteten, förfrågningar och inkommande och utgående bandbredd för standard Azure storage-konton.
 services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 11/08/2018
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 758871537b89a9c010cfaddf324e2208f9846afb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 93e09f3ab6780eb9ce7fa29b4554b53d796b6837
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241335"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564961"
 ---
-# <a name="azure-storage-scalability-and-performance-targets"></a>Skalbarhets- och prestandamål i Azure Storage
-## <a name="overview"></a>Översikt
-Den här artikeln beskrivs i avsnitt för skalbarhet och prestanda för Azure Storage. En sammanfattning av andra Azure-gränser finns [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../../azure-subscription-service-limits.md).
+# <a name="azure-storage-scalability-and-performance-targets-for-standard-storage-accounts"></a>Azure Storage-skalbarhets- och prestandamål för standard storage-konton
 
-> [!NOTE]
-> Alla lagringskonton kör ny fast nätverkstopologi och stöd för de mål för skalbarhet och prestanda som beskrivs i den här artikeln, oavsett när de har skapats. Läs mer på Azure Storage platt nätverk-arkitektur och skalbarhet, [Microsoft Azure Storage: A med hög Available Cloud Storage Service with Strong Consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
-> 
+Den här artikeln beskriver mål för skalbarhet och prestanda för standard Azure storage-konton. Skalbarhets- och prestandamål som anges här är avancerade mål, men kan nås. I samtliga fall, förfrågningar och bandbredden som uppnås genom din lagring konto beror på storleken på objekt som lagras, åtkomstmönster som används, och vilken typ av arbetsbelastning programmet utför. 
 
-> [!IMPORTANT]
-> Skalbarhets- och prestandamål som anges här är avancerade mål, men kan nås. I samtliga fall, förfrågningar och bandbredden som uppnås genom din lagring konto beror på storleken på objekt som lagras, åtkomstmönster som används, och vilken typ av arbetsbelastning programmet utför. Glöm inte att testa din tjänst för att avgöra om prestandan uppfyller dina krav. Om möjligt undviker plötsliga toppar i mängden trafik och se till att trafik är väl distribuerade över partitioner.
-> 
-> När programmet når gränsen för en partition kan hantera din arbetsbelastning, börjar Azure Storage att returnera Felkod 503 (servern är upptagen) eller felkoden 500 (tidsgräns för åtgärd)-svar. Om dessa fel inträffar, sedan ditt program bör använda en exponentiell backoff-princip för återförsök. Exponentiell backoff möjliggör att belastningen på partitionen att minska och för att underlätta ut trafiktoppar till partitionen.
-> 
-> 
+Glöm inte att testa din tjänst för att avgöra om prestandan uppfyller dina krav. Om möjligt undviker plötsliga toppar i mängden trafik och se till att trafik är väl distribuerade över partitioner.
 
-Om programmets behov överstiger det för skalbarhetsmål för ett enda lagringskonto, kan du skapa ditt program att använda flera lagringskonton. Du kan sedan partitionera dina dataobjekt över dessa lagringskonton. Se [priser för Azure Storage](https://azure.microsoft.com/pricing/details/storage/) för information om Volympriser.
+När programmet når gränsen för en partition kan hantera din arbetsbelastning, börjar Azure Storage att returnera Felkod 503 (servern är upptagen) eller felkoden 500 (tidsgräns för åtgärd)-svar. Om 503-fel inträffar, Överväg att ändra dina program att använda en exponentiell backoff-princip för återförsök. Exponentiell backoff möjliggör att belastningen på partitionen att minska och för att underlätta ut trafiktoppar till partitionen.
 
-## <a name="scalability-targets-for-a-storage-account"></a>Skalbarhetsmål för ett lagringskonto
+## <a name="standard-storage-account-scale-limits"></a>Skalningsgränserna för standard storage-konto
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
-### <a name="storage-resource-provider-limits"></a>Lagringsgränser resource provider 
+## <a name="storage-resource-provider-scale-limits"></a>Skalningsgränserna för Storage resource provider 
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -48,7 +39,7 @@ Mer information om mål för skalbarhet och prestanda för Azure Files och Azure
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
 ### <a name="azure-file-sync-scale-targets"></a>Azure File Sync skala mål
-Med Azure File Sync försöker vi så mycket som möjligt att utforma för obegränsad användning, men detta inte är alltid möjligt. I tabellen nedan visar gränserna för våra tester och vilka riktar sig faktiskt gränser:
+Azure File Sync har utformats med målet att obegränsad användning, men obegränsad användning är inte alltid möjligt. I följande tabell anger gränserna för Microsofts testning och anger även vilken riktar sig gränser:
 
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
@@ -63,5 +54,4 @@ Med Azure File Sync försöker vi så mycket som möjligt att utforma för obegr
 * [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../../azure-subscription-service-limits.md)
 * [Azure Storage-replikering](../storage-redundancy.md)
 * [Prestanda och skalbarhetschecklista för Microsoft Azure Storage](../storage-performance-checklist.md)
-* [Microsoft Azure Storage: En med hög tillgänglighet Molnlagringstjänst med stark konsekvens](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 

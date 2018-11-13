@@ -15,27 +15,27 @@ ms.date: 11/07/2018
 ms.author: celested
 ms.reviewer: jlu
 ms.custom: aaddev
-ms.openlocfilehash: 298afda7549690a9ea0314bff63a714be50a33b9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0f0de122dc3dbd770e91a8412430423bee222b30
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019269"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51577978"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Så här: återaktivera en inaktiverad Access Control Service-namnområden
 
 November 2017 meddelade vi att Microsoft Azure Access Control Service (ACS), en tjänst i Azure Active Directory (Azure AD), tas ur bruk 7 November 2018.
 
-Eftersom sedan vi har skickat flera e-postmeddelande till ACS-prenumerationer administratörens e-post om ACS indragningen 12 månader, 9 månaderna, sex månader tre månader, 1 månad, 2 veckor, 1 vecka, och en dag före datumet för tillbakadragandet 7 November 2018.
+Eftersom sedan vi har skickat e-postmeddelande till ACS-prenumerationer administratörens e-post om ACS indragningen 12 månader, 9 månaderna, sex månader tre månader, 1 månad, 2 veckor, 1 vecka, och en dag före datumet för tillbakadragandet 7 November 2018.
 
-3 oktober 2018 meddelade vi (via e-post och [ett blogginlägg](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)) ett tillägg erbjudande till kunder som det går inte att slutföra migreringen innan den 7 November 2018. Meddelandet innehåller också anvisningar för att begära tillägget.
+3 oktober 2018 meddelade vi (via e-post och [ett blogginlägg](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)) ett tillägg erbjudande till kunder som det går inte att slutföra migreringen innan den 7 November 2018. Meddelandet hade också instruktioner för att begära tillägget.
 
 ## <a name="why-your-namespace-is-disabled"></a>Varför ditt namnområde är inaktiverad
 
 Om du inte har valt i för tillägget, börjar vi att inaktivera ACS-namnområden från och med 7 November 2018. Om du vill anmäla dig till tillägg till 4 februari 2019 och görs ett avdrag kommunikationen följer du anvisningarna i följande avsnitt.
 
 > [!NOTE]
-> Du måste vara administratör för prenumerationen för att köra PowerShell-kommandon och begära en förlängning.
+> Du måste vara en tjänstadministratör eller medadministratör för prenumerationen för att köra PowerShell-kommandon och begära en förlängning.
 
 ## <a name="find-and-enable-your-acs-namespaces"></a>Hitta och aktivera ACS-namnområden
 
@@ -62,6 +62,9 @@ Du kan använda ACS PowerShell för att lista alla ACS-namnområden och återakt
         ```
     
         där `[Command-Name]` är namnet på ACS-kommandot.
+1. Anslut till ACS med hjälp av den **Connect AcsAccount** cmdlet. 
+
+    Du kan behöva ändra dina körningsprincipen genom att köra **Set-ExecutionPolicy** innan du kan köra kommandot.
 1. Lista över dina tillgängliga Azure-prenumerationer med hjälp av den **Get-AcsSubscription** cmdlet.
 1. Lista din ACS namnområden med hjälp av den **Get-AcsNamespace** cmdlet.
 1. Bekräfta att namnområden är inaktiverade som bekräftar att `State` är `Disabled`.

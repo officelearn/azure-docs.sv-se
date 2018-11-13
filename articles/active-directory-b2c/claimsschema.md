@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 92328ffd8b6dbbb2be82bc70352e19f3097eb2a7
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 2d11283ccf58fdc356742d6f4042afd15bf6faab
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637739"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568650"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -50,7 +50,7 @@ Den **ClaimType** elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| displayName | 0:1 | Rubriken som visas för användarna på olika skärmar. Värdet kan vara [lokaliserade](localization.md). |
+| DisplayName | 0:1 | Rubriken som visas för användarna på olika skärmar. Värdet kan vara [lokaliserade](localization.md). |
 | Datatyp | 0:1 | Typ av anspråket. Datatyperna för booleskt värde, datum, dateTime, int, long, string, stringCollection, alternativeSecurityIdCollection kan användas. |
 | DefaultPartnerClaimTypes | 0:1 | Partner-standard anspråkstyper ska användas för ett angivet protokoll. Värdet kan åsidosättas i den **PartnerClaimType** anges i den **InputClaim** eller **OutputClaim** element. Använd det här elementet för att ange standardnamnet för ett protokoll.  |
 | Mask | 0:1 | En valfri sträng med maskering av tecken som kan användas vid visning av anspråket. Till exempel ska phone nummer 324-232-4343 maskeras som XXX-XXX-4343. |

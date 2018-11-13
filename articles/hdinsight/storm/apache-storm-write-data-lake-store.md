@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: e2dd9b1d6031d8c8695ff6821e9af4e464ef270a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: d38b4e511defbb50dd5f74ae72e71d3316a57b3c
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009359"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567136"
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Skriva till HDFS från Apache Storm på HDInsight
 
@@ -198,7 +198,7 @@ Om du vill visa data, använder du följande kommando:
 
 En lista över filer som skapas av den här topologin visas.
 
-I följande lista är ett exempel på data retuned av tidigare kommandon:
+I följande lista är ett exempel på data som returneras av de tidigare kommandona:
 
     Found 30 items
     -rw-r-----+  1 sshuser sshuser       488000 2017-03-03 19:13 /stormdata/hdfs-bolt-3-0-1488568403092.txt

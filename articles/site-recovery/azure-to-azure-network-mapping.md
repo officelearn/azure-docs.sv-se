@@ -7,110 +7,89 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 1e8bad9a7a194c96c39be0ab4f1c2f40d79031ea
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 683f8ef89b02679d1f3f1a66f867f0dde757ada1
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209620"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564977"
 ---
-# <a name="map-virtual-networks-in-different-azure-regions"></a>Mappa virtuella nätverk i olika Azure-regioner
+# <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Konfigurera nätverksmappning och IP-adresser för virtuella nätverk
 
-
-Den här artikeln beskriver hur du mappar två instanser av Azure-nätverk finns i olika Azure-regioner med varandra. Nätverksmappning säkerställer att när en replikerad virtuell dator skapas i mål-Azure-region, den virtuella datorn skapas också på det virtuella nätverket som är mappad till det virtuella nätverket för den virtuella källdatorn.  
+Den här artikeln beskrivs hur du mappar två instanser av virtuella Azure-nätverk (Vnet) finns i olika Azure-regioner och hur du ställer in IP-adressering mellan nätverk. Nätverksmappning så att en replikerad virtuell dator kan skapas i mål-Azure-region har skapats i det virtuella nätverket som är mappad till det virtuella nätverket för den Virtuella källdatorn.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Innan du mappa nätverk ska du kontrollera att du har skapat en [Azure-nätverk](../virtual-network/virtual-networks-overview.md) i både regionen källa och mål-Azure-region.
 
-## <a name="map-virtual-networks"></a>Mappa virtuella nätverk
+Innan du mappa nätverk måste du ha [virtuella Azure-nätverk](../virtual-network/virtual-networks-overview.md) i källan och rikta in Azure-regioner. 
 
-Om du vill mappa ett Azure-nätverk som finns i en Azure-region (källnätverket) till ett virtuellt nätverk som finns i en annan region (målnätverket) för Azure-datorer går du till **Site Recovery-infrastruktur**  >  **Network mappning**. Skapa en nätverksmappning.
+## <a name="set-up-network-mapping"></a>Konfigurera nätverksmappning
 
-![Network mappningar fönstret – Skapa en nätverksmappning](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
+Mappa nätverk på följande sätt:
 
+1. I **Site Recovery-infrastruktur**, klickar du på **+ nätverksmappning**.
 
-I följande exempel visas körs den virtuella datorn i regionen östra Asien. Den virtuella datorn replikeras till regionen Sydostasien.
+    ![ Skapa en nätverksmappning](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
 
-Om du vill skapa en nätverksmappning från regionen Asien till regionen Sydostasien, väljer du platsen för källnätverket och platsen för målnätverket. Välj **OK**.
+3. I **Lägg till nätverksmappning**, Välj källa och mål platser. I vårt exempel källan virtuell dator körs i regionen östra Asien, och replikerar till regionen Sydostasien.
 
-![Lägger du till nätverket mappning fönster - Välj käll- och målplatserna för källnätverket](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+    ![Välj källa och mål ](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+3. Skapa nu en nätverksmappning i motsatt katalogen. I vårt exempel källan kommer nu att Sydostasien och målet är Östasien.
 
-
-Upprepa föregående stegen för att skapa en nätverksmappning från regionen Sydostasien till regionen Asien.
-
-![Lägg till nätverk mappning fönstret - Välj käll- och målplatserna för Målnätverk](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
+    ![Lägg till nätverk mappning fönstret - Välj käll- och målplatserna för Målnätverk](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 
 
-## <a name="map-a-network-when-you-enable-replication"></a>Mappa ett nätverk när du aktiverar replikering
+## <a name="map-networks-when-you-enable-replication"></a>Mappa nätverk när du aktiverar replikering
 
-När du replikerar en virtuell dator från en Azure-region till en annan region för första gången, om det finns ingen nätverksmappning, kan du ange målnätverket när du konfigurerar replikering. Azure Site Recovery skapar baserat på den här inställningen, nätverksmappningar från regionen källa till målregion och målregionen som källregionen.   
+Om du inte har skapat nätverksmappning innan du konfigurerar haveriberedskap för virtuella Azure-datorer kan du ange ett mål nätverk när du [konfigurera och aktivera replikering](azure-to-azure-how-to-enable-replication.md). När du gör detta följande händer:
 
-![Konfigurera inställningsfönstret – Välj målplats](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
+- Baserat på det mål som du väljer, skapar Site Recovery automatiskt nätverksmappningar från källa till målregion och från målet till källregionen.
+- Som standard skapar Site Recovery ett nätverk i målregionen som är identisk med källnätverket. Site Recovery lägger **-asr** som suffix till namnet på källnätverket. Du kan anpassa målnätverket.
+- Om nätverksmappning redan har inträffat, kan du inte ändra det virtuella målnätverket när du aktiverar replikering. Om du vill ändra målets virtuella nätverk som du behöver ändra den befintliga nätverksmappningen.
+- Om du ändrar en nätverksmappning från region A till B-region, se till att du också ändra nätverksmappningen från B-region till region A.]
 
-Som standard skapar Site Recovery ett nätverk i målregionen som är identisk med källnätverket. Site Recovery skapar ett nätverk genom att lägga till **-asr** som suffix till namnet på källnätverket. Välj ett nätverk som redan har skapats genom att välja **anpassa**.
+## <a name="specify-a-subnet"></a>Ange ett undernät
 
-![Anpassa target inställningsfönstret - Set target resursgruppens namn och namn på virtuellt nätverk](./media/site-recovery-network-mapping-azure-to-azure/network-mapping5.png)
+Undernätet för målet virtuell dator baserat på namnet på undernätet för den Virtuella källdatorn.
 
-Om nätverksmappning redan har inträffat, kan du inte ändra det virtuella målnätverket när du aktiverar replikering. I det här fallet om du vill ändra målets virtuella nätverk, ändra den befintliga nätverksmappningen.  
+- Om ett undernät med samma namn som käll-VM-undernätet är tillgängliga i målnätverket, har undernätet angetts för den Virtuella måldatorn.
+- Om ett undernät med samma namn inte finns i Målnätverk, anger det första undernätet i alfabetisk ordning som målundernätet.
+- Du kan ändra den i den **beräkning och nätverk** inställningar för den virtuella datorn.
 
-![Anpassa target inställningsfönstret - ange mål resursgruppens namn](./media/site-recovery-network-mapping-azure-to-azure/network-mapping6.png)
-
-![Ändra nätverk mappning fönstret – Ändra ett befintligt virtuellt nätverk målnamn](./media/site-recovery-network-mapping-azure-to-azure/modify-network-mapping.png)
-
-> [!IMPORTANT]
-> Om du ändrar en nätverksmappning från region A till B-region, kontrollerar du att du också ändra nätverksmappningen från B-region till region A.
->
->
+    ![Beräkning och nätverk compute egenskapsfönstret](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 
 
-## <a name="subnet-selection"></a>Val av undernät
-Undernätet för den virtuella måldatorn är valt baserat på namnet på undernätet för den virtuella källdatorn. Om ett undernät som har samma namn som den virtuella källdatorn är tillgängliga i målnätverket, har undernätet angetts för den virtuella måldatorn. Om ett undernät med samma namn inte finns i Målnätverk har alfabetiskt första undernätet angetts som målundernätet.
+## <a name="set-up-ip-addressing-for-target-vms"></a>Konfigurera IP-adresser för virtuella datorer mål
 
-Om du vill ändra undernätet går du till den **beräkning och nätverk** inställningar för den virtuella datorn.
+IP-adressen för varje nätverkskort på en virtuell måldator konfigureras på följande sätt:
 
-![Beräkning och nätverk compute egenskapsfönstret](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
-
-
-## <a name="ip-address"></a>IP-adress
-
-IP-adressen för varje nätverksgränssnitt på den virtuella måldatorn har angetts som beskrivs i följande avsnitt.
-
-### <a name="dhcp"></a>DHCP
-Om den virtuella källdatorn nätverksgränssnitt använder DHCP, ange nätverksgränssnitt för den virtuella måldatorn också att använda DHCP.
-
-### <a name="static-ip-address"></a>Statisk IP-adress
-Om den virtuella källdatorn nätverksgränssnitt använder statisk IP-adress, ange nätverksgränssnitt för den virtuella måldatorn också att använda en statisk IP-adress. I följande avsnitt beskrivs hur en statisk IP-adress har angetts.
-
-### <a name="ip-assignment-behavior-during-failover"></a>IP-tilldelning beteende under redundans
-#### <a name="1-same-address-space"></a>1. Samma adressutrymme
-
-Om käll-undernätet och målundernätet har samma-adressutrymme, har IP-adressen för nätverksgränssnittet för den virtuella källdatorn angetts som mål-IP. Om samma IP-adress inte är tillgänglig, har nästa tillgängliga IP-adress angetts som mål-IP.
-
-#### <a name="2-different-address-spaces"></a>2. Olika adressutrymmen
-
-Om käll-undernätet och målundernätet har olika adressutrymmen, har nästa tillgängliga IP-adress i målundernätet angetts som mål-IP.
+- **DHCP**: om NIC för den Virtuella källdatorn använder DHCP, NIC för den Virtuella måldatorn är också konfigurerad att använda DHCP.
+- **Statisk IP-adress**: om NIC för den Virtuella källdatorn använder statisk IP-adressering, mål VM NIC också använder statisk IP-adress.
 
 
-### <a name="ip-assignment-behavior-during-test-failover"></a>IP-tilldelning beteende under Redundanstest
-#### <a name="1-if-the-target-network-chosen-is-the-production-vnet"></a>1. Om målnätverket valt är vNet för produktion
-- Recovery IP (mål-IP) är en statisk IP-adress men den **kan inte samma IP-adress** som är reserverat för redundans.
-- Den tilldelade IP-adressen kommer att nästa tillgängliga IP-Adressen från slutet av adressintervall för undernätet.
-- För t.ex. Om Virtuella statisk IP-adress som är konfigurerad för att vara: 10.0.0.19 och testa redundans gjordes med konfigurerade produktionsnätverket: ***dr-PROD-NV***, med undernätsintervall som 10.0.0.0/24. </br>
-Den redundansväxlade virtuella datorn tilldelas med – nästa tillgängliga IP-Adressen från slutet av adressintervall för undernätet är: 10.0.0.254 </br>
+## <a name="ip-address-assignment-during-failover"></a>Tilldelning av IP-adress under redundansväxling
 
-**Obs:** termer som **produktion vNet** hänvisar vi till ”målnätverket' mappade under katastrofberedskapskonfigurationen.
-#### <a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Om målnätverket valt är inte produktion vNet men har samma undernätsintervall som produktionsnätverket
-
-- Recovery IP (mål-IP) är en statisk IP-adress med det **samma IP-adress** (d.v.s. konfigurerat statisk IP-adress) som är reserverat för redundans. Den angivna samma IP-adress är tillgänglig.
-- Om den angivna statiska IP-Adressen har redan tilldelats en annan virtuell dator/enhet, kommer recovery IP-Adressen att nästa tillgängliga IP-Adressen från slutet av adressintervall för undernätet.
-- För t.ex. Om Virtuella statisk IP-adress som är konfigurerad för att vara: 10.0.0.19 och testa redundans gjordes med ett testnätverk: ***dr-icke-PROD-NV***, med samma undernätsintervall som produktionsnätverket - 10.0.0.0/24. </br>
-  Den redundansväxlade virtuella datorn tilldelas med följande statisk IP-adress </br>
-    - konfigurerad statisk IP-adress: 10.0.0.19 om IP-Adressen är tillgänglig.
-    - Nästa tillgängliga IP: 10.0.0.254 om IP-adressen 10.0.0.19 finns redan i använda.
+**Käll- och undernät** | **Detaljer**
+--- | ---
+Samma adressutrymme | IP-adressen för källan VM NIC har angetts som mål VM NIC IP-adress.<br/><br/> Om adressen inte är tillgängligt, har nästa tillgängliga IP-adress angetts som mål.
+Olika adressutrymmen<br/><br/> Nästa tillgängliga IP-adress i målundernätet har angetts som mål VM NIC-adress.
 
 
-Om du vill ändra mål-IP för varje gränssnitt, går du till den **beräkning och nätverk** inställningar för den virtuella datorn.</br>
-Vi rekommenderar rekommenderas alltid för att välja ett testnätverk att utföra Redundanstestning.
+
+## <a name="ip-address-assignment-during-test-failover"></a>IP-adresstilldelning under redundanstest
+
+**Målnätverk** | **Detaljer**
+--- | ---
+Målnätverket är redundans virtuellt nätverk | / Mål-IP-adressen är statisk men inte samma IP-adress som reserverats för redundans.<br/><br/>  -Tilldelade adressen är nästa tillgängliga adress från slutet av undernätsintervallet.<br/><br/> Till exempel: om källans IP-adress är 10.0.0.19 och redundansnätverk använder adressintervallet 10.0.0.0/24, så nästa IP-adress som tilldelats den Virtuella måldatorn är 10.0.0.254.
+Målnätverket är inte redundansväxlingen VNet | / Mål-IP-adressen är statisk med samma IP-adress reserveras för växling vid fel.<br/><br/>  -Om samma IP-adress har redan tilldelats, är nästa kommando på eeach intervallets undernät med IP-adressen.<br/><br/> Till exempel: om statiska IP-källadressen är 10.0.0.19 och växling vid fel är i ett nätverk som inte är redundansnätverk, med adressintervallet 10.0.0.0/24, och sedan den statiska IP-adressen för målet att 10.0.0.0.19 om det är tillgängligt och annars blir det 10.0.0.254.
+
+- Redundansväxlingen VNet är målnätverket som du väljer när du konfigurerar haveriberedskap.
+- Vi rekommenderar att du alltid använder en icke-produktion-nätverk för redundanstestning.
+- Du kan ändra mål-IP-adressen i den **beräkning och nätverk** inställningarna för den virtuella datorn.
+
+
 ## <a name="next-steps"></a>Nästa steg
 
-* Granska [nätverk vägledning för att replikera virtuella Azure-datorer](site-recovery-azure-to-azure-networking-guidance.md).
+- Granska [nätverk vägledning](site-recovery-azure-to-azure-networking-guidance.md) för haveriberedskap för virtuella Azure-datorer.
+- [Läs mer](site-recovery-retain-ip-azure-vm-failover.md) om behålla IP-adresser efter redundansväxling.
+
+Om målnätverket valt är redundans vnet ”och 2 att säga” om målnätverket valt skiljer sig från redundans virtuella nätverket, men har samma undernätsintervall som redundans vnet ”

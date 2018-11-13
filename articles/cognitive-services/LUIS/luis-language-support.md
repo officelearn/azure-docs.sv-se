@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: diberry
-ms.openlocfilehash: ce0a2f36ca11c704062deb28bf47c45a91a32222
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: a26fa1f64f1ef8ecef8140b1feab89fdd57875fe
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435600"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569207"
 ---
 # <a name="language-and-region-support-for-luis"></a>Stöd för språk och din region för LUIS
 
@@ -32,10 +32,10 @@ LUIS förstår yttranden på följande språk:
 | Språk |Nationell inställning  |  Fördefinierade domän | Fördefinierade entitet | Fras förslag | **[Textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Känsla och<br>Nyckelord)|
 |--|--|:--:|:--:|:--:|:--:|
 | Amerikansk engelska |`en-US` | ✔ | ✔  |✔|✔|
-| Kanadensisk franska |`fr-CA` |-|   -   |-|✔|
 | *[Kinesiska](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | Nederländska |`nl-NL` |-|  -   |-|✔|
 | Franska (Frankrike) |`fr-FR` |-| ✔ |✔ |✔|
+| Franska (Kanada) |`fr-CA` |-|   -   |-|✔|
 | Tyska |`de-DE` |-| ✔ |✔ |✔|
 | Italienska |`it-IT` |-| ✔ |✔|✔|
 | *[Japanska](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|Endast diskussionsämne|

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f08d5732939e853785e2cce1d1e9ed8eea7f9ad7
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: c21a5c5b23b709ce6683c51cf96f0e6ff89efc78
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543147"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568684"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk verifieringsprofil i en anpassad princip för Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ En teknisk verifieringsprofil är en vanlig tekniska profilen från alla protoko
 }
 ```
 
-Anspråk som retuned från en teknisk verifieringsprofil läggs till i uppsättningen anspråk. Du kan använda dessa anspråk i nästa Teknisk verifiering profilerna.
+Anspråk som returneras från en teknisk verifieringsprofil läggs till i uppsättningen anspråk. Du kan använda dessa anspråk i nästa Teknisk verifiering profilerna.
 
 Tekniska profiler för verifiering utförs i den ordning som de visas i den **ValidationTechnicalProfiles** element. Du kan konfigurera i en profil för tekniska om körningen av alla efterföljande verifiering tekniska profiler ska fortsätta om teknisk verifieringsprofil genererar ett fel eller lyckas.  
 
@@ -81,8 +81,8 @@ Den **Förhandsvillkoret** elementet innehåller följande element:
 Följande exempel använder dessa tekniska profiler för verifiering: 
 
 1. Den första verifiering tekniska profilen kontrollerar användarens autentiseringsuppgifter och fortsätter inte om ett fel inträffar, till exempel ogiltigt användarnamn eller felaktigt lösenord. 
-2. I nästa verifiering tekniska profil, kan inte köras om userType-anspråk inte finns, eller om värdet för userType är `Partner`. Den tekniska profilen verifieringen försöker läsa användarprofilen från databasen för interna kunder och fortsätta om ett fel inträffar, till exempel REST API-tjänst inte tillgängliga eller ett internt fel.
-3. Den senaste verifiering tekniska profilen, kan inte köras om userType-anspråket inte fanns, eller om värdet för userType är `Customer`. Den tekniska profilen verifieringen försöker läsa användarprofilen från interna partner-databasen och fortsätter om ett fel inträffar, till exempel REST API-tjänst inte tillgängliga eller ett internt fel.
+2. I nästa verifiering tekniska profil, kan inte köras om userType-anspråk inte finns, eller om värdet för userType är `Partner`. Den tekniska profilen verifieringen försöker läsa användarprofilen från databasen för interna kunder och fortsätta om ett fel inträffar, till exempel REST API-tjänsten är inte tillgänglig eller ett internt fel.
+3. Den senaste verifiering tekniska profilen, kan inte köras om userType-anspråket inte fanns, eller om värdet för userType är `Customer`. Den tekniska profilen verifieringen försöker läsa användarprofilen från interna partner-databasen och fortsätter om ett fel inträffar, till exempel REST API-tjänsten är inte tillgänglig eller ett internt fel.
 
 ```XML
 <ValidationTechnicalProfiles>

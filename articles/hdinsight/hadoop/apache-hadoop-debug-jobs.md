@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 694129fa39a84deac118c35da52a0617fe805d6c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 7600ff1a11435ee079fef80ecfa5ad88de1b4750
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261157"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569030"
 ---
 # <a name="analyze-hadoop-logs"></a>Analysera Hadoop-loggar
 
@@ -131,7 +131,7 @@ Felmeddelanden uppdelat i det här avsnittet anges att hjälpa användare med Ha
 
 Några av följande felmeddelanden kan också ses i Azure-portalen när den används för att hantera HDInsight-kluster. Men andra felmeddelanden som du kan stöta på det finns mindre detaljerad på grund av begränsningar i korrigerande åtgärder som är möjliga i den här kontexten. Andra felmeddelanden tillhandahålls i sammanhang där minskningen är uppenbart. 
 
-### <a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
+### <a id="AtLeastOneSqlMetastoreMustBeProvided"></a>AtLeastOneSqlMetastoreMustBeProvided
 * **Beskrivning av**: Ange Azure SQL databasinformation för minst en komponent för att kunna använda anpassade inställningar för metastores för Hive och Oozie.
 * **Minskning**: användaren måste ange ett giltigt SQL Azure-metaarkiv och försöka.  
 

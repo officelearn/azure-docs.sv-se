@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/12/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 443d37f5b45db9495c09d68300c9ea4978466eb9
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: fe6df20d294a3b1802d396085c36a6587dc45730
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388236"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249089"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Självstudie: Distribuera en Service Fabric-app till ett kluster i Azure
 
@@ -87,7 +87,7 @@ För Azure-prenumerationen öppnar du den här porten med hjälp av en lastbalan
 
 Partkluster är kostnadsfria och tidsbegränsade Service Fabric-kluster som finns i Azure och som körs av Service Fabric-teamet. Vem som helst kan distribuera program och lära sig om plattformen. Klustret använder ett enda självsignerat certifikat för både nod-till-nod- och klient-till-nod-säkerhet.
 
-Logga in och [ansluta till ett Windows-kluster](http://aka.ms/tryservicefabric). Ladda ned PFX-certifikatet till datorn genom att klicka på **PFX**-länken. Välj länken **Hur ansluter man till ett säkert partkluster?** och kopiera certifikatlösenordet. Certifikatet, certifikatlösenordet och värdet för **anslutningsslutpunkten** används i följande steg.
+Logga in och [ansluta till ett Windows-kluster](https://aka.ms/tryservicefabric). Ladda ned PFX-certifikatet till datorn genom att klicka på **PFX**-länken. Välj länken **Hur ansluter man till ett säkert partkluster?** och kopiera certifikatlösenordet. Certifikatet, certifikatlösenordet och värdet för **anslutningsslutpunkten** används i följande steg.
 
 ![PFX och klientanslutningsslutpunkt](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
 

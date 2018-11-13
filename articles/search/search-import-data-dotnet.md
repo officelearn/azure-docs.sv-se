@@ -9,12 +9,12 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/13/2017
-ms.openlocfilehash: fb8fb153c7393af0e084cb96ee2f5e82fba5b220
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: dc59531b282f6c99dd399ac384a8c6264ee260ea
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798061"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258773"
 ---
 # <a name="upload-data-to-azure-search-using-the-net-sdk"></a>Ladda upp data till Azure Search med hjälp av .NET SDK
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ Den här artikeln visar hur du använder [Azure Search .NET SDK](https://aka.ms/
 Innan du påbörjar den här genomgången bör du redan ha [skapat ett Azure Search-index](search-what-is-an-index.md). I den här artikeln förutsätter vi också att du redan har skapat ett `SearchServiceClient`-objekt. Mer information finns i [Skapa ett Azure Search-index med .NET SDK](search-create-index-dotnet.md#CreateSearchServiceClient).
 
 > [!NOTE]
-> All exempelkod i den här artikeln är skriven i C#. Du hittar den fullständiga källkoden [på GitHub](http://aka.ms/search-dotnet-howto). Du kan läsa om [Azure Search .NET SDK](search-howto-dotnet-sdk.md) och få en mer detaljerad genomgång av exempelkoden.
+> All exempelkod i den här artikeln är skriven i C#. Du hittar den fullständiga källkoden [på GitHub](https://aka.ms/search-dotnet-howto). Du kan läsa om [Azure Search .NET SDK](search-howto-dotnet-sdk.md) och få en mer detaljerad genomgång av exempelkoden.
 
 För att kunna skicka dokument till ditt index med .NET SDK måste du:
 

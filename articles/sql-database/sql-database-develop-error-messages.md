@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/31/2018
-ms.openlocfilehash: 233e6e9bccd8729cd61514f2855799cf3d22d72b
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 71a23e982f1e4ae5609d4f9a160cd1861e043ea1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914676"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251823"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL-felkoder för SQL Database-klientprogram: anslutningsfel och andra problem
 
@@ -45,7 +45,7 @@ Kodexempel för omprövning, se:
 * [Anslutningsbibliotek för SQL Database och SQLServer](sql-database-libraries.md) 
 * [Åtgärder för att åtgärda anslutningsfel och tillfälliga fel i SQL-databas](sql-database-connectivity-issues.md)
 
-En beskrivning av den *blockerar period* för klienter som använder ADO.NET finns i [SQL Server anslutning poolning (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
+En beskrivning av den *blockerar period* för klienter som använder ADO.NET finns i [SQL Server anslutning poolning (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 ### <a name="transient-fault-error-codes"></a>Felkoder för tillfälliga fel
 Följande fel är tillfälligt och ska göras i programlogiken: 
@@ -94,8 +94,8 @@ Relaterade ämnen:
 
 | Felkod | Severity | Beskrivning |
 | ---:| ---:|:--- |
-| 10928 |20 |Resurs-ID: %d. %S gränsen för databasen är %d och har uppnåtts. Mer information finns på [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>Resurs-ID anger den resurs som har uppnått gränsen. För arbetstrådar, resurs-ID = 1. För sessioner, resurs-ID = 2.<br/><br/>Mer information om felet och hur du löser den finns:<br/>• [Azure SQL Database-resursgränser](sql-database-service-tiers-dtu.md). |
-| 10929 |20 |Resurs-ID: %d. %S minsta garantin är %d, övre gräns är %d och aktuell användning för databasen är %d. Men är servern upptagen för närvarande stöd för begäranden som är större än %d för den här databasen. Mer information finns på [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). I annat fall. Försök igen senare.<br/><br/>Resurs-ID anger den resurs som har uppnått gränsen. För arbetstrådar, resurs-ID = 1. För sessioner, resurs-ID = 2.<br/><br/>Mer information om felet och hur du löser den finns:<br/>• [Azure SQL Database-resursgränser](sql-database-service-tiers-dtu.md). |
+| 10928 |20 |Resurs-ID: %d. %S gränsen för databasen är %d och har uppnåtts. Mer information finns på [http://go.microsoft.com/fwlink/?LinkId=267637](https://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>Resurs-ID anger den resurs som har uppnått gränsen. För arbetstrådar, resurs-ID = 1. För sessioner, resurs-ID = 2.<br/><br/>Mer information om felet och hur du löser den finns:<br/>• [Azure SQL Database-resursgränser](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |Resurs-ID: %d. %S minsta garantin är %d, övre gräns är %d och aktuell användning för databasen är %d. Men är servern upptagen för närvarande stöd för begäranden som är större än %d för den här databasen. Mer information finns på [http://go.microsoft.com/fwlink/?LinkId=267637](https://go.microsoft.com/fwlink/?LinkId=267637). I annat fall. Försök igen senare.<br/><br/>Resurs-ID anger den resurs som har uppnått gränsen. För arbetstrådar, resurs-ID = 1. För sessioner, resurs-ID = 2.<br/><br/>Mer information om felet och hur du löser den finns:<br/>• [Azure SQL Database-resursgränser](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |Databasen har nått sin storlekskvot. Partitionera eller ta bort data, släpp index eller Läs om möjliga lösningar i dokumentationen. |
 | 40549 |16 |Sessionen avslutas eftersom du har en tidskrävande transaktion. Försök att göra transaktionen kortare. |
 | 40550 |16 |Sessionen har avslutats eftersom det har fått för många Lås. Försök att läsa eller ändra färre rader i en enda transaktion. |
@@ -109,7 +109,7 @@ Följande fel är relaterade till skapar och använder elastiska pooler:
 | Felkod | Severity | Beskrivning | Korrigerande åtgärd |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |Den elastiska poolen har nått sin lagringsgräns. Lagringsanvändningen för den elastiska poolen får inte överskrida (%d) MB. Försök att skriva data till en databas när gränsen för lagring på den elastiska poolen har uppnåtts. |Överväg att öka dtu: er för och/eller att lägga till lagring till den elastiska poolen om möjligt för att öka sin lagringsgräns minska lagring som används av enskilda databaser på den elastiska poolen eller ta bort databaser från den elastiska poolen. |
-| 10929 | 16 |%S minsta garantin är %d, övre gräns är %d och aktuell användning för databasen är %d. Men är servern upptagen för närvarande stöd för begäranden som är större än %d för den här databasen. Se [ http://go.microsoft.com/fwlink/?LinkId=267637 ](http://go.microsoft.com/fwlink/?LinkId=267637) för att få hjälp. I annat fall. Försök igen senare. DTU / vCore-min per databas. DTU / vCore-max per databas. Det totala antalet samtidiga arbetare (begäranden) över alla databaser i den elastiska poolen försökte överskrider gränsen för poolen. |Överväg att öka dtu: er eller vCores för den elastiska poolen om möjligt för att öka gränsen worker eller ta bort databaser från den elastiska poolen. |
+| 10929 | 16 |%S minsta garantin är %d, övre gräns är %d och aktuell användning för databasen är %d. Men är servern upptagen för närvarande stöd för begäranden som är större än %d för den här databasen. Se [ http://go.microsoft.com/fwlink/?LinkId=267637 ](https://go.microsoft.com/fwlink/?LinkId=267637) för att få hjälp. I annat fall. Försök igen senare. DTU / vCore-min per databas. DTU / vCore-max per databas. Det totala antalet samtidiga arbetare (begäranden) över alla databaser i den elastiska poolen försökte överskrider gränsen för poolen. |Överväg att öka dtu: er eller vCores för den elastiska poolen om möjligt för att öka gränsen worker eller ta bort databaser från den elastiska poolen. |
 | 40844 | 16 |Databasen '%ls ”på servern '%ls” är en '%ls ”edition-databas i en elastisk pool och kan inte ha en relation för kontinuerlig kopiering.  |Gäller inte |
 | 40857 | 16 |Elastisk pool hittades inte för servern: '%ls ”, namn på elastisk pool: '%ls”. Angivna elastisk pool finns inte i den angivna servern. | Ange ett giltigt elastisk pool-namn. |
 | 40858 | 16 |Elastisk pool '%ls ”finns redan på servern: '%ls”. Angivna elastisk pool finns redan i den angivna logiska servern. | Ange namn på ny elastisk pool. |

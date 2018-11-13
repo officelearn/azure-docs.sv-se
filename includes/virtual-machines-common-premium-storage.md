@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 7fa7e6126c415a0a33b77b78975e8f4a533c4675
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 2e8b2753a441b0d7f27745fdf622b26dcee7784a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263295"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572796"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Högpresterande Premium Storage och hanterade diskar för virtuella datorer
 
@@ -167,7 +167,7 @@ Här följer några viktiga saker du behöver veta om skalbarhets- och prestanda
 
 * **Etablerad kapacitet och prestanda**
 
-    När du etablerar en disk för premium storage, till skillnad från standardlagring, garanterat kapacitet, IOPS och dataflöde på disken. Exempelvis kan etablerar du skapa en P50-disk Azure 4 095 GB lagringskapacitet, 7 500 IOPS och 250 MBIT/s genomströmning för disken. Ditt program kan använda hela eller delar av kapacitet och prestanda.
+    När du etablerar en disk för premium storage, till skillnad från standardlagring, garanterat kapacitet, IOPS och dataflöde på disken. Exempelvis kan etablerar du skapa en P50-disk Azure 4 095 GB lagringskapacitet, 7 500 IOPS och 250 MBIT/s genomströmning för disken. Ditt program kan använda hela eller delar av kapacitet och prestanda. Premium SSD-diskar är utformade för att leverera målet prestanda 99,9% av tiden.
 
 * **Diskstorlek**
 

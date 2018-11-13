@@ -2,19 +2,19 @@
 title: 'Självstudie: Läsa in data och köra frågor i ett Apache Spark-kluster i Azure HDInsight '
 description: Lär dig mer om att läsa in data och köra interaktiva frågor på Spark-kluster i Azure HDInsight.
 services: azure-hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.author: jasonh
-ms.date: 05/17/2018
-ms.openlocfilehash: d59f04c5dde522f3d193f345ac59147ece9d86f0
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.date: 11/06/2018
+ms.openlocfilehash: 85afc16fe6bcae4e0a7218fa9f66bab3e947ec6b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047565"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244088"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Självstudie: Läsa in data och köra frågor i ett Apache Spark-kluster i Azure HDInsight
 
@@ -33,7 +33,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="create-a-dataframe-from-a-csv-file"></a>Skapa en dataram från en csv-fil
 
-Program kan skapa dataramar från en RDD (Resilient Distributed Dataset), från en Hive-tabell eller från datakällor med SQLContext-objektet. Följande skärmbild visar en ögonblicksbild av den HVAC.csv-fil som används i självstudien. Csv-filen finns i alla HDInsight Spark-kluster. Datan visar temperaturvariationer i vissa byggnader.
+Program kan skapa dataramar direkt från filer eller mappar via fjärrlagring, till exempel Azure Storage eller Azure Data Lake Storage, från en Hive-tabell eller från andra datakällor som stöds av Spark, till exempel Cosmos DB, Azure SQL DB, DW osv. Följande skärmbild visar en ögonblicksbild av den HVAC.csv-fil som används i självstudien. Csv-filen finns i alla HDInsight Spark-kluster. Datan visar temperaturvariationer i vissa byggnader.
     
 ![Ögonblicksbild av data för en interaktiv Spark SQL-fråga](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Ögonblicksbild av data för en interaktiv Spark SQL-fråga")
 
@@ -41,7 +41,7 @@ Program kan skapa dataramar från en RDD (Resilient Distributed Dataset), från 
 1. Öppna Jupyter-anteckningsboken som du skapade i avsnittet med förutsättningar.
 2. Klistra in följande kod i en tom cell i anteckningsboken och tryck sedan på **SKIFT+RETUR** för att köra koden. Koden importerar de typer som krävs för det här scenariot:
 
-    ```PySpark
+    ```python
     from pyspark.sql import *
     from pyspark.sql.types import *
     ```
@@ -52,14 +52,14 @@ Program kan skapa dataramar från en RDD (Resilient Distributed Dataset), från 
 
 3. Kör följande kod för att skapa en dataram och en tillfällig tabell (**hvac**). 
 
-    ```PySpark
-    # Create an RDD from sample data
-    csvFile = spark.read.csv('wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv', header=True, inferSchema=True)
+    ```python
+    # Create a dataframe and table from sample data
+    csvFile = spark.read.csv('/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv', header=True, inferSchema=True)
     csvFile.write.saveAsTable("hvac")
     ```
 
     > [!NOTE]
-    > Genom att använda PySpark-kärnan för att skapa en anteckningsbok, skapas automatiskt SQL-kontext för dig när du kör den första kodcellen. Du behöver inte uttryckligen skapa någon kontext.
+    > Genom att använda PySpark-kärnan för att skapa en anteckningsbok skapas automatiskt sessionen `spark` för dig när du kör den första kodcellen. Du behöver inte uttryckligen skapa sessionen.
 
 
 ## <a name="run-queries-on-the-dataframe"></a>Köra frågor i dataramen
@@ -68,12 +68,10 @@ När tabellen har skapats kan du köra en interaktiv fråga på datan.
 
 1. Kör följande kod i en tom cell i anteckningsboken:
 
-    ```PySpark
+    ```sql
     %%sql
     SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
     ```
-
-   Eftersom du använder en PySpark-kärna kan du nu direkt köra en interaktiv SQL-fråga i den tillfälliga tabellen **hvac**.
 
    Följande tabellutdata visas.
 
@@ -89,7 +87,7 @@ När tabellen har skapats kan du köra en interaktiv fråga på datan.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-I HDInsight lagras dina data i Azure Storage eller Azure Data Lake Store för att du på ett säkert sätt ska kunna ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används. Om du tänker arbeta med nästa självstudie direkt kan du behålla klustret.
+I HDInsight lagras dina data och Jupyter Notebooks i Azure Storage eller Azure Data Lake Store för att du på ett säkert sätt ska kunna ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används. Om du tänker arbeta med nästa självstudie direkt kan du behålla klustret.
 
 Öppna klustret i Azure Portal och välj **Ta bort**.
 

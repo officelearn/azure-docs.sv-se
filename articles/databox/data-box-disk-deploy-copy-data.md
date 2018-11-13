@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/09/2018
+ms.date: 11/01/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7bc8b3ba415f8fe701098a9fa7e51d60ffb9df4e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 807453d6af67fd2dccf06a1b4a2beaca47dc865a
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092464"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913830"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Självstudie: Kopiera data till en Azure Data Box-disk och verifiera
 
@@ -31,14 +31,15 @@ I den här guiden får du lära dig att:
 Innan du börjar ska du kontrollera att:
 - Du har slutfört [självstudien Installera och konfigurera Azure Data Box Disk](data-box-disk-deploy-set-up.md).
 - Diskarna låses upp och ansluts till en klientdator.
-- Klientdatorn som används till att kopiera data till diskarna måste köra ett [operativsystem som stöds](data-box-disk-system-requirements.md).
+- Klientdatorn som används till att kopiera data till diskarna måste köra ett [operativsystem som stöds](data-box-disk-system-requirements.md##supported-operating-systems-for-clients).
+- Se till att rätt lagringstyp för dina data matchar [lagringstyper som stöds](data-box-disk-system-requirements.md#supported-storage-types).
 
 
 ## <a name="copy-data-to-disks"></a>Kopiera data till diskar
 
 Utför stegen nedan för att ansluta och kopiera data från din dator till Data Box-disken.
 
-1. Visa innehållet på den upplåsta enheten. 
+1. Visa innehållet på den upplåsta enheten.
 
     ![Visa enhetens innehåll](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
  
@@ -229,7 +230,7 @@ När datakopieringen är klar är nästa steg att verifiera data.
 
 Verifiera data med hjälp av följande steg.
 
-1. Kör `DataBoxDiskValidation.cmd` validering av kontrollsumma i mappen *AzureImportExport* för din enhet. 
+1. Kör `DataBoxDiskValidation.cmd` för validering av kontrollsumma i mappen *DataBoxDiskImport* för din enhet. 
     
     ![Utdata för Data Box Disk-valideringsverktyget](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 

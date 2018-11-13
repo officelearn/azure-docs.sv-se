@@ -7,16 +7,16 @@ ms.component: dsc
 keywords: dsc, configuration, automation
 author: KrisBash
 ms.author: krbash
-ms.date: 12/17/2017
+ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 959171963bcdc721c81823fcf4f9769174b32636
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 7a9e394213ef40b995cb048c71f14a190e5e7970
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34053723"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243700"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Konfigurera en virtuell Linux-dator med DSC (Desired State Configuration)
 
@@ -30,20 +30,20 @@ Följande krävs för att slutföra den här snabbstarten:
 * Ett Azure Automation-konto. Instruktioner om hur du skapar ett Kör som-konto för Azure Automation finns i [Azure Kör som-konto](automation-sec-configure-azure-runas-account.md).
 * En virtuell Azure Resource Manager-dator (inte klassisk) med Red Hat Enterprise Linux, CentOS eller Oracle Linux. Instruktioner om hur du skapar en virtuell dator finns i [Skapa din första virtuella Linux-dator i Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 
-## <a name="log-in-to-azure"></a>Logga in på Azure
-Logga in till Azure på https://portal.azure.com
+## <a name="sign-in-to-azure"></a>Logga in på Azure
+Logga in i Azure på https://portal.azure.com
 
 ## <a name="onboard-a-virtual-machine"></a>Registrera en virtuell dator
 Det finns många olika metoder för att registrera en dator och aktivera DSC. I den här snabbstarten beskrivs registrering via ett Automation-konto. Du kan läsa mer om olika metoder för att registrera datorerna med DSC genom att läsa artikeln om [registrering](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding).
 
 1. I det vänstra fönstret i Azure Portal väljer du **Automation-konton**. Om det inte visas i det vänstra fönstret klickar du på **Alla tjänster** och söker efter den resulterande vyn.
 1. Välj ett Automation-konto i listan.
-1. I det vänstra fönstret i Automation-kontot väljer du **DSC-noder**.
-1. Klicka på menyalternativet för **Lägg till virtuell Azure-dator**
-1. Leta reda på den virtuella dator du vill aktivera DSC för. Du kan använda sökfältet och filteralternativ för att hitta en viss virtuell dator.
-1. Klicka på den virtuella datorn och välj sedan **Anslut**
-1. Välj lämpliga DSC-inställningar för den virtuella datorn. Om du redan har förberett en konfiguration kan du ange den som *Nodkonfigurationsnamn*. Du kan ställa in [konfigurationsläget](https://docs.microsoft.com/powershell/dsc/metaconfig) på att styra datorns konfigurationsbeteende.
-1. Klicka på **OK**
+1. I det vänstra fönstret i Automation-kontot väljer du **Tillståndskonfiguration (DSC)**.
+2. Klicka på **Lägg till** att öppna sidan för att välja virtuell dator.
+3. Leta reda på den virtuella dator du vill aktivera DSC för. Du kan använda sökfältet och filteralternativ för att hitta en viss virtuell dator.
+4. Klicka på den virtuella datorn och välj sedan **Anslut**
+5. Välj lämpliga DSC-inställningar för den virtuella datorn. Om du redan har förberett en konfiguration kan du ange den som *Nodkonfigurationsnamn*. Du kan ställa in [konfigurationsläget](https://docs.microsoft.com/powershell/dsc/metaconfig) på att styra datorns konfigurationsbeteende.
+6. Klicka på **OK**
 
 ![Registrera en virtuell Azure-dator med DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
 
@@ -101,10 +101,10 @@ configuration LAMPServer {
 
 Importera konfigurationen:
 
-1. I det vänstra fönstret i Automation-kontot väljer du **DSC-konfigurationer**.
-1. Klicka på menyalternativet **Lägg till en konfiguration**
-1. Välj den *konfigurationsfil* som du sparade i det föregående steget
-1. Klicka på **OK**
+1. I det vänstra fönstret i Automation-kontot väljer du **Tillståndskonfiguration (DSC)** och klickar sedan på fliken **Konfigurationer**.
+2. Klicka på **+ Lägg till**
+3. Välj den *konfigurationsfil* som du sparade i det föregående steget
+4. Klicka på **OK**
 
 ## <a name="compile-a-configuration"></a>Kompilera en konfiguration
 
@@ -112,18 +112,16 @@ DSC-konfigurationer måste kompileras till en nodkonfiguration (MOF-dokument) in
 
 Kompilera konfigurationen:
 
-1. I det vänstra fönstret i Automation-kontot väljer du **DSC-konfigurationer**.
+1. I det vänstra fönstret i Automation-kontot väljer du **Tillståndskonfiguration (DSC)** och klickar sedan på fliken **Konfigurationer**.
 1. Välj konfigurationen du importerade i det föregående steg, "LAMPServer"
 1. I menyalternativen klickar du på **Kompilera** och sedan på **Ja**
 1. I konfigurationsvyn visas ett nytt *kompileringsjobb* i kö. När jobbet har slutförts kan du gå vidare till nästa steg. Om det finns några fel kan du klicka på kompileringsjobbet och få information.
-
-![Status för kompileringsjobbet](./media/automation-quickstart-dsc-configuration/dsc-compilationjob.png)
 
 ## <a name="assign-a-node-configuration"></a>Tilldela en nodkonfiguration
 
 En kompilerad *nodkonfiguration* kan tilldelas till DSC-noder. Tilldelningen tillämpar konfigurationen på datorn och övervakar (eller korrigerar automatiskt) avvikelser från den konfigurationen.
 
-1. I det vänstra fönstret i Automation-kontot väljer du **DSC-noder**
+1. I det vänstra fönstret i Automation-kontot väljer du **Tillståndskonfiguration (DSC) och klickar sedan på fliken **Noder**.
 1. Välj den nod du vill tilldela en konfiguration till
 1. Klicka på **Tilldela nodkonfiguration**
 1. Välj *nodkonfigurationen* - **LAMPServer.localhost** – för att tilldela och klicka på **OK**
@@ -133,7 +131,7 @@ En kompilerad *nodkonfiguration* kan tilldelas till DSC-noder. Tilldelningen til
 
 ## <a name="viewing-node-status"></a>Visa nodstatus
 
-Statusen för alla hanterade noder finns i vyn **DSC-noder** i Automation-kontot. Du kan filtrera visningen efter status, nodkonfiguration och namnsökning. 
+Status för alla hanterade noder finns i **Tillståndskonfiguration (DSC)** och under fliken **Noder** i Automation-kontot. Du kan filtrera visningen efter status, nodkonfiguration och namnsökning.
 
 ![DSC-nodstatus](./media/automation-quickstart-dsc-configuration/dsc-node-status.png)
 

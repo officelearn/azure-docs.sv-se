@@ -9,14 +9,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2018
+ms.date: 11/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4c3ac2eed6d7304be136fb20e7d9b8322658159a
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: bc058baa01021f94cf5906dd492153a8d367cc90
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39482574"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51033987"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-and-filter-for-a-resource-with-azure-cli"></a>Prenumerera på händelser för en resursgrupp och filtrera efter en resurs med Azure CLI
 
@@ -26,27 +26,15 @@ Det här skriptet skapar en Event Grid-prenumeration på händelser för en resu
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Exempelskript
+Förhandsversionen av exempelskript kräver Event Grid-tillägget. Installera genom att köra `az extension add --name eventgrid`.
 
-```azurecli
-#!/bin/bash
+## <a name="sample-script---stable"></a>Exempelskript – stabil
 
-# Provide an endpoint for handling the events.
-myEndpoint="<endpoint URL>"
+[!code-azurecli[main](../../../cli_scripts/event-grid/filter-events/filter-events.sh "Subscribe to Azure subscription")]
 
-# Select the Azure subscription that contains the resource group.
-az account set --subscription "Contoso Subscription"
+## <a name="sample-script---preview-extension"></a>Exempelskript – förhandsversion av tillägg
 
-# Get the resource ID to filter events
-resourceId=$(az resource show --name demoSecurityGroup --resource-group myResourceGroup --resource-type Microsoft.Network/networkSecurityGroups --query id --output tsv)
-
-# Subscribe to the resource group. Provide the name of the resource group you want to subscribe to.
-az eventgrid event-subscription create \
-  --name demoSubscriptionToResourceGroup \
-  --resource-group myResourceGroup \
-  --endpoint $myEndpoint \
-  --subject-begins-with $resourceId
-```
+[!code-azurecli[main](../../../cli_scripts/event-grid/filter-events-preview/filter-events-preview.sh "Subscribe to Azure subscription")]
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
@@ -55,7 +43,7 @@ Det här skriptet använder följande kommandon för att skapa händelseprenumer
 | Kommando | Anteckningar |
 |---|---|
 | [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | Skapa en Event Grid-prenumeration. |
-
+| [az eventgrid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create) – version av tillägg | Skapa en Event Grid-prenumeration. |
 
 ## <a name="next-steps"></a>Nästa steg
 

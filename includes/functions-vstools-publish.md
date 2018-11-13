@@ -5,15 +5,15 @@ services: functions
 author: ggailey777
 ms.service: functions
 ms.topic: include
-ms.date: 08/26/2018
+ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: f3fa6c75fdaf30d13231bc3072bd671614c9a668
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: b290cada86401d91313939a7673998810cb82551
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650756"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51028155"
 ---
 1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**.
 
@@ -22,6 +22,9 @@ ms.locfileid: "49650756"
     ![Välj ett publiceringsmål](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
 
     När du aktiverar **Kör från ZIP** körs funktionsappen i Azure direkt från distributionspaketet. Mer information finns i [Kör dina Azure-funktioner från en paketfil](../articles/azure-functions/run-functions-from-deployment-package.md).
+     
+    >[!CAUTION]
+    >När du väljer **Välj befintliga** skrivs alla filer i den befintliga funktionsappen i Azure över från det lokala projektet. Använd bara det här alternativet när du publicerar igen i en befintlig funktionsapp.
 
 3. Om du inte redan har anslutit Visual Studio till ditt Azure-konto väljer du **Lägg till ett konto**.
 

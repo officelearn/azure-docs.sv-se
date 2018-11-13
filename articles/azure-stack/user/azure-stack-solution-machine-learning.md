@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 28ff8dbf073596e5f9565c56ae903af6af68f3e2
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 59696245dc33302c65aee5a39dc856926347b8fb
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353724"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569122"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Självstudier: Skapa en edge-machine learning-lösning med Azure och Azure Stack
 
@@ -1175,7 +1175,7 @@ Använd följande kommandon för att generera en autentiseringsnyckel i Windows-
 
 ### <a name="create-a-service-principal-in-azure-ad"></a>Skapa ett huvudnamn för tjänsten i Azure AD
 
-1.  Logga in på den globala [ *Azure-portalen*](http://www.poartal.azure.com/).
+1.  Logga in på den globala [ *Azure-portalen*](http://portal.azure.com/).
 
 2.  Logga in med Azure AD-klient som är associerade med Azure Stack-instans.
 

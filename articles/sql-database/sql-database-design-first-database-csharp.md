@@ -11,15 +11,15 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
 manager: craigg-msft
-ms.date: 06/07/2018
-ms.openlocfilehash: 504fae03e06632f5960bfe0761cc0167b9e1d3fb
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 11/01/2018
+ms.openlocfilehash: 82cf0303019d2cbb620c442fd6f750f733930f84
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465228"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912347"
 ---
-# <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Utforma en Azure SQL databas och anslut med C&#x23; och ADO.NET
+# <a name="tutorial-design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Självstudie: Utforma en Azure SQL databas och anslut med C&#x23; och ADO.NET
 
 Azure SQL Database är en relationsdatabas-som-tjänst (DBaaS) som bygger på Microsoft Cloud (Azure). I de här självstudierna får du lära dig att använda Azure-portalen och ADO.NET med Visual Studio för att:
 

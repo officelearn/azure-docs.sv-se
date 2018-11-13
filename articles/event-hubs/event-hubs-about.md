@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 08/01/2018
 ms.author: shvija
-ms.openlocfilehash: 5493819efb32fa594cf27695b2ab5d1273225756
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: f3f9abfb8373e7257237b39d16dfb3f36259ddd5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429906"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281922"
 ---
 # <a name="what-is-azure-event-hubs"></a>Vad är Azure Event Hubs?
 
@@ -60,7 +60,7 @@ Med Event Hubs kan du börja med dataströmmar i megabytestorlek och växa till 
 
 Med [Event Hubs för Apache Kafka-ekosystem](event-hubs-for-kafka-ecosystem-overview.md) kan [Apache Kafka-klienter och -program (1.0 och senare)](https://kafka.apache.org/) kommunicera med Event Hubs utan hantering av kluster.
  
-Med ett brett ekosystem som är tillgängligt i olika [språk (.NET, Java, Python, Go och Node.js)](https://github.com/Azure/azure-event-hubs) kan du enkelt börjar bearbeta dataströmmarna från Event Hubs. Alla klientspråk som stöds ger lågnivåintegrering.
+Med ett brett ekosystem som är tillgängligt i olika [språk (.NET, Java, Python, Go och Node.js)](https://github.com/Azure/azure-event-hubs) kan du enkelt börjar bearbeta dataströmmarna från Event Hubs. Alla klientspråk som stöds ger lågnivåintegrering. Ekosystemet innehåller också sömlös integrering med Azure-tjänster som Stream Analytics och Azure Functions så att du kan skapa arkitekturer utan server.
 
 ## <a name="key-architecture-components"></a>Nyckelkomponenter i arkitektur
 

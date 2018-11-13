@@ -1,5 +1,5 @@
 ---
-title: Använda Azure Database Migration Service för att utföra en migrering av SQL Server till Azure SQL Database online | Microsoft Docs
+title: 'Självstudie: Använda Azure Database Migration Service för att utföra en migrering av SQL Server till Azure SQL Database online | Microsoft Docs'
 description: Lär dig hur du gör en onlinemigrering från SQL Server lokalt till Azure SQL Database genom att använda Azure Database Migration Service.
 services: dms
 author: pochiraju
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: adf9f40e351ca642ca3e8eabe1e5eb7850f1f00d
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: be6a5c444444c9482b921ea7fd68bf26ac10a2a2
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945543"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958941"
 ---
-# <a name="migrate-sql-server-to-azure-sql-database-online-using-dms"></a>Migrera SQL Server till Azure SQL Database online med DMS
+# <a name="tutorial-migrate-sql-server-to-azure-sql-database-online-using-dms"></a>Självstudie: Migrera SQL Server till Azure SQL Database online med DMS
 Du kan använda Azure Database Migration Service till att migrera databaserna från en lokal SQL Server-instans till [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) med minimal avbrottstid. I den här självstudiekursen migrerar du databasen **Adventureworks2012** återställt till en lokal instans av SQL Server 2016 (eller senare) till Azure SQL Database genom att använda Azure Database Migration Service.
 
 I den här guiden får du lära dig att:

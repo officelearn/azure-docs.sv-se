@@ -12,12 +12,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 07a079e00963f1f5aff96369649e2e4fb248aae0
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: fdee336298212f2536c2408e49f40e25e2c24161
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986006"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227696"
 ---
 # <a name="create-your-first-function-from-the-command-line"></a>Skapa din första funktion från kommandoraden
 
@@ -108,17 +108,19 @@ När funktionsappen har skapats visas information som liknar följande exempel i
 }
 ```
 
-## <a name="configure-the-function-app"></a>Konfigurera funktionsappen
+### <a name="configure-the-function-app-nodejs"></a>Konfigurera funktionsappen (Node.js)
 
-Core Tools version 2.x skapar projekt med hjälp av mallar för Azure Functions 2.x-körtiden. Därför måste du se till att version 2.x-körtiden används i Azure. Om du anger programinställningen för `FUNCTIONS_WORKER_RUNTIME` som `~2` så fästs funktionsappen på den senaste 2.x-versionen. Ange programinställningar med kommandot [az functionapp config appsettings set](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set).
+När du skapar en JavaScript-funktionsapp är det viktigt att fokusera på rätt Node.js-version. Version 2.x av Functions-körmiljön kräver Node.js version 8.x. Programinställningen `WEBSITE_NODE_DEFAULT_VERSION` styr vilken version av Node.js som används av funktionsappen i Azure. Använd kommandot [az functionapp config appsettings set](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set) för att ange Node.js-version `8.11.1`.
 
 I följande Azure CLI-kommando är <app_name> namnet på funktionsappen.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <app_name> \
 --resource-group myResourceGroup \
---settings FUNCTIONS_WORKER_RUNTIME=~2
+--settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
 ```
+
+Kontrollera den nya inställningen i utdata.
 
 [!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 
@@ -127,3 +129,4 @@ az functionapp config appsettings set --name <app_name> \
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
 [!INCLUDE [functions-quickstart-next-steps-cli](../../includes/functions-quickstart-next-steps-cli.md)]
+

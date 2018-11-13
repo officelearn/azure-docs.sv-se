@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: fd9dfaa2042cae0923c919f4e76d7b59a170918e
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: c46a9f827bdeeaf7a2b9897b262484f64f83b9a8
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46466038"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283469"
 ---
 # <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Självstudie: Få åtkomst till Azure Data Lake Storage Gen2-data (förhandsversion) med Azure Databricks med hjälp av Spark
 
-I den här självstudien får du lära dig hur du kör Spark-frågor i ett Azure Databricks-kluster för att fråga efter data i ett Azure Data Lake Storage Gen2-konto (förhandsversion).
+I den här självstudien får du lära dig hur du kör Spark-frågor i ett Azure Databricks-kluster för att fråga efter data i ett Azure-lagringskonto med förhandsversionen av Azure Data Lake Storage Gen2 aktiverad.
 
 > [!div class="checklist"]
 > * Skapa ett Databricks-kluster
@@ -31,9 +31,9 @@ Den här självstudien visar hur du använder och frågar efter flyginformation 
 > [!NOTE]
 > Klicka på kryssrutan **Prezipped file** (Förkomprimerad fil) för att markera alla datafält. Nedladdningen är många GB, men den här mängden data krävs för att kunna göra analyser.
 
-## <a name="create-an-azure-data-lake-storage-gen2-account"></a>Skapa ett Azure Data Lake Storage Gen2-konto
+## <a name="create-an-azure-storage-account-with-analytic-capabilities"></a>Skapa ett Azure Storage-konto med analysfunktioner
 
-Börja med att skapa ett nytt [Azure Data Lake Storage Gen2-konto](quickstart-create-account.md) och ge det ett unikt namn. Gå sedan till lagringskontot för att hämta konfigurationsinställningar.
+Börja med att skapa ett nytt [lagringskonto med analysfunktioner](quickstart-create-account.md) och ge det unikt namn. Gå sedan till lagringskontot för att hämta konfigurationsinställningar.
 
 1. Under **Inställningar** klickar du på **Åtkomstnycklar**.
 2. Klicka på **Kopiera** bredvid **key1** för att kopiera nyckelvärdet.
@@ -137,11 +137,12 @@ dbutils.fs.help()
 dbutils.fs.put(source + "/temp/1.txt", "Hello, World!", True)
 dbutils.fs.ls(source + "/temp/parquet/flights")
 ```
-Med dessa kodexempel har du utforskat den hierarkiska strukturen för HDFS med hjälp av data som lagras i ett Azure Data Lake Storage Gen2-konto.
+
+Med dessa kodexempel har du utforskat den hierarkiska strukturen för HDFS med hjälp av data som lagras i ett lagringskonto med Azure Data Lake Storage Gen2 aktiverat.
 
 ## <a name="query-the-data"></a>Fråga efter data
 
-Nu kan du börja fråga efter data som du överfört till Azure Data Lake Storage. Ange vart och ett av följande kodblock i **Cmd 1** och tryck på **Cmd + Retur** för att köra Python-skriptet.
+Därefter kan du börja fråga efter de data du har laddat upp till ditt lagringskonto. Ange vart och ett av följande kodblock i **Cmd 1** och tryck på **Cmd + Retur** för att köra Python-skriptet.
 
 ### <a name="simple-queries"></a>Exempelfrågor
 

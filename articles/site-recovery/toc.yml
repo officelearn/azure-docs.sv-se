@@ -60,7 +60,7 @@ items:
       href: azure-to-azure-tutorial-migrate.md
 - name: Begrepp
   items:
-  - name: Vanliga frågor och svar (FAQ)
+  - name: Vanliga frågor om Site Recovery
     href: site-recovery-faq.md
   - name: Om haveriberedskap för virtuell Azure-dator till Azure
     items:
@@ -80,6 +80,8 @@ items:
       href: vmware-azure-common-questions.md
     - name: Stödmatris
       href: vmware-physical-azure-support-matrix.md
+    - name: Supportkrav för distribution av konfigurationsserver
+      href: vmware-azure-configuration-server-requirements.md
     - name: Arkitektur för VMware till Azure
       href: vmware-azure-architecture.md
     - name: Platsalternativ för återställning efter fel från Azure till VMware
@@ -134,9 +136,9 @@ items:
       items:
       - name: Förbereda nätverk för haveriberedskap för virtuella Azure-datorer
         href: azure-to-azure-about-networking.md
-      - name: Förbereda nätverksmappning för haveriberedskap för virtuella Azure-datorer
+      - name: Konfigurera nätverksmappning och behålla IP-adresser efter redundans
         href: azure-to-azure-network-mapping.md
-      - name: Konfigurera IP-adresser för redundans
+      - name: Exempel för att bevara IP-adresser efter redundans
         href: site-recovery-retain-ip-azure-vm-failover.md
       - name: Integrera ExpressRoute med Azure VM-haveriberedskap
         href: azure-vm-disaster-recovery-with-expressroute.md
@@ -148,14 +150,6 @@ items:
         href: azure-to-azure-how-to-enable-replication-ade-vms.md
       - name: Skydda virtuella Azure-datorer igen efter en redundansväxling
         href: azure-to-azure-how-to-reprotect.md
-    - name: Felsökning
-      items:
-      - name: Felsöka replikering från Azure till Azure
-        href: azure-to-azure-troubleshoot-errors.md
-      - name: Felsöka pågående replikering
-        href: azure-to-azure-troubleshoot-replication.md
-      - name: Felsöka Azure Site Recovery-tillägg
-        href: site-recovery-extension-troubleshoot.md
       - name: Konfigurera haveriberedskap för virtuella Azure-datorer efter migrering till Azure
         href: azure-to-azure-replicate-after-migration.md
     - name: Hantera
@@ -188,10 +182,8 @@ items:
         href: vmware-azure-set-up-process-server-scale.md
     - name: Konfigurera haveriberedskap
       items:
-      - name: Konfigurera källmiljön
+      - name: Konfigurera källmiljön/konfigurationsservern
         href: vmware-azure-set-up-source.md
-      - name: Distribuera konfigurationsservern för virtuella VMware-datorer
-        href: vmware-azure-deploy-configuration-server.md
       - name: Konfigurera målmiljön
         href: vmware-azure-set-up-target.md
       - name: Konfigurera replikeringsinställningar
@@ -390,14 +382,18 @@ items:
     href: site-recovery-monitor-and-troubleshoot.md
   - name: Virtuella Azure-datorer
     items:
-    - name: Felsöka replikering från Azure till Azure
+    - name: Felsöka replikeringsfel för virtuella Azure-datorer
       href: azure-to-azure-troubleshoot-errors.md
+    - name: Felsöka pågående replikering för virtuella Azure-datorer
+      href: azure-to-azure-troubleshoot-replication.md
     - name: Felsöka mobilitetstjänsten för virtuella Azure-datorer
       href: site-recovery-extension-troubleshoot.md
   - name: VMware/fysisk server
     items:
     - name: Felsöka replikering från VMware till Azure
       href: vmware-azure-troubleshoot-replication.md
+    - name: Felsöka konfigurationsservern
+      href: vmware-azure-troubleshoot-configuration-server.md
     - name: Felsöka push-installation av mobilitetstjänsten för virtuella VMware-datorer/fysiska servrar
       href: vmware-azure-troubleshoot-push-install.md
     - name: Felsöka redundans till Azure
@@ -438,9 +434,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Tjänstuppdateringar
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 770aa6a07df6900b10558ebbb7718c248296ee51
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: d0d5ff955caa7cf9206973f0411f4170ba3bbc35
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288092"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566363"

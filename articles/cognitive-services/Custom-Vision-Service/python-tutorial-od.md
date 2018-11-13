@@ -1,57 +1,52 @@
 ---
-title: 'Självstudie: Skapa ett objektidentifieringsprojekt med Custom Vision SDK för Python – Custom Vision Service'
+title: 'Snabbstart: Skapa ett objektidentifieringsprojekt med Custom Vision SDK för Python'
 titlesuffix: Azure Cognitive Services
-description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna ditt projekt och gör en förutsägelse med hjälp av standardslutpunkten.
+description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna ditt projekt och identifiera objekt med hjälp av Python SDK.
 services: cognitive-services
 author: areddish
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: tutorial
-ms.date: 05/03/2018
+ms.topic: quickstart
+ms.date: 11/5/2018
 ms.author: areddish
-ms.openlocfilehash: 36b283965766130e86e079c807139998cd01c8a6
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 35548284302dead41df1a4b9bf6218d842214e11
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958541"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278760"
 ---
-# <a name="tutorial-create-an-object-detection-project-with-the-custom-vision-sdk-for-python"></a>Självstudie: Skapa ett objektidentifieringsprojekt med Custom Vision SDK för Python
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>Snabbstart: Skapa ett objektidentifieringsprojekt med Custom Vision Python SDK
 
-Utforska ett grundläggande Python-skript som använder API för visuellt innehåll för att skapa ett projekt för objektidentifiering. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda slutpunkten för att testa en bild programmatiskt. Använd det här exemplet med öppen källkod som en mall för att skapa din egen app med hjälp av API för Custom Vision.
+Den här artikeln innehåller information och exempelkod som hjälper dig att komma igång med att använda Custom Vision-SDK med Python för att skapa en objektidentifieringsmodell. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda slutpunkten för att testa en bild programmatiskt. Använd det här exemplet som en mall för att skapa ditt eget Python-program.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att kunna använda självstudiekursen behöver du göra följande:
+- [Python 2.7+ eller 3.5+](https://www.python.org/downloads/)
+- [pip](https://pip.pypa.io/en/stable/installing/)-verktyget
 
-- Installera Python 2.7+ eller Python 3.5+.
-- Installera pip.
+## <a name="install-the-custom-vision-sdk"></a>Installera Custom Vision-SDK
 
-### <a name="platform-requirements"></a>Plattformskrav
-Det här exemplet har utvecklats för Python.
+Kör följande kommando i PowerShell för att installera Custom Vision Service SDK för Python:
 
-### <a name="get-the-custom-vision-sdk"></a>Hämta Custom Vision SDK
-
-Om du vill skapa det här exemplet måste du installera Python SDK för API för Custom Vision:
-
-```
+```PowerShell
 pip install azure-cognitiveservices-vision-customvision
 ```
 
 Du kan ladda ned bilderna med [Python-exemplen](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples).
 
-## <a name="step-1-get-the-training-and-prediction-keys"></a>Steg 1: Hämta utbildningen och förutsägelsenycklarna
+[!INCLUDE [get-keys](includes/get-keys.md)]
 
-Om du vill ha nycklarna som används i det här exemplet kan du gå till [Custom Vision-sidan](https://customvision.ai) och välja __kugghjulsikonen__ i det övre högra hörnet. Kopiera värdena från fälten __Utbildningsnyckel__ och __Förutsägelsenyckel__ i avsnittet __Konton__.
+[!INCLUDE [python-get-images](includes/python-get-images.md)]
 
-![Bild av nyckel-UI:et](./media/python-tutorial/training-prediction-keys.png)
+## <a name="add-the-code"></a>Lägga till koden
 
-Det här exemplet används bilder från [den här platsen](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images).
+Skapa en ny fil med namnet *sample.py* i den projektkatalog du vill använda.
 
-## <a name="step-2-create-a-custom-vision-service-project"></a>Steg 2: Skapa ett projekt för Custom Vision Service
+### <a name="create-the-custom-vision-service-project"></a>Skapa Custom Vision Service-projektet
 
-Om du vill skapa ett nytt projekt för Custom Vision Service skapar du en skriptfil, sample.py, och lägger till följande innehåll. Observera att skillnaden mellan att skapa ett projekt för objektidentifiering och bildklassificering är den domän som har angetts i create_project-anropet.
+Lägg till följande kod i skriptet för att skapa ett nytt Custom Vision Service-projekt. Infoga dina prenumerationsnycklar i lämpliga definitioner. Observera att skillnaden mellan att skapa ett projekt för objektidentifiering och för bildklassificering är den domän som anges i anropet av **create_project**.
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import training_api
@@ -71,9 +66,9 @@ print ("Creating project...")
 project = trainer.create_project("My Detection Project", domain_id=obj_detection_domain.id)
 ```
 
-## <a name="step-3-add-tags-to-your-project"></a>Steg 3: Lägg till taggar i projektet
+### <a name="create-tags-in-the-project"></a>Skapa taggar i projektet
 
-Infoga följande kod för att skapa två taggar för att lägga till taggar i projektet:
+Om du vill skapa klassificeringstaggar i projektet lägger du till följande kod i slutet av *sample.py*:
 
 ```Python
 # Make two tags in the new project
@@ -81,14 +76,13 @@ fork_tag = trainer.create_tag(project.id, "fork")
 scissors_tag = trainer.create_tag(project.id, "scissors")
 ```
 
-## <a name="step-4-upload-images-to-the-project"></a>Steg 4: Ladda upp bilder till projektet
+### <a name="upload-and-tag-images"></a>Ladda upp och tagga bilder
 
-Du måste ladda upp bild, regioner och taggar för objektidentifieringsprojekt. Regionen är i normaliserade koordinater och anger platsen för det taggade objektet.
+När du taggar bilder i objektidentifieringsprojekt måste du bestämma region för varje taggat objekt med hjälp av normaliserade koordinater.
 
-Infoga följande kod efter att taggen har skapats för att lägga till bilder, region och taggar i projektet. Observera att regionerna för den här självstudien är hårdkodade i linje med koden. Regionerna anger avgränsningsfältet i normaliserade koordinater.
+För att lägga till bilder, taggar och regioner i projektet lägger du till följande kod efter att taggarna har skapats. Observera att regionerna för den här självstudien är hårdkodade i linje med koden. Regionerna specificerar avgränsningsfältet i normaliserade koordinater, och koordinaterna anges i följande ordning: vänster, överst, bredd, höjd.
 
 ```Python
-
 fork_image_regions = {
     "fork_1": [ 0.145833328, 0.3509314, 0.5894608, 0.238562092 ],
     "fork_2": [ 0.294117659, 0.216944471, 0.534313738, 0.5980392 ],
@@ -134,7 +128,10 @@ scissors_image_regions = {
     "scissors_19": [ 0.333333343, 0.0274019931, 0.443627447, 0.852941155 ],
     "scissors_20": [ 0.158088237, 0.04047389, 0.6691176, 0.843137264 ]
 }
+```
+Använd sedan den här mappningen av associationer för att ladda upp varje exempelbild med dess regionkoordinater. Lägg till följande kod.
 
+```Python
 # Go through the data table above and create the images
 print ("Adding images...")
 tagged_images_with_regions = []
@@ -157,12 +154,9 @@ for file_name in scissors_image_regions.keys():
 trainer.create_images_from_files(project.id, images=tagged_images_with_regions)
 ```
 
-## <a name="step-5-train-the-project"></a>Steg 5: Träna projektet
+### <a name="train-the-project"></a>Utbilda projektet
 
-Nu när du har lagt till taggar och bilder i projektet, kan du träna det: 
-
-1. Infoga följande kod. Detta skapar den första iterationen i projektet. 
-2. Markera den här iterationen som standarditeration.
+Den här koden skapar den första iterationen i projektet och markerar den som standardinteration. Standarditerationen speglar versionen av den modell som svarar på förutsägelsebegäranden. Du bör uppdatera detta varje gång du tränar om modellen.
 
 ```Python
 import time
@@ -179,12 +173,9 @@ trainer.update_iteration(project.id, iteration.id, is_default=True)
 print ("Done!")
 ```
 
-## <a name="step-6-get-and-use-the-default-prediction-endpoint"></a>Steg 6: Hämta och använd standardslutpunkten för förutsägelse
+### <a name="get-and-use-the-default-prediction-endpoint"></a>Hämta och använda standardslutpunkten för förutsägelse
 
-Nu är du redo att använda modellen för förutsägelse: 
-
-1. Hämta slutpunkten som är associerad med standarditeration. 
-2. Skicka en testbild till projektet med denna slutpunkt.
+Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förutsägelsen lägger du till följande kod i slutet av filen:
 
 ```Python
 from azure.cognitiveservices.vision.customvision.prediction import prediction_endpoint
@@ -203,10 +194,21 @@ for prediction in results.predictions:
     print ("\t" + prediction.tag_name + ": {0:.2f}%".format(prediction.probability * 100), prediction.bounding_box.left, prediction.bounding_box.top, prediction.bounding_box.width, prediction.bounding_box.height)
 ```
 
-## <a name="step-7-run-the-example"></a>Steg 7: kör exemplet
+## <a name="run-the-application"></a>Köra programmet
 
-Kör lösningen. Förutsägelseresultatet visas i konsolen.
+Kör *sample.py*.
 
-```
+```PowerShell
 python sample.py
 ```
+
+Programmets utdata bör visas i konsolen. Du kan sedan kontrollera att testbilden (som finns i **samples/vision/images/Test**) har taggats på rätt sätt och att regionidentifieringen är korrekt.
+
+[!INCLUDE [clean-od-project](includes/clean-od-project.md)]
+
+## <a name="next-steps"></a>Nästa steg
+
+Nu har du sett hur varje steg i processen för objektidentifiering kan utföras med kod. Det här exemplet kör en enstaka träningsiteration, men ofta måste du träna och testa modellen flera gånger för att kunna göra den mer exakt. Följande guide behandlar bildklassificering, men principerna liknar dem som gäller för objektidentifiering.
+
+> [!div class="nextstepaction"]
+> [Testa och träna om en modell](test-your-model.md)

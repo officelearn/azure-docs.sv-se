@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/18/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 33fc8a3822def68cc0baad4670233f57044d1985
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a3c35057af883eb790c44b3547072031eaf4ad2f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408415"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962018"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Självstudie: Konfigurera anslutna Azure Active Directory-hybridenheter manuellt 
 
@@ -504,6 +504,9 @@ Om några av dina domänanslutna enheter är äldre Windows-enheter måste du:
  
 - Lägg till slutpunkten för Azure AD-enhetsautentisering till de lokala intranätzonerna för att undvika certifikatuppmaningar när enheten ska autentiseras.
 
+- Kontrollera äldre Windows-enheter 
+
+
 ### <a name="set-policy-in-azure-ad-to-enable-users-to-register-devices"></a>Ställa in en princip i Azure AD för att göra det möjligt för användare att registrera enheter
 
 Om du vill registrera äldre Windows-enheter måste du se till att inställningarna tillåter användarna att registrera enheter i Azure AD. Du hittar den här informationen i Azure-portalen under:
@@ -551,6 +554,12 @@ I AD FS måste du lägga till en utfärdanderegel för transformering som klarar
 Om du vill undvika certifikatuppmaningar när användare som registrerar enheter ska autentiseras till Azure AD kan du skicka en princip till dina domänanslutna enheter. Det gör du för att lägga till följande webbadresser till den lokala intranätzonen i Internet Explorer:
 
 `https://device.login.microsoftonline.com`
+
+
+### <a name="control-windows-down-level-devices"></a>Kontrollera äldre Windows-enheter 
+
+För att registrera äldre Windows-enheter måste du ladda ned och installera ett Windows Installer-paket (.msi) från Download Center. Klicka [här](hybrid-azuread-join-control.md#control-windows-down-level-devices) för mer information. 
+
 
 
 ## <a name="verify-joined-devices"></a>Verifiera anslutna enheter

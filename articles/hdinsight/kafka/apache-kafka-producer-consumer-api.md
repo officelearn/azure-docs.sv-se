@@ -2,19 +2,19 @@
 title: 'Självstudie: Använda Apache Kafka-producenten och konsument-API:er – Azure HDInsight '
 description: Lär dig att använda Apache Kafka-producenten och konsument-API:er med Kafka i HDInsight. I självstudien får du lära dig att använda dessa API:er med Kafka i HDInsight från ett Java-program.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: dhgoelmsft
+ms.author: dhgoel
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 04/16/2018
-ms.openlocfilehash: f757db47ff91537405b04dbc949797f5855b7952
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 11/06/2018
+ms.openlocfilehash: 2a441e3cd90eba8fc2b1201671047cfcd9d277a6
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416179"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277740"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Självstudie: Använda Apache Kafka-producenten och konsument-API:er
 
@@ -56,14 +56,14 @@ Följande miljövariabler kan konfigureras när du installerar Java och JDK på 
 
 ## <a name="set-up-your-deployment-environment"></a>Konfigurera din distributionsmiljö
 
-Den här självstudien kräver att Kafka finns i HDInsight 3.6. Information om hur du skapar en Kafka på ett HDInsight-kluster finns i dokumentet [Starta med Kafka i HDInsight](apache-kafka-get-started.md).
+Den här självstudien kräver att Apache Kafka finns i HDInsight 3.6. Information om hur du skapar en Kafka på ett HDInsight-kluster finns i dokumentet [Starta med Kafka i HDInsight](apache-kafka-get-started.md).
 
 ## <a name="understand-the-code"></a>Förstå koden
 
 Exempelprogrammet finns på [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) i underkatalogen `Producer-Consumer`. Programmet består i huvudsak av fyra filer:
 
 * `pom.xml`: Den här filen definierar projektberoenden, Java-version och paketeringsmetoder.
-* `Producer.java`: Den här filen skickar 1 miljon (1 000 000) slumpmässiga meningar till Kafka med producent-API:n.
+* `Producer.java`: Den här filen skickar slumpmässiga meningar till Kafka med producent-API:et.
 * `Consumer.java`: Den här filen använder konsument-API:n till att läsa data från Kafka och generera den till STDOUT.
 * `Run.java`: Kommandoradsgränssnittet används för att köra producent- och konsumentkoden.
 
@@ -92,160 +92,45 @@ Viktiga saker att förstå i `pom.xml`-filen är:
 
 ### <a name="producerjava"></a>Producer.java
 
-Producenten kommunicerar med värdar för Kafka-meddelandeköer (arbetarnoder) för att kunna lagra data i ett Kafka-ämne. Följande kodfragment är från `Producer.java`-filen:
+Producenten kommunicerar med värdar för Kafka-meddelandeköer (arbetarnoder) och skickar data till ett Kafka-ämne. Följande kodavsnitt är från filen [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) på [github-lagringsplatsen](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) och visar hur du anger producentegenskaperna:
 
 ```java
-package com.microsoft.example;
-
-import org.apache.kafka.clients.producer.KafkaProducer;
-import org.apache.kafka.clients.producer.ProducerRecord;
-import java.util.Properties;
-import java.util.Random;
-import java.io.IOException;
-
-public class Producer
-{
-    public static void produce(String brokers) throws IOException
-    {
-
-        // Set properties used to configure the producer
-        Properties properties = new Properties();
-        // Set the brokers (bootstrap servers)
-        properties.setProperty("bootstrap.servers", brokers);
-        // Set how to serialize key/value pairs
-        properties.setProperty("key.serializer","org.apache.kafka.common.serialization.StringSerializer");
-        properties.setProperty("value.serializer","org.apache.kafka.common.serialization.StringSerializer");
-        KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
-
-        // So we can generate random sentences
-        Random random = new Random();
-        String[] sentences = new String[] {
-                "the cow jumped over the moon",
-                "an apple a day keeps the doctor away",
-                "four score and seven years ago",
-                "snow white and the seven dwarfs",
-                "i am at two with nature"
-        };
-
-        String progressAnimation = "|/-\\";
-        // Produce a bunch of records
-        for(int i = 0; i < 1000000; i++) {
-            // Pick a sentence at random
-            String sentence = sentences[random.nextInt(sentences.length)];
-            // Send the sentence to the test topic
-            producer.send(new ProducerRecord<String, String>("test", sentence));
-            String progressBar = "\r" + progressAnimation.charAt(i % progressAnimation.length()) + " " + i;
-            System.out.write(progressBar.getBytes());
-        }
-    }
-}
+Properties properties = new Properties();
+// Set the brokers (bootstrap servers)
+properties.setProperty("bootstrap.servers", brokers);
+// Set how to serialize key/value pairs
+properties.setProperty("key.serializer","org.apache.kafka.common.serialization.StringSerializer");
+properties.setProperty("value.serializer","org.apache.kafka.common.serialization.StringSerializer");
+KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
 ```
-
-Den här koden ansluter till värdar för Kafka-meddelandeköer (arbetarnoder) och skickar sedan 1 000 000 meningar till Kafka med producent-API:n.
 
 ### <a name="consumerjava"></a>Consumer.java
 
-Konsumenten kommunicerar med värdar för Kafka-meddelandeköer (arbetarnoder) och läser posterna i en loop. Följande kodfragment är från `Consumer.java`-filen:
+Konsumenten kommunicerar med värdar för Kafka-meddelandeköer (arbetarnoder) och läser posterna i en loop. Följande kodavsnitt från filen [Consumer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Consumer.java) anger konsumentegenskaperna:
 
 ```java
-package com.microsoft.example;
+KafkaConsumer<String, String> consumer;
+// Configure the consumer
+Properties properties = new Properties();
+// Point it to the brokers
+properties.setProperty("bootstrap.servers", brokers);
+// Set the consumer group (all consumers must belong to a group).
+properties.setProperty("group.id", groupId);
+// Set how to serialize key/value pairs
+properties.setProperty("key.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
+properties.setProperty("value.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
+// When a group is first created, it has no offset stored to start reading from. This tells it to start
+// with the earliest record in the stream.
+properties.setProperty("auto.offset.reset","earliest");
 
-import org.apache.kafka.clients.consumer.KafkaConsumer;
-import org.apache.kafka.clients.consumer.ConsumerRecords;
-import org.apache.kafka.clients.consumer.ConsumerRecord;
-import java.util.Properties;
-import java.util.Arrays;
-
-public class Consumer {
-    public static void consume(String brokers, String groupId) {
-        // Create a consumer
-        KafkaConsumer<String, String> consumer;
-        // Configure the consumer
-        Properties properties = new Properties();
-        // Point it to the brokers
-        properties.setProperty("bootstrap.servers", brokers);
-        // Set the consumer group (all consumers must belong to a group).
-        properties.setProperty("group.id", groupId);
-        // Set how to serialize key/value pairs
-        properties.setProperty("key.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
-        properties.setProperty("value.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
-        // When a group is first created, it has no offset stored to start reading from. This tells it to start
-        // with the earliest record in the stream.
-        properties.setProperty("auto.offset.reset","earliest");
-        consumer = new KafkaConsumer<>(properties);
-
-        // Subscribe to the 'test' topic
-        consumer.subscribe(Arrays.asList("test"));
-
-        // Loop until ctrl + c
-        int count = 0;
-        while(true) {
-            // Poll for records
-            ConsumerRecords<String, String> records = consumer.poll(200);
-            // Did we get any?
-            if (records.count() == 0) {
-                // timeout/nothing to read
-            } else {
-                // Yes, loop over records
-                for(ConsumerRecord<String, String> record: records) {
-                    // Display record and count
-                    count += 1;
-                    System.out.println( count + ": " + record.value());
-                }
-            }
-        }
-    }
-}
+consumer = new KafkaConsumer<>(properties);
 ```
 
 I den här koden är konsumenten konfigurerad att läsa från början av ämnet (`auto.offset.reset` är inställd på `earliest`.)
 
 ### <a name="runjava"></a>Run.java
 
-`Run.java`-filen innehåller ett kommandoradsgränssnitt som antingen kör producent- eller konsumentkoden. Du måste ange värdinformationen om Kafka-meddelandeköerna som en parameter. Du kan också inkludera ett grupp-ID som används av konsumentprocessen. Om du skapar flera konsumentinstanser med samma grupp-ID, kommer de belastningsutjämna läsningen från ämnet.
-
-```java
-package com.microsoft.example;
-
-import java.io.IOException;
-import java.util.UUID;
-
-// Handle starting producer or consumer
-public class Run {
-    public static void main(String[] args) throws IOException {
-        if(args.length < 2) {
-            usage();
-        }
-
-        // Get the brokers
-        String brokers = args[1];
-        switch(args[0].toLowerCase()) {
-            case "producer":
-                Producer.produce(brokers);
-                break;
-            case "consumer":
-                // Either a groupId was passed in, or we need a random one
-                String groupId;
-                if(args.length == 3) {
-                    groupId = args[2];
-                } else {
-                    groupId = UUID.randomUUID().toString();
-                }
-                Consumer.consume(brokers, groupId);
-                break;
-            default:
-                usage();
-        }
-        System.exit(0);
-    }
-    // Display usage
-    public static void usage() {
-        System.out.println("Usage:");
-        System.out.println("kafka-example.jar <producer|consumer> brokerhosts [groupid]");
-        System.exit(1);
-    }
-}
-```
+[Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Run.java)-filen innehåller ett kommandoradsgränssnitt som antingen kör producent- eller konsumentkoden. Du måste ange värdinformationen om Kafka-meddelandeköerna som en parameter. Du kan också inkludera ett grupp-ID som används av konsumentprocessen. Om du skapar flera konsumentinstanser med samma grupp-ID, kommer de belastningsutjämna läsningen från ämnet.
 
 ## <a name="build-and-deploy-the-example"></a>Skapa och distribuera exemplet
 
@@ -289,19 +174,13 @@ public class Run {
     2. Använd följande kommandon för att hämta värdar för Kafka-meddelandeköer och Zookeeper. När du blir ombedd anger du lösenordet till klusterinloggningskontot (admin).
     
         ```bash
-        export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
         export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
         ```
 
     3. Om du vill skapa ämnet `test` använder du följande kommando:
 
         ```bash
-        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
-        ```
-    4. Du kan även använda jar-filen för att skapa ett ämne. Om du till exempel vill skapa ämnet `test2` använder du följande kommando:
-
-        ```bash
-        java -jar kafka-producer-consumer.jar create test2 $KAFKABROKERS
+        java -jar kafka-producer-consumer.jar create test $KAFKABROKERS
         ```
 
 3. Om du vill köra producenten och skriva data till ämnet, använder du följande kommando:
@@ -339,7 +218,7 @@ indow -h 'java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygr
 
 Detta kommando använder `tmux` till att dela terminalen i två kolumner. En konsument startas i varje kolumn med samma ID-värde för gruppen. När konsumenterna har läst färdigt kan du se att de bara läst en del av posterna. Använd __Ctrl + C __ två gånger för att avsluta `tmux`.
 
-Förbrukning av klienter i samma grupp hanteras via partitionerna för ämnet. För det `test`-ämne som skapades tidigare har den åtta partitioner. Om du startar åtta konsumenter läser varje konsument poster från en enda partition i ämnet.
+Förbrukning av klienter i samma grupp hanteras via partitionerna för ämnet. I det här kodexemplet har `test`-ämnet som skapades tidigare åtta partitioner. Om du startar åtta konsumenter läser varje konsument poster från en enda partition i ämnet.
 
 > [!IMPORTANT]
 > Det får inte finnas flera instanser av konsumenten i en konsumentgrupp än partitioner. I det här exemplet kan en konsumentgrupp innehålla upp till åtta konsumenter, eftersom det är antalet partitioner i ämnet. Du kan även ha flera konsumentgrupper med högst åtta konsumenter vardera.

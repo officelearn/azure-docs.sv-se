@@ -11,15 +11,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 2fc7b961df003fe05bc4ad4e49b9debb74c952fd
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 11/01/2018
+ms.openlocfilehash: 08bbe22cf0435f667e1fd065e9f747c2c9a92c94
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063242"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914183"
 ---
-# <a name="use-php-to-query-an-azure-sql-database"></a>Använd PHP för att fråga en Azure SQL-databas
+# <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Snabbstart: Använda PHP för att köra frågor mot en Azure SQL-databas
 
 Den här snabbstarten visar hur du använder [PHP](http://php.net/manual/en/intro-whatis.php) för att skapa ett program som ansluter till en Azure SQL-databas och använder Transact-SQL-instruktioner för att köra frågor mot data.
 

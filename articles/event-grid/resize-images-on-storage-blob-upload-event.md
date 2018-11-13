@@ -3,7 +3,7 @@ title: Använda Azure Event Grid till att automatisera ändra storlek på upplad
 description: Azure Event Grid kan utlösas vid blob-överföringar i Azure Storage. Du kan använda det här till att skicka bildfiler som laddats upp till Azure Storage till andra tjänster, som Azure Functions, för storleksändring och andra förbättringar.
 services: event-grid, functions
 author: ggailey777
-manager: cfowler
+manager: jpconnoc
 editor: ''
 ms.service: event-grid
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 2d94389ade02cb6e61f192e9b9e8adb8f8ceec31
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 2a60084577255b9aa88700509129b8d917c43a79
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585585"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282517"
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatisera storleksändring av överförda bilder med Event Grid
 
@@ -158,19 +158,18 @@ En händelseprenumeration anger vilka provider-genererade händelser du vill ski
 
 3. Använd de inställningar för händelseprenumerationen som anges i tabellen.
     
-    ![Skapa händelseprenumeration från funktionen i Azure-portalen](./media/resize-images-on-storage-blob-upload-event/event-subscription-create-flow.png)
+    ![Skapa händelseprenumeration från funktionen i Azure-portalen](./media/resize-images-on-storage-blob-upload-event/event-subscription-create.png)
 
     | Inställning      | Föreslaget värde  | Beskrivning                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Namn** | imageresizersub | Namn som identifierar din nya händelseprenumeration. | 
     | **Typ av ämne** |  Lagringskonton | Välj händelseprovidern för Storage-kontot. | 
     | **Prenumeration** | Din Azure-prenumeration | Som standard välj den aktuella Azure-prenumerationen.   |
     | **Resursgrupp** | myResourceGroup | Välj **Använd befintlig** och välj den resursgrupp du har använt i den här självstudien.  |
-    | **Instans** |  Ditt Blob Storage-konto |  Välj det Blob Storage-konto du skapade. |
+    | **Resurs** |  Ditt Blob Storage-konto |  Välj det Blob Storage-konto du skapade. |
     | **Händelsetyper** | Blob skapas | Avmarkera alla typer utom **Blob skapas**. Det är bara händelsetyper för `Microsoft.Storage.BlobCreated` som skickas till funktionen.| 
-    | **Typ av prenumerant** |  Web Hook |  Alternativen är Web Hook eller Event Hubs. |
+    | **Typ av prenumerant** |  genereras automatiskt |  Fördefinieras som Web Hook. |
     | **Slutpunkt för prenumerant** | genereras automatiskt | Använd den slutpunktsadress som genereras åt dig. | 
-    | **Prefixfilter** | /blobServices/default/containers/images/blobs/ | Filtrerar Storage-händelser till containern **images**.| 
+    | **Namn** | imageresizersub | Namn som identifierar din nya händelseprenumeration. | 
 
 4. Klicka på **Skapa** för att lägga till händelseprenumerationen. Då skapas en händelseprenumeration som utlöser `imageresizerfunc` när en blob läggs till i containern *images*. Funktionen återställer bildstorleken och lägger till dem i containern med *miniatyrer*.
 

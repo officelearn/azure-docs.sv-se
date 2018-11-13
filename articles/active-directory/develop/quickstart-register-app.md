@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
+ms.date: 11/02/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: e4e667c9a9490d164b9fb1c90580ceb30989a7dc
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: f0220c244bd5ed48393e2f81b7dd8a62fd0423be
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988922"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913002"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform-preview"></a>Snabbstart: Registrera ett program med Microsoft Identity Platform (förhandsversion)
 
 Företagsutvecklare och SaaS-leverantörer (software-as-a-service) kan utveckla kommersiella molntjänster och affärsprogram som kan integreras med Microsoft Identity Platform och då ger säker inloggning och behörighet till tjänsterna.
 
-Den här snabbstarten visar hur du lägger till och registrerar ett program på Azure-portalen så att det kan integreras med Microsoft Identity Platform.
+Den här snabbstarten visar hur du lägger till och registrerar ett program med **Appregistreringar (förhandsversion)** på Azure-portalen så att din app kan integreras med Microsoft Identity Platform.
 
 ## <a name="prerequisite"></a>Krav
 
@@ -59,7 +59,7 @@ För att komma igång behöver du registrera dig för förhandsversionsfunktione
 
     [![Registrera ett nytt program på Azure-portalen](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
 
-Azure AD tilldelar ett unikt program-ID till din app, och du kommer till programmets **översiktssida**. Om du vill lägga till ytterligare funktioner i programmet kan du välja andra konfigurationsalternativ inklusive varumärkesanpassning, certifikat och hemligheter, API-behörigheter och mer.
+Azure AD tilldelar ett unikt program-ID (klient) till din app, och du kommer till programmets **översiktssida**. Om du vill lägga till ytterligare funktioner i programmet kan du välja andra konfigurationsalternativ inklusive varumärkesanpassning, certifikat och hemligheter, API-behörigheter och mer.
 
 [![Översiktssida för den nyligen registrerade appen](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
 

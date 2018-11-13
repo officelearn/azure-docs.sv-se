@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0fd843b150148057399a4e05f5e25a728cd4ae56
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 7cf3db5020d6a100ca6afdd5a1dccd522189720d
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298518"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978510"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Självstudiekurs: Övervaka virtuella Windows-datorer i Azure Security Center
 
@@ -133,7 +133,7 @@ I den här självstudiekursen har du konfigurerat Azure Security Center och gran
 > * Visa och åtgärda problem med konfigurationshälsan
 > * Granska identifierade hot
 
-Gå vidare till nästa kurs om du vill lära dig hur du skapar en CI/CD-pipeline med Azure DevOps Services och en virtuell Windows-dator som kör IIS.
+Fortsätt till nästa självstudie och lär dig att installera en SQL&#92;IIS&#92;.NET-stack på ett par virtuella Windows-datorer.
 
 > [!div class="nextstepaction"]
-> [Azure Pipelines(./tutorial-vsts-iis-cicd.md)
+> [SQL&#92;IIS&#92;.NET-stack](tutorial-iis-sql.md)

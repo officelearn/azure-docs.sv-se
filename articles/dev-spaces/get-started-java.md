@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: mmontwil
-ms.openlocfilehash: 88d113dad72ec637e65424c4c5f6f48e793c691d
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: f07c5a3e28abc3600b13da2320e55860ede2f7c5
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586044"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978288"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>Komma igång med Azure Dev Spaces med Java
 
@@ -62,7 +62,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Skapa ett Kubernetes-kluster som är aktiverat för Azure Dev Spaces
 
-I kommandotolken skapar du resursgruppen. Använd någon av de regioner som stöds för närvarande (USA, östra; USA, centrala; USA, västra 2; Europa, västra; Kanada, centrala eller Kanada, östra).
+I kommandotolken skapar du resursgruppen. Använd någon av regionerna som stöds för närvarande (USA, östra; USA, östra 2; USA, centrala; USA, västra 2; Europa, västra; Asien, sydöstra; Kanada, centrala eller Kanada, östra).
 
 ```cmd
 az group create --name MyResourceGroup --location <region>

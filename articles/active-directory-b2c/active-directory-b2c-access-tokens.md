@@ -1,4 +1,4 @@
-﻿---
+---
 title: Begär åtkomsttoken i Azure Active Directory B2C | Microsoft Docs
 description: Den här artikeln visar hur du konfigurera ett klientprogram och hämta en åtkomsttoken.
 services: active-directory-b2c
@@ -37,21 +37,21 @@ Innan du begär ett åtkomsttoken, måste du först registrera ett webb-API och 
 ### <a name="register-a-web-api"></a>Registrera ett webb-API
 
 1. På menyn för Azure AD B2C-funktioner på Azure-portalen klickar du på **Applications**.
-2. Klicka på **+ Lägg till** högst upp på menyn.
-3. Ange ett **namn** för programmet som beskriver det för konsumenterna. Du kan till exempel skriva ”Contoso-API”.
+2. Klicka på **+Lägg till** högst upp på menyn.
+3. Ange ett namn **Name** för programmet som beskriver det för konsumenterna. Du kan till exempel skriva ”Contoso-API”.
 4. Ändra **Include web app/web API** (Ta med webbapp/webb-API) till **Ja**.
-5. Ange ett godtyckligt värde för den **Svarswebbadresser**. Ange till exempel `https://localhost:44316/`. Värdet har ingen betydelse eftersom ett API inte bör ta emot token direkt från Azure AD B2C.
-6. Ange en **App-ID-URI**. Det här är identifieraren som används för ditt webb-API. Ange till exempel ”information” i rutan. Den **Appidentitets-URI** blir `https://{tenantName}.onmicrosoft.com/notes`.
+5. Ange ett godtyckligt värde för svars-URL:en (**Reply URLs**). Ange till exempel `https://localhost:44316/`. Värdet har ingen betydelse eftersom ett API inte bör ta emot token direkt från Azure AD B2C.
+6. Ange en **App ID URI**. Det här är identifieraren som används för ditt webb-API. Ange till exempel ”information” i rutan. **App ID URI**:n blir `https://{tenantName}.onmicrosoft.com/notes`.
 7. Klicka på **Skapa** för att registrera ditt program.
-8. Klicka på det program som du just har skapat och kopiera det globalt unika **klient-ID:t** som du ska använda senare i koden.
+8. Klicka på det program som du just har skapat och kopiera det globalt unika klient-ID:t (**Application Client ID**) som du senare kommer att använda i koden.
 
 ### <a name="publishing-permissions"></a>Publicera behörigheter
 
 Scope, som är detsamma som behörighet, behövs när appen anropar ett API. Några exempel på scope är ”läsa” eller ”skriva”. Anta att du vill att din webb- eller native app ska kunna ”läsa” från ett API. Din app skulle anropa Azure AD B2C och begära en åtkomsttoken som ger åtkomst till scopet ”läsa”. För att Azure AD B2C ska kunna skapa en sådan åtkomsttoken behöver appen ha behörighet att läsa från det specifika API:et. För att göra detta behöver ditt API först publicera scopet "läsa".
 
 1. I Azure AD B2C menyn **Applications** (program) öppnar du webb-API-programmet (”Contoso-API”).
-2. Klicka på alternativet för **publicerade omfång**. Här definierar du behörigheterna (omfång) som kan beviljas till andra program.
-3. Lägg till **omfångsvärden** vid behov (till exempel ”läsa”). Som standard definieras omfånget ”user_impersonation”. Du kan ignorera detta om du vill. Ange en beskrivning av detta scope i den **scopenamn** kolumn.
+2. Klicka på alternativet för **published scopes** (publicerade scopes). Här definierar du behörigheterna (scopes) som kan beviljas till andra program.
+3. Lägg till de **Scope Values** (värden) som behövs (till exempel ”läsa”). Som standard definieras scopet ”user_impersonation”. Du kan ignorera detta om du vill. Ange en beskrivning av detta scope i kolumnen **Scope Name**.
 4. Klicka på **Spara**.
 
 > [!IMPORTANT]
@@ -61,11 +61,11 @@ Scope, som är detsamma som behörighet, behövs när appen anropar ett API. Nå
 
 När ett API har konfigurerats för att publicera scopes, måste klientprogrammet beviljas dessa scopes via Azure-portalen.
 
-1. Navigera till menyn **Applications** (program) i sektionen för Azure AD B2C-funktioner.
-2. Registrera ett klientprogram ([webbapp](active-directory-b2c-app-registration.md) eller [inbyggd klient](active-directory-b2c-app-registration.md)) om du inte redan har en. Om du följer den här guiden som startpunkt när behöver du registrera ett klientprogram.
+1. Navigera till menyn **Applications** (program) i menyn till Azure AD B2C-funktionerna.
+2. Registrera ett klientprogram ([webbapp](active-directory-b2c-app-registration.md) eller [intern klient](active-directory-b2c-app-registration.md)) om du inte redan har ett. Om du följer den här guiden som startpunkt kommer du att behöva registrera ett klientprogram.
 3. Klicka på **API-åtkomst**.
 4. Klicka på **Lägg till**.
-5. Välj ditt webb-API och scope (behörigheter) som du vill bevilja.
+5. Välj ditt webb-API och de scopes (behörigheter) som du vill bevilja.
 6. Klicka på **OK**.
 
 > [!NOTE]
@@ -73,7 +73,7 @@ När ett API har konfigurerats för att publicera scopes, måste klientprogramme
 
 ## <a name="requesting-a-token"></a>Begära ett token
 
-När du begär ett åtkomsttoken måste klientprogrammet ange de önskade behörigheterna i begärans **scope** parameter. För att exempelvis ange **Scope value** ”läsa” för ett API som har en **App ID URI** som är `https://contoso.onmicrosoft.com/notes`, skulle scopet vara `https://contoso.onmicrosoft.com/notes/read`. Nedan visas ett exempel på en begäran om en auktorisationskod till endpointen "/authorize".
+När du begär en åtkomsttoken klientprogrammet måste ange de önskade behörigheterna i den **omfång** parameter för begäran. Till exempel vill ange den **Omfattningsvärde** ”läsa” för API som har den **Appidentitets-URI** av `https://contoso.onmicrosoft.com/notes`, omfattningen skulle vara `https://contoso.onmicrosoft.com/notes/read`. Nedan visas ett exempel på en begäran om godkännande för kod till den `/authorize` slutpunkt.
 
 > [!NOTE]
 > Anpassade domäner stöds för närvarande inte tillsammans med åtkomsttoken. Du måste använda domänen tenantName.onmicrosoft.com i fråge-URL:et.
@@ -112,12 +112,12 @@ Om den `response_type` parameter i en `/authorize` begäran innehåller `token`,
 
 ## <a name="the-returned-token"></a>Den returnerade token
 
-Följande begäran kommer att finnas tillgängliga vid ett lyckat nyskapande av **åtkomst\_token** (antingen från "/bevilja` eller "/token" enpointen):
+I en har minted **åtkomst\_token** (antingen från den `/authorize` eller `/token` slutpunkt), följande anspråken kommer att finnas:
 
 | Namn | Begäran | Beskrivning |
 | --- | --- | --- |
 |Målgrupp |`aud` |Det **application ID** för den enda resurs som detta token ger åtkomst till. |
-|Scope |`scp` |Behörigheterna för resursen. Flera beviljade behörigheter kommer att avgränsas med blanksteg. |
+|Omfång |`scp` |Behörigheterna för resursen. Flera beviljade behörigheter ska avgränsas med blanksteg. |
 |Behörig part |`azp` |Det **program-ID** hos klientprogrammet som initierade begäran. |
 
 När ditt API tar emot ett **åtkomst\_token**, måste det [Validera detta token](active-directory-b2c-reference-tokens.md) för att bevisa att detta token är autentiskt och har rätt att göra anspråk (claims).

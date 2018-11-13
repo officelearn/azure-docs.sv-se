@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 224a0ab83720bb9605f2dad9c2612630e90fea2a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: a05ab716c8aea958e13ebba0dc9ceb09bf3d7cce
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341743"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913537"
 ---
 # <a name="quickstart-translator-speech-api-with-c"></a>Snabbstart: Translator Speech API med C# 
 <a name="HOLTop"></a>
@@ -26,7 +26,7 @@ Den här artikeln visar hur du använder Translator Speech API för att översä
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [Visual Studio 2017](https://www.visualstudio.com/downloads/) för att köra den här koden på Windows. (Den kostnadsfria Community Edition fungerar.)
+Du behöver [Visual Studio 2017](https://www.visualstudio.com/downloads/) för att köra den här koden på Windows. (Den kostnadsfria Community Edition fungerar.) Om du använder Mac OS eller Linux kan du även använda textredigeraren [Visual Studio Code] (https://code.visualstudio.com/Download) som ett alternativ).
 
 Du behöver en WAV-fil med namnet ”speak.wav” i samma mapp som den körbara filen som du kompilerar från koden nedan. Den här .wav-filen ska vara i 16-bitars, 16 kHz PCM-standardformat.
 

@@ -1,56 +1,51 @@
 ---
-title: 'Snabbstart: Kontrollera textinnehåll i C# - Content Moderator'
+title: 'Snabbstart: Analysera textinnehåll och leta efter stötande material i C#'
 titlesuffix: Azure Cognitive Services
-description: Hur du kontrollerar textinnehåll med innehåll Moderator SDK för C#
+description: Så här analyserar du textinnehåll för olika stötande material med SDK för Content Moderator för .NET
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: conceptual
-ms.date: 10/10/2018
+ms.topic: quickstart
+ms.date: 10/31/2018
 ms.author: sajagtap
-ms.openlocfilehash: ae795ad823c32bc83669d5e98e3fd922500741d4
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
-ms.translationtype: MT
+ms.openlocfilehash: 0540a81db93570928dd33b66a69b6883b2df0cd9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309220"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007696"
 ---
-# <a name="quickstart-check-text-content-in-c"></a>Snabbstart: Kontrollera textinnehåll i C# 
+# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Snabbstart: Analysera textinnehåll och leta efter stötande material i C# 
 
-Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med [Content Moderator SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Du lär dig bland annat att:
-
-- Identifiera potentiellt olämpligt språk i texten med termen-baserad filtrering
-- Använd machine-learning-baserade modeller för att [klassificera texten](text-moderation-api.md#classification) i tre kategorier.
-- Identifiera personligt identifierbar information (PII), till exempel USA och Storbritannien telefonnummer, e-postadresser och USA e-postadresser.
-- Normalisera text och Autokorrigering skrivfel
+Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med [Content Moderator SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Du kommer lära dig att köra termbaserad filtrering och klassificering av innehåll i syfte att kontrollera potentiellt stötande material.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="sign-up-for-content-moderator-services"></a>Registrera dig för Content Moderator-tjänster
+## <a name="prerequisites"></a>Nödvändiga komponenter
+- En prenumerationsnyckeln för Content Moderator. Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Content Moderator och få din nyckel.
+- Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/)
 
-Innan du kan använda Content Moderator-tjänster via REST-API: et eller SDK: N, måste en prenumerationsnyckel. Prenumerera på tjänsten Content Moderator i den [Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) skaffa en.
+> [!NOTE]
+> Den här guiden använder en kostnadsfri nivå för Content Moderator-prenumeration. Information om vad ingår i varje prenumerationsnivå finns det på sidan [Priser och begränsningar](https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator/).
 
-## <a name="create-your-visual-studio-project"></a>Skapa ett Visual Studio-projekt
+## <a name="create-the-visual-studio-project"></a>Skapa Visual Studio-projektet
 
-1. Lägg till ett nytt projekt för en **konsolapp (.NET Framework)** i lösningen.
+1. Skapa ett nytt projekt för **Konsolprogram (.NET Framework)** i Visual Studio och ge det namnet **TextModeration**. 
+1. Om det finns andra projekt i din lösning väljer du den här kopian som det enda startprojektet.
+1. Hämta de NuGet-paket som behövs. Högerklicka på projektet i Solution Explorer och välj **Hantera NuGet-paket**. Sök efter och installera följande paket:
+    - Microsoft.Azure.CognitiveServices.ContentModerator
+    - Microsoft.Rest.ClientRuntime
+    - Newtonsoft.Json
 
-   Namnge projektet i exempelkoden **TextModeration**.
+## <a name="add-text-moderation-code"></a>Lägga till kod för textmoderering
 
-1. Välj det här projektet som det enda startprojektet för lösningen.
+Nu ska du kopiera och klistra in koden från den här guiden i ditt projekt för att implementera ett grundläggande innehållsmodereringsscenario.
 
-### <a name="install-required-packages"></a>Installera de paket som krävs
+### <a name="include-namespaces"></a>Inkludera namnområden
 
-Installera följande NuGet-paket:
-
-- Microsoft.Azure.CognitiveServices.ContentModerator
-- Microsoft.Rest.ClientRuntime
-- Newtonsoft.Json
-
-### <a name="update-the-programs-using-statements"></a>Uppdatera programmets using-instruktioner
-
-Lägg till följande `using` instruktioner. 
+Lägg till följande `using`-instruktioner överst i *Program.cs*-filen.
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
@@ -65,44 +60,24 @@ using System.Threading;
 
 ### <a name="create-the-content-moderator-client"></a>Skapa Content Moderator-klienten
 
-Lägg till följande kod för att skapa en Content Moderator-klient för din prenumeration.
-
-> [!IMPORTANT]
-> Uppdatera fälten **AzureRegion** och **CMSubscriptionKey** med värdena för din regionsidentifierare och prenumerationsnyckel.
+Lägg till följande kod i filen *Program.cs* för att skapa en Content Moderator-klient för din prenumeration. Lägg till koden tillsammans med **programklassen** i samma namnområde. Du behöver uppdatera fälten **AzureRegion** och **CMSubscriptionKey** med värdena för din regionsidentifierare och prenumerationsnyckel.
 
 ```csharp
-/// <summary>
-/// Wraps the creation and configuration of a Content Moderator client.
-/// </summary>
-/// <remarks>This class library contains insecure code. If you adapt this 
-/// code for use in production, use a secure method of storing and using
-/// your Content Moderator subscription key.</remarks>
+// Wraps the creation and configuration of a Content Moderator client.
 public static class Clients
 {
-    /// <summary>
-    /// The region/location for your Content Moderator account, 
-    /// for example, westus.
-    /// </summary>
+    // The region/location for your Content Moderator account, 
+    // for example, westus.
     private static readonly string AzureRegion = "YOUR API REGION";
 
-    /// <summary>
-    /// The base URL fragment for Content Moderator calls.
-    /// </summary>
+    // The base URL fragment for Content Moderator calls.
     private static readonly string AzureBaseURL =
         $"https://{AzureRegion}.api.cognitive.microsoft.com";
 
-    /// <summary>
-    /// Your Content Moderator subscription key.
-    /// </summary>
+    // Your Content Moderator subscription key.
     private static readonly string CMSubscriptionKey = "YOUR API KEY";
 
-    /// <summary>
-    /// Returns a new Content Moderator client for your subscription.
-    /// </summary>
-    /// <returns>The new client.</returns>
-    /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
-    /// When you have finished using the client,
-    /// you should dispose of it either directly or indirectly. </remarks>
+    // Returns a new Content Moderator client for your subscription.
     public static ContentModeratorClient NewClient()
     {
         // Create and initialize an instance of the Content Moderator API wrapper.
@@ -114,29 +89,19 @@ public static class Clients
 }
 ```
 
-### <a name="initialize-application-specific-settings"></a>Initiera programspecifika inställningar
+### <a name="set-up-input-and-output-targets"></a>Konfigurera inkommande och utgående mål
 
-Lägg till följande statiska fält till klassen **Program** i Program.cs.
+Lägg till följande statiska fält till klassen **Program** i _Program.cs_. Dessa anger filerna för ingående datatextinnehåll och utgående JSON-innehåll.
 
 ```csharp
-/// <summary>
-/// The name of the file that contains the text to evaluate.
-/// </summary>
-/// <remarks>You will need to create an input file and update this path
-/// accordingly. Relative paths are relative to the execution directory.</remarks>
+// The name of the file that contains the text to evaluate.
 private static string TextFile = "TextFile.txt";
 
-/// <summary>
-/// The name of the file to contain the output from the evaluation.
-/// </summary>
-/// <remarks>Relative paths are relative to the execution directory.</remarks>
+// The name of the file to contain the output from the evaluation.
 private static string OutputFile = "TextModerationOutput.txt";
 ```
 
-Vi använde följande text som indata för den här snabbstarten.
-
-> [!NOTE]
-> Ogiltig e-postadress i följande exempel är avsiktligt. Syftet är att förmedla Exempelindata och utdata format.
+Du måste skapa indatafilen *TextFile.txt* och uppdatera dess sökväg (relativa sökvägar är relativa för körningskatalogen). Öppna _TextFile.txt_ och lägg till text som ska modereras. Den här snabbstarten använder följande exempeltext:
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
@@ -144,9 +109,15 @@ These are all UK phone numbers, the last two being Microsoft UK support numbers:
 0800 820 3300. Also, 999-99-9999 looks like a social security number (SSN).
 ```
 
-## <a name="add-code-to-load-and-evaluate-the-input-text"></a>Lägg till kod för att läsa in och utvärdera indatatexten
+### <a name="load-the-input-text"></a>Läsa in indatatexten
 
-Lägg till följande kod i metoden **Main**.
+Lägg till följande kod i metoden **Main**. Metoden **ScreenText** är en viktig åtgärd. Dess parametrar anger vilka åtgärder för innehållsmoderering som kommer att göras. I det här exemplet konfigureras metoden för att:
+- Identifiera potentiellt olämpligt språk i texten.
+- Normalisera texten och autokorrigera stavfel.
+- Identifiera personligt identifierbar information (PII), till exempel telefonnummer i USA och Storbritannien, e-postadresser och amerikanska postadresser.
+- Använd maskininlärningsbaserade modeller för att klassificera texten i tre kategorier.
+
+Om du vill veta mer om vad de här åtgärderna gör följer du länken i avsnittet [Nästa steg](#next-steps).
 
 ```csharp
 // Load the input text.
@@ -154,6 +125,8 @@ string text = File.ReadAllText(TextFile);
 Console.WriteLine("Screening {0}", TextFile);
 
 text = text.Replace(System.Environment.NewLine, " ");
+byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(text);
+MemoryStream stream = new MemoryStream(byteArray);
 
 // Save the moderation results to a file.
 using (StreamWriter outputWriter = new StreamWriter(OutputFile, false))
@@ -161,12 +134,12 @@ using (StreamWriter outputWriter = new StreamWriter(OutputFile, false))
     // Create a Content Moderator client and evaluate the text.
     using (var client = Clients.NewClient())
     {
-        // Screen the input text: check for profanity, classify the text into three categories,
-        // do autocorrect text, and check for personally identifying
-        // information (PII)
+        // Screen the input text: check for profanity,
+        // autocorrect text, check for personally identifying
+        // information (PII), and classify the text into three categories
         outputWriter.WriteLine("Autocorrect typos, check for matching terms, PII, and classify.");
         var screenResult =
-        client.TextModeration.ScreenText("eng", "text/plain", text, true, true, null, true);
+        client.TextModeration.ScreenText("text/plain", stream, "eng", true, true, null, true);
         outputWriter.WriteLine(
                 JsonConvert.SerializeObject(screenResult, Formatting.Indented));
     }
@@ -175,12 +148,9 @@ using (StreamWriter outputWriter = new StreamWriter(OutputFile, false))
 }
 ```
 
-> [!NOTE]
-> Content Moderator-tjänstnyckeln har en gräns för antal begäranden per sekund (RPS). Om du överskrider gränsen genererar SDK:t ett undantag med en 429-felkod. När du använder en kostnadsfri nivå-nyckel, är antalet begäranden som begränsad till ett anrop per sekund.
+## <a name="run-the-program"></a>Köra programmet
 
-## <a name="run-the-program-and-review-the-output"></a>Kör programmet och granska resultatet
-
-I exemplet som utdata för programmet, som skrivs till loggfilen är:
+Programmet skriver JSON-strängdata till filen _TextModerationOutput.txt_. Exempeltexten som används i den här snabbstarten ger följande utdata:
 
 ```json
 Autocorrect typos, check for matching terms, PII, and classify.
@@ -270,4 +240,7 @@ Autocorrect typos, check for matching terms, PII, and classify.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Hämta [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) och [Visual Studio-lösningen](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för den här och andra Content Moderator-snabbstarter för .NET, och kom igång med din integrering.
+Du har utvecklat ett enkelt .NET-program som använder Content Moderator-tjänsten för att hitta relevant information om ett angivet textexempel i den här snabbstarten. Därefter kan du läsa mer om vad de olika flaggorna och klassificeringarna betyder så att du kan avgöra vilka data du behöver och hur din app ska hantera dem.
+
+> [!div class="nextstepaction"]
+> [Guide för textmoderering](text-moderation-api.md)

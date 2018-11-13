@@ -1,163 +1,106 @@
 ---
-title: 'Självstudie: Skapa ett bildklassificeringsprojekt med Custom Vision-SDK för C#'
+title: 'Snabbstart: Skapa ett bildklassificeringsprojekt med Custom Vision-SDK för C#'
 titlesuffix: Azure Cognitive Services
-description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna ditt projekt och gör en förutsägelse genom att använda standardslutpunkten.
+description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna ditt projekt och gör en förutsägelse med hjälp av .NET SDK med C#.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: tutorial
-ms.date: 05/03/2018
+ms.topic: quickstart
+ms.date: 10/31/2018
 ms.author: anroth
-ms.openlocfilehash: e046fe452a13384ae7929be805c6252d6ad2fbf9
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 6f92201e1c7222bed5d59066798d7eb6844ecd76
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953051"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279440"
 ---
-# <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-c"></a>Självstudie: Skapa ett bildklassificeringsprojekt med Custom Vision-SDK för C#
+# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-net-sdk"></a>Snabbstart: Skapa ett bildklassificeringsprojekt med Custom Vision .NET SDK
 
-Lär dig att använda Custom Vision Service SDK i ett C#-program. När den har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda slutpunkten för att testa en avbildning programmatiskt. Använd det här exemplet med öppen källkod som en mall för att skapa din egen app för Windows med hjälp av Custom Vision Service-API:et.
+Den här artikeln innehåller information och exempelkod som hjälper dig att komma igång med att använda Custom Vision-SDK med C# för att skapa en bildklassificeringsmodell. När den har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda slutpunkten för att testa en avbildning programmatiskt. Använd det här exemplet som en mall för att skapa dit eget .NET-program. Om du vill gå igenom processen med att skapa och använda en bildklassificeringsmodell _utan_ kod kan du i stället läsa den [webbläsarbaserade vägledningen](getting-started-build-a-classifier.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
+- Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/)
 
-* Valfri version av Visual Studio 2017 för Windows.
 
-## <a name="get-the-custom-vision-sdk-and-samples"></a>Hämta Custom Vision-SDK:n och exempel
-Om du vill skapa det här exemplet behöver du Custom Vision SDK NuGet-paketen:
+## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Hämta Custom Vision-SDK:n och exempelkoden
+Om du vill skriva ett .NET-program som använder Custom Vision behöver du Custom Vision NuGet-paket. De ingår i det exempelprojekt som du laddar ned, men du kan komma åt dem enskilt här.
 
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
 
-Du kan ladda ned bilder tillsammans med [C#-exemplet](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision).
+Klona eller ladda ned [Cognitive Services .NET-exempelprojektet](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples). Navigera till mappen **CustomVision/ImageClassification** och öppna _ImageClassification.csproj_ i Visual Studio.
 
-## <a name="get-the-training-and-prediction-keys"></a>Hämta utbildningen och förutsägelsenycklarna
+Det här Visual Studio-projektet skapar ett nytt Custom Vision-projekt med namnet __My New Project__, som kan nås via [Custom Vision-webbplatsen](https://customvision.ai/). Det laddar sedan upp bilder för att träna och testa en klassificerare. I det här projektet är klassificeraren avsedd att avgöra huruvida ett träd är en __hemlockgran__ eller ett __japanskt körsbärsträd__.
 
-För att hämta nycklarna som används i det här exemplet går du till [Custom Vision-webbsidan](https://customvision.ai) och väljer __kugghjulsikonen__ i det övre högra hörnet. Kopiera värdena från fälten __Utbildningsnyckel__ och __Förutsägelsenyckel__ i avsnittet __Konton__.
-
-![Bild på gränssnittet för nycklarna](./media/csharp-tutorial/training-prediction-keys.png)
+[!INCLUDE [get-keys](includes/get-keys.md)]
 
 ## <a name="understand-the-code"></a>Förstå koden
 
-Öppna projektet i SDK-projektets `Samples/CustomVision.Sample/`-katalog i Visual Studio.
+Öppna filen _Program.cs_ och granska koden. Infoga dina prenumerationsnycklar i lämpliga definitioner i metoden **Main**.
 
-Det här programmet använder den utbildningsnyckel som du hämtade tidigare för att skapa ett nytt projekt med namnet __Mitt nya projekt__. Det laddar sedan upp bilder för att träna och testa en klassificerare. Klassificeraren anger om ett träd är en __hemlockgran__ eller ett __japanskt körsbärsträd__.
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=21-30)]
 
-I följande kodavsnitt implementeras de primära funktionerna i det här exemplet:
+Följande rader i koden kör de primära funktionerna i projektet.
 
-* __Skapa ett nytt projekt för Custom Vision Service__:
+### <a name="create-a-new-custom-vision-service-project"></a>Skapa ett nytt projekt för Custom Vision Service
 
-    ```csharp
-     // Create a new project
-    Console.WriteLine("Creating new project:");
-    var project = trainingApi.CreateProject("My New Project");
-    ```
+Det skapade projektet visas på den [Custom Vision-webbplats](https://customvision.ai/) som du besökte tidigare. 
 
-* __Skapa taggar i ett projekt__:
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=32-34)]
 
-    ```csharp
-    // Make two tags in the new project
-    var hemlockTag = trainingApi.CreateTag(project.Id, "Hemlock");
-    var japaneseCherryTag = trainingApi.CreateTag(project.Id, "Japanese Cherry");
-    ```
+### <a name="create-tags-in-the-project"></a>Skapa taggar i projektet
 
-* __Ladda upp och tagga bilder__:
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=36-38)]
 
-    ```csharp
-    // Add some images to the tags
-    Console.WriteLine("\tUploading images");
-    LoadImagesFromDisk();
+### <a name="upload-and-tag-images"></a>Ladda upp och tagga bilder
 
-    // Images can be uploaded one at a time
-    foreach (var image in hemlockImages)
-    {
-        using (var stream = new MemoryStream(File.ReadAllBytes(image)))
-        {
-            trainingApi.CreateImagesFromData(project.Id, stream, new List<string>() { hemlockTag.Id.ToString() });
-        }
-    }
+Avbildningarna för det här projektet ingår. De refereras till i metoden **LoadImagesFromDisk** i _Program.cs_.
 
-    // Or uploaded in a single batch 
-    var imageFiles = japaneseCherryImages.Select(img => new ImageFileCreateEntry(Path.GetFileName(img), File.ReadAllBytes(img))).ToList();
-    trainingApi.CreateImagesFromFiles(project.Id, new ImageFileCreateBatch(imageFiles, new List<Guid>() { japaneseCherryTag.Id }));
-    ```
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=40-55)]
 
-* __Träna klassificeraren__:
+### <a name="train-the-classifier"></a>Träna klassificeraren
 
-    ```csharp
-    // Now there are images with tags start training the project
-    Console.WriteLine("\tTraining");
-    var iteration = trainingApi.TrainProject(project.Id);
+Den här koden skapar den första iterationen i projektet och markerar den som standardinteration. Standarditerationen speglar versionen av den modell som svarar på förutsägelsebegäranden. Du bör uppdatera detta varje gång du tränar om modellen.
 
-    // The returned iteration will be in progress, and can be queried periodically to see when it has completed
-    while (iteration.Status == "Completed")
-    {
-        Thread.Sleep(1000);
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=57-73)]
 
-        // Re-query the iteration to get it's updated status
-        iteration = trainingApi.GetIteration(project.Id, iteration.Id);
-    }
-    ```
+### <a name="set-the-prediction-endpoint"></a>Ange förutsägelseslutpunkten
 
-* __Ange en standarditeration för förutsägelseslutpunkten__:
-
-    ```csharp
-    // The iteration is now trained. Make it the default project endpoint
-    iteration.IsDefault = true;
-    trainingApi.UpdateIteration(project.Id, iteration.Id, iteration);
-    Console.WriteLine("Done!\n");
-    ```
-
-* __Skapa en förutsägelseslutpunkt__:
+Förutsägelseslutpunkten är den referens som du kan använda för att skicka en avbildning till den aktuella modellen och få en klassificeringsförutsägelse.
  
-    ```csharp
-    // Create a prediction endpoint, passing in obtained prediction key
-    PredictionEndpoint endpoint = new PredictionEndpoint() { ApiKey = predictionKey };
-    ```
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=77-82)]
  
-* __Skicka en avbildning till förutsägelseslutpunkten__:
+### <a name="submit-an-image-to-the-default-prediction-endpoint"></a>Skicka en avbildning till standardslutpunkten för förutsägelse
 
-    ```csharp
-    // Make a prediction against the new project
-    Console.WriteLine("Making a prediction:");
-    var result = endpoint.PredictImage(project.Id, testImage);
+I det här skriptet läses testavbildningen in i metoden **LoadImagesFromDisk**, och modellens förutsägelseutdata ska visas i konsolen.
 
-    // Loop over each prediction and write out the results
-    foreach (var c in result.Predictions)
-    {
-        Console.WriteLine($"\t{c.TagName}: {c.Probability:P1}");
-    }
-    ```
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=84-92)]
 
 ## <a name="run-the-application"></a>Köra programmet
 
-1. Lägg till utbildnings- och förutsägelsenycklarna till programmet genom att göra följande ändringar:
+När programmet körs ska det öppna ett konsolfönster och skriva följande utdata:
 
-    * Lägg till din __utbildningsnyckel__ på följande rad:
+```
+Creating new project:
+        Uploading images
+        Training
+Done!
 
-        ```csharp
-        string trainingKey = "<your key here>";
-        ```
+Making a prediction:
+        Hemlock: 95.0%
+        Japanese Cherry: 0.0%
+```
 
-    * Lägg till din __förutsägelsenyckel__ på följande rad:
+Du kan sedan kontrollera att testbilden (som finns i **Images/Test/**) har taggats på rätt sätt. Avsluta programmet genom att trycka på valfri tangent. Du kan även gå tillbaka till [Custom Vision-webbplatsen](https://customvision.ai) och se det aktuella tillståndet för det nyskapade projektet.
 
-        ```csharp
-        string predictionKey = "<your key here>";
-        ```
+[!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
 
-2. Kör appen. När programmet körs skrivs följande utdata till konsolen:
+## <a name="next-steps"></a>Nästa steg
 
-    ```
-    Creating new project:
-            Uploading images
-            Training
-    Done!
+Nu har du sett hur varje steg i bildklassificeringsprocessen kan utföras med kod. Det här exemplet kör en enstaka träningsiteration, men ofta måste du träna och testa modellen flera gånger för att kunna göra den mer exakt.
 
-    Making a prediction:
-            Hemlock: 95.0%
-            Japanese Cherry: 0.0%
-    ```
-
-3. Avsluta programmet genom att trycka på valfri tangent.
+> [!div class="nextstepaction"]
+> [Testa och träna om en modell](test-your-model.md)

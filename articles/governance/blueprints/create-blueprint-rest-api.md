@@ -4,21 +4,21 @@ description: Använd Azure-skisser för att skapa, definiera och distribuera art
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 11/07/2018
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b873ee869b2044977ebefcfd65331567c24e7ec8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b600eeff0482944a8b9b18ad39c23ee6ea4700ce
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974212"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283554"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definiera och tilldela en Azure-skiss med REST API
 
-Genom att bättre förstå hur en skiss skapas och tilldelas i Azure kan organisationer definiera gemensamma konsekvensmönster och utveckla återanvändbara konfigurationer som snabbt kan distribueras baserat på Resource Manager-mallar, principer, säkerhet och mycket mer. I den här självstudien får du lära dig att använda Azure Blueprint för att utföra några av de vanliga uppgifter som rör generering, publicering och tilldelning av en skiss i din organisation. Du lär dig till exempel att:
+När du skapar och tilldelar skisser kan definitionen av vanliga mönster utveckla återanvändbara och snabbt distribuerbara konfigurationer baserade på Resource Manager-mallar, principer, säkerhet med mera. I den här självstudien får du lära dig att använda Azure Blueprint för att utföra några av de vanliga uppgifter som rör generering, publicering och tilldelning av en skiss i din organisation. Du lär dig till exempel att:
 
 > [!div class="checklist"]
 > - Skapa en ny skiss och lägga till olika artefakter som stöds
@@ -26,13 +26,15 @@ Genom att bättre förstå hur en skiss skapas och tilldelas i Azure kan organis
 > - Markera en skiss som redo att tilldelas med **Publicerad**
 > - Tilldela en skiss till en befintlig prenumeration
 > - Kontrollera statusen och förloppet för en tilldelad skiss
-> - Ta bort en skiss som har tilldelats till en prenumeration
+> - Ta bort en skiss som en prenumeration har tilldelats
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
 ## <a name="getting-started-with-rest-api"></a>Komma igång med REST API
 
 Om du inte är bekant med REST API börjar du med att gå igenom [referensen för Azure REST API](/rest/api/azure/) så att du förstår hur REST-API:et fungerar, särskilt begärande-URI och begärandetext. I den här artikeln används dessa begrepp för att förklara hur du arbetar med Azure-skisser och artikeln förutsätter att du har grundläggande kunskap om dem. Verktyg som [ARMClient](https://github.com/projectkudu/ARMClient) och andra kan hantera auktorisering automatiskt och rekommenderas för nybörjare.
+
+Specifikationer för skisser finns i [REST API för Azure Blueprint](/rest/api/blueprints/).
 
 ### <a name="rest-api-and-powershell"></a>REST API och PowerShell
 
@@ -59,7 +61,7 @@ Ersätt `{subscriptionId}` i variabeln **$restUri** ovan för att få informatio
 
 ## <a name="create-a-blueprint"></a>Skapa en skiss
 
-Det första steget när du definierar ett standardmönster för efterlevnad är att skapa en skiss från de tillgängliga resurserna. I det här exemplet skapar du en skiss med namnet ”MyBlueprint” för att konfigurera roll- och principtilldelningar för prenumerationen, lägger till en resursgrupp och skapar en Resource Manager-mall och rolltilldelning för resursgruppen.
+Det första steget när du definierar ett standardmönster för efterlevnad är att skapa en skiss från de tillgängliga resurserna. Vi skapar en skiss med namnet ”MyBlueprint” för att konfigurera roll- och principtilldelningar för prenumerationen. Sedan lägger vi till en resursgrupp, en Resource Manager-mall och en rolltilldelning för resursgruppen.
 
 > [!NOTE]
 > När du använder REST-API:et skapas _skissobjektet_ först. För varje _artefakt_ som ska läggas till som har parametrar, måste parametrarna definieras i förväg i den första _skissen_.
@@ -69,7 +71,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
 - `{YourMG}` – Ersätt med namnet på din hanteringsgrupp
 - `{subscriptionId}` – Ersätt med ditt prenumerations-ID
 
-1. Skapa det första _skissobjektet_. **Begärandetexten** innehåller egenskaper om skissen, eventuella resursgrupper som ska skapas och alla parametrar på skissnivå som anges under tilldelningen och som används av artefakterna som läggs till i senare steg.
+1. Skapa det första _skissobjektet_. **Begärandetexten** innehåller egenskaper för skissen, de resursgrupper som ska skapas och alla parametrar på skissnivå. Parametrarna anges vid tilldelning och används av artefakterna som lagts till i senare steg.
 
    - REST API-URI
 
@@ -176,7 +178,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
      }
      ```
 
-1. Lägg till en till principtilldelning för lagringstaggen (genom att återanvända parametern _storageAccountType_) för prenumerationen. Den här ytterligare principtilldelningsartefakten visar att en parameter som definierats för skissen kan användas av mer än en artefakt. I det här exemplet används **storageAccountType** för att ange en tagg för resursgruppen som ger information om lagringskontot som skapas i nästa steg.
+1. Lägg till en till principtilldelning för lagringstaggen (genom att återanvända parametern _storageAccountType_) för prenumerationen. Den här ytterligare principtilldelningsartefakten visar att en parameter som definierats för skissen kan användas av mer än en artefakt. I exemplet används **storageAccountType** för att ange en tagg på resursgruppen. Det här värdet anger information om lagringskontot som skapas i nästa steg.
 
    - REST API-URI
 
@@ -204,7 +206,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
      }
      ```
 
-1. Lägg till en mall under resursgruppen. **Begärandetexten** för en Resource Manager-mall innehåller den vanliga JSON-komponenten för mallen, definierar målresursgruppen med **properties.resourceGroup** och återanvänder skissparametrarna **storageAccountType**, **tagName** och **tavValue** genom att ange var och en för mallen. Skissparametrarna görs tillgängliga för mallen genom att **properties.parameters** definieras, och inuti mallens JSON används nyckel/värde-paret för att mata in värdet. Namnen på skiss- och mallparametrarna kan vara samma, men är olika i exemplet för att illustrera hur varje parameter skickas från skissen till mallartefakten.
+1. Lägg till en mall under resursgruppen. **Begärandetexten** för en Resource Manager-mall innehåller den normala JSON-komponenten för mallen och definierar målresursgruppen med **properties.resourceGroup**. Mallen återanvänder även skissparametrarna **storageAccountType**, **tagName** och **tagValue** genom att dem till mallen. Skissparametrarna är tillgängliga för mallen genom att **properties.parameters** definieras, och inuti mallens JSON används nyckel/värde-paret för att mata in värdet. Namnen på skiss- och mallparametrarna kan vara samma, men är olika i exemplet för att illustrera hur varje parameter skickas från skissen till mallartefakten.
 
    - REST API-URI
 
@@ -388,7 +390,7 @@ När en skiss har publicerats med hjälp av REST API kan den tilldelas till en p
 
 ## <a name="unassign-a-blueprint"></a>Ta bort en skisstilldelning
 
-Skisser kan tas bort från en prenumeration om de inte längre behövs eller har ersatts av nyare skisser med uppdaterade mönster, principer och design. När en skiss tas bort blir artefakterna som tilldelats som en del av skissen kvar. Om du vill ta bort en skisstilldelning använder du följande REST API-åtgärd:
+Du kan ta bort en skiss från en prenumeration. Borttagningen görs ofta när artefaktresurserna inte längre behövs. När en skiss tas bort blir artefakterna som tilldelats som en del av skissen kvar. Om du vill ta bort en skisstilldelning använder du följande REST API-åtgärd:
 
 - REST API-URI
 

@@ -1,22 +1,21 @@
 ---
 title: Skapa ett Kubernetes dev utrymme i molnet | Microsoft Docs
 titleSuffix: Azure Dev Spaces
-author: ghogen
+author: iainfoulds
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-ms.author: ghogen
+ms.author: iainfou
 ms.date: 09/26/2018
 ms.topic: quickstart
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-manager: douge
-ms.openlocfilehash: 851a60ec3e3a26dde2bdf2fe039a9607d7081b79
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: fb33eb2ce1d494191f589e78637d886339e595be
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310104"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978952"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>Snabbstart: Skapa ett Kubernetes-utvecklarutrymme med Azure Dev Spaces (Node.js)
 
@@ -34,7 +33,7 @@ I den här guiden får du lära dig hur du:
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
 - [Visual Studio Code](https://code.visualstudio.com/download).
 - [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)-version 2.0.43 eller senare.
-- Ett Kubernetes-kluster som kör Kubernetes 1.9.6 eller senare i området USA, östra; USA, centrala; USA, västra 2; Europa, västra; Kanada, centrala eller Kanada, östra med **HTTP-programroutning** aktiverat.
+- Ett Kubernetes-kluster som kör Kubernetes 1.9.6 eller senare i området USA, östra; USA, östra 2; USA, centrala; USA, västra 2; Europa, västra; Asien, sydöstra; Kanada, centrala eller Kanada, östra med **HTTP-programroutning** aktiverat.
 
     ```cmd
     az group create --name MyResourceGroup --location <region>

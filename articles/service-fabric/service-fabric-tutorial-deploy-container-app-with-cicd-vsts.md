@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/29/2018
 ms.author: ryanwi,v-steg
 ms.custom: mvc
-ms.openlocfilehash: 5ec898465b550a136db71ee731be5943c7441dcd
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: db0abf2c70ac79356496c78275dc658d1ee29a23
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44382167"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035928"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Självstudie: Distribuera ett containerprogram med CI/CD till ett Service Fabric-kluster
 
@@ -76,6 +76,9 @@ En versionsdefinition för Team Services beskriver ett arbetsflöde som distribu
 Öppna en webbläsare och navigera till det nya teamprojektet på: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
 
 Välj fliken **Build and release** (Bygge och version), därefter **Builds** (Byggen) och klicka sedan på **New Pipeline** (Ny pipeline).
+
+>[!NOTE]
+>Om du inte ser mallen för build-definition ska du se till att **funktionen för att skapa en ny YAML-pipeline** är avstängd. Den här funktionen har konfigurerats i avsnittet **Förhandsversionsfunktioner** i ditt DevOps-konto.
 
 ![Ny pipeline][new-pipeline]
 

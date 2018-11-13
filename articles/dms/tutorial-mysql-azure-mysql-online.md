@@ -1,5 +1,5 @@
 ---
-title: Använda Azure Database Migration Service för att utföra en migrering av MySQL till Azure Database for MySQL online | Microsoft Docs
+title: 'Självstudie: Använda Azure Database Migration Service för att utföra en migrering av MySQL till Azure Database for MySQL online | Microsoft Docs'
 description: Lär dig hur du gör en onlinemigrering från MySQL lokalt till Azure Database for MySQL genom att använda Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/06/2018
-ms.openlocfilehash: 4825985253f5525314a496f2adbc40657231f5d5
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 8b0e15ac6cd59a77e283d9256ab5fa4542dfc9a9
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829859"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960522"
 ---
-# <a name="migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Migrera MySQL till Azure Database for MySQL online med DMS
+# <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Självstudie: Migrera MySQL till Azure Database for MySQL online med DMS
 Du kan använda Azure Database Migration Service till att migrera databaserna från en lokal MySQL-instans till [Azure SQL Database for SQL](https://docs.microsoft.com/azure/mysql/) med minimal avbrottstid. Du kan med andra ord migrera med minimal stilleståndstid i programmet. I den här självstudien migrerar du exempeldatabasen **Employees** från en lokal instans av MySQL 5.7 till Azure Database for MySQL genom att använda en onlinemigreringsaktivitet i Azure Database Migration Service.
 
 I den här guiden får du lära dig att:

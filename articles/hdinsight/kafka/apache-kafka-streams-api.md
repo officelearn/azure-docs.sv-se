@@ -8,13 +8,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 04/17/2018
-ms.openlocfilehash: 9e4073fa54b7dda5ee9c413b84050510e2357893
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.date: 11/06/2018
+ms.openlocfilehash: b22a701d9e876ca011381810e330fed60b7177d4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013181"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278709"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Självstudie: Apache Kafka Streams-API
 
@@ -84,7 +84,7 @@ Viktiga saker att förstå i `pom.xml`-filen är:
 
 ### <a name="streamjava"></a>Stream.java
 
-Filen `Stream.java` använder Streams-API för att implementera ett ordantalprogram. Den läser data från ett Kafka-ämne som heter `test` och skriver ordräkningen till ett ämne som heter `wordcounts`.
+Filen [Stream.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Streaming/src/main/java/com/microsoft/example/Stream.java) använder Streams-API för att implementera ett ordantalprogram. Den läser data från ett Kafka-ämne som heter `test` och skriver ordräkningen till ett ämne som heter `wordcounts`.
 
 Följande kod definierar ordräkningsprogrammet:
 

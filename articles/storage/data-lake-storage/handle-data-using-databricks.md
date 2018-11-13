@@ -9,16 +9,16 @@ ms.reviewer: jasonwhowell
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.openlocfilehash: 96114270c246e23db0423dec7871e4c24fe1be10
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 5c1684f7367aec2d283cd6ad310657def49dd3cb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024372"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282568"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Självstudier: Extrahera, transformera och läsa in data med Azure Databricks
 
-I den här självstudien får du utföra en ETL-åtgärd (extrahera, transformera och läsa in data) för att flytta data från förhandsversionen av Azure Data Lake Storage Gen2 till Azure SQL Data Warehouse med Azure Databricks.
+I den här självstudien får du utföra en ETL-åtgärd (extrahera, transformera och läsa in data) för att flytta data från ett Azure Storage-konto med Azure Data Lake Storage Gen2 aktiverat till Azure SQL Data Warehouse med Azure Databricks.
 
 Följande bild visar programflödet:
 
@@ -52,7 +52,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Skapa en Azure Databricks-arbetsyta
 
-I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen. 
+I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
 1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure-portalen.
 
@@ -138,7 +138,7 @@ Nästa steg är att ladda upp en exempeldatafil till lagringskontot som senare t
 
 2. Sedan laddar du upp exempeldata på ditt lagringskonto. Metoden du använder för att ladda upp data till ditt lagringskonto skiljer sig åt beroende på om du har den hierarkiska namnrymden aktiverad.
 
-    Om den hierarkiska namnrymden är aktiverad på ditt Azure Storage-konto som skapats för Gen2-kontot kan du använda Azure Data Factory, distp eller AzCopy (version 10) för att hantera uppladdningen. AzCopy version 10 är endast tillgänglig för kunder med förhandsversionen. Använd AzCopy genom att klistra in följande kod i ett kommandofönster:
+    Om den hierarkiska namnrymden är aktiverad på ditt Azure Storage-konto kan du använda Azure Data Factory, distp eller AzCopy (version 10) för att hantera uppladdningen. AzCopy version 10 är endast tillgänglig via förhandsversion i nuläget. Använd AzCopy genom att klistra in följande kod i ett kommandofönster:
 
     ```bash
     set ACCOUNT_NAME=<ACCOUNT_NAME>

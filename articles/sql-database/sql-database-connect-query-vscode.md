@@ -1,6 +1,6 @@
 ---
-title: 'VS Code: Ansluta och läsa data i Azure SQL Database | Microsoft Docs'
-description: Lär dig hur du ansluter till SQL Database på Azure med hjälp av Visual Studio Code. Kör sedan Transact-SQL-uttryck (T-SQL) för att skicka frågor och redigera data.
+title: 'VS Code: Ansluta till och söka i data i Azure SQL Database | Microsoft Docs'
+description: Lär dig hur du ansluter till SQL Database på Azure med hjälp av Visual Studio Code. Kör sedan Transact-SQL-uttryck (T-SQL) för att söka i och redigera data.
 keywords: ansluta till sql database
 services: sql-database
 ms.service: sql-database
@@ -12,17 +12,17 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 21e392332414d11c279969ed83eb2bdc1ade8eeb
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.date: 11/01/2018
+ms.openlocfilehash: 627d4a353e2e6582ed7b579a3f9d74594c6c10fb
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362933"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912976"
 ---
-# <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Azure SQL Database: Använd Visual Studio Code för att ansluta och skicka frågor till data
+# <a name="quickstart-azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Snabbstart: Azure SQL Database: Använd Visual Studio Code för att ansluta till och söka i databaser
 
-[Visual Studio Code](https://code.visualstudio.com/docs) är en grafisk kodredigerare för Linux, macOS och Windows som stöder tillägg, inklusive [mssql-tillägget](https://aka.ms/mssql-marketplace) för frågor till Microsoft SQL Server, Azure SQL Database och SQL Data Warehouse. Den här snabbstarten visar hur du använder Visual Studio Code för att ansluta till en Azure SQL-databas och sedan använder Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen.
+[Visual Studio Code](https://code.visualstudio.com/docs) är en grafisk kodredigerare för Linux, macOS och Windows som stöder tillägg, inklusive [mssql-tillägget](https://aka.ms/mssql-marketplace) för frågor till Microsoft SQL Server, Azure SQL Database och SQL Data Warehouse. Den här snabbstarten visar hur du använder Visual Studio Code för att ansluta till en Azure SQL-databas och sedan använder Transact-SQL-uttryck för att söka efter, infoga, uppdatera och ta bort data i databasen.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -78,7 +78,7 @@ Ställ in språkläget på **SQL** i Visual Studio Code för att aktivera mssql-
 Använd Visual Studio Code för att upprätta en anslutning till Azure SQL Database-servern.
 
 > [!IMPORTANT]
-> Kontrollera att du har din server, databas och inloggningsinformation redo innan du fortsätter. Om du ändrar fokus från Visual Studio-koden när du har börjat ange information om anslutningsprofilen måste du börja om med att skapa anslutningsprofilen.
+> Kontrollera att du har din server, databas och inloggningsinformation redo innan du fortsätter. Om du ändrar fokus från Visual Studio Code när du har börjat ange information om anslutningsprofilen måste du börja om med att skapa anslutningsprofilen.
 >
 
 1. I VS Code trycker du på **CTRL+SHIFT+P** (eller **F1**) för att öppna kommandopaletten.
@@ -105,7 +105,7 @@ Använd Visual Studio Code för att upprätta en anslutning till Azure SQL Datab
 
    ![Anslutningsstatus](./media/sql-database-connect-query-vscode/vscode-connection-status.png)
 
-## <a name="query-data"></a>Frågedata
+## <a name="query-data"></a>Söka i data
 
 Använd följande kod för att söka efter de 20 främsta produkterna med Transact-SQL-instruktionen [SELECT](https://msdn.microsoft.com/library/ms189499.aspx).
 
@@ -120,7 +120,7 @@ Använd följande kod för att söka efter de 20 främsta produkterna med Transa
 
 2. Tryck på **CTRL+SKIFT+E** att hämta data från Product- och ProductCategory-tabeller.
 
-    ![Fråga](./media/sql-database-connect-query-vscode/query.png)
+    ![Söka i data](./media/sql-database-connect-query-vscode/query.png)
 
 ## <a name="insert-data"></a>Infoga data
 
@@ -179,6 +179,6 @@ Med följande kod tar du bort den nya produkt du tidigare lade till med Transact
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill ansluta och fråga med SQL Server Management Studio kan du läsa [Anslut och fråga med SSMS](sql-database-connect-query-ssms.md).
-- Information om hur du ansluter och frågar med hjälp av Azure Portal finns i [Ansluta och fråga med Azure Portal SQL-frågeredigeraren](sql-database-connect-query-portal.md).
+- Information om hur du ansluter till och söker i data med SQL Server Management Studio finns i [Ansluta och söka i data med SSMS](sql-database-connect-query-ssms.md).
+- Information om hur du ansluter och söker i data med Azure Portal finns i [Ansluta till och söka i data med Azure Portal SQL-frågeredigeraren](sql-database-connect-query-portal.md).
 - En artikel från MSDN-magazine om hur du använder Visual Studio Code finns i [Skapa en IDE-databas med MSSQL-tillägget blogginlägg](https://msdn.microsoft.com/magazine/mt809115).

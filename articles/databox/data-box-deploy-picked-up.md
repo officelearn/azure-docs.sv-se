@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/03/2018
+ms.date: 10/30/2018
 ms.author: alkohli
-ms.openlocfilehash: 7676360d71dab4da58693221645517c69b56dff8
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 42ed9091ff7ab8059ba253f62726b30899d6e697
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49090696"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036064"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Självstudie: Skicka tillbaka Azure Data Box och verifiera datauppladdning till Azure
 
@@ -51,11 +51,16 @@ När kontrollen har slutförts ansluts Data Box till nätverket i Azure-datacent
 
 När kopieringen är slutförd uppdateras statusen till **slutförd**.
 
-Kontrollera att alla data finns på lagringskontot innan du tar bort dem från källan. 
+Kontrollera att alla data finns på lagringskontot innan du tar bort dem från källan. När du kopierar data till Data Box laddas data beroende på typ upp till någon av följande sökvägar i ditt Azure Storage-konto.
+
+- För blockblobar och sidblobar: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
+- För Azure Files: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
+
+Du kan också gå till ditt Azure-lagringskonto i Azure-portalen och navigera därifrån.
 
 ## <a name="erasure-of-data-from-data-box"></a>Radera data från Data Box
  
- När uppladdningen till Azure är klar raderar Data Box-enheten data på diskarna enligt [NIST SP 800-88 Revision 1-riktlinjerna](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi). 
+När uppladdningen till Azure är klar raderar Data Box-enheten data på diskarna enligt [NIST SP 800-88 Revision 1-riktlinjerna](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi). 
 
 ## <a name="next-steps"></a>Nästa steg
 

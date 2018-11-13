@@ -1,97 +1,77 @@
 ---
-title: Vad är Ansikts-API-tjänsten?
+title: Vad är Ansikts-API?
 titleSuffix: Azure Cognitive Services
-description: I det här avsnittet beskrivs Ansikts-API-tjänsten och relaterade termer.
+description: Lär dig hur du använder tjänsten för ansiktsigenkänning för att identifiera och analysera ansikten i bilder.
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: overview
-ms.date: 10/11/2018
+ms.date: 10/29/2018
 ms.author: sbowles
-ms.openlocfilehash: 6c1e0d0a51bc01c581c05e7ce3215f5501b4be76
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 3fe9dd713bef509b1972b51cb07d4f942c544544
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310410"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914200"
 ---
-# <a name="what-is-the-face-api-service"></a>Vad är Ansikts-API-tjänsten?
+# <a name="what-is-the-azure-face-api"></a>Vad är Azure Ansikts-API?
 
-Ansikts-API-tjänsten är en molnbaserad tjänst som tillhandahåller algoritmer för att analysera ansikten i bilder och video. Ansikts-API har två huvudfunktioner: ansiktsavkänning med attribut och ansiktsigenkänning.
+Azure Ansikts-API är en kognitiv tjänst som tillhandahåller algoritmer för identifiering, igenkänning och analyser av ansikten i bilder. Förmågan att bearbeta ansiktsinformation är viktig i många olika programscenarier, till exempel säkerhet, naturliga användargränssnitt, analys och hantering av bildinnehåll, mobilappar och robotteknik.
+
+Ansikts-API:et innehåller flera funktioner, som beskrivs i följande avsnitt. Läs vidare för att få mer information om varje funktion och avgöra om den passar dina behov.
 
 ## <a name="face-detection"></a>Ansiktsspårning
 
-Ansikts-API kan identifiera upp till 64 mänskliga ansikten med hög platsprecision i en bild. Bilden kan anges av fil (en byteström) eller en giltig URL.
+Ansikts-API:et kan identifiera ansikten i en bild och returnera rektangelkoordinaterna för ansiktenas placering. Alternativt kan ansiktsavkänning extrahera en serie ansiktsrelaterade attribut som hållning, kön, ålder, huvudhållning, ansiktsbehåring och glasögon.
 
-![Översikt – Ansiktsavkänning](./Images/Face.detection.jpg)
+![En bild av en kvinna och en man, med rektanglar ritade kring deras ansikten och visad ålder och kön](./Images/Face.detection.jpg)
 
-Ansiktsrektangeln (vänster, topp, bredd och höjd) som anger ansiktets plats i bilden returneras tillsammans med varje identifierat ansikte. Alternativt kan ansiktsavkänning extrahera en serie ansiktsrelaterade attribut som hållning, kön, ålder, huvudhållning, ansiktsbehåring och glasögon. Mer information finns i [Ansikte – Igenkänning](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Ansiktsavkänningsfunktionen är också tillgänglig genom [API:et för visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) men om du vill utföra ytterligare åtgärder med ansiktsinformation ska du använda Ansikts-API (den här tjänsten). Mer information om ansiktsavkänning finns i [API:et för identifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-## <a name="face-recognition"></a>Ansiktsigenkänning
+## <a name="face-verification"></a>Ansiktsverifiering
 
-Förmågan att identifiera ansikten är viktig i många scenarier som säkerhet, naturligt användargränssnitt, analys och hantering av bildinnehåll, mobilappar och robotteknik. Ansikts-API-tjänsten har fyra funktioner för ansiktsigenkänning: ansiktsverifiering, hitta liknande ansikten, ansiktsgruppering och personidentifiering.
+API:et för verifiering utför en autentisering mot två identifierade ansikten eller från ett identifierat ansikte till ett personobjektet. I praktiken utvärderar det om två ansikten tillhör samma person. Det här är potentiellt användbart i säkerhetsscenarier. Mer information finns i [API:et för verifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
-### <a name="face-verification"></a>Ansiktsverifiering
+## <a name="find-similar-faces"></a>Hitta liknande ansikten
 
-Ansiktsverifiering utför en autentisering mot två identifierade ansikten eller från ett identifierat ansikte till ett personobjektet. Mer detaljerad information finns i [Ansikte – Verifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+Hitta liknande-API:et tar ett målansikte och en uppsättning kandidatansikten och hittar en mindre mängd ansikten som mest liknar målansiktet. Två arbetslägen, **matchPerson** och **matchFace**, stöds. Läget **matchPerson** returnerar likande ansikten efter filtrering för samma person (med hjälp av [API:et för verifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)). Läget **matchFace** ignorerar samma person-filtret och returnerar en lista med likande kandidatansikten som kanske tillhör samma person.
 
-### <a name="finding-similar-faces"></a>Hitta liknande ansikten
+I följande exempel är det här målansiktet:
 
-Givet ett identifierat målansikte och en uppsättning alternativa ansikten att söka med, så hittar tjänsten en liten uppsättning ansikten som mest liknar målansiktet. Två arbetslägen, **matchFace** och **matchPerson**, stöds. Läget **matchPerson** returnerar liknande ansikten efter att ha tillämpat ett samma-person-tröskelvärde som härletts från [Ansikte – Verifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). Läget **matchFace** ignorerar samma-person-tröskelvärdet och returnerar de ansiktsalternativ som har störst likhet. I det följande exemplet är ansiktsalternativen listade.
-![Översikt – Ansikte – Hitta liknande](./Images/FaceFindSimilar.Candidates.jpg) Det här är frågans ansikte.
-![Översikt – Ansikte – Hitta liknande](./Images/FaceFindSimilar.QueryFace.jpg)
+![En leende kvinna](./Images/FaceFindSimilar.QueryFace.jpg)
 
-För att hitta fyra liknande ansikten skulle läget **matchPerson** returnera (a) och (b), vilket visar samma person som frågeansiktet. Läget **matchFace** returnerar (a), (b), (c) och (d), exakt fyra kandidater även om vissa har låg likhet. Mer information finns i [Ansikte – Hitta liknande](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
+Och det här är kandidatansiktena:
 
-### <a name="face-grouping"></a>Ansiktsgruppering
+![Fem bilder på leende människor. Bild a) och b) är samma person](./Images/FaceFindSimilar.Candidates.jpg)
 
-Med en uppsättning okända ansikten delar ansiktsgrupperings-API:et automatiskt in dem i olika grupper baserat på likheter. Varje grupp är en osorterad egentlig delmängd av den ursprungliga uppsättningen okända ansikten, och innehåller liknande ansikten. Alla ansikten i samma grupp kan anses tillhöra samma person. Mer information finns i [Ansikte – Grupp](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
+För att hitta fyra liknande ansikten skulle läget **matchPerson** returnera (a) och (b), vilket visar samma person som målansiktet. Läget **matchFace** returnerar (a), (b), (c) och (d) – exakt fyra kandidater, även om vissa inte är samma person som målet eller har låg likhet. Mer information finns i [Hitta liknande-API:et](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
 
-### <a name="person-identification"></a>Personidentifiering
+## <a name="face-grouping"></a>Ansiktsgruppering
 
-Ansikts-API kan användas till att identifiera personer utifrån ett identifierat ansikte och en databas med personer. Du kan skapa den här databasen i förväg, och redigera den sedan över tid.
+API:et för gruppering delar in en uppsättning okända ansikten i flera grupper baserat på likhet. Varje grupp är en åtskild delmängd av den ursprungliga uppsättningen ansikten. Alla ansikten i den grupp tillhör sannolikt samma person men det kan finnas flera olika grupper för en enskild person (särskild med en annan faktor, till exempel uttryck). Mer information finns i [API:et för gruppering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 
-Följande bild är ett exempel på en databas med namnet ”myfriends”. Varje grupp kan innehålla upp till 1 000 000/10 000 olika personobjekt. Varje personobjekt kan ha upp till 248 registrerade ansikten.
+## <a name="person-identification"></a>Personidentifiering
 
-![Översikt – LargePersonGroup/PersonGroup](./Images/person.group.clare.jpg)
+API:et för identifiering kan användas för att identifiera ett ansikte mot en databas med människor. Det kan vara användbart för automatisk bildtaggning i fotohanteringsprogram. Du kan skapa databasen i förväg, och redigera den sedan över tid.
 
-När en databas har skapats och tränats kan identifiering utföras mot gruppen med ett nytt identifierat ansikte. Om ansiktet identifieras som en person i gruppen, så returneras personobjektet.
+Följande bild visar ett exempel på en databas med namnet ”myfriends”. Varje grupp kan innehålla upp till 1 000 000 olika personobjekt, och varje personobjekt kan ha upp till 248 registrerade ansikten.
 
-Mer information om identifiering finns i följande API-guider:
+![Ett rutnät med 3 kolumner för olika personer, var och med 3 rader med ansiktsbilder](./Images/person.group.clare.jpg)
 
-[Ansiktsigenkänning – identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)  
-[PersonGroup – Skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)  
-[PersonGroup Person – Skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)  
-[PersonGroup – Träna](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249)  
-[LargePersonGroup – Skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)  
-[LargePersonGroup Person – Skapa](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40)  
-[LargePersonGroup – Träna](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4)  
+När en databas har skapats och tränats kan du utföra identifiering mot gruppen med ett nytt identifierat ansikte. Om ansiktet identifieras som en person i gruppen, så returneras personobjektet.
 
-#### <a name="face-storage-and-pricing"></a>Ansiktslagring och prissättning
-
-Med Ansiktslagring kan en standardprenumeration lagra ytterligare sparade ansikten vid användning av objekten LargePersonGroup/PersonGroup Person ([PersonGroup Person – Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)/[LargePersonGroup Person – Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42)) eller LargeFaceLists/FaceLists ([FaceList – Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)/[LargeFaceList – Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3)) för identifiering eller likhetsmatchning med Ansikts-API. De lagrade bilderna debiteras med 0,50 USD per 1 000 ansikten och priset justeras proportionerligt på daglig basis. Prenumerationer på kostnadsfri nivå är begränsade till totalt 1 000 personer.
-
-Om ditt kontot till exempel har använt 10 000 sparade ansikten varje dag under månadens första 15 dagar men inga under resten av månaden, debiteras du bara för de 10 000 ansiktena för de dagar de lagrats. Alternativt: Om du varje dag under månaden sparar 1 000 ansikten i några timmar och sedan tar bort dem varje kväll debiteras du ändå för 1 000 sparade ansikten varje dag.
+Mer information om personidentifiering finns i [API:et för identifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
 ## <a name="sample-apps"></a>Exempelappar
 
-Ta en titt på dessa exempelprogram som använder Ansikts-API.
+Följande exempelprogram visar några sätt som ansikts-API:et kan användas.
 
-- [Microsoft Ansikts-API: Windows-klientbibliotek och exempel](https://github.com/Microsoft/Cognitive-Face-Windows)
-  - WPF-exempelapp som visar flera olika användningsområden för ansiktsavkänning, analys och identifiering.
-- [FamilyNotes UWP-app](https://github.com/Microsoft/Windows-appsample-familynotes)
-  - Universal Windows Platform (UWP) är en exempelapp som visar användningen av tal, Cortana, pennanteckningar och kamera via ett familjeanteckningsscenario.
-- [Exempel på bildruteanalys](https://github.com/microsoft/cognitive-samples-videoframeanalysis)
-  - Win32 är en exempelapp som visar analys av livevideoströmmar i nästintill realtid med Ansikts-API, API för visuellt innehåll och Känslo-API.
-
-## <a name="tutorials"></a>Självstudier
-Följande självstudier visar de grundläggande funktionerna och prenumerationsprocesserna i Ansikts-API:
-- [Självstudier: Komma igång med Ansikts-API i CSharp](Tutorials/FaceAPIinCSharpTutorial.md)
-- [Självstudier: Komma igång med Ansikts-API i Java för Android](Tutorials/FaceAPIinJavaForAndroidTutorial.md)
-- [Självstudier: Komma igång med Ansikts-API i Python](Tutorials/FaceAPIinPythonTutorial.md)
+- [Microsoft Face API: Windows Client Library & Sample](https://github.com/Microsoft/Cognitive-Face-Windows) – en WPF-app som visar flera olika scenarier för avkänning, analys och identifiering av ansikten.
+- [FamilyNotes UWP-appen](https://github.com/Microsoft/Windows-appsample-familynotes) – en app för universell Windows-plattform (UWP) som använder ansiktsidentifiering tillsammans med tal, Cortana, pennanteckningar och kamera i ett scenario med delade familjeanteckningar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Testa en snabbstart för att implementera en enkelt scenario för Ansikts-API.
-- [Snabbstart: Identifiera ansikten i en bild med C#](quickstarts/csharp.md) (andra språk som är tillgänglig)
+Följ en snabbstart för att implementera ett enkelt ansiktsavkänningsscenario i kod.
+- [Snabbstart: Identifiera ansikten i en bild med hjälp av .NET SDK med C#](quickstarts/csharp.md) (andra språk som är tillgänglig)

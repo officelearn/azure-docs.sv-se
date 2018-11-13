@@ -1,6 +1,6 @@
 ---
 title: Förstå dina kunder i Azure Application Insights | Microsoft Docs
-description: Självstudiekurs om hur du använder Azure Application Insights för att förstå hur kunder använder ditt program.
+description: Självstudiekurs om att använda Azure Application Insights till att förstå hur kunderna använder din app.
 keywords: ''
 services: application-insights
 author: mrbullwinkle
@@ -10,161 +10,161 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: db61c300ad82270e59d315fa3372d9e4390c7a21
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 6d4f96a2c1d288648543a92614cab0f8cf5ee2ea
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
-ms.locfileid: "24099029"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256008"
 ---
-# <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Använd Azure Application Insights för att förstå hur kunder använder ditt program
+# <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Använda Azure Application Insights till att förstå hur kunderna använder din app
 
-Azure Application Insights samlar in användningsinformation för att hjälpa dig att förstå hur användarna samverkar med ditt program.  Den här självstudiekursen vägleder dig genom de olika resurser som är tillgängliga för att analysera informationen.  Du får lära dig hur du:
+Azure Application Insights samlar in användningsinformation för att hjälpa dig att förstå hur dina användare interagerar med appen.  Den här självstudien går igenom de olika resurser som är tillgängliga för att analysera den här informationen.  Du lär dig hur du:
 
 > [!div class="checklist"]
-> * Analysera information om användare som ansluter till ditt program
-> * Använd sessionsinformation för att analysera hur kunder använder ditt program
-> * Definiera skorstenar som gör att du kan jämföra din önskade användaraktivitet till deras faktiska aktivitet 
-> * Skapa en arbetsbok för att konsolidera visualiseringar och frågor till ett dokument
-> * Gruppera liknande användare för att analysera dem tillsammans
-> * Lär dig vilka användare returnerar till ditt program
-> * Kontrollera hur användare navigerar genom ditt program
+> * Analyserar information om användare som har åtkomst till din app
+> * Använder sessionsinformation för att analysera hur kunder använder din app
+> * Definierar trattar där du kan jämföra din önskade användaraktivitet med den faktiska aktiviteten 
+> * Skapar en arbetsbok för att konsolidera visualiseringar och frågor i ett enda dokument
+> * Grupperar liknande användare för att analysera dem tillsammans
+> * Lär dig vilka användare som kommer tillbaka till din app
+> * Inspekterar hur användarna navigerar genom appen
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här självstudien behöver du:
 
 - Installera [Visual Studio 2017](https://www.visualstudio.com/downloads/) med följande arbetsbelastningar:
     - ASP.NET och webbutveckling
     - Azure Development
-- Hämta och installera den [Visual Studio ögonblicksbild Debugger](http://aka.ms/snapshotdebugger).
+- Ladda ned och installera [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
 - Distribuera ett .NET-program till Azure och [aktivera Application Insights SDK](app-insights-asp-net.md). 
-- [Skicka telemetri från ditt program](app-insights-usage-overview.md#send-telemetry-from-your-app) för att lägga till anpassade händelser/sidvisningar
-- Skicka [användarkontext](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context) att spåra en användare gör över tid och fullständigt utnyttja funktionerna för användning.
+- [Skicka telemetridata från appen](app-insights-usage-overview.md#send-telemetry-from-your-app) för att lägga till anpassade händelser/sidvisningar
+- Skicka [användarkontext](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context) för att spåra vad en användare gör över tid och utnyttja användningsfunktionerna fullt ut.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
-Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="get-information-about-your-users"></a>Hämta information om dina användare
-Den **användare** panelen tillåter dig att förstå viktig information om användarna i en mängd olika sätt. Du kan använda den här panelen för att förstå information som var användarna ansluter från, information om deras klient och vilka områden i ditt program som de försöker komma åt. 
+## <a name="get-information-about-your-users"></a>Få information om dina användare
+På panelen **Användare** kan du få förstå viktig information om dina användare på flera olika sätt. Du kan använda den här panelen till att förstå sådan information som var dina användare ansluter från, information om deras klient och vilka områden i appen de använder. 
 
-1. Välj **Programinsikter** och sedan välja din prenumeration.
-2. Välj **användare** på menyn.
-3. Standardvyn visar antalet unika användare som har anslutit till ditt program under de senaste 24 timmarna.  Du kan ändra tidsramen och ange andra villkor att filtrera den här informationen.
+1. Välj **Application Insights** och sedan din prenumeration.
+2. Välj **Användare** på menyn.
+3. Standardvyn visar antalet unika användare som har anslutit till din app de senaste 24 timmarna.  Du kan ändra tidsfönstret och ange olika villkor för att filtrera den här informationen.
 
     ![Frågebyggaren](media\app-insights-tutorial-users\QueryBuilder.png)
 
-6. Klicka på den **under** listrutan och ändra tidsramen till 7 dagar.  Detta ökar data som ingår i de olika diagrammen i panelen.
+6. Klicka på listrutan **Under** och ändra tidsfönstret till 7 dagar.  Det här ökar data som ingår i de olika diagrammen i panelen.
 
-    ![Ändra tidsintervall](media\app-insights-tutorial-users\TimeRange.png)
+    ![Ändra tidsintervallet](media\app-insights-tutorial-users\TimeRange.png)
 
-4. Klicka på den **delning efter** listrutan för att lägga till en uppdelning av en användaregenskap i diagrammet.  Välj **land eller region**.  Diagrammet innehåller samma data, men kan du visa en sammanställning av antalet användare för varje land.
+4. Klicka på listrutan **Dela med** för att lägga till en uppdelning av en användaregenskap i diagrammet.  Välja **land eller region**.  Diagrammet innehåller samma data men du kan visa en uppdelning av antalet användare för varje land.
 
-    ![Diagram för land eller Region](media\app-insights-tutorial-users\CountryorRegion.png)
+    ![Diagram för land eller region](media\app-insights-tutorial-users\CountryorRegion.png)
 
-5. Placera markören över olika staplarna i diagrammet och Observera att antalet för varje land återspeglar endast tidsfönster som representeras av verktygsfältet.
-6. Ta en titt på den **Insights** kolumnen längst till höger som utföra analyser på användardata.  Detta ger information, till exempel antalet unika sessioner under lång tid och poster med gemensamma egenskaper som utgör betydande av användardata 
+5. Placera markören över olika staplar i diagrammet och observera att antalet för varje land bara visar tidsfönstret som representeras av den stapeln.
+6. Ta en titt på kolumnen **Insikter** till höger som utför analyser av dina användardata.  Det här ger information som antalet unika sessioner under tidsperioden och poster med gemensamma egenskaper som utgör en betydande del av användardata 
 
-    ![Insikter kolumn](media\app-insights-tutorial-users\insights.png)
+    ![Kolumnen Insikter](media\app-insights-tutorial-users\insights.png)
 
 
 ## <a name="analyze-user-sessions"></a>Analysera användarsessioner
-Den **sessioner** panelen liknar den **användare** panelen.  Där **användare** hjälper dig att förstå information om de användare som har åtkomst till ditt program **sessioner** hjälper dig att förstå hur dessa användare har använt ditt program.  
+Panelen **Sessioner** liknar panelen **Användare**.  **Användare** hjälper dig att förstå information om användarna som har åtkomst till din app och **Sessioner** hjälper dig att förstå hur de användare använder din app.  
 
-1. Välj **sessioner** på menyn.
-2. Ta en titt på diagrammet och Observera att du har samma alternativ för att filtrera och dela upp data som i den **användare** panelen.
+1. Välj **Sessioner** på menyn.
+2. Ta en titt på diagrammet och observera att du har samma alternativ för att filtrera och dela upp data som på panelen **Användare**.
 
-    ![Frågebyggaren sessioner](media\app-insights-tutorial-users\SessionsBuilder.png)
+    ![Frågebyggaren för sessioner](media\app-insights-tutorial-users\SessionsBuilder.png)
 
-3. Den **exempel på de här sessionerna** fönstret till höger visas sessioner som innehåller ett stort antal händelser.  Detta är intressanta sessioner att analysera.
+3. I fönstret **Sample of these sessions** (Exempel på dessa sessioner) till höger listar sessioner som innehåller ett stort antal händelser.  Det här är intressanta sessioner att analysera.
 
     ![Exempel på dessa sessioner](media\app-insights-tutorial-users\SessionsSample.png)
 
-4. Klicka på någon av sessioner att visa dess **Session tidslinjen**, vilket visar varje åtgärd i sessioner.  Detta kan hjälpa dig att identifiera information, till exempel sessioner med ett stort antal undantag.
+4. Klicka på en av sessionerna för att visa dess **sessionstidslinje**, som visar varje åtgärd i sessionerna.  Det här kan hjälpa dig att identifiera information som sessioner med ett stort antal undantag.
 
-    ![Tidslinje för sessioner](media\app-insights-tutorial-users\SessionsTimeline.png)
+    ![Sessionstidslinje](media\app-insights-tutorial-users\SessionsTimeline.png)
 
 ## <a name="group-together-similar-users"></a>Gruppera liknande användare
-En **kommittén** är en uppsättning användare groupd på liknande egenskaper.  Du kan använda kohorter att filtrera data i andra paneler så att du kan analysera olika grupper av användare.  Du kanske vill analysera endast användare som slutfört ett inköp.
+En **Kohort** är en uppsättning användare med liknande egenskaper.  Du kan använda kohorter för att filtrera data i andra panelen, så att du kan analysera olika grupper av användare.  Till exempel kanske du bara vill analysera användare som har slutfört ett köp.
 
-1.  Välj **kohorter** på menyn.
-2.  Klicka på **ny** att skapa en ny kommittén.
-3.  Välj den **som används för** listrutan och välj en åtgärd.  Endast användare som utförde åtgärden inom tidsfönstret i rapporten inkluderas.
+1.  Välj **Kohorter** på menyn.
+2.  Klicka på **Nytt** om du vill skapa en kohort.
+3.  Välj listrutan **Who used** (Som har använt) och välj en åtgärd.  Bara användare som har använt den här åtgärden inom rapportens tidsperiod inkluderas.
 
-    ![Kommittén som utföra angivna åtgärder](media\app-insights-tutorial-users\CohortsDropdown.png)
+    ![Kohort som har utfört angivna åtgärder](media\app-insights-tutorial-users\CohortsDropdown.png)
 
-4.  Välj **användare** på menyn.
-5.  I den **visa** listrutan, Välj kommittén som du just skapade.  Data för diagrammet är begränsad till dessa användare.
+4.  Välj **Användare** på menyn.
+5.  I listrutan **Visa** väljer du den kohort du precis har skapat.  Data för diagrammet begränsas till de användarna.
 
-    ![Kommittén i Verktyg för användare](media\app-insights-tutorial-users\UsersCohort.png)
+    ![Kohort i användarverktyget](media\app-insights-tutorial-users\UsersCohort.png)
 
 
-## <a name="compare-desired-activity-to-reality"></a>Jämför önskade aktiviteten verkligheten
-Medan panelerna tidigare fokuserar på vad användare av ditt program gjorde, **skorstenar** fokusera på vad du vill att användarna ska göra.  Ett trattdiagram representerar en uppsättning steg i ditt program och procentandelen av användare som flyttas mellan olika steg.  Du kan till exempel skapa en Trattens som mäter procentandelen av användare som ansluter till ditt program som söker produkten.  Du kan sedan se procentandelen av användare och lägga till den i en kundvagn och procentandelen personer slutför ett inköp.
+## <a name="compare-desired-activity-to-reality"></a>Jämför önskad aktivitet med verkligheten
+Medan de tidigare panelerna fokuserar på vad användarna av din app har gjort fokuserar **trattar** på vad du vill att användarna ska göra.  En tratt representerar en uppsättning steg i din app och procentandelen användare som har gått mellan stegen.  Du kan till exempel skapa en tratt som mäter procentandelen användare som ansluter till appen som söker efter en produkt.  Du kan sedan se procentandelen användare som lägger till den produkten i en kundvagn och sedan procentandelen av dem som slutför ett köp.
 
-1. Välj **skorstenar** i menyn och klicka sedan på **ny**. 
+1. Välj **Trattar** på menyn och klicka sedan på **Ny**. 
 
     ![](media\app-insights-tutorial-users\funnelsnew.png)
 
-2. Ange en **tratt namnet**.
-3. Skapa en Trattens med minst två steg genom att välja en åtgärd för varje steg.  En lista över åtgärder bygger från användningsdata som samlas in av Application Insights.
+2. Ange ett **trattnamn**.
+3. Skapa en tratt med minst två steg genom att välja en åtgärd för varje steg.  Listan över åtgärder skapas utifrån användningsdata som samlas in av Application Insights.
 
     ![](media\app-insights-tutorial-users\funnelsedit.png)
 
-4. Klicka på **spara** att spara tratten och visa sedan resultaten.  I fönstret till höger om tratten visas de vanligaste händelserna före den första aktiviteten och efter den senaste aktiviteten för att förstå användaren beteenden runt viss sekvens.
+4. Klicka på **Spara** för att spara tratten och visa sedan resultaten.  Fönstret till höger om tratten visar de vanligaste händelserna före den första aktiviteten och efter den sista aktiviteten för att hjälpa dig att förstå användartendenser runt den specifika sekvensen.
 
     ![](media\app-insights-tutorial-users\funnelsright.png)
 
 
-## <a name="learn-which-customers-return"></a>Lär dig vilka kunder returnera
-**Kvarhållning** hjälper dig att förstå vilka användare kommer tillbaka till ditt program.  
+## <a name="learn-which-customers-return"></a>Få reda på vilka kunder som kommer tillbaka
+**Kvarhållning** hjälper dig att första vilka användare som kommer tillbaka till appen.  
 
-1. Välj **kvarhållning** på menyn.
-2. Som standard innehåller informationen analyseras användare utföra alla åtgärder som då returneras om du vill utföra alla åtgärder.  Du kan ändra det här filtret till alla inkludera, till exempel användare som returneras när du har slutfört ett inköp.
+1. Välj **Kvarhållning** på menyn.
+2. Som standard innehåller den analyserade informationen användare som har utfört en åtgärd och sedan kommit tillbaka och utfört en åtgärd.  Du kan ändra det här filtret så att det, till exempel, bara inkluderar de användare som kommer tillbaka efter att ha slutfört ett köp.
 
     ![](media\app-insights-tutorial-users\retentionquery.png)
 
-3. Returnerar användare som matchar villkor som visas i en grafisk och tabell för olika tidsvaraktigheter.  Det vanliga mönstret är för en gradvis minskning av returnerar användare över tid.  En plötslig släpp från en tidsperiod till nästa kan generera ett problem. 
+3. De återkommande användarna som matchar villkoren visas i grafiskt format och tabellformat för olika tidsvaraktigheter.  Det vanliga mönstret visar en gradvis nedgång i antalet återkommande användare över tid.  En plötslig nedgång från en tidsperiod till nästa kan ge upphov till oro. 
 
     ![](media\app-insights-tutorial-users\retentiongraph.png)
 
 ## <a name="analyze-user-navigation"></a>Analysera användarnavigering
-En **användaren flödet** visualizes hur användarna navigera mellan sidor och funktioner i programmet.  Det hjälper dig besvara frågor som där användarna vanligtvis flyttar från en viss sida, hur de vanligtvis avsluta programmet och om det finns några åtgärder som regelbundet upprepas.
+Ett **användarflöde** visualiserar hur användare navigerar mellan sidorna och funktionerna i din app.  Det här hjälper dig att besvara frågor som var användarna normalt går från en viss sida, hur de normalt avslutar din app och om det finns några åtgärder som upprepas regelbundet.
 
-1.  Välj **användaren flöden** på menyn.
-2.  Klicka på **ny** skapar du en ny användare och klicka sedan på **redigera** att redigera detaljerna.
-3.  Öka den **tidsintervall** till 7 dagar och välj sedan en inledande händelse.  Flödet spårar användarsessioner som börjar med händelsen.
+1.  Välj **Användarflöden** på menyn.
+2.  Klicka på **Nytt** för att skapa ett nytt användarflöde och klicka sedan på **Redigera** för att redigera dess egenskaper.
+3.  Öka **tidsintervallet** till 7 dagar och välj sedan den inledande händelsen.  Flödet spårar användarsessioner som börjar med den händelsen.
 
     ![](media\app-insights-tutorial-users\flowsedit.png)
 
-4.  Användaren flödet visas, och du kan se olika användare sökvägar och sin session räknar.  Blå linjer anger en åtgärd som användaren utföras efter den aktuella åtgärden.  En röd linje anger slutet av sessionen.
+4.  Användarflödet visas och du kan se olika användarvägar och deras antal sessioner.  Blå linjer anger en åtgärd som användaren har utfört efter den aktuella åtgärden.  En blå linje anger att användarsessionen är slut.
 
     ![](media\app-insights-tutorial-users\flows.png)
 
-5.  Om du vill ta bort en händelse från flödet, klickar du på den **x** i hörnet av åtgärden och klicka sedan på **skapa diagram**.  Diagrammet ritas med alla förekomster av händelsen tas bort.  Klicka på **redigera** att se att händelsen läggs nu till **exkluderade händelser**.
+5.  Om du vill ta bort en händelse från flödet klickar du på **x** i hörnet av åtgärden och klickar sedan på **Skapa diagram**.  Diagrammet ritas om med instanserna av den händelsen borttagna.  Klicka på **Redigera** för att se att händelsen nu har lagts till i **Exkluderade händelser**.
 
     ![](media\app-insights-tutorial-users\flowsexclude.png)
 
 ## <a name="consolidate-usage-data"></a>Konsolidera användningsdata
-**Arbetsböcker** kombinera datavisualiseringar, Analytics-frågor och text i interaktiva dokument.  Du kan använda arbetsböcker för att gruppera vanliga användningsinformation, konsolidera information från en viss händelse eller rapportera till din grupp på användning av ditt program.
+**Arbetsböcker** kombinerar datavisualiseringar, analysfrågor och text till interaktiva dokument.  Du kan använda arbetsböcker för att gruppera gemensam användningsinformation, konsolidera information från en viss incident eller rapportera tillbaka till ditt team om appens användning.
 
-1.  Välj **arbetsböcker** på menyn.
-2.  Klicka på **ny** att skapa en ny arbetsbok.
-3.  En fråga har redan angetts som inkluderar alla användardata på den sista dagen som visas som ett stapeldiagram.  Du kan använda den här frågan, manuellt redigera den, eller klicka på **exempel frågor** att välja från andra användbara frågor.
+1.  Välj **Arbetsböcker** på menyn.
+2.  Klicka på **Nytt** för att skapa en ny arbetsbok.
+3.  En fråga har redan angetts som innehåller alla användningsdata på sista dagen visade som ett stapeldiagram.  Du kan använda den här frågan, redigera den manuellt eller klicka på **Exempelfrågor** för att välja från andra användbara frågor.
 
     ![](media\app-insights-tutorial-users\samplequeries.png)
 
-4.  Klicka på **är klar med redigeringen**.
-5.  Klicka på **redigera** i det övre fönstret Redigera texten längst upp i arbetsboken.  Detta är formaterad med markdown.
+4.  Klicka på **Klar med redigeringen**.
+5.  Klicka på **Redigera** i det övre fönstret för att redigera texten högst upp i arbetsboken.  Det här formateras med markdown.
 
     ![](media\app-insights-tutorial-users\markdown.png)
 
-6.  Klicka på **lägga till användare** att lägga till ett diagram med användarinformation.  Redigera information om diagrammet om du vill använda och klicka sedan på **är klar med redigeringen** och spara den.
+6.  Klicka på **Lägg till användare** för att lägga till ett diagram med användarinformation.  Redigera informationen om diagrammet om du vill och klicka sedan på **Klar med redigeringen** för att spara det.
 
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har lärt dig hur du analyserar dina användare går du vidare till nästa kurs att lära dig skapa anpassade instrumentpaneler som kombinerar den här informationen med annan användbar information om ditt program.
+Nu när du har lärt dig hur du analyserar dina användare kan du gå vidare till nästa självstudie och lära dig hur du skapar anpassade instrumentpaneler som kombinerar den här informationen med andra användbara data om din app.
 
 > [!div class="nextstepaction"]
 > [Skapa anpassade instrumentpaneler](app-insights-tutorial-dashboards.md)

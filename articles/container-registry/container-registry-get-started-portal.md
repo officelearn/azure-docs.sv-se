@@ -5,15 +5,15 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 03/03/2018
+ms.date: 11/06/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a75d7e599b10b1d56bd41db1d6785dace67d5d06
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 1e039c465bf37e0ee5ca1db5837798680e27463d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857847"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278675"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>Snabbstart: Skapa ett containerregister med hjälp av Azure Portal
 
@@ -27,11 +27,11 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Skapa ett containerregister
 
-Välj **Skapa en resurs** > **Behållare** > **Azure Container Registry**.
+Välj **Skapa en resurs** > **Containers** > **Container Registry**.
 
 ![Skapa ett containerregister i Azure-portalen][qs-portal-01]
 
-Ange värden för **Registernamn** och **Resursgrupp**. Registernamnet måste vara unikt i Azure och innehålla 5–50 alfanumeriska tecken. Skapa en ny resursgrupp med namnet `myResourceGroup` och välj ”Grundläggande” för **SKU**. Välj **Skapa** för att distribuera ACR-instansen.
+Ange värden för **Registernamn** och **Resursgrupp**. Registernamnet måste vara unikt i Azure och innehålla 5–50 alfanumeriska tecken. För den här snabbstarten skapar du en ny resursgrupp på platsen `West US` med namnet `myResourceGroup`, och för **SKU** väljer du ”Basic”. Välj **Skapa** för att distribuera ACR-instansen.
 
 ![Skapa ett containerregister i Azure-portalen][qs-portal-03]
 
@@ -71,29 +71,29 @@ Du måste först ha en avbildning om du ska kunna push-överföra en avbildning 
 docker pull microsoft/aci-helloworld
 ```
 
-Innan du överför avbildningen till registret måste du tagga avbildningen med namnet på ACR-inloggningsservern. Tagga avbildningen med hjälp av kommandot [docker tag][docker-tag]. Ersätt *inloggningsserver* med det inloggningsservernamn du antecknade tidigare.
+Innan du överför avbildningen till registret måste du tagga avbildningen med namnet på ACR-inloggningsservern. Tagga avbildningen med hjälp av kommandot [docker tag][docker-tag]. Ersätt *inloggningsserver* med det inloggningsservernamn du antecknade tidigare. Lägg till ett *lagringsplatsnamn* som **`myrepo`** för att placera din bild i en databas.
 
 ```bash
-docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
+docker tag microsoft/aci-helloworld <login server>/<repository name>/aci-helloworld:v1
 ```
 
-Använd slutligen [docker push][docker-push] för att överföra avbildningen till ACR-instansen. Ersätt *inloggningsserver* med inloggningsservernamnet för ACR-instansen.
+Använd slutligen [docker push][docker-push] för att överföra avbildningen till ACR-instansen. Ersätt *inloggningsservern* med namnet på inloggningsservern för ACR-instansen och ersätt *databasnamnet* med namnet på lagringsplatsen du använde i föregående kommando.
 
 ```bash
-docker push <login server>/aci-helloworld:v1
+docker push <login server>/<repository name>/aci-helloworld:v1
 ```
 
 Utdata från ett lyckat `docker push`-kommando ser ut ungefär så här:
 
 ```
-The push refers to a repository [uniqueregistryname.azurecr.io/aci-helloworld]
-7c701b1aeecd: Pushed
-c4332f071aa2: Pushed
-0607e25cc175: Pushed
+The push refers to repository [specificregistryname.azurecr.io/myrepo/aci-helloworld]
+31ba1ebd9cf5: Pushed
+cd07853fe8be: Pushed
+73f25249687f: Pushed
 d8fbd47558a8: Pushed
 44ab46125c35: Pushed
 5bef08742407: Pushed
-v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c62ba size: 1577
+v1: digest: sha256:565dba8ce20ca1a311c2d9485089d7ddc935dd50140510050345a1b0ea4ffa6e size: 1576
 ```
 
 ## <a name="list-container-images"></a>Visa lista över containeravbildningar
@@ -114,7 +114,7 @@ En snabbmeny visas. Välj **Kör instans**:
 
 ![Starta ACI-snabbmeny][qs-portal-11]
 
-Fyll i **Behållarnamn**, se till att rätt beskrivning är vald, välj befintlig **Resursgrupp**: ”myResourceGroup” och klicka därefter på **OK** för att starta Azure Container-instansen.
+Fyll i **Containernamn**, se till att rätt prenumeration är vald och välj befintlig **Resursgrupp**: ”myResourceGroup”. Kontrollera att alternativen för ”offentlig IP-adress” är aktiverat genom att ange **Ja** och klicka sedan på **OK** att starta Azure Container-instansen.
 
 ![Starta ACI-distributionsalternativ][qs-portal-12]
 
@@ -136,7 +136,7 @@ När containern är i tillståndet **Körs** kan du använda din favoritwebbläs
 
 Om du vill rensa dina resurser går du till resursgruppen **myResourceGroup** i portalen. När resursgruppen har lästs in klickar du på **Ta bort resursgrupp** för att ta bort resursgruppen, Azure Container Registry och alla Azure Container Instances.
 
-![Skapa ett containerregister i Azure-portalen][qs-portal-08]
+![Ta bort resursgrupp i Azure-portalen][qs-portal-08]
 
 ## <a name="next-steps"></a>Nästa steg
 

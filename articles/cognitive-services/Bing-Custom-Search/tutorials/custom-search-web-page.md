@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: tutorial
 ms.date: 10/16/2017
 ms.author: v-brapel
-ms.openlocfilehash: 3e892131a0109d2fff924940542b5d8b2b701950
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 6d08a36d7a464ccc1904839d6631be0553aacb17
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815383"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279219"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Självstudie: Skapa en webbsida för anpassad sökning
 
@@ -79,7 +79,7 @@ Om du vill utesluta resultat från vissa webbplatser eller webbadresser kan du l
 
 ## <a name="add-pinned-entries"></a>Lägga till fästa poster
 
-För att fästa en specifik webbsida längst upp i sökresultatet lägger du till webbsidan och frågevillkoret till den **fästa** fliken. Den **fästa** fliken innehåller en lista över webbsidan och frågetermpar som anger webbsidan som visas i det översta resultatet för en specifik fråga. Webbsidan fästs endast om användarens frågesträng matchar fästets frågesträng baserat på fästets matchningsvillkor. [Läs mer](../define-your-custom-view.md#pin-to-top).
+För att fästa en specifik webbsida längst upp i sökresultatet lägger du till webbsidan och frågevillkoret till den **fästa** fliken. Den **fästa** fliken innehåller en lista över webbsidan och frågetermpar som anger webbsidan som visas i det översta resultatet för en specifik fråga. Webbsidan fästs endast om användarens frågesträng matchar fästets frågesträng baserat på fästets matchningsvillkor. Endast indexerade webbplatser visas i sökningar. Mer information finns i avsnittet om att [definierar en anpassad vy](../define-your-custom-view.md#pin-to-top).
 
 1. På sidan **Konfiguration** klickar du på den **fästa** fliken och anger webbsidan och frågetermen för den webbsida som du vill ska returneras som ett översta resultat.  
   

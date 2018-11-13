@@ -4,17 +4,17 @@ description: Azure Policy är en tjänst i Azure som används för att skapa, ti
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 11/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: dbdffc7a6f77f3f34ce7937c60eb7a53e5f72590
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c016e21ff59d5f68afee79b2159218d10e90a7ec
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961288"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252827"
 ---
 # <a name="what-is-azure-policy"></a>Vad är Azure Policy?
 
@@ -35,12 +35,14 @@ Principer fokuserar på resursegenskaper under distributionen och för redan bef
 
 ### <a name="rbac-permissions-in-azure-policy"></a>RBAC-behörigheter i Azure Policy
 
-Azure Policy har behörigheter som representeras som åtgärder i två olika resursprovidrar:
+Azure Policy har flera behörigheter, som kallas åtgärder, i två olika resursprovidrar:
 
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
-- [Microsoft.PolicyInsight](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
+- [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Flera av de inbyggda rollerna har olika behörighetsnivåer till Azure Policy-resurser, till exempel **säkerhetsadministratör**, som kan hantera principtilldelningar och definitioner men inte visa information om efterlevnad, och **läsare** , som kan läsa information om principtilldelningar och definitioner men inte göra ändringar eller visa information om efterlevnad. Medan **ägare** har fullständiga behörigheter har **deltagare** inga Azure Policy-behörigheter. Om du vill bevilja behörighet att visa information om principefterlevnad skapar du en [anpassad roll](../../role-based-access-control/custom-roles.md).
+Många inbyggda roller beviljar behörighet till Azure Policy-resurser. Rollen **Deltagare för resursprincip (förhandsversion)** innefattar de flesta principåtgärderna, och **Ägare** har fullständig behörighet. Båda **Deltagare** och **Läsare** kan läsa alla information om principen, men **Deltagare** kan även utlösa reparation.
+
+Om ingen av de inbyggda rollerna har de behörigheter som krävs skapar du en [anpassad roll](../../role-based-access-control/custom-roles.md).
 
 ## <a name="policy-definition"></a>Definition av princip
 

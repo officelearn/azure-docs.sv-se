@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 7eef3d71a35b5016e48e519b95c2573fbe3390e7
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 54b25aa141da15224d5d8034ba54783d3633f5be
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265113"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914744"
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database för MySQL: Använda Python för att ansluta och fråga efter data
 Den här snabbstarten visar hur du använder [Python](https://python.org) för att ansluta till en Azure Database för MySQL. SQL-instruktioner används för att fråga, infoga, uppdatera och ta bort data i databasen i Mac OS, Ubuntu Linux och Windows-plattformar. Det här avsnittet förutsätter att du är van att utveckla i Python och att du saknar erfarenhet av Azure Database for MySQL.
@@ -27,7 +27,11 @@ I den här snabbstarten används de resurser som skapades i någon av följande 
 - [Skapa en Azure Database för MySQL-server med Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-python-and-the-mysql-connector"></a>Installera Python och MySQL Connector
-Installera [Python](https://www.python.org/downloads/) och [MySQL Connector för Python](https://dev.mysql.com/downloads/connector/python/) på din egen dator. Följ instruktionerna för din plattform:
+Installera [Python](https://www.python.org/downloads/) och [MySQL Connector för Python](https://dev.mysql.com/downloads/connector/python/) på din egen dator. Följ instruktionerna för din plattform nedan. 
+
+> [!NOTE]
+> Den här snabbstarten använder en rå SQL-frågemetod för att ansluta till MySQL för att köra frågor. Om du använder ett webbramverk kan du använda den rekommenderade anslutningstjänsten för dessa ramverk. Till exempel rekommenderas [mysqlclient](https://pypi.org/project/mysqlclient/) för användning med Django.
+>
 
 ### <a name="windows"></a>Windows
 1. Hämta och installera Python 2.7 från [python.org](https://www.python.org/downloads/windows/). 
@@ -56,7 +60,7 @@ Installera [Python](https://www.python.org/downloads/) och [MySQL Connector för
 
    ```bash
    pip install mysql-connector-python-rf
-   ```
+   ``` 
 
 ## <a name="get-connection-information"></a>Hämta anslutningsinformation
 Skaffa den information som du behöver för att ansluta till Azure Database för MySQL. Du behöver det fullständiga servernamnet och inloggningsuppgifter.
@@ -66,7 +70,6 @@ Skaffa den information som du behöver för att ansluta till Azure Database för
 3. Klicka på servernamnet.
 4. På serverpanelen **Översikt** antecknar du **Servernamn** och **Inloggningsnamn för serveradministratören**. Om du glömmer lösenordet kan du även återställa det på den här panelen.
  ![Azure Database för MySQL-servernamn](./media/connect-python/1_server-overview-name-login.png)
-   
 
 ## <a name="run-python-code"></a>Köra Python-kod
 - Klistra in koden i en textfil och spara sedan filen till en projektmapp med filnamnstillägget .py (till exempel C:\pythonmysql\createtable.py eller /home/username/pythonmysql/createtable.py).

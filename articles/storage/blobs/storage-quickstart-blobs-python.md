@@ -6,23 +6,23 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 10/31/2018
 ms.author: tamram
-ms.openlocfilehash: a264f5bdec6d09c0cbdd6ebec3a6b760deaf9547
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3550d9e63288ad0cfb45dc6267f20762d3068b6a
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139088"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219400"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-python"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Python
+# <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Python
 
 I den här snabbstarten får du lära dig att använda Python för att ladda upp, ladda ned och lista blockblobar i en container i Azure Blob Storage. 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här snabbstarten behöver du: 
-* Installera [Python](https://www.python.org/downloads/)
+* Installera [Python](https://www.python.org/downloads/).
 * Ladda ned och installera [Azure Storage SDK för Python](https://github.com/Azure/azure-sdk-for-python). 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
@@ -30,7 +30,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="download-the-sample-application"></a>Hämta exempelprogrammet
-[Exempelprogrammet](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) som används i den här snabbstarten är ett grundläggande Python-program.  
+[Exempelprogrammet](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) i den här snabbstarten är ett grundläggande Python-program.  
 
 Använd [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön. 
 
@@ -38,25 +38,25 @@ Använd [git](https://git-scm.com/) för att ladda ned en kopia av programmet ti
 git clone https://github.com/Azure-Samples/storage-blobs-python-quickstart.git 
 ```
 
-Det här kommandot klonar lagret till den lokala git-mappen. Om du vill öppna Python-programmet letar du reda på mappen storage-blobs-python-quickstart och filen example.py.  
+Det här kommandot klonar lagringsplatsen *Azure-Samples/storage-blobs-python-quickstart* till din lokala git-mapp. Om du vill köra Python-programmet öppnar du filen *example.py* i lagringsplatsens rot.  
 
 [!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>Konfigurera anslutningssträngen för lagring
-I programmet måste du ange ditt lagringskontonamn och kontonyckel för att skapa ett `BlockBlobService`-objekt. Öppna filen `example.py` från Solution Explorer i IDE. Ersätt värdena **accountname** och **accountkey** med ditt kontonamn och din nyckel. 
+I programmet måste du ange ditt lagringskontonamn och kontonyckel för att skapa ett `BlockBlobService`-objekt. Öppna filen *example.py* från Solution Explorer i IDE. Ersätt värdena `accountname` och `accountkey` med kontonamnet och nyckeln. 
 
 ```python 
 block_blob_service = BlockBlobService(account_name='accountname', account_key='accountkey') 
 ```
 
 ## <a name="run-the-sample"></a>Kör exemplet
-Det här exemplet skapar en testfil i mappen ”Dokument”. Exempelprogrammet laddar upp testfilen till Blob Storage, listar blobarna i containern och laddar ned filen med ett nytt namn. 
+Det här exemplet skapar en testfil i mappen *Dokument*. Exempelprogrammet laddar upp testfilen till Blob Storage, listar blobarna i containern och laddar ned filen med ett nytt namn. 
 
 Först installerar du beroenden genom att köra `pip install`:
 
     pip install azure-storage
 
-Sedan kör du exemplet. Följande utdata är ett exempel på utdata som returneras när programmet körs:
+Sedan kör du exemplet. Meddelandena ser ut ungefär som i följande utdata:
   
 ```
 Temp file = C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
@@ -68,24 +68,24 @@ List blobs in the container
 
 Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078_DOWNLOADED.txt
 ```
-När du trycker på valfri tangent för att fortsätta tar exempelprogrammet bort containern och filerna. Kontrollera att de två filerna finns i mappen ”Dokument” innan du fortsätter. Du kan öppna dem och se att de är identiska.
+Kontrollera att de två filerna finns i mappen *Dokument* innan du fortsätter. Du kan öppna dem och se att de är samma.
 
 Du kan också använda ett verktyg som [Azure Storage Explorer](http://storageexplorer.com) för att visa filerna i Blob Storage. Azure Storage Explorer är ett kostnadsfritt verktyg för flera plattformar som gör det möjligt att komma åt information på lagringskontot. 
 
-När du har kontrollerat filerna trycker du på valfri tangent för att avsluta demonstrationen och ta bort testfilerna. Nu när du vet vad exemplet gör kan du öppna filen example.py och titta på koden. 
+När du har kontrollerat filerna trycker du på valfri tangent för att avsluta demonstrationen och ta bort testfilerna. Nu när du vet vad exemplet gör kan du öppna filen *example.py* och titta på koden. 
 
 ## <a name="understand-the-sample-code"></a>Förstå exempelkoden
 
-Härnäst går vi igenom exempelkoden så att du kan förstå hur den fungerar.
+Nu går vi igenom exempelkoden så att du kan förstå hur den fungerar.
 
 ### <a name="get-references-to-the-storage-objects"></a>Hämta referenser till lagringsobjekten
-Det första du ska göra är att skapa referenser till objekten som används för att komma åt och hantera Blob Storage. De här objekten bygger på varandra, och vart och ett används av nästa i listan.
+Först skapar du referenser till objekten som används för att komma åt och hantera Blob Storage. De här objekten bygger på varandra, och vart och ett används av nästa i listan.
 
 * Skapa en instans av objektet **BlockBlobService**, som pekar mot Blob Service i lagringskontot. 
 
-* Skapa en instans av objektet **CloudBlobContainer**, som representerar den behållare du får åtkomst till. Containrar används för att organisera dina blobar på samma sätt som du använder mappar på datorn för att organisera dina filer.
+* Skapa en instans av objektet **CloudBlobContainer**, som representerar den container du får åtkomst till. Containrar används för att organisera dina blobar på samma sätt som du använder mappar på datorn för att organisera dina filer.
 
-När du har Cloud Blob-containern kan du skapa en instans av objektet **CloudBlockBlob** som pekar mot den specifika blob du är intresserad av, och utföra åtgärder som att ladda upp, ladda ned och kopiera.
+När du har molnblobcontainern kan du instansiera objektet **CloudBlockBlob** som pekar mot den specifika blob du är intresserad av. Du kan sedan ladda upp, hämta och kopiera bloben efter behov.
 
 > [!IMPORTANT]
 > Containernamn måste använda gemener. Mer information om containrar och blobnamn finns i [Namngivning och referens av containrar, blobar och metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
@@ -107,9 +107,9 @@ block_blob_service.set_container_acl(container_name, public_access=PublicAccess.
 
 Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. Blockblobar är vanligast och används i denna snabbstart.  
 
-Om du vill överföra en fil till en blob hämtar du filens fullständiga sökväg genom att slå ihop katalognamnet och filnamnet på den lokala enheten. Du kan sedan överföra filen till angiven sökväg med hjälp av metoden **create\_blob\_from\_path**. 
+Om du vill överföra en fil till en blob hämtar du den fullständiga sökvägen genom att slå ihop katalognamnet och filnamnet på den lokala enheten. Du kan sedan ladda upp filen till angiven sökväg med hjälp av metoden `create\_blob\_from\_path`. 
 
-Exempelkoden skapar en lokal fil som ska användas för uppladdning och nedladdning, och lagrar filen som ska laddas upp som **file\_path\_to\_file** och namnet på bloben som **local\_file\_name**. I följande exempel överförs filen till containern med namnet **quickstartblobs**.
+Exempelkoden skapar en lokal fil som ska användas för uppladdning och nedladdning, och lagrar filen som ska laddas upp som `file\_path\_to\_file` och namnet på bloben som `local\_file\_name`. I följande exempel överförs filen till containern med namnet **quickstartblobs**.
 
 ```python
 # Create a file in Documents to test the upload and download.
@@ -129,13 +129,13 @@ print("\nUploading to Blob storage as blob" + local_file_name)
 block_blob_service.create_blob_from_path(container_name, local_file_name, full_path_to_file)
 ```
 
-Det går att använda flera uppladdningsmetoder med Blob Storage. Om du till exempel har en minnesström kan du använda metoden **create\_blob\_from\_stream** i stället för **create\_blob\_from\_path**. 
+Det går att använda flera uppladdningsmetoder med Blob Storage. Om du till exempel har en minnesström kan du kan använda metoden `create\_blob\_from\_stream` snarare än `create\_blob\_from\_path`. 
 
 Blockblobar kan vara så stora som 4,7 TB och kan vara allt från Excel-kalkylblad till stora videofiler. Sidblobar används främst för VHD-filer som används för att säkerhetskopiera virtuella IaaS-datorer. Tilläggsblobar används för loggning, till exempel när du vill skriva till en fil och sedan fortsätta att lägga till mer information. De flesta objekt som lagras i Blob Storage är blockblobar.
 
 ### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
 
-Hämta en lista över filer i containern med hjälp av metoden **list_blobs**. Den här metoden returnerar en generator. Följande kod hämtar listan över blobar och går sedan igenom dem och visar namnen på de blobar som har påträffats i en container.  
+Hämta en lista över filer i containern med hjälp av metoden `list_blobs`. Den här metoden returnerar en generator. Följande kod hämtar listan över blobar&mdash; och går sedan igenom dem och&mdash;visar namnen på de blobar som har påträffats i en container.  
 
 ```python
 # List the blobs in the container
@@ -147,7 +147,7 @@ for blob in generator:
 
 ### <a name="download-the-blobs"></a>Ladda ned blobarna
 
-Ladda ned blobar till din lokala disk med hjälp av metoden **get\_blob\_to\_path**. Följande kod laddar ned bloben som överfördes i föregående avsnitt. ”_DOWNLOADED” läggs till som ett suffix på blobnamnet så att du kan se båda filerna på den lokala disken. 
+Ladda ned blobar till din lokala disk med hjälp av metoden `the get\_blob\_to\_path`. Följande kod laddar ned bloben som överfördes i föregående avsnitt. *_DOWNLOADED* läggs till som ett suffix på blobnamnet så att du kan se båda filerna på den lokala disken. 
 
 ```python
 # Download the blob(s).
@@ -158,7 +158,7 @@ block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_t
 ```
 
 ### <a name="clean-up-resources"></a>Rensa resurser
-Om du inte längre behöver blobarna som laddades upp i denna snabbstart kan du ta bort hela behållaren med hjälp av **delete\_container**. Om du inte längre behöver filerna som skapades använder du metoden **delete\_blob** för att ta bort filerna.
+Om du inte längre behöver blobarna som laddades upp i denna snabbstart kan du ta bort hela containern med hjälp av metoden `delete\_container`. Om du vill ta bort enskilda filer använder du i stället metoden `delete\_blob`.
 
 ```python
 # Clean up resources. This includes the container and the temp files
@@ -168,7 +168,7 @@ os.remove(full_path_to_file2)
 ```
 ## <a name="resources-for-developing-python-applications-with-blobs"></a>Resurser för att utveckla Python-tillämpningar med blobar
 
-Se dessa ytterligare resurser för Python-utveckling med Blob-lagring:
+Se dessa ytterligare resurser för att få mer information om Python-utveckling med Blob-lagring:
 
 ### <a name="binaries-and-source-code"></a>Binärfiler och källkod
 
@@ -181,7 +181,7 @@ Se dessa ytterligare resurser för Python-utveckling med Blob-lagring:
 
 ## <a name="next-steps"></a>Nästa steg
  
-I den här snabbstarten har du lärt dig hur du överför filer mellan en lokal disk och Azure Blob Storage med Python. Om du vill veta mer om att arbeta med Blob Storage kan du gå vidare till anvisningarna om Blob Storage.
+I den här snabbstarten har du lärt dig hur du överför filer mellan en lokal disk och Azure Blob Storage med Python. Om du vill veta mer om att arbeta med Blob Storage kan du fortsätta till anvisningarna om Blob Storage.
 
 > [!div class="nextstepaction"]
 > [Anvisningar för Blob Storage-åtgärder](./storage-python-how-to-use-blob-storage.md)

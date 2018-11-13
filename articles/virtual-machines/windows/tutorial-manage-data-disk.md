@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/09/2018
+ms.date: 11/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 94c36316f201abb7b86d56547551c4baefbcc031
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: c69a91ce360b5476541de29dc52ea89057aa726c
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867841"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037642"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Självstudier – Hantera Azure-diskar med Azure PowerShell
 
@@ -34,65 +34,44 @@ Azure Virtual Machines använder diskar för att lagra de virtuella datorernas o
 > * Diskprestanda
 > * Ansluta och förbereda datadiskar
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
-Om du väljer att installera och använda PowerShell lokalt krävs Azure PowerShell-modulen version 5.7.0 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
+Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
+
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i en separat webbläsarflik genom att gå till [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 ## <a name="default-azure-disks"></a>Azure-standarddiskar
 
 När en virtuell Azure-dator skapas kopplas två diskar automatiskt till den virtuella datorn. 
 
-**Operativsystemdisken** – Operativsystemdiskar kan vara upp till 4 TB och innehåller de virtuella datorernas operativsystem.  OS-disken tilldelas enhetsbokstaven *c:* som standard. OS-diskens cachelagringkonfiguration har optimerats för OS-prestanda. OS-disken **bör inte** innehålla program eller data. För program och data använder du en datadisk (beskrivs senare i den här artikeln).
+**Operativsystemdisken** – Operativsystemdiskar kan vara upp till 4 TB och innehåller de virtuella datorernas operativsystem.  OS-disken tilldelas enhetsbokstaven *C:* som standard. OS-diskens cachelagringkonfiguration har optimerats för OS-prestanda. OS-disken **bör inte** innehålla program eller data. För program och data använder du en datadisk (beskrivs senare i den här artikeln).
 
-**Temporär disk** – Temporära diskar använder en SSD-enhet som finns på samma Azure-värd som den virtuella datorn. Temporära diskar har höga prestanda och kan användas för åtgärder som till exempel tillfällig databearbetning. Men om den virtuella datorn flyttas till en ny värd tas alla data som är lagrade på den temporära disken bort. Storleken på den temporära disken bestäms av VM-storleken. Temporära diskar tilldelas enhetsbeteckningen *d:* som standard.
+**Temporär disk** – Temporära diskar använder en SSD-enhet som finns på samma Azure-värd som den virtuella datorn. Temporära diskar har höga prestanda och kan användas för åtgärder som till exempel tillfällig databearbetning. Men om den virtuella datorn flyttas till en ny värd tas alla data som är lagrade på den temporära disken bort. Storleken på den temporära disken bestäms av [VM-storleken](sizes.md). Temporära diskar tilldelas enhetsbeteckningen *D:* som standard.
 
-### <a name="temporary-disk-sizes"></a>Storlekar för temporära diskar
 
-| Typ | Normala storlekar | Maxstorlek för temporär disk (GiB) |
-|----|----|----|
-| [Generellt syfte](sizes-general.md) | A-, B- och D-serien | 1600 |
-| [Beräkningsoptimerad](sizes-compute.md) | F-serien | 576 |
-| [Minnesoptimerad](sizes-memory.md) | D-, E-, G- och M-serien | 6144 |
-| [Lagringsoptimerad](sizes-storage.md) | L-serien | 5630 |
-| [GPU](sizes-gpu.md) | N-serien | 1440 |
-| [Höga prestanda](sizes-hpc.md) | A- och H-serien | 2000 |
 
 ## <a name="azure-data-disks"></a>Azure-datadiskar
 
-Du kan lägga till ytterligare datadiskar för att installera program och lagra data. Datadiskar används när du behöver hållbar och responsiv datalagring. Varje datadisk har en maxkapacitet på 4 TB. Storleken på den virtuella datorn avgör hur många datadiskar som kan kopplas till en virtuell dator. Två datadiskar kan kopplas för varje VM vCPU. 
+Du kan lägga till ytterligare datadiskar för att installera program och lagra data. Datadiskar används när du behöver hållbar och responsiv datalagring. Varje datadisk har en maxkapacitet på 4 TB. Storleken på den virtuella datorn avgör hur många datadiskar som kan kopplas till en virtuell dator. Fyra datadiskar kan kopplas för varje VM-vCPU. 
 
-### <a name="max-data-disks-per-vm"></a>Maximalt antal datadiskar per VM
-
-| Typ | Normala storlekar | Maximalt antal datadiskar per VM |
-|----|----|----|
-| [Generellt syfte](sizes-general.md) | A-, B- och D-serien | 64 |
-| [Beräkningsoptimerad](sizes-compute.md) | F-serien | 64 |
-| [Minnesoptimerad](sizes-memory.md) | D-, E-, G- och M-serien | 64 |
-| [Lagringsoptimerad](sizes-storage.md) | L-serien | 64 |
-| [GPU](sizes-gpu.md) | N-serien | 64 |
-| [Höga prestanda](sizes-hpc.md) | A- och H-serien | 64 |
 
 ## <a name="vm-disk-types"></a>VM-disktyper
 
 Azure tillhandahåller två disktyper.
 
-### <a name="standard-disk"></a>Standarddiskar
+**Standard-diskar** – Stöds av hårddiskar och levererar kostnadseffektiv lagring samtidigt som det är högpresterande. Standarddiskar passar perfekt för kostnadseffektiv utveckling och testning av arbetsbelastningar.
 
-Standard Storage stöds av hårddiskar och levererar kostnadseffektiv lagring samtidigt som det är högpresterande. Standarddiskar passar perfekt för kostnadseffektiv utveckling och testning av arbetsbelastningar.
-
-### <a name="premium-disk"></a>Premiumdiskar
-
-Premiumdiskar backas upp av SSD-baserade diskar med höga prestanda och låg latens. Passar perfekt för virtuella datorer som kör produktionsarbetsbelastningar. Premium Storage stöder virtuella datorer i DS-serien, DSv2-serien GS-serien och FS-serien. Det finns fem typer av Premiumdiskar (P10, P20, P30, P40 och P50). Storleken på disken bestämmer disktypen. När du gör ditt val avrundas diskstorleken uppåt till nästa typ. Om storleken till exempel är under 128 GB är disktypen P10. Om storleken är mellan 129 GB och 512 GB är disktypen P20.
+**Premiumdiskar** – Backas av SSD-baserade diskar med höga prestanda och låg latens. Passar perfekt för virtuella datorer som kör produktionsarbetsbelastningar. Premium Storage stöder virtuella datorer i DS-serien, DSv2-serien GS-serien och FS-serien. Det finns fem typer av Premiumdiskar (P10, P20, P30, P40 och P50). Storleken på disken bestämmer disktypen. När du gör ditt val avrundas diskstorleken uppåt till nästa typ. Om storleken till exempel är under 128 GB är disktypen P10. Om storleken är mellan 129 GB och 512 GB är disktypen P20.
 
 ### <a name="premium-disk-performance"></a>Premiumdiskprestanda
 
-|Premium Storage-disktyp | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Diskens storlek (avrundas uppåt) | 32 GB | 64 GB | 128 GB | 512 GB | 1 024 GB (1 TB) | 2 048 GB (2 TB) | 4 095 GB (4 TB) |
-| Högsta IOPS per disk | 120 | 240 | 500 | 2 300 | 5 000 | 7 500 | 7 500 |
-Dataflöde per disk | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
+|Premium Storage-disktyp | P4 | P6 | P10 | P20 | P30 | P40 | P50 | p60 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Diskens storlek (avrundas uppåt) | 32 GiB | 64 GiB | 128 GiB | 512 GiB | 1 024 GiB (1 TiB) | 2 048 GiB (2 TiB) | 4 095 GiB (4 TiB) | 8 192 GiB (8 TiB)
+| Högsta IOPS per disk | 120 | 240 | 500 | 2 300 | 5 000 | 7 500 | 7 500 | 12 500 |
+Dataflöde per disk | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s | 480 MB/s |
 
-I tabellen ovan visas högsta IOPS per disk, men högre prestanda kan uppnås genom strimling över flera datadiskar. Du kan till exempel koppla 64 datadiskar till en virtuell Standard GS5-dator. Och om var och en av dessa diskar har storleken P30 kan du ha högst 80 000 IOPS. Mer information om högsta IOPS per VM finns i [VM-typer och storlekar](./sizes.md).
+I tabellen ovan visas högsta IOPS per disk, men högre prestanda kan uppnås genom strimling över flera datadiskar. Du kan till exempel koppla 64 datadiskar till en virtuell Standard GS5-dator. Om var och en av dessa diskar har storleken P30 kan du ha högst 80 000 IOPS. Mer information om högsta IOPS per VM finns i [VM-typer och storlekar](./sizes.md).
 
 ## <a name="create-and-attach-disks"></a>Skapa och koppla diskar
 
@@ -100,11 +79,8 @@ Du måste ha en befintlig virtuell dator för att kunna utföra exemplet i den h
 
 Ange användarnamnet och lösenordet för administratörskontot på den virtuella datorn med [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
-```azurepowershell-interactive
-$cred = Get-Credential
-```
 
-Skapa den virtuella datorn med [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
+Skapa den virtuella datorn med [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Du uppmanas att ange ett användarnamn och lösenord för den virtuella datorns administratörkonto.
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -114,12 +90,9 @@ New-AzureRmVm `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `
     -SecurityGroupName "myNetworkSecurityGroup" `
-    -PublicIpAddressName "myPublicIpAddress" `
-    -Credential $cred `
-    -AsJob
+    -PublicIpAddressName "myPublicIpAddress" 
 ```
 
-Parametern `-AsJob` skapar den virtuella datorn som en bakgrundsaktivitet så att PowerShell-kommandotolkarna återgår till dig. Du kan visa information om bakgrundsjobb med cmdleten `Job`.
 
 Skapa den inledande konfigurationen med [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig). I följande exempel konfigureras en disk med storleken 128 GB.
 
@@ -176,6 +149,27 @@ Initialize-Disk -PartitionStyle MBR -PassThru | `
 New-Partition -AssignDriveLetter -UseMaximumSize | `
 Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 ```
+
+## <a name="verify-the-data-disk"></a>Kontrollera datadisken
+
+Du kan kontrollera att datadisken är kopplad genom att visa `StorageProfile` för de kopplade `DataDisks`.
+
+```azurepowershell-interactive
+$vm.StorageProfile.DataDisks
+```
+
+Utdata bör se ut ungefär som i följande exempel:
+
+```
+Name            : myDataDisk
+DiskSizeGB      : 128
+Lun             : 1
+Caching         : None
+CreateOption    : Attach
+SourceImage     :
+VirtualHardDisk :
+```
+
 
 ## <a name="next-steps"></a>Nästa steg
 

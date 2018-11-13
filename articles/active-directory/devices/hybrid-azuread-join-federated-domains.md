@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 11/07/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c7396d7322958442fab51417eb350f26f7ada78e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: e40c18edadebae1f92cf811ea054503b9cd6b1ae
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352668"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277978"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Självstudier: Konfigurera Hybrid Azure Active Directory-anslutningar för federerade domäner
 
@@ -156,6 +156,8 @@ Om några av dina domänanslutna enheter är äldre Windows-enheter måste du:
  
 - Konfigurera inställningarna för det lokala intranätet för enhetsregistrering
 
+- Kontrollera äldre Windows-enheter 
+
 
 ### <a name="update-device-settings"></a>Uppdatera enhetsinställningarna 
 
@@ -176,8 +178,6 @@ För att slutföra Azure AD-hybridanslutningen för dina äldre Windows-enheter 
 
 - `https://device.login.microsoftonline.com`
 
-- `https://device.login.microsoftonline.com`
-
 - Din organisations säkerhetstokentjänst (STS – federerade domäner)
 
 - `https://autologon.microsoftazuread-sso.com` (för enkel inloggning, SSO).
@@ -185,6 +185,10 @@ För att slutföra Azure AD-hybridanslutningen för dina äldre Windows-enheter 
 Dessutom kan du behöva aktivera **Tillåt uppdateringar i statusfältet via skript** i användarens lokala intranätzon.
 
 
+
+### <a name="control-windows-down-level-devices"></a>Kontrollera äldre Windows-enheter 
+
+För att registrera äldre Windows-enheter måste du ladda ned och installera ett Windows Installer-paket (.msi) från Download Center. Klicka [här](hybrid-azuread-join-control.md#control-windows-down-level-devices) om du vill ha mer information. 
 
 ## <a name="verify-the-registration"></a>Verifiera registreringen
 

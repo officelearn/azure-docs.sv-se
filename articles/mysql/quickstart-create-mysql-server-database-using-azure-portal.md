@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/12/2018
-ms.openlocfilehash: f26cadf28205359b111a8f92b8fadcbd9f26f958
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 11/01/2018
+ms.openlocfilehash: b413636f173a682ed74bf92688126d33d429839e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407629"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959230"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Skapa en Azure Database för MySQL-server med Azure Portal
 
@@ -98,20 +98,9 @@ Gör så här för att hitta de här värdena:
 I det här exemplet är servernamnet **mydemoserver.mysql.database.azure.com** och inloggningen för serveradministratören är **myadmin@mydemoserver**.
 
 ## <a name="connect-to-mysql-by-using-the-mysql-command-line-tool"></a>Ansluta till MySQL med mysql-kommandoradsverktyget
-Det finns ett antal program du kan använda för att ansluta till Azure Database för MySQL-servern. 
+Anslut till servern med kommandoradverktyget **mysql.exe**. Du kan hämta MySQL [här](https://dev.mysql.com/downloads/) och installera programmet på din dator. 
 
-Först använder vi [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)-kommandoradsverktyget för att visa hur man ansluter till servern. Du kan också använda en webbläsare och Azure Cloud Shell enligt nedan utan att installera ytterligare programvara. Om mysql-verktyget är installerat lokalt kan du ansluta därifrån också.
-
-1. Starta Azure Cloud Shell via terminalikonen (**>_**) överst till höger på Azure Portal.
-![Terminalsymbol för Azure Cloud Shell](./media/quickstart-create-mysql-server-database-using-azure-portal/7-cloud-console.png)
-
-2.  Azure Cloud Shell öppnas i webbläsaren så att du kan skriva bash shell-kommandon.
-
-   ![Kommandotolk – exempel på mysql-kommandorad](./media/quickstart-create-mysql-server-database-using-azure-portal/8-bash.png)
-
-3. I Cloud Shell-prompten ansluter du till din Azure Database för MySQL-server genom att skriva in mysql-kommandoraden.
-
-    Använd följande format för att ansluta till en Azure Database för MySQL-server med mysql-verktyget:
+1. Använd följande format för att ansluta till en Azure Database för MySQL-server med mysql-verktyget:
 
     ```bash
     mysql --host <fully qualified server name> --user <server admin login name>@<server name> -p
@@ -119,7 +108,7 @@ Först använder vi [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)-
 
     Till exempel ansluter följande kommando till vår exempelserver:
 
-    ```azurecli-interactive
+    ```bash
     mysql --host mydemoserver.mysql.database.azure.com --user myadmin@mydemoserver -p
     ```
 
@@ -149,7 +138,7 @@ Först använder vi [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)-
     mysql>
     ```
     > [!TIP]
-    > Om brandväggen inte är konfigurerad att tillåta IP-adressen för Azure Cloud Shell uppstår följande fel:
+    > Om brandväggen inte är konfigurerad att tillåta IP-adressen för din klient uppstår följande fel:
     >
     > ERROR 2003 (28000): Client with IP address 123.456.789.0 is not allowed to access the server. (Klienten med IP-adress 123.456.789.0 har inte tillstånd att ansluta till servern.)
     >
@@ -178,7 +167,7 @@ Först använder vi [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)-
     SHOW DATABASES;
     ```
 
-7.  Skriv `\q` och välj sedan **Retur** för att avsluta mysql-verktyget. När du är klar kan du stänga Azure Cloud Shell.
+7.  Skriv `\q` och välj sedan **Retur** för att avsluta mysql-verktyget. 
 
 Nu har du anslutit till Azure Database för MySQL-server och skapat en tom användardatabas. Fortsätt till nästa avsnitt för en liknande övning. I nästa övning ansluter vi till samma server med ett annat vanligt verktyg, MySQL Workbench.
 

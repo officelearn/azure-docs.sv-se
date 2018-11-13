@@ -1,6 +1,6 @@
 ---
-title: 'Azure Portal: Skapa en hanterad SQL-instans | Microsoft Docs'
-description: Skapa en hanterad SQL-instans, en nätverksmiljö och en virtuell klientdator för åtkomst.
+title: 'Azure Portal: Skapa en SQL-hanterad instans | Microsoft Docs'
+description: Skapa en SQL-hanterad instans, en nätverksmiljö och en virtuell klientdator för åtkomst.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,15 +11,15 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
-ms.date: 09/23/2018
-ms.openlocfilehash: c0c249ffe426e86049024122d9cbf786bb677220
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/01/2018
+ms.openlocfilehash: 3eadc2d233fd1716716c323f4c7087ee8363c67c
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160646"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912330"
 ---
-# <a name="create-an-azure-sql-database-managed-instance"></a>Skapa en hanterad Azure SQL Database-instans
+# <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Snabbstart: Skapa en hanterad Azure SQL Database-instans
 
 I den här snabbstarten går vi igenom hur du skapar en [hanterad instans](sql-database-managed-instance.md) av Azure SQL Database i Azure-portalen. 
 
@@ -89,3 +89,4 @@ När distributionen är färdig kan du granska resurserna som har skapats och h�
   - [Konfigurera en anslutning till en virtuell Azure-dator](sql-database-managed-instance-configure-vm.md) är en snabbstart där du får se hur du ansluter till en hanterad instans från en virtuell Azure-dator.
   - [Konfigurera en punkt-till-plats-anslutning](sql-database-managed-instance-configure-p2s.md) är en snabbstart där du får se hur du ansluter till en hanterad instans från en lokal klientdator via punkt-till-plats-anslutning.
 - Om du vill återställa en lokal befintlig SQL Server-databas till en hanterad instans kan du använda [Azure Database Migration Service (DMS) för migrering](../dms/tutorial-sql-server-to-managed-instance.md) till att återställa från en databassäkerhetskopia eller kommandot [T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) till att återställa från en databassäkerhetskopia.
+- Information om avancerad övervakning av databasprestanda för hanterad instans med inbyggd intelligens som felsökning finns i artikeln om att [övervaka Azure SQL Database med Azure SQL-analys](../log-analytics/log-analytics-azure-sql.md)

@@ -8,20 +8,24 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/02/2018
+ms.date: 11/7/2018
 ms.author: alinast
-ms.openlocfilehash: e0b47b1322a520ad8b09fd2fe2967e628b5e4e03
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 6e83ca543937948ad8028969cceca0f8787972c9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322962"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281226"
 ---
 # <a name="quickstart-find-available-rooms-using-azure-digital-twins"></a>Snabbstart: Hitta tillgängliga rum med hjälp av Azure Digital Twins
 
 Med tjänsten Azure Digital Twins kan du återskapa en digital bild av den fysiska miljön. Du kan sedan få ett meddelande via händelser i din miljö och anpassa dina svar efter dem. 
 
 I den här snabbstarten används [ett par .NET-exempel](https://github.com/Azure-Samples/digital-twins-samples-csharp) för att digitalisera en tänkt kontorsbyggnad, och du får se hur du hittar tillgängliga rum i byggnaden. Du kan associera flera sensorer med Digital Twins med din miljö. Utöver rummets tillgänglighet kan du också ta reda på om luftkvaliteten i dina tillgängliga utrymmen är optimal med hjälp av en simulerad sensor för koldioxid. Ett av exempelprogrammen genererar slumpmässiga sensordata som hjälper dig att visualisera det här scenariot.
+
+Följande videoklipp innehåller en sammanfattning av snabbstartsinstallationen:
+
+> [!VIDEO https://www.youtube.com/embed/1izK266tbMI]
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -36,7 +40,7 @@ I den här snabbstarten används [ett par .NET-exempel](https://github.com/Azure
 
 Använd stegen i det här avsnittet för att skapa en ny instans av Digital Twin i [portalen](https://portal.azure.com).
 
-[!INCLUDE [create-digital-twins-portal](../../includes/create-digital-twins-portal.md)]
+[!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
 
 ## <a name="set-permissions-for-your-app"></a>Ange behörigheter för din app
 

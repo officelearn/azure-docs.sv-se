@@ -9,18 +9,18 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 2dae7938c63ee141ea6705ab4c324882f575e298
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 41f25496d089a5c6487176afee01f7cb06330794
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426880"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281565"
 ---
-# <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>Snabbstart: Skapa ett Azure Data Lake Storage Gen2-lagringskonto (förhandsversion)
+# <a name="quickstart-create-a-storage-account-for-analytics"></a>Snabbstart: Skapa ett lagringskonto för analys
 
-Azure Data Lake Storage Gen2-konton (förhandsversion) [har stöd för en hierarkisk namnområdestjänst](introduction.md) som tillhandahåller ett internt katalogbaserat filsystem som är skräddarsytt för att fungera med HDFS (Hadoop Distributed File System). Du kan komma åt Data Lake Storage Gen2-data från HDFS via [ABFS-drivrutinen](abfs-driver.md).
+Lagringskonton med förhandsversionen av Data Lake Storage Gen2 aktiverad [har stöd för en tjänst för hierarkisk namnrymd](introduction.md) som tillhandahåller ett internt katalogbaserat filsystem som är skräddarsytt för att fungera med HDFS (Hadoop Distributed File System). Du kan komma åt Data Lake Storage Gen2-data från HDFS via [ABFS-drivrutinen](abfs-driver.md).
 
-Om du vill aktivera Data Lake Storage Gen2-funktioner för ditt lagringskonto [fyller du i undersökningen för att begära åtkomst](https://aka.ms/adlsgen2signup). När din begäran har godkänts kan du skapa ett nytt Data Lake Storage Gen2-konto. Den här snabbstarten visar hur du skapar ett konto med [Azure-portalen](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) eller [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
+Om du vill aktivera Data Lake Storage Gen2-funktioner för ditt lagringskonto [fyller du i undersökningen för att begära åtkomst](https://aka.ms/adlsgen2signup). När den har godkänts kan du skapa ett lagringskonto med Data Lake Storage Gen2 aktiverat. Den här snabbstarten visar hur du skapar ett konto med [Azure-portalen](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) eller [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
 > [!NOTE]
 > Användargränssnittet för att skapa konto i Azure-portalen uppdateras när du har godkänts för att skapa ett Data Lake Storage Gen2-konto. På samma sätt fungerar Data Lake Storage Gen2-relaterade PowerShell- och CLI-argument endast när du har godkänts för förhandsversionen.
@@ -51,7 +51,7 @@ Knappen startar ett interaktivt gränssnitt som du kan använda för att köra s
 
 Du kan även installera och använda Azure CLI lokalt. För den här snabbstarten krävs att du kör Azure CLI version 2.0.38 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-## <a name="overview-of-creating-an-azure-data-lake-storage-gen2-account"></a>Översikt över hur du skapar ett Azure Data Lake Storage Gen2-konto
+## <a name="create-a-storage-account-with-azure-data-lake-storage-gen2-enabled"></a>Skapa ett lagringskonto med Azure Data Lake Storage Gen2 aktiverat
 
 Innan du skapar ett konto ska du först skapa en resursgrupp som fungerar som en logisk container för lagringskonton eller någon annan Azure-resurs som du skapar. Om du vill rensa de resurser som har skapats med den här snabbstarten kan du helt enkelt ta bort resursgruppen. När du tar bort resursgruppen raderas även det kopplade lagringskontot och eventuella andra resurser som är kopplade till resursgruppen. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
@@ -135,7 +135,7 @@ Starta sedan om gränssnittet.
 Om du vill skapa en resursgrupp med PowerShell använder du kommandot [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup): 
 
 > [!NOTE]
-> > Den hierarkiska namnrymden är för närvarande tillgänglig i alla offentliga regioner, men ingen av de privata regionerna. Den är för närvarande inte tillgänglig i nationella moln.
+> > Den hierarkiska namnrymden är för närvarande tillgänglig i alla offentliga regioner. Den är för närvarande inte tillgänglig i nationella moln.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -222,6 +222,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat ett Data Lake Storage Gen2-lagringskonto. Om du vill lära dig hur du laddar upp och ned blobar till och från lagringskontot kan du fortsätta med snabbstarten om Blob Storage.
+I den här snabbstarten har du skapat ett lagringskonto med Data Lake Storage Gen2-funktioner. Om du vill lära dig hur du laddar upp och ned blobar till och från lagringskontot kan du fortsätta med snabbstarten om Blob Storage.
 
 * [Flytta data till och från Azure Blob Storage med AzCopy](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy)

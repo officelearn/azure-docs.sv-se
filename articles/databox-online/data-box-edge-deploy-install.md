@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/08/2018
+ms.date: 11/01/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 21ac3de793f5ce559c3a03de2a09f11ccb86b12a
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6bd3c1b2cdbd83673a181ee7e088adb39749036e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167366"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963854"
 ---
 # <a name="tutorial-install-azure-data-box-edge-preview"></a>Självstudie: Installera Azure Data Box Edge (förhandsversion)
 
@@ -111,8 +111,14 @@ Innan du börjar kabelansluta enheten behöver du:
 
 - Den fysiska Edge-enheten uppackad och rackmonterad.
 - Två strömkablar. 
-- Två 1-GbE RJ-45-nätverkskablar och fyra 25-GbE SFP+-kopparkablar.
+- Minst en 1-GbE RJ-45-nätverkskabel för att ansluta till hanteringsgränssnittet. Det finns två 1-GbE-nätverksgränssnitt på enheten, ett för hantering och ett för data.
+- En 25-GbE SFP+-kopparkabel för varje datanätverksgränssnitt som ska konfigureras. Minst ett datanätverksgränssnitt – PORT 2, PORT 3, PORT 4, PORT 5 eller PORT 6 måste vara anslutet till Internet (anslutningar till Azure).
 - Åtkomst till två strömfördelare (rekommenderas).
+
+> [!NOTE]
+> - Om du endast ansluter ett datanätverksgränssnitt rekommenderar vi att du använder ett nätverksgränssnitt med 25 GbE såsom PORT 3, PORT 4, PORT 5 eller PORT 6 för att skicka data till Azure. 
+> - För att få bästa prestanda och hantera stora datavolymer bör du ansluta alla dataportar.
+> - Edge-enheten bör anslutas till datacenternätverket så att den kan mata in data från datakällservrar. 
 
 Edge-enheten 8 NVMe SSD-enheter. Frontpanel har även statuslampor och strömknappar. Enheten innehåller redundanta nätaggregat (PSU) i den bakre delen. Enheten har sex nätverksgränssnitt: två gränssnitt på 1 Gbit/s och fyra gränssnitt på 25 Gbit/s. Enheten har en styrenhet för baskorthantering (BMC). Identifiera de olika portarna på backsidan av enheten.
  
@@ -123,13 +129,7 @@ Utför följande steg för att kabelansluta enheten för strömförsörjning och
 1. Anslut strömkablarna till vart och ett av nätaggregaten i höljet. För att säkerställa hög tillgänglighet installerar och ansluter du båda nätaggregaten till olika strömkällor.
 2. Anslut strömkablarna till rackets strömfördelare (PDU). Se till att de två strömfördelarna använder separata strömkällor.
 3. Anslut PORT 1 på nätverksgränssnittet med 1 GbE till den dator som används för att konfigurera den fysiska enheten. PORT 1 är det dedikerade hanteringsgränssnittet.
-4. Anslut PORT 2 på nätverksgränssnittet med 1 GbE via RJ-45-nätverkskablarna till datacenternätverket/Internet. 
-5. Anslut de fyra PORT 3, PORT 4, PORT 5 och PORT 6 på nätverksgränssnittet med 25 GbE med hjälp av SFP+-kopparkablar till datacenternätverket/Internet. 
-
-> [!NOTE]
-> - Minst ett datanätverksgränssnitt – PORT 2, PORT 3, PORT 4, PORT 5 eller PORT 6 måste vara anslutet till Internet (anslutningar till Azure). 
-> - Vi rekommenderar att du använder ett nätverksgränssnitt med 25 GbE såsom PORT 3, PORT 4, PORT 5 eller PORT 6 för att skicka data till Azure. 
-> - Edge-enheten bör anslutas till datacenternätverket så att den kan mata in data från datakällservrar.  
+4. Anslut en eller flera av PORT 2, PORT 3, PORT 4, PORT 5 eller 6 PORT till datacenternätverket/Internet. Om du ansluter PORT 2 använder du RJ-45-nätverkskabeln. För 25-GbE-nätverksgränssnitten använder du SFP+-kopparkablarna.  
 
 
 ## <a name="next-steps"></a>Nästa steg

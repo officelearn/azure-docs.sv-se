@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 0765e79b90eed49742f5eead33063907eb1db1f4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7f93a225db845840545b761d812f5a8a81f76f91
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030854"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913571"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Självstudie: Skapa och hantera exporterade data
 
@@ -46,7 +46,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="create-a-daily-export"></a>Skapa en daglig export
 
-Cost Management + fakturering &gt; välj en prenumeration eller en resursgrupp i en prenumeration &gt; Exportera &gt; **Lägg till**.
+Cost Management + fakturering &gt; Cost Management &gt; välj en prenumeration eller en resursgrupp i en prenumeration &gt; Exportera &gt; **Lägg till**.
 
 Skriv ett namn för export och ange prenumeration, Azure Storage-konto, container och fillagringskatalog eller blog-container och klicka sedan på **Skapa**.
 

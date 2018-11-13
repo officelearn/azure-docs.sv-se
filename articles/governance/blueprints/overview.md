@@ -4,21 +4,21 @@ description: Azure Blueprint är en tjänst i Azure som används för att skapa,
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 11/07/2018
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: c7ffbe86407bc776870890e5b4151556f572832e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b2e767bf27962472a19e5d2e704b456cffe18423
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957524"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277542"
 ---
 # <a name="what-is-azure-blueprints"></a>Vad är Azure Blueprint?
 
-Precis som en skiss tillåter en tekniker eller arkitekt att skissa designparametrarna för ett projekt kan Azure Blueprint göra det möjligt för molnarkitekter och centralt IT-ansvariga att definiera en upprepningsbar uppsättning med Azure-resurser som implementerar och tillämpar en organisations standarder, mönster och krav. Med Azure Blueprint kan utvecklingsteam snabbt etablera och skapa nya miljöer med vetskapen om att de är skapade med organisatorisk efterlevnad och innehåller en uppsättning inbyggda komponenter – som nätverk – för att påskynda utveckling och leverans.
+Precis som en skiss tillåter en tekniker eller arkitekt att skissa designparametrarna för ett projekt kan Azure Blueprint göra det möjligt för molnarkitekter och centrala IT-grupper att definiera en upprepningsbar uppsättning med Azure-resurser som implementerar och tillämpar en organisations standarder, mönster och krav. Med Azure Blueprint kan utvecklingsteam snabbt skapa nya miljöer med vetskapen om att de är skapade med organisatorisk efterlevnad och innehåller en uppsättning inbyggda komponenter – som nätverk – för att påskynda utveckling och leverans.
 
 Skisser är en deklarativ metod för att dirigera distribution av flera resursmallar och andra artefakter som:
 
@@ -27,23 +27,26 @@ Skisser är en deklarativ metod för att dirigera distribution av flera resursma
 - Azure Resource Manager-mallar
 - Resursgrupper
 
-## <a name="how-it-is-different-from-resource-manager-templates"></a>Så här skiljer de sig från Resource Manager-mallar
+Azure Blueprints-tjänsten backas av det globalt distribuerade [Azure Cosmos DB](../../cosmos-db/introduction.md).
+Skissobjekt replikeras till flera Azure-regioner. Replikeringen ger låg svarstid, hög tillgänglighet och konsekvent åtkomst till dina skissobjekt, oavsett vilken region Blueprints distribuerar dina resurser till.
 
-Skisser har utformats för att hjälpa till med _miljökonfiguration_, som ofta består av en uppsättning resursgrupper, principer och rolltilldelningar utöver Resource Manager-malldistributioner. En skiss är ett paket som ska sammanföra var och en av dessa _artefakttyper_ och gör att du kan skriva och skapa en version för paketet – inklusive via en CI/CD-pipeline. Slutligen tilldelas varje skiss till en prenumeration i en enda åtgärd som kan granskas och spåras.
+## <a name="how-its-different-from-resource-manager-templates"></a>Så här skiljer de sig från Resource Manager-mallar
 
-Nästan allt du vill inkludera för distribution i skisser kan åstadkommas med en Resource Manager-mall. Men en Resource Manager-mall är ett dokument som inte finns inbyggt i Azure – var och en är lagrad lokalt eller i källkontrollen. Mallen används för distribution av en eller flera Azure-resurser, men när resurserna har distribuerats förloras anslutningen och relationen till mallen som användes.
+Tjänsten är utformad för att hjälpa till med att _konfigurera miljön_. Den här konfigurationen består ofta av en uppsättning resursgrupper, principer, rolltilldelningar och Resource Manager-malldistributioner. En skiss är ett paket som ska sammanföra var och en av dessa _artefakttyper_ och gör att du kan skriva och skapa en version för paketet – inklusive via en CI/CD-pipeline. Slutligen tilldelas varje skiss till en prenumeration i en enda åtgärd som kan granskas och spåras.
 
-Med skisser finns relationen mellan skissdefinitionen (_som ska_ distribueras) och skisstilldelningen (_vad har_ distribuerats) kvar. Den här anslutningen möjliggör förbättrad spårning och granskning av distributioner, möjlighet att uppgradera flera prenumerationer samtidigt som regleras av samma skiss med mera.
+Nästan allt du vill inkludera för distribution i skisser kan åstadkommas med en Resource Manager-mall. Men en Resource Manager-mall är ett dokument som inte finns inbyggt i Azure – var och en är lagrad lokalt eller i källkontrollen. Mallen används för distribution av en eller flera Azure-resurser, men när resurserna har distribuerats finns det ingen aktiv anslutning eller relation till mallen.
 
-Du behöver inte välja mellan en Resource Manager-mall och en skiss. Varje skiss kan bestå av noll eller flera Resource Manager-mall-_artefakter_. Det innebär att tidigare arbete med att utveckla och underhålla ett bibliotek med Resource Manager-mallar kan användas i skisser.
+Med skisser finns relationen mellan skissdefinitionen (vad _ska_ distribuera) och skisstilldelningen (_vad har_ distribuerat) kvar. Den här anslutningen har stöd för förbättrad spårning och granskning av distributioner. Skisser kan också uppgradera flera prenumerationer på samma gång som regleras av samma skiss.
 
-## <a name="how-it-is-different-from-azure-policy"></a>Hur det skiljer sig från Azure Policy
+Du behöver inte välja mellan en Resource Manager-mall och en skiss. Varje skiss kan bestå av noll eller flera Resource Manager-mall-_artefakter_. Det innebär att tidigare arbete med att utveckla och underhålla ett bibliotek med Resource Manager-mallar kan användas igen i Skisser.
+
+## <a name="how-its-different-from-azure-policy"></a>Hur det skiljer sig från Azure Policy
 
 En skiss är ett paket eller en container för att skapa fokus-specifika uppsättningar standarder, mönster och krav för implementering av Azure-molntjänster, säkerhet och design som kan återanvändas för att säkerställa konsekvens och efterlevnad.
 
-En [princip](../policy/overview.md) är en standard för att tillåta och explicit neka system som fokuserar på resursegenskaper under distributionen och för redan befintliga resurser. Det stöder IT-styrning genom att se till att resurser inom en prenumeration följer krav och standarder.
+En [princip](../policy/overview.md) är en standard för att tillåta och explicit neka system som fokuserar på resursegenskaper under distributionen och för redan befintliga resurser. Det stöder molnstyrning genom att validera att resurser inom en prenumeration följer krav och standarder.
 
-När en princip inkluderas i en skiss innebär det inte enbart att rätt mönster eller rätt design skapas under tilldelningen av skissen. Det garanterar även att endast godkända eller förväntade ändringar kan göras i miljön för att säkerställa pågående efterlevnad för skissens syfte.
+När en princip inkluderas i en skiss kan du skapa rätt mönster eller design under tilldelning av skissen. Principinkluderingen ser till att endast godkända eller förväntade ändringar kan göras i miljön för att skydda fortlöpande efterlevnad med skissens intention.
 
 En princip kan ingå som en av flera _artefakter_ i en definition av skisser. Med skisser kan du även använda parametrar med principer och initiativ.
 
@@ -54,13 +57,13 @@ En skiss består av _artefakter_. Skisser stöder för närvarande följande res
 |Resurs  | Hierarkialternativ| Beskrivning  |
 |---------|---------|---------|
 |Resursgrupper     | Prenumeration | Skapa en ny resursgrupp för användning av andra artefakter i skissen.  Med de här platshållarresursgrupperna kan du organisera resurser precis som du vill att de struktureras, och de ger en omfångsbegränsning för inkluderade princip- och rolltilldelningsartefakter samt Azure Resource Manager-mallar.         |
-|Azure Resource Manager-mall      | Resursgrupp | Mallarna kan användas till att skapa komplexa miljöer som en SharePoint-servergrupp, Azure Automation State Configuration eller en Log Analytics-arbetsyta. |
-|Principtilldelning     | Prenumeration, resursgrupp | Tillåter tilldelning av en princip eller ett initiativ till hanteringsgruppen eller prenumerationen som skissen tilldelas. Principen eller initiativet måste vara inom skissens omfång (i skissens hanteringsgrupp eller tidigare). Om principen eller initiativet har parametrar kan de parametrarna tilldelas vid skapandet av skissen eller under skisstilldelningen.       |
+|Azure Resource Manager-mall      | Resursgrupp | Mallar används till att skapa komplexa miljöer. Exempelmiljöer: en SharePoint-servergrupp, Azure Automation State Configuration eller en Log Analytics-arbetsyta. |
+|Principtilldelning     | Prenumeration, resursgrupp | Tillåter tilldelning av en princip eller ett initiativ till den prenumeration som skissen är tilldelad till. Principen eller initiativet måste vara inom skissens omfång (i skissens hanteringsgrupp eller tidigare). Om principen eller initiativet har parametrar kan de parametrarna tilldelas vid skapandet av skissen eller under skisstilldelningen.       |
 |Rolltilldelning   | Prenumeration, resursgrupp | Lägg till en befintlig användare eller grupp till en inbyggd roll för att se till att rätt personer alltid har rätt åtkomst till dina resurser. Rolltilldelningar kan definieras för hela prenumerationen eller kapslade till en specifik resursgrupp som ingår i skissen. |
 
 ### <a name="blueprints-and-management-groups"></a>Skisser och hanteringsgrupper
 
-När du skapar en skissdefinition ska du definiera var skissen har sparats. Skisser kan för närvarande endast sparas till en [hanteringsgrupp](../management-groups/overview.md) som du har **deltagaråtkomst**. Skissen kommer sedan att kunna tilldela till alla underordnade (hanteringsgrupp eller prenumeration) för den hanteringsgruppen.
+När du skapar en skissdefinition ska du definiera var skissen har sparats. Skisser kan för närvarande endast sparas till en [hanteringsgrupp](../management-groups/overview.md) som du har **deltagaråtkomst**. Skissen kan tilldelas till alla underordnade prenumerationer för den hanteringsgruppen.
 
 > [!IMPORTANT]
 > Om du inte har åtkomst till några hanteringsgrupper eller om inga hanteringsgrupper har konfigurerats visar en inläsning av listan över skissdefinitioner att ingen är tillgänglig. Om du klickar på **Omfång** öppnas ett fönster med en varning om att hämta hanteringsgrupper. Lös detta genom att se till att en prenumeration som du har lämplig åtkomst till är en del av en [hanteringsgrupp](../management-groups/overview.md).
@@ -77,8 +80,7 @@ Mer information finns [Skissparametrar](./concepts/parameters.md).
 
 ### <a name="blueprint-publishing"></a>Publicering av skiss
 
-När en skiss först skapas betraktas den som att den är i **utkastläge**. När den är redo att tilldelas måste den vara **publicerad**. Publicering kräver att du definierar en **versionssträng** (bokstäver, siffror och bindestreck med en maximal längd på 20 tecken) tillsammans med valfria **Ändra anteckningar**.
-**Versionen** särskiljer den från framtida ändringar i samma skiss och gör att varje version ska tilldelas. Det innebär också att olika **versioner** i samma skiss kan tilldelas till samma prenumeration. När ytterligare ändringar görs i skissen finns fortfarande den **publicerade** **versionen**, utöver **Opublicerade ändringar**. När ändringarna har slutförts är den uppdaterade skissen **publicerad** med en ny och unik **version** och kan nu också tilldelas.
+När en skiss först skapas betraktas den som att den är i **utkastläge**. När den är redo att tilldelas måste den vara **publicerad**. Publicering kräver att du definierar en **versionssträng** (bokstäver, siffror och bindestreck med en maximal längd på 20 tecken) tillsammans med valfria **Ändra anteckningar**. **Versionen** särskiljer den från framtida ändringar i samma skiss och gör att varje version ska tilldelas. Den här versionshanteringen innebär också att olika **versioner** i samma skiss kan tilldelas till samma prenumeration. När ytterligare ändringar görs i skissen finns fortfarande den **publicerade** **versionen**, utöver **Opublicerade ändringar**. När ändringarna har slutförts är den uppdaterade skissen **publicerad** med en ny och unik **version** och kan nu också tilldelas.
 
 ## <a name="blueprint-assignment"></a>Skisstilldelning
 
@@ -86,7 +88,7 @@ Varje **publicerad** **version** av en skiss kan tilldelas till en befintlig pre
 
 ## <a name="permissions-in-azure-blueprints"></a>Behörigheter i Azure Blueprint
 
-Om du vill använda skisser måste du ha behörighet via [rollbaserad åtkomstkontroll](../../role-based-access-control/overview.md) (RBAC). Om du vill skapa skisser måste ditt konto ha följande behörigheter:
+Om du vill använda skisser måste du ha beviljade behörigheter via [rollbaserad åtkomstkontroll](../../role-based-access-control/overview.md) (RBAC). Om du vill skapa skisser måste ditt konto ha följande behörigheter:
 
 - `Microsoft.Blueprint/blueprints/write` – Skapa en skissdefinition
 - `Microsoft.Blueprint/blueprints/artifacts/write` – Skapa artefakter på en skissdefinition
@@ -109,7 +111,7 @@ Om du vill tilldela eller ta bort tilldelningar av skisser måste ditt konto ha 
 > [!NOTE]
 > Tilldelningar för skissen skapas på en prenumeration. Behörigheterna för tilldelning och för att ta bort tilldelning av behörigheter måste beviljas för eller ärvas till en prenumerationsomfattning.
 
-Dessa behörigheter har inkluderats i rollen **Ägare** och, med undantag för behörigheterna för skisstilldelningen, ingår även i rollen **Deltagare**. Om dessa inbyggda roller inte motsvarar dina behov kan du skapa en [anpassad roll](../../role-based-access-control/custom-roles.md).
+Förutom behörigheterna för skisstilldelningen har dessa behörigheter inkluderats i rollen **Ägare** och även i rollen **Deltagare**. Om dessa inbyggda roller inte motsvarar dina behov kan du skapa en [anpassad roll](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
 > Tjänstens huvudnamn för Azure Blueprint kräver rollen **Ägare** på den tilldelade prenumerationen för att aktivera distribution. Om du använder portalen är den här rollen automatiskt beviljad och återkallad för distributionen. Om du använder REST API måste den här rollen måste beviljas manuellt, men återkallas fortfarande automatiskt när distributionen är klar.

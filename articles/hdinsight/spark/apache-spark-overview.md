@@ -2,19 +2,19 @@
 title: Vad är Apache Spark i Azure HDInsight
 description: Den här artikeln innehåller en introduktion till Spark på HDInsight och olika scenarier där du kan använda Spark-kluster i HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: overview
 ms.date: 05/07/2018
-ms.author: jasonh
-ms.openlocfilehash: 7bc7c95c0d15e0c33f7f9a705fb47d27f9daacec
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.author: hrasheed
+ms.openlocfilehash: 20d44e05725b034326398c967efbd997433d5200
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378728"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230554"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Vad är Apache Spark i Azure HDInsight
 
@@ -55,7 +55,7 @@ Spark-kluster i HDInsight innehåller följande komponenter som är tillgänglig
 * [Jupyter Notebook](https://jupyter.org)
 * [Zeppelin Notebook](http://zeppelin-project.org/)
 
-Spark-kluster i HDInsight tillhandahåller även en [ODBC-drivrutin](http://go.microsoft.com/fwlink/?LinkId=616229) för anslutning till Spark-kluster i HDInsight från BI-verktyg som Microsoft Power BI.
+Spark-kluster i HDInsight tillhandahåller även en [ODBC-drivrutin](https://go.microsoft.com/fwlink/?LinkId=616229) för anslutning till Spark-kluster i HDInsight från BI-verktyg som Microsoft Power BI.
 
 ## <a name="spark-cluster-architecture"></a>Spark-klusterarkitektur
 

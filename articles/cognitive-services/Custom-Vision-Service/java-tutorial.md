@@ -1,196 +1,97 @@
 ---
-title: 'Självstudie: Skapa ett bildklassificeringsprojekt med Custom Vision-SDK för Java'
+title: 'Snabbstart: Skapa ett bildklassificeringsprojekt med Custom Vision-SDK för Java'
 titlesuffix: Azure Cognitive Services
-description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna ditt projekt och gör en förutsägelse med hjälp av standardslutpunkten.
+description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna ditt projekt och gör en förutsägelse med hjälp av Java SDK.
 services: cognitive-services
 author: areddish
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: tutorial
-ms.date: 08/28/2018
+ms.topic: quickstart
+ms.date: 10/31/2018
 ms.author: areddish
-ms.openlocfilehash: e302fc580d9c83d269f0deedd051a3ea23bd274e
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: ad56a6fa4027115bd4f4679fa50330edad1b919f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957229"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283537"
 ---
-# <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>Självstudie: Skapa ett bildklassificeringsprojekt med Custom Vision-SDK för Java
+# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>Snabbstart: Skapa ett bildklassificeringsprojekt med Custom Vision-SDK för Java
 
-Lär dig hur du skapar ett projekt för bildklassificering med hjälp av Custom Vision Service och Java. När projektet har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda projektet för att testa en bild programmatiskt. Använd det här exemplet med öppen källkod som en mall för att skapa din egen app med hjälp av API för Custom Vision.
+Den här artikeln innehåller information och exempelkod som hjälper dig att komma igång med att använda Custom Vision-SDK med Java för att skapa en bildklassificeringsmodell. När den har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda slutpunkten för att testa en avbildning programmatiskt. Använd det här exemplet som en mall för att skapa en egen Java-app. Om du vill gå igenom processen med att skapa och använda en bildklassificeringsmodell _utan_ kod kan du istället läsa den [webbläsarbaserade vägledningen](getting-started-build-a-classifier.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
+- En valfri Java IDE
+- [JDK 7 eller 8](https://aka.ms/azure-jdks) installerat.
+- Maven installerat
 
-- JDK 7 eller 8 installerat.
-- Maven installerat.
 
-## <a name="get-the-training-and-prediction-keys"></a>Hämta utbildnings- och förutsägelsenycklarna
-
-För att hämta nycklarna som används i det här exemplet går du till [Custom Vision-webbsidan](https://customvision.ai) och väljer __kugghjulsikonen__ i det övre högra hörnet. Kopiera värdena från fälten __Utbildningsnyckel__ och __Förutsägelsenyckel__ i avsnittet __Konton__.
-
-![Bild på gränssnittet för nycklarna](./media/python-tutorial/training-prediction-keys.png)
-
-## <a name="install-the-custom-vision-service-sdk"></a>Installera Custom Vision Service SDK
+## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Hämta Custom Vision-SDK:n och exempelkod
+Om du vill skriva ett Java-program som använder Custom Vision behöver du Custom Vision maven-paket. De ingår i exempelprojektet som du laddar ned, men du kan komma åt dem individuellt här.
 
 Du kan installera SDK för Custom Vision från maven-centrallager:
 * [Training SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
 * [Prediction SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
 
+Klona eller ladda ned [Cognitive Services Java-exempelprojektet](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). Navigera till mappen **Vision/CustomVision/**.
+
+Det här projektet i Java skapar ett nytt Custom Vision-projekt för bildklassificering som kallas för __exempelprojektet för Java__, som kan nås via [Custom Vision-webbplatsen](https://customvision.ai/). Det laddar sedan upp bilder för att träna och testa en klassificerare. I det här projektet är klassificeraren avsedd att avgöra huruvida ett träd är en __hemlockgran__ eller ett __japanskt körsbärsträd__.
+
+[!INCLUDE [get-keys](includes/get-keys.md)]
+
+Programmet är konfigurerat för att lagra dina viktiga data som miljövariabler. Ange dessa variabler genom att navigera till mappen **Vision/CustomVision** i PowerShell. Ange sedan kommandona:
+
+```PowerShell
+$env:AZURE_CUSTOMVISION_TRAINING_API_KEY ="<your training api key>"
+$env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
+```
+
 ## <a name="understand-the-code"></a>Förstå koden
 
-Den fullständiga projekt, inklusive bilder, är tillgänglig från [Custom Vision Azure-exempel för Java-lagringsplatsen](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). 
+Läs in `Vision/CustomVision`-projektet i din Java IDE och öppna filen _CustomVisionSamples.java_. Leta upp metoden **runSample** och kommentera ut metodanropet för **ObjectDetection_Sample**&mdash;detta kör scenariot med objektidentifiering, vilket inte avses i den här guiden. Metoden **ImageClassification_Sample** implementerar de primära funktionerna i det här exemplet. Gå till dess definition och granska koden. 
 
-Använd din favorit Java-IDE för att öppna projektet `Vision/CustomVision`. 
+### <a name="create-a-custom-vision-service-project"></a>Skapa ett projekt för Custom Vision Service
 
-Det här programmet använder den utbildningsnyckel som du hämtade tidigare för att skapa ett nytt projekt med namnet __Exampelprojekt med Java__. Det laddar sedan upp bilder för att träna och testa en klassificerare. Klassificeraren anger om ett träd är en __hemlockgran__ eller ett __japanskt körsbärsträd__.
+Den här första delen med kod skapar ett projekt för klassificering av bilder. Projektet som du har skapat visas på [Custom Vision-webbplatsen](https://customvision.ai/) som du tidigare besökt. 
 
-I följande kodavsnitt implementeras de primära funktionerna i det här exemplet:
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=57-63)]
 
-## <a name="create-a-custom-vision-service-project"></a>Skapa ett projekt för Custom Vision Service
+### <a name="create-tags-in-the-project"></a>Skapa taggar i projektet
 
-> [!IMPORTANT]
-> Ställ in `trainingApiKey` till det utbildningsnyckelvärde som du hämtade tidigare.
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=65-74)]
 
-```java
-final String trainingApiKey = "insert your training key here";
-TrainingApi trainClient = CustomVisionTrainingManager.authenticate(trainingApiKey);
+### <a name="upload-and-tag-images"></a>Ladda upp och tagga bilder
 
-Trainings trainer = trainClient.trainings();
+Exempelbilderna finns i mappen **src/main/resources** i projektet. De är lästa därifrån och har överförts till tjänsten med lämpliga taggar.
 
-System.out.println("Creating project...");
-Project project = trainer.createProject()
-            .withName("Sample Java Project")
-            .execute();
-```
-
-## <a name="add-tags-to-your-project"></a>Lägga till taggar till projektet
-
-```java
-// create hemlock tag
-Tag hemlockTag = trainer.createTag()
-    .withProjectId(project.id())
-    .withName("Hemlock")
-    .execute();
-
-// create cherry tag
-Tag cherryTag = trainer.createTag()
-    .withProjectId(project.id())
-    .withName("Japanese Cherry")
-    .execute();
-```
-
-## <a name="upload-images-to-the-project"></a>Ladda upp bilder till projektet
-
-Exemplet är konfigurerat för att visa bilderna i slutpaketet. Bilderna lösas från resursdelen för jar och överförs till tjänsten.
-
-```java
-System.out.println("Adding images...");
-for (int i = 1; i <= 10; i++) {
-    String fileName = "hemlock_" + i + ".jpg";
-    byte[] contents = GetImage("/Hemlock", fileName);
-    AddImageToProject(trainer, project, fileName, contents, hemlockTag.id(), null);
-}
-
-for (int i = 1; i <= 10; i++) {
-    String fileName = "japanese_cherry_" + i + ".jpg";
-    byte[] contents = GetImage("/Japanese Cherry", fileName);
-    AddImageToProject(trainer, project, fileName, contents, cherryTag.id(), null);
-}
-```
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=76-87)]
 
 Föregående kodfragment använder två hjälpfunktioner som hämtar bilderna som resursdataströmmar och överför dem till tjänsten.
 
-```java
-private static void AddImageToProject(Trainings trainer, Project project, String fileName, byte[] contents, UUID tag)
-{
-    System.out.println("Adding image: " + fileName);
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=277-314)]
 
-    ImageFileCreateEntry file = new ImageFileCreateEntry()
-        .withName(fileName)
-        .withContents(contents);
+### <a name="train-the-classifier"></a>Träna klassificeraren
 
-    ImageFileCreateBatch batch = new ImageFileCreateBatch()
-        .withImages(Collections.singletonList(file));
+Den här koden skapar den första upprepningen i projektet och markerar den som standardupprepningen. Standardupprepningen speglar den version av modellen som svarar på förutsägelsebegäranden. Du bör uppdatera detta varje gång du tränar modellen.
 
-    batch = batch.withTagIds(Collections.singletonList(tag));
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=89-99)]
 
-    trainer.createImagesFromFiles(project.id(), batch);
-}
+### <a name="use-the-prediction-endpoint"></a>Använda en förutsägelseslutpunkt
 
-private static byte[] GetImage(String folder, String fileName)
-{
-    try {
-        return ByteStreams.toByteArray(CustomVisionSamples.class.getResourceAsStream(folder + "/" + fileName));
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
-        e.printStackTrace();
-    }
+Förutsägelseslutpunkten, som representeras av objektet `predictor` här, är den referens som du kan använda för att skicka en bild till den aktuella modellen och få en klassificeringsförutsägelse. I det här exemplet har `predictor` definierats någon annanstans med hjälp av miljövariabeln för förutsägelsenyckeln.
 
-    return null;
-}
-```
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=108-120)]
 
-## <a name="train-the-project"></a>Utbilda projektet
+## <a name="run-the-application"></a>Köra programmet
 
-Detta skapar den första upprepningen i projektet och markerar den här upprepningen som standardupprepningen. 
+För att kompilera och köra lösningen med hjälp av maven kör du följande kommando i projektkatalogen i PowerShell:
 
-```java
-System.out.println("Training...");
-Iteration iteration = trainer.trainProject(project.id());
-
-while (iteration.status().equals("Training"))
-{
-    System.out.println("Training Status: "+ iteration.status());
-    Thread.sleep(1000);
-    iteration = trainer.getIteration(project.id(), iteration.id());
-}
-
-System.out.println("Training Status: "+ iteration.status());
-trainer.updateIteration(project.id(), iteration.id(), iteration.withIsDefault(true));
-```
-
-## <a name="get-and-use-the-default-prediction-endpoint"></a>Hämta och använda standardslutpunkten för förutsägelse
-
-> [!IMPORTANT]
-> Ställ in `predictionApiKey` till det förutsägelsenyckelvärde som du hämtade tidigare.
-
-```java
-final String predictionApiKey = "insert your prediction key here";
-PredictionEndpoint predictClient = CustomVisionPredictionManager.authenticate(predictionApiKey);
-
-// Use below for predictions from a url
-// String url = "some url";
-// ImagePrediction results = predictor.predictions().predictImage()
-//                         .withProjectId(project.id())
-//                         .withUrl(url)
-//                         .execute();
-
-// load test image
-byte[] testImage = GetImage("/Test", "test_image.jpg");
-
-// predict
-ImagePrediction results = predictor.predictions().predictImage()
-    .withProjectId(project.id())
-    .withImageData(testImage)
-    .execute();
-
-for (Prediction prediction: results.predictions())
-{
-    System.out.println(String.format("\t%s: %.2f%%", prediction.tagName(), prediction.probability() * 100.0f));
-}
-```
-
-## <a name="run-the-example"></a>Köra exemplet
-
-Kompilera och kör lösningen med maven:
-
-```
+```PowerShell
 mvn compile exec:java
 ```
 
-Programmets utdata ser ut ungefär som nedanstående text:
+Programmets konsolutdata bör ser ut ungefär som nedanstående text:
 
 ```
 Creating project...
@@ -223,3 +124,14 @@ Done!
         Hemlock: 93.53%
         Japanese Cherry: 0.01%
 ```
+
+Du kan sedan kontrollera att testbildens förutsägelse (de sista raderna i utdata) är korrekt.
+
+[!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
+
+## <a name="next-steps"></a>Nästa steg
+
+Nu har du sett hur varje steg i bildklassificeringsprocessen kan göras med kod. Det här exemplet kör en enstaka träningsupprepning men ofta måste du träna och testa modellen flera gånger för att kunna göra den mer exakt.
+
+> [!div class="nextstepaction"]
+> [Testa och träna om modellen](test-your-model.md)

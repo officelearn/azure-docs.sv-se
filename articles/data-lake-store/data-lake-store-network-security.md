@@ -1,6 +1,6 @@
 ---
 title: Nätverkssäkerhet i Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Förstå hur IP-brandväggen och nätverksintegration fungerar i Azure Data Lake Storage Gen1
+description: Förstå hur IP-brandväggen och integreringen av virtuella nätverk fungerar i Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -13,111 +13,139 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: 0da5962bc0b48a387ee82a1db36099682e14bca3
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: b206b49914a448aa3fc9da63f72cca91f9f9ade1
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49168194"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218975"
 ---
-# <a name="virtual-network-integration-for-azure-data-lake-storage-gen1---preview"></a>Virtual Network-integration för Azure Data Lake Storage Gen1 – förhandsversion
+# <a name="virtual-network-integration-for-azure-data-lake-storage-gen1---preview"></a>Integrering av virtuella nätverk för Azure Data Lake Storage Gen1 – förhandsversion
 
-Introduktion till Virtual Network-integration för Azure Data Lake Storage Gen1 (förhandsversion). Med VNet-integration kan du förhindra obehörig att få åtkomst till dina Azure Data Lake Storage Gen1-konton genom att låsa dessa konton till dina specifika virtuella nätverk och undernät. Du kan nu konfigurera ditt ADLS Gen1-konto att bara acceptera trafik från angivna virtuella nätverk och undernät och blockera åtkomst från alla andra platser. Det här hjälper till att skydda ditt ADLS-konto från externa hot.
+Den här artikeln introducerar integrering av virtuella nätverk för Azure Data Lake Storage Gen1, som är i förhandsversion. Med integrering av virtuella nätverk kan du konfigurera dina konton för att endast acceptera trafik från specifika virtuella nätverk och undernät. 
 
-VNet-integration för ADLS Gen1 utnyttjar slutpunktssäkerhet för virtuellt nätverk-tjänsten mellan ditt virtuella nätverk och Azure Active Directory-tjänsten för att generera ytterligare säkerhetsanspråk i åtkomsttoken. Dessa anspråk används sedan för att autentisera ditt virtuella nätverk för ditt ADLS Gen1-konto och tillåta åtkomst.
+Den här funktionen hjälper till att skydda ditt Data Lake Storage-konto från externa hot.
+
+Integrering av virtuella nätverk för Data Lake Storage Gen1 utnyttjar tjänstslutpunktssäkerhet för virtuella nätverk mellan ditt virtuella nätverk och Azure Active Directory-tjänsten (Azure AD) för att generera ytterligare säkerhetsanspråk i åtkomsttoken. Dessa anspråk används sedan för att autentisera ditt virtuella nätverk till ditt Data Lake Storage Gen1-konto och tillåta åtkomst.
 
 > [!NOTE]
-> Det här är en förhandsversionsteknik och vi rekommenderar inte användning i produktionsmiljöer.
+> Den här tekniken är i förhandsversion. Vi rekommenderar inte att den används i produktionsmiljö.
 >
-> Det finns ingen extra kostnad med att använda dessa funktioner. Ditt konto debiteras enligt standardavgifterna för ADLS Gen1 ([priser](https://azure.microsoft.com/pricing/details/data-lake-store/?cdn=disable)) och alla Azure-tjänster du använder ([priser](https://azure.microsoft.com/pricing/#product-picker)).
+> Det finns ingen extra kostnad med att använda dessa funktioner. Kontot faktureras enligt standardavgifterna för Data Lake Storage Gen1. Mer information finns i [prissättning](https://azure.microsoft.com/pricing/details/data-lake-store/?cdn=disable). Information om alla andra Azure-tjänster som du använder finns i [prissättning](https://azure.microsoft.com/pricing/#product-picker).
 
-## <a name="scenarios-for-vnet-integration-for-adls-gen1"></a>Scenarier för VNET-integration för ADLS Gen1
+## <a name="scenarios-for-virtual-network-integration-for-data-lake-storage-gen1"></a>Scenarier för integrering av virtuella nätverk för Data Lake Storage Gen1
 
-Med VNet-integration för ADLS Gen1 kan du begränsa åtkomsten till ditt ADLS Gen1-konto från angivna virtuella nätverk och undernät.  Andra virtuella nätverk/virtuella datorer i Azure får inte åtkomst till ditt konto när den har låsts till det angiva VNet-undernätet.  Funktionellt möjliggör VNet-integration för ADLS Gen1 samma scenario som [slutpunkter för virtuellt nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview).  Det finns några viktiga skillnader som beskrivs i avsnitten nedan. 
+Med integrering av virtuella nätverk för Data Lake Storage Gen1 kan du begränsa åtkomsten till ditt Data Lake Storage Gen1-konto från specifika virtuella nätverk och undernät. När ditt konto är låst till de angivna virtuella nätverkets undernät tillåts inte åtkomst för andra virtuella nätverk/virtuella datorer i Azure. Funktionellt möjliggör integrering av virtuella nätverk med Data Lake Storage Gen1 samma scenario som [tjänstslutpunkter för virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Det finns några viktiga skillnader som beskrivs i följande avsnitt. 
 
-![Scenariodiagram för VNet-integration för ADLS Gen1](media/data-lake-store-network-security/scenario-diagram.png)
+![Scenariodiagram för integrering av virtuella nätverk med Data Lake Storage Gen1](media/data-lake-store-network-security/scenario-diagram.png)
 
 > [!NOTE]
-> De befintliga IP-brandväggsreglerna kan användas utöver VNet-regler för att även tillåta åtkomst från lokala nätverk. 
+> De befintliga IP-brandväggsreglerna kan användas utöver regler för virtuella nätverk för att även tillåta åtkomst från lokala nätverk. 
 
-## <a name="optimal-routing-with-adls-gen1-vnet-integration"></a>Optimal routning med VNet-integration för ADLS Gen1
+## <a name="optimal-routing-with-data-lake-storage-gen1-virtual-network-integration"></a>Optimal routning med integrering av virtuella nätverk med Data Lake Storage Gen1
 
-En viktig fördel med tjänstslutpunkter för virtuellt nätverk är [optimal routning](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview#key-benefits) från ditt virtuella nätverk.  Om du vill utföra samma routningsoptimering till ADLS Gen1-konton använder du följande [användardefinierade vägar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) från ditt virtuella nätverk till ditt ADLS Gen1-konto:
+En viktig fördel med tjänstslutpunkter för virtuella nätverk är [optimal routning](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview#key-benefits) från ditt virtuella nätverk. Du kan utföra samma vägoptimering till Data Lake Storage Gen1-konton. Använd följande [användardefinierade vägar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) från ditt virtuella nätverk till ditt Data Lake Storage Gen1-konto.
 
-- **Offentligt IP-adress för ADLS** – Använd den offentliga IP-adressen för dina ADLS Gen1-målkonton.  Du kan identifiera IP-adresserna för ditt ADLS Gen1-konto genom att [lösa DNS-namnen](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-connectivity-from-vnets#enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity) för dina konton.  Skapa en separat post för varje adress.
+**Offentlig IP-adress för Data Lake Storage** – Använd den offentliga IP-adressen för dina Data Lake Storage Gen1-målkonton. För att identifiera IP-adresserna för ditt Data Lake Storage Gen1-konto [löser du DNS-namnen](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-connectivity-from-vnets#enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity) för dina konton. Skapa en separat post för varje adress.
 
-```azurecli
-# Create a Route table for your resource group
-az network route-table create --resource-group $RgName --name $RouteTableName
+    ```azurecli
+    # Create a route table for your resource group.
+    az network route-table create --resource-group $RgName --name $RouteTableName
+    
+    # Create route table rules for Data Lake Storage public IP addresses.
+    # There's one rule per Data Lake Storage public IP address. 
+    az network route-table route create --name toADLSregion1 --resource-group $RgName --route-table-name $RouteTableName --address-prefix <ADLS Public IP Address> --next-hop-type Internet
+    
+    # Update the virtual network, and apply the newly created route table to it.
+    az network vnet subnet update --vnet-name $VnetName --name $SubnetName --resource-group $RgName --route-table $RouteTableName
+    ```
 
-# Create Route Table Rules for ADLS Public IP Addresses
-# There will be one rule per ADLS Public IP Addresses 
-az network route-table route create --name toADLSregion1 --resource-group $RgName --route-table-name $RouteTableName --address-prefix <ADLS Public IP Address> --next-hop-type Internet
+## <a name="data-exfiltration-from-the-customer-virtual-network"></a>Dataexfiltrering från kundens virtuella nätverk
 
-# Update the VNet and apply the newly created Route Table to it
-az network vnet subnet update --vnet-name $VnetName --name $SubnetName --resource-group $RgName --route-table $RouteTableName
-```
+Utöver att skydda Data Lake Storage-konton för åtkomst från det virtuella nätverket är du kanske även intresserad av att se till att det inte finns någon exfiltrering till ett obehörigt konto.
 
-## <a name="data-exfiltration-from-the-customer-vnet"></a>Dataexfiltrering från kundens virtuella nätverk
-
-Utöver att skydda ADLS-konton för åtkomst från virtuellt nätverk kan du också vara intresserad av att se till att det inte finns någon exfiltrering till ett obehörigt konto.
-
-Vår rekommendation är att använda en brandväggslösning i ditt virtuella nätverk för att filtrera den utgående trafiken baserat på målkonto-URL:en och tillåta åtkomst till endast behöriga ADLS Gen1-konton.
+Använd en brandväggslösning i det virtuella nätverket för att filtrera utgående trafik baserat på målkontots URL. Tillåt åtkomst endast till godkända Data Lake Storage Gen1-konton.
 
 Några tillgängliga alternativ är:
-- [Azure Firewall](https://docs.microsoft.com/azure/firewall/overview) : Du kan [distribuera och Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) för det virtuella nätverket och skydda den utgående ADLS-trafiken och låsa den till det kända och behöriga kontots URL.
-- [Network Virtual Appliance](https://azure.microsoft.com/solutions/network-appliances/)-brandvägg: Om administratören bara godkänner användning av vissa kommersiella brandväggsleverantörer kan du använda en NVA-brandväggslösning på Azure Marketplace för att utföra samma funktion.
+- [Azure Firewall](https://docs.microsoft.com/azure/firewall/overview): [Distribuera och konfigurera en Azure-brandvägg](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) för det virtuella nätverket. Skydda den utgående Data Lake Storage-trafiken och låsa den till den kända och godkända konto-URL:en.
+- [Brandvägg för virtuell nätverksinstallation](https://azure.microsoft.com/solutions/network-appliances/): Administratören kan tillåta att endast vissa kommersiella brandväggsleverantörer används. Använd en brandväggslösning för virtuell nätverksinstallation som är tillgänglig på Azure Marketplace för att utföra samma funktion.
 
 > [!NOTE]
-> Att använda brandväggar i datasökvägen introducerar ett ytterligare hopp i datasökvägen och kan påverka nätverkets prestanda för datautbyte slutpunkt till slutpunkt, inklusive tillgängligt dataflöde och svarstid för anslutningen. 
+> Användning av brandväggar i datasökvägen introducerar ytterligare ett hopp i datasökvägen. Det kan påverka nätverkets prestanda för slutpunkt till slutpunkt-datautbyte. Dataflödestillgänglighet och anslutningens svarstid kan påverkas. 
 
 ## <a name="limitations"></a>Begränsningar
-1.  HDInsight-kluster måste skapas på nytt när de har lagts till i förhandsversionen.  Kluster som skapats innan det fanns stöd för VNet-integration för ADLS Gen1 måste återskapas för att stödja den här nya funktionen. 
-2.  När du skapar ett nytt HDInsight-kluster och väljer ett ADLS Gen1-konto med VNet-integration så misslyckas processen. Du måste först inaktivera VNet-regeln eller så kan du **tillåta åtkomst från alla nätverk och tjänster** via bladet **Brandvägg och virtuella nätverk** för ADLS-kontot.  Se avsnittet [Undantag](##Exceptions) om du vill ha mer information.
-3.  Förhandsversionen av VNet-integration för ADLS Gen1 fungerar inte med [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
-4.  Fil-/mappdata på ditt VNet-aktiverade ADLS Gen1-konto är inte åtkomliga via portalen.  Det här omfattar åtkomst från en virtuell dator som finns i det virtuella nätverket och aktiviteter som att använda Datautforskaren.  Kontohanteringsaktiviteter fortsätter att fungera.  Fil-/mappdata på ditt VNET-aktiverade ADLS-konto är åtkomliga via alla icke-portalresurser: SDK-åtkomst, PowerShell-skript, andra Azure-tjänster (när de inte kommer från portalen) osv... 
+
+- HDI-kluster som skapades innan det fanns stöd för integrering av virtuella nätverk med Data Lake Storage Gen1 måste återskapas för att ge stöd för den här nya funktionen.
+ 
+- När du skapar ett nytt HDInsight-kluster och väljer ett Data Lake Storage Gen1-konto med integrering av virtuella nätverk aktiverat misslyckas processen. Inaktivera först regeln för virtuella nätverk. Eller så kan du på bladet **Brandvägg och virtuella nätverk** i Data Lake Storage-kontot välja **Tillåt åtkomst från alla nätverk och tjänster**. Mer information finns i avsnittet [Undantag](##Exceptions).
+
+- Förhandsversionen av integrering av virtuella nätverk med Data Lake Storage Gen1 fungerar inte med [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+  
+- Fil- och mappdata i ditt Data Lake Storage Gen1-konto med virtuellt nätverk aktiverat är inte tillgängliga från portalen. Den här begränsningen omfattar åtkomst från en virtuell dator som finns i det virtuella nätverket och aktiviteter som att använda Datautforskaren. Kontohanteringsaktiviteter fortsätter att fungera. Fil- och mappdata i ditt Data Lake Storage-konto med virtuellt nätverk aktiverat är tillgängliga via alla icke-portalresurser. Dessa resurser inkluderar SDK-åtkomst, PowerShell-skript och andra Azure-tjänster när de inte kommer från portalen. 
 
 ## <a name="configuration"></a>Konfiguration
 
-### <a name="step1-configure-your-vnet-to-use-aad-service-endpoint"></a>Steg 1: Konfigurera det virtuella nätverket att använda AAD-slutpunkt
-1.  Gå till Azure-portalen och logga in på ditt konto. 
-2.  [Skapa ett nytt virtuellt nätverk](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) i din prenumeration eller gå till ett befintligt virtuellt nätverk.  Det virtuella nätverket måste för närvarande finnas i samma region som ADLS Gen 1-kontot. 
-3.  På bladet Virtuellt nätverk väljer du **Tjänstslutpunkter**. 
-4.  Klicka på **Lägg till** för att lägga till en ny tjänstslutpunkt.
-![Lägga till en tjänstslutpunkt för virtuellt nätverk](media/data-lake-store-network-security/config-vnet-1.png)
-5.  Välj **Microsoft.AzureActiveDirectory** som tjänst för slutpunkten.
-![Välja Microsoft.AzureActiveDirectory-tjänstslutpunkt](media/data-lake-store-network-security/config-vnet-2.png)
-6.  Välj de undernät som du vill tillåta anslutningsmöjligheter för, klicka på **Lägg till**.
-![Välj undernätet](media/data-lake-store-network-security/config-vnet-3.png)
-7.  Det kan ta upp till 15 minuter för tjänstslutpunkten att läggas till. När den har lagts till visas den i listan. Kontrollera att den visas och all information är enligt konfigurationen. 
-![Lägga till tjänstslutpunkten](media/data-lake-store-network-security/config-vnet-4.png)
+### <a name="step-1-configure-your-virtual-network-to-use-an-azure-ad-service-endpoint"></a>Steg 1: Konfigurera ditt virtuella nätverk till att använda en Azure AD-tjänstslutpunkt
 
-### <a name="step-2-set-up-the-allowed-vnetsubnet-for-your-adls-gen1-account"></a>Steg 2: Konfigurera det tillåtna virtuella nätverket/undernätet för ditt ADLS Gen1-konto
-1.  När du har konfigurerat ditt virtuella nätverk [skapar du ett nytt Azure Data Lake Storage Gen1-konto](data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account) i din prenumeration eller gå till ett befintligt ADLS Gen1-konto. Det ADLS Gen1-konto måste för närvarande finnas i samma region som det virtuella nätverket. 
+1.  Gå till Azure-portalen och logga in på ditt konto.
+ 
+2.  [Skapa ett nytt virtuellt nätverk ](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)i din prenumeration. Eller så går du till ett befintligt virtuellt nätverk. Det virtuella nätverket måste finnas i samma region som Data Lake Storage Gen1-kontot.
+ 
+3.  På bladet **Virtuellt nätverk** väljer du **Tjänstslutpunkter**.
+ 
+4.  Välj **Lägg till** för att lägga till en ny tjänstslutpunkt.
+
+    ![Lägga till en tjänstslutpunkt för virtuellt nätverk](media/data-lake-store-network-security/config-vnet-1.png)
+
+5.  Välj **Microsoft.AzureActiveDirectory** som tjänst för slutpunkten.
+
+     ![Välja tjänstslutpunkten Microsoft.AzureActiveDirectory](media/data-lake-store-network-security/config-vnet-2.png)
+
+6.  Välj de undernät som du vill tillåta anslutningsmöjligheter för. Välj **Lägg till**.
+
+    ![Välja undernätet](media/data-lake-store-network-security/config-vnet-3.png)
+
+7.  Det kan ta upp till 15 minuter för tjänstslutpunkten att läggas till. När den har lagts till visas den i listan. Kontrollera att den visas och att all information är enligt konfigurationen.
+ 
+    ![Lyckat tillägg av tjänstslutpunkten](media/data-lake-store-network-security/config-vnet-4.png)
+
+### <a name="step-2-set-up-the-allowed-virtual-network-or-subnet-for-your-data-lake-storage-gen1-account"></a>Steg 2: Konfigurera det tillåtna virtuella nätverket eller undernätet för ditt Data Lake Storage Gen1-konto
+
+1.  När du har konfigurerat det virtuella nätverket [skapar du ett nytt Azure Data Lake Storage Gen1-konto](data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account) i din prenumeration. Eller så går du till ett befintligt Data Lake Storage Gen1-konto. Data Lake Storage Gen1-kontot måste finnas i samma region som det virtuella nätverket.
+ 
 2.  Välj **Brandvägg och virtuella nätverk**.
 
-  > [!NOTE]
-  > Om du inte ser **Brandvägg och virtuellt nätverk** i inställningarna loggar du ut från portalen. Stäng webbläsaren. Rensa webbläsarcachen. Starta om datorn och försök igen.
+    > [!NOTE]
+    > Om du inte ser **Brandvägg och virtuella nätverk** i inställningarna loggar du ut från portalen. Stäng webbläsaren och rensa webbläsarens cacheminne. Starta om datorn och försök igen.
 
-  ![Lägga till en VNet-regeln på ADLS-kontot](media/data-lake-store-network-security/config-adls-1.png)
-3.  Välj **Valda nätverk**. 
-4.  Klicka på **Lägg till befintligt virtuellt nätverk**.
-  ![Lägga till befintligt virtuellt nätverk](media/data-lake-store-network-security/config-adls-2.png)
-5.  Välj virtuella nätverk och undernät för att tillåta för anslutning och klicka sedan på **Lägg till**.
-  ![Välja virtuellt nätverk och undernät](media/data-lake-store-network-security/config-adls-3.png)
-6.  Se till att de virtuella nätverken och undernäten visas korrekt i listan och **spara**.
-  ![Spara den nya regeln](media/data-lake-store-network-security/config-adls-4.png)
+       ![Lägga till en regel för virtuella nätverk till ditt Data Lake Storage-konto](media/data-lake-store-network-security/config-adls-1.png)
 
-  > [!NOTE]
-  > Det kan ta upp till 5 minuter innan inställningarna börjar gälla när du har sparat.
+3.  Välj **Valda nätverk**.
+ 
+4.  Välj **Lägg till befintligt virtuellt nätverk**.
 
-7.  [Valfritt] Om du, utöver virtuella nätverk och undernät, vill tillåta anslutningsmöjligheter från specifika IP-adresser kan du göra det i avsnittet **Brandvägg** på samma sida. 
+    ![Lägga till befintligt virtuellt nätverk](media/data-lake-store-network-security/config-adls-2.png)
+
+5.  Välj de virtuella nätverk och undernät som du vill tillåtna för anslutningar. Välj **Lägg till**.
+
+    ![Välja virtuellt nätverk och undernät](media/data-lake-store-network-security/config-adls-3.png)
+
+6.  Se till att de virtuella nätverken och undernäten visas korrekt i listan. Välj **Spara**.
+
+    ![Spara den nya regeln](media/data-lake-store-network-security/config-adls-4.png)
+
+    > [!NOTE]
+    > Det kan ta upp till 5 minuter innan inställningarna börjar gälla när du har sparat.
+
+7.  [Valfritt] På sidan **Brandvägg och virtuella nätverk** kan du i avsnittet **Brandvägg** tillåta anslutningar från specifika IP-adresser. 
 
 ## <a name="exceptions"></a>Undantag
-Det finns två kryssrutor i området Undantag på bladet **Brandvägg och virtuella nätverk** som möjliggör anslutning från ett antal olika tjänster och virtuella datorer på Azure.
-![Undantag för brandvägg och virtuellt nätverk](media/data-lake-store-network-security/firewall-exceptions.png)
-- **Tillåt åtkomst för alla Azure-tjänster till det här Data Lake Storage Gen1-kontot** tillåter alla Azure-tjänster som Azure Data Factory, Event Hubs, alla virtuella Azure-datorer osv... att kommunicera med ditt ADLS-konto.
+Du kan aktivera anslutningar från Azure-tjänster och virtuella datorer utanför dina valda virtuella nätverk. På bladet **Brandvägg och virtuella nätverk** väljer du bland två val i området **Undantag**:
+ 
+- **Tillåt att alla Azure-tjänster får åtkomst till det här Data Lake Storage Gen1-kontot**. Det här alternativet tillåter att Azure-tjänster som Azure Data Factory, Azure Event Hubs och alla virtuella Azure-datorer kommunicerar med ditt Data Lake Storage-konto.
 
-- **Tillåt åtkomst för Azure Data Lake Analytics till det här Data Lake Storage Gen1-kontot** tillåter Azure Data Lake Analytics-tjänsten att ansluta till det här ADLS-kontot. 
+- **Ge Azure Data Lake Analytics åtkomst till detta Data Lake Storage Gen1-konto**. Det här alternativet tillåter Data Lake Analytics-anslutning till det här Data Lake Storage-kontot. 
 
-Vi rekommenderar att du har de här undantagen inaktiverade och bara aktiverar dem om du behöver anslutning från dessa andra tjänster utanför ditt virtuella nätverk.
+  ![Undantag för brandvägg och virtuella nätverk](media/data-lake-store-network-security/firewall-exceptions.png)
+
+Vi rekommenderar att du behåller de här undantagen avstängda. Aktivera dem bara om du behöver anslutning mellan dessa andra tjänster utifrån ditt virtuella nätverk.

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 8591e723cad1c44e9cc8d00008485e6b304fc4d3
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9b6fd9a1eb9e5b27f62507e58f9b1a85caa92dea
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283382"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625427"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Hur att publicera Azure övervakar för virtuella datorer (förhandsversion)
-Den här artikeln beskriver hur du ställer in Azure Monitor för virtuella datorer för att övervaka hälsotillståndet för operativsystemet för virtuella datorer i Azure och identifiera och mappa programberoenden som kan vara baserad på dem.  
+Den här artikeln beskriver hur du ställer in Azure Monitor för virtuella datorer för att övervaka hälsotillståndet för operativsystemet för dina Azure-datorer och skalningsuppsättningar för virtuella datorer och virtuella datorer i din miljö, inklusive identifiering och mappning av programberoenden som kan vara baserad på dem.  
 
 Aktivera Azure Monitor för virtuella datorer görs på något av följande metoder och information om hur du använder varje metod finns senare i artikeln.  
 
@@ -50,16 +50,12 @@ Log Analytics-arbetsytan i följande regioner är för närvarande:
 
 Om du inte har en arbetsyta kan du skapa den via [Azure CLI](../log-analytics/log-analytics-quick-create-workspace-cli.md), via [PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md)i den [Azure-portalen](../log-analytics/log-analytics-quick-create-workspace.md), eller med [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md).  Om du aktiverar övervakning för en virtuell Azure-dator från Azure portal, har du möjlighet att skapa en arbetsyta under den här processen.  
 
-Du måste vara medlem i rollen som deltagare Log Analytics för att aktivera lösningen. Läs mer om hur du styr åtkomst till en Log Analytics-arbetsyta, [hantera arbetsytor](../log-analytics/log-analytics-manage-access.md).
-
-[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
-
 Att aktivera lösningen för den i stor skala scenariot först måste konfigurera följande i din Log Analytics-arbetsyta:
 
-* Installera den **ServiceMap** och **InfrastructureInsights** lösningar
-* Konfigurera Log Analytics-arbetsytan för att samla in prestandaräknare
+* Installera den **ServiceMap** och **InfrastructureInsights** lösningar. Detta kan endast utföras med hjälp av en Azure Resource Manager-mall i den här artikeln.   
+* Konfigurera Log Analytics-arbetsytan för att samla in prestandaräknare.
 
-För att konfigurera din arbetsyta för det här scenariot, se [installationsprogrammet Log Analytics-arbetsyta](#setup-log-analytics-workspace).
+Konfigurera din arbetsyta för den skala scenariot överblick över [installationsprogrammet Log Analytics-arbetsyta för den vid skala distributionen](#setup-log-analytics-workspace).
 
 ### <a name="supported-operating-systems"></a>Operativsystem som stöds
 
@@ -148,20 +144,16 @@ I följande tabell visas de Windows- och Linux-operativsystem som stöds med Azu
 |12 SP2 | 4.4. * |
 |12 SP3 | 4.4. * |
 
-### <a name="hybrid-environment-connected-sources"></a>Hybridmiljö anslutna källor
-Azure Monitor för virtuella datorer kartan hämtar data från Microsoft Dependency agenten. Beroendeagenten är beroende av Log Analytics-agenten för anslutningen till Log Analytics och därför är ett system måste ha Log Analytics-agenten installeras och konfigureras med beroendeagenten. I följande tabell beskrivs de anslutna källor som har stöd för funktionen kartan i en hybridmiljö.
+### <a name="microsoft-dependency-agent"></a>Microsoft Dependency agent
+Azure Monitor för virtuella datorer kartan hämtar data från Microsoft Dependency agenten. Beroendeagenten är beroende av Log Analytics-agenten för anslutningen till Log Analytics och därför är ett system måste ha Log Analytics-agenten installeras och konfigureras med beroendeagenten. När du aktiverar Azure Monitor för virtuella datorer för en virtuell Azure-dator eller när du använder metoderna för den vid skala distributionen Azure VM beroende agent-tillägget används för att installera agenten som en del av den publiceringsupplevelsen. Med en hybridmiljö beroendeagenten kan hämtas och installeras manuellt eller med hjälp av en automatisk distributionsmetod för de virtuella datorerna finns utanför Azure.  
+
+I följande tabell beskrivs de anslutna källor som har stöd för funktionen kartan i en hybridmiljö.
 
 | Ansluten källa | Stöds | Beskrivning |
 |:--|:--|:--|
-| Windows-agenter | Ja | Förutom den [Log Analytics-agenten för Windows](../log-analytics/log-analytics-concept-hybrid.md), Windows-agenter kräver Microsoft Dependency agenten. Se [Operativsystem som stöds](#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
-| Linux-agenter | Ja | Förutom den [Log Analytics-agenten för Linux](../log-analytics/log-analytics-concept-hybrid.md), kräver Microsoft Dependency agenten för Linux-agenter. Se [Operativsystem som stöds](#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
+| Windows-agenter | Ja | Förutom den [Log Analytics-agenten för Windows](../log-analytics/log-analytics-agent-overview.md), Windows-agenter kräver Microsoft Dependency agenten. Se [Operativsystem som stöds](#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
+| Linux-agenter | Ja | Förutom den [Log Analytics-agenten för Linux](../log-analytics/log-analytics-agent-overview.md), kräver Microsoft Dependency agenten för Linux-agenter. Se [Operativsystem som stöds](#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
 | System Center Operations Manager-hanteringsgrupp | Nej | |  
-
-På Windows, Microsoft Monitoring Agent (MMA) används av både System Center Operations Manager och Log Analytics att samla in och skicka övervakningsdata. System Center Operations Manager och Log Analytics tillhandahåller olika out-nyckelfärdig versioner av agenten. Båda dessa versioner kan rapportera till System Center Operations Manager, till Log Analytics eller till båda.  
-
-På Linux, Log Analytics-agenten för Linux samlar och skickar övervakning av data till Log Analytics.   
-
-Om din Windows- eller Linux-datorer inte kan ansluta direkt till tjänsten, måste du konfigurera Log Analytics-agenten för att ansluta till Log Analytics med hjälp av OMS-gatewayen. Mer information om hur du distribuerar och konfigurerar OMS-gatewayen finns i [ansluter datorer utan Internetåtkomst med OMS-gatewayen](../log-analytics/log-analytics-oms-gateway.md).  
 
 Beroendeagenten kan hämtas från följande plats.
 
@@ -170,63 +162,23 @@ Beroendeagenten kan hämtas från följande plats.
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.1 | 55030ABF553693D8B5112569FB2F97D7C54B66E9990014FC8CC43EFB70DE56C6 |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.1 | 43C75EF0D34471A0CBCE5E396FFEEF4329C9B5517266108FA5D6131A353D29FE |
 
-## <a name="diagnostic-and-usage-data"></a>Diagnostik- och användningsdata
-Microsoft samlar automatiskt in användnings- och data via din användning av Azure Monitor-tjänsten. Microsoft använder dessa data för att tillhandahålla och förbättra kvaliteten, säkerheten och integriteten för tjänsten. Data från funktionen kartan innehåller information om konfigurationen av din programvara, till exempel operativsystem och version, IP-adress, DNS-namn och namn på arbetsstation för att tillhandahålla korrekta och effektiva funktioner för felsökning. Microsoft samlar inte in namn, adresser eller annan kontaktinformation.
+## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
+Följande åtkomst måste beviljas åtkomst till dina användare för att aktivera och få åtkomst till funktionerna i Azure Monitor för virtuella datorer.  
+  
+- Du måste läggas till som en medlem i rollen som deltagare Log Analytics för att aktivera lösningen.  
 
-Mer information om insamling och användning finns i den [sekretesspolicyn för Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
+- Om du vill visa prestanda, hälsotillstånd och mappa data, måste du lägga till som en medlem i rollen Läsare övervakning för den virtuella Azure-datorn och Log Analytics-arbetsytan som konfigurerats med Azure Monitor för virtuella datorer.   
 
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
-
-## <a name="performance-counters-enabled"></a>Prestandaräknare som aktiverats
-Azure Monitor för virtuella datorer konfigureras en Log Analytics-arbetsyta för att samla in prestandaräknare som används av lösningen.  I följande tabell visas de objekt och räknare som konfigurerats av lösningen som samlas in var 60: e sekund.
-
-### <a name="windows-performance-counters"></a>Windows-prestandaräknare
-
-|Objektnamn |Namn på räknare |  
-|------------|-------------|  
-|Logisk disk |Ledigt utrymme i procent |  
-|Logisk disk |Genomsn. S/diskläsning |  
-|Logisk disk |Genomsn. S/disköverföring |  
-|Logisk disk |Genomsn. S/diskskrivning |  
-|Logisk disk |Disk byte/sek |  
-|Logisk disk |Disk – lästa byte/sek |  
-|Logisk disk |Diskläsningar/sek |  
-|Logisk disk |Disköverföringar/sek |  
-|Logisk disk |Disk – skrivna byte/sek |  
-|Logisk disk |Diskskrivningar/sek |  
-|Logisk disk |Ledigt utrymme i MB |  
-|Minne |Tillgängliga megabyte |  
-|Nätverkskort |Mottagna byte/sek |  
-|Nätverkskort |Skickade byte/sek |  
-|Processor |Tid i procent för processor |  
-
-### <a name="linux-performance-counters"></a>Prestandaräknare för Linux
-
-|Objektnamn |Namn på räknare |  
-|------------|-------------|  
-|Logisk Disk |Använt utrymme i procent |  
-|Logisk Disk |Disk – lästa byte/sek |  
-|Logisk Disk |Diskläsningar/sek |  
-|Logisk Disk |Disköverföringar/sek |  
-|Logisk Disk |Disk – skrivna byte/sek |  
-|Logisk Disk |Diskskrivningar/sek |  
-|Logisk Disk |Ledigt utrymme i MB |  
-|Logisk Disk |Logisk Disk byte/sek |  
-|Minne |Tillgängligt minne i megabyte |  
-|Nätverk |Totalt antal byte mottaget |  
-|Nätverk |Totalt antal överförda byte |  
-|Processor |Tid i procent för processor |  
-
-## <a name="sign-in-to-azure-portal"></a>Logga in på Azure-portalen
-Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
+Läs mer om hur du styr åtkomst till en Log Analytics-arbetsyta, [hantera arbetsytor](../log-analytics/log-analytics-manage-access.md).
 
 ## <a name="enable-from-the-azure-portal"></a>Aktivera från Azure portal
 Om du vill aktivera övervakning av Azure-VM i Azure-portalen, gör du följande:
 
-1. I Azure-portalen väljer du **virtuella datorer**. 
-2. Välj en virtuell dator i listan. 
-3. På sidan virtuell dator i den **övervakning** väljer **Insights (förhandsversion)**.
-4. På den **Insights (förhandsversion)** väljer **Prova nu**.
+1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
+2. I Azure-portalen väljer du **virtuella datorer**. 
+3. Välj en virtuell dator i listan. 
+4. På sidan virtuell dator i den **övervakning** väljer **Insights (förhandsversion)**.
+5. På den **Insights (förhandsversion)** väljer **Prova nu**.
 
     ![Aktivera Azure Monitor för virtuella datorer för en virtuell dator](./media/monitoring-vminsights-onboard/enable-vminsights-vm-portal-01.png)
 
@@ -241,7 +193,13 @@ När du har aktiverat övervakning, kan det ta ungefär 10 minuter innan du kan 
 
 
 ## <a name="on-boarding-at-scale"></a>Registreringen i stor skala
-I det här avsnittet anvisningar om hur du utför den på skala distributionen av Azure Monitor för virtuella datorer som använder antingen Azure Policy eller med Azure PowerShell.  Det första steg som krävs är att konfigurera Log Analytics-arbetsytan.  
+I det här avsnittet anvisningar om hur du utför den på skala distributionen av Azure Monitor för virtuella datorer som använder antingen Azure Policy eller med Azure PowerShell.  
+
+Sammanfattas anges de steg som du behöver utföra för att förkonfigurera Log Analytics-arbetsytan innan du kan fortsätta med onboarding dina virtuella datorer.
+
+1. Skapa en ny arbetsyta om det inte redan finns som kan användas för att stödja Azure Monitor för virtuella datorer. Granska [hantera arbetsytor](../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json) innan du skapar en ny arbetsyta för att förstå överväganden kostnader, hantering och kompatibilitet innan du fortsätter.       
+2. Aktivera prestandaräknare på arbetsytan för samlingen på Linux- och Windows-datorer.
+3. Installera och aktivera den **ServiceMap** och **InfrastructureInsights** lösningen i din arbetsyta.  
 
 ### <a name="setup-log-analytics-workspace"></a>Konfigurera Log Analytics-arbetsyta
 Om du inte har en Log Analytics-arbetsyta kan du granska de tillgängliga metoderna som föreslås den [krav](#log-analytics) avsnitt för att skapa en.  
@@ -337,7 +295,7 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
     ```
 
 ### <a name="enable-using-azure-policy"></a>Aktivera med hjälp av Azure Policy
-Aktivera Azure Monitor för virtuella datorer i stor skala som säkerställer konsekvent efterlevnad och automatisk aktivering för nya virtuella datorer som etablerats [Azure Policy](../governance/policy/overview.md) rekommenderas. Dessa principer:
+Aktivera Azure Monitor för virtuella datorer i stor skala som säkerställer konsekvent efterlevnad och automatisk aktivering för nya virtuella datorer som etablerats [Azure Policy](../azure-policy/azure-policy-introduction.md) rekommenderas. Dessa principer:
 
 * Distribuera Log Analytics-agenten och beroendeagenten 
 * Rapport om kompatibilitetsresultat 
@@ -573,14 +531,16 @@ Failed: (0)
 ## <a name="enable-for-hybrid-environment"></a>Aktivera för hybridmiljö
 Det här avsnittet beskrivs hur du publicera virtuella datorer eller fysiska datorer som värd ditt datacenter eller andra molnmiljö för övervakning av Azure Monitor för virtuella datorer.  
 
-I Azure Monitor för virtuella datorer kartan beroendeagenten överföra inte några data själva och det kräver inte ändringar i brandväggar eller portar. Data på kartan överförs alltid genom Log Analytics-agenten i Azure Monitor-tjänsten, antingen direkt eller via den [OMS-gatewayen](../log-analytics/log-analytics-oms-gateway.md) om din IT-säkerhetsprinciper inte tillåter att datorer i nätverket att ansluta till Internet.
+I Azure Monitor för virtuella datorer kartan beroendeagenten överföra inte några data själva och det kräver inte ändringar i brandväggar eller portar. Kartdata överförs alltid genom Log Analytics-agenten i Azure Monitor-tjänsten, antingen direkt eller via den [OMS-gatewayen](../log-analytics/log-analytics-oms-gateway.md) om din IT-säkerhetsprinciper inte tillåter att datorer i nätverket att ansluta till Internet.
 
-Granska kraven och distributionsmetoder för den [Log Analytics Linux och Windows-agenten](../log-analytics/log-analytics-concept-hybrid.md).
+Granska kraven och distributionsmetoder för den [Log Analytics Linux och Windows-agenten](../log-analytics/log-analytics-agent-overview.md).  
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
 Sammanfattande steg:
 
 1. Installera Log Analytics-agenten för Windows eller Linux
-2. Installera Azure Monitor för virtuella datorer kartan beroendeagent
+2. Hämta och installera Azure Monitor för virtuella datorer kartan beroendeagenten för [Windows](https://aka.ms/dependencyagentwindows) eller [Linux](https://aka.ms/dependencyagentlinux).
 3. Aktivera insamling av prestandaräknare
 4. Publicera Azure Monitor för virtuella datorer
 
@@ -723,6 +683,52 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
     ```
 När du har aktiverat övervakning, kan det ta ungefär 10 minuter innan du kan visa hälsotillstånd och mått för hybrid-dator. 
 
+## <a name="performance-counters-enabled"></a>Prestandaräknare som aktiverats
+Azure Monitor för virtuella datorer konfigureras en Log Analytics-arbetsyta för att samla in prestandaräknare som används av lösningen.  I följande tabell visas de objekt och räknare som konfigurerats av lösningen som samlas in var 60: e sekund.
+
+### <a name="windows-performance-counters"></a>Windows-prestandaräknare
+
+|Objektnamn |Namn på räknare |  
+|------------|-------------|  
+|Logisk disk |Ledigt utrymme i procent |  
+|Logisk disk |Genomsn. S/diskläsning |  
+|Logisk disk |Genomsn. S/disköverföring |  
+|Logisk disk |Genomsn. S/diskskrivning |  
+|Logisk disk |Disk byte/sek |  
+|Logisk disk |Disk – lästa byte/sek |  
+|Logisk disk |Diskläsningar/sek |  
+|Logisk disk |Disköverföringar/sek |  
+|Logisk disk |Disk – skrivna byte/sek |  
+|Logisk disk |Diskskrivningar/sek |  
+|Logisk disk |Ledigt utrymme i MB |  
+|Minne |Tillgängliga megabyte |  
+|Nätverkskort |Mottagna byte/sek |  
+|Nätverkskort |Skickade byte/sek |  
+|Processor |Tid i procent för processor |  
+
+### <a name="linux-performance-counters"></a>Prestandaräknare för Linux
+
+|Objektnamn |Namn på räknare |  
+|------------|-------------|  
+|Logisk Disk |Använt utrymme i procent |  
+|Logisk Disk |Disk – lästa byte/sek |  
+|Logisk Disk |Diskläsningar/sek |  
+|Logisk Disk |Disköverföringar/sek |  
+|Logisk Disk |Disk – skrivna byte/sek |  
+|Logisk Disk |Diskskrivningar/sek |  
+|Logisk Disk |Ledigt utrymme i MB |  
+|Logisk Disk |Logisk Disk byte/sek |  
+|Minne |Tillgängligt minne i megabyte |  
+|Nätverk |Totalt antal byte mottaget |  
+|Nätverk |Totalt antal överförda byte |  
+|Processor |Tid i procent för processor |  
+
+## <a name="diagnostic-and-usage-data"></a>Diagnostik- och användningsdata
+Microsoft samlar automatiskt in användnings- och data via din användning av Azure Monitor-tjänsten. Microsoft använder dessa data för att tillhandahålla och förbättra kvaliteten, säkerheten och integriteten för tjänsten. Data från funktionen kartan innehåller information om konfigurationen av din programvara, till exempel operativsystem och version, IP-adress, DNS-namn och namn på arbetsstation för att tillhandahålla korrekta och effektiva funktioner för felsökning. Microsoft samlar inte in namn, adresser eller annan kontaktinformation.
+
+Mer information om insamling och användning finns i den [sekretesspolicyn för Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 ## <a name="next-steps"></a>Nästa steg
 
 Den här informationen är tillgänglig för analys med Azure Monitor för virtuella datorer med övervakning aktiverad för den virtuella datorn.  Läs hur du använder funktionen hälsotillstånd i [visa Azure Monitor för virtuella datorer Health](monitoring-vminsights-health.md), eller om du vill visa identifierade programberoenden, se [visa Azure Monitor för virtuella datorer kartan](monitoring-vminsights-maps.md).  

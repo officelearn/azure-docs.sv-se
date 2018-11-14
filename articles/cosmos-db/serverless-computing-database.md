@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 7348f76ab0d5a1057e9fd929e8a55dd0a9e99eb6
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 39b071c258a7aab3f8f0287ef2ce581a8f1b333e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140984"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623170"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Databas utan Server databehandling med Azure Cosmos DB och Azure Functions
 
@@ -98,7 +98,7 @@ I retail-implementeringar när en användare lägger till ett objekt i deras kor
 
 **Implementering:** flera Cosmos DB-utlösare som lyssnar på en behållare
 
-1. Du kan skapa flera Azure-funktioner genom att lägga till Cosmos DB-utlösare för varje - som lyssnar på samma ändringsflödet att handla kundvagn data. Observera att när flera funktioner som lyssnar på samma ändringsflödet, en ny lånsamling måste anges för varje funktion. Mer information om lån samlingar finns i [förstå biblioteket Change Feed Processor](change-feed.md#understand-cf).
+1. Du kan skapa flera Azure-funktioner genom att lägga till Cosmos DB-utlösare för varje - som lyssnar på samma ändringsflödet att handla kundvagn data. Observera att när flera funktioner som lyssnar på samma ändringsflödet, en ny lånsamling måste anges för varje funktion. Mer information om lån samlingar finns i [förstå biblioteket Change Feed Processor](change-feed-processor.md).
 2. När ett nytt objekt läggs till i kundvagn användare, anropas varje funktion oberoende av ändringsflödet från behållaren i kundvagnen.
     * En funktion kan använda innehållet i den aktuella korgen för att ändra visning av andra objekt som användaren kan ha intresse.
     * En annan funktion kan uppdatera inventering summor.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.component: common
-ms.openlocfilehash: 1b949d2baedc7a7da3230212e267c3ac98b30bbd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 64e7b6ad79fc26f8ab2ba796bbca2909417b113c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239550"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51626005"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -56,8 +56,8 @@ En praktisk guide till slutpunkt till slutpunkt felsökning i Azure Storage-prog
   * [Mätningar visar en ökning i PercentThrottlingError]
   * [Mätningar visar en ökning i PercentTimeoutError]
   * [Mätningar visar en ökning i PercentNetworkError]
-  * [Klienten tar emot HTTP 403 (förbjudet) meddelanden]
-  * [Klienten tar emot meddelanden HTTP 404 (hittades inte)]
+  * [Klienten får HTTP 403-meddelanden (Förbjudet)]
+  * [Klienten får HTTP 404-meddelanden (Hittades inte)]
   * [Klienten tar emot HTTP 409 (konflikt) meddelanden]
   * [Mätvärdena visar låg PercentSuccess eller analytics loggposter innehålla åtgärder med transaktionsstatus för ClientOtherErrors]
   * [Kapacitetsdata visar en oväntad ökning i kapacitetsförbrukning för lagring]
@@ -197,7 +197,7 @@ Användare av ditt program kan meddela dig om felen som rapporteras av klientpro
 Följande resurser är användbara för att förstå lagringsrelaterade status och felkoder:
 
 * [Vanliga REST API-felkoder](https://msdn.microsoft.com/library/azure/dd179357.aspx)
-* [Felkoder för BLOB](https://msdn.microsoft.com/library/azure/dd179439.aspx)
+* [Felkoder för Blob Service](https://msdn.microsoft.com/library/azure/dd179439.aspx)
 * [Felkoder för kö](https://msdn.microsoft.com/library/azure/dd179446.aspx)
 * [Felkoder för tabell](https://msdn.microsoft.com/library/azure/dd179438.aspx)
 * [Felkoder för fil](https://msdn.microsoft.com/library/azure/dn690119.aspx)
@@ -319,8 +319,8 @@ Ditt problem som rör tillgängligheten för ett storage-tjänster?
 ---
  Ditt klientprogram tar emot en HTTP 4XX (till exempel 404)-svar från en lagringstjänst?
 
-* [Klienten tar emot HTTP 403 (förbjudet) meddelanden]
-* [Klienten tar emot meddelanden HTTP 404 (hittades inte)]
+* [Klienten får HTTP 403-meddelanden (Förbjudet)]
+* [Klienten får HTTP 404-meddelanden (Hittades inte)]
 * [Klienten tar emot HTTP 409 (konflikt) meddelanden]
 
 ---
@@ -642,7 +642,7 @@ Den **PercentSuccess** mått samlar in procentuella av åtgärder som har genomf
 Det är viktigt att Observera att dessa åtgärder har slutförts och därför inte påverkar andra mått, till exempel tillgänglighet. Några exempel på åtgärder som köras men som kan leda till misslyckade HTTP-statuskoder är:
 
 * **ResourceNotFound** (inte gick att hitta 404), till exempel från en GET-begäran till en blob som inte finns.
-* **ResouceAlreadyExists** (konflikt 409), till exempel från en **CreateIfNotExist** åtgärden där resursen finns redan.
+* **ResourceAlreadyExists** (konflikt 409), till exempel från en **CreateIfNotExist** åtgärden där resursen finns redan.
 * **ConditionNotMet** (inte ändra 304), till exempel från en villkorlig åtgärd, till exempel när en klient skickar en **ETag** värde och en HTTP- **If-None-Match** huvudet för att begära en bild endast om den har uppdaterats sedan den senaste åtgärden.
 
 Du hittar en lista över vanliga felkoder för REST-API som lagringstjänsterna returnerar på sidan [vanliga felkoder för REST-API: et](https://msdn.microsoft.com/library/azure/dd179357.aspx).
@@ -843,8 +843,8 @@ Du hittar mer information på [vad är Application Insights](../../application-i
 [Mätningar visar en ökning i PercentTimeoutError]: #metrics-show-an-increase-in-PercentTimeoutError
 [Mätningar visar en ökning i PercentNetworkError]: #metrics-show-an-increase-in-PercentNetworkError
 
-[Klienten tar emot HTTP 403 (förbjudet) meddelanden]: #the-client-is-receiving-403-messages
-[Klienten tar emot meddelanden HTTP 404 (hittades inte)]: #the-client-is-receiving-404-messages
+[Klienten får HTTP 403-meddelanden (Förbjudet)]: #the-client-is-receiving-403-messages
+[Klienten får HTTP 404-meddelanden (Hittades inte)]: #the-client-is-receiving-404-messages
 [Klienten eller en annan process tidigare bort objektet]: #client-previously-deleted-the-object
 [Ett problem med auktorisering delade signatur åtkomst (SAS)]: #SAS-authorization-issue
 [Klientens JavaScript-kod har inte behörighet att komma åt objektet]: #JavaScript-code-does-not-have-permission

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 603ed12bf74f2d75543fd7e60834e695138c991d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: dbe2619b99fdc5281375e2c6c1300432d9a4cbb9
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963809"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616137"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure Diagnostics-tillägget configuration schemat versioner och historik
 Den här sidan index Azure Diagnostics-tillägg-schemat versioner levereras som en del av Microsoft Azure SDK.  
@@ -67,7 +67,7 @@ Olika versioner av Azure-diagnostik använder olika konfigurationsscheman.
 ### <a name="diagnostics-extension-111"></a>Diagnostiktillägget 1.11
 Tillagt stöd för Azure Monitor-mellanlagringsplatsen. Den här mottagare kan bara användas till prestandaräknare. Gör det möjligt att skicka prestandaräknare som samlats in på din VM, VMSS eller tjänst i molnet till Azure Monitor som anpassade mått. Azure Monitor-mellanlagringsplatsen har stöd för:
 * Hämtar alla prestandaräknare skickas till Azure Monitor via den [Azure Monitor metrics API: er.](https://docs.microsoft.com/rest/api/monitor/metrics/list)
-* Varna vid alla prestandaräknare skickas till Azure Monitor via den nya [unified aviseringsgränssnittet](monitoring-overview-unified-alerts.md) i Azure Monitor
+* Varna vid alla prestandaräknare skickas till Azure Monitor via den nya [unified aviseringsgränssnittet](monitoring-overview-alerts.md) i Azure Monitor
 * Behandla jokertecken operator i prestandaräknare som dimensionen ”instans” på din mått. Till exempel om du samlat in den ”logisk disk (\*) / DiskWrites/sek” räknare du skulle kunna filtrera och dela upp på dimensionen ”instans” för diagram eller Varna vid den Diskskrivningar/sek för varje logisk Disk (C:, D: osv.)
 
 Definiera Azure Monitor som en ny mottagare i konfigurationen av diagnostiktillägget

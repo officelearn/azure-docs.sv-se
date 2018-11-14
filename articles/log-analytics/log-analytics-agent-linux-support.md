@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2720ecece86133bf551ab42c415b2e9a87420e93
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 55a3f3d7ac08554273464ed7c6f665e27661c6f8
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237833"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625529"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Så här felsöker du problem med Log Analytics-agenten för Linux 
 
@@ -85,7 +85,7 @@ Om ingen av de här stegen fungerar för dig finns också stöd för följande k
 | --- | --- |
 | 2 | Ogiltigt alternativ anges i omsadmin-skriptet. Kör `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` för användning. |
 | 3 | Ogiltig konfiguration som anges i omsadmin-skriptet. Kör `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` för användning. |
-| 4 | Ogiltig proxy som anges i omsadmin-skriptet. Kontrollera proxyn och finns i vår [dokumentation för att använda en HTTP-proxy](log-analytics-concept-hybrid.md#network-firewall-requirements). |
+| 4 | Ogiltig proxy som anges i omsadmin-skriptet. Kontrollera proxyn och finns i vår [dokumentation för att använda en HTTP-proxy](log-analytics-agent-overview.md#network-firewall-requirements). |
 | 5 | 403 HTTP-fel togs emot från Log Analytics-tjänsten. Visa fullständiga utdata av skriptet omsadmin för information. |
 | 6 | Icke-200 HTTP-fel togs emot från Log Analytics-tjänsten. Visa fullständiga utdata av skriptet omsadmin för information. |
 | 7 | Det går inte att ansluta till Log Analytics-tjänsten. Visa fullständiga utdata av skriptet omsadmin för information. |

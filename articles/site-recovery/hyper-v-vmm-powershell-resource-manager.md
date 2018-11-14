@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sutalasi
-ms.openlocfilehash: 6ade1d584fad05e33a72a0ff5099378a9cf7f29f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8e1494594546c432123b8b1b98d646e8637eea99
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214587"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622847"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Konfigurera haveriberedskap för Hyper-V-datorer till en sekundär plats med hjälp av PowerShell (Resource Manager)
 
@@ -21,7 +21,7 @@ Den här artikeln visar hur du automatiserar stegen för replikering av Hyper-V-
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Granska den [scenariots arkitektur och komponenter](hyper-v-vmm-architecture.md).
+- Granska [arkitekturen och komponenterna för scenariot](hyper-v-vmm-architecture.md).
 - Granska [kraven för stöd](site-recovery-support-matrix-to-sec-site.md) för alla komponenter.
 - Kontrollera att Virtual Machine Manager-servrar och Hyper-V-värdar är kompatibla med [supportkrav](site-recovery-support-matrix-to-sec-site.md).
 - Kontrollera att de virtuella datorerna som du vill replikera uppfylla [replikerade datorn support](site-recovery-support-matrix-to-sec-site.md).
@@ -29,20 +29,20 @@ Den här artikeln visar hur du automatiserar stegen för replikering av Hyper-V-
 
 ## <a name="prepare-for-network-mapping"></a>Förbereda för nätverksmappning
 
-[Nätverksmappning](hyper-v-vmm-network-mapping.md) mappningar mellan en lokal Virtual Machine Manager-VM-nätverk i käll- och målmolnen. Mappningen gör följande:
+[Nätverksmappning](hyper-v-vmm-network-mapping.md) mappningar mellan en lokal Virtual Machine Manager-VM-nätverk i käll- och målmolnen. Mappning utför följande:
 
-- Ansluter virtuella datorer till lämplig mål VM-nätverk efter redundansväxling. 
-- Optimalt placerar virtuella replikdatorerna på mål-Hyper-V-värdservrar. 
+- Ansluter virtuella datorer till lämpliga VM-målnätverk efter redundansväxling. 
+- Placerar virtuella replikdatorer optimalt på Hyper-V-målvärdservrar. 
 - Om du inte konfigurerar nätverksmappning ska replikering av VMs inte anslutas till ett Virtuellt datornätverk efter redundansväxling.
 
 Förbered Virtual Machine Manager på följande sätt:
 
 * Kontrollera att du har [logiska nätverk i Virtual Machine Manager](https://docs.microsoft.com/system-center/vmm/network-logical) på käll- och Virtual Machine Manager-servrar:
 
-    - Det logiska nätverket på källservern ska associeras med det källmoln som Hyper-V-värdarna finns.
-    - Det logiska nätverket på målservern ska associeras med målmolnet.
-* Kontrollera att du har [Virtuella datornätverk](https://docs.microsoft.com/system-center/vmm/network-virtual) på käll- och Virtual Machine Manager-servrarna. Virtuella datornätverk bör vara kopplat till det logiska nätverket på varje plats.
-* Ansluta virtuella datorer på Hyper-V-värdar för källan till VM-källnätverket. 
+    - Det logiska nätverket på källservern ska vara associerat med det källmoln där Hyper-V-värdarna finns.
+    - Det logiska nätverket på målservern ska vara associerat med målmolnet.
+* Kontrollera att du har [Virtuella datornätverk](https://docs.microsoft.com/system-center/vmm/network-virtual) på käll- och Virtual Machine Manager-servrarna. VM-nätverk ska vara länkade till det logiska nätverket på varje plats.
+* Ansluta virtuella datorer på Hyper-V-källvärdar till VM-källnätverket. 
 
 ## <a name="prepare-for-powershell"></a>Förbereda för PowerShell
 
@@ -73,7 +73,7 @@ Kontrollera att du har Azure PowerShell som är redo att sätta igång:
         New-AzureRmResourceGroup -Name #ResourceGroupName -Location #location
 2. Skapa ett nytt Recovery Services-valv. Spara valvobjekt i en variabel som ska användas senare. 
 
-        $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location
+        $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
    
     Du kan hämta objektet valv när du har skapat med hjälp av cmdleten Get-AzureRMRecoveryServicesVault.
 

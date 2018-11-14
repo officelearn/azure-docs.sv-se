@@ -8,25 +8,23 @@ manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/20/2017
+ms.date: 11/12/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: fa12dd5e9dbe25bad947abed5ab1c732d231b25c
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 8cdb5b89bf43d3265f3f9c73d29708f11e17b21c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39362830"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624037"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Lösenord vaulting för enkel inloggning med programproxy
 
 Azure Active Directory Application Proxy kan du förbättra produktiviteten genom att publicera lokala program så att fjärranslutna anställda kan få säker åtkomst till dem, för. I Azure-portalen kan du också ställa in enkel inloggning (SSO) till de här apparna. Användarna behöver bara för att autentisera med Azure AD och de kan komma åt dina företagsprogram utan att behöva logga in igen.
 
-Programproxyn har stöd för flera [enkel inloggning lägen](application-proxy-single-sign-on.md). Lösenordsbaserad inloggning är avsedd för program som använder en kombination av användarnamn/lösenord för autentisering. När du konfigurerar lösenordsbaserad inloggning för ditt program kan måste användarna logga in på dina lokala program en gång. Efter det Azure Active Directory lagrar inloggningsinformation och tillhandahåller det automatiskt till programmet när dina användare få fjärråtkomst till den. 
+Programproxyn har stöd för flera [enkel inloggning lägen](what-is-single-sign-on.md#choosing-a-single-sign-on-method). Lösenordsbaserad inloggning är avsedd för program som använder en kombination av användarnamn/lösenord för autentisering. När du konfigurerar lösenordsbaserad inloggning för ditt program kan måste användarna logga in på dina lokala program en gång. Efter det Azure Active Directory lagrar inloggningsinformation och tillhandahåller det automatiskt till programmet när dina användare få fjärråtkomst till den. 
 
 Du bör redan har publicerats och testas din app med Application Proxy. Om inte, följer du stegen i [publicera program med Azure AD Application Proxy](application-proxy-publish-azure-portal.md) Kom sedan tillbaka hit. 
 
@@ -56,5 +54,5 @@ Gå till externa URL: en som du konfigurerade för fjärråtkomst till ditt prog
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om andra sätt att implementera [enkel inloggning med programproxy](application-proxy-single-sign-on.md)
+- Läs mer om andra sätt att implementera [enkel inloggning](what-is-single-sign-on.md)
 - Lär dig mer om [säkerhetsöverväganden för att komma åt appar med Azure AD Application Proxy](application-proxy-security.md)

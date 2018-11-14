@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 0ca9c7ff1ac4cfbb50f251679286a933429bf03f
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 71ac963f00993f8a66d41a8d6f3f67528d9c0583
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903055"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625157"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Infoga annonser på klientsidan
 Den här artikeln innehåller information om hur du infogar olika typer av annonser på klientsidan.
@@ -107,7 +107,7 @@ Linjär annonser kan visas i en angiven ordning. Gör detta genom att lägga til
           <Description>Unknown</Description>
           <Survey></Survey>
           <Error></Error>
-          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad1trackingResouce]]></Impression>
+          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad1trackingResource]]></Impression>
           <Creatives>
             <Creative id="video" sequence="0" AdID="">
               <Linear>
@@ -127,7 +127,7 @@ Linjär annonser kan visas i en angiven ordning. Gör detta genom att lägga til
           <Description>Unknown</Description>
           <Survey></Survey>
           <Error></Error>
-          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad2trackingResouce]]></Impression>
+          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad2trackingResource]]></Impression>
           <Creatives>
             <Creative id="video" sequence="0" AdID="">
               <Linear>
@@ -160,7 +160,7 @@ Icke-linjära annonser som har angetts i en <Creative> -element. I följande exe
     </Creative>
 ```
 
-Den <**NonLinearAds**> element kan innehålla en eller flera <**NonLinear**>-element, som kan beskriva en icke-linjära ad. Den <**NonLinear**> elementet anger resurs för den icke-linjära ad. Resursen kan vara en <**StaticResouce**>, en <**IFrameResource**>, eller en <**HTMLResouce**>. <**StaticResource**> beskriver en icke-HTML-resurs och definierar ett creativeType-attribut som anger hur resursen visas:
+Den <**NonLinearAds**> element kan innehålla en eller flera <**NonLinear**>-element, som kan beskriva en icke-linjära ad. Den <**NonLinear**> elementet anger resurs för den icke-linjära ad. Resursen kan vara en <**StaticResource**>, en <**IFrameResource**>, eller en <**HTMLResource**>. <**StaticResource**> beskriver en icke-HTML-resurs och definierar ett creativeType-attribut som anger hur resursen visas:
 
 Bild/gif, bild/jpeg, bild/png – resursen visas i en HTML <**img**> taggen.
 

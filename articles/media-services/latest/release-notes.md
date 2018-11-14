@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 11/09/2018
 ms.author: juliako
-ms.openlocfilehash: db68f979239a5783338d99360209ae231a75c936
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 70a3de35f6fd942bca5355db3a7c6b57aec6adbc
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945043"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613944"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 viktig information 
 
@@ -27,6 +27,54 @@ Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den h
 * Felkorrigeringar
 * Inaktuell funktion
 * Planer för ändringar
+
+## <a name="november-2018"></a>November 2018
+
+Modulen CLI 2.0 är nu tillgängligt för [Azure Media Services v3 GA](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest) – v 2.0.50.
+
+### <a name="new-commands"></a>Nya kommandon
+
+- [AZ ams-konto](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
+- [AZ ams-konto-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
+- [AZ ams-tillgångar](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
+- [AZ ams tillgången-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
+- [AZ ams innehåll-key-policy](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
+- [AZ ams-jobb](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
+- [AZ ams live-händelse](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
+- [AZ ams live-utdata](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
+- [AZ ams-slutpunkt för direktuppspelning](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
+- [AZ ams-strömningspositionerare](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
+- [AZ ams-konto mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) – kan du hantera Mediereserverade enheter
+
+### <a name="new-features-and-breaking-changes"></a>Nya funktioner och ändringar
+
+#### <a name="asset-commands"></a>Tillgången kommandon
+
+- ```--storage-account``` och ```--container``` argument har lagts till.
+- Standardvärdena för förfallotid (nu + 23h) och behörigheter (läsa) i ```az ams asset get-sas-url``` kommando har lagts till.
+
+#### <a name="job-commands"></a>Jobb-kommandon
+
+- ```--correlation-data``` och ```--label``` argument har lagts till
+- ```--output-asset-names``` bytt namn till ```--output-assets```. Nu den accepterar en blankstegsavgränsad lista med tillgångar i ' assetName = label-format. Det går att skicka en tillgång utan etikett så här ”: assetName ='.
+
+#### <a name="streaming-locator-commands"></a>Kommandon för positionerare för direktuppspelning
+
+- ```az ams streaming locator``` grundläggande kommando ersätts med ```az ams streaming-locator```.
+- ```--streaming-locator-id``` och ```--alternative-media-id support``` argument har lagts till.
+- ```--content-keys argument``` argument har uppdaterats.
+- ```--content-policy-name``` bytt namn till ```--content-key-policy-name```.
+
+#### <a name="streaming-policy-commands"></a>Strömmande princip-kommandon
+
+- ```az ams streaming policy``` grundläggande kommando ersätts med ```az ams streaming-policy```.
+- Stöd för kryptering parametrar i ```az ams streaming-policy create``` har lagts till.
+
+#### <a name="transform-commands"></a>Omvandla kommandon
+
+- ```--preset-names``` Argumentet ersätts med ```--preset```. Du kan nu bara ange 1 utdata/förinställning i taget (att lägga till mer kan du behöva köra ```az ams transform output add```). Du kan också ange anpassade StandardEncoderPreset genom att ange sökvägen till din anpassade JSON.
+- ```az ams transform output remove``` kan utföras genom att skicka utdata-index för att ta bort.
+- ```--relative-priority, --on-error, --audio-language and --insights-to-extract``` argument har lagts till i ```az ams transform create``` och ```az ams transform output add``` kommandon.
 
 ## <a name="october-2018---ga"></a>Oktober 2018, GA
 
@@ -120,5 +168,4 @@ Följande funktioner finns i .net SDK:
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Översikt](media-services-overview.md)
+[Översikt](media-services-overview.md)

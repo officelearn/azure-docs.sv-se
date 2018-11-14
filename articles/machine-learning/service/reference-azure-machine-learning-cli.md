@@ -1,118 +1,141 @@
 ---
-title: Om Azure Machine Learning CLI-tillägg
-description: Läs mer om de machine learning CLI-tillägg för Azure Machine Learning.
+title: Hur du använder Azure Machine Learning CLI-tillägg
+description: Läs mer om Azure Machine Learning CLI-tillägget för Azure CLI. Azure CLI är ett plattformsoberoende kommandoradsverktyg som gör det möjligt att arbeta med resurser i Azure-molnet. Machine Learning-tillägget kan du arbeta med Azure Machine Learning-tjänsten.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
-ms.topic: reference
+ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2018
-ms.openlocfilehash: 45ed1867d6d151250340bb21450b4b0d9b00e993
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f5c74055747cacbede479e12397bbb66ac74d10e
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243155"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615644"
 ---
-# <a name="what-is-the-azure-machine-learning-cli"></a>Vad är Azure Machine Learning CLI?
+# <a name="use-the-azure-machine-learning-cli-extension"></a>Använd Azure Machine Learning CLI-tillägget
 
-Det är Azure Machine Learning kommandoradsgränssnitt (CLI)-tillägget för dataexperter och utvecklare som arbetar med Azure Machine Learning-tjänsten. Det kan du automatisera arbetsflöden för machine learning snabbt och sätt ihop dem till produktion, till exempel:
+Azure Machine Learning CLI är ett tillägg till den [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), ett plattformsoberoende kommandoradsgränssnitt för Azure-plattformen. Det här tillägget innehåller kommandon för att arbeta med Azure Machine Learning-tjänsten från kommandoraden. Det kan du skapa skript som automatiserar dina arbetsflöden för maskininlärning. Du kan till exempel skapa skript som utför följande åtgärder:
+
 + Köra experiment för att skapa machine learning-modeller
 
 + Registrera maskininlärningsmodeller för kundens användning
 
 + Paketera, distribuera och spåra livscykeln för din machine learning-modeller
 
-Den här machine learning CLI är en utökning av [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) och har byggts ovanpå Python-baserade <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> för Azure Machine Learning-tjänsten.
+CLI är inte en ersättning för Azure Machine Learning-SDK. Det är ett kompletterande verktyg som är optimerad för att hantera mycket parametriserade uppgifter som:
+
+* Skapa beräkningsresurser
+
+* Skicka parametriserade experiment
+
+* Modellen
+
+* Skapa avbildningar
+
+* Distributionen av tjänsten
+
+## <a name="prerequisites"></a>Förutsättningar
+
+* Den [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 > [!NOTE]
-> CLI är en tidig förhandsversion och kommer att uppdateras.
+> Du måste ha en Azure-prenumeration om du vill använda CLI. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="installing-and-uninstalling"></a>Installation och avinstallation
+## <a name="install-the-extension"></a>Installera tillägget
 
-Du kan installera CLI med hjälp av det här kommandot från vår förhandsgranskning PyPi index:
-```AzureCLI
+Om du vill installera tillägget Machine Learning CLI använder du följande kommando:
+
+```azurecli-interactive
 az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-0.1.68-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
 ```
 
-Du kan ta bort CLI med hjälp av det här kommandot:
-```AzureCLI
+När du uppmanas, väljer `y` att installera tillägget.
+
+För att kontrollera att tillägget har installerats, använder du följande kommando för att visa en lista över ML-specifika underkommandon:
+
+```azurecli-interactive
+az ml -h
+```
+
+> [!TIP]
+> Att uppdatera tillägget måste du __ta bort__ , och sedan __installera__ den. Detta installerar den senaste versionen.
+
+## <a name="remove-the-extension"></a>Ta bort tillägget
+
+Om du vill ta bort tillägget CLI, använder du följande kommando:
+
+```azurecli-interactive
 az extension remove -n azure-cli-ml
 ```
 
-Du kan uppdatera CLI med den **ta bort** och **lägga till** stegen ovan.
+## <a name="resource-management"></a>Resurshantering
 
-## <a name="using-the-cli-vs-the-sdk"></a>Med hjälp av CLI jämfört med SDK
-CLI är bättre lämpat för automation genom en devops-person eller som en del av en kontinuerlig integrering och leverans pipeline. Det är optimerat för att hantera ovanliga och mycket parametriserade uppgifter. 
+Följande kommandon visar hur du använder CLI för att hantera resurser som används av Azure Machine Learning.
 
-Exempel:
-- Compute-etablering
-- Skicka parametriserade experiment
-- registrering av modellen, skapa avbildningar
-- Distributionen av tjänsten
 
-Dataexperter rekommenderas att använda Azure ML-SDK.
++ Skapa en arbetsyta för Azure Machine Learning-tjänsten:
 
-## <a name="common-machine-learning-cli-commands"></a>Vanliga CLI-kommandon för maskininlärning
-> [!NOTE]
-> Exempel på filer som du kan använda för att utföra den kommandona nedan hittar du [här.](https://github.com/Azure/MachineLearningNotebooks/tree/cli/cli)
-
-Använd den omfattande uppsättningen med `az ml` kommandon för att interagera tjänsten i alla kommandoradmiljö, inklusive Azure-portalen molnskalet.
-
-Här är ett exempel på vanliga kommandon:
-
-### <a name="workspace-creation--compute-setup"></a>Arbetsytans konfiguration för skapande och beräkning
-
-+ Skapa en Azure Machine Learning-tjänsten arbetsyta och den översta resursen för machine learning.
-   ```AzureCLI
+   ```azurecli-interactive
    az ml workspace create -n myworkspace -g myresourcegroup
    ```
 
-+ Ange CLI för att använda den här arbetsytan som standard.
-   ```AzureCLI
++ Ange en standardarbetsyta:
+
+   ```azurecli-interactive
    az configure --defaults aml_workspace=myworkspace group=myresourcegroup
    ```
 
 + Skapa en DSVM (data science VM). Du kan också skapa BatchAI kluster för distribuerad utbildning eller AKS-kluster för distribution.
-  ```AzureCLI
+
+
+  ```azurecli-interactive
   az ml computetarget setup dsvm -n mydsvm
   ```
 
-### <a name="experiment-submission"></a>Skicka experiment
-+ Ansluta till ett projekt (kör konfiguration) för att skicka ett experiment. Detta används för att hålla koll på dina experimentkörningar.
-  ```AzureCLI
-  az ml project attach --experiment-name myhistory
-  ```
+## <a name="experiments"></a>Experiment
 
-+ Skicka ett experiment mot Azure Machine Learning-tjänsten på beräkningsmål önskar. Det här exemplet körs mot din lokala beräkningsmiljö. Kontrollera att filen conda miljö samlar in python-beroenden.
+Följande kommandon visar hur du använder CLI för att arbeta med experiment:
 
-  ```AzureCLI
-  az ml run submit -c local train.py
-  ```
+* Koppla ett projekt (kör konfiguration) innan du skickar ett experiment:
 
-+ Visa en lista med skickade experiment.
-```AzureCLI
-az ml history list
-```
+    ```azurecli-interactive
+    az ml project attach --experiment-name myhistory
+    ```
 
-### <a name="model-registration-image-ceation--deployment"></a>Modeller registrering, bild ceation och distribution
+* Starta en körning av experimentet. När du använder det här kommandot kan du ange ett beräkningsmål. I det här exemplet `local` använder den lokala datorn för att träna modellen genom att använda den `train.py` skript:
 
-+ Registrera en modell med Azure Machine Learning.
-  ```AzureCLI
+    ```azurecli-interactive
+    az ml run submit -c local train.py
+    ```
+
+* Visa en lista över skickade experiment:
+
+    ```azurecli-interactive
+    az ml history list
+    ```
+
+## <a name="model-registration-image-creation--deployment"></a>Modeller registrering, skapa avbildningar och distribution
+
+Följande kommandon visar hur du kan registrera en träningsmodell och sedan distribuera den som en tjänst för produktion:
+
++ Registrera en modell med Azure Machine Learning:
+
+  ```azurecli-interactive
   az ml model register -n mymodel -m sklearn_regression_model.pkl
   ```
 
-+ Skapa en avbildning som innehåller dina machine learning-modell och beroenden. 
-  ```AzureCLI
++ Skapa en avbildning som innehåller dina machine learning-modell och beroenden: 
+
+  ```azurecli-interactive
   az ml image create container -n myimage -r python -m mymodel:1 -f score.py -c myenv.yml
   ```
 
-+ Distribuera din paketerade modell till mål inklusive ACI och AKS.
-  ```AzureCLI
++ Distribuera en avbildning till ett beräkningsmål:
+
+  ```azurecli-interactive
   az ml service create aci -n myaciservice --image-id myimage:1
   ```
-    
-## <a name="full-command-list"></a>Fullständig Kommandolistan
-Du hittar en fullständig lista över kommandon för CLI-tillägg (och deras parametrar som stöds) genom att köra ```az ml COMMANDNAME -h```. 

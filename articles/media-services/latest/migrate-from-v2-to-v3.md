@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 11/07/2018
 ms.author: juliako
-ms.openlocfilehash: 1c8bacf4c6cb22240609fb9f5dc0c3c456bc4531
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 8c3ff4af3b556614d0b2179dceed6cabd9cbabff
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287548"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616018"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Riktlinjer för att flytta från Media Services v2 till v3
 
@@ -59,6 +59,7 @@ Om du har en videotjänst som har utvecklats i dag ovanpå den [äldre Media Ser
 * SDK: er för v3 är nu fristående från Storage SDK, som ger dig större kontroll över versionen av Storage SDK du vill använda och på så sätt undviker problem med versionshantering. 
 * I API: er med v3 är alla kodning bithastigheter i bitar per sekund. Detta skiljer sig från v2 förinställningar för Media Encoder Standard. Till exempel bithastigheten i v2 skulle anges som 128 (kbit/s), men i v3 det vore 128000 (bitar per sekund). 
 * Entiteter AssetFiles och AccessPolicies IngestManifests finns inte i v3.
+* Egenskapen IAsset.ParentAssets finns inte i v3.
 * ContentKeys är inte längre en entitet, är det nu en egenskap för StreamingLocator.
 * Event Grid stöd ersätter NotificationEndpoints.
 * Följande enheter har bytt namn

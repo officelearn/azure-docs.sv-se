@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: bc48101decce9a92a01b8e6958bed08850a94b7e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 8776a07f4fb1ffcc573bfedace38280576fa3184
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241403"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622982"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Om virtuella nätverksgatewayer för ExpressRoute
 En virtuell nätverksgateway används för att skicka nätverkstrafik mellan Azure-nätverk och lokala platser. Du kan använda en virtuell nätverksgateway kan användas för trafik för ExpressRoute eller VPN-trafik. Den här artikeln handlar om virtuella nätverksgatewayer för ExpressRoute.
@@ -43,19 +43,19 @@ I följande tabell visar gateway-typerna och uppskattade prestanda. Tabellen gä
 > 
 >
 
-### <a name="zrgw"></a>Zonredundant gateway SKU: er (förhandsversion)
+### <a name="zrgw"></a>Zonredundant gateway SKU: er
 
 Du kan också distribuera ExpressRoute-gatewayer i Tillgänglighetszoner i Azure. Detta fysisk och logiskt delar upp dem i olika Tillgänglighetszoner, skydda din lokala nätverksanslutning till Azure från zonen på servernivå fel.
 
 ![Zonredundant ExpressRoute-gateway](./media/expressroute-about-virtual-network-gateways/zone-redundant.png)
 
-Zonredundant gateways använda specifika nya gateway SKU: er för ExpressRoute-gateway. De nya SKU: er är tillgängliga i **Public Preview**.
+Zonredundant gateways använda specifika nya gateway SKU: er för ExpressRoute-gateway.
 
 * ErGw1AZ
 * ErGw2AZ
 * ErGw3AZ
 
-De nya gateway-SKU: er har också stöd för andra distributionsalternativ för att matcha dina behov bäst. När du skapar en virtuell nätverksgateway med hjälp av den nya gatewayen SKU: er kan möjlighet du också att distribuera en gateway i en viss zon. Detta kallas för en zonindelad gateway. När du distribuerar en zonindelad gateway distribueras alla instanser av en gateway i samma Tillgänglighetszon. Om du vill registrera i förhandsversionen, se [skapa en zonredundant virtuell nätverksgateway](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md).
+De nya gateway-SKU: er har också stöd för andra distributionsalternativ för att matcha dina behov bäst. När du skapar en virtuell nätverksgateway med hjälp av den nya gatewayen SKU: er kan möjlighet du också att distribuera en gateway i en viss zon. Detta kallas för en zonindelad gateway. När du distribuerar en zonindelad gateway distribueras alla instanser av en gateway i samma Tillgänglighetszon. 
 
 ## <a name="resources"></a>REST API: er och PowerShell-cmdlets
 Ytterligare tekniska resurser och specifik syntax krav när du använder REST API: er och PowerShell-cmdletar för gateway-konfigurationer för virtuella nätverk finns i följande sidor:
@@ -69,3 +69,5 @@ Ytterligare tekniska resurser och specifik syntax krav när du använder REST AP
 Se [översikt över ExpressRoute](expressroute-introduction.md) för mer information om tillgängliga anslutningskonfigurationer.
 
 Se [skapar en virtuell nätverksgateway för ExpressRoute](expressroute-howto-add-gateway-resource-manager.md) för mer information om hur du skapar ExpressRoute-gatewayer.
+
+Se [skapa en zonredundant virtuell nätverksgateway](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md) för mer information om hur du konfigurerar zonredundant gatewayer.

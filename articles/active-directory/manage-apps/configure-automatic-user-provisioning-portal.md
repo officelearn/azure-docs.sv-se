@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2017
+ms.date: 11/13/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 95d2f65e99b37b38f99ec5a750d74828661fe7ee
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 13ce1a7c9008a7893892e5d7e6b67a243c381c9f
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349151"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622014"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Hantera konto etablering för företagsappar i Azure portal
-Den här artikeln beskriver hur du använder den [Azure-portalen](https://portal.azure.com) att hantera etablering av automatisk användarkonto och avetablering för program som stöder det, särskilt de som har lagts till från kategorin ”aktuella” för [ Azure Active Directory-programgalleriet](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). Läs mer om automatisk användarkontoetablering och hur det fungerar i [automatisera Användaretablering och avetablering för SaaS-program med Azure Active Directory](user-provisioning.md).
+Den här artikeln beskriver hur du använder den [Azure-portalen](https://portal.azure.com) att hantera etablering av automatisk användarkonto och avetablering för program som stöder den. Läs mer om automatisk användarkontoetablering och hur det fungerar i [automatisera Användaretablering och avetablering för SaaS-program med Azure Active Directory](user-provisioning.md).
 
 ## <a name="finding-your-apps-in-the-portal"></a>Hitta dina appar i portalen
-Alla program som är konfigurerade för enkel inloggning i en katalog med en directory-administratör med hjälp av den [Azure Active Directory-programgalleriet](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery), kan visas och hanteras i den [Azure-portalen](https://portal.azure.com). Programmen finns i den **alla tjänster** &gt; **företagsprogram** i portalen. Enterprise-appar är appar som distribueras och används i din organisation.
+Alla program som har konfigurerats för enkel inloggning i en katalog kan visas och hanteras i den [Azure-portalen](https://portal.azure.com). Programmen finns i den **alla tjänster** &gt; **företagsprogram** i portalen. Enterprise-appar är appar som distribueras och används i din organisation.
 
 ![Fönstret för företagsprogram](./media/configure-automatic-user-provisioning-portal/enterprise-apps-pane.png)
 
@@ -77,7 +77,5 @@ Det här avsnittet innehåller ytterligare information om driften av etablerings
 
 Länkar till den **etablering aktivitetsrapporten** som ger en logg över alla användare och grupper som skapas, uppdateras och borttagna mellan Azure AD och målprogrammet och den **etablering felrapport** som ger mer detaljerade felmeddelanden för användare och grupper objekt som inte gick att läsa, skapas, uppdateras eller tas bort. 
 
-## <a name="feedback"></a>Feedback
 
-Håll din feedback kommer! Publicera din feedback och förslag för förbättring i den **Admin Portal** delen av vår [Feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Det tekniska teamet är taggade om att skapa coola nya grejer varje dag, och de använder dina vägledning för att forma och definiera vad som ska bygga härnäst.
 

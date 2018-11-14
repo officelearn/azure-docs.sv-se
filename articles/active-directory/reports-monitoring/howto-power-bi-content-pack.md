@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 12/06/2017
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c0326a6b611d5f3d5633db2d2b64b8cdc15e10a7
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: d810b8be496bbfd1c5bd88d8221e77dd5b76c889
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816692"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622981"
 ---
-# <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Så här använder du innehållspaketet för Azure Active Directory Power BI
+# <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Hur du använder Azure Active Directory Power BI-innehållspaket
 
 |  |
 |--|
-|Azure AD Power BI-Innehållspaketet använder för närvarande, Azure AD Graph-API: er för att hämta data från Azure AD-klienten. Därför kan det hända att vissa skillnader mellan data som är tillgängliga i Innehållspaketet och data som hämtats med hjälp av den [Microsoft Graph API: er för rapportering](concept-reporting-api.md). |
+|För närvarande använder Azure AD Power BI-innehållspaketet Azure AD Graph-API:er för att hämta data från din Azure AD-klientorganisation. Därför kan det hända att du ser vissa skillnader mellan data som är tillgängliga i innehållspaketet och de data som hämtas med hjälp av [Microsoft Graph-API:er för rapportering](concept-reporting-api.md). |
 |  |
 
-Som IT-administratör måste du förstå hur dina användare införa och använda Azure Active Directory-funktioner. På så sätt kan du planera IT-infrastruktur och kommunikation för att öka användningen och få ut det mesta av Azure AD-funktioner. Power BI-Innehållspaketet för Azure Active Directory ger dig möjlighet att ytterligare analysera dina data för att samla in mer omfattande insikter om vad som händer med din katalog. Med integrering av Azure Active Directory-API: er i Power BI kan du enkelt ladda ned det färdiga Innehållspaketet och få insyn i alla aktiviteter i Azure Active Directory med hjälp av den omfattande visualiseringsupplevelsen som Power BI erbjuder. Du kan skapa en egen instrumentpanel och enkelt dela den med andra i din organisation. 
+Power BI content pack för Azure Active Directory (Azure AD) innehåller fördefinierade rapporter som hjälper dig att förstå hur dina användare införa och använda Azure AD-funktioner. På så sätt kan du få insyn i alla aktiviteter i din katalog med hjälp av den omfattande visualiseringsupplevelsen i Power BI. Du kan också skapa en egen instrumentpanel och dela den med vem som helst i din organisation. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -38,36 +38,32 @@ Du behöver en Azure AD premium (P1/P2) licens att använda Innehållspaketet.
 
 Kolla in den [snabbstarten](quickstart-install-power-bi-content-pack.md) att installera Azure AD Power BI-Innehållspaketet.
 
-## <a name="what-can-i-do-with-this-content-pack"></a>Vad kan jag göra med det här innehållspaketet?
+### <a name="reports-included-in-this-version-of-azure-ad-logs-content-pack"></a>Rapporter som ingår i den här versionen av Azure AD-loggar Innehållspaketet
 
-Här är en snabb genomgång av olika rapporter i innehållspaketet innan vi går in på det du kan göra med innehållspaketet. Rapportdata finns för de **senaste 30 dagarna**.
+Följande rapporter ingår i Azure AD Power BI-Innehållspaketet. Rapporterna innehåller data från den **senaste 30 dagarna**.
 
-### <a name="reports-included-in-this-version-of-azure-active-directory-logs-content-pack"></a>Rapporter som ingår i den här versionen av innehållspaketet för Azure Active Directory-loggar
+**Användning och trender rapporten**: den här rapporten ger dig insikt i de program som används i din organisation. Du kan hämta en lista över de mest populära programmen eller förstå hur ett program som du nyligen distribuerade i din organisation används. På så sätt kan du spåra och förbättra användning över tid.
 
-**Appanvändning och trendrapporter**: Få insikter om de appar som används i din organisation, vilka som används mest och när de används. Du kan använda den här rapporten för att samla in insikter om hur en app som du nyligen distribuerade i organisationen används eller ta reda på vilka appar som är populära. På så sätt kan du förbättra användningen om du ser att en app inte används.
+**Inloggningar efter plats och användare**: den här rapporten innehåller data om alla inloggningar utförs med hjälp av Azure Identity. Med den här rapporten kan du öka detaljnivån till enskilda inloggningar och besvara frågor som:
 
-**Inloggningar efter plats och användare**: Ger information om alla inloggningar som utförs med hjälp av Azure Identity och information om användarnas identitet. Informationen hjälper dig att få djupare insikt i enskilda inloggningar och besvara frågor som:
-
-- Varifrån loggade den här användaren in?
+- Där den här användaren logga in från?
 - Vilken användare har flest inloggningar och varifrån loggade användaren in? 
 - Lyckades inloggningen?  
  
-Du kan se ytterligare information genom att klicka på ett visst datum eller en viss plats.
+Du kan också filtrera resultaten genom att välja ett visst datum eller plats.
 
-**Unika användare per app**: Få en överblick över alla unika användare som använder en viss app. Detta omfattar endast användare som har loggat in till ett program ”*utan problem*”.
+**Unika användare per app**: den här rapporten ger en överblick över alla unika användare som använder en viss app. Den innehåller endast användare som har ”*har*” loggat in på ett program.
 
-**Enhetsinloggningar**: Få en översikt över vilka operativsystem och webbläsare som användare använder i organisationen med detaljerad information om användarna som omfattar:
+**Enhetsinloggningar**: den här rapporten hjälper dig att förstå de olika enhetsprofiler som används inom organisationen och bestämma principer för enheter baserat på användning. Den tillhandahåller data om vilken typ av operativsystem och webbläsare som används för att logga in på program, tillsammans med detaljerad information om användarna som omfattar:
 
 - Användarnamn
 - IP-adress
 - Plats 
 - Inloggningsstatus 
 
-Med den här rapporten kan du förstå de olika enhetsprofiler som används inom organisationen och bestämma principer för enheter baserat på vad som används
+**SSPR-tratt**: den här rapporten hjälper dig att förstå hur SSPR-verktyget används inom organisationen. Du kan visa hur många lösenordsåterställningar som försökte utföras via SSPR-verktyget och hur många av dem lyckades. Du kan också gå på djupet återställer Lösenordsfel och förstå varför vissa fel uppstod. 
 
-**SSPR-tratt**: Få förståelse för hur lösenordsåterställning fungerar i din organisation. Ta en förhandstitt på hur många lösenordsåterställningar som försökte utföras via SSPR-verktyget och hur många av dem som genomfördes. Lär dig mer om fel vid lösenordsåterställning med SSPR-tratten och förstå varför vissa fel uppstod. Den här rapporten ger en bättre förståelse för hur SSPR-verktyget används inom organisationen så att du kan fatta rätt beslut.
-
-## <a name="customizing-azure-ad-activity-content-pack"></a>Anpassa innehållspaketet för Azure AD Activity
+## <a name="customize-azure-ad-activity-content-pack"></a>Anpassa Innehållspaketet för Azure AD-aktivitet
 
 **Ändra visualisering**: Du kan ändra ett visuellt objekt i en rapport genom att klicka på **Redigera rapport** och välja det önskade visuella objektet.
  
@@ -75,49 +71,41 @@ Med den här rapporten kan du förstå de olika enhetsprofiler som används inom
  
 ![Innehållspaketet för Azure Active Directory Power BI](./media/howto-power-bi-content-pack/10.png) 
 
-**Ta med ytterligare fält**: Du kan lägga till ett fält i rapporten eller ta bort det genom att välja det visuella objekt som du vill lägga till/ta bort från fältet. Jag lägger till fältet ”inloggningsstatus” i tabellvyn i exemplet nedan. 
+**Ta med ytterligare fält**: Du kan lägga till ett fält i rapporten eller ta bort det genom att välja det visuella objekt som du vill lägga till/ta bort från fältet. Du kan till exempel lägga till fältet ”inloggningsstatus” i tabellvyn enligt nedan. 
  
 ![Innehållspaketet för Azure Active Directory Power BI](./media/howto-power-bi-content-pack/11.png) 
 
-**Fäst visuella objekt på instrumentpanelen**: Du kan anpassa instrumentpanelen och ta med egna visuella objekt i rapporten och fästa på instrumentpanelen. I exemplet nedan lade jag till ett nytt filter som kallas ”Inloggningsstatus” och tog med det i rapporten. Jag ändrade även det visuella objektet från stapeldiagram till linjediagram och kan fästa det här nya visuella objektet på instrumentpanelen.
-
-![Innehållspaketet för Azure Active Directory Power BI](./media/howto-power-bi-content-pack/12.png) 
+**Fästa visualiseringar på instrumentpanelen**: du kan anpassa din instrumentpanel genom att inkludera egna visuella objekt i rapporten och fästa den på instrumentpanelen. 
 
 ![Innehållspaketet för Azure Active Directory Power BI](./media/howto-power-bi-content-pack/13.png) 
  
-
- 
-
-
-**Dela instrumentpanelen**: När du har skapat innehållet kan du dela instrumentpanelen med användare i organisationen. Kom ihåg att de kan se fälten som du markerat när du delar rapporten.
+**Dela instrumentpanelen**: du kan också dela instrumentpanelen med användare i din organisation. När du delar rapporten kan kan användarna se de fält du har valt i rapporten.
  
 ![Innehållspaketet för Azure Active Directory Power BI](./media/howto-power-bi-content-pack/14.png) 
 
+## <a name="schedule-a-daily-refresh-of-your-power-bi-report"></a>Schemalägga en daglig uppdatering av Power BI-rapport
 
-
-## <a name="scheduling-a-daily-refresh-of-your-power-bi-report"></a>Schemalägga en daglig uppdatering av Power BI-rapporter
-
-Om du vill schemalägga en daglig uppdatering av en Power BI-rapport går du till **Datauppsättningar > Inställningar > Schemalägg uppdatering** och konfigurerar det enligt nedan.
+Om du vill schemalägga en daglig uppdatering av Power BI-rapport, gå till **datauppsättningar** > **inställningar** > **Schemalägg uppdatering** och konfigurerar det enligt nedan.
  
 ![Innehållspaketet för Azure Active Directory Power BI](./media/howto-power-bi-content-pack/15.png) 
 
-## <a name="updating-to-newer-version-of-content-pack"></a>Uppdatera till en nyare version av innehållspaketet
+## <a name="update-to-newer-version-of-content-pack"></a>Uppdatera till nyare version av Innehållspaketet
 
-Om du vill uppdatera ditt innehållspaket för att få en nyare version:
+Om du vill uppdatera ditt innehållspaket till en nyare version:
 
-- Ladda ned det nya innehållspaketet och konfigurera enligt anvisningarna i den här artikeln.
+- Ladda ned det nya Innehållspaketet och konfigurera den med hjälp av anvisningarna i den här artikeln.
 
-- När du har konfigurerat det går du till **Datakälla > Inställningar > Autentiseringsuppgifter för datakälla** och anger dina autentiseringsuppgifter på nytt enligt anvisningarna nedan
+- När du har ställt in går du till **datakälla** > **inställningar** > **datakällans autentiseringsuppgifter** och ange dina autentiseringsuppgifter igen.
 
     ![Innehållspaketet för Azure Active Directory Power BI](./media/howto-power-bi-content-pack/16.png) 
 
-När den nya versionen av innehållspaketet fungerar kan du ta bort den gamla versionen vid behov genom att ta bort de underliggande rapporterna och de datauppsättningar som är associerade med innehållspaketet.
+När du har kontrollerat att den nya versionen av Innehållspaketet fungerar som förväntat kan du ta bort den gamla versionen vid behov genom att ta bort den underliggande rapporter och datauppsättningar som är associerade med Innehållspaketet.
 
 ## <a name="still-having-issues"></a>Har du fortfarande problem? 
 
 Läs vår [felsökningsguide](troubleshoot-content-pack.md). Läs de här [hjälpartiklarna](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) för allmän hjälp med Power BI.
  
-
+ 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Installera Power BI-Innehållspaketet](quickstart-install-power-bi-content-pack.md).

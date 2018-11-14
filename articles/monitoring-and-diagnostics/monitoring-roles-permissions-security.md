@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 6a197cf5667e1668b2007a5f552b813cb8ed68d3
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: caa1b4b3bf1f9b8fb1a34bd58dde04f13fbc6c88
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957836"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614574"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Kom igång med roller, behörigheter och säkerhet med Azure Monitor
 Många team behöver strikt reglera åtkomst till övervakningsdata och inställningar. Till exempel om du har som fungerar endast om hur du övervakar (support-tekniker, devops-tekniker) eller om du använder en leverantör av hanterade tjänster kan du behöva ge dem åtkomst till endast övervakningsdata samtidigt begränsa deras möjlighet att skapa, ändra, eller ta bort resurser. Den här artikeln visar hur du snabbt gäller en inbyggd övervakning RBAC-roll för en användare i Azure eller skapa en egen anpassad roll för en användare behöver begränsade behörigheter för övervakning. Det diskuterar sedan säkerhetsaspekter för dina Azure Monitor-relaterade resurser och hur du kan begränsa åtkomsten till den data de innehåller.
@@ -25,7 +25,7 @@ Azure Monitor inbyggda roller är avsedda att begränsa åtkomsten till resurser
 Personer som har tilldelats rollen övervakning läsare kan visa alla övervakningsdata i en prenumeration men det går inte att ändra alla resurser eller redigera alla inställningar som rör övervakning av resurser. Den här rollen är lämplig för användare i en organisation, till exempel support eller åtgärder tekniker som behöver för att kunna:
 
 * Visa övervakning instrumentpaneler i portalen och skapa sina egna privata instrumentpaneler för övervakning.
-* Visa Varningsregler som definierats i [Azure-aviseringar](monitoring-overview-unified-alerts.md)
+* Visa Varningsregler som definierats i [Azure-aviseringar](monitoring-overview-alerts.md)
 * Fråga om mått med hjälp av den [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell-cmdletar](insights-powershell-samples.md), eller [plattformsoberoende CLI](insights-cli-samples.md).
 * Fråga med hjälp av portalen, Azure Monitor REST API, PowerShell-cmdletar eller plattformsoberoende CLI aktivitetsloggen.
 * Visa den [diagnostikinställningar](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) för en resurs.
@@ -51,7 +51,7 @@ Personer som har tilldelats rollen övervakning deltagare kan visa alla övervak
 * Publicera övervakning instrumentpaneler som en delad instrumentpanel.
 * Ange [diagnostikinställningar](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) för en resource.*
 * Ange den [loggprofilen](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) för en subscription.*
-* Ställ in Varningsregler aktivitet och inställningar via [Azure Alerts](monitoring-overview-unified-alerts.md).
+* Ställ in Varningsregler aktivitet och inställningar via [Azure Alerts](monitoring-overview-alerts.md).
 * Skapa webbtester med Application Insights och komponenter.
 * Lista Log Analytics-arbetsyta delade nycklar.
 * Aktivera eller inaktivera informationspaket för Log Analytics.

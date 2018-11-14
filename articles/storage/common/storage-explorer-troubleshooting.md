@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: 4f0558f9619aa06557cf89e885154f6326d4b150
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: ec12da6ccd5b681c85da87d53f944fc4430149b5
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281786"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616205"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Felsökningsguide för Azure Storage Explorer
 
@@ -81,7 +81,7 @@ MacOS nyckelring kan ibland hamna i ett tillstånd som orsakar problem med Stora
 * Starta om Lagringsutforskaren
 * Om fönstret autentisering är tom, vänta minst en minut innan du stänger dialogrutan för autentisering.
 * Se till att proxy- och certifikat som är rätt konfigurerade, inställningar för både din dator och Storage Explorer.
-* Om du är på Windows och har tillgång till Visual Studio 2017 på samma dator och logga in, försök att logga in till Visual Studio 2017. Efter en lyckad inloggning till Visual Studio 2017, bör du kunna öppna Storage Explorer och se ditt konto på panelen konto. 
+* Om du är på Windows och har tillgång till Visual Studio 2017 på samma dator och logga in, försök att logga in till Visual Studio 2017. Efter en lyckad inloggning till Visual Studio 2017, bör du kunna öppna Storage Explorer och se ditt konto på panelen konto.
 
 Om ingen av dessa metoder fungerar [öppna ett ärende på GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
@@ -115,6 +115,8 @@ Kontrollera först att du har angett följande stämmer:
 
 * Proxy-URL och portnummer
 * Användarnamn och lösenord om det behövs av proxyn
+
+Observera att Lagringsutforskaren inte stöder PAC-fil för att konfigurera proxy-inställningar.
 
 ### <a name="common-solutions"></a>Vanliga lösningar
 

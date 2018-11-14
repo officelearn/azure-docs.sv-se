@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/09/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3b350deff2883761af6a3a2b3c5c9ef22235bde0
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: cb5b421c1bcfe888d65335f3ab7f67bed80eec34
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42058773"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614267"
 ---
 # <a name="store-state-in-an-azure-service-fabric-mesh-application-by-mounting-an-azure-files-based-volume-inside-the-container"></a>Store-tillstånd i ett Azure Service Fabric nät program genom att montera en Azure-filer baserat volym inuti behållaren
 
@@ -62,10 +62,10 @@ Skapa program och relaterade resurser med följande kommando och ange värden f�
 
 Den `storageAccountKey` parametern i mallen är en säker sträng. Den visas inte i distributionens status och `az mesh service show` kommandon. Se till att den har angetts korrekt i följande kommando.
 
-Följande kommando distribuerar en Linux-program med den [mesh_rp.linux.json mallen](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json). För att distribuera ett Windows-program kan använda den [mesh_rp.windows.json mallen](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.windows.json). Tänk på att större behållaravbildningar kan ta längre tid att distribuera.
+Följande kommando distribuerar en Linux-program med den [counter.azurefilesvolume.linux.json mallen](https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.linux.json). För att distribuera ett Windows-program kan använda den [counter.azurefilesvolume.windows.json mallen](https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.windows.json). Tänk på att större behållaravbildningar kan ta längre tid att distribuera.
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json  --parameters "{\"location\": {\"value\": \"eastus\"}, \"fileShareName\": {\"value\": \"<fileShareName>\"}, \"storageAccountName\": {\"value\": \"<storageAccountName>\"}, \"storageAccountKey\": {\"value\": \"<storageAccountKey>\"}}"
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.linux.json  --parameters "{\"location\": {\"value\": \"eastus\"}, \"fileShareName\": {\"value\": \"<fileShareName>\"}, \"storageAccountName\": {\"value\": \"<storageAccountName>\"}, \"storageAccountKey\": {\"value\": \"<storageAccountKey>\"}}"
 ```
 
 Om några minuter bör kommandot returnerar med `counterApp has been deployed successfully on counterAppNetwork with public ip address <IP Address>`
@@ -97,5 +97,5 @@ az group delete --resource-group myResourceGroup
 ## <a name="next-steps"></a>Nästa steg
 
 - Visa Azure Files volym exempelprogrammet på [GitHub](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/counter).
-- Läs mer om Service Fabric-Resursmodell i [nät Resursmodell i Service Fabric](service-fabric-mesh-service-fabric-resources.md).
-- Om du vill veta mer om Service Fabric-nät kan läsa den [Service Fabric-nät översikt](service-fabric-mesh-overview.md).
+- Mer information om Service Fabric-resursmodellen finns i avsnittet om [Service Fabric Mesh-resursmodellen](service-fabric-mesh-service-fabric-resources.md).
+- Mer information om Service Fabric Mesh finns i [översikten över Service Fabric Mesh](service-fabric-mesh-overview.md).

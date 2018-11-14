@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: rimman
-ms.openlocfilehash: eabfe503d9b92252ada0014eba4c83390dd6fd97
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 709cd16c7eee30dd2d88ea87b5f704ad20530ffb
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236083"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621351"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Enheter för programbegäran i Azure Cosmos DB
 
@@ -53,7 +53,7 @@ När du uppskatta antalet RU/s att etablera, är det viktigt att tänka på föl
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om [etablering dataflöde för Cosmos DB-behållare och databaser](set-throughput.md)
-* Läs mer om [logiska partitioner](partition-data.md)
-* Läs mer om [skalning dataflöde](scaling-throughput.md)
+* Läs mer om [Llogical partitioner](partition-data.md)
+* Läs mer om [globalt skala dataflöde](scaling-throughput.md)
 * Lär dig [hur du etablera dataflöde för en Cosmos-behållare](how-to-provision-container-throughput.md)
 * Lär dig [hur du etablera dataflöde för en Cosmos-databas](how-to-provision-database-throughput.md)

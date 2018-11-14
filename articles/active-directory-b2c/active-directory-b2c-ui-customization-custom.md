@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f36d08a397836f17ec25a61e77cb1db5ce10b9d4
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: d4b4d99ac943749faaca8cd699b1455795b9c399
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945068"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625802"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Anpassa användargränssnittet i ditt program med en anpassad princip i Azure Active Directory B2C
 
@@ -99,17 +99,13 @@ Om du vill skapa en offentlig behållare i Blob storage, gör du följande:
 
 Konfigurera Blob-lagring för Cross-Origin Resource Sharing genom att göra följande:
 
->[!NOTE]
->Vill du prova att använda funktionen för anpassning av Användargränssnittet med hjälp av våra exempel HTML och CSS innehåll? Vi tillhandahåller [en enkel hjälpverktyg](active-directory-b2c-reference-ui-customization-helper-tool.md) som överför och konfigurerar vår exemplen på Blob storage-kontot. Om du använder verktyget kan gå vidare till [ändra din anpassade princip för registrering eller inloggning](#modify-your-sign-up-or-sign-in-custom-policy).
-
-1. På den **Storage** bladet under **inställningar**öppnar **CORS**.
-2. Klicka på **Lägg till**.
-3. För **tillåtna ursprung**, skriva en asterisk (\*).
-4. I den **tillåtna verb** listrutan, Välj **hämta** och **alternativ**.
-5. För **tillåtna huvuden**, skriva en asterisk (\*).
-6. För **exponerade rubriker**, skriva en asterisk (\*).
-7. För **högsta ålder (sekunder)**, typ **200**.
-8. Klicka på **Lägg till**.
+1. I menyn, Välj **CORS**.
+2. För **tillåtna ursprung**, ange `your-tenant-name.b2clogin.com`. Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient. Till exempel `fabrikam.b2clogin.com`.
+3. För **tillåtna metoder**, markerar du båda `GET` och `OPTIONS`.
+4. För **tillåtna huvuden**, anger du en asterisk (*).
+5. För **exponerade rubriker**, anger du en asterisk (*).
+6. För **maximal ålder**, ange 200.
+7. Klicka på **Spara**.
 
 ## <a name="test-cors"></a>Testa CORS
 

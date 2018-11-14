@@ -10,18 +10,18 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/19/2018
 ms.author: laviswa
-ms.openlocfilehash: 762997492d18e9b14525dc6a196f98815f27fbbb
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 4492324b174c97325f40110b7500d5b0e99a926b
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979513"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623952"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Referens för Azure Cosmos DB SQL-syntax
 
-Azure Cosmos DB stöder Frågedokument med hjälp av en välbekant SQL (Structured Query Language) som grammatik över hierarkisk JSON-dokument utan uttryckliga scheman eller att sekundära index. Den här artikeln innehåller dokumentation referens och syntax för SQL query-språk som är kompatibel med SQL API-konton. En genomgång av SQL-frågor med exempeldata finns i [fråga Azure Cosmos DB data](sql-api-sql-query.md).  
+Azure Cosmos DB stöder Frågedokument med hjälp av en välbekant SQL (Structured Query Language) som grammatik över hierarkisk JSON-dokument utan uttryckliga scheman eller att sekundära index. Den här artikeln innehåller dokumentation för SQL-fråga språksyntax, som är kompatibla med SQL API-konton. En genomgång av exempel på SQL-frågor finns i [SQL-frågor i Cosmos DB](sql-api-sql-query.md).  
   
-Gå till den [Frågespelplan](http://www.documentdb.com/sql/demo) där du kan prova Azure Cosmos DB och köra SQL-frågor mot vår datauppsättning.  
+Gå till den [Frågespelplan](http://www.documentdb.com/sql/demo) där du kan testa Cosmos DB och köra SQL-frågor mot vår datauppsättning.  
   
 ## <a name="select-query"></a>SELECT-fråga  
 Varje fråga består av en SELECT-satsen och valfria FROM och WHERE-satserna per ANSI SQL-standarder. Vanligtvis för varje fråga räknas källan i FROM-satsen. Sedan tillämpas filtret i WHERE-satsen på källan för att hämta en delmängd av JSON-dokument. Slutligen används SELECT-satsen för att beräkna de begärda JSON-värden i select-listan. Konventioner som används för att beskriva SELECT-uttryck i tabellen i avsnittet Syntax konventioner. Exempel finns i [urvalsfråga exempel](sql-api-sql-query.md#SelectClause)
@@ -60,7 +60,7 @@ Observera att detta skiljer sig från den ordning som de visas i syntax. Sorteri
 
 ### <a name="whitespace-characters-and-comments"></a>Tecken som blanksteg och kommentarer  
 
-Alla tomma utrymmen tecken som inte är en del av en sträng inom citattecken eller citattecken identifierare ingår inte i grammatik språk och ignoreras under parsning.  
+Alla tecken som blanksteg som inte är en del av en sträng inom citattecken eller citattecken identifierare ingår inte i grammatik språk och ignoreras under parsning.  
 
 T-SQL style kommentarer som har stöd för frågespråket  
 
@@ -69,7 +69,7 @@ T-SQL style kommentarer som har stöd för frågespråket
 Medan tecken som blanksteg och kommentarer som du inte har någon betydelse i grammatik, måste de användas för att avgränsa token. Exempel: `-1e5` är ett enda tal token, tag`: – 1 e5` är en minus token följt av nummer 1 och identifierare e5.  
 
 ##  <a name="bk_select_query"></a> SELECT-satsen  
-Satser i SELECT-instruktionen måste sorteras enligt ovan. En av de valfria satserna kan utelämnas. Men när valfria satser används, måste de visas i rätt ordning. Exempel finns i [urvalsfråga exempel](sql-api-sql-query.md#SelectClause)
+Satser i SELECT-instruktionen måste sorteras enligt ovan. En av de valfria satserna kan utelämnas. Men när valfria satser används, måste de visas i rätt ordning. Exempel finns i [urvalsfråga exempel](sql-api-sql-query.md#SelectClause).
 
 **Syntax**  
 
@@ -112,7 +112,7 @@ SELECT <select_specification>
   
 Den `SELECT *` syntax är bara giltigt om FROM-satsen har deklarerats exakt ett alias. `SELECT *` innehåller en identity-projektion, som kan vara användbart om inga projektion krävs. Välj * är bara giltigt om FROM-satsen har angetts och införs bara en enda Indatakällan.  
   
-Observera att `SELECT <select_list>` och `SELECT *` är ”syntaktiska socker” och du kan också kan uttryckas med hjälp av enkla SELECT-instruktioner som visas nedan.  
+Båda `SELECT <select_list>` och `SELECT *` är ”syntaktiska socker” och du kan också kan uttryckas med hjälp av enkla SELECT-instruktioner som visas nedan.  
   
 1. `SELECT * FROM ... AS from_alias ...`  
   
@@ -132,7 +132,7 @@ Observera att `SELECT <select_list>` och `SELECT *` är ”syntaktiska socker”
 [SELECT-satsen](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a> FROM-satsen  
-Anger källan eller anslutna källor. FROM-satsen är valfri såvida inte källan filtreras eller projected senare i frågan. Syftet med den här satsen är att ange den datakälla som frågan måste fungera. På hela samlingen är ofta källan, men en kan ange en delmängd av samlingen i stället. Om den här satsen inte anges körs andra satser fortfarande som om FROM-satsen tillhandahålls ett enskilt dokument. Exempel finns i [från satsen exempel](sql-api-sql-query.md#FromClause)
+Anger källan eller anslutna källor. FROM-satsen är valfri såvida inte källan filtreras eller projected senare i frågan. Syftet med den här satsen är att ange den datakälla som frågan måste fungera. Hela behållaren är ofta källan, men en kan ange en delmängd av behållaren i stället. Om den här satsen inte anges körs andra satser fortfarande som om FROM-satsen tillhandahålls ett enskilt dokument. Exempel finns i [från satsen exempel](sql-api-sql-query.md#FromClause)
   
 **Syntax**  
   
@@ -143,98 +143,98 @@ FROM <from_specification>
         <from_source> {[ JOIN <from_source>][,...n]}  
   
 <from_source> ::=   
-          <collection_expression> [[AS] input_alias]  
-        | input_alias IN <collection_expression>  
+          <container_expression> [[AS] input_alias]  
+        | input_alias IN <container_expression>  
   
-<collection_expression> ::=   
+<container_expression> ::=   
         ROOT   
-     | collection_name  
+     | container_name  
      | input_alias  
-     | <collection_expression> '.' property_name  
-     | <collection_expression> '[' "property_name" | array_index ']'  
+     | <container_expression> '.' property_name  
+     | <container_expression> '[' "property_name" | array_index ']'  
 ```  
   
 **Argument**  
   
 - `<from_source>`  
   
-  Anger en datakälla, med eller utan ett alias. Om alias inte har angetts, kommer den härledas från den `<collection_expression>` med hjälp av följande regler:  
+  Anger en datakälla, med eller utan ett alias. Om alias inte har angetts, kommer den härledas från den `<container_expression>` med hjälp av följande regler:  
   
-  -  Om uttrycket är ett samlingsnamn, kommer samlingsnamn att användas som ett alias.  
+  -  Om uttrycket är en container_name, kommer container_name att användas som ett alias.  
   
-  -  Om uttrycket är `<collection_expression>`, %{Property_Name/ och %{Property_Name/ används som ett alias. Om uttrycket är ett samlingsnamn, kommer samlingsnamn att användas som ett alias.  
+  -  Om uttrycket är `<container_expression>`, %{Property_Name/ och %{Property_Name/ används som ett alias. Om uttrycket är en container_name, kommer container_name att användas som ett alias.  
   
 - PRECIS SOM `input_alias`  
   
-  Anger att den `input_alias` är en uppsättning värden som returneras av det underliggande samling uttrycket.  
+  Anger att den `input_alias` är en uppsättning värden som returneras av det underliggande container-uttrycket.  
  
 - `input_alias` INDIEN  
   
-  Anger att den `input_alias` bör representerar uppsättningen med värden som hämtas av iterera över alla matriselement av varje matrisen som returneras av det underliggande samling-uttrycket. Ett värde som returneras av underliggande samling-uttryck som inte är en matris ignoreras.  
+  Anger att den `input_alias` bör representerar uppsättningen med värden som hämtas av iterera över alla matriselement av varje matrisen som returneras av det underliggande container-uttrycket. Ett värde som returneras av underliggande container-uttryck som inte är en matris ignoreras.  
   
-- `<collection_expression>`  
+- `<container_expression>`  
   
-  Anger samlingen uttrycket som används för att hämta dokument.  
+  Anger container-uttrycket som används för att hämta dokument.  
   
 - `ROOT`  
   
-  Anger det dokumentet ska hämtas från standardvärdet, anslutna samling.  
+  Anger det dokumentet ska hämtas från standardbehållaren, just nu anslutna.  
   
-- `collection_name`  
+- `container_name`  
   
-  Anger det dokumentet ska hämtas från den angivna samlingen. Samlingens namn måste matcha namnet på den samling som är anslutna till.  
+  Anger det dokumentet ska hämtas från den angivna behållaren. Namnet på behållaren måste matcha namnet på den behållare som är anslutna till.  
   
 - `input_alias`  
   
   Anger det dokumentet ska hämtas från den källa som definieras av det angivna aliaset.  
   
-- `<collection_expression> '.' property_`  
+- `<container_expression> '.' property_`  
   
-  Anger det dokumentet ska hämtas genom att öppna den `property_name` egenskap eller array_index matriselement för alla dokument som hämtas av angivna samling uttryck.  
+  Anger det dokumentet ska hämtas genom att öppna den `property_name` egenskap eller array_index matriselement för alla dokument som hämtas av angivna behållaren uttryck.  
   
-- `<collection_expression> '[' "property_name" | array_index ']'`  
+- `<container_expression> '[' "property_name" | array_index ']'`  
   
-  Anger det dokumentet ska hämtas genom att öppna den `property_name` egenskap eller array_index matriselement för alla dokument som hämtas av angivna samling uttryck.  
+  Anger det dokumentet ska hämtas genom att öppna den `property_name` egenskap eller array_index matriselement för alla dokument som hämtas av angivna behållaren uttryck.  
   
 **Kommentarer**  
   
-Alla alias har angetts eller härledd i den `<from_source>(`s) måste vara unikt. Syntaxen `<collection_expression>.`%{Property_Name/ är samma som `<collection_expression>' ['"property_name"']'`. Denna syntax kan dock användas om ett egenskapsnamn innehåller en icke-ID-tecken.  
+Alla alias har angetts eller härledd i den `<from_source>(`s) måste vara unikt. Syntaxen `<container_expression>.`%{Property_Name/ är samma som `<container_expression>' ['"property_name"']'`. Denna syntax kan dock användas om ett egenskapsnamn innehåller ett icke-ID-tecken.  
   
 ### <a name="handling-missing-properties-missing-array-elements-and-undefined-values"></a>hantera saknade egenskaper, matriselement och odefinierad värden som saknas
   
-Om ett uttryck som samlingen har åtkomst till egenskaper eller matriselement och att värdet inte finns, ignoreras värdet och inte fortsätta bearbetningen.  
+Om ett uttryck för behållaren har åtkomst till egenskaper eller matriselement och att värdet inte finns, ignoreras värdet och inte fortsätta bearbetningen.  
   
-### <a name="collection-expression-context-scoping"></a>Samling uttryck kontext omfång  
+### <a name="container-expression-context-scoping"></a>Behållaren uttryck kontext omfång  
   
-En samling uttryck kan vara omfattar av samlingen eller dokumentet omfattar:  
+Ett uttryck för behållare kan vara behållare omfattar eller dokumentet omfattar:  
   
--   Ett uttryck är samling-omfattande, om den underliggande källan för samlingen uttryck är antingen ROTEN eller `collection_name`. Sådana ett uttryck representerar en uppsättning dokument som hämtas från samlingen direkt och är inte beroende av bearbetning av andra uttryck för samlingen.  
+-   Ett uttryck är container-omfattande, om den underliggande källan för container-uttryck är antingen ROTEN eller `container_name`. Sådana ett uttryck representerar en uppsättning dokument som hämtas från behållaren direkt och är inte beroende av bearbetning av andra behållare-uttryck.  
   
--   Ett uttryck är dokumentet-omfattande, om den underliggande källan för samlingen uttryck är `input_alias` introducerade tidigare i frågan. Sådana ett uttryck representerar en uppsättning dokument som hämtas av utvärderingen av samling uttryck i omfånget för varje dokument som hör till den uppsättning som är associerade med samlingen ett alias.  Den resulterande uppsättningen blir en union av uppsättningar som erhålls av utvärderingen av samling-uttryck för varje dokument i den underliggande uppsättningen.  
+-   Ett uttryck är dokumentet-omfattande, om den underliggande källan för container-uttryck är `input_alias` introducerade tidigare i frågan. Sådana ett uttryck representerar en uppsättning dokument som hämtas av utvärderingen av behållaren uttryck i omfånget för varje dokument som hör till den uppsättning som är associerade med ett alias-behållaren.  Den resulterande uppsättningen blir en union av uppsättningar som erhålls av utvärderingen av container-uttryck för varje dokument i den underliggande uppsättningen.  
   
 ### <a name="joins"></a>Kopplingar 
   
-I den aktuella versionen stöder Azure Cosmos DB inre kopplingar. Ytterligare join-funktioner är kommande. 
+I den aktuella versionen stöder Cosmos DB inre kopplingar. Ytterligare join-funktioner är kommande. 
 
 Inre kopplingar resultera i en fullständig kryssprodukten av de mängder som deltar i kopplingen. Resultatet av en N-vägs-koppling är en uppsättning element N tupplar, där varje värde i tuppeln är associerad med alias som deltar i kopplingen och kan nås genom att referera till som alias i andra-satser. Exempel finns i [nyckelordet exempel](sql-api-sql-query.md#Joins)
   
 Utvärderingen av kopplingen beror på kontexten omfånget för deltagande uppsättningar:  
   
--  En koppling mellan samlingsuppsättningen A och samling-omfattande ange B, resulterar i en kryssprodukten av alla element i sets A och B.
+-  En koppling mellan behållare-uppsättning A och container-omfattande ange B, resulterar i en kryssprodukten av alla element i sets A och B.
   
 -   En koppling mellan uppsättning A och dokument-omfattande uppsättning B, resulterar i en union av alla uppsättningar som erhålls genom att utvärdera dokument-omfattande uppsättning B för varje dokument från ange A.  
   
- Högst en samling-omfattande uttryck stöds i den aktuella versionen av frågeprocessorn.  
+ Högst ett container-omfattande uttryck stöds i den aktuella versionen av frågeprocessorn.  
   
 ### <a name="examples-of-joins"></a>Exempel på kopplingar  
   
 Låt oss titta på följande FROM-satsen: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
- Låt varje källa som definierar `input_alias1, input_alias2, …, input_aliasN`. Den här FROM-satsen returnerar en mängd av N-tupplar (tuppel med N värden). Varje tuppel har värden som produceras av iterera alla alias för samlingen över sina respektive uppsättningar.  
+ Låt varje källa som definierar `input_alias1, input_alias2, …, input_aliasN`. Den här FROM-satsen returnerar en mängd av N-tupplar (tuppel med N värden). Varje tuppel har värden som produceras av iterera alla behållare alias över sina respektive uppsättningar.  
   
 **Exempel 1** -2 källor  
   
-- Låt `<from_source1>` samling-begränsas och som representerar uppsättningen {A, B, C}.  
+- Låt `<from_source1>` container-begränsas och som representerar uppsättningen {A, B, C}.  
   
 - Låt `<from_source2>` vara dokument-omfattande refererar till input_alias1 och representerar uppsättningar:  
   
@@ -252,7 +252,7 @@ Låt oss titta på följande FROM-satsen: `<from_source1> JOIN <from_source2> JO
   
 **Exempel 2** -3 källor  
   
-- Låt `<from_source1>` samling-begränsas och som representerar uppsättningen {A, B, C}.  
+- Låt `<from_source1>` container-begränsas och som representerar uppsättningen {A, B, C}.  
   
 - Låt `<from_source2>` vara begränsade av dokumentet refererar till `input_alias1` och representerar uppsättningar:  
   
@@ -279,9 +279,9 @@ Låt oss titta på följande FROM-satsen: `<from_source1> JOIN <from_source2> JO
   
 **Exempel 3** -3 källor  
   
-- Låt < from_source1 > vara begränsad till samlingen och som representerar uppsättningen {A, B, C}.  
+- Låt < from_source1 > vara container-omfattande och som representerar uppsättningen {A, B, C}.  
   
-- Låt `<from_source1>` samling-begränsas och som representerar uppsättningen {A, B, C}.  
+- Låt `<from_source1>` container-begränsas och som representerar uppsättningen {A, B, C}.  
   
 - Låt < from_source2 > vara dokument-omfattande refererande input_alias1 och representerar uppsättningar:  
   
@@ -333,7 +333,7 @@ WHERE <filter_condition>
   
  **Kommentarer**  
   
- Villkoret måste utvärderas till SANT för dokumentet som ska returneras ett uttryck har angetts som filter. Endast booleska värdet true kommer uppfyller villkoren, ett annat värde: Odefinierad, null, false, tal, matris eller ett objekt kommer inte uppfyller villkoret.  
+ Villkoret måste utvärderas till SANT för dokumentet som ska returneras ett uttryck har angetts som filter. Endast booleska värdet true kommer uppfyller villkoren, ett annat värde: Odefinierad, null, false, tal, matris, eller ett objekt kommer inte uppfyller villkoret.  
   
 ##  <a name="bk_orderby_clause"></a> ORDER BY-sats  
  Anger sorteringsordning för resultaten som returnerades av frågan. Exempel finns i [ORDER BY-sats-exempel](sql-api-sql-query.md#OrderByClause)
@@ -371,12 +371,12 @@ ORDER BY <sort_specification>
   
  **Kommentarer**  
   
- Medan frågegrammatik har stöd för flera ordning av egenskaperna, stöder Azure Cosmos DB-fråga runtime sortering endast mot en enskild egenskap och endast mot egenskapsnamn, t.ex, inte mot beräknade egenskaper. Sortera kräver också att indexprincip innehåller ett intervallsindex för egenskapen och den angivna typen, med den maximala precisionen. I indexering princip-dokumentationen för mer information.  
+ Medan frågegrammatik har stöd för flera ordning av egenskaper, Cosmos DB-fråga runtime stöder sortering endast mot en enskild egenskap och endast mot egenskapsnamn (inte mot beräknade egenskaper). Sortera kräver också att indexprincip innehåller ett intervallsindex för egenskapen och den angivna typen, med den maximala precisionen. I indexering princip-dokumentationen för mer information.  
   
 ##  <a name="bk_scalar_expressions"></a> Skaläruttryck  
  Ett skalärt uttryck som är en kombination av symboler och operatörer som kan utvärderas för att få ett enskilt värde. Enkla uttryck kan vara konstanter, egenskapen referenser, matris referenser, alias referenser eller funktionsanrop. Enkla uttryck kan kombineras till komplexa uttryck med hjälp av operatörer. Exempel finns i [skaläruttryck exempel](sql-api-sql-query.md#scalar-expressions)
   
- Mer information om vilka skalärt uttryck som kan ha värden finns [konstanter](#bk_constants) avsnittet.  
+ Mer information om värden som skalärt uttryck som kan ha finns [konstanter](#bk_constants) avsnittet.  
   
  **Syntax**  
   
@@ -424,7 +424,7 @@ ORDER BY <sort_specification>
   
 -   `<scalar_expression>'['"property_name"|array_index']'`  
   
-     Representerar ett värde för egenskapen med namnet `property_name` eller matriselementet med index `array_index` av en objektmatris. Om egenskapen/matrisindex finns inte eller egenskapen/matrisindex refereras på ett värde som inte är en objektmatris, utvärderar uttrycket till odefinierat värde.  
+     Representerar ett värde för egenskapen med namnet `property_name` eller matriselementet med index `array_index` av en objektmatris. Om egenskapen/matrisindex finns inte eller egenskapen/matrisindex refereras på ett värde som är inte en objektmatris sedan uttrycket utvärderas till ett odefinierat värde.  
   
 -   `unary_operator <scalar_expression>`  
   
@@ -440,7 +440,7 @@ ORDER BY <sort_specification>
   
 -   `udf_scalar_function`  
   
-     Namnet på användaren definierats skalärfunktionen.  
+     Namnet på den användardefinierade skalära funktionen.  
   
 -   `builtin_scalar_function`  
   
@@ -460,7 +460,7 @@ ORDER BY <sort_specification>
   
  **Kommentarer**  
   
- När du anropar en inbyggd eller en användare definieras skalärfunktionen måste alla argument definieras. Om något av argumenten är odefinierad kommer inte att anropa funktionen och resultatet blir odefinierad.  
+ När du anropar en inbyggda eller användardefinierade skalärfunktion måste alla argument definieras. Om något av argumenten är odefinierad kommer inte att anropa funktionen och resultatet blir odefinierad.  
   
  När du skapar ett objekt ska hoppas över egenskaper som är tilldelad odefinierat värde och inte ingår i det skapade objektet.  
   
@@ -517,9 +517,9 @@ ORDER BY <sort_specification>
   
  **Kommentarer**  
   
- I Azure Cosmos DB kallas ofta inte typerna av värden förrän de är faktiskt hämtats från databasen. De flesta av operatorer har strikta krav för att stödja effektiv körning av frågor. Operatörer av själva utför även inte implicita konverteringar.  
+ I Cosmos DB kallas ofta inte typerna av värden förrän de har hämtats från databasen. De flesta av operatorer har strikta krav för att stödja effektiv körning av frågor. Operatörer av själva utför även inte implicita konverteringar.  
   
- Det innebär att en fråga som: Välj * från ROOT r var r.Age = 21 returnerar endast dokument med egenskapen ålder lika med antalet 21. Dokument med egenskapen ålder som är lika med strängen ”21” eller ”0021” strängen matchar inte, som uttrycket ”21” = 21 utvärderar till odefinierad. Det möjliggör en optimal användning av index, eftersom sökning efter ett specifikt värde (d.v.s. nummer 21) är snabbare än att söka efter ett obestämt antal möjliga matchningar (dvs. antalet 21 eller strängar ”21”, ”021”, ”21.0”...). Detta skiljer sig från hur JavaScript utvärderar operatörer på värden av olika typer.  
+ Det innebär att en fråga som: Välj * från ROOT r var r.Age = 21 returnerar endast dokument med egenskapen ålder lika med antalet 21. Dokument med egenskapen ålder som är lika med strängen ”21” eller ”0021” strängen matchar inte, som uttrycket ”21” = 21 utvärderar till odefinierad. Det möjliggör en optimal användning av index, eftersom sökning efter ett specifikt värde (till exempel hur många 21) är snabbare än Sök efter ett obestämt antal potential matchar (talet 21 eller strängar ”21”, ”021”, ”21.0”...). Detta skiljer sig från hur JavaScript utvärderar operatörer på värden av olika typer.  
   
  **Matriser och -objekt likhet och jämförelse**  
   
@@ -632,7 +632,7 @@ ORDER BY <sort_specification>
 |\uXXXX|En Unicode-tecken som definieras av 4 hexadecimala siffror.|U + XXXX|  
   
 ##  <a name="bk_query_perf_guidelines"></a> Prestandavägledning för fråga  
- Det bör använda filter som kan hanteras via ett eller flera index för en fråga som ska köras effektivt för en stor samling.  
+ Det bör använda filter som kan hanteras via ett eller flera index för en fråga som ska köras effektivt för en stor behållare.  
   
  Följande filter beaktas för index sökning:  
   
@@ -640,15 +640,15 @@ ORDER BY <sort_specification>
   
 -   Använda range-operatorer (<, \<=, >, > =) med ett dokument sökvägsuttryck och antalet konstanter.  
   
--   Dokumentet sökvägsuttryck står för ett uttryck som identifierar en konstant sökväg i dokument från den refererade databassamling.  
+-   Dokumentet sökvägsuttryck står för ett uttryck som identifierar en konstant sökväg i dokument från behållaren refererad databas.  
   
  **Dokumentet sökvägsuttryck**  
   
- Dokumentet sökvägsuttryck är uttryck som en sökväg till egenskapen eller matris indexeraren bedömare över ett dokument som kommer från databasen samling dokument. Den här sökvägen kan användas för att identifiera platsen för värden som refereras i ett filter direkt i dokumenten i samlingen databas.  
+ Dokumentet sökvägsuttryck är uttryck som en sökväg till egenskapen eller matris indexeraren bedömare över ett dokument som kommer från databasen behållardokument. Den här sökvägen kan användas för att identifiera platsen för värden som refereras i ett filter direkt i dokumenten i behållaren för databasen.  
   
  För ett uttryck för att anses vara ett dokument sökvägsuttryck, bör det:  
   
-1.  Referera till samlingen roten direkt.  
+1.  Referera till roten behållare direkt.  
   
 2.  Indexerare för referens-egenskapen eller konstant matris för vissa dokument sökvägsuttryck  
   
@@ -667,22 +667,22 @@ ORDER BY <sort_specification>
     |other_terminal|Terminal (token), som beskrivs i detalj i orden.|  
     |identifierare|Identifierare. Gör följande endast tecken: a-z A-Z 0-9 _First tecknet får inte vara en siffra.|  
     |”string”|Sträng inom citattecken. Gör att en giltig sträng. Se beskrivning av en string_literal.|  
-    |”symbol”|Literal symbolen som är en del av syntaxen.|  
+    |”symbol”|Literal symbol som är en del av syntaxen.|  
     |&#124;(lodrätt streck)|Alternativ för syntax objekt. Du kan använda endast en av de objekt som angetts.|  
     |[] /(brackets)|Hakparenteser omsluter en eller flera valfria objekt.|  
     |[ ,...n ]|Anger föregående objekt kan vara upprepade n flera gånger. Förekomster avgränsas med kommatecken.|  
     |[ ...n ]|Anger föregående objekt kan vara upprepade n flera gånger. Förekomster avgränsas med tomma värden.|  
   
 ##  <a name="bk_built_in_functions"></a> Inbyggda funktioner  
- Azure Cosmos DB innehåller många inbyggda SQL-funktioner. Kategorier av inbyggda funktionerna finns nedan.  
+ Cosmos DB innehåller många inbyggda SQL-funktioner. Kategorier av inbyggda funktionerna finns nedan.  
   
 |Funktion|Beskrivning|  
 |--------------|-----------------|  
 |[Matematiska funktioner](#bk_mathematical_functions)|Matematiska funktioner utför en beräkning, vanligtvis baserat på indatavärden som tillhandahålls som argument och returnerar ett numeriskt värde.|  
 |[Funktioner för typkontroll](#bk_type_checking_functions)|Typ kontrollerar funktioner kan du kontrollera vilken typ av ett uttryck i SQL-frågor.|  
 |[Strängfunktioner](#bk_string_functions)|Strängfunktioner utföra en åtgärd på ett strängvärde för indata och returnerar en sträng, numeriskt eller booleskt värde.|  
-|[Matrisfunktioner](#bk_array_functions)|Matrisfunktioner kan du utföra en åtgärd på en matris indatavärdet och returnera numeriska, matrisen eller booleskt värde.|  
-|[Spatial funktioner](#bk_spatial_functions)|Funktionerna spatial utföra en åtgärd på ett indatavärde spatialobjektet och returnerar ett numeriskt eller booleskt värde.|  
+|[Matrisfunktioner](#bk_array_functions)|Matrisfunktioner kan du utföra en åtgärd på en matris indatavärdet och returnera numeriska, booleskt värde eller Matrisvärde.|  
+|[Spatial funktioner](#bk_spatial_functions)|Funktionerna spatial utföra en åtgärd på en spatialobjektet indatavärdet och returnerar ett numeriskt eller booleskt värde.|  
   
 ###  <a name="bk_mathematical_functions"></a> Matematiska funktioner  
  Följande funktioner utför en beräkning, vanligtvis baserat på indatavärden som tillhandahålls som argument och returnerar ett numeriskt värde.  
@@ -1761,7 +1761,7 @@ SELECT
 ```  
   
 ####  <a name="bk_is_primitive"></a> IS_PRIMITIVE  
- Returnerar ett booleskt värde som anger om det angivna uttrycket är en primitiv hämtas (string, Boolean, numeriska eller null).  
+ Returnerar ett booleskt värde som anger om det angivna uttrycket är en primitiv hämtas (string, booleskt, numeriska eller null).  
   
  **Syntax**  
   
@@ -2697,7 +2697,7 @@ SELECT
 ```  
  
 ###  <a name="bk_spatial_functions"></a> Spatial funktioner  
- Följande skalärfunktioner utföra en åtgärd på ett indatavärde spatialobjektet och returnerar ett numeriskt eller booleskt värde.  
+ Följande skalärfunktioner utföra en åtgärd på en spatialobjektet indatavärdet och returnerar ett numeriskt eller booleskt värde.  
   
 ||||  
 |-|-|-|  
@@ -2808,7 +2808,7 @@ ST_INTERSECTS (<spatial_expr>, <spatial_expr>)
   
  **Exempel**  
   
- I följande exempel visas hur du hittar alla områden som överlappar med den angivna polygonen.  
+ I följande exempel visas hur du hittar alla områden som överlappar angivna polygonen.  
   
 ```  
 SELECT a.id   
@@ -2904,7 +2904,7 @@ SELECT ST_ISVALIDDETAILED({
 ```  
   
 ## <a name="next-steps"></a>Nästa steg  
- [SQL-syntax och SQL-fråga för Azure Cosmos DB](sql-api-sql-query.md)   
- [Dokumentation om Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)  
-  
-  
+
+- [SQL-syntax och SQL-fråga för Cosmos DB](sql-api-sql-query.md)
+
+- [Dokumentation om cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)  

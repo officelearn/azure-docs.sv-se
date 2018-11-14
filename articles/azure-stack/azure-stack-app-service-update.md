@@ -11,21 +11,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: fcbc924675a97a17b4fcfdf0e1ac39ad5aae9ffd
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: e8a75afe2c7dbe91c7c98d0d35c319088f40748f
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218516"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612686"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Uppdatera Azure App Service i Azure Stack
 
 *Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
 > [!IMPORTANT]  
-> Uppdateringen är 1807 integrerade Azure Stack-system eller distribuera den senaste Azure Stack development kit innan du distribuerar Azure App Service 1.3.
+> Uppdateringen är 1809 integrerade Azure Stack-system eller distribuera den senaste Azure Stack development kit innan du distribuerar Azure App Service 1.4.
 >
 >
 
@@ -33,7 +33,6 @@ Genom att följa anvisningarna i den här artikeln kan du uppgradera den [App Se
 
 > [!IMPORTANT]  
 > Innan du kör uppgraderingen bör du kontrollera att du redan har slutfört den [distribution av Azure App Service i Azure Stack Resource Provider](azure-stack-app-service-deploy.md)
-
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Kör installationsprogrammet för providern App Service-resurs
 
@@ -53,7 +52,7 @@ Under den här processen kommer uppgraderingen:
 
 Följ dessa steg om du vill uppgradera din distribution av App Service på Azure Stack:
 
-1. Ladda ned den [App Service-installationsprogrammet](https://aka.ms/appsvcupdate3installer)
+1. Ladda ned den [App Service-installationsprogrammet](https://aka.ms/appsvcupdate4installer)
 
 2. Köra appservice.exe som en administratör
 
@@ -65,7 +64,7 @@ Följ dessa steg om du vill uppgradera din distribution av App Service på Azure
 
 5. Granska och acceptera licensvillkoren från tredje part och klicka sedan på **nästa**.
 
-6. Se till att Azure Stack Azure Resource Manager-slutpunkten och Active Directory-Klientorganisation informationen är korrekt. Om du använde standardinställningarna under distributionen av Azure Stack Development Kit kan godkänna du standardvärdena här. Om du har anpassat alternativ när du har distribuerat Azure Stack, måste du redigera värdena i det här fönstret för att avspegla. Exempel: Om du använder domänsuffixet *mycloud.com*, Azure Stack Azure Resource Manager-slutpunkten måste ändra till *management.region.mycloud.com*. När du har bekräftat din information, klickar du på **nästa**.
+6. Se till att Azure Stack Azure Resource Manager-slutpunkten och Active Directory-Klientorganisation informationen är korrekt. Om du använde standardinställningarna under distributionen av Azure Stack Development Kit kan godkänna du standardvärdena här. Om du har anpassat alternativ när du har distribuerat Azure Stack, måste du redigera värdena i det här fönstret. Exempel: Om du använder domänsuffixet *mycloud.com*, Azure Stack Azure Resource Manager-slutpunkten måste ändra till *management.region.mycloud.com*. När du har bekräftat din information, klickar du på **nästa**.
 
     ![Informationen för Azure Stack-molnet][2]
 

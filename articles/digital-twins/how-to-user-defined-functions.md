@@ -1,59 +1,50 @@
 ---
 title: Hur du använder användardefinierade funktioner i Azure Digital Twins | Microsoft Docs
-description: Riktlinjer för hur du skapar användardefinierade funktioner, matchers och rolltilldelningar med Azure Digital Twins.
+description: Riktlinjer för hur du skapar användardefinierade funktioner och matchers rolltilldelningar med Azure Digital Twins.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 11/13/2018
 ms.author: alinast
-ms.openlocfilehash: 8094965da5fb0a5fad0313fd96e2878f86d78aa7
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 33190472215e7a02b94951a73054ebe3e1994e54
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215505"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623918"
 ---
 # <a name="how-to-use-user-defined-functions-in-azure-digital-twins"></a>Hur du använder användardefinierade funktioner i Azure Digital Twins
 
-[Användardefinierade funktioner](./concepts-user-defined-functions.md) gör att användaren kan köra anpassad logik mot inkommande telemetrimeddelanden och rumsliga graph metadata, så att användaren att skicka händelser till fördefinierade slutpunkter. I den här handboken vi gå igenom ett exempel på agerar på temperatur händelser för att identifiera och Avisera om alla läsning som överskrider en viss temperatur.
+[Användardefinierade funktioner](./concepts-user-defined-functions.md) (UDF) kan användaren köra anpassad logik mot inkommande telemetrimeddelanden och rumsliga graph metadata. Användaren kan sedan skicka händelser till fördefinierade slutpunkter. Den här guiden går igenom ett exempel på agerar på temperatur händelser för att identifiera och Avisera om alla läsning som överskrider en viss temperatur.
 
-I exemplen nedan `https://yourManagementApiUrl` refererar till URI: N digitala Twins API: er:
-
-```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management
-```
-
-| Anpassade attributets namn | Ersätt med |
-| --- | --- |
-| *dittinstansnamn* | Namnet på din digitala Twins för Azure-instans |
-| *yourLocation* | Vilken server-region som din instans är värd för |
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
 ## <a name="client-library-reference"></a>-Klientbiblioteksreferens
 
-De funktioner som är tillgängliga som hjälpmetoder i användardefinierade funktioner runtime räknas upp i följande [referens för klienthantering](#Client-Reference).
+De funktioner som är tillgängliga som hjälpmetoder i användardefinierade funktioner runtime finns i den [referens för klienthantering](#Client-Reference) avsnittet.
 
 ## <a name="create-a-matcher"></a>Skapa en matcher
 
-Matchers är graph-objekt, som avgör vilka användardefinierade funktioner körs för en viss telemetri-meddelande.
+Matchers är graph-objekt som avgör vad användardefinierade funktioner som ska köras för en viss telemetri-meddelande.
 
-Giltigt matcher villkor jämförelser:
+- Giltigt matcher villkor jämförelser:
 
-- `Equals`
-- `NotEquals`
-- `Contains`
+  - `Equals`
+  - `NotEquals`
+  - `Contains`
 
-Giltigt matcher villkor mål:
+- Giltigt matcher villkor mål:
 
-- `Sensor`
-- `SensorDevice`
-- `SensorSpace`
+  - `Sensor`
+  - `SensorDevice`
+  - `SensorSpace`
 
-Följande exempel matcher ska utvärderas till SANT på en sensor telemetri händelse med `"Temperature"` som sitt värde för typ av data. Du kan skapa flera matchers på en användardefinierad funktion.
+Följande exempel matcher utvärderas till true på en sensor telemetri händelse med `"Temperature"` som sitt värde för typ av data. Du kan skapa flera matchers på en användardefinierad funktion:
 
 ```plaintext
-POST https://yourManagementApiUrl/api/v1.0/matchers
+POST yourManagementApiUrl/matchers
 {
   "Name": "Temperature Matcher",
   "Conditions": [
@@ -64,35 +55,34 @@ POST https://yourManagementApiUrl/api/v1.0/matchers
       "comparison": "Equals"
     }
   ],
-  "SpaceId": "yourSpaceIdentifier"
+  "SpaceId": "YOUR_SPACE_IDENTIFIER"
 }
 ```
 
-| Anpassade attributets namn | Ersätt med |
+| Ditt värde | Ersätt med |
 | --- | --- |
-| *yourManagementApiUrl* | Den fullständiga URL-sökvägen för API Management  |
-| *yourSpaceIdentifier* | Vilken server-region som din instans är värd för |
+| YOUR_SPACE_IDENTIFIER | Vilken server-region som din instans är värd för |
 
 ## <a name="create-a-user-defined-function-udf"></a>Skapa en användardefinierad funktion (UDF)
 
-När matchers har skapats, ladda upp i funktionen kodfragment med följande POST anrop:
+När matchers har skapats laddar du upp i funktionen kodfragment med följande **POST** anropa:
 
 > [!IMPORTANT]
 > - Ange följande i rubrikerna, `Content-Type: multipart/form-data; boundary="userDefinedBoundary"`.
 > - Brödtexten är flera delar:
->   - Den första delen är om metadata som behövs för UDF.
->   - Den andra delen är javascript-beräkning logik.
-> - Ersätt i `userDefinedBoundary` avsnittet `SpaceId` och `Machers` GUID.
+>   - Den första delen är om metadata som behövs för en användardefinierad funktion.
+>   - Den andra delen är JavaScript-beräkning logik.
+> - I den **userDefinedBoundary** avsnittet, ersätter den **SpaceId** och **Machers** värden.
 
 ```plaintext
-POST https://yourManagementApiUrl/api/v1.0/userdefinedfunctions with Content-Type: multipart/form-data; boundary="userDefinedBoundary"
+POST yourManagementApiUrl/userdefinedfunctions with Content-Type: multipart/form-data; boundary="userDefinedBoundary"
 ```
 
-| Anpassade attributets namn | Ersätt med |
+| Parametervärde | Ersätt med |
 | --- | --- |
-| *yourManagementApiUrl* | Den fullständiga URL-sökvägen för API Management  |
+| *userDefinedBoundary* | Ett namn i flera delar innehåll gräns |
 
-Brödtext:
+### <a name="body"></a>Innehåll
 
 ```plaintext
 --userDefinedBoundary
@@ -100,10 +90,10 @@ Content-Type: application/json; charset=utf-8
 Content-Disposition: form-data; name="metadata"
 
 {
-  "SpaceId": "yourSpaceIdentifier",
+  "SpaceId": "YOUR_SPACE_IDENTIFIER",
   "Name": "User Defined Function",
   "Description": "The contents of this udf will be executed when matched against incoming telemetry.",
-  "Matchers": ["yourMatcherIdentifier"]
+  "Matchers": ["YOUR_MATCHER_IDENTIFIER"]
 }
 --userDefinedBoundary
 Content-Disposition: form-data; name="contents"; filename="userDefinedFunction.js"
@@ -116,10 +106,10 @@ function process(telemetry, executionContext) {
 --userDefinedBoundary--
 ```
 
-| Anpassade attributets namn | Ersätt med |
+| Ditt värde | Ersätt med |
 | --- | --- |
-| *yourSpaceIdentifier* | Identifieraren utrymme  |
-| *yourMatcherIdentifier* | ID för matcher som du vill använda |
+| YOUR_SPACE_IDENTIFIER | Identifieraren utrymme  |
+| YOUR_MATCHER_IDENTIFIER | ID för matcher som du vill använda |
 
 ### <a name="example-functions"></a>Exempel-funktioner
 
@@ -139,7 +129,7 @@ function process(telemetry, executionContext) {
 }
 ```
 
-Den *telemetri* parametern exponerar den **SensorId** och **meddelande** attribut (som motsvarar ett meddelande som skickas av en sensor). Den *executionContext* parametern exponerar följande attribut:
+Den **telemetri** parametern exponerar den **SensorId** och **meddelande** egenskaper som motsvarar ett meddelande som skickas av en sensor. Den **executionContext** parametern exponerar följande attribut:
 
 ```csharp
 var executionContext = new UdfExecutionContext
@@ -151,7 +141,7 @@ var executionContext = new UdfExecutionContext
 };
 ```
 
-I nästa exempel kommer loggar vi ett meddelande om sensor telemetri läsning överskrider ett fördefinierat tröskelvärde. Om din diagnostikinställningar har aktiverats på den digitala Twins-instansen, vidarebefordras också loggar från användardefinierade funktioner:
+I nästa exempel logga vi ett meddelande om sensor telemetri läsning överskrider ett fördefinierat tröskelvärde. Om diagnostikinställningarna har aktiverats på den digitala Twins för Azure-instansen, vidarebefordras loggar från användardefinierade funktioner:
 
 ```JavaScript
 function process(telemetry, executionContext) {
@@ -166,7 +156,7 @@ function process(telemetry, executionContext) {
 }
 ```
 
-Följande kod ska utlösa en avisering om nivån temperaturen överstiger fördefinierade konstant.
+Följande kod utlöser en avisering om nivån temperaturen överstiger de fördefinierade Ständiga:
 
 ```JavaScript
 function process(telemetry, executionContext) {
@@ -190,57 +180,52 @@ function process(telemetry, executionContext) {
 }
 ```
 
-För en mer komplex UDF-kodexempel som avser [Kontrollera tillgängliga blankstegen med ny air UDF](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js)
+För en mer komplex UDF-kodexemplet [Kontrollera tillgängliga blankstegen med en ny air UDF](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js).
 
 ## <a name="create-a-role-assignment"></a>Skapa en rolltilldelning
 
-Vi måste du skapa en rolltilldelning för den användardefinierade funktionen köras under. Om vi inte har inte behörighet att interagera med Management-API för att utföra åtgärder på graph-objekt. De åtgärder som utförs av den användardefinierade funktionen är inte undantagna från rollbaserad åtkomstkontroll inom Digital Twins Management API: erna. De kan vara begränsad räckvidd genom att ange vissa roller eller vissa sökvägar för kontroll av åtkomst. Mer information finns i [rollbaserad åtkomstkontroll](./security-role-based-access-control.md) dokumentation.
+Vi måste du skapa en rolltilldelning för den användardefinierade funktionen ska köras. Om vi inte behöver det inte rätt behörighet för att interagera med Management-API för att utföra åtgärder på graph-objekt. De åtgärder som utförs av den användardefinierade funktionen inte är undantagna från rollbaserad åtkomstkontroll i Azure Digital Twins Management API: erna. De kan vara begränsad räckvidd genom att ange vissa roller eller vissa sökvägar för kontroll av åtkomst. Mer information finns i [rollbaserad åtkomstkontroll](./security-role-based-access-control.md) dokumentation.
 
-1. Fråga efter roller och hämta ID för den roll som du vill tilldela till UDF; skicka det till **RoleId** nedan.
+1. Fråga efter roller och hämta ID för den roll som du vill tilldela till en användardefinierad funktion. Skicka det till **RoleId**:
 
-```plaintext
-GET https://yourManagementApiUrl/api/v1.0/system/roles
-```
+    ```plaintext
+    GET yourManagementApiUrl/system/roles
+    ```
 
-| Anpassade attributets namn | Ersätt med |
-| --- | --- |
-| *yourManagementApiUrl* | Den fullständiga URL-sökvägen för API Management  |
+1. **ObjectId** kommer att UDF-ID som du skapade tidigare.
+1. Hitta värdet för **sökväg** genom att fråga din blankstegen med `fullpath`.
+1. Kopiera den returnerade `spacePaths` värde. Du ska använda som i följande kod:
 
-2. **ObjectId** kommer att UDF-ID som du skapade tidigare.
-3. Hitta värdet för **sökväg** genom att fråga din blankstegen med `fullpath`.
-4. Kopiera den returnerade `spacePaths` värde. Du kommer att använda som nedan.
+    ```plaintext
+    GET yourManagementApiUrl/spaces?name=yourSpaceName&includes=fullpath
+    ```
 
-```plaintext
-GET https://yourManagementApiUrl/api/v1.0/spaces?name=yourSpaceName&includes=fullpath
-```
+    | Parametervärde | Ersätt med |
+    | --- | --- |
+    | *yourSpaceName* | Namnet på det utrymme som du vill använda |
 
-| Anpassade attributets namn | Ersätt med |
-| --- | --- |
-| *yourManagementApiUrl* | Den fullständiga URL-sökvägen för API Management  |
-| *yourSpaceName* | Namnet på det utrymme som du vill använda |
+1. Klistra in den returnerade `spacePaths` värde i **sökväg** att skapa en rolltilldelning för UDF:
 
-4. Nu kan klistra in den returnerade `spacePaths` värde i **sökväg** att skapa en rolltilldelning för UDF.
+    ```plaintext
+    POST yourManagementApiUrl/roleassignments
+    {
+      "RoleId": "YOUR_DESIRED_ROLE_IDENTIFIER",
+      "ObjectId": "YOUR_USER_DEFINED_FUNCTION_ID",
+      "ObjectIdType": "YOUR_USER_DEFINED_FUNCTION_TYPE_ID",
+      "Path": "YOUR_ACCESS_CONTROL_PATH"
+    }
+    ```
 
-```plaintext
-POST https://yourManagementApiUrl/api/v1.0/roleassignments
-{
-  "RoleId": "yourDesiredRoleIdentifier",
-  "ObjectId": "yourUserDefinedFunctionId",
-  "ObjectIdType": "UserDefinedFunctionId",
-  "Path": "yourAccessControlPath"
-}
-```
-
-| Anpassade attributets namn | Ersätt med |
-| --- | --- |
-| *yourManagementApiUrl* | Den fullständiga URL-sökvägen för API Management  |
-| *yourDesiredRoleIdentifier* | Identifierare för rollen |
-| *yourUserDefinedFunctionId* | ID för en användardefinierad funktion som du vill använda |
-| *yourAccessControlPath* | Åtkomstväg för kontroll |
+    | Ditt värde | Ersätt med |
+    | --- | --- |
+    | YOUR_DESIRED_ROLE_IDENTIFIER | Identifierare för rollen |
+    | YOUR_USER_DEFINED_FUNCTION_ID | ID för en användardefinierad funktion som du vill använda |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | Det ID som anger vilken UDF |
+    | YOUR_ACCESS_CONTROL_PATH | Åtkomstväg för kontroll |
 
 ## <a name="send-telemetry-to-be-processed"></a>Skicka telemetri som ska bearbetas
 
-Telemetri som genereras av sensor som beskrivs i diagrammet ska utlösa körningen av en användardefinierad funktion som har överförts. När telemetri som hämtas av registerförare, skapas en Körningsplan för anrop av den användardefinierade funktionen.
+Telemetri som genereras av sensor som beskrivs i diagrammet utlöser körning av den användardefinierade funktionen som har överförts. Registerförare hämtar telemetri. Sedan skapas en kör plan för anrop av den användardefinierade funktionen.
 
 1. Hämta matchers för sensorn medan läsningen genererades ut från.
 1. Beroende på vad matchers utvärderades korrekt, att hämta associerade användardefinierade funktioner.
@@ -250,240 +235,240 @@ Telemetri som genereras av sensor som beskrivs i diagrammet ska utlösa körning
 
 ### <a name="getspacemetadataid--space"></a>getSpaceMetadata(id) ⇒ `space`
 
-Beroende på ett utrymme-ID, hämtar du området från diagrammet.
+Med en utrymmesidentifierare kan returnerar den här funktionen utrymmet från diagrammet.
 
 **Typ**: global funktion
 
-| Param  | Typ                | Beskrivning  |
-| ------ | ------------------- | ------------ |
+| Parameter  | Typ                | Beskrivning  |
+| ---------- | ------------------- | ------------ |
 | *ID*  | `guid` | utrymmesidentifierare |
 
 ### <a name="getsensormetadataid--sensor"></a>getSensorMetadata(id) ⇒ `sensor`
 
-Beroende på en sensor-ID, hämtar du sensorn från diagrammet.
+Med en sensor identifierare kan returnerar den här funktionen sensorn från diagrammet.
 
 **Typ**: global funktion
 
-| Param  | Typ                | Beskrivning  |
-| ------ | ------------------- | ------------ |
+| Parameter  | Typ                | Beskrivning  |
+| ---------- | ------------------- | ------------ |
 | *ID*  | `guid` | sensorn identifierare |
 
 ### <a name="getdevicemetadataid--device"></a>getDeviceMetadata(id) ⇒ `device`
 
-Beroende på en enhets-ID, hämtar du enheten från diagrammet.
+Med en enhets-ID kan returnerar den här funktionen enheten från diagrammet.
 
 **Typ**: global funktion
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *ID* | `guid` | Enhets-ID |
 
 ### <a name="getsensorvaluesensorid-datatype--value"></a>getSensorValue (sensorId, dataType) ⇒ `value`
 
-Baserat på en sensor-identifierare och dess datatyp, för att hämta det aktuella värdet för den sensorn.
+Den här funktionen hämtar baserat på en sensor-identifierare och dess datatyp, det aktuella värdet för den sensorn.
 
 **Typ**: global funktion
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *sensorId*  | `guid` | sensorn identifierare |
 | *Datatyp*  | `string` | sensorn datatyp |
 
 ### <a name="getspacevaluespaceid-valuename--value"></a>getSpaceValue (spaceId, värdenamn) ⇒ `value`
 
-Baserat på en utrymmesidentifierare och värdenamn, för att hämta det aktuella värdet för egenskapen utrymme.
+Den här funktionen hämtar baserat på en utrymmesidentifierare och värdenamn, det aktuella värdet för egenskapen utrymme.
 
 **Typ**: global funktion
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *spaceId*  | `guid` | utrymmesidentifierare |
 | *Värdenamn* | `string` | egenskapsnamn med blanksteg |
 
 ### <a name="getsensorhistoryvaluessensorid-datatype--value"></a>getSensorHistoryValues (sensorId, dataType) ⇒ `value[]`
 
-Baserat på en sensor-identifierare och dess datatyp, hämta historiska värden för den sensorn.
+Den här funktionen hämtar baserat på en sensor-identifierare och dess datatyp, historiska värden för den sensorn.
 
 **Typ**: global funktion
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *sensorId* | `guid` | sensorn identifierare |
 | *Datatyp* | `string` | sensorn datatyp |
 
 ### <a name="getspacehistoryvaluesspaceid-datatype--value"></a>getSpaceHistoryValues (spaceId, dataType) ⇒ `value[]`
 
-Baserat på en utrymmesidentifierare och värdenamn, hämta historiska värden för den egenskapen på området.
+Den här funktionen hämtar baserat på en utrymmesidentifierare och värdenamn, historiska värden för den egenskapen på området.
 
 **Typ**: global funktion
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | utrymmesidentifierare |
 | *Värdenamn* | `string` | egenskapsnamn med blanksteg |
 
 ### <a name="getspacechildspacesspaceid--space"></a>getSpaceChildSpaces(spaceId) ⇒ `space[]`
 
-Med en utrymmesidentifierare kan hämta de underordnade adressutrymmena för det överordnade området.
+Den här funktionen hämtar med en utrymmesidentifierare kan underordnade adressutrymmen för det överordnade området.
 
 **Typ**: global funktion
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | utrymmesidentifierare |
 
 ### <a name="getspacechildsensorsspaceid--sensor"></a>getSpaceChildSensors(spaceId) ⇒ `sensor[]`
 
-Med en utrymmesidentifierare kan hämta underordnade sensorer för det överordnade området.
+Den här funktionen hämtar med en utrymmesidentifierare kan underordnade sensorer för det överordnade området.
 
 **Typ**: global funktion
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | utrymmesidentifierare |
 
 ### <a name="getspacechilddevicesspaceid--device"></a>getSpaceChildDevices(spaceId) ⇒ `device[]`
 
-Med en utrymmesidentifierare kan hämta de underordnade enheterna för det överordnade området.
+Den här funktionen hämtar med en utrymmesidentifierare kan underordnade enheter för det överordnade området.
 
 **Typ**: global funktion
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | utrymmesidentifierare |
 
 ### <a name="getdevicechildsensorsdeviceid--sensor"></a>getDeviceChildSensors(deviceId) ⇒ `sensor[]`
 
-Med en enhets-ID kan hämta de underordnade sensorerna för den överordnade enheten.
+Med en enhets-ID kan returnerar den här funktionen underordnade sensorer för den överordnade enheten.
 
 **Typ**: global funktion
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *deviceId* | `guid` | Enhets-ID |
 
 ### <a name="getspaceparentspacechildspaceid--space"></a>getSpaceParentSpace(childSpaceId) ⇒ `space`
 
-Med en utrymmesidentifierare kan hämta dess överordnade utrymme.
+Den här funktionen hämtar med en utrymmesidentifierare kan dess överordnade utrymme.
 
 **Typ**: global funktion
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *childSpaceId* | `guid` | utrymmesidentifierare |
 
 ### <a name="getsensorparentspacechildsensorid--space"></a>getSensorParentSpace(childSensorId) ⇒ `space`
 
-Med en sensor identifierare kan hämta dess överordnade utrymme.
+Den här funktionen hämtar med en sensor identifierare kan dess överordnade utrymme.
 
 **Typ**: global funktion
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *childSensorId* | `guid` | sensorn identifierare |
 
 ### <a name="getdeviceparentspacechilddeviceid--space"></a>getDeviceParentSpace(childDeviceId) ⇒ `space`
 
-Med en enhets-ID kan hämta dess överordnade utrymme.
+Den här funktionen hämtar med en enhets-ID kan dess överordnade utrymme.
 
 **Typ**: global funktion
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *childDeviceId* | `guid` | Enhets-ID |
 
 ### <a name="getsensorparentdevicechildsensorid--space"></a>getSensorParentDevice(childSensorId) ⇒ `space`
 
-Med en sensor identifierare kan hämta den överordnade enheten.
+Med en sensor identifierare kan returnerar den här funktionen den överordnade enheten.
 
 **Typ**: global funktion
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *childSensorId* | `guid` | sensorn identifierare |
 
 ### <a name="getspaceextendedpropertyspaceid-propertyname--extendedproperty"></a>getSpaceExtendedProperty (spaceId, propertyName) ⇒ `extendedProperty`
 
-Med en utrymmesidentifierare kan hämta egenskapen och dess värde från området.
+Den här funktionen hämtar med en utrymmesidentifierare kan egenskapen och dess värde från området.
 
 **Typ**: global funktion
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | utrymmesidentifierare |
 | *propertyName* | `string` | egenskapsnamn med blanksteg |
 
 ### <a name="getsensorextendedpropertysensorid-propertyname--extendedproperty"></a>getSensorExtendedProperty (sensorId, propertyName) ⇒ `extendedProperty`
 
-Med en sensor identifierare kan hämta egenskapen och dess värde från sensorn.
+Den här funktionen hämtar med en sensor identifierare kan egenskapen och dess värde från sensorn.
 
 **Typ**: global funktion
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *sensorId* | `guid` | sensorn identifierare |
 | *propertyName* | `string` | Egenskapen sensornamnet |
 
 ### <a name="getdeviceextendedpropertydeviceid-propertyname--extendedproperty"></a>getDeviceExtendedProperty (deviceId, propertyName) ⇒ `extendedProperty`
 
-Med en enhets-ID kan hämta egenskapen och dess värde från enheten.
+Den här funktionen hämtar med en enhets-ID kan egenskapen och dess värde från enheten.
 
 **Typ**: global funktion
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *deviceId* | `guid` | Enhets-ID |
 | *propertyName* | `string` | Egenskapen enhetsnamn |
 
 ### <a name="setsensorvaluesensorid-datatype-value"></a>setSensorValue (sensorId, datatyp, värde)
 
-Anger ett värde på sensor-objektet med den angivna datatypen.
+Den här funktionen anger ett värde på sensor-objektet med den angivna datatypen.
 
 **Typ**: global funktion
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *sensorId* | `guid` | sensorn identifierare |
 | *Datatyp*  | `string` | sensorn datatyp |
-| *värde*  | `string` | värde |
+| *värde*  | `string` | Värde |
 
 ### <a name="setspacevaluespaceid-datatype-value"></a>setSpaceValue (spaceId, datatyp, värde)
 
-Anger ett värde på utrymme-objektet med den angivna datatypen.
+Den här funktionen anger ett värde på utrymme-objektet med den angivna datatypen.
 
 **Typ**: global funktion
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | utrymmesidentifierare |
-| *Datatyp* | `string` | datatyp |
-| *värde* | `string` | värde |
+| *Datatyp* | `string` | Datatyp |
+| *värde* | `string` | Värde |
 
 ### <a name="logmessage"></a>log(Message)
 
-Loggar följande meddelande i den användardefinierade funktionen.
+Den här funktionen loggar följande meddelande i den användardefinierade funktionen.
 
 **Typ**: global funktion
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *meddelande* | `string` | meddelandet som ska loggas |
 
 ### <a name="sendnotificationtopologyobjectid-topologyobjecttype-payload"></a>sendNotification (topologyObjectId, topologyObjectType, nyttolast)
 
-Skickas ett anpassat meddelande skickas.
+Den här funktionen skickas ett anpassat meddelande skickas.
 
 **Typ**: global funktion
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| *topologyObjectId*  | `guid` | Graph objektidentifierare (ex.) utrymme / sensor /device ID)|
-| *topologyObjectType*  | `string` | (ex.) utrymme / sensor / enhet)|
-| *nyttolast*  | `string` | JSON-nyttolasten skickas med meddelandet |
+| *topologyObjectId*  | `guid` | Diagram över objektidentifierare. Exempel är utrymme, sensor och enhets-ID.|
+| *topologyObjectType*  | `string` | Exempel är sensor- och enhetsdata.|
+| *nyttolast*  | `string` | JSON-nyttolasten skickas med meddelandet. |
 
 ## <a name="return-types"></a>Returnera typer
 
-Följande är modeller som beskriver returobjekt från ovan referens för klienthantering.
+Följande modeller beskrivs returobjekt från föregående referens för klienthantering.
 
 ### <a name="space"></a>Rymd
 
@@ -502,45 +487,45 @@ Följande är modeller som beskriver returobjekt från ovan referens för klient
 
 #### <a name="parent--space"></a>Parent() ⇒ `space`
 
-Returnerar det överordnade utrymmet på utrymmet som.
+Den här funktionen returnerar överordnade utrymme på utrymmet.
 
 #### <a name="childsensors--sensor"></a>ChildSensors() ⇒ `sensor[]`
 
-Returnerar underordnat sensorer aktuella utrymme.
+Den här funktionen returnerar underordnade sensorer aktuella utrymme.
 
 #### <a name="childdevices--device"></a>ChildDevices() ⇒ `device[]`
 
-Returnerar underordnat enheter på det aktuella utrymmet.
+Den här funktionen returnerar underordnade enheter på det aktuella utrymmet.
 
 #### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty(propertyName) ⇒ `extendedProperty`
 
-Returnerar den utökade egenskapen och dess värde för det aktuella utrymmet.
+Den här funktionen returnerar den utökade egenskapen och dess värde för det aktuella utrymmet.
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *propertyName* | `string` | namnet på den utökade egenskapen |
 
 #### <a name="valuevaluename--value"></a>Value(ValueName) ⇒ `value`
 
-Returnerar värdet för det aktuella utrymmet.
+Den här funktionen returnerar värdet för det aktuella utrymmet.
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *Värdenamn* | `string` | namnet på värdet |
 
 #### <a name="historyvaluename--value"></a>History(ValueName) ⇒ `value[]`
 
-Returnerar de historiska värdena för det aktuella utrymmet.
+Den här funktionen returnerar historiska värdena för det aktuella utrymmet.
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *Värdenamn* | `string` | namnet på värdet |
 
 #### <a name="notifypayload"></a>Notify(Payload)
 
-Skickar ett meddelande med den angivna nyttolasten.
+Den här funktionen skickar ett meddelande med den angivna nyttolasten.
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *nyttolast* | `string` | JSON-nyttolast ska inkluderas i meddelandet |
 
@@ -566,25 +551,25 @@ Skickar ett meddelande med den angivna nyttolasten.
 
 #### <a name="parent--space"></a>Parent() ⇒ `space`
 
-Returnerar det överordnade utrymmet på den aktuella enheten.
+Den här funktionen returnerar överordnade utrymme på den aktuella enheten.
 
 #### <a name="childsensors--sensor"></a>ChildSensors() ⇒ `sensor[]`
 
-Returnerar underordnat sensorer för den aktuella enheten.
+Den här funktionen returnerar underordnade sensorer för den aktuella enheten.
 
 #### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty(propertyName) ⇒ `extendedProperty`
 
-Returnerar den utökade egenskapen och dess värde för den aktuella enheten.
+Den här funktionen returnerar den utökade egenskapen och dess värde för den aktuella enheten.
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *propertyName* | `string` | namnet på den utökade egenskapen |
 
 #### <a name="notifypayload"></a>Notify(Payload)
 
-Skickar ett meddelande med den angivna nyttolasten.
+Den här funktionen skickar ett meddelande med den angivna nyttolasten.
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *nyttolast* | `string` | JSON-nyttolast ska inkluderas i meddelandet |
 
@@ -614,33 +599,33 @@ Skickar ett meddelande med den angivna nyttolasten.
 
 #### <a name="space--space"></a>Space() ⇒ `space`
 
-Returnerar det överordnade utrymmet på den aktuella sensorn.
+Den här funktionen returnerar överordnade utrymme på den aktuella sensorn.
 
 #### <a name="device--device"></a>Device() ⇒ `device`
 
-Returnerar den överordnade enheten för den aktuella sensorn.
+Den här funktionen returnerar den överordnade enheten för den aktuella sensorn.
 
 #### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty(propertyName) ⇒ `extendedProperty`
 
-Returnerar den utökade egenskapen och dess värde för den aktuella sensorn.
+Den här funktionen returnerar den utökade egenskapen och dess värde för den aktuella sensorn.
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *propertyName* | `string` | namnet på den utökade egenskapen |
 
 #### <a name="value--value"></a>Value() ⇒ `value`
 
-Returnerar värdet för den aktuella sensorn.
+Den här funktionen returnerar värdet för den aktuella sensorn.
 
 #### <a name="history--value"></a>History() ⇒ `value[]`
 
-Returnerar de historiska värdena för den aktuella sensorn.
+Den här funktionen returnerar historiska värdena för den aktuella sensorn.
 
 #### <a name="notifypayload"></a>Notify(Payload)
 
-Skickar ett meddelande med den angivna nyttolasten.
+Den här funktionen skickar ett meddelande med den angivna nyttolasten.
 
-| Param  | Typ                | Beskrivning  |
+| Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *nyttolast* | `string` | JSON-nyttolast ska inkluderas i meddelandet |
 
@@ -665,6 +650,6 @@ Skickar ett meddelande med den angivna nyttolasten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs hur du skapar digitala Twins slutpunkter för att skicka händelser till [skapa digitala Twins slutpunkter](how-to-egress-endpoints.md).
+- Lär dig hur du [skapa slutpunkter för Azure Digital Twins](how-to-egress-endpoints.md) att skicka händelser till.
 
-Mer information på digitala Twins slutpunkter [Läs mer om slutpunkter](concepts-events-routing.md).
+- Lär dig mer om Azure Digital Twins slutpunkter, [mer om slutpunkter](concepts-events-routing.md).

@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 11/13/2018
 ms.author: adgera
-ms.openlocfilehash: 0fae059db53668da2d71906bbe94e9dabae931bc
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 737c33f6b8cdf9bcb2530816601ff9b5eb994087
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578594"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624258"
 ---
 # <a name="use-azure-digital-twins-swagger"></a>Använd Azure Digital Twins Swagger
 
@@ -36,20 +36,7 @@ Swagger innehåller en interaktiv sammanfattning av ditt API, vilket innefattar:
 
 Swagger är ett praktiskt verktyg som hjälper till med utveckling och testning anrop till API Management.
 
-> [!TIP]
-> En Swagger-förhandstitt tillhandahålls för att demonstrera API-funktionen.
-> Den finns på [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
-
-Du kan komma åt dina egna genererade Management API Swagger-dokumentationen på:
-
-```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
-```
-
-| Anpassat namn | Ersätt med |
-| --- | --- |
-| dittinstansnamn | Namnet på din digitala Twins för Azure-instans |
-| yourLocation | Vilken server-region som din instans är värd för |
+[!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 ## <a name="reference-material"></a>Referensmaterial
 

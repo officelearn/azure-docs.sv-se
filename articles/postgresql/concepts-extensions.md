@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/30/2018
-ms.openlocfilehash: 67f5e6d4674f876b2cfd4d879ab40c5a5b12c0cc
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.date: 11/12/2018
+ms.openlocfilehash: 43db0e66c05b6b5c3331d3fba3e4db363d61c9f8
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985056"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624360"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>PostgreSQL-tillägg i Azure Database för PostgreSQL
 PostgreSQL ger möjlighet att utöka funktionerna i din databas med tillägg. Tillägg kan paketera flera relaterade SQL-objekt tillsammans i ett enda paket som kan läsas in eller tas bort från databasen med ett enda kommando. Tillägg kan fungera som gör de inbyggda funktionerna för efter att läsas in i databasen. Läs mer på PostgreSQL-tillägg, [paketering relaterade objekt i ett tillägg](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -75,6 +75,7 @@ I tabellerna nedan listas de standard PostgreSQL-tillägg som för närvarande s
 | **Tillägget** | **Beskrivning** |
 |---|---|
 | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL kan läsas in procedurmässig språk. |
+| [plv8](https://plv8.github.io/) | Ett Javascript-språktillägg för PostgreSQL som kan användas för lagrade procedurer, utlösare, osv. |
 
 ### <a name="miscellaneous-extensions"></a>Diverse tillägg
 
@@ -88,7 +89,7 @@ I tabellerna nedan listas de standard PostgreSQL-tillägg som för närvarande s
 | [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | Ger ett sätt för att visa statistik i tuppeln på servernivå. |
 | [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Främmande data omslutning används för att komma åt data som lagras i externa PostgreSQL-servrar. |
 | [hypopg](https://hypopg.readthedocs.io/en/latest/) | Ger dig möjlighet att skapa hypotetiskt index som inte kostar CPU eller disk. |
-| [plv8](https://plv8.github.io/) | Ett Javascript-språktillägg för PostgreSQL som kan användas för lagrade procedurer, utlösare, osv. |
+
 
 ### <a name="postgis-extensions"></a>PostGIS tillägg
 

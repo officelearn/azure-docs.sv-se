@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 786f6ca3b3a1ad26d36c751c54d3cf69ae1d2fd4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 4f669d44582c47cc6c7c090627f957288fee0f1a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240876"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615882"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Innan du sätter igång med App Service i Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "50240876"
 Innan du distribuerar Azure App Service i Azure Stack, måste du slutföra de nödvändiga stegen i den här artikeln.
 
 > [!IMPORTANT]
-> Uppdateringen är 1807 integrerade Azure Stack-system eller distribuera den senaste Azure Stack Development Kit (ASDK) innan du distribuerar Azure App Service 1.3.
+> Uppdateringen är 1809 integrerade Azure Stack-system eller distribuera den senaste Azure Stack Development Kit (ASDK) innan du distribuerar Azure App Service 1.4.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Ladda ned installationsprogrammet och helper-skript
 
@@ -44,6 +44,10 @@ Innan du distribuerar Azure App Service i Azure Stack, måste du slutföra de n�
    - Remove-AppService.ps1
    - Modulmappen
      - GraphAPI.psm1
+
+## <a name="syndicate-the-custom-script-extension-from-the-marketplace"></a>Syndikera tillägget för anpassat skript från Marketplace
+
+Azure App Service i Azure Stack kräver v1.9.0 för tillägget för anpassat skript.  Tillägget måste vara [syndikeras från Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) före distribution eller uppgradering av Azure App Service på Azure Stack
 
 ## <a name="high-availability"></a>Hög tillgänglighet
 
@@ -61,7 +65,7 @@ Dessutom distribuera nödvändiga fil- och SQL Server-instanser i en konfigurati
 
 Kör den *Get-AzureStackRootCert.ps1* skriptet från den mapp där du extraherade helper-skript. Skriptet skapar ett rotcertifikat i samma mapp som det skript som App Service behöver för att skapa certifikat.
 
-När du kör följande PowerShell-kommando kommer du behöva ange privilegierad slutpunkt och autentiseringsuppgifterna för AzureStack\CloudAdmin.
+När du kör följande PowerShell-kommando, måste du ange privilegierad slutpunkt och autentiseringsuppgifterna för AzureStack\CloudAdmin.
 
 ```PowerShell
     Get-AzureStackRootCert.ps1
@@ -151,6 +155,9 @@ Certifikatet för identitet måste innehålla ett ämne som matchar följande fo
 
 ## <a name="virtual-network"></a>Virtuellt nätverk
 
+> [!NOTE]
+> Före skapandet av ett anpassat virtuellt nätverk är valfritt eftersom Azure App Service i Azure Stack kan skapa virtuella nätverket men måste sedan kommunicera med SQL och filservern via offentliga IP-adresser.
+
 Azure App Service i Azure Stack kan du distribuera resursprovidern till ett befintligt virtuellt nätverk eller kan du skapa ett virtuellt nätverk som en del av distributionen. Med hjälp av ett befintligt virtuellt nätverk kan du använda interna IP-adresser att ansluta till fil- och SQLServer krävs av Azure App Service i Azure Stack. Det virtuella nätverket måste konfigureras med följande adressintervall och undernät innan du installerar Azure App Service på Azure Stack:
 
 Virtuellt nätverk – /16
@@ -167,12 +174,20 @@ Undernät
 
 Azure App Service måste du använda för en filserver. Vid Produktionsdistribution måste konfigureras servern för att vara tillgängliga och kan hantera fel.
 
+### <a name="quickstart-template-for-file-server-for-deployments-of-azure-app-service-on-asdk"></a>Snabbstartsmall för filserver för distributioner av Azure App Service i ASDK.
+
 Du kan använda för Azure Stack Development Kit-distributioner, den [exempelmall för Azure Resource Manager-distribution](https://aka.ms/appsvconmasdkfstemplate) att distribuera en konfigurerade enkelnods-filserver. Enkelnods-filserver ska vara i en arbetsgrupp.
+
+### <a name="quickstart-template-for-highly-available-file-server-and-sql-server"></a>Snabbstartsmall för Highly Available File Server och SQL Server
+
+En [snabbstartsmall för referens arkitektur](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) finns nu tillgänglig, som distribuerar filservern, SQL Server, stöd för Active Directory-infrastruktur i ett virtuellt nätverk som konfigurerats för att stödja en högtillgänglig distribution av Azure App Service i Azure Stack.  
+
+### <a name="steps-to-deploy-a-custom-file-server"></a>Steg för att distribuera en anpassad filserver
 
 >[!IMPORTANT]
 > Om du väljer att distribuera App Service i ett befintligt virtuellt nätverk måste ska servern distribueras i ett separat undernät från App Service.
 
-### <a name="provision-groups-and-accounts-in-active-directory"></a>Etablera grupper och konton i Active Directory
+#### <a name="provision-groups-and-accounts-in-active-directory"></a>Etablera grupper och konton i Active Directory
 
 1. Skapa i följande globala Active Directory-säkerhetsgrupper:
 
@@ -195,7 +210,7 @@ Du kan använda för Azure Stack Development Kit-distributioner, den [exempelmal
    - Lägg till **FileShareOwner** till den **FileShareOwners** grupp.
    - Lägg till **FileShareUser** till den **FileShareUsers** grupp.
 
-### <a name="provision-groups-and-accounts-in-a-workgroup"></a>Etablera grupper och konton i en arbetsgrupp
+#### <a name="provision-groups-and-accounts-in-a-workgroup"></a>Etablera grupper och konton i en arbetsgrupp
 
 >[!NOTE]
 > När du konfigurerar en server, kör du följande kommandon från ett **administratörskommandotolk**. <br>***Använd PowerShell inte.***
@@ -225,7 +240,7 @@ När du använder Azure Resource Manager-mall kan användare redan har skapats.
    net localgroup FileShareOwners FileShareOwner /add
    ```
 
-### <a name="provision-the-content-share"></a>Etablera innehållsresursen
+#### <a name="provision-the-content-share"></a>Etablera innehållsresursen
 
 Innehållsresursen innehåller klient webbplatsens innehåll. Metoden för att etablera innehållsresursen på en enda server är samma för både Active Directory-och arbetsgruppsmiljöer. Men det är olika för ett redundanskluster i Active Directory.
 

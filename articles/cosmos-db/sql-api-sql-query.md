@@ -1,5 +1,5 @@
 ---
-title: SQL-frågor för Azure Cosmos DB | Microsoft Docs
+title: SQL-frågor i Azure Cosmos DB | Microsoft Docs
 description: Läs mer om SQL-syntax, databasbegrepp och SQL-frågor för Azure Cosmos DB. SQL kan användas som en JSON-frågespråket i Azure Cosmos DB.
 keywords: SQL-syntax, sql-fråga, sql-frågor, frågespråk för json, databasbegrepp och sql-frågor, mängdfunktioner
 services: cosmos-db
@@ -10,27 +10,27 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/10/2018
+ms.date: 11/02/2018
 ms.author: laviswa
-ms.openlocfilehash: 22b31e7df4e11f8f98877a8497b533203dcc26b3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8799371c911f3e120cb8654bf26fa933b17e4b3c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233311"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623416"
 ---
-# <a name="query-azure-cosmos-db-data-with-sql-queries"></a>Fråga Azure Cosmos DB-data med SQL-frågor
+# <a name="sql-queries-in-azure-cosmos-db"></a>SQL-frågor i Azure Cosmos DB
 
-Microsoft Azure Cosmos DB stöder förfrågningar till dokument med hjälp av SQL (Structured Query Language) som en JSON-frågespråket på SQL-API-konton. När du utformar frågespråket för Azure Cosmos DB, anses följande två mål:
+Azure Cosmos DB har stöd för frågor med hjälp av SQL (Structured Query Language) som ett JSON-frågespråk på SQL API Cosmos-databaser. När du utformar frågespråk för databaser i SQL API Cosmos ansågs följande två mål:
 
-* Vi har gjort Azure Cosmos DB för SQL, ett av de välbekanta och mest populära frågespråk i stället för inventing ett nytt frågespråk. Azure Cosmos DB SQL är en formell programmeringsmodell för komplexa frågor via JSON-dokument.  
+* I stället för inventing ett nytt frågespråk, stöder Cosmos DB SQL, ett av de välbekanta och mest populära frågespråk. Cosmos DB SQL är en formell programmeringsmodell för komplexa frågor över JSON-data.  
 
-* Azure Cosmos DB använder JavaScript-programmeringsmodell som grund för frågespråket. SQL API grundas på typsystemet i JavaScript-typsystemet, uttrycksutvärdering och funktionsanrop. Den här i sin tur är en naturlig programmeringsmodell för relationella projektioner, hierarkisk navigering i JSON-dokument, självsignerat kopplingar, rumsliga förfrågningar och anrop av användardefinierade funktioner (UDF) helt skrivna i JavaScript, bland annat. 
+* Cosmos DB använder JavaScript-programmeringsmodell som grund för frågespråket. SQL API grundas på typsystemet i JavaScript-typsystemet, uttrycksutvärdering och funktionsanrop. Detta ger en naturlig programmeringsmodell för relationella projektioner, hierarkisk navigering i JSON-dokument, självsignerat kopplingar, rumsliga förfrågningar och anrop av användardefinierade funktioner (UDF) helt skrivna i JavaScript, bland annat.
 
-Den här artikeln vägleder dig igenom några exempel SQL-frågor med hjälp av enkla JSON-dokument. Mer information om syntaxen för Azure Cosmos DB SQL, se [referens för SQL-syntax](sql-api-sql-query-reference.md) artikeln. 
+Den här artikeln vägleder dig igenom några exempel på Cosmos DB SQL-frågor med enkla JSON-dokument. Läs mer om syntaxen för Cosmos DB SQL i [referens för SQL-syntax](sql-api-sql-query-reference.md).
 
 ## <a id="GettingStarted"></a>Kom igång med SQL-kommandon
-Nu ska vi skapa två enkla JSON-dokument och fråga mot dessa data. Överväg två JSON-dokument om familjer, infoga dessa JSON-dokument i en samling och sedan fråga data. Här har vi ett enkelt JSON dokumentera för familjen Andersen och Wakefield familjer, överordnade, barn (och deras husdjur), adress och registreringsinformation. Dokumentet har strängar, tal, booleska värden, matriser och kapslade egenskaper. 
+Nu ska vi skapa två enkla JSON-dokument som beskriver familjer och skriva frågor mot data. När du har infogat dessa två dokument till en Cosmos-behållare, kan vi börja fråga efter data. Vi definierar nedan enkla JSON-dokument för familjen Andersen och Wakefield familjer. Varje dokument som innehåller strängar, tal, booleska värden, matriser och kapslade egenskaper.
 
 **Dokument1**  
 
@@ -44,8 +44,8 @@ Nu ska vi skapa två enkla JSON-dokument och fråga mot dessa data. Överväg tv
   ],
   "children": [
      {
-         "firstName": "Henriette Thaulow", 
-         "gender": "female", 
+         "firstName": "Henriette Thaulow",
+         "gender": "female",
          "grade": 5,
          "pets": [{ "givenName": "Fluffy" }]
      }
@@ -89,9 +89,9 @@ Här är ytterligare ett dokument med en skillnad – `givenName` och `familyNam
 }
 ```
 
-Nu ska vi prova några frågor mot dessa data för att förstå några av de viktigaste aspekterna i Azure Cosmos DB SQL-frågespråket. 
+Nu ska vi prova några frågor mot dessa data att lära dig om viktiga aspekter av Cosmos DB SQL-frågespråket.
 
-**Query1**: till exempel returnerar följande fråga dokument där id-fältet matchar `AndersenFamily`. Eftersom det är en `SELECT *`, resultatet av frågan är komplett JSON-dokument finns mer information om syntaxen finns i [SELECT-instruktion](sql-api-sql-query-reference.md#select-query):
+**Query1**: returnerar följande fråga dokument där id-fältet matchar `AndersenFamily`. Eftersom det är en `SELECT *`, utdata från frågan är komplett JSON-dokument. Läs mer om syntaxen för frågan i [SELECT-instruktion](sql-api-sql-query-reference.md#select-query):
 
 ```sql
     SELECT * 
@@ -121,7 +121,7 @@ Nu ska vi prova några frågor mot dessa data för att förstå några av de vik
     }]
 ```
 
-**Fråga2** : Tänk nu när vi behöver formatera om JSON-utdata i en annan form. Den här frågan genererar ett nytt JSON-objekt med två valda fält, namn och Stad, när den adressen stad har samma namn som tillståndet. I det här fallet matchar ”USA, USA”.   
+**Fråga2** : nu Tänk dig ett fall där vi behöva formatera om JSON-utdata. Den här frågan returnerar ett JSON-objekt med två valda fält, namn och Stad, för dokument som ort och delstat är identiska. I det här fallet är ”USA, USA” en matchning.
 
 ```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family 
@@ -159,15 +159,15 @@ Nu ska vi prova några frågor mot dessa data för att förstå några av de vik
     ]
 ```
 
-Nedan följer några aspekter av frågespråket igenom de exempel som du har sett i Cosmos DB:  
+Vissa viktiga aspekter av Cosmos DB SQL-frågespråket igenom exempel som du har sett hittills:  
 
-* Eftersom SQL-API fungerar på JSON-värden, behandlar den trädet formade entiteter i stället för rader och kolumner. Därför språk kan du referera till noder i trädet på varje godtyckliga djup som `Node1.Node2.Node3…..Nodem`, vilket liknar relationell SQL som refererar till de två referensen för `<table>.<column>`.   
+* Eftersom SQL-API fungerar på JSON-värden, behandlar den trädet formade entiteter i stället för rader och kolumner. Därför språk kan du referera till noder i trädet på varje godtyckliga djup som `Node1.Node2.Node3…..Nodem`, vilket liknar relationell SQL som refererar till de två referensen för `<table>.<column>`.
 
-* Strukturerade frågespråket fungerar med schemalösa-data. Typsystemet måste bindas dynamiskt. I samma uttryck kan ge olika typer på olika dokument. Resultatet av en fråga är ett giltigt JSON-värde, men är inte säkert att ha ett fast schema.  
+* SQL-API fungerar med schemalösa-data. Typsystemet måste bindas dynamiskt. I samma uttryck kan ge olika typer när det granskades på olika dokument. Resultatet av en fråga är ett giltigt JSON-värde, men är inte säkert att vara av ett visst schema.
 
-* Azure Cosmos DB stöder endast strikt JSON-dokument. Det innebär att den och uttryck är begränsade till bara handlar om JSON-typer. Referera till den [JSON-specifikationen](http://www.json.org/) för mer information.  
+* Cosmos DB stöder endast strikt JSON-dokument. Det innebär att den och uttryck är begränsade till bara handlar om JSON-typer. Referera till den [JSON-specifikationen](http://www.json.org/) för mer information.  
 
-* En Cosmos DB-samling är en schemafri behållare för JSON-dokument. Relationer mellan dataentiteter inom och mellan dokument i en samling som implicit avbildas av inneslutning, inte av primärnyckel och sekundärnyckel viktiga relationer. Det här är en viktig aspekt vara värd att påpeka hänsyn till intra-dokumentet-kopplingar som beskrivs senare i den här artikeln.
+* En Cosmos-behållare är en schemafri behållare för JSON-dokument. Relationer mellan dataentiteter inom och mellan dokument i en behållare som implicit avbildas av inneslutning, inte av primärnyckel och sekundärnyckel viktiga relationer. Det här är en viktig aspekt vara värd att påpeka hänsyn till intra-dokumentet-kopplingar som beskrivs senare i den här artikeln.
 
 ## <a id="SelectClause"></a>SELECT-satsen
 
@@ -264,17 +264,19 @@ Låt oss titta på rollen `$1` här. Den `SELECT` satsen som behövs för att sk
 
 ## <a id="FromClause"></a>FROM-satsen
 
-Den från < from_specification >-satsen är valfri såvida inte källan filtreras eller projected senare i frågan. Läs om vilken syntax i [från syntax](sql-api-sql-query-reference.md#bk_from_clause). En fråga som `SELECT * FROM Families` anger att hela familjer samlingen är källan som att räkna upp. En särskild identifierare som rot kan användas för att representera samlingen istället för att använda namnet på samlingen. I följande lista innehåller de regler som tillämpas per fråga:
+Den från < from_specification >-satsen är valfri såvida inte källan filtreras eller projected senare i frågan. Läs om vilken syntax i [från syntax](sql-api-sql-query-reference.md#bk_from_clause). En fråga som `SELECT * FROM Families` anger att hela familjer behållaren är källan som att räkna upp. En särskild identifierare som rot kan användas för att representera behållaren istället för att använda behållarens namn.
 
-* Samlingen kan vara ett alias, till exempel `SELECT f.id FROM Families AS f` eller helt enkelt `SELECT f.id FROM Families f`. Här `f` motsvarar `Families`. `AS` är ett valfritt nyckelord för alias identifierare.  
+I följande lista innehåller de regler som tillämpas per fråga:
 
-* När ett alias, den ursprungliga källan kan inte bindas. Till exempel `SELECT Families.id FROM Families f` är syntaktiskt felaktig eftersom identifieraren ”familjer” inte kan matchas längre.  
+* Behållaren kan vara ett alias, till exempel `SELECT f.id FROM Families AS f` eller helt enkelt `SELECT f.id FROM Families f`. Här `f` är ett alias för `Families`. `AS` är ett valfritt nyckelord för alias identifierare.  
+
+* När ett alias, den ursprungliga källan kan inte bindas. Till exempel `SELECT Families.id FROM Families f` är syntaktiskt felaktig eftersom identifieraren ”familjer” kan inte lösas efter att ha ett alias.  
 
 * Alla egenskaper som måste referera till måste vara fullständigt kvalificerade. Om efterlevnad av strikt schema gäller detta för att undvika eventuella tvetydig bindningar. Därför `SELECT id FROM Families f` är syntaktiskt felaktig eftersom egenskapen `id` är inte bunden.
 
 ### <a name="get-subdocuments-using-from-clause"></a>Få underdokument med FROM-satsen
 
-Källan kan också reduceras till en mindre deluppsättning. Till exempel att räkna upp bara ett underträd i varje dokument kan i subroot sedan bli källan, som visas i följande exempel:
+Källan kan också väljas att vara en delmängd. Till exempel för att räkna upp underträd kan källan anges som visas i följande exempel:
 
 **Fråga**
 
@@ -316,7 +318,7 @@ Källan kan också reduceras till en mindre deluppsättning. Till exempel att r�
     ]
 ```
 
-Medan exemplet ovan används en matris som källa, ett objekt också skulle kunna användas som källa, vilket är vad som anges i följande exempel: någon giltig JSON-värde (inte odefinierat) som finns i källan betraktas som ska ingå i resultatet av frågan. Om några familjer som inte har en `address.state` värde, de ingår inte i frågeresultatet.
+Medan exemplet ovan används en matris som källa, kan ett objekt också användas som källa, som visas i följande exempel. Någon giltig JSON-värde (inte odefinierat) som finns i källan anses vara inkluderas i resultatet av frågan. Om några familjer som inte har en `address.state` värde, de har undantagits från frågeresultat.
 
 **Fråga**
 
@@ -335,7 +337,7 @@ Medan exemplet ovan används en matris som källa, ett objekt också skulle kunn
 ```
 
 ## <a id="WhereClause"></a>WHERE-satsen
-WHERE-satsen (**`WHERE <filter_condition>`**) är valfritt. Den anger de villkor som JSON-dokument som tillhandahålls av källan måste uppfylla för att vara med i resultatet. Valfritt JSON-dokument måste utvärderas de angivna villkoren ”true” om man ta hänsyn till resultatet. WHERE-satsen används av indexet lagret för att avgöra den absoluta minsta delmängden av källdokument som kan ingå i resultatet. Läs om vilken syntax i [var syntax](sql-api-sql-query-reference.md#bk_where_clause).
+WHERE-satsen (**`WHERE <filter_condition>`**) är valfritt. Den anger de villkor som JSON-dokument som tillhandahålls av källan måste uppfylla för att vara med i resultatet. Valfritt JSON-dokument måste utvärderas de angivna villkoren ”true” om man ta hänsyn till resultatet. WHERE-satsen används av indexet lagret för att avgöra den minsta delmängden av källdokument som kan ingå i resultatet. Läs om vilken syntax i [var syntax](sql-api-sql-query-reference.md#bk_where_clause).
 
 Följande fråga begär dokument som innehåller en namnegenskapen vars värde är `AndersenFamily`. Andra dokument som inte har en namnegenskap, eller där värdet inte motsvarar `AndersenFamily` utesluts. 
 
@@ -366,10 +368,10 @@ De följande binära operatorerna som stöds för närvarande och kan användas 
 |**Typ av frågeoperator**  |**Värden**  |
 |---------|---------|
 |Aritmetiska    |   +,-,*,/,%   |
-|Bitvis  |   |, &, ^, <<>>,, >>> (noll fyllning högerskift)      |
+|Bitvis  |   , &, ^, &lt; &lt;, &gt; &gt;, &gt; &gt; &gt; (noll fyllning högerskift)      |
 |Logiska   |   OCH, ELLER INTE      |
 |Jämförelse   |    =, !=, &lt;, &gt;, &lt;=, &gt;=, <>     |
-|Sträng  |  || (sammanfoga)       |
+|Sträng  |  \|\| (sammanfoga)       |
 
 Låt oss ta en titt på några frågor med de binära operatorerna.
 
@@ -925,7 +927,7 @@ Nyckelordet ÖVERSTA kan användas för att begränsa antalet värden från en f
 TOP kan användas med ett konstant värde (som visas ovan) eller med ett variabelvärde använda parameteriserade frågor. Mer information finns i parameterfrågor nedan.
 
 ## <a id="Aggregates"></a>Mängdfunktioner
-Du kan också utföra aggregeringar i den `SELECT` satsen. Mängdfunktioner utföra beräkningar på en uppsättning värden och returnera ett enstaka värde. Följande fråga returnerar till exempel antalet family dokument i samlingen.
+Du kan också utföra aggregeringar i den `SELECT` satsen. Mängdfunktioner utföra beräkningar på en uppsättning värden och returnera ett enstaka värde. Följande fråga returnerar till exempel antalet family dokument i behållaren.
 
 **Fråga**
 
@@ -992,7 +994,7 @@ Aggregeringar kan också utföras via resultatet av en matris iteration. Mer inf
 >
 
 ## <a id="OrderByClause"></a>ORDER BY-sats
-Som du kan inkludera ett valfritt Order By-sats vid fråga till i ANSI-SQL. Instruktionen kan inkludera ett valfritt argument Stig/fall för att ange vilken ordning där resultaten måste hämtas.
+LikJust som i ANSI SQL kan du inkludera ett valfritt Order By-sats vid fråga till. Instruktionen kan inkludera ett valfritt argument Stig/fall för att ange vilken ordning där resultaten måste hämtas.
 
 Här är till exempel en fråga som hämtar familjer i den ordning de fasta stadens namn.
 
@@ -1085,7 +1087,7 @@ En ny konstruktion har lagts till den **IN** nyckelord i SQL-API för att tillha
     ]
 ```
 
-Nu ska vi titta på en annan fråga som utför iteration underordnade objekt i samlingen. Observera skillnaden i utdata-matris. Det här exemplet delar upp `children` och plattar ut resultatet till en enskild matris.  
+Nu ska vi titta på en annan fråga som utför iteration underordnade objekt i behållaren. Observera skillnaden i utdata-matris. Det här exemplet delar upp `children` och plattar ut resultatet till en enskild matris.  
 
 **Fråga**
 
@@ -1159,7 +1161,7 @@ Du kan också utföra aggregering över resultatet av matrisen iteration. Till e
 ### <a id="Joins"></a>Kopplingar
 I en relationsdatabas är behovet av att ansluta över tabeller viktigt. Det är den logiska naturlig följd att utforma normaliserade scheman. Sätt som strider mot detta innehåller SQL API Avnormaliserade datamodellen schemafria dokument. Det här är den logiska motsvarigheten till en ”självkoppling”.
 
-Syntax som språket stöder är < from_source1 > JOIN < from_source2 > koppling... Anslut < from_sourceN >. Övergripande detta returnerar en uppsättning **N**- tupplar (tuppel med **N** värden). Varje tuppel har värden som produceras av iterera alla alias för samlingen över sina respektive uppsättningar. Det här är alltså en fullständig kryssprodukten av de mängder som deltar i kopplingen.
+Syntax som språket stöder är < from_source1 > JOIN < from_source2 > koppling... Anslut < from_sourceN >. Övergripande detta returnerar en uppsättning **N**- tupplar (tuppel med **N** värden). Varje tuppel har värden som produceras av iterera alla behållare alias över sina respektive uppsättningar. Det här är alltså en fullständig kryssprodukten av de mängder som deltar i kopplingen.
 
 I följande exempel visas hur kopplingssatsen fungerar. I följande exempel, resultatet är tom eftersom kryssprodukten av varje dokument från källa och en tom uppsättning är tom.
 
@@ -1321,17 +1323,17 @@ I nästa exempel finns ett ytterligare filter på `pet`. Detta omfattar inte all
 ```
 
 ## <a id="JavaScriptIntegration"></a>JavaScript-integrering
-Azure Cosmos DB är en programmeringsmodell för att köra JavaScript-baserade programlogik direkt på samlingarna som lagrade procedurer och utlösare. Detta möjliggör både:
+Cosmos DB är en programmeringsmodell för att köra JavaScript-baserade programlogik direkt på behållarna när det gäller lagrade procedurer och utlösare. Detta möjliggör både:
 
-* Möjlighet att göra högpresterande transaktionella CRUD-åtgärder och frågor mot dokument i en samling tack vare den djupgående integrationen av JavaScript-körning direkt i databasmotorn. 
-* En naturlig modellering av Kontrollflöde, variabel omfång och tilldelning och integrering av undantagshantering primitiver med databastransaktioner. Mer information om Azure Cosmos DB-stöd för JavaScript-integrering finns i dokumentationen för JavaScript-programmering på serversidan.
+* Möjlighet att göra högpresterande transaktionella CRUD-åtgärder och frågor mot dokument i en behållare tack vare den djupgående integrationen av JavaScript-körning direkt i databasmotorn. 
+* En naturlig modellering av Kontrollflöde, variabel omfång och tilldelning och integrering av undantagshantering primitiver med databastransaktioner. Mer information om Cosmos DB-stöd för JavaScript-integrering finns i dokumentationen för JavaScript-programmering av serversidan.
 
 ### <a id="UserDefinedFunctions"></a>Användardefinierade funktioner (UDF)
 SQL-API har stöd för användardefinierade funktioner (UDF, User) tillsammans med de typer som redan har definierats i den här artikeln. I synnerhet stöds skalära UDF: er där utvecklare kan skicka in noll eller flera argument och returnerar ett enda argument resultat tillbaka. Var och en av de här argumenten kontrolleras för att du är juridiska JSON-värden.  
 
 SQL-syntax utökas så att den stöder anpassad programlogik med hjälp av dessa användardefinierade funktioner. UDF: er kan registreras med SQL-API och sedan referera till som en del av en SQL-fråga. De UDF: er är i själva verket exquisitely utformade anropas av frågor. Följd att det här alternativet har UDF: er inte åtkomst till context-objektet som har andra JavaScript typer (lagrade procedurer och utlösare). Eftersom frågorna i skrivskyddat läge, kan de köras på primära eller på sekundära repliker. Därför är UDF: er avsedda att köras på sekundära repliker till skillnad från andra typer av JavaScript.
 
-Nedan visas ett exempel på hur en UDF kan registreras för Cosmos DB-databasen, särskilt under en dokumentsamling.
+Nedan visas ett exempel på hur en UDF kan registreras för Cosmos-databasen, särskilt under en behållare för dokumentet.
 
 ```javascript
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction
@@ -1456,7 +1458,7 @@ Cosmos DB och ritar parallels med JavaScript-operatorer och dess utvärdering se
 
 I SQL-API, är till skillnad från traditionella SQL typer av värden ofta inte kända tills värdena hämtas från databasen. För att effektivt köra frågor, har de flesta av operatörerna strikta krav. 
 
-SQL API utföra inte implicit konvertering, till skillnad från JavaScript. Exempelvis kan en fråga som `SELECT * FROM Person p WHERE p.Age = 21` matchar dokument som innehåller en egenskap för ålder vars värde är 21. Andra dokument vars ålder-egenskap stämmer med strängen ”21” eller andra eventuellt oändlig variationer som ”021”, ”21.0”, ”0021”, ”00021”, etc. matchas inte. Detta är däremot att JavaScript där strängvärden är implicit omvandlas till siffror (baserat på operator, t.ex.: ==). Det här alternativet är avgörande för att effektivt index som matchar i SQL-API: et. 
+SQL API utföra inte implicit konvertering, till skillnad från JavaScript. Exempelvis kan en fråga som `SELECT * FROM Person p WHERE p.Age = 21` matchar dokument som innehåller en egenskap för ålder vars värde är 21. Andra dokument vars ålder-egenskap stämmer med strängen ”21” eller andra eventuellt oändlig variationer som ”021”, ”21.0”, ”0021”, ”00021”, etc. matchas inte. Detta är till skillnad från JavaScript där strängvärden är implicit konvertera till tal (baserat på operator, t.ex.: ==). Det här alternativet är avgörande för att effektivt index som matchar i SQL-API: et. 
 
 ## <a name="parameterized-sql-queries"></a>Parametriserade SQL-frågor
 Cosmos DB har stöd för frågor med parametrar som är uttryckt i med vanliga \@ notation. Parametriserad SQL ger stabil hantering av och undantagstecken användarindata, förhindrar oavsiktlig exponering av data via SQL-inmatning. 
@@ -1806,7 +1808,7 @@ Spatial funktioner kan användas för att utföra närhetsförfrågningar mot sp
     }]
 ```
 
-Mer information om geospatialt stöd i Cosmos DB finns i [arbeta med geospatiala data i Azure Cosmos DB](geospatial.md). Avrundar spatial funktioner och SQL-syntax för Cosmos DB. Nu ska vi ta en titt på hur LINQ-frågor till fungerar och hur det interagerar med syntaxen vi har sett hittills.
+Mer information om stöd för geospatiala i Cosmos DB finns i [arbeta med geospatiala data i Cosmos DB](geospatial.md). Avrundar spatial funktioner och SQL-syntax för Cosmos DB. Nu ska vi ta en titt på hur LINQ-frågor till fungerar och hur det interagerar med syntaxen vi har sett hittills.
 
 ## <a id="Linq"></a>LINQ till SQL-API
 LINQ är en .NET-programmeringsmodell som uttrycker beräkning som frågor på strömmar av objekt. Cosmos DB innehåller ett bibliotek för klientsidan gränssnittet med LINQ genom att underlätta konvertering mellan JSON och .NET-objekt och mappning från en delmängd av LINQ-frågor till Cosmos DB-frågor. 
@@ -2138,14 +2140,14 @@ I en kapslad fråga tillämpas den inre frågan på varje element i samlingen yt
 ## <a id="ExecutingSqlQueries"></a>Köra SQL-frågor
 Cosmos DB exponerar resurser via ett REST-API som kan anropas av alla språk som stöder HTTP/HTTPS-förfrågningar. Cosmos DB erbjuder också programmeringsbibliotek för flera populära språk som .NET, Node.js, JavaScript och Python. REST API och de olika bibliotek alla stöd för frågor via SQL. .NET SDK stöder LINQ fråga utöver SQL.
 
-I följande exempel visas hur du skapar en fråga och skickar det mot ett Cosmos DB-databaskonto.
+I följande exempel visas hur du skapar en fråga och skickar det mot ett Cosmos-konto.
 
 ### <a id="RestAPI"></a>REST-API
-Cosmos DB erbjuder en öppen RESTful-programmeringsmiljö via HTTP. Databaskonton kan etableras med hjälp av en Azure-prenumeration. Cosmos DB-resursmodell består av en uppsättning resurser under ett databaskonto som är adresserbara via en logisk och stabil URI. En uppsättning resurser kallas för ett flöde i det här dokumentet. Ett databaskonto består av en uppsättning databaser, som innehåller flera samlingar, som var och en av vilka i sin tur innehåller dokument, UDF: er och andra typer av resurser.
+Cosmos DB erbjuder en öppen RESTful-programmeringsmiljö via HTTP. Cosmos-konton kan etableras med hjälp av en Azure-prenumeration. Cosmos DB-resursmodell består av en uppsättning resurser under ett Cosmos-konto som är adresserbara via en logisk och stabil URI. En uppsättning resurser kallas för ett flöde i det här dokumentet. Ett Cosmos-konto består av en uppsättning databaser, som innehåller flera behållare, var och en av vilka i sin tur innehåller dokument, UDF: er och andra typer av resurser.
 
 Grundläggande interaction modellen med dessa resurser är via HTTP-verb som GET, PUT, POST och ta bort med sina standard tolkning. Verbet POST används för att skapa en ny resurs, för att köra en lagrad procedur eller för att utfärda en Cosmos DB-fråga. Frågorna är alltid skrivskyddade åtgärder med inga sidoeffekter.
 
-I följande exempel visas en POST för en SQL API-fråga som görs mot en samling som innehåller två exempeldokument vi har granskat hittills. Frågan har ett enkelt filter på namnegenskapen JSON. Observera användningen av den `x-ms-documentdb-isquery` och Content-Type: `application/query+json` rubriker för att ange att åtgärden en fråga.
+I följande exempel visas en POST för en SQL API-fråga som görs mot en behållare som innehåller två exempeldokument vi har granskat hittills. Frågan har ett enkelt filter på namnegenskapen JSON. Observera användningen av den `x-ms-documentdb-isquery` och Content-Type: `application/query+json` rubriker för att ange att åtgärden en fråga.
 
 **Förfrågan**
 
@@ -2271,11 +2273,11 @@ Det andra exemplet visar en mer komplex fråga som returnerar flera resultat fr�
 
 Om en frågas resultat kan inte ryms inom en enda resultatsida REST-API: et och returnerar sedan ett fortsättningstoken via den `x-ms-continuation-token` svarshuvudet. Klienter kan sidbryta resultat genom att inkludera rubriken i efterföljande resultat. Antalet resultat per sida kan också styras via den `x-ms-max-item-count` nummer rubrik. Om den angivna frågan har en Aggregeringsfunktion som `COUNT`, och sedan sidan kan returnera en delvis aggregerat värde resultatsidan. Klienterna måste utföra en andra nivån aggregering över dessa resultat för att skapa de slutliga resultaten, till exempel, summera över antal returneras i de enskilda sidorna att returnera det totala antalet.
 
-Hantera Datapolicy för konsekvens för frågor med den `x-ms-consistency-level` rubrik som alla REST API-begäranden. För sessionskonsekvens, du behöver också skapa ett eko av senast `x-ms-session-token` Cookie-huvud i query-fråga. Den efterfrågade samlingens indexeringsprincip kan också påverka konsekvens i frågeresultaten. Med standardvärdet indexering principinställningar, för samlingar indexet är alltid uppdaterad med innehållet i dokumentet och frågeresultat matcha konsekvens som valts för data. Om indexprincip restriktiva till Lazy, kan frågor returnera inaktuella resultat. Mer information finns i [Azure Cosmos DB-Konsekvensnivåer][consistency-levels].
+Hantera Datapolicy för konsekvens för frågor med den `x-ms-consistency-level` rubrik som alla REST API-begäranden. För sessionskonsekvens, du behöver också skapa ett eko av senast `x-ms-session-token` Cookie-huvud i query-fråga. Den efterfrågade behållarens indexeringsprincip kan också påverka konsekvens i frågeresultaten. Med standardvärdet indexering principinställningar, för behållare indexet är alltid uppdaterad med innehållet i dokumentet och frågeresultat matcha konsekvens som valts för data. Om indexprincip restriktiva till Lazy, kan frågor returnera inaktuella resultat. Mer information finns i [Cosmos DB-Konsekvensnivåer][consistency-levels].
 
-Om den konfigurera indexprincip på samlingen inte stöder den angivna frågan, returnerar 400 ”Felaktig begäran” i Azure Cosmos DB-servern. Detta returneras för intervallfrågor mot sökvägar som konfigurerats för hash (likhet) sökningar och för sökvägar som uttryckligen är undantagen från indexering. Den `x-ms-documentdb-query-enable-scan` huvudet kan anges för att tillåta frågan för att utföra en genomsökning när ett index inte är tillgänglig.
+Om den konfigurera indexprincip för behållaren inte stöder den angivna frågan, returnerar 400 ”Felaktig begäran” i Cosmos DB-servern. Detta returneras för intervallfrågor mot sökvägar som konfigurerats för hash (likhet) sökningar och för sökvägar som uttryckligen är undantagen från indexering. Den `x-ms-documentdb-query-enable-scan` huvudet kan anges för att tillåta frågan för att utföra en genomsökning när ett index inte är tillgänglig.
 
-Du kan få detaljerade mätvärden om frågekörning genom att ange `x-ms-documentdb-populatequerymetrics` sidhuvud till `True`. Mer information finns i [SQL-fråga mått för Azure Cosmos DB](sql-api-sql-query-metrics.md).
+Du kan få detaljerade mätvärden om frågekörning genom att ange `x-ms-documentdb-populatequerymetrics` sidhuvud till `True`. Mer information finns i [SQL-fråga mått för Cosmos DB](sql-api-sql-query-metrics.md).
 
 ### <a id="DotNetSdk"></a>SDK FÖR C# (.NET)
 .NET SDK stöder både LINQ och SQL fråga. I följande exempel visas hur du utför enkla filterfrågan introducerade tidigare i det här dokumentet.
@@ -2364,12 +2366,12 @@ I nästa exempel visas kopplingar, uttryckt genom LINQ SelectMany.
 
 .NET-klienten går automatiskt igenom alla sidor i frågeresultaten i foreach-block som ovan. Frågealternativ som presenteras i REST API-avsnitt är också tillgängliga i .NET SDK med hjälp av den `FeedOptions` och `FeedResponse` klasser i metoden CreateDocumentQuery. Antalet sidor kan kontrolleras med hjälp av den `MaxItemCount` inställningen. 
 
-Du kan också uttryckligen styra sidindelning genom att skapa `IDocumentQueryable` med hjälp av den `IQueryable` objekt sedan genom att läsa den` ResponseContinuationToken` värden och skicka dem tillbaka som `RequestContinuationToken` i `FeedOptions`. `EnableScanInQuery` kan ställas in för att aktivera genomsökningar när frågan inte stöds av den konfigurera indexprincip. Partitionerade samlingar kan du använda `PartitionKey` att köra frågan mot en enda partition (även om Cosmos DB automatiskt extrahera detta från frågetexten) och `EnableCrossPartitionQuery` att köra frågor som behöver köras mot flera partitioner. 
+Du kan också uttryckligen styra sidindelning genom att skapa `IDocumentQueryable` med hjälp av den `IQueryable` objekt sedan genom att läsa den` ResponseContinuationToken` värden och skicka dem tillbaka som `RequestContinuationToken` i `FeedOptions`. `EnableScanInQuery` kan ställas in för att aktivera genomsökningar när frågan inte stöds av den konfigurera indexprincip. Du kan använda för partitionerad behållare `PartitionKey` att köra frågan mot en enda partition (även om Cosmos DB automatiskt extrahera detta från frågetexten) och `EnableCrossPartitionQuery` att köra frågor som behöver köras mot flera partitioner. 
 
-Referera till [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-documentdb-net) för fler exempel som innehåller frågor. 
+Referera till [Cosmos DB .NET-exempel](https://github.com/Azure/azure-documentdb-net) för fler exempel som innehåller frågor. 
 
 ### <a id="JavaScriptServerSideApi"></a>JavaScript API för serversidan
-Cosmos DB är en programmeringsmodell för att köra JavaScript-baserade programlogik direkt på samlingar med lagrade procedurer och utlösare. JavaScript-logik som registrerats på en samlingsnivå kan sedan utfärda databasåtgärder i åtgärderna på dokumenten i den givna samlingen. De här åtgärderna är omslutna i omgivande ACID-transaktioner.
+Cosmos DB är en programmeringsmodell för att köra JavaScript-baserade programlogik direkt på de behållare med hjälp av lagrade procedurer och utlösare. JavaScript-logik som registrerats på en behållare kan sedan utfärda databasåtgärder i åtgärderna på dokumenten i den angivna behållaren. De här åtgärderna är omslutna i omgivande ACID-transaktioner.
 
 I följande exempel visas hur du använder den queryDocuments i JavaScript-server API för att göra förfrågningar från insidan lagrade procedurer och utlösare.
 

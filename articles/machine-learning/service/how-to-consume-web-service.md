@@ -9,14 +9,14 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: larryfr
 ms.date: 10/30/2018
-ms.openlocfilehash: 2af954f14f7113a1f6214bf5e9235933312bbf02
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 0ad39048a6b175a30ac7c5cdc346d0858c3719ef
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51347712"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621878"
 ---
-# <a name="how-to-consume-an-azure-ml-model-deployed-as-a-web-service"></a>Hur du använder en Azure ML-modell som distribueras som en webbtjänst
+# <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Använd en Azure Machine Learning-modell som distribueras som en webbtjänst
 
 Distribuera en Azure Machine Learning-modell som en webbtjänst skapas ett REST-API. Du kan skicka data till den här API: et och få förutsägelser som returneras av modellen. I det här dokumentet lär du dig hur du skapar klienter för en web service med hjälp av C#, Go, Java och Python.
 

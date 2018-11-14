@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/12/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9c206ac7a13ea222a01cac78c447c0764f753517
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ee6d7735a2983f642eff82a7dabe036af100e60e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634328"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622677"
 ---
 # <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>Självstudie: Anpassa användargränssnittet i dina program i Azure Active Directory B2C
 
@@ -64,9 +64,11 @@ Du skapar ett Azure storage-konto och en behållare och placera grundläggande H
  Azure AD B2C-kod i en webbläsare använder en modern och standard-metod för att läsa in anpassat innehåll från en URL som du anger i en princip. Cross-origin resource sharing (CORS) tillåter begränsade resurser på en webbsida att begäras från andra domäner.
 
 1. I menyn, Välj **CORS**.
-2. För **tillåtna ursprung**, **tillåtna huvuden**, och **exponerade rubriker**, ange `your-tenant-name.b2clogin.com`. Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient. Till exempel `fabrikam.b2clogin.com`.
-3. För **tillåtna verb**, markerar du båda `GET` och `OPTIONS`.
-4. För **maximal ålder**, ange 200.
+2. För **tillåtna ursprung**, ange `your-tenant-name.b2clogin.com`. Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient. Till exempel `fabrikam.b2clogin.com`.
+3. För **tillåtna metoder**, markerar du båda `GET` och `OPTIONS`.
+4. För **tillåtna huvuden**, anger du en asterisk (*).
+5. För **exponerade rubriker**, anger du en asterisk (*).
+6. För **maximal ålder**, ange 200.
 
     ![Aktivera CORS](./media/tutorial-customize-ui/enable-cors.png)
 

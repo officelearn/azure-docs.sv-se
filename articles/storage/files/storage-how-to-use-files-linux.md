@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: bbd250e9ee987403d670b2605fdb8deda8c19092
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 4b844fe50623782f23c1819c14eb7626eb9506cf
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782066"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614961"
 ---
 # <a name="use-azure-files-with-linux"></a>Använda Azure Files med Linux
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Linux-distributioner som använder den [SMB kernel-klienten](https://wiki.samba.org/index.php/LinuxCIFS). Den här artikeln visar två sätt att montera en Azure-filresurs: på begäran med den `mount` kommandot och på Start genom att skapa en post i `/etc/fstab`.
@@ -117,7 +117,7 @@ ms.locfileid: "43782066"
     fi
     ```
 
-4. **Ändra behörigheterna för filen autentiseringsuppgifter så att endast rot kan läsa eller ändra filen.** Ange behörigheter för filen så att endast rot kan komma åt är viktigt att eftersom lagringskontonyckeln är i stort sett ett överordnad administratörslösenord för storage-konto, så att användare med lägre behörighet kan inte läsa nyckeln till lagringskontot.   
+4. **Ändra behörigheterna för filen autentiseringsuppgifter så att endast rot kan läsa eller ändra filen.** Ange behörigheter för filen så att endast rot kan komma åt är viktigt att eftersom lagringskontonyckeln är i stort sett ett överordnad administratörslösenord för storage-konto, så att användare med lägre behörighet inte kan hämta nyckeln till lagringskontot.   
 
     ```bash
     sudo chmod 600 /etc/smbcredentials/<storage-account-name>.cred

@@ -1,6 +1,6 @@
 ---
 title: Resursgränser för Azure SQL Database - logisk server | Microsoft Docs
-description: Den här artikeln innehåller en översikt över Azure SQL Database-resursgränser för enskilda databaser och pooler databaser med elastiska pooler. Den innehåller också information om vad som händer när de resursbegränsningar nått eller överskridit.
+description: Den här artikeln innehåller en översikt över logiska Azure SQL Database-servern resursgränser för enskilda databaser och pooler databaser med elastiska pooler. Den innehåller också information om vad som händer när de resursbegränsningar nått eller överskridit.
 services: sql-database
 ms.service: sql-database
 ms.subservice: ''
@@ -11,15 +11,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan,moslake
 manager: craigg
-ms.date: 09/19/2018
-ms.openlocfilehash: b48c090cc67d4557140b5734f1a5e1f763b271ab
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 11/13/2018
+ms.openlocfilehash: a423f5c112faa615b7888dacfa20f9ff8f6a595a
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829571"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51620906"
 ---
-# <a name="sql-database-resource-limits-for-single-and-pooled-databases-on-a-logical-server"></a>SQL Database-resursgränser för enkel och delade databaser på en logisk server 
+# <a name="sql-database-resource-limits-for-single-and-pooled-databases"></a>SQL Database-resursgränser för enkel och delade databaser
 
 Den här artikeln innehåller en översikt över SQL Database-resursgränser för enkel och delade databaser på en logisk server. Den innehåller också information om vad som händer när de resursbegränsningar nått eller överskridit.
 
@@ -35,18 +35,17 @@ Den här artikeln innehåller en översikt över SQL Database-resursgränser fö
 | Maxantal servrar per prenumeration i valfri region | 200 |  
 | DTU / eDTU kvot per server | 54,000 |  
 | vCore-kvot per server/instans | 540 |
-| Högsta antal pooler per server | begränsas av antalet dtu: er eller v-kärnor |
+| Högsta antal pooler per server | Begränsas av antalet dtu: er eller v-kärnor. Till exempel om varje pool har 1000 dtu: er, sedan en server kan stöda 54 pooler.|
 ||||
 
 > [!NOTE]
-> Om du vill ha mer DTU-kvot /eDTU, vCore kvot eller fler servrar än standardvärdet, kan du skicka en ny supportbegäran i Azure-portalen för prenumerationen med ärendetypen ”kvot”. DTU / eDTU-kvot och databas gränsen per server begränsar antalet elastiska pooler per server. 
-
+> Om du vill ha mer DTU-kvot /eDTU, vCore kvot eller fler servrar än standardvärdet, kan du skicka en ny supportbegäran i Azure-portalen för prenumerationen med ärendetypen ”kvot”. DTU / eDTU-kvot och databas gränsen per server begränsar antalet elastiska pooler per server.
 > [!IMPORTANT]
 > När antalet databaser som närmar sig gränsen per logisk server, kan följande inträffa:
 > - Öka fördröjning vid körning av frågor mot huvuddatabasen.  Detta inkluderar vyer av Resursstatistik, till exempel sys.resource_stats.
 > - Ökad svarstid i hanteringsåtgärder och rendering portal översiktsvyer som rör uppräkning av databaser på servern.
 
-## <a name="what-happens-when-database-resource-limits-are-reached"></a>Vad händer när databasen resource har nått?
+## <a name="what-happens-when-database-resource-limits-are-reached"></a>Vad händer när databasen resource har nått
 
 ### <a name="compute-dtus-and-edtus--vcores"></a>Compute (dtu: er och edtu: er / virtuella kärnor)
 
@@ -66,11 +65,12 @@ När den påträffar hög användningen är minskning alternativen:
 - Om databasen är i en elastisk pool, kan sedan också databasen flyttas utanför poolen så att dess lagringsutrymme inte delas med andra databaser.
 - Komprimera en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md)
 
-### <a name="sessions-and-workers-requests"></a>Sessioner och arbetare (begäranden) 
+### <a name="sessions-and-workers-requests"></a>Sessioner och arbetare (begäranden)
 
-Det maximala antalet sessioner och arbetare bestäms av tjänstnivån och beräkna storleken (dtu: er och edtu: er). Nya begäranden avvisas när sessionen eller arbetare har nått och klienterna får ett felmeddelande. Antalet anslutningar som är tillgängliga kan styras av programmet, är antalet samtidiga arbetare ofta svårare att beräkna och styr. Detta gäller särskilt under belastningsperioder när databasen resource har nått och arbetare växer på grund av längre körning av frågor. 
+Det maximala antalet sessioner och arbetare bestäms av tjänstnivån och beräkna storleken (dtu: er och edtu: er). Nya begäranden avvisas när sessionen eller arbetare har nått och klienterna får ett felmeddelande. Antalet anslutningar som är tillgängliga kan styras av programmet, är antalet samtidiga arbetare ofta svårare att beräkna och styr. Detta gäller särskilt under belastningsperioder när databasen resource har nått och arbetare växer på grund av längre körning av frågor.
 
 När den påträffar hög användning för sessionen eller arbete, är minskning alternativen:
+
 - Öka tjänsten nivå eller beräkna storleken på databasen eller den elastiska poolen. Se [skala resurser för enkel databas](sql-database-single-database-scale.md) och [skala elastisk poolresurser](sql-database-elastic-pool-scale.md).
 - Optimera frågor för att minska resursanvändningen för varje fråga om orsaken till ökad worker användningen är på grund av konkurrens om beräkningsresurser. Mer information finns i [fråga justering/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 

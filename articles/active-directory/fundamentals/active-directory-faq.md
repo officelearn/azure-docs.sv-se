@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/14/2017
+ms.date: 11/12/2018
 ms.author: lizross
-ms.openlocfilehash: d58e5816c3b0e7c951c7d6bcfc6bfe4d0789f47a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b004968fc53e368497632cb18d6bb7a254d347e6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233804"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621759"
 ---
 # <a name="azure-active-directory-faq"></a>Vanliga frågor och svar om Azure Active Directory
 Azure Active Directory (Azure AD) är en omfattande IDaaS-lösning (Identity as a Service) som omfattar alla aspekter relaterade till identiteter, åtkomsthantering och säkerhet.
@@ -171,7 +171,7 @@ Mer information finns i:
 * Direkt inloggning till federerade appar
 * Djuplänkar till federerade, lösenordsbaserade eller befintliga appar
 
-Mer information finns i [Distribuera Azure AD-integrerade program till användare](../manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
+Mer information finns i [slutanvändaren upplevelser för program](../manage-apps/end-user-experiences.md).
 
 - - -
 **F: På vilka sätt stöder Azure AD autentisering och enkel inloggning (SSO) i program?**
@@ -182,7 +182,7 @@ Mer information finns i:
 
 * [Autentiseringsscenarier för Azure AD](../develop/authentication-scenarios.md)
 * [Active Directory-autentiseringsprotokoll](https://msdn.microsoft.com/library/azure/dn151124.aspx)
-* [Hur fungerar enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)
+* [Enkel inloggning för program i Azure AD](../manage-apps/what-is-single-sign-on.md)
 
 - - -
 **F: Kan jag lägga till program som jag kör lokalt?**

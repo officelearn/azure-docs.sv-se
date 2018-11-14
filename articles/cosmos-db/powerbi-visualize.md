@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: 90f5caa13bf95fb5298a06bda5a03e9bc17bcb1a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 782de7dc6e099fade0d2f1099ac19b9398562023
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945186"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622099"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualisera data med Azure Cosmos DB med hjälp av anslutningsprogrammet för Power BI
 
@@ -76,11 +76,11 @@ Du hämtar vulkanen data från Azure Cosmos DB-kontot och visualisera data i en 
 
 5. På den **Förhandsgranska Anslutningsapp** klickar du på **Fortsätt**. Den **Azure Cosmos DB** fönster visas.
 
-6. Ange Azure Cosmos DB-konto slutpunkts-URL du vill hämta data från enligt nedan och klicka sedan på **OK**. Om du vill använda ditt eget konto, du kan hämta URL: en URI som visas i den **[nycklar](manage-account.md#keys)** -bladet i Azure-portalen. Du kan också ange databasnamn samlingsnamnet eller använda Navigatören för att välja den databasen och samlingen att identifiera varifrån data kommer från.
+6. Ange Azure Cosmos DB-konto slutpunkts-URL du vill hämta data från enligt nedan och klicka sedan på **OK**. Om du vill använda ditt eget konto, du kan hämta URL: en URI som visas i den **nycklar** -bladet i Azure-portalen. Du kan också ange databasnamn samlingsnamnet eller använda Navigatören för att välja den databasen och samlingen att identifiera varifrån data kommer från.
    
-7. Om du ansluter till den här slutpunkten för första gången uppmanas du kontonyckeln. För ditt eget konto kan du hämta nyckeln från den **primärnyckel** rutan den **[skrivskyddade nycklar](manage-account.md#keys)** -bladet i Azure-portalen. Ange rätt nyckel och klickar sedan på **Connect**.
+7. Om du ansluter till den här slutpunkten för första gången uppmanas du kontonyckeln. För ditt eget konto kan du hämta nyckeln från den **primärnyckel** rutan den **skrivskyddade nycklar** -bladet i Azure-portalen. Ange rätt nyckel och klickar sedan på **Connect**.
    
-   Vi rekommenderar att du använder den skrivskyddade nyckeln när du skapar rapporter. Detta förhindrar onödig exponering av huvudnyckeln för potentiella säkerhetsrisker. Skrivskyddade nyckeln är tillgänglig från den [nycklar](manage-account.md#keys) -bladet i Azure-portalen. 
+   Vi rekommenderar att du använder den skrivskyddade nyckeln när du skapar rapporter. Detta förhindrar onödig exponering av huvudnyckeln för potentiella säkerhetsrisker. Skrivskyddade nyckeln är tillgänglig från den **nycklar** -bladet i Azure-portalen. 
     
 8. När kontot har anslutit den **Navigator** visas fönstret. Den **Navigator** visar en lista över databaser under kontot.
 

@@ -12,24 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2018
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.openlocfilehash: 3a9f27a92a4bc808ff9bcf04b66523a92f1bcf03
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 3fe268b6491a2a3cc1237173506ef5a91beb7d26
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357476"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625089"
 ---
-# <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>Så här väljer du vilken programtyp som du använder när du lägger till ett program
+# <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Välja vilken typ av program när du lägger till ett program i Azure Active Directory
+Läs mer om de fyra typerna av program som du kan lägga till Azure Active Directory (AD Azure). När du lägger till ett program i Azure Active Directory, uppmanas du att välja en av fyra programtypen. 
 
-Den här artikeln hjälper dig att förstå de fyra huvudsakliga typerna av program som du kan integrera med Azure AD:
-
-* Vad som stöds av var och en av dem.
-* Varför du kan välja vilket program
-* Så här konfigurerar du egenskaper för dessa program core, t.ex. hur användare kan **etablerats**, eller vad du **enkel inloggning** teknik för att använda.
-
-## <a name="supported-application-types-in-azure-ad"></a>Typer av program som stöds i Azure AD
+## <a name="what-are-the-types-of-applications"></a>Vilka är typerna av program?
 
 Azure AD stöder fyra huvudsakliga programtyper som du kan lägga till med hjälp av den **Lägg till** funktionen finns under **företagsprogram**. Exempel på dessa är:
 
@@ -41,7 +36,7 @@ Azure AD stöder fyra huvudsakliga programtyper som du kan lägga till med hjäl
 
 -   **Icke-Galleriprogram** – Använd dina egna program! Alla webblänk som du vill eller alla program som återger ett fält för användarnamn och lösenord, har stöd för SAML- eller OpenID Connect-protokoll eller stöder SCIM som du vill integrera för enkel inloggning med Azure AD.
 
-## <a name="features-and-capabilities-supported-by-all-the-preceding-application-types"></a>Funktioner som stöds av de föregående programtyperna
+## <a name="features-and-capabilities-supported-by-the-application-types"></a>Funktioner som stöds av programtyperna
 
 Följande funktioner stöds av någon av de föregående fyra programtyperna i Azure AD:
 

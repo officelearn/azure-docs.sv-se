@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f6f94f12fc0a639743f310638af0f0b6ac0d2932
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 51bdc228e27d643cfda75d1e21bc8ea45fe09e3c
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958161"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613298"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Loggaviseringar i Azure Monitor
-Den här artikeln innehåller information om aviseringar är en av typerna av aviseringar som stöds i den [Azure Alerts](monitoring-overview-unified-alerts.md) och Tillåt användare att använda Azures analysplattform som bas för aviseringar.
+Den här artikeln innehåller information om aviseringar är en av typerna av aviseringar som stöds i den [Azure Alerts](monitoring-overview-alerts.md) och Tillåt användare att använda Azures analysplattform som bas för aviseringar.
 
 Log aviseringen består av Loggsökning regler som har skapats för [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) eller [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). Läs mer om användningen i [skapar loggaviseringar i Azure](alert-log.md)
 
@@ -120,6 +120,6 @@ Priser för loggvarningar anges på den [priser för Azure Monitor](https://azur
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [skapa i loggaviseringar i Azure](alert-log.md).
 * Förstå [webhooks i loggaviseringar i Azure](monitor-alerts-unified-log-webhook.md).
-* Lär dig mer om [Azure-aviseringar](monitoring-overview-unified-alerts.md).
+* Lär dig mer om [Azure-aviseringar](monitoring-overview-alerts.md).
 * Läs mer om [Application Insights](../application-insights/app-insights-analytics.md).
 * Läs mer om [Log Analytics](../log-analytics/log-analytics-queries.md).    

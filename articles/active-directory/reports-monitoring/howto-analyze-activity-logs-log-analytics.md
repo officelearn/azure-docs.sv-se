@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 09/28/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d3809c2615c1d73d0c4c80bafba77614aac6b17e
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 2f0f5341ba6818f375d463638979c68689519227
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395690"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624207"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-log-analytics-preview"></a>Analysera Azure AD-aktivitetsloggar med Log Analytics (förhandsversion)
 
@@ -97,7 +97,7 @@ Du kan också hämta färdiga Log Analytics-vyerna för Azure AD activity logs. 
 * **Inloggningar händelser**: den här vyn visar de mest relevanta rapporter som rör övervakning inloggningsaktivitet, till exempel inloggningar efter program, användare, enhet, samt en sammanfattningsvy spåra antalet inloggningar över tid.
 * **Användare utför godkänna**: den här vyn visar rapporter som rör användargodkännande, t.ex. samtycke ger av användaren, inloggningar efter användare som givit medgivande samt inloggningar av program för alla medgivande-baserade program. 
 
-Lär dig hur du [installera och använda Log Analytics-vyer för Azure AD activity logs](howto-install-use-log-analytics-views.md). 
+Lär dig hur du [installerar och använder Log Analytics-vyer för Azure AD-aktivitetsloggar](howto-install-use-log-analytics-views.md). 
 
 
 ## <a name="next-steps"></a>Nästa steg

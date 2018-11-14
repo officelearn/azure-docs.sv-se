@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: f7fa4c9b0926d796c0c12b39d0056fe72e4028c7
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 3dac1d18a021c8d6c1b6e3db370c60b9aa782f1c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349032"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625359"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Box för automatisk användaretablering
 
@@ -55,7 +55,7 @@ Innan du konfigurerar och aktiverar etableringstjänsten, måste du bestämma vi
 Den **Box > användare och grupper** fliken i Azure-portalen kan du ange vilka användare och grupper bör ha åtkomst till Box. Tilldelningen av en användare eller grupp gör de följande händelser:
 
 * Azure AD tillåter den tilldelade användaren (antingen genom att direkt tilldelning eller gruppmedlemskap) för att autentisera till Box. Om en användare inte har tilldelats Azure AD tillåter inte dem att logga in till Box och returnerar ett fel på sidan för Azure AD.
-* En appanel för Box har lagts till i användarens [startprogrammet](../manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
+* En appanel för Box har lagts till i användarens [startprogrammet](../manage-apps/end-user-experiences.md).
 * Om automatisk etablering är aktiverat sedan läggs/tilldelade användare eller grupper till etablering kön som ska etableras automatiskt.
   
   * Om bara användarobjekt har konfigurerats för att etableras, sedan alla direkt tilldelade användare är placerade i etablering kön och alla användare som är medlemmar i några tilldelade grupper är placerade i etablering kön. 

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: 4aa5e4ff46eeaa4e8d8c723f626dd1f1193fd12a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: cc7bd6bab76ee6617a2594cb0b84ace3f6f3dafc
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281616"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622133"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db"></a>Globala data-distribution med Azure Cosmos DB
 
@@ -36,7 +36,7 @@ Många program kan dra nytta prestandaförbättringar som levereras med möjligh
 
 **Skapa appar med hög tillgänglighet**: köra en databas i flera områden ökar tillgängligheten för databasen. Om en region är tillgänglig, hanterar automatiskt programförfrågningar i andra regioner. Azure Cosmos DB erbjuder 99,999% läsa och skriva tillgänglighet för databaser i flera regioner.
 
-**Affärskontinuitet under regionala avbrott**: Azure Cosmos DB stöder [automatisk redundans](how-to-manage-database-account.md#enable-automatic-failover-for-your-cosmos-account) under ett regionalt strömavbrott. Under ett regionalt strömavbrott, är det dessutom Cosmos DB som fortsätter att upprätthålla appens svarstid, tillgänglighet, konsekvens och dataflöde serviceavtal. För att säkerställa att hela programmet har hög tillgänglighet, erbjuder Azure Cosmos DB manuell redundans API för att simulera ett regionalt strömavbrott. Genom att använda detta API kan utföra du regelbundna business continuity tester.
+**Affärskontinuitet under regionala avbrott**: Azure Cosmos DB stöder [automatisk redundans](how-to-manage-database-account.md#automatic-failover) under ett regionalt strömavbrott. Under ett regionalt strömavbrott, är det dessutom Cosmos DB som fortsätter att upprätthålla appens svarstid, tillgänglighet, konsekvens och dataflöde serviceavtal. För att säkerställa att hela programmet har hög tillgänglighet, erbjuder Azure Cosmos DB manuell redundans API för att simulera ett regionalt strömavbrott. Genom att använda detta API kan utföra du regelbundna business continuity tester.
 
 **Global läsa och skriva skalbarhet**: med flera huvudservrar kapacitet kan du Elastiskt skala läsa och skriva dataflöde över hela världen. Flera huvudservrar funktionen garanterar att dataflödet som ditt program konfigureras på en Azure Cosmos DB-databas eller en behållare levereras i alla regioner och skyddas av [med ekonomisk uppbackning serviceavtal](https://aka.ms/acdbsla).
 

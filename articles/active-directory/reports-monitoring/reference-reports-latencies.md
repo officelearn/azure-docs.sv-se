@@ -13,55 +13,55 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 12/15/2017
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b81c66acc0a90ba9b74cf1f4fb34ef7a545837f9
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e5ceae2959f79c677f5b89c0c3f0a487f92ad1c6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736614"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623187"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory-rapporteringssvarstider
 
-Med [reporting](../active-directory-preview-explainer.md) i Azure Active Directory får du all information du behöver för att fastställa hur din miljö klarar. Hur lång tid det tar för rapporteringsdata att visas i Azure-portalen kallas även svarstid. 
-
-Det här avsnittet listar latensinformation för alla reporting kategorierna i Azure-portalen. 
-
+Svarstiden är tiden det tar för Azure Active Directory (Azure AD) rapporterar data visas i den [Azure-portalen](https://portal.azure.com). Den här artikeln visar den förväntade svarstiden för olika typer av rapporter. 
 
 ## <a name="activity-reports"></a>Aktivitetsrapporter
 
-Det finns två områden för aktivitetsrapportering:
+Det finns två typer av aktivitetsrapporter:
 
-- **Inloggningsaktiviteter** – Information om användningen av hanterade program och användares inloggningsaktiviteter
-- **Granskningsloggar** – Granska information om systemaktivitet för användare och grupphantering, dina hanterade program och katalogaktiviteter
+- [Inloggningar](concept-sign-ins.md) – innehåller information om användningen av hanterade program och användare inloggningsaktiviteter
+- [Granskningsloggar](concept-audit-logs.md) -ger information om användare och grupper, hanterade program och katalogaktiviteter systemaktivitet
 
-I följande tabell visas latensinformation för aktivitetsrapporter.
+I följande tabell visas latensinformation för aktivitetsrapporter. 
 
-| Rapport | Svarstid (95%) |Svarstid (99%)|
+> [!NOTE]
+> **Svarstid (95: e percentilen)** refererar till den tid som 95% av loggarna rapporteras, och **svarstid (99: e percentilen)** refererar till den tid som 99% av loggarna rapporteras. 
+>
+
+| Rapport | Svarstid (95: e percentilen) |Svarstid (99: e percentilen)|
 | :-- | --- | --- | 
 | Granskningsloggar | 2 min  | 5 min  |
 | Inloggningar | 2 min  | 5 min |
 
-
 ## <a name="security-reports"></a>Säkerhetsrapporter
 
-Det finns två delar av säkerhetsrapportering:
+Det finns två typer av säkerhetsrapporter:
 
-- **Riskfyllda inloggningar** – En riskfylld inloggning indikerar ett potentiellt inloggningsförsök av någon annan än användarkontots ägare. 
-- **Användare som har flaggats för risk** – En användare som har flaggats för risk indikerar att ett användarkonto kan ha komprometterats. 
+- [Riskfyllda inloggningar](concept-risky-sign-ins.md) – En riskfylld inloggning indikerar ett potentiellt inloggningsförsök av någon annan än användarkontots ägare. 
+- [Användare som har flaggats för risk](concept-user-at-risk.md) – En användare som har flaggats för risk indikerar att ett användarkonto kan ha komprometterats. 
 
 I följande tabell visas latensinformation för säkerhetsrapporter.
 
 | Rapport | Minimum | Medel | Maximal |
 | :-- | --- | --- | --- |
-| Användare i farozonen          | 5 minuter   | 15 minuter  | 2 timmar  |
+| Användare i riskzonen          | 5 minuter   | 15 minuter  | 2 timmar  |
 | Riskfyllda inloggningar         | 5 minuter   | 15 minuter  | 2 timmar  |
 
 ## <a name="risk-events"></a>Riskhändelser
 
-Azure Active Directory använder anpassningsbara maskininlärningsalgoritmer och heuristik för att identifiera misstänkta åtgärder relaterade till dina användarkonton. Varje identifierad misstänkt åtgärd lagras i en post kallas riskhändelse.
+Azure AD använder anpassningsbar machine learning-algoritmer och heuristik för att identifiera misstänkta åtgärder relaterade till dina användarkonton. Varje identifierad misstänkt åtgärd lagras i en post som kallas en **riskhändelsen**.
 
 I följande tabell visas latensinformation för riskhändelser.
 
@@ -75,17 +75,8 @@ I följande tabell visas latensinformation för riskhändelser.
 | Inloggningar från IP-adresser med misstänkt aktivitet |2 timmar |4 timmar |8 timmar  |
 
 
-
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om aktivitetsrapporter i Azure-portalen, se:
-
-- [Logga in aktivitetsrapporter i Azure Active Directory-portalen](concept-sign-ins.md)
-- [Granska aktivitetsrapporter i Azure Active Directory-portalen](concept-audit-logs.md)
-
-Om du vill veta mer om säkerhetsrapporter i Azure-portalen, se:
-
-- [Användare i farozonen i Azure Active Directory-portalen](concept-user-at-risk.md)
-- [Rapporten om riskfyllda inloggningar i Azure Active Directory-portalen](concept-risky-sign-ins.md)
-
-Om du vill veta mer om riskhändelser [Azure Active Directory-riskhändelser](concept-risk-events.md).
+* [Översikt över rapporter i Azure AD](overview-reports.md)
+* [Programmatisk åtkomst till Azure AD-rapporter](concept-reporting-api.md)
+* [Azure Active Directory-riskhändelser](concept-risk-events.md)

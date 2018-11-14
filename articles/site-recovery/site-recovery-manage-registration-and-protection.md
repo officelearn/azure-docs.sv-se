@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: da9319934068709d5635352fdbd52c3ca6ac49be
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: d7dcf27e106f73c828c2c46d4d7180b1f906e4d8
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568894"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614862"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Ta bort servrar och inaktivera skydd
 
@@ -51,7 +51,7 @@ Hyper-V-värdar som inte hanteras av VMM har samlats i en Hyper-V-plats. Ta bort
 5. Om Hyper-V-värden i en **frånkopplad** tillstånd, och kör sedan följande skript på varje Hyper-V-värd som du har tagit bort. Skriptet rensar inställningarna på servern och Avregistrerar den från valvet.
 
 
-
+```powershell
         pushd .
         try
         {
@@ -112,7 +112,7 @@ Hyper-V-värdar som inte hanteras av VMM har samlats i en Hyper-V-plats. Ta bort
                 "Registry keys removed."
             }
 
-            # First retrive all the certificates to be deleted
+            # First retrieve all the certificates to be deleted
             $ASRcerts = Get-ChildItem -Path cert:\localmachine\my | where-object {$_.friendlyname.startswith('ASR_SRSAUTH_CERT_KEY_CONTAINER') -or $_.friendlyname.startswith('ASR_HYPER_V_HOST_CERT_KEY_CONTAINER')}
             # Open a cert store object
             $store = New-Object System.Security.Cryptography.X509Certificates.X509Store("My","LocalMachine")
@@ -131,7 +131,7 @@ Hyper-V-värdar som inte hanteras av VMM har samlats i en Hyper-V-plats. Ta bort
             Write-Host "FAILED" -ForegroundColor "Red"
         }
         popd
-
+```
 
 
 ## <a name="disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure"></a>Inaktivera skyddet för en VMware-VM eller fysisk server (VMware till Azure)
@@ -158,10 +158,12 @@ Hyper-V-värdar som inte hanteras av VMM har samlats i en Hyper-V-plats. Ta bort
     > Om du väljer den **ta bort** alternativet Kör sedan följande uppsättning skript för att rensa replikeringsinställningarna lokala Hyper-V-servern.
 1. På källan Hyper-V-värdservern, ta bort replikering för den virtuella datorn. Ersätt SQLVM1 med namnet på den virtuella datorn och kör skriptet från en administrativ PowerShell
 
-
-    
-    $vmName = ”SQLVM1” $vm = Get-WmiObject – Namespace ”root\virtualization\v2”-frågan ”Välj * från Msvm_ComputerSystem där ElementName =” $vmName ”” $replicationService = Get-WmiObject – Namespace ”root\virtualization\v2”-fråga ”Välj * från Msvm_ ReplicationService ”$replicationService.RemoveReplicationRelationship($vm.__PATH)
-    
+```powershell
+    $vmName = "SQLVM1"
+    $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'"
+    $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"
+    $replicationService.RemoveReplicationRelationship($vm.__PATH)
+```
 
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario"></a>Inaktivera skyddet för en virtuell dator för Hyper-V som replikerar till Azure med hjälp av System Center VMM till Azure-scenariot
 
@@ -179,11 +181,14 @@ Hyper-V-värdar som inte hanteras av VMM har samlats i en Hyper-V-plats. Ta bort
         Set-SCVirtualMachine -VM $vm -ClearDRProtection
 4. Stegen ovan Rensa replikeringsinställningarna på VMM-servern. Kör skriptet för att stoppa replikering för den virtuella datorn körs på Hyper-V-värdservern. Ersätt SQLVM1 med namnet på den virtuella datorn och host01.contoso.com med namnet på Hyper-V-värdservern.
 
-    
-    $vmName = ”SQLVM1” $hostName = ”host01.contoso.com” $vm = Get-WmiObject – Namespace ”root\virtualization\v2”-frågan ”Välj * från Msvm_ComputerSystem där ElementName =” $vmName ”” - computername $hostName $replicationService = Get-WmiObject – Namespace ”root\virtualization\v2”-fråga ”Välj * från Msvm_ReplicationService” - computername $hostName $replicationService.RemoveReplicationRelationship($vm.__PATH)
-    
-       
- 
+```powershell
+    $vmName = "SQLVM1"
+    $hostName  = "host01.contoso.com"
+    $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'" -computername $hostName
+    $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  -computername $hostName
+    $replicationService.RemoveReplicationRelationship($vm.__PATH)
+```
+
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-to-secondary-vmm-server-using-the-system-center-vmm-to-vmm-scenario"></a>Inaktivera skyddet för en Hyper-V virtuell dator som replikeras till sekundär VMM-servern med System Center VMM till VMM-scenario
 
 1. I **skyddade objekt** > **replikerade objekt**, högerklicka på datorn > **inaktivera replikering**.

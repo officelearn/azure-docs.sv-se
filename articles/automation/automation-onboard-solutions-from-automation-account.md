@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: d031965a812cd218fbb4e78dfbf90ee01c26f5bb
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: b91c3dec1dda401fbacab39325b2c8980ec7254f
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085987"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625072"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Publicera lösningar för uppdateringshantering, ändringsspårning och inventering
 
@@ -81,7 +81,7 @@ Klicka på **+ Lägg till virtuella Azure-datorer**, Välj en eller flera virtue
 
 Datorer inte i Azure måste läggas till manuellt. Från ditt Automation-kontot väljer **inventering** eller **ändringsspårning** under **KONFIGURATIONSHANTERING**, eller **uppdateringshantering** under **UPPDATERINGSHANTERING**.
 
-Klicka på **Lägg till icke-Azure-datorn**. Den här åtgärden öppnar ett nytt webbläsarfönster med den [anvisningar om hur du installerar och konfigurerar Microsoft Monitoring Agent på datorn](../log-analytics/log-analytics-concept-hybrid.md) så att datorn kan börja rapporterar till lösningen. Om du är onboarding en dator som för närvarande hanteras av System Center Operations Manager, en ny agent krävs inte, information om arbetsytan har angetts i den befintliga agenten.
+Klicka på **Lägg till icke-Azure-datorn**. Den här åtgärden öppnar ett nytt webbläsarfönster med den [anvisningar om hur du installerar och konfigurerar Microsoft Monitoring Agent på datorn](../log-analytics/log-analytics-agent-overview.md) så att datorn kan börja rapporterar till lösningen. Om du är onboarding en dator som för närvarande hanteras av System Center Operations Manager, en ny agent krävs inte, information om arbetsytan har angetts i den befintliga agenten.
 
 ## <a name="onboard-machines-in-the-workspace"></a>Publicera datorer i arbetsytan
 

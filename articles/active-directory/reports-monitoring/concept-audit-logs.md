@@ -13,41 +13,39 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 04/19/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b6fa26cb7947658af77496831d7239b4331aa1f2
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 883f521040c67cb8fe9578bc5c490bc3dfccba28
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42055762"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624666"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Granska aktivitetsrapporter i Azure Active Directory-portalen 
 
-Med rapportering i Azure Active Directory (Azure AD) får du all information du behöver för att ta reda på hur din miljö klarar sig.
+Med Azure Active Directory (Azure AD) rapporter får du den information du behöver för att fastställa hur din miljö.
 
-Rapporteringsarkitekturen i Azure AD består av följande komponenter:
+Rapporteringsarkitekturen består av följande komponenter:
 
 - **Aktivitet** 
-    - **Inloggningsaktiviteter** – Information om användningen av hanterade program och användares inloggningsaktiviteter
-    - **Granskningsloggar** – Ger spårbarhet via loggar för alla ändringar som gjorts via olika funktioner i Azure AD. Exempel på granskningsloggar är de resursändringar som görs i Azure AD, som användare, appar, grupper, roller, principer, autentiseringar och så vidare ...
+    - **Inloggningar** – den [rapporten inloggningar](concept-sign-ins.md) innehåller information om användningen av hanterade program och användare logga in aktiviteter.
+    - **Granskningsloggar** – Ger spårbarhet via loggar för alla ändringar som gjorts via olika funktioner i Azure AD. Exempel på granskningsloggar är de resursändringar som görs i Azure AD, som att lägga till eller ta bort användare, appar, grupper, roller och principer.
 - **Säkerhet** 
-    - **Riskfyllda inloggningar** – En riskfylld inloggning indikerar ett potentiellt inloggningsförsök av någon annan än användarkontots ägare. Mer information finns i avsnittet om riskfyllda inloggningar.
-    - **Användare som har flaggats för risk** – En användare som har flaggats för risk indikerar att ett användarkonto kan ha komprometterats. Mer information finns i avsnittet om användare som har flaggats för risk.
+    - **Riskfyllda inloggningar** – en [riskfyllda inloggningen](concept-risky-sign-ins.md) indikerar en inloggningsförsök som kan ha utförts av någon som inte är tillförlitligt ägare för ett användarkonto. 
+    - **Användare som har flaggats för risk** – en [riskfylld användare](concept-user-at-risk.md) är en indikator för ett användarkonto som kan ha komprometterats.
 
-I det här ämnet får du en översikt över granskningsaktiviteterna.
+Den här artikeln ger en översikt över granskningsrapporten.
  
 ## <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
-* Användare i rollen säkerhetsadministratör eller säkerhetsläsare
-* Globala administratörer
-* Enskilda användare (icke-administratörer) kan se sina egna aktiviteter
 
+* Användare i den **Security administratör i fältet**, **Säkerhetsläsare** eller **Global administratör** roller
+* Dessutom kan kan alla användare (icke-administratörer) Se sina egna granskningsaktiviteter
 
 ## <a name="audit-logs"></a>Granskningsloggar
 
-Granskningsloggarna i Azure Active Directory ger dokumentation över systemaktiviteter för kontroll av överensstämmelse.  
-Din startpunkt för alla granskningsdata är **Granskningsloggar** i avsnittet **Aktivitet** i **Azure Active Directory**.
+Azure AD-audit-loggarna ger dokumentation över systemaktiviteter för efterlevnad av. För att komma åt granskningsrapporten, Välj **granskningsloggar** i den **aktivitet** delen av **Azure Active Directory**. 
 
 ![Granskningsloggar](./media/concept-audit-logs/61.png "Granskningsloggar")
 
@@ -68,15 +66,14 @@ På så sätt kan du visa ytterligare fält eller ta bort fält som redan visas.
 
 ![Granskningsloggar](./media/concept-audit-logs/21.png "Granskningsloggar")
 
-
-När du klickar på ett objekt i listvyn visas all tillgänglig information om det.
+Markera ett objekt i listvyn för att få mer detaljerad information.
 
 ![Granskningsloggar](./media/concept-audit-logs/22.png "Granskningsloggar")
 
 
 ## <a name="filtering-audit-logs"></a>Filtrera granskningsloggar
 
-Om du vill begränsa de data som rapporteras till en nivå som passar dig kan du filtrera granskningsdata med hjälp av följande fält:
+Du kan filtrera granskningsdata på följande fält:
 
 - Datumintervall
 - Initierad av (aktör)
@@ -85,7 +82,6 @@ Om du vill begränsa de data som rapporteras till en nivå som passar dig kan du
 - Aktivitet
 
 ![Granskningsloggar](./media/concept-audit-logs/23.png "Granskningsloggar")
-
 
 Med filtret för **datumintervall** kan du definiera en tidsram för de data som returneras.  
 Möjliga värden:
@@ -97,7 +93,7 @@ Möjliga värden:
 
 När du väljer en anpassad tidsram kan du konfigurera en starttid och en sluttid.
 
-Med filtret **initierad av** kan du definiera en aktörs namn eller dess UPN (Universal Principal Name).
+Den **initieras av** filter kan du definiera en aktörs namn eller ett universal principal name (UPN).
 
 Med filtret **kategori** kan du välja något av följande filter:
 
@@ -129,10 +125,9 @@ När du väljer **Grupp** som **aktivitetsresurstyp** får du tillgång till ytt
 - O365
 
 
-Filtret **aktivitet** baseras på kategorin och den aktivitetsresurstyp som du väljer. Du kan välja en specifik aktivitet som du vill visa eller välja alla. 
+Den **aktivitet** filter baserat på kategori och aktivitet resursen typ du väljer. Du kan välja en specifik aktivitet som du vill visa eller välja alla. 
 
-Du kan hämta listan över alla granskningsaktiviteter med Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, där $tenantdomain = ditt domännamn eller refererar till artikeln [Granska rapporthändelser](concept-audit-logs.md).
-
+Du kan hämta listan över alla granskningsaktiviteter med Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, där $tenantdomain = ditt domännamn eller refererar till artikeln [Granska rapporthändelser](reference-audit-activities.md).
 
 ## <a name="audit-logs-shortcuts"></a>Genvägar till granskningsloggar
 
@@ -171,23 +166,21 @@ Med programbaserade granskningsrapporter kan du få svar på frågor som:
 
 * Vilka program har lagts till eller uppdaterats?
 * Vilka program har tagits bort?
-* Har tjänstprincipen för ett program ändrats?
+* Har ett huvudnamn för tjänsten för ett program ändrats?
 * Har namnen på program ändrats?
 * Vem gav tillstånd till ett program?
 
-Om du bara vill kontrollera granskningsdata relaterade till dina program finns det en filtrerad vy under **Granskningsloggar** i avsnittet **Aktivitet** på bladet **Företagsprogram**. I det här området är **Företagsprogram** den förvalda **aktivitetsresurstypen**.
+Om du vill kontrollera granskningsdata relaterade till dina program kan du hitta en filtrerad vy under **granskningsloggar** i den **aktivitet** delen av den **företagsprogram** blad. Den här registreringspunkten har **företagsprogram** förvalda som den **Aktivitetsresurstyp**.
 
 ![Granskningsloggar](./media/concept-audit-logs/134.png "Granskningsloggar")
 
-Du kan filtrera den här vyn ytterligare till bara **grupper** eller bara **användare**.
+Du kan filtrera den här vyn ned till **grupper** eller **användare**.
 
 ![Granskningsloggar](./media/concept-audit-logs/25.png "Granskningsloggar")
 
 
-
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt över rapportering finns i [Azure Active Directory-rapportering](overview-reports.md).
-
-- En fullständig lista med alla granskningsaktiviteter finns i [referensen för granskningsaktiviteter i Azure AD](reference-audit-activities.md)
-
+- [Referens för granskningsaktiviteter i Azure AD](reference-audit-activities.md)
+- [Kvarhållning referens för Azure AD-rapporter](reference-reports-data-retention.md)
+- [Referera till Azure AD log svarstider](reference-reports-latencies.md)

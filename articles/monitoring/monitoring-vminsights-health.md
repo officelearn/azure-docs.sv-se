@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 0f149d09b310553ecd5b03e94601408f279d9c0c
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 1b9afa89e5d355668defac30afe4c012b684c71e
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914319"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614404"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Förstå hälsotillståndet för virtuella datorer i Azure med Azure Monitor för virtuella datorer (förhandsversion)
 Azure innehåller flera tjänster som individuellt utför en viss roll eller en uppgift i övervakningsutrymmet, men ger en djupgående hälsotillstånd perspektiv av operativsystemet som körs på virtuella Azure-datorer inte var tillgänglig.  Medan du kan övervaka för olika villkor med hjälp av Log Analytics och Azure Monitor, har de inte utvecklats modellera och representerar hälsan för kärnkomponenter eller övergripande hälsa för den virtuella datorn.  Med Azure Monitor för virtuella datorer hälsotillstånd funktion kan övervakar det proaktivt tillgänglighet och prestanda för Windows eller Linux gästoperativsystemet med en modell som representerar viktiga komponenter och deras relationer villkor som anger hur hälsotillståndet för de komponenter, och varnar dig när ett feltillstånd har identifierats.  
@@ -119,7 +119,7 @@ På den **hälsotillstånd** fliken du kan lära dig följande:
 * Hur många virtuella datorer är skadad på grund av ett problem har identifierats med en processor, disk, minne eller nätverkskort, kategoriserade efter hälsotillstånd?  
 * Hur många virtuella datorer är skadad på grund av ett problem har identifierats med en grundläggande operativsystemtjänst, kategoriserade efter hälsotillstånd?
 
-Här du snabbt kan identifiera de övre kritiska problem som identifieras av health-villkor som proaktivt övervaka den virtuella datorn och granska varningsinformationen för VM-hälsa och associerade kunskapsartikel som är avsedd att hjälpa diagnos och reparation av problemet.  Välj någon av allvarlighetsgrader att öppna den [alla aviseringar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md#all-alerts-page) sidan filtreras efter den allvarlighetsgraden.
+Här du snabbt kan identifiera de övre kritiska problem som identifieras av health-villkor som proaktivt övervaka den virtuella datorn och granska varningsinformationen för VM-hälsa och associerade kunskapsartikel som är avsedd att hjälpa diagnos och reparation av problemet.  Välj någon av allvarlighetsgrader att öppna den [alla aviseringar](../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) sidan filtreras efter den allvarlighetsgraden.
 
 Den **VM-distribution av operativsystem** i listan visas virtuella datorer som anges av version av Windows eller Linux-distribution, tillsammans med deras version. I varje kategori för operativsystemet, de virtuella datorerna är uppdelade ytterligare baserat på hälsotillståndet för den virtuella datorn. 
 
@@ -247,7 +247,7 @@ I exemplet ovan, när en väljer **/mnt (logisk Disk)**, Health-villkor trädet 
 Om du vill se uppdaterade hälsotillstånd, du kan uppdatera sidan Health diagnostik genom att klicka på den **uppdatera** länk.  Om det finns en uppdatering till villkoret hälsotillstånd hälsotillstånd baserat på fördefinierade avsökningsintervallet, kan du undvika att vänta på den här uppgiften och återspeglar det senaste hälsotillståndet.  Den **kriterier hälsotillstånd** är ett filter så att du kan begränsa resultatet baserat på valda hälsotillståndet - felfri, varning, kritiskt, Okänd och alla.  Den **senaste uppdaterade** tid i övre högra hörnet representerar när sidan Health diagnostik uppdaterades senast.  
 
 ## <a name="alerting-and-alert-management"></a>Hantering av varningar och aviseringar 
-Azure Monitor för virtuella datorer Health-funktionen kan integreras med [Azure Alerts](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) och aktiverar en avisering när fördefinierade health-villkor ändras från felfri till feltillstånd när villkoret har identifierats. Aviseringar kategoriserade efter allvarlighetsgrad - allvarlighetsgrad 0 och 4, med allvarlighetsgrad 0 som representerar den högsta allvarlighetsgraden.  
+Azure Monitor för virtuella datorer Health-funktionen kan integreras med [Azure Alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) och aktiverar en avisering när fördefinierade health-villkor ändras från felfri till feltillstånd när villkoret har identifierats. Aviseringar kategoriserade efter allvarlighetsgrad - allvarlighetsgrad 0 och 4, med allvarlighetsgrad 0 som representerar den högsta allvarlighetsgraden.  
 
 Totalt antal VM-hälsa aviseringar kategoriserade efter allvarlighetsgrad är tillgänglig på den **hälsotillstånd** instrumentpanelen under avsnittet **aviseringar**. När du väljer antingen det totala antalet aviseringar eller talet som motsvarar en allvarlighetsgrad den **aviseringar** sidan öppnas och visar en lista över alla aviseringar som matchar ditt val.  Exempel: Om du har valt den raden motsvarar **allvarlighetsgrad nivå 1**, kan du se följande vy:
 

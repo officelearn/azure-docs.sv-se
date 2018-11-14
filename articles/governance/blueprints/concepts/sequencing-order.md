@@ -4,16 +4,16 @@ description: Läs om livscykeln som passerar en skiss och information om varje s
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 11/12/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 4adf427727e7244bbde64a673e7353c1f8270c8a
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: fcfffe6094361c8b47b1cc7ce42cb79561261b15
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094586"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51620603"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Förstå sekvensen för distribution i Azure skisser
 
@@ -47,6 +47,9 @@ Inom varje **resursgrupp** artefakt följande sekvens ordning används för arte
 När du skriver stora skisser kan det vara nödvändigt för resurser som ska skapas i en viss ordning. De vanligaste användningsmönstret för det här scenariot är när en skiss innehåller flera Azure Resource Manager-mallar. Skisser hanterar det här mönstret genom att låta ordningsföljd definieras.
 
 Sorteringen åstadkoms genom att definiera en `dependsOn` egenskap i JSON. Stöder den här egenskapen endast skissen (för resursgrupper) och artefakt-objekt. `dependsOn` är en strängmatris av artefaktnamn som viss artefakten måste skapas innan den har skapats.
+
+> [!NOTE]
+> **Resursgrupp** artefakter stöder den `dependsOn` egenskap, men får inte vara målet för en `dependsOn` av någon typ av artefakt.
 
 ### <a name="example---blueprint-with-ordered-resource-group"></a>Exempel – skissen med sorterad resursgruppen
 

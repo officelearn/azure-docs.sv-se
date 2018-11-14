@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: d1e4177dff3f9ae8c78fb2e22b12e40ff2682c58
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 7578950af2dafdade3c97650dfd212240053dd3b
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037574"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625461"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>På ett säkert sätt spara hemliga programinställningar för ett webbprogram
 
@@ -100,7 +100,7 @@ Om du skriver en snabb prototyp och inte vill gå med det här alternativet om d
 
 1. Installera följande NuGet-paketet i projektet
     ```
-    Microsoft.Configuration.ConfigurationBuilders.Basic.1.0.0-alpha1.nupkg
+    Microsoft.Configuration.ConfigurationBuilders.Basic
     ```
 
 2. Skapa en fil som liknar Följ. Spara den under en plats utanför projektmappen.
@@ -145,7 +145,7 @@ Följ instruktionerna i ASP.NET core-avsnittet och konfigurera ett Key Vault fö
 
 1. Installera följande NuGet-paketet i projektet
 ```
-Microsoft.Configuration.ConfigurationBuilders.UserSecrets.1.0.0-preview2.nupkg
+Microsoft.Configuration.ConfigurationBuilders.UserSecrets
 ```
 
 2. Definiera Key Vault configuration builder i Web.config. Placera det här avsnittet innan du *appSettings* avsnittet. Ersätt *vaultName* är Key Vault-namn om Key Vault är i offentlig Azure eller fullständiga URI om du använder nationellt moln.

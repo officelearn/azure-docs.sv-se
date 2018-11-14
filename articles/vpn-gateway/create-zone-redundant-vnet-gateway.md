@@ -8,16 +8,16 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: f531be5a814ed1805a2938daec1d210f9daccfa5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 400ac3232b7e7dcd594734d818e3cafef09188fd
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949782"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614556"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Skapa en zonredundant virtuell nätverksgateway i Azure Availability Zones
 
-Du kan distribuera VPN och ExpressRoute-gatewayer i Aure Tillgänglighetszoner. Detta ger flexibilitet, skalbarhet och högre tillgänglighet för virtuella nätverksgatewayer. Distribuera gateways i Azure Availability Zones fysisk och logiskt separerar gatewayer inom en region, samtidigt som du skyddar din lokal nätverksanslutning till Azure från zonen på servernivå fel. Mer information finns i [om zonredundant virtuella nätverksgatewayer](about-zone-redundant-vnet-gateways.md) och [om Azure Availability Zones](../availability-zones/az-overview.md).
+Du kan distribuera VPN och ExpressRoute-gatewayer i Tillgänglighetszoner i Azure. Detta ger flexibilitet, skalbarhet och högre tillgänglighet för virtuella nätverksgatewayer. Distribuera gateways i Azure Availability Zones fysisk och logiskt separerar gatewayer inom en region, samtidigt som du skyddar din lokal nätverksanslutning till Azure från zonen på servernivå fel. Mer information finns i [om zonredundant virtuella nätverksgatewayer](about-zone-redundant-vnet-gateways.md) och [om Azure Availability Zones](../availability-zones/az-overview.md).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

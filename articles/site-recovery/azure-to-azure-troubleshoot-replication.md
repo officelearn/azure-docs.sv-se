@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: asgang
-ms.openlocfilehash: c1cc8769617e4c9cd823b1e44d60c49b73f4bdb9
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 0ac90d8ef29d4293a5eeb5f932687788320c218e
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289717"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615804"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-ongoing-replication-issues"></a>Felsöka problem med pågående replikering för Azure till Azure VM
 
@@ -56,12 +56,6 @@ Premium P10- eller P15-disk | 16 kB | 4 MB/s |  336 GB per disk
 Premium P10- eller P15-disk | 32 kB eller mer | 8 MB/s | 672 GB per disk
 Premium P20-, P30-, P40- eller P50-disk | 8 kB    | 5 MB/s | 421 GB per disk
 Premium P20-, P30-, P40- eller P50-disk | minst 16 kB |10 MB/s | 842 GB per disk
-
-
-**Källans dataomsättning** | **Högsta gräns**
----|---
-Genomsnittlig dataomsättning per virtuell dator| 25 MB/s
-Högsta dataomsättning av alla diskar på en virtuella dator | 54 MB/s
 
 ### <a name="solution"></a>Lösning
 Vi förstår att Azure Site Recovery har data ändrar hastighetsbegränsningar baserat på vilken typ av disk. Om du vill veta om det här problemet är återkommande eller under ett ögonblick, är det viktigt att hitta ändra data frekvensen mönstret för den berörda virtuella datorn.

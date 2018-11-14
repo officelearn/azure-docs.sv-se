@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: c76b922d311a0e0bc5af2b4c8a95c2ef2ec09ba1
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 7b05876214c08c9298cca30e01958e43e2ef81d6
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914166"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615345"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Agenthälsolösning i Azure
 Agenthälsolösningen i Azure hjälper dig att förstå vilka av alla agenter som rapporterar direkt till Log Analytics-arbetsyta eller en System Center Operations Manager-hanteringsgrupp ansluten till Log Analytics, som inte svarar och skicka operativa data.  Du kan också hålla reda på hur många agenter distribueras, var de är fördelade geografiskt och utföra andra frågor för att övervaka distributionen av agenter i Azure, andra miljöer i molnet eller lokalt.    
@@ -118,4 +118,4 @@ Följande tabell innehåller exempel på sökningar i loggen för poster som har
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [Aviseringar i Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) för information om att generera aviseringar från Log Analytics.
+* Lär dig mer om [Aviseringar i Log Analytics](../monitoring-and-diagnostics/monitoring-overview-alerts.md) för information om att generera aviseringar från Log Analytics. 

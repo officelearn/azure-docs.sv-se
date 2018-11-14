@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: 02e69a9e3442f276e89e8515fb506ddd876ad2d2
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e7622ffcfbaca4f83f0b5233159fc94720148365
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015782"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614148"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Vad är klassiska aviseringar i Microsoft Azure?
 
@@ -55,7 +55,7 @@ Det finns två typer av klassiska aviseringar tillgängliga - aviseringar för m
 
 * **Klassiska aktivitetsloggaviseringar** – en strömmande log-avisering utlöses när en händelse i aktivitetsloggen genereras som matchar filtervillkor som du har tilldelat. Aviseringarna har endast en status ”aktiverad”, eftersom aviseringen motorn gäller bara filtervillkoren för en ny händelse. Dessa aviseringar kan användas för att få ett meddelande när en ny Service Health-incident inträffar eller när en användare eller program utför en åtgärd i din prenumeration, till exempel ”ta bort virtuell dator”.
 
-Dirigera data till Log Analytics (tidigare OMS) för diagnostiklogg data är tillgängliga i Azure Monitor, och Använd en avisering i Log Analytics-fråga. Logga Analytics nu använder den [nya aviseringar metod](monitoring-overview-unified-alerts.md) 
+Dirigera data till Log Analytics (tidigare OMS) för diagnostiklogg data är tillgängliga i Azure Monitor, och Använd en avisering i Log Analytics-fråga. Logga Analytics nu använder den [nya aviseringar metod](monitoring-overview-alerts.md) 
 
 Följande diagram sammanfattar datakällor i Azure Monitor och, begreppsmässigt, hur du kan meddela från dessa data.
 

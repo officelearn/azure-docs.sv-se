@@ -10,18 +10,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 11/12/2018
 ms.author: douglasl
-ms.openlocfilehash: 94633ce2f11f9efa99f1ad44820abd5aecdec923
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 60c715e97f6b1d2046fb4050ae41b27146c0610a
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457226"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623810"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Kontinuerlig integrering och leverans (CI/CD) i Azure Data Factory
 
-Kontinuerlig integrering är metoden att testa varje ändring som klar för att din kodbas automatiskt och så tidigt som möjligt. Kontinuerlig leverans följer testning som händer under kontinuerlig integrering och skickar ändringarna till ett system för mellanlagring eller produktion.
+Kontinuerlig integrering är metoden att testa varje ändring som klar för att din kodbas automatiskt och så tidigt som möjligt. Kontinuerlig leverans följer testning som händer under kontinuerlig integrering och skickar ändringarna till ett system för mellanlagring eller produktion.
 
 Innebär att flytta Data Factory-pipeliner från en miljö (utveckling, testning, produktion) till en annan för Azure Data Factory, kontinuerlig integrering och leverans. Du kan använda Användargränssnittet för Data Factory integration med Azure Resource Manager-mallar för att göra kontinuerlig integrering och leverans. Användargränssnittet för Data Factory kan generera en Resource Manager-mall när du väljer den **ARM-mallen** alternativ. När du väljer **exportera ARM-mallen**, portalen genererar Resource Manager-mall för data factory och en konfigurationsfil som innehåller alla anslutningar strängar och andra parametrar. Du måste sedan skapa en konfigurationsfil för varje miljö (utveckling, testning, produktion). Huvudfilen för Resource Manager-mall förblir densamma för alla miljöer.
 
@@ -75,11 +75,11 @@ Här följer stegen för att konfigurera en Azure-Pipelines version så kan du a
 
 ### <a name="requirements"></a>Krav
 
--   En Azure-prenumeration som är länkad till Team Foundation Server eller Azure-databaser med hjälp av den [ *Azure Resource Manager-tjänstslutpunkt*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
+-   En Azure-prenumeration som är länkad till Team Foundation Server eller Azure-databaser med hjälp av den [*Azure Resource Manager-tjänstslutpunkt*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
 -   En Datafabrik med Azure-lagringsplatser Git-integrering som konfigurerats.
 
--   En [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) som innehåller hemligheterna.
+-   En [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) som innehåller hemligheterna.
 
 ### <a name="set-up-an-azure-pipelines-release"></a>Konfigurera en Azure-Pipelines-version
 
@@ -832,6 +832,48 @@ else {
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Använda anpassade parametrar med Resource Manager-mall
 
 Du kan definiera anpassade parametrar för Resource Manager-mallen. Du behöver bara har en fil med namnet `arm-template-parameters-definition.json` i rotmappen på lagringsplatsen. (Namnet på filen måste matcha det namn som visas här exakt.) Data Factory försöker läsa filen från den gren du arbetar i, inte bara från grenen samarbete. Om ingen fil hittas, använder Data Factory standardparametrar och värden.
+
+### <a name="syntax-of-a-custom-parameters-file"></a>Syntaxen för en fil med anpassade parametrar
+
+Här följer några riktlinjer för att använda när du redigerar filen anpassade parametrar. Om du vill se exempel på den här syntaxen finns i följande avsnitt [anpassade parametrar exempelfilen](#sample).
+
+1. När du anger matris i definitionsfilen anger du att egenskapen matchande i mallen är en matris. Data Factory går igenom alla objekt i matrisen med definition som anges i det första objektet i matrisen. Det andra objektet, en sträng, blir namnet på egenskapen, som används som namn på parametern för varje iteration.
+
+    ```json
+    ...
+    "Microsoft.DataFactory/factories/triggers": {
+        "properties": {
+            "pipelines": [{
+                    "parameters": {
+                        "*": "="
+                    }
+                },
+                "pipelineReference.referenceName"
+            ],
+            "pipeline": {
+                "parameters": {
+                    "*": "="
+                }
+            }
+        }
+    },
+    ...
+    ```
+
+2. När du anger ett egenskapsnamn till `*`, du anger att du vill att mallen ska använda alla egenskaper på den nivån, utom de som uttryckligen definieras.
+
+3. När du anger värdet för en egenskap som en sträng kan ange du att du vill Parameterisera egenskapen. Använd formatet `<action>:<name>:<stype>`.
+    1.  `<action>` kan vara något av följande tecken: 
+        1.  `=`  innebär att behålla det aktuella värdet som standardvärde för parametern.
+        2.  `-` innebär har inte standardvärdet för parametern.
+        3.  `|` är ett specialfall för hemligheter från Azure Key Vault för en anslutningssträng.
+    2.  `<name>` är namnet på parametern. Om `<name`> är tomt används det tar att namnet på parametern 
+    3.  `<stype>` är typ av parametern. Om `<stype>` är tomt används standardtypen är en sträng.
+4.  Om du anger en `-` tecknet i början av ett parameternamn, den fullständiga Resource Manager parameternamn har kortats ned till `<objectName>_<propertyName>`.
+Till exempel `AzureStorage1_properties_typeProperties_connectionString` har kortats ned till `AzureStorage1_connectionString`.
+
+
+### <a name="sample"></a> Exempelfilen för anpassade parametrar
 
 I följande exempel visas en exempelfil för parametrar. Använd det här exemplet som referens för att skapa dina egna anpassade parameterfilen. Om filen som du anger inte är rätt JSON-format, Data Factory matar ut ett felmeddelande visas i webbläsarens konsol och återgår till standardparametrar och värden som visas i Användargränssnittet för Data Factory.
 

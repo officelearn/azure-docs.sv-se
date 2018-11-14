@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/19/2018
 ms.author: rafats
-ms.openlocfilehash: cfd1160d1592c03eea94e3c4d04fdc5754eca671
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: ed97a2c31897d1e5e61421ea489a35af377f4f37
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056477"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621453"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Skydda åtkomst till Azure Cosmos DB-data
 Den här artikeln innehåller en översikt över att skydda åtkomsten till data som lagras i [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -40,7 +40,7 @@ Varje konto består av två huvudnycklar: en primärnyckel och sekundärnyckel. 
 
 Förutom de två huvudnycklarna för Cosmos DB-kontot finns två skrivskyddade nycklar. Dessa skrivskyddade nycklar endast tillåta läsåtgärder på kontot. Skrivskyddade nycklar ger inte tillgång för att läsa behörigheter resurser.
 
-Primär, sekundär, skrivskyddad och läs-och huvudnycklar kan hämtas och återskapas med hjälp av Azure portal. Anvisningar finns i [visa, kopiera och återskapa åtkomstnycklar](manage-account.md#keys).
+Primär, sekundär, skrivskyddad och läs-och huvudnycklar kan hämtas och återskapas med hjälp av Azure portal. Anvisningar finns i [visa, kopiera och återskapa åtkomstnycklar](manage-with-cli.md#regenerate-account-key).
 
 ![Åtkomstkontroll (IAM) i Azure portal – visar NoSQL database-säkerhet](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
 
@@ -196,5 +196,4 @@ Azure Cosmos DB kan du söka efter, Välj, ändra och ta bort personliga data i 
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om Cosmos DB database-säkerhet i [Cosmos DB: databasen security](database-security.md).
-* Läs om hur du hanterar huvudnycklar och skrivskyddade nycklar i [så här hanterar du ett Azure Cosmos DB-konto](manage-account.md#keys).
 * Läs hur du skapar Azure Cosmos DB-auktoriseringstoken i [åtkomstkontroll på Azure Cosmos DB-resurser](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources).

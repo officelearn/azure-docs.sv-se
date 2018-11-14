@@ -12,26 +12,42 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/06/2017
+ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: a0f2cc0d76ef3c857bb7c13f46f1397f05b60977
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 40562c77cf38ad316d64f68b54dd4174dae6da1a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232451"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614480"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Självstudie för Azure WCF-relä REST
-
 Den här självstudien beskrivs hur du skapar en enkel värdapp för Azure Relay som visar ett REST-baserat gränssnitt. Med hjälp av REST kan du ge en webbklient, till exempel en webbläsare, åtkomst till API:er för Service Bus via HTTP-förfrågningar.
 
 I självstudiekursen används den Windows Communication Foundation (WCF) REST programmeringsmodellen för att skapa en REST-tjänst på Azure Relay. Mer information finns i [Programmeringsmodellen WCF REST](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) och [Utforma och implementera tjänster](/dotnet/framework/wcf/designing-and-implementing-services) i WCF-dokumentationen.
 
-## <a name="step-1-create-a-namespace"></a>Steg 1: Skapa ett namnområde
+Du kan utföra följande steg i den här självstudien:
+
+> [!div class="checklist"]
+> * Skapa ett Relay-namnområde.
+> * Definiera ett REST-baserat WCF-tjänstekontrakt
+> * Implementera REST-baserat WCF-kontrakt
+> * Installera och använda REST-baserat WCF-tjänst
+> * Kör och testa tjänsten
+
+## <a name="prerequisites"></a>Förutsättningar
+
+För att slutföra den här självstudien, finns följande förhandskrav:
+
+- En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+- [Visual Studio 2015 eller senare](http://www.visualstudio.com). I exemplen i den här självstudiekursen används Visual Studio 2017.
+- Azure SDK för .NET. Installera det från den [hämtningssidan för SDK](https://azure.microsoft.com/downloads/).
+
+## <a name="create-a-relay-namespace"></a>Skapa ett Relay-namnområde
 
 För att komma igång med reläfunktionerna i Azure måste du först skapa ett namnområde för tjänsten. Ett namnområde tillhandahåller en omfångscontainer för adressering av Azure-resurser i ditt program. Följ [anvisningarna här](relay-create-namespace-portal.md) för att skapa ett Relay-namnområde.
 
-## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Steg 2: Definiera en REST-baserat WCF-tjänstekontrakt för användning med Azure Relay
+## <a name="define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Definiera ett REST-baserat WCF-tjänstekontrakt som ska användas med Azure Relay
 
 När du skapar en tjänst för WCF REST-format, måste du definiera kontraktet. Kontraktet anger vilka åtgärder som värden stöder. En tjänsteåtgärd kan anses vara en webbtjänstemetod. Kontrakt skapas genom att definiera ett gränssnitt för C++, C# eller Visual Basic. Varje metod i gränssnittet motsvarar en viss tjänsteåtgärd. Attributet [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) måste tillämpas på varje gränssnitt och attributet [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) måste tillämpas på varje åtgärd. Om en metod i ett gränssnitt som har [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) inte har [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute), är inte den metoden exponerad. Den kod som används för dessa aktiviteter visas i exemplet som följer efter proceduren.
 
@@ -136,7 +152,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## <a name="step-3-implement-a-rest-based-wcf-service-contract-to-use-service-bus"></a>Steg 3: Implementera ett REST-baserat WCF-tjänstekontrakt för användning av Service Bus
+## <a name="implement-the-rest-based-wcf-service-contract"></a>Implementera REST-baserat WCF-tjänstekontrakt
 Skapa en REST-format WCF Relay-tjänsten kräver att du först skapa det kontrakt som definieras med hjälp av ett gränssnitt. Nästa steg är att implementera gränssnittet. Detta innebär att du skapar en klass som heter **ImageService** som implementerar det användardefinierade **IImageContract**-gränssnittet. Efter att du har implementerat kontraktet, konfigurerar du gränssnittet genom att använda en App.config-fil. Konfigurationsfilen innehåller information som behövs för programmet, till exempel namnet på tjänsten, namnet på kontraktet och vilken typ av protokoll som används för att kommunicera med den vidarebefordrande tjänsten. Den kod som används för dessa arbetsuppgifter visas i exemplet som följer efter proceduren.
 
 Precis som med de föregående stegen, finns det mycket lite skillnad mellan att implementera ett kontrakt i REST-format och ett WCF Relay-kontrakt.
@@ -430,7 +446,7 @@ I följande exempel visas den App.config-fil som är associerad med tjänsten.
 </configuration>
 ```
 
-## <a name="step-4-host-the-rest-based-wcf-service-to-use-azure-relay"></a>Steg 4: Värdbasera den REST-baserat WCF-tjänsten för att använda Azure Relay
+## <a name="host-the-rest-based-wcf-service-to-use-azure-relay"></a>Värd för REST-baserat WCF-tjänsten för att använda Azure Relay
 Det här steget beskriver hur du kör en webbtjänst med ett konsolprogram med WCF Relay. En fullständig lista över den kod som skrivs i det här steget finns i det exempel som följer efter proceduren.
 
 ### <a name="to-create-a-base-address-for-the-service"></a>Så här skapar du en basadress för tjänsten
@@ -476,7 +492,7 @@ Det här steget beskriver hur du kör en webbtjänst med ett konsolprogram med W
     host.Close();
     ```
 
-## <a name="example"></a>Exempel
+### <a name="example"></a>Exempel
 Följande exempel innehåller tjänstekontraktet och implementeringen från föregående steg i självstudiekursen och fungerar som värd för tjänsten i ett konsolprogram. Sammanställ följande kod i en körbar fil med namnet ImageListener.exe.
 
 ```csharp
@@ -551,7 +567,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-### <a name="compiling-the-code"></a>Kompilera koden
+## <a name="run-and-test-the-service"></a>Kör och testa tjänsten
 Gör följande för att köra appen när du har skapat lösningen:
 
 1. Tryck på **F5**, eller bläddra till den körbara filplatsen (ImageListener\bin\Debug\ImageListener.exe) för att köra tjänsten. Fortsätt att köra appen eftersom det är nödvändigt för att kunna utföra nästa steg.

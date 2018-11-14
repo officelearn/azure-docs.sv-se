@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 301ae251413cc174f115479e9ebef2310aa83ba7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: c99099c9b0fdf485bcf1db1d00b23e1e119ec557
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162450"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614165"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en tekniska SAML-profilen i en anpassad princip för Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C har stöd för SAML 2.0-identitetsprovider. Den här artikeln beskriver specifika för den tekniska profilen för att interagera med en anspråksprovider som stöder detta standardiserade protokoll. Med SAML-tekniska profilen som du kan federera med en SAML baserat identitetsprovider som AD FS och Salesforce, så att du användarna att logga in med sina befintliga sociala eller företagsidentiteter.
+Azure Active Directory (Azure AD) B2C har stöd för SAML 2.0-identitetsprovider. Den här artikeln beskriver specifika för den tekniska profilen för att interagera med en anspråksprovider som stöder detta standardiserade protokoll. Med tekniska SAML-profilen du federera med en SAML-baserad identitetsprovider som AD FS och Salesforce, så att dina användare kan logga in med sina befintliga sociala eller företagsidentiteter.
 
 ## <a name="metadata-exchange"></a>Metadata för exchange
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: b9b6c67930e251302f397e199c65f949997a25cf
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 72d324e0b5fe0c50dadc076306c9167c0492290a
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637991"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625597"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Storage-mått i Azure Monitor
 
@@ -404,6 +404,10 @@ Du måste ange dimensionsvärde för att se de motsvarande mått för stödjande
 **Stöder Azure Storage mått för hanterade eller ohanterade diskar?**
 
 Nej, Azure Compute har stöd för mått på diskar. Se [artikeln](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/) för mer information.
+
+**Så här att mappa och migrera klassiska mått med nya mått?**
+
+Du hittar detaljerad mappningen mellan klassiska mått och nya mått i [migrering för Azure Storage-mått](./storage-metrics-migration.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

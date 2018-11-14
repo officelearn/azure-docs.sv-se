@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 11/08/2018
 ms.author: tulasim
-ms.openlocfilehash: 88e55468c4018b73cb26087c4fbbdbee65cd5db3
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: e6c654b00ee6be0ed87feb0fb2a5ccba38e5cbe4
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515530"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624885"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Datakällor för QnA Maker-innehåll
 
@@ -131,6 +131,10 @@ Importera en kunskapsbas ersätter innehållet i den befintliga kunskapsbasen. I
 ## <a name="editorially-add-to-knowledge-base"></a>Redigeringsmässigt lägga till i kunskapsbas
 
 Om du inte har redan befintliga innehåll för att fylla i knowledge base, kan du lägga till kunskapsbaser redigeringsmässigt i QnA Maker Knowledge base. Lär dig hur du uppdaterar din kunskapsbas [här](../How-To/edit-knowledge-base.md).
+
+## <a name="formatting-considerations"></a>Formatering överväganden
+
+När en fil eller URL: en har den konverteras till Markdown och lagras i formatet. Om processen inte korrekt konverterar länkar i dina filer och URL: er, bör du redigera frågor och svar på den **redigera** sidan. 
 
 ## <a name="next-steps"></a>Nästa steg
 

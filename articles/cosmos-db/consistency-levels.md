@@ -11,26 +11,22 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2611c25764503551c4da918d06bcaabe315cbf7c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 6ace11cf3704ddbd503c0202d45874670476198e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963089"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624835"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Konsekvensnivåer i Azure Cosmos DB
 
 Distribuerade databaser som förlitar sig på replikering för hög tillgänglighet, svarstider, eller båda, se grundläggande förhållandet mellan läsningskontinuitet jämfört med tillgänglighet, svarstid och dataflöde. De flesta kommersiellt distribuerade databaser Ställ utvecklare kan välja mellan två extrem konsekvensmodeller: stark konsekvens och slutlig konsekvens. Medan den [linjärbarhetsgaranti](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) eller stark konsekvensmodell är guld-standard i data programmabilitys, läggs en brant priset för högre svarstid (i stabilt tillstånd) och minskad tillgänglighet (vid fel). Å andra sidan, eventuell konsekvens ger högre tillgänglighet och bättre prestanda, men är svåra att programmerar program.
 
-Cosmos DB närmar sig datakonsekvens som ett spektrum av alternativ i stället för två extremval. Stark konsekvens och slutlig konsekvens är det två upphört att gälla å, finns men det många konsekvensval längs spektrumet. De här alternativen för konsekvenskontroll att utvecklare kan se exakt val och detaljerade nackdelar med avseende på hög tillgänglighet eller prestanda. Cosmos DB aktiverat utvecklare kan välja mellan fem väldefinierade konsekvensmodeller från konsekvensspektrumet (starkast till svagast) – **stark**, **begränsad föråldring**, **session** , **konsekvent prefix**, och **eventuell**. Var och en av dessa konsekvensmodeller är väldefinierade, intuitivt och kan användas för den specifika verkliga scenarier. Var och en av de fem konsekvensmodeller ger [tillgänglighet och prestanda kompromisser](consistency-levels-tradeoffs.md) och backas upp av omfattande serviceavtal.
+Cosmos DB närmar sig datakonsekvens som ett spektrum av alternativ i stället för två extremval. Stark konsekvens och slutlig konsekvens är det två upphört att gälla å, finns men det många konsekvensval längs spektrumet. De här alternativen för konsekvenskontroll att utvecklare kan se exakt val och detaljerade nackdelar med avseende på hög tillgänglighet eller prestanda. Cosmos DB aktiverat utvecklare kan välja mellan fem väldefinierade konsekvensmodeller från konsekvensspektrumet (starkast till svagast) – **stark**, **begränsad föråldring**, **session** , **konsekvent prefix**, och **eventuell**. Var och en av dessa konsekvensmodeller är väldefinierade, intuitivt och kan användas för den specifika verkliga scenarier. Var och en av de fem konsekvensmodeller ger [tillgänglighet och prestanda kompromisser](consistency-levels-tradeoffs.md) och backas upp av omfattande serviceavtal. Följande bild visar olika konsekvensnivåer som ett spektrum:
 
 ![Konsekvens som ett spektrum](./media/consistency-levels/five-consistency-levels.png)
 
-Konsekvensnivåerna är regionsoberoende. Konsekvensnivå på ditt Cosmos DB-konto är korrekt för alla läsåtgärder oavsett följande egenskaper:
-
-- Regionen där läsningar och skrivningar behandlas
-- Antalet regioner som associeras med ditt Cosmos-konto
-- Om ditt konto har konfigurerats med en eller flera Skriv-regioner
+Konsekvensnivåerna är regionsoberoende. Konsekvensnivå på ditt Cosmos DB-konto är korrekt för alla läsåtgärder oavsett den region där läsningar och skrivningar behandlas, antalet regioner som associeras med ditt Cosmos-konto eller om ditt konto är konfigurerat med en enda eller flera Skriv-regioner.
 
 ## <a name="scope-of-the-read-consistency"></a>Omfånget för Läs-konsekvens
 

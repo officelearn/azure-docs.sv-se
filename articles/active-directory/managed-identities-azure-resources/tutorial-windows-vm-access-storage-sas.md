@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: f8f65cbbf3f2583e43416fc36050de6c55f105dc
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: ca9f2fa249a3d9f4387d0fa45e3c5874eea26120
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161721"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625495"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Självstudier: Använda en Windows VM systemtilldelade hanterad identitet för åtkomst till Azure Storage via SAS-autentiseringsuppgifter
 
@@ -36,16 +36,7 @@ En SAS för tjänst ger möjlighet att bevilja begränsad åtkomst till objekt i
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Logga in på Azure-portalen](https://portal.azure.com)
-
-- [Skapa en virtuell Windows-dator](/azure/virtual-machines/windows/quick-create-portal)
-
-- [Aktivera systemtilldelade identiteter på den virtuella datorn](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
-
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
 
@@ -71,9 +62,9 @@ Senare ska vi ladda upp och ned en fil till det nya lagringskontot. Eftersom fil
 
     ![Skapa en lagringscontainer](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-a-storage-sas"></a>Bevilja åtkomst för den Virtuella datorns systemtilldelade hanterad identitet om du vill använda en SAS-lagring 
+## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-a-storage-sas"></a>Ge den virtuella datorns systemtilldelade hanterade identitet åtkomst till att använda lagrings-SAS 
 
-Azure Storage har inte inbyggt stöd för Azure AD-autentisering.  Du kan dock använda en hanterad identitet för att hämta en SAS-lagring från Resource Manager och sedan använda SAS åtkomst till lagring.  I det här steget ska bevilja du den Virtuella datorns systemtilldelade hanterad identitet åtkomst till ditt lagringskonto SAS.   
+Azure Storage har inte inbyggt stöd för Azure AD-autentisering.  Du kan dock använda en hanterad identitet för att hämta en SAS-lagring från Resource Manager och sedan använda SAS åtkomst till lagring.  I det här steget ger du den virtuella datorns systemtilldelade hanterade identitet åtkomst till SAS för lagringskontot.   
 
 1. Gå tillbaka till det lagringskonto som du nyss skapade.   
 2. Klicka på länken **Åtkomstkontroll (IAM)** på den vänstra panelen.  
@@ -85,7 +76,7 @@ Azure Storage har inte inbyggt stöd för Azure AD-autentisering.  Du kan dock a
 
     ![Alternativ bildtext](./media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
 
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet och använd den för att anropa Azure Resource Manager 
+## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet och använd den för att anropa Azure Resource Manager 
 
 Under resten av självstudiekursen arbetar vi från den virtuella datorn som vi skapade tidigare.
 
@@ -94,7 +85,7 @@ Du måste använda Azure Resource Manager PowerShell-cmdletar i den här delen. 
 1. Gå till **Virtuella datorer** på Azure Portal, gå till din virtuella Windows-dator och klicka sedan på **Anslut** längst upp på sidan **Översikt**.
 2. Ange ditt **användarnamn** och **lösenord** som du lade till när du skapade den virtuella Windows-datorn. 
 3. Nu när du har skapat en **anslutning till fjärrskrivbord** med den virtuella datorn öppnar du PowerShell i fjärrsessionen. 
-4. Med hjälp av Powershell-Invoke-WebRequest, gör en begäran för det lokala hanterad identitet för Azure-resurser slutpunkt för att hämta en åtkomsttoken för Azure Resource Manager.
+4. Använd PowerShells Invoke-WebRequest och skicka en begäran till den lokala slutpunkten för hanterad identitet för Azure-resurser för att hämta en åtkomsttoken för Azure Resource Manager.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}

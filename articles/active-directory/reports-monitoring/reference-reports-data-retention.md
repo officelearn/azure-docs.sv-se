@@ -13,24 +13,21 @@ ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 05/10/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 68028fd1ba116251860e5c370e9e9ce61fd314bb
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 601169cc62a99438f661adc06ab166b545606edb
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47107114"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624598"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Rapportkvarhållningsregler i Azure Active Directory
 
+I den här artikeln får du lära dig om datalagringsprinciper för olika aktivitetsrapporter i Azure Active Directory. 
 
-Den här artikeln ger svar på de vanligaste frågorna tillsammans med en datakvarhållning för olika aktivitetsrapporter i Azure Active Directory. 
-
-### <a name="q-how-can-you-get-the-collection-of-activity-data-started"></a>F: hur kan du få uppsättningen aktivitetsdata igång?
-
-**S:**
+### <a name="when-does-azure-ad-start-collecting-data"></a>När Azure AD startar insamling av data?
 
 | Azure AD-version | Samling Start |
 | :--              | :--   |
@@ -38,25 +35,21 @@ Den här artikeln ger svar på de vanligaste frågorna tillsammans med en datakv
 | Azure AD Kostnadsfri | Första gången du öppnar den [Azure Active Directory-bladet](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) eller Använd den [reporting API: er](https://aka.ms/aadreports)  |
 
 ---
-### <a name="q-when-is-your-activity-data-available-in-the-azure-portal"></a>F: när är din aktivitetsdata i Azure-portalen?
 
-**S:**
+### <a name="when-is-the-activity-data-available-in-the-azure-portal"></a>När är aktivitetsdata i Azure-portalen?
 
 - **Omedelbart** – om du redan har arbetat med rapporter i Azure-portalen.
 - **Inom 2 timmar** – om du inte har aktiverat rapportering i Azure-portalen.
 
 ---
 
-### <a name="q-how-can-you-get-the-collection-of-security-signals-started"></a>F: hur kan du få insamling av säkerhet signaler igång?  
+### <a name="when-does-azure-ad-start-collecting-security-signal-data"></a>När Azure AD startar samla in säkerhetsdata signalen?  
 
-**S:** för säkerhet signaler, samling processen startar när du delta i använda Identity Protection Center. 
-
+För säkerhets-signaler, samling processen startar när du anmäla sig till använder den **Identity Protection Center**. 
 
 ---
 
-### <a name="q-for-how-long-is-the-collected-data-stored"></a>F: hur länge insamlade data lagras?
-
-**S:**
+### <a name="how-long-does-azure-ad-store-the-data"></a>Hur länge sparas data i Azure AD?
 
 **Aktivitetsrapporter**    
 

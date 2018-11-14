@@ -13,32 +13,31 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 04/19/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 818f4f4d8ea51cb278190d6e41953f0b04b2e995
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 4d86bcf99d5b4cf2b04980e72a2bd0a422233dc3
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42056715"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622882"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referens över granskningsaktiviteter i Azure AD
 
-Med rapportering i Azure Active Directory (Azure AD) får du all information du behöver för att ta reda på hur din miljö klarar sig.
+Med Azure Active Directory (Azure AD) rapporter får du den information du behöver för att fastställa hur din miljö.
 
 Rapporteringsarkitekturen i Azure AD består av följande komponenter:
 
-- **Aktivitet** 
-    - **Inloggningsaktiviteter** – Information om användningen av hanterade program och användares inloggningsaktiviteter
-    - **Granskningsloggar** – Ger spårbarhet via loggar för alla ändringar som gjorts via olika funktioner i Azure AD. Exempel på granskningsloggar är de resursändringar som görs i Azure AD, som användare, appar, grupper, roller, principer, autentiseringar och så vidare ...
-- **Säkerhet** 
-    - **Riskfyllda inloggningar** – En riskfylld inloggning indikerar ett potentiellt inloggningsförsök av någon annan än användarkontots ägare. Mer information finns i avsnittet om riskfyllda inloggningar.
-    - **Användare som har flaggats för risk** – En användare som har flaggats för risk indikerar att ett användarkonto kan ha komprometterats. Mer information finns i avsnittet om användare som har flaggats för risk.
+- **Aktivitetsrapporter** 
+    - [Inloggningar](concept-sign-ins.md) – innehåller information om användningen av hanterade program och användare inloggningsaktiviteter
+    - [Granskningsloggar](concept-audit-logs.md) – Ger spårbarhet via loggar för alla ändringar som gjorts via olika funktioner i Azure AD. 
+    
+- **Säkerhetsrapporter** 
+    - [Riskfyllda inloggningar](concept-risky-sign-ins.md) – En riskfylld inloggning indikerar ett potentiellt inloggningsförsök av någon annan än användarkontots ägare. 
+    - [Användare som har flaggats för risk](concept-user-at-risk.md) – En användare som har flaggats för risk indikerar att ett användarkonto kan ha komprometterats. 
 
 I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina granskningsloggar.
- 
-
 
 ## <a name="access-reviews"></a>Åtkomstgranskningar
 
@@ -72,9 +71,6 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Användarhantering|Hämta V1-program|
 |Användarhantering|Hämta V2-program|
 |Användarhantering|Hämta V2-program|
-
-
-
 
 ## <a name="account-provisioning"></a>Kontoetablering
 
@@ -593,13 +589,8 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 |Principhantering|Användare registrerad för lösenordsåterställning via självbetjäning|
 
 
-
-
 ## <a name="next-steps"></a>Nästa steg
 
-En översikt över:
-
-- Rapporter, finns i [Rapporter i Azure Active Directory](overview-reports.md).
-
-- Rapporter om granskningsaktiviteter, finns i [Rapporter om granskningsaktiviteter i Azure Active Directory-portalen](concept-audit-logs.md). 
-
+- [Azure AD-rapporter översikt](overview-reports.md).
+- [Granskningsloggarna](concept-audit-logs.md). 
+- [Programmatisk åtkomst till Azure AD-rapporter](concept-reporting-api.md)

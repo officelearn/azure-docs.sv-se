@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d906515214e042a09d434f02be1778c275f214a8
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 8afefa95e0a7b4f10f4a2bf6c7f099ba9eb4a957
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958142"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613227"
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Skapa en anpassad instrumentpanel för användning i Log Analytics
 
@@ -88,4 +88,4 @@ Om du vill ta bort en panel, gå till vyn min instrumentpanel och klicka på **a
 ![Ta bort en panel](./media/log-analytics-dashboards/oms-dashboards-remove-tile.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* Skapa [aviseringar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) i Log Analytics för att generera meddelanden och åtgärda problem.
+* Skapa [aviseringar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) i Log Analytics för att generera meddelanden och åtgärda problem.

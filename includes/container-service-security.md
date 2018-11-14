@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: 4f542f313b1c55ea68532efcbd6da780caae399f
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: f4acec3db7d74b969c55e725d9ec1c5f063b552c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572773"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51628218"
 ---
 # <a name="securing-docker-containers-in-azure-container-service"></a>Skydda Docker-behållare i Azure Container Service
 
@@ -56,7 +56,7 @@ Varje orkestrering som är tillgänglig i Azure Container Service har sina egna 
 
 Ytterligare orkestreringsspecifik säkerhetsinformation finns i följande resurser:
 
-* **Kubernetes**: [Security Best Practices for Kubernetes Deployment](http://blog.kubernetes.io/2016/08/security-best-practices-kubernetes-deployment.html) (Säkerhetsrekommendationer för Kubernetes-distributioner)
+* **Kubernetes**: [Security Best Practices for Kubernetes Deployment](https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/) (Säkerhetsrekommendationer för Kubernetes-distributioner)
 
 * **DC/OS**: [Securing Your Cluster](https://dcos.io/docs/1.8/administration/securing-your-cluster/) (Skydda ditt kluster)
 

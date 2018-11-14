@@ -13,55 +13,50 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 06/21/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bc8d3525ab7cdbdf298ecbbc686ced16fa7bc77c
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: ae962cba5e3d08661eb1c93edfc2feb221a9367e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42058153"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623806"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
-Med rapportering i Azure Active Directory (Azure AD) i [Azure Portal](https://portal.azure.com) får du all information du behöver för att ta reda på hur din miljö klarar sig.
-
-Rapporteringsarkitekturen i Azure Active Directory består av följande komponenter:
+Rapporteringsarkitekturen i Azure Active Directory (Azure AD) består av följande komponenter:
 
 - **Aktivitet** 
-    - **Inloggningsaktiviteter** – Information om användningen av hanterade program och användares inloggningsaktiviteter
-    - **Granskningsloggar** – Granska information om systemaktivitet för användare och grupphantering, dina hanterade program och katalogaktiviteter.
+    - **Inloggningar** – Information om användningen av hanterade program och logga in användaraktiviteter.
+    - **Granskningsloggar** - [granskningsloggar](concept-audit-logs.md) ger information om användare och grupphantering, hanterade program och katalogaktiviteter systemaktivitet.
 - **Säkerhet** 
-    - **Riskfyllda inloggningar** – En riskfylld inloggning indikerar ett potentiellt inloggningsförsök av någon annan än användarkontots ägare. Mer information finns i avsnittet om riskfyllda inloggningar.
-    - **Användare som har flaggats för risk** – En användare som har flaggats för risk indikerar att ett användarkonto kan ha komprometterats. Mer information finns i avsnittet om användare som har flaggats för risk.
+    - **Riskfyllda inloggningar** – en [riskfyllda inloggningen](concept-risky-sign-ins.md) indikerar en inloggningsförsök som kan ha utförts av någon som inte är tillförlitligt ägare för ett användarkonto.
+    - **Användare som har flaggats för risk** – en [riskfylld användare](concept-user-at-risk.md) är en indikator för ett användarkonto som kan ha komprometterats.
 
-I det här ämnet får du en översikt över inloggningsaktiviteterna.
+Det här avsnittet ger en översikt över rapporten inloggningar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
-* Användare i säkerhetsadministratören, Security-läsare rollen rapportläsare
+* Användare i rollerna säkerhetsadministratör, Säkerhetsläsare och rapportläsare
 * Globala administratörer
-* Alla användare (icke-administratörer) kan komma åt sina egna inloggningar 
+* Dessutom kan alla användare (icke-administratörer) kan komma åt sina egna inloggningar 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Vilken Azure AD-licens behöver du för att komma åt inloggningsaktiviteter?
 * Din klient måste ha en associerad Azure AD Premium-licens för att det ska gå att se alla rapporter om inloggningsaktiviteter
 
+## <a name="sign-ins-report"></a>Rapporten inloggningar
 
-## <a name="sign-in-activities"></a>Inloggningsaktiviteter
-
-Med den information som tillhandahålls av rapporten över användarinloggningsaktiviteter får du svar på frågor som:
+Användaren loggar in rapporten innehåller svar på följande frågor:
 
 * Vilket inloggningsmönster har en användare?
 * Hur många användare har loggat in under en vecka?
 * Vad är status för dessa inloggningar?
 
-Din startpunkt för alla inloggning granskningsdata är **inloggningar** i avsnittet aktivitet i **Azure Active Directory**.
-
+Du kan komma åt rapporten inloggningar genom att välja **inloggningar** i den **aktivitet** delen av den **Azure Active Directory** -bladet i den [Azure-portalen](https://portal.azure.com).
 
 ![Inloggningsaktivitet](./media/concept-sign-ins/61.png "inloggningsaktivitet")
-
 
 En inloggningslogg har en standardlistvy som visar:
 
@@ -82,7 +77,7 @@ På så sätt kan du visa ytterligare fält eller ta bort fält som redan visas.
 
 ![Inloggningsaktivitet](./media/concept-sign-ins/02.png "inloggningsaktivitet")
 
-När du klickar på ett objekt i listvyn visas all tillgänglig information om det i en horisontell vy.
+Markera ett objekt i listvyn för att få mer detaljerad information.
 
 ![Inloggningsaktivitet](./media/concept-sign-ins/03.png "inloggningsaktivitet")
 
@@ -100,7 +95,7 @@ Om du vill begränsa vilka data som rapporteras till en nivå som passar dig kan
 - Användare
 - Program
 - Inloggningsstatus
-- Status för riskidentifieringen
+- Villkorlig åtkomst
 - Date
 
 ![Inloggningsaktivitet](./media/concept-sign-ins/04.png "inloggningsaktivitet")
@@ -115,11 +110,12 @@ Med filtret **Inloggningsstatus** kan du välja något av följande filter:
 - Lyckades
 - Fel
 
-Med filtret **Risk identifierades** kan du välja något av följande filter:
+Den **villkorlig åtkomst** filter kan du välja CA Principstatus för att logga in:
 
 - Alla
-- Ja
-- Nej
+- Används inte
+- Lyckades
+- Fel
 
 Med filtret **Datum** kan du definiera en tidsram för de data som returneras.  
 Möjliga värden:
@@ -149,11 +145,14 @@ Om du lägger till ytterligare fält i inloggningsvyn läggs de automatiskt till
 
 ## <a name="download-sign-in-activities"></a>Ladda ned inloggningsaktivitet
 
-Du kan ladda ned informationen om inloggningsaktivitet om du vill arbete med den utanför Azure Portal. När du klickar på **Ladda ned** skapas en CSV-fil med de senaste 5 000 posterna.  Förutom en nedladdningsknapp finns också ett alternativ på Azure Portal där du kan generera ett skript för att ladda ned data.  
+Du kan [ladda ned inloggningsdata](quickstart-download-sign-in-report.md) om du vill arbeta med dem utanför Azure-portalen. När du klickar på **Ladda ned** skapas en CSV-fil med de senaste 5 000 posterna.  Förutom en hämtningsknappen Azure-portalen ger dig möjlighet att [skapar ett skript för att hämta dina data](tutorial-signin-logs-download-script.md).  
 
 ![Ladda ned](./media/concept-sign-ins/71.png "Ladda ned")
 
 Om du behöver mer flexibilitet kan du använda skriptlösningen. Klicka på **skriptet** skapar ett PowerShell.skript som innehåller alla filter som du har angett. Ladda ned och köra skriptet i **administratörsläge** att skapa CSV-filen. 
+
+> [!IMPORTANT]
+> Antalet poster som du kan ladda ned är begränsad av den [rapportkvarhållningsregler i Azure Active Directory](reference-reports-data-retention.md).  
 
 ### <a name="running-the-script-on-a-windows-10-machine"></a>Kör skriptet på en Windows 10-dator
 
@@ -164,28 +163,18 @@ Om du vill köra skriptet på en **Windows 10** dator, måste du utföra några 
 3. Kör **Set-ExecutionPolicy obegränsad** och välj **Ja till alla**. 
 4. Du kan nu köra det hämta PowerShell-skriptet i administratörsläge för att skapa CSV-filen.
 
-Förutom den tekniska implementeringen begränsas antalet poster som du kan ladda ned även av [bevarandereglerna för Azure Active-rapporter](reference-reports-data-retention.md).  
+## <a name="sign-ins-data-shortcuts"></a>Inloggningar data genvägar
 
+Förutom att Azure AD ger Azure-portalen dig ytterligare startpunkter för inloggningsdata:
 
-## <a name="sign-in-activities-shortcuts"></a>Genvägar till inloggningsaktiviteter
-
-Förutom Azure Active Directory, Azure-portalen ger dig ytterligare startpunkter att logga in aktiviteter data:
-
-- Översikt över identitetssäkerhet och skydd
+- Identity protection Säkerhetsöversikt
 - Användare
 - Grupper
 - Företagsprogram
 
+### <a name="users-sign-ins-data-in-identity-security-protection"></a>Inloggningsdata för användare i Identitetssäkerhet och skydd
 
-### <a name="users-sign-ins-activities"></a>Användares inloggningsaktivitet
-
-Med den information som tillhandahålls av rapporten över användarinloggningsaktiviteter får du svar på frågor som:
-
-- Vilket inloggningsmönster har en användare?
-- Hur många användare har en användare loggat in under en vecka?
-- Vad är status för dessa inloggningar?
-
-Din startpunkt för dessa data är diagrammet över användarinloggning på översiktssidan **Identitetssäkerhet och skydd**. Diagrammet med användarinloggningar visar veckovisa sammanställningar av inloggningar för alla användare under en viss tidsperiod. Standardvärdet för tidsperioden är 30 dagar.
+Användaren loggar in diagrammet i det **Identitetssäkerhet och skydd** översiktssida visar veckovisa sammanställningar av inloggningar för alla användare i en viss tidsperiod. Standardvärdet för tidsperioden är 30 dagar.
 
 ![Inloggningsaktivitet](./media/concept-sign-ins/06.png "inloggningsaktivitet")
 
@@ -211,7 +200,6 @@ När du klickar på ett objekt visas mer information om inloggningen:
 - Date
 - MFA krävs
 - Inloggningsstatus
-
  
 På sidan **Användare** visas en fullständig översikt över alla användarinloggningar om du klickar på **Inloggningar** i avsnittet **Aktivitet**.
 
@@ -243,9 +231,9 @@ Alternativet **Inloggningar** ger dig en fullständig översikt över alla inlog
 
 ![Inloggningsaktivitet](./media/concept-sign-ins/11.png "inloggningsaktivitet")
 
-
-
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om inloggningsaktivitetsfelkoder finns på [Felkoder inloggningsaktivitetsrapporten i Azure Active Directory-portalen](reference-sign-ins-error-codes.md).
+* [Felkoder för inloggningsaktivitet rapport](reference-sign-ins-error-codes.md)
+* [Azure AD-datalagringsprinciper](reference-reports-data-retention.md)
+* [Rapportsvarstider i Azure AD](reference-reports-latencies.md)
 

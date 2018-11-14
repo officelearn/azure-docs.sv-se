@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 11/08/2018
 ms.author: tulasim
-ms.openlocfilehash: adcefe8fed927aca2533ea811bac56f0b92288de
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: fa5b5e1998d54c7b22d01e7cc70e84059d482cfb
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279769"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623554"
 ---
 # <a name="edit-a-knowledge-base"></a>Redigera en kunskapsbas
 
@@ -29,30 +29,25 @@ QnA Maker kan du hantera innehållet i kunskapsbasen genom att tillhandahålla e
 
     ![Min kunskapsbaser](../media/qnamaker-how-to-edit-kb/my-kbs.png)
 
-2. Välj en viss kunskapsbas kan göra ändringar i den.
+1. Välj en viss kunskapsbas kan göra ändringar i den.
  
-3. Klicka på **Inställningar**.
-
-   Här kan du redigera obligatoriskt fält tjänstnamn.
+1. Välj **inställningar**. Här kan du redigera obligatoriskt fält tjänstnamn.
   
-   Du kan lägga till nya URL: er för att lägga till nytt innehåll för vanliga frågor och svar Knowledgebase genom att klicka på **hantera knowledgebase -> ”+ Lägg till URL: en”** länk.
-   
-   Du kan ta bort befintliga webbadresser genom att klicka på **ikonen Ta bort**.
-   
-   Om du vill att betyda att uppdatera det senaste innehållet över befintliga URL: er för skalstreck kryssrutan namnet **”uppdatera”**, då uppdateras Knowledgebase med senaste URL-innehållet.
-   
-Du kan lägga till maxstorleken dokumentet som en del av knowledgebase, genom att klicka på **hantera knowledgebase -> ”+ Lägg till fil”**
+    |Mål|Åtgärd|
+    |--|--|
+    |Lägg till webbadress|Du kan lägga till nya URL: er för att lägga till nytt innehåll för vanliga frågor och svar till kunskapsbas genom att klicka på **hantera knowledge base -> ”+ Lägg till URL: en”** länk.|
+    |Ta bort URL|Du kan ta bort befintliga webbadresser genom att välja ikonen Ta bort, kan Papperskorgen.|
+    |Uppdatera URL: en innehåll|Om du vill att din kunskapsbas att uppdatera befintliga webbadresser senaste innehåll, väljer den **uppdatera** kryssrutan. Kunskapsbasen uppdateras med senaste URL-innehåll.|
+    |Lägg till fil|Du kan lägga till ett dokument för stöds filen som en del av en kunskapsbas genom att välja **hantera kunskapsbas**, sedan välja **+ Lägg till fil**|
+    |Importera|Du kan också importera alla befintliga kunskapsbas genom att välja **Ímport kunskapsbas** knappen. |
+    |Uppdatering|Uppdatering av kunskapsbas beror på **management prisnivån** används för att skapa QnA Maker-tjänsten som är associerade med din kunskapsbas. Du kan också uppdatera hanteringsnivån från Azure-portalen om det behövs.
 
-Du kan också importera alla befintliga knowledgebase genom att klicka på **Ímport Knowledgebase** knappen. 
-   
-Uppdatering av knowledgebase beror på **management prisnivån** som används när du skapar QnA Maker-tjänsten som är associerade med din knowledgbase. Du kan också uppdatera hanteringsnivån från Azure-portalen om det behövs.
-
-4. När du är klar med ändringarna i kunskapsbasen, klickar du på **spara och träna** i det övre högra hörnet på sidan för att spara ändringarna.    
+1. När du är klar att göra ändringar i kunskapsbasen, väljer **spara och träna** i det övre högra hörnet på sidan för att spara ändringarna.    
 
     ![Spara och träna](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 
-    >[!NOTE]
-    Lämna sidan innan du klickar på Spara och träna behålls inte ändringarna.
+    >[!CAUTION]
+    >Om du lämnar sidan innan du väljer **spara och träna**, alla ändringar går förlorade.
 
 ## <a name="add-a-qna-pair"></a>Lägga till par med fråga och svar
 
@@ -62,7 +57,7 @@ Välj **Lägg till frågor och svar om par** att lägga till en ny rad i tabelle
 
 ## <a name="delete-a-qna-pair"></a>Ta bort ett par frågor och svar
 
-Ta bort en frågor och svar genom att klicka på den **ta bort** ikonen längst till höger för frågor och svar om raden.
+Ta bort en frågor och svar genom att klicka på den **ta bort** ikonen längst till höger för frågor och svar om raden. Det här är en permanent åtgärd. Det går inte att ångra. Överväga att exportera din Kunskapsbas från den **publicera** sidan innan du tar bort par. 
 
 ![Ta bort frågor och svar om par](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
 
@@ -95,6 +90,10 @@ Lägg till metadata par genom att välja filterikonen
 Tar bort en knowledge base (KB) är en permanent åtgärd. Det går inte att ångra. Innan du tar bort en kunskapsbas exporterar kunskapsbas från den **inställningar** i QnA Maker-portalen. 
 
 Om du delar din Kunskapsbas med [medarbetare](collaborate-knowledge-base.md) tar bort den, alla förlorar åtkomst till KB. 
+
+## <a name="delete-azure-resources"></a>Ta bort Azure-resurser 
+
+Om du tar bort någon av de Azure-resurser används för kunskapsbaser din QnA Maker fungerar inte längre kunskapsbaser. Innan du tar bort alla resurser, kontrollera att du exporterar dina kunskapsbaser från den **inställningar** sidan. 
 
 ## <a name="next-steps"></a>Nästa steg
 

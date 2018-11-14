@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 7937f3d0db414d7a9cc2adaefd4324d49d734fcb
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 49d68a28180c384a181f29e41c12a5e32bd76aee
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280681"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625223"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure-partner kundens användning attribution
 
@@ -126,12 +126,12 @@ Ett GUID är ett unikt referensnummer med 32 hexadecimala siffror. För att skap
 > [!Note]
 > Det är mycket rekommenderar att du använder [Azure Storage GUID generator formuläret](https://aka.ms/StoragePartners) att skapa din GUID. Mer information finns i vår [vanliga frågor och svar](#faq).
 
-Skapa ett unikt GUID för varje erbjudande och distribution kanal. Om du distribuerar två lösningar med hjälp av en mall och var och en är tillgänglig på Azure Marketplace och på GitHub, måste du skapa fyra GUID:
+Vi rekommenderar att du skapar ett unikt GUID för varje erbjudande och distribution kanal för varje produkt. Du kan välja för att använda en enda GUID för produktens flera distributionskanaler om du inte vill att rapportering ska delas. 
 
-*   Erbjud en i Azure Marketplace 
-*   Erbjud en på GitHub
-*   Erbjudandet B i Azure Marketplace 
-*   Erbjudandet B på GitHub
+Om du distribuerar en produkt med hjälp av en mall och den är tillgänglig på både Azure Marketplace och på GitHub, kan du skapa och registrera 2 olika GUID:
+
+*   Produkten A i Azure Marketplace 
+*   Produkten A på GitHub
 
 Rapportering sker genom att värdet för partner (Microsoft Partner-ID) och GUID. 
 

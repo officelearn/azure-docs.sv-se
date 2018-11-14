@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 653ed7e4cdbd2df166e21acfd1e376638cad6290
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 52476488307b9467665b1b8df35c92419825078f
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257232"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622388"
 ---
 # <a name="configure-service-map-in-azure"></a>Konfigurera Tjänstkarta i Azure
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Du kan använda den för att visa dina servrar som du tänker på dem, sammankopplat system som levererar viktiga tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar i alla TCP-anslutna arkitekturer utan konfiguration som krävs, än installation av en agent.
@@ -133,8 +133,8 @@ Tjänstkarta hämtar data från Microsoft Dependency agenten. Beroendeagenten ä
 
 | Ansluten källa | Stöds | Beskrivning |
 |:--|:--|:--|
-| Windows-agenter | Ja | Service Map analyserar och samlar in data från Windows-datorer. <br><br>Förutom den [Log Analytics-agenten för Windows](../log-analytics/log-analytics-concept-hybrid.md), Windows-agenter kräver Microsoft Dependency agenten. Se [Operativsystem som stöds](#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
-| Linux-agenter | Ja | Service Map analyserar och samlar in data från Linux-datorer. <br><br>Förutom den [Log Analytics-agenten för Linux](../log-analytics/log-analytics-concept-hybrid.md), kräver Microsoft Dependency agenten för Linux-agenter. Se [Operativsystem som stöds](#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
+| Windows-agenter | Ja | Service Map analyserar och samlar in data från Windows-datorer. <br><br>Förutom den [Log Analytics-agenten för Windows](../log-analytics/log-analytics-agent-overview.md), Windows-agenter kräver Microsoft Dependency agenten. Se [Operativsystem som stöds](#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
+| Linux-agenter | Ja | Service Map analyserar och samlar in data från Linux-datorer. <br><br>Förutom den [Log Analytics-agenten för Linux](../log-analytics/log-analytics-agent-overview.md), kräver Microsoft Dependency agenten för Linux-agenter. Se [Operativsystem som stöds](#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
 | System Center Operations Manager-hanteringsgrupp | Ja | Service Map analyserar och samlar in data från Windows och Linux-agenter i en ansluten [System Center Operations Manager-hanteringsgrupp](../log-analytics/log-analytics-om-agents.md). <br><br>En direktanslutning från System Center Operations Manager-agentdatorn till Log Analytics krävs. |
 | Azure Storage-konto | Nej | Tjänstkarta samlar in data från agentdatorer, så det finns inga data från den för att samla in från Azure Storage. |
 
@@ -230,7 +230,7 @@ Beroendeagenten kan installeras manuellt på Windows-datorer genom att köra `In
 
 Använd följande steg för att installera beroendeagenten på varje Windows-dator:
 
-1.  Installera agenten för Log Analytics för Windows följa en av metoderna som beskrivs i [samla in data i en hybridmiljö med Log Analytics-agenten](../log-analytics/log-analytics-concept-hybrid.md).
+1.  Installera agenten för Log Analytics för Windows följa en av metoderna som beskrivs i [översikt över Log Analytics-agenten](../log-analytics/log-analytics-agent-overview.md).
 2.  Ladda ned Windows-agenten och kör den med hjälp av följande kommando: 
     
     `InstallDependencyAgent-Windows.exe`
@@ -258,7 +258,7 @@ Beroende-agenten är installerad på Linux-datorer från `InstallDependencyAgent
 
 Använd följande steg för att installera beroendeagenten på varje Linux-dator:
 
-1.  Installera Log Analytics-agenten följa en av metoderna som beskrivs i [samla in data i en hybridmiljö med Log Analytics-agenten](../log-analytics/log-analytics-concept-hybrid.md).
+1.  Installera Log Analytics-agenten följa en av metoderna som beskrivs i [översikt över Log Analytics-agenten](../log-analytics/log-analytics-agent-overview.md).
 2.  Installera beroendeagenten för Linux som rot genom att köra följande kommando:
     
     `sh InstallDependencyAgent-Linux64.bin`

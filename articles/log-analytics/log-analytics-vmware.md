@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: fe2407f67e2ef7a2eb14105db0fef10917f34ba9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5c9f37d326d66e69e87ec846ca6f22d1788203f5
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005231"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613995"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware Monitoring (förhandsversion) lösningen i Log Analytics
 
@@ -165,7 +165,7 @@ Spara sökfrågor är en funktion som standard i Log Analytics och hjälper dig 
 ![DockerDashboardView](./media/log-analytics-vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Skapa aviseringar från frågor
-När du har skapat dina frågor, kanske du vill använda frågorna för att meddela dig när specifika händelser äger rum. Se [aviseringar i Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) information om hur du skapar aviseringar. Exempel på aviseringar frågor och andra fråga-exempel finns i [övervaka VMware med Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blogginlägg.
+När du har skapat dina frågor, kanske du vill använda frågorna för att meddela dig när specifika händelser äger rum. Se [aviseringar i Log Analytics](../monitoring-and-diagnostics/monitoring-overview-alerts.md) information om hur du skapar aviseringar. Exempel på aviseringar frågor och andra fråga-exempel finns i [övervaka VMware med Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blogginlägg.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>Vad behöver jag göra på ESXi värd inställningen? Vilken effekt det har på min aktuella miljön?
@@ -208,4 +208,4 @@ Det kan finnas flera anledningar:
 ## <a name="next-steps"></a>Nästa steg
 * Använd [Loggsökningar](log-analytics-queries.md) ha data i Log Analytics för att visa detaljerad VMware.
 * [Skapa dina egna instrumentpaneler](log-analytics-dashboards.md) som visar data för VMware-värd.
-* [Skapa aviseringar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) när specifika händelser för VMware-värd inträffar.
+* [Skapa aviseringar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) när specifika händelser för VMware-värd inträffar.

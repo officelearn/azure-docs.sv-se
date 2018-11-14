@@ -1,5 +1,5 @@
 ---
-title: Självstudie för Azure Service Bus WCF Relay | Microsoft Docs
+title: Exponera en lokal WCF REST-tjänst för extern klient med hjälp av Azure WCF Relay | Microsoft Docs
 description: Skapa ett klient- och -program med hjälp av WCF Relay.
 services: service-bus-relay
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2017
+ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 9c76e535fe0585ec6ff08a0c9dcab700d8eb5424
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6927788fa79c567222a199064f5b375546ecf9ad
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262020"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615484"
 ---
-# <a name="azure-wcf-relay-tutorial"></a>Självstudie för Azure WCF Relay
+# <a name="expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Exponera en lokal WCF REST-tjänst för extern klient med hjälp av Azure WCF Relay
 
 Den här självstudien beskrivs hur du skapar en enkel WCF Relay-klient och en med hjälp av Azure Relay-tjänsten. En liknande självstudiekurs som använder [Service Bus-meddelanden](../service-bus-messaging/service-bus-messaging-overview.md), se [Kom igång med Service Bus-köer](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
@@ -31,19 +31,32 @@ När du har gått igenom alla teman i den här självstudiekursen, kommer du att
 
 I de tre sista stegen beskriver vi hur du skapar ett klientprogram, konfigurerar detta och skapar och använder en klient som har åtkomst till värdens funktioner.
 
+Du kan utföra följande steg i den här självstudien:
+
+> [!div class="checklist"]
+> * Skapa ett Relay-namnområde.
+> * Skapa en WCF-tjänstekontrakt
+> * Implementera WC-kontraktet
+> * Hantera och köra WCF-tjänst för att registrera med Relay-tjänsten
+> * Skapa en WCF-klient för tjänstekontraktet
+> * Konfigurera WCF-klienten
+> * Implementera WCF-klienten
+> * Köra programmen. 
+
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att kunna genomföra den här kursen behöver du följande:
+För att slutföra den här självstudien, finns följande förhandskrav:
 
-* [Microsoft Visual Studio 2015 eller senare](https://visualstudio.com). Den här självstudiekursen används Visual Studio 2017.
-* Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett utan kostnad på ett par minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/free/).
+- En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+- [Visual Studio 2015 eller senare](http://www.visualstudio.com). I exemplen i den här självstudiekursen används Visual Studio 2017.
+- Azure SDK för .NET. Installera det från den [hämtningssidan för SDK](https://azure.microsoft.com/downloads/).
 
-## <a name="create-a-service-namespace"></a>Skapa ett namnområde för tjänsten
+## <a name="create-a-relay-namespace"></a>Skapa ett Relay-namnområde
+Det första steget är att skapa ett namnområde och få en [signatur för delad åtkomst (SAS)](../service-bus-messaging/service-bus-sas.md) nyckel. Ett namnområde ger en programgräns för varje program som exponeras via den vidarebefordrande tjänsten. SAS-nyckeln genereras automatiskt av systemet när ett namnområde för tjänsten har skapats. Kombinationen av namnområde för tjänsten och SAS-nyckeln ger referensen för Azure för att autentisera åtkomst till ett program.
 
-Det första steget är att skapa ett namnområde och få en [signatur för delad åtkomst (SAS)](../service-bus-messaging/service-bus-sas.md) nyckel. Ett namnområde ger en programgräns för varje program som exponeras via den vidarebefordrande tjänsten. SAS-nyckeln genereras automatiskt av systemet när ett namnområde för tjänsten har skapats. Kombinationen av namnområde för tjänsten och SAS-nyckeln ger referensen för Azure för att autentisera åtkomst till ett program. Följ [anvisningarna här](relay-create-namespace-portal.md) för att skapa ett Relay-namnområde.
+[!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
 ## <a name="define-a-wcf-service-contract"></a>Definiera ett WCF-tjänstekontrakt
-
 Tjänstekontraktet anger vilka åtgärder (webbserviceterminologin för metoder eller funktioner) tjänsten stöder. Kontrakt skapas genom att definiera ett gränssnitt för C++, C# eller Visual Basic. Varje metod i gränssnittet motsvarar en viss tjänsteåtgärd. Attributet [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) måste tillämpas på varje gränssnitt och attributet [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) måste tillämpas på varje åtgärd. Om en metod i ett gränssnitt som har attributet [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) inte har attributet [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), är inte den metoden exponerad. Koden för dessa arbetsuppgifter visas in exemplet som följer efter proceduren. En mer utförlig beskrivning av kontrakt och tjänster finns i [Utforma och implementera tjänster](https://msdn.microsoft.com/library/ms729746.aspx) i WCF-dokumentationen.
 
 ### <a name="create-a-relay-contract-with-an-interface"></a>Skapa ett relay-kontrakt med ett gränssnitt
@@ -51,13 +64,13 @@ Tjänstekontraktet anger vilka åtgärder (webbserviceterminologin för metoder 
 1. Öppna Visual Studio som administratör genom att högerklicka på programmet i **Start**-menyn och välja **Kör som administratör**.
 2. Skapa ett nytt konsolappsrojekt. Klicka på **Arkiv**-menyn, välj **Nytt** och klicka sedan på **Projekt**. Klicka på **Visual C#** i dialogrutan **Nytt projekt** (om **Visual C#** inte visas, tittar du under **Andra språk**). Klicka på den **Konsolapp (.NET Framework)** mall och ge den namnet **EchoService**. Klicka på **OK** för att skapa projektet.
 
-    ![][2]
+    ![Skapa en konsolapp][2]
 
 3. Installera Service Bus NuGet-paketet. Det här paketet lägger automatiskt till referenser till Service Bus-bibliotek, samt även WCF **System.ServiceModel**. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) är det namnområde som ger dig programmatisk åtkomst till de grundläggande funktionerna i WCF. Service Bus använder många av WFC:s objekt och attribut för att definiera tjänstekontrakt.
 
     Högerklicka på projektet i Solution Explorer och klicka sedan på **hantera NuGet-paket...** . Klicka på fliken Bläddra och sök sedan efter **WindowsAzure.ServiceBus**. Kontrollera att projektnamnet är markerat i rutan **Versioner**. Klicka på **Installera** och godkänn användningsvillkoren.
 
-    ![][3]
+    ![Service Bus-paket][3]
 4. Dubbelklicka på filen Program.cs i Solution Explorer för att öppna den i redigeraren, om den inte redan är öppen.
 5. Lägg till följande using-uttryck högst upp i filen:
 
@@ -231,7 +244,7 @@ Följande kod visar det grundläggande formatet för den App.config-fil som är 
 </configuration>
 ```
 
-## <a name="host-and-run-a-basic-web-service-to-register-with-the-relay-service"></a>Hantera och köra en grundläggande webbtjänst för att registrera med relay-tjänsten
+## <a name="host-and-run-the-wcf-service-to-register-with-the-relay-service"></a>Hantera och köra WCF-tjänst för att registrera med relay-tjänsten
 
 Det här steget beskriver hur du kör ett Azure Relay-tjänsten.
 
@@ -501,7 +514,7 @@ I det här steget ska du skapa en App.config-fil för ett grundläggande klientp
     Det här steget definierar namnet på slutpunkten, det kontrakt som definierats i tjänsten och det faktum att klientprogrammet använder TCP för att kommunicera med Azure Relay. Namnet på slutpunkten används i nästa steg för att länka samman denna slutpunktskonfiguration med URI:n för tjänsten.
 5. Klicka på **filen**, klicka sedan på **spara alla**.
 
-## <a name="example"></a>Exempel
+### <a name="example"></a>Exempel
 
 Följande kod visar filen App.config för Echo-klienten.
 
@@ -607,7 +620,7 @@ En av de viktigaste skillnaderna är dock att klientprogrammet använder en kana
     channelFactory.Close();
     ```
 
-## <a name="example"></a>Exempel
+### <a name="example"></a>Exempel
 
 Den färdiga koden bör se ut så här visar hur du skapar ett klientprogram, hur du anropar tjänsten och hur du stänger klienten när funktionsanropet har slutförts.
 
@@ -714,13 +727,10 @@ namespace Microsoft.ServiceBus.Samples
 12. Du kan fortsätta att skicka textmeddelanden från klienten till tjänsten på detta sätt. Tryck på Retur i konsolfönstren för klienten och tjänsten för att stänga båda programmen när du är klar.
 
 ## <a name="next-steps"></a>Nästa steg
+Fortsätt till följande självstudie: 
 
-Den här självstudiekursen visades hur du skapar en Azure Relay-klient och en tjänst med hjälp av funktionerna i Service Bus WCF Relay. En liknande självstudiekurs som använder [Service Bus-meddelanden](../service-bus-messaging/service-bus-messaging-overview.md), se [Kom igång med Service Bus-köer](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
-
-Mer information om Azure Relay finns i följande avsnitt.
-
-* [Översikt över Azure Relay](relay-what-is-it.md)
-* [Hur du använder tjänsten WCF relay med .NET](relay-wcf-dotnet-get-started.md)
+> [!div class="nextstepaction"]
+>[Exponera en lokal WCF REST-tjänst till en klient utanför ditt nätverk](service-bus-relay-rest-tutorial.md)
 
 [2]: ./media/service-bus-relay-tutorial/create-console-app.png
 [3]: ./media/service-bus-relay-tutorial/install-nuget.png

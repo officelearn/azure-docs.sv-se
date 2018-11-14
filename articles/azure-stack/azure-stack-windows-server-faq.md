@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: 91404f01a1a675ac59898336ef8aa81e1d2638b6
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: bf70f9a74b58758e03800d7f6fb92a8f8754828a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/13/2018
-ms.locfileid: "51579241"
+ms.locfileid: "51613103"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Windows Server i Azure Stack Marketplace vanliga frågor och svar
 
@@ -38,7 +38,7 @@ Sedan om alla Virtual Machine Scale Sets refererar till en specifik version, bö
 Microsoft erbjuder två versioner av Windows Server-avbildningar i Azure Stack Marketplace:
 
 - **Betala för det du använder**: dessa avbildningar kör Windows-mätare fullt pris. 
-   Vem ska använda: EA-kunder som använder den *förbrukning faktureringsmodellen*; CSP: er som inte vill använda SPLA licensiering.
+   Vem ska använda: Enterprise Agreement (EA)-kunder som använder den *förbrukning faktureringsmodellen*; CSP: er som inte vill använda SPLA licensiering.
 - **Bring Your Own License (BYOL)**: dessa avbildningar kör grundläggande taxor.
    Vem ska använda: EA-kunder med en Windows Server-licens; CSP: er som använder SPLA licensiering.
 
@@ -52,7 +52,7 @@ Ta bort fel version först via hantering av Marketplace. Vänta tills den har sl
 
 Se [konvertera Windows Server-datorer med förmånen tillbaka till betala per användning](../virtual-machines/windows/hybrid-use-benefit-licensing.md#powershell-1).
 
-### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-ea-entitlement"></a>Vad händer om jag har en äldre bild och min användaren har glömt att markera kryssrutan ”Jag har en licens” eller vi använder våra egna avbildningar och vi har EA rättigheten?
+### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-enterprise-agreement-entitlement"></a>Vad händer om jag har en äldre bild och min användaren har glömt att markera kryssrutan ”Jag har en licens” eller vi använder våra egna avbildningar och vi har rättigheten för Enterprise-avtal?
 
 Se [konvertera en befintlig virtuell dator med hjälp av Azure Hybrid-förmånen för Windows Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md#convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server). Observera att Azure Hybrid-förmånen gäller inte för Azure Stack, men effekten av den här inställningen gäller.
 
@@ -60,7 +60,7 @@ Se [konvertera en befintlig virtuell dator med hjälp av Azure Hybrid-förmånen
 
 Dessa avbildningar gäller den **licenseType** parameter, så att de är betala som du använder. Du kan ställa in den här parametern (se föregående vanliga frågor och svar-svar). Detta gäller endast för Windows Server-programvara inte till lager produkter, till exempel SQL, som kräver att du kan använda din egen licens. Betala per användning gäller när du använder licensiering inte för överlappande programprodukter.
 
-### <a name="i-have-an-ea-and-i-create-my-own-images-how-do-i-make-sure-they-are-billed-correctly"></a>Jag har ett EA och jag skapa min egen bilder. hur kan jag vara säker på att de debiteras korrekt?
+### <a name="i-have-an-enterprise-agreement-ea-and-will-be-using-my-ea-windows-server-license-how-do-i-make-sure-images-are-billed-correctly"></a>Jag har ett Enterprise Agreement (EA) och kommer att använda min EA Windows Server-licens; hur kan jag vara säker på att avbildningar debiteras korrekt?
 
 Du kan lägga till **licenseType: Windows_Server** i en Azure Resource Manager-mall. Den här inställningen måste läggas till varje virtuell dator resurs-block.
 

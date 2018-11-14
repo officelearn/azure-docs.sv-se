@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: a40917ec24ede1107f7d8ae7f5fb2f0f03d1094c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 7da75e052aaf36d0f59a5f23c28e42c0e4661b0a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278335"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615255"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Vad är Azure Diagnostics-tillägget
 Azure Diagnostics-tillägget är en agent i Azure som aktiverar insamlingen av diagnostikdata på ett distribuerat program. Du kan använda diagnostiktillägget från ett antal olika källor. För närvarande är Azure-molntjänst (klassisk) rollerna Web och Worker, virtuella datorer, Virtual Machine Scale sets och Service Fabric. Andra Azure-tjänster har olika diagnostik metoder. Se [översikt över övervakning i Azure](../azure-monitor/overview.md).
@@ -47,7 +47,7 @@ Du kan också skicka den till [Application Insights](../application-insights/app
 ### <a name="azure-monitor"></a>Azure Monitor
 Du har också valet av skickar du data till Azure Monitor. Den här mottagare är för tillfället endast gäller för prestandaräknare. Det kan du skicka prestandaräknare som samlats in på den virtuella datorn, VMSS, eller molntjänster till Azure Monitor som anpassade mått. Azure Monitor-mellanlagringsplatsen har stöd för:
 * Hämtar alla prestandaräknare skickas till Azure Monitor via den [Azure Monitor metrics API: er.](https://docs.microsoft.com/rest/api/monitor/)
-* Varna vid alla prestandaräknare skickas till Azure Monitor via den nya [unified aviseringsgränssnittet](monitoring-overview-unified-alerts.md) i Azure Monitor
+* Varna vid alla prestandaräknare skickas till Azure Monitor via den nya [unified aviseringsgränssnittet](monitoring-overview-alerts.md) i Azure Monitor
 * Behandla jokertecken operator i prestandaräknare som dimensionen ”instans” på din mått.  Till exempel om du samlat in den ”logisk disk (\*) / DiskWrites/sek” räknare du skulle kunna filtrera och dela upp på dimensionen ”instans” för diagram eller Varna vid den Diskskrivningar/sek för varje logisk Disk på den virtuella datorn (C:, D: osv.)
 
 Om du vill veta mer om hur du konfigurerar den här mottagare kan se den [Azure diagnostics schema-dokumentationen.](azure-diagnostics-schema-1dot3-and-later.md)

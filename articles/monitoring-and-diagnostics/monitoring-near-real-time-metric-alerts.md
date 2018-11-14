@@ -8,16 +8,17 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 15ecbcafd3397b425b669a48f19bee6073b71149
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 89b412a58291dd542b38cd0cbfa1288795024151
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279797"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613723"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>De resurser som stöds för måttaviseringar i Azure Monitor
 
-Azure Monitor har nu stöd för en ny aviseringstypen mått, som har betydande fördelar över den äldre [klassiska måttaviseringar](alert-metric-classic.md). Mått är tillgängliga för [lång lista med Azure-tjänster](monitoring-supported-metrics.md). En (växande) delmängd av resurstyperna som har stöd för nyare aviseringar. Den här artikeln innehåller dessa användare.
+Azure Monitor nu stöder en [nya måttaviseringstypen](monitoring-overview-alerts.md) som har betydande fördelar över den äldre [klassiska måttaviseringar](monitoring-overview-alerts-classic.md). Mått är tillgängliga för [lång lista med Azure-tjänster](monitoring-supported-metrics.md). En (växande) delmängd av resurstyperna som har stöd för nyare aviseringar. Den här artikeln innehåller dessa användare.
+
 
 Du kan också använda nyare måttaviseringar på den populära Log Analytics loggar extraherade som mått. Mer information finns [mått aviseringar för loggar](monitoring-metric-alerts-logs.md).
 
@@ -120,6 +121,6 @@ POST-åtgärd innehåller följande JSON-nyttolast och schemat för alla nära n
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om den nya [aviseringar upplevelse](monitoring-overview-unified-alerts.md).
+* Mer information om den nya [aviseringar upplevelse](monitoring-overview-alerts.md).
 * Lär dig mer om [loggaviseringar i Azure](monitor-alerts-unified-log.md).
 * Lär dig mer om [aviseringar i Azure](monitoring-overview-alerts.md).

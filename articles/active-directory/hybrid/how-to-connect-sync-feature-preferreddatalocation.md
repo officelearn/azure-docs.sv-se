@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 951ac39e1bb6ce050da26fa8ff3f93fd4e27e7d7
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 1dfc01d0f2f0f5f3eae58fd6c889fee3ad306135
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318404"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623035"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect-synkronisering: Konfigurera önskad Dataplats för Office 365-resurser
 Syftet med det här avsnittet är att vägleder dig genom hur du konfigurerar attributet för önskad Dataplats i Azure Active Directory (Azure AD) Connect-synkronisering. När någon använder Multi-Geo-funktioner i Office 365 använder du det här attributet för att ange geografiska av användarens Office 365-data. (Villkoren *region* och *geo* används synonymt.)
@@ -31,7 +31,7 @@ Som standard finns Office 365-resurser för dina användare i samma geografiska 
 Genom att ange attributet **preferredDataLocation**, kan du definiera en användares geo. Du kan ha användarens Office 365 resurser, till exempel postlåda och OneDrive, i samma geografiska område som användare, och fortfarande har en klient för hela organisationen.
 
 > [!IMPORTANT]
-> Hjälpdokumentation för flera geografiska är för närvarande tillgängligt för kunder med minst 2 500 prenumerationer för Office 365-tjänster. Kontakta din Microsoft-representant för mer information.
+> Hjälpdokumentation för flera geografiska är nu tillgänglig för kunder med ett minimum av 5000 prenumerationer för Office 365-tjänster. Kontakta din Microsoft-representant för mer information.
 >
 >
 

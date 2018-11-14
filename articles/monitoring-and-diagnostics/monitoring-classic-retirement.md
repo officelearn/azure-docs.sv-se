@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f7efafe5e3080de15781496032b688bc5fa71df2
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 589aae8321d2c081f09ed46d9def2229d3973ffd
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418436"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613217"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Enhetlig aviseringar och övervakning i Azure Monitor ersätter klassiska aviseringar och övervakning
 
@@ -72,4 +72,4 @@ Den här artikeln kommer att ständigt uppdaterade kommer länkar och informatio
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om den [nya enhetliga Azure Monitor](../azure-monitor/overview.md).
-* Mer information om den nya [Azure Alerts](monitoring-overview-unified-alerts.md).
+* Mer information om den nya [Azure Alerts](monitoring-overview-alerts.md).

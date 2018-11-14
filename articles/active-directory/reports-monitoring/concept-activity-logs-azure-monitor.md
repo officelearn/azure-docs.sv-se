@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory-aktivitetsloggar i Azure Monitor (förhandsversion) | Microsoft Docs
-description: Översikt över Azure Active Directory-aktivitetsloggar i Azure Monitor (förhandsversion)
+description: Introduktion till Azure Active Directory-loggarna i Azure Monitor (förhandsversion)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -13,30 +13,30 @@ ms.topic: concept
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3a4fc814a40bf370a137a2045c6218d3ee4b8778
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 760110d0ac359f6b7f135bf869e2520b8028ba6e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395693"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625444"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Azure AD-aktivitetsloggar i Azure Monitor (förhandsversion)
 
-Du kan nu dirigera Azure Active Directory-aktivitetsloggar (Azure AD) till ditt eget lagringskonto eller din händelsehubb med hjälp av Azure Monitor. Med den offentliga förhandsversionen av Azure Active Directory-loggar i Azure Monitor kan du:
+Du kan nu vidarebefordra aktivitetsloggar i Azure Active Directory (AD Azure) till flera slutpunkter för länge termen kvarhållning och data insikter. Den offentliga förhandsversionen av Azure AD-loggar i Azure Monitor kan du:
 
-* Arkivera spårningsloggar för ett Azure-lagringskonto, vilket gör att du kan behålla data under en längre tid.
-* Strömma dina spårningsloggar till en Azure-händelsehubb för analys med hjälp av populära SIEM-verktyg (Säkerhetsinformation och händelsehantering), till exempel Splunk och QRadar.
-* Integrera spårningsloggar med dina egna anpassade logglösningar genom att strömma dem till en händelsehubb.
+* Arkivera Azure AD-aktivitetsloggar till ett Azure storage-konto att behålla data under en längre tid.
+* Stream Azure AD aktivitetsloggar till en Azure event hub för analys, med hjälp av populära verktyg för säkerhetsinformation och händelsehantering (SIEM), till exempel Splunk och QRadar.
+* Integrera Azure AD-aktivitetsloggar med dina egna anpassade loggen lösningar genom att strömma dem till en händelsehubb.
 * Skicka Azure AD-aktivitetsloggar till Log Analytics för att aktivera kraftfulla visualiseringar, övervakning och avisering för den anslutna data.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 ## <a name="supported-reports"></a>Rapporter som stöds
 
-Du kan dirigera aktivitetsspårningsloggar och inloggningsaktivitetsloggar till ditt Azure-lagringskonto, en händelsehubb eller en anpassad lösning med hjälp av den här funktionen. 
+Du kan dirigera Azure AD granska loggar och logga in med loggar på din Azure storage-konto, händelsehubb, Log Analytics eller anpassad lösning med hjälp av den här funktionen. 
 
 * **Spårningsloggar**: [Rapporten om spårningsloggaktivitet](concept-audit-logs.md) ger dig åtkomst till historiken för varje uppgift som utförs i din klientorganisation.
 * **Inloggningsloggar**: Med [rapporten om inloggningsaktivitet](concept-sign-ins.md) kan du se vem som har utfört de uppgifter som rapporteras i spårningsloggarna.
@@ -101,25 +101,19 @@ Kostnaderna för att hantera Log Analytics-arbetsytan finns [hantera kostnader g
 
 Det här avsnittet innehåller svar på vanliga frågor och beskriver kända problem med Azure AD-loggar i Azure Monitor.
 
-**F: Var börjar jag?** 
-
-**S**: Den här artikeln beskriver vad du behöver för att distribuera den här funktionen. När du har uppfyllt kraven går du till de självstudier som kan hjälpa dig att konfigurera och dirigera dina loggar till en händelsehubb.
-
----
-
 **F: Vilka loggar ingår?**
 
 **S:** Både inloggningsaktivitetsloggarna och spårningsloggarna kan dirigeras via den här funktionen, men B2C-relaterade spårningsloggar ingår inte för närvarande. Om du vill ta reda på vilka typer av loggar och vilka funktionsbaserade loggar som stöds för närvarande kan du läsa [schemat för spårningslogg](reference-azure-monitor-audit-log-schema.md) och [schemat för inloggningslogg](reference-azure-monitor-sign-ins-log-schema.md). 
 
 ---
 
-**F: Hur snart efter en åtgärd visas motsvarande loggar i händelsehubbar?**
+**F: hur strax efter en åtgärd motsvarande loggarna visas i min event hub?**
 
 **S**: Loggarna bör visas i din händelsehubb inom två till fem minuter efter att åtgärden har utförts. Mer information om Event Hubs finns i [Vad är Azure Event Hubs?](../../event-hubs/event-hubs-about.md).
 
 ---
 
-**F: Hur snart efter en åtgärd visas motsvarande loggar i lagringskonton?**
+**F: hur strax efter en åtgärd motsvarande loggarna visas i mitt lagringskonto?**
 
 **S:** För Azure-lagringskonton är svarstiden mellan 5 och 15 minuter efter att en åtgärd har genomförts.
 

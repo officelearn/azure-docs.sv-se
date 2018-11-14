@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 60ecc2bc1d700c223d4a52b05e3b9362241f3f82
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a4d62dd0bc984ce80324b405ddd0dcb625694b21
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414627"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612581"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Utöka Log Analytics-aviseringar till Azure-aviseringar
 Tills nyligen med Azure Log Analytics sin egen avisering funktioner, vilket kan informera dig om villkor baserat på Log Analytics-data. Du har hanterat Varningsregler i Microsoft Operations Management Suite-portalen. Det nya aviseringsgränssnittet har nu integrerats aviseringar för olika tjänster i Microsoft Azure. Detta är tillgänglig **aviseringar** under Azure Monitor i Azure-portalen och har stöd för aviseringar från aktiviteten skrivloggar, statistik och loggar från både Log Analytics och Azure Application Insights. 
@@ -60,5 +60,5 @@ Du kan fortsätta att skapa aviseringar från den [Log Analytics API](../log-ana
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om verktyg för att [initiera utöka aviseringar från Log Analytics i Azure](monitoring-alerts-extend-tool.md).
-* Läs mer om den [Azure Alerts uppleva](monitoring-overview-unified-alerts.md).
+* Läs mer om den [Azure Alerts uppleva](monitoring-overview-alerts.md).
 * Lär dig hur du skapar [loggaviseringar i Azure Alerts](monitor-alerts-unified-log.md).

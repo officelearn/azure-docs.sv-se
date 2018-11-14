@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: e765739384aa7d18b95394cb0a9b2b6748174e7c
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 3a7c91f4a83cd69bdb87ffaccce555b04eca67cc
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51525669"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51597660"
 ---
 <a name="virtual-networking-limits-classic"></a>Följande begränsningar gäller endast för nätverksresurser som hanteras via den klassiska distributionsmodellen per prenumeration. Lär dig hur du [visa din aktuella användning mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md).
 
@@ -49,7 +49,7 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Privata IP-adresser per virtuellt nätverk |65536 |
 | Privata IP-adresser per nätverksgränssnitt |256 |
 | Samtidiga TCP eller UDP flöden per nätverkskort för en virtuell dator eller rollinstans |500 000 |
-| Nätverksgränssnitt (NIC) |24000 |
+| Nätverksgränssnitt (NIC) |65536 |
 | Nätverkssäkerhetsgrupper (NSG) |5000 |
 | NSG-regler per NSG |1000 |
 | IP-adresser och intervall som angetts för källa eller mål i en säkerhetsgrupp |4000 |
@@ -64,28 +64,27 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Tryck på nätverksgränssnittskonfigurationer per virtuellt nätverks-TAP |100 |
 
 #### <a name="publicip-address"></a>Offentliga IP-adress gränser
-
 | Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
-| Offentliga IP-adresser – dynamisk |200 (grundläggande) |kontakta supporten |
+| Offentliga IP-adresser – dynamisk |(Basic) 1000 |kontakta supporten |
 | Offentliga IP-adresser – statiska |200 (grundläggande) |kontakta supporten |
 | Offentliga IP-adresser – statiska |200 (standard) |kontakta supporten |
 
 #### <a name="load-balancer"></a>Belastningsutjämnaren begränsar
 Följande begränsningar gäller endast för nätverksresurser som hanteras via Azure Resource Manager per region per prenumeration. Lär dig hur du [visa din aktuella användning mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md)
 
-| Resurs | Standardgräns | Övre gräns |
+| Resurs | Standardgräns |
 | --- | --- | --- |
-| Lastbalanserare | 100 | 1000 |
-| Regler per resurs, Basic | 250 | 250 |
-| Regler per resurs, Standard | 1500 | 1500 |
-| Regler per IP-konfiguration | 299 |299 |
-| Frontend IP-konfigurationer, Basic | 10 | 200 |
-| Frontend IP-konfigurationer, Standard | 10 | 600 |
-| Serverpoolen Basic | 100, enkel Tillgänglighetsuppsättning | 100, enkel Tillgänglighetsuppsättning |
-| Backend-pool, Standard | 1000, enkel VNet | 1000, enkel VNet |
-| Serverdelsresurser per belastningsutjämnare, Standard * | 150 | 150 |
-| Hög tillgänglighet portar, Standard | 1 per interna klientdel | 1 per interna klientdel |
+| Lastbalanserare | 1000 | 
+| Regler per resurs, Basic | 250 |
+| Regler per resurs, Standard | 1500 | 
+| Regler per IP-konfiguration | 299 |
+| Frontend IP-konfigurationer, Basic | 200 |
+| Frontend IP-konfigurationer, Standard | 600 |
+| Serverpoolen Basic | 100, enkel Tillgänglighetsuppsättning |
+| Backend-pool, Standard | 1000, enkel VNet |
+| Serverdelsresurser per belastningsutjämnare, Standard * | 150 |
+| Hög tillgänglighet portar, Standard | 1 per interna klientdel |
 
 ** Upp till 150 resurser, valfri kombination av fristående virtuella datorer, tillgänglighetsuppsättningar och VM-skalningsuppsättningar.
 

@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 469d97385fd86952c2d287e2b5d15d7470a9e34e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6050771ee1d129edd4370079c07da721f60d2065
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008342"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613553"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-log-analytics-agent-for-linux"></a>Samla in varningar från Nagios och Zabbix i Log Analytics från Log Analytics-agenten för Linux 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
-[Nagios](https://www.nagios.org/) och [Zabbix](http://www.zabbix.com/) är öppen källkod övervakningsverktyg. Du kan samla in aviseringar från de här verktygen till Log Analytics för att analysera dem tillsammans med [aviseringar från andra källor](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md).  Den här artikeln beskriver hur du konfigurerar Log Analytics-agenten för Linux för att samla in varningar från dessa system.
+[Nagios](https://www.nagios.org/) och [Zabbix](http://www.zabbix.com/) är öppen källkod övervakningsverktyg. Du kan samla in aviseringar från de här verktygen till Log Analytics för att analysera dem tillsammans med [aviseringar från andra källor](../monitoring-and-diagnostics/monitoring-overview-alerts.md).  Den här artikeln beskriver hur du konfigurerar Log Analytics-agenten för Linux för att samla in varningar från dessa system.
  
 ## <a name="prerequisites"></a>Förutsättningar
 Samla in varningar från Nagios versionen har stöd för Log Analytics-agenten för Linux 4.2.x och Zabbix upp till version 2.x.
@@ -118,5 +118,5 @@ Avisera poster som samlas in av Zabbix har en **typ** av **avisering** och en **
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [aviseringar](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) i Log Analytics.
+* Lär dig mer om [aviseringar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) i Log Analytics.
 * Lär dig mer om [loggsökningar](log-analytics-queries.md) att analysera data som samlas in från datakällor och lösningar. 

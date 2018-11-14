@@ -12,21 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 4b6ad2e237d73d5d8ca414bffc3a679ee552105f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 54ceadc8173526e8638e70c8c859109eea157fa7
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718737"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614046"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Lägga till en App Service-resursprovider i en frånkopplad Azure Stack-miljö som skyddas av AD FS
 
 *Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> Uppdateringen är 1807 integrerade Azure Stack-system eller distribuera den senaste Azure Stack development kit innan du distribuerar Azure App Service 1.3.
+> Uppdateringen är 1809 integrerade Azure Stack-system eller distribuera den senaste Azure Stack development kit innan du distribuerar Azure App Service 1.4.
 >
 >
 
@@ -84,8 +84,7 @@ Om du vill distribuera App Service i en frånkopplad miljö måste du först ska
     2. I den **Azure Stack-prenumerationer** väljer den **standard Providerprenumeration**.
     
     > [!NOTE]
-    > App Service kan bara distribueras till den **standard Providerprenumeration** just nu.  I en kommande uppdatering distribuerar App Service till den nya Avläsning av prenumeration som introducerades i Azure Stack 1804 och alla befintliga distributioner kommer att migreras till den här nya prenumerationen också.
-    >
+    > App Service kan bara distribueras till den **standard Providerprenumeration**.
     >
     
     3. I den **platser för Azure Stack** väljer du den plats som motsvarar den region som du distribuerar till. Välj exempelvis **lokala** om din distribution till Azure Stack Development Kit.
@@ -170,7 +169,7 @@ Om du vill distribuera App Service i en frånkopplad miljö måste du först ska
     ![App Service-installationsprogrammet][14]
 
     > [!NOTE]
-    > **Windows Server 2016 Core är inte en plattformsavbildning som stöds för användning med Azure App Service i Azure Stack.  Använd inte utvärdering avbildningar för Produktionsdistribution.  Azure App Service i Azure Stack kräver att Microsoft.Net 3.5.1 SP1 har aktiverats på den avbildning som används för distribution.   Marketplace syndikeras Windows Server 2016 avbildningar inte har den här funktionen är aktiverad.**
+    > **Windows Server 2016 Core är inte en plattformsavbildning som stöds för användning med Azure App Service i Azure Stack.  Använd inte utvärdering avbildningar för Produktionsdistribution.  Azure App Service i Azure Stack kräver att Microsoft.Net 3.5.1 SP1 har aktiverats på den avbildning som används för distribution.   Marketplace syndikeras Windows Server 2016 avbildningar inte har den här funktionen är aktiverad, du måste därför skapa och använda en avbildning av Windows Server 2016 med redan aktiverat.**
 
 14. I den **Välj Plattformsavbildning** väljer du din avbildning av virtuell dator för distribution av Windows Server 2016 från de som finns i compute-resursprovidern för App Service-molnet. Klicka på **Nästa**.
 
@@ -198,7 +197,7 @@ Om du vill distribuera App Service i en frånkopplad miljö måste du först ska
 
 1. I Azure Stack-administratörsportalen, går du till **Administration - App Service**.
 
-2. I översikten under status, kontrollerar du att den **Status** visar **alla roller är redo**.
+2. I översikten under status kontrollerar du att den **Status** visar **alla roller är redo**.
 
     ![App Service-hantering](media/azure-stack-app-service-deploy/image12.png)
     

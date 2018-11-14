@@ -7,14 +7,14 @@ manager: shivamg
 keywords: Azure backup server. skydda arbetsbelastningar; Säkerhetskopiera arbetsbelastningar
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 11/13/2018
 ms.author: adigan; kasinh
-ms.openlocfilehash: 602b7b2a81ec727c9acaf86165867daa20370947
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: e1ed8b1f62eeb52d65ba178c8ca13f94b57da6f0
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578730"
+ms.locfileid: "51616324"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 > [!div class="op_single_selector"]
@@ -169,18 +169,20 @@ När extraheringsprocessen slutförts, markerar kryssrutan Starta nyligen extrah
 
    **Manuell konfiguration**
 
-    > [!IMPORTANT]
+   När du använder en egen instans av SQL, kontrollera att du lägger till builtin\Administrators till sysadmin-rollen till huvud-DB.
 
-    > När du manuellt konfigurerar MABS, efter konfigurationen kan du se till att *IsInitialized* av SSRS egenskapen till *SANT*. När detta är inställt på True, förutsätter MABS att SSRS har redan konfigurerats och hoppar över SSRS-konfigurationen.
+    **SSRS-konfiguration med SQL-2017**
 
-    > Använd följande värden för SSRS-konfiguration:
+    När du använder egna instans av SQL 2017, måste du manuellt konfigurera SSRS. Efter konfigurationen av SSRS, se till att *IsInitialized* av SSRS egenskapen till *SANT*. När detta är inställt på True, förutsätter MABS att SSRS har redan konfigurerats och hoppar över SSRS-konfigurationen.
 
-      >- Tjänstkonto: Använda inbyggda kontot ska vara nätverkstjänst
-    >- Webbtjänst-URL: 'Virtuella katalogen' ska vara ReportServer_MSDPMINSTANCE
-    > - Databas: DatabaseName ska vara ReportServer$ MSDPMINSTANCE
-    > - Webbportalens URL: 'Virtuella katalogen' ska vara Reports_MSDPMINSTANCE
+    Använd följande värden för SSRS-konfiguration:
 
-    > [Läs mer](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) om SSRS-konfiguration.
+        - Service Account: ‘Use built-in account’ should be Network Service
+        - Web Service URL: ‘Virtual Directory’ should be ReportServer_<SQLInstanceName>
+        - Database: DatabaseName should be ReportServer$<SQLInstanceName>
+        - Web Portal URL: ‘Virtual Directory’ should be Reports_<SQLInstanceName>
+
+    [Läs mer](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) om SSRS-konfiguration.
 
 4. Ange en plats för installationen av Microsoft Azure Backup server-filer och klicka på **nästa**.
 
@@ -323,6 +325,8 @@ Använd följande steg för att uppgradera MABS:
   > [!IMPORTANT]
 
   >  Som en del av SQL 2017 uppgraderingen kan vi säkerhetskopiera krypteringsnycklarna SQL och avinstallera reporting services. Efter uppgraderingen av SQL server reporting service(14.0.6827.4788) installeras & krypteringsnycklar har återställts.
+
+ > När du konfigurerar SQL 2017 manuellt, referera till *SSRS-konfiguration med SQL 2017* avsnittet under installationsanvisningar.
 
 3. Uppdatera skyddsagenter på de skyddade servrarna.
 4. Säkerhetskopior bör fortsätta utan att behöva starta om produktionsservrarna.

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: de24e8b308c6adf3f69caae4ab671f57fc2f6b8c
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 7d76827a4e4ba4ccb7a146c5f8282000d143eb35
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565062"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624445"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>Konfigurera OpenVPN klienter för Azure VPN Gateway (förhandsversion)
 
@@ -38,7 +38,7 @@ Kontrollera att du har slutfört stegen för att konfigurera OpenVPN för din VP
   openssl.exe pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
   ```
 6. Öppna *profileinfo.txt* i anteckningar. Om du vill hämta tumavtrycket för klientcertifikat (underordnad), markerar du texten (inklusive och mellan) ”---BEGIN CERTIFICATE---” och ”---END CERTIFICATE---” för underordnat certifikat och kopiera den. Du kan identifiera underordnade certifikatet genom att titta på ämne = / rad.
-7. Växla till den *vpnconfig.ovpn* du öppna filen i anteckningar från steg 3. Leta reda på avsnittet som visas nedan Ersätt allt mellan ”cert” och ”/ certifikat”.
+7. Växla till den *vpnconfig.ovpn* du öppna filen i anteckningar från steg 3. Leta reda på avsnittet som visas nedan och Ersätt allt mellan ”cert” och ”/ certifikat”.
 
   ```
   # P2S client certificate
@@ -119,7 +119,7 @@ Kontrollera att du har slutfört stegen för att konfigurera OpenVPN för din VP
 11. Om du vill ansluta med hjälp av kommandoraden, skriver du följande kommando:
   
   ```
-  Sudo openvpn –config <name and path of your VPN profile file>
+  sudo openvpn –-config <name and path of your VPN profile file>
   ```
 12. Gå till inställningar för att ansluta med hjälp av det grafiska Användargränssnittet.
 13. Klicka på **+** att lägga till en ny VPN-anslutning.

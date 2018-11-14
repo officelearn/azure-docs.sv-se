@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a2b6b3334176cb6fdd86c17b4d11cb03a42dd4bf
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 42697f7f4bb8c6b9ef785eef0fe2f5f33b2b38a7
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731810"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615611"
 ---
 # <a name="store-batch-ai-job-input-and-output-with-azure-storage"></a>Store Batch AI-jobbindata och utdata med Azure Storage
 
@@ -30,7 +30,7 @@ Azure Storage är Microsofts molntjänstlagringslösning. Batch AI stöder monte
 
 När du väljer Azure Storage för Batch AI-miljö rekommenderar vi att du lagrar dina indatafiler (till exempel datauppsättningar) i en Blob-behållare som har högre dataflöde, och du sparar din utbildning utdata i en filresurs, som har stöd för direktuppspelning (som tillåter läsning av utdataloggar medan jobbet körs samtidigt). 
 
-Innan du kan använda Azure Storage, måste du [skapa ett Azure Storage-konto](../storage/common/storage-quickstart-create-account.md). Batch AI har stöd för montering volymer från båda General-purpose v1 (GPv1) och generell användning v2 (GPv2) Azure Storage-konton. Azure Storage-konto kan innehålla flera Blob-behållare eller fil-instanser av filresurser. Överväg att dina krav kostnad och prestanda när du väljer typ av lagringskonto för att skapa. Mer information finns i [översikt över Azure storage-konton](../storage/common/storage-account-overview.md). 
+Innan du kan använda Azure Storage, måste du [skapa ett Azure Storage-konto](../storage/common/storage-quickstart-create-account.md). Batch AI har stöd för montering volymer från båda General-purpose v1 (GPv1) och generell användning v2 (GPv2) Azure Storage-konton. Azure Storage-konto kan innehålla flera Blob-behållare eller fil-instanser av filresurser. Överväg att dina krav kostnad och prestanda när du väljer typ av lagringskonto för att skapa. Mer information finns i [kontoöversikten för Azure Storage](../storage/common/storage-account-overview.md). 
 
 Skapa en Blob-behållare och om du vill ladda upp din datauppsättning till en Azure Blob-behållare, väljer du något av följande metoder:
 - [Azure-portalen](../storage/blobs/storage-quickstart-blobs-portal.md) för att ladda upp med ett webbaserat grafiskt användargränssnitt. Om du vill överföra ett litet antal filer, innehåller Azure portal enklaste igen.
@@ -98,7 +98,7 @@ Om dina utbildningsskript kräver kunskaper om en sökväg, bör du skickar den 
 
 ### <a name="abbreviate-input-paths"></a>Förkorta indatasökvägarna
 
-Om du vill förkorta indatasökvägarna till en miljövariabel, använder den `inputDirectories` egenskapen för din `job.json` fil (eller `models.JobCreateParamters.input_directories` om du använder Batch AI-SDK). Schemat för `inputDirectories` är:
+Om du vill förkorta indatasökvägarna till en miljövariabel, använder den `inputDirectories` egenskapen för din `job.json` fil (eller `models.JobCreateParameters.input_directories` om du använder Batch AI-SDK). Schemat för `inputDirectories` är:
 
 ```json
 {
@@ -115,7 +115,7 @@ Mer information finns i [här](https://github.com/Azure/BatchAI/blob/master/docu
 
 ### <a name="abbreviate-output-paths"></a>Förkorta utdata sökvägar
 
-Om du vill förkorta utdata sökvägar till en miljövariabel, använder den `outputDirectories` egenskapen för din `job.json` fil (eller `models.JobCreateParamters.output_directories` om du använder Batch AI-SDK). Med den här metoden kan du förenkla sökvägarna för utdatafilerna. Schemat för `outputDirectories` är:
+Om du vill förkorta utdata sökvägar till en miljövariabel, använder den `outputDirectories` egenskapen för din `job.json` fil (eller `models.JobCreateParameters.output_directories` om du använder Batch AI-SDK). Med den här metoden kan du förenkla sökvägarna för utdatafilerna. Schemat för `outputDirectories` är:
 
 ```json
 {
@@ -135,7 +135,7 @@ Mer information finns i [här](https://github.com/Azure/BatchAI/blob/master/docu
 
 ### <a name="use-azure-portal"></a>Använda Azure-portalen
 
-Azure-portalen är ett praktiskt sätt att visa utdata från jobb med hjälp av en GUI-Utforskaren. Men om du vill visa utdata från Stdout- och Stderr eller från en sökväg i `outputDirectories`, filerna placeras i den automatiskt genererade sökvägen i Azure Storage-volym. Nedan finns mer information.
+Azure-portalen är ett praktiskt sätt att visa utdata från jobb med hjälp av en GUI-Utforskaren. Men om du vill visa utdata från Stdout- och Stderr eller från en sökväg i `outputDirectories`, filerna placeras i den automatiskt genererade sökvägen i Azure Storage-volym. Mer information finns nedan.
 
 ### <a name="access-stdout-and-stderr-output"></a>Åtkomst Stdout och Stderr-utdata
 

@@ -13,38 +13,40 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 05/07/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1e6ad35702b15090202278cfdead62b245040302
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 860d602ecba257ed9015d1e080e5dcb1aa5ab872
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309628"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624632"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Kom igång med Azure Active Directory reporting API
 
-Azure Active Directory ger dig en mängd olika [rapporter](overview-reports.md). Data för de här rapporterna kan vara användbara för dina program, till exempel SIEM-system, gransknings- och business intelligence-verktyg. 
+Azure Active Directory ger dig en mängd olika [rapporter](overview-reports.md), som innehåller användbar information för program, till exempel SIEM-system, granskning och business intelligence-verktyg. 
 
-Med hjälp av Azure AD reporting API kan få du programmässig åtkomst till data via en uppsättning REST-baserade API: er. Du kan anropa API: erna från en mängd olika programmeringsspråk och verktyg.
+Med Microsoft Graph API för Azure AD-rapporter kan få du programmässig åtkomst till data via en uppsättning REST-baserade API: er. Du kan anropa API: erna från en mängd olika programmeringsspråk och verktyg.
 
-Den här artikeln innehåller en översikt över för att få åtkomst till rapporteringsdata med relaterade API: et.
+Den här artikeln ger en översikt över rapporterings-API, inklusive sätt att komma åt den.
 
 Om du stöter på problem, se [få support för Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
 
-Den här artikeln gäller för Azure AD Graph API.  Liknande information relaterad till Microsoft Graph API finns i [directoryAudit resurstyp](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/directoryaudit).
-
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill komma åt rapporterings-API, även om du planerar att komma åt API med hjälp av ett skript, måste du:
+Om du vill få åtkomst till rapporterings-API, med eller utan inblandning av användaren, måste du:
 
 1. Tilldela roller (Security-läsare, säkerhetsadministratör, Global administratör)
 2. Registrera ett program
 3. Bevilja behörigheter
 4. Samla in konfigurationsinställningar
 
-Detaljerade anvisningar finns i den [krav för att få åtkomst till Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md).
+Detaljerade anvisningar finns i den [krav för att få åtkomst till Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md). 
+
+## <a name="api-endpoints"></a>API-slutpunkter 
+
+Microsoft Graph API-slutpunkten för granskningsloggar är `https://graph.microsoft.com/beta/auditLogs/directoryAudits` och Microsoft Graph API-slutpunkten för inloggningar är `https://graph.microsoft.com/beta/auditLogs/signIns`. Mer information finns i den [gransknings-och API-referens](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) och [logga in API-referens](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signIn).
 
 ## <a name="apis-with-graph-explorer"></a>API: er med Graph-testaren
 
@@ -60,11 +62,10 @@ Använda Azure AD Reporting API: et med certifikat om du planerar att hämta rap
 
 Detaljerade anvisningar finns i [hämta data med hjälp av Azure AD Reporting API: et med certifikat](tutorial-access-api-with-certificates.md).
 
-
 ## <a name="next-steps"></a>Nästa steg
 
- * [Granska API-referens](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
- * [Inloggningsaktivitet rapport API-referens](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+ * [Förutsättningar för att få åtkomst till rapporterings-API](howto-configure-prerequisites-for-reporting-api.md) 
+ * [Hämta data med hjälp av Azure AD Reporting API: et med certifikat](tutorial-access-api-with-certificates.md)
  * [Felsöka fel i Azure AD reporting API](troubleshoot-graph-api.md)
 
 

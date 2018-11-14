@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/27/2018
+ms.date: 11/13/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: bc3eb2721dd9fc0c4cde407a8257f6be73201a2a
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 5f1b4cf63379f0007b87c44164168b8510612f52
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423365"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624105"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Lägga till utökade mått för Azure-datorer
 
@@ -67,6 +67,8 @@ Tänk på att både Azure och Linux övervakning på gästnivå kräver ett lagr
 När du skapar nya virtuella datorer, på fliken hantering, Välj **på** för **OS gästen diagnostik**.
 
 ![Aktivera diagnostik för Gästoperativsystem](./media/azure-vm-extended-metrics/new-enable-diag.png)
+
+Mer information om hur du aktiverar utökade mått för Azure-datorer finns i [förstå och använda Azure Linux-agent](../virtual-machines/extensions/agent-linux.md) och [översikt över Azure VM-agenten](../virtual-machines/extensions/agent-windows.md).
 
 ## <a name="resource-manager-credentials"></a>Resource Manager-autentiseringsuppgifter
 

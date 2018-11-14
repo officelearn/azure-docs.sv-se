@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 08f08d926a9e27e421ff8db46051d8a1e7229041
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: aa745d827db7633dc9f8601f65fa31dfadbb4076
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166890"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614063"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Lägga till en App Service-resursprovider i Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "49166890"
 Använd informationen i den här artikeln för att distribuera App Service i Azure Stack.
 
 > [!IMPORTANT]  
-> Uppdateringen är 1807 integrerade Azure Stack-system eller distribuera den senaste Azure Stack Development Kit (ASDK) innan du distribuerar Azure App Service 1.3.
+> Uppdateringen är 1809 integrerade Azure Stack-system eller distribuera den senaste Azure Stack Development Kit (ASDK) innan du distribuerar Azure App Service 1.4.
 
 Du kan ge användarna möjlighet att skapa webbprogram och API: et. Om du vill låta användarna skapa dessa program, måste du:
 
@@ -74,8 +74,8 @@ Distribuera App Service-resursprovider genom att följa dessa steg:
 
    b. I **Azure Stack-prenumerationer**väljer den **standard Providerprenumeration**.
 
-     >[!NOTE]
-     >App Service kan för närvarande kan endast distribueras till den **standard Providerprenumeration**.
+     > [!IMPORTANT]  
+     > App Service **måste** distribueras till den **standard Providerprenumeration**.
 
    c. I den **platser för Azure Stack**, Välj den plats som motsvarar den region som du distribuerar till. Välj exempelvis **lokala** om din distribution till Azure Stack Development Kit.
 
@@ -198,7 +198,7 @@ Distribuera App Service-resursprovider genom att följa dessa steg:
 
 1. I Azure Stack-administratörsportalen, går du till **Administration - App Service**.
 
-2. I översikten under status, kontrollerar du att den **Status** visar **alla roller är redo**.
+2. I översikten under status kontrollerar du att den **Status** visar **alla roller är redo**.
 
     ![App Service-hantering](media/azure-stack-app-service-deploy/image12.png)
 

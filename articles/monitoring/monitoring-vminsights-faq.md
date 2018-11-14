@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 11/08/2018
 ms.author: magoedte
-ms.openlocfilehash: ff870f948acaae14ba772e14d48b27683f0bf07e
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 7d65752787e65eeabf203f9bdc3ea11a1569f8a1
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091699"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613383"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Vanliga och frågor svar om Azure Monitor för virtuella datorer (förhandsversion)
 Den här Microsoft-FAQ är en lista över vanliga frågor om Azure Monitor för virtuella datorer. Om du har ytterligare frågor om lösningen går du till den [diskussionsforum](https://feedback.azure.com/forums/34192--general-feedback) och ställa frågor. När en fråga är vanliga vi lägga till det i den här artikeln så att den finns snabbt och enkelt.
@@ -93,6 +93,11 @@ När vi har gjort förbättringar kartan för att hantera stora och komplexa kon
 ## <a name="why-does-the-network-chart-on-the-performance-tab-look-different-than-the-network-chart-on-the-azure-vm-overview-page"></a>Varför ser nätverk diagrammet på fliken prestanda skiljer sig från nätverket diagrammet på översiktssidan för Azure VM?
 
 Översiktssidan för en Azure-dator visar diagram baserat på värdens mätning av aktiviteten i den Virtuella gästdatorn.  För nätverk diagrammet på Azure VM-översikt visas bara trafik som kommer att debiteras.  Detta inkluderar inte inter-vnet-trafik.  Data och diagram som visas för Azure Monitor för virtuella datorer är baserade på data från den Virtuella gästdatorn och nätverk-diagrammet visar alla TCP/IP-trafik som är inkommande och utgående trafik till den virtuella datorn, inklusive inter-vnet.
+
+## <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>Har sina begränsningar om jag på Log Analytics kostnadsfria prisplanen?
+Om du har konfigurerat Azure Monitor med en Log Analytics-arbetsytan med den *kostnadsfri* prisnivå, Azure Monitor för virtuella datorer kartan funktionen stöder bara fem anslutna datorer är anslutna till arbetsytan. Om du har fem virtuella datorer är anslutna till en kostnadsfri arbetsyta kan du koppla från en av de virtuella datorerna och sedan ansluta en ny virtuell dator, den nya virtuella datorn inte övervakas och visas på sidan kartan.  
+
+Under det här tillståndet uppmanas du att med den **Testa nu** när du öppnar den virtuella datorn och välj **Insights (förhandsversion)** i den vänstra rutan, även när den har redan installerats på den virtuella datorn.  Men ange du inte med alternativ som normalt skulle inträffa om den här virtuella datorn inte har integrerats i Azure Monitor för virtuella datorer. 
 
 ## <a name="next-steps"></a>Nästa steg
 Granska [publicera Azure Monitor för virtuella datorer](monitoring-vminsights-onboard.md) att förstå kraven och metoder för att övervaka dina virtuella datorer.

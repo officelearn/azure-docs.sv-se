@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09dd046f9dc7d6b73207ab1ab739e913a8ed5b92
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: b7839fc498b54d2128528c8d655d78bb759a7cd5
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282058"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612447"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Utforma och skapa en lösning i Azure (förhandsversion)
 > [!NOTE]
@@ -54,7 +54,7 @@ Om du kräver att data som inte kan nås via någon av de tillgängliga datakäl
 Du bör definiera alla frågor som du tror att användbara för användaren även om de inte används av alla vyer eller aviseringar.  Dessa är tillgängliga för dem som sparade sökningar i portalen och du kan även inkludera dem i en [Listfrågor för visualisering del](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) i den anpassade vyn.
 
 ### <a name="alerts"></a>Aviseringar
-[Aviseringar i Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) identifiera problem med hjälp av [loggsökningar](#log-searches) mot data i databasen.  De meddela användaren eller köra automatiskt en åtgärd som svar. Du bör identifiera olika aviseringsvillkor för ditt program och inkludera motsvarande Varningsregler i din lösningsfilen.
+[Aviseringar i Log Analytics](../monitoring-and-diagnostics/monitoring-overview-alerts.md) identifiera problem med hjälp av [loggsökningar](#log-searches) mot data i databasen.  De meddela användaren eller köra automatiskt en åtgärd som svar. Du bör identifiera olika aviseringsvillkor för ditt program och inkludera motsvarande Varningsregler i din lösningsfilen.
 
 Om problemet kan eventuellt åtgärdas med en automatiserad process, ska du vanligtvis skapa en runbook i Azure Automation för att utföra den här reparationen.  De flesta Azure-tjänster kan hanteras med [cmdletar](/powershell/azure/overview) som runbook skulle använda för att utföra dessa funktioner.
 

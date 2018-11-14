@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 0c22072d0eaa328fdf786421344e8ef2caaa575c
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 31ce23bf6249ef21a2c9fe515b78cdd6ebea9b9c
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515666"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614387"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för webbappar i Azure App Service
 ## <a name="overview"></a>Översikt
@@ -73,16 +73,16 @@ Som standard loggar tas inte bort automatiskt (med undantag för **Programinlogg
 > Om du [återskapa lagringskontots åtkomstnycklar](../storage/common/storage-create-storage-account.md), måste du återställa respektive loggningsinställningarna för att använda de uppdaterade nycklarna. Gör så här:
 >
 > 1. I den **konfigurera** fliken genom att ange respektive loggningsfunktionen **av**. Spara dina inställningar.
-> 2. Aktivera loggning för att logglagringskontots blob eller table igen. Spara dina inställningar.
+> 2. Aktivera loggning för blob storage-kontot igen. Spara dina inställningar.
 >
 >
 
-Valfri kombination av filsystemet, tabellagring eller blob storage kan aktiveras på samma gång och har enskild logg på konfigurationer. Du kanske exempelvis vill logga fel och varningar till blob storage som en långsiktig loggning lösning vid aktivering av loggning av fil-system med en nivå av utförlig.
+Valfri kombination av file system eller blob storage kan aktiveras på samma gång och har enskild logg på konfigurationer. Du kanske exempelvis vill logga fel och varningar till blob storage som en långsiktig loggning lösning vid aktivering av loggning av fil-system med en nivå av utförlig.
 
-När alla tre lagringsplatser ger samma grundläggande information för loggade händelser **tabellagring** och **blob-lagring** logga ytterligare information, till exempel instans-ID, tråd-ID och en mer Detaljerad tidsstämpel (Ticket-format) än loggning till **filsystem**.
+Även om båda lagringsplatser ger samma grundläggande information för loggade händelser **blob-lagring** loggar ytterligare information, till exempel instans-ID, tråd-ID och en mer detaljerad tidsstämpel (Ticket-format) än loggning till **filsystem**.
 
 > [!NOTE]
-> Information som lagras i **tabellagring** eller **blob-lagring** kan bara användas med ett storage-klienten eller ett program som kan arbeta direkt med dessa lagringssystem. Till exempel Visual Studio 2013 innehåller en lagringsutforskare som kan användas för att utforska tabell eller blob storage och HDInsight kan komma åt data som lagras i blob storage. Du kan också skriva ett program som ansluter till Azure Storage med hjälp av en av de [Azure SDK: er](https://azure.microsoft.com/downloads/).
+> Information som lagras i **blob-lagring** kan bara användas med ett storage-klienten eller ett program som kan arbeta direkt med dessa lagringssystem. Till exempel Visual Studio 2013 innehåller en lagringsutforskare som kan användas för att utforska blob-lagring och HDInsight kan komma åt data som lagras i blob storage. Du kan också skriva ett program som ansluter till Azure Storage med hjälp av en av de [Azure SDK: er](https://azure.microsoft.com/downloads/).
 >
 
 ## <a name="download"></a> Så här: ladda ned loggar
@@ -159,7 +159,7 @@ För att filtrera specifika loggtyper, till exempel HTTP, använder den **--sök
 
 ## <a name="understandlogs"></a> Så här: Förstå diagnostikloggar
 ### <a name="application-diagnostics-logs"></a>Program-diagnostikloggar
-Programdiagnostik lagrar information i ett visst format för .NET-program, beroende på om du vill lagra loggarna till filsystemet, tabellagring eller blob-lagring. Den grundläggande uppsättningen med data som lagras är samma för alla tre lagringstyper - datum och tid som händelsen inträffade, process-ID som producerade händelsen, händelsetyp (information, varning, fel) och händelsemeddelandet.
+Programdiagnostik lagrar information i ett visst format för .NET-program, beroende på om du vill lagra loggarna till file system- eller blob storage. Den grundläggande uppsättningen med data som lagras är samma för alla tre lagringstyper - datum och tid som händelsen inträffade, process-ID som producerade händelsen, händelsetyp (information, varning, fel) och händelsemeddelandet.
 
 **Filsystem**
 
@@ -173,27 +173,9 @@ Till exempel visas en felhändelse liknar följande exempel:
 
 Loggning till filsystemet innehåller den mest grundläggande informationen av tre tillgängliga metoder ger endast tid, process-ID, Händelsenivå och meddelandet.
 
-**Table Storage**
-
-När du loggar till tabellagring används ytterligare egenskaper som för att underlätta söka data som lagras i tabellen samt mer detaljerad information om händelsen. Följande egenskaper (kolumner) används för varje entitet (rad) som lagras i tabellen.
-
-| Egenskapsnamn | Värdeformat / |
-| --- | --- |
-| PartitionKey |Datum/tid då händelsen i yyyyMMddHH format |
-| RowKey |Ett GUID-värde som unikt identifierar den här entiteten |
-| Tidsstämpel |Datum och tid då händelsen inträffade |
-| EventTickCount |Datum och tid då händelsen inträffade i Skalstreckets format (större precision) |
-| ApplicationName |Webbappens namn |
-| Nivå |Händelsenivå (till exempel fel, varning, information) |
-| EventId |Händelse-ID för den här händelsen<p><p>Standardvärdet är 0 om inget anges |
-| Instans-ID |Instans av webbappen som den händelse som inträffat på |
-| Process-ID |Process-ID |
-| tid |Tråd-ID för tråden som producerade händelsen |
-| Meddelande |Detalj händelsemeddelande |
-
 **Blob Storage**
 
-När du loggar till blob storage lagras data i fil med kommaavgränsade värden (CSV)-format. Liknar tabellagring, ytterligare fält som loggas för att tillhandahålla mer detaljerad information om händelsen. Följande egenskaper som används för varje rad i CSV-filen:
+När du loggar till blob storage lagras data i fil med kommaavgränsade värden (CSV)-format. Ytterligare fält loggas för att ge mer detaljerad information om händelsen. Följande egenskaper som används för varje rad i CSV-filen:
 
 | Egenskapsnamn | Värdeformat / |
 | --- | --- |

@@ -5,37 +5,44 @@ items:
   items:
   - name: Vad är vidarebefordran?
     href: relay-what-is-it.md
-  - name: VANLIGA FRÅGOR OCH SVAR
-    href: relay-faq.md
-- name: Snabbstarter
+- name: Självstudier
   items:
-  - name: Skapa ett hybridprogram lokalt eller i molnet
-    href: service-bus-dotnet-hybrid-app-using-service-bus-relay.md
   - name: Hybridanslutningar
     items:
-    - name: .NET-webbsockets
+    - name: Skicka och ta emot meddelanden – .NET-webbsockets
       href: relay-hybrid-connections-dotnet-get-started.md
-    - name: .NET HTTP
+    - name: Skicka och ta emot meddelanden – .NET HTTP
       href: relay-hybrid-connections-http-requests-dotnet-get-started.md
-    - name: Node-webbsockets
+    - name: Skicka och ta emot meddelanden – Node-webbsockets
       href: relay-hybrid-connections-node-get-started.md
-    - name: Node HTTP
+    - name: Skicka och ta emot meddelanden – Node HTTP
       href: relay-hybrid-connections-http-requests-node-get-started.md
-  - name: Självstudier för WCF Relay
-    href: service-bus-relay-tutorial.md
-  - name: Självstudier för WCF Relay REST
-    href: service-bus-relay-rest-tutorial.md
+  - name: Windows Communication Foundation (WCF)
+    items:
+    - name: Göra en lokal WCF-tjänst tillgänglig för en webbapp i molnet
+      href: service-bus-dotnet-hybrid-app-using-service-bus-relay.md
+    - name: Göra en lokal WCF-tjänst tillgänglig för en WCF-klient utanför nätverket
+      href: service-bus-relay-tutorial.md
+    - name: Göra en lokal WCF REST-tjänst tillgänglig för en klient utanför nätverket
+      href: service-bus-relay-rest-tutorial.md
+- name: Exempel
+  items:
+  - name: Hybridanslutningar
+    href: https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections
+  - name: WCF-relä
+    href: https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay
+- name: Begrepp
+  items:
+  - name: Autentisering och auktorisering
+    href: relay-authentication-and-authorization.md
+  - name: Hybridanslutningsprotokoll
+    href: relay-hybrid-connections-protocol.md
 - name: Gör så här för att
   items:
   - name: Planera och designa
     items:
-    - name: Autentisering och säkerhet
-      href: relay-authentication-and-authorization.md
-      items:
-      - name: Migrera från ACS till SAS
-        href: relay-migrate-acs-sas.md
-    - name: Hybridanslutningsprotokoll
-      href: relay-hybrid-connections-protocol.md
+    - name: Migrera från ACS till SAS
+      href: relay-migrate-acs-sas.md
   - name: Utveckla
     items:
     - name: Skapa ett namnområde
@@ -69,6 +76,8 @@ items:
   items:
   - name: Azure-översikt
     href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
+  - name: VANLIGA FRÅGOR OCH SVAR
+    href: relay-faq.md
   - name: Blogg
     href: https://blogs.msdn.microsoft.com/servicebus/
   - name: Prissättning
@@ -79,9 +88,9 @@ items:
     href: https://github.com/azure/azure-relay/tree/master/samples
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-servicebusrelay
-ms.openlocfilehash: 1c15d984e19f0585f386620f1e6e12667c69da5e
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 0e6f9b0a1830a570bc8388cbfb8149adb12bea11
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144839"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613709"

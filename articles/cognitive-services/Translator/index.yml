@@ -1,9 +1,15 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: d74ef4b68545c349c8df2cb7090ee8c26e2cd3e4
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622865"
 documentType: LandingData
-title: Dokumentation om Translator Text API
+title: Dokumentation om Translator Text
 metadata:
   title: Dokumentation om Translator Text – snabbstarter, självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
-  description: Lär dig hur du använder Translator Text API för att översätta text på flera språk.
+  description: Lär dig hur du använder Translator Text för att översätta text på flera språk.
   services: cognitive-services
   author: Jann-Skotdal
   manager: Chris.Wendt
@@ -11,17 +17,32 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/30/2017
+  ms.date: 11/06/18
   ms.author: v-jansko
-  ms.openlocfilehash: 85ef860a742c114d01696b9189f57ac9207c0bc5
-  ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 07/20/2018
-  ms.locfileid: "39185881"
 abstract:
-  description: Microsoft Translator Text API är en molnbaserad maskinöversättningstjänst. Med detta API kan du översätta text i nära realtid från valfri app eller tjänst via ett enkelt REST API-anrop. API:et använder den senaste tekniken inom neural maskinöversättning och erbjuder även teknik för statistisk maskinöversättning. Listan med språk som stöds, både för neural maskinöversättning och statistisk maskinöversättning, finns i <a href="languages.md">Språk som stöds</a>.
+  description: Translator Text är en molnbaserad maskinöversättningstjänst som du kan använda för att översätta text nästan i realtid via ett enkelt REST API-anrop. API:et använder modern teknik för neural maskinöversättning och erbjuder teknik för statistisk maskinöversättning. Custom Translator är ett tillägg för Translator Text API:et som du kan bygga neurala översättningssystem med. Det anpassade översättningssystemet kan användas för att översätta text med Translator Text API:et eller <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/">Microsoft Speech Services</a>. Listan med språk som stöds, både för neural och statistisk maskinöversättning, finns i <a href="languages.md">Språk som stöds</a>.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/translator/translator-info-overview
+      html: <p>Mer information om Translator Text API</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Vad är Translator Text API?
+    - href: /azure/cognitive-services/translator/custom-translator/overview
+      html: <p>Mer information om Custom Translator</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Vad är Custom Translator (förhandsversion)?
+    - href: /azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model
+      html: <p>Se hur du snabbt kommer igång med Custom Translator</p>
+      image:
+        src: ../media/index/i_get-started.svg
+      title: Snabbstart för Custom Translator
 - title: Snabbstarter på 5 minuter
   items:
   - type: paragraph

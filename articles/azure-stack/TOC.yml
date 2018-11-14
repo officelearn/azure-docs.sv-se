@@ -299,6 +299,8 @@ items:
         href: azure-stack-app-service-release-notes-update-two.md
       - name: App Service i Azure Stack uppdatering 3 viktig information
         href: azure-stack-app-service-release-notes-update-three.md
+      - name: App Service i Azure Stack uppdatering 4 viktig information
+        href: azure-stack-app-service-release-notes-update-four.md
   - name: Skapa planer, erbjudanden och kvoter
     items:
     - name: Översikt över plan, erbjudande, kvot och prenumeration
@@ -388,9 +390,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Utbildning och certifiering
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 60487f16002df5a55d2859a14ec34559acd5cd5f
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: b68cebd2d6e2a7965eef61bf35c50824f7102c8e
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578163"
+ms.locfileid: "51614760"

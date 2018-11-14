@@ -70,6 +70,38 @@ items:
   expanded: true
 - name: Begrepp
   items:
+  - name: Arbeta med ett Azure Cosmos-konto
+    href: account-overview.md
+  - name: Containrar och objekt
+    items:
+    - name: Arbeta med databaser, containrar och objekt
+      href: databases-containers-items.md
+    - name: Indexering
+      items:
+      - name: Översikt
+        href: index-overview.md
+      - name: Indexeringspolicy
+        href: index-policy.md
+      - name: Indextyper
+        href: index-types.md
+      - name: Indexsökvägar
+        href: index-paths.md
+    - name: Ändringsfeed
+      items:
+      - name: Översikt
+        href: change-feed.md
+      - name: Läsning av ändringsflöde
+        href: read-change-feed.md
+      - name: Ändringsflödesprocessor
+        href: change-feed-processor.md
+      - name: Ändringsflöde med Azure Functions
+        href: change-feed-functions.md
+    - name: Time to live
+      href: time-to-live.md
+    - name: Unika nyckelvillkor
+      href: unique-keys.md
+    - name: Transaktioner och optimistisk samtidighet
+      href: database-transactions-optimistic-concurrency.md
   - name: Resursmodell
     href: sql-api-resources.md
   - name: Global distribution
@@ -86,7 +118,7 @@ items:
       href: consistency-levels-tradeoffs.md
     - name: Hög tillgänglighet
       href: high-availability.md
-    - name: Skala dataflöde globalt
+    - name: Skala etablerat dataflöde globalt
       href: scaling-throughput.md
     - name: Konfliktlösningsprinciper
       href: conflict-resolution-policies.md
@@ -106,14 +138,6 @@ items:
       href: request-units.md
     - name: Etablera dataflöde på containrar och databaser
       href: set-throughput.md
-  - name: Indexering
-    href: indexing-policies.md
-  - name: Ändringsfeed
-    href: change-feed.md
-  - name: Time to live
-    href: time-to-live.md
-  - name: Unika nycklar
-    href: unique-keys.md
   - name: Säkerhet
     items:
     - name: Översikt
@@ -122,9 +146,9 @@ items:
       href: database-encryption-at-rest.md
     - name: Säker åtkomst till data
       href: secure-access-to-data.md
-    - name: Brandväggssupport
+    - name: IP-brandvägg
       href: firewall-support.md
-    - name: Konfigurera VNet-slutpunkt
+    - name: Åtkomst från virtuella nätverk
       href: vnet-service-endpoint.md
     - name: Key Vault-stöd
       href: access-secrets-from-keyvault.md
@@ -393,6 +417,38 @@ items:
   expanded: true
 - name: Instruktionsguider
   items:
+  - name: Hantera databaskonton
+    href: how-to-manage-database-account.md
+  - name: Ställ in TTL (Time To Live)
+    href: how-to-time-to-live.md
+  - name: Global distribution
+    items:
+    - name: Hantera konsekvens
+      href: how-to-manage-consistency.md
+    - name: Hantera konflikter
+      href: how-to-manage-conflicts.md
+  - name: Etablerat dataflöde
+    items:
+    - name: Etablera containerns dataflöde
+      href: how-to-provision-container-throughput.md
+    - name: Etablera databasens dataflöde
+      href: how-to-provision-database-throughput.md
+  - name: Arbeta med containrar och objekt
+    items:
+    - name: Skapa en container
+      href: how-to-create-container.md
+    - name: Fråga en container
+      href: how-to-query-container.md
+  - name: Indexering
+    items:
+    - name: Konfigurera indexering
+      href: how-to-manage-indexing-policy.md
+  - name: Säkerhet
+    items:
+    - name: Konfigurera IP-brandvägg
+      href: how-to-configure-firewall.md
+    - name: Konfigurera åtkomst till virtuella nätverk
+      href: how-to-configure-vnet-service-endpoint.md
   - name: Hantera
     items:
     - name: Hantera med hjälp av PowerShell
@@ -403,8 +459,6 @@ items:
       href: storage-explorer.md
     - name: Hantering med hjälp av datautforskaren
       href: data-explorer.md
-    - name: Hantera ditt konto
-      href: manage-account.md
   - name: Loggning
     items:
     - name: Diagnostikloggning
@@ -427,26 +481,6 @@ items:
       href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
   - name: Konfigurera pipeline för Azure DevOps CI/CD
     href: tutorial-setup-ci-cd.md
-  - name: Global distribution
-    items:
-    - name: Hantera databaskonton
-      href: how-to-manage-database-account.md
-    - name: Hantera konsekvens
-      href: how-to-manage-consistency.md
-    - name: Hantera konflikter
-      href: how-to-manage-conflicts.md
-  - name: Etablerat dataflöde
-    items:
-    - name: Etablera containerns dataflöde
-      href: how-to-provision-container-throughput.md
-    - name: Etablera databasens dataflöde
-      href: how-to-provision-database-throughput.md
-  - name: Arbeta med containrar och objekt
-    items:
-    - name: Skapa en container
-      href: how-to-create-container.md
-    - name: Fråga en container
-      href: how-to-query-container.md
   - name: Bästa praxis
     items:
     - name: Prestandatips
@@ -535,9 +569,9 @@ items:
       href: use-cases.md
     - name: Appar för sociala medier
       href: social-media-apps.md
-ms.openlocfilehash: 139bf5c5edfb808e912f2da07ea1bcab57636c55
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5301ed8dad542a03ddd7be617668db9b25417de6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244278"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622473"

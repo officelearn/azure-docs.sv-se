@@ -1,6 +1,6 @@
 ---
-title: Använda Hadoop Hive med PowerShell i HDInsight - Azure
-description: Använd PowerShell för att köra Hive-frågor i Hadoop på HDInsight.
+title: Använda Apache Hive med PowerShell i HDInsight - Azure
+description: Använd PowerShell för att köra Hive-frågor i Apache Hadoop på HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,24 +9,24 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: e02f6b17dff93ce2df1f06ad9681e3086c35300c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d29199c5e1534e3f98fbdbb73799840cf9c9e75f
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257875"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633119"
 ---
-# <a name="run-hive-queries-using-powershell"></a>Köra Hive-frågor med hjälp av PowerShell
+# <a name="run-apache-hive-queries-using-powershell"></a>Kör Apache Hive-frågor med hjälp av PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Det här dokumentet innehåller ett exempel på hur du använder Azure PowerShell i Azure-resursgrupp-läge kör Hive-frågor i ett Hadoop på HDInsight-kluster.
+Det här dokumentet innehåller ett exempel på hur du använder Azure PowerShell i Azure-resursgrupp-läge kör Hive-frågor i en Apache Hadoop på HDInsight-kluster.
 
 > [!NOTE]
 > Det här dokumentet ger inte en detaljerad beskrivning av vad HiveQL-instruktioner som används i exemplen göra. Information om HiveQL som används i det här exemplet finns i [använda Hive med Hadoop i HDInsight](hdinsight-use-hive.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Linux-baserat Hadoop i HDInsight-kluster av version 3.4 och senare.
+* En Linux-baserade Apache Hadoop på HDInsight-kluster av version 3.4 och senare.
 
   > [!IMPORTANT]
   > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

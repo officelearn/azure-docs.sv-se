@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Hub skalning | Microsoft Docs
 description: Så här skalar du din IoT-hubb för att stödja din förväntade meddelandedataflöde och önskade funktioner. Innehåller en sammanfattning av alternativ för horisontell partitionering och dataflöden som stöds för varje nivå.
-author: kgremban
+author: wesmc7777
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
-ms.author: kgremban
-ms.openlocfilehash: d98a890cfb6bd388477ff3f14b81c8df02ece879
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.author: wesmc
+ms.openlocfilehash: c37492a42322ffc386751c4c63b981c9d93a72f6
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287973"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633384"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Välja rätt nivå för IoT Hub för din lösning
 
@@ -31,7 +31,7 @@ Varje nivå för IoT Hub är tillgänglig i tre storlekar som baserat dataflöde
 
 Standardnivån för IoT Hub kan du använda alla funktioner och är obligatoriskt för alla IoT-lösningar som vill göra användning av funktioner för dubbelriktad kommunikation. Basic-nivån kan en delmängd av funktionerna som är avsedd för IoT-lösningar som bara behöver enkelriktad kommunikation från enheter till molnet. Båda nivåerna har samma funktioner för säkerhet och autentisering.
 
-När du har skapat din IoT-hubb, kan du uppgradera från basic-nivån till standardnivån utan att avbryta din befintliga åtgärder. Mer information finns i [uppgradera din IoT-hubb](iot-hub-upgrade.md). Maximal partitionsgränsen för basic-nivån IoT Hub är 8 och standard-nivån är 32. De flesta IoT-hubbar behöver bara 4 partitioner. Partitionsgränsen väljs när IoT-hubben har skapats och avser antalet samtidiga läsare av dessa meddelanden på meddelanden från enheten till molnet. Det här värdet ändras inte när du migrerar från basic-nivån till standardnivån. Tänk också på den enda typen av [edition](https://azure.microsoft.com/pricing/details/iot-hub/) inom en nivå kan väljas per IoT Hub. Du kan till exempel skapa en IoT-hubb med flera enheter av S1, men inte med en blandning av enheter från olika versioner, till exempel S1 och B3, eller S1 och S2.
+Endast en typ av [edition](https://azure.microsoft.com/pricing/details/iot-hub/) inom en nivå kan väljas per IoT Hub. Du kan till exempel skapa en IoT-hubb med flera enheter av S1, men inte med en blandning av enheter från olika versioner, till exempel S1 och B3, eller S1 och S2.
 
 | Funktion | Basic-nivå | Standard-nivå |
 | ---------- | ---------- | ------------- |
@@ -47,7 +47,22 @@ När du har skapat din IoT-hubb, kan du uppgradera från basic-nivån till stand
 
 IoT Hub erbjuder också en kostnadsfri nivå som är avsedd för testning och utvärdering. Den har alla funktioner i standard-nivån, men begränsad meddelanden tilldelningar. Du kan inte uppgradera från den kostnadsfria nivån till basic eller standard. 
 
-### <a name="iot-hub-rest-apis"></a>REST API:er för IoT Hub
+
+## <a name="partitions"></a>Partitioner
+
+Azure IoT-hubbar innehåller många kärnkomponenterna i [Azure Event Hubs](../event-hubs/event-hubs-features.md), inklusive [partitioner](../event-hubs/event-hubs-features.md#partitions). Händelseströmmar för IoT-hubbar är vanligtvis ifyllda med inkommande telemetridata som rapporteras av olika IoT-enheter. Partitionering över händelseströmmen används för att minska contentions som uppstår vid läsning och skrivning till händelseströmmar samtidigt. 
+
+Partitionsgränsen väljs när IoT-hubben har skapats och kan inte ändras. Maximal partitionsgränsen för basic-nivån IoT-hubbar är 8 och standard-nivån är högsta 32. De flesta IoT-hubbar behöver bara 4 partitioner. Mer information om hur du bestämmer partitionerna finns i Event Hubs vanliga frågor och svar [hur många partitioner behöver jag?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
+
+
+## <a name="tier-upgrade"></a>Nivå-uppgradering
+
+När du har skapat din IoT-hubb, kan du uppgradera från basic-nivån till standardnivån utan att avbryta din befintliga åtgärder. Mer information finns i [uppgradera din IoT-hubb](iot-hub-upgrade.md).
+
+Partitionskonfigurationen ändras inte när du migrerar från basic-nivån till standardnivån.
+
+
+## <a name="iot-hub-rest-apis"></a>REST API:er för IoT Hub
 
 Skillnaden i funktioner som stöds mellan nivåerna basic och standard för IoT Hub innebär att vissa API-anrop inte fungerar med nivån basic hubs. I följande tabell visas vilka API: er är tillgängliga: 
 

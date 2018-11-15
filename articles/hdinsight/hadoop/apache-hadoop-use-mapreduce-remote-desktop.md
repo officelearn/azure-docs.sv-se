@@ -1,6 +1,6 @@
 ---
-title: MapReduce och Fjärrskrivbord med Hadoop i HDInsight - Azure
-description: Lär dig hur du använder Fjärrskrivbord för att ansluta till Hadoop på HDInsight och kör MapReduce-jobb.
+title: MapReduce och Fjärrskrivbord med Apache Hadoop i HDInsight - Azure
+description: Lär dig hur du använder Fjärrskrivbord för att ansluta till Apache Hadoop på HDInsight och kör MapReduce-jobb.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ee87bd5743307ea5b9ee3ca1258e8cd985a095c5
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: b8cd389bee98058e5362a217268fb53d6aaf3424
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012936"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634489"
 ---
-# <a name="use-mapreduce-in-hadoop-on-hdinsight-with-remote-desktop"></a>Använda MapReduce i Hadoop på HDInsight med fjärrskrivbord
+# <a name="use-mapreduce-in-apache-hadoop-on-hdinsight-with-remote-desktop"></a>Använda MapReduce i Apache Hadoop på HDInsight med fjärrskrivbord
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
-I den här artikeln får lära du dig att ansluta till ett Hadoop på HDInsight-kluster med hjälp av fjärrskrivbord och kör MapReduce-jobb med hjälp av Hadoop-kommando.
+I den här artikeln får lära du dig att ansluta till en Apache Hadoop på HDInsight-kluster med hjälp av fjärrskrivbord och kör MapReduce-jobb med hjälp av Hadoop-kommando.
 
 > [!IMPORTANT]
 > Fjärrskrivbord är bara tillgängligt på Windows-baserade HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

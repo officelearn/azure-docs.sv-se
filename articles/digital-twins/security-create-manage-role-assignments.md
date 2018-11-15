@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 11/13/2018
 ms.author: lyrana
-ms.openlocfilehash: 42c1b0fbb6d87e9ed35d4ecce3971d8512eed4d4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f032e3ebf6a10411057cd6d41df0cad6248f328b
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012470"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636245"
 ---
 # <a name="create-and-manage-role-assignments"></a>Skapa och hantera rolltilldelningar
 
@@ -26,6 +26,8 @@ Varje rolltilldelningen omfattar:
 * **Rolldefinitions-ID**
 * **Utrymme sökväg**
 * **Klient-ID**: I de flesta fall en Azure Active Directory klient-ID
+
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
 ## <a name="role-definition-identifiers"></a>Rollen definition identifierare
 
@@ -57,7 +59,7 @@ Den stöds `ObjectIdTypes`:
 ## <a name="create-a-role-assignment"></a>Skapa en rolltilldelning
 
 ```plaintext
-HTTP POST /api/v1.0/roleassignments
+HTTP POST YOUR_MANAGEMENT_API_URL/roleassignments
 ```
 
 | **Namn** | **Krävs** | **Typ** | **Beskrivning** |
@@ -108,22 +110,22 @@ Alla användare som tillhör en domän får läsbehörighet för blanksteg, sens
 Använd får att få en rolltilldelning.
 
 ```plaintext
-HTTP GET /api/v1/roleassignments?path={path}
+HTTP GET YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 ```
 
 | **Namn** | **I** | **Krävs** |    **Typ** |  **Beskrivning** |
 | --- | --- | --- | --- | --- |
-| Sökväg | Sökväg | True | Sträng | Den fullständiga sökvägen till området |
+| YOUR_PATH | Sökväg | True | Sträng |    Den fullständiga sökvägen till området |
 
 Använd ta bort för att ta bort en rolltilldelning.
 
 ```plaintext
-HTTP DELETE /api/v1/roleassignments/{id}
+HTTP DELETE YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ID
 ```
 
 | **Namn** | **I** | **Krävs** | **Typ** | **Beskrivning** |
 | --- | --- | --- | --- | --- |
-| ID | Sökväg | True | Sträng |   Tilldelnings-ID |
+| YOUR_ROLE_ID | Sökväg | True | Sträng | Tilldelnings-ID |
 
 ## <a name="next-steps"></a>Nästa steg
 

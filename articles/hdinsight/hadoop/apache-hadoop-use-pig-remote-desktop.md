@@ -1,6 +1,6 @@
 ---
-title: Använda Pig med Hadoop med fjärrskrivbord i HDInsight - Azure
-description: Lär dig hur du använder Pig-kommandot för att köra satser i Pig Latin från en fjärrskrivbordsanslutning till en Windows-baserade Hadoop-kluster i HDInsight.
+title: Använda Apache Pig med fjärrskrivbord i HDInsight - Azure
+description: Lär dig hur du använder Pig-kommandot för att köra Apache Pig Latin-instruktioner från en fjärrskrivbordsanslutning till en Windows-baserade Apache Hadoop-kluster i HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3a7dff2c44b7cc8ccd921d2371666cb19acffbb8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 9ab3c5399263e301760b7822488fe00145149d2a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007237"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633350"
 ---
-# <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Köra Pig-jobb från en fjärrskrivbordsanslutning
+# <a name="run-apache-pig-jobs-from-a-remote-desktop-connection"></a>Kör Apache Pig-jobb från en fjärrskrivbordsanslutning
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Det här dokumentet innehåller en genomgång där Pig-kommando för att köra satser i Pig Latin från en fjärrskrivbordsanslutning till en Windows-baserade HDInsight-kluster. Pig Latin kan du skapa MapReduce-program genom att beskriva Datatransformationer, snarare än mappa och minska funktioner.
+Det här dokumentet innehåller en genomgång där Apache Pig-kommando för att köra satser i Pig Latin från en fjärrskrivbordsanslutning till en Windows-baserade HDInsight-kluster. Pig Latin kan du skapa MapReduce-program genom att beskriva Datatransformationer, snarare än mappa och minska funktioner.
 
 > [!IMPORTANT]
 > Fjärrskrivbord är bara tillgängligt på HDInsight-kluster som använder Windows som operativsystem. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

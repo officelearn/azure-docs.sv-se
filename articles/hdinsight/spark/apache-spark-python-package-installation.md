@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: af25dcff2302827f2291d50972f09b8b5fda6cd3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 093a5eb7ee366abfdbc4c5dba68739544b438ff2
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255446"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684536"
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Använd skriptåtgärd till att installera externa Python-paket för Jupyter notebook i Apache Spark-kluster i HDInsight
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ Microsoft Azure HDInsight-tjänsten använder ett ekosystem med öppen källkod-
 
 Det finns två typer av öppen källkod-komponenter som är tillgängliga i HDInsight-tjänsten:
 
-* **Inbyggda komponenterna** -komponenterna är förinstallerade på HDInsight-kluster och tillhandahåller huvudfunktionerna i klustret. Till exempel YARN ResourceManager, Hive-frågespråket (HiveQL) och Mahout-biblioteket som hör till den här kategorin. En fullständig lista över komponenter i serverkluster finns i [Nyheter i Hadoop-klusterversionerna från HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning).
+* **Inbyggda komponenterna** -komponenterna är förinstallerade på HDInsight-kluster och tillhandahåller huvudfunktionerna i klustret. Till exempel YARN ResourceManager, Hive-frågespråket (HiveQL) och Mahout-biblioteket som hör till den här kategorin. En fullständig lista över komponenter i serverkluster finns i [Nyheter i Hadoop-klusterversionerna från HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
 * **Anpassade komponenter** -du, som en användare i klustret, kan installera eller använda i din arbetsbelastning någon komponent som är tillgänglig i diskussionsgruppen eller skapats av dig.
 
 > [!WARNING]

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 92553fc8867a482c0af99c4ba3937dcc0d2f09e6
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: eeb615a89469ef8c165ed7ad76acaa01493f78ec
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158110"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625546"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Självstudie: Använda en systemtilldelade hanterad identitet för en virtuell Windows-dator för åtkomst till Azure Storage via åtkomstnyckel
 
@@ -35,15 +35,7 @@ I den här självstudien lär du dig att hämta åtkomstnycklar till lagringskon
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Logga in på Azure-portalen](https://portal.azure.com)
-
-- [Skapa en virtuell Windows-dator](/azure/virtual-machines/windows/quick-create-portal)
-
-- [Aktivera systemtilldelade hanterade identiteter på den virtuella datorn](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
 
@@ -83,7 +75,7 @@ Azure Storage har inte inbyggt stöd för Azure AD-autentisering.  Men du kan an
 
     ![Alternativ bildtext](./media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
 
-## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-to-call-azure-resource-manager"></a>Hämta en åtkomsttoken med hjälp av den virtuella datorns systemtilldelade hanterade identitet för att anropa Azure Resource Manager 
+## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-to-call-azure-resource-manager"></a>Hämta en åtkomsttoken med hjälp av den virtuella datorns systemtilldelade hanterade identitet för att anropa Azure Resource Manager 
 
 Under resten av självstudien arbetar vi från den virtuella datorn som vi skapade tidigare. 
 

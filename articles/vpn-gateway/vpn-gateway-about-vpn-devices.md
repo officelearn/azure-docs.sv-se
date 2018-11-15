@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/05/2018
 ms.author: yushwang
-ms.openlocfilehash: cbbba60f42c2e0ef7a6e53c34e883e2fdf6f8781
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e93f1174f0beaa7b1c8b3164081714281d5b1050
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229177"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687545"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Om VPN-enheter och IPSec-/IKE-parametrar för anslutningar för VPN Gateway från plats till plats
 
@@ -39,7 +39,7 @@ En VPN-enhet krävs för att konfigurera en VPN-anslutning för plats-till-plats
 
 Vi har verifierat en uppsättning VPN-standardenheter tillsammans med våra enhetsleverantörer. Alla enheter i enhetsfamiljerna i följande lista bör fungera med VPN-gatewayer. Mer information om VPN-typerna (PolicyBased eller RouteBased) för den VPN Gateway-lösning som du vill konfigurera finns i [Om VPN Gateway-inställningar](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
 
-Hjälp med att konfigurera VPN-enheten finns i de länkar som motsvarar lämplig enhetsfamilj. Länkarna till konfigurationsanvisningarna tillhandahålls i mån av möjlighet. Kontakta enhetens tillverkare för att se vilka VPN-enheter som stöds.
+Hjälp med att konfigurera din VPN-enhet, se länkarna som motsvarar lämplig enhetsfamilj. Länkarna till konfigurationsanvisningarna tillhandahålls i mån av möjlighet. Kontakta enhetens tillverkare för att se vilka VPN-enheter som stöds.
 
 |**Leverantör**          |**Enhetsfamilj**     |**Minsta operativsystemversion** |**Instruktioner för principbaserad konfiguration** |**Instruktioner för routningsbaserad konfiguration** |
 | ---                | ---                  | ---                   | ---            | ---           |

@@ -1,6 +1,6 @@
 ---
 title: Anslut till Azure HDInsight med hjälp av Data Lake Tools för Visual Studio
-description: Få reda på hur du installerar och använder Data Lake Tools för Visual Studio för att ansluta till ett Hadoop-kluster i Azure HDInsight och sedan köra en Hive-fråga.
+description: Lär dig hur du installerar och använder Data Lake Tools för Visual Studio för att ansluta till Apache Hadoop-kluster i Azure HDInsight och köra Hive-frågor.
 keywords: hadoop tools,hive query,visual studio,visual studio hadoop
 services: hdinsight
 author: hrasheed-msft
@@ -10,16 +10,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive, hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 281c3744dc311fdced20f810e0a9f2b233076472
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 670de3f61047bcc8b168863f5981e41084225ec4
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247151"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634676"
 ---
-# <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-hive-queries"></a>Använd Data Lake Tools för Visual Studio för att ansluta till Azure HDInsight och köra Hive-frågor
+# <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Använd Data Lake Tools för Visual Studio för att ansluta till Azure HDInsight och kör Apache Hive-frågor
 
-Få reda på hur du använder Data Lake Tools för Visual Studio (det kallas även Azure Data Lake och Stream Analytics Tools för Visual Studio) för att ansluta till ett Hadoop-kluster i [Azure HDInsight](../hdinsight-hadoop-introduction.md) och köra Hive-frågor. 
+Lär dig hur du använder Data Lake Tools för Visual Studio (kallas även Azure Data Lake och Stream Analytics Tools för Visual Studio) för att ansluta till Apache Hadoop-kluster i [Azure HDInsight](../hdinsight-hadoop-introduction.md) och skicka Hive-frågor. 
 
 Mer information om hur du använder HDInsight finns i [Introduktion till HDInsight](../hdinsight-hadoop-introduction.md) och [Komma igång med HDInsight](apache-hadoop-linux-tutorial-get-started.md). 
 

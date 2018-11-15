@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5611830d4d9950a7781062997b13555d95d8e703
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: affef85c917804f0b99200dcfa8e53f6d08fcbe4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625971"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684230"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Använda Oozie med Hadoop för att definiera och köra ett arbetsflöde i HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -63,7 +63,7 @@ Innan du påbörjar den här självstudien måste du ha följande objekt:
 
 ## <a name="define-oozie-workflow-and-the-related-hiveql-script"></a>Definiera Oozie-arbetsflöde och relaterade HiveQL-skript
 Oozie arbetsflöden definitioner är skrivna i hPDL (en XML-processen för Definition Language). Standardfilnamnet för arbetsflödet är *workflow.xml*. Följande är arbetsflödesfilen som du använder i den här självstudien.
-
+```xml
     <workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
         <start to = "RunHiveScript"/>
 
@@ -118,7 +118,7 @@ Oozie arbetsflöden definitioner är skrivna i hPDL (en XML-processen för Defin
 
         <end name="end"/>
     </workflow-app>
-
+```
 Det finns två åtgärder som definierats i arbetsflödet. Start-till-åtgärden är *RunHiveScript*. Om åtgärden körs utan problem, är nästa åtgärd *RunSqoopExport*.
 
 RunHiveScript har flera variabler. Du kan skicka värdena när du har skickat jobbet Oozie från din arbetsstation med hjälp av Azure PowerShell.
@@ -191,7 +191,7 @@ PowerShell-skriptet i det här avsnittet utför du följande steg:
     Om du vill kontrollera jobbresultaten OOzie, använder du Visual Studio eller andra verktyg för att ansluta till Azure SQL Database.
 
 Här är skriptet.  Du kan köra skriptet från Windows PowerShell ISE. Du behöver bara konfigurera först 7 variabler.
-
+```powershell
     #region - provide the following values
 
     $subscriptionID = "<Enter your Azure subscription ID>"
@@ -200,7 +200,7 @@ Här är skriptet.  Du kan köra skriptet från Windows PowerShell ISE. Du behö
     $sqlDatabaseLogin = "<Enter SQL Database Login Name>"
     $sqlDatabasePassword = "<Enter SQL Database Login Password>"
 
-    # HDInsight cluster HTTP user credential used for creating and connectin
+    # HDInsight cluster HTTP user credential used for creating and connecting
     $httpUserName = "admin"  # The default name is "admin"
     $httpPassword = "<Enter HDInsight Cluster HTTP User Password>"
 
@@ -529,8 +529,8 @@ Här är skriptet.  Du kan köra skriptet från Windows PowerShell ISE. Du behö
     $response = Invoke-RestMethod -Method Get -Uri $clusterUriStatus -Credential $httpCredential -OutVariable $OozieServerStatus
 
     $jsonResponse = ConvertFrom-Json (ConvertTo-Json -InputObject $response)
-    $oozieServerSatus = $jsonResponse[0].("systemMode")
-    Write-Host "Oozie server status is $oozieServerSatus."
+    $oozieServerStatus = $jsonResponse[0].("systemMode")
+    Write-Host "Oozie server status is $oozieServerStatus."
 
     # create Oozie job
     Write-Host "Sending the following Payload to the cluster:" -ForegroundColor Green
@@ -570,7 +570,7 @@ Här är skriptet.  Du kan köra skriptet från Windows PowerShell ISE. Du behö
     Write-Host "$(Get-Date -format 'G'): $oozieJobId is in $JobStatus state!" -ForegroundColor Green
 
     #endregion
-
+```
 
 **Köra självstudien**
 
@@ -580,7 +580,7 @@ Om du vill köra arbetsflödet igen, måste du ta bort följande objekt:
 * Data i tabellen log4jLogsCount
 
 Här är ett PowerShell-skript som du kan använda:
-
+```powershell
     $resourceGroupName = "<AzureResourceGroupName>"
 
     $defaultStorageAccountName = "<AzureStorageAccountName>"
@@ -610,6 +610,7 @@ Här är ett PowerShell-skript som du kan använda:
     $cmd.executenonquery()
 
     $conn.close()
+```
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudien beskrivs hur du definierar ett Oozie-arbetsflöde och hur du kör ett Oozie-jobb med hjälp av PowerShell. Mer information finns i följande artiklar:
@@ -647,7 +648,6 @@ I den här självstudien beskrivs hur du definierar ett Oozie-arbetsflöde och h
 
 [hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
-[sqldatabase-create-configue]: ../sql-database-create-configure.md
 [sqldatabase-get-started]: ../sql-database-get-started.md
 
 [azure-management-portal]: https://portal.azure.com/

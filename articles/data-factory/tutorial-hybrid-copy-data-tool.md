@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/04/2018
 ms.author: jingwang
-ms.openlocfilehash: a6c17fc897dae765f9789840262cb001d598b731
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 91c6939e42f0a8a5126883e5258017b2c38e6f2a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297754"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613978"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Kopiera data från en lokal SQL Server-databas till Azure Blob Storage med hjälp av verktyget Kopiera data
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,6 +27,7 @@ I den här självstudien skapar du en datafabrik i Azure Portal. Sedan använder
 
 > [!NOTE]
 > - Om du inte har använt Azure Data Factory tidigare kan du läsa [Introduktion till Data Factory](introduction.md).
+
 I den här självstudien får du göra följande:
 
 > [!div class="checklist"]
@@ -107,7 +108,7 @@ I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Blo
 
 1. Välj **adftutorial** i listan över containrar.
 
-    ![Val av container](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
+    ![Val av container](media/tutorial-hybrid-copy-powershell/select-adftutorial-container.png)
 
 1. Låt **containerfönstret** för **adftutorial** vara öppet. Du kommer att använda den för att bekräfta utdata i slutet av självstudien. Data Factory skapar automatiskt utdatamappen i den här containern, så du behöver inte skapa en.
 

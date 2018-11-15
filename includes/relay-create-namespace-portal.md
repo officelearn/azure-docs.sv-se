@@ -1,3 +1,16 @@
+---
+author: clemensv
+ms.service: service-bus-relay
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: clemensv
+ms.openlocfilehash: 13ac2ec0569dc79791eca9efb2bd51e7b76ddd05
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572760"
+---
 1. Logga in på [Azure Portal][Azure portal].
 2. Välj **+ Skapa en resurs** på menyn till vänster. Välj sedan **Integrering** > **Relay**. Om du inte ser **Relay** i listan väljer du **Visa alla** i det övre högra hörnet. 
 3. Under **Skapa namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 11/14/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 6ed1d9fc810bfa14beed83609d13c1010d479ed9
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: c8bba283a0c3fde75966ae123023e50d497abd5a
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622253"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687562"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Anslut Operations Manager till Log Analytics
 Att underhålla din investering i [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) och använder utökade funktioner med Log Analytics, du kan integrera Operations Manager med Log Analytics-arbetsytan. På så sätt kan du utnyttja möjligheterna i Log Analytics samtidigt som du använder Operations Manager till att:
@@ -44,7 +44,7 @@ Granska följande krav innan du börjar.
 
 * Log Analytics stöder endast System Center Operations Manager 1807, Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 eller senare, och Operations Manager 2012 R2 UR2 eller senare. Stöd för proxy har lagts till i Operations Manager 2012 SP1 UR7 och Operations Manager 2012 R2 UR3.
 * Alla Operations Manager-agenter måste uppfylla minimikraven. Kontrollera att agenterna är på den lägsta uppdateringen, annars Windows agentkommunikationen kan misslyckas och genererar fel i händelseloggen för Operations Manager.
-* En Log Analytics-arbetsyta. Mer information, [Log Analytics arbetsyta-översikt](log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json) ).
+* En Log Analytics-arbetsyta. Mer information, [Log Analytics arbetsyta-översikt](log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json).
 * Du kan autentisera till Azure med ett konto som är medlem i den [Log Analytics Contributor rollen](log-analytics-manage-access.md#manage-accounts-and-users).  
 
 >[!NOTE]
@@ -52,7 +52,7 @@ Granska följande krav innan du börjar.
 >Ett nytt management pack har släppts för varje version av Operations Manager:  
 >* Ladda ned hanteringspaketet från för System Center Operations Manager 1801 [här](https://www.microsoft.com/download/details.aspx?id=57173)  
 >* System Center 2016 – Operations Manager kan du hämta hanteringspaketet från [här](https://www.microsoft.com/download/details.aspx?id=57172)  
->* För System Center Operations Manager 2012 R2 kan du ladda ned hanteringspaketet från [här](https://www.microsoft.com/en-us/download/details.aspx?id=57171)  
+>* För System Center Operations Manager 2012 R2 kan du ladda ned hanteringspaketet från [här](https://www.microsoft.com/download/details.aspx?id=57171)  
 
 ### <a name="network"></a>Nätverk
 Informationen nedan listar konfigurationsinställningarna för proxy och brandvägg som krävs för att Operations Manager-agenten, hanteringsservrar och Operations-konsolen ska kunna kommunicera med Log Analytics. Trafik från varje komponent går ut från nätverket till Log Analytics-tjänsten.   
@@ -101,7 +101,7 @@ När du har slutfört följande steg för att integrera med Log Analytics, kan d
 1. Välj arbetsytan **Administration** i Operations Manager-konsolen.
 1. Expandera noden Operations Management Suite och klicka på **Anslutning**.
 1. Klicka på länken för att **registrera till Operations Management Suite**.
-1. På den **guiden Operations Magement Suite Onboarding: autentisering** sidan, anger du e-postadress eller telefonnummer och lösenordet för administratörskontot som är associerad med OMS-prenumerationen och på  **Logga in**.
+1. På sidan **Guiden Operations Management Suite Onboarding: Autentisering** anger du e-postadress eller telefonnummer och lösenordet för administratörskontot som är kopplat till din OMS-prenumeration och klickar på **Logga in**.
 
    >[!NOTE]
    >OMS kallas nu för Log Analytics.

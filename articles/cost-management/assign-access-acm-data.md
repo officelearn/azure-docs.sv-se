@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: a62ecd0201d6b29686abc186ee69f3d26dc5ca4e
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: e32e281509da32d4816c9e137a462553891c82f1
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516293"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686151"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Tilldela åtkomst till Cost Management-data
 
-För de flesta användare definiera en kombination av behörigheter som beviljas i Azure-portalen och Enterprise (EA)-portalen en användares åtkomstnivå till data i Azure Cost Management. Den här artikeln vägleder dig även om tilldelar åtkomst till Cost Management-data. När en kombination av behörigheter tilldelas baserat vyer användardata i Cost Management omfattningen som de har åtkomst till och omfattning att de väljer i Azure-portalen.
+För de flesta användare definiera en kombination av behörigheter som beviljas i Azure-portalen och Enterprise (EA)-portalen en användares åtkomstnivå till data i Azure Cost Management. Den här artikeln beskriver hur du tilldelar åtkomst till Cost Management-data. När en kombination av behörigheter tilldelas baserat vyer användardata i Cost Management omfattningen som de har åtkomst till och omfattning att de väljer i Azure-portalen.
 
 Omfattningen som en användare väljer används i hela kostnadshantering datakonsolidering och styra åtkomsten till kostnadsinformation. När du använder omfång kan användare inte flerval dem. I stället väljer de ett större område som underordnade omfattningar kavla upp till och sedan de filter ned för att de vill visa. Konsolidera data är viktigt att förstå eftersom vissa användare inte ska ha åtkomst till en överordnad omfattning som underordnade omfattningar slås upp till.
 

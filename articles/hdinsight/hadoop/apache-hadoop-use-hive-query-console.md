@@ -1,6 +1,6 @@
 ---
-title: Använda Hadoop Hive i Frågekonsolen i HDInsight - Azure
-description: Lär dig mer om att använda Frågekonsolen webbaserade för att köra Hive-frågor på ett HDInsight Hadoop-kluster från din webbläsare.
+title: Använda Apache Hive på Frågekonsolen i HDInsight - Azure
+description: Lär dig mer om att använda Frågekonsolen webbaserade för att köra Apache Hive-frågor på ett HDInsight Hadoop-kluster från din webbläsare.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4083ceca8c9181c8acb1a90e782cb5bca981e684
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: da270792c8987ff43c422c5b03eb8b789b8bda5e
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013980"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634601"
 ---
-# <a name="run-hive-queries-using-the-query-console"></a>Köra Hive-frågor med hjälp av Frågekonsolen
+# <a name="run-apache-hive-queries-using-the-query-console"></a>Kör Apache Hive-frågor med Frågekonsolen
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-I den här artikeln får lära du dig att använda konsolen för HDInsight-fråga för att köra Hive-frågor på ett HDInsight Hadoop-kluster från din webbläsare.
+I den här artikeln får lära du dig att använda Frågekonsolen HDInsight för att köra Apache Hive-frågor på ett HDInsight Hadoop-kluster från din webbläsare.
 
 > [!IMPORTANT]
 > HDInsight Frågekonsolen är endast tillgänglig på Windows-baserade HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

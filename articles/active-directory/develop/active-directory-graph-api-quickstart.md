@@ -18,16 +18,18 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 7b7f2133634a91b828d7e978c9041b12873fa3a1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b8dba999ac6523aad29aae40b528fd010fec0550
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997224"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687358"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>Så här: använda Azure AD Graph API
 
 Azure Active Directory (Azure AD) Graph API ger Programmeringsåtkomst till Azure AD via REST-API för OData-slutpunkter. Program kan använda Azure AD Graph API för att utföra skapa, läsa, uppdatera och ta bort (CRUD)-åtgärder på katalogdata och objekt. Du kan till exempel använda Azure AD Graph API för att skapa en ny användare, visa eller uppdatera användarens egenskaper, ändra användarens lösenord, kontrollera medlemskapet för rollbaserad åtkomst, inaktivera eller ta bort användaren. Läs mer om Azure AD Graph API-funktionerna och Programscenarier [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) och [krav för Azure AD Graph API](https://msdn.microsoft.com/library/hh974476.aspx).
+
+Den här artikeln gäller för Azure AD Graph API. Liknande information relaterad till Microsoft Graph API finns i [använder Microsoft Graph API](https://developer.microsoft.com/graph/docs/concepts/use_the_api).
 
 > [!IMPORTANT]
 > Vi rekommenderar starkt att du använder [Microsoft Graph](https://developer.microsoft.com/graph) i stället för Azure AD Graph API för att komma åt resurser i Azure Active Directory. Vårt utvecklingsarbete koncentreras nu till Microsoft Graph och inga fler förbättringar planeras för Azure AD Graph API. Det finns ett begränsat antal scenarier där Azure AD Graph API fortfarande kan vara lämpligt. Mer information finns i blogginlägget [Microsoft Graph or the Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) (Microsoft Graph eller Azure AD Graph) i Office Dev Center.

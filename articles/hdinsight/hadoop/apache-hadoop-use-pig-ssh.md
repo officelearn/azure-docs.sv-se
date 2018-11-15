@@ -1,6 +1,6 @@
 ---
-title: Använda Pig med Hadoop med SSH på ett HDInsight-kluster – Azure
-description: Lär dig hur ansluter till ett Linux-baserade Hadoop-kluster med SSH och använder sedan Pig-kommando för att köra satser i Pig Latin interaktivt eller som ett batch-jobb.
+title: Använda Apache Pig med SSH på ett HDInsight-kluster – Azure
+description: Lär dig hur ansluter till ett Linux-baserade Apache Hadoop-kluster med SSH och använder sedan Pig-kommando för att köra satser i Pig Latin interaktivt eller som ett batch-jobb.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1deb44fecad6c120dd1e8f82cec36bff6353fc0b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6bcd2d299d3816c17265eef658ff1f01409828a1
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51003888"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632231"
 ---
-# <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Köra Pig-jobb i ett Linux-baserade kluster med kommandot Pig (SSH)
+# <a name="run-apache-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Kör Apache Pig-jobb på en Linux-baserat kluster med kommandot Pig (SSH)
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Lär dig mer om att köra interaktivt Pig-jobb från en SSH-anslutning till ditt HDInsight-kluster. Pig Latin-programmeringsspråket kan du beskriva transformationer som tillämpas på indata till önskat resultat.
+Lär dig hur du kör interaktivt Apache Pig-jobb från en SSH-anslutning till ditt HDInsight-kluster. Pig Latin-programmeringsspråket kan du beskriva transformationer som tillämpas på indata till önskat resultat.
 
 > [!IMPORTANT]
 > Stegen i det här dokumentet kräver ett Linux-baserade HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

@@ -7,12 +7,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: b788490d588c217d97786f9306baad3083a9c03f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a7c2d1e41fa4ac26854e2e6ab57184cd6ed0bd0c
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629386"
+ms.locfileid: "51633690"
 ---
 # <a name="how-to-access-azure-cosmos-db-resources-from-virtual-networks"></a>Hur du kommer åt Azure Cosmos DB-resurser från virtuella nätverk
 
@@ -31,7 +31,7 @@ I följande avsnitt beskrivs hur du konfigurerar VNET-tjänstslutpunkt för ett 
 
 ### <a name="configure-service-endpoint-for-an-existing-azure-virtual-network-and-subnet"></a>Konfigurera tjänstslutpunkt för en befintlig Azure-nätverk och undernät
 
-1. Från **alla resurser** hitta den virtuella nätverk du vill skydda bladet.
+1. Från **alla resurser** hitta Azure-Cosmos-konto som du vill skydda bladet.
 
 1. Välj **brandväggar och virtuella nätverk** från inställningsmenyn och väljer Tillåt åtkomst från **valda nätverk**.
 
@@ -42,7 +42,7 @@ I följande avsnitt beskrivs hur du konfigurerar VNET-tjänstslutpunkt för ett 
    ![Välj ett virtuellt nätverk och undernät](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png)
 
 
-1. När Azure Cosmos-kontot är aktiverat kan endast trafik från det valda undernätet. Det virtuella nätverk och undernät som du har lagt till ska se ut som i följande skärmbild:
+1. När Azure Cosmos-kontot är aktiverat för att komma åt från ett virtuellt nätverk, tillåta den endast trafik från det valda undernätet. Det virtuella nätverk och undernät som du har lagt till ska se ut som i följande skärmbild:
 
    ![virtuellt nätverk och undernät som har konfigurerats](./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png)
 
@@ -183,6 +183,10 @@ Använd följande steg för att konfigurera tjänstslutpunkt till en Azure Cosmo
 1. Uppdatera befintliga Azure-Cosmos-konto med undernätet ACL: er
 
    ```azurecli-interactive
+
+   name="<Azure Cosmos account name>"
+   resourceGroupName="<Resource group name>"
+
    az cosmosdb update \
       --name $name \
     --resource-group $resourceGroupName \

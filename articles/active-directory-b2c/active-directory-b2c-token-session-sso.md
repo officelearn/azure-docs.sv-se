@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0058ce8316fa8202cf53eaa1048a44b77efdecb5
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 15064e90690064e67b296e7a46749f27773c0814
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012453"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636908"
 ---
 # <a name="token-session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Token, session och enkel inloggning-konfiguration i Azure Active Directory B2C
 
@@ -26,9 +26,9 @@ Den här funktionen ger dig detaljerad kontroll på en [per princip basis](activ
 - Format för viktiga anspråk i säkerhetstoken som orsakats av Azure AD B2C.
 - Enkel inloggning (SSO) beteende för flera appar och principer i din Azure AD B2C-klient.
 
-För inbyggda principer kan använda du den här funktionen i din Azure AD B2C-katalog på följande sätt:
+Du kan använda den här funktionen på alla principtypen, men det här exemplet visar hur du använder funktionen med en princip för registrering eller inloggning. För inbyggda principer kan använda du den här funktionen i din Azure AD B2C-katalog på följande sätt:
 
-1. Klicka på **registrerings-eller logga in**. * Obs: Du kan använda den här funktionen på alla principtypen, inte bara på ** registrering eller inloggning principer ***.
+1. Klicka på **registrerings-eller logga in**.
 2. Öppna en princip genom att klicka på den. Klicka exempelvis på **B2C_1_SiUpIn**.
 3. Klicka på **redigera** högst upp på menyn.
 4. Klicka på **Token, session och enkel inloggning config**.

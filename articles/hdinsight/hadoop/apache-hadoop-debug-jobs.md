@@ -1,5 +1,5 @@
 ---
-title: 'Felsök Hadoop i HDInsight: visa loggar och tolka felmeddelanden - Azure '
+title: 'Felsök Apache Hadoop i HDInsight: visa loggar och tolka felmeddelanden - Azure '
 description: Läs mer om de felmeddelanden som du kan få när du administrerar HDInsight med hjälp av PowerShell och vad du kan göra för att återställa.
 services: hdinsight
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 7600ff1a11435ee079fef80ecfa5ad88de1b4750
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 1589a5c1cab5a37322249762c840620d9ba4fc7e
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569030"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634642"
 ---
 # <a name="analyze-hadoop-logs"></a>Analysera Hadoop-loggar
 
-Varje Hadoop-kluster i Azure HDInsight har ett Azure storage-konto som används som standardfilsystem. Lagringskontot kallas standardkontot för lagring. Klustret använder Azure Table storage och Blob-lagringen på standardkontot för lagring för att lagra loggar.  Om du vill ta reda på standardkontot för lagring för klustret kan se [hantera Hadoop-kluster i HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). Loggarna behåller i Storage-kontot även när klustret tas bort.
+Varje Apache Hadoop-kluster i Azure HDInsight har ett Azure storage-konto som används som standardfilsystem. Lagringskontot kallas standardkontot för lagring. Klustret använder Azure Table storage och Blob-lagringen på standardkontot för lagring för att lagra loggar.  Om du vill ta reda på standardkontot för lagring för klustret kan se [hantera Hadoop-kluster i HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). Loggarna behåller i Storage-kontot även när klustret tas bort.
 
 ## <a name="logs-written-to-azure-tables"></a>Loggar som skrivs till Azure-tabeller
 
@@ -315,4 +315,4 @@ Några av följande felmeddelanden kan också ses i Azure-portalen när den anv�
 
 * [Använda Ambari-vyer för att felsöka Tez-jobb på HDInsight](../hdinsight-debug-ambari-tez-view.md)
 * [Aktivera heap dumps för Hadoop-tjänster på Linux-baserat HDInsight](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [Hantera HDInsight-kluster med Ambari-Webbgränssnittet](../hdinsight-hadoop-manage-ambari.md)
+* [Hantera HDInsight-kluster med Ambari-webbgränssnittet](../hdinsight-hadoop-manage-ambari.md)

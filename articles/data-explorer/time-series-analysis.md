@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 49aa1226de53a1d8f13e0f4f1e79f37f6bfa21ee
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 53ef96b561ccaa1480125f2c509381e980084b7a
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300497"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636704"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Analys av tidsserier i Datautforskaren i Azure
 
@@ -57,10 +57,10 @@ demo_make_series1
 | render timechart 
 ```
 
-- Använd den [ `make-series` ](https://docs.microsoft.com/azure/kusto/query/make-seriesoperator) operator för att skapa en uppsättning tre tidsserie, där:
+- Använd den [ `make-series` ](/azure/kusto/query/make-seriesoperator) operator för att skapa en uppsättning tre tidsserie, där:
     - `num=count()`: time series av trafik
     - `range(min_t, max_t, 1h)`: tidsserier skapas i 1 timme lagerplatser i tidsintervallet (äldsta och senaste tidsstämplar av poster)
-    - `default=0`: Ange fyllning metod för saknas lagerplatser skapa tidsserier. Du kan också använda [ `series_fill_const()` ](https://docs.microsoft.com/azure/kusto/query/series-fill-constfunction), [ `series_fill_forward()` ](https://docs.microsoft.com/azure/kusto/query/series-fill-forwardfunction), [ `series_fill_backward()` ](https://docs.microsoft.com/azure/kusto/query/series-fill-backwardfunction) och [ `series_fill_linear()` ](https://docs.microsoft.com/azure/kusto/query/series-fill-linearfunction) för ändringar
+    - `default=0`: Ange fyllning metod för saknas lagerplatser skapa tidsserier. Du kan också använda [ `series_fill_const()` ](/azure/kusto/query/series-fill-constfunction), [ `series_fill_forward()` ](/azure/kusto/query/series-fill-forwardfunction), [ `series_fill_backward()` ](/azure/kusto/query/series-fill-backwardfunction) och [ `series_fill_linear()` ](/azure/kusto/query/series-fill-linearfunction) för ändringar
     - `byOsVer`: partition av Operativsystemet
 - Faktiska data för tidsseriestruktur är en matris av aggregerat värde per varje gång bin. Vi använder `render timechart` för visualisering.
 
@@ -71,14 +71,14 @@ Vi har tre partitioner i tabellen ovan. Vi kan skapa en separat tidsserie: Windo
 ## <a name="time-series-analysis-functions"></a>Analys av tidsfunktioner-serien
 
 I det här avsnittet ska vi utföra antal typiska bearbetning av funktioner.
-När en uppsättning tidsserier skapas ADX stöder en växande lista över funktioner som kan bearbeta och analysera dem som finns i den [time series-dokumentationen](https://docs.microsoft.com/azure/kusto/query/machine-learning-and-tsa). Vi visar några representativa funktioner för att bearbeta och analysera tidsserier.
+När en uppsättning tidsserier skapas ADX stöder en växande lista över funktioner som kan bearbeta och analysera dem som finns i den [time series-dokumentationen](/azure/kusto/query/machine-learning-and-tsa). Vi visar några representativa funktioner för att bearbeta och analysera tidsserier.
 
 ### <a name="filtering"></a>Filtrering
 
 Filtrering är ett vanligt vid signal bearbetnings- och användbar för tidsserier bearbetningsåtgärder (till exempel smooth en bort störande signal, ändra identifiering).
 - Det finns två allmänna filtrering funktioner:
-    - [`series_fir()`](https://docs.microsoft.com/azure/kusto/query/series-firfunction): Tillämpar FILNAMNSDELEN filter. Används för enkel beräkning av glidande medelvärde och differentiering tidsserien för identifiering av ändring av.
-    - [`series_iir()`](https://docs.microsoft.com/azure/kusto/query/series-iirfunction): Tillämpar IIR filter. Används för exponentiell utjämning och kumulativa summan.
+    - [`series_fir()`](/azure/kusto/query/series-firfunction): Tillämpar FILNAMNSDELEN filter. Används för enkel beräkning av glidande medelvärde och differentiering tidsserien för identifiering av ändring av.
+    - [`series_iir()`](/azure/kusto/query/series-iirfunction): Tillämpar IIR filter. Används för exponentiell utjämning och kumulativa summan.
 - `Extend` tidsserier genom att lägga till en ny glidande genomsnittlig serie av storlek på 5 lagerplatser (med namnet *ma_num*) till frågan:
 
 ```kusto
@@ -95,8 +95,8 @@ demo_make_series1
 ### <a name="regression-analysis"></a>Regressionsanalys
 
 Har stöd för ADX segmenterade linjär regressionsanalyser för att beräkna trenden för tidsserier.
-- Använd [series_fit_line()](https://docs.microsoft.com/azure/kusto/query/series-fit-linefunction) så att de passar bäst raden till en tidsserie för identifiering av allmänna trenden.
-- Använd [series_fit_2lines()](https://docs.microsoft.com/azure/kusto/query/series-fit-2linesfunction) att identifiera trend ändringar, i förhållande till i baslinjen, som är användbara i övervakningsscenarier.
+- Använd [series_fit_line()](/azure/kusto/query/series-fit-linefunction) så att de passar bäst raden till en tidsserie för identifiering av allmänna trenden.
+- Använd [series_fit_2lines()](/azure/kusto/query/series-fit-2linesfunction) att identifiera trend ändringar, i förhållande till i baslinjen, som är användbara i övervakningsscenarier.
 
 Exempel på `series_fit_line()` och `series_fit_2lines()` funktioner i en time series-fråga:
 
@@ -128,8 +128,9 @@ demo_series3
 
 ![Time series säsongsberoende](media/time-series-analysis/time-series-seasonality.png)
 
-- Använd [series_periods_detect()](https://docs.microsoft.com/azure/kusto/query/series-periods-detectfunction) att automatiskt identifiera punkter i tidsserien. 
-- Använd [series_periods_validate()](https://docs.microsoft.com/azure/kusto/query/series-periods-validatefunction) om vet vi att ett mått ska ha specifika distinkta period(er) och vi vill kontrollera att de finns.
+- Använd [series_periods_detect()](/azure/kusto/query/series-periods-detectfunction) att automatiskt identifiera punkter i tidsserien. 
+- Använd [series_periods_validate()](/azure/kusto/query/series-periods-validatefunction) om vet vi att ett mått ska ha specifika distinkta period(er) och vi vill kontrollera att de finns.
+
 > [!NOTE]
 > Det är ett fel om det angivna distinkta perioder som inte finns
 
@@ -150,7 +151,7 @@ Funktionen identifierar dagliga och veckovisa säsongsberoende. Dagligen poängs
 
 ### <a name="element-wise-functions"></a>Element-Wise funktioner
 
-Aritmetiskt och logiska åtgärder kan göras på en tidsserie. Med hjälp av [series_subtract()](https://docs.microsoft.com/azure/kusto/query/series-subtractfunction) vi kan beräkna en resterande tidsserie, som är, skillnaden mellan ursprungliga rådata mått och en utjämnad och leta efter avvikelser i återstående signalen:
+Aritmetiskt och logiska åtgärder kan göras på en tidsserie. Med hjälp av [series_subtract()](/azure/kusto/query/series-subtractfunction) vi kan beräkna en resterande tidsserie, som är, skillnaden mellan ursprungliga rådata mått och en utjämnad och leta efter avvikelser i återstående signalen:
 
 ```kusto
 let min_t = toscalar(demo_make_series1 | summarize min(TimeStamp));
@@ -165,7 +166,9 @@ demo_make_series1
 
 ![Time series-åtgärder](media/time-series-analysis/time-series-operations.png)
 
-Blå: ursprungliga tidsserier Red: utjämnat tidsserier grönt: resterande tidsserier
+- Blå: ursprungliga tidsserier
+- Röd: utjämnat för tidsserier
+- Grön: resterande tidsserier
 
 ## <a name="time-series-workflow-at-scale"></a>Time series arbetsflöde i stor skala
 
@@ -255,6 +258,6 @@ demo_many_series1
 |   | LOC 15 | -3207352159611332166 | 1151 | -102743.910227889 |
 |   | LOC 13 | -3207352159611332166 | 1249 | -86303.2334644601 |
 
-På mindre än två minuter upptäckte ADX två onormalt tidsserier (av 23115) i där det lästa antalet plötsligt tas bort.
+På mindre än två minuter ADX analyseras över 20 000 tidsserier och upptäcks två onormalt tidsserier där det lästa antalet plötsligt tas bort.
 
 Dessa avancerade funktioner som kombineras med ADX snabba prestanda utgör en unik och kraftfull lösning för analys av tidsserier.

@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
-ms.openlocfilehash: 6aa7f8c3b9d21d9c55aee3ce49f2bc140769a855
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 27726f261b2d9c88f1544a6e66ea352fbb98d253
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408072"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685675"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autentisering och auktorisering i Azure App Service
 
@@ -92,7 +92,7 @@ När du aktiverar autentisering och auktorisering med någon av dessa providers 
 Autentiseringsflödet är densamma för alla leverantörer, men skiljer sig beroende på om du vill logga in med leverantörens SDK:
 
 - Utan provider-SDK: programmet delegerar sammansluten inloggning till App Service. Detta är vanligtvis fallet med webbläsarbaserade appar som kan ge leverantörens inloggningssidan för användaren. Serverkoden hanterar inloggningsprocessen, det kallas även _server-riktade flow_ eller _server flow_. Det här fallet gäller till web apps. Det gäller även för interna appar som loggar in användare med SDK för Mobile Apps-klient eftersom SDK: N öppnar en webbvy för att du loggar in användare med App Service-autentisering. 
-- Med SDK-provider: programmet loggar användaren in manuellt och skickar sedan autentiseringstoken till App Service för verifiering. Detta är vanligtvis fallet med webbläsare utan appar som det går inte att presentera leverantörens på inloggningssidan för användaren. Programkoden hanterar inloggningsprocessen, det kallas även _klienten dirigeras flödet_ eller _klientflödet_. Det här fallet gäller för REST API: er, [Azure Functions](../azure-functions/functions-overview.md), JavaScript-webbläsarklienter, samt och web apps som behöver mer flexibilitet i processen för inloggning. Det gäller även för inbyggda mobilappar som loggar in användare i med hjälp av leverantörens SDK.
+- Med SDK-provider: programmet loggar användarna i providern manuellt och skickar sedan autentiseringstoken till App Service för verifiering. Detta är vanligtvis fallet med webbläsare utan appar som det går inte att presentera leverantörens på inloggningssidan för användaren. Programkoden hanterar inloggningsprocessen, det kallas även _klienten dirigeras flödet_ eller _klientflödet_. Det här fallet gäller för REST API: er, [Azure Functions](../azure-functions/functions-overview.md), JavaScript-webbläsarklienter, samt och web apps som behöver mer flexibilitet i processen för inloggning. Det gäller även för inbyggda mobilappar som loggar in användare i med hjälp av leverantörens SDK.
 
 > [!NOTE]
 > Anrop från en betrodd browser-appen i App Service anropar en annan REST-API i App Service eller [Azure Functions](../azure-functions/functions-overview.md) kan autentiseras med hjälp av server-riktade flödet. Mer information finns i [anpassa autentisering och auktorisering i Apptjänst](app-service-authentication-how-to.md).
@@ -103,7 +103,7 @@ Tabellen nedan visar stegen för autentiseringsflödet.
 | Steg | Utan provider-SDK | Med SDK-provider |
 | - | - | - |
 | 1. Registrera användare i | Omdirigerar klienten `/.auth/login/<provider>`. | Klientkoden loggar användaren in direkt med leverantörens SDK och får en autentiseringstoken. Information finns i leverantörens dokumentation. |
-| 2. Efterautentisering | Providern omdirigerar klienten `/.auth/login/<provider>/callback`. | Klientkoden inlägg token från providern `/.auth/login/<provider>` för verifiering. |
+| 2. Efterautentisering | Providern omdirigerar klienten `/.auth/login/<provider>/callback`. | Klientkoden [inlägg token från providern](app-service-authentication-how-to.md#validate-tokens-from-providers) till `/.auth/login/<provider>` för verifiering. |
 | 3. Upprätta autentiserad session | App Service lägger till autentiserade cookie svar. | App Service returnerar egna autentiseringstoken till klientkod. |
 | 4. Hantera autentiserade innehåll | Klienten inkluderar autentiseringscookie i efterföljande förfrågningar (hanteras automatiskt av webbläsare). | Klientkoden presenterar autentiseringstoken i `X-ZUMO-AUTH` rubrik (hanteras automatiskt av Mobile Apps-klient SDK: er). |
 

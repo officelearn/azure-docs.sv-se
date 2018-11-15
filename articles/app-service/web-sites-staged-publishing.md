@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: ea9167404034911a0e917374fbdb9962da1578d5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b5a06cff653007568b4ab2b44624b6314413f8a6
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257841"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636075"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurera mellanlagringsmiljöer i Azure App Service
 <a name="Overview"></a>
 
-När du distribuerar din webbapp, web Apps i Linux-, mobil serverdel och API-app till [Apptjänst](https://go.microsoft.com/fwlink/?LinkId=529714), du kan distribuera till en separat distributionsplats i stället för standard-produktionsplatsen när de körs i den **Standard** eller **Premium** nivå för App Service-plan. Distributionsplatser är faktiskt liveappar med egna värddatornamn. App webbappsinnehåll och konfigurationselement kan bytas mellan två distributionsfack, inklusive produktionsplatsen. Distribuera programmet till en distributionsplats har följande fördelar:
+När du distribuerar din webbapp, web Apps i Linux-, mobil serverdel och API-app till [Apptjänst](https://go.microsoft.com/fwlink/?LinkId=529714), du kan distribuera till en separat distributionsplats i stället för standard-produktionsplatsen när de körs i den **Standard**, **Premium**, eller **isolerad** nivå för App Service-plan. Distributionsplatser är faktiskt liveappar med egna värddatornamn. App webbappsinnehåll och konfigurationselement kan bytas mellan två distributionsfack, inklusive produktionsplatsen. Distribuera programmet till en distributionsplats har följande fördelar:
 
 * Du kan validera appändringar i en mellanlagringsplats för distributionen innan du växlar med produktionsplatsen.
 * Distribuera en app till en plats först och växlar den till produktionen säkerställer du att alla instanser av facket värmas upp innan du håller på att växlas till produktion. Detta eliminerar avbrott när du distribuerar din app. Trafik-omdirigering sker sömlös och inga förfrågningar ignoreras på grund av swap-åtgärder. Den här hela arbetsflödet kan automatiseras genom att konfigurera [automatiskt växla](#Auto-Swap) när före swap-verifiering krävs inte.
@@ -36,7 +36,7 @@ Varje nivå för App Service-plan har stöd för ett annat antal distributionspl
 <a name="Add"></a>
 
 ## <a name="add-a-deployment-slot"></a>Lägg till ett distributionsfack
-Appen måste köras i den **Standard** eller **Premium** nivå för att du kan aktivera flera distributionsplatser.
+Appen måste köras i den **Standard**, **Premium**, eller **isolerad* nivå för att du kan aktivera flera distributionsplatser.
 
 1. I den [Azure-portalen](https://portal.azure.com/), öppna appens [resursbladet](../azure-resource-manager/resource-group-portal.md#manage-resources).
 2. Välj den **distributionsfack** och sedan klicka på **Lägg till plats**.
@@ -44,7 +44,7 @@ Appen måste köras i den **Standard** eller **Premium** nivå för att du kan a
     ![Lägg till en ny distributionsplats][QGAddNewDeploymentSlot]
    
    > [!NOTE]
-   > Om appen inte redan är i den **Standard** eller **Premium** nivå, du får ett meddelande om de stödda nivåerna för att aktivera mellanlagrad publicering. Nu har du möjlighet att välja **uppgradera** och navigera till den **skala** fliken i din app innan du fortsätter.
+   > Om appen inte redan är i den **Standard**, **Premium**, eller **isolerad* nivå, du får ett meddelande om de stödda nivåerna för att aktivera mellanlagrad publicering. Nu har du möjlighet att välja **uppgradera** och navigera till den **skala** fliken i din app innan du fortsätter.
    > 
    > 
 3. I den **Lägg till en plats** bladet namnge facket och välja om du vill klona appkonfiguration från en annan befintlig distributionsplats. Klicka på bockmarkeringen för att fortsätta.

@@ -11,30 +11,36 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/14/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: dcd1c40717cb35fe4daa9ab9e2c66f334ffff5fe
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 7d3b0e179972464a1ed857c576ca8a7c8fc2e162
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361506"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686814"
 ---
 # <a name="remove-the-mysql-resource-provider"></a>Ta bort MySQL-resursprovider
 
 Innan du tar bort MySQL-resursprovider måste du ta bort alla beroenden för providern. Du måste också en kopia av de distributionspaket som användes för att installera resursprovidern.
 
+  |Lägsta version av Azure Stack|MySQL RP-version|
+  |-----|-----|
+  |Version 1808 (1.1808.0.97)|[MySQL RP version 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
+  |Version 1804 (1.0.180513.1)|[MySQL RP version 1.1.24.0](https://aka.ms/azurestackmysqlrp11240)
+  |     |     |
+
 ## <a name="dependency-cleanup"></a>Beroende rensning
 
 Det finns flera rensningsuppgifter innan du kör skriptet DeployMySqlProvider.ps1 för att ta bort resursprovidern.
 
-Innehavarna som ansvarar för att rensa följande uppgifter:
+Azure Stack-klientanvändare ansvarar för att rensa följande uppgifter:
 
 * Ta bort alla sina databaser från resursprovidern. (Klientdatabaserna inte bort data.)
 * Avregistrera från leverantörens namnområde.
 
-Administratören ansvarar för att rensa följande uppgifter:
+Azure Stack-operatör ansvarar för att rensa följande uppgifter:
 
 * Tar bort värdservrar från MySQL-kortet.
 * Tar bort eventuella planer som refererar till MySQL-nätverkskort.

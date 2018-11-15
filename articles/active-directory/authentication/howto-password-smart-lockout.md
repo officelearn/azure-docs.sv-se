@@ -5,25 +5,33 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 11/12/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 9ea91f70a72b812803a20244bb4445b76b133b0c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 957aa05efab68f9531fb6576de775aa9901ab44d
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296167"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685811"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory smart kontoutelåsning
 
 Smart kontoutelåsning använder intelligenta molntjänster för att låsa ute illvilliga aktörer som försöker gissa användarnas lösenord eller använda brute force-metoder. Den intelligence kan identifiera inloggningar som kommer från giltiga användare och behandlas annorlunda än de som angripare och andra okända källor. Smart kontoutelåsning låser ut angripare, medan användarna fortfarande komma åt sina konton och vara produktiva.
 
-Som standard låser smart kontoutelåsning konto från inloggningsförsök i en minut efter tio misslyckade försök. Konto-Lås igen efter varje efterföljande misslyckade inloggningsförsök, för en minut på första och längre på efterföljande försök.
+Som standard låser smart kontoutelåsning konto från inloggningsförsök i en minut efter 10 misslyckade försök. Konto-Lås igen efter varje efterföljande misslyckade inloggningsförsök, för en minut på första och längre på efterföljande försök.
+
+* Smart kontoutelåsning spårar senaste tre felaktiga lösenords-hash för att undvika reincrementing räknaren för kontoutelåsning. Om någon anger samma felaktiga lösenord flera gånger, orsakar det här beteendet inte kontot som ska kontoutelåsning.
+   * Den här funktionen är inte tillgänglig för kunder med direktautentisering har aktiverats.
 
 Smart kontoutelåsning är alltid på för alla Azure AD-kunder med dessa standardinställningar som ger den rätta blandningen av säkerhet och användbarhet. Anpassning av inställningar för smart kontoutelåsning, med värden som är specifika för din organisation, kräver Azure AD Basic eller högre licenser för dina användare.
+
+Med hjälp av smart kontoutelåsning garanterar inte att en äkta användare kommer aldrig att låsas. När smart kontoutelåsning låser ett användarkonto, testa vi våra bästa inte låsas äkta användaren. Kontoutelåsning-tjänsten försöker se till att obehöriga inte kan komma åt en äkta användarens konto.  
+
+* Alla Datacenter för Azure Active Directory spårar kontoutelåsning oberoende av varandra. En användare har (threshold_limit * datacenter_count) antal försök, om användaren når varje datacenter.
+* Smart kontoutelåsning använder välbekanta plats jämfört med okänd plats för att skilja mellan en obehörig och äkta användaren. Okänd och välbekanta platser har både separat kontoutelåsning räknare.
 
 Smart kontoutelåsning kan integreras med hybriddistributioner, använder hash-synkronisering av lösenord eller direktautentisering för att förhindra att den lokala Active Directory-konton bli utelåsta av angripare. Genom att ange principer för smart kontoutelåsning i Azure AD på rätt sätt kan att attacker filtreras bort innan de når den lokala Active Directory.
 

@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 09/19/2018
-ms.openlocfilehash: d544d131aed8dc6560f09b7a293e950c38380fb8
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ffabd1169076ac5f887375c585c8880b587c86a8
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623426"
+ms.locfileid: "51637010"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms-previous-release"></a>Aktivera Azure Disk Encryption för virtuella Linux IaaS-datorer (tidigare version)
 
@@ -184,7 +184,7 @@ Den **EncryptFormatAll** parametern minskar tid för Linux datadiskar måste var
  När du har kört det här kommandot kommer eventuella enheter som har monterats tidigare att formateras. Krypteringslagret kan sedan startas ovanpå nu tom enheten. När det här alternativet är markerat krypteras också tillfälliga resursdisk som är ansluten till den virtuella datorn. Om den tillfälliga enheten återställs den formateras om och omkrypteras med hjälp av Azure Disk Encryption-lösningen vid nästa tillfälle för den virtuella datorn.
 
 >[!WARNING]
-> EncryptFormatAll bör inte användas när det nödvändiga data på en virtuell dators datavolymer. Du kan undanta diskar från kryptering av demontera dem. Du bör först prova EncryptFormatAll först på en virtuell testdator, Förstå funktionsparametern och dess de innan du försöker på den Virtuella produktionsdatorn. Alternativet EncryptFormatAll formaterar datadisken och alla data på den kommer att gå förlorade. Kontrollera att diskarna som du vill utesluta korrekt är unmouted innan du fortsätter. </br></br>
+> EncryptFormatAll bör inte användas när det nödvändiga data på en virtuell dators datavolymer. Du kan undanta diskar från kryptering av demontera dem. Du bör först prova EncryptFormatAll först på en virtuell testdator, Förstå funktionsparametern och dess de innan du försöker på den Virtuella produktionsdatorn. Alternativet EncryptFormatAll formaterar datadisken och alla data på den kommer att gå förlorade. Kontrollera att du vill utesluta diskar är korrekt demonterats innan du fortsätter. </br></br>
  >Om du konfigurerar den här parametern vid uppdatering av krypteringsinställningar, kan det leda till en omstart innan du själva krypteringen. I det här fallet vill du också ta bort disken som du inte vill formaterade från fstab-filen. På samma sätt bör du lägga till den partition som du vill kryptera-formaterad till fstab-filen innan du påbörjar krypteringsåtgärden. 
 
 ### <a name="bkmk_EFACriteria"> </a> EncryptFormatAll kriterier

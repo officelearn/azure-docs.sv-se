@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/04/2018
+ms.date: 11/08/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5d18a1f86e1d870db64199c575450dd475590b55
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 70a7829c14997287ed130b0b4300c7f5aa0f3a30
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394490"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345580"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Självstudie: Använda Azure Deployment Manager med Resource Manager-mallar (privat förhandsgranskning)
 
@@ -52,7 +52,7 @@ För att kunna följa stegen i den här artikeln behöver du:
 * Azure PowerShell. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * Deployment Manager-cmdlets. För att installera dessa cmdlets i förhandsversionen behöver du den senaste versionen av PowerShellGet. Information om hur du skaffar den senaste versionen finns i [Installera PowerShellGet](/powershell/gallery/installing-psget). Stäng PowerShell-fönstret när du har installerat PowerShellGet. Öppna ett nytt PowerShell-fönster och använd följande kommando:
 
-    ```
+    ```powershell
     Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease
     ```
 * [Microsoft Azure Storage Explorer](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409). Azure Storage Explorer krävs inte, men det gör saker enklare.
@@ -287,7 +287,7 @@ Azure PowerShell kan användas för att distribuera mallarna.
 
 1. Kör skriptet för att distribuera tjänsttopologin.
 
-    ```powershell
+    ```azurepowershell-interactive
     $deploymentName = "<Enter a Deployment Name>"
     $resourceGroupName = "<Enter a Resource Group Name>"
     $location = "Central US"  
@@ -312,7 +312,7 @@ Azure PowerShell kan användas för att distribuera mallarna.
 
 3. Distribuera distributionsmallen:
 
-    ```powershell
+    ```azurepowershell-interactive
     # Create the rollout
     New-AzureRmResourceGroupDeployment `
         -Name $deploymentName `
@@ -323,7 +323,7 @@ Azure PowerShell kan användas för att distribuera mallarna.
 
 4. Kontrollera distributionsförloppet med hjälp av följande PowerShell-skript:
 
-    ```powershell
+    ```azurepowershell-interactive
     # Get the rollout status
     $rolloutname = "<Enter the Rollout Name>"
     Get-AzureRmDeploymentManagerRollout `

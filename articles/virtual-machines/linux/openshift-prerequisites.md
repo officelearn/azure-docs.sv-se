@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: fd20fe880ae77992e5eadb5f2b581d3f5b53f86e
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: bbc9ad4f15bdffa2c0f9b6f4b56f8b1701c83c47
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085883"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636626"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Vanliga krav för distribution av OpenShift i Azure
 
@@ -99,12 +99,11 @@ az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/open
 ```
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten 
-OpenShift kommunicerar med Azure genom att använda ett användarnamn och lösenord eller ett huvudnamn för tjänsten. Ett huvudnamn för Azure-tjänsten är en säkerhetsidentitet som du kan använda med appar, tjänster och automatiseringsverktyg som OpenShift. Du kontrollerar och definiera behörigheter om vilka åtgärder som tjänstens huvudnamn kan utföra i Azure. För att förbättra säkerheten utöver bara ange användarnamn och lösenord, kan det här exemplet skapar en grundläggande tjänst huvudnamn.
+OpenShift kommunicerar med Azure genom att använda ett användarnamn och lösenord eller ett huvudnamn för tjänsten. Ett huvudnamn för Azure-tjänsten är en säkerhetsidentitet som du kan använda med appar, tjänster och automatiseringsverktyg som OpenShift. Du kontrollerar och definiera behörigheter om vilka åtgärder som tjänstens huvudnamn kan utföra i Azure. Det är bäst att begränsa behörigheterna för tjänstens huvudnamn till specifika resursgrupper i stället för hela prenumerationen.
 
 Skapa ett tjänstobjekt med [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) och matar ut de autentiseringsuppgifter som OpenShift behöver.
 
 I följande exempel skapar en tjänst huvudnamn och tilldelar den deltagarbehörighet till en resursgrupp med namnet openshiftrg.
-separat och använda utdata för att mata in alternativet--omfång.
 
 Först skapa resursgruppen med namnet openshiftrg:
 

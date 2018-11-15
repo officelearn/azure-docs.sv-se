@@ -1,5 +1,5 @@
 ---
-title: Ansluta Excel till Hadoop med Hive ODBC-drivrutin - Azure HDInsight
+title: Ansluta Excel till Apache Hadoop med Hive ODBC-drivrutin - Azure HDInsight
 description: Lär dig hur du konfigurerar och använder Microsoft Hive ODBC driver för Excel för att fråga efter data i HDInsight-kluster från Microsoft Excel.
 keywords: hadoop excel, hive excel, hive odbc
 services: hdinsight
@@ -10,14 +10,14 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: ecdde9b5ac4c6c303edf553af3eb33986d4fb199
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 09642aba1cd0daa05e56e418330f21361d9263a2
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005095"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632517"
 ---
-# <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Ansluta Excel till Hadoop i Azure HDInsight med Microsoft Hive ODBC-drivrutin
+# <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Ansluta Excel till Apache Hadoop i Azure HDInsight med Microsoft Hive ODBC-drivrutin
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
@@ -39,7 +39,7 @@ Ladda ned och installera Microsoft Hive ODBC-drivrutin från den [Download Cente
 
 Den här drivrutinen kan installeras på 32-bitars eller 64-bitars versioner av Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 och Windows Server 2012. Drivrutinen tillåter anslutning till Azure HDInsight. Du bör installera den version som matchar versionen av programmet där du använder ODBC-drivrutinen. Den här självstudien används drivrutinen från Office Excel.
 
-## <a name="create-hive-odbc-data-source"></a>Skapa Hive ODBC-datakälla
+## <a name="create-apache-hive-odbc-data-source"></a>Skapa Apache Hive ODBC-datakälla
 Följande steg visar hur du skapar en Hive ODBC-datakälla.
 
 1. Från Windows 8 eller Windows 10, trycker du på Windows-tangenten för att öppna startskärmen och skriv sedan **datakällor**.

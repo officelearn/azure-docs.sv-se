@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/13/2018
 ms.author: danlep
-ms.openlocfilehash: a26b766c18ea2b14796af796abe7f36aa4fc1c66
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: de543798702137905ee5243c6ca8e502152f9c44
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854957"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634387"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR uppgifter referens: YAML
 
@@ -112,7 +112,7 @@ steps:
       [property]: [value]
 ```
 
-Den `build` stegtyp stöder följande parametrar:
+Den `build` stegtyp har stöd för parametrarna i följande tabell. Den `build` stegtyp stöder också alla build-alternativ för den [docker build](https://docs.docker.com/engine/reference/commandline/build/) kommandot, till exempel `--build-arg` att ställa in byggning variabler.
 
 | Parameter | Beskrivning | Valfri |
 | --------- | ----------- | :-------: |
@@ -122,7 +122,7 @@ Den `build` stegtyp stöder följande parametrar:
 
 ### <a name="properties-build"></a>Egenskaper: skapa
 
-Den `build` stegtyp stöd för följande egenskaper som du kan hitta information om de här egenskaperna i den [steg Aktivitetsegenskaper](#task-step-properties) i den här artikeln.
+Den `build` stegtyp stöder följande egenskaper. Du hittar information om de här egenskaperna i den [steg Aktivitetsegenskaper](#task-step-properties) i den här artikeln.
 
 | | | |
 | -------- | ---- | -------- |

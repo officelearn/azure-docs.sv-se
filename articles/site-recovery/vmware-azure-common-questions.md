@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 10/29/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 2436a4e75045200a8d2f48586e31ebfa0c03705a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: c261dd083fed8b9c4a0f3846157c666cbb52083c
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566269"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636823"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Vanliga frågor – VMware till Azure replikering
 
@@ -135,10 +135,10 @@ Nej. Om du vill göra detta måste du ställa in en konfigurationsserver i varje
 Vi rekommenderar att utföra regelbundna schemalagda säkerhetskopieringar av konfigurationsservern. Den virtuella datorn att växlas tillbaka måste finnas i server-konfigurationsdatabasen för lyckad återställning efter fel och konfigurationsservern måste vara körs och är i anslutet tillstånd. Du kan lära dig mer om vanliga hanteringsaktiviteter för configuration server [här](vmware-azure-manage-configuration-server.md).
 
 ### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>När jag ställer in konfigurationsservern, kan jag hämta och installera MySQL manuellt?
-Ja. Hämta MySQL och placera den i den **C:\Temp\ASRSetup** mapp. Installera den manuellt. När du ställer in konfigurationsservern VM och acceptera de villkor, MySQL listas som **redan installerat** i **ladda ned och installera**.
+Ja. Hämta MySQL och placera den i den **C:\Temp\ASRSetup** mapp. Installera den manuellt. När du ställer in konfigurationsservern VM och accepterar villkoren MySQL listas som **redan installerat** i **ladda ned och installera**.
 
 ### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>Kan jag undvika att överföra MySQL men låta Site Recovery installerar den?
-Ja. Ladda ned MySQL-installationsprogrammet och placera den i den **C:\Temp\ASRSetup** mapp.  När du ställer in konfigurationsservern VM godkänner den villkoren och klicka på **ladda ned och installera**, installationsprogram som du har lagt till för att installera MySQL används.
+Ja. Ladda ned MySQL-installationsprogrammet och placera den i den **C:\Temp\ASRSetup** mapp.  När du ställer in konfigurationsservern VM acceptera villkoren och klicka på **ladda ned och installera**, installationsprogram som du har lagt till för att installera MySQL används.
  
 ### <a name="canl-i-use-the-configuration-server-vm-for-anything-else"></a>CanL jag använder configuration server VM för något annat?
 Nej, bör du endast använda den virtuella datorn för konfigurationsservern. 

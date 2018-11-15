@@ -9,12 +9,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 8d344adc367eb9b93e52d9423a2ab4dda657b298
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 35768aed3509d6ec5b73c64c7a8a6b132957ace1
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115547"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632738"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Använda Enterprise Security Package i HDInsight
 
@@ -24,11 +24,11 @@ Många företag har flyttat mot en modell där kluster hanteras av IT-team och f
 
 HDInsight bygger på populära identitetsprovidern – Active Directory--på ett hanterat sätt. Genom att integrera HDInsight med [Azure Active Directory Domain Services (Azure AD DS)](../../active-directory-domain-services/active-directory-ds-overview.md), du kan komma åt klustren med hjälp av autentiseringsuppgifter för domänen. 
 
-Virtuella datorer (VM) i HDInsight är domänansluten till den angivna domänen. Detta visas alla tjänster som körs på HDInsight (Ambari, Hive-server, Ranger, Spark thrift-server och andra) fungerar sömlöst för autentiserade användare. Administratörer kan sedan skapa stark auktoriseringsprinciper med hjälp av Apache Ranger för att tillhandahålla rollbaserad åtkomstkontroll för resurser i klustret.
+Virtuella datorer (VM) i HDInsight är domänansluten till den angivna domänen. Alla tjänster som körs på HDInsight (Apache Ambari, server för Apache Hive, Apache Ranger, Apache Spark thrift-server och andra) fungerar därför sömlöst för autentiserade användare. Administratörer kan sedan skapa stark auktoriseringsprinciper med hjälp av Apache Ranger för att tillhandahålla rollbaserad åtkomstkontroll för resurser i klustret.
 
 ## <a name="integrate-hdinsight-with-active-directory"></a>Integrera HDInsight med Active Directory
 
-Hadoop för öppen källkod använder Kerberos för autentisering och säkerhet. Därför är HDInsight-klusternoder med Enterprise Security Package (ESP) anslutna till en domän som hanteras av Azure AD DS. Säkerhet för Kerberos har konfigurerats för Hadoop-komponenter på klustret. 
+Apache Hadoop för öppen källkod använder Kerberos för autentisering och säkerhet. Därför är HDInsight-klusternoder med Enterprise Security Package (ESP) anslutna till en domän som hanteras av Azure AD DS. Säkerhet för Kerberos har konfigurerats för Hadoop-komponenter på klustret. 
 
 Följande skapas automatiskt:
 - ett huvudnamn för tjänsten för varje Hadoop-komponent 

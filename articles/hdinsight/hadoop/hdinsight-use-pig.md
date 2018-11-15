@@ -1,6 +1,6 @@
 ---
-title: Använda Pig med Hadoop i HDInsight
-description: Lär dig mer om att använda Pig med Hadoop i HDInsight.
+title: Använda Apache Pig i HDInsight
+description: Lär dig mer om att använda Pig med Apache Hadoop på HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 921f4747dcaf9ad302c37930ca09903e345bfdb0
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6a1247048907d81b3c9db644bcdb7b5e5eee5fba
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016428"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633639"
 ---
-# <a name="use-pig-with-hadoop-on-hdinsight"></a>Använda Pig med Hadoop i HDInsight
+# <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Använda Apache Pig med Apache Hadoop på HDInsight
 
 Lär dig hur du använder [Apache Pig](http://pig.apache.org/) med HDInsight.
 
-Pig är en plattform för att skapa program för Hadoop med hjälp av en procedurmässig språk som kallas *Pig Latin*. Pig är ett alternativ till Java för att skapa *MapReduce* lösningar och ingår i Azure HDInsight. Använd följande tabell för att identifiera de olika sätt som Apache Pig-kan användas med HDInsight:
+Apache Pig är en plattform för att skapa program för Apache Hadoop med hjälp av en procedurmässig språk som kallas *Pig Latin*. Pig är ett alternativ till Java för att skapa *MapReduce* lösningar och ingår i Azure HDInsight. Använd följande tabell för att identifiera de olika sätt som Apache Pig-kan användas med HDInsight:
 
 | **Använd den här** om du vill... | ...an **interaktiva** shell | ...**batch** bearbetning | ...med detta **klustret operativsystem** | ...from detta **klientoperativsystem** |
 |:--- |:---:|:---:|:--- |:--- |

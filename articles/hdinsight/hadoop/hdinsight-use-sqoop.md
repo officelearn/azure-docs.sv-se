@@ -1,5 +1,5 @@
 ---
-title: Kör Apache Sqoop jobb med Azure HDInsight (Hadoop)
+title: Kör Apache Sqoop jobb med Azure HDInsight (Apache Hadoop)
 description: Lär dig hur du använder Azure PowerShell på en arbetsstation för att köra Sqoop-import och export mellan ett Hadoop-kluster och en Azure SQL database.
 ms.reviewer: jasonh
 services: hdinsight
@@ -9,21 +9,21 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: c02fca7ba1ee5b7a93e54b4898290f0b84d88304
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 1571480540baedd5910c4153caf23e0687d48922
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622456"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684995"
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Använda Sqoop med Hadoop i HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Lär dig hur du använder Sqoop i HDInsight för att importera och exportera mellan HDInsight-kluster och Azure SQL database eller SQL Server-databas.
+Lär dig hur du använder Apache Sqoop i HDInsight för att importera och exportera mellan HDInsight-kluster och Azure SQL database eller SQL Server-databas.
 
-Även om Hadoop är det naturliga valet för att bearbeta Ostrukturerade och semistrukturerade data, till exempel loggar och filer, kan det också vara nödvändigt att bearbeta strukturerade data som lagras i relationsdatabaser.
+Även om Apache Hadoop är det naturliga valet för att bearbeta Ostrukturerade och semistrukturerade data, till exempel loggar och filer, kan det också vara nödvändigt att bearbeta strukturerade data som lagras i relationsdatabaser.
 
-[Sqoop] [ sqoop-user-guide-1.4.4] är ett verktyg som utformats för att överföra data mellan Hadoop-kluster och relationsdatabaser. Du kan använda den för att importera data från ett hanteringssystem för relationsdatabaser (RDBMS) som SQL Server, MySQL eller Oracle i Hadoop distributed file system (HDFS), transformera data i Hadoop MapReduce eller Hive och sedan exportera data tillbaka till en RDBMS. I den här självstudien får använder du en SQL Server-databas för din relationsdatabas.
+[Apache Sqoop] [ sqoop-user-guide-1.4.4] är ett verktyg som utformats för att överföra data mellan Hadoop-kluster och relationsdatabaser. Du kan använda den för att importera data från ett hanteringssystem för relationsdatabaser (RDBMS) som SQL Server, MySQL eller Oracle i Hadoop distributed file system (HDFS), transformera data i Hadoop MapReduce eller Hive och sedan exportera data tillbaka till en RDBMS. I den här självstudien får använder du en SQL Server-databas för din relationsdatabas.
 
 Sqoop-versioner som stöds i HDInsight-kluster, se [vad är nytt i klusterversionerna från HDInsight?][hdinsight-versions]
 
@@ -90,7 +90,7 @@ Om du föredrar att använda Azure PowerShell för att skapa klustret och SQL-da
         
         |Namn|Värde|
         |----|-----|
-        | Namn på standardlagringskonto | &lt;CluterName > lagra |
+        | Namn på standardlagringskonto | &lt;Klusternamn > lagra |
         | Azure SQL database-servernamn | &lt;Klusternamn > dbserver |
         | Azure SQL-databasnamn | &lt;Klusternamn > db |
      
@@ -102,7 +102,7 @@ Om du väljer att använda befintliga Azure SQL-databas eller Microsoft SQL Serv
 * **Azure SQL-databas**: du måste konfigurera en brandväggsregel för Azure SQL database-server att tillåta åtkomst från din arbetsstation. Mer information om att skapa en Azure SQL-databas och konfigurerar brandväggen finns i [komma igång med Azure SQL-databas][sqldatabase-get-started]. 
   
   > [!NOTE]
-  > Som standard tillåter anslutningar från Azure-tjänster, till exempel Azure HDInsight i en Azure SQL database. Om brandväggsinställningen är inaktiverad, måste du aktivera det från Azure-portalen. Anvisningar om att skapa en Azure SQL-databas och konfigurera brandväggsregler finns i [skapa och konfigurera SQL Database][sqldatabase-create-configue].
+  > Som standard tillåter anslutningar från Azure-tjänster, till exempel Azure HDInsight i en Azure SQL database. Om brandväggsinställningen är inaktiverad, måste du aktivera det från Azure-portalen. Anvisningar om att skapa en Azure SQL-databas och konfigurera brandväggsregler finns i [skapa och konfigurera SQL Database][sqldatabase-create-configure].
   > 
   > 
 * **SQL Server**: om ditt HDInsight-kluster finns på samma virtuella nätverk i Azure som SQL Server, du kan använda stegen i den här artikeln för att importera och exportera data till en SQL Server-databas.
@@ -636,7 +636,7 @@ Get-AzureRmHDInsightJobOutput `
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 
 [sqldatabase-get-started]: ../../sql-database/sql-database-get-started.md
-[sqldatabase-create-configue]: ../../sql-database/sql-database-get-started.md
+[sqldatabase-create-configure]: ../../sql-database/sql-database-get-started.md
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: /powershell/azureps-cmdlets-docs

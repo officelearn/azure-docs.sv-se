@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 11/13/2018
 ms.author: alinast
-ms.openlocfilehash: c15ce88bbd55becaf30098f2e3302d2e65bc11d2
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 9ce2f65af89e186a3cd32bd2900b5444fb556b08
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625733"
+ms.locfileid: "51636721"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Enhetsanslutning och inkommande telemetri
 
@@ -37,21 +37,25 @@ Lär dig hur du hämtar anslutningssträngen för IoT Hub-enhet från digitala T
 
 ## <a name="get-the-iot-hub-device-connection-string-from-the-management-api"></a>Hämta anslutningssträngen för IoT Hub-enhet från API Management
 
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
 Gör en GET-anrop till API-enhet med en `includes=ConnectionString` parametern för att hämta anslutningssträngen för IoT Hub-enhet. Filtrera efter enheten GUID eller maskinvaru-ID för att hitta den angivna enheten.
 
 ```plaintext
-https://yourManagementApiUrl/api/v1.0/devices/yourDeviceGuid?includes=ConnectionString
+YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
 ```
+
+| Parameter | Ersätt med |
+| --- | --- |
+| *YOUR_DEVICE_GUID* | Enhets-ID |
 
 ```plaintext
-https://yourManagementApiUrl/api/v1.0/devices?hardwareIds=yourDeviceHardwareId&includes=ConnectionString
+YOUR_MANAGEMENT_API_URL/devices?hardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=ConnectionString
 ```
 
-| Anpassade attributets namn | Ersätt med |
+| Parametervärde | Ersätt med |
 | --- | --- |
-| **yourManagementApiUrl** | Den fullständiga URL-sökvägen för API Management |
-| **yourDeviceGuid** | Enhets-ID |
-| **yourDeviceHardwareId** | Enhetens maskinvaru-ID |
+| *YOUR_DEVICE_HARDWARE_ID* | Enhetens maskinvaru-ID |
 
 Kopiera enhetens i svarets nyttolast **connectionString** egenskapen. Du kan använda den för när du anropar Azure IoT-enhetens SDK att skicka data till Digital Twins.
 

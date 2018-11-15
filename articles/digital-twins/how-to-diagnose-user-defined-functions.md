@@ -6,14 +6,14 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 11/13/2018
 ms.author: stefanmsft
-ms.openlocfilehash: 852b2d35ae605f5529d162d52655fd258ca07c5a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: ac7664e94c6e02ab90dbb1b32a54c8234614afe2
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946104"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636279"
 ---
 # <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>Så här felsöker du problem med användardefinierade funktioner i Azure Digital Twins
 
@@ -42,12 +42,12 @@ När du har skickat telemetri, öppnar Azure Log Analytics att fråga efter logg
 
 ```Kusto
 AzureDiagnostics
-| where CorrelationId = 'yourCorrelationIdentifier'
+| where CorrelationId = 'YOUR_CORRELATION_IDENTIFIER'
 ```
 
-| Anpassade attributets namn | Ersätt med |
+| Läsa värde | Ersätt med |
 | --- | --- |
-| *yourCorrelationIdentifier* | Korrelations-ID som angavs på händelsedata |
+| YOUR_CORRELATION_IDENTIFIER | Korrelations-ID som angavs på händelsedata |
 
 Om du loggar den användardefinierade funktionen loggarna visas i din Azure Log Analytics-instans i kategorin `UserDefinedFunction`. Ange följande fråga villkor i Azure Log Analytics för att hämta dem:
 
@@ -62,6 +62,8 @@ Läs mer om kraftfulla frågeåtgärder [komma igång med frågor](https://docs.
 
 Både diagnostisera och identifiera vanliga problem är viktigt när du felsöker din lösning. Flera vanliga problem som uppstår vid utveckla användardefinierade funktioner sammanfattas nedan.
 
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
 ### <a name="ensure-a-role-assignment-was-created"></a>Se till att en rolltilldelning har skapats
 
 Den användardefinierade funktionen har inte åtkomst att utföra alla åtgärder som att skicka meddelanden, hämta metadata, utan en rolltilldelning som skapats i API Management, och inställningen beräknade värden i topologin.
@@ -69,13 +71,12 @@ Den användardefinierade funktionen har inte åtkomst att utföra alla åtgärde
 Kontrollera om det finns en rolltilldelning för ditt användardefinierad funktion via Management-API:
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/roleassignments?path=/&traverse=Down&objectId=yourUserDefinedFunctionId
+GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
-| Anpassade attributets namn | Ersätt med |
+| Parameter | Ersätt med |
 | --- | --- |
-| *yourManagementApiUrl* | Den fullständiga URL-sökvägen för API Management  |
-| *yourUserDefinedFunctionId* | ID för den användardefinierade funktionen ska hämtas rolltilldelningar för|
+| *YOUR_USER_DEFINED_FUNCTION_ID* | ID för den användardefinierade funktionen ska hämtas rolltilldelningar för|
 
 Följ den här artikeln på om ingen rolltilldelning hämtas [så här skapar du en rolltilldelning för användardefinierade funktionen](./how-to-user-defined-functions.md).
 
@@ -84,14 +85,13 @@ Följ den här artikeln på om ingen rolltilldelning hämtas [så här skapar du
 Med följande anrop mot ditt Azure Digital Twins instanser Management API: et kommer du att kunna avgöra om en viss matcher gäller för den angivna sensorn.
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/matchers/yourMatcherIdentifier/evaluate/yourSensorIdentifier?enableLogging=true
+GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSOR_IDENTIFIER?enableLogging=true
 ```
 
-| Anpassade attributets namn | Ersätt med |
+| Parameter | Ersätt med |
 | --- | --- |
-| *yourManagementApiUrl* | Den fullständiga URL-sökvägen för API Management  |
-| *yourMatcherIdentifier* | ID för matcher som du vill utvärdera |
-| *yourSensorIdentifier* | ID för sensorn som du vill utvärdera |
+| *YOUR_MATCHER_IDENTIFIER* | ID för matcher som du vill utvärdera |
+| *YOUR_SENSOR_IDENTIFIER* | ID för sensorn som du vill utvärdera |
 
 Svar:
 
@@ -109,13 +109,12 @@ Svar:
 Du kommer att kunna fastställa identifierare av dina egna funktioner som utlöses av den angivna sensorn inkommande telemetri med följande anrop mot ditt Azure Digital Twins instanser Management-API:
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/sensors/yourSensorIdentifier/matchers?includes=UserDefinedFunctions
+GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
 ```
 
-| Anpassade attributets namn | Ersätt med |
+| Parameter | Ersätt med |
 | --- | --- |
-| *yourManagementApiUrl* | Den fullständiga URL-sökvägen för API Management  |
-| *yourSensorIdentifier* | ID för den sensor som kommer att skicka telemetri |
+| *YOUR_SENSOR_IDENTIFIER* | ID för den sensor som kommer att skicka telemetri |
 
 Svar:
 

@@ -3,18 +3,18 @@ title: Självstudie om Azure IoT Edge Python | Microsoft Docs
 description: Den här självstudien visar hur du skapar en IoT Edge-modul med Python-kod och distribuerar den till en gränsenhet.
 services: iot-edge
 author: shizn
-manager: timlt
+manager: philmea
 ms.author: xshi
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ab09a46c70006d1ca7996767e38d99a9208efcb5
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 5c05145c550e0d218e009ad33b2a88a2ec0dfd18
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157878"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566303"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Självstudie: Utveckla och distribuera en Python IoT Edge-modul till din simulerade enhet
 

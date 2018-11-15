@@ -10,19 +10,19 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: diberry
-ms.openlocfilehash: be9d68db3a2de6327d94a73af58b669583db3f00
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 27f60f9624af2819663990aeba99b4044045540b
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287038"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687375"
 ---
 # <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Integrera QnA Maker och LUIS för att distribuera din kunskapsbas
 När kunskapsbasen QnA Maker växer stora, blir det svårt att underhålla den som en enda monolitisk ange och det finns en behöver delas upp i knowledge base i mindre logiska segment.
 
 Det är enkelt att skapa flera kunskapsbaser i QnA Maker, behöver du vissa logik för att dirigera inkommande frågan till rätt kunskapsbas. Du kan göra detta med hjälp av LUIS.
 
-Den här artikeln använder Bot Framework v3-SDK. Finns i denna [Bot Framework artikeln](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=csharp), om du är intresserad av i Bot Framework v4 SDK-version av den här informationen.
+Den här artikeln använder Bot Framework v3-SDK. Finns i denna [Bot Framework artikeln](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=csharp), om du är intresserad av i Bot Framework v4 SDK-version av den här informationen.
 
 ## <a name="architecture"></a>Arkitektur
 

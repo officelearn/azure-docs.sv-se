@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 11/13/2018
 ms.author: alinast
-ms.openlocfilehash: de1ead165e1db3f78591f093edcc33781b9f4c78
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 95f01c9338afbf2ab5381001e4ab480185cedaeb
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624190"
+ms.locfileid: "51636891"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Förstå Digital Twins objektmodeller och rumsliga intelligence graph
 
@@ -79,13 +79,13 @@ Om du distribuerar en Digital Twins-tjänst i din prenumeration blir global admi
 När du har distribuerat digitala Twins från den [Azure-portalen](https://portal.azure.com), [Swagger](https://swagger.io/tools/swagger-ui/) URL: en för Management-API: er genereras automatiskt. Den visas i Azure-portalen i den **översikt** avsnitt med följande format.
 
 ```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
+https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Anpassade attributets namn | Ersätt med |
+| Namn | Ersätt med |
 | --- | --- |
-| **dittinstansnamn** | Namnet på din digitala Twins-instans |
-| **yourLocation** | Vilken server-region som din instans är värd för |
+| YOUR_INSTANCE_NAME | Namnet på din digitala Twins-instans |
+| YOUR_LOCATION | Vilken server-region som din instans är värd för |
 
  Det fullständiga URL-formatet som visas i den här avbildningen.
 

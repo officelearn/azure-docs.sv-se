@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 75e37d228d523347ee54794ead5fbba6f278702a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 496afab869d8cf1b7b00791913c3082e31b45327
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569088"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633928"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: problem med agenten eller -tillägget
 
@@ -28,11 +28,11 @@ Den här artikeln innehåller åtgärder för felsökning som kan hjälpa dig at
 **Felmeddelande**: VM-agenten kunde inte kommunicera med Azure Backup<br>
 
 När du har registrerat och schemalägga en virtuell dator för Backup-tjänsten Initierar säkerhetskopiering jobbet genom att kommunicera med VM-agenten att ta en ögonblicksbild för point-in-time. Något av följande villkor kan förhindra att ögonblicksbilden utlöses. När en ögonblicksbild inte utlöses misslyckas säkerhetskopieringen. Slutför följande felsökningssteg i angiven ordning och försök igen:<br>
-**Orsak 1: [den virtuella datorn inte har tillgång till internet](#the-vm-has-no-internet-access)**  
-**Orsak 2: [agenten är installerad på den virtuella datorn, men det är inte svarar (för Windows virtuella datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
-**Orsak 3: [agenten installerad på den virtuella datorn är för gammal (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Orsak 4: [går inte att hämta den ögonblicksbild av statusen eller går inte att ta en ögonblicksbild](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
-**Orsak 5: [säkerhetskopieringstillägget inte går att uppdatera eller läsa in](#the-backup-extension-fails-to-update-or-load)**  
+**Orsak 1: [agenten är installerad på den virtuella datorn, men det är inte svarar (för Windows virtuella datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Orsak 2: [agenten installerad på den virtuella datorn är för gammal (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Orsak 3: [går inte att hämta den ögonblicksbild av statusen eller går inte att ta en ögonblicksbild](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
+**Orsak 4: [säkerhetskopieringstillägget inte går att uppdatera eller läsa in](#the-backup-extension-fails-to-update-or-load)**  
+**Orsak 5: [den virtuella datorn inte har tillgång till internet](#the-vm-has-no-internet-access)**
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - kunde inte kommunicera med VM-agenten för ögonblicksbild av status
 
@@ -57,7 +57,6 @@ Häv spärren för resursgruppen för att lösa problemet och försök igen för
 > [!NOTE]
     > Backup-tjänsten skapar en separat resursgrupp än resursgruppen för den virtuella datorn att lagra samling med återställningspunkter. Kunder bör inte låsa resursgruppen som skapades för användning av Backup-tjänsten. Namnformatet för resursgruppen som skapades av Backup-tjänsten är: AzureBackupRG_`<Geo>`_`<number>` Tex: AzureBackupRG_northeurope_1
 
-
 **Steg 1: [bort låset från resursgruppen återställningspunkt](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Steg 2: [Rensa samling med återställningspunkter](#clean_up_restore_point_collection)**<br>
 
@@ -74,9 +73,9 @@ För säkerhetskopieringen ska lyckas på krypterade virtuella datorer, måste d
 **Felmeddelande**: ögonblicksbild-åtgärden misslyckades på grund av den virtuella datorn saknar nätverksanslutning<br>
 
 När du har registrerat och schemalägga en virtuell dator för Azure Backup-tjänsten Initierar säkerhetskopiering jobbet genom att kommunicera med VM-tillägg att ta en ögonblicksbild i tidpunkt för säkerhetskopiering. Något av följande villkor kan förhindra att ögonblicksbilden utlöses. Om ögonblicksbilden inte utlöses, kan det uppstå en säkerhetskopieringen har misslyckats. Slutför följande felsökningssteg i angiven ordning och försök igen:    
-**Orsak 1: [den virtuella datorn inte har tillgång till internet](#the-vm-has-no-internet-access)**  
-**Orsak 2: [går inte att hämta den ögonblicksbild av statusen eller går inte att ta en ögonblicksbild](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**Orsak 3: [säkerhetskopieringstillägget inte går att uppdatera eller läsa in](#the-backup-extension-fails-to-update-or-load)**  
+**Orsak 1: [går inte att hämta den ögonblicksbild av statusen eller går inte att ta en ögonblicksbild](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**Orsak 2: [säkerhetskopieringstillägget inte går att uppdatera eller läsa in](#the-backup-extension-fails-to-update-or-load)**  
+**Orsak 3: [den virtuella datorn inte har tillgång till internet](#the-vm-has-no-internet-access)**
 
 ## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailed - vmsnapshot-tillägget misslyckades
 
@@ -95,12 +94,12 @@ När du har registrerat och schemalägga en virtuell dator för Azure Backup-tj�
 **Felmeddelande**: säkerhetskopieringen misslyckades med ett internt fel – försök igen om några minuter <br>
 
 När du har registrerat och schemalägga en virtuell dator för Azure Backup-tjänsten Initierar säkerhetskopiering jobbet genom att kommunicera med VM-tillägg att ta en ögonblicksbild i tidpunkt för säkerhetskopiering. Något av följande villkor kan förhindra att ögonblicksbilden utlöses. Om ögonblicksbilden inte utlöses, kan det uppstå en säkerhetskopieringen har misslyckats. Slutför följande felsökningssteg i angiven ordning och försök igen:  
-**Orsak 1: [den virtuella datorn inte har tillgång till internet](#the-vm-has-no-internet-access)**  
-**Orsak 2: [agenten installerad i den virtuella datorn, men den inte svarar (för Windows virtuella datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**Orsak 3: [agenten installerad på den virtuella datorn är för gammal (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Orsak 4: [går inte att hämta den ögonblicksbild av statusen eller går inte att ta en ögonblicksbild](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**Orsak 5: [säkerhetskopieringstillägget inte går att uppdatera eller läsa in](#the-backup-extension-fails-to-update-or-load)**  
-**Orsak 6: [Backup-tjänsten har inte behörighet att ta bort gamla återställningspunkter på grund av en grupp resurslås](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
+**Orsak 1: [agenten installerad i den virtuella datorn, men den inte svarar (för Windows virtuella datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Orsak 2: [agenten installerad på den virtuella datorn är för gammal (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Orsak 3: [går inte att hämta den ögonblicksbild av statusen eller går inte att ta en ögonblicksbild](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**Orsak 4: [säkerhetskopieringstillägget inte går att uppdatera eller läsa in](#the-backup-extension-fails-to-update-or-load)**  
+**Orsak 5: [Backup-tjänsten har inte behörighet att ta bort gamla återställningspunkter på grund av en grupp resurslås](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)** <br>
+**Orsak 6: [den virtuella datorn inte har tillgång till internet](#the-vm-has-no-internet-access)**
 
 ## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize – för närvarande Azure Backup har inte stöd för diskar som är större än 1 023 GB
 

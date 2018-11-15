@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 195686a924d784327c72bcd09a1a50a563e444de
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: d834b7f43d961400e2d5080a46cf921d719f3393
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629220"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684866"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Arbeta med Azure Cosmos-databaser, behållare och objekt
 
@@ -94,12 +94,10 @@ En Azure Cosmos-behållare har stöd för följande åtgärder med hjälp av nå
 | **Åtgärd** | **Azure CLI** | **SQL-API** | **API för Cassandra** | **MongoDB API** | **Gremlin-API** | **Table API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Räkna upp behållare i en databas | Ja* | Ja | Ja | Ja | Ej tillämpligt | Ej tillämpligt |
-| Läsa en behållare | Ja* | Ja | Ja | Ja | Ej tillämpligt | Ej tillämpligt |
-| Skapa ny behållare | Ja* | Ja | Ja | Ja | Ej tillämpligt | Ej tillämpligt |
-| Uppdatera behållare | Ja* | Ja | Ja | Ja | Ej tillämpligt | Ej tillämpligt |
-| Ta bort behållare | Ja* | Ja | Ja | Ja | Ej tillämpligt | Ej tillämpligt |
-
-\* Blir tillgängliga i januari 2019.
+| Läsa en behållare | Ja | Ja | Ja | Ja | Ej tillämpligt | Ej tillämpligt |
+| Skapa ny behållare | Ja | Ja | Ja | Ja | Ej tillämpligt | Ej tillämpligt |
+| Uppdatera behållare | Ja | Ja | Ja | Ja | Ej tillämpligt | Ej tillämpligt |
+| Ta bort behållare | Ja | Ja | Ja | Ja | Ej tillämpligt | Ej tillämpligt |
 
 ## <a name="azure-cosmos-items"></a>Azure Cosmos-objekt
 

@@ -3,22 +3,22 @@ title: Självstudie för Azure IoT Edge Node.js | Microsoft Docs
 description: Den här självstudien visar hur du skapar en IoT Edge-modul med Node.js-kod och distribuerar den till en gränsenhet
 services: iot-edge
 author: shizn
-manager: timlt
+manager: philmea
 ms.author: xshi
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: be0c3e7e09e61230332b1275289fd93e59c7c0b2
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 40fa0357245ad77fbdb08c5dbb4839d69322954f
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156994"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566800"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Självstudie: Utveckla och distribuera en Node.js IoT Edge-modul till din simulerade enhet
 
-Du kan använda IoT Edge-moduler till att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. Du använder den simulerade IoT Edge-enheten som du skapade i snabbstarterna. I den här guiden får du lära dig att:    
+Du kan använda IoT Edge-moduler till att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. Du använder den simulerade IoT Edge-enhet som du skapade i snabbstarterna. I den här guiden får du lära dig att:    
 
 > [!div class="checklist"]
 > * Använda Visual Studio Code för att skapa en IoT Edge Node.js-modul

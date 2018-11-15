@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 265d34c91a8c803256e718899f5b6ce2738a88e5
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: ecb95f0440751a6cdbf81dbf02c62bed6b5e780b
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956440"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51286698"
 ---
 # <a name="about-v20"></a>Om v2.0
 
@@ -32,7 +32,7 @@ V2.0-slutpunkten och plattformen har varit i en förhandsversion och förbättra
 
 Utvecklarupplevelsen i Azure-portalen har uppdaterats avsevärt och omfattar nu alla dina program som skapats med ADAL eller MSAL och har förbättrad användbarhet.
 
-Tidigare var programutvecklare som ville stödja både personliga Microsoft-konton och arbetskonton från Azure Active Directory (AD Azure) tvungna att integrera med två separata system. V2.0-slutpunkten och plattformen ger en API-autentiseringsversion som förenklar den här processen. Den kan logga in från båda typer av konton med hjälp av en enskild integrering. Program som använder v2.0-slutpunkten kan också använda REST-API:er från [Microsoft Graph API](https://graph.microsoft.io) med hjälp av endera kontotyp.
+Tidigare var programutvecklare som ville stödja både personliga Microsoft-konton och arbetskonton från Azure Active Directory (AD Azure) tvungna att integrera med två separata system. V2.0-slutpunkten och plattformen ger en API-autentiseringsversion som förenklar den här processen. Den kan logga in från båda typer av konton med hjälp av en enskild integrering. Program som använder v2.0-slutpunkten kan också använda REST-API:er från [Microsoft Graph API](https://developer.microsoft.com/graph) med hjälp av endera kontotyp.
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -56,10 +56,10 @@ Utforska detaljerad information om v2.0:
 
 * [Referens för v2.0-protokoll](active-directory-v2-protocols.md)
 * [Referens för åtkomsttoken](access-tokens.md)
-* [`id_tokens`-referens](id-tokens.md)
+* [Referens för ID-token](id-tokens.md)
 * [Referens för v2.0-autentiseringsbibliotek](reference-v2-libraries.md)
-* [Omfång och medgivande i v2.0](v2-permissions-and-consent.md)
-* [Microsoft Graph API](https://graph.microsoft.io)
+* [Behörigheter och medgivande i v2.0](v2-permissions-and-consent.md)
+* [Microsoft Graph-API](https://developer.microsoft.com/graph)
 
 > [!NOTE]
 > Om du behöver bara logga in arbets- och skolkonton från Azure Active Directory kan du börja med [utvecklarhandboken för Azure AD](v1-overview.md). v2.0-slutpunkten är avsedd att användas av utvecklare som uttryckligen behöver logga in personliga Microsoft-konton.

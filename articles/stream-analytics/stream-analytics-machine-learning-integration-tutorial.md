@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/16/2018
-ms.openlocfilehash: 5468117fe117623b2e03fdf8ec451a9a0151e3dd
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 2169c3a41991b0b49a4324c16ea079f5943fad0b
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979173"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685760"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Utföra attitydanalyser genom att använda Azure Stream Analytics och Azure Machine Learning
 Den här artikeln beskriver hur du snabbt konfigurera ett enkelt Azure Stream Analytics-jobb som integrerar Azure Machine Learning. Du kan använda en Machine Learning sentiment analysmodell från Cortana Intelligence Gallery att analysera textdata och avgöra sentimentresultatet i realtid. Med Cortana Intelligence Suite kan du utföra den här uppgiften utan att oroa krångla för att skapa en sentiment analysmodell.
@@ -199,9 +199,9 @@ Stream Analytics använder en deklarativt, SQL-baserad fråga för att undersök
 
 3. Ange följande fråga:
 
-    ```
+    ```SQL
     WITH sentiment AS (  
-    SELECT text, sentiment(text) as result 
+    SELECT text, sentiment1(text) as result 
     FROM datainput  
     )  
 

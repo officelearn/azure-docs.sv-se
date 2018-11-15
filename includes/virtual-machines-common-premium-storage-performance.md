@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 4960ee485ac8c6b233eacc569cdac6748481887d
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 50e252b7dbd20d5330f8117eaa45ccf52303f277
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50746807"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51678226"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: Design för hög prestanda
 
@@ -32,8 +32,8 @@ Den här artikeln kommer att besvara följande vanliga frågor om hur du optimer
 Vi har angett dessa riktlinjer specifikt för Premium Storage eftersom arbetsbelastningar som körs på Premium-lagring med hög prestanda som är känsliga. Vi har lagt till exempel där det är lämpligt. Du kan också använda några av dessa riktlinjer för program som körs på virtuella IaaS-datorer med Standard Storage-diskar.
 
 > [!NOTE]
-> Ibland är något som verkar vara problem med prestandan faktiskt en flaskhalsar i nätverket. I sådana situationer bör du optimera din [nätverksprestanda](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
-> Du bör kontrollera att den virtuella datorn har stöd för accelererat nätverk. Om den finns, kan du aktivera den även efter distribution på både [windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) och [linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms) virtuella datorer.
+> Ibland är något som verkar vara problem med prestandan disk faktiskt en flaskhalsar i nätverket. I sådana situationer bör du optimera din [nätverksprestanda](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
+> Om den virtuella datorn har stöd för accelererat nätverk, bör du kontrollera att den är aktiverad. Om den inte har aktiverats måste du aktivera det på redan distribuerade virtuella datorerna på både [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) och [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
 Innan du börjar, om du är nybörjare till Premium Storage, läsa den [Premium Storage: lagring med höga prestanda för Azure-Datorbelastningar](../articles/virtual-machines/windows/premium-storage.md) och [skalbarhet för lagring av Azure- och prestandamål](../articles/storage/common/storage-scalability-targets.md)artiklar.
 
@@ -227,8 +227,8 @@ Azure Premium Storage erbjuder åtta GA-diskstorlekar och tre diskstorlekar som 
 
 | Typen för Premium-diskar  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Diskstorlek           | 32 giB | 64 giB | 128 GiB| 256 GB| 512 GB            | 1 024 giB (1 TiB)    | 2 048 giB (2 TiB)    | 4 095 giB (4 TiB)    | 8 192 giB (8 TiB)    | 16 384 giB (16 TiB)    | 32 767 giB (32 GiB)    |
-| IOPS per disk       | 120   | 240   | 500   | 1100 | 2 300              | 5000              | 7500              | 7500              | 12 500              | 15 000              | 20,000              |
+| Diskstorlek           | 32 GiB | 64 GiB | 128 GiB| 256 GB| 512 GB            | 1 024 GiB (1 TiB)    | 2 048 GiB (2 TiB)    | 4 095 GiB (4 TiB)    | 8 192 GiB (8 TiB)    | 16 384 giB (16 TiB)    | 32 767 giB (32 GiB)    |
+| IOPS per disk       | 120   | 240   | 500   | 1100 | 2 300              | 5000              | 7500              | 7500              | 12 500              | 15 000              | 20,000              |
 | Dataflöde per disk | 25 MiB per sekund  | 50 MiB per sekund  | 100 MiB per sekund |125 MiB per sekund | 150 MiB per sekund | 200 MiB per sekund | 250 MiB per sekund | 250 MiB per sekund | 480 MiB per sekund | 750 MiB per sekund | 750 MiB per sekund |
 
 Hur många diskar som du väljer beror på disken storlek väljs. Du kan använda en enda P50-disk eller flera P10-diskar för att uppfylla dina behov. Väg in överväganden för användarkonton som anges nedan när du gör valet.

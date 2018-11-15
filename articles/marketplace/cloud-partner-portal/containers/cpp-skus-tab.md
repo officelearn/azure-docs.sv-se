@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 83acdb320e0be0837ec5188a11cb86b91ed077fa
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 81f7e46e626bb061881be53e8cace36e1478e0e1
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979821"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683986"
 ---
 # <a name="container-skus-tab"></a>Fliken för behållaren SKU: er
 
@@ -46,7 +46,7 @@ SKU-metadata innehåller storefront visningsinformation container-lista.
 
 ### <a name="container-metadata"></a>Behållare för metadata
 
-Behållare-metadata innehåller referensinformation om din lagringsplats avbildningsinformation i Azure Container Registry (ACR). Azure Marketplace kopierar den här avbildningen till registret offentliga marknaden och görs tillgänglig för kunder efter certifiering. Hanteras alla förfrågningar från Azure-användare att använda en behållaravbildning från Marketplace container registry.
+Behållare-metadata innehåller referensinformation om din lagringsplats avbildningsinformation i Azure Container Registry (ACR). Azure Marketplace kopierar den här avbildningen till ett Marketplace-specifika, offentliga register och sedan gör avbildningen tillgängliga för kunder efter certifiering. Från Marketplace-offentligt register, inte ACR hanteras alla förfrågningar från Azure-användare att använda en behållaravbildning för Azure Marketplace.
 
 ![Behållare för metadata](./media/containers-image-repository.png)
     

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 7d6056987ee05f68eecf026e954327a2f62cf886
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 83155e448f350618446fb22bf52e831b1cc8d499
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348913"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636551"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Slack för automatisk användaretablering
 
@@ -57,7 +57,7 @@ Innan du konfigurerar och aktiverar etableringstjänsten, måste du bestämma vi
 
 Det här avsnittet hjälper dig att ansluta din Azure AD till Slacks användarkonto etablering API och konfigurera etableringstjänsten för att skapa, uppdatera och inaktivera tilldelade användarkonton i Slack baserat på användare och grupptilldelning i Azure AD.
 
-**Tips:** du kan också välja att aktiverat SAML-baserad enkel inloggning för Slack, följa instruktionerna i (Azure-portalen) [https://portal.azure.com]. Enkel inloggning kan konfigureras oberoende av Automatisk etablering, även om de här två funktionerna komplettera varandra.
+**Tips:** du kan också välja att aktiverat SAML-baserad enkel inloggning för Slack, följa instruktionerna i [Azure-portalen](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av Automatisk etablering, även om de här två funktionerna komplettera varandra.
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Konfigurera automatisk etablering av användarkonto till Slack i Azure AD:

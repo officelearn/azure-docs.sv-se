@@ -5,15 +5,15 @@ services: media-services
 author: Juliako
 ms.service: media-services
 ms.topic: include
-ms.date: 04/13/2018
+ms.date: 11/11/2018
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 9ecb07a2cb278f6cde4ffdc3b252cb9e816d08da
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 513d9a3a044daacd84b810e4795522c2bd6763f8
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38733312"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616579"
 ---
 ## <a name="create-a-media-services-account"></a>Skapa ett Media Services-konto
 
@@ -21,9 +21,9 @@ Du måste först skapa ett Media Services-konto. Det här avsnittet beskriver va
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Använd följande kommando för att skapa en resursgrupp. En Azure-resursgrupp är en logisk behållare där resurser som Azure Media Services-konton och associerade Storage-konton distribueras och hanteras.
+Använd följande kommando för att skapa en resursgrupp. En Azure-resursgrupp är en logisk container där resurser som Azure Media Services-konton och associerade Storage-konton distribueras och hanteras.
 
-```azurecli-interactive
+```azurecli
 az group create --name amsResourceGroup --location westus2
 ```
 
@@ -37,7 +37,7 @@ Mer information om hur lagringskonton används i Media Services finns i [Lagring
 
 Följande kommando skapar ett lagringskonto som ska associeras med Media Services-kontot. I skriptet nedan kan du ersätta `storageaccountforams` med ditt värde. Kontonamnet måste ha en längd som är mindre än 24.
 
-```azurecli-interactive
+```azurecli
 az storage account create --name storageaccountforams \  
 --kind StorageV2 \
 --sku Standard_RAGRS \
@@ -48,6 +48,6 @@ az storage account create --name storageaccountforams \
 
 Följande Azure CLI-kommando skapar ett nytt Media Services-konto. Du kan ersätta följande värden: `amsaccount` `storageaccountforams` (måste matcha värdet som du gav för ditt lagringskonto) och `amsResourceGroup` (måste matcha värdet som du gav för resursgruppen).  
 
-```azurecli-interactive
+```azurecli
 az ams account create --name amsaccount --resource-group amsResourceGroup --storage-account storageaccountforams
 ```

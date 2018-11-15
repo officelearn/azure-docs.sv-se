@@ -1,6 +1,6 @@
 ---
-title: 'Konfigurera BGP på Azure VPN-gatewayer: hanteraren för filserverresurser: PowerShell | Microsoft Docs'
-description: Den här artikeln vägleder dig genom att konfigurera BGP med Azure VPN-gatewayer med Azure Resource Manager och PowerShell.
+title: 'Konfigurera BGP på Azure VPN-gatewayer: Resource Manager: PowerShell | Microsoft Docs'
+description: Den här artikeln beskriver hur du konfigurerar BGP med Azure VPN gateway med Azure Resource Manager och PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -15,50 +15,50 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
-ms.openlocfilehash: fc9337188fd439082c4aa34f0cbebe3eb2da5d99
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4eb62786522dd1ad7cbf1d5668a4c4493028733c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31603225"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684349"
 ---
-# <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Hur du konfigurerar BGP på Azure VPN-gatewayer med hjälp av PowerShell
-Den här artikeln vägleder dig genom stegen för att aktivera BGP på en mellan lokala plats-till-plats (S2S) VPN-anslutning och en VNet-till-VNet-anslutning med Resource Manager-distributionsmodellen och PowerShell.
+# <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Så här konfigurerar du BGP på Azure VPN gateway med PowerShell
+Den här artikeln vägleder dig igenom stegen för att aktivera BGP på en plats-till-plats (S2S) VPN-anslutning för flera platser och en VNet-till-VNet-anslutning med hjälp av Resource Manager-distributionsmodellen och PowerShell.
 
 ## <a name="about-bgp"></a>Om BGP
-BGP är ett standardroutningsprotokoll som vanligen används på Internet för att utbyta information om routning och åtkomst mellan två eller flera nätverk. BGP kan Azure VPN-gatewayer och din lokala VPN-enheter som kallas BGP-peers eller grannar, för att utbyta ”dirigerar” som ger information om båda gateways på tillgängligheten och tillgängligheten för de prefix som ska gå igenom gateways eller routrar som ingår. BGP kan också möjliggöra överföringsroutning mellan flera nätverk genom att sprida vägar som BGP-gatewayen får information om från en BGP-peer till alla andra BGP-peers.
+BGP är ett standardroutningsprotokoll som vanligen används på Internet för att utbyta information om routning och åtkomst mellan två eller flera nätverk. Det möjliggör BGP att Azure VPN gateway och dina lokala VPN-enheter kallas BGP-peer eller grannar, utbyta ”vägar” som informerar båda gatewayerna om åtkomsten för de prefix som ska gå igenom de gatewayer eller routrar som ingår. BGP kan också möjliggöra överföringsroutning mellan flera nätverk genom att sprida vägar som BGP-gatewayen får information om från en BGP-peer till alla andra BGP-peers.
 
-Se [översikt av BGP med Azure VPN-gatewayer](vpn-gateway-bgp-overview.md) för flera diskussion om fördelarna med BGP och att förstå de tekniska krav och överväganden för att använda BGP.
+Se [översikt över BGP med Azure VPN gateway](vpn-gateway-bgp-overview.md) mer information om hur du fördelar över BGP och för att förstå de tekniska krav och överväganden för att använda BGP.
 
 ## <a name="getting-started-with-bgp-on-azure-vpn-gateways"></a>Komma igång med BGP på Azure VPN-gatewayer
 
-Den här artikeln vägleder dig genom stegen för att göra följande:
+Den här artikeln vägleder dig igenom stegen för att utföra följande uppgifter:
 
-* [Del 1 - Aktivera BGP på din Azure VPN-gateway](#enablebgp)
+* [Del 1 – Aktivera BGP på din Azure VPN-gateway](#enablebgp)
 * [Del 2 – upprätta en anslutning mellan lokala BGP](#crossprembgp)
-* [Del 3: upprätta en anslutning för VNet-till-VNet med BGP](#v2vbgp)
+* [Del 3 – upprätta en VNet-till-VNet-anslutning med BGP](#v2vbgp)
 
-Varje del av instruktionerna utgör ett grundläggande byggblock för att aktivera BGP i nätverksanslutningen. Om du har slutfört alla tre delar kan skapa topologin som visas i följande diagram:
+Varje del av instruktionerna utgör ett grundläggande byggblock för att aktivera BGP i nätverksanslutningen. Om du har slutfört alla tre delar kan skapa du topologin som du ser i följande diagram:
 
 ![BGP-topologi](./media/vpn-gateway-bgp-resource-manager-ps/bgp-crosspremv2v.png)
 
-Du kan kombinera delar tillsammans för att skapa en mer komplexa, flera hopp övergångsnätverket som uppfyller dina behov.
+Du kan kombinera delar tillsammans för att skapa en mer komplex, flera hopp övergångsnätverket som uppfyller dina behov.
 
-## <a name ="enablebgp"></a>Del 1 – konfigurera BGP på Azure VPN-Gateway
-Konfigurationsstegen ställa in Azure VPN-gateway BGP-parametrar som visas i följande diagram:
+## <a name ="enablebgp"></a>Del 1 – konfigurera BGP på Azure VPN-gatewayen
+Konfigurationsstegen konfigurerar BGP-parametrarna för Azure VPN-gatewayen som du ser i följande diagram:
 
-![BGP-Gateway](./media/vpn-gateway-bgp-resource-manager-ps/bgp-gateway.png)
+![BGP-gatewayen](./media/vpn-gateway-bgp-resource-manager-ps/bgp-gateway.png)
 
 ### <a name="before-you-begin"></a>Innan du börjar
 * Kontrollera att du har en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du aktivera dina [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
-* Installera Azure Resource Manager PowerShell-cmdlets. Mer information om hur du installerar PowerShell-cmdletar finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview). 
+* Installera Azure Resource Managers PowerShell-cmdlets. Mer information om hur du installerar PowerShell-cmdletar finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview). 
 
 ### <a name="step-1---create-and-configure-vnet1"></a>Steg 1 – Skapa och konfigurera VNet1
 #### <a name="1-declare-your-variables"></a>1. Deklarera dina variabler
-Den här övningen starta genom att deklarera våra variabler. I följande exempel deklarerar variabler med hjälp av värdena för den här övningen. Se till att ersätta värdena med dina egna när du konfigurerar för produktion. Du kan använda dessa variabler om du använder anvisningarna för att bekanta dig med den här typen av konfiguration. Ändra variablerna samt kopiera och klistra in dem i PowerShell-konsolen.
+I den här övningen börjar vi med att deklarera våra variabler. Exemplet nedan deklarerar vi variablerna med värdena för den här övningen. Se till att ersätta värdena med dina egna när du konfigurerar för produktion. Du kan använda dessa variabler om du använder anvisningarna för att bekanta dig med den här typen av konfiguration. Ändra variablerna samt kopiera och klistra in dem i PowerShell-konsolen.
 
 ```powershell
-$Sub1 = "Replace_With_Your_Subcription_Name"
+$Sub1 = "Replace_With_Your_Subscription_Name"
 $RG1 = "TestBGPRG1"
 $Location1 = "East US"
 $VNetName1 = "TestVNet1"
@@ -79,8 +79,8 @@ $Connection12 = "VNet1toVNet2"
 $Connection15 = "VNet1toSite5"
 ```
 
-#### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. Anslut till din prenumeration och skapa en ny resursgrupp
-Kontrollera att du växlar till PowerShell-läge för att använda Resource Manager-cmdletar. Mer information finns i [Använda Windows PowerShell med Resource Manager](../powershell-azure-resource-manager.md).
+#### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. Anslut till din prenumeration och skapa en ny resursgrupp.
+Om du vill använda Resource Manager-cmdletar, se till att växla till PowerShell-läget. Mer information finns i [Använda Windows PowerShell med Resource Manager](../powershell-azure-resource-manager.md).
 
 Öppna PowerShell-konsolen och anslut till ditt konto. Använd följande exempel för att ansluta:
 
@@ -91,7 +91,7 @@ New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
 
 #### <a name="3-create-testvnet1"></a>3. Skapa TestVNet1
-I följande exempel skapar ett virtuellt nätverk med namnet TestVNet1 och tre undernät, en kallas GatewaySubnet, en klientdel som anropats och ett kallas Backend. När du ersätter värden är det viktigt att du alltid namnger gateway-undernätet specifikt till GatewaySubnet. Om du ger det något annat namn går det inte att skapa gatewayen.
+I följande exempel skapas ett virtuellt nätverk med namnet TestVNet1 och tre undernät, ett kallas GatewaySubnet, ett kallas FrontEnd och ett kallas Backend. När du ersätter värden är det viktigt att du alltid namnger gateway-undernätet specifikt till GatewaySubnet. Om du ger det något annat namn går det inte att skapa gatewayen.
 
 ```powershell
 $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1 $besub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
@@ -100,9 +100,9 @@ $gwsub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix
 New-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNetPrefix11,$VNetPrefix12 -Subnet $fesub1,$besub1,$gwsub1
 ```
 
-### <a name="step-2---create-the-vpn-gateway-for-testvnet1-with-bgp-parameters"></a>Steg 2 – skapa VPN-Gateway för TestVNet1 med BGP-parametrar
-#### <a name="1-create-the-ip-and-subnet-configurations"></a>1. Skapa IP-adress och nätmask konfigurationer
-Begär en offentlig IP-adress som ska allokeras till den gateway som du ska skapa för det virtuella nätverket. Du måste också definiera krävs undernätet och IP-konfigurationer.
+### <a name="step-2---create-the-vpn-gateway-for-testvnet1-with-bgp-parameters"></a>Steg 2 – skapa VPN-gatewayen för TestVNet1 med BGP-parametrar
+#### <a name="1-create-the-ip-and-subnet-configurations"></a>1. Skapa IP-undernät och konfigurationer
+Begär en offentlig IP-adress som ska allokeras till den gateway som du ska skapa för det virtuella nätverket. Du kan också definiera nödvändiga undernätet och IP-konfigurationer.
 
 ```powershell
 $gwpip1 = New-AzureRmPublicIpAddress -Name $GWIPName1 -ResourceGroupName $RG1 -Location $Location1 -AllocationMethod Dynamic
@@ -112,22 +112,22 @@ $subnet1 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualN
 $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 -Subnet $subnet1 -PublicIpAddress $gwpip1
 ```
 
-#### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2. Skapa VPN-gateway med AS-nummer
-Skapa den virtuella nätverksgatewayen för TestVNet1. BGP kräver en Ruttbaserad VPN-gateway och parametern tillägg, Asn - ange ASN (AS Number) för TestVNet1. Om du inte anger parametern ASN tilldelas ASN 65515. Att skapa en gateway kan ta ett tag (30 minuter eller mer att slutföra).
+#### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2. Skapa en VPN-gateway med AS-nummer
+Skapa den virtuella nätverksgatewayen för TestVNet1. BGP kräver en Ruttbaserad VPN-gateway och parametern tillägg - Asn, för att ange ASN (AS Number) för TestVNet1. Om du inte anger parametern ASN tilldelas ASN 65515. Att skapa en gateway kan ta ett tag (30 minuter eller mer att slutföra).
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance -Asn $VNet1ASN
 ```
 
-#### <a name="3-obtain-the-azure-bgp-peer-ip-address"></a>3. Hämta Azure BGP-Peer-IP-adress
-När gatewayen är skapad, måste du skaffa BGP-Peer-IP-adressen på Azure VPN-Gateway. Den här adressen behövs för att konfigurera Azure VPN-Gateway som en BGP-Peer för dina lokala VPN-enheter.
+#### <a name="3-obtain-the-azure-bgp-peer-ip-address"></a>3. Skaffa Azure BGP-Peer-IP-adress
+När gatewayen har skapats kan behöva du hämta den BGP-Peer-IP-adressen på Azure VPN Gateway. Den här adressen behövs för att konfigurera Azure VPN-gatewayen som en BGP-Peer för dina lokala VPN-enheter.
 
 ```powershell
 $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
 $vnet1gw.BgpSettingsText
 ```
 
-Det sista kommandot visas motsvarande BGP konfigurationer på Azure VPN-Gateway. Exempel:
+Det sista kommandot visar motsvarande BGP konfigurationer på Azure VPN Gateway. till exempel:
 
 ```powershell
 $vnet1gw.BgpSettingsText
@@ -138,21 +138,21 @@ $vnet1gw.BgpSettingsText
 }
 ```
 
-Du kan använda denna gateway för att upprätta anslutningar mellan lokala eller VNet-till-VNet-anslutning med BGP när gatewayen har skapats. I följande avsnitt gå igenom stegen för att slutföra den här övningen.
+När gatewayen har skapats kan använda du denna gateway för att upprätta flera platser eller VNet-till-VNet-anslutning med BGP. I följande avsnitt beskriver stegen för att slutföra den här övningen.
 
 ## <a name ="crossprembbgp"></a>Del 2 – upprätta en anslutning mellan lokala BGP
 
-För att upprätta en anslutning mellan platser, måste du skapa en lokal nätverksgateway som representerar din lokala VPN-enhet och en anslutning till ansluta VPN-gateway med den lokala nätverksgatewayen. Det finns artiklar som vägleder dig genom stegen, innehåller den här artikeln ytterligare egenskaper som krävs för att ange parametrar för BGP-konfiguration.
+För att upprätta en anslutning mellan olika platser, måste du skapa en lokal nätverksgateway som representerar din lokala VPN-enhet och en anslutning till ansluta VPN-gateway med den lokala nätverksgatewayen. Det finns artiklar som vägleder dig genom stegen, innehåller den här artikeln ytterligare egenskaper som krävs för att ange parametrar för BGP-konfiguration.
 
-![BGP för mellan platser](./media/vpn-gateway-bgp-resource-manager-ps/bgp-crossprem.png)
+![BGP för flera platser](./media/vpn-gateway-bgp-resource-manager-ps/bgp-crossprem.png)
 
-Innan du fortsätter bör du kontrollera att du har slutfört [del 1](#enablebgp) för den här övningen.
+Innan du fortsätter, kontrollera att du har slutfört [del 1](#enablebgp) av den här övningen.
 
 ### <a name="step-1---create-and-configure-the-local-network-gateway"></a>Steg 1 – Skapa och konfigurera den lokala nätverksgatewayen
 
 #### <a name="1-declare-your-variables"></a>1. Deklarera dina variabler
 
-Den här övningen fortsätter att skapa den konfiguration som visas i diagrammet. Ersätt värdena med de som du vill använda för din konfiguration.
+Den här övningen fortsätter att bygga den konfiguration som visas i diagrammet. Ersätt värdena med de som du vill använda för din konfiguration.
 
 ```powershell
 $RG5 = "TestBGPRG5"
@@ -164,17 +164,17 @@ $LNGASN5 = 65050
 $BGPPeerIP5 = "10.52.255.254"
 ```
 
-Några saker att Observera för de lokala nätverket gateway-parametrarna:
+Några saker att tänka på angående lokala gateway-parametrar:
 
-* Den lokala nätverksgatewayen kan vara i samma eller en annan plats och resursgruppen som VPN-gateway. Det här exemplet visar dem i olika resursgrupper på olika platser.
-* Minsta prefixet måste du deklarera för den lokala nätverksgatewayen är värdadressen för BGP-Peer-IP-adress på VPN-enhet. I det här fallet är det en /32 prefixet ”10.52.255.254/32”.
-* Du måste använda olika BGP, ASN: er, mellan ditt lokala nätverk och Azure VNet som en påminnelse. Om de är samma som du behöver ändra ditt VNet ASN om din lokala VPN-enhet använder redan ASN till peer-datorn med andra BGP-grannar.
+* Den lokala nätverksgatewayen kan vara i samma eller en annan plats och resursgrupp som VPN-gateway. Det här exemplet visar dem i olika resursgrupper på olika platser.
+* Den minsta möjliga prefix deklarera för den lokala nätverksgatewayen är värdadressen för din BGP-Peer-IP-adress på VPN-enheten. I det här fallet är det en /32 prefixet för ”10.52.255.254/32”.
+* Du måste använda olika BGP ASN-nummer mellan ditt lokala nätverk och virtuella Azure-nätverket som en påminnelse. Om de är likadana, måste du ändra din VNet ASN om den lokala VPN-enheten redan använder ASN att peer-kopplas med andra BGP-grannar.
 
 Innan du fortsätter kontrollerar du att du fortfarande är ansluten till Prenumeration 1.
 
-#### <a name="2-create-the-local-network-gateway-for-site5"></a>2. Skapa lokal nätverksgateway för Site5
+#### <a name="2-create-the-local-network-gateway-for-site5"></a>2. Skapa den lokala nätverksgatewayen för Site5
 
-Se till att skapa resursgruppen om det inte har skapats innan du skapar den lokala nätverksgatewayen. Lägg märke till de två andra parametrarna för den lokala nätverksgatewayen: Asn och BgpPeerAddress.
+Glöm inte att skapa resursgruppen om det inte har skapats innan du skapar den lokala nätverksgatewayen. Lägg märke till två ytterligare parametrar för den lokala nätverksgatewayen: Asn och BgpPeerAddress.
 
 ```powershell
 New-AzureRmResourceGroup -Name $RG5 -Location $Location5
@@ -182,18 +182,18 @@ New-AzureRmResourceGroup -Name $RG5 -Location $Location5
 New-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG5 -Location $Location5 -GatewayIpAddress $LNGIP5 -AddressPrefix $LNGPrefix50 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP5
 ```
 
-### <a name="step-2---connect-the-vnet-gateway-and-local-network-gateway"></a>Steg 2 – ansluta VNet gateway och lokal nätverksgateway
+### <a name="step-2---connect-the-vnet-gateway-and-local-network-gateway"></a>Steg 2 – ansluta VNet-gateway och lokal nätverksgateway
 
-#### <a name="1-get-the-two-gateways"></a>1. Hämta två gateways
+#### <a name="1-get-the-two-gateways"></a>1. Få två gateways
 
 ```powershell
 $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
 $lng5gw  = Get-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG5
 ```
 
-#### <a name="2-create-the-testvnet1-to-site5-connection"></a>2. Skapa TestVNet1 till Site5 anslutning
+#### <a name="2-create-the-testvnet1-to-site5-connection"></a>2. Skapa TestVNet1-till Site5 anslutning
 
-I det här steget skapar du anslutningen från TestVNet1 till Site5. Du måste ange ”-Enablegpg $True” att aktivera BGP för den här anslutningen. Som tidigare diskuterats, är det möjligt att ha både BGP och icke-BGP-anslutningar för samma Azure VPN-Gateway. Om BGP är aktiverat i Anslutningsegenskapen ska Azure inte aktivera BGP för den här anslutningen även om BGP parametrar har redan konfigurerats på båda gateways.
+I det här steget skapar du anslutningen från TestVNet1 till Site5. Du måste ange ”-EnableBGP $True” att aktivera BGP för den här anslutningen. Som tidigare diskuterats, är det möjligt att ha både BGP och icke-BGP-anslutningar för samma Azure VPN-Gateway. Om BGP är aktiverat i Anslutningsegenskapen kommer Azure inte aktivera BGP för den här anslutningen även om BGP parametrar redan är inställda på båda gatewayerna.
 
 ```powershell
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
@@ -212,21 +212,21 @@ I följande exempel visas de parametrar som du anger i konfigurationsavsnittet B
 - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
 ```
 
-BGP-peeringsessionen startas en gång IPsec anslutningen upprättas anslutningen upprättas efter några minuter.
+Anslutningen upprättas efter några minuter och BGP-peeringsessionen startar när anslutningen har upprättats för IPsec.
 
-## <a name ="v2vbgp"></a>Del 3: upprätta en anslutning för VNet-till-VNet med BGP
+## <a name ="v2vbgp"></a>Del 3 – upprätta en VNet-till-VNet-anslutning med BGP
 
-Det här avsnittet lägger till en VNet-till-VNet-anslutning med BGP, som visas i följande diagram:
+Det här avsnittet lägger till en VNet-till-VNet-anslutning med BGP, enligt följande diagram:
 
 ![BGP för VNet-till-VNet](./media/vpn-gateway-bgp-resource-manager-ps/bgp-vnet2vnet.png)
 
-Följande instruktioner fortsätta från föregående steg. Du måste slutföra [del I](#enablebgp) att skapa och konfigurera TestVNet1 och VPN-Gateway med BGP. 
+Följande anvisningarna fortsätter från föregående steg. Du måste slutföra [del I](#enablebgp) att skapa och konfigurera TestVNet1 och VPN-Gateway med BGP. 
 
 ### <a name="step-1---create-testvnet2-and-the-vpn-gateway"></a>Steg 1 – Skapa TestVNet2 och VPN-gateway
 
-Det är viktigt att se till att IP-adressutrymmet för det nya virtuella nätverket TestVNet2, inte överlappar med någon av VNet-intervall.
+Det är viktigt att se till att IP-adressutrymmet för det nya virtuella nätverket TestVNet2, inte överlappar med något av dina VNet-intervall.
 
-I det här exemplet tillhör de virtuella nätverken samma prenumeration. Du kan konfigurera VNet-till-VNet-anslutningar mellan olika prenumerationer. Mer information finns i [konfigurera VNet-till-VNet-anslutningen](vpn-gateway-vnet-vnet-rm-ps.md). Kontrollera att du lägger till den ”-Enablegpg $True” när du skapar anslutningar för att aktivera BGP.
+I det här exemplet är tillhöra de virtuella nätverken samma prenumeration. Du kan konfigurera en VNet-till-VNet-anslutningar mellan olika prenumerationer. Mer information finns i [konfigurera en VNet-till-VNet-anslutning](vpn-gateway-vnet-vnet-rm-ps.md). Kontrollera att du lägger till den ”-EnableBgp $True” när du skapar anslutningar för att aktivera BGP.
 
 #### <a name="1-declare-your-variables"></a>1. Deklarera dina variabler
 
@@ -265,9 +265,9 @@ $gwsub2 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName2 -AddressPrefix
 New-AzureRmVirtualNetwork -Name $VNetName2 -ResourceGroupName $RG2 -Location $Location2 -AddressPrefix $VNetPrefix21,$VNetPrefix22 -Subnet $fesub2,$besub2,$gwsub2
 ```
 
-#### <a name="3-create-the-vpn-gateway-for-testvnet2-with-bgp-parameters"></a>3. Skapa VPN-gateway för TestVNet2 med BGP-parametrar
+#### <a name="3-create-the-vpn-gateway-for-testvnet2-with-bgp-parameters"></a>3. Skapa en VPN-gateway för TestVNet2 med BGP-parametrar
 
-Begär offentlig IP-adress som ska allokeras till den gateway som du skapar för din VNet och definiera krävs undernätet och IP-konfigurationer.
+Begär en offentlig IP-adress som ska allokeras till den gateway som du skapar för ditt virtuella nätverk och definiera nödvändiga undernätet och IP-konfigurationer.
 
 ```powershell
 $gwpip2    = New-AzureRmPublicIpAddress -Name $GWIPName2 -ResourceGroupName $RG2 -Location $Location2 -AllocationMethod Dynamic
@@ -277,7 +277,7 @@ $subnet2   = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -Virtua
 $gwipconf2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName2 -Subnet $subnet2 -PublicIpAddress $gwpip2
 ```
 
-Skapa VPN-gateway med AS-nummer. Du måste åsidosätta standardvärdet ASN på Azure VPN-gatewayer. ASN: er för det anslutna Vnet måste vara olika för att aktivera BGP och transitroutning.
+Skapa en VPN-gateway med AS-nummer. Du måste åsidosätta standard-ASN på Azure VPN-gatewayer. ASN: er för anslutna virtuella nätverk måste vara olika för att aktivera BGP och transit routning.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gwipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard -Asn $VNet2ASN
@@ -285,9 +285,9 @@ New-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Locatio
 
 ### <a name="step-2---connect-the-testvnet1-and-testvnet2-gateways"></a>Steg 2 – ansluta TestVNet1 och TestVNet2 gateway
 
-I det här exemplet är både gateways i samma prenumeration. Du kan slutföra det här steget i samma PowerShell-sessionen.
+I det här exemplet finns båda gatewayerna i samma prenumeration. Du kan slutföra det här steget i samma PowerShell-session.
 
-#### <a name="1-get-both-gateways"></a>1. Hämta båda gateways
+#### <a name="1-get-both-gateways"></a>1. Hämta båda gatewayerna
 
 Kontrollera att du har loggat in och anslutit till Prenumeration 1.
 
@@ -296,9 +296,9 @@ $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $R
 $vnet2gw = Get-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
 ```
 
-#### <a name="2-create-both-connections"></a>2. Skapa både anslutningar
+#### <a name="2-create-both-connections"></a>2. Skapa båda anslutningarna
 
-I det här steget skapar du anslutningen från TestVNet1 till TestVNet2 och anslutningen från TestVNet2 till TestVNet1.
+I det här steget kan du skapa anslutningen från TestVNet1 till TestVNet2 och anslutningen från TestVNet2 till TestVNet1.
 
 ```powershell
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection12 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet2gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3' -EnableBgp $True
@@ -307,11 +307,11 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupNam
 ```
 
 > [!IMPORTANT]
-> Glöm inte att aktivera BGP för både anslutningar.
+> Glöm inte att aktivera BGP för båda anslutningarna.
 > 
 > 
 
-När du har slutfört de här stegen, upprättas anslutningen efter några minuter. BGP-peeringsessionen är upp när VNet-till-VNet-anslutningen har slutförts.
+När du har slutfört de här stegen, upprätta en anslutning efter ett par minuter. BGP-peeringsessionen är igång när VNet-till-VNet-anslutningen är klar.
 
 Om du har slutfört alla tre delar av den här övningen har du skapat följande nätverkets topologi:
 

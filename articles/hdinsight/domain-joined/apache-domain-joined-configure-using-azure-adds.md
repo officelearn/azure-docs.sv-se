@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/9/2018
-ms.openlocfilehash: f0727d7ad415c718c01361cba8e8822a43298f66
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 8b92191b60f8eb7e3c63f465926b434e205ef1b4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300735"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684757"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Konfigurera ett HDInsight-kluster med Enterprise Security Package med hjälp av Azure Active Directory Domain Services
 
@@ -22,7 +22,7 @@ Enterprise Security Package (ESP)-kluster tillhandahåller flera användare åtk
 I den här artikeln får du lära dig hur du konfigurerar ett HDInsight-kluster med ESP med hjälp av Azure Active Directory Domain Services (Azure AD DS-).
 
 >[!NOTE]
->ESP är allmänt tillgänglig i HDI 3.6 för Spark, interaktiv och Hadoop. ESP för HBase- och Kafka-kluster finns i förhandsversion.
+>ESP är allmänt tillgänglig i HDI 3.6 för Spark, interaktiv och Apache Hadoop. ESP för HBase- och Kafka-kluster finns i förhandsversion.
 
 ## <a name="enable-azure-ad-ds"></a>Aktivera Azure AD DS
 
@@ -66,7 +66,7 @@ När den hanterade identitet skapas och rätt rollen, kan AAD-DS-administratöre
 ## <a name="networking-considerations"></a>Nätverksöverväganden
 
 > [!NOTE]
-> Azure AD DS måste distribueras i ett Azure Resource Manager (ARM) baserat virtuellt nätverk. Klassiska virtuella nätverk stöds inte för Azure AD DS. Se [aktivera Azure Active Directory Domain Services med Azure portal](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started-network) för mer information.
+> Azure AD DS måste distribueras i ett Azure Resource Manager (ARM) baserat virtuellt nätverk. Klassiska virtuella nätverk stöds inte för Azure AD DS. Se [aktivera Azure Active Directory Domain Services med Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-network) för mer information.
 
 När du har aktiverat Azure AD-DS körs en lokal tjänst DNS (Domain Name)-server på AD-datorer (VM). Konfigurera din Azure AD DS virtuella nätverk (VNET) om du vill använda dessa anpassade DNS-servrar. För att hitta rätt IP-adresser, Välj **egenskaper** under den **hantera** kategori och titta på IP-adresser i listan under **IP-adress i virtuellt nätverk**.
 

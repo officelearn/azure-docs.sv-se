@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 820fd904ac4ab983f4bd9858f3cf1ecff147876e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 2a4519484c3319ca73bef2862db4d279ba117c4f
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386628"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636738"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Ställ in logga in med ett Azure Active Directory-konto med hjälp av anpassade principer i Azure Active Directory B2C 
 
@@ -31,20 +31,19 @@ Utför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C
 
 Aktivera inloggning för användare från en viss Azure AD-organisation kan du behöva registrera ett program i organisationen Azure AD-klient.
 
->[!NOTE]
->`Contoso.com` används för i organisationens Azure AD-klient och `fabrikamb2c.onmicrosoft.com` används som Azure AD B2C-klient i följande anvisningar.
-
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Kontrollera att du använder den katalog som innehåller organisationens Azure AD-klient (contoso.com) genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
 3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **appregistreringar**.
 4. Välj **Ny programregistrering**.
 5. Ange ett namn för ditt program. Till exempel `Azure AD B2C App`.
 6. För den **programtyp**väljer `Web app / API`.
-7. För den **inloggnings-URL**, ange följande URL i alla gemener, där `your-tenant` ersätts med namnet på din Azure AD B2C-klient (fabrikamb2c.onmicrosoft.com):
+7. För den **inloggnings-URL**, ange följande URL i alla gemener, där `your-B2C-tenant-name` ersätts med namnet på din Azure AD B2C-klient:
 
     ```
-    https://yourtenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp
+    https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
+
+    Till exempel `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
 
 8. Klicka på **Skapa**. Kopiera den **program-ID** som ska användas senare.
 9. Välj programmet och välj sedan **inställningar**.
@@ -85,7 +84,7 @@ Du kan definiera Azure AD som en anspråksprovider genom att lägga till Azure A
           <Protocol Name="OpenIdConnect"/>
           <OutputTokenFormat>JWT</OutputTokenFormat>
           <Metadata>
-            <Item Key="METADATA">https://login.windows.net/your-tenant/.well-known/openid-configuration</Item>
+            <Item Key="METADATA">https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration</Item>
             <Item Key="ProviderName">https://sts.windows.net/00000000-0000-0000-0000-000000000000/</Item>
             <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
             <Item Key="IdTokenAudience">00000000-0000-0000-0000-000000000000</Item>
@@ -119,7 +118,7 @@ Du kan definiera Azure AD som en anspråksprovider genom att lägga till Azure A
     </ClaimsProvider>
     ```
 
-4. Under den **ClaimsProvider** element, uppdatera värdet för **domän** till ett unikt värde som kan användas för att skilja den från andra identitetsleverantörer.
+4. Under den **ClaimsProvider** element, uppdatera värdet för **domän** till ett unikt värde som kan användas för att skilja den från andra identitetsleverantörer. Till exempel `Contoso`. Du kan inte lägga en `.com` i slutet av den här domäninställningen.
 5. Under den **ClaimsProvider** element, uppdatera värdet för **DisplayName** till ett eget namn för anspråksprovidern. Det här värdet används inte för närvarande.
 
 ### <a name="update-the-technical-profile"></a>Uppdatera den tekniska profilen
@@ -130,7 +129,7 @@ Om du vill hämta en token från Azure AD-slutpunkten som du behöver definiera 
 2. Uppdatera värdet för **DisplayName**. Det här värdet visas på knappen Logga in på skärmen inloggning.
 3. Uppdatera värdet för **beskrivning**.
 4. Azure AD använder OpenID Connect-protokollet, så se till att värdet för **protokollet** är `OpenIdConnect`.
-5. Anger värdet för den **METADATA** till `https://login.windows.net/your-tenant/.well-known/openid-configuration`, där `your-tenant` är ditt Azure AD-klientnamn (contoso.com).
+5. Anger värdet för den **METADATA** till `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`, där `your-AD-tenant-name` är namnet på din Azure AD-klientorganisation. Till exempel, `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
 6. Öppna webbläsaren och gå till den **METADATA** URL som du uppdaterade, leta upp den **utfärdare** objekt, kopiera och klistra in värdet i värdet för **ProviderName** i XML-filen.
 8. Ange **client_id** och **IdTokenAudience** program-ID: t från programregistrering.
 9. Under **CryptograhicKeys**, uppdatera värdet för **StorageReferenceId** till principnyckeln som du har definierat. Till exempel `ContosoAppSecret`.
@@ -158,7 +157,7 @@ Nu identitetsprovidern har ställts in, men det finns inte i någon av skärmarn
 Den **ClaimsProviderSelection** element är detsamma som en identitet provider-knappen på en registrerings-registreringen /-inloggningsskärmen. Om du lägger till en **ClaimsProviderSelection** element för Azure AD, en ny knapp visas när en användare finns på sidan.
 
 1. Hitta den **OrchestrationStep** element som innehåller `Order="1"` i användarresan som du skapade.
-2. Under **ClaimsProviderSelects**, lägger du till följande element. Ange värdet för **TargetClaimsExchangeId** till ett lämpligt värde, till exempel `ContosoExchange`:
+2. Under **ClaimsProviderSelections**, lägger du till följande element. Ange värdet för **TargetClaimsExchangeId** till ett lämpligt värde, till exempel `ContosoExchange`:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />

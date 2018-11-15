@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 9533992b939983ceda37a7c98d0bc2426168a0ac
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: b31be534641f2777bcbfaaa33497d96b457db191
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279370"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684094"
 ---
 # <a name="configure-spark-settings"></a>Konfigurera Spark-inställningar
 
@@ -30,7 +30,7 @@ Hur många virtuella datorer och VM-storlekar för noderna i ditt HDInsight-klus
 
 Använd den bästa Spark-versionen för klustret.  Tjänsten HDInsight innehåller flera versioner av Spark- och HDInsight själva.  Varje version av Spark innehåller en uppsättning standardinställningar för klustret.  
 
-När du skapar ett nytt kluster, finns det flera Spark-versioner kan välja bland. Att se en fullständig lista [HDInsight-komponenter och versioner](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning)
+När du skapar ett nytt kluster, finns det flera Spark-versioner kan välja bland. Att se en fullständig lista [HDInsight-komponenter och versioner](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning)
 
 
 > [!NOTE]

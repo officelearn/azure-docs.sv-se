@@ -1,5 +1,5 @@
 ---
-title: En introduktion till Hadoop-säkerhet med Enterprise Security Package
+title: En introduktion till Apache Hadoop-säkerhet med Enterprise Security Package
 description: Lär dig hur Enterprise Security Package stöder fyra grundläggande faktorer för företagssäkerhet.
 services: hdinsight
 ms.service: hdinsight
@@ -9,20 +9,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: a1b4565d4875b60ce36d74f8c99e4c7d79999c36
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 270227204af9cf50f0244b8aa11ebf9aa8cdc3ce
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578271"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632007"
 ---
-# <a name="an-introduction-to-hadoop-security-with-enterprise-security-package"></a>En introduktion till Hadoop-säkerhet med Enterprise Security Package
+# <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>En introduktion till Apache Hadoop-säkerhet med Enterprise Security Package
 
-Tidigare Azure HDInsight stöds endast en enskild användare: lokal administratör. Det har fungerat bra för mindre programteam eller avdelningar. Eftersom Hadoop-baserade arbetsbelastningar fått populärare inom företagssektorn behovet för stöd för funktioner i företagsklass som flera användare i Active Directory-baserad autentisering och rollbaserad åtkomstkontroll blev allt viktigare. 
+Tidigare Azure HDInsight stöds endast en enskild användare: lokal administratör. Det har fungerat bra för mindre programteam eller avdelningar. Som Apache Hadoop-baserade arbetsbelastningar fått populärare inom företagssektorn behovet för stöd för funktioner i företagsklass som flera användare i Active Directory-baserad autentisering och rollbaserad åtkomstkontroll blev allt viktigare. 
 
 Du kan skapa ett HDInsight-kluster med Enterprise Security Package (ESP) och som är ansluten till en Active Directory-domän. Du kan sedan konfigurera en lista över anställda från företaget som kan autentisera via Azure Active Directory för att logga in på HDInsight-klustret. Ingen från utanför företaget kan logga in eller få åtkomst till HDInsight-klustret. 
 
-Enterprise-administratör kan konfigurera rollbaserad åtkomstkontroll (RBAC) för Hive-säkerhet med hjälp av [Apache Ranger](http://hortonworks.com/apache/ranger/). Konfigurera RBAC begränsar dataåtkomsten till bara vad som behövs. Slutligen kan administratören granska dataåtkomst för anställda och eventuella ändringar som görs till principer för åtkomstkontroll. Administratören kan sedan få en hög styrningsgrad över företagets resurser.
+Enterprise-administratör kan konfigurera rollbaserad åtkomstkontroll (RBAC) för Apache Hive säkerhet med hjälp av [Apache Ranger](http://hortonworks.com/apache/ranger/). Konfigurera RBAC begränsar dataåtkomsten till bara vad som behövs. Slutligen kan administratören granska dataåtkomst för anställda och eventuella ändringar som görs till principer för åtkomstkontroll. Administratören kan sedan få en hög styrningsgrad över företagets resurser.
 
 > [!NOTE]
 > Oozie har nu aktiverats på ESP-kluster. För att komma åt webbgränssnittet för Oozie användare bör aktivera [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).

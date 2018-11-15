@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a216f3ddd89ad92dbbae617c51d5fc9c478c0c03
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 205fd258ed397f5a9588773549368fc3c4aec058
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431442"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684825"
 ---
 # <a name="iot-edge-module-skus-tab"></a>Fliken för IoT Edge modul SKU: er
 
@@ -90,7 +90,7 @@ I följande tabell beskrivs syftet, innehåll och formatering för fält under *
 
 ## <a name="sku-content"></a>SKU-innehåll
 
-Ange den information som vi behöver ladda upp din IoT Edge-modul under Edge-modulen avbildningar.
+Under **Edge-modulen avbildningar**, innehåller den information vi behöver att ladda upp din IoT Edge-modul.
 
 Ge oss åtkomst till din [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) (ACR) som innehåller din IoT-Edge modulen bild så att vi kan ladda upp den och certifiera den. När den har publicerats IoT Edge-modul ska kopieras och distribueras via en offentlig container registry med Azure Marketplace.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: d4b7d8ec5cb162e5fc844f107fbd5eb08fb00639
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: bf5bc66ce55b0b9d6095cd395a11f68b40af1639
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353550"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685726"
 ---
 # <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -28,7 +28,7 @@ Den här artikeln tar upp vanliga frågor och svar har aktiverats av användargr
 
 F: hur du för att strömma till Apple iOS-enheter
 
-S: Lägg till ”(format = m3u8-aapl)” sökväg till ”/ Manifest”-delen i Webbadressen ska berätta för strömmande ursprungsservern att returnera tillbaka HLS-innehåll för användning på Apple iOS ursprungliga enheter (Mer information finns i (leverera innehåll) [ Media-tjänster – leverera-innehåll – overview.md]),
+S: Lägg till ”(format = m3u8-aapl)” sökväg till ”/ Manifest”-delen i Webbadressen ska berätta för strömmande ursprungsservern att returnera tillbaka HLS-innehåll för användning på Apple iOS ursprungliga enheter (Mer information finns i [leverans av innehåll](media-services-deliver-content-overview.md)),
 
 F: hur du skala indexering?
 

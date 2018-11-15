@@ -95,12 +95,11 @@
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/dls)
 
 # Resurser
-## [Azure-översikt](https://azure.microsoft.com/roadmap/)
+## [Azure-översikt](https://azure.microsoft.com/updates/?product=data-lake-store)
 ## [Data Lake Store-blogg](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [Ge feedback på UserVoice](https://feedback.azure.com/forums/327234-data-lake)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/data-lake-store/)
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
-## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=data-lake-store)
 ## [Stack Overflow-forum](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)

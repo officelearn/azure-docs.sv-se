@@ -1,6 +1,6 @@
 ---
-title: MapReduce med Hadoop i HDInsight
-description: Lär dig hur du kör MapReduce-jobb på Hadoop i HDInsight-kluster.
+title: MapReduce med Apache Hadoop i HDInsight
+description: Lär dig hur du kör MapReduce-jobb på Apache Hadoop i HDInsight-kluster.
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: f9dea4c965f64576f839a39b813e4361b166ffe6
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c9a4a0944c51cb8c6f6d91cd153580a17a9b7898
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015170"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632670"
 ---
-# <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>Använda MapReduce i Hadoop på HDInsight
+# <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>Använda MapReduce i Apache Hadoop på HDInsight
 
 Lär dig hur du kör MapReduce-jobb på HDInsight-kluster. Använd följande tabell för att identifiera de olika sätt att du kan använda MapReduce med HDInsight:
 
@@ -32,7 +32,7 @@ Lär dig hur du kör MapReduce-jobb på HDInsight-kluster. Använd följande tab
 
 ## <a id="whatis"></a>Vad är MapReduce
 
-Hadoop MapReduce är ett ramverk för programvara för att skriva jobb som bearbetar stora mängder data. Indata är indelat i oberoende segment. Varje segment bearbetas parallellt över noder i klustret. Ett MapReduce-jobb består av två funktioner:
+Apache Hadoop MapReduce är ett ramverk för programvara för att skriva jobb som bearbetar stora mängder data. Indata är indelat i oberoende segment. Varje segment bearbetas parallellt över noder i klustret. Ett MapReduce-jobb består av två funktioner:
 
 * **Mapper**: förbrukar indata, analyserar dessa (vanligtvis med filter och sortering operations) och genererar tupplar (nyckel / värde-par)
 

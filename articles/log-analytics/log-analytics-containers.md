@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 6bde2fb0fc9534d170be1d755856f6f779e47d7c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 575b3ec5e729b325cad216ae463063acbb68f20b
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625869"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685947"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Lösning för övervakning av behållare i Log Analytics
 
@@ -108,7 +108,7 @@ Använd följande information för att installera och konfigurera lösningen.
     - Om du har en Red Hat OpenShift-miljö kan du granska [konfigurera en Log Analytics-agenten för Red Hat OpenShift](#configure-an-oms-agent-for-red-hat-openshift).
     - Om du har ett Kubernetes-kluster med hjälp av Azure Container Service:
        - Granska [konfiguration en Log Analytics Linux-agenten för Kubernetes](#configure-an-oms-linux-agent-for-kubernetes).
-       - Granska [konfigurera en logg Analytis Windows-agent för Kubernetes](#configure-an-oms-windows-agent-for-kubernetes).
+       - Granska [konfigurera en Log Analytics-Windows-agent för Kubernetes](#configure-an-oms-windows-agent-for-kubernetes).
        - Granska [Använd Helm för att distribuera Log Analytics-agenten på Linux Kubernetes](#use-helm-to-deploy-oms-agent-on-linux-kubernetes).
     - Om du har ett Azure Container Service DC/OS-kluster kan du läsa mer på [övervaka ett Azure Container Service DC/OS-kluster med Log Analytics](../container-service/dcos-swarm/container-service-monitoring-oms.md).
     - Om du har en miljö på Docker Swarm-läge, Läs mer på [konfigurera Log Analytics-agenten för Docker Swarm](#configure-an-oms-agent-for-docker-swarm).

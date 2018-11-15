@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0dc7daebe91199cc6c54ac5e3a2d8f43e1592a73
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: b5ba00376e40b92a217bddd5b27c53dbe30c3cf3
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282432"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687511"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ ms.locfileid: "51282432"
 * Olika stavfel korrigeringar
 
 ### <a name="2.0.4"/>2.0.4</a>
-* Korrigeringar skriver defenition problemet som introducerades i 2.0.3
+* Korrigeringar skriver definition problemet som introducerades i 2.0.3
 
 ### <a name="2.0.3"/>2.0.3</a>
 * Ta bort `big-integer` beroende
@@ -153,7 +153,7 @@ ms.locfileid: "51282432"
 * Bugg har åtgärdats RangePartitionResolver.resolveForRead där det inte returnerade länkar på grund av en felaktig concat resultat.
 
 ### <a name="1.5.5"/>1.5.5</a>
-* Fast hashParitionResolver resolveForRead(): när inga partitionsnyckel som angetts utlöser undantag, istället för att returnera en lista över alla registrerade länkar.
+* Fast hashPartitionResolver resolveForRead(): när inga partitionsnyckel som angetts utlöser undantag, istället för att returnera en lista över alla registrerade länkar.
 
 ### <a name="1.5.4"/>1.5.4</a>
 * Åtgärdar problemet [#100](https://github.com/Azure/azure-documentdb-node/issues/100) -dedikerade HTTPS-agenten: undvika att ändra globala agenten för Azure Cosmos DB. Använda en dedikerad agent för alla de lib-begäranden.

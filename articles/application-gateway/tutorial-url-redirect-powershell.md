@@ -7,15 +7,15 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/13/2018
+ms.date: 11/13/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 11cd052ca07e074ce8303891f7a372890fdf7291
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 785f3e5f55520b3851e8989b79c340bce55c2135
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580607"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566916"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Skapa en programgateway med webbadressbaserad omdirigering med Azure PowerShell
 
@@ -32,6 +32,8 @@ I den här guiden får du lära dig att:
 I följande exempel visas hur trafiken kommer från portarna 8080 och 8081 och dirigeras till samma serverdelspooler:
 
 ![URL-routningsexempel](./media/tutorial-url-redirect-powershell/scenario.png)
+
+Om du vill kan du slutföra den här självstudiekursen med [Azure CLI](tutorial-url-redirect-cli.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -516,14 +518,6 @@ När du inte behöver dem längre tar du bort resursgruppen, programgatewayen oc
 Remove-AzureRmResourceGroup -Name myResourceGroupAG
 ```
 ## <a name="next-steps"></a>Nästa steg
-
-I den här självstudiekursen lärde du dig att:
-
-> [!div class="checklist"]
-> * Konfigurera nätverket
-> * Skapa en programgateway
-> * Lägga till lyssnare och routningsregler
-> * Skapa VM-skalningsuppsättningar för serverdelspooler
 
 > [!div class="nextstepaction"]
 > [Läs mer om vad du kan göra med en programgateway](application-gateway-introduction.md)

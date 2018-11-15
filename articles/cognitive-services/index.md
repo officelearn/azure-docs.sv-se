@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 10/23/2018
 ms.topic: hub-page
-ms.openlocfilehash: 10f0062f27c03d8776415272766a1ec0729e1f80
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 5f5e4ae85f18870ab6ed22ca010977efc28be058
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747294"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633894"
 ---
 <h1>Dokumentation om Azure Cognitive Services</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Lär dig hur du skapar intelligenta algoritmer med dina appar, webbplatser och robotar så att de kan se, höra, tala och förstå användarnas behov genom naturlig kommunikation. Självstudier, snabbstarter, API-referenser och exempel med anvisningar.</p>
@@ -71,6 +71,25 @@ ms.locfileid: "50747294"
                             <div class="cardText">
                                 <h3>Språkstöd i Cognitive Services</h3>
                                 <p>Läs mer om de mänskliga språk som stöds av Cognitive Services API:er.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="/azure/cognitive-services/cognitive-services-container-support/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/i_guidelines.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Använda Cognitive Services i Containers</h3>
+                                <p>Lär dig hur du använder Azure Cognitive Services i Containers.</p>
                             </div>
                         </div>
                     </div>

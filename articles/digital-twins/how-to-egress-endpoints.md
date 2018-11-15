@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: e140ca46a18fcab2194adb213d723ab67d40b0a8
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: c94d29f16c011a9ff9951d064d7496d3a87f70ef
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615168"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636313"
 ---
 # <a name="egress-and-endpoints"></a>Utgående och slutpunkter
 
@@ -76,13 +76,13 @@ Händelseformatet för var och en av händelsetyperna som beskrivs i följande a
   "eventTime": "2018-04-17T17:41:54.9400177Z",
   "dataVersion": "1",
   "metadataVersion": "1",
-  "topic": "/subscriptions/yourTopicName"
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
 }
 ```
 
-| Anpassade attributets namn | Ersätt med |
+| Värde | Ersätt med |
 | --- | --- |
-| yourTopicName | Namnet på ditt anpassade ämne |
+| YOUR_TOPIC_NAME | Namnet på ditt anpassade ämne |
 
 ### <a name="udfcustom"></a>UdfCustom
 
@@ -107,13 +107,13 @@ Händelseformatet för var och en av händelsetyperna som beskrivs i följande a
   "eventTime": "2018-10-02T06:50:15.198Z",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "topic": "/subscriptions/yourTopicName"
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
 }
 ```
 
-| Anpassade attributets namn | Ersätt med |
+| Värde | Ersätt med |
 | --- | --- |
-| yourTopicName | Namnet på ditt anpassade ämne |
+| YOUR_TOPIC_NAME | Namnet på ditt anpassade ämne |
 
 ### <a name="sensorchange"></a>SensorChange
 
@@ -142,13 +142,13 @@ Händelseformatet för var och en av händelsetyperna som beskrivs i följande a
   "eventTime": "2018-04-17T17:46:18.5452993Z",
   "dataVersion": "1",
   "metadataVersion": "1",
-  "topic": "/subscriptions/yourTopicName"
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
 }
 ```
 
-| Anpassade attributets namn | Ersätt med |
+| Värde | Ersätt med |
 | --- | --- |
-| yourTopicName | Namnet på ditt anpassade ämne |
+| YOUR_TOPIC_NAME | Namnet på ditt anpassade ämne |
 
 ### <a name="spacechange"></a>SpaceChange
 
@@ -177,13 +177,13 @@ Händelseformatet för var och en av händelsetyperna som beskrivs i följande a
   "eventTime": "2018-10-02T06:50:20.128Z",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "topic": "/subscriptions/yourTopicName"
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
 }
 ```
 
-| Anpassade attributets namn | Ersätt med |
+| Värde | Ersätt med |
 | --- | --- |
-| yourTopicName | Namnet på ditt anpassade ämne |
+| YOUR_TOPIC_NAME | Namnet på ditt anpassade ämne |
 
 ### <a name="devicemessage"></a>DeviceMessage
 
@@ -211,18 +211,18 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
       "SpaceChange",
       "TopologyOperation"
     ],
-    "connectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourPrimaryKey",
-    "secondaryConnectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourSecondaryKey",
-    "path": "yourTopicName"
+    "connectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_PRIMARY_KEY",
+    "secondaryConnectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SECONDARY_KEY",
+    "path": "YOUR_TOPIC_NAME"
   }
   ```
 
-    | Anpassade attributets namn | Ersätt med |
+    | Värde | Ersätt med |
     | --- | --- |
-    | yourNamespace | Namnområdet för din slutpunkt |
-    | yourPrimaryKey | Primär anslutningssträng som används för att autentisera |
-    | yourSecondaryKey | Sekundär anslutningssträng som används för att autentisera |
-    | yourTopicName | Namnet på ditt anpassade ämne |
+    | YOUR_NAMESPACE | Namnområdet för din slutpunkt |
+    | YOUR_PRIMARY_KEY | Primär anslutningssträng som används för att autentisera |
+    | YOUR_SECONDARY_KEY | Sekundär anslutningssträng som används för att autentisera |
+    | YOUR_TOPIC_NAME | Namnet på ditt anpassade ämne |
 
 - Vägen till Event Grid händelsetyper **SensorChange**, **SpaceChange**, och **TopologyOperation**:
 
@@ -234,17 +234,17 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
       "SpaceChange",
       "TopologyOperation"
     ],
-    "connectionString": "yourPrimaryKey",
-    "secondaryConnectionString": "yourSecondaryKey",
-    "path": "yourTopicName.westus-1.eventgrid.azure.net"
+    "connectionString": "YOUR_PRIMARY_KEY",
+    "secondaryConnectionString": "YOUR_SECONDARY_KEY",
+    "path": "YOUR_TOPIC_NAME.westus-1.eventgrid.azure.net"
   }
   ```
 
-    | Anpassade attributets namn | Ersätt med |
+    | Värde | Ersätt med |
     | --- | --- |
-    | yourPrimaryKey | Primär anslutningssträng som används för att autentisera|
-    | yourSecondaryKey | Sekundär anslutningssträng som används för att autentisera |
-    | yourTopicName | Namnet på ditt anpassade ämne |
+    | YOUR_PRIMARY_KEY | Primär anslutningssträng som används för att autentisera|
+    | YOUR_SECONDARY_KEY | Sekundär anslutningssträng som används för att autentisera |
+    | YOUR_TOPIC_NAME | Namnet på ditt anpassade ämne |
 
 - Vägen till Event Hubs händelsetyper **SensorChange**, **SpaceChange**, och **TopologyOperation**:
 
@@ -256,18 +256,18 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
       "SpaceChange",
       "TopologyOperation"
     ],
-    "connectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourPrimaryKey",
-    "secondaryConnectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourSecondaryKey",
-    "path": "yourEventHubName"
+    "connectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_PRIMARY_KEY",
+    "secondaryConnectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SECONDARY_KEY",
+    "path": "YOUR_EVENT_HUB_NAME"
   }
   ```
 
-    | Anpassade attributets namn | Ersätt med |
+    | Värde | Ersätt med |
     | --- | --- |
-    | yourNamespace | Namnområdet för din slutpunkt |
-    | yourPrimaryKey | Primär anslutningssträng som används för att autentisera |
-    | yourSecondaryKey | Sekundär anslutningssträng som används för att autentisera |
-    | yourEventHubName | Namnet på din event hub |
+    | YOUR_NAMESPACE | Namnområdet för din slutpunkt |
+    | YOUR_PRIMARY_KEY | Primär anslutningssträng som används för att autentisera |
+    | YOUR_SECONDARY_KEY | Sekundär anslutningssträng som används för att autentisera |
+    | YOUR_EVENT_HUB_NAME | Namnet på din event hub |
 
 - Vägen till Event Hubs händelsetyp **DeviceMessage**. Inkludering av `EntityPath` i den **connectionString** är obligatorisk:
 
@@ -277,18 +277,18 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
     "eventTypes": [
       "DeviceMessage"
     ],
-    "connectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourPrimaryKey;EntityPath=yourEventHubName",
-    "secondaryConnectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourSecondaryKey;EntityPath=yourEventHubName",
-    "path": "yourEventHubName"
+    "connectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_PRIMARY_KEY;EntityPath=YOUR_EVENT_HUB_NAME",
+    "secondaryConnectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SECONDARY_KEY;EntityPath=YOUR_EVENT_HUB_NAME",
+    "path": "YOUR_EVENT_HUB_NAME"
   }
   ```
 
-    | Anpassade attributets namn | Ersätt med |
+    | Värde | Ersätt med |
     | --- | --- |
-    | yourNamespace | Namnområdet för din slutpunkt |
-    | yourPrimaryKey | Primär anslutningssträng som används för att autentisera |
-    | yourSecondaryKey | Sekundär anslutningssträng som används för att autentisera |
-    | yourEventHubName | Namnet på din event hub |
+    | YOUR_NAMESPACE | Namnområdet för din slutpunkt |
+    | YOUR_PRIMARY_KEY | Primär anslutningssträng som används för att autentisera |
+    | YOUR_SECONDARY_KEY | Sekundär anslutningssträng som används för att autentisera |
+    | YOUR_EVENT_HUB_NAME | Namnet på din event hub |
 
 > [!NOTE]  
 > Det kan ta upp till 5 till 10 minuter för att börja ta emot händelser vid slutpunkten vid skapandet av en ny slutpunkt.

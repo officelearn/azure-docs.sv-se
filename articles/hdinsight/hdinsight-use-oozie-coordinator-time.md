@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/04/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 430d5938ff8f5fcfee2239e25486459bc7a629ee
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f6b362b260c913faaad57d19c92fe6d6583093f0
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016037"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685879"
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Använda tidsbaserad Oozie-koordinator med Hadoop i HDInsight för att definiera arbetsflöden och samordna jobb
 I den här artikeln får lära du dig hur du definierar arbetsflöden och koordinatorer och hur du utlöser coordinator jobben, baserat på tiden. Är det bra att gå igenom [Använd Oozie med HDInsight] [ hdinsight-use-oozie] innan du läser den här artikeln. Förutom Oozie, kan du också schemalägga jobb med hjälp av Azure Data Factory. Läs Azure Data Factory i [Använd Pig och Hive med Data Factory](../data-factory/transform-data.md).
@@ -549,12 +549,12 @@ Azure PowerShell erbjuder inte för närvarande cmdlets för att definiera Oozie
         $response = Invoke-RestMethod -Method Get -Uri $clusterUriStatus -Credential $creds -OutVariable $OozieServerStatus
 
         $jsonResponse = ConvertFrom-Json (ConvertTo-Json -InputObject $response)
-        $oozieServerSatus = $jsonResponse[0].("systemMode")
-        Write-Host "Oozie server status is $oozieServerSatus..."
+        $oozieServerStatus = $jsonResponse[0].("systemMode")
+        Write-Host "Oozie server status is $oozieServerStatus..."
 
-        if($oozieServerSatus -notmatch "NORMAL")
+        if($oozieServerStatus -notmatch "NORMAL")
         {
-            Write-Host "Oozie server status is $oozieServerSatus...cannot submit Oozie jobs. Check the server status and re-run the job."
+            Write-Host "Oozie server status is $oozieServerStatus...cannot submit Oozie jobs. Check the server status and re-run the job."
         }
     }
     ```

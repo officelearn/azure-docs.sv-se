@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 31ae13fb84453a7014b66499c983e1f52554775e
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: d94542e0c6c19fd3a79f465b69fadb6f3f28330e
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279134"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685777"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Lägg till AD FS som en SAML-identitetsprovider med anpassade principer i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Den här artikeln visar hur du aktiverar inloggning för ett användarkonto i AD FS med hjälp av [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory (Azure AD) B2C.
+Den här artikeln visar hur du aktiverar inloggning för ett användarkonto i AD FS med hjälp av [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory (Azure AD) B2C. Du aktiverar inloggning genom att lägga till en [tekniska SAML-profilen](saml-technical-profile.md) till en anpassad princip.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

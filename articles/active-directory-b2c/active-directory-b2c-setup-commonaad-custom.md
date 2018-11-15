@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d341f7328eb4a977d266c25f6746d4173393b54e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ef0becd55df43d7ae648a4cbaa5e1a2358fc1910
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887231"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636942"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning för flera innehavare Azure Active Directory med anpassade principer i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Den här artikeln visar hur du aktiverar inloggning för användare med flera innehavare slutpunkten för Azure Active Directory (Azure AD) med hjälp av [anpassade principer](active-directory-b2c-overview-custom.md) i Azure AD B2c. Detta gör att användare från flera Azure AD-klienter att logga in på Azure AD B2C utan att konfigurera en teknisk provider för varje klient. Gästen medlemmar i någon av dessa klienter dock **inte** att kunna logga in. För att du behöver [konfigurerar varje klient](active-directory-b2c-setup-aad-custom.md).
+Den här artikeln visar hur du aktiverar inloggning för användare med flera innehavare slutpunkten för Azure Active Directory (Azure AD) med hjälp av [anpassade principer](active-directory-b2c-overview-custom.md) i Azure AD B2C. Detta gör att användare från flera Azure AD-klienter att logga in på Azure AD B2C utan att konfigurera en teknisk provider för varje klient. Gästen medlemmar i någon av dessa klienter dock **inte** att kunna logga in. För att du behöver [konfigurerar varje klient](active-directory-b2c-setup-aad-custom.md).
 
 >[!NOTE]
 >`Contoso.com` används för i organisationens Azure AD-klient och `fabrikamb2c.onmicrosoft.com` används som Azure AD B2C-klient i följande anvisningar.
@@ -185,7 +185,7 @@ Nu när du har en knapp på plats kan behöva du länka den till en åtgärd. Å
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Skapa ett Azure AD B2C-program
 
-Kommunikation med Azure AD B2c sker via ett program som du skapar i din klient. Det här avsnittet innehåller valfria steg som du kan utföra för att skapa ett testprogram om du inte redan gjort det.
+Kommunikation med Azure AD B2C sker via ett program som du skapar i din klient. Det här avsnittet innehåller valfria steg som du kan utföra för att skapa ett testprogram om du inte redan gjort det.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.

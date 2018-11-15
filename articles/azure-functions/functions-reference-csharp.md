@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 6c9172140691f7107d3907ab86938d879989a6c0
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: d1127834732a6fc82e0331370a6c4173e9f61dcf
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748246"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685420"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C#-skript (.csx) för utvecklare
 
@@ -376,34 +376,27 @@ Information om hur du överför filer till mappen funktionen finns i avsnittet p
 Katalogen som innehåller funktionen skriptfilen bevakas automatiskt för ändringar i paket. Titta på sammansättningen ändringar i andra kataloger, lägga till dem i den `watchDirectories` lista i [host.json](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>Med hjälp av NuGet-paket
+Att använda NuGet-paket i en C# fungerar, ladda upp en *extensions.csproj* filen till funktionens mapp på den funktionsapp filsystem. Här är ett exempel *extensions.csproj* -fil som läggs en referens till *Microsoft.ProjectOxford.Face* version *1.1.0*:
 
-Om du vill använda NuGet-paket i en C#-funktion, ladda upp en *project.json* filen till funktionens mapp på den funktionsapp filsystem. Här är ett exempel *project.json* -fil som läggs en referens till Microsoft.ProjectOxford.Face version 1.1.0:
-
-```json
-{
-  "frameworks": {
-    "net46":{
-      "dependencies": {
-        "Microsoft.ProjectOxford.Face": "1.1.0"
-      }
-    }
-   }
-}
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net46</TargetFramework>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Microsoft.ProjectOxford.Face" Version="1.1.0" />
+    </ItemGroup>
+</Project>
 ```
-
-I Azure Functions 1.x, endast .NET Framework 4.6 stöds, så se till att din *project.json* filen anger `net46` som visas här.
-
-När du laddar upp en *project.json* körnings-fil hämtar paketen och lägger automatiskt till referenser till sammansättningar för paketet. Du behöver inte lägga till `#r "AssemblyName"` direktiv. Att använda typer som definieras i NuGet-paket. Lägg bara till de nödvändiga `using` -uttryck för att din *run.csx* fil. 
-
-I Functions-körning NuGet återställningen fungerar genom att jämföra `project.json` och `project.lock.json`. Om datum och tid stämplar filernas **inte** matchar, en återställning av NuGet körs och NuGet nedladdningar uppdateras paket. Men om datum och tid stämplar filernas **gör** matchar, NuGet inte utför en återställning. Därför `project.lock.json` bör inte distribuerats som orsakar NuGet för att hoppa över paketåterställning. Undvik att distribuera låsfilen genom att lägga till den `project.lock.json` till den `.gitignore` filen.
 
 Ange om du vill använda en anpassad NuGet feed på flödet på en *Nuget.Config* filen i roten för Funktionsappen. Mer information finns i [konfigurera NuGet beteende](/nuget/consume-packages/configuring-nuget-behavior).
 
-### <a name="using-a-projectjson-file"></a>Med hjälp av en project.json-fil
+### <a name="using-a-extensionscsproj-file"></a>Med hjälp av en extensions.csproj-fil
 
 1. Öppna funktionen i Azure-portalen. Fliken loggar visar resultatet för paket-installationen.
-2. Om du vill överföra en project.json-fil, använder du någon av metoderna som beskrivs i den [så här uppdaterar du funktionen appfiler](functions-reference.md#fileupdate) i referensavsnittet för Azure Functions-utvecklare.
-3. Efter den *project.json* fil laddas upp kan du se utdata som liknar följande exempel i din funktion strömning loggen:
+2. Ladda upp en *extensions.csproj* fil ska du använda någon av metoderna som beskrivs i den [så här uppdaterar du funktionen appfiler](functions-reference.md#fileupdate) i referensavsnittet för Azure Functions-utvecklare.
+3. Efter den *extensions.csproj* fil laddas upp kan du se utdata som liknar följande exempel i din funktion strömning loggen:
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -413,7 +406,7 @@ Ange om du vill använda en anpassad NuGet feed på flödet på en *Nuget.Config
 2016-04-04T19:02:50.261 C:\DWASFiles\Sites\facavalfunctest\LocalAppData\NuGet\Cache
 2016-04-04T19:02:50.261 https://api.nuget.org/v3/index.json
 2016-04-04T19:02:50.261
-2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\Project.json...
+2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\extensions.csproj...
 2016-04-04T19:02:52.800 Installing Newtonsoft.Json 6.0.8.
 2016-04-04T19:02:52.800 Installing Microsoft.ProjectOxford.Face 1.1.0.
 2016-04-04T19:02:57.095 All packages are compatible with .NETFramework,Version=v4.6.

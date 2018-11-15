@@ -3,18 +3,18 @@ title: Distribuera Custom Vision till en Azure IoT Edge-enhet | Microsoft Docs
 description: Lär dig skapa en modell för visuellt innehåll som körs som en container med hjälp av Custom Vision och IoT Edge.
 services: iot-edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a3bd7cf5e7c29ee44d696c0a27566b1a73436794
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: a8f72c62393f6ba470c31a55668382ae0beb290e
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50749825"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566490"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Självstudie: Utföra bildklassificering på gränsen med Custom Vision Service
 

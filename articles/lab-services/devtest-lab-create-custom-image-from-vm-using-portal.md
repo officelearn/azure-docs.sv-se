@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: a91e14afa8325e75507b2f65cd9d71ab38df4524
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 780799103708483fb0092c7a4c15bfaa3269c073
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235249"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636490"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Skapa en anpassad avbildning från en virtuell dator
 
@@ -47,7 +47,7 @@ Du kan skapa en anpassad avbildning från en etablerad virtuell dator och däref
 
     ![Skapa anpassad avbildningsfönstret](./media/devtest-lab-create-template/create-custom-image-blade.png)
 
-1. Välj om sysprep kördes på den virtuella datorn. Om kommandot sysprep inte kördes på den virtuella datorn, kan du ange om du vill att sysprep körs när en virtuell dator skapas från den här anpassade avbildningen.
+1. Välj om sysprep kördes på den virtuella datorn. Om kommandot sysprep inte kördes på den virtuella datorn, kan du ange om du vill att sysprep som ska köras på den virtuella datorn när den anpassade avbildningen skapas.
 
 1. Välj **OK** när du är klar för att skapa den anpassade avbildningen.
 

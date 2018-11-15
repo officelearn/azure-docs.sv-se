@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/13/2018
-ms.openlocfilehash: 520656297fd2f31f02d127e8662c26617a42db83
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.date: 11/14/2018
+ms.openlocfilehash: 9cbe88a44ba598a22fab628ae01605ac9d63bece
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629277"
+ms.locfileid: "51632636"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Använda Resource Health felsökning av anslutningar för Azure SQL Database
 
@@ -57,7 +57,7 @@ Hälsostatus **okänd** indikerar att Resource Health inte har fått information
 Om resursen körs som förväntat, ändras status för resursen till tillgänglig efter ett par minuter.
 Om du har problem med resursen kan okänd hälsostatus föreslå att en händelse i plattformen påverkar resursen.
 
-## <a name="historical-information"></a>Historisk Information
+## <a name="historical-information"></a>Historisk information
 
 Du kan komma åt upp till 14 dagar efter hälsohistorik i avsnittet hälsotillstånd historik i Resource Health. Avsnittet innehåller också driftstopp orsaken (i förekommande fall) för stilleståndstider som rapporterats av Resource Health. Azure visar för närvarande avbrottstiden för din SQL database-resurs med en precision på två minuter. Den faktiska stilleståndstiden är förmodligen mindre än en minut – genomsnittlig 8s.
 

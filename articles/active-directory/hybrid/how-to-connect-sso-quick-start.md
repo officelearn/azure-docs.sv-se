@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c16da55540faaf165faa592c3565b317a8eab922
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 6d6b8d2bddcd3ac622a2a5f51ebe78cbecc29c29
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914098"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687341"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sömlös enkel inloggning: Snabbstart
 
@@ -91,7 +91,7 @@ Följ dessa instruktioner för att kontrollera att du har aktiverat sömlös enk
 ![Azure-portalen: Azure AD Connect-fönstret](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> Sömlös SSO skapar ett konto med namnet `AZUREADSSOACC` (som representerar Azure AD) i din lokala Active Directory (AD) i varje AD-skog. Det här datorkontot krävs för funktionen ska fungera. Flytta den `AZUREADSSOACC` datorkonto till en organisation enhet (OU) där andra konton lagras så att den hanteras på samma sätt och inte tas bort.
+> Sömlös SSO skapar ett konto med namnet `AZUREADSSOACC` (som representerar Azure AD) i din lokala Active Directory (AD) i varje AD-skog. Det här datorkontot krävs för funktionen ska fungera. Om du använder Pass-the-Hash-och problemlösning för stöld av autentiseringsuppgifter i din lokala miljö, kontrollerar du att den `AZUREADSSOACC` datorkontot inte hamnar i behållaren karantän. Gör önskade ändringar för att skapa datorkontot i behållaren datorer. När sömlös enkel inloggning har aktiverats på Azure AD Connect-guiden, flytta den `AZUREADSSOACC` datorkonto till en organisation enhet (OU) där andra konton hanteras så att den inte bort av misstag.
 
 ## <a name="step-3-roll-out-the-feature"></a>Steg 3: Distribuera funktionen
 

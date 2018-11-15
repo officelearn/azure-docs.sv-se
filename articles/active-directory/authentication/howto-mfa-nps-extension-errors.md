@@ -5,21 +5,21 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 11/13/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 58bb3ae39ecd5631508ca1d09bf1d9d8f4d75063
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 3820aae1e926e51ffa88fabc94e3572b286162de
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036673"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634234"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Åtgärda felmeddelanden från NPS-tillägget för Azure Multi-Factor Authentication
 
-Om det uppstår fel med NPS-tillägget för Azure Multi-Factor Authentication, kan du använda den här artikeln för att nå en lösning snabbare. 
+Om det uppstår fel med NPS-tillägget för Azure Multi-Factor Authentication, kan du använda den här artikeln för att nå en lösning snabbare. NPS-tillägget loggar finns i Loggboken under **Vyhanteraren** > **serverroller** > **nätverkspolicy och åtkomsttjänster** på den servern där NPS-tillägget är installerad.
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>Felsökning av vanliga fel
 
@@ -36,9 +36,6 @@ Om det uppstår fel med NPS-tillägget för Azure Multi-Factor Authentication, k
 | **REQUEST_MISSING_CODE** | Kontrollera att lösenordet krypteringsprotokollet mellan NPS- och NAS-servrarna har stöd för den sekundära autentiseringsmetoden som du använder. **PAP** har stöd för alla autentiseringsmetoder av Azure MFA i molnet: telefonsamtal, enkelriktad SMS, mobilapp och mobilapp-Verifieringskod. **CHAPv2** och **EAP** stöd för telefonsamtal och mobilapp. |
 | **USERNAME_CANONICALIZATION_ERROR** | Kontrollera att användaren finns i din lokala Active Directory-instans och att NPS-tjänsten har behörighet att komma åt katalogen. Om du använder förtroenderelationer mellan skogar, [supporten](#contact-microsoft-support) för ytterligare hjälp. |
 
-
-   
-
 ### <a name="alternate-login-id-errors"></a>Alternativa inloggnings-ID fel
 
 | Felkod | Felmeddelande | Felsökningsanvisningar |
@@ -46,7 +43,6 @@ Om det uppstår fel med NPS-tillägget för Azure Multi-Factor Authentication, k
 | **ALTERNATE_LOGIN_ID_ERROR** | Fel: userObjectSid sökningen misslyckades | Kontrollera att användaren finns i din lokala Active Directory-instans. Om du använder förtroenderelationer mellan skogar, [supporten](#contact-microsoft-support) för ytterligare hjälp. |
 | **ALTERNATE_LOGIN_ID_ERROR** | Fel: Det gick inte att alternativa LoginId sökning | Kontrollera att LDAP_ALTERNATE_LOGINID_ATTRIBUTE har angetts till en [giltigt active directory-attributet](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> Om LDAP_FORCE_GLOBAL_CATALOG har angetts till True, eller LDAP_LOOKUP_FORESTS har konfigurerats med en icke-tomma värden, kontrollera att du har konfigurerat en Global katalog och att attributet AlternateLoginId har lagts till den. <br><br> Om LDAP_LOOKUP_FORESTS konfigureras med en icke-tomma värden, kontrollerar du att värdet är korrekt. Om det finns fler än en skogsnamn, måste namnen avgränsade med semikolon, inte blanksteg. <br><br> Om de här stegen inte löser problemet, [supporten](#contact-microsoft-support) för mer hjälp. |
 | **ALTERNATE_LOGIN_ID_ERROR** | Fel: Alternativa LoginId värdet är tomt | Kontrollera att attributet AlternateLoginId har konfigurerats för användaren. |
-
 
 ## <a name="errors-your-users-may-encounter"></a>Fel kan uppstå när dina användare
 
@@ -97,7 +93,7 @@ Om det uppstår något av dessa fel, rekommenderar vi att du [supporten](#contac
 
 ### <a name="troubleshoot-user-accounts"></a>Felsöka användarkonton
 
-Om dina användare finns [har du problem med tvåstegsverifiering](../user-help/multi-factor-authentication-end-user-troubleshoot.md), hjälpa dem själv diagnostisera problem. 
+Om dina användare finns [har du problem med tvåstegsverifiering](../user-help/multi-factor-authentication-end-user-troubleshoot.md), hjälpa dem själv diagnostisera problem.
 
 ### <a name="contact-microsoft-support"></a>Kontakta Microsoft-supporten
 
@@ -131,5 +127,3 @@ Använd följande steg för att samla in felsökningsloggar support diagnostik p
 
 5. Öppna Registereditorn och gå till HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa set **VERBOSE_LOG** till **FALSKT**
 6. ZIP-innehållet i mappen C:\NPS och bifoga den komprimerade filen till support-ärende.
-
-

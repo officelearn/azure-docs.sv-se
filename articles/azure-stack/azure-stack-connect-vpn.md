@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/24/2018
 ms.author: sethm
 ms.reviewer: scottnap
-ms.openlocfilehash: bcdd5b6d28a6c08b7b36e170fcb7d184fcf65eb0
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: d215af253471258e487dadcfae0cfd7edafd1c26
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024469"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634659"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Ansluta Azure Stack till Azure med VPN
 
@@ -89,7 +89,7 @@ Först skapar du till nätverksresurser för Azure. Följande instruktioner visa
 3. Listan med nätverksresurser, väljer **virtuell nätverksgateway**.
 4. I **namn**, typ **Azure-GW**.
 5. Om du vill välja ett virtuellt nätverk, Välj **virtuellt nätverk**. Välj sedan **AzureVnet** i listan.
-6. Välj **offentliga IP-adressen**. När den **Välj offentlig IP-adress** avsnittet öppnas, Välj **Skapa ny**.
+6. Välj **Offentlig IP-adress**. När den **Välj offentlig IP-adress** avsnittet öppnas, Välj **Skapa ny**.
 7. I **namn**, typ **Azure-GW-PiP**, och välj sedan **OK**.
 8. Som standard för **VPN-typ**, **routningsbaserad** har valts. Behåll den **routningsbaserad** VPN-typ.
 9. Verifiera att **Prenumeration** och **Plats** stämmer. Du kan fästa resursen på instrumentpanelen. Välj **Skapa**.
@@ -127,7 +127,7 @@ Nu kan du skapa en virtuell dator i Azure och placera den i VM-undernätet i det
 
 1. I Azure-portalen väljer du **+ skapa en resurs**.
 2. Gå till **Marketplace**, och välj sedan **Compute**.
-3. I listan över avbildningar av virtuella datorer, väljer du den **Windows Server 2016 Datacenter Oval** bild.
+3. I listan över avbildningar av virtuella datorer, väljer du den **Windows Server 2016 Datacenter utvärdering** bild.
 4. På den **grunderna** avsnittet för **namn**, typ **AzureVM**.
 5. Ange ett giltigt användarnamn och lösenord. Du kan använda det här kontot för att logga in på den virtuella datorn när den har skapats.
 6. Ange en **prenumeration**, **resursgrupp**, och **plats**, och välj sedan **OK**.
@@ -227,7 +227,7 @@ Du kan kontrollera VPN-anslutningen genom att skapa två virtuella datorer: en i
 
 1. I Azure-portalen väljer du **+ skapa en resurs**.
 2. Gå till **Marketplace**, och välj sedan **Compute**.
-3. I listan över avbildningar av virtuella datorer, väljer du den **Windows Server 2016 Datacenter Oval** bild.
+3. I listan över avbildningar av virtuella datorer, väljer du den **Windows Server 2016 Datacenter utvärdering** bild.
 4. På den **grunderna** i avsnittet **namn**, typ **Azs-VM**.
 5. Ange ett giltigt användarnamn och lösenord. Du kan använda det här kontot för att logga in på den virtuella datorn när den har skapats.
 6. Ange en **prenumeration**, **resursgrupp**, och **plats**, och välj sedan **OK**.

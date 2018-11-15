@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 49d68a28180c384a181f29e41c12a5e32bd76aee
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3a1c5341e391c8be1af42eea940fbf147b88e7c8
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625223"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685709"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure-partner kundens användning attribution
 
@@ -59,12 +59,13 @@ Om du vill lägga till en globalt unik identifierare (GUID), kan du göra en end
 1. [Kontrollera GUID i malldistributionen](#verify-the-guid-deployment).
 
 ### <a name="sample-resource-manager-template-code"></a>Exemplet Resource Manager-mallkod
-Glöm inte att ändra den nedan exempelkod med egna indata när du lägger till det huvudsakliga mallfilen.
+
+Du måste lägga till följande ytterligare resurs under resursavsnittet för att aktivera spårning resurser för din mall. Glöm inte att ändra den nedan exempelkod med egna indata när du lägger till det huvudsakliga mallfilen.
 Resursen måste läggas till i den **mainTemplate.json** eller **azuredeploy.json** filen endast, och inte i någon kapslad eller länkad mallar.
 ```
 // Make sure to modify this sample code with your own inputs where applicable
 
-{ // add this resource to the mainTemplate.json (do not add the entire file)
+{ // add this resource to the resources section in the mainTemplate.json (do not add the entire file)
     "apiVersion": "2018-02-01",
     "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
     "type": "Microsoft.Resources/deployments",

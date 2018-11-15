@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: cynthn
-ms.openlocfilehash: c8035a87816c56daa5ac9e1f95b40d15fa556cd9
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 1ae352a0292e75eb9a5bf07e3ddca79ca687dea2
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465171"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687392"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-preview"></a>Kryptera OS och anslutna datadiskar i en VM-skalningsuppsättning med Azure CLI (förhandsversion)
 
@@ -48,7 +48,7 @@ Azure-diskkryptering för VM-skalningsuppsättningar förhandsversion måste du 
 az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
 ```
 
-Det kan ta upp till 10 minuter för registreringsbegäran att spridas. Du kan kontrollera status för enhetsregistreringen med [az funktionen show](/cli/azure/feature#az_feature_show). När den `State` rapporter *registrerad*, registrera den *Mirosoft.Compute* provider med [az provider register](/cli/azure/provider#az_provider_register):
+Det kan ta upp till 10 minuter för registreringsbegäran att spridas. Du kan kontrollera status för enhetsregistreringen med [az funktionen show](/cli/azure/feature#az_feature_show). När den `State` rapporter *registrerad*, registrera den *Microsoft.Compute* provider med [az provider register](/cli/azure/provider#az_provider_register):
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 31ce23bf6249ef21a2c9fe515b78cdd6ebea9b9c
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8a58f8722b41944a7be02254e0f00682575c1bbb
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614387"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636976"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för webbappar i Azure App Service
 ## <a name="overview"></a>Översikt
@@ -159,7 +159,9 @@ För att filtrera specifika loggtyper, till exempel HTTP, använder den **--sök
 
 ## <a name="understandlogs"></a> Så här: Förstå diagnostikloggar
 ### <a name="application-diagnostics-logs"></a>Program-diagnostikloggar
-Programdiagnostik lagrar information i ett visst format för .NET-program, beroende på om du vill lagra loggarna till file system- eller blob storage. Den grundläggande uppsättningen med data som lagras är samma för alla tre lagringstyper - datum och tid som händelsen inträffade, process-ID som producerade händelsen, händelsetyp (information, varning, fel) och händelsemeddelandet.
+Programdiagnostik lagrar information i ett visst format för .NET-program, beroende på om du vill lagra loggarna till file system- eller blob storage. 
+
+Den grundläggande uppsättningen med data som lagras är samma för både lagringstyper - datum och tid som händelsen inträffade, process-ID som producerade händelsen, händelsetyp (information, varning, fel) och händelsemeddelandet. Det är praktiskt att använda filsystemet för logglagringsutrymme när du behöver omedelbar åtkomst till att felsöka ett problem Eftersom loggfilerna har uppdaterats nästan omedelbart. BLOB storage är för arkiveringsändamål eftersom filerna cachelagras och sedan rensade lagringsbehållare enligt ett schema.
 
 **Filsystem**
 
@@ -195,7 +197,7 @@ Data som lagras i en blob skulle se ut ungefär så här:
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> Den första raden i loggen innehåller kolumnrubriker som representeras i det här exemplet.
+> För ASP.NET Core loggning åstadkoms med hjälp av den [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) provider som den här providern insättningar ytterligare loggfiler till blob-behållaren. Mer information finns i [ASP.NET Core loggning i Azure](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#logging-in-azure).
 >
 >
 

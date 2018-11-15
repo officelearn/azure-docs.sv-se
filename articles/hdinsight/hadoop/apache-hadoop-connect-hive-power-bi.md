@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: b094df367d4396533d368b9fdbcb4b78ec1673de
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e6711a5595c6b7c6caaff97f4c1996817be1abce
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008903"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634557"
 ---
-# <a name="visualize-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualisera Hive-data med Microsoft Power BI med hjälp av ODBC i Azure HDInsight
+# <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualisera Apache Hive-data med Microsoft Power BI med hjälp av ODBC i Azure HDInsight
 
-Lär dig hur du ansluter Microsoft Power BI till Azure HDInsight med hjälp av ODBC och visualisera Hive-data. 
+Lär dig hur du ansluter Microsoft Power BI till Azure HDInsight med hjälp av ODBC och visualisera data med Apache Hive. 
 
 >[!IMPORTANT]
 > Du kan använda Hive ODBC-drivrutinen att importera via allmän ODBC-anslutningsprogram i Power BI Desktop. Men det rekommenderas inte för BI-arbetsbelastningar som icke-interaktiv naturen för motorn för Hive-frågor. [Interaktiv HDInsight-fråga connector](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md) och [HDInsight Spark-anslutningsappen](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) är bättre alternativ för deras prestanda.
@@ -40,7 +40,7 @@ Innan du går igenom den här artikeln, måste du ha följande objekt:
 
 ## <a name="create-hive-odbc-data-source"></a>Skapa Hive ODBC-datakälla
 
-Se [skapa Hive ODBC-datakälla](apache-hadoop-connect-excel-hive-odbc-driver.md#create-hive-odbc-data-source).
+Se [skapa Hive ODBC-datakälla](apache-hadoop-connect-excel-hive-odbc-driver.md#create-apache-hive-odbc-data-source).
 
 ## <a name="load-data-from-hdinsight"></a>Läsa in data från HDInsight
 

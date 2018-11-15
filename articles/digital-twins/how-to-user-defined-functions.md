@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: alinast
-ms.openlocfilehash: 33190472215e7a02b94951a73054ebe3e1994e54
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6a757dca48dc3ff41adfe6f8802fad40e7a4ca81
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623918"
+ms.locfileid: "51636840"
 ---
 # <a name="how-to-use-user-defined-functions-in-azure-digital-twins"></a>Hur du använder användardefinierade funktioner i Azure Digital Twins
 
@@ -44,7 +44,7 @@ Matchers är graph-objekt som avgör vad användardefinierade funktioner som ska
 Följande exempel matcher utvärderas till true på en sensor telemetri händelse med `"Temperature"` som sitt värde för typ av data. Du kan skapa flera matchers på en användardefinierad funktion:
 
 ```plaintext
-POST yourManagementApiUrl/matchers
+POST YOUR_MANAGEMENT_API_URL/matchers
 {
   "Name": "Temperature Matcher",
   "Conditions": [
@@ -59,7 +59,7 @@ POST yourManagementApiUrl/matchers
 }
 ```
 
-| Ditt värde | Ersätt med |
+| Värde | Ersätt med |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | Vilken server-region som din instans är värd för |
 
@@ -72,20 +72,20 @@ När matchers har skapats laddar du upp i funktionen kodfragment med följande *
 > - Brödtexten är flera delar:
 >   - Den första delen är om metadata som behövs för en användardefinierad funktion.
 >   - Den andra delen är JavaScript-beräkning logik.
-> - I den **userDefinedBoundary** avsnittet, ersätter den **SpaceId** och **Machers** värden.
+> - I den **USER_DEFINED_BOUNDARY** avsnittet, ersätter den **SpaceId** och **Machers** värden.
 
 ```plaintext
-POST yourManagementApiUrl/userdefinedfunctions with Content-Type: multipart/form-data; boundary="userDefinedBoundary"
+POST YOUR_MANAGEMENT_API_URL/userdefinedfunctions with Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"
 ```
 
 | Parametervärde | Ersätt med |
 | --- | --- |
-| *userDefinedBoundary* | Ett namn i flera delar innehåll gräns |
+| *USER_DEFINED_BOUNDARY* | Ett namn i flera delar innehåll gräns |
 
 ### <a name="body"></a>Innehåll
 
 ```plaintext
---userDefinedBoundary
+--USER_DEFINED_BOUNDARY
 Content-Type: application/json; charset=utf-8
 Content-Disposition: form-data; name="metadata"
 
@@ -95,7 +95,7 @@ Content-Disposition: form-data; name="metadata"
   "Description": "The contents of this udf will be executed when matched against incoming telemetry.",
   "Matchers": ["YOUR_MATCHER_IDENTIFIER"]
 }
---userDefinedBoundary
+--USER_DEFINED_BOUNDARY
 Content-Disposition: form-data; name="contents"; filename="userDefinedFunction.js"
 Content-Type: text/javascript
 
@@ -103,10 +103,10 @@ function process(telemetry, executionContext) {
   // Code goes here.
 }
 
---userDefinedBoundary--
+--USER_DEFINED_BOUNDARY--
 ```
 
-| Ditt värde | Ersätt med |
+| Värde | Ersätt med |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | Identifieraren utrymme  |
 | YOUR_MATCHER_IDENTIFIER | ID för matcher som du vill använda |
@@ -189,7 +189,7 @@ Vi måste du skapa en rolltilldelning för den användardefinierade funktionen s
 1. Fråga efter roller och hämta ID för den roll som du vill tilldela till en användardefinierad funktion. Skicka det till **RoleId**:
 
     ```plaintext
-    GET yourManagementApiUrl/system/roles
+    GET YOUR_MANAGEMENT_API_URL/system/roles
     ```
 
 1. **ObjectId** kommer att UDF-ID som du skapade tidigare.
@@ -197,17 +197,17 @@ Vi måste du skapa en rolltilldelning för den användardefinierade funktionen s
 1. Kopiera den returnerade `spacePaths` värde. Du ska använda som i följande kod:
 
     ```plaintext
-    GET yourManagementApiUrl/spaces?name=yourSpaceName&includes=fullpath
+    GET YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
     | Parametervärde | Ersätt med |
     | --- | --- |
-    | *yourSpaceName* | Namnet på det utrymme som du vill använda |
+    | *YOUR_SPACE_NAME* | Namnet på det utrymme som du vill använda |
 
 1. Klistra in den returnerade `spacePaths` värde i **sökväg** att skapa en rolltilldelning för UDF:
 
     ```plaintext
-    POST yourManagementApiUrl/roleassignments
+    POST YOUR_MANAGEMENT_API_URL/roleassignments
     {
       "RoleId": "YOUR_DESIRED_ROLE_IDENTIFIER",
       "ObjectId": "YOUR_USER_DEFINED_FUNCTION_ID",

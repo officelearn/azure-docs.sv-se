@@ -7,12 +7,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 91f24bf90f3e1a8a0c383a5820c6816748090807
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3f35779337082b7280398bd13ef870c74f3ec082
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629259"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685998"
 ---
 # <a name="optimizing-autovacuum-on-azure-database-for-postgresql-server"></a>Optimera autovacuum på Azure Database for PostgreSQL-server 
 Den här artikeln beskriver hur du optimerar effektivt autovacuum på Azure Database för PostgreSQL.
@@ -50,7 +50,7 @@ autovacuum_vacuum_cost_limit|Anger kostnaden gränsvärdet som ska användas i d
 autovacuum_vacuum_cost_delay|Anger Fördröjningsvärdet kostnaden som ska användas i den automatiska VAKUUM åtgärder. Om -1 anges, används reguljära vacuum_cost_delay värdet. Standardvärdet är 20 millisekunder. Den här parametern kan bara anges i filen postgresql.conf eller server från kommandoraden. Inställningen kan åsidosättas för enskilda tabeller genom att ändra tabellen storage parametrar.|20 ms
 autovacuum_nap_time|Anger den minsta fördröjningen mellan autovacuum körs på en viss databas. I varje omgång daemon undersöker databasen och utfärdar VAKUUM och analysera kommandon efter behov för tabeller i databasen. Fördröjningen mäts i sekunder och standardvärdet är en minut (1 min). Den här parametern kan bara anges i filen postgresql.conf eller server från kommandoraden.|15 s
 autovacuum_max_workers|Anger det maximala antalet autovacuum processer (andra än autovacuum starta) som körs samtidigt. Standardvärdet är tre. Den här parametern kan bara ställas in på servern start.|3
-Konfigurationerna som ovan kan uppdateras med hjälp av Azure portal eller Azure CLI.
+Inställningarna ovan kan åsidosättas för enskilda tabeller genom att ändra tabellen storage parametrar.  
 
 ## <a name="autovacuum-cost"></a>Autovacuum kostnad
 Nedan visas ”kostnaderna” för att köra en Dammsuga åtgärd:

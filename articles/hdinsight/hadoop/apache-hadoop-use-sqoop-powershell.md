@@ -1,6 +1,6 @@
 ---
-title: Köra Sqoop-jobb med hjälp av PowerShell och Azure HDInsight
-description: Lär dig hur du använder Azure PowerShell på en arbetsstation för att köra Sqoop-import och export mellan ett Hadoop-kluster och en Azure SQL database.
+title: Kör Apache Sqoop jobb med hjälp av PowerShell och Azure HDInsight
+description: Lär dig hur du använder Azure PowerShell på en arbetsstation för att köra Apache Sqoop-import och export mellan ett Apache Hadoop-kluster och en Azure SQL database.
 ms.reviewer: jasonh
 services: hdinsight
 author: hrasheed-msft
@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 34c857ceef385e2089937b64d4f88dd434a347dd
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 23dae8a6f0651ee6b753c4b29112eb733103b9e1
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010668"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631452"
 ---
-# <a name="run-sqoop-jobs-by-using-azure-powershell-for-hadoop-in-hdinsight"></a>Köra Sqoop-jobb med hjälp av Azure PowerShell för Hadoop i HDInsight
+# <a name="run-apache-sqoop-jobs-by-using-azure-powershell-for-apache-hadoop-in-hdinsight"></a>Kör Apache Sqoop jobb med hjälp av Azure PowerShell för Apache Hadoop i HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Lär dig hur du använder Azure PowerShell för att köra Sqoop-jobb i Azure HDInsight för att importera och exportera mellan ett HDInsight-kluster och en Azure SQL database eller SQL Server-databas.
+Lär dig hur du använder Azure PowerShell för att köra Apache Sqoop jobb i Azure HDInsight för att importera och exportera mellan ett HDInsight-kluster och en Azure SQL database eller SQL Server-databas.
 
 > [!NOTE]
 > Men du kan använda procedurerna i den här artikeln med antingen ett Windows- eller Linux-baserade HDInsight-kluster, fungerar de bara från en Windows-klient. Använd flikväljaren överst i den här artikeln om du vill välja andra metoder. 

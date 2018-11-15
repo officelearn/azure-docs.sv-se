@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2018
 ms.author: wolfma
-ms.openlocfilehash: 2dd001ebebd5cdf90d7d0b8163a85a5f83c855f6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 502f59c88808480f26e6ea5a6d2c5b362c78869b
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281302"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683511"
 ---
 # <a name="quickstart-recognize-and-transcribe-speech-using-the-speech-sdk-and-net-framework-windows"></a>Snabbstart: Identifiera och transkribera tal med hjälp av Speech SDK och .NET Framework (Windows)
 
@@ -23,7 +23,7 @@ ms.locfileid: "51281302"
 
 Använd den här guiden för att skapa ett tal till text-konsolprogram med hjälp av .NET-ramverket för Windows och Speech SDK. När du är klar kan du använda datorns mikrofon för att transkribera tal till text i realtid.
 
-Den här snabbstarten kräver ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med Microsoft Speech aktiverat. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started) för att hämta en prenumerationsnyckel.
+Den här snabbstarten kräver ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med Microsoft Speech aktiverat. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) för att hämta en prenumerationsnyckel.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: rimman
-ms.openlocfilehash: ece1c123cad8403358dcc3b3626bf4b2cd756e25
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 943cd79237290cd91d56cc1c51f5d773cdb16634
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629253"
+ms.locfileid: "51636398"
 ---
 # <a name="how-to-use-azure-cosmos-db-change-feed-with-azure-functions"></a>Hur du använder Azure Cosmos DB-ändringsflödet med Azure Functions
 
@@ -41,7 +41,7 @@ Azure Functions avsöker ändringsflödet ändringar kontinuerligt med en standa
 
 Om dokumentet tar emot flera ändringar i samma intervall som tog utlösare för att söka efter nya ändringar, kan du få den senaste versionen av dokumentet och inte det mellanliggande.
 
-Om du vill till att avsöka ändringsflödet för mindre än 5 sekunder, till exempel för varje sekund, du kan konfigurera avsökningstiden ”feedPollDelay”, se [hela konfigurationen](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_Documents_Client_ConnectionPolicy_PreferredLocations). Den har definierats i millisekunder med standardvärdet 5000. Avsökning för mindre än 1 sekund är möjligt, men det rekommenderas inte eftersom du ska börja använda mer CPU-minne.
+Om du vill söka i ändringsflödet för mindre än 5 sekunder till exempel för varje sekund, du kan konfigurera avsökningstiden ”feedPollDelay”, se [hela konfigurationen](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_Documents_Client_ConnectionPolicy_PreferredLocations). Den har definierats i millisekunder med standardvärdet 5000. Avsökning för mindre än 1 sekund är möjligt, men det rekommenderas inte eftersom du ska börja använda mer CPU-minne.
 
 ### <a name="can-multiple-azure-functions-read-one-containers-change-feed"></a>Flera Azure Functions kan läsa ändringsfeed för en behållare?
 

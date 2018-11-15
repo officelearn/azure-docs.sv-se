@@ -1,6 +1,6 @@
 ---
 title: Utveckla Python-strömmande MapReduce-jobb med HDInsight - Azure
-description: Lär dig hur du använder Python med strömmande MapReduce-jobb. Hadoop tillhandahåller en strömmande API för MapReduce för att skriva på andra språk än Java.
+description: Lär dig hur du använder Python med strömmande MapReduce-jobb. Apache Hadoop tillhandahåller en strömmande API för MapReduce för att skriva på andra språk än Java.
 services: hdinsight
 keyword: mapreduce python,python map reduce,python mapreduce
 author: hrasheed-msft
@@ -10,20 +10,20 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5ed61eb05d0aa4360e042097d6b8c632c17ea59c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: d6a9de293d62ec6f25bd3a665d5ced5a1ac671ae
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008733"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634030"
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Utveckla Python-strömmande MapReduce-program för HDInsight
 
-Lär dig hur du använder Python med strömmande MapReduce-åtgärder. Hadoop tillhandahåller en strömmande API för MapReduce där du kan skriva kartan och minska funktioner på andra språk än Java. Stegen i det här dokumentet implementera kartan och minska komponenter i Python.
+Lär dig hur du använder Python med strömmande MapReduce-åtgärder. Apache Hadoop tillhandahåller en strömmande API för MapReduce där du kan skriva kartan och minska funktioner på andra språk än Java. Stegen i det här dokumentet implementera kartan och minska komponenter i Python.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Linux-baserat Hadoop i HDInsight-kluster
+* En Linux-baserade Apache Hadoop på HDInsight-kluster
 
   > [!IMPORTANT]
   > Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Linux. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

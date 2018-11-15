@@ -7,13 +7,13 @@ ms.author: andrela
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/30/2018
-ms.openlocfilehash: b4e79723072a19f2637bea16d0534cb85588e9e3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 11/13/2018
+ms.openlocfilehash: 82f80fc1342f0c76cb880b020dcd835a23635b0a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412456"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632568"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Läs repliker i Azure Database for MySQL
 
@@ -60,12 +60,15 @@ Replikservrar skapas med hjälp av samma server-konfigurationer som huvudserver,
 - Kvarhållningsperiod för säkerhetskopiering
 - Redundansalternativ för säkerhetskopiering
 - MySQL-Motorversion
+- Brandväggsregler
 
 När en replik har skapats kan du ändra prisnivån (förutom till och från Basic), compute-generering, vCores, lagring och kvarhållning av säkerhetskopior oberoende av huvudservern.
 
 ### <a name="master-server-configuration"></a>Master-serverkonfiguration
 
-Om en master serverkonfiguration (ex.) virtuella kärnor och lagring) ska uppdateras, de replikerna konfiguration ska också uppdateras till samma eller högre värden. Utan detta blir replikservern kanske inte kan hålla jämna steg med ändringar som gjorts i huvuddatabasen och kan krascha som ett resultat. 
+Om en master serverkonfiguration (ex.) virtuella kärnor och lagring) ska uppdateras, de replikerna konfiguration ska också uppdateras till samma eller högre värden. Utan detta blir replikservern kanske inte kan hålla jämna steg med ändringar som gjorts i huvuddatabasen och kan krascha som ett resultat.
+
+Nya brandväggsregler som lagts till huvudservern när du har skapat en replikserver replikeras inte till repliken. Repliken ska uppdateras med den här nya brandväggsregeln samt.
 
 ### <a name="deleting-the-master-server"></a>Tar bort huvudservern
 
@@ -87,7 +90,4 @@ Användare på huvudservern replikeras till de skrivskyddade replikerna. Du kan 
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig hur du [skapa och hantera skrivskyddade repliker med Azure portal](howto-read-replicas-portal.md)
-
-<!--
-- Learn how to [create and manage read replicas using the Azure CLI](howto-read-replicas-using-cli.md)
--->
+- Lär dig hur du [skapa och hantera skrivskyddade repliker med Azure CLI](howto-read-replicas-cli.md)

@@ -1,6 +1,6 @@
 ---
 title: Skapa en delad lokal integration runtime i Azure Data Factory med PowerShell | Microsoft Docs
-description: Lär dig hur du skapar en delad lokal integration runtime i Azure Data Factory, som gör att flera fabriker dataåtkomst integration runtime.
+description: Lär dig mer om att skapa en delad lokal integration runtime i Azure Data Factory, så att flera olika datafabriker för som har åtkomst till integration runtime.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: d7f3fbcb3235c8c620876e68a62f3e491770779d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: b32ea4293daa9206c6b0da4bdee777677c5d340d
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50252140"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685522"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory-with-powershell"></a>Skapa en delad lokal integration runtime i Azure Data Factory med PowerShell
 
-Den här stegvisa guiden visar hur du skapar en delad lokal integration runtime (IR) i Azure Data Factory med hjälp av Azure PowerShell. Du kan använda delade lokal integration runtime i en annan data factory. I den här självstudien gör du följande: 
+Den här stegvisa guiden visar hur du skapar en delad lokal integration runtime i Azure Data Factory med hjälp av Azure PowerShell. Du kan använda delade lokal integration runtime i en annan data factory. I den här självstudien gör du följande: 
 
 1. Skapa en datafabrik. 
 1. Skapa Integration Runtime med egen värd.
@@ -33,18 +33,16 @@ Den här stegvisa guiden visar hur du skapar en delad lokal integration runtime 
 
 - **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar. 
 
-- **Azure PowerShell**. Följ instruktionerna i [installera Azure PowerShell på Windows](/powershell/azure/install-azurerm-ps). Du kan använda PowerShell för att köra ett skript för att skapa en lokal integration runtime som kan delas med andra datafabriker. 
+- **Azure PowerShell**. Följ instruktionerna i [installera Azure PowerShell på Windows med PowerShellGet](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.11.0). Du kan använda PowerShell för att köra ett skript för att skapa en lokal integration runtime som kan delas med andra datafabriker. 
 
-> [!NOTE]
-> För en lista över Azure-regioner som Data Factory är för närvarande tillgängligt, väljer du de regioner som intresserar dig på följande sida: [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
+> [!NOTE]  
+> Välj de regioner som intresserar dig på en lista över Azure-regioner som Data Factory är för närvarande tillgängligt [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
 1. Starta Windows PowerShell ISE.
 
-1. Skapa variabler.
-
-    Kopiera och klistra in följande skript och Ersätt variabler (SubscriptionName, ResourceGroupName osv.) med faktiska värden. 
+1. Skapa variabler. Kopiera och klistra in följande skript. Ersätt variabler, till exempel **SubscriptionName** och **ResourceGroupName**, med faktiska värden: 
 
     ```powershell
     # If input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
@@ -65,20 +63,19 @@ Den här stegvisa guiden visar hur du skapar en delad lokal integration runtime 
     $LinkedIntegrationRuntimeDescription = "[Description for Linked Integration Runtime]"
     ```
 
-1. Logga in och välj en prenumeration.
-
-    Lägg till följande kod till skriptet för att logga in och välj din Azure-prenumeration:
+1. Logga in och välj en prenumeration. Lägg till följande kod till skriptet för att logga in och välj din Azure-prenumeration:
 
     ```powershell
     Connect-AzureRmAccount
     Select-AzureRmSubscription -SubscriptionName $SubscriptionName
     ```
 
-1. Skapa en resursgrupp och en Data Factory.
+1. Skapa en resursgrupp och en data factory.
 
-    *(Det här steget är valfritt. Om du redan har en data factory, hoppa över detta steg.)* 
+    > [!NOTE]  
+    > Det här steget är valfritt. Om du redan har en data factory kan du hoppa över det här steget. 
 
-    Skapa en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med kommandot [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras som en grupp. I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på WestEurope plats. 
+    Skapa en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med hjälp av den [New-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.11.0) kommando. En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras som en grupp. I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på WestEurope plats: 
 
     ```powershell
     New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
@@ -94,7 +91,8 @@ Den här stegvisa guiden visar hur du skapar en delad lokal integration runtime 
 
 ## <a name="create-a-self-hosted-integration-runtime"></a>Skapa en lokal Integration Runtime
 
-*(Det här steget är valfritt. Om du redan har en lokal integration runtime som du vill dela med andra datafabriker hoppa över detta steg.)*
+> [!NOTE]  
+> Det här steget är valfritt. Om du redan har en lokal integration runtime som du vill dela med andra datafabriker kan du hoppa över det här steget.
 
 Kör följande kommando för att skapa en lokal integration runtime:
 
@@ -132,7 +130,8 @@ Svaret innehåller autentiseringsnyckeln för den här lokal integration runtime
 
 ### <a name="create-another-data-factory"></a>Skapa en annan datafabrik
 
-*(Det här steget är valfritt. Om du redan har data factory som du vill dela, hoppa över detta steg.)*
+> [!NOTE]  
+> Det här steget är valfritt. Hoppa över det här steget om du redan har data factory som du vill dela med.
 
 ```powershell
 $factory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
@@ -141,9 +140,9 @@ $factory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 ```
 ### <a name="grant-permission"></a>Bevilja behörighet
 
-Bevilja behörighet till Data Factory som behöver åtkomst till den lokala integreringskörningen du skapat och registrerad.
+Bevilja behörighet till data factory som behöver åtkomst till den lokala integreringskörningen du skapat och registrerad.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Hoppa inte över det här steget!
 
 ```powershell
@@ -171,7 +170,7 @@ Nu kan du använda den här länkade integration runtime i alla länkade tjänst
 
 ## <a name="revoke-integration-runtime-sharing-from-a-data-factory"></a>Återkalla delning från en data factory-integreringskörning
 
-Om du vill återkalla åtkomst till en data factory från att komma åt delade integration runtime kan du köra följande kommando:
+Om du vill återkalla åtkomst till en data factory från delade integration runtime kör du följande kommando:
 
 ```powershell
 Remove-AzureRMRoleAssignment `
@@ -180,7 +179,7 @@ Remove-AzureRMRoleAssignment `
     -Scope $SharedIR.Id
 ```
 
-Du kan köra följande kommando på delade integration runtime för att ta bort den befintliga länkade integration runtime:
+Kör följande kommando för att ta bort befintliga länkade integreringskörningen mot delade integration runtime:
 
 ```powershell
 Remove-AzureRmDataFactoryV2IntegrationRuntime `
@@ -193,6 +192,6 @@ Remove-AzureRmDataFactoryV2IntegrationRuntime `
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska integration runtime-koncept i [Integration runtime i Azure Data Factory](concepts-integration-runtime.md).
+- Granska [integration runtime-koncept i Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime).
 
-- Lär dig hur du skapar en lokal integration runtime i Azure-portalen i [skapa och konfigurera en lokal integration runtime](create-self-hosted-integration-runtime.md).
+- Lär dig hur du [skapa en lokal integration runtime i Azure-portalen](https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime).

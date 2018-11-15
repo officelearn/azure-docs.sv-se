@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8d5e29b89d65bc8777feac0c496b3253bc2a6763
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 42b0a2440fa459fa31a7d6e137d124883646c205
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278998"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686019"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Skapa Linux-baserade kluster i HDInsight med Azure portal
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -65,7 +65,7 @@ Azure-portalen visar de flesta av egenskaperna. Med Azure Resource Manager-mall 
 
     * Klicka på **Nästa**.
 
-4. I **säkerhet och nätverk**, du kan ansluta ditt kluster till ett virtuellt nätverk med hjälp av den angivna listrutan. Välj en Azure-nätverket och undernätet om du vill placera kluster till ett virtuellt nätverk. Information om hur du använder HDInsight med ett virtuellt nätverk, inklusive konfigurationskraven för det virtuella nätverket, finns i [utöka HDInsight-funktioner med hjälp av Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md). Om du vill använda den **Enterprise Security Package**, du kan även följa instruktionerna här: [konfigurera ett HDInsight-kluster med Enterprise Security Package med hjälp av Azure Active Directory Domain Services](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds).
+4. I **säkerhet och nätverk**, du kan ansluta ditt kluster till ett virtuellt nätverk med hjälp av den angivna listrutan. Välj en Azure-nätverket och undernätet om du vill placera kluster till ett virtuellt nätverk. Information om hur du använder HDInsight med ett virtuellt nätverk, inklusive konfigurationskraven för det virtuella nätverket, finns i [utöka HDInsight-funktioner med hjälp av Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md). Om du vill använda den **Enterprise Security Package**, du kan även följa instruktionerna här: [konfigurera ett HDInsight-kluster med Enterprise Security Package med hjälp av Azure Active Directory Domain Services](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds).
 
 5. För **Storage**, ange om du vill att Azure Storage (WASB) eller Data Lake Storage som standardlagring. Titta på tabellen nedan för mer information.
 

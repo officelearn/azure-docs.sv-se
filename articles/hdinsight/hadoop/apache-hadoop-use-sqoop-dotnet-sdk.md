@@ -1,6 +1,6 @@
 ---
-title: Köra Sqoop-jobb med hjälp av .NET och HDInsight - Azure
-description: Lär dig hur du använder HDInsight .NET SDK för att köra Sqoop-import och export mellan ett Hadoop-kluster och en Azure SQL database.
+title: Kör Apache Sqoop jobb med hjälp av .NET och HDInsight - Azure
+description: Lär dig hur du använder HDInsight .NET SDK för att köra Apache Sqoop-import och export mellan ett Apache Hadoop-kluster och en Azure SQL database.
 keywords: sqoop jobb
 ms.reviewer: jasonh
 services: hdinsight
@@ -10,17 +10,17 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 423934dee0b490bb12522cec6d37393a1ec5e2f4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0b8d408482f1f6e2bcd25182208a46d28f7b4f7a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014881"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633046"
 ---
-# <a name="run-sqoop-jobs-by-using-net-sdk-for-hadoop-in-hdinsight"></a>Köra Sqoop-jobb med hjälp av .NET SDK för Hadoop i HDInsight
+# <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>Kör Apache Sqoop jobb med hjälp av .NET SDK för Apache Hadoop i HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Lär dig hur du använder Azure HDInsight .NET SDK för att köra Sqoop-jobb i HDInsight för att importera och exportera mellan ett HDInsight-kluster och en Azure SQL database eller SQL Server-databas.
+Lär dig hur du använder Azure HDInsight .NET SDK för att köra Apache Sqoop jobb i HDInsight för att importera och exportera mellan ett HDInsight-kluster och en Azure SQL database eller SQL Server-databas.
 
 > [!NOTE]
 > Men du kan använda procedurerna i den här artikeln med antingen ett Windows- eller Linux-baserade HDInsight-kluster, fungerar de bara från en Windows-klient. Använd flikväljaren överst i den här artikeln om du vill välja andra metoder.

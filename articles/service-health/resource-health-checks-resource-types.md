@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 633501b03a362fbd07e14e308e18488f03af5af5
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 6f02e20efbcb34d1f70f9f10acbe5bb3800cb4d2
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069218"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683959"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Resurstyper och hälsokontroller i Azure resource health
 Nedan visas en fullständig lista över alla kontroller som utförs genom resource health av resurstyper.
@@ -100,6 +100,11 @@ Nedan visas en fullständig lista över alla kontroller som utförs genom resour
 |Utförda kontroller|
 |---|
 |<ul><li> Runtime-åtgärder som registrering, installation eller skicka utföras i namnområdet?</li></ul>|
+
+## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/Capacities
+|Utförda kontroller|
+|---|
+|<ul><li>Är resursen kapacitet igång?</li><li>Är alla arbetsbelastningar igång?</li></ul>|
 
 ## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft.PowerBI/workspaceCollections
 |Utförda kontroller|

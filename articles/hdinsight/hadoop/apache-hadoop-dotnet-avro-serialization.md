@@ -1,5 +1,5 @@
 ---
-title: Serialisera data i Hadoop - Microsoft Avro Library - Azure
+title: Serialisera data i Apache Hadoop - Microsoft Avro Library - Azure
 description: Lär dig mer om att serialisera och deserialisera data i Hadoop på HDInsight med hjälp av Microsoft Avro Library ska sparas i minnet, en databas eller fil.
 keywords: avro, hadoop avro
 services: hdinsight
@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 5928c6490c9de6c48b75800158b8298007d7b8ed
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ae728cd1cfc27a17badcce319a8cd047b54ddb1e
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246913"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634013"
 ---
-# <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>Serialisera data i Hadoop med Microsoft Avro Library
+# <a name="serialize-data-in-apache-hadoop-with-the-microsoft-avro-library"></a>Serialisera data i Apache Hadoop med Microsoft Avro Library
 
 >[!NOTE]
 >Avro SDK stöds inte längre av Microsoft. Biblioteket är communityn för öppen källkod som stöds. Källor för biblioteket finns i [Github](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro).
@@ -52,17 +52,8 @@ Följande krävs innan du installerar biblioteket:
 * <a href="https://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework 4</a>
 * <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (6.0.4 eller senare)
 
-Observera att Newtonsoft.Json.dll beroendet ska hämtas automatiskt med installationen av Microsoft Avro Library. Proceduren finns i följande avsnitt:
-
-Microsoft Avro Library distribueras som ett NuGet-paket som kan installeras från Visual Studio via följande procedur:
-
-1. Välj den **projekt** -> fliken **hantera NuGet-paket...**
-2. Sök efter ”Microsoft.Hadoop.Avro” i den **Sök Online** box.
-3. Klicka på den **installera** bredvid knappen **Avro-bibliotek för Microsoft Azure HDInsight**.
-
-Observera att Newtonsoft.Json.dll (> = 6.0.4) beroende också hämtas automatiskt med Microsoft Avro Library.
-
-Microsoft Avro Library källkoden finns på [Github](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro).
+> [!Note]
+> Microsoft Avro Library är inte längre tillgänglig som ett NuGet-paket. Om du vill använda Avro-bibliotek klona den [Microsoft.Hadoop.Avro Github-lagringsplatsen](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro) och kompilera koden på din dator.
 
 ## <a name="compile-schemas-using-avro-library"></a>Kompilera scheman med Avro-bibliotek
 Microsoft Avro Library innehåller en kod generation verktyg som gör att skapa C#-typer som automatiskt baserat på den tidigare definierade JSON-scheman. Verktyget code generation distribueras inte som en binär körbar fil, men de är lätta att bygga via följande procedur:

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 11/13/2018
 ms.author: daveba
-ms.openlocfilehash: 0acc5c8211d6f7715e97214c49ee4af37850e330
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 4beaf9f1a4206f6840bdb3277770e1996dbc83e1
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47106204"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623235"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure Data Lake Store
 
@@ -33,15 +33,7 @@ I den här självstudien lär du dig att komma åt en Azure Data Lake Store med 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Logga in på Azure-portalen](https://portal.azure.com)
-
-- [Skapa en virtuell Windows-dator](/azure/virtual-machines/windows/quick-create-portal)
-
-- [Aktivera systemtilldelad identitet på den virtuella datorn](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Bevilja din virtuella dator åtkomst till Azure Data Lake Store
 

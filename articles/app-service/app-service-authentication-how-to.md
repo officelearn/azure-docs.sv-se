@@ -1,5 +1,5 @@
 ---
-title: Anpassa autentisering och auktorisering i Azure App Service | Microsoft Docs
+title: Avancerad användning av autentisering och auktorisering i Azure App Service | Microsoft Docs
 description: Visar hur du anpassar autentisering och auktorisering i App Service och hämta användar- och annan token.
 services: app-service
 documentationcenter: ''
@@ -11,18 +11,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 11/08/2018
 ms.author: cephalin
-ms.openlocfilehash: 629a76ab5610625e14780d7b5c57d3979c2224c9
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: e1109ec8cc98c7e5fc72d7f56ade19968b0056cc
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344178"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685335"
 ---
-# <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Anpassa autentisering och auktorisering i Azure App Service
+# <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Avancerad användning av autentisering och auktorisering i Azure App Service
 
-Den här artikeln visar hur du anpassar [autentisering och auktorisering i Apptjänst](app-service-authentication-overview.md), och för att hantera identitet från ditt program. 
+Den här artikeln visar hur du anpassar inbyggt [autentisering och auktorisering i Apptjänst](app-service-authentication-overview.md), och för att hantera identitet från ditt program. 
 
 Om du vill komma igång snabbt, finns i följande Självstudier:
 
@@ -58,6 +58,48 @@ För att omdirigera användaren efter-registrerings-modulen till en anpassad URL
 
 ```HTML
 <a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
+```
+
+## <a name="validate-tokens-from-providers"></a>Validera token från leverantörer
+
+I en klient-riktade inloggning, programmet loggar in användaren till providern manuellt och skickar sedan autentiseringstoken till App Service för verifiering (se [autentiseringsflödet](app-service-authentication-overview.md#authentication-flow)). Den här verifieringen själva ger inte faktiskt dig tillgång till önskad appresurser, men en lyckad validering ger dig en sessionstoken som du kan använda för att komma åt resurser i appen. 
+
+För att validera token provider, konfigureras App Service-app först med den önskade providern. Vid körning, när du hämtar autentiseringstoken från leverantören, publicera denna token till `/.auth/login/<provider>` för verifiering. Exempel: 
+
+```
+POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
+Content-Type: application/json
+
+{"id_token":"<token>","access_token":"<token>"}
+```
+
+Token formatet varierar något beroende providern. Se tabellen nedan för mer information:
+
+| Providern värde | Krävs i begärandetexten | Kommentarer |
+|-|-|-|
+| `aad` | `{"access_token":"<access_token>"}` | |
+| `microsoftaccount` | `{"access_token":"<token>"}` | Den `expires_in` egenskapen är valfri. <br/>När du begär en token från Live-tjänsterna, begär alltid den `wl.basic` omfång. |
+| `google` | `{"id_token":"<id_token>"}` | Den `authorization_code` egenskapen är valfri. När du anger det kan också välja åtföljas av den `redirect_uri` egenskapen. |
+| `facebook`| `{"access_token":"<user_access_token>"}` | Använd ett giltigt [åtkomsttoken](https://developers.facebook.com/docs/facebook-login/access-tokens) från Facebook. |
+| `twitter` | `{"access_token":"<access_token>", "access_token_secret":"<acces_token_secret>"}` | |
+| | | |
+
+Om provider-token är har verifierats, API: et returnerar med en `authenticationToken` i svarstexten, vilket är din sessionstoken. 
+
+```json
+{
+    "authenticationToken": "...",
+    "user": {
+        "userId": "sid:..."
+    }
+}
+```
+
+När du har den här sessionstoken kan du komma åt skyddade appresurser genom att lägga till den `X-ZUMO-AUTH` rubrik på HTTP-förfrågningar. Exempel: 
+
+```
+GET https://<appname>.azurewebsites.net/api/products/1
+X-ZUMO-AUTH: <authenticationToken_value>
 ```
 
 ## <a name="sign-out-of-a-session"></a>Logga ut från en session
@@ -119,7 +161,7 @@ Ditt program kan också få mer information om den autentiserade användaren gen
 
 Från din serverkod införs provider-specifik token i huvudet för begäran och så att du enkelt kan komma åt dem. I följande tabell visas möjliga token rubriknamn:
 
-| | |
+| Leverantör | Rubriknamn |
 |-|-|
 | Azure Active Directory | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
 | Facebook-Token | `X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN` <br/> `X-MS-TOKEN-FACEBOOK-EXPIRES-ON` |

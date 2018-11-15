@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 0859e480df0111e26d5b64bf835f94b3852b3414
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 0d76aa5091e77d8713290e6da8908e15ad3ef995
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277366"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684575"
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Använda Data Lake Store med Azure HDInsight-kluster
 
@@ -47,7 +47,7 @@ Från och med nu har endast vissa typer/versioner av HDInsight-kluster stöd fö
 | HDInsight version 3.2 | Nej | Ja | |
 | Storm | | |Du kan använda Data Lake Store till att skriva data från en Storm-topologi. Du kan också använda Data Lake Store för referensdata som sedan kan läsas av en Storm-topologi.|
 
-[!WARNING]
+> [!WARNING]
 > HDInsight HBase stöds inte med Azure Data Lake Storage Gen 1
 
 När du använder Data Lake Store som ett ytterligare lagringskonto påverkas inte prestanda eller möjligheten att läsa eller skriva till Azure-lagring från klustret.

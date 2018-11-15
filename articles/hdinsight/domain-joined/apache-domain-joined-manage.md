@@ -9,19 +9,19 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: 02a77ef9589a42a6f33087ba7e22efc3144a8f2c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a995f99f7baa8d6f9476f852aa47ce239c921a50
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973566"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634472"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Hantera HDInsight-kluster med Enterprise Security Package
 Lär dig användarna och roller i HDInsight Enterprise Security Package (ESP) och hur du hanterar ESP-kluster.
 
 ## <a name="use-vscode-to-link-to-domain-joined-cluster"></a>Använda VSCode för att länka till domänanslutna kluster
 
-Du kan länka ett normalt kluster med Ambari hanteras användarnamn, också länka ett hadoop-kluster med säkerhet med hjälp av domänanvändarnamn (t.ex: user1@contoso.com).
+Du kan länka en normal kluster med hjälp av Apache Ambari hanteras användarnamn, också länka ett security Apache Hadoop-kluster med hjälp av domänanvändarnamn (t.ex: user1@contoso.com).
 1. Öppna kommandopaletten genom att välja **CTRL + SKIFT + P**, och ange sedan **HDInsight: länka ett kluster**.
 
    ![länken cluster kommando](./media/apache-domain-joined-manage/link-cluster-command.png)

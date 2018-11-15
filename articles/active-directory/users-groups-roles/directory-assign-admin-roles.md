@@ -14,12 +14,12 @@ ms.date: 10/26/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: ebd922d27a9a3dc32a73066d38ecc176a466bae9
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 8c5da669d490bf295c4066854ac1173bcc79ad5e
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623935"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686134"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratör i Azure Active Directory
 
@@ -213,8 +213,8 @@ Kan skapa och hantera alla aspekter av appregistreringar och enterprise-appar.
 | microsoft.aad.directory/servicePrincipals/appRoleAssignments/update | Uppdatera egenskapen servicePrincipals.appRoleAssignments i Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/owners/update | Uppdatera egenskapen servicePrincipals.owners i Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/policies/update | Uppdatera egenskapen servicePrincipals.policies i Azure Active Directory. |
-| microsoft.aad.directory/users/assignLicense | Hantera licenser för användare i Azure Active Directory. |
-| microsoft.aad.reports/allEntities/read | Läsa Azure AD-rapporter. |
+| microsoft.aad.reports/applicationAuditLogs/read | Läsa applicationAuditLogs i Azure AD-rapporter. |
+| microsoft.aad.reports/applicationSignInReports/read | Läsa applicationSignInReports i Azure AD-rapporter. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läs och konfigurera Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera Azure-supportbegäranden. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
@@ -317,8 +317,8 @@ Kan skapa och hantera alla aspekter av appregistreringar och enterprise-appar f�
 | microsoft.aad.directory/servicePrincipals/delete | Ta bort servicePrincipals i Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/owners/update | Uppdatera egenskapen servicePrincipals.owners i Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/policies/update | Uppdatera egenskapen servicePrincipals.policies i Azure Active Directory. |
-| microsoft.aad.directory/users/assignLicense | Hantera licenser för användare i Azure Active Directory. |
-| microsoft.aad.reports/allEntities/read | Läsa Azure AD-rapporter. |
+| microsoft.aad.reports/applicationAuditLogs/read | Läsa applicationAuditLogs i Azure AD-rapporter. |
+| microsoft.aad.reports/applicationSignInReports/read | Läsa applicationSignInReports i Azure AD-rapporter. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läs och konfigurera Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera Azure-supportbegäranden. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
@@ -337,7 +337,8 @@ Fullständig åtkomst för att hantera enheter i Azure AD.
 | Microsoft.aad.Directory/Devices/delete | Ta bort enheter i Azure Active Directory. |
 | Microsoft.aad.Directory/Devices/disable | Inaktivera enheter i Azure Active Directory. |
 | Microsoft.aad.Directory/Devices/enable | Konfigurera enheter i Azure Active Directory. |
-| microsoft.aad.reports/allEntities/read | Läsa Azure AD-rapporter. |
+| microsoft.aad.reports/applicationAuditLogs/read | Läsa applicationAuditLogs i Azure AD-rapporter. |
+| microsoft.aad.reports/applicationSignInReports/read | Läsa applicationSignInReports i Azure AD-rapporter. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läs och konfigurera Azure Service Health. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 
@@ -385,7 +386,8 @@ Kan hantera alla aspekter av Azure AD och Microsoft-tjänster som använde Azure
 | microsoft.aad.directorySync/allEntities/allTasks | Utföra alla åtgärder i Azure AD Connect. |
 | microsoft.aad.identityProtection/allEntities/allTasks | Skapa och ta bort alla resurser och läs och uppdatera standardegenskaperna i microsoft.aad.identityProtection. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/read | Läs alla resurser i microsoft.aad.privilegedIdentityManagement. |
-| microsoft.aad.reports/allEntities/allTasks | Läsa och konfigurera Azure AD-rapporter. |
+| microsoft.aad.reports/applicationAuditLogs/read | Läsa applicationAuditLogs i Azure AD-rapporter. |
+| microsoft.aad.reports/applicationSignInReports/read | Läsa applicationSignInReports i Azure AD-rapporter. |
 | microsoft.azure.accessService/allEntities/allTasks | Hantera alla aspekter av Azure Access-tjänsten. |
 | microsoft.azure.informationProtection/allEntities/allTasks | Hantera alla aspekter av Azure Information Protection. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läs och konfigurera Azure Service Health. |
@@ -447,6 +449,28 @@ Kan hantera funktioner för villkorsstyrd åtkomst.
 | microsoft.aad.directory/policies/conditionalAccess/owners/read | Läs egenskapen policies.conditionalAccess i Azure Active Directory. |
 | microsoft.aad.directory/policies/conditionalAccess/owners/update | Uppdatera egenskapen policies.conditionalAccess i Azure Active Directory. |
 | microsoft.aad.directory/policies/conditionalAccess/policiesAppliedTo/read | Läs egenskapen policies.conditionalAccess i Azure Active Directory. |
+
+### <a name="crm-service-administrator"></a>Administratör för CRM-tjänst
+Kan hantera alla aspekter av Dynamics 365-produkten.
+
+  > [!NOTE]
+  > Den här rollen ärver behörigheterna från katalogläsarrollen.
+  >
+  >
+
+  > [!NOTE]
+  > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
+  >
+  >
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| microsoft.azure.accessService/allEntities/allTasks | Hantera alla aspekter av Azure Access-tjänsten. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Läs och konfigurera Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera Azure-supportbegäranden. |
+| microsoft.powerApps.dynamics365/allEntities/allTasks | Hantera alla aspekter av Dynamics 365. |
+| Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
+| Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 
 ### <a name="customer-lockbox-access-approver"></a>Godkännare av åtkomst till Customer LockBox
 Kan godkänna förfrågningar till Microsoft Support om att få åtkomst till kundens organisationsdata.
@@ -604,28 +628,8 @@ Kan läsa och skriva grundläggande kataloginformation. För att bevilja åtkoms
 | Microsoft.aad.Directory/Users/Manager/Update | Uppdatera egenskapen users.manager i Azure Active Directory. |
 | microsoft.aad.directory/users/userPrincipalName/update | Uppdatera egenskapen users.userPrincipalName i Azure Active Directory. |
 
-### <a name="dynamics-365-administrator"></a>Dynamics 365-administratör
-Kan hantera alla aspekter av Dynamics 365-produkten. I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras rollen som ”Dynamics 365-tjänstadministratör”. Det är ”Dynamics 365-administratör” i Azure-portalen.
-
-
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  > Den här rollen har också ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
-  >
-  >
-
-| **Åtgärder** | **Beskrivning** |
-| --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Hantera alla aspekter av Azure Access-tjänsten. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Läs och konfigurera Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera Azure-supportbegäranden. |
-| microsoft.powerApps.dynamics365/allEntities/allTasks | Hantera alla aspekter av Dynamics 365. |
-| Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
-| Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
-
-### <a name="exchange-administrator"></a>Exchange-administratör
-Kan hantera alla aspekter av Exchange-produkten. I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras rollen som ”Exchange Service-administratör”. Det är ”Exchange-administratör” i Azure-portalen.
+### <a name="exchange-service-administrator"></a>Exchange Service-administratör
+Kan hantera alla aspekter av Exchange-produkten.
 
   > [!NOTE]
   > Den här rollen ärver behörigheterna från katalogläsarrollen.
@@ -640,13 +644,14 @@ Kan hantera alla aspekter av Exchange-produkten. I Microsoft Graph API, Azure AD
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
 | microsoft.azure.accessService/allEntities/allTasks | Hantera alla aspekter av Azure Access-tjänsten. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Läs och konfigurera Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera Azure-supportbegäranden. |
+| microsoft.aad.directory/groups/unified/appRoleAssignments/update | Uppdatera groups.unified-egenskapen i Azure Active Directory. |
+| Microsoft.aad.Directory/groups/Unified/Basic/Update | Uppdatera grundläggande egenskaper för Office 365-grupper. |
 | Microsoft.aad.Directory/groups/Unified/Create | Skapa Office 365-grupper. |
 | Microsoft.aad.Directory/groups/Unified/delete | Ta bort Office 365-grupper. |
-| Microsoft.aad.Directory/groups/Unified/Basic/Update | Uppdatera grundläggande egenskaper för Office 365-grupper. |
 | Microsoft.aad.Directory/groups/Unified/members/Update | Uppdatera medlemskap i Office 365-grupper. |
 | Microsoft.aad.Directory/groups/Unified/owners/Update | Uppdatera ägarskapet för Office 365-grupper. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Läs och konfigurera Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera Azure-supportbegäranden. |
 | Microsoft.Office365.Exchange/allEntities/allTasks | Hantera alla aspekter av Exchange Online. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
@@ -713,8 +718,8 @@ Kan hantera alla aspekter av Azure Information Protection-produkten.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 
-### <a name="intune-administrator"></a>Intune-administratör
-Kan hantera alla aspekter av Intune-produkten. I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras rollen som ”Intune-tjänstadministratör”. Det är ”Intune-administratör” i Azure-portalen.
+### <a name="intune-service-administrator"></a>Administratör för Intune-tjänsten
+Kan hantera alla aspekter av Intune-produkten.
 
   > [!NOTE]
   > Den här rollen ärver behörigheterna från katalogläsarrollen.
@@ -769,8 +774,8 @@ Kan hantera produktlicenser på användare och grupper.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läs och konfigurera Azure Service Health. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 
-### <a name="skype-for-business-administrator"></a>Skype för Business Administrator
-Kan hantera alla aspekter av Skype för Business-produkten. I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras rollen som ”Skype för företag-tjänstadministratör”. Det är ”Skype för Business Administrator” i Azure-portalen.
+### <a name="lync-service-administrator"></a>Lync-tjänstadministratör
+Kan hantera alla aspekter av Skype för Business-produkten.
 
   > [!NOTE]
   > Den här rollen ärver behörigheterna från katalogläsarrollen.
@@ -886,8 +891,8 @@ Använd inte – inte avsett för allmänt bruk.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 
-### <a name="power-bi-administrator"></a>Power BI-administratör
-Kan hantera alla aspekter av Power BI-produkten. I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras rollen som ”Power BI-tjänstadministratör”. Det är ”Power BI-administratör” i Azure-portalen.
+### <a name="power-bi-service-administrator"></a>Power BI-tjänstadministratör
+Kan hantera alla aspekter av Power BI-produkten.
 
   > [!NOTE]
   > Den här rollen ärver behörigheterna från katalogläsarrollen.
@@ -941,7 +946,8 @@ Kan läsa inloggnings- och granskningsrapporter.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| microsoft.aad.reports/allEntities/read | Läsa Azure AD-rapporter. |
+| microsoft.aad.reports/applicationAuditLogs/read | Läsa applicationAuditLogs i Azure AD-rapporter. |
+| microsoft.aad.reports/applicationSignInReports/read | Läsa applicationSignInReports i Azure AD-rapporter. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läs och konfigurera Azure Service Health. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | Microsoft.Office365.usageReports/allEntities/Read | Läs Office 365-användningsrapporter. |
@@ -970,6 +976,8 @@ Kan läsa säkerhetsinformation och rapporter och hantera konfigurationen i Azur
 | microsoft.aad.identityProtection/allEntities/read | Läs alla resurser i microsoft.aad.identityProtection. |
 | microsoft.aad.identityProtection/allEntities/update | Uppdatera alla resurser i microsoft.aad.identityProtection. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/read | Läs alla resurser i microsoft.aad.privilegedIdentityManagement. |
+| microsoft.aad.reports/applicationAuditLogs/read | Läsa applicationAuditLogs i Azure AD-rapporter. |
+| microsoft.aad.reports/applicationSignInReports/read | Läsa applicationSignInReports i Azure AD-rapporter. |
 | microsoft.azure.accessService/allEntities/allTasks | Hantera alla aspekter av Azure Access-tjänsten. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läs och konfigurera Azure Service Health. |
 | Microsoft.Office365.protectionCenter/allEntities/Read | Läsa alla aspekter av Office 365-säkerhetscenter. |
@@ -993,6 +1001,8 @@ Kan läsa säkerhetsinformation och rapporter i Azure AD och Office 365.
 | --- | --- |
 | microsoft.aad.identityProtection/allEntities/read | Läs alla resurser i microsoft.aad.identityProtection. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/read | Läs alla resurser i microsoft.aad.privilegedIdentityManagement. |
+| microsoft.aad.reports/applicationAuditLogs/read | Läsa applicationAuditLogs i Azure AD-rapporter. |
+| microsoft.aad.reports/applicationSignInReports/read | Läsa applicationSignInReports i Azure AD-rapporter. |
 | microsoft.azure.accessService/allEntities/allTasks | Hantera alla aspekter av Azure Access-tjänsten. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läs och konfigurera Azure Service Health. |
 | Microsoft.Office365.protectionCenter/allEntities/Read | Läsa alla aspekter av Office 365-säkerhetscenter. |
@@ -1019,8 +1029,8 @@ Kan läsa information om Service Health och hantera supportärenden.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 
-### <a name="sharepoint-administrator"></a>SharePoint-administratör
-Kan hantera alla aspekter av SharePoint-tjänsten. I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras rollen som ”SharePoint-tjänstadministratör”. Det är ”SharePoint-administratör” i Azure-portalen.
+### <a name="sharepoint-service-administrator"></a>SharePoint-tjänstadministratör
+Kan hantera alla aspekter av SharePoint-tjänsten.
 
   > [!NOTE]
   > Den här rollen ärver behörigheterna från katalogläsarrollen.
@@ -1035,12 +1045,14 @@ Kan hantera alla aspekter av SharePoint-tjänsten. I Microsoft Graph API, Azure 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
 | microsoft.azure.accessService/allEntities/allTasks | Hantera alla aspekter av Azure Access-tjänsten. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Läs och konfigurera Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera Azure-supportbegäranden. |
-| Microsoft.aad.Directory/groups/Unified/delete | Ta bort Office 365-grupper. |
+| microsoft.aad.directory/groups/unified/appRoleAssignments/update | Uppdatera groups.unified-egenskapen i Azure Active Directory. |
 | Microsoft.aad.Directory/groups/Unified/Basic/Update | Uppdatera grundläggande egenskaper för Office 365-grupper. |
+| Microsoft.aad.Directory/groups/Unified/Create | Skapa Office 365-grupper. |
+| Microsoft.aad.Directory/groups/Unified/delete | Ta bort Office 365-grupper. |
 | Microsoft.aad.Directory/groups/Unified/members/Update | Uppdatera medlemskap i Office 365-grupper. |
 | Microsoft.aad.Directory/groups/Unified/owners/Update | Uppdatera ägarskapet för Office 365-grupper. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Läs och konfigurera Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera Azure-supportbegäranden. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | Microsoft.Office365.SharePoint/allEntities/allTasks | Skapa och ta bort alla resurser och läs och uppdatera standardegenskaperna i microsoft.office365.sharepoint. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
@@ -1108,8 +1120,8 @@ Kan felsöka kommunikationsproblem i grupper med hjälp av grundläggande verkty
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läs och konfigurera Azure Service Health. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 
-### <a name="teams-administrator"></a>Team-administratör
-Kan hantera Microsoft Teams-tjänsten. I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras rollen som ”team Service-administratör”. Det är ”team administratör” i Azure-portalen.
+### <a name="teams-service-administrator"></a>Teams-tjänstadministratör
+Kan hantera Microsoft Teams-tjänsten.
 
   > [!NOTE]
   > Den här rollen ärver behörigheterna från katalogläsarrollen.
@@ -1124,11 +1136,13 @@ Kan hantera Microsoft Teams-tjänsten. I Microsoft Graph API, Azure AD Graph API
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
 | microsoft.aad.directory/groups/hiddenMembers/read | Läs egenskapen groups.hiddenMembers i Azure Active Directory. |
-| Microsoft.aad.Directory/policies/Basic/Read | Läs grundläggande egenskaper om principer i Azure Active Directory. |
-| Microsoft.aad.Directory/groups/Unified/delete | Ta bort Office 365-grupper. |
+| microsoft.aad.directory/groups/unified/appRoleAssignments/update | Uppdatera groups.unified-egenskapen i Azure Active Directory. |
 | Microsoft.aad.Directory/groups/Unified/Basic/Update | Uppdatera grundläggande egenskaper för Office 365-grupper. |
+| Microsoft.aad.Directory/groups/Unified/Create | Skapa Office 365-grupper. |
+| Microsoft.aad.Directory/groups/Unified/delete | Ta bort Office 365-grupper. |
 | Microsoft.aad.Directory/groups/Unified/members/Update | Uppdatera medlemskap i Office 365-grupper. |
 | Microsoft.aad.Directory/groups/Unified/owners/Update | Uppdatera ägarskapet för Office 365-grupper. |
+| Microsoft.aad.Directory/policies/Basic/Read | Läs grundläggande egenskaper om principer i Azure Active Directory. |
 | microsoft.azure.accessService/allEntities/allTasks | Hantera alla aspekter av Azure Access-tjänsten. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läs och konfigurera Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera Azure-supportbegäranden. |

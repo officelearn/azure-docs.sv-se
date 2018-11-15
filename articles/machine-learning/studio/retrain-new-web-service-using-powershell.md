@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 069a3022cf9b6423b95e8f9f35686965d2654be7
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: abef73a477355d89236b1f62cffc1f3d05ba03d0
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39631086"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687239"
 ---
 # <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Omtrimma en ny Resource Manager-baserade webbtjänst med hjälp av Machine Learning Management PowerShell-cmdletar
 När du tränar en ny webbtjänst kan du uppdatera förutsägande web service definition för att referera till den nya tränade modellen.
@@ -69,7 +69,7 @@ Kör cmdleten Get-AzureRmMlWebService utan några parametrar för att visa webbt
 
 Du kan också för att fastställa resursgruppens namn för en befintlig webbtjänst, loggar du in på Microsoft Azure Machine Learning Web Services-portal. Välj webbtjänsten. Resursgruppens namn är det femte elementet i URL: en för webbtjänst, efter den *resourceGroups* element. I följande exempel är resursgruppens namn standard-MachineLearning-Usasödracentrala.
 
-    https://services.azureml.net/subscriptions/<subcription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
+    https://services.azureml.net/subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
 
 
 ## <a name="export-the-web-service-definition-as-json"></a>Exportera Web Service Definition som JSON

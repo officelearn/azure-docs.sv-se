@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 09/19/2018
-ms.openlocfilehash: 6330e187ce0a46744bc27eee3ee74ed125d49446
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 8806d2b1848064c48615aed653c69c2df9b1949f
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625988"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685471"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Aktivera Azure Disk Encryption för virtuella Linux IaaS-datorer 
 
@@ -130,7 +130,7 @@ I följande tabell visas Resource Manager-mallens parametrar för befintliga ell
 | Parameter | Beskrivning |
 | --- | --- |
 | vmName | Namnet på den virtuella datorn att köra krypteringsåtgärden. |
-| keyVaultName | Namnet på nyckelvalvet som BitLocker-nyckel ska överföras till. Du kan hämta den med hjälp av cmdleten `(Get-AzureRmKeyVault -ResourceGroupName <MyResourceGroupName>). Vaultname` eller Azure CLI-kommando ' az keyvault list--resource-group ”MySecureGroup” |Convertfrom-JSON ”|
+| keyVaultName | Namnet på nyckelvalvet som BitLocker-nyckel ska överföras till. Du kan hämta den med hjälp av cmdleten `(Get-AzureRmKeyVault -ResourceGroupName <MyResourceGroupName>). Vaultname` eller Azure CLI-kommando ' az keyvault list--resource-group ”MySecureGroup” |ConvertFrom-JSON ”|
 | keyVaultResourceGroup | Namnet på resursgruppen som innehåller nyckelvalvet|
 |  KeyEncryptionKeyURL | URL för nyckelkrypteringsnyckel som används för att kryptera den genererade BitLocker-nyckeln. Den här parametern är valfri om du väljer **nokek** i listrutan UseExistingKek. Om du väljer **kek** i listrutan UseExistingKek måste du ange den _keyEncryptionKeyURL_ värde. |
 | VolumeType | Typ av volym som krypteringsåtgärden utförs på. Giltiga värden är _OS_, _Data_, och _alla_. 
@@ -153,7 +153,7 @@ Azure-diskkryptering för VM-skalningsuppsättningar förhandsversion måste du 
 az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
 ```
 
-Det kan ta upp till 10 minuter för registreringsbegäran att spridas. Du kan kontrollera status för enhetsregistreringen med [az funktionen show](/cli/azure/feature#az_feature_show). När den `State` rapporter *registrerad*, registrera den *Mirosoft.Compute* provider med [az provider register](/cli/azure/provider#az_provider_register):
+Det kan ta upp till 10 minuter för registreringsbegäran att spridas. Du kan kontrollera status för enhetsregistreringen med [az funktionen show](/cli/azure/feature#az_feature_show). När den `State` rapporter *registrerad*, registrera den *Microsoft.Compute* provider med [az provider register](/cli/azure/provider#az_provider_register):
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute
@@ -191,7 +191,7 @@ Azure-diskkryptering för VM-skalningsuppsättningar förhandsversion måste du 
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 
-Det kan ta upp till 10 minuter för registreringsbegäran att spridas. Du kan kontrollera status för enhetsregistreringen med [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). När den `RegistrationState` rapporter *registrerad*, registrera den *Mirosoft.Compute* provider med [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider):
+Det kan ta upp till 10 minuter för registreringsbegäran att spridas. Du kan kontrollera status för enhetsregistreringen med [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). När den `RegistrationState` rapporter *registrerad*, registrera den *Microsoft.Compute* provider med [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider):
 
 ```azurepowershell-interactive
 Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
@@ -244,7 +244,7 @@ Den **EncryptFormatAll** parametern minskar tid för Linux datadiskar måste var
  När du har kört det här kommandot kommer eventuella enheter som har monterats tidigare att formateras. Krypteringslagret kan sedan startas ovanpå nu tom enheten. När det här alternativet är markerat krypteras också tillfälliga resursdisk som är ansluten till den virtuella datorn. Om den tillfälliga enheten återställs den formateras om och omkrypteras med hjälp av Azure Disk Encryption-lösningen vid nästa tillfälle för den virtuella datorn.
 
 >[!WARNING]
-> EncryptFormatAll bör inte användas när det nödvändiga data på en virtuell dators datavolymer. Du kan undanta diskar från kryptering av demontera dem. Du bör först prova EncryptFormatAll först på en virtuell testdator, Förstå funktionsparametern och dess de innan du försöker på den Virtuella produktionsdatorn. Alternativet EncryptFormatAll formaterar datadisken och alla data på den kommer att gå förlorade. Kontrollera att diskarna som du vill utesluta korrekt är unmouted innan du fortsätter. </br></br>
+> EncryptFormatAll bör inte användas när det nödvändiga data på en virtuell dators datavolymer. Du kan undanta diskar från kryptering av demontera dem. Du bör först prova EncryptFormatAll först på en virtuell testdator, Förstå funktionsparametern och dess de innan du försöker på den Virtuella produktionsdatorn. Alternativet EncryptFormatAll formaterar datadisken och alla data på den kommer att gå förlorade. Kontrollera att du vill utesluta diskar är korrekt demonterats innan du fortsätter. </br></br>
  >Om du konfigurerar den här parametern vid uppdatering av krypteringsinställningar, kan det leda till en omstart innan du själva krypteringen. I det här fallet vill du också ta bort disken som du inte vill formaterade från fstab-filen. På samma sätt bör du lägga till den partition som du vill kryptera-formaterad till fstab-filen innan du påbörjar krypteringsåtgärden. 
 
 ### <a name="bkmk_EFACriteria"> </a> EncryptFormatAll kriterier

@@ -13,21 +13,22 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 09/05/2018
+ms.date: 11/13/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: aff20cba3bc07924f669420a8c367613b41111a1
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 35b3e6d59cdb1edc59aa211954b8a69a3ce51bc5
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49076108"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632213"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>Självstudie: skapa och testa en prenumeration
-Den här självstudien visar hur du skapar en prenumeration som innehåller ett erbjudande och sedan testa den. För testning, ska du logga in på användarportalen för Azure Stack som en molnadministratör, prenumererar på erbjudandet och sedan skapa en virtuell dator.
+
+Den här självstudien visar hur du skapar en prenumeration som innehåller ett erbjudande och sedan testa den. För att testet du loggar in på användarportalen för Azure Stack som en molnadministratör prenumererar på erbjudandet och sedan skapa en virtuell dator.
 
 > [!TIP]
-> För mer en mer avancerade utvärderingsversionen, kan du [skapa en prenumeration för en viss användare](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm#create-a-subscription-as-a-cloud-operator) och sedan logga in som användaren i användarportalen. 
+> För mer en mer avancerade utvärderingsversionen, kan du [skapa en prenumeration för en viss användare](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) och logga sedan in som användaren i användarportalen. 
 
 Den här självstudien visar hur du prenumererar på ett Azure Stack-erbjudande.
 
@@ -38,48 +39,49 @@ Vad du lära dig:
 > * Testa erbjudandet
 
 ## <a name="subscribe-to-an-offer"></a>Prenumerera på ett erbjudande
-Om du vill prenumerera på ett erbjudande som en användare, måste du logga in på användarportalen för Azure Stack för att identifiera de tjänster som har erbjudits av Azure Stack-operatör.
 
-1. Logga in på användarportalen och klickar på **skaffa en prenumeration**.
+För att du prenumererar på ett erbjudande som en användare kan logga du in på användarportalen för Azure Stack att identifiera de tjänster som har erbjudits av Azure Stack-operatör.
+
+1. Logga in på portalen och Välj användaren **skaffa en prenumeration**.
 
    ![Skaffa en prenumeration](media/azure-stack-subscribe-services/get-subscription.png)
 
-2. Skriv ett namn för prenumerationen i fältet **Visningsnamn**. Klicka sedan på **erbjuder** välja något av erbjudandena i den **Välj ett erbjudande** avsnittet och klicka sedan på **skapa**.
+2. Skriv ett namn för prenumerationen i fältet **Visningsnamn**. Välj sedan **erbjuder** välja en av de tillgängliga erbjudandena i den **Välj ett erbjudande** avsnittet. Välj sedan **Skapa**.
 
    ![Skapa ett erbjudande](media/azure-stack-subscribe-services/create-subscription.png)
 
    > [!TIP]
    > Nu måste du uppdatera användarportalen så att börja använda din prenumeration.
 
-3. Om du vill visa den prenumeration som du har skapat, klickar du på **alla tjänster**.  Sedan, under den **Allmänt** kategori väljer **prenumerationer**, och välj sedan din nya prenumeration. När du prenumererar på ett erbjudande kan du uppdatera portalen om nya tjänster har gått med i den nya prenumerationen. I det här exemplet **virtuella datorer** har lagts till.
+3. Om du vill visa den prenumeration som du har skapat, Välj **alla tjänster**. Sedan, under den **Allmänt** kategori väljer **prenumerationer**, och välj sedan din nya prenumeration. När du prenumererar på ett erbjudande kan du uppdatera portalen om nya tjänster har gått med i den nya prenumerationen. I det här exemplet **virtuella datorer** har lagts till.
 
    ![Visa prenumeration](media/azure-stack-subscribe-services/view-subscription.png)
 
-
 ## <a name="test-the-offer"></a>Testa erbjudandet
-Logga in användarportalen, kan du testa erbjudandet genom att etablera en virtuell dator med de nya funktionerna i prenumerationen. 
+
+Loggat in på användarportalen, kan du testa erbjudandet genom att etablera en virtuell dator med de nya funktionerna i prenumerationen. 
 
 > [!NOTE]
 > Det här testet kräver att en Windows Server 2016 Datacenter VM först har lagts till i Azure Stack marketplace. 
 
 1. Logga in på användarportalen.
 
-2. I användarportalen, klickar du på **virtuella datorer** > **Lägg till** > **Windows Server 2016 Datacenter**, och klicka sedan på **skapa** .
+2. Välj i användarportalen, **virtuella datorer**, sedan **Lägg till**, sedan **Windows Server 2016 Datacenter**, och klicka sedan på **skapa**.
 
-3. I den **grunderna** Skriv en **namn**, **användarnamn**, och **lösenord**, Välj en **prenumeration**, Skapa en **resursgrupp** (eller välj en befintlig) och klicka sedan på **OK**.
+3. I den **grunderna** Skriv en **namn**, **användarnamn**, och **lösenord**, Välj en **prenumeration**, Skapa en **resursgrupp** (eller välj en befintlig) och välj sedan **OK**.
 
-4. I den **väljer du en storlek** klickar du på **Standard A1**, och klicka sedan på **Välj**.  
+4. I den **väljer du en storlek** väljer **Standard A1**, och klicka sedan på **Välj**.  
 
-5. Acceptera standardinställningarna på bladet inställningar och klickar på **OK**.
+5. I den **inställningar** bladet godkänna standardvärdena och välj **OK**.
 
 6. I den **sammanfattning** klickar du på **OK** att skapa den virtuella datorn.  
 
-7. Om du vill se din nya virtuella dator, klickar du på **virtuella datorer**Sök sedan efter den nya virtuella datorn och klicka på dess namn.
+7. Om du vill se din nya virtuella dator **virtuella datorer**Sök sedan efter den nya virtuella datorn och klicka på dess namn.
 
     ![Alla resurser](media/azure-stack-subscribe-services/view-vm.png)
 
 > [!NOTE]
-> VM-distributionen tar några minuter att slutföra.
+> Distributionen av virtuella datorer tar några minuter att slutföra.
 
 
 ## <a name="next-steps"></a>Nästa steg

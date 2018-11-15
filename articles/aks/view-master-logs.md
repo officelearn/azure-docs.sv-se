@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: iainfou
-ms.openlocfilehash: c3256b2b1e8be0e883d0f7b47e66ab1fee95b042
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 5f151db9cb2cf7a5ef242f777cd2ad1820c856a8
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138185"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636701"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Aktivera och granska Kubernetes huvudnoden loggar i Azure Kubernetes Service (AKS)
 
@@ -116,7 +116,7 @@ I följande tabell beskrivs för att analysera loggdata, ett schema som används
 | *Resurs-ID*             | Azure-resurs som skapas i loggen |
 | *tid*                   | Tidsstämpel för när loggen har överförts |
 | *Kategori*               | Namnet på behållaren/komponenten genererar loggen |
-| *OperationName*          | Alltid *Microsoft.ContainerService/managedClusters/diagnositicLogs/Read* |
+| *OperationName*          | Alltid *Microsoft.ContainerService/managedClusters/diagnosticLogs/Read* |
 | *Properties.log*         | Fulltext loggens från komponenten |
 | *Properties.stream*      | *stderr* eller *stdout* |
 | *Properties.pod*         | Podnamn loggen kommer ifrån |

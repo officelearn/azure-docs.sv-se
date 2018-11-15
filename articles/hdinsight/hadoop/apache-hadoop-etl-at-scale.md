@@ -1,6 +1,6 @@
 ---
 title: Extrahering, transformering och inläsning (ETL) i stor skala - Azure HDInsight
-description: Lär dig hur ETL används i HDInsight med Hadoop.
+description: Lär dig hur ETL används i HDInsight med Apache Hadoop.
 services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 6af55bf8311efc14687ee16c3226988fd730081d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 17aeb847a2c701abf03b46d47e34d13b6fb27316
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049010"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633333"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extrahering, transformering och laddning (ETL) i stor skala
 
-Extrahering, transformering och laddning (ETL) är den process som data är hämtade från olika källor, som samlas in i en standardplats, rensade och bearbetas och slutligen läses in i ett datalager som den kan ta emot. Importera data äldre ETL-processer, rensa den på plats och sedan lagra den i en motor för relationsdata. Med HDInsight stöder en mängd olika Hadoop-ekosystemet komponenter utföra ETL i stor skala. 
+Extrahering, transformering och laddning (ETL) är den process som data är hämtade från olika källor, som samlas in i en standardplats, rensade och bearbetas och slutligen läses in i ett datalager som den kan ta emot. Importera data äldre ETL-processer, rensa den på plats och sedan lagra den i en motor för relationsdata. Med HDInsight stöder en mängd olika komponenter för Apache Hadoop-ekosystemet utföra ETL i stor skala. 
 
 Användningen av HDInsight i ETL-processen kan sammanfattas av denna pipeline:
 

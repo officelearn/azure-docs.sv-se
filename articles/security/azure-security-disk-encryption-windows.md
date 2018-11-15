@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 10/12/2018
-ms.openlocfilehash: 2034616d7c701dfe03761d5a01848171fd264903
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 545723a020609766b9556746e6547eb8b93e5de9
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625123"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687528"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Aktivera Azure Disk Encryption för Windows virtuella IaaS-datorer 
 
@@ -125,7 +125,7 @@ I följande tabell visas Resource Manager-mallens parametrar för befintliga ell
 | Parameter | Beskrivning |
 | --- | --- |
 | vmName | Namnet på den virtuella datorn att köra krypteringsåtgärden. |
-| keyVaultName | Namnet på nyckelvalvet som BitLocker-nyckel ska överföras till. Du kan hämta den med hjälp av cmdleten `(Get-AzureRmKeyVault -ResourceGroupName <MyResourceGroupName>). Vaultname` eller Azure CLI-kommando ' az keyvault list--resource-group ”MySecureGroup” |Convertfrom-JSON ”|
+| keyVaultName | Namnet på nyckelvalvet som BitLocker-nyckel ska överföras till. Du kan hämta den med hjälp av cmdleten `(Get-AzureRmKeyVault -ResourceGroupName <MyResourceGroupName>). Vaultname` eller Azure CLI-kommando ' az keyvault list--resource-group ”MySecureGroup” |ConvertFrom-JSON ”|
 | keyVaultResourceGroup | Namnet på resursgruppen som innehåller nyckelvalvet|
 |  KeyEncryptionKeyURL | URL för nyckelkrypteringsnyckel som används för att kryptera den genererade BitLocker-nyckeln. Den här parametern är valfri om du väljer **nokek** i listrutan UseExistingKek. Om du väljer **kek** i listrutan UseExistingKek måste du ange den _keyEncryptionKeyURL_ värde. |
 | VolumeType | Typ av volym som krypteringsåtgärden utförs på. Giltiga värden är _OS_, _Data_, och _alla_. 
@@ -145,7 +145,7 @@ Azure-diskkryptering för VM-skalningsuppsättningar förhandsversion måste du 
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 
-Det kan ta upp till 10 minuter för registreringsbegäran att spridas. Du kan kontrollera status för enhetsregistreringen med [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). När den `RegistrationState` rapporter *registrerad*, registrera den *Mirosoft.Compute* provider med [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider):
+Det kan ta upp till 10 minuter för registreringsbegäran att spridas. Du kan kontrollera status för enhetsregistreringen med [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). När den `RegistrationState` rapporter *registrerad*, registrera den *Microsoft.Compute* provider med [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider):
 
 ```azurepowershell-interactive
 Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
@@ -200,7 +200,7 @@ Azure-diskkryptering för VM-skalningsuppsättningar förhandsversion måste du 
 az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
 ```
 
-Det kan ta upp till 10 minuter för registreringsbegäran att spridas. Du kan kontrollera status för enhetsregistreringen med [az funktionen show](/cli/azure/feature#az_feature_show). När den `State` rapporter *registrerad*, registrera den *Mirosoft.Compute* provider med [az provider register](/cli/azure/provider#az_provider_register):
+Det kan ta upp till 10 minuter för registreringsbegäran att spridas. Du kan kontrollera status för enhetsregistreringen med [az funktionen show](/cli/azure/feature#az_feature_show). När den `State` rapporter *registrerad*, registrera den *Microsoft.Compute* provider med [az provider register](/cli/azure/provider#az_provider_register):
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute

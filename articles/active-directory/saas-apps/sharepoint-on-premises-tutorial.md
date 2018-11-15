@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 100ea0147bf56242ba15bee39e4bda1b65af27da
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 31f4c64296c180ac441f2fb691514a4b9fb35a57
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390099"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687205"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Självstudier: Azure Active Directory-integrering med lokal SharePoint
 
@@ -130,7 +130,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 6. På den **lokal SharePoint-konfigurationen** klickar du på **lokal Konfigurera SharePoint-** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID** från den **Snabbreferens avsnittet.** För **enkel inloggnings-URL för**, använda ett värde för följande mönster: `https://login.microsoftonline.com/_my_directory_id_/wsfed` 
 
     > [!Note]
-    > _my_directory_id_ är klient-id för Azure Ad-prenumerationen.
+    > _my_directory_id_ är klient-id för Azure Ad-prenumeration.
 
     ![En lokal SharePoint-konfigurationen](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_configure.png)
 

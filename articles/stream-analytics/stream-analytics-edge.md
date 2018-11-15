@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/16/2017
-ms.openlocfilehash: 73b594aaabd814108dfce813b53a4ea865336e63
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a9d3b92b9cb3334c8c52a9127a2fab92d187e3d9
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985071"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687443"
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics på IoT Edge (förhandsversion)
 
@@ -71,13 +71,17 @@ En lagringsbehållare krävs för att exportera ASA kompileras frågan och jobbk
 
 1. Skapa en ny ”Stream Analytics-jobbet” från Azure-portalen. [Direktlänk till att skapa ett nytt ASA-jobb här](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
 
-2. Skapa-skärmen väljer du **Edge** som **värdmiljö** (se nedan) ![skapa jobb](media/stream-analytics-edge/ASAEdge_create.png)
+2. Skapa-skärmen väljer du **Edge** som **värdmiljö** (se nedan)
+
+   ![Skapande av jobb](media/stream-analytics-edge/ASAEdge_create.png)
 3. Jobbdefinition
     1. **Definiera inkommande Stream(s)**. Definiera en eller flera inkommande dataströmmar för jobbet.
     2. Definiera referensdata (valfritt).
     3. **Definiera utdata Stream(s)**. Definiera en eller flera strömmar av utdata för jobbet. 
     4. **Definiera fråga**. Definiera ASA-frågan i molnet med hjälp av infogade-redigeraren. Kompilatorn kontrollerar automatiskt den syntax som aktiverats för ASA edge. Du kan också testa frågan genom att ladda upp exempeldata. 
+
 4. Ange information för storage-behållaren i den **IoT Edge-inställningar** menyn.
+
 5. Ange valfria inställningar
     1. **Händelseordning**. Du kan konfigurera princip för out-ordning i portalen. Dokumentation finns [här](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396).
     2. **Nationella inställningar**. Ange internalization format.
@@ -181,20 +185,27 @@ AT finns, det går endast att strömindata och stream utdatatyper är Edge Hub. 
 
 
 ##### <a name="reference-data"></a>Referensdata
-Referensdata (även kallat en uppslagstabell) är en begränsad mängd data som är statiska eller långsamma ändrar sin natur. Den används för att utföra en sökning eller att korrelera med din dataström. Att göra använder referensdata i Azure Stream Analytics-jobb kan du vanligtvis använder en [referens Data ansluta](https://msdn.microsoft.com/library/azure/dn949258.aspx) i frågan. Mer information finns i den [ASA-dokumentationen om referensdata](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data).
+Referensdata (även kallat en uppslagstabell) är en begränsad mängd data som är statiska eller långsamma ändrar sin natur. Den används för att utföra en sökning eller att korrelera med din dataström. Att göra använder referensdata i Azure Stream Analytics-jobb kan du vanligtvis använder en [referens Data ansluta](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) i frågan. Mer information finns i den [använda referensdata för sökningar i Stream Analytics](stream-analytics-use-reference-data.md).
 
-Följ dessa steg om du vill använda referensdata för ASA på Iot Edge: 
-1. Skapa en ny indata för jobbet
+Endast lokala referensdata stöds. När ett jobb har distribuerats till IoT Edge-enhet, laddas referensdata från sökvägen till användardefinierade.
+
+Skapa ett jobb med referensdata i Microsoft Edge:
+
+1. Skapa en ny indata för jobbet.
+
 2. Välj **referensdata** som den **källtyp**.
-3. Ange sökvägen till filen. Sökvägen till filen ska vara en **absolut** sökväg på enheten ![referera till skapande av data](media/stream-analytics-edge/ReferenceData.png)
-4. Aktivera **delade enheter** i Docker-konfigurationen och se till att enheten är aktiverad innan du påbörjar distributionen.
 
-Mer information finns i [Docker-dokumentation för Windows här](https://docs.docker.com/docker-for-windows/#shared-drives).
+3. Ha en referens-datafil redo på enheten. Placera filen referens data på den lokala enheten för en Windows-behållare och dela den lokala enheten med Docker-behållaren. Skapa en Docker-volym för en Linux-behållare och fylla i datafilen till volymen.
 
-> [!Note]
-> För tillfället stöds endast lokala referensdata.
+4. Ange sökvägen till filen. Använd den absoluta sökvägen för en windows-enhet. Använd sökvägen på volymen för en Linux-enhet.
 
+![Nya referensindata för Azure Stream Analytics-jobb på IoT Edge](./media/stream-analytics-edge/ReferenceDataNewInput.png)
 
+Referensdata på IoT Edge update utlöses av en distribution. När utlöses, hämtar modulen ASA uppdaterade data utan att stoppa det pågående jobbet.
+
+Det finns två sätt att uppdatera referensdata:
+* Uppdatera sökvägen för referens i ASA-jobb från Azure-portalen.
+* Uppdatera IoT Edge-distribution.
 
 
 ## <a name="license-and-third-party-notices"></a>Licens och meddelanden från tredje part

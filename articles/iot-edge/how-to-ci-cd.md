@@ -8,16 +8,16 @@ ms.date: 11/12/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a110c0a938e56c8ac276e0efed22ea3af23f111a
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 06dec64a55aaece4cd67ebf0485e34aa206a8936
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578543"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633741"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge
 
-Den här artikeln visar hur du kan använda kontinuerlig integrering och kontinuerlig distribution funktionerna i Azure DevOps-tjänsterna och Microsoft Team Foundation Server (TFS) för att bygga, testa och distribuera program snabbt och effektivt till Azure IoT Edge. 
+Du kan enkelt implementera DevOps med Azure IoT Edge-program med [Azure IoT Edge för Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) eller [Azure IoT Edge-plugin för Jenkins](https://plugins.jenkins.io/azure-iot-edge). Den här artikeln visar hur du använder kontinuerlig integrering och kontinuerlig distribution funktionerna i Azure Pipelines och Microsoft Team Foundation Server (TFS) för att skapa, testa och distribuera program snabbt och effektivt till Azure IoT Edge. 
 
 I den här artikeln får du lära dig hur du:
 * Skapa och kontrollera i ett exempel på IoT Edge-lösning.
@@ -42,28 +42,28 @@ I det här avsnittet skapar du ett exempel på IoT Edge lösning som innehåller
 
 3. Din lösning för IoT Edge-exemplet är nu klar. Standard C# modulen fungerar som en modul för pipe-meddelande. I den `deployment.template.json`, visas den här lösningen innehåller två moduler. Meddelandet kommer att genereras från den `tempSensor` -modulen och kommer skickas direkt `FilterModule`, skickas sedan till din IoT-hubb.
 
-4. Spara dessa projekt och checkar in i din Azure DevOps eller TFS-lagringsplats.
+4. Spara dessa projekt och checkar in i din Azure-databaser eller TFS-lagringsplats.
     
 > [!NOTE]
 > Mer information om hur du använder Azure-databaser finns i [dela din kod med Visual Studio och Azure-lagringsplatser](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
 
 
-## <a name="configure-azure-pipeline-for-continuous-integration"></a>Konfigurera Azure-Pipeline för kontinuerlig integrering
-I det här avsnittet skapar du en build-pipeline som är konfigurerad för att köras automatiskt när du checkar in ändringar till exempel IoT Edge-lösningen och den visar build loggar i Azure-Pipeline.
+## <a name="configure-azure-pipelines-for-continuous-integration"></a>Konfigurera Azure Pipelines för kontinuerlig integrering
+I det här avsnittet skapar du en build-pipeline som är konfigurerad för att köras automatiskt när du checkar in ändringar till exempel IoT Edge-lösningen och den visar build-loggarna i Azure-Pipelines.
 
-1. Logga in på din Azure DevOps-organisation (**https://**_ditt konto_**. visualstudio.com**) och öppna projektet där du har markerat i exempelappen.
+1. Logga in på din Azure DevOps-organisation ( **https://dev.azure.com/{your organisation} /**) och öppna projektet där du har markerat i exempelappen.
 
     ![Checka in kod](./media/how-to-ci-cd/init-project.png)
 
-1. Besök [Azure IoT Edge för Azure Pipeline](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) på Azure Marketplace för DevOps. Klicka på **helt kostnadsfritt** och Följ guiden för att installera det här tillägget till din Azure DevOps-organisation eller ladda ned till din TFS.
+1. Besök [Azure IoT Edge för Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) på Azure Marketplace för DevOps. Klicka på **helt kostnadsfritt** och Följ guiden för att installera det här tillägget till din Azure DevOps-organisation eller ladda ned till din TFS.
 
     ![Installera tillägget](./media/how-to-ci-cd/install-extension.png)
 
-1. I din Azure DevOps, öppnar den **Build & Release** hub och i den **bygger** fliken **+ ny pipeline**. Eller, om du redan har skapandet av pipelines, välja den **+ ny** knappen.
+1. I din Azure-Pipelines, öppnar den **Build & Release** hub och i den **bygger** fliken **+ ny pipeline**. Eller, om du redan har skapandet av pipelines, välja den **+ ny** knappen.
 
     ![Ny pipeline](./media/how-to-ci-cd/add-new-build.png)
 
-1. Om det händer väljer den **Azure DevOps Git** källtyp. Välj sedan projektet, lagringsplatsen och grenen som var koden finns. Välj **fortsätta**.
+1. Om det händer väljer **Git** källtyp. Välj sedan projektet, lagringsplatsen och grenen som var koden finns. Välj **fortsätta**.
 
     ![Välj git](./media/how-to-ci-cd/select-vsts-git.png)
 
@@ -98,8 +98,8 @@ I det här avsnittet skapar du en build-pipeline som är konfigurerad för att k
     Spara ny build-pipeline. Klicka på knappen **Spara**.
 
 
-## <a name="configure-azure-pipeline-for-continuous-deployment"></a>Konfigurera Azure-Pipeline för kontinuerlig distribution
-I det här avsnittet skapar du en releasepipeline som är konfigurerad för att köras automatiskt när build-pipeline sjunker artefakter och den visar distributionsloggar i Azure-Pipeline.
+## <a name="configure-azure-pipelines-for-continuous-deployment"></a>Konfigurera Azure Pipelines för kontinuerlig distribution
+I det här avsnittet skapar du en releasepipeline som är konfigurerad för att köras automatiskt när build-pipeline sjunker artefakter och den visar distributionsloggar i Azure-Pipelines.
 
 1. I den **versioner** fliken **+ ny pipeline**. Eller, om du redan har releaser kan välja den **+ ny** knappen.  
 
@@ -165,7 +165,7 @@ I det här avsnittet skapar du en releasepipeline som är konfigurerad för att 
     
 ## <a name="verify-iot-edge-cicd-with-the-build-and-release-pipelines"></a>Verifiera IoT Edge CI/CD med build and release-pipelines
 
-I det här avsnittet ska du utlösa en build om du vill göra CI/CD-pipeline som fungerar. Kontrollera resultatet med Azure DevOps-portalen. 
+I det här avsnittet ska du utlösa en build om du vill göra CI/CD-pipeline som fungerar. Kontrollera distributionen är klar.
 
 1. Om du vill utlösa ett skapandejobb du skickar något till lagringsplatsen för källkod eller utlösa den manuellt. Du kan utlösa en build-jobb i build-pipeline genom att klicka på den **kö** knappen som i följande skärmbild.
 

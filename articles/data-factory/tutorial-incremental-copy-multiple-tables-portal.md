@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: ea1e3ca76f779f442c9d22478ea93de3d5ab83f2
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 95f2947a30499ce563d5943dfa423ee89a172f47
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43088114"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614531"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Läs in data stegvis från flera tabeller i SQL Server till en Azure SQL-databas
 I den här självstudiekursen kommer du att skapa en Azure-datafabrik med en pipeline som läser in deltadata från flera tabeller på en lokal SQL-server till en Azure SQL-databas.    
@@ -279,7 +279,7 @@ När du flyttar data från ett datalager i ett privat nätverk (lokalt) till ett
    ![Namn på IR med lokal installation](./media/tutorial-incremental-copy-multiple-tables-portal/self-hosted-ir-name.png)
 1. Klicka på **Click here to launch the express setup for this computer** (Klicka här för att starta expressinstallation för den här datorn) i avsnittet **Option 1: Express setup** (Alternativ 1: Expressinstallation). 
 
-   ![Klicka på länken för expressinstallation](./media/tutorial-incremental-copy-multiple-tables-portal/click-exress-setup.png)
+   ![Klicka på länken för expressinstallation](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
 1. Klicka på **Stäng** i fönstret **Snabbinstallation av Integration Runtime (lokal installation)**. 
 
    ![Integration Runtime har installerats](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png)

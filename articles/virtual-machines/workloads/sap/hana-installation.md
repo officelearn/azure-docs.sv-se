@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 160cc4fb3ccdabfd76e228c447ad179b3616d195
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: ad04b229e4c6ace3f87ba6e800c0a7c82eb76d92
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231108"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633962"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Installera och konfigurera SAP HANA (stora instanser) på Azure
 
@@ -170,7 +170,7 @@ HANA/loggsäkerhetskopiering volymen är inte avsedd för att vara volymen för 
 
 Utöver det lagringsutrymme som tillhandahålls kan du köpa ytterligare kapacitet i steg om 1 TB. Den här ytterligare lagringsutrymme kan läggas till som nya volymer till stora HANA-instansen.
 
-Under integrering med SAP HANA på Azure service management kunden anger en användare ID (UID) och grupp-ID (GID) för gruppen sidadm användar- och sapsys (till exempel: 1000,500) under installationen av SAP HANA-system, måste du använda dessa samma värden. Eftersom du vill distribuera flera HANA-instanser på en enhet får du flera uppsättningar av volymer (en uppsättning för varje instans). Därför vid tidpunkten för distribution måste du definiera följande:
+Under integrering med SAP HANA på Azure service management kunden anger en användare ID (UID) och grupp-ID (GID) för gruppen sidadm användar- och sapsys (till exempel: 1000,500). Under installationen av SAP HANA-system, måste du använda dessa samma värden. Eftersom du vill distribuera flera HANA-instanser på en enhet får du flera uppsättningar av volymer (en uppsättning för varje instans). Därför vid tidpunkten för distribution måste du definiera följande:
 
 - SID för olika HANA-instanser (sidadm härleds från den).
 - Minnesstorlekar på olika HANA-instanser. Minnesstorlek per instans definierar storleken på volymerna i varje enskild volym-uppsättning.

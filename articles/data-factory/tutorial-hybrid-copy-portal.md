@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: f408d24a5957061bf03d340a555b87bdc6b2aacc
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f4edd1632203e2f8723fa7880683727f8fb69c4d
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304143"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614029"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Kopiera data från en lokal SQL Server-databas till Azure Blob Storage
 I den här självstudien använder du användargränssnittet för Azure Data Factory för att skapa en Data Factory-pipeline som kopierar data från en lokal SQL Server-databas till Azure Blob Storage. Du skapar och använder en lokal installation av Integration Runtime som flyttar data mellan lokala datalager och datalager i molnet.
@@ -111,7 +111,7 @@ I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Blo
 
 1. Välj **adftutorial** i listan över containrar.
 
-    ![Val av container](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
+    ![Val av container](media/tutorial-hybrid-copy-powershell/select-adftutorial-container.png)
 
 1. Låt **containerfönstret** för **adftutorial** vara öppet. Du kommer att använda den för att bekräfta utdata i slutet av självstudien. Data Factory skapar automatiskt utdatamappen i den här containern, så du behöver inte skapa en.
 
@@ -197,7 +197,7 @@ Namnet på datafabriken måste vara *globalt unikt*. Om följande felmeddelande 
 
 1. Under **Option 1: Express setup** (Alternativ 1: Expressinstallation) väljer du **Click here to launch the express setup for this computer** (Klicka här för att starta expressinstallation för den här datorn). 
 
-    ![Länk för expressinstallation](./media/tutorial-hybrid-copy-portal/click-exress-setup.png)
+    ![Länk för expressinstallation](./media/tutorial-hybrid-copy-portal/click-express-setup.png)
 
 1. Välj **Stäng** i fönstret **Snabbinstallation av Integration Runtime (lokal installation)**. 
 
@@ -237,7 +237,7 @@ Namnet på datafabriken måste vara *globalt unikt*. Om följande felmeddelande 
 
 1. Gå till fliken med **SQLServerToBlobPipeline** eller välj **SQLServerToBlobPipeline** i trädvyn. 
 
-    ![Fliken Pipeline](./media/tutorial-hybrid-copy-portal/pipeliene-tab.png)
+    ![Fliken Pipeline](./media/tutorial-hybrid-copy-portal/pipeline-tab.png)
 
 1. Gå till fliken **Mottagare** längst ned i fönstret **Egenskaper** och välj **+ Ny**. 
 

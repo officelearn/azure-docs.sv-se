@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: b206b49914a448aa3fc9da63f72cca91f9f9ade1
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 703a865eca90deabcb6bbc64a75fc2bad52b43b7
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218975"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288007"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1---preview"></a>Integrering av virtuella nätverk för Azure Data Lake Storage Gen1 – förhandsversion
 
@@ -29,8 +29,6 @@ Den här funktionen hjälper till att skydda ditt Data Lake Storage-konto från 
 Integrering av virtuella nätverk för Data Lake Storage Gen1 utnyttjar tjänstslutpunktssäkerhet för virtuella nätverk mellan ditt virtuella nätverk och Azure Active Directory-tjänsten (Azure AD) för att generera ytterligare säkerhetsanspråk i åtkomsttoken. Dessa anspråk används sedan för att autentisera ditt virtuella nätverk till ditt Data Lake Storage Gen1-konto och tillåta åtkomst.
 
 > [!NOTE]
-> Den här tekniken är i förhandsversion. Vi rekommenderar inte att den används i produktionsmiljö.
->
 > Det finns ingen extra kostnad med att använda dessa funktioner. Kontot faktureras enligt standardavgifterna för Data Lake Storage Gen1. Mer information finns i [prissättning](https://azure.microsoft.com/pricing/details/data-lake-store/?cdn=disable). Information om alla andra Azure-tjänster som du använder finns i [prissättning](https://azure.microsoft.com/pricing/#product-picker).
 
 ## <a name="scenarios-for-virtual-network-integration-for-data-lake-storage-gen1"></a>Scenarier för integrering av virtuella nätverk för Data Lake Storage Gen1

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: a6bdafffb11fce40ecdd876105e17edd2660c751
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: d890aabd6b0acad324ef4b632daaed1db6452ac5
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466911"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686967"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av PowerShell
 
@@ -125,7 +125,7 @@ Vi använder följande värden i exemplen:
 1. Deklarera dina variabler. I det här exemplet deklarerar vi variablerna med värdena för den här övningen. I de flesta fall bör du ersätta värdena med dina egna. Du kan dock använda dessa variabler om du bara vill följa anvisningarna för att bekanta dig med den här typen av konfiguration. Ändra variablerna om det behövs och kopiera och klistra in dem i PowerShell-konsolen.
 
   ```powershell
-  $Sub1 = "Replace_With_Your_Subcription_Name"
+  $Sub1 = "Replace_With_Your_Subscription_Name"
   $RG1 = "TestRG1"
   $Location1 = "East US"
   $VNetName1 = "TestVNet1"
@@ -323,7 +323,7 @@ Det här steget måste utföras i den nya prenumerationen. Den här delen kan ut
 1. Deklarera dina variabler. Ersätt värdena med de som du vill använda för din konfiguration.
 
   ```powershell
-  $Sub5 = "Replace_With_the_New_Subcription_Name"
+  $Sub5 = "Replace_With_the_New_Subscription_Name"
   $RG5 = "TestRG5"
   $Location5 = "Japan East"
   $VnetName5 = "TestVNet5"

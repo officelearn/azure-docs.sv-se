@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 83a36c81ad88ccb37fe4a258f895b1e1cbe9299f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6f93d7c4b76d635a221c2711ce9d4ef0de2286f6
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311019"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687409"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory sömlös enkel inloggning: teknisk djupdykning
 
@@ -79,8 +79,8 @@ Flödet logga in på en intern klient är följande:
 
 1. Användaren försöker få åtkomst till ett internt program (till exempel Outlook-klienten) från en domänansluten företagsenheter i företagsnätverket.
 2. Om du inte redan har signerats hämtar internt program användarnamnet för användaren från enhetens Windows-sessionen.
-3. Appen skickar användarnamnet till Azure AD och hämtar WS-Trust MEX klientorganisationsslutpunkt.
-4. Appen därefter beordrar WS-Trust MEX-slutpunkt för att se om integrerad autentisering slutpunkten är tillgänglig.
+3. Appen skickar användarnamnet till Azure AD och hämtar WS-Trust MEX klientorganisationsslutpunkt. Den här WS-Trust-slutpunkten används uteslutande av funktionen sömlös SSO och är inte en allmän implementering av WS-Trust-protokollet på Azure AD.
+4. Appen därefter beordrar WS-Trust MEX-slutpunkt för att se om integrerad autentisering slutpunkten är tillgänglig. Integrerad autentisering-slutpunkten används uteslutande av sömlös SSO-funktionen.
 5. Om steg 4 lyckas, utfärdas en Kerberos-utmaning.
 6. Om appen är att hämta Kerberos-biljetten, vidarebefordrar det upp till Azure AD-integrerad autentisering-slutpunkten.
 7. Azure AD dekrypterar Kerberos-biljetten och validerar den.

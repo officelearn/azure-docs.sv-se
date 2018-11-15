@@ -1,6 +1,6 @@
 ---
-title: Fråga Hive genom JDBC driver - Azure HDInsight
-description: Använda JDBC-drivrutinen från ett Java-program för att skicka Hive-frågor till Hadoop på HDInsight. Anslut och programmässigt från SQuirrel SQL-klienten.
+title: Fråga Apache Hive genom JDBC driver - Azure HDInsight
+description: Använda JDBC-drivrutinen från ett Java-program för att skicka Apache Hive-frågor till Hadoop på HDInsight. Anslut och programmässigt från SQuirrel SQL-klienten.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: d47d6abe3adaf76b67b88cffd53b0b46258931c8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 577f36f53bfad79af968a4c34f4b6ab0b49527c7
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014422"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633452"
 ---
-# <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Fråga Hive via JDBC-drivrutinen i HDInsight
+# <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Fråga Apache Hive via JDBC-drivrutinen i HDInsight
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-Lär dig hur du använder JDBC-drivrutinen från ett Java-program för att skicka Hive-frågor till Hadoop i Azure HDInsight. Informationen i det här dokumentet visar hur du ansluter och programmässigt från SQuirrel SQL-klienten.
+Lär dig hur du använder JDBC-drivrutinen från ett Java-program för att skicka Apache Hive-frågor till Apache Hadoop i Azure HDInsight. Informationen i det här dokumentet visar hur du ansluter och programmässigt från SQuirrel SQL-klienten.
 
 Läs mer på gränssnittet Hive JDBC [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 

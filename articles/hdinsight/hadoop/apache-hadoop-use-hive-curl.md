@@ -1,6 +1,6 @@
 ---
-title: Använda Hadoop Hive med Curl i HDInsight - Azure
-description: Lär dig mer om att skicka Pig-jobb till HDInsight med Curl via en fjärranslutning.
+title: Använda Apache Hadoop Hive med Curl i HDInsight - Azure
+description: Lär dig mer om att skicka via en fjärranslutning Apache Pig-jobb till HDInsight med Curl.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: ac17c299656cc8134141284e0b31bdf568c0e3e0
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: cff24991263ece54c143e5da8a3eb2a9e5b4af18
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016955"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634506"
 ---
-# <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>Köra Hive-frågor med Hadoop i HDInsight med hjälp av REST
+# <a name="run-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Köra Hive-frågor med Apache Hadoop i HDInsight med hjälp av REST
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Lär dig hur du använder WebHCat REST API för att köra Hive-frågor med Hadoop på Azure HDInsight-kluster.
+Lär dig hur du använder WebHCat REST API för att köra Hive-frågor med Apache Hadoop på Azure HDInsight-kluster.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

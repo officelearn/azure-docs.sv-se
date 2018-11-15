@@ -10,12 +10,12 @@ ms.date: 01/31/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 7ce5c7007414bfe8e17727c25de9712e7993dc1e
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 19a715812f1250523fd050ac8b80dee9ec664be4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263760"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686270"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Hantera fel och undantag i Azure Logic Apps
 
@@ -73,7 +73,7 @@ Du kan också manuellt ange återförsöksprincipen i den `inputs` för en åtg�
 
 | Värde | Typ | Beskrivning |
 |-------|------|-------------|
-| <*återförsöksprincipstyp-*> | Sträng | Den typen av återförsöksprincip du vill använda: ”standard”, ”ingen”, ”fast” eller ”exponentiell” | 
+| <*återförsöksprincipstyp-*> | Sträng | Den typen av återförsöksprincip du vill använda: `default`, `none`, `fixed`, eller `exponential` | 
 | <*återförsöksintervall*> | Sträng | Återförsöksintervallet där värdet måste använda [ISO 8601-formatet](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Är standardintervallet för minsta `PT5S` och maximalt intervall är `PT1D`. När du använder exponentiell intervallprincip, kan du ange olika lägsta och högsta värden. | 
 | <*nya försök*> | Integer | Antal nya försök, vilket måste vara mellan 1 och 90 | 
 ||||
@@ -221,9 +221,9 @@ Gränser för scope för finns i [begränsningar och konfigurationer](../logic-a
 
 ### <a name="get-context-and-results-for-failures"></a>Hämta kontext och resultat för fel
 
-Identifiering av fel från ett scope är användbart, men du kanske också vill kontext för att hjälpa dig att förstå exakt vilka åtgärder kunde inte plus eventuella fel eller statuskoder som returnerades. Den ”@result()” uttryck som ger kontext om resultatet av alla åtgärder i ett omfång.
+Identifiering av fel från ett scope är användbart, men du kanske också vill kontext för att hjälpa dig att förstå exakt vilka åtgärder kunde inte plus eventuella fel eller statuskoder som returnerades. Den `@result()` uttryck som ger kontext om resultatet av alla åtgärder i ett omfång.
 
-Den ”@result()” uttryck accepterar en parameter (scope-namn) och returnerar en matris med alla åtgärd resultat från inom det omfånget. Dessa åtgärder-objekt omfattar samma attribut som den  **@actions()** objekt, till exempel åtgärdens starttid, sluttid, status, indata, Korrelations-ID: N och utdata. Om du vill skicka kontexten för åtgärder som inte ett område som du lätt kan koppla en  **@result()** fungerar med en **runAfter** egenskapen.
+Den `@result()` uttryck accepterar en parameter (scope-namn) och returnerar en matris med alla åtgärd resultat från inom det omfånget. Dessa åtgärder-objekt omfattar samma attribut som den  **@actions()** objekt, till exempel åtgärdens starttid, sluttid, status, indata, Korrelations-ID: N och utdata. Om du vill skicka kontexten för åtgärder som inte ett område som du lätt kan koppla en  **@result()** fungerar med en **runAfter** egenskapen.
 
 Att köra en åtgärd för varje åtgärd i en omfattning som har en **misslyckades** resultatet, och om du vill filtrera matris med resultat till misslyckade åtgärder, kan du koppla  **@result()** med en **[Filtermatris](../connectors/connectors-native-query.md)** åtgärd och en [ **för var och en** ](../logic-apps/logic-apps-control-flow-loops.md) loop. Du kan ta filtrerat resultat matrisen och utföra en åtgärd för varje fel med hjälp av den **för varje** loop. 
 
@@ -270,22 +270,22 @@ Här är ett exempel, följt av en detaljerad förklaring som skickar en HTTP PO
 
 Här är en detaljerad genomgång som beskriver vad som händer i det här exemplet:
 
-1. Att få resultat från alla åtgärder i ”My_Scope” den **Filtermatris** åtgärden använder den här filteruttryck ”:@result(My_Scope)”
+1. Att få resultat från alla åtgärder i ”My_Scope” den **Filtermatris** åtgärden använder den här filteruttryck: `@result('My_Scope')`
 
-2. Villkoret för **Filtermatris** valfri ”@result()” objekt som har statusen lika **misslyckades**. Det här tillståndet filtrerar den matris som har alla åtgärd resultat från ”My_Scope” till en matris med misslyckad åtgärd resultaten.
+2. Villkoret för **Filtermatris** valfri `@result()` objekt som har statusen lika **misslyckades**. Det här tillståndet filtrerar den matris som har alla åtgärd resultat från ”My_Scope” till en matris med misslyckad åtgärd resultaten.
 
 3. Utföra en **för var och en** loopa åtgärden på den *filtrerade matris* matar ut. Det här steget utför en åtgärd för varje misslyckad Åtgärdsresultat som tidigare har filtrerats.
 
    Om en enda åtgärd i omfattningen misslyckades åtgärder i den **för varje** loop som bara körs en gång. 
    Flera misslyckade åtgärder gör att en åtgärd per fel.
 
-4. Skicka en HTTP POST den **för var och en** objektet svarstexten, vilket är den ”@item() ['utdata'] [” meddelandetext ”]” uttryck. 
+4. Skicka en HTTP POST den **för var och en** objektet svarstexten, vilket är den `@item()['outputs']['body']` uttryck. 
 
-   Den ”@result()” objekt form är samma som den ”@actions()” forma och kan parsas på samma sätt.
+   Den `@result()` objekt form är samma som den `@actions()` forma och kan parsas på samma sätt.
 
-5. Innehåller två anpassade huvuden med misslyckad åtgärdsnamn (”@item() [name]”) och den kör klienten spårnings-ID (”@item() [clientTrackingId]”).
+5. Innehåller två anpassade huvuden med Åtgärdsnamnet misslyckad (`@item()['name']`) och den kör klienten spårnings-ID (`@item()['clientTrackingId']`).
 
-Här är ett exempel på en enda referens ”@result()” objektet, som visar den **namn**, **brödtext**, och **clientTrackingId** egenskaper som parsas i föregående exempel. Utanför en **för var och en** åtgärd ”@result()” returnerar en matris med de här objekten.
+Här är ett exempel på en enda referens `@result()` objektet, som visar den **namn**, **brödtext**, och **clientTrackingId** egenskaper som parsas i föregående exempel. Utanför en **för var och en** åtgärd, `@result()` returnerar en matris med de här objekten.
 
 ```json
 {

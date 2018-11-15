@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
-ms.openlocfilehash: cd62083bc7bd0254084f0fc209540de929c25d06
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c26b4700f32ce4e0bd8327e862d31df8fea2439d
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042261"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632551"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Använda Apache Hive som ett verktyg för extrahering, transformering och inläsning (ETL)
 
-Vanligtvis måste du rensa och transformera inkommande data innan du läser in dem i ett mål som är lämplig för analys. Åtgärder för extrahering, transformering och läsa in (ETL) används för att förbereda data och läsa in den i ett datamål.  Hive på HDInsight kan du läsa in Ostrukturerade data, bearbeta data efter behov och sedan läsa in data i en relationsinformationslager för beslut support system. Den här metoden kan data extraheras från källan och lagras i skalbar lagring, till exempel Azure Storage-blobbar eller Azure Data Lake Store. Data sedan omvandlas med hjälp av en sekvens av Hive-frågor och slutligen mellanlagras i Hive som förberedelse för inläsning av i måldatalagret.
+Vanligtvis måste du rensa och transformera inkommande data innan du läser in dem i ett mål som är lämplig för analys. Åtgärder för extrahering, transformering och läsa in (ETL) används för att förbereda data och läsa in den i ett datamål.  Apache Hive på HDInsight kan läsa in Ostrukturerade data, bearbeta data efter behov och sedan läsa in data i en relationsinformationslager för beslut support system. Den här metoden kan data extraheras från källan och lagras i skalbar lagring, till exempel Azure Storage-blobbar eller Azure Data Lake Store. Data sedan omvandlas med hjälp av en sekvens av Hive-frågor och slutligen mellanlagras i Hive som förberedelse för inläsning av i måldatalagret.
 
 ## <a name="use-case-and-model-overview"></a>Använda användningsfall och modeller: översikt
 

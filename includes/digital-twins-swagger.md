@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/13/2018
 ms.author: adgera
 ms.custom: include file
-ms.openlocfilehash: beae54dc36225dd26b4eb1d1a8f89d1005a33e93
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: fa99fa3b6ae9e809718121787cc986d02bcf824b
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626345"
+ms.locfileid: "51678227"
 ---
 > [!TIP]
 > En Swagger-förhandstitt tillhandahålls för att demonstrera API-funktionen.
@@ -22,10 +22,10 @@ ms.locfileid: "51626345"
 Du kan komma åt dina egna genererade Management API Swagger-dokumentationen på:
 
 ```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
+https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Anpassat namn | Ersätt med |
+| Namn | Ersätt med |
 | --- | --- |
-| dittinstansnamn | Namnet på din digitala Twins för Azure-instans |
-| yourLocation | Vilken server-region som din instans är värd för |
+| YOUR_INSTANCE_NAME | Namnet på din digitala Twins för Azure-instans |
+| YOUR_LOCATION | Vilken server-region som din instans är värd för |

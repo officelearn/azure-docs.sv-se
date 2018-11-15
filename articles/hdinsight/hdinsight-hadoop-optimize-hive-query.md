@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 6729a0e3ccbb96dc178925bbab4cfbf8189c4a14
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: ebbb12a6454a093ad0ac3b3cc30eb489eeef21ec
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278267"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687222"
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Optimera Hive-frågor i Azure HDInsight
 
@@ -72,7 +72,7 @@ Vissa partitionering att tänka på:
 
 * **Gör inte under partition** -partitionering för kolumner med bara några värden kan orsaka några partitioner. Till exempel skapar partitionering på kön bara två partitioner som ska skapas (kvinnliga och manliga), vilket endast minska fördröjningen med högst hälften.
 * **Gör inte över partition** , på andra yttersta, skapa en partition på en kolumn med ett unikt värde (till exempel användar-ID) gör att flera partitioner. Över partitionen gör att mycket stress på klustret namenode eftersom den har att hantera ett stort antal kataloger.
-* **Undvika datasnedställning** -Välj din partitionsnyckel motiverar så att alla partitioner har även storlek. Till exempel partitionering på *tillstånd* kolumn kan förskjuta fördelning av data. Eftersom myndigheter i Kalifornien har en population nästan 30 x att av Vermont, partitionera storleken är potentiellt förvrängd och prestanda kan variera oerhört mycket.
+* **Undvika datasnedställning** -Välj din partitionsnyckel motiverar så att alla partitioner har även storlek. Till exempel partitionering på *tillstånd* kolumn kan förskjuta fördelning av data. Eftersom myndigheter i Kalifornien har en population nästan 30 x att av Vermont, partitionsstorleken är potentiellt förvrängd och prestanda kan variera oerhört mycket.
 
 Du kan skapa en partitionstabell med den *partitioneras av* sats:
 

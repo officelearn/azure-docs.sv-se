@@ -2,19 +2,19 @@
 title: Distribuera Azure Machine Learning med Azure IoT Edge | Microsoft Docs
 description: I den här självstudien distribuerar du Azure Machine Learning som en modul till en gränsenhet
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 59ce51ba4b015c7236df9e20416832e877dd26c6
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 692dce4c3fcb31bcfbffbba06e5a69722b5fb5fa
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748382"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566120"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Distribuera Azure Machine Learning som en IoT Edge-modul (förhandsversion)
 

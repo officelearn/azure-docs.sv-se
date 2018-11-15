@@ -10,22 +10,22 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c99099c9b0fdf485bcf1db1d00b23e1e119ec557
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 347a437a9f45f29348e97c616c985764135e5427
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614165"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687477"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en tekniska SAML-profilen i en anpassad princip för Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C har stöd för SAML 2.0-identitetsprovider. Den här artikeln beskriver specifika för den tekniska profilen för att interagera med en anspråksprovider som stöder detta standardiserade protokoll. Med tekniska SAML-profilen du federera med en SAML-baserad identitetsprovider som AD FS och Salesforce, så att dina användare kan logga in med sina befintliga sociala eller företagsidentiteter.
+Azure Active Directory (Azure AD) B2C har stöd för SAML 2.0-identitetsprovider. Den här artikeln beskriver specifika för den tekniska profilen för att interagera med en anspråksprovider som stöder detta standardiserade protokoll. Med SAML tekniska profilen som du kan federera med en SAML baserat identitetsprovider, till exempel [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md) och [Salesforce](active-directory-b2c-setup-sf-app-custom.md), så att dina användare kan logga in med sina befintliga sociala eller företagsidentiteter.
 
 ## <a name="metadata-exchange"></a>Metadata för exchange
 
-Metadata är information som används i SAML-protokoll för att exponera konfigurationen av en SAML-part, till exempel en tjänstleverantör eller identitetsprovider. Metadata definierar platsen för tjänster, till exempel inloggning och utloggning, certifikat och inloggningsmetod. Identitetsprovidern använder metadata kunna kommunicera med Azure AD B2C. Metadata har konfigurerats i XML-format och kan signeras digitalt så att den andra parten kan validera integriteten för metadata. När Azure AD B2C federerar med en SAML-identitetsprovider, fungerar den som en tjänsteleverantör initiera en SAML-begäran och väntar på en SAML-svar. Och i vissa fall kan excepts oombedda SAML-autentisering, som även kallas identitetsprovider initieras. 
+Metadata är information som används i SAML-protokoll för att exponera konfigurationen av en SAML-part, till exempel en tjänstleverantör eller identitetsprovider. Metadata definierar platsen för tjänster, till exempel inloggning och utloggning, certifikat och inloggningsmetod. Identitetsprovidern använder metadata kunna kommunicera med Azure AD B2C. Metadata har konfigurerats i XML-format och kan signeras digitalt så att den andra parten kan validera integriteten för metadata. När Azure AD B2C federerar med en SAML-identitetsprovider, fungerar den som en tjänsteleverantör initiera en SAML-begäran och väntar på en SAML-svar. Och i vissa fall, accepterar du oombedda SAML-autentisering, som även kallas identitetsprovider initieras. 
 
 Metadata kan konfigureras i båda parter som ”statiska Metadata” eller ”dynamisk Metadata”. I det statiska läget kopiera hela metadata från en part och ange den i den andra parten. I dynamiskt läge anger du URL: en till metadata medan den andra parten läser konfigurationen dynamiskt. Principerna är desamma kan du ställa in metadata för den tekniska profilen för Azure AD B2C i din identitetsprovider och Ställ in metadata för identitetsprovidern i Azure AD B2C.
 
@@ -34,14 +34,14 @@ Varje SAML-identitetsprovider har olika steg för att exponera och ange tjänstl
 I följande exempel visas en URL-adress till SAML-metadata för en Azure AD B2C-tekniska profilen:
 
 ```
-https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idptp=your-technical-profile
+https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 Ersätt följande värden:
 
-- **din klient** med klientnamnet på din, till exempel din tenant.onmicrosoft.com
+- **ditt klientnamn** med klientnamnet på din, till exempel fabrikam.b2clogin.com.
 - **din princip** med namnet på din. Använd principen konfigurerar du den tekniska profilen för SAML-provider eller en policy som ärver från principen.
-- **din tekniska profil** med namn på tekniska profilen din SAML identitetsprovider
+- **din tekniska profil** med namn på tekniska profilen din SAML identitetsprovider.
 
 ## <a name="digital-signing-certificates-exchange"></a>Digital signering certifikat exchange
 

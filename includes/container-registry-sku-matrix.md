@@ -1,3 +1,16 @@
+---
+author: dlepow
+ms.service: container-registry
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+ms.openlocfilehash: 286159aee00b018d0cacae3858f92cdf0e79cfbc
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572805"
+---
 | SKU | Beskrivning |
 |---|---|
 | Basic | En kostnadsoptimerad startpunkt för utvecklare som lär sig Azure Container Registry. Grundläggande register har samma programmässiga funktioner som Standard och Premium (Azure Active Directory-autentiseringsintegrering, bildborttagning och webhooks), men det finns begränsningar för storlek och användning. |

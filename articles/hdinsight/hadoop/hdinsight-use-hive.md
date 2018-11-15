@@ -1,6 +1,6 @@
 ---
 title: Vad är Apache Hive och HiveQL - Azure HDInsight
-description: Apache Hive är ett data warehouse-system för Hadoop. Du kan fråga efter data som lagras i Hive med HiveQL, vilket liknar Transact-SQL. I det här dokumentet lär du dig hur du använder Hive och HiveQL med Azure HDInsight.
+description: Apache Hive är ett data warehouse-system för Apache Hadoop. Du kan fråga efter data som lagras i Hive med HiveQL, vilket liknar Transact-SQL. I det här dokumentet lär du dig hur du använder Hive och HiveQL med Azure HDInsight.
 keywords: hiveql, vad är hive, hadoop hiveql, hur du använder hive Läs hive, vad är hive
 services: hdinsight
 author: hrasheed-msft
@@ -10,16 +10,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 0401717da8c5548033bbbd7720bb1266646bbe48
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d7b29980321f04d1ad9325580bc48ab944f60d1c
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241114"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633724"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Vad är Apache Hive och HiveQL på Azure HDInsight?
 
-[Apache Hive](http://hive.apache.org/) är ett data warehouse-system för Hadoop. Hive kan datasammanfattning, frågor och analys av data. Hive-frågor skrivs i HiveQL, vilket är ett frågespråk som liknar SQL.
+[Apache Hive](http://hive.apache.org/) är ett data warehouse-system för Apache Hadoop. Hive kan datasammanfattning, frågor och analys av data. Hive-frågor skrivs i HiveQL, vilket är ett frågespråk som liknar SQL.
 
 Du kan projektstruktur på i stort sett Ostrukturerade data i hive. Du kan använda HiveQL för att fråga efter data utan kunskaper om Java- eller MapReduce när du har definierat strukturen.
 

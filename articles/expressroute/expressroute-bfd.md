@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 8/17/2018
 ms.author: rambala
-ms.openlocfilehash: 97ac49ff5cc50621fd902f77c2543a428c7e8bae
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 6d941bf810a45e8808f83c4df701a856f664c7ef
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384760"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631667"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Konfigurera BFD via ExpressRoute
 
@@ -67,7 +67,7 @@ En exempelkonfiguration PE (med Cisco IOS XE) visas nedan.
 
 ## <a name="bfd-timer-negotiation"></a>BFD Timer förhandling
 
-Mellan BFD peer-datorer avgör långsammare för de båda datorerna överföringshastigheten. Msee BFD överföring och ta emot intervall är inställda på 300 millisekunder. Genom att konfigurera högre värden kan tvinga du dessa intervall som ska vara längre; men inte kortare.
+Mellan BFD peer-datorer avgör långsammare för de båda datorerna överföringshastigheten. Msee BFD överföring och ta emot intervall är inställda på 300 millisekunder. I vissa fall, kan intervallet anges på ett högre värde för 750 millisekunder. Genom att konfigurera högre värden kan tvinga du dessa intervall som ska vara längre; men inte kortare.
 
 >[!NOTE]
 >Om du har konfigurerat Geo-redundant ExpressRoute-kretsar för privat peering eller använda plats-till-plats-IPSec VPN-anslutning som säkerhetskopiering för ExpressRoute privat peering; Aktivera BFD över privat peering vill hjälpa redundans snabbare följa en ExpressRoute-anslutningsfel. 

@@ -1,6 +1,6 @@
 ---
-title: Använda Hive med Hadoop för webbplatslogganalys - Azure HDInsight
-description: Lär dig använda Hive med HDInsight för att analysera webbplatsloggar. Du använder en loggfil som indata till ett HDInsight-tabell och Använd HiveQL för att fråga efter data.
+title: Använda Hive med Apache Hadoop för webbplatslogganalys - Azure HDInsight
+description: Lär dig hur du använder Apache Hive med HDInsight för att analysera webbplatsloggar. Du använder en loggfil som indata till ett HDInsight-tabell och Använd HiveQL för att fråga efter data.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 05/17/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: c0a15bacd3aaf97a3caa54ee8bf70a9c4cf54663
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4f4067c73cac4597da3099212c9c04c2544a0b2d
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233606"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634353"
 ---
-# <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Använda Hive med Windows-baserade HDInsight för att analysera loggar från webbplatser
+# <a name="use-apache-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Använda Apache Hive med Windows-baserade HDInsight för att analysera loggar från webbplatser
 Lär dig använda HiveQL med HDInsight för att analysera loggar från en webbplats. Webbplatslogganalys kan användas för att segmentera målgruppen utifrån liknande aktiviteter, kategorisera besökarna genom demografi och ta reda på innehållet de vy, de kommer från webbplatser och så vidare.
 
 > [!IMPORTANT]

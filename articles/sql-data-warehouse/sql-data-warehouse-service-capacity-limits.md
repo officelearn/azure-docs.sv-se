@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 07/26/2018
+ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 7c6445624b2c03497c881b0c34bac8256fa28a98
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: aa1d98f5ea2db0cc549b60e33769c8628181721b
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302051"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686610"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse kapacitetsbegränsningar
 Högsta värden som tillåts för olika komponenter i Azure SQL Data Warehouse.
@@ -35,7 +35,7 @@ Högsta värden som tillåts för olika komponenter i Azure SQL Data Warehouse.
 |:--- |:--- |:--- |
 | Databas |Maxstorlek | Gen1: 240 TB komprimerat på disken. Här är oberoende av tempdb-eller log och därför tomrummet är dedikerad till permanent tabeller.  Grupperade columnstore-komprimering uppskattas till 5 X.  Den här komprimeringen låter databasen växa till cirka 1 PB när alla tabeller är grupperade (tabelltyp för standard). <br/><br/> Gen2: 240TB för rowstore och obegränsad lagring för columnstore-tabeller |
 | Tabell |Maxstorlek |60 TB komprimerat på disk |
-| Tabell |Tabeller per databas |10 000 |
+| Tabell |Tabeller per databas | 100 000 |
 | Tabell |Kolumner per tabell |1 024 kolumner |
 | Tabell |Byte per kolumn |Beroende på kolumnen [datatypen](sql-data-warehouse-tables-data-types.md). Gränsen är 8000 för datatyperna char, 4000 för nvarchar eller 2 GB för MAX-datatyper. |
 | Tabell |Byte per rad, definierad storlek |8 060 byte<br/><br/>Antalet byte per rad beräknas på samma sätt som för SQL Server med sidan komprimering. Som SQL Server, SQL Data Warehouse stöder rad spill lagring, vilket gör att **variabel längd kolumner** att överföras utanför raden. När variabel längd rader skickas utanför raden, lagras endast 24 byte-roten i den huvudsakliga posten. Mer information finns i [rad spill Data överstiger 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
@@ -59,17 +59,17 @@ Högsta värden som tillåts för olika komponenter i Azure SQL Data Warehouse.
 ## <a name="queries"></a>Frågor
 | Kategori | Beskrivning | Maximal |
 |:--- |:--- |:--- |
-| Fråga |Köade frågor om användartabeller. |1000 |
-| Fråga |Samtidiga frågor om systemvyer. |100 |
-| Fråga |Köade frågor på systemvyer |1000 |
-| Fråga |Maximal parametrar |2098 |
+| Söka i data |Köade frågor om användartabeller. |1000 |
+| Söka i data |Samtidiga frågor om systemvyer. |100 |
+| Söka i data |Köade frågor på systemvyer |1000 |
+| Söka i data |Maximal parametrar |2098 |
 | Batch |Maximal storlek |65,536*4096 |
 | Välj resultat |Kolumner per rad |4096<br/><br/>Du kan aldrig ha högst 4 096 kolumner per rad i väljer resultatet. Det är inte säkert att du alltid har 4096. Om frågeplanen kräver en tillfällig tabell, kan 1024 kolumner per tabell maximala gälla. |
 | VÄLJ |Kapslade underfrågor |32<br/><br/>Du kan aldrig ha fler än 32 kapslade underfrågor i en SELECT-instruktion. Det är inte säkert att du alltid har 32. Exempelvis kan kan en koppling medföra en underfråga i frågeplanen. Antalet underfrågor kan också begränsas av tillgängligt minne. |
 | VÄLJ |Kolumner per koppling |1 024 kolumner<br/><br/>Du kan aldrig ha högst 1 024 kolumner i KOPPLINGEN. Det är inte säkert att du alltid har 1024. Om koppling planen kräver en tillfällig tabell med fler kolumner än kopplingsresultatet, gäller 1024-gränsen för den temporära tabellen. |
 | VÄLJ |Byte per GROUP BY-kolumner. |8060<br/><br/>Kolumner i GROUP BY-satsen kan ha maximalt 8 060 byte. |
 | VÄLJ |Byte per ORDER BY kolumner |8 060 byte<br/><br/>Kolumner i ORDER BY-satsen kan ha maximalt 8 060 byte |
-| Identifierare per instruktionen |Antal refererade identifierare |65,535<br/><br/>SQL Data Warehouse begränsar antalet identifierare som kan finnas i ett enda uttryck i en fråga. Som överstiger det här antalet resultatet i SQL Server-felet 8632. Mer information finns i [internt fel: en uttryckstjänstgräns har nåtts] [internt fel: en uttryckstjänstgräns har nåtts]. |
+| Identifierare per instruktionen |Antal refererade identifierare |65,535<br/><br/>SQL Data Warehouse begränsar antalet identifierare som kan finnas i ett enda uttryck i en fråga. Som överstiger det här antalet resultatet i SQL Server-felet 8632. Mer information finns i [internt fel: en uttryckstjänstgräns har nåtts](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
 | Stränglitteraler | Antal stränglitteraler i en instruktion | 20,000 <br/><br/>SQL Data Warehouse begränsar antalet strängkonstanter i ett enda uttryck i en fråga. Som överstiger det här antalet resultatet i SQL Server-felet 8632.|
 
 ## <a name="metadata"></a>Metadata

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 2ec758d9457b75cd7e5f6f29757d3201f3a6d62e
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 0dc33c669a73dd92926eef6a9c4a476160ce60a4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283486"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686372"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guiden för att skapa en avbildning av virtuell dator för Azure Marketplace
 Den här artikeln **steg 2**, beskriver hur du förbereder de virtuella hårddiskarna (VHD) som du distribuerar på Azure Marketplace. De virtuella hårddiskarna är grunden för din SKU. Processen skiljer sig beroende på om du erbjuder en Linux- eller Windows-baserad SKU. Den här artikeln tas båda scenarier upp. Den här processen kan utföras parallellt med [skapande och registrering][link-acct-creation].
@@ -191,7 +191,7 @@ Om du vill veta mer om VM-avbildningar kan du granska följande blogginlägg:
 
 ### <a name="set-up-the-necessary-tools-powershell-and-azure-classic-cli"></a>Konfigurera nödvändiga verktyg, PowerShell och Azure klassiskt CLI
 * [Så här konfigurerar du PowerShell](/powershell/azure/overview)
-* [Så här konfigurerar du Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Så här konfigurerar du Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ### <a name="41-create-a-user-vm-image"></a>4.1 skapa en virtuell datoravbildning för användare
 #### <a name="capture-vm"></a>Avbilda virtuell dator

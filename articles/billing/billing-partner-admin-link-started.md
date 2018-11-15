@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8226ff956db1b21c308d184e8d5876a59d1b646d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 57ffb30296e5dbede11e23c40041c42e00444c4c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391786"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687002"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Länka partner-ID till dina Azure-konton
 
@@ -136,4 +136,4 @@ Länken mellan partner-ID och konton som görs för varje kundklient.  Du måste
 
 **Kan andra partner eller kund redigera eller ta bort länken till partner-ID?**
 
-Länken är associerade på kontonivå. Endast kan du redigera eller ta bort länken till partner-ID. Kunden och andra partner kan inte ändra länken till partner-ID. 
+Länken är associerade på nivån för kontot. Endast kan du redigera eller ta bort länken till partner-ID. Kunden och andra partner kan inte ändra länken till partner-ID. 

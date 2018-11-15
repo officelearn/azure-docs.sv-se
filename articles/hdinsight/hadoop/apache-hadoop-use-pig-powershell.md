@@ -1,6 +1,6 @@
 ---
-title: Använda Pig med Hadoop med PowerShell i HDInsight - Azure
-description: Lär dig mer om att skicka Pig-jobb till ett Hadoop-kluster i HDInsight med Azure PowerShell.
+title: Använda Apache Pig med PowerShell i HDInsight - Azure
+description: Lär dig mer om att skicka Apache Pig-jobb till ett Apache Hadoop-kluster i HDInsight med Azure PowerShell.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: e50c551381a065e8651ab7970ef9cf18c6c3a765
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1e9f6778f12f4f6260bfc20c3a78f7929f13405b
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011025"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634540"
 ---
-# <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Använd Azure PowerShell för att köra Pig-jobb med HDInsight
+# <a name="use-azure-powershell-to-run-apache-pig-jobs-with-hdinsight"></a>Använd Azure PowerShell för att köra Apache Pig-jobb med HDInsight
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Det här dokumentet innehåller ett exempel på hur du använder Azure PowerShell för att skicka Pig-jobb till ett Hadoop på HDInsight-kluster. Pig kan du skriva MapReduce-jobb med hjälp av ett språk (Pig Latin) som modeller dataomvandlingar, snarare än mappa och minska funktioner.
+Det här dokumentet innehåller ett exempel på hur du använder Azure PowerShell för att skicka Apache Pig-jobb till en Apache Hadoop på HDInsight-kluster. Pig kan du skriva MapReduce-jobb med hjälp av ett språk (Pig Latin) som modeller dataomvandlingar, snarare än mappa och minska funktioner.
 
 > [!NOTE]
 > Det här dokumentet ger inte en detaljerad beskrivning av vad de satser i Pig Latin i exemplen göra. Information om den Pig Latin i det här exemplet finns i [använda Pig med Hadoop på HDInsight](hdinsight-use-pig.md).

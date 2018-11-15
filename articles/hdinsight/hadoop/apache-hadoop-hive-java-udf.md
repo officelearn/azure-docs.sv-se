@@ -1,6 +1,6 @@
 ---
-title: Java-användardefinierade funktion (UDF med Hive i HDInsight - Azure)
-description: Lär dig hur du skapar en Java-baserade användardefinierade funktion (UDF) som fungerar med Hive. Det här exemplet UDF konverterar en tabell med textsträngar till gemener.
+title: Java-användardefinierade funktion (UDF med Apache Hive i HDInsight - Azure)
+description: Lär dig hur du skapar en Java-baserade användardefinierade funktion (UDF) som fungerar med Apache Hive. Det här exemplet UDF konverterar en tabell med textsträngar till gemener.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3d8f1d75b8e61bd611f58ed953a8357fb4a47c78
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 562320b49f92d9ebb0c74c06e27fab63681955be
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006251"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634081"
 ---
-# <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Använda en Java UDF med Hive i HDInsight
+# <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Använda en Java UDF med Apache Hive i HDInsight
 
-Lär dig hur du skapar en Java-baserade användardefinierade funktion (UDF) som fungerar med Hive. Java-UDF i det här exemplet konverterar en tabell med textsträngar till alla gemena tecken.
+Lär dig hur du skapar en Java-baserade användardefinierade funktion (UDF) som fungerar med Apache Hive. Java-UDF i det här exemplet konverterar en tabell med textsträngar till alla gemena tecken.
 
 ## <a name="requirements"></a>Krav
 

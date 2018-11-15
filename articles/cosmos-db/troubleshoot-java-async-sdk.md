@@ -9,12 +9,12 @@ ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.openlocfilehash: 74813634aad95f163b06717521bb2c746ac3df6b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ee92a5dd474cdf4f32ed2c7327d732a2cfbbbf79
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238837"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632942"
 ---
 # <a name="troubleshooting-issues-when-using-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Felsökning av problem när du använder Async-SDK för Java med Azure Cosmos DB SQL API-konton
 Den här artikeln beskriver vanliga problem, lösningar, diagnostik steg och verktyg när du använder [Java Async ADK](sql-api-sdk-async-java.md) med Azure Cosmos DB SQL API-konton.
@@ -148,7 +148,7 @@ Cosmos DB-emulatorn HTTPS-certifikatet är självsignerat. För SDK om du vill a
 
 ## <a name="enable-client-sice-logging"></a>Aktivera loggning för klient-SDK
 
-Async Java SDK använder SLF4j som loggning fasad som stöder inloggning till populära loggningsramverk, till exempel log4j och logback.
+SDK för Java-Async-använder SLF4j som loggning fasad som stöder inloggning till populära loggningsramverk, till exempel log4j och logback.
 
 Till exempel om du vill använda log4j som vilket loggningsramverk lägger du till följande libs i Java-klassökvägen:
 

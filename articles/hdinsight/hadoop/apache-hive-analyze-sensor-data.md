@@ -1,6 +1,6 @@
 ---
-title: Analysera sensordata med Hive och Hadoop - Azure HDInsight
-description: Lär dig hur du analyserar sensordata med hjälp av Frågekonsolen Hive med HDInsight (Hadoop) och sedan visualiserar dina data i Microsoft Excel med PowerView.
+title: Analysera sensordata med Apache Hive och Apache Hadoop - Azure HDInsight
+description: Lär dig hur du analyserar sensordata med hjälp av konsolen Apache Hive-fråga med HDInsight (Hadoop) och sedan visualiserar dina data i Microsoft Excel med PowerView.
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/14/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: dfc4d930f185c36c3ba0c869494ba0e7dee64cac
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c3e4ab9dc03afe1c4a19e738804e6400b0830291
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249412"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634421"
 ---
-# <a name="analyze-sensor-data-using-the-hive-query-console-on-hadoop-in-hdinsight"></a>Analysera sensordata med Frågekonsolen Hive med Hadoop i HDInsight
+# <a name="analyze-sensor-data-using-the-apache-hive-query-console-on-apache-hadoop-in-hdinsight"></a>Analysera sensordata med hjälp av konsolen Apache Hive-fråga på Apache Hadoop i HDInsight
 
-Lär dig hur du analyserar sensordata med hjälp av Frågekonsolen Hive med HDInsight (Hadoop) och visualisera data i Microsoft Excel med hjälp av Power View.
+Lär dig hur du analyserar sensordata med hjälp av Frågekonsolen Hive med HDInsight (Apache Hadoop) och visualisera data i Microsoft Excel med hjälp av Power View.
 
 > [!IMPORTANT]
 > Stegen i det här dokumentet fungerar bara med Windows-baserade HDInsight-kluster. HDInsight är endast tillgänglig på Windows för versioner lägre än HDInsight 3.4. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

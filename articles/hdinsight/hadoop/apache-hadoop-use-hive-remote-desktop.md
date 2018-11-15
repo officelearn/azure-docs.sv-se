@@ -1,5 +1,5 @@
 ---
-title: Använda Hadoop Hive och fjärrskrivbord i HDInsight - Azure
+title: Använda Apache Hive och fjärrskrivbord i HDInsight - Azure
 description: Lär dig hur du ansluter till Hadoop-kluster i HDInsight med hjälp av fjärrskrivbord och köra Hive-frågor med hjälp av kommandoradsgränssnittet Hive.
 services: hdinsight
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 32fb2bc9514b911d0a1ce295eee651e4b6b6388a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 03eb5958e1c447ec1239289538906a0cb3e4b30d
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015085"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634217"
 ---
-# <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>Använda Hive med Hadoop i HDInsight med fjärrskrivbord
+# <a name="use-apache-hive-with-apache-hadoop-on-hdinsight-with-remote-desktop"></a>Använda Apache Hive med Apache Hadoop i HDInsight med fjärrskrivbord
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
 I den här artikeln kommer du lära dig hur du ansluter till ett HDInsight-kluster med hjälp av fjärrskrivbord och köra Hive-frågor med hjälp av Hive-kommandoradsgränssnittet (CLI).

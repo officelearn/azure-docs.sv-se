@@ -6,25 +6,24 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: cherylmc
-ms.openlocfilehash: 8776a07f4fb1ffcc573bfedace38280576fa3184
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.author: mialdrid
+ms.openlocfilehash: df0d9c91d1d4f120f934c7375d0c517e3869834e
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622982"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684774"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Om virtuella nätverksgatewayer för ExpressRoute
-En virtuell nätverksgateway används för att skicka nätverkstrafik mellan Azure-nätverk och lokala platser. Du kan använda en virtuell nätverksgateway kan användas för trafik för ExpressRoute eller VPN-trafik. Den här artikeln handlar om virtuella nätverksgatewayer för ExpressRoute.
+En virtuell nätverksgateway används för att skicka nätverkstrafik mellan Azure-nätverk och lokala platser. Du kan använda en virtuell nätverksgateway för ExpressRoute-trafik eller VPN-trafik. Den här artikeln handlar om virtuella nätverksgatewayer för ExpressRoute.
 
 ## <a name="gateway-types"></a>Gateway-typer
 
-När du skapar en virtuell nätverksgateway anger du flera inställningar. En av de obligatoriska inställningarna ”-GatewayType”, anger om gatewayen ska användas för ExpressRoute eller VPN-trafik. Två gatewaytyper är: 
+När du skapar en virtuell nätverksgateway kan behöva du ange flera inställningar. En av de obligatoriska inställningarna ”-GatewayType”, anger om gatewayen ska användas för ExpressRoute eller VPN-trafik. Två gatewaytyper är:
 
 * **VPN** – om du vill skicka krypterad trafik via det offentliga Internet och du använder du gatewaytypen 'Vpn ”. Detta kallas även för en VPN-gateway. Plats-till-plats-, punkt-till-plats- och VNet-VNet-anslutningar använder allihop en VPN-gateway.
 
-* **ExpressRoute** – om du vill skicka nätverkstrafik på en privat anslutning du använder du gatewaytypen ”ExpressRoute”. Detta kallas också till en ExpressRoute-gateway och är typ av gateway som du använder när du konfigurerar ExpressRoute.
-
+* **ExpressRoute** – om du vill skicka nätverkstrafik på en privat anslutning du använder du gatewaytypen ”ExpressRoute”. Detta kallas också till en ExpressRoute-gateway och är typ av gateway som används när du konfigurerar ExpressRoute.
 
 Varje virtuellt nätverk kan bara ha en VNet-gateway per gateway-typ. Du kan exempelvis ha en VNet-gateway som använder -GatewayType Vpn och en som använder -GatewayType ExpressRoute.
 
@@ -39,8 +38,8 @@ I följande tabell visar gateway-typerna och uppskattade prestanda. Tabellen gä
 [!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
 
 > [!IMPORTANT]
-> Programprestanda beror på flera faktorer, till exempel svarstiden slutpunkt till slutpunkt och antal trafikflöden programmet öppnas. Tal i tabellen representerar den övre gränsen som programmet teoretiskt sett kan uppnå i en perfekt miljö. 
-> 
+> Programprestanda beror på flera faktorer, till exempel svarstiden slutpunkt till slutpunkt och antal trafikflöden programmet öppnas. Tal i tabellen representerar den övre gränsen som programmet teoretiskt sett kan uppnå i en perfekt miljö.
+>
 >
 
 ### <a name="zrgw"></a>Zonredundant gateway SKU: er
@@ -55,7 +54,7 @@ Zonredundant gateways använda specifika nya gateway SKU: er för ExpressRoute-g
 * ErGw2AZ
 * ErGw3AZ
 
-De nya gateway-SKU: er har också stöd för andra distributionsalternativ för att matcha dina behov bäst. När du skapar en virtuell nätverksgateway med hjälp av den nya gatewayen SKU: er kan möjlighet du också att distribuera en gateway i en viss zon. Detta kallas för en zonindelad gateway. När du distribuerar en zonindelad gateway distribueras alla instanser av en gateway i samma Tillgänglighetszon. 
+De nya gateway-SKU: er har också stöd för andra distributionsalternativ för att matcha dina behov bäst. När du skapar en virtuell nätverksgateway med hjälp av den nya gatewayen SKU: er kan möjlighet du också att distribuera en gateway i en viss zon. Detta kallas för en zonindelad gateway. När du distribuerar en zonindelad gateway distribueras alla instanser av en gateway i samma Tillgänglighetszon.
 
 ## <a name="resources"></a>REST API: er och PowerShell-cmdlets
 Ytterligare tekniska resurser och specifik syntax krav när du använder REST API: er och PowerShell-cmdletar för gateway-konfigurationer för virtuella nätverk finns i följande sidor:

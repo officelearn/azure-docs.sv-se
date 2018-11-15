@@ -9,18 +9,18 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: larryfr
 ms.date: 10/30/2018
-ms.openlocfilehash: 0ad39048a6b175a30ac7c5cdc346d0858c3719ef
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 75faf344c64dc330a98b836a8852b42531645c49
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621878"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685182"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Använd en Azure Machine Learning-modell som distribueras som en webbtjänst
 
 Distribuera en Azure Machine Learning-modell som en webbtjänst skapas ett REST-API. Du kan skicka data till den här API: et och få förutsägelser som returneras av modellen. I det här dokumentet lär du dig hur du skapar klienter för en web service med hjälp av C#, Go, Java och Python.
 
-En webbtjänst skapas när du distribuerar en avbildning till ett Azure Container-instans, Azure Kubernetes Service eller Project Brainwave (fältet programmable gate Array). Bilder skapas från registrerade modeller och bedömningsfilerna. Den URI som används för åtkomst till en webbtjänst kan hämtas med hjälp av den [Azure Machine Learning SDK](https://docs.microsoft.com/en-us/python/api/overview/azure/ml/intro?view=azure-ml-py). Du kan också använda SDK: N för att hämta autentiseringsnycklarna om autentisering är aktiverad.
+En webbtjänst skapas när du distribuerar en avbildning till ett Azure Container-instans, Azure Kubernetes Service eller Project Brainwave (fältet programmable gate Array). Bilder skapas från registrerade modeller och bedömningsfilerna. Den URI som används för åtkomst till en webbtjänst kan hämtas med hjälp av den [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Du kan också använda SDK: N för att hämta autentiseringsnycklarna om autentisering är aktiverad.
 
 Det allmänna arbetsflödet när du skapar en klient som använder en Machine Learning-webbtjänst är:
 
@@ -33,7 +33,7 @@ Det allmänna arbetsflödet när du skapar en klient som använder en Machine Le
 > [!NOTE]
 > SDK: N för Azure Machine Learning används för att hämta information om web service. Det här är en Python-SDK. Den används för att hämta information om webbtjänsterna, men du kan använda valfritt språk för att skapa en klient för tjänsten.
 
-Web service-anslutningsinformationen kan hämtas med hjälp av Azure Machine Learning-SDK. Den [azureml.core.Webservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) klassen innehåller information som behövs för att skapa en klient. Följande `Webservice` egenskaper som är användbara när du skapar ett klientprogram:
+Web service-anslutningsinformationen kan hämtas med hjälp av Azure Machine Learning-SDK. Den [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) klassen innehåller information som behövs för att skapa en klient. Följande `Webservice` egenskaper som är användbara när du skapar ett klientprogram:
 
 * `auth_enabled` – Om autentisering har aktiverats, `True`, annars `False`.
 * `scoring_uri` – REST API-adress.
@@ -51,7 +51,7 @@ Det finns tre sätt att hämta den här informationen för distribuerade webbtj�
     print(service.scoring_uri)
     ```
 
-* Du kan använda `Webservice.list` att hämta en lista över distribuerade webbtjänster för modeller i din arbetsyta. Du kan lägga till filter för att begränsa listan med information som returneras. Mer information om vad du kan filtrera på, finns i den [Webservice.list](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#list) referensdokumentation.
+* Du kan använda `Webservice.list` att hämta en lista över distribuerade webbtjänster för modeller i din arbetsyta. Du kan lägga till filter för att begränsa listan med information som returneras. Mer information om vad du kan filtrera på, finns i den [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#list) referensdokumentation.
 
     ```python
     services = Webservice.list(ws)
@@ -82,7 +82,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Om du vill återskapa en nyckel kan du använda [ `service.regen_key` ](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#regen-key).
+> Om du vill återskapa en nyckel kan du använda [ `service.regen_key` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#regen-key).
 
 ## <a name="request-data"></a>Data för programbegäranden
 

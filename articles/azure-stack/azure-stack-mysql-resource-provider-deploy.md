@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/14/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: dce9d4d5d1f2e3e50cabb86ee0d8d14b2fce2923
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: f0c627c1b0ab5f551ed71c3c30eb1dccc6c930a3
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230037"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686355"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Distribuera MySQL-resursprovider i Azure Stack
 
@@ -45,7 +45,7 @@ Det finns flera förutsättningar som måste vara uppfyllda innan du kan distrib
 
     | Lägsta version av Azure Stack | MySQL RP-version|
     | --- | --- |
-    | Version 1804 (1.0.180513.1)|[MySQL RP version 1.1.24.0](https://aka.ms/azurestackmysqlrp1804) |
+    | Version 1808 (1.1808.0.97)|[MySQL RP version 1.1.30.0](https://aka.ms/azurestackmysqlrp11300) |
     |     |     |
 
 * Kontrollera att datacenter integration krav är uppfyllda:
@@ -90,7 +90,7 @@ Du kan ange dessa parametrar från kommandoraden. Om du inte, eller om någon pa
 | **VMLocalCredential** | Autentiseringsuppgifterna för det lokala administratörskontot för MySQL-resursprovider VM. | _Krävs_ |
 | **PrivilegedEndpoint** | IP-adressen eller DNS-namnet på den privilegierade slutpunkten. |  _Krävs_ |
 | **AzureEnvironment** | Azure-miljön för admin kontot som du använde för att distribuera Azure Stack. Krävs endast för Azure AD-distributioner. Miljö som stöds är **AzureCloud**, **azureusgovernment eller**, eller om du använder en Kina Azure AD, **AzureChinaCloud**. | AzureCloud |
-| **DependencyFilesLocalPath** | För integrerade system, måste din .pfx-certifikatfil placeras i den här katalogen. Frånkopplade miljöer hämta [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) till den här katalogen. Du kan också kopiera här ett Windows Update MSU-paket. | _Valfritt_ (_obligatoriska_ för integrerade system eller frånkopplade miljöer) |
+| **DependencyFilesLocalPath** | För integrerade system, måste din .pfx-certifikatfil placeras i den här katalogen. Frånkopplade enviroments hämta [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) till den här katalogen. Du kan också kopiera här ett Windows Update MSU-paket. | _Valfritt_ (_obligatoriska_ för integrerade system eller frånkopplade miljöer) |
 | **DefaultSSLCertificatePassword** | Lösenordet för PFX-certifikat. | _Krävs_ |
 | **MaxRetryCount** | Antal gånger som du vill försöka utföra varje åtgärd om det uppstår ett fel.| 2 |
 | **RetryDuration** | Timeout-intervall mellan försök i sekunder. | 120 |
@@ -105,8 +105,8 @@ Du kan anpassa följande skript för att minimera ingen manuell konfiguration n�
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
 Install-Module -Name AzureRm.BootStrapper -Force
-Use-AzureRmProfile -Profile 2017-03-09-profile
-Install-Module -Name AzureStack -RequiredVersion 1.4.0
+Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
+Install-Module -Name AzureStack -RequiredVersion 1.5.0
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"  

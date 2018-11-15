@@ -1,5 +1,5 @@
 ---
-title: Använda Ambari-vyer för att arbeta med Hive på HDInsight (Hadoop) – Azure
+title: Använd Apache Ambari-vyer för att arbeta med Hive på HDInsight (Apache Hadoop) – Azure
 description: Lär dig använda Hive-vyn från din webbläsare för att skicka Hive-frågor. Hive-vyn är en del av Ambari-Webbgränssnittet som medföljer ditt Linux-baserade HDInsight-kluster.
 services: hdinsight
 author: hrasheed-msft
@@ -9,22 +9,22 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: c481889eda53ff46a8899676da2529fe4165dfd5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1328119917276b8135c4a6d4188b67bcff2fc069
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233165"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632755"
 ---
-# <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>Använda Ambari Hive-vyn med Hadoop i HDInsight
+# <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Använd Apache Ambari Hive-vyn med Apache Hadoop i HDInsight
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Lär dig hur du kör Hive-frågor genom att använda Ambari Hive-vy. Hive-vyn kan du skapa, optimera och köra Hive-frågor från din webbläsare.
+Lär dig mer om att köra Hive-frågor med hjälp av Apache Ambari Hive-vy. Hive-vyn kan du skapa, optimera och köra Hive-frågor från din webbläsare.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Linux-baserat Hadoop i HDInsight-kluster av version 3.4 och senare.
+* En Linux-baserade Apache Hadoop på HDInsight-kluster av version 3.4 och senare.
 
   > [!IMPORTANT]
   > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

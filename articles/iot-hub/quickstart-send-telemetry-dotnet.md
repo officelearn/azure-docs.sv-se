@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/20/2018
 ms.author: dobett
-ms.openlocfilehash: ba99aff51cf4d73b728161802f81156058b9ea69
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: f34d1b69deb73e649f34424dda279cd416415882
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364103"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515564"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-c"></a>Snabbstart: Skicka telemetri från en enhet till en IoT-hubb och läs telemetrin från navet med ett serverdelsprogram (C#)
 
@@ -45,7 +45,7 @@ Ladda ned exempelprojektet för C# från https://github.com/Azure-Samples/azure-
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
-[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Registrera en enhet
 
@@ -55,7 +55,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
    **YourIoTHubName** : Ersätt platshållaren nedan med det namn du väljer för din IoT-hubb.
 
-   **MyDotnetDevice**: Det här är det namn du angav för den registrerade enheten. Använd MyDotnetDevice som visas. Om du väljer ett annat namn för din enhet måste du även använda det namnet i hela artikeln, och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
+   **MyDotnetDevice**: Det här är det namn som du angav för den registrerade enheten. Använd MyDotnetDevice såsom det visas. Om du väljer ett annat namn för din enhet måste du även använda det namnet i hela artikeln, och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -100,13 +100,13 @@ Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på di
 
     Ersätt värdet för `s_connectionString`-variabeln med den enhetsanslutningssträng du antecknade tidigare. Spara dina ändringar i filen **SimulatedDevice.cs**.
 
-3. Installera de paket som krävs för det simulerade enhetsprogrammet genom att köra följande kommandon i det lokala terminalfönstret:
+3. Installera de paket som krävs för programmet för simulerad enhet genom att köra följande kommandon i det lokala terminalfönstret:
 
     ```cmd/sh
     dotnet restore
     ```
 
-4. Kör det simulerade enhetsprogrammet genom att skapa och köra följande kommandon i det lokala terminalfönstret:
+4. Kör programmet för simulerad enhet genom att skapa och köra följande kommandon i det lokala terminalfönstret:
 
     ```cmd/sh
     dotnet run

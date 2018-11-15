@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: rafats
-ms.openlocfilehash: 596bb31ea2734b389ac8b2d6741907da04730648
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3168593e30a7f5acf49960c8479da75529860a65
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629378"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684553"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Läsa Azure Cosmos DB-ändringsflödet
 
@@ -27,7 +27,7 @@ Azure Functions är det enklaste och rekommenderade alternativet. När du skapar
 
 ## <a name="using-the-change-feed-processor-library"></a>Med hjälp av ändringen feed processor-biblioteket
 
-Processor-biblioteket för ändringsflödet döljer komplexiteten och fortfarande får du en fullständig kontroll över den ändringsflödet. Biblioteket följer mönstret Övervakare där bearbetning funktionen anropas av biblioteket. Om du har en hög genomströmning ändringsflödet kan du kan skapa en instans av flera klienter för att läsa ändringsflöde. Eftersom du använder ändringsflödet processor-biblioteket, delar den belastningen mellan de olika klienterna automatiskt utan att du behöver att implementera den här logiken. Alla komplexitet hanteras av biblioteket. Om du vill ha en egen belastningsutjämnare så du kan implementera `IParitionLoadBalancingStrategy` för en anpassad partition feed-strategi för att bearbeta ändringar. Mer information finns i [med ändringen feed processor-biblioteket](change-feed-processor.md).
+Processor-biblioteket för ändringsflödet döljer komplexiteten och fortfarande får du en fullständig kontroll över den ändringsflödet. Biblioteket följer mönstret Övervakare där bearbetning funktionen anropas av biblioteket. Om du har en hög genomströmning ändringsflödet kan du kan skapa en instans av flera klienter för att läsa ändringsflöde. Eftersom du använder ändringsflödet processor-biblioteket, delar den belastningen mellan de olika klienterna automatiskt utan att du behöver att implementera den här logiken. Alla komplexitet hanteras av biblioteket. Om du vill ha en egen belastningsutjämnare så du kan implementera `IPartitionLoadBalancingStrategy` för en anpassad partition feed-strategi för att bearbeta ändringar. Mer information finns i [med ändringen feed processor-biblioteket](change-feed-processor.md).
 
 ## <a name="using-the-azure-cosmos-db-sql-api-sdk"></a>Med hjälp av Azure Cosmos DB SQL API-SDK
 

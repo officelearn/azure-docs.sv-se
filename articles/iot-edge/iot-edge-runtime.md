@@ -8,12 +8,12 @@ ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9894df3bed50059dc28ed6308c96990178cf44ef
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 05c97d21e9acf1bb49418e3a7d0ccf1657f84435
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624987"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685199"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Förstå Azure IoT Edge-körningen och dess arkitektur
 
@@ -73,7 +73,7 @@ Registrera ett återanrop som bearbetar inkommande meddelanden på en specifik i
    await client.SetInputMessageHandlerAsync(“input1”, messageProcessor, userContext);
    ```
 
-Mer information om klassen ModuleClient och dess kommunikationsmetoder finns i API-referens för SDK det språk du föredrar: [ C# ](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C och Python](https://docs.microsoft.com/en-us/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable), eller [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
+Mer information om klassen ModuleClient och dess kommunikationsmetoder finns i API-referens för SDK det språk du föredrar: [ C# ](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C och Python](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable), eller [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
 
 Lösningsutvecklaren är ansvarig för att ange reglerna som bestämmer hur Edge hub skickar meddelanden mellan moduler. Routningsregler definieras i molnet och flyttas fram till Edge hub i dess enhetstvilling. Samma syntax för IoT Hub vägar används för att definiera rutter mellan moduler i Azure IoT Edge. 
 

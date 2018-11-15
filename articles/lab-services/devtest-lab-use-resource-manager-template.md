@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 99d835d1d0e18bf62d6e64b7e5af45b6c53d809e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4fd9f76223adba20028288b46037586f8f54fd1a
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239516"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686389"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Skapa virtuella datorer med en Azure Resource Manager-mall 
 
@@ -42,7 +42,7 @@ Det finns två sätt att skapa virtuella datorer i labb med hjälp av en Resourc
 
    Virtuella datorer i samma miljö kan hanteras tillsammans och har samma livscykel. Användare som är tilldelade till en användarroll för DevTest Labs kan skapa miljöer med hjälp av dessa mallar så länge som administratören har konfigurerat testmiljön sätt.
 
-Resten av den här artikeln beskriver Resource Manager-mallar som använder Mirosoft.DevTestLab/labs/virtualmachines. De används av lab administratörer för att automatisera skapandet av lab VM (till exempel tillgängliga virtuella datorer) eller gyllene bilden generation (till exempel bild factory).
+Resten av den här artikeln beskriver Resource Manager-mallar som använder Microsoft.DevTestLab/labs/virtualmachines. De används av lab administratörer för att automatisera skapandet av lab VM (till exempel tillgängliga virtuella datorer) eller gyllene bilden generation (till exempel bild factory).
 
 [Bästa praxis för att skapa Azure Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) erbjuder många riktlinjer och förslag för att skapa Azure Resource Manager-mallar som är tillförlitliga och enkelt att använda.
 

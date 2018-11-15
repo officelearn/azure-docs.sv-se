@@ -1,3 +1,16 @@
+---
+author: vladvino
+ms.service: api-management
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: vlvinogr
+ms.openlocfilehash: 2bfa356deeede1c16bd5a464ea7081132a67faf6
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572748"
+---
 ## <a name="append-other-apis"></a>Lägg till andra API:er
 
 Ett API kan bestå av API:er som exponeras av olika tjänster, bland annat OpenAPI-specifikation, SOAP-API, API-appfunktionen i Azure App Service, Azure-funktionsappen, Azure Logic Apps och Azure Service Fabric.

@@ -1,6 +1,6 @@
 ---
-title: Använda Pig med Hadoop med vila i HDInsight - Azure
-description: Lär dig hur du använder REST för att köra Pig Latin-jobb på ett Hadoop-kluster i Azure HDInsight.
+title: Använda Apache Hadoop Pig med vila i HDInsight - Azure
+description: Lär dig hur du använder REST för att köra Pig Latin-jobb på en Apache Hadoop-kluster i Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,21 +9,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: bd729d0d2cd095339a82b8a7f38a17a20b709c15
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: cb96933569c18b8c70d8991c9ba19f9f3e1243e6
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013096"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633707"
 ---
-# <a name="run-pig-jobs-with-hadoop-on-hdinsight-by-using-rest"></a>Köra Pig-jobb med Hadoop på HDInsight med hjälp av REST
+# <a name="run-pig-jobs-with-apache-hadoop-on-hdinsight-by-using-rest"></a>Köra Pig-jobb med Apache Hadoop på HDInsight med hjälp av REST
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Lär dig hur du kör Pig Latin-jobb genom att göra REST-begäranden till ett Azure HDInsight-kluster. CURL används för att demonstrera hur du kan interagera med HDInsight med hjälp av WebHCat REST-API.
+Lär dig hur du kör Apache Pig Latin-jobb genom att göra REST-begäranden till ett Azure HDInsight-kluster. CURL används för att demonstrera hur du kan interagera med HDInsight med hjälp av WebHCat REST-API.
 
 > [!NOTE]
-> Om du redan är bekant med Linux-baserade Hadoop-servrar, men är nybörjare på HDInsight, se [Tips för Linux-baserade HDInsight](../hdinsight-hadoop-linux-information.md).
+> Om du redan är bekant med Linux-baserade Apache Hadoop-servrar, men är nybörjare på HDInsight, se [Tips för Linux-baserade HDInsight](../hdinsight-hadoop-linux-information.md).
 
 ## <a id="prereq"></a>Förhandskrav
 

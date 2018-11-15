@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: ea69befb1084b08352eb3cf38db0364c5c82c45b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b134bc2529bf11557ddb1778b87f127db8da650c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237068"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684646"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Säkerhetsfilter för att trimma Azure-sökresultaten med hjälp av Active Directory-identiteter
 
@@ -98,7 +98,7 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### <a name="step-4-cache-the-groups-identifiers"></a>Steg 4: Cachelagra grupper-identifierare
-Du kan också för att minska Nätverksfördröjningen, kan du Cachelagra användargrupp kopplingarna så att när en sökbegäran grupper returneras från cachen sparar en tur och RETUR till AAD. Du kan använda (AAD Batch API) [https://developer.microsoft.com/graph/docs/concepts/json_batching] att skicka en Http-begäran med flera användare och skapa cachen.
+Du kan också för att minska Nätverksfördröjningen, kan du Cachelagra användargrupp kopplingarna så att när en sökbegäran grupper returneras från cachen sparar en tur och RETUR till AAD. Du kan använda [AAD Batch API](https://developer.microsoft.com/graph/docs/concepts/json_batching) att skicka en Http-begäran med flera användare och skapa cachen.
 
 Microsoft Graph är utformad för att hantera ett stort antal begäranden. Om en överväldigande antalet begäranden sker, inte Microsoft Graph på begäran med HTTP-statuskod 429. Mer information finns i [Microsoft Graph-begränsning](https://developer.microsoft.com/graph/docs/concepts/throttling).
 

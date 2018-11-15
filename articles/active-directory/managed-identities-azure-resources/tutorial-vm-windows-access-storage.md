@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2018
 ms.author: daveba
-ms.openlocfilehash: 46be9469e67a4f456be100823d475b8720262b1b
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: d032d8cc33d33954406ad45e64fc199d569abf41
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163183"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51620943"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure Storage
 
@@ -37,15 +37,7 @@ I den här självstudien lär du dig hur du använder en systemtilldelad hantera
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Logga in på Azure-portalen](https://portal.azure.com)
-
-- [Skapa en virtuell Windows-dator](/azure/virtual-machines/windows/quick-create-portal)
-
-- [Aktivera systemtilldelade hanterade identiteter på din virtuella dator](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
 
@@ -90,7 +82,7 @@ Du kan använda den virtuella datorns systemtilldelade hanterade identitet för 
 
     ![Tilldela behörigheter](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
 
-## <a name="get-an-access-token-and-use-it-to-call-azure-storage"></a>Hämta en åtkomsttoken och anropa Azure Storage med den 
+## <a name="get-an-access-token-and-use-it-to-call-azure-storage"></a>Hämta en åtkomsttoken och anropa Azure Storage med den 
 
 Azure Storage har inbyggt stöd för Azure Active Directory-autentisering, vilket gör att åtkomsttoken som hämtas med en hanterad identitet kan accepteras direkt. Detta är en del av integreringen av Azure Storage med Azure Active Directory, och skiljer sig från att ange autentiseringsuppgifter i anslutningssträngen.
 

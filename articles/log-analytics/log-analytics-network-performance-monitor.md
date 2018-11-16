@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: a38532d7a411080feb637549288bdad036a11153
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 78d081fe3ba2bfa4b598dfb0cc62c03d66d3d356
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011059"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712321"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor-lösning i Azure
 
@@ -103,7 +103,7 @@ Använd basic-processer för att installera agenter på [ansluta Windows-datorer
 
 ### <a name="configure-the-solution"></a>Konfigurera lösningen 
 
-1. Lägga till Network Performance Monitor-lösning för din arbetsyta från den [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Du kan också använda metoden som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](../monitoring/monitoring-solutions.md). 
+1. Lägga till Network Performance Monitor-lösning för din arbetsyta från den [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Du kan också använda metoden som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](../azure-monitor/insights/solutions.md). 
 2. Öppna Log Analytics-arbetsytan och välj den **översikt** panelen. 
 3. Välj den **Övervakare av nätverksprestanda** panelen med meddelandet *ytterligare konfiguration krävs för lösningen*.
 

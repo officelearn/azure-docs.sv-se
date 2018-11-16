@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: 7a3545e3fdf37f33db4c3b77be6cf6d5db0f6aef
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e44d267fcc9986c5e215fc4844f49b28918a3111
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973583"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711930"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisera data från Azure Monitor
 Den här artikeln innehåller en sammanfattning av de tillgängliga metoderna för att visualisera data som lagras i Azure Monitor. Detta inkluderar [mått i Azure-mått store](../monitoring/monitoring-data-collection.md#metrics) och [logga data i Log Analytics](../monitoring/monitoring-data-collection.md#logs). 
@@ -50,7 +50,7 @@ Visualiseringar, till exempel tabeller och diagram kan hjälpa dig att analysera
 - Begränsad sammanhangsberoende nedåt.
 
 ## <a name="azure-monitor-views"></a>Azure Monitor-vyer
-[Vyer i Azure Monitor](../log-analytics/log-analytics-view-designer.md) kan du skapa anpassade visualiseringar med loggdata som lagras i Log Analytics. De används av [övervakningslösningar](../monitoring/monitoring-solutions.md) att presentera information som samlas in.
+[Vyer i Azure Monitor](../log-analytics/log-analytics-view-designer.md) kan du skapa anpassade visualiseringar med loggdata som lagras i Log Analytics. De används av [övervakningslösningar](../azure-monitor/insights/solutions.md) att presentera information som samlas in.
 
 ![Visa](media/visualizations/view.png)
 

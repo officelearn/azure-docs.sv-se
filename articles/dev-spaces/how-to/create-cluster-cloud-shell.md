@@ -4,18 +4,18 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: iainfoulds
-ms.author: iainfou
+author: zr-msft
+ms.author: zarhoads
 ms.date: 10/04/2018
 ms.topic: article
 description: Lär dig hur du snabbt skapar ett Kubernetes-kluster som har aktiverats för Azure Dev blanksteg direkt från din webbläsare utan att installera något.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 47c467e020a7a9253daa636352352d9a57dddf28
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 61a466efdacb56889a7e437d84d3c9de43927e65
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978161"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705760"
 ---
 # <a name="create-a-kubernetes-cluster-using-azure-cloud-shell"></a>Skapa ett Kubernetes-kluster med Azure Cloud Shell
 
@@ -23,7 +23,7 @@ Du kan använda [Azure Cloud Shell](/azure/cloud-shell) att skapa ett kluster f�
 
 ## <a name="create-the-cluster"></a>Skapa klustret
 
-Först skapa resursgruppen. Använd någon av regionerna som stöds för närvarande (EastUS, Usaöstra2, CentralUS, västra USA 2, Europavästra, SoutheastAsia, Kanadacentrala eller Kanadaöstra).
+Först skapa resursgruppen. Använd någon av regionerna som stöds för närvarande (USA, östra; USA, östra 2; USA, centrala; USA, västra 2; Europa, västra; Asien, sydöstra; Kanada, centrala eller Kanada, östra).
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location <region>

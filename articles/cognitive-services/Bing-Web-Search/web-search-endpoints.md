@@ -8,31 +8,38 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 11/14/2018
 ms.author: v-gedod
-ms.openlocfilehash: 3058ca6cf0eb99486dd4c269d43b274fb367f7a9
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 794a2c77c5601b76f258b2b73f5a01f3c6b8f8c9
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125467"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712304"
 ---
 # <a name="web-search-endpoint"></a>Sök webbslutpunkt
+
 Den **API för webbsökning** Returnerar webbsidor, nyheter, bilder, videor, och [entiteter](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web). Entiteter innehåller översiktsinformation om en person, plats eller ett ämne.
+
 ## <a name="endpoint"></a>Slutpunkt
+
 Om du vill ha med hjälp av Bing-API för webbsökning, skicka en `GET` begäran till följande slutpunkt. Rubriker och URL-parametrar kan definiera ytterligare specifikationer.
 
 **Slutpunkten**: returnerar Webbresultat som är relevanta för användarens sökfråga som definieras av `?q=""`.
-```
+
+```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/search
 ```
-Slutpunkt: Mer information om rubriker, parametrar, marknaden koder, svarsobjekt, fel, osv., finns i den [i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) referens.
+
+Slutpunkt: Mer information om huvuden, parametrar, marknaden koder, svarsobjekt, fel och mer, finns det [i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) referens.
 
 ## <a name="response-json"></a>Svaret JSON
-Svaret på en webbfråga search innehåller alla resultat som JSON-objekt. Parsning resultatet kräver procedurer som hanterar elementen i varje typ av. Se den [självstudien](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/tutorial-bing-web-search-single-page-app) och [källkod](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/tutorial-bing-web-search-single-page-app-source) exempel.
+
+Svaret på en webbfråga search innehåller alla resultat som JSON-objekt. Parsning resultatet kräver procedurer som hanterar elementen i varje typ av. Se den [självstudien](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/tutorial-bing-web-search-single-page-app) och [källkod](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) exempel.
 
 ## <a name="next-steps"></a>Nästa steg
-Den **Bing** API: er stöder sökåtgärder som returnerar resultat enligt typ. Alla Sök slutpunkter returnerar resultat som JSON-svar-objekt.  Alla slutpunkter stöd för frågor som returnerar ett visst språk och/eller plats genom att longitud, latitud och Sök radius.
+
+Den **Bing** API: er stöder sökåtgärder som returnerar resultat enligt typ. Alla Sök slutpunkter returnerar resultat som JSON-svar-objekt.  Frågor som returnerar ett visst språk och plats med longitud, latitud och Sök efter RADIUS-stöd för alla slutpunkter.
 
 Fullständig information om de parametrar som stöds av varje slutpunkt finns referenssidor för varje typ av.
 Exempel på grundläggande begäranden med API för webbsökning finns [söka på webben Snabbstarter för lösningar](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/search-the-web).

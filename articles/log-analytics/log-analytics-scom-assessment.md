@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c17c14b015531bf3f978ac30b013c80ad5be779e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 210e8a80d19f84058a059a3cfe34a14e037507db
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006523"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712372"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimera din miljö med lösningen för System Center Operations Manager hälsokontroll (förhandsversion)
 
@@ -212,7 +212,7 @@ Varje rekommendation innehåller information om varför det är viktigt. Använd
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Använd hälsokontrollen fokus området rekommendationer
 
-Innan du kan använda en lösning för kontroll av hälsotillstånd i Log Analytics, måste du ha installerat lösningen. Läsa mer om hur du installerar lösningar, se [installera en lösning för](../monitoring/monitoring-solutions.md). När den har installerats, du kan visa en sammanfattning av rekommendationer med hjälp av System Center Operations Manager Health Check-panel på den **översikt** för din arbetsyta i Azure-portalen.
+Innan du kan använda en lösning för kontroll av hälsotillstånd i Log Analytics, måste du ha installerat lösningen. Läsa mer om hur du installerar lösningar, se [installera en lösning för](../azure-monitor/insights/solutions.md). När den har installerats, du kan visa en sammanfattning av rekommendationer med hjälp av System Center Operations Manager Health Check-panel på den **översikt** för din arbetsyta i Azure-portalen.
 
 Visa de sammanfattade efterlevnad utvärderingarna för din infrastruktur och sedan gå till rekommendationer.
 

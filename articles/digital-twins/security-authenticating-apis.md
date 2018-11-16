@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 11/13/2018
 ms.author: lyrana
-ms.openlocfilehash: f85ab05e785ea559962490b43e75b196d1602159
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4ea4479d77e06940bed50859341952ffbcbbda46
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016224"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711063"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>Ansluta och autentisera till API: er
 
@@ -35,39 +35,18 @@ Autentiseringsbibliotek för Windows Azure erbjuder många sätt att hämta toke
 
 ## <a name="call-digital-twins-from-a-middle-tier-web-api"></a>Anropa digitala Twins från ett mellannivå webb-API
 
-När utvecklare skapar lösningar för Digital Twins, skapas vanligtvis en mellannivå program eller API: et. Appen eller API sedan anropar API: et för Digital Twins nedströms. Användare först autentisera sig till programmet medelnivån och sedan en på-token flöde används för att anropa nedströms. Anvisningar om hur du samordnar on-behalf-of-flöde finns i [den här sidan](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Du kan också visa kodexempel på [den här sidan](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
+När utvecklare skapar lösningar för Digital Twins, skapas vanligtvis en mellannivå program eller API: et. Appen eller API sedan anropar API: et för Digital Twins nedströms. För att stödja den här standarden web-lösningsarkitekturen, se till att användare första:
 
+1. Autentisera med mellannivå-program
 
-## <a name="test-with-the-postman-client"></a>Testa med Postman-klienten
+1. Det krävs en OAuth 2.0-Behalf-token under autentiseringen
 
-För att komma igång med API: er för Digital Twins, kan du använda en klient, till exempel Postman som en API-miljö. Postman kan du skapa komplexa HTTP-begäranden snabbt. Följande steg visar hur du hämtar en Azure AD-token som behövs för att anropa digitala Twins i Postman-Användargränssnittet.
+1. Förvärvade token används sedan för att autentisera med eller anropa API: er som ytterligare nedströms använder On-Behalf-Of-flöde
 
-
-1. Gå till https://www.getpostman.com/ att ladda ned appen.
-1. Följ stegen i [snabbstarten](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) att skapa ett Azure AD-program. Eller du kan återanvända en befintlig registrering. 
-1. Under **nödvändiga behörigheter**, ange ”Azure Digital Twins” och välj **delegerade behörigheter**. Välj sedan **bevilja behörigheter**.
-1. Öppna applikationsmanifestet och ange **oauth2AllowImplicitFlow** till true.
-1. Konfigurera en svars-URL till [ https://www.getpostman.com/oauth2/callback ](https://www.getpostman.com/oauth2/callback).
-1. Välj den **auktorisering** fliken **OAuth 2.0**, och välj sedan **hämta ny åtkomsttoken**.
-
-    |**Fält**  |**Värde** |
-    |---------|---------|
-    | Beviljandetyp | Implicit |
-    | Motringnings-URL | [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback) |
-    | Auth URL | https://login.microsoftonline.com/<Your Azure AD Tenant e.g. Contoso>.onmicrosoft.com/oauth2/Authorize?Resource=0b07f429-9F4B-4714-9392-cc5e8e80c8b0 |
-    | Klientorganisations-ID | Använda program-ID för Azure AD-app som har skapats eller ändrat syfte från steg 2. |
-    | Omfång | Lämna tomt. |
-    | Status | Lämna tomt. |
-    | Klientautentisering | Skicka som en rubrik för grundläggande autentisering. |
-
-1. Välj **begära Token**.
-
-    >[!NOTE]
-    >Om du får felmeddelandet ”Det gick inte att slutföra OAuth 2” kan du prova följande:
-    > * Stäng Postman och öppna den igen och försök igen.
-   
-1. Bläddra nedåt och välj **Använd Token**.
+Anvisningar om hur du samordnar on-behalf-of-flöde finns i [flödet för OAuth 2.0 Behalf](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Du kan också visa kodexempel i [anropa ett webb-API som är underordnade](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
 
 ## <a name="next-steps"></a>Nästa steg
+
+Om du vill konfigurera och testa Azure Digital Twins med hjälp av OAuth 2.0 implicit beviljande av flow, läsa [konfigurera Postman](./how-to-configure-postman.md).
 
 Läs om Azure Digital Twins säkerhet [skapa och hantera rolltilldelningar](./security-create-manage-role-assignments.md).

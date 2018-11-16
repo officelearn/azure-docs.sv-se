@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e1f33551c02562bbd8b7cc6a4187f7135a06c60f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 5ec4ba5f51837e879ba5106c40d466dafb571825
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961950"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711811"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planera kapacitet för Hyper-V-virtuella datorer med kapacitet och prestanda lösningen (förhandsversion)
 
@@ -64,7 +64,7 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 
 Utför följande steg för att lägga till lösning för kapacitet och prestanda för din arbetsyta.
 
-- Lägga till lösning för kapacitet och prestanda för Log Analytics-arbetsytan med processen som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](../monitoring/monitoring-solutions.md).
+- Lägga till lösning för kapacitet och prestanda för Log Analytics-arbetsytan med processen som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](../azure-monitor/insights/solutions.md).
 
 ## <a name="management-packs"></a>Hanteringspaket
 

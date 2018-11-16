@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: erhopf
-ms.openlocfilehash: 162b690d4b371cfe76738cd83ce484a3062d139f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 16b7de909ce57a7f8d3cea54a59996dc6f0a6ba0
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469928"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712015"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Använd ”Text till tal” i Speech Service
 
@@ -92,7 +92,7 @@ Om ett fel inträffar, används statuskoder nedan. Svarstexten för felet inneh�
 429|För många begäranden|Du har överskridit kvoten eller antalet begäranden som tillåts för din prenumeration.
 |502|Felaktig gateway    | Problem med nätverket eller servern. Kan också vara ogiltiga sidhuvuden.
 
-Mer information om Text till tal REST-API finns i [REST API: er](rest-apis.md#text-to-speech).
+Mer information om Text till tal REST-API finns i [REST API: er](rest-apis.md#text-to-speech-api).
 
 ## <a name="next-steps"></a>Nästa steg
 

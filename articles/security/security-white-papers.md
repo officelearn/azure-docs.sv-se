@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/10/2018
+ms.date: 11/15/2018
 ms.author: tomsh
-ms.openlocfilehash: 9ecdc0b7d2d21962dbfc7c14e9fff3fd969dd018
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 5feedcd750841be159a7cf4a31f408aec2fffd38
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721100"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712984"
 ---
 # <a name="azure-security-white-papers"></a>Azure Security-faktablad
 | | |
 |-|-|
 |[Introduktion&nbsp;till&nbsp;Azure&nbsp;säkerhet](azure-security.md)|Förklarar insamling av säkerhet-säkerhetskontrollerna i Azure från både kunden och Microsoft operations perspektiv. Azure ger en omfattande titt på kundinriktade säkerhetsåtgärder.|
 |[Rekommenderade säkerhetsmetoder för Azure-lösningar](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions)|En uppsättning beprövade metoder för att använda när du utformar, distribuerar och hanterar dina molnlösningar med hjälp av Azure.|
+|[Utveckla säkra program på Azure](abstract-develop-secure-apps.md)|En allmän vägledning till säkerhetsfrågor och kontroller bör du överväga i varje fas av livscykel när du utvecklar program för molnet.|
 |[Avancerad hotidentifiering](azure-threat-detection.md)|Guider för dig genom Azure närmar sig mot hot säkerhetsrisk utvärderingar, diagnostik och analys. Beskriver hur Microsoft använder Avancerat identifieringsmetoder för att skydda plattformen. Beskriver också hur Microsoft innehåller dessa mekanismer i offentliga internetuppkopplade funktioner och tjänster.|
 |[Azure data kryptering vid vila](azure-security-encryption-atrest.md)|Fokuserar på hur data är skyddade i vila i Azure och de olika komponenterna som deltar i data protection implementering. Granskar- och nackdelar med olika nyckelhantering protection metoder.|
 |[Loggning och granskning i Azure](azure-log-audit.md)|Ger en introduktion för generera, samla in och analysera säkerhetsloggar från tjänster som finns på Azure. Dessa loggar kan hjälpa dig att få insikt i dina Azure-distributioner säkerheten. |

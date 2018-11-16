@@ -6,14 +6,14 @@ author: trinadhk
 manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/1/2018
+ms.date: 11/14/2018
 ms.author: trinadhk
-ms.openlocfilehash: cf06fc9c12493e208832596a27b479dc9dfea942
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: de7c00717349a1c814c5a13508adb11879aa10a5
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011331"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51704655"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Använda rollbaserad åtkomstkontroll för att hantera Azure Backup-återställningspunkter
 Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkomsthantering för Azure. Med hjälp av RBAC kan du hålla isär uppgifter i ditt team och bevilja endast den omfattning av åtkomst till användare som de behöver för att utföra sitt arbete.
@@ -41,7 +41,7 @@ Följande tabell visar de hanteringsåtgärder för säkerhetskopiering och mots
 | | Virtuell datordeltagare | VM-resurs |
 | Säkerhetskopiering på begäran för virtuell dator | Säkerhetskopieringsoperatör | Recovery vault-resursen |
 | Återställa en virtuell dator | Säkerhetskopieringsoperatör | Recovery Services-valv |
-| | Virtuell datordeltagare | Resursgruppen där virtuella datorn ska distribueras |
+| | Deltagare | Resursgruppen där virtuella datorn ska distribueras |
 | | Virtuell datordeltagare | Virtuella säkerhetskopierades källdatorn |
 | Återställa ohanterade diskar säkerhetskopiering av virtuella datorer | Säkerhetskopieringsoperatör | Recovery vault-resursen |
 | | Virtuell datordeltagare | Virtuella säkerhetskopierades källdatorn |

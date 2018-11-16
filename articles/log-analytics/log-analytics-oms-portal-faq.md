@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 442371ffc63e32906d9faafc3b803bb5e6386905
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9aa90c5a99da70aa0803aad4894e928a422b8fcf
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283452"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712253"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Vanliga frågor för övergången från OMS-portalen till Azure-portalen för Log Analytics-användare
 Log Analytics används först en egen portal kallas OMS-portalen för att hantera konfigurationen och analysera insamlade data.  Alla funktioner från den här portalen har flyttats till Azure-portalen där den kommer att fortsätta att utvecklas.
@@ -82,7 +82,7 @@ Hantera inställningar för de flesta ansluten datakälla den i den **avancerade
 | Linux-servrar   | **Avancerade inställningar** menyn för arbetsytan. |
 | Azure Storage     | **Avancerade inställningar** menyn för arbetsytan. |
 | System Center     | **Avancerade inställningar** menyn för arbetsytan. |
-| Office 365        | Se den [dokumentation för Office 365 hanteringslösning](../monitoring/monitoring-solution-office-365.md) konfigurationsinformation. |
+| Office 365        | Se den [dokumentation för Office 365 hanteringslösning](../azure-monitor/insights/solution-office-365.md) konfigurationsinformation. |
 | Windows-telemetri | Inställningsmenyn för lösningen. Se [Windows Analytics i Azure-portalen](/windows/deployment/update/windows-analytics-azure-portal) konfigurationsinformation. |
 | ITSM-anslutningsprogram    | Se [ansluta ITSM-produkter/tjänster med IT Service Management Connector](../log-analytics/log-analytics-itsmc-connections.md) anvisningar om hur du ansluter din ITSM-tjänst med Log Analytics. |
 
@@ -107,7 +107,7 @@ Hantera inställningar för de flesta den i den **avancerade inställningar** me
 Hantera lösningar i den **lösningar** menyn för arbetsytan. 
 
 ## <a name="how-do-i-install-and-remove-management-solutions"></a>Hur jag för att installera och ta bort hanteringslösningar?
-I OMS-portalen kan du installera lösningar från lösningsgalleriet och bort dem från **inställningar**. I Azure-portalen [installera hanteringslösningar](../monitoring/monitoring-solutions.md#install-a-management-solution) från Azure Marketplace. [Ta bort lösningar](../monitoring/monitoring-solutions.md#remove-a-management-solution) i listan över installerade lösningar.
+I OMS-portalen kan du installera lösningar från lösningsgalleriet och bort dem från **inställningar**. I Azure-portalen [installera hanteringslösningar](../azure-monitor/insights/solutions.md#install-a-management-solution) från Azure Marketplace. [Ta bort lösningar](../azure-monitor/insights/solutions.md#remove-a-management-solution) i listan över installerade lösningar.
 
 ## <a name="how-do-i-create-and-manage-alerts"></a>Hur jag för att skapa och hantera aviseringar?
 Varningsregler baserat på Log Analytics-frågor hanteras nu i den [unified avisering upplevelse](../monitoring-and-diagnostics/alert-metric.md). Se [utöka aviseringar från Log Analytics i Azure Alerts](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) för information om hur du konfigurerar och använder aviseringar i Azure-portalen.
@@ -126,5 +126,5 @@ Under en begränsad tid kan du fortfarande använda portalen via denna URL med A
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hitta och installera lösningar för hantering av](../monitoring/monitoring-solutions.md) med Azure portal.
+- [Hitta och installera lösningar för hantering av](../azure-monitor/insights/solutions.md) med Azure portal.
 - Lär dig mer om [Loggsökning i Azure-portalen](log-analytics-log-search-portals.md).

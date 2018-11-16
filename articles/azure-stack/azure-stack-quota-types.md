@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2018
+ms.date: 11/15/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
-ms.openlocfilehash: ec84c87e047d6426d24ef339d1247c6cb53954dd
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 17326fa60160e084d4c30347b1a765d1f80d01f5
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299427"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711539"
 ---
 # <a name="quota-types-in-azure-stack"></a>Kvottyper i Azure Stack
 
@@ -31,10 +31,12 @@ ms.locfileid: "51299427"
 ## <a name="compute-quota-types"></a>Compute kvottyper 
 | **Typ** | **Standardvärde** | **Beskrivning** |
 | --- | --- | --- |
-| Maxantal virtuella datorer | 50 | Det maximala antalet virtuella datorer som en prenumeration kan skapa i den här platsen. |
-| Maxantal virtuella kärnor | 100 | Det maximala antalet kärnor som en prenumeration kan skapa i den här platsen (till exempel en A3 VM har fyra kärnor). |
-| Max antal tillgänglighetsuppsättningar | 10 | Det maximala antalet tillgänglighetsuppsättningar som kan skapas i den här platsen. |
-| Max antal VM-skalningsuppsättningar | 100 | Det maximala antalet VM-skalningsuppsättningar som kan skapas på den här platsen. |
+| Maximalt antal virtuella datorer | 50 | Det maximala antalet virtuella datorer som en prenumeration kan skapa i den här platsen. |
+| Högsta antalet virtuella kärnor | 100 | Det maximala antalet kärnor som en prenumeration kan skapa i den här platsen (till exempel en A3 VM har fyra kärnor). |
+| Maximalt antal tillgänglighetsuppsättningar | 10 | Det maximala antalet tillgänglighetsuppsättningar som kan skapas i den här platsen. |
+| Anger maximalt antal VM-skalningsuppsättning | 100 | Det maximala antalet VM-skalningsuppsättningar som kan skapas på den här platsen. |
+| Maximal kapacitet (i GB) för hanterade standarddiskar | 2048 | Maximal kapacitet för hanterade standarddiskar som kan skapas på den här platsen. |
+| Maximal kapacitet (i GB) av premium-hanterad disk | 2048 | Den maximala kapaciteten på premium-hanterade diskar som kan skapas på den här platsen. |
 
 ## <a name="storage-quota-types"></a>Kvot lagringstyper 
 | **Objekt** | **Standardvärde** | **Beskrivning** |
@@ -49,13 +51,13 @@ ms.locfileid: "51299427"
 ## <a name="network-quota-types"></a>Nätverkstyper kvot
 | **Objekt** | **Standardvärde** | **Beskrivning** |
 | --- | --- | --- |
-| Maximalt antal offentliga IP-adresser |50 |Det maximala antalet offentliga IP-adresser som en prenumeration kan skapa i den här platsen. |
-| Maximalt antal virtuella nätverk |50 |Det maximala antalet virtuella nätverk som en prenumeration kan skapa i den här platsen. |
-| Maximalt antal virtuella nätverksgatewayer |1 |Det maximala antalet virtuella nätverksgatewayer (VPN-gatewayer) som en prenumeration kan skapa i den här platsen. |
-| Maximalt antal anslutningar |2 |Det maximala antalet anslutningar (point-to-point eller plats-till-plats) som en prenumeration kan du skapa över alla virtuella nätverksgatewayer på den här platsen. |
-| Max belastningsutjämnare |50 |Det maximala antalet belastningsutjämnare som en prenumeration kan skapa i den här platsen. |
-| Maximalt antal nätverkskort |100 |Det maximala antalet nätverksgränssnitt som en prenumeration kan skapa i den här platsen. |
-| Maximalt antal nätverkssäkerhetsgrupper |50 |Det maximala antalet nätverkssäkerhetsgrupper som en prenumeration kan skapa i den här platsen. |
+| Maximal offentliga IP-adresser |50 |Det maximala antalet offentliga IP-adresser som en prenumeration kan skapa i den här platsen. |
+| Största virtuella nätverk |50 |Det maximala antalet virtuella nätverk som en prenumeration kan skapa i den här platsen. |
+| Största virtuella nätverksgatewayer |1 |Det maximala antalet virtuella nätverksgatewayer (VPN-gatewayer) som en prenumeration kan skapa i den här platsen. |
+| Maximal nätverksanslutningar |2 |Det maximala antalet anslutningar (point-to-point eller plats-till-plats) som en prenumeration kan du skapa över alla virtuella nätverksgatewayer på den här platsen. |
+| Maximal belastningsutjämnare |50 |Det maximala antalet belastningsutjämnare som en prenumeration kan skapa i den här platsen. |
+| Maximal nätverkskort |100 |Det maximala antalet nätverksgränssnitt som en prenumeration kan skapa i den här platsen. |
+| Maximal nätverkssäkerhetsgrupper |50 |Det maximala antalet nätverkssäkerhetsgrupper som en prenumeration kan skapa i den här platsen. |
 
 ## <a name="view-an-existing-quota"></a>Visa en befintlig kvot
 1. På standardinstrumentpanelen för premiumkapacitetshantering hitta den **resursprovidrar** panelen.

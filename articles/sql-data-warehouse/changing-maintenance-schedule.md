@@ -7,22 +7,22 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 10/07/2018
+ms.date: 10/15018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 428b9970471c9365812639e251810c571698a574
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 75384aed8c354cf2d549d92cdb75f87038f33ab8
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49425968"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713273"
 ---
 # <a name="change-a-maintenance-schedule"></a>Ändra ett underhållsschema 
 
 ## <a name="portal"></a>Portalen
 Ett underhållsschema kan uppdateras eller ändras när som helst. Om den valda instansen genomgår en aktiv underhållsperiod, ska inställningarna sparas. De ska aktiveras under nästa identifierade underhållsperioden. [Läs mer](https://docs.microsoft.com/azure/service-health/resource-health-overview) om övervakning av ditt informationslager under en aktiv underhållshändelse. 
 
-Azure-underhållsscheman är i förhandsversion, kan du välja två underhållsfönster under en period på sju dagar. Varje underhållsperiod kan vara tre till åtta timmar. Underhåll kan inträffa när som helst inom en underhållsperiod, men inträffar inte utanför tidsfönster utan föregående meddelande. Du får också en kort förlust av anslutning som tjänsten distribuerar ny kod till ditt informationslager. 
+Om du vill använda underhållsscheman måste du välja två underhållsfönster under en period på sju dagar. Varje underhållsperiod kan vara tre till åtta timmar. Underhåll kan inträffa när som helst inom en underhållsperiod, men inträffar inte utanför tidsfönster utan föregående meddelande. Du får också en kort förlust av anslutning som tjänsten distribuerar ny kod till ditt informationslager. 
 
 ## <a name="identifying-the-primary-and-secondary-windows"></a>Identifiera primära och sekundära windows
 

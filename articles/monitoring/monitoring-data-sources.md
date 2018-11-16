@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: a61ab73763dfedc2c0d10caf9fbc25f77ed0d21c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 450e9c90fff7f210fe48c930e3bbb1d50851232d
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625055"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713239"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Datakällor i Azure Monitor
 Den här artikeln beskrivs datakällorna som samlas in av Azure Monitor för att övervaka hälsotillstånd och prestanda för dina resurser och program som körs på dem. Dessa resurser kan vara i Azure i en annan molnet eller lokalt.  Se [Data som samlas in av Azure Monitor](monitoring-data-collection.md) mer information om hur dessa data lagras och hur du kan visa den.
@@ -66,7 +66,7 @@ Medan aktivitetsloggen innehåller information om åtgärder som utförs på en 
 Du kan inte visa diagnostikloggar direkt i Azure-portalen, men du kan [skicka dem till Azure storage för arkivering](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) och exportera dem till [Händelsehubb](../event-hubs/event-hubs-about.md) för omdirigering till andra tjänster eller [in Analytics](../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) för analys. Vissa resurser kan skriva direkt till Log Analytics medan andra innan du kan skriva till ett lagringskonto [importeras till Log Analytics](../log-analytics/log-analytics-azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 
 ### <a name="monitoring-solutions"></a>Övervakningslösningar
- [Övervakningslösningar](monitoring-solutions.md) samla in data för att ge ytterligare insikter i driften av en viss tjänst eller ett program. De samla in data till Log Analytics där det kan vara analyseras med hjälp av den [frågespråket](../log-analytics/log-analytics-queries.md) eller [vyer](../log-analytics/log-analytics-view-designer.md) som vanligtvis ingår i lösningen.
+ [Övervakningslösningar](../azure-monitor/insights/solutions.md) samla in data för att ge ytterligare insikter i driften av en viss tjänst eller ett program. De samla in data till Log Analytics där det kan vara analyseras med hjälp av den [frågespråket](../log-analytics/log-analytics-queries.md) eller [vyer](../log-analytics/log-analytics-view-designer.md) som vanligtvis ingår i lösningen.
 
 ## <a name="guest-operating-system"></a>Gästoperativsystem
 Beräkningsresurser i Azure, i andra moln och lokala har ett gästoperativsystem som du övervakar. Med installationen av en eller flera agenter kan du samla in telemetri från gästen i samma övervakningsverktyg som Azure-tjänsterna själva.
@@ -77,10 +77,10 @@ Beräkningsresurser i Azure, i andra moln och lokala har ett gästoperativsystem
 Det ger en grundläggande nivå av övervakning genom att samla in loggar med Azure Diagnostics-tillägget och prestandadata från klientens operativsystem i Azure-beräkningsresurser.   
 
 ### <a name="log-analytics-agent"></a>Log Analytics-agenten
-Omfattande övervakning och hantering av din Windows- eller Linux-datorer eller fysiska datorer levereras med Log Analytics-agenten. Den virtuella datorn kan köra i Azure, ett annat moln eller på plats och agenten ansluter till Log Analytics antingen direkt eller via System Center Operations Manager och kan du samla in data från [datakällor](../log-analytics/log-analytics-data-sources.md) som du Konfigurera eller från [övervakningslösningar](monitoring-solutions.md) som ger ytterligare insikter om program som körs på den virtuella datorn.
+Omfattande övervakning och hantering av din Windows- eller Linux-datorer eller fysiska datorer levereras med Log Analytics-agenten. Den virtuella datorn kan köra i Azure, ett annat moln eller på plats och agenten ansluter till Log Analytics antingen direkt eller via System Center Operations Manager och kan du samla in data från [datakällor](../log-analytics/log-analytics-data-sources.md) som du Konfigurera eller från [övervakningslösningar](../azure-monitor/insights/solutions.md) som ger ytterligare insikter om program som körs på den virtuella datorn.
 
 ### <a name="dependency-agent"></a>Beroendeagent
-[Tjänstkarta](../monitoring/monitoring-service-map.md) och [Azure Monitor för virtuella datorer](monitoring-vminsights-overview.md) kräver en Beroendeagenten för Windows och Linux-datorer. Detta är integrerat med Log Analytics-agenten till samlar in identifierade data om processer som körs på den virtuella datorn och en extern Processberoenden. Den lagrar dessa data i Log Analytics och hjälper dig att visualisera de identifierade sammankopplade komponenterna.  
+[Tjänstkarta](../monitoring/monitoring-service-map.md) och [Azure Monitor för virtuella datorer](../azure-monitor/insights/vminsights-overview.md) kräver en Beroendeagenten för Windows och Linux-datorer. Detta är integrerat med Log Analytics-agenten till samlar in identifierade data om processer som körs på den virtuella datorn och en extern Processberoenden. Den lagrar dessa data i Log Analytics och hjälper dig att visualisera de identifierade sammankopplade komponenterna.  
 
 Mer information om skillnaderna mellan agenterna och som ska användas beroende på dina Övervakningskrav, se [Övervakningsöversikt agenter](monitoring-overview-azure-agents.md).
 

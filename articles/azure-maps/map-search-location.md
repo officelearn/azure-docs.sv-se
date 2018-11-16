@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 78ffa42bcf57b7163afc13b2550abdbae240ef00
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: cf27864d691fe2fe13c9483348fb2abed121874d
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729249"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713511"
 ---
 # <a name="show-search-results-on-the-map"></a>Visa sökresultat på kartan
 
@@ -31,7 +31,7 @@ Det första kodblocket konstruerar ett Kartobjekt och initierar klienttjänsten.
 
 Andra kodblocket använder den [Azure Maps Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) att söka efter orienteringspunkt. Fuzzy-sökning API kan hantera valfri kombination av fuzzy indata. Svaret från tjänsten fuzzy-sökning parsas sedan till GeoJSON-format med den [getGeoJsonSearchResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonsearchresponse?view=azure-iot-typescript-latest#geojsonsearchresponse) metod. De PIN-koderna läggs sedan till kartan för att visa orienteringspunkter på kartan.
 
-Senaste kodblocket justerar kamera gränser för kartan med hjälp av kartans [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) egenskapen.
+Senaste kodblocket justerar kamera gränser för kartan med hjälp av kartans [setCameraBounds](/javascript/api/azure-maps-control/atlas.map#setcamerabounds-cameraboundsoptions-) egenskapen.
 
 ## <a name="make-a-search-request-via-xmlhttprequest"></a>Gör en sökbegäran via XMLHttpRequest
 
@@ -44,7 +44,7 @@ Andra kodblocket lägger till search resultat lager på kartan. Lagret för sear
 
 Det tredje kodblocket skickar en [XMLHttpRequest](https://xhr.spec.whatwg.org/) till [Azure Maps Fuzzy-sökning API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) att söka efter orienteringspunkt. Fuzzy-sökning API kan hantera valfri kombination av fuzzy indata.
 
-Senaste kodblocket Parsar svaret och anpassar den justerar kamera gränser för kartan med hjälp av kartans [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) att rendera resultatet PIN-koder.
+Senaste kodblocket Parsar svaret och anpassar den justerar kamera gränser för kartan med hjälp av kartans [setCameraBounds](/javascript/api/azure-maps-control/atlas.map#setcamerabounds-cameraboundsoptions-) att rendera resultatet PIN-koder.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -62,6 +62,6 @@ Se följande artiklar för fullständig kodexempel:
 
 > [!div class="nextstepaction"]
 > [Hämta information från en koordinat](./map-get-information-from-coordinate.md)
-
+<!-- Comment added to suppress false positive warning -->
 > [!div class="nextstepaction"]
 > [Visa riktningar från A till B](./map-route.md)

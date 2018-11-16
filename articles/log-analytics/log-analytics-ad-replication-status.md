@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 08d17566faa61c5dcac01a49f99f0f39eb280946
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3092e8edf16e271826aef95575d92749b29f8b56
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009750"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711522"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Övervaka status för Active Directory-replikering med Log Analytics
 
@@ -34,7 +34,7 @@ AD-replikeringsstatus-lösningspaket övervakar regelbundet Active Directory-mil
 Använd följande information för att installera och konfigurera lösningen.
 
 * Du måste installera agenter på domänkontrollanter som är medlemmar i domänen som ska utvärderas. Eller så du måste installera agenter på medlemsservrar och konfigurera agenter för att skicka data för AD-replikering till Log Analytics. Information om hur du ansluter Windows-datorer till Log Analytics finns i [ansluta Windows-datorer till Log Analytics](log-analytics-windows-agent.md). Om domänkontrollanten finns redan i en befintlig System Center Operations Manager-miljö som du vill ansluta till Log Analytics finns i [ansluta Operations Manager till Log Analytics](log-analytics-om-agents.md).
-* Lägga till Active Directory-replikeringsstatus-lösning för Log Analytics-arbetsytan med processen som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](../monitoring/monitoring-solutions.md).  Det krävs ingen ytterligare konfiguration.
+* Lägga till Active Directory-replikeringsstatus-lösning för Log Analytics-arbetsytan med processen som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](../azure-monitor/insights/solutions.md).  Det krävs ingen ytterligare konfiguration.
 
 ## <a name="ad-replication-status-data-collection-details"></a>AD-replikeringsstatus data samling information
 I följande tabell visas data samlingsmetoder och annan information om hur data samlas in för AD-replikeringsstatus.

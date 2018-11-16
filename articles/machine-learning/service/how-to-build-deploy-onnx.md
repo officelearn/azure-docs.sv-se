@@ -9,16 +9,16 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: 97350c90ab4ce9c3623a293c3a6637edc65ced08
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 2e5c0e479d5564a48048b9fa9c67ad8870122601
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345478"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706066"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX och Azure Machine Learning: skapa och distribuera samverkande AI-modeller
 
-Den [öppna Neural Network Exchange](http://onnx.ai) (ONNX)-formatet är en öppen standard för att representera machine learning-modeller. ONNX stöds av en [community med partner](http://onnx.ai/supported-tools), inklusive Microsoft, som skapar kompatibelt ramverk och verktyg. Microsoft strävar efter att öppna och samverkande AI så att datatekniker och utvecklare kan:
+Den [öppna Neural Network Exchange](https://onnx.ai) (ONNX)-formatet är en öppen standard för att representera machine learning-modeller. ONNX stöds av en [community med partner](https://onnx.ai/supported-tools), inklusive Microsoft, som skapar kompatibelt ramverk och verktyg. Microsoft strävar efter att öppna och samverkande AI så att datatekniker och utvecklare kan:
 
 + Använd ramverket för valfri för att skapa och träna modeller
 + Distribuera modeller plattformsoberoende med minimal integration arbete
@@ -207,6 +207,6 @@ Hämta dessa anteckningsböcker:
 ## <a name="more-info"></a>Mer information
 
 Mer information om ONNX eller bidra till projektet:
-+ [ONNX projektwebbplatsen](http://onnx.ai)
++ [ONNX projektwebbplatsen](https://onnx.ai)
 
 + [ONNX-kod på GitHub](https://github.com/onnx/onnx)

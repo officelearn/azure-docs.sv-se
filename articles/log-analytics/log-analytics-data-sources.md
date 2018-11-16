@@ -15,23 +15,23 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 071e4694bc3e2a8dc70a199fe7d6021332693b88
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 6f5296844541db774610f5a46161f2e06673d99e
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613876"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711573"
 ---
 # <a name="data-sources-in-log-analytics"></a>Datakällor i Log Analytics
 Log Analytics samlar in data från dina anslutna källor och lagrar dem i Log Analytics-arbetsytan.  De data som samlas in från varje definieras av datakällor som du konfigurerar.  Data i Log Analytics lagras som en uppsättning poster.  Varje datakälla skapar poster i en viss typ med varje typ av att ha en egen uppsättning egenskaper.
 
 ![Logga Analytics datainsamling](./media/log-analytics-data-sources/overview.png)
 
-Datakällor skiljer sig från [hanteringslösningar](../monitoring/monitoring-solutions.md), som också samla in data från anslutna källor och skapa poster i Log Analytics.  Förutom att samla in data är vanligtvis lösningar loggsökningar och vyer som hjälper dig att analysera driften av ett visst program eller tjänst.
+Datakällor skiljer sig från [hanteringslösningar](../azure-monitor/insights/solutions.md), som också samla in data från anslutna källor och skapa poster i Log Analytics.  Förutom att samla in data är vanligtvis lösningar loggsökningar och vyer som hjälper dig att analysera driften av ett visst program eller tjänst.
 
 
 ## <a name="summary-of-data-sources"></a>Översikt över datakällor
-I följande tabell visas de datakällor som är tillgängliga i Log Analytics.  Var och en har en länk till en separat artikel som tillhandahåller information för datakällan.   Det innehåller även information om deras metod och frekvensen för insamling av data till Log Analytics.  Du kan använda informationen i den här artikeln för att identifiera de olika lösningarna som är tillgängliga och förstå datakrav för flödet och anslutningen för olika lösningar. Förklaringar av kolumnerna finns i [Data samling information om lösningar i Azure](../monitoring/monitoring-solutions-inventory.md).
+I följande tabell visas de datakällor som är tillgängliga i Log Analytics.  Var och en har en länk till en separat artikel som tillhandahåller information för datakällan.   Det innehåller även information om deras metod och frekvensen för insamling av data till Log Analytics.  Du kan använda informationen i den här artikeln för att identifiera de olika lösningarna som är tillgängliga och förstå datakrav för flödet och anslutningen för olika lösningar. Förklaringar av kolumnerna finns i [Data samling information om lösningar i Azure](../azure-monitor/insights/solutions-inventory.md).
 
 
 | Datakälla | Plattform | Microsoft övervakningsagent | Operations Manager-agent | Azure-lagring | Operations Manager som krävs? | Operations Manager agent-data skickas via hanteringsgruppen | Insamlingsfrekvens |
@@ -59,7 +59,7 @@ Du konfigurerar datakällor från den **Data** menyn i Log Analytics **avancerad
 ## <a name="data-collection"></a>Datainsamling
 Datakällskonfigurationer levereras till agenter som är anslutna direkt till Log Analytics inom några minuter.  Angivna data samlas in från agenten och levereras direkt till Log Analytics med intervall som är specifika för varje datakälla.  Finns i dokumentationen för varje datakälla dessa ge specifik information.
 
-System Center Operations Manager-agenter i en ansluten hanteringsgrupp, datakällskonfigurationer översättas till hanteringspaket och levereras till hanteringsgruppen var femte minut som standard.  Agenten hämtar hanteringspaket som med andra och samlar in angivna data. Beroende på datakällan, data kommer att antingen skickas till en hanteringsserver som vidarebefordrar data till Log Analytics eller agenten skickar data till Log Analytics utan att gå via management-servern. Se [Data samling information om lösningar i Azure](../monitoring/monitoring-solutions-inventory.md) mer information.  Du kan läsa om information om att ansluta Operations Manager och Log Analytics och ändra frekvensen konfigurationen levereras på [konfigurerar integrering med System Center Operations Manager](log-analytics-om-agents.md).
+System Center Operations Manager-agenter i en ansluten hanteringsgrupp, datakällskonfigurationer översättas till hanteringspaket och levereras till hanteringsgruppen var femte minut som standard.  Agenten hämtar hanteringspaket som med andra och samlar in angivna data. Beroende på datakällan, data kommer att antingen skickas till en hanteringsserver som vidarebefordrar data till Log Analytics eller agenten skickar data till Log Analytics utan att gå via management-servern. Se [Data samling information om lösningar i Azure](../azure-monitor/insights/solutions-inventory.md) mer information.  Du kan läsa om information om att ansluta Operations Manager och Log Analytics och ändra frekvensen konfigurationen levereras på [konfigurerar integrering med System Center Operations Manager](log-analytics-om-agents.md).
 
 Om agenten inte kan ansluta till Log Analytics eller Operations Manager, fortsätter den att samla in data som den ger när den upprättar en anslutning.  Data kan förloras om mängden data når den största möjliga cachestorleken för klienten, eller om agenten inte kan upprätta en anslutning inom 24 timmar.
 
@@ -67,6 +67,6 @@ Om agenten inte kan ansluta till Log Analytics eller Operations Manager, fortsä
 Alla data som samlas in av Log Analytics lagras som poster i arbetsytan.  Poster som samlas in av olika datakällor har sin egen uppsättning egenskaper och identifieras av sina **typ** egenskapen.  Finns i dokumentationen för varje datakälla och lösningen information på varje posttyp.
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [lösningar](../monitoring/monitoring-solutions.md) som lägger till funktioner i Log Analytics och också samla in data till arbetsytan.
+* Lär dig mer om [lösningar](../azure-monitor/insights/solutions.md) som lägger till funktioner i Log Analytics och också samla in data till arbetsytan.
 * Lär dig mer om [loggsökningar](log-analytics-queries.md) att analysera data som samlas in från datakällor och lösningar.  
 * Konfigurera [aviseringar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) att informera dig om viktiga data som samlas in från datakällor och lösningar.

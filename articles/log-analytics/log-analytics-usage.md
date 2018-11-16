@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: ad3deaad8c069cfb11bb0eb997d886807ecdb0f8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a881ea18558e49656dc165d1545250bffeac4303
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006506"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713088"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analysera dataanvändning i Log Analytics
 
@@ -163,19 +163,19 @@ Använd följande steg för att minska mängden på de loggar som samlats in:
 | Händelseloggar                 | Ändra [händelseloggens konfiguration](log-analytics-data-sources-windows-events.md) för att: <br> - Minska antalet händelseloggar som samlas in <br> - Endast samla in obligatoriska händelsenivåer. Till exempel, samla inte in händelser på *Informationsnivå* |
 | Syslog                     | Ändra [systemloggkonfigurationen](log-analytics-data-sources-syslog.md) för att: <br> - Minska antalet anläggningar som samlas in <br> - Endast samla in obligatoriska händelsenivåer. Till exempel, samla inte in händelser på *Informations-* eller *Felsökningsnivå* |
 | AzureDiagnostics           | Ändra logginsamlingen för resurser för att: <br> – Minska antalet resursloggar som skickas till Log Analytics <br> – Endast samla in nödvändiga loggar |
-| Lösningsdata från datorer som inte behöver lösningen | Använd [lösningsriktning](../monitoring/monitoring-solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer. |
+| Lösningsdata från datorer som inte behöver lösningen | Använd [lösningsriktning](../azure-monitor/insights/solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Kontrollera om det finns fler noder än förväntat
 Om du använder den *per nod (Log Analytics)* prisnivå, därefter debiteras du baserat på antalet noder och lösningar som du använder. Du kan se hur många noder i varje erbjudande som används i avsnittet *erbjudanden* på instrumentpanelen för användning.<br><br> ![instrumentpanelen användning](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 Klicka på **Visa alla...**  för att visa en fullständig lista över datorer som skickar data för det valda erbjudandet.
 
-Använd [lösningsriktning](../monitoring/monitoring-solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer.
+Använd [lösningsriktning](../azure-monitor/insights/solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer.
 
 ## <a name="next-steps"></a>Nästa steg
 * Se [Loggsökningar i Log analytics](log-analytics-queries.md) för information om hur du använder sökspråket. Du kan använda sökfrågor för att utföra ytterligare analys på användningsdata.
 * Använd stegen som beskrivs i [Skapa en ny loggavisering](../monitoring-and-diagnostics/alert-metric.md) om du vill meddelas när ett sökvillkor har uppfyllts.
-* Använd [lösningsriktning](../monitoring/monitoring-solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer.
+* Använd [lösningsriktning](../azure-monitor/insights/solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer.
 * Om du vill konfigurera en effektiv princip för insamling av säkerhetshändelse kan du läsa [filtreringsprincipen för Azure Security Center](../security-center/security-center-enable-data-collection.md).
 * Ändra [prestandaräknarens konfiguration](log-analytics-data-sources-performance-counters.md).
 * Om du vill ändra inställningarna för insamling av händelser kan du läsa [händelseloggens konfiguration](log-analytics-data-sources-windows-events.md).

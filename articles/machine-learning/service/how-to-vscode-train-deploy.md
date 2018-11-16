@@ -9,12 +9,12 @@ ms.author: jmartens
 author: j-martens
 ms.reviewer: jmartens
 ms.date: 10/1/2018
-ms.openlocfilehash: 6372aada8c3d380f8d3cefb0479e45bbd7c63898
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 38a7a4e80542551057b230e9d0217d1cecbc5c42
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945254"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710315"
 ---
 # <a name="vs-code-tools-for-ai-train-and-deploy-ml-models-from-vs-code"></a>VS Code Tools för AI: träna och distribuera maskininlärningsmodeller från VS Code
 I den här artikeln får du lära dig hur du använder den **VS Code Tools för AI** träna och distribuera machine learning och deep learning-modeller med Azure Machine Learning-tjänsten i VS Code-tillägget.
@@ -29,7 +29,7 @@ Och du kan distribuera dessa modeller för dina behov för testning och produkti
 
 + Har den [Azure Machine Learning-SDK för Python installerat](how-to-vscode-tools.md) med VS Code.
 
-+ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
++ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLfree) innan du börjar.
 
 ## <a name="create-and-manage-compute-targets"></a>Skapa och hantera beräkningsmål
 

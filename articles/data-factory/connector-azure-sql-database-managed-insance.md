@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 11/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 87ca7c10095f12c82137b6287fbb895c97676062
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 561e672436c38cd0b3e637b794662483fc630676
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49459063"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706729"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-using-azure-data-factory"></a>Kopieringsdata till och från Azure SQL Database Managed Instance med Azure Data Factory
 
@@ -115,7 +115,7 @@ För att kopiera data från/till Azure SQL Database Managed Instance, ange typeg
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för datauppsättningen måste anges till: **SqlServerTable** | Ja |
-| tableName |Namnet på tabellen eller vyn i-databasinstansen som den länkade tjänsten refererar till. | Ja |
+| tableName |Namnet på tabellen eller vyn i-databasinstansen som den länkade tjänsten refererar till. | Nej för källa, Ja för mottagare |
 
 **Exempel**
 
@@ -155,7 +155,6 @@ För att kopiera data från Azure SQL Database Managed Instance kan du ange typ 
 
 - Om den **sqlReaderQuery** har angetts för SqlSource, Kopieringsaktivitet körs den här frågan mot Managed Instance källan för att hämta data. Du kan också ange en lagrad procedur genom att ange den **sqlReaderStoredProcedureName** och **storedProcedureParameters** (om den lagrade proceduren tar parametrar).
 - Om du inte anger egenskapen ”sqlReaderQuery” eller ”sqlReaderStoredProcedureName” de kolumner som definierats i avsnittet ”struktur” i datauppsättnings-JSON används för att skapa en fråga (`select column1, column2 from mytable`) ska köras på den hanterade instansen. Om definitionen för datauppsättningen inte har ”strukturen”, markeras alla kolumner från tabellen.
-- När du använder **sqlReaderStoredProcedureName**, behöver du fortfarande ange en **tableName** egenskap i JSON-datauppsättningen.
 
 **Exempel: Med hjälp av en SQL-fråga**
 
@@ -491,7 +490,7 @@ När du kopierar data från/till Azure SQL Database Managed Instance, används f
 | DateTimeOffset |DateTimeOffset |
 | decimaltal |decimaltal |
 | FILESTREAM-attributet (varbinary(max)) |Byte] |
-| flyttal |Double-värde |
+| Flyttal |Double-värde |
 | image |Byte] |
 | int |Int32 |
 | pengar |decimaltal |

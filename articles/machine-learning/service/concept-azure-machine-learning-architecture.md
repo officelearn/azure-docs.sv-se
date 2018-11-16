@@ -9,12 +9,12 @@ ms.author: haining
 author: hning86
 ms.reviewer: larryfr
 ms.date: 10/24/2018
-ms.openlocfilehash: 95f74b23b9d0c89966347f066041b23f64f3b82c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 0acf41cc0a2673ba665d1815b493df928fa4507d
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210694"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706814"
 ---
 # <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Hur fungerar Azure Machine Learning-tjänsten: arkitektur och begrepp
 
@@ -156,9 +156,9 @@ Ett experiment är en gruppering av många körs från ett givet skript. Det är
 
 Ett exempel på hur du använder ett experiment finns i den [Snabbstart: Kom igång med Azure Machine Learning-tjänsten](quickstart-get-started.md) dokumentet.
 
-## <a name="pipelines"></a>Pipelines
+## <a name="pipeline"></a>Pipeline
 
-Pipelines som används för att skapa och hantera arbetsflöden som sätta ihop machine learning-faser. En pipeline kan till exempel innehålla förberedelse av data, modellträning, distribution av modeller och inferensjobb faser. Varje fas kan omfatta flera steg, som kan köras obevakat i olika beräkningsmål.
+Machine learning pipelines används för att skapa och hantera arbetsflöden som sätta ihop machine learning-faser. En pipeline kan till exempel innehålla förberedelse av data, modellträning, distribution av modeller och inferensjobb faser. Varje fas kan omfatta flera steg, som kan köras obevakat i olika beräkningsmål.
 
 Mer information om machine learning pipelines med den här tjänsten finns i artikeln [Pipelines och Azure Machine Learning](concept-ml-pipelines.md).
 

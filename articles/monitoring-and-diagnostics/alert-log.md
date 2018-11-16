@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f7122c6147af2ed1af1f3b5e08458fd73f9aef6d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 74b9673d7ef9dedbcc34682d4707103e696bece3
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279117"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711709"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar med Azure Monitor  
 
@@ -132,7 +132,7 @@ Därför i avsnittet nedan innehåller information om hur du använder Resource-
 ### <a name="azure-resource-template-for-log-analytics"></a>Azure-resursmall för Log Analytics
 Loggaviseringar för Log Analytics skapas från Varningsregler som kör en sparad sökning med regelbundna intervall. Om resultatet av frågan matchar de angivna villkoren, skapas en aviseringspost och en eller flera åtgärder körs. 
 
-Resursmall för sökning och Log analytics-aviseringar den sparade Log analytics är tillgängliga i Log Analytics i dokumentationen för. Mer information finns i, [att lägga till Log Analytics sparade sökningar och aviseringar](../monitoring/monitoring-solutions-resources-searches-alerts.md); som innehåller färgkodats exempel samt information om schemat.
+Resursmall för sökning och Log analytics-aviseringar den sparade Log analytics är tillgängliga i Log Analytics i dokumentationen för. Mer information finns i, [att lägga till Log Analytics sparade sökningar och aviseringar](../azure-monitor/insights/solutions-resources-searches-alerts.md); som innehåller färgkodats exempel samt information om schemat.
 
 ### <a name="azure-resource-template-for-application-insights"></a>Azure-resursmall för Application Insights
 Log avisering för Application Insights-resurser har en typ av `Microsoft.Insights/scheduledQueryRules/`. Mer information om den här resurstypen finns [Azure Monitor - schemalagda fråga regler API-referens](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).

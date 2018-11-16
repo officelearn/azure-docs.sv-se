@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 11/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 3ecbef3b3063ceb413b852f8000b44a85d28d08e
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8bd64aaa51faf968c0c7ae374daad3de4ca3a343
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142512"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706865"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Skapa och hantera en klassrum-mall i Azure Lab Services
 En mall i ett labb är en basavbildning av en virtuell dator som alla användares virtuella datorer skapas från. Konfigurera mallen för virtuella datorer så att den är konfigurerad med exakt det som du vill förse labbanvändarna med. Du kan ange ett namn och en beskrivning av mallen som visas för labbanvändarna. Sedan kan publicera du mallen för att tillgängliggöra instanser av VM-mallen för dina labbanvändare. När du publicerar en mall skapar Azure Lab Services virtuella datorer i labbet med hjälp av mallen. Antalet virtuella datorer som skapas i den här processen är samma som det högsta antalet användare som tillåts i labbet. Du kan definiera antalet i användningsprincipen för labbet. Alla virtuella datorer har samma konfiguration som mallen.
@@ -88,16 +88,14 @@ Först, kan du konfigurera och publicera en mall när du skapar ett klassrumslab
 ## <a name="set-up-a-template-after-creating-a-lab"></a>Konfigurera en mall när du har skapat ett labb 
 Du kan också ställa in en mall när du har skapat labbet.   
 
-### <a name="set-template-title-and-description"></a>Ange mall rubrik och beskrivning
-1. I avsnittet **Mall** väljer du **Redigera** (pennikonen) för mallen. 
-2. I fönstret **Användarvy** anger du en **rubrik** för mallen.
-3. Ange en **beskrivning** för mallen.
-4. Välj **Spara**.
+## <a name="set-or-update-template-title-and-description"></a>Ange eller uppdatera mallen rubrik och beskrivning
+Använd följande steg för att ange rubriken och beskrivningen för första gången och uppdatera dem senare. 
 
-    ![Beskrivning av klassrumslabb](../media/how-to-manage-classroom-labs/lab-description.png)
+1. I den **mall** avsnittet musen över **namn** för mallen eller **beskrivning** för mallen, och markera den. 
+2. Ange den **nytt namn** eller **ny beskrivning** för mallen och tryck på **RETUR**.
 
-### <a name="set-up-the-template-vm"></a>Konfigurera den virtuella malldatorn
- Du ansluter till den virtuella malldatorn och installerar program som krävs på den innan du gör den tillgänglig för dina studenter. 
+## <a name="set-up-or-update-a-template-vm"></a>Ställ in eller uppdatera en mall för virtuell dator
+ Du ansluter till den virtuella malldatorn och installerar program som krävs på den innan du gör den tillgänglig för dina studenter. Använd följande steg för att ställa in en mall för virtuell dator för första gången eller för att uppdatera den virtuella datorn. 
 
 1. Vänta tills den virtuella malldatorn är klar. När den är klar bör knappen **Starta** aktiveras. För att starta den virtuella datorn väljer du **Starta**.
 
@@ -112,7 +110,7 @@ Du kan också ställa in en mall när du har skapat labbet.
     ![Stoppa den virtuella malldatorn](../media/tutorial-setup-classroom-lab/stop-template-vm.png)
 
 
-## <a name="publish-the-template"></a>Publicera mallen 
+## <a name="publish-the-template-vm"></a>Publicera den virtuella malldatorn
 Om du inte publicerar mallen när du har skapat labbet kan publicera du den senare. Innan du publicerar, kanske du vill ansluta till VM-mallen och uppdatera den med programvara. När du publicerar en mall skapar Azure Lab Services virtuella datorer i labbet med hjälp av mallen. Antalet virtuella datorer som skapas i den här processen är samma som det högsta antalet användare som tillåts i labbet. Du kan definiera antalet i användningsprincipen för labbet. Alla virtuella datorer har samma konfiguration som mallen. 
 
 1. Välj **Publicera** i avsnittet **Mall**. 
@@ -125,7 +123,7 @@ Om du inte publicerar mallen när du har skapat labbet kan publicera du den sena
 4. Växla till sidan **Virtuella datorer** och bekräfta att du ser virtuella datorer som är i tillståndet **Otilldelad**. De här virtuella datorerna har inte tilldelats till studenter ännu. 
 
     ![Virtuella datorer](../media/tutorial-setup-classroom-lab/virtual-machines.png)
-5. Vänta tills de virtuella datorerna har skapats. De måste vara i tillstånd **Stoppad**. Du kan starta en virtuell dator för studenter, ansluta till den virtuella datorn, stoppa den virtuella datorn och ta bort den virtuella datorn på den här sidan. Du kan starta dem på den här sidan eller låta studenterna starta de virtuella datorerna. 
+5. Vänta tills de virtuella datorerna har skapats. De måste vara i tillstånd **Stoppad**. Du kan starta en virtuell dator för studenter, ansluta till den virtuella datorn, stoppa den virtuella datorn och ta bort den virtuella datorn på den här sidan. Du kan starta dem på den här sidan eller låta dina studenter starta de virtuella datorerna. 
 
     ![Virtuella datorer i stoppat tillstånd](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
@@ -147,7 +145,9 @@ När du har publicerat en mall kan du fortfarande ansluta till VM-mallen, uppdat
     ![Publicerar om den lyckades](../media/how-to-create-manage-template/republish-success.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Kom igång med att konfigurera ett testlabb med Azure Lab Services:
+Se följande artiklar:
 
-- [Konfigurera ett klassrumslabb](how-to-manage-classroom-labs.md)
-- [Konfigurera ett labb](../tutorial-create-custom-lab.md)
+- [Som administratör kan du skapa och hantera lab-konton](how-to-manage-lab-accounts.md)
+- [Som labbägare kan du skapa och hantera labb](how-to-manage-classroom-labs.md)
+- [Som labbägare kan du konfigurera och styra användningen av ett labb](how-to-configure-student-usage.md)
+- [Som en lab-användare åtkomst till labb för klassrum](how-to-use-classroom-lab.md)

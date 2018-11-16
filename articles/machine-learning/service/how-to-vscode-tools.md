@@ -9,12 +9,12 @@ ms.author: jmartens
 author: j-martens
 ms.reviewer: jmartens
 ms.date: 10/1/2018
-ms.openlocfilehash: a2f37cffb37ce7008c3e372763784240e0d4250b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: a298a49c5bdf28b30da05c1b6296fc211ec14c1d
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945560"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713154"
 ---
 # <a name="vs-code-tools-for-ai-get-started-with-azure-machine-learning-from-visual-studio-code"></a>VS Code Tools för AI: Kom igång med Azure Machine Learning från Visual Studio Code
 
@@ -28,7 +28,7 @@ Använd verktyg för AI-tillägg i Visual Studio code för att använda Azure Ma
 
 + [Installera Python 3.5 eller högre](https://www.anaconda.com/download/).
 
-+ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
++ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLfree) innan du börjar.
 
 ## <a name="install-vs-code-tools-for-ai-extension"></a>Installera VS Code Tools för AI-tillägg
 
@@ -40,7 +40,7 @@ Vi måste omvandla VS Code till en Python IDE för att fungera med Azure Machine
 
 1. Starta VS Code.
 
-1. I en webbläsare, besök: http://aka.ms/vscodetoolsforai. 
+1. I en webbläsare, besök: https://aka.ms/vscodetoolsforai. 
 
 1. I den webbsidan klickar du på **installera**. 
 

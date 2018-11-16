@@ -12,28 +12,26 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 06/16/2017
+ms.date: 11/14/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b4ff1799f77581452859d1dbc0e6e9cc47062e4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2f6ac523d7944f80da1b75993bfd05d617eb8f85
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128057"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706610"
 ---
-# <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Bevara jobb- och data till Azure Storage med Batch File Conventions-bibliotek för .NET 
+# <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Bevara jobb- och data till Azure Storage med Batch File Conventions-bibliotek för .NET
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
-Ett sätt att bevara uppgiftsdata är att använda den [Azure Batch File Conventions-bibliotek för .NET][nuget_package]. File Conventions-bibliotek förenklar processen med att lagra utdata för aktiviteten till Azure Storage och hämta den. Du kan använda File Conventions-bibliotek i både aktivitets- och klienten kod &mdash; i uppgiftskoden för bevara filer och i klientkod lista och hämta dem. Uppgiftskoden kan också använda biblioteket för att hämta utdata från överordnad aktiviteter, till exempel i en [aktivitetsberoenden](batch-task-dependencies.md) scenario. 
+Ett sätt att bevara uppgiftsdata är att använda den [Azure Batch File Conventions-bibliotek för .NET][nuget_package]. File Conventions-bibliotek förenklar processen med att lagra utdata för aktiviteten till Azure Storage och hämta den. Du kan använda File Conventions-bibliotek i både aktivitets- och klienten kod &mdash; i uppgiftskoden för bevara filer och i klientkod lista och hämta dem. Uppgiftskoden kan också använda biblioteket för att hämta utdata från överordnad aktiviteter, till exempel i en [aktivitetsberoenden](batch-task-dependencies.md) scenario.
 
 Du kan hitta filerna för ett visst jobb eller en aktivitet genom att lista dem efter ID och syfte för att hämta utdatafilerna med File Conventions-bibliotek. Du behöver inte känner till namn eller var filerna. Du kan till exempel använda File Conventions-bibliotek för att lista alla mellanliggande filer för en viss uppgift eller hämta en förhandsversion-fil för ett visst jobb.
 
 > [!TIP]
 > Från och med version 2017-05-01, stöder API: et för Batch-tjänsten spara utdata till Azure Storage för aktiviteter och job manager-aktiviteter som körs på pooler som skapats med konfigurationen av virtuella datorn. API: et för Batch-tjänsten tillhandahåller ett enkelt sätt att spara utdata från inom den kod som skapar en uppgift och fungerar som ett alternativ till File Conventions-bibliotek. Du kan ändra dina Batch-klientprogram för att spara utdata utan att behöva uppdatera programmet som uppgiften körs. Mer information finns i [spara uppgiftsdata till Azure Storage med Batch service API](batch-task-output-files.md).
-> 
-> 
 
 ## <a name="when-do-i-use-the-file-conventions-library-to-persist-task-output"></a>När ska jag använda File Conventions-bibliotek för att bevara uppgiftsutdata?
 
@@ -42,27 +40,27 @@ Azure Batch får du fler än ett sätt att spara uppgiftsutdata. File Convention
 - Du kan enkelt ändra koden för det program som uppgiften körs för att bevara filer med hjälp av File Conventions-bibliotek.
 - Du vill strömdata till Azure Storage medan uppgiften körs.
 - Du kan bevara data från poolen som skapats med molntjänstkonfigurationen eller konfigurationen av virtuella datorn.
-- Ditt klientprogram eller andra uppgifter i jobbet behöver leta upp och hämta utdata aktivitetsfiler efter ID eller efter funktion. 
+- Ditt klientprogram eller andra uppgifter i jobbet behöver leta upp och hämta utdata aktivitetsfiler efter ID eller efter funktion.
 - Du vill visa uppgiftens utdata i Azure-portalen.
 
-Om ditt scenario skiljer sig från de som anges ovan, kan du behöva tänka på en annan metod. Mer information om andra alternativ för att bevara uppgiftsutdata finns [Spara jobb- och utdata till Azure Storage](batch-task-output.md). 
+Om ditt scenario skiljer sig från de som anges ovan, kan du behöva tänka på en annan metod. Mer information om andra alternativ för att bevara uppgiftsutdata finns [Spara jobb- och utdata till Azure Storage](batch-task-output.md).
 
 ## <a name="what-is-the-batch-file-conventions-standard"></a>Vad är Batch File Conventions standard?
 
 Den [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) ger en namngivningsschemat för mål-behållare och blob-sökvägar som din utdatafilerna skrivs. Filer som sparats till Azure Storage som följer standarden File Conventions blir automatiskt tillgängliga för visning i Azure-portalen. Portalen är medveten om namngivningskonventionen och så kan visa filer som följer den.
 
-File Conventions-bibliotek för .NET-automatiskt namn storage-behållare och uppgiften utdatafilerna enligt den File Conventions som är standard. File Conventions-bibliotek innehåller också metoder för att fråga utdatafilerna i Azure Storage enligt jobb-ID, uppgifts-ID eller syfte.   
+File Conventions-bibliotek för .NET-automatiskt namn storage-behållare och uppgiften utdatafilerna enligt den File Conventions som är standard. File Conventions-bibliotek innehåller också metoder för att fråga utdatafilerna i Azure Storage enligt jobb-ID, uppgifts-ID eller syfte.
 
-Om du utvecklar med ett annat språk än .NET, kan du implementera File Conventions-standard själv i ditt program. Mer information finns i [om the Batch File Conventions standard](batch-task-output.md#about-the-batch-file-conventions-standard).
+Om du utvecklar med ett annat språk än .NET, kan du implementera File Conventions-standard själv i ditt program. Mer information finns i [följer Batch File Conventions](batch-task-output.md#implement-the-batch-file-conventions-standard).
 
 ## <a name="link-an-azure-storage-account-to-your-batch-account"></a>Länka ett Azure Storage-konto till ditt Batch-konto
 
 Om du vill spara utdata till Azure Storage med File Conventions-bibliotek, måste du först koppla ett Azure Storage-konto till Batch-kontot. Om du inte redan har gjort länka ett Storage-konto till ditt Batch-konto med hjälp av den [Azure-portalen](https://portal.azure.com):
 
-1. Navigera till ditt Batch-konto i Azure Portal. 
-2. Under **inställningar**väljer **Lagringskonto**.
-3. Om du inte redan har ett lagringskonto som är associerade med ditt Batch-konto, klickar du på **Storage-konto (ingen)**.
-4. Välj ett lagringskonto i listan för din prenumeration. För bästa prestanda använder du ett Azure Storage-konto som är i samma region som Batch-konto där dina aktiviteter kör.
+1. Navigera till ditt Batch-konto i Azure Portal.
+1. Under **inställningar**väljer **Lagringskonto**.
+1. Om du inte redan har ett lagringskonto som är associerade med ditt Batch-konto, klickar du på **Storage-konto (ingen)**.
+1. Välj ett lagringskonto i listan för din prenumeration. För bästa prestanda använder du ett Azure Storage-konto som är i samma region som Batch-konto där dina aktiviteter kör.
 
 ## <a name="persist-output-data"></a>Spara utdata
 
@@ -72,8 +70,6 @@ Mer information om hur du arbetar med behållare och blobbar i Azure Storage fin
 
 > [!WARNING]
 > Alla jobb- och utdata sparas med filen konventioner biblioteket lagras i samma behållare. Om ett stort antal aktiviteter som försöker att spara filerna på samma gång, [storage nätverksbegränsningar](../storage/common/storage-performance-checklist.md#blobs) eventuellt att startas.
-> 
-> 
 
 ### <a name="create-storage-container"></a>Skapa en lagringscontainer
 
@@ -120,8 +116,6 @@ Dessa typer av utdata kan du ange vilken typ av utdata till när du senare fråg
 
 > [!TIP]
 > Vilken typ av utdata anger också var i Azure-portalen en viss fil visas: *TaskOutput*-kategoriserade filer visas under **uppgift utdatafiler**, och *TaskLog* filer som visas under **uppgift loggar**.
-> 
-> 
 
 ### <a name="store-job-outputs"></a>Store-jobbutdata
 
@@ -174,8 +168,6 @@ Node-agent är ett program som körs på varje nod i poolen och ger kommando och
 
 > [!NOTE]
 > När du aktiverar spårning med filen **SaveTrackedAsync**, endast *lägger till* till spårade filen sparas till Azure Storage. Använd den här metoden för att hålla reda icke rotera loggfiler och andra filer som har skrivits till med att lägga till åtgärder i slutet av filen.
-> 
-> 
 
 ## <a name="retrieve-output-data"></a>Hämta utdata
 
@@ -206,7 +198,7 @@ Azure-portalen visar utdata aktivitetsfiler och loggar som har sparats till en l
 Om du vill aktivera visning av din utdatafilerna i portalen, måste du uppfylla följande krav:
 
 1. [Länka ett Azure Storage-konto](#requirement-linked-storage-account) till Batch-kontot.
-2. Följa de fördefinierade regler för namngivning av behållare och filer när spara utdata. Du kan hitta definitionen av dessa konventioner i File Conventions-bibliotek [README][github_file_conventions_readme]. Om du använder den [Azure Batch File Conventions] [ nuget_package] -biblioteket för att spara din utdata, dina filer sparas enligt File Conventions-standarden.
+1. Följa de fördefinierade regler för namngivning av behållare och filer när spara utdata. Du kan hitta definitionen av dessa konventioner i File Conventions-bibliotek [README][github_file_conventions_readme]. Om du använder den [Azure Batch File Conventions] [ nuget_package] -biblioteket för att spara din utdata, dina filer sparas enligt File Conventions-standarden.
 
 Om du vill visa loggar och uppgiften utdatafilerna i Azure-portalen, navigera till aktivitet vars utdata du är intresserad av, klickar sedan på antingen **sparade utdatafiler** eller **sparade loggar**. Den här bilden visar den **sparade utdatafiler** för uppgiften med ID ”007”:
 

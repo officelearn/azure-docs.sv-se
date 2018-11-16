@@ -10,37 +10,31 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mahilleb
-ms.openlocfilehash: 088e581da7511797a0f39959d867c6298262462a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 8d36036332e939075ffac8763bec9c23d8e4a3f7
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242338"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712899"
 ---
-# <a name="regions-of-the-speech-service"></a>Med Taltjänsten-regioner
+# <a name="speech-service-supported-regions"></a>Med Taltjänsten regioner som stöds
 
-Speech-tjänsten finns i olika regioner.
-När du skapar en prenumeration väljer du en tillgänglig region utifrån dina behov.
+Med taltjänsten kan ditt program kan omvandla ljud till text, utför talöversättning och konvertera text till tal. Tjänsten är tillgänglig i flera regioner med unika slutpunkter för taligenkänning SDK och REST API: er.
 
-När du använder din prenumeration kan behöva du för den region som du har valt.
-
-## <a name="rest-api"></a>REST-API
-
-Använd REST API för att välja rätt regionspecifika slutpunkterna.
-Se [REST API: er](rest-apis.md) mer information.
+Se till att du använder den slutpunkt som matchar regionen för din prenumeration.
 
 ## <a name="speech-sdk"></a>Speech SDK
 
 I den [tal-tjänst-SDK](speech-sdk.md), regioner har angetts som en sträng (till exempel som en parameter till `SpeechConfig.FromSubscription` i tal SDK för C#).
 
-### <a name="regions-for-speech-recognition-and-translation"></a>Regioner för taligenkänning och översättning
+### <a name="speech-recognition-and-translation"></a>Taligenkänning och översättning
 
-I följande tabell visas tillgängliga regioner för **taligenkänning** och **translation**.
+Tal-SDK är tillgänglig i dessa regioner för **taligenkänning** och **translation**:
 
   Region | Parametern för tal-SDK | Tal anpassning av portalen
  ------|-------|--------
  Västra USA | `westus` | https://westus.cris.ai
- USA, västra 2 | `westus2` | https://westus2.cris.ai 
+ USA, västra 2 | `westus2` | https://westus2.cris.ai
  Östra USA | `eastus` | https://eastus.cris.ai
  USA, östra 2 | `eastus2` | https://eastus2.cris.ai
  Östasien | `eastasia` | https://eastasia.cris.ai
@@ -49,8 +43,26 @@ I följande tabell visas tillgängliga regioner för **taligenkänning** och **t
  Västra Europa | `westeurope` | https://westeurope.cris.ai
 
 
-### <a name="regions-for-intent-recognition"></a>Regioner för taligenkänning
+### <a name="intent-recognition"></a>Avsiktsigenkänning
+
+**Taligenkänning** för tal SDK filresurser regioner har stöd för med LUIS. En fullständig lista över tillgängliga regioner finns i [publicering regioner och slutpunkter – LUIS](https://docs.microsoft.comazure/cognitive-services/luis/luis-reference-regions)
 
 Tillgängliga regioner för **avsiktsigenkänning** via tal SDK listas på den [Language Understanding Tjänstesida region](/azure/cognitive-services/luis/luis-reference-regions).
-För varje publishing-region som visas, bestäms parametern motsvarande tal SDK region som den första delen av domännamnet för slutpunkten.
-Till exempel använda `westus` Ange regionen West US publicering.
+
+För varje publishing-region som visas, använder de angivna **API Regionsnamn**. Till exempel använda `westus` för USA, västra.
+
+## <a name="rest-apis"></a>REST API:er
+
+Speech-tjänsten exponerar även REST-slutpunkter för förfrågningar om tal till text och text till tal.
+
+### <a name="speech-to-text"></a>Tal-till-text
+
+Tal till text referensdokumentation finns [REST API: er](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#speech-to-text).
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+
+### <a name="text-to-speech"></a>Text-till-tal
+
+För text till tal-referensdokumentation finns i [REST API: er](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#speech-to-text).
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]

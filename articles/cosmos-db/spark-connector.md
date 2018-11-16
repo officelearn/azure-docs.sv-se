@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: 26479ade27b18e817d7ad03d70d27b0cef687e8d
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 62395ff5370a057ca1888dd135b83be9d6f34f8d
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269419"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707188"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Påskynda analyser av stordata med Apache Spark för Azure Cosmos DB-anslutningsapp
  
-Apache Spark för Azure Cosmos DB-anslutningsapp kan Azure Cosmos DB vara indata eller utdata för Apache Spark-jobb. Ansluta [Spark](http://spark.apache.org/) till [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) ökar dina möjligheter att lösa snabbrörliga data science-problem. Du kan använda Azure Cosmos DB för att snabbt spara och fråga efter data. Anslutningen används effektivt de inbyggda Azure Cosmos DB-hanterade indexen. Index kan använda uppdateringsbara kolumner när du utför analyser och push-down-predikat filtrering mot föränderliga, globalt distribuerade data. Den här typen av data kan vara mellan Internet of Things (IoT) och scenarier för datavetenskap och analys av data.
+Apache Spark till Azure Cosmos DB-anslutningsappen gör att Azure Cosmos DB kan användas som ingång eller utgång för Apache Spark-jobb. Ansluta [Spark](http://spark.apache.org/) till [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) ökar dina möjligheter att lösa snabbrörliga data science-problem. Du kan använda Azure Cosmos DB för att snabbt spara och fråga efter data. Anslutningsappen använder effektivt de inbyggda Azure Cosmos DB-hanterade indexen. Indexen gör att du kan använda uppdaterbara kolumner när du utför analyser och drar ned predikatfiltrering mot snabbt föränderliga, globalt distribuerade data. Den här typen av data kan vara mellan Internet of Things (IoT) och scenarier för datavetenskap och analys av data.
 
 ## <a name="connector-components"></a>Connector-komponenter
 
@@ -83,7 +83,7 @@ Kör du följande steg för att ansluta Spark till Azure Cosmos DB med hjälp av
 
 6. I den **Skapa anteckningsbok** dialogrutan, ange ett användarvänligt namn och välj **Python** som språk. Från listrutan, Välj det kluster som du skapade tidigare och välj **skapa**.  
 
-7. Kör några Spark-frågor med hjälp av flyg exempeldata finns i ”doctorwho” Azure Cosmos DB-konto. (Det här kontot är offentligt tillgänglig.) Den [azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub-lagringsplatsen är värd för HTML-versionen av anteckningsboken. Hämta databasfiler för och gå till `\samples\Documentation_Samples\Read_Batch_PyDocumentDB.html`. Du kan importera anteckningsboken till ditt Azure Databricks-konto och kör den. I följande avsnitt beskrivs funktioner i kodblock i detalj.
+7. Kör några Spark-frågor med hjälp av flyg exempeldata finns i ”doctorwho” Azure Cosmos DB-konto. Det här kontot är allmänt tillgänglig. Den [azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub-lagringsplatsen värdar den [Read_Batch_PyDocumentDB](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Batch_PyDocumentDB.ipynb) anteckningsboken. Du kan importera anteckningsboken till ditt Azure Databricks-konto och kör den. I följande avsnitt beskrivs funktioner i kodblock i detalj.
 
 Följande kodfragment visar hur du importerar pyDocumentDB SDK och köra en fråga i Spark-kontext. Enligt vad som anges i kodfragmentet innehåller pyDocumentDB SDK anslutningsparametrar som krävs för att ansluta till Azure Cosmos DB-konto. Det importerar bibliotek som krävs och konfigurerar huvudnyckel och värden för att skapa Azure Cosmos DB-klienten (pydocumentdb.document_client).
 
@@ -209,7 +209,7 @@ Den här artikeln visar hur du använder Spark-anslutningsappen Java SDK i följ
 
 ### <a name="read-twitter-data-from-azure-cosmos-db"></a>Läsa Twitter-data från Azure Cosmos DB
  
-I det här avsnittet ska köra du Spark frågor för att läsa en batch med Twitter-data från Azure Cosmos DB. Den [azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub-lagringsplatsen är värd för HTML-versionen av anteckningsboken. Hämta databasfiler för och gå till `\samples\Documentation_Samples\Read_Batch_Twitter_Data.html`. Du kan importera anteckningsboken till ditt Azure Databricks-konto och uppdatera kontot URI, huvudnyckel, databas och samlingsnamn. Du kan köra anteckningsboken eller skapa den på följande sätt:
+I det här avsnittet ska köra du Spark frågor för att läsa en batch med Twitter-data från Azure Cosmos DB. Den [azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub-lagringsplatsen värdar den [Read_Batch_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Batch_Twitter_Data.ipynb) anteckningsboken. Du kan importera anteckningsboken till ditt Azure Databricks-konto och uppdatera kontot URI, huvudnyckel, databas och samlingsnamn. Du kan köra anteckningsboken eller skapa den på följande sätt:
 
 1. Gå till ditt Azure Databricks-konto och välj **arbetsytan** > **skapa** > **Notebook**. 
 
@@ -268,7 +268,7 @@ Beroende på scenario, bör du använda olika konfigurationsvärden för att opt
 
 ### <a name="read-twitter-data-that-is-streaming-to-azure-cosmos-db"></a>Läs Twitter-data som strömmar till Azure Cosmos DB
 
-I det här avsnittet ska köra du Spark frågor för att läsa en ändringsfeed för strömmande Twitter-data. När du kör frågorna i det här avsnittet, se till att ditt Twitter-flöde app körs och också finns data till Azure Cosmos DB. Den [azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub-lagringsplatsen är värd för HTML-versionen av anteckningsboken. Hämta databasfiler för och gå till `\samples\Documentation_Samples\Read_Stream_Twitter_Data.html`. Du kan importera anteckningsboken till ditt Azure Databricks-konto och uppdatera kontot URI, huvudnyckel, databas och samlingsnamn. Du kan köra anteckningsboken eller skapa den på följande sätt:
+I det här avsnittet ska köra du Spark frågor för att läsa en ändringsfeed för strömmande Twitter-data. När du kör frågorna i det här avsnittet, se till att ditt Twitter-flöde app körs och också finns data till Azure Cosmos DB. Den [azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub-lagringsplatsen värdar den [Read_Stream_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Stream_Twitter_Data.scala) anteckningsboken. Du kan importera anteckningsboken till ditt Azure Databricks-konto och uppdatera kontot URI, huvudnyckel, databas och samlingsnamn. Du kan köra anteckningsboken eller skapa den på följande sätt:
 
 1. Gå till ditt Azure Databricks-konto och välj **arbetsytan** > **skapa** > **Notebook**.  
 
@@ -335,7 +335,7 @@ Java SDK har stöd för följande anslutningsinställningar:
 
 ### <a name="write-twitter-data-to-azure-cosmos-db"></a>Skriva Twitter-data till Azure Cosmos DB 
 
-I det här avsnittet ska köra du Spark frågor för att skriva en batch med Twitter-data till en ny samling i samma databas. Den [azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub-lagringsplatsen är värd för HTML-versionen av anteckningsboken. Hämta databasfiler för och gå till `\samples\Documentation_Samples\Write_Batch_Twitter_Data.html`. Du kan importera anteckningsboken till ditt Azure Databricks-konto och uppdatera kontot URI, huvudnyckel, databas och samlingsnamn. Du kan köra anteckningsboken eller skapa den på följande sätt:
+I det här avsnittet ska köra du Spark frågor för att skriva en batch med Twitter-data till en ny samling i samma databas. Den [azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub-lagringsplatsen värdar den [Write_Batch_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Write_Batch_Twitter_Data.ipynb) anteckningsboken. Du kan importera anteckningsboken till ditt Azure Databricks-konto och uppdatera kontot URI, huvudnyckel, databas och samlingsnamn. Du kan köra anteckningsboken eller skapa den på följande sätt:
 
 1. Gå till ditt Azure Databricks-konto och välj **arbetsytan** > **skapa** > **Notebook**.  
 
@@ -428,7 +428,7 @@ Java SDK stöder följande värden för mappning av konfiguration:
 
 ### <a name="write-twitter-data-that-is-streaming-to-azure-cosmos-db"></a>Skriva Twitter-data som strömmar till Azure Cosmos DB 
 
-I det här avsnittet ska köra du Spark frågor för att skriva en ändringsfeed för strömmande Twitter-data till en ny samling i samma databas. Den [azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub-lagringsplatsen är värd för HTML-versionen av anteckningsboken. Hämta databasfiler för och gå till `\samples\Documentation_Samples\Write_Stream_Twitter_Data.html`. Du kan importera anteckningsboken till ditt Azure Databricks-konto och uppdatera kontot URI, huvudnyckel, databas och samlingsnamn. Du kan köra anteckningsboken eller skapa den på följande sätt:
+I det här avsnittet ska köra du Spark frågor för att skriva en ändringsfeed för strömmande Twitter-data till en ny samling i samma databas. Den [azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub-lagringsplatsen värdar den [Write_Stream_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Write_Stream_Data.scala) anteckningsboken. Du kan importera anteckningsboken till ditt Azure Databricks-konto och uppdatera kontot URI, huvudnyckel, databas och samlingsnamn. Du kan köra anteckningsboken eller skapa den på följande sätt:
 
 1. Gå till ditt Azure Databricks-konto och välj **arbetsytan** > **skapa** > **Notebook**.  
 

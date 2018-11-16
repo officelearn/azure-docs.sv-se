@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: d07a89163d10026851dc26812ac248d92d6d5e8a
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: eb8356b659647ec73be121f8a05ab5e1e8d5837f
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684179"
+ms.locfileid: "51710149"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Översikt över Azure övervakningsagenter 
 Microsoft Azure tillhandahåller flera olika sätt att samla in olika typer av data från virtuella datorer som kör Microsoft Windows och Linux som ligger i Azure, ditt datacenter eller andra molnleverantörer. Det finns tre typer av agenter som kan övervaka en virtuell dator:
@@ -60,7 +60,7 @@ För avancerad övervakning där du behöver mer än att samla in mått och en d
 Log Analytics-agenten ska användas när du vill:
 
 * Samla in data från olika källor, både i Azure, andra molnleverantörer och lokala resurser. 
-* Med någon av i Azure Monitor övervakningslösningar som [Azure Monitor för virtuella datorer](../monitoring/monitoring-vminsights-overview.md?toc=%2fazure%2fmonitoring%2ftoc.json), [Azure Monitor för behållare](../monitoring/monitoring-container-insights-overview.md?toc=%2fazure%2fmonitoring%2ftoc.json)osv.  
+* Med någon av i Azure Monitor övervakningslösningar som [Azure Monitor för virtuella datorer](../monitoring/../azure-monitor/insights/vminsights-overview.md?toc=%2fazure%2fmonitoring%2ftoc.json), [Azure Monitor för behållare](../monitoring/../azure-monitor/insights/container-insights-overview.md?toc=%2fazure%2fmonitoring%2ftoc.json)osv.  
 * Använd en av de andra Azure-hanteringstjänster som [Azure Security Center](../security-center/security-center-intro.md), [Azure Automation](../automation/automation-intro.md)osv.
 
 Tidigare flera Azure-tjänster har tillsammans i den *Operations Management Suite*, och därmed Log Analytics-agenten delas mellan tjänster som Azure Security Center och Azure Automation.  Detta inkluderar en fullständig uppsättning funktioner som de erbjuder leverera omfattande hantering av dina virtuella Azure-datorer under deras livscykel.  Några exempel på detta är:
@@ -71,7 +71,7 @@ Tidigare flera Azure-tjänster har tillsammans i den *Operations Management Suit
 * Azure-tjänster som [Programinsikter](https://docs.microsoft.com/azure/application-insights/) och [Azure Security Center](https://docs.microsoft.com/azure/security-center/), som internt lagrar sina data direkt i Log Analytics.  
 
 ## <a name="dependency-agent"></a>Beroendeagent
-Beroendeagenten har utvecklats som en del av lösningen Tjänstkarta som ursprungligen utvecklades för externt från Microsoft. [Tjänstkarta](../monitoring/monitoring-service-map.md) och [Azure Monitor för virtuella datorer](monitoring-vminsights-overview.md) kräver en beroende-Agent på Windows och Linux virtuella datorer och den kan integreras med Log Analytics-agenten samlar in identifierade data om processer som körs på den virtuella datorn och extern Processberoenden. Den lagrar dessa data i Log Analytics och hjälper dig att visualisera de identifierade sammankopplade komponenterna.
+Beroendeagenten har utvecklats som en del av lösningen Tjänstkarta som ursprungligen utvecklades för externt från Microsoft. [Tjänstkarta](../monitoring/monitoring-service-map.md) och [Azure Monitor för virtuella datorer](../azure-monitor/insights/vminsights-overview.md) kräver en beroende-Agent på Windows och Linux virtuella datorer och den kan integreras med Log Analytics-agenten samlar in identifierade data om processer som körs på den virtuella datorn och extern Processberoenden. Den lagrar dessa data i Log Analytics och hjälper dig att visualisera de identifierade sammankopplade komponenterna.
 
 Du kan behöva en kombination av dessa agenter att övervaka din virtuella dator. Agenter kan installeras sida vid sida som Azure-tillägg, men på Linux, Log Analytics-agenten *måste* installeras först. Annars installationen misslyckas. 
 

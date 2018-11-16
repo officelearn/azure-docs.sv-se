@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 11/15/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4c5f99ed9d20076e3e25ebca261253e576572786
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 6d4a6b7aa2ad236fba6a8ea0b01578b4843d11f3
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354265"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712933"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API: er i varaktiga funktioner (Azure Functions)
 
@@ -95,6 +95,7 @@ Alla HTTP APIs som implementeras av tillägget Gör följande parametrar. Dataty
 | createdTimeFrom  | Frågesträng    | Valfri parameter. När du filtrerar listan över returnerade instanser som har skapats på eller efter den givna tidsstämpeln ISO8601.|
 | createdTimeTo    | Frågesträng    | Valfri parameter. När du filtrerar listan över returnerade instanser som har skapats på eller innan den givna tidsstämpeln ISO8601.|
 | runtimeStatus    | Frågesträng    | Valfri parameter. När du filtrerar listan över returnerade instanser baserat på deras Körningsstatus. Listan över möjliga runtime statusvärden finns i den [fråga instanser](durable-functions-instance-management.md) avsnittet. |
+| längst upp    | Frågesträng    | Valfri parameter. När du anger dela resultatet av frågan i sidor och begränsa det maximala antalet resultat per sida. |
 
 `systemKey` är en auktoriseringsnyckeln automatiskt genererade av Azure Functions-värden. Den mer specifikt ger åtkomst till tillägget varaktiga uppgift API: er och kan hanteras på samma sätt som [andra auktorisering nycklar](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Det enklaste sättet att identifiera den `systemKey` värdet är med hjälp av den `CreateCheckStatusResponse` API tidigare nämnts.
 
@@ -291,6 +292,26 @@ Här är ett exempel på svar-nyttolaster som inkluderar orkestreringsstatus (fo
 > [!NOTE]
 > Den här åtgärden kan vara väldigt kostsamt när det gäller Azure Storage i/o, om det finns många rader i tabellen instanser. Mer information om instansen tabellen finns i den [prestanda och skalning i varaktiga funktioner (Azure Functions)](https://docs.microsoft.com/azure/azure-functions/durable-functions-perf-and-scale#instances-table) dokumentation.
 > 
+
+#### <a name="request-with-paging"></a>Begäran med växling
+
+Du kan ange den `top` parametern att dela upp resultatet av frågan i sidor.
+
+För Functions 1.0 är format för förfrågan på följande sätt:
+
+```http
+GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
+```
+
+Functions 2.0-formatet har samma parametrar men ett något annorlunda URL-prefix: 
+
+```http
+GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
+```
+
+Om nästa sida finns, returneras ett fortsättningstoken i svarshuvudet.  Namnet på rubriken är `x-ms-continuation-token`.
+
+Om du ställer in fortsättning token värde i nästa rubriken får nästa sida.  Den här nyckeln i rubriken i begäran är `x-ms-continuation-token`.
 
 
 ### <a name="raise-event"></a>Generera händelser

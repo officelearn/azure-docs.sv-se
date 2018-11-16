@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 43a682568708ab0286328cf3e483ddc3d5cf9dd8
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8958d2cde9f40aa1a7370894614a54bbd604bce7
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515360"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706338"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Optimera din molninvestering med Azure Cost Management
 
@@ -26,12 +26,12 @@ Azure Cost Management ger dig verktyg för att planera för, analysera och minsk
 Kostnadshantering är det problem med organisationens och bör vara en pågående praxis som börjar innan du lägga pengar på molnresurser. För att kunna implementera kostnadshantering och optimera kostnaderna, måste din organisation:
 
 - Vara beredd med rätt verktyg för att lyckas
-- Ansvarig för kostnaderna
+- Vara ansvariga för kostnader
 - Vidta lämpliga åtgärder för att optimera utgifter
 
 Tre viktiga grupper, som beskrivs nedan, måste vara lika justerade i din organisation att se till att du har hanterar kostnader.
 
-- **Finans** -personer som ansvarar för att godkänna budge begäranden i organisationen baserat på molnet utgifter prognoser. De betala motsvarande fakturan och tilldela olika team att driva på ansvarstagande kostnader.
+- **Finans** -personer som ansvarar för att godkänna budget begäranden i organisationen baserat på molnet utgifter prognoser. De betala motsvarande fakturan och tilldela olika team att driva på ansvarstagande kostnader.
 - **Chefer** – Business-beslutsfattare i en organisation som behöver förstå molnet utgifter för att hitta det bästa utgifter resultat.
 - **Appteamen** - tekniker hantera molnresurser på basis dagliga utveckla tjänster som uppfyller organisationens behov. Dessa grupper behöver flexibilitet att leverera ut mest värde i sina definierade budgetar.
 
@@ -46,7 +46,7 @@ Omfattande, direkta planering kan du skräddarsy molnanvändning för dina speci
 - Vilka affärsproblem som lösa?
 - Vilka användningsmönster förväntar jag från Mina resurser?
 
-Dina svar hjälper dig att välja erbjudandet som är rätt för dig. De bestämmer infrastrukturen som ska användas och hur de används för att maximera din Azure effektiviteten.
+Dina svar hjälper dig att välja de erbjudanden som är rätt för dig. De bestämmer infrastrukturen som ska användas och hur de används för att maximera din Azure effektiviteten.
 
 #### <a name="visibility"></a>Synlighet
 
@@ -62,7 +62,7 @@ Fungera för att minska dina utgifter. Få ut det mesta av den baserat på resul
 
 #### <a name="iteration"></a>Iteration
 
-Alla i din organisation måste delta i livscykeln för hantering av kostnaden. De behöver för att hålla som ingår i med jämna mellanrum att optimera kostnaderna. Att rigorösa om den här iterativ process och göra det en nyckel ansvarig molnet styrning-klient i din organisation.
+Alla i din organisation måste delta i livscykeln för hantering av kostnaden. De behöver för att hålla som ingår med jämna mellanrum att optimera kostnaderna. Att rigorösa om den här iterativ process och göra det en grundlärosats i ansvarig molnet styrning i din organisation.
 
 ![Viktiga principer](./media/cost-mgt-best-practices/principles.png)
 
@@ -105,7 +105,7 @@ Läs mer om de olika alternativen [hur du köper Azure](https://azure.microsoft.
 
 ## <a name="estimate-the-cost-of-your-solution"></a>Beräkna kostnaden för din lösning
 
-Innan du distribuerar all infrastruktur måste du utvärdera hur mycket din lösning kostar. Utvärderingen kan du skapa en budget för din organisation för arbetsbelastningen startkostnader. Du kan sedan använda budget över tid för att mäta giltigheten för din första uppskattning. Och du kan jämföra den med den faktiska kostnaden för den distribuerade lösningen.
+Innan du distribuerar all infrastruktur måste du utvärdera hur mycket din lösning kostar. Utvärderingen kan du skapa en budget för din organisation för arbetsbelastningen startkostnader. Du kan sedan använda en budget över tid för att mäta giltigheten för din första uppskattning. Och du kan jämföra den med den faktiska kostnaden för den distribuerade lösningen.
 
 ### <a name="azure-pricing-calculator"></a>Priskalkylator för Azure
 
@@ -157,7 +157,7 @@ Använd de följande sätten att optimera utgifter.
 
 ### <a name="cut-out-waste"></a>Klipp ut avfall
 
-När du har distribuerat din infrastruktur i Azure, är det viktigt att se till att den används. Det enklaste sättet att börja spara omedelbart är att granska dina resurser och ta bort någon som inte används. Därifrån kan bestämma du dina resurser används så effektivt som möjligt.
+När du har distribuerat din infrastruktur i Azure, är det viktigt att se till att den används. Det enklaste sättet att börja spara omedelbart är att granska dina resurser och ta bort någon som inte används. Därifrån kan bestämma du om dina resurser används så effektivt som möjligt.
 
 #### <a name="azure-advisor"></a>Azure Advisor
 
@@ -177,7 +177,7 @@ Azure har många rabatter som din organisation ska kunna utnyttja för att spara
 
 #### <a name="azure-reservations"></a>Azure-reservationer
 
-Azure reservationer så att du för att betala i förskott för ett år eller beräkningskapacitet för tre års av virtuell dator eller SQL-databas. Betala förväg kan du få rabatt på de resurser du använder. Azure reservationer kan avsevärt minska din virtuella datorn eller beräkningskostnaderna för SQL-databas – upp till 72% jämfört med användningsbaserad betalning – med ett eller tre år i förskott. reservationer ger en rabatt på fakturering och påverkar inte körtiden för dina virtuella datorer eller en SQL-databaser.
+Azure reservationer kan du betala i förskott för ett år eller beräkningskapacitet för tre års av virtuell dator eller SQL-databas. Betala förväg kan du få rabatt på de resurser du använder. Azure reservationer kan avsevärt minska din virtuella datorn eller beräkningskostnaderna för SQL-databas – upp till 72% jämfört med användningsbaserad betalning med ett eller tre år i förskott. reservationer ger en rabatt på fakturering och påverkar inte körtiden för dina virtuella datorer eller en SQL-databaser.
 
 Mer information finns i [vad är Azure reservationer?](../billing/billing-save-compute-costs-reservations.md).
 

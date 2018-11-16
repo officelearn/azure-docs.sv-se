@@ -2,8 +2,7 @@
 title: Azure N-serien GPU-drivrutinen installationsprogrammet för Windows | Microsoft Docs
 description: Hur du ställer in NVIDIA GPU-drivrutiner för virtuella datorer i N-serien som kör Windows Server eller Windows i Azure
 services: virtual-machines-windows
-documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
-ms.author: danlep
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4d259c7f9a139b3c31d96e75d588c7be162189c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 551d9da51abaeddfd22c72748a552ba0ae155de6
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033268"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707019"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Installera NVIDIA GPU-drivrutiner på N-serien virtuella datorer som kör Windows 
 
@@ -51,13 +50,13 @@ Om du vill fråga GPU-enhetstillstånd, kör den [nvidia smi](https://developer.
 
 1. Öppna en kommandotolk och ändra till den **C:\Program Files\NVIDIA Corporation\NVSMI** directory.
 
-2. Kör `nvidia-smi`. Om drivrutinen är installerad visas utdata som liknar följande. Observera att **GPU-Util** visar **0%** om du använder en GPU-arbetsbelastning på den virtuella datorn. Drivrutinsversion och GPU-detaljer för din kan skilja sig från de som visas.
+2. Kör `nvidia-smi`. Om drivrutinen har installerats, visas utdata som liknar följande. Den **GPU-Util** visar **0%** om du använder en GPU-arbetsbelastning på den virtuella datorn. Drivrutinsversion och GPU-detaljer för din kan skilja sig från de som visas.
 
 ![NVIDIA Enhetsstatus](./media/n-series-driver-setup/smi.png)  
 
 ## <a name="rdma-network-connectivity"></a>RDMA-nätverksanslutning
 
-RDMA-nätverksanslutning kan aktiveras på RDMA-kompatibla virtuella datorer i N-serien som NC24r distribuerats i samma tillgänglighetsuppsättning eller i en enda placeringsgrupp i en VM-skalningsuppsättning. Tillägget HpcVmDrivers måste läggas till installation av enhetsdrivrutiner för Windows network RDMA-anslutning. Om du vill lägga till VM-tillägget för en N-serien med RDMA-aktiverade VM, använda [Azure PowerShell](/powershell/azure/overview) cmdletar för Azure Resource Manager.
+RDMA-nätverksanslutning kan aktiveras på RDMA-kompatibla N-serien virtuella datorer, till exempel NC24r som distribuerats i samma tillgänglighetsuppsättning eller i en enda placeringsgrupp i en skalningsuppsättning för virtuell dator. Tillägget HpcVmDrivers måste läggas till installation av enhetsdrivrutiner för Windows network RDMA-anslutning. Om du vill lägga till VM-tillägget för en N-serien med RDMA-aktiverade VM, använda [Azure PowerShell](/powershell/azure/overview) cmdletar för Azure Resource Manager.
 
 Om du vill installera den senaste versionen 1.1 HpcVMDrivers tillägg på en befintlig RDMA-kompatibla virtuell dator med namnet myVM i regionen västra USA:
   ```PowerShell

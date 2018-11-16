@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 7ef7f6548cd3dd838889fd51ff0521428bbbc2aa
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f9acdacfad25a2154a23055dce136984177242e0
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282687"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713018"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Samla in data i Log Analytics med en Azure Automation-runbook
 Du kan samla in en betydande mängd data i Log Analytics från olika källor, inklusive [datakällor](../log-analytics/log-analytics-data-sources.md) på agenter och även [data som samlas in från Azure](../log-analytics/log-analytics-azure-storage.md).  Det finns en scenarier om när du behöver samla in data som inte är tillgängliga via dessa källor som standard.  I dessa fall kan du använda den [HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md) att skriva data till Log Analytics från en REST API-klient.  En vanlig metod att utföra den här Datasamlingen med hjälp av en runbook i Azure Automation.   
@@ -213,7 +213,7 @@ Varje gång du startar en runbook [skapas ett jobb](../automation/automation-run
 
 ## <a name="next-steps"></a>Nästa steg
 - Använd [Vydesigner](../log-analytics/log-analytics-view-designer.md) att skapa en vy som visar data som du har lagrat i Log Analytics-databasen.
-- Paketera din runbook i en [hanteringslösning](monitoring-solutions-creating.md) att distribuera till kunder.
+- Paketera din runbook i en [hanteringslösning](../azure-monitor/insights/solutions-creating.md) att distribuera till kunder.
 - Läs mer om [Log Analytics](https://docs.microsoft.com/azure/log-analytics/).
 - Läs mer om [Azure Automation](https://docs.microsoft.com/azure/automation/).
 - Läs mer om den [HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md).

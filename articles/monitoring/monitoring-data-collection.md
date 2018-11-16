@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: 8aa79d66801ff30fedc725913696d5cfa3c9626f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 0cdc0b69405d726a7a661fb3e204e4f3ff8e50a5
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282841"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713205"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Övervakning av data som samlas in av Azure Monitor
 [Azure Monitor](../azure-monitor/overview.md) är en tjänst som hjälper dig att övervaka dina program och resurser som de förlitar sig på. Centrala för den här funktionen är lagring av telemetri och andra data från övervakade resurser. Den här artikeln innehåller en fullständig beskrivning av hur dessa data lagras och används av Azure Monitor.
@@ -140,7 +140,7 @@ Log Analytics kan samla in data från olika källor både i Azure och lokala res
 - [Aktivitetsloggar](../log-analytics/log-analytics-activity.md) från Azure-resurser med information om sina konfigurationer och hälsa och [diagnostikloggar](../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) som ger insikt i deras funktion.
 - Agenter på [Windows](../log-analytics/log-analytics-windows-agent.md) och [Linux](../log-analytics/log-analytics-quick-collect-linux-computer.md) virtuella datorer som skickar telemetri från gästoperativsystem och program till Log Analytics enligt [datakällor](../log-analytics/log-analytics-data-sources.md) som du konfigurerar.
 - Programdata som samlas in av [Application Insights](https://docs.microsoft.com/azure/application-insights/).
-- Data som ger insikter om ett visst program eller tjänst från [övervakningslösningar](../monitoring/monitoring-solutions.md) eller funktioner som Behållareinsikter, VM insikter eller Resource Group insikter.
+- Data som ger insikter om ett visst program eller tjänst från [övervakningslösningar](../monitoring/../azure-monitor/insights/solutions.md) eller funktioner som Behållareinsikter, VM insikter eller Resource Group insikter.
 - Säkerhetsdata som samlas in av [Azure Security Center](https://docs.microsoft.com/azure/security-center/).
 - [Mått](#metrics) från Azure-resurser. På så sätt kan du kan lagra mätvärden under längre tid än 93 dagar och analysera dem med andra loggdata.
 - Telemetri som skrivs till [Azure Storage](../log-analytics/log-analytics-azure-storage-iis-table.md).

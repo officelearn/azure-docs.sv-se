@@ -35,7 +35,7 @@
 # Gör så här för att
 ## Internetanslutning
 ### [Offentliga servrar för belastningsutjämning av nätverk](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Offentliga servrar för belastningsutjämning av program](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Offentliga servrar för belastningsutjämning av program](../application-gateway/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Skydda webbprogram](../application-gateway/application-gateway-web-application-firewall-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Distribuera trafik över platser](../traffic-manager/traffic-manager-configure-geographic-routing-method.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## Interna anslutningar

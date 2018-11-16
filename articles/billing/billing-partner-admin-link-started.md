@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 57ffb30296e5dbede11e23c40041c42e00444c4c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 13748bf23ee70bfa77e15e7112b450637a231742
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687002"
+ms.locfileid: "51710723"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Länka partner-ID till dina Azure-konton
 
@@ -124,7 +124,7 @@ Gå med i diskussionen den [Microsoft Partner Community](https://aka.ms/PALdiscu
 
 **Vem kan länka partner-ID?**
 
-Alla användare från partnerorganisationen som hanterar kundens resurs kan länka partner-ID till kontot.
+Alla användare från partnerorganisationen som hanterar kundens Azure-resurser kan länka partner-ID till kontot.
 
 **När ett partner-ID är länkad kan den ändras?**
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 08/27/2018
 ms.author: rangv
-ms.openlocfilehash: 55901d6f3bcbf5511b6921939fdcba03972efed3
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: d6cbd2992968a57cfba99117e9f1fc1ab9b5b5b3
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182849"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711845"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Ansluta IoT DevKit AZ3166 till Azure IoT Hub
 
@@ -195,7 +195,7 @@ Nu konfigureras du alla med förbereder och konfigurerar din utvecklingsmiljö. 
 1. I fönstret Öppna projekt, klickar du på `F1` att öppna kommandopaletten, typ och väljer **IoT Workbench: molnet**och välj sedan **Azure etablera**. Följ steg-för-steg-instruktioner för att slutföra etableringen av Azure IoT Hub och skapa enheten.
     ![Etablera i molnet](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/cloud-provision.png)
 
-1. Klicka på `F1` att öppna kommandopaletten, typ och väljer **IoT Workbench: enheten**och välj sedan **Config Enhetsinställningar > Välj IoT Hub enhetens anslutningssträng**.
+1. Klicka på `F1` att öppna kommandopaletten, typ och väljer **IoT Workbench: enheten**och välj sedan **Config Enhetsinställningar > Config enhetens anslutningssträng > Välj IoT Hub Enhetsanslutningssträngen**.
 
 1. På DevKit, håll ned **knappen A**, push och släpp den **återställa** knappen och släpp **knappen A**. Din DevKit anger konfigurationsläge och sparar anslutningssträngen.
     ![Anslutningssträng](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connection-string.png)

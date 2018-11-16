@@ -5,21 +5,21 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 11/14/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 2e9124213181fe32f3492e353b05ace89a9d6992
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: c1a9b526f08f330d62c30dd1d676e95460aee6c2
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243392"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712355"
 ---
-# <a name="using-the-azure-blockchain-workbench-rest-api"></a>Använda REST API för Azure Blockchain Workbench 
+# <a name="using-the-azure-blockchain-workbench-rest-api"></a>Använda REST API för Azure Blockchain Workbench
 
-REST API:erna för Azure Blockchain Workbench ger utvecklare och IT-anställda ett sätt att bygga rika integreringar för blockkedjeprogram. Det här dokumentet leder dig genom flera viktiga metoder för REST API:erna för Workbench. Föreställ dig ett scenario där en utvecklare vill skapa en anpassad blockkedjeklient, som ska göra att inloggade användare ska kunna visa och interagera med sina tilldelade blockkedjeprogram. Klienten kan låta användare visa kontraktsinstanser och vidta åtgärder på smarta kontrakt. Klienten använder REST API:erna i Workbench i kontexten för den inloggade användaren för att göra följande:
+REST API:erna för Azure Blockchain Workbench ger utvecklare och IT-anställda ett sätt att bygga rika integreringar för blockkedjeprogram. Det här dokumentet leder dig genom flera viktiga metoder för REST API:erna för Workbench. Anta exempelvis att en utvecklare som vill skapa en anpassad blockchain-klient. Den här blockchain-klienten kan inloggade användare visar och interagerar med sina tilldelade blockchain-program. Klienten kan låta användare visa kontraktsinstanser och vidta åtgärder på smarta kontrakt. Klienten använder Workbench REST API i kontexten för den inloggade användaren för att göra följande:
 
 * Lista program
 * Lista arbetsflöden för ett program
@@ -27,23 +27,23 @@ REST API:erna för Azure Blockchain Workbench ger utvecklare och IT-anställda e
 * Lista tillgängliga åtgärder för ett kontrakt
 * Utföra en åtgärd för ett kontrakt
 
-Exempel blockchain-program som används i scenarier, kan vara [ned från GitHub](https://github.com/Azure-Samples/blockchain). 
+Exempel blockchain-program som används i scenarier, kan vara [ned från GitHub](https://github.com/Azure-Samples/blockchain).
 
 ## <a name="list-applications"></a>Lista program
 
 När en användare har loggat in på den blockchain-klienten, är den första aktiviteten att hämta alla Blockchain Workbench-program för användaren. Användaren i det här scenariot har åtkomst till två program:
 
-1.  [Överföringen tillgången](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md)
-2.  [Kylda transport](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation/readme.md)
+1. [Överföringen tillgången](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md)
+2. [Kylda transport](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation/readme.md)
 
 Använd [GET API för programmet](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationsget):
 
 ``` http
-GET /api/v1/applications 
+GET /api/v1/applications
 Authorization : Bearer {access token}
 ```
 
-Svaret visar en lista över alla blockchain-program som en användare har åtkomst till i Blockchain Workbench. Blockchain Workbench-administratörer får alla blockkedjeprogram, medan andra administratörer än Workbench får alla instanser av blocknivåelement som de har minst en associerad programroll eller en kopplad roll för smarta kontrakt-instanser för.
+Svaret visar en lista över alla blockchain-program som en användare har åtkomst till i Blockchain Workbench. Blockchain Workbench administratörer får varje blockchain-program. Icke-Workbench administratörer få alla blockchains som de har minst ett associerat program eller en associerad smarta kontrakt instans.
 
 ``` http
 HTTP/1.1 200 OK
@@ -77,7 +77,7 @@ Content-type: application/json
 
 ## <a name="list-workflows-for-an-application"></a>Lista arbetsflöden för ett program
 
-När en användare väljer tillämpliga blockchain-program i det här fallet **tillgången överföra**, blockchain-klienten hämtar alla arbetsflöden för specifika blockchain-program. Användare kan sedan välja tillämpliga arbetsflöden innan alla instanser för smarta kontrakt för arbetsflödet visas. Alla blockkedjeprogram har ett eller flera arbetsflöden och varje arbetsflöde har noll eller fler instanser för smarta kontrakt. När du skapar blockkedjeklientprogram rekommenderar vi att du inte låter användare välja lämpligt arbetsflöde i de fall det bara finns ett arbetsflöde för blockkedjeprogrammet. I det här fallet **tillgången överföra** har bara ett arbetsflöde, kallas även **tillgången överföra**.
+När en användare väljer tillämpliga blockchain-program (till exempel **tillgången överföra**), blockchain-klienten hämtar alla arbetsflöden för specifika blockchain-program. Användare kan sedan välja tillämpliga arbetsflöden innan alla instanser för smarta kontrakt för arbetsflödet visas. Alla blockkedjeprogram har ett eller flera arbetsflöden och varje arbetsflöde har noll eller fler instanser för smarta kontrakt. För ett klientprogram i blockchain som har bara ett arbetsflöde, rekommenderar vi hoppar över användarflödet upplevelse som låter användarna välja lämpligt arbetsflödet. I det här fallet **tillgången överföra** har bara ett arbetsflöde, kallas även **tillgången överföra**.
 
 Använd [GET API för programarbetsflöden](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/workflowsget):
 
@@ -86,7 +86,7 @@ GET /api/v1/applications/{applicationId}/workflows
 Authorization: Bearer {access token}
 ```
 
-Svaret listar alla arbetsflöden för ett specifikt blockkedjeprogram som en användare har åtkomst till i Blockchain Workbench. Blockchain Workbench-administratörer får alla blockkedjearbetsflöden, medan andra administratörer än Workbench får alla arbetsflöden de har minst en associerad programroll eller en kopplad roll för smarta kontrakt-instanser för.
+Svaret listar alla arbetsflöden för ett specifikt blockkedjeprogram som en användare har åtkomst till i Blockchain Workbench. Blockchain Workbench administratörer får varje blockchain-arbetsflöde. Icke-Workbench administratörer få alla arbetsflöden som de har minst en tillhörande programroll eller är associerad med en roll för smarta kontrakt-instans.
 
 ``` http
 HTTP/1.1 200 OK
@@ -109,16 +109,16 @@ Content-type: application/json
 
 ## <a name="list-smart-contract-instances-for-a-workflow"></a>Lista smarta kontrakt-instanser för ett arbetsflöde
 
-När en användare väljer tillämpliga arbetsflödet, det här fallet **tillgången överföra**, blockchain-klienten hämtar alla smarta kontrakt-instanser för angivna arbetsflödet. Du kan använda den här informationen för att visa alla smarta kontrakt-instanser för arbetsflödet och låta användare titta mer ingående på någon av de smarta kontrakt-instanser som visas. Ta till exempel i det här fallet en användare som vill interagera med någon av instanserna för det smarta kontrakt som ska utföras.
+När en användare väljer tillämpliga arbetsflödet, det här fallet **tillgången överföra**, blockchain-klienten hämtar alla smarta kontrakt-instanser för angivna arbetsflödet. Du kan använda den här informationen för att visa alla smarta kontrakt-instanser för arbetsflödet. Eller du kan ge användare en djupdykning i någon av instanserna visas smarta kontrakt. Ta till exempel i det här fallet en användare som vill interagera med någon av instanserna för det smarta kontrakt som ska utföras.
 
-Använd [Contracts GET API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractsget) (GET API för kontrakt):
+Använd [Contracts GET API](/rest/api/azure-blockchain-workbench/contractsv2/contractsget) (GET API för kontrakt):
 
 ``` http
 GET api/v1/contracts?workflowId={workflowId}
 Authorization: Bearer {access token}
 ```
 
-Svaret visar alla smarta kontraktet-instanser för det angivna arbetsflödet. Workbench-administratörer får alla instanser av smarta kontrakt, medan andra administratörer än Workbench få alla instanser av smarta kontrakt som de har minst en associerad programroll eller en kopplad roll för smarta kontrakt-instanser för.
+Svaret visar alla smarta kontraktet-instanser för det angivna arbetsflödet. Workbench administratörer få alla instanser av smarta kontrakt. Icke-Workbench administratörer få fullo smarta kontrakt som de har minst en tillhörande programroll eller är associerad med en roll för smarta kontrakt-instans.
 
 ``` http
 HTTP/1.1 200 OK
@@ -208,12 +208,12 @@ Content-type: application/json
 
 ## <a name="list-available-actions-for-a-contract"></a>Lista tillgängliga åtgärder för ett kontrakt
 
-När en användare har valt att titta mer ingående på ett kontrakt, visar blockkedjeklienten alla tillgängliga åtgärder för användaren, utifrån tillståndet för kontraktet. I det här exemplet tittar användaren på alla tillgängliga åtgärder för ett nytt smart kontrakt som de skapat:
+När en användare väljer att djupdykning i ett kontrakt, kan blockchain-klienten sedan visa de tillgängliga användaråtgärder får tillståndet för kontraktet. I det här exemplet tittar användaren på alla tillgängliga åtgärder för ett nytt smart kontrakt som de skapat:
 
 * Ändra: Låter användaren ändra beskrivning och pris för en tillgång.
-* Avsluta: Låter användaren avsluta kontraktet för tillgången.
+* Avsluta: Används att avsluta kontraktet av tillgången.
 
-Använd [POST API för kontraktsåtgärden](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractactionget):
+Använd [POST API för kontraktsåtgärden](/rest/api/azure-blockchain-workbench/contractsv2/contractactionget):
 
 ``` http
 GET /api/v1/contracts/{contractId}/actions
@@ -275,12 +275,12 @@ Content-type: application/json
 
 ## <a name="execute-an-action-for-a-contract"></a>Utföra en åtgärd för ett kontrakt
 
-En användare kan sedan välja att vidta åtgärder för den angivna smarta kontrakt-instansen. Tänk dig till exempel ett scenario där en användare vill ändra beskrivning och pris för en tillgång till följande:
+En användare kan sedan välja att vidta åtgärder för den angivna smarta kontrakt-instansen. I det här fallet Överväg ett scenario där en användare vill ändra den beskrivning och pris för en tillgång till följande åtgärd:
 
 * Beskrivning: "Min uppdaterade bil"
 * Pris: 54321
 
-Använd [Contract Action POST API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractactionpost) (Kontraktsåtgärd för POST API):
+Använd [Contract Action POST API](/rest/api/azure-blockchain-workbench/contractsv2/contractactionpost) (Kontraktsåtgärd för POST API):
 
 ``` http
 POST /api/v1/contracts/{contractId}/actions

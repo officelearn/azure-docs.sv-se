@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: a4d62dd0bc984ce80324b405ddd0dcb625694b21
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 0f0bee419fdb119fcd99f0e72cc61ddf20f6253a
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612581"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712950"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Utöka Log Analytics-aviseringar till Azure-aviseringar
 Tills nyligen med Azure Log Analytics sin egen avisering funktioner, vilket kan informera dig om villkor baserat på Log Analytics-data. Du har hanterat Varningsregler i Microsoft Operations Management Suite-portalen. Det nya aviseringsgränssnittet har nu integrerats aviseringar för olika tjänster i Microsoft Azure. Detta är tillgänglig **aviseringar** under Azure Monitor i Azure-portalen och har stöd för aviseringar från aktiviteten skrivloggar, statistik och loggar från både Log Analytics och Azure Application Insights. 
@@ -55,7 +55,7 @@ Du omdirigeras automatiskt till Azure-aviseringar när du försöker redigera en
 > Se till att de behörigheter som tilldelats till personer som behöver lägga till eller redigera aviseringar tilldelas korrekt i Azure. Information om vilka behörigheter som du måste bevilja finns i [behörigheter för att använda Azure Monitor och aviseringar](monitoring-roles-permissions-security.md).  
 > 
 
-Du kan fortsätta att skapa aviseringar från den [Log Analytics API](../log-analytics/log-analytics-api-alerts.md) och [Log Analytics-resursmall](../monitoring/monitoring-solutions-resources-searches-alerts.md). När du gör detta måste du inkludera åtgärdsgrupper.
+Du kan fortsätta att skapa aviseringar från den [Log Analytics API](../log-analytics/log-analytics-api-alerts.md) och [Log Analytics-resursmall](../azure-monitor/insights/solutions-resources-searches-alerts.md). När du gör detta måste du inkludera åtgärdsgrupper.
 
 ## <a name="next-steps"></a>Nästa steg
 

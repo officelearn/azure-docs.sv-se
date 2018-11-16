@@ -2,25 +2,21 @@
 title: Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory | Microsoft Docs
 description: Så här väljer du en företagsapp att tilldela en användare eller grupp till den i Azure Active Directory
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: luleon
-ms.openlocfilehash: ee0b14123e193f219e403d2608368c27f953013d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b6b7408b4efe4c3271ea2ddeb63a499bee670976
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037982"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711318"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory
 Om du vill tilldela en användare eller grupp till en företagsapp, du måste ha behörighet att hantera appen enterprise och du måste vara global administratör för katalogen.
@@ -32,7 +28,7 @@ Om du vill tilldela en användare eller grupp till en företagsapp, du måste ha
 > For Microsoft Applications (till exempel Office 365-appar), använder du PowerShell för att tilldela användare till en företagsapp.
 
 
-## <a name="how-do-i-assign-user-access-to-an-enterprise-app-in-the-azure-portal"></a>Hur tilldelar åtkomst till en enterprise-app i Azure-portalen?
+## <a name="assign-a-user-to-an-app---portal"></a>Tilldela en användare till en app – portal
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
 2. Välj **alla tjänster**, ange Azure Active Directory i textrutan och välj sedan **RETUR**.
 3. Välj **företagsprogram**.
@@ -51,7 +47,25 @@ Om du vill tilldela en användare eller grupp till en företagsapp, du måste ha
 10. På den **Lägg till tilldelning** bladet väljer **rollen**. Klicka på den **Välj roll** bladet Välj en roll ska tillämpas på de valda användare eller grupper och välj sedan den **OK** längst ned på bladet.
 11. På den **Lägg till tilldelning** bladet och välja den **tilldela** längst ned på bladet. Tilldelade användare eller grupper som har de behörigheter som definieras av den valda rollen för den här enterprise-appen.
 
-## <a name="how-do-i-assign-a-user-to-an-enterprise-app-using-powershell"></a>Hur tilldelar jag en användare till en företagsapp med PowerShell?
+## <a name="allow-all-users-to-access-an-app---portal"></a>Tillåt alla användare åtkomst till en app – portal
+Att tillåta alla användare åtkomst till ett program:
+
+1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
+2. Välj **alla tjänster**, ange Azure Active Directory i textrutan och välj sedan **RETUR**.
+3. Välj **företagsprogram**.
+4. På den **företagsprogram** bladet väljer **alla program**. Här visas de appar som du kan hantera.
+5. På den **företagsprogram – alla program** bladet väljer du en app.
+6. På den ***appname*** bladet väljer **egenskaper**.
+7. På den  ***appname* -egenskaper** , anger du den **Användartilldelning krävs?** att ställa in **nr**. 
+
+Den **Användartilldelning krävs?** alternativet:
+
+- Påverkas inte om huruvida ett program visas på programåtkomstpanelen. Om du vill visa programmet på åtkomstpanelen, måste du tilldela en lämplig användare eller grupp till programmet.
+- Endast fungerar med molnprogram som är konfigurerade för SAML enkel inloggning och lokala program som har konfigurerats med programproxy. Se [enkel inloggning för program](what-is-single-sign-on.md).
+- Kräver att användarna samtycker till ett program. En administratör kan ge samtycke för alla användare.  Se [konfigurera sätt slutanvändarna samtycka till ett program](configure-user-consent.md).
+
+
+## <a name="assign-a-user-to-an-app---powershell"></a>Tilldela en användare till en app – PowerShell
 
 1. Öppna en upphöjd Windows PowerShell-kommandotolk.
 

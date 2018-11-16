@@ -10,28 +10,28 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: ''
-ms.openlocfilehash: 7931cd8a6f8b3de826e8dd563a837f80fc15d88a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 86561cd835a36282ca1b38638ab4372c6b360617
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315121"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705659"
 ---
 # <a name="azure-active-directory-premium-p2-licensing-feature-checklist"></a>Azure Active Directory Premium P2 licensiering funktionen Checklista
 
-Det kan verka skrämmande att distribuera Azure Active Directory (Azure AD) för din organisation och skydda den. Den här artikeln beskrivs några vanliga saker som kunderna gillar att slutföra under loppet av 30 dagar, 90 dagar eller senare för att förbättra sin säkerhetsposition. Även organisationer som redan har distribuerat Azure AD kan använda den här checklistan för att se till att de får ut maximalt av sina investeringar.
+Det kan verka överväldigande att distribuera Azure Active Directory (Azure AD) för din organisation och skydda den. Den här artikeln beskrivs några vanliga saker som kunderna användbara. Kunder vanligtvis utföra dessa uppgifter under 30 dagar, 90 dagar, eller efter för att förbättra sin säkerhetsposition. Även organisationer som redan har distribuerat Azure AD kan använda den här checklistan för att se till att de får ut maximalt av sina investeringar.
 
 Ett framgångsrikt och utförs identitetsinfrastrukturen banar vägen för säkrare åtkomst till din produktivitet arbetsbelastningar och data genom att endast autentiserade användare och enheter.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här handboken förutsätts att du har licenser för Azure AD Premium P2, Enterprise Mobility + Security E5, Microsoft 365 E5 eller en motsvarande licens-paket.
+Den här handboken förutsätts att du har licenser för Azure AD Premium P2, Enterprise Mobility + Security E5, Microsoft 365 E5 eller ett liknande licens-paket.
 
 [Azure AD-licensiering](https://azure.microsoft.com/pricing/details/active-directory/)
 
-[Microsoft 365 Enterprise](https://www.microsoft.com/licensing/product-licensing/microsoft-365-enterprise.aspx)
+[Microsoft 365 Enterprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 
-[Enterprise Mobility + Security](https://www.microsoft.com/licensing/product-licensing/enterprise-mobility-security.aspx)
+[Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 
 ## <a name="plan-and-deploy-day-1-30"></a>Planera och distribuera: dag 1 – 30
 

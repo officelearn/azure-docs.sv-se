@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5c9f37d326d66e69e87ec846ca6f22d1788203f5
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4dd56a55789952be0c1f72fb2d31b08b95ad10c8
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613995"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712440"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware Monitoring (förhandsversion) lösningen i Log Analytics
 
@@ -36,7 +36,7 @@ Lösningen använder inbyggda syslog-funktioner för ESXi-värd att skicka data 
 ## <a name="install-and-configure-the-solution"></a>Installera och konfigurera lösningen
 Använd följande information för att installera och konfigurera lösningen.
 
-* Lägga till VMware Monitoring-lösning för din prenumeration med hjälp av metoden som beskrivs i [installera en lösning för](../monitoring/monitoring-solutions.md#install-a-management-solution).
+* Lägga till VMware Monitoring-lösning för din prenumeration med hjälp av metoden som beskrivs i [installera en lösning för](../azure-monitor/insights/solutions.md#install-a-management-solution).
 
 #### <a name="supported-vmware-esxi-hosts"></a>VMware ESXi-värdar som stöds
 vSphere ESXi-värd 5.5, 6.0 och 6.5

@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: b004abb3959bbfe36fc200bf762114f88f3d2ead
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 3c07f39a6c6c4ce244ba49a26617b3e645c57acb
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345054"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710383"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>Distribuera webbtjänster till Azure Container Instances 
 
@@ -28,7 +28,7 @@ Den här artikeln visar tre olika sätt att distribuera en modell på ACI. De sk
 * Distribuera från registrerade modellen med `Webservice.deploy_from_model()`
 * Distribuera registrerade modell från avbildningen med hjälp av `Webservice.deploy_from_image()`
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLfree) innan du börjar.
 
 
 ## <a name="prerequisites"></a>Förutsättningar

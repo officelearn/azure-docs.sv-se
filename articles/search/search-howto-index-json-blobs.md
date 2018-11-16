@@ -9,12 +9,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: a4689093508c3287e60da9d4668393e71211fbdd
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 0dbf8a44007fbba39f6ac4c20e375a6d13ac9021
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405710"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711080"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexera JSON-blobar med Azure Search blob-indexeraren
 Den här artikeln visar hur du konfigurerar ett Azure Search blob-indexeraren för att extrahera strukturerat innehåll från JSON-blobar i Azure Blob storage.
@@ -24,11 +24,8 @@ JSON-blobar i Azure Blob storage är vanligtvis antingen ett enda JSON-dokument 
 | JSON-dokument | parsingMode | Beskrivning | Tillgänglighet |
 |--------------|-------------|--------------|--------------|
 | En per blob | `json` | Parsar JSON-blobar som ett enda segment med text. Varje JSON-blob blir ett enskilt dokument i Azure Search. | Allmänt tillgängliga i både [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) och [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) API: er. |
-| Flera per blob | `jsonArray` | Tolkar en JSON-matris i blob där varje element i matrisen blir en separat Azure Search-dokument.  | I förhandsversion, i [REST api-version =`2017-11-11-Preview` ](search-api-2017-11-11-preview.md) och [.NET SDK Preview](https://aka.ms/search-sdk-preview). |
+| Flera per blob | `jsonArray` | Tolkar en JSON-matris i blob där varje element i matrisen blir en separat Azure Search-dokument.  | Allmänt tillgängliga i både [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) och [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) API: er. |
 
-> [!Note]
-> Förhandsversion av API: er är avsedda för testning och utvärdering och ska inte användas i produktionsmiljöer.
->
 
 ## <a name="setting-up-json-indexing"></a>Ställa in JSON-indexering
 Indexera JSON-blobar liknar extraheringen vanligt dokument i ett arbetsflöde för tre delar som är gemensamma för alla indexerare i Azure Search.
@@ -103,9 +100,9 @@ En fullständigt angiven begäran kan se ut på följande sätt:
 
 Enligt vad som anges, krävs inte fältmappningar. Får ett index med ”text” ”, datePublished och” taggar ”-fält, blobben som indexeraren kan hämta korrekt mappning utan ett fält som mappar finns i begäran.
 
-## <a name="how-to-parse-json-arrays-preview"></a>Så här att parsa JSON-matriser (förhandsversion)
+## <a name="how-to-parse-json-arrays"></a>Så här att parsa JSON-matriser
 
-Du kan också välja förhandsversionsfunktionen för JSON-matris. Den här funktionen är användbar när blobbarna innehåller en *matris av JSON-objekt*, och du vill att varje element blir en separat Azure Search-dokument. Till exempel med följande JSON-blob kan du kan fylla i ditt Azure Search-index med tre separata dokument, var och en med fälten ”id” och ”text”.  
+Du kan också välja funktionen JSON-matris. Den här funktionen är användbar när blobbarna innehåller en *matris av JSON-objekt*, och du vill att varje element blir en separat Azure Search-dokument. Till exempel med följande JSON-blob kan du kan fylla i ditt Azure Search-index med tre separata dokument, var och en med fälten ”id” och ”text”.  
 
     [
         { "id" : "1", "text" : "example 1" },
@@ -115,9 +112,9 @@ Du kan också välja förhandsversionsfunktionen för JSON-matris. Den här funk
 
 ### <a name="indexer-definition-for-a-json-array"></a>Indexerarens definition för en JSON-matris
 
-För en JSON-matris indexeraren begäran använder förhandsversionen av API: et och `jsonArray` parser. Det här är bara två matris-specifika kraven för att indexera JSON-blobar.
+För en JSON-matris begäran indexeraren använder de `jsonArray` parser. Det här är bara två matris-specifika kraven för att indexera JSON-blobar.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

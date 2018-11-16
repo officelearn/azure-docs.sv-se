@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 11/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 6f9b85ec4821ff2454970136b3c8af2cb0f92154
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: c672634e79cbc0850edfe7f7fbdb0a880d5cf0d8
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140831"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707137"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Hantera labb konton i Azure Lab Services 
 I Azure Lab Services är ett labbkonto en behållare för hanterade labbar som klassrum labs. En administratör konfigurerar ett testlabb-konto med Azure Lab Services och ger åtkomst till labbägare som kan skapa labb i kontot. Den här artikeln beskriver hur du skapar ett labbkonto, visa alla lab-konton eller ta bort ett labbkonto.
@@ -114,7 +114,9 @@ Följ anvisningarna i föregående avsnitt för att se en lista över labs i lab
 
 
 ## <a name="next-steps"></a>Nästa steg
-Kom igång med att konfigurera ett testlabb med Azure Lab Services:
+Se följande artiklar:
 
-- [Konfigurera ett klassrumslabb](tutorial-setup-classroom-lab.md)
-- [Konfigurera ett labb](../tutorial-create-custom-lab.md)
+- [Som labbägare kan du skapa och hantera labb](how-to-manage-classroom-labs.md)
+- [Som labbägare kan du konfigurera och publicera mallar](how-to-create-manage-template.md)
+- [Som labbägare kan du konfigurera och styra användningen av ett labb](how-to-configure-student-usage.md)
+- [Som en lab-användare åtkomst till labb för klassrum](how-to-use-classroom-lab.md)

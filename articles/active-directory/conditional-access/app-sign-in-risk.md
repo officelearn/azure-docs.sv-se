@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 65f740e23b68727bdffa4a966518b1581fb5b0a6
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: a3c5c26f43fddf5d23df3bee0b0511e865b7e71b
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604373"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705930"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Snabbstart: Blockera åtkomst när en risk för session har identifierats med villkorlig åtkomst i Azure Active Directory  
 
@@ -38,7 +38,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Förutsättningar 
 
-Om du vill slutföra scenariot i den här självstudien behöver du:
+För att kunna slutföra scenariot i den här självstudien behöver du:
 
 - **Åtkomst till en Azure AD Premium P2-versionen** -villkorlig åtkomst är en funktion i Azure AD Premium P1, du behöver en P2-versionen eftersom scenariot i den här snabbstarten kräver Identity Protection. 
 
@@ -81,7 +81,7 @@ Det här avsnittet visar hur du skapar principen för villkorlig åtkomst som kr
 
 **Konfigurera principer för villkorlig åtkomst:**
 
-1. Logga in på din [Azure-portalen](https://portal.azure.com) som global administratör, säkerhetsadministratör eller administratör för villkorsstyrd åtkomst.
+1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör, säkerhetsadministratör eller administratör för villkorsstyrd åtkomst.
 
 2. I Azure portal, på det vänstra navigeringsfältet, klickar du på **Azure Active Directory**. 
 
@@ -168,7 +168,7 @@ Det här avsnittet visar hur du skapar principen för villkorlig åtkomst som kr
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Utvärdera en simulerad inloggning
 
-Nu när du har konfigurerat principer för villkorlig åtkomst kan vill du förmodligen veta om den fungerar som förväntat. Använda villkorlig åtkomst som ett första steg **vad händer om principen verktyget** att simulera en inloggning av din testanvändare. Simuleringen beräknar inverkan detta inloggning har på dina principer och genererar en simuleringsrapport.  
+Nu när du har konfigurerat din princip för villkorsstyrd åtkomst vill du förmodligen veta om den fungerar som förväntat. Använda villkorlig åtkomst som ett första steg **vad händer om principen verktyget** att simulera en inloggning av din testanvändare. Simuleringen uppskattar inloggningens inverkan på dina principer och genererar en simuleringsrapport.  
 
 När du kör den **vad händer om principen verktyget** i det här scenariot i **blockera åtkomst för medelstora risknivå** bör visas under **principer som gäller**. 
 
@@ -193,7 +193,7 @@ När du kör den **vad händer om principen verktyget** i det här scenariot i *
 3. Klicka på **vad händer om**.
 
 
-## <a name="test-your-conditional-access-policy"></a>Testa din princip för villkorlig åtkomst
+## <a name="test-your-conditional-access-policy"></a>Testa din princip för villkorsstyrd åtkomst
 
 I det föregående avsnittet har du lärt dig hur att utvärdera en simulerad inloggning. Förutom en simulering, bör du också testa principer för villkorlig åtkomst att se till att den fungerar som förväntat. 
 
@@ -212,7 +212,7 @@ När den inte längre behövs kan du ta bort testanvändaren, Tor Browser och pr
 
     ![Multi-Factor Authentication](./media/app-sign-in-risk/33.png)
 
-- Anvisningar för att ta bort Tor Browser finns i [avinstallerar](https://tb-manual.torproject.org/en-US/uninstalling.html).
+- Anvisningar för att ta bort Tor Browser finns i [avinstallerar](https://tb-manual.torproject.org/uninstalling/).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 3160e8252ca8a5bed63d0fe9a9cdf84b1b5c6158
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 153d70f8fadfc0dbc3c9fba74c92862bab1ee7cb
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629211"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711828"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Samla in loggdata med Azure Log Analytics-agenten
 
@@ -126,4 +126,4 @@ Ansluta datorer i din Azure-prenumeration eller hybridmiljö direkt med Azure Lo
 
 * Lär dig mer om [logga frågor](log-analytics-queries.md) att analysera data som samlas in från datakällor och lösningar. 
 
-* Lär dig mer om [övervakningslösningar](../monitoring/monitoring-solutions.md) som lägger till funktioner i Azure Monitor och också samla in data till Log Analytics-arbetsytan.
+* Lär dig mer om [övervakningslösningar](../azure-monitor/insights/solutions.md) som lägger till funktioner i Azure Monitor och också samla in data till Log Analytics-arbetsytan.

@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: erhopf
-ms.openlocfilehash: 1bcc290d987e8294f9a73cf8490f6cdd0251b440
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: ceb8e929520becd2bf097fefc9c6fe8959b1bf85
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467284"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51709822"
 ---
 # <a name="recognize-speech-by-using-the-rest-api"></a>Känna igen tal med hjälp av REST-API
 
@@ -29,7 +29,7 @@ REST-API: et är det enklaste sättet att känna igen tal om du inte använder e
 > Yttranden är begränsade till 15 sekunder eller mindre när du använder REST-API.
 > Kolla in den [tal SDK](how-to-recognize-speech-csharp.md) för igenkänning av längre yttranden.
 
-Mer information om den **tal till Text** REST API kan du läsa den [REST API: er](rest-apis.md#speech-to-text) artikeln. Visa API: et i praktiken genom att ladda ned den [REST API-exempel](https://github.com/Azure-Samples/SpeechToText-REST) från GitHub.
+Mer information om den **tal till Text** REST API kan du läsa den [REST API: er](rest-apis.md#speech-to-text-api) artikeln. Visa API: et i praktiken genom att ladda ned den [REST API-exempel](https://github.com/Azure-Samples/SpeechToText-REST) från GitHub.
 
 ## <a name="next-steps"></a>Nästa steg
 

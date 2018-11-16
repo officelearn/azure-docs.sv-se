@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: bba008bc6d1214aa4b2ca7cc609586a3d18159fd
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 534c47e1c3189258617505808f7a8c7b2e3a3c6e
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613621"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711046"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Lösning i Azure Log Analytics för aviseringshantering
 
@@ -36,7 +36,7 @@ Den här lösningen fungerar med alla poster i Log Analytics-databasen med en ty
 - För System Center Operations Manager-aviseringar [ansluta din Operations Manager-hanteringsgrupp till Log Analytics-arbetsytan](log-analytics-om-agents.md).  Alla varningar som skapats i System Center Operations Manager importeras till Log Analytics.  
 
 ## <a name="configuration"></a>Konfiguration
-Lägg till lösning för aviseringshantering till Log Analytics-arbetsytan med processen som beskrivs i [lägga till lösningar](../monitoring/monitoring-solutions.md). Det krävs ingen ytterligare konfiguration.
+Lägg till lösning för aviseringshantering till Log Analytics-arbetsytan med processen som beskrivs i [lägga till lösningar](../azure-monitor/insights/solutions.md). Det krävs ingen ytterligare konfiguration.
 
 ## <a name="management-packs"></a>Hanteringspaket
 Om din hanteringsgrupp för System Center Operations Manager är ansluten till Log Analytics-arbetsytan, installeras följande hanteringspaket i System Center Operations Manager när du lägger till den här lösningen.  Det finns ingen konfigurering eller underhåll av de hanteringspaket som krävs.

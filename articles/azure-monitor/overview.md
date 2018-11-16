@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 0f17cf7f2ef655f482b08b5c7163c0d85be77ce5
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 3de1939ec4004c2709fb0e366fb492462cf2d216
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068713"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710774"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
@@ -67,7 +67,7 @@ Azure Monitor kan samla in loggdata från alla REST-klient som använder den [Da
 
 
 ## <a name="insights"></a>Insikter
-Övervakning av data är endast användbart om det kan öka din insyn i driften av IT-miljön. Azure Monitor innehåller flera funktioner och verktyg som kan ger värdefulla insikter i dina program och andra resurser som de förlitar sig på. [Övervakningslösningar](../monitoring/monitoring-solutions.md) och funktioner som [Application Insights](../application-insights/app-insights-overview.md) och behållaren Insights ger djupare insikter om olika aspekter av ditt program och specifika Azure-tjänster. 
+Övervakning av data är endast användbart om det kan öka din insyn i driften av IT-miljön. Azure Monitor innehåller flera funktioner och verktyg som kan ger värdefulla insikter i dina program och andra resurser som de förlitar sig på. [Övervakningslösningar](../azure-monitor/insights/solutions.md) och funktioner som [Application Insights](../application-insights/app-insights-overview.md) och behållaren Insights ger djupare insikter om olika aspekter av ditt program och specifika Azure-tjänster. 
 
 ### <a name="application-insights"></a>Application Insights
 [Application Insights](../application-insights/app-insights-overview.md) övervakar tillgänglighet, prestanda och användningen av ditt webbprogram om de är finns i molnet eller lokalt. Den använder kraftfull dataplattform analys i Log Analytics för att ge dig djupare insikter om ditt programs operations och diagnostisera fel utan att behöva vänta på att en användare rapporterar dem. Application Insights innehåller en rad olika utvecklingsverktyg och integreras med Visual Studio för att stödja dina DevOps-processer.
@@ -86,9 +86,9 @@ Azure Monitor VM insights övervakar dina Azure-datorer (VM) i stor skala genom 
 ![VM-insikter](media/overview/vm-insights.png)
 
 ### <a name="monitoring-solutions"></a>Övervakningslösningar
-[Övervakningslösningar](../monitoring/monitoring-solutions.md) är paketerade uppsättningar av logik som ger insikter för ett visst program eller tjänst i Azure Monitor. De samla in data till Log Analytics tillsammans med andra övervakningsdata med [frågor](../log-analytics/log-analytics-queries.md) för analys och [vyer](../log-analytics/log-analytics-view-designer.md) för visualisering. Övervakningslösningar är [tillgängliga från Microsoft](../monitoring/monitoring-solutions-inventory.md) och partners att tillhandahålla övervakning för olika Azure-tjänster och andra program.
+[Övervakningslösningar](../azure-monitor/insights/solutions.md) är paketerade uppsättningar av logik som ger insikter för ett visst program eller tjänst i Azure Monitor. De samla in data till Log Analytics tillsammans med andra övervakningsdata med [frågor](../log-analytics/log-analytics-queries.md) för analys och [vyer](../log-analytics/log-analytics-view-designer.md) för visualisering. Övervakningslösningar är [tillgängliga från Microsoft](../azure-monitor/insights/solutions-inventory.md) och partners att tillhandahålla övervakning för olika Azure-tjänster och andra program.
 
-![Övervakningslösningar](../monitoring/media/monitoring-solutions/overview.png)
+![Övervakningslösningar](media/overview/solutions-overview.png)
 
 ## <a name="responding-to-critical-situations"></a>Svara på kritiska situationer
 Förutom att du kan analysera övervakningsdata interaktivt, kunna en effektiv lösning för övervakning proaktivt besvara kritiska tillstånd som identifierats i de data som den samlar in. Detta kan vara att skicka en text- eller e-post till en administratör ansvarar för att undersöka problem. Eller du kan starta en automatiserad process som försöker korrigera ett feltillstånd.

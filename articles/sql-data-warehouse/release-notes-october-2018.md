@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 11/11/2018
+ms.date: 11/14/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 82f55c87c54fa5197a2bd5c24ea3863da1700c7b
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 1edac9f7eac1f47974f4c94f3cae5bb3451f92fd
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51579730"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705386"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>Vad är nytt i Azure SQL Data Warehouse? Oktober 2018
 Azure SQL Data Warehouse tar emot förbättringar kontinuerligt. Den här artikeln beskriver nya funktioner och ändringar som har införts i oktober 2018.
@@ -32,7 +32,7 @@ Avancerade inställningen för Azure SQL Data Warehouse (SQL DW) bara fick enkla
 2.  Tabelldistribution – avgöra när du ska replikera tabeller för att minska dataförflyttning och öka arbetsbelastningens prestanda. 
 3.  TempDB – Förstå när skala och konfigurerar resurs klasser för att minska konkurrensen i tempdb.
 
-Det finns en djupare integrering av måtten i informationslager med [Azure Monitor](https://azure.microsoft.com/blog/enhanced-capabilities-to-monitor-manage-and-integrate-sql-data-warehouse-in-the-azure-portal/) inklusive en förbättrad anpassningsbara Övervakningsdiagrammet för nästan i realtid mått i översiktsbladet. Du måste inte längre lämna data warehouse översiktsbladet för att komma åt Azure Monitor metrics när du övervakar användningen, eller Validera och koppla data warehouse rekommendationer. Det finns dessutom nya mått som är tillgängliga, till exempel tempdb och anpassningsbar cache-användning för att komplettera din prestandarekommendationer.
+Det finns en djupare integrering av måtten i informationslager med [Azure Monitor](https://azure.microsoft.com/blog/enhanced-capabilities-to-monitor-manage-and-integrate-sql-data-warehouse-in-the-azure-portal/) inklusive en förbättrad anpassningsbara Övervakningsdiagrammet för nästan i realtid mått i översiktsbladet. Du behöver inte längre lämna informationslagrets översiktsblad för att få tillgång till måtten i Azure Monitor när du övervakar användning eller utvärderar och använder informationslagerrekommendationer. Det finns dessutom nya mått som är tillgängliga, till exempel tempdb och anpassningsbar cache-användning för att komplettera din prestandarekommendationer.
 
 ## <a name="advanced-tuning-with-integrated-advisors"></a>Avancerade justering med integrerad rådgivare
 Avancerade inställningen för Azure SQL Data Warehouse (SQL DW) bara fick enklare med ytterligare data warehouse rekommendationer och mått och en ny utformning av bladet översikt över portal som ger en integrerad upplevelse med Azure Advisor och Azure Monitor.
@@ -41,7 +41,7 @@ Avancerade inställningen för Azure SQL Data Warehouse (SQL DW) bara fick enkla
 Azure SQL Data Warehouse Accelerated Database Recovery (ADR) finns nu i offentlig förhandsversion. Regel för automatisk distribution är en ny SQL Server-motorn som avsevärt förbättrar databastillgänglighet, särskilt i förekomsten av långvariga transaktioner genom att göra om den aktuella återställningsprocessen från grunden upp helt. De främsta fördelarna med ADR är snabbt och konsekvent databasåterställning och omedelbar transaktionsåterställning.
 
 ## <a name="azure-monitor-diagnostics-logs"></a>Azure Monitor-diagnostikloggar
-SQL Data Warehouse (SQL DW) kan nu bättre insikter om analytiska arbetsbelastningar genom att integrera direkt med Azure Monitor diagnostikloggar. Den här nya funktionen kan utvecklare Analysera arbetsbelastning beteende under en längre tid och fatta välgrundade beslut om frågan optimering eller kapacitet management. Nu har vi lagt en extern loggning process via [diagnostikloggar för Azure Monitor](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json#logs) som ger ytterligare insikter om din arbetsbelastning i informationslager. Med ett enda klick för en knapp, du kan nu konfigurera diagnostikloggar för historiksökning prestandafelsökning funktioner med hjälp av [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). Azure Monitor-diagnostikloggar stöder anpassningsbara kvarhållningsperioder genom att spara loggarna till ett lagringskonto i granskningssyfte, möjlighet att strömningsloggar till event hubs nästan i realtid telemetri insikter och möjligheten att analysera loggar med Log Analytics med [logga frågor](). Diagnostikloggar bestå av telemetri vyer för ditt informationslager som motsvarar de vanligaste prestandafelsökning DMV: er för SQL Data Warehouse. För den här första versionen har vi aktiverat vyer för vyer för dynamisk hantering av följande system:
+SQL Data Warehouse (SQL DW) kan nu bättre insikter om analytiska arbetsbelastningar genom att integrera direkt med Azure Monitor diagnostikloggar. Den här nya funktionen kan utvecklare Analysera arbetsbelastning beteende under en längre tid och fatta välgrundade beslut om frågan optimering eller kapacitet management. Nu har vi lagt en extern loggning process via [diagnostikloggar för Azure Monitor](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json#logs) som ger ytterligare insikter om din arbetsbelastning i informationslager. Med ett enda klick för en knapp, du kan nu konfigurera diagnostikloggar för historiksökning prestandafelsökning funktioner med hjälp av [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). Azure Monitor-diagnostikloggar stöder anpassningsbara kvarhållningsperioder genom att spara loggarna till ett lagringskonto i granskningssyfte, möjlighet att strömningsloggar till event hubs nästan i realtid telemetri insikter och möjligheten att analysera loggar med Log Analytics med [logga frågor](). Diagnostikloggarna består av telemetriska vyer av ditt informationslager. Vyerna som motsvarar de oftast använda DMV:erna för prestandafelsökning i SQL Data Warehouse. För den här första versionen har vi aktiverat vyer för vyer för dynamisk hantering av följande system:
 
 - [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)
 - [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)
@@ -49,11 +49,8 @@ SQL Data Warehouse (SQL DW) kan nu bättre insikter om analytiska arbetsbelastni
 - [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 - [sys.dm_pdw_sql_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql)
 
-## <a name="instant-data-movement"></a>Omedelbar dataförflyttning 
-Förutom Shuffle utökar omedelbar dataförflyttning nu för att sända och partitionera flytten.
-
-## <a name="scale-up-column-store-columnstore-metadata-memory-management-sql-server"></a>Att skala upp kolumnen Store: Hantering av Columnstore metadata memory (SQL Server)
-Optimerad minneshantering för kolumnen lagra metadata 
+## <a name="columnstore-memory-management"></a>Columnstore minneshantering
+När antalet komprimerade kolumnen store radgrupper ökar, ökar det minne som krävs för att hantera interna kolumnmetadata segment för dessa radgrupper.  Därför kan försämra prestanda för frågor och frågor som körs mot vissa av Columnstore-dynamiska hanteringsvyer (DMV).  Förbättringar har gjorts i den här versionen att optimera storleken på interna metadata för dessa fall, vilket leder till bättre upplevelse och prestanda för sådana frågor. 
 
 ## <a name="azure-data-lake-storage-gen2-integration-ga"></a>Integrering med Azure Data Lake Storage Gen2 (GA)
 Azure SQL Data Warehouse (SQL DW) har nu integrering med Azure Data Lake Storage Gen2. Kunder kan nu läsa in data med externa tabeller från ABFS till SQL DW. Den här funktionen gör det möjligt för kunder att integrera med sina datasjöar i Data Lake Storage Gen2. 

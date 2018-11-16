@@ -11,22 +11,22 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 0dc7e8836f1e6a11c44f5e0f337015cac53a92d4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e729d163428723d099157ad62d1c89a7ed917900
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252810"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711437"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Implementera haveriberedskap med hjälp av service-säkerhetskopiering och återställning i Azure API Management
 
-Genom att välja att publicera och hantera dina API: er via Azure API Management du dra nytta av många feltolerans och infrastrukturfunktioner som du annars skulle behöva utforma, implementera och hantera. Azure-plattformen minskar risken för en stor del av potentiella fel till en bråkdel av kostnaden.
+Genom att publicera och hantera dina API: er via Azure API Management, tar du nytta av feltolerans och infrastrukturfunktioner som du tidigare annars design, implementera och hantera manuellt. Azure-plattformen minskar risken för en stor del av potentiella fel till en bråkdel av kostnaden.
 
-Om du vill återställa från tillgänglighetsproblem som påverkar den region där API Management-tjänsten finns, bör du vara redo att fylla din tjänst i en annan region när som helst. Beroende på tillgänglighet målen och återställningstid, kanske du vill reservera en tjänst i en eller flera regioner för säkerhetskopiering och försök att underhålla sina konfigurationer och innehåll som är synkroniserade med den aktiva tjänsten. Funktionen för tjänsten ”säkerhetskopiera och Återställ” ger nödvändiga byggblock för att implementera din strategi för katastrofåterställning.
+Om du vill återställa från tillgänglighetsproblem som påverkar den region som är värd för API Management-tjänsten, redo att fylla din tjänst i en annan region när som helst. Beroende på tillgänglighet och återställningsmål för tid, kan du reservera en tjänst för säkerhetskopiering i en eller flera regioner. Du kan även försöka att underhålla sina konfigurationer och innehåll som är synkroniserade med den aktiva tjänsten. Funktionen för tjänsten ”säkerhetskopiera och Återställ” ger nödvändiga byggblock för att implementera din strategi för katastrofåterställning.
 
-Den här guiden visar hur du autentiserar Azure Resource Manager-förfrågningar och hur du säkerhetskopierar och återställer din API Management-tjänstinstanser.
+Den här guiden visar hur du autentiserar Azure Resource Manager-förfrågningar. Den visar även hur du säkerhetskopierar och återställer din API Management-tjänstinstanser.
 
 > [!NOTE]
 > Processen för att säkerhetskopiera och återställa en API Management-tjänstinstans för haveriberedskap kan också användas för att replikera API Management-tjänstinstanser för scenarier, till exempel mellanlagring.
@@ -48,11 +48,11 @@ Alla aktiviteter som du kan utföra på resurser med hjälp av Azure Resource Ma
 
 ### <a name="create-an-azure-active-directory-application"></a>Skapa ett Azure Active Directory-program
 
-1. Logga in på [Azure Portal](https://portal.azure.com). 
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Använd den prenumeration som innehåller din API Management-tjänstinstans, navigera till den **appregistreringar** fliken **Azure Active Directory** (Azure Active Directory > Hantera/App-registreringar).
 
     > [!NOTE]
-    > Om Azure Active Directory-standardkatalog inte visas för ditt konto, kontakta administratören för Azure-prenumerationen för att ge behörighet till ditt konto.
+    > Om Azure Active Directory-standardkatalog inte visas på ditt konto, kontakta administratören för Azure-prenumerationen för att ge behörighet till ditt konto.
 3. Klicka på **Ny programregistrering**.
 
     Den **skapa** visas till höger. Det är där du anger att den relevanta informationen för AAD-app.
@@ -68,7 +68,7 @@ Alla aktiviteter som du kan utföra på resurser med hjälp av Azure Resource Ma
 3. Klicka på **+ Lägg till**.
 4. Tryck på **Välj en API**.
 5. Välj **Windows** **Azure Service Management API**.
-6. Tryck på **Välj**. 
+6. Tryck på **Välj**.
 
     ![Lägga till behörigheter](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
@@ -78,7 +78,7 @@ Alla aktiviteter som du kan utföra på resurser med hjälp av Azure Resource Ma
 
 ### <a name="configuring-your-app"></a>Konfigurera din app
 
-Det är nödvändigt att hämta en token innan du anropar API: er som generera säkerhetskopian och återställer den. I följande exempel används den [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) nuget för att hämta token.
+Innan du anropar API: er som generera säkerhetskopian och återställer den, måste du hämta en token. I följande exempel används den [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) nuget för att hämta token.
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -105,9 +105,9 @@ namespace GetTokenResourceManagerRequests
 }
 ```
 
-Ersätt `{tentand id}`, `{application id}`, och `{redirect uri}` att följa dessa anvisningar:
+Ersätt `{tenant id}`, `{application id}`, och `{redirect uri}` att följa dessa anvisningar:
 
-1. Ersätt `{tenant id}` med klient-id för Azure Active Directory-program som du skapade. Du kan komma åt det ID: t genom att klicka på **appregistreringar** -> **slutpunkter**.
+1. Ersätt `{tenant id}` med klient-ID för Azure Active Directory-program som du skapade. Du kan komma åt det ID: T genom att klicka på **appregistreringar** -> **slutpunkter**.
 
     ![Slutpunkter][api-management-endpoint]
 2. Ersätt `{application id}` med värdet som du får genom att navigera till den **inställningar** sidan.
@@ -122,7 +122,7 @@ Ersätt `{tentand id}`, `{application id}`, och `{redirect uri}` att följa dess
 
 ## <a name="calling-the-backup-and-restore-operations"></a>Anropa åtgärder för säkerhetskopiering och återställning
 
-REST-API: er är [Api Management-tjänsten – Backup](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/apimanagementservice_backup) och [Api Management-tjänsten – återställning](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/apimanagementservice_restore).
+REST-API: er är [Api Management-tjänsten – Backup](/rest/api/apimanagement/apimanagementservice/backup) och [Api Management-tjänsten – återställning](/rest/api/apimanagement/apimanagementservice/restore).
 
 Ställ in begärandehuvudet auktorisering för REST-anrop innan du anropar ”säkerhetskopiering och återställning” åtgärderna som beskrivs i följande avsnitt.
 
@@ -131,22 +131,22 @@ request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 ```
 
 ### <a name="step1"> </a>Säkerhetskopiera en API Management-tjänsten
+
 Säkerhetskopiera ett problem med API Management-tjänsten följande HTTP-begäran:
 
-```
+```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}
 ```
 
 Där:
 
-* `subscriptionId` -ID: t för prenumerationen som innehåller API Management-tjänsten som du försöker säkerhetskopiera
+* `subscriptionId` -ID för den prenumeration som innehåller API Management-tjänsten som du försöker säkerhetskopiera
 * `resourceGroupName` – namnet på resursgruppen för Azure API Management-tjänsten
 * `serviceName` – namnet på API Management-tjänsten du gör en säkerhetskopia av anges vid tidpunkten för den har skapandet
 * `api-version` – Ersätt med `2018-06-01-preview`
 
 Ange mål Azure storage-kontonamn, åtkomstnyckel, blob-behållarnamn och namn på säkerhetskopia i brödtexten för begäran:
 
-
 ```json
 {
   "storageAccount": "{storage account name for the backup}",
@@ -158,32 +158,33 @@ Ange mål Azure storage-kontonamn, åtkomstnyckel, blob-behållarnamn och namn p
 
 Ange värdet för den `Content-Type` begärandehuvudet till `application/json`.
 
-Backup är en tidskrävande åtgärd som kan ta flera minuter att slutföra.  Om begäran lyckades och säkerhetskopieringen startades, får du en `202 Accepted` svarsstatuskod med en `Location` rubrik.  Se ”GET-begäranden till URL: en i den `Location` huvudet för att ta reda på status för åtgärden. När säkerhetskopieringen pågår kan fortsätta att ta emot statuskoden ”202-accepterad”. En svarskod `200 OK` anger säkerhetskopieringen slutförts och lyckats.
+Backup är en tidskrävande åtgärd som kan ta mer än en minut att slutföra.  Om begäran lyckades och började säkerhetskopieringen, får du en `202 Accepted` svarsstatuskod med en `Location` rubrik.  Se ”GET-begäranden till URL: en i den `Location` huvudet för att ta reda på status för åtgärden. När säkerhetskopieringen pågår kan fortsätta att ta emot statuskoden ”202-accepterad”. En svarskod `200 OK` anger säkerhetskopieringen slutförts och lyckats.
 
-Observera följande begränsningar när du gör en begäran om säkerhetskopiering.
+Observera följande begränsningar när du gör en begäran om säkerhetskopiering:
 
 * **Behållaren** anges i begärandetexten **måste finnas**.
-* När säkerhetskopiering pågår du **bör inte försöka alla tjänsthantering** , till exempel SKU-uppgradering eller nedgradera, ändring av domän namn, osv.
+* När säkerhetskopiering pågår **undvika ändringar i Tjänstehantering** , till exempel SKU uppgradera eller nedgradera prisförändringarna domännamn och mycket mer.
 * Återställning av en **säkerhetskopiering garanteras endast för 30 dagar** sedan den tidpunkt då skapades.
-* **Användningsdata** används för att skapa analysrapporter **ingår inte** i säkerhetskopian. Använd [Azure API Management REST API] [ Azure API Management REST API] att regelbundet hämta analysrapporter för säker förvaring.
-* Den frekvens med vilken du säkerhetskopiera tjänst påverkar dina mål för återställningspunkt. För att minimera den rekommendationen implementera regelbundna säkerhetskopieringar samt utföra säkerhetskopieringar på begäran när du har gjort viktiga ändringar till API Management-tjänsten.
-* **Ändringar** gjort i tjänstkonfigurationen (till exempel API: er, principer, developer portal utseende) vid säkerhetskopiering åtgärden pågår **kan inte ingå i säkerhetskopieringen och därför går förlorad**.
+* **Användningsdata** används för att skapa analysrapporter **inte är inkluderat** i säkerhetskopian. Använd [Azure API Management REST API] [ Azure API Management REST API] att regelbundet hämta analysrapporter för säker förvaring.
+* Den frekvens med vilken du säkerhetskopiera tjänst påverkar dina mål för återställningspunkt. För att minimera det, rekommenderar vi implementera regelbundna säkerhetskopieringar och säkerhetskopieringar på begäran när du gör ändringar i API Management-tjänsten.
+* **Ändringar** gjort i tjänstkonfigurationen, (till exempel API: er, principer och developer portal utseende) vid säkerhetskopiering åtgärden pågår **kan uteslutas från säkerhetskopieringen och går förlorade**.
 
 ### <a name="step2"> </a>Återställa en API Management-tjänsten
-Om du vill återställa en API Management-tjänsten från en tidigare skapad säkerhetskopia gör följande HTTP-begäran:
 
-```
+Om du vill återställa en API Management-tjänsten från en tidigare skapad säkerhetskopia, gör du följande HTTP-begäran:
+
+```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}
 ```
 
 Där:
 
-* `subscriptionId` -ID: t för prenumerationen som innehåller API Management-tjänsten som du återställer en säkerhetskopia i
-* `resourceGroupName` – namnet på resursgruppen som innehåller Azure API Management-tjänsten som du återställer en säkerhetskopia i
-* `serviceName` – namnet på det API service håller på att återställas till anges vid tidpunkten för den har skapandet
+* `subscriptionId` -ID för den prenumeration som innehåller API Management-tjänsten du återställer en säkerhetskopia i
+* `resourceGroupName` – namnet på resursgruppen som innehåller Azure API Management-tjänsten du återställer en säkerhetskopia i
+* `serviceName` – namnet på det API service håller på att återställas till anges vid dess Skapandetid
 * `api-version` – Ersätt med `2018-06-01-preview`
 
-Ange Säkerhetskopians plats som är, Azure storage-kontonamn, åtkomstnyckel, blob-behållarnamn och namn på säkerhetskopia i brödtexten för begäran:
+Ange Säkerhetskopians plats i brödtexten i begäran. Det vill säga lägga till Azure storage-kontonamn, åtkomstnyckel, blob-behållarnamn och namn på säkerhetskopia:
 
 ```json
 {
@@ -196,12 +197,14 @@ Ange Säkerhetskopians plats som är, Azure storage-kontonamn, åtkomstnyckel, b
 
 Ange värdet för den `Content-Type` begärandehuvudet till `application/json`.
 
-Återställning är en tidskrävande åtgärd som kan ta upp till 30 minuter att slutföra. Om begäran lyckades och återställningsprocessen har påbörjats, får du en `202 Accepted` svarsstatuskod med en `Location` rubrik. Se ”GET-begäranden till URL: en i den `Location` huvudet för att ta reda på status för åtgärden. Medan återställningen pågår kan du fortsätta att ta emot ”202-accepterad” statuskod. En svarskod `200 OK` anger slutförande av återställningen.
+Återställning är en tidskrävande åtgärd som kan ta upp till 30 minuter att slutföra. Om begäran lyckades och återställningsprocessen började, får du en `202 Accepted` svarsstatuskod med en `Location` rubrik. Se ”GET-begäranden till URL: en i den `Location` huvudet för att ta reda på status för åtgärden. Medan återställningen pågår kan du fortsätta att ta emot ”202-accepterad” statuskod. En svarskod `200 OK` anger slutförande av återställningen.
 
 > [!IMPORTANT]
 > **SKU: N** av tjänsten håller på att återställas till **måste matcha** SKU för säkerhetskopierade tjänsten håller på att återställas.
 >
 > **Ändringar** gjorde att konfigurationen av (till exempel API: er, principer, developer portal utseende) vid återställning pågår **kan skrivas över**.
+
+<!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
 > Säkerhetskopiering och återställning kan också utföras med PowerShell *Backup-AzureRmApiManagement* och *Restore-AzureRmApiManagement* respektive-kommandon.

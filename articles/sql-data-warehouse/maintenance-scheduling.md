@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 09/20/2018
+ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: c2ed79673af3563ae62f516057a174770cda99e9
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 9d26c1d923294a149a57ef28ca03e77dfc2e1c87
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427870"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711913"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Använda underhållsscheman för att hantera uppdateringar av tjänsten och underhåll
 
@@ -27,7 +27,7 @@ Alla nyligen skapade Azure SQL Data Warehouse har instanser ett systemdefinierad
 
 Varje underhållsperiod kan vara tre till åtta timmar. Underhåll kan inträffa när som helst i fönstret. Du bör förvänta dig en kort förlust av anslutning som tjänsten distribuerar ny kod till ditt informationslager. 
 
-I förhandsversionen funktionen kan du identifiera primära och sekundära windows inom separat dag intervall. Alla underhållsåtgärder bör slutföras inom tider för schemalagt underhåll. Inget Underhåll sker utanför de angivna underhållsfönster utan föregående meddelande. Om ditt informationslager är pausat under ett schemalagt underhåll, kommer att uppdateras under åtgärden återuppta.  
+Om du vill använda den här funktionen behöver du identifiera ett primära och sekundära fönster i separata dag intervall. Alla underhållsåtgärder bör slutföras inom tider för schemalagt underhåll. Inget Underhåll sker utanför de angivna underhållsfönster utan föregående meddelande. Om ditt informationslager är pausat under ett schemalagt underhåll, kommer att uppdateras under åtgärden återuppta.  
 
 
 ## <a name="alerts-and-monitoring"></a>Aviseringar och övervakning

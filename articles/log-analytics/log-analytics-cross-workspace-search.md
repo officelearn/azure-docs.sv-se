@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/17/2018
+ms.date: 11/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e06b9ff2134c0bd1fb1ee8515827e9e8c06a3108
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 9c7a1ec33f82239a5b95e9bf116fe35694d9df36
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008478"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852868"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Utföra mellan resurser loggsökningar i Log Analytics  
 
@@ -101,6 +101,36 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 | where UpdateState == "Needed"
 | summarize dcount(Computer) by Classification
 ```
+
+## <a name="using-cross-resource-query-for-multiple-resources"></a>Använda mellan resurser frågan för flera resurser
+När du använder frågor mellan resurser för att korrelera data från flera Log Analytics och Application Insights-resurser, kan frågan bli komplicerad och svår att underhålla. Du bör använda [funktioner i Log Analytics](query-language/functions.md) att separera frågelogiken från omfånget för frågan-resurser, vilket förenklar frågestrukturen. I följande exempel visar hur du kan övervaka flera Application Insights-resurser och visualisera antal misslyckade begäranden per programnamn. 
+
+Skapa en fråga som detta som refererar till omfattningen för Application Insights-resurser. Den `withsource= SourceApp` kommando lägger till en kolumn som anger namnet på programmet som skickas i loggen. [Spara frågan som funktionen](query-language/functions.md#create-a-function) med alias _applicationsScoping_.
+
+```Kusto
+// crossResource function that scopes my Application Insights resources
+union withsource= SourceApp
+app('Contoso-app1').requests, 
+app('Contoso-app2').requests,
+app('Contoso-app3').requests,
+app('Contoso-app4').requests,
+app('Contoso-app5').requests
+```
+
+
+
+Du kan nu [Använd den här funktionen](query-language/functions.md#use-a-function) i en fråga för mellan resurser så här. Funktionens alias _applicationsScoping_ returnerar unionen av tabellen ”requests” från alla definierade program. Frågan och sedan filtrerar för misslyckade förfrågningar och hjälper dig att visualisera trender av program. Den _parsa_ operatorn är valfria i det här exemplet. Det extraherar programnamnet från _SourceApp_ egenskapen.
+
+```Kusto
+applicationsScoping 
+| where timestamp > ago(12h)
+| where success == 'False'
+| parse SourceApp with * '(' applicationName ')' * 
+| summarize count() by applicationName, bin(timestamp, 1h) 
+| sort by count_ desc 
+| render timechart
+```
+![tidsdiagram](media/log-analytics-cross-workspace-search/chart.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

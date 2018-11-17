@@ -4,7 +4,8 @@ description: Snabbstartsguide för att skapa anpassade R-moduler i Azure Machine
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
@@ -15,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.openlocfilehash: 1a578e8cc05b42d05a8dfb31c0baeefb4822e3e5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b920f0ae3acd253c0f1f698ae4415e5b759ef762
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261118"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819346"
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Skapa anpassade R-moduler i Azure Machine Learning
 Det här avsnittet beskriver hur du skapar och distribuerar en anpassad R-modul i Azure Machine Learning. Den förklarar vad anpassade R-moduler är och vilka filer som används för att definiera dessa. Det illustrerar hur du skapar filer som definierar en modul och hur du registrerar modulen för distribution i en Machine Learning-arbetsyta. Element och attribut som används i definitionen för anpassad modul sedan beskrivs i detalj. Hur du använder extra funktioner och filer och flera utdata diskuteras också. 
@@ -132,7 +133,7 @@ En modul resultaten kan vara deterministisk eller nondeterministic.* * som stand
 Det finns funktioner som är icke-deterministisk, till exempel RAND eller en funktion som returnerar aktuellt datum och tid. Om din modul använder en icke-deterministisk funktion, kan du ange att modulen är icke-deterministisk genom att ange den valfria **isDeterministic** attributet **FALSKT**. Detta garanterar att modulen ska köras på nytt när experimentet har körts, även om modulen som indata och parametrar inte har ändrats. 
 
 ### <a name="language-definition"></a>Definition av språk
-Den **språk** elementet i XML-definitionsfilen för att ange anpassad modul-språk. R är för närvarande det enda språket som stöds. Värdet för den **sourceFile** attributet måste vara namnet på den R-fil som innehåller funktionen som ska anropas när modulen körs. Den här filen måste vara en del av zip-paketet. Värdet för den **entryPoint** attributet är namnet på den funktion som anropas och måste matcha en giltig funktion som definierats med i källfilen.
+Den **språk** elementet i XML-definitionsfilen för att ange anpassad modul-språk. R är för närvarande det enda språk som stöds. Värdet för den **sourceFile** attributet måste vara namnet på den R-fil som innehåller funktionen som ska anropas när modulen körs. Den här filen måste vara en del av zip-paketet. Värdet för den **entryPoint** attributet är namnet på den funktion som anropas och måste matcha en giltig funktion som definierats med i källfilen.
 
     <Language name="R" sourceFile="CustomAddRows.R" entryPoint="CustomAddRows" />
 

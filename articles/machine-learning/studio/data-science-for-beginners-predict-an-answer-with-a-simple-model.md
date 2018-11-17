@@ -1,11 +1,12 @@
 ---
-title: Förutsäga ett svar med en enkel regressionsmodell - Azure Machine Learning | Microsoft Docs
+title: Förutsäga ett svar med en enkel regressionsmodell – Azure Machine Learning | Microsoft Docs
 description: Så här skapar du en enkel regressionsmodell för att förutsäga ett pris i datavetenskap för nybörjare video 4. Innehåller en linjär regression med måldata.
-keywords: Skapa en modell, enkla modellen, pris förutsägelse, enkla regressionsmodell
+keywords: Skapa en modell, enkel modell, priset förutsägelse, enkel regression-modellen
 services: machine-learning
 documentationcenter: na
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cjgronlund
 ms.assetid: a28f1fab-e2d8-4663-aa7d-ca3530c8b525
@@ -16,18 +17,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: ad1b8369358f7811a02d344fdc0306662413a404
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: d1e7667d30eecab2e1a3328fdc68ef528823e695
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833833"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824208"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Förutsäga ett svar med en enkel modell
-## <a name="video-4-data-science-for-beginners-series"></a>Video 4: Datavetenskap för nybörjare serien
-Lär dig hur du skapar en enkel regressionsmodell för att förutsäga priset på en rombformade i datavetenskap för nybörjare video 4. Vi ska rita en regressionsmodell med måldata.
+## <a name="video-4-data-science-for-beginners-series"></a>Video 4: Datavetenskap för nybörjare-serien
+Lär dig hur du skapar en enkel regressionsmodell för att förutsäga priset på en romb i datavetenskap för nybörjare video 4. Vi kommer att rita en regressionsmodell med måldata.
 
-Titta på alla för att få ut mesta möjliga av serien. [Gå till listan över videor](#other-videos-in-this-series)
+Titta på alla för att få ut det mesta av serien. [Gå till listan över videor](#other-videos-in-this-series)
 <br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
@@ -35,103 +36,103 @@ Titta på alla för att få ut mesta möjliga av serien. [Gå till listan över 
 >
 
 ## <a name="other-videos-in-this-series"></a>Andra videor i den här serien
-*Datavetenskap för nybörjare* är en snabb introduktion till datavetenskap i fem kort video.
+*Datavetenskap för nybörjare* är en snabbintroduktion i datakunskap med fem korta filmer.
 
-* Video 1: [5 frågor datavetenskap svar](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min. 14 sek)*
-* Video 2: [är data som är redo för datavetenskap?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min. 56 sek)*
-* Video 3: [Ställ en fråga som du kan svara med data](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sek)*
-* Video 4: Förutsäga ett svar med en enkel modell
+* Video 1: [5 frågor och svar om datavetenskap](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sek.)*
+* Video 2: [är dina data klara för datavetenskap?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sek)*
+* Video 3: [Ställ en fråga som du kan svara på med data](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sek)*
+* Video 4: Förutsäg ett svar med en enkel modell
 * Video 5: [kopiera andras arbete för att göra datavetenskap](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sek)*
 
-## <a name="transcript-predict-an-answer-with-a-simple-model"></a>Betyg: Förutsäga ett svar med en enkel modell
-Välkommen till den fjärde videon i den ”datavetenskap för nybörjare” serien. I det här objektet ska vi skapa en enkel modell och göra en förutsägelse.
+## <a name="transcript-predict-an-answer-with-a-simple-model"></a>Avskriften: Förutsäga ett svar med en enkel modell
+Välkommen till den fjärde videon i den ”Data datavetenskap för nybörjare” serien. I det här objektet ska vi skapa en enkel modell och göra en förutsägelse.
 
-En *modellen* är en förenklad artikel om våra data. Jag lära dig vad det innebär.
+En *modellen* är en förenklad historia om våra data. Du lär dig vad jag betyder.
 
-## <a name="collect-relevant-accurate-connected-enough-data"></a>Samla relevant, korrekt, ansluten, tillräckligt med data
-Anta jag vill handla för en rombformade. Jag har en ring tillhörde min mor med en inställning för en 1.35 cirkumflex rombformade och jag vill få en uppfattning om hur mycket kostar. Jag blir anteckningar, penna till arkivet smycken och jag skriva ned priset på alla stjärnor i fallet och hur mycket de väg i carats. Från och med den första rombformade - 1.01 carats och $7,366.
+## <a name="collect-relevant-accurate-connected-enough-data"></a>Collect relevanta, korrekt, ansluten, tillräckligt med data
+Anta att jag vill leta efter en romb. Jag har en testgrupp som tillhör min mor med en inställning för en 1.35 cirkumflex romb och jag vill få en uppfattning av hur mycket det kostar. Jag blir anteckningar, penna till arkivet smycken och jag anteckna priset för alla romber i fallet och hur mycket de väg i carats. Från och med den första romben - 1.01 carats och $7,366.
 
-Nu jag gå igenom och göra detta för alla andra stjärnor i arkivet.
+Nu jag gå igenom och göra detta för alla andra romber i arkivet.
 
-![Datakolumner rombformade](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/diamond-data.png)
+![Romb datastaplar](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/diamond-data.png)
 
-Observera att vår lista har två kolumner. Varje kolumn har ett annat attribut - vikt i carats och pris- och varje rad är en enskild datapunkt som representerar en enskild rombformade.
+Observera att listan har två kolumner. Varje kolumn har ett annat attribut – vikt i carats och pris- och varje rad är en enskild datapunkt som representerar en enskild romb.
 
-Vi har skapat en liten faktiskt data här - ange en tabell. Observera att det uppfyller våra kriterier för kvalitet:
+Faktiskt har vi skapat en liten datauppsättning här – en tabell. Lägg märke till att de uppfyller våra villkor under kvalitetsuppdateringar:
 
 * Data är **relevanta** -vikt definitivt är relaterad till pris
 * Den har **korrekt** -vi dubbelkollat de priser som vi anteckna
-* Den har **anslutna** -det finns inga blanksteg i något av dessa kolumner
-* Och som vi ser den har **tillräckligt med** data som svar på vår fråga
+* Den har **anslutna** -det finns inga blanksteg i någon av dessa kolumner
+* Och eftersom vi ser den har **tillräckligt med** data som svar på våra fråga
 
-## <a name="ask-a-sharp-question"></a>Ställ en fråga som skarpa
-Nu ska vi utgöra våra fråga i skarpa sätt: ”hur mycket kostar det för att köpa en 1.35 cirkumflex rombformade”?
+## <a name="ask-a-sharp-question"></a>Ställ en sharp fråga
+Nu ska vi utgöra vår fråga på en sharp sätt: ”hur mycket det kostar för att köpa en 1.35 cirkumflex romb”?
 
-Vår lista har en 1.35 cirkumflex rombformade, så vi kommer att behöva använda resten av våra data för att få svar på frågan.
+Vår lista har en 1.35 cirkumflex romb, så vi måste du använda resten av våra data för att få ett svar på frågan.
 
 ## <a name="plot-the-existing-data"></a>Rita befintliga data
-Det första vi ska göra är att dra en linje för vågrät nummer, kallas en axel för att skapa diagram över vikterna. Vikterna intervallet är 0 till 2 så vi ska rita som täcker intervall och placera tick för varje halva cirkumflex.
+Det första vi ska göra är att rita en vågrät linje för tal, kallas en axel för att skapa diagram över vikterna. Intervallet av vikterna är 0 till 2, så vi kommer att rita en linje som täcker som intervall och placera ticken för varje halva cirkumflex.
 
-Vi kommer nästa rita en lodrät axel för att registrera priset och ansluta till vikt vågrät axel. Detta kan vara i enheter om dollar. Nu har vi en uppsättning koordinaten axlar.
+Vi kommer sedan rita en lodrät axel för att registrera priset och ansluter den till vikt för vågrät axel. Det här är i enheter om dollar. Nu har vi en uppsättning koordinaten axlar.
 
 ![Vikt- och axlar](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/weight-and-price-axes.png)
 
-Vi tar nu dessa data och konverterar den till en *punktdiagram ritytans*. Detta är ett bra sätt att visualisera numeriska datamängder.
+Vi ska nu ta dessa data och konverterar den till en *punktdiagram*. Det här är ett bra sätt att visualisera numeriska datauppsättningar.
 
-För den första datapunkten eyeball vi en lodrät linje vid 1.01 carats. Vi eyeball sedan en vågrät linje vid $7,366. Om de uppfyller Rita vi en punkt. Detta representerar vår första rombformade.
+Den första datapunkten eyeball vi en lodrät linje vid 1.01 carats. Sedan kan eyeball vi en vågrät linje vid $7,366. Om de uppfyller Rita vi en punkt. Detta representerar vår första romb.
 
-Nu vi gå igenom varje rombformade i listan och gör samma sak. När vi via det här är vad vi får: flera punkter, en för varje rombformade.
+Nu vi gå igenom varje romb i listan och göra samma sak. När vi är klar med det här är vad vi får: en massa punkter, en för varje romb.
 
-![Punktdiagram ritytans](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/scatter-plot.png)
+![Punktdiagram](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/scatter-plot.png)
 
-## <a name="draw-the-model-through-the-data-points"></a>Rita modellen genom datapunkter
-Nu om du tittar på punkter och squint samlingen ser ut som en fat fuzzy linje. Vi kan ta våra markör och rita rakt igenom den.
+## <a name="draw-the-model-through-the-data-points"></a>Rita modellen via datapunkter
+Nu om du tittar på de punkter och squint samlingen ser ut som en fat, fuzzy-rad. Vi kan ta våra markör och rita en rak linje genom den.
 
-Genom att dra en linje vi har skapat en *modellen*. Tänk på detta som tar verkligheten och göra en simplistic tecknad version av den. Nu tecknat är fel - raden Gå inte igenom alla datapunkter. Men det är en användbar förenkling av distribution.
+Genom att rita en rad som vi skapade en *modellen*. Tänk på det som tar den verkliga världen och göra en förenklad tecknad version av den. Nu tecknat är fel - raden Gå inte igenom alla datapunkter. Men det är en användbar förenkling av distribution.
 
-![Regressionslinjen](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/linear-regression-line.png)
+![Linjär regression rad](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/linear-regression-line.png)
 
-Det faktum att alla punkter inte går exakt genom raden är OK. Datavetare förklara detta genom att säga att modellen - som är rad - och sedan varje punkt har vissa *brus* eller *varians* som är kopplade till den. Det finns underliggande perfekt relationen och det finns mer, verkliga världen som lägger till brus och osäkerhet.
+Det faktum att alla punkter inte exakt genomgå raden är OK. Dataexperter förklarar du detta genom att säga att det är den modell - som är rad - och sedan varje punkt har några *bruset* eller *varians* kopplade till den. Det finns underliggande perfekt relationen och det finns mer, verkliga världen som lägger till brus och osäkerheten.
 
-Eftersom vi försöker besvara frågan *hur mycket?* detta kallas en *regression*. Och eftersom vi använder rakt, är det en *linjär regression*.
+Eftersom vi försöker besvara frågan *hur mycket?* detta kallas en *regression*. Och eftersom vi använder en rak linje, det är en *linjär regression*.
 
-## <a name="use-the-model-to-find-the-answer"></a>Använd modellen för att hitta svaret
-Nu när vi har en modell och vi fråga den våra: hur mycket kostar en 1.35 cirkumflex rombformade?
+## <a name="use-the-model-to-find-the-answer"></a>Använd modellen svaret
+Nu har vi en modell och vi har Ställ vår fråga: hur mycket kostar en 1.35 cirkumflex romb?
 
-För att besvara våra fråga vi ögonglobens 1.35 carats och rita en lodrät linje. Där den korsar raden modellen eyeball vi vågrät linje dollar axel. Den träffar höger på 10 000. BOM! Det är svaret: en 1.35 cirkumflex rombformade kostnader cirka 10 000 $.
+För att besvara vår fråga vi ögonikonen 1.35 carats och rita en lodrät linje. Där den korsar raden modellen eyeball vi en vågrät linje dollar axel. Det kommer till höger på 10 000. Japp! Det är svaret: en 1.35 cirkumflex romb kostar cirka 10 000 USD.
 
 ![Hitta svaret på modellen](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## <a name="create-a-confidence-interval"></a>Skapa en konfidensintervallet
-Det är fysiska undrar hur exakt den här förutsägelse är. Det är bra att känna av om 1.35 cirkumflex rombformade blir mycket nära 10 000 kr eller mycket högre eller lägre. För att lösa detta ut vi Rita kuvertet runt regressionslinjen som innehåller de flesta av punkterna. Kuvertet kallas vår *konfidensintervallet*: vi ganska säker på att priserna ligger inom det här kuvertet eftersom de senaste av dem ha. Vi kan hämta två mer horisontella raderna från där 1.35 cirkumflex linjen korsar upp och längst ned på kuvertets.
+Det är naturlig fundera över hur exakt den här förutsägelse är. Det är bra att veta om 1.35 cirkumflex romb ska vara mycket nära 10 000 USD, eller mycket högre eller lägre. För att fastställa detta vi rita ett kuvert runt regressionslinjen som innehåller de flesta av punkterna. Den här kuvert kallas vår *konfidensintervall*: vi är ganska säker på att priserna ligger inom det här kuvertet eftersom i den senaste de flesta av dem har. Vi kan hämta två mer vågräta linjer från där 1.35 cirkumflex linje korsar upp och längst ned på kuvertets.
 
-![Konfidensintervallet](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
+![Konfidensintervall](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
-Nu kan vi säga något om våra konfidensintervallet: vi kan säga säkert sätt att priset på en 1.35 cirkumflex rombformade är ungefär $ 10 000 - men det kan vara så lågt som 8 000 och det kan vara så högt som $ 12 000.
+Nu kan vi anta att något om vårt konfidensintervall: vi kan säga tryggt att priset för en 1.35 cirkumflex romb är ungefär $ 10 000 – men det kan vara så lågt som 8 000 och det kan vara så mycket som 12 000 $.
 
 ## <a name="were-done-with-no-math-or-computers"></a>Vi är klara, utan matematiska eller datorer
-Vi gjorde vad datavetare hämta betald att göra och vi gjorde det genom att rita:
+Vi gjorde vad dataforskare få betalt för att göra och vi gjorde det genom att rita:
 
-* Vi frågade en fråga för att vi kan besvara med data
-* Vi har skapat en *modellen* med *linjär regression*
-* Vi har gjort en *prediction*, med en *konfidensintervallet*
+* Vi ställt frågan att vi kan svara på med data
+* Vi har byggt en *modellen* med *linjär regression*
+* Vi har gjort en *förutsägelse*, med en *konfidensintervall*
 
 Och vi använder inte matematiska eller datorer till den.
 
-Nu om vi hade mer information som...
+Om vi hade haft mer information, som nu...
 
-* Klipp ut av rombformade
-* färgvariationer (hur nära symbol är blir vit)
-* antalet inkluderingar i rombformade
+* Klipp ut av romben
+* färg varianter (hur nära romben är att vara vit)
+* antalet inkluderingar i romben
 
-...så vi fick fler kolumner. I så fall blir matematiska användbara. Om du har fler än två kolumner är det svårt att rita punkter på dokumentet. Matematiskt kan du anpassa den raden eller detta plan till dina data mycket snyggt.
+...så vi fick fler kolumner. I så fall blir matematiska användbart. Om du har fler än två kolumner, är det svårt att rita punkter på dokumentet. Resultatet kan du anpassa den raden eller detta plan till dina data mycket ett snyggt sätt.
 
-Även om i stället för bara ett fåtal stjärnor, vi hade två tusen eller två miljoner och sedan göra mycket snabbare som fungerar med en dator.
+Även om de i stället för att bara ett fåtal romber, vi hade två tusen eller två miljoner och arbetet kan göra mycket snabbare med en dator.
 
-Idag hittills har diskuterats hur du gör linjär regression och vi har gjort en förutsägelse med hjälp av data.
+Idag vi har pratat om hur du gör linjär regression och vi har gjort en förutsägelse med hjälp av data.
 
-Glöm inte att checka ut andra videor i ”datavetenskap för nybörjare” från Microsoft Azure Machine Learning.
+Glöm inte att checka ut andra videor i ”Data datavetenskap för nybörjare” från Microsoft Azure Machine Learning.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Försök med ett första datavetenskap experiment i Machine Learning Studio](create-experiment.md)
-* [Få en introduktion till Maskininlärning på Microsoft Azure](what-is-machine-learning.md)
+* [Prova en första dataexperiment med Machine Learning Studio](create-experiment.md)
+* [Få en introduktion till Machine Learning på Microsoft Azure](what-is-machine-learning.md)

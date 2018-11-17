@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 13748bf23ee70bfa77e15e7112b450637a231742
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: HT
+ms.openlocfilehash: 342e182466d2fe704c5ee188e35dece0abaeea02
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710723"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823103"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Länka partner-ID till dina Azure-konton
 
@@ -43,7 +43,7 @@ När du har åtkomst till kundens resurser, Använd Azure portal, PowerShell ell
 
 2. Logga in på Azure Portal.
 
-3. Ange Microsoft partner-ID. Partner-ID är den [Microsoft Partner Network(MPN)](https://partner.microsoft.com/) ID: T för din organisation.
+3. Ange Microsoft partner-ID. Partner-ID är den [Microsoft Partner Network (MPN)](https://partner.microsoft.com/) ID: T för din organisation.
 
   ![Skärmbild som visar länka partner-ID](./media/billing-link-partner-id/link-partner-ID.PNG)
 

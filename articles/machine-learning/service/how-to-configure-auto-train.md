@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 5a539aebc9b1ccb5f52f89d511fc992ee6a24c81
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5c75b462c3b1201eb70c1028c748def5da114b92
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008954"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823307"
 ---
 # <a name="configure-your-automated-machine-learning-experiment"></a>Konfigurera dina automatiserade machine learning-experiment
 
@@ -192,7 +192,7 @@ Egenskap  |  Beskrivning | Standardvärde
 `max_time_sec` |    Begränsar mängden tid (sekunder) tar för en viss iteration. Om en iteration överskrider angiven mängd, den iterationen hämtar har avbrutits. Om den inte anges kommer iterationen fortsätter att köras tills den är klar. |   Ingen
 `n_cross_validations`   |Antalet delningar i korsverifieringar| Ingen
 `validation_size`   |Storleken på verifiering som procent av alla utbildning exemplet.|  Ingen
-`preprocess` | SANT/FALSKT <br/>True aktiverar experimentera om du vill utföra Förbearbeta på indata. Följande är en delmängd av Förbearbeta<li>Data saknas: Imputes det saknade data numeriska med Average, Text med de flesta förekomsten </li><li>Kategoriska värden: Om-datatypen är numeriska datatyper och antalet unika värden är mindre än 5 procent, konverterar till en hot-kodning </li><li>Etc. fullständig lista finns [GitHub-lagringsplatsen](https://aka.ms/aml-notebooks)</li><br/>Obs: om data som är gles du inte använda Förbearbeta = true | False | 
+`preprocess` | SANT/FALSKT <br/>True aktiverar experimentera om du vill utföra Förbearbeta på indata. Följande är en delmängd av Förbearbeta<li>Data saknas: Imputes saknas data-numeriska med Average, Text med de flesta förekomsten </li><li>Kategoriska värden: Om-datatypen är numeriska datatyper och antalet unika värden är mindre än 5 procent, konverterar till en hot-kodning </li><li>Etc. fullständig lista finns [GitHub-lagringsplatsen](https://aka.ms/aml-notebooks)</li><br/>Obs: om data som är gles du inte använda Förbearbeta = true |  False | 
 `blacklist_algos`   | Automatiserad ML-experiment har många olika algoritmer som försök. Konfigurera automatisk ML för att undanta vissa algoritmer från experimentet. Användbart om du är medveten om att algoritm(er) inte fungerar bra för din datauppsättning. Exkludera algoritmer kan spara beräkningsresurser och utbildning.<br/>Tillåtna värden för klassificering<br/><li>Logistic regression</li><li>Descent klassificerare</li><li>MultinomialNB</li><li>BernoulliNB</li><li>SVM</li><li>LinearSVM</li><li>kNN</li><li>DT</li><li>RF</li><li>extra träd</li><li>gradient boosting</li><li>lgbm_classifier</li><br/>Tillåtna värden för Regression<br/><li>Elastisk net</li><li>Gradient boosting regressor</li><li>DT regressor</li><li>kNN regressor</li><li>Lasso Dell</li><li>Descent regressor</li><li>RF regressor</li><li>extra träd regressor</li>|   Ingen
 `verbosity` |Styr loggningsnivå med information som är den mest utförliga och kritiska som minsta möjliga.<br/>Tillåtna värden är:<br/><li>logging.INFO</li><li>loggning. VARNING</li><li>loggning. FEL</li><li>loggning. KRITISKA</li>  | logging.INFO</li> 
 `X` | Alla funktioner för att träna med |  Ingen

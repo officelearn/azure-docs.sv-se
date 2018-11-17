@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: f68bf05ef9749794c78898e4464489e7cfb358ff
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 32dbef04febb1f3a0cdd8654fc5ec1c5c367439e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231393"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820009"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Distribuera din app till Azure App Service med FTP/S
 
@@ -66,7 +66,7 @@ För ökad säkerhet bör du tillåta FTP över SSL endast. Du kan också inakti
 
 I din app resurssida i [Azure-portalen](https://portal.azure.com)väljer **appinställningar** i det vänstra navigeringsfönstret.
 
-Om du vill inaktivera okrypterade FTP, Välj **FTPS endast**. För att inaktivera både FTP och FTPS helt och hållet, Välj **inaktivera**. När det är klart klickar du på **Spara**. Om du använder **FTPS endast** du måste använda TLS 1.1 eller senare genom att navigera till den **SSL-inställningar** bladet för webbappen. TLS 1.0 stöds inte med **FTPS endast**.
+Om du vill inaktivera okrypterade FTP, Välj **FTPS endast**. För att inaktivera både FTP och FTPS helt och hållet, Välj **inaktivera**. När det är klart klickar du på **Spara**. Om du använder **FTPS endast** du måste använda TLS 1.2 eller senare genom att navigera till den **SSL-inställningar** bladet för webbappen. TLS 1.0 och 1.1 stöds inte med **FTPS endast**.
 
 ![Inaktivera FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
 

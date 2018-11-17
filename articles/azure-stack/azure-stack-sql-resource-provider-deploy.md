@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 8a1bae4a05a0054960771b61ac186c1a48c3aea1
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 633597785d42f8bdd150a3b4a839a9595ebde7a4
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686253"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852579"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Distribuera SQL Server-resursprovider i Azure Stack
 
@@ -37,14 +37,15 @@ Det finns flera förutsättningar som måste vara uppfyllda innan du kan distrib
 - Lägg till nödvändiga Windows Server core VM på Azure Stack Marketplace genom att ladda ned den **Windows Server 2016 Datacenter - Server Core** bild.
 - Ladda ned den SQL-resursprovidern binära och kör sedan Self-Extractor för att extrahera innehållet till en tillfällig katalog. Resursprovidern har en minsta motsvarande Azure Stack skapa.
 
-    |Lägsta version av Azure Stack|SQL RP-version|
-    |-----|-----|
-    |Version 1808 (1.1808.0.97)|[SQL RP version 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
-    |     |     |
+  |Lägsta version av Azure Stack|SQL RP-version|
+  |-----|-----|
+  |Version 1808 (1.1808.0.97)|[SQL RP version 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
+  |Version 1804 (1.0.180513.1)|[SQL RP version 1.1.24.0](https://aka.ms/azurestacksqlrp11240)
+  |     |     |
 
 - Kontrollera att datacenter integration krav är uppfyllda:
 
-    |Krav|Referens|
+    |Förutsättning|Referens|
     |-----|-----|
     |Villkorlig vidarebefordran av DNS är korrekt.|[Integrering med Azure Stack datacenter - DNS](azure-stack-integrate-dns.md)|
     |Ingående portar för resursprovider är öppna.|[Azure Stack datacenter-integrering – publicera slutpunkter](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|

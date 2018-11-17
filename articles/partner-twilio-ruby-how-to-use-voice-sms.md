@@ -14,12 +14,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: 41b5383dd319f2cb6fad4316e963f86dd7a4bc61
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 128eff5f628a0a4bf9f67e988ab7d3e2f22ed767
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036616"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823749"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Använda Twilio för röst- och SMS-funktioner i Ruby
 Den här guiden visar hur du utför vanliga programmeringsspråk uppgifter med Twilio-API-tjänsten på Azure. Scenarier som omfattas är ringa ett samtal och skicka ett meddelande om tjänsten SMS (Short Message). Mer information om Twilio och använda röst och SMS i dina program finns i den [nästa steg](#NextSteps) avsnittet.
@@ -146,7 +146,7 @@ Om du in `http://yourdomain.cloudapp.net/make_call` i en webbläsare som ska utl
 
 Den tredje parametern (`url`) är den URL som Twilio begär vill ha information om vad du gör när anropet är ansluten. I det här fallet vi ställa in en URL (`http://yourdomain.cloudapp.net`) som returnerar ett vanligt TwiML dokument och använder den `<Say>` verb som gör vissa text till tal och säger ”Hello apa” till den person som tar emot samtalet.
 
-## <a id="howto_recieve_sms"></a>Så här: ta emot en SMS-meddelande
+## <a id="howto_receive_sms"></a>Så här: får ett SMS-meddelande
 I föregående exempel startade vi en **utgående** telefonsamtal. Den här gången, använder vi det telefonnummer som Twilio gav oss under registrering för att bearbeta en **inkommande** SMS: et.
 
 Första, logga in på din [Twilio-instrumentpanel][twilio_account]. Klicka på ”tal” i det övre navigeringsfältet och klicka sedan på Twilio-talet som du har angett. Du ser två URL: er som du kan konfigurera. En röst begärd URL och ett SMS URL för begäran. Det här är URL: er som Twilio anropar när det görs ett telefonsamtal eller ett SMS skickas till ditt nummer. URL: er är också kända som ”webhooks”.

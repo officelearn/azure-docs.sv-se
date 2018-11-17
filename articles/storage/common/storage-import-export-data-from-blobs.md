@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 60a92e35f1408d944e8091be4945c53abe3791d1
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: faf8852df8b50c43affe32ede0f1e96d0bb80d3d
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50754060"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821250"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten för att exportera data från Azure Blob storage
 Den här artikeln innehåller stegvisa instruktioner om hur du använder Azure Import/Export-tjänsten för att exportera stora mängder data på ett säkert sätt från Azure Blob storage. Tjänsten kräver att du kan leverera tomma enheter till Azure-datacentret. Tjänsten exporterar data från ditt lagringskonto till enheterna och sedan levereras enheter tillbaka.

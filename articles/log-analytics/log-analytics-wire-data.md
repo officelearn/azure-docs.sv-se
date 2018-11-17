@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: ae34cc869dfb286a5a60f59fdab8733f611a6ec7
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: HT
+ms.openlocfilehash: 1fc2bb8fae744bb72f4fb77dc69d11f41d4480e6
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712168"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822362"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Wire Data 2.0-lösning (förhandsversion) i Log Analytics
 
@@ -60,8 +60,8 @@ Wire Data hämtar sina data från Microsofts beroendeagent. Beroendeagenten bero
 
 | **Ansluten källa** | **Stöds** | **Beskrivning** |
 | --- | --- | --- |
-| Windows-agenter | Ja | Wire Data analyserar och samlar in data från Windows-agentdatorer. <br><br> Förutom den [Log Analytics-agenten för Windows](log-analytics-agent-windows.md), Windows-agenter kräver Microsofts Beroendeagent. Se [Operativsystem som stöds](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) för en fullständig lista med operativsystemversioner. |
-| Linux-agenter | Ja | Wire Data analyserar och samlar in data från Linux-agentdatorer.<br><br> Förutom den [Log Analytics-agenten för Linux](log-analytics-quick-collect-linux-computer.md), Linux-agenter kräver Microsofts Beroendeagent. Se [Operativsystem som stöds](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems) för en fullständig lista med operativsystemversioner. |
+| Windows-agenter | Ja | Wire Data analyserar och samlar in data från Windows-agentdatorer. <br><br> Förutom den [Log Analytics-agenten för Windows](log-analytics-agent-windows.md), Windows-agenter kräver Microsofts Beroendeagent. Se [Operativsystem som stöds](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) för en fullständig lista med operativsystemversioner. |
+| Linux-agenter | Ja | Wire Data analyserar och samlar in data från Linux-agentdatorer.<br><br> Förutom den [Log Analytics-agenten för Linux](log-analytics-quick-collect-linux-computer.md), Linux-agenter kräver Microsofts Beroendeagent. Se [Operativsystem som stöds](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) för en fullständig lista med operativsystemversioner. |
 | System Center Operations Manager-hanteringsgrupp | Ja | Wire Data analyserar och samlar in data från Windows- och Linux-agenter i en ansluten [System Center Operations Manager-hanteringsgrupp](log-analytics-om-agents.md). <br><br> En direktanslutning från System Center Operations Manager-agentdatorn till Log Analytics krävs. |
 | Azure Storage-konto | Nej | Wire Data samlar in data från agentdatorer, så det finns inte några data att samla in från Azure Storage. |
 

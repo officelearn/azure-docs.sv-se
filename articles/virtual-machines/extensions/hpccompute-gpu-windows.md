@@ -12,24 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 11/15/2018
 ms.author: roiyz
-ms.openlocfilehash: f7c7877768e2dc06e73f8c91016edd521151a11c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 85ac478bf753d5bb0aed96eca538e48525354eff
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42061125"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823800"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>NVIDIA GPU-drivrutinen-tillägg för Windows
 
 ## <a name="overview"></a>Översikt
 
-Det här tillägget installerar NVIDIA GPU-drivrutiner på Windows virtuella datorer i N-serien. Beroende på VM-familjen installerar tillägget CUDA- eller NÄTVERKSBASERADE drivrutiner. När du installerar NVIDIA drivrutinerna med hjälp av det här tillägget du accepterar och samtycker till villkoren i licensavtalet NVIDIA. Under installationen, kan den virtuella datorn startas om för att slutföra installationen för drivrutinen.
+Det här tillägget installerar NVIDIA GPU-drivrutiner på Windows virtuella datorer i N-serien. Beroende på VM-familjen installerar tillägget CUDA- eller NÄTVERKSBASERADE drivrutiner. När du installerar NVIDIA drivrutinerna med hjälp av det här tillägget du accepterar och samtycker till villkoren i den [NVIDIA licensavtalet](https://go.microsoft.com/fwlink/?linkid=874330). Under installationen, kan den virtuella datorn startas om för att slutföra installationen för drivrutinen.
 
 Ett tillägg kan även installera NVIDIA GPU-drivrutiner på [Linux N-serien virtuella datorer](hpccompute-gpu-linux.md).
-
-Villkoren i licensavtalet för NVIDIA finns här – https://go.microsoft.com/fwlink/?linkid=874330
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -45,7 +43,7 @@ Det här tillägget har stöd för följande operativsystem:
 
 ### <a name="internet-connectivity"></a>Internetanslutning
 
-Microsoft Azure-tillägget för NVIDIA GPU-drivrutiner kräver att den virtuella måldatorn är ansluten till internet och har åtkomst.
+Microsoft Azure-tillägget för NVIDIA GPU-drivrutiner kräver att den Virtuella måldatorn är ansluten till internet och har åtkomst.
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
@@ -71,7 +69,7 @@ Följande JSON visar schemat för tillägget.
 }
 ```
 
-### <a name="property-values"></a>Egenskapsvärden
+### <a name="properties"></a>Egenskaper
 
 | Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
@@ -80,6 +78,14 @@ Följande JSON visar schemat för tillägget.
 | typ | NvidiaGpuDriverWindows | sträng |
 | typeHandlerVersion | 1.2 | int |
 
+### <a name="settings"></a>Inställningar
+
+Alla inställningar är valfria. Standardbeteendet är installera den senaste stödda drivrutinen som är tillämpligt.
+
+| Namn | Beskrivning | Standardvärde | Giltiga värden | Datatyp |
+| ---- | ---- | ---- | ---- | ---- |
+| driverVersion | NV: GRID drivrutinsversion<br> NC/ND: CUDA drivrutinsversion | senaste | GRID: ”391.81”, ”391.58”, ”391.03”<br> CUDA: ”398.75”, ”397.44”, ”390.85” | sträng |
+| installGridND | Installera GRID drivrutinen på ND-serien virtuella datorer | false | SANT, FALSKT | boolesk |
 
 ## <a name="deployment"></a>Distribution
 
@@ -129,6 +135,8 @@ Set-AzureRmVMExtension
 
 ### <a name="azure-cli"></a>Azure CLI
 
+I följande exempel speglar ARM och PowerShell-exemplet ovan och lägger också till anpassade inställningar som ett exempel på icke-standard drivrutinsinstallation. Mer specifikt installerar en specifik drivrutin rutnät, även om en ND-serien virtuella datorn etableras.
+
 ```azurecli
 az vm extension set `
   --resource-group myResourceGroup `
@@ -137,6 +145,8 @@ az vm extension set `
   --publisher Microsoft.HpcCompute `
   --version 1.2 `
   --settings '{ `
+    "driverVersion": "391.03",
+    "installGridND": true
   }'
 ```
 

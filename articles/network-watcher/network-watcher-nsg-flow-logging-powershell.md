@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 0b0516eb079dc45c46ce56bd9d2522fc66d45548
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 752370564c52513d59e99b18d5343b0575900463
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089867"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819363"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Konfigurera Network Security Group Flow loggar med PowerShell
 
@@ -27,9 +27,12 @@ ms.locfileid: "39089867"
 > - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
-> - [REST API](network-watcher-nsg-flow-logging-rest.md)
+> - [REST-API](network-watcher-nsg-flow-logging-rest.md)
 
 Flödesloggar för Nätverkssäkerhetsgruppen är en funktion i Network Watcher där du kan visa information om ingående och utgående IP-trafik via en Nätverkssäkerhetsgrupp. Dessa flödesloggar skrivs i json-format och visa utgående och inkommande flöden på basis av per regel, nätverkskortet flödet gäller för 5-tuppel information om flödet (källa/mål-IP, källa/mål-Port, Protocol), och om trafik tillåts eller nekas.
+
+> [!NOTE] 
+> Flödet loggar Version 2 finns endast tillgängliga i den centrala regionen USA, västra. Konfigurationen är tillgänglig via Azure Portal och REST API. Aktivera Version 2 resulterar-loggar i en region som stöds inte i Version 1-loggarna för utdata till ditt lagringskonto.
 
 ## <a name="register-insights-provider"></a>Registrera Insights-providern
 

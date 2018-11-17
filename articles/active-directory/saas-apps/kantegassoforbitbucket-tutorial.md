@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: a81ea48937927e13141642d70093bc322196b2cc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6dee106d688d9f9a6ebc6dc26caa6a46db3f6850
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435000"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823902"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bitbucket"></a>Självstudier: Azure Active Directory-integration med Kantega SSO för Bitbucket
 
@@ -59,7 +59,7 @@ För att konfigurera integrering av Kantega SSO för Bitbucket i Azure AD, som d
 
 **Utför följande steg för att lägga till Kantega SSO för Bitbucket från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 

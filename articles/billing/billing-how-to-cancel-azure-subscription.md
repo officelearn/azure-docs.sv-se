@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: cwatson
-ms.openlocfilehash: c39dcdc0c4a89aa01c31dde1c5354ef1d4afe91d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 7418bc8095ffa640d70dff562d7683f0748ce38e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395574"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821420"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Avbryta din prenumeration för Azure
 
@@ -44,7 +44,7 @@ Om du avbryter ett betalt supportavtal för Azure faktureras du fortfarande för
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>Vad händer när jag säga upp min prenumeration?
 
-När du avbryter stoppas faktureringen omedelbart. Dock kan det ta upp till 10 minuter för annullering show i portalen.
+När du avbryter stoppas faktureringen omedelbart. Dock kan det ta upp till 10 minuter för detta ska visas i portalen.
 
 Efter det inaktiveras dina tjänster. Det innebär att dina virtuella datorer är frigjord tillfälliga IP-adresser frigörs och lagring är skrivskyddad.
 

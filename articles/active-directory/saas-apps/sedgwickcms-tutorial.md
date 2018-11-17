@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: jeedes
-ms.openlocfilehash: ff9f3186602b9047e53fb78edbf52c2c0d9ee574
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 796ed1cb0fde6b29a931099336fd91e2e931fc29
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423597"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820504"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>Självstudier: Azure Active Directory-integration med Sedgwick CMS
 
@@ -60,7 +60,7 @@ För att konfigurera integrering av Sedgwick CMS i Azure AD, som du behöver lä
 
 **Utför följande steg för att lägga till Sedgwick CMS från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -134,7 +134,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning spara-knapp](./media/sedgwickcms-tutorial/tutorial_general_400.png)
 
-1. Att konfigurera enkel inloggning på **Sedgwick CMS** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Sedgwick CMS-supportteamet](https://www.sedgwick.com/contact/Pages/contactform.aspx). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **Sedgwick CMS** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Sedgwick CMS-supportteamet](https://www.sedgwick.com/help). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 > [!TIP]
 > Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -173,7 +173,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
   
 ### <a name="create-a-sedgwick-cms-test-user"></a>Skapa en testanvändare Sedgwick CMS
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Sedgwick CMS. Arbeta med [Sedgwick CMS-supportteamet](https://www.sedgwick.com/contact/Pages/contactform.aspx) att lägga till användare i Sedgwick CMS-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.  
+I det här avsnittet skapar du en användare som kallas Britta Simon i Sedgwick CMS. Arbeta med [Sedgwick CMS-supportteamet](https://www.sedgwick.com/help) att lägga till användare i Sedgwick CMS-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.  
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

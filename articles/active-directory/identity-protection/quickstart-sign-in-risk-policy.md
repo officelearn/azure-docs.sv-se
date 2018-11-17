@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 6879822e8451e6170bf17fff4ab66b672f711a93
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 09528aab5f694aa017f9f16e2675d3c36c1bead3
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632395"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822154"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Snabbstart: Blockera åtkomst när en session risk identifieras med Azure Active Directory Identity Protection  
 
@@ -38,7 +38,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Förutsättningar 
 
-Om du vill slutföra scenariot i den här självstudien behöver du:
+För att kunna slutföra scenariot i den här självstudien behöver du:
 
 - **Åtkomst till en Azure AD Premium P2-versionen** – Azure AD Identity Protection är en funktion i Azure AD Premium P2. 
 
@@ -109,7 +109,7 @@ Det här avsnittet visar hur du skapar principen för villkorlig åtkomst krävs
 14. På policysidan **spara**.  
 
 
-## <a name="test-your-conditional-access-policy"></a>Testa din princip för villkorlig åtkomst
+## <a name="test-your-conditional-access-policy"></a>Testa din princip för villkorsstyrd åtkomst
 
 Om du vill testa din princip, försöker logga in på din [Azure-portalen](https://portal.azure.com) som **Alan Charon** med Tor Browser. Dina inloggningsförsök ska blockeras av din princip för villkorlig åtkomst.
 
@@ -122,6 +122,6 @@ När den inte längre behövs kan du ta bort testanvändare Tor Browser och inak
 
 - Om du inte vet hur du tar bort en Azure AD-användare kan se [lägga till eller ta bort användare](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 
-- Anvisningar för att ta bort Tor Browser finns i [avinstallerar](https://tb-manual.torproject.org/en-US/uninstalling.html).
+- Anvisningar för att ta bort Tor Browser finns i [avinstallerar](https://tb-manual.torproject.org/uninstalling/).
 
 

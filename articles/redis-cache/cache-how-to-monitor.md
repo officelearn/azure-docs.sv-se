@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 03c6d45cb3a20244ddbb9c0aec693f7802a95b22
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 19de4164f8d5049d72c3dd5c0a04b7ba4cee7065
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976366"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821148"
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>Så här övervakar du Azure Redis-cache
 Azure Redis Cache använder [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) tillhandahåller flera alternativ för övervakning av cache-instanser. Du kan visa mått, fästa måttdiagram på startsidan, anpassa intervallet datum och tid för övervakning av diagram, lägga till och ta bort mått från diagrammen och ställa in aviseringar när vissa villkor är uppfyllda. Dessa verktyg kan du övervaka hälsotillståndet för dina Azure Redis Cache-instanser och hjälper dig att hantera dina cachelagring program.
@@ -61,7 +61,7 @@ Läs mer om hur du arbetar med mått med Azure Monitor, [översikt över mått i
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>Exportera cache-mått
-Cache-mått i Azure Monitor är som standard [lagras i 30 dagar](../monitoring/monitoring-data-collection.md#metrics) och tas sedan bort. För att bevara din cache-mått längre än 30 dagar, kan du [utse ett storage-konto](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) och ange en **Kvarhållning (dagar)** princip för cache-mått. 
+Cache-mått i Azure Monitor är som standard [lagras i 30 dagar](../azure-monitor/platform/data-collection.md#metrics) och tas sedan bort. För att bevara din cache-mått längre än 30 dagar, kan du [utse ett storage-konto](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) och ange en **Kvarhållning (dagar)** princip för cache-mått. 
 
 Konfigurera ett lagringskonto för cache-mått:
 

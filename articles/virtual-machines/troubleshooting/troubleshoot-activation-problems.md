@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/31/2018
+ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 80799eb716e77a4dec02a2daf028c35589c75da0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b14a98ce22979182ec27ba5dc849f9535fa2b387
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235283"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824310"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Felsöka problem med Windows Azure VM-aktivering
 
@@ -29,7 +29,7 @@ Om du har problem när du aktiverar Azure Windows virtuell dator (VM) som skapas
 Azure använder olika slutpunkter för KMS-aktivering beroende på området moln där den virtuella datorn finns. När du använder den här felsökningsguiden, använder du lämplig KMS-slutpunkt som gäller för din region.
 
 * Offentliga Azure-molnregioner: kms.core.windows.net:1688
-* Azure Kina nationella moln-regioner: kms.core.chinacloudapi.cn:1688
+* Azure Kina 21Vianet nationella moln-regioner: kms.core.chinacloudapi.cn:1688
 * Nationella molnregioner där Azure Germany: kms.core.cloudapi.de:1688
 * Azure US Gov-regioner nationella: kms.core.usgovcloudapi.net:1688
 
@@ -84,8 +84,7 @@ Det här steget gäller inte för Windows 2012 eller Windows 2008 R2. Den använ
 3. Kontrollera att den virtuella datorn är konfigurerad för att använda rätt Azure KMS-servern. Gör detta genom att köra följande kommando:
   
     ```
-    iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms
-    kms.core.windows.net:1688
+    iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
     Kommandot ska returnera: nyckelhanteringstjänst datornamn har angetts till kms.core.windows.net:1688.
 

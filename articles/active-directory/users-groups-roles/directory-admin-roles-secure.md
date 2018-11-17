@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: f42e7c2e564f660df1e88c63c00a9f04db7c8116
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d62559561bf7e8e2dc2a882543d7fa7fc45a7499
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240111"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821097"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegierad åtkomst för hybrid- och distributioner i Azure AD
 
@@ -82,9 +82,9 @@ Steg 1 i översikten fokuserar på viktiga uppgifter som är snabb och enkel att
 
 #### <a name="turn-on-azure-ad-privileged-identity-management"></a>Aktivera Azure AD Privileged Identity Management
 
-Om du inte redan aktiverat Azure AD Privileged Identity Management (PIM) kan du göra det i din produktionsklient. När du har aktiverat Privileged Identity Management kan du ett meddelande om e-postmeddelanden för privilegierad åtkomst rollen ändringar. Dessa meddelanden ge en tidig varning när ytterligare användare läggs till med höga privilegier roller i din katalog.
+Om du inte redan aktiverat Azure AD Privileged Identity Management (PIM) kan du göra det i din produktionsklient. När du har aktiverat Privileged Identity Management kan du ett meddelande om e-postmeddelanden för privilegierad åtkomst rollen ändringar. Dessa meddelanden ge en tidig varning när ytterligare användare läggs till i mycket Privilegierade roller i din katalog.
 
-Azure AD Privileged Identity Management ingår i Azure AD Premium P2- eller EMS E5. Dessa lösningar hjälper dig att skydda åtkomst till program och resurser i den lokala miljön och i molnet. Om du gör inte redan har Azure AD Premium P2- eller EMS E5 och vill utvärdera flera av de funktioner som refereras till i den här översikten, registrera dig för den [Enterprise Mobility + Security kostnadsfri 90-dagars utvärderingsversion](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial). Använd dessa utvärderingsversioner licens för att prova Azure AD Privileged Identity Management och Azure AD Identity Protection för att övervaka aktiviteten med Azure AD avancerad säkerhetsrapportering, granskning och aviseringar.
+Azure AD Privileged Identity Management ingår i Azure AD Premium P2- eller EMS E5. Dessa lösningar hjälper dig att skydda åtkomst till program och resurser i den lokala miljön och i molnet. Om du inte redan har Azure AD Premium P2- eller EMS E5 och vill utvärdera flera av de funktioner som refereras till i den här översikten, registrera dig för den [Enterprise Mobility + Security kostnadsfri 90-dagars utvärderingsversion](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial). Använd dessa utvärderingsversioner licens för att prova Azure AD Privileged Identity Management och Azure AD Identity Protection för att övervaka aktiviteten med Azure AD avancerad säkerhetsrapportering, granskning och aviseringar.
 
 När du har aktiverat Azure AD Privileged Identity Management:
 
@@ -102,7 +102,7 @@ Den första personen som använder Azure AD Privileged Identity Management i din
 
 Visa användare som ingår i directory rollerna Global administratör, privilegierad rolladministratör, administratör i Exchange Online och SharePoint Online-administratör när du har aktiverat på Azure AD Privileged Identity Management. Om du inte har Azure AD PIM i din klientorganisation, kan du använda den [PowerShell API](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Börja med rollen som global administratör när den här rollen är generisk: en användare som har tilldelats den här administratörsrollen har samma behörigheter i alla molntjänster som din organisation prenumererar, oavsett om de har tilldelats den här rollen i Office 365-portalen , Azure portal, eller genom att använda Azure AD-modulen för Microsoft PowerShell. 
 
-Ta bort alla konton som inte längre behövs i de här rollerna och kategorisera de återstående konton som tilldelas till administrativa roller:
+Ta bort alla konton som inte längre behövs i dessa roller. Kategorisera sedan de återstående konton som tilldelas till administrativa roller:
 
 * Tilldelas individuellt till administrativa användare och kan också användas för icke-administrativa syften (till exempel personliga e-post)
 * Individuellt tilldelade till administrativa användare och avsedda för administrativa syften
@@ -127,11 +127,11 @@ Kräv Azure Multi-Factor Authentication (MFA) vid inloggning för alla enskilda 
 
 ![Steg 2](./media/directory-admin-roles-secure/stage-two.png)
 
-Steg 2 i översikten fokuserar på att undvika de mest använda attackteknikerna för stöld och missbruk och har utformats för att kunna implementeras på cirka 2 – 4 veckor. Det här steget av säkerhetsöversikten över säker privilegierad åtkomst innehåller följande åtgärder.
+Steg 2 i översikten fokuserar på att undvika de ofta används attackteknikerna för stöld och missbruk och kan implementeras på cirka 2 – 4 veckor. Det här steget av säkerhetsöversikten över säker privilegierad åtkomst innehåller följande åtgärder.
 
 ### <a name="general-preparation"></a>Allmän förberedelse
 
-#### <a name="conduct-a-inventory-of-services-owners-and-admins"></a>Utföra en inventering av tjänster, ägare och administratörer
+#### <a name="conduct-an-inventory-of-services-owners-and-admins"></a>Utför en förteckning över tjänster, ägare och administratörer
 
 Ökade bring-your-own device (BYOD) och arbete från startsidan principer och tillväxt av trådlös anslutning i företag är det viktigt att du övervakar som ansluter till nätverket. En granskningslogg för effektiva säkerhetsgrupper visar ofta enheter, program och program som körs på nätverket som inte stöds av IT-avdelningen, och därför potentiellt osäkert. Mer information finns i [Azure säkerhetshantering och översikt över](../../security/security-management-and-monitoring-overview.md). Se till att du inkluderar alla av följande uppgifter i din inventering. 
 
@@ -337,7 +337,7 @@ Utöver att hantera dina konton för privilegierad åtkomst, rekommenderar vi at
 * Endast beviljar privilegierad åtkomst vid behov och ta bort den efteråt (just-in-time).
 * Behålla och granska aktivitetsrapporter som är relaterade till Privilegierade konton.
 
-Mer information om hur du bygger en översikt för fullständig säkerhet finns i [Microsoft IT arkitektur molnresurser](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Mer information om Microsoft-tjänster som hjälper till med något av dessa ämnen Kontakta din Microsoft-representant eller gå [skapa kritiska cyberhot försvar för att skydda ditt företag](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx).
+Mer information om hur du bygger en översikt för fullständig säkerhet finns i [Microsoft IT arkitektur molnresurser](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Mer information om Microsoft-tjänster som hjälper till med något av dessa ämnen Kontakta din Microsoft-representant eller gå [skapa kritiska cyberhot försvar för att skydda ditt företag](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 Den här pågående slutfasen i översikten säker privilegierad åtkomst innehåller följande komponenter.
 

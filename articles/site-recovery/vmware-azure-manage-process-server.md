@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: d99b5d1fdca39466d5e09ca077329b7ffa8622bc
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: ac317eaa4c7e69e4a01fe932569b999e502bc3cf
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568860"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822440"
 ---
 # <a name="manage-process-servers"></a>Hantera processervrar
 
@@ -31,7 +31,41 @@ Uppgradera en processerver som körs lokalt eller i Azure (för återställning 
 > [!NOTE]
   När du använder Azure Gallery Image för att skapa en processerver i Azure för återställning efter fel, körs den normalt den senast tillgängliga versionen. Site Recovery utvecklingsteam versionen korrigeringar och förbättringar med jämna mellanrum och vi rekommenderar att du behåller processervrar uppdaterad.
 
+## <a name="balance-the-load-on-process-server"></a>Balansera belastningen på processervern
 
+Balansera belastningen mellan två processervrar
+
+1. Gå till **Recovery Services-valv** > **hantera** > **Site Recovery-infrastruktur** > **för VMware och fysiska datorer** > **Konfigurationsservrar**.
+2. Klicka på konfigurationsservern som processen-servrar är registrerade med.
+3. Lista över processen för servrar som registrerats configuration-servrar är tillgängliga på sidan.
+4. Klicka på processervern som du vill ändra arbetsbelastningen.
+
+    ![DSM](media/vmware-azure-manage-process-server/LoadBalance.png)
+
+5. Du kan använda **belastningsutjämning** eller **växel** alternativ som beskrivs nedan, enligt kravet.
+
+### <a name="load-balance"></a>Belastningsutjämning
+
+Via det här alternativet kan du kan välja en eller flera virtuella datorer och kan överföra dem till en annan processerver.
+
+1. Klicka på **belastningsutjämna**, Välj målprocesserver i listrutan ned. Klicka på **OK**
+
+    ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
+
+2. Klicka på **Välj datorer**, Välj de virtuella datorerna som du vill flytta från den aktuella processen servern till en målprocesserver. Information om genomsnittlig dataändring visas mot varje virtuell dator.
+3. Klicka på **OK**. Övervaka förloppet för jobbet under **Recovery Services-valv** > **övervakning** > **Site Recovery-jobb**.
+4. Det tar 15 minuter innan ändringarna visas efter slutförande av den här åtgärden eller [uppdatera konfigurationsservern](vmware-azure-manage-configuration-server.md#refresh-configuration-server) för börjar gälla omedelbart.
+
+### <a name="switch"></a>Växel
+
+Via det här alternativet kan flyttas hela arbetsbelastningar som skyddas under en processerver till en annan processerver.
+
+1. Klicka på **växel**, Välj en målprocesserver, klicka på **OK**.
+
+    ![Växel](media/vmware-azure-manage-process-server/Switch.PNG)
+
+2. Övervaka förloppet för jobbet under **Recovery Services-valv** > **övervakning** > **Site Recovery-jobb**.
+3. Det tar 15 minuter innan ändringarna visas efter slutförande av den här åtgärden eller [uppdatera konfigurationsservern](vmware-azure-manage-configuration-server.md#refresh-configuration-server) för börjar gälla omedelbart.
 
 ## <a name="reregister-a-process-server"></a>Registrera en processerver
 

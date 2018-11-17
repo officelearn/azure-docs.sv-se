@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: ae033b944e93fe90392af9b17de883d791d3e4dc
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 521bf044f280b91f668d42d760ba2a726b555f12
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958612"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822678"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Djup diagnostik för webbappar och tjänster med Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Varför behöver jag Application Insights?
@@ -82,7 +82,7 @@ Huvudkategorier av data är:
 ## <a name="case-study-real-madrid-fc"></a>Fallstudie: Real Madrid F.C.
 Webbtjänst [Real Madrid Football Club](http://www.realmadrid.com/) fungerar ungefär 450 miljoner fans över hela världen. Fans komma åt det både via webbläsare och den Club mobila appar. Fans kan inte bara boka biljetter, men också komma åt information och video klipp på resultat, spelare och kommande spel. De kan söka med filter som antal mål poängsätts. Det finns också länkar till sociala medier. Användarupplevelsen är mycket personlig och är utformad som en dubbelriktad kommunikation för att engagera fans.
 
-Lösningen [är ett system med tjänster och program på Microsoft Azure](https://www.microsoft.com/en-us/enterprise/microsoftcloud/realmadrid.aspx). Skalbarhet är ett krav: trafik variabel och kan nå mycket stora volymer under och runt matchningar.
+Lösningen [är ett system med tjänster och program på Microsoft Azure](https://www.microsoft.com/inculture/sports/real-madrid/). Skalbarhet är ett krav: trafik variabel och kan nå mycket stora volymer under och runt matchningar.
 
 För riktiga Madrid, är det viktigt att övervaka systemets prestanda. Azure Application Insights erbjuder en omfattande vy över systemet, säkerställer en tillförlitlig och hög servicenivå. 
 

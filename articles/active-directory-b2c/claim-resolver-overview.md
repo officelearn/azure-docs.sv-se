@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 10/08/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dab6b87c2785d3331817d6c191be64d406683a51
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: dccb597cda1f5aba30d18b0f71371caa6ceee9b4
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49313055"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852392"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Om anspråk matchare i Azure Active Directory B2C anpassade principer
 
@@ -33,10 +33,10 @@ I följande exempel visas en Anspråkstyp med namnet `correlationId` definieras 
 </ClaimType>
 ```
 
-Mappa matcharen anspråk i den tekniska profilen till Anspråkstypen. Azure AD B2C fylls värdet för anspråket matcharen `{context:corelationId}` i anspråket `correlationId` och skickar anspråk till den tekniska profilen.
+Mappa matcharen anspråk i den tekniska profilen till Anspråkstypen. Azure AD B2C fylls värdet för anspråket matcharen `{Context:CorrelationId}` i anspråket `correlationId` och skickar anspråk till den tekniska profilen.
 
 ```XML
-<InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{context:corelationId}" />
+<InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{Context:CorrelationId}" />
 ```
 
 ## <a name="claim-resolver-types"></a>Matchare anspråkstyper
@@ -45,16 +45,16 @@ Följande avsnitt listar tillgängliga anspråk matchare.
 
 ### <a name="culture"></a>Kultur
 
-| Begär | Beskrivning | Exempel |
+| Begäran | Beskrivning | Exempel |
 | ----- | ----------- | --------|
-| {Kultur: LanguageName} | De två enhetsbokstaven ISO-kod för språket. | en |
+| {Kultur: LanguageName} | De två enhetsbokstaven ISO-kod för språket. | sv-SE |
 | {Kultur: LCID}   | LCID för språkkod. | 29 |
 | {Kultur: RegionName} | De två enhetsbokstaven ISO-kod för regionen. | USA |
 | {Kultur: RFC5646} | Språkkoden RFC5646. | sv-SE |
 
 ### <a name="policy"></a>Princip
 
-| Begär | Beskrivning | Exempel |
+| Begäran | Beskrivning | Exempel |
 | ----- | ----------- | --------|
 | {Princip: PolicyId} | Förlitande part principens namn. | B2C_1A_signup_signin |
 | {Princip: RelyingPartyTenantId} | Klient-ID för förlitande part. | din tenant.onmicrosoft.com |
@@ -63,21 +63,21 @@ Följande avsnitt listar tillgängliga anspråk matchare.
 
 ### <a name="openid-connect"></a>OpenID Connect
 
-| Begär | Beskrivning | Exempel |
+| Begäran | Beskrivning | Exempel |
 | ----- | ----------- | --------|
-| {OIDC:AuthenticationContextReferences} |Den `acr_values` frågesträngparametern. | Gäller inte |
+| {OIDC:AuthenticationContextReferences} |Den `acr_values` frågesträngparametern. | SAKNAS |
 | {OIDC:ClientId} |Den `client_id` frågesträngparametern. | 00000000-0000-0000-0000-000000000000 |
 | {OIDC:DomainHint} |Den `domain_hint` frågesträngparametern. | Facebook.com |
 | {OIDC:LoginHint} |  Den `login_hint` frågesträngparametern. | someone@contoso.com |
-| {OIDC:MaxAge} | Den `max_age`. | Gäller inte |
+| {OIDC:MaxAge} | Den `max_age`. | SAKNAS |
 | {OIDC:Nonce} |Den `Nonce` frågesträngparametern. | defaultNonce |
 | {OIDC:Prompt} | Den `prompt` frågesträngparametern. | inloggning |
-| {OIDC:Resource} |Den `resource` frågesträngparametern. | Gäller inte |
+| {OIDC:Resource} |Den `resource` frågesträngparametern. | SAKNAS |
 | {OIDC:scope} |Den `scope` frågesträngparametern. | openid |
 
 ### <a name="context"></a>Kontext
 
-| Begär | Beskrivning | Exempel |
+| Begäran | Beskrivning | Exempel |
 | ----- | ----------- | --------|
 | {Kontext: BuildNumber} | Identitetsramverk versionen (build-nummer).  | 1.0.507.0 |
 | {Kontext: CorrelationId} | Korrelations-ID  | 00000000-0000-0000-0000-000000000000 |
@@ -90,12 +90,12 @@ Följande avsnitt listar tillgängliga anspråk matchare.
 
 Alla parameternamn som en del av ett OIDC eller OAuth2-begäran kan mappas till ett anspråk i användarresan. Till exempel begärande från programmet kan innehålla en frågesträngsparameter med namnet `app_session`, `loyalty_number`, eller alla anpassade frågesträngen.
 
-| Begär | Beskrivning | Exempel |
+| Begäran | Beskrivning | Exempel |
 | ----- | ----------------------- | --------|
 | {OAUTH-KV:campaignId} | En frågesträngsparameter. | Hawaii |
 | {OAUTH-KV:app_session} | En frågesträngsparameter. | A3C5R |
 | {OAUTH-KV:loyalty_number} | En frågesträngsparameter. | 1234 |
-| {OAUTH-KV: alla anpassade frågesträngen} | En frågesträngsparameter. | Gäller inte |
+| {OAUTH-KV: alla anpassade frågesträngen} | En frågesträngsparameter. | SAKNAS |
 
 
 ## <a name="how-to-use-claim-resolvers"></a>Hur du använder anspråk matchare

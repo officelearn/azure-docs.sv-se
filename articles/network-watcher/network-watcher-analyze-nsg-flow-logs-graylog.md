@@ -15,18 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 3030fdcec95d91b75974465ad30f707837263367
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 08d3d59d20ea80065e8f0238f90579bb268c3723
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414785"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823052"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Hantera och analysera flödesloggar för nätverkssäkerhetsgrupper i Azure med Network Watcher och Graylog
 
 [Network flödesloggar för nätverkssäkerhetsgruppen](network-watcher-nsg-flow-logging-overview.md) innehåller information som du kan använda för att förstå ingående och utgående IP-trafik för Azure-nätverksgränssnitt. Flödesloggar Visa utgående och inkommande flöden på en per network security group detta, nätverksgränssnittet flödet gäller att information 5-tuppel (käll-och mål-IP, källa/mål-Port, Protocol) om flödet, och om trafik tillåts eller nekas .
 
 Du kan ha många nätverkssäkerhetsgrupper i nätverket med flow-loggning är aktiverat. Flera nätverkssäkerhetsgrupper med flow-loggning är aktiverat kan göra det besvärligt att tolka och få insikter från dina loggar. Den här artikeln innehåller en lösning för att centralt hantera dessa nätverk flödesloggar för nätverkssäkerhetsgruppen med Graylog, en öppen källkod logghantering och analysverktyg och Logstash, en öppen källkod från serversidan databearbetningspipeline.
+
+> [!Warning]
+> Följande steg fungerar med flow loggar version 1. Mer information finns i [introduktion till flödesloggar för nätverkssäkerhetsgrupper](network-watcher-nsg-flow-logging-overview.md). Följande instruktioner fungerar inte med version 2 av loggfiler, utan modifiering.
 
 ## <a name="scenario"></a>Scenario
 

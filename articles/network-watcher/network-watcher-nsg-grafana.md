@@ -15,16 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: mareat
-ms.openlocfilehash: e375476536e7fe150e3aabcae7cee942deac02d5
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 9e408b45f47cb86191628916124611735f374d9e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42060338"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819042"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Hantera och analysera flödesloggar för Nätverkssäkerhetsgruppen med Network Watcher och Grafana
 
 [Network Security Group (NSG) flödesloggar](network-watcher-nsg-flow-logging-overview.md) innehåller information som kan användas för att förstå ingående och utgående IP-trafik på nätverksgränssnitt. Dessa flödesloggar Visa utgående och inkommande flöden på en per NSG-regel-basis nätverkskortet flödet gäller, 5-tuppel information om flödet (källa/mål-IP, källa/mål-Port, Protocol), och om trafik tillåts eller nekas.
+
+> [!Warning]  
+> Följande steg fungerar med flow loggar version 1. Mer information finns i [introduktion till flödesloggar för nätverkssäkerhetsgrupper](network-watcher-nsg-flow-logging-overview.md). Följande instruktioner fungerar inte med version 2 av loggfiler, utan modifiering.
 
 Du kan ha många NSG: er i nätverket med flow-loggning är aktiverat. Den här mängden loggningsdata är det besvärligt att tolka och få insikter från dina loggar. Den här artikeln innehåller en lösning för att centralt hantera dessa NSG-flödesloggar med Grafana, ett rita in verktyget, ElasticSearch, en distribuerad sökning och Analysmotorn och Logstash, vilket är en öppen källkod från serversidan databearbetningspipeline med öppen källkod.  
 

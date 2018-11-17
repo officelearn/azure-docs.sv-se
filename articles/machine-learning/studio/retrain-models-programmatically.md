@@ -1,10 +1,11 @@
 ---
 title: Träna om Machine Learning-modeller via programmering | Microsoft Docs
-description: Lär dig mer om att träna om en modell och uppdatera webbtjänsten för att använda den nya tränade modellen i Azure Machine Learning programmässigt.
+description: Lär dig hur du tränar en modell och uppdatera webbtjänsten för att använda den nyligen tränade modellen i Azure Machine Learning programmässigt.
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
-ms.author: yahajiza
+ms.custom: (previous ms.author yahajiza)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
@@ -15,120 +16,120 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: b2090b39991363ee2a5b2e12945d97dc0fa9f2b2
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: e6be52dbfbe6f5d51589f3a3738013dedeee6bdd
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835512"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824769"
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>Omtrimning av Azure Machine Learning-modeller via programmering
-I den här genomgången får lära du dig att träna programmässigt om en Azure Machine Learning-webbtjänst med hjälp av C# och Machine Learning Batch Execution service.
+I den här genomgången får du lära dig hur du programmässigt omtrimning av en Azure Machine Learning-webbtjänst med hjälp av C# och Machine Learning Batch Execution service.
 
-När du har retrained modellen, visar hur du uppdaterar modellen i förutsägande webbtjänsten följande genomgång:
+När du har modellkomponenten modellen visar följande genomgångar hur du uppdaterar modellen i din förutsägbar webbtjänst:
 
-* Om du har distribuerat en klassisk webbtjänst i Machine Learning-webbtjänster portal finns [träna om en klassisk webbtjänst](retrain-a-classic-web-service.md). 
-* Om du har distribuerat en ny webbtjänst finns [träna om en ny webbtjänst med hjälp av Machine Learning Management-cmdlets](retrain-new-web-service-using-powershell.md).
+* Om du har distribuerat en klassisk webbtjänst i Machine Learning Web Services-portalen finns i [Omtrimma en klassisk webbtjänst](retrain-a-classic-web-service.md). 
+* Om du har distribuerat en ny webbtjänst finns i [omtrimning av en ny webbtjänst med hjälp av Machine Learning Management-cmdletar](retrain-new-web-service-using-powershell.md).
 
-En översikt över omtränings-processen, se [träna om en Maskininlärningsmodell](retrain-machine-learning-model.md).
+En översikt över omtränings processen, se [träna en Maskininlärningsmodell](retrain-machine-learning-model.md).
 
-Om du vill börja med din befintliga nya Azure Resource Manager baserad webbtjänst finns [träna om en befintlig förutsägande webbtjänst](retrain-existing-resource-manager-based-web-service.md).
+Om du vill börja med din befintliga nya Azure Resource Manager-baserade webbtjänst finns i [tränar en förutsägbar webbtjänst](retrain-existing-resource-manager-based-web-service.md).
 
-## <a name="create-a-training-experiment"></a>Skapa ett experiment utbildning
-För det här exemplet använder du ”exempel 5: tåg och Test, utvärdera för binär klassificering: vuxna Dataset” från Microsoft Azure Machine Learning-prover. 
+## <a name="create-a-training-experiment"></a>Skapa ett träningsexperiment
+I det här exemplet ska du använda ”exempel 5: träna, testa, utvärdera för binär klassificering: vuxna datauppsättningen” från Microsoft Azure Machine Learning-exempel. 
 
 Skapa experimentet:
 
-1. Logga in till Microsoft Azure Maskininlärning Studio. 
-2. Klicka på nedre högra hörnet av instrumentpanelen, **ny**.
+1. Logga in på Microsoft Azure Machine Learning Studio. 
+2. I nederkant högra hörnet av instrumentpanelen, klickar du på **New**.
 3. Välj exempel 5 från Microsoft-Samples.
-4. Byt namn på experimentet överst på arbetsytan för experimentet väljer du namnet på experiment ”exempel 5: tåg och Test, utvärdera för binär klassificering: vuxna Dataset”.
+4. Om du vill byta namn på experimentet överst i arbetsytan för experimentet väljer du namnet på experiment ”exempel 5: träna, testa, utvärdera för binär klassificering: vuxna datauppsättningen”.
 5. Typ av inventering modell.
-6. Längst ned i arbetsytan för experimentet klickar du på **kör**.
-7. Klicka på **Konfigurera webbtjänsten** och välj **Omtränings webbtjänsten**. 
+6. Längst ned på arbetsytan för experimentet klickar du på **kör**.
+7. Klicka på **konfigurera web service** och välj **Retraining webbtjänsten**. 
 
 Nedan visas första försöket.
    
-   ![Första försöket.][2]
+   ![Inledande experiment.][2]
 
 
-## <a name="create-a-predictive-experiment-and-publish-as-a-web-service"></a>Skapa en prediktivt experiment och publicera som en webbtjänst
-Nu kan du skapa ett Predicative Experiment.
+## <a name="create-a-predictive-experiment-and-publish-as-a-web-service"></a>Skapa ett förutsägbart experiment och publicera som en webbtjänst
+Därefter skapar du ett Predicative Experiment.
 
-1. Längst ned i arbetsytan för experimentet klickar du på **konfigurera Web Service** och välj **förutsägande webbtjänsten**. Detta sparar modellen som en Tränad modell och lägger till web service ingående och utgående moduler. 
+1. Längst ned på arbetsytan för experimentet klickar du på **konfigurera Web Service** och välj **förutsägande webbtjänsten**. Detta sparar modellen som en Träningsmodell och lägger till web service indata och utdata moduler. 
 2. Klicka på **Run** (Kör). 
-3. När experimentet har slutförts klickar du på **distribuera webbtjänsten [klassisk]** eller **distribuera webbtjänsten [ny]**.
+3. När experimentet har körts, klickar du på **distribuera webbtjänsten [klassisk]** eller **distribuera webbtjänsten [nyhet]**.
 
 > [!NOTE] 
-> Om du vill distribuera en ny webbtjänst måste du ha tillräckliga behörigheter i prenumerationen som du distribuerar webbtjänsten. Mer information finns i [hantera en webbtjänst med hjälp av Azure Machine Learning-webbtjänster portal](manage-new-webservice.md). 
+> Om du vill distribuera en ny webbtjänst måste du ha tillräcklig behörighet i prenumerationen som du distribuerar webbtjänsten. Mer information finns i [hantera en webbtjänst med hjälp av Azure Machine Learning Web Services-portalen](manage-new-webservice.md). 
 
-## <a name="deploy-the-training-experiment-as-a-training-web-service"></a>Distribuera utbildning experiment som en webbtjänst för utbildning
-För att träna om den tränade modellen, måste du distribuera träningsexperiment som du har skapat som en webbtjänst för Retraining. Den här webbtjänsten måste en *Web Service utdata* modul som är ansluten till den *[Träningsmodell] [ train-model]* modulen för att kunna skapa nya tränats modeller.
+## <a name="deploy-the-training-experiment-as-a-training-web-service"></a>Distribuera träningsexperimentet som en webbtjänst för utbildning
+Du måste distribuera träningsexperimentet som du har skapat som en webbtjänst för Retraining för att träna om den tränade modellen. Den här webbtjänsten måste en *Web Service utdata* moduler som är anslutna till den *[Träningsmodell] [ train-model]* modulen för att kunna skapa nya tränas modeller.
 
-1. För att återgå till utbildning experimentet klickar du på ikonen experiment i den vänstra rutan och klicka på experiment med namnet inventering modellen.  
-2. Skriv i sökrutan Experiment sökobjekt webbtjänsten. 
-3. Dra en *webbtjänst* till arbetsytan för experimentet och koppla dess utdata till den *Rensa Data som saknas* modul.  Detta säkerställer att omtränings data bearbetas på samma sätt som den ursprungliga informationen för utbildning.
-4. Dra två *webbtjänsten utdata* moduler till arbetsytan för experimentet. Ansluta utdata från den *Träningsmodell* modul till en och utdata från den *utvärdera modell* modul till den andra. Web service-utdata för **Träningsmodell** ger oss den nya tränade modellen. Utdata som är kopplade till **utvärdera modell** returnerar att modulen utdata, vilket är prestandaresultat.
+1. Om du vill gå tillbaka till träningsexperimentet, klickar du på ikonen experiment i den vänstra rutan och sedan på experimentet med namnet insamlade modellen.  
+2. I sökrutan Experiment sökobjekt skriver du webbtjänsten. 
+3. Dra en *Webbtjänstindata* modulen till experimentet och koppla dess utdata till den *Rensa Data som saknas* modulen.  Detta säkerställer att dina omtränings data bearbetas på samma sätt som den ursprungliga informationen för utbildning.
+4. Dra två *webbtjänsten utdata* moduler till experimentets arbetsyta. Anslut utdataporten för den *Träningsmodell* modul till en och utdata från den *utvärdera modell* modul till en annan. Web service-utdata för **Träningsmodell** ger oss den nya tränade modellen. Utdata som är kopplade till **utvärdera modell** returnerar modulen utdatafiler, vilket är prestandaresultat.
 5. Klicka på **Run** (Kör). 
 
-Därefter måste du distribuera utbildning experiment som en webbtjänst som producerar en tränad modell och utvärderingsresultat av modellen. För att åstadkomma detta kan din nästa uppsättning åtgärder, beroende på om du arbetar med en klassisk webbtjänst eller en ny webbtjänst.  
+Därefter måste du distribuera träningsexperimentet som en webbtjänst som producerar en tränad modell och utvärderingsresultat av modellen. För att åstadkomma detta är ditt nästa uppsättning åtgärder beroende på om du arbetar med en klassisk webbtjänst eller en ny webbtjänst.  
 
-**Klassiska webbtjänst**
+**Klassisk webbtjänst**
 
-Längst ned i arbetsytan för experimentet klickar du på **konfigurera Web Service** och välj **distribuera webbtjänsten [klassisk]**. Webbtjänsten **instrumentpanelen** visas med API-nyckel och API-hjälpsidan för Batch-körningen. Batch Execution metoden kan användas för att skapa tränade modeller.
+Längst ned på arbetsytan för experimentet klickar du på **konfigurera Web Service** och välj **distribuera webbtjänsten [klassisk]**. Webbtjänsten **instrumentpanelen** visas med API-nyckeln och API-hjälpsidan för batchkörning. Endast Batch Execution-metoden kan användas för att skapa anpassade modeller.
 
 **Ny webbtjänst**
 
-Längst ned i arbetsytan för experimentet klickar du på **konfigurera Web Service** och välj **distribuera webbtjänsten [ny]**. Web Service Azure Machine Learning-webbtjänster portal öppnar sidan distribuera tjänsten. Ange ett namn för webbtjänsten och välj en betalningsplan, och klicka sedan **distribuera**. Endast Batch Execution-metoden kan användas för att skapa tränade modeller
+Längst ned på arbetsytan för experimentet klickar du på **konfigurera Web Service** och välj **distribuera webbtjänsten [nyhet]**. Web Service Azure Machine Learning Web Services-portalen öppnar sidan distribuera tjänsten. Skriv ett namn för din webbtjänst och väljer en betalningsplan och sedan på **distribuera**. Batch Execution metoden kan användas för att skapa anpassade modeller
 
 I båda fallen när experimentet har slutförts, resulterande arbetsflödet ska se ut så här:
 
-![Resulterande arbetsflödet när du kör.][4]
+![Resulterande arbetsflöde efter att köra.][4]
 
 
 
-## <a name="retrain-the-model-with-new-data-using-bes"></a>Träna om modellen med nya data med BES
-I det här exemplet använder du C# skapa omtränings programmet. Du kan också använda exempelkoden Python eller R för att utföra den här uppgiften.
+## <a name="retrain-the-model-with-new-data-using-bes"></a>Träna modellen med nya data med hjälp av BES
+I det här exemplet använder du C# att skapa omtränings-program. Du kan också använda exempelkoden Python eller R för att åstadkomma detta.
 
-Att anropa Omtränings-API:
+Att anropa API: erna Retraining:
 
-1. Skapa ett C#-konsolprogram i Visual Studio: **ny** > **projekt** > **Visual C#** > **Windows Klassiska Desktop** > **konsolen App (.NET Framework)**.
-2. Logga in på portalen Machine Learning-webbtjänst.
-3. Om du arbetar med en klassisk webbtjänst klickar du på **klassiska webbtjänster**.
+1. Skapa ett C#-konsolprogram i Visual Studio: **New** > **projekt** > **Visual C#** > **Windows Classic Desktop** > **konsolprogram (.NET Framework)**.
+2. Logga in på Machine Learning-webbtjänst-portalen.
+3. Om du arbetar med en klassisk webbtjänst, klickar du på **klassiska webbtjänster**.
    1. Klicka på den webbtjänst som du arbetar med.
-   2. Klicka på standardslutpunkten.
-   3. Klicka på **använda**.
-   4. Längst ned i den **förbruka** sidan den **exempelkod** klickar du på **Batch**.
+   2. Klicka på standardslutpunkt.
+   3. Klicka på **förbrukar**.
+   4. Längst ned på den **förbruka** sidan den **exempelkoden** klickar du på **Batch**.
    5. Fortsätt till steg 5 i den här proceduren.
-4. Om du arbetar med en ny webbtjänst klickar du på **Web Services**.
+4. Om du arbetar med en ny webbtjänst, klickar du på **webbtjänster**.
    1. Klicka på den webbtjänst som du arbetar med.
-   2. Klicka på **använda**.
-   3. AT längst ned i förbruka sidan den **exempelkod** klickar du på **Batch**.
-5. Kopiera C# exempelkod för batchkörning och klistra in den i filen Program.cs, vilket gör att namnområdet intakt.
+   2. Klicka på **förbrukar**.
+   3. AT längst ned på förbruka sidan den **exempelkoden** klickar du på **Batch**.
+5. Kopiera exempel C# Platskod för batchkörning och klistra in den i filen Program.cs Se namnområdet förblir intakta.
 
-Lägg till Nuget-paketet Microsoft.AspNet.WebApi.Client som anges i kommentarerna. Om du vill lägga till en referens till Microsoft.WindowsAzure.Storage.dll, kan du först behöva installera klientbiblioteket för Microsoft Azure storage-tjänster. Mer information finns i [Windows lagringstjänster](https://www.nuget.org/packages/WindowsAzure.Storage).
+Lägg till Nuget-paketet system.NET.http.Formatting som anges i kommentarerna. Om du vill lägga till referensen till Microsoft.WindowsAzure.Storage.dll, kan du först behöva installera klientbiblioteket för Microsoft Azure storage-tjänster. Mer information finns i [Windows lagringstjänster](https://www.nuget.org/packages/WindowsAzure.Storage).
 
-### <a name="update-the-apikey-declaration"></a>Uppdatera apikey deklarationen
+### <a name="update-the-apikey-declaration"></a>Uppdatera apikey deklaration
 Leta upp den **apikey** deklaration.
 
     const string apiKey = "abc123"; // Replace this with the API key for the web service
 
-I den **grundläggande förbrukning info** avsnitt i den **förbruka** , leta upp den primära nyckeln och kopiera den till den **apikey** deklaration.
+I den **grundläggande förbrukning info** delen av den **förbruka** sidan letar du upp den primära nyckeln och kopiera den till den **apikey** deklaration.
 
-### <a name="update-the-azure-storage-information"></a>Uppdatera Azure Storage-informationen
-Exempelkoden BES överför en fil från en lokal enhet (till exempel ”C:\temp\CensusIpnput.csv”) till Azure Storage, bearbetar den och skriver resultatet till Azure Storage.  
+### <a name="update-the-azure-storage-information"></a>Uppdatera informationen om Azure Storage
+Exempelkoden BES laddar upp en fil från en lokal enhet (till exempel ”C:\temp\CensusIpnput.csv”) till Azure Storage, bearbetar dessa och skriver resultatet tillbaka till Azure Storage.  
 
-För att åstadkomma detta måste du hämta lagring namn och nyckel behållaren kontoinformationen för ditt lagringskonto från den klassiska Azure-portalen och uppdatera motsvarande värden i koden. 
+För att åstadkomma detta måste du hämta Storage namn, nyckel och behållare kontoinformationen för ditt lagringskonto från den klassiska Azure-portalen och uppdatera motsvarande värden i koden. 
 
 1. Logga in på den klassiska Azure-portalen.
-2. Klicka på den vänstra navigeringsfönstret i kolumnen **lagring**.
-3. Välj en för att lagra retrained modellen från listan över storage-konton.
+2. I den vänstra kolumnen klickar du på **Storage**.
+3. Välj en för att lagra retrained modellen från listan över lagringskonton.
 4. Längst ned på sidan klickar du på **hantera åtkomstnycklar**.
-5. Kopiera och spara den **primära åtkomstnyckeln** och Stäng dialogrutan. 
-6. Överst på sidan, klickar du på **behållare**.
+5. Kopiera och spara den **primära åtkomstnyckel** och Stäng dialogrutan. 
+6. Överst på sidan klickar du på **behållare**.
 7. Välj en befintlig behållare eller skapa en ny och spara namnet.
 
-Leta upp den *StorageAccountName*, *StorageAccountKey*, och *StorageContainerName* deklarationer och uppdatera värden som du sparade från Azure-portalen.
+Leta upp den *StorageAccountName*, *StorageAccountKey*, och *StorageContainerName* deklarationer och uppdatera de värden du sparade från Azure-portalen.
 
     const string StorageAccountName = "mystorageacct"; // Replace this with your Azure Storage Account name
     const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage Key
@@ -137,7 +138,7 @@ Leta upp den *StorageAccountName*, *StorageAccountKey*, och *StorageContainerNam
 Du måste också kontrollera indatafilen är tillgänglig på den plats du anger i koden. 
 
 ### <a name="specify-the-output-location"></a>Ange platsen för utdata
-När du anger platsen i nyttolasten för begäran om tillägg av filen anges i *RelativeLocation* måste anges som ilearner. 
+När du anger platsen i nyttolasten för begäran, tillägg till filen som anges i *RelativeLocation* måste anges som ilearner. 
 
 Se följande exempel:
 
@@ -152,27 +153,27 @@ Se följande exempel:
         },
 
 > [!NOTE]
-> Namnen på utdata-platser kan skilja sig från de som finns i den här genomgången utifrån den ordning som du har lagt till web service utdata moduler. Eftersom du ställt in den här träningsexperiment med två utdata, inkluderar resultaten platsinformation för lagring för båda.  
+> Namnen på dina utdata-platser kan skilja sig från de i den här genomgången baserat på den ordning som du har lagt till web service utdata moduler. Eftersom du har konfigurerat den här träningsexperiment med två utdata kan inkludera resultatet storage platsinformation i båda.  
 > 
 > 
 
 ![Omtränings utdata][6]
 
-Diagram över 4: Omtränings utdata.
+Diagram 4: Träna utdata.
 
 ## <a name="evaluate-the-retraining-results"></a>Utvärdera Omtränings resultaten
-När du kör programmet innehåller URL: en och SAS-token krävs för att komma åt utvärderingsresultaten utdata.
+När du kör programmet innehåller utdata URL: en och SAS-token behövs för att komma åt utvärderingar.
 
-Du kan se prestandaresultat retrained modellen genom att kombinera den *BaseLocation*, *RelativeLocation*, och *SasBlobToken* från resultatet för *output2* (som visas i föregående omtränings utdata avbildningen) och klistra in den fullständiga URL: en i webbläsarens adressfält.  
+Du kan se prestandaresultat retrained modellen genom att kombinera den *BaseLocation*, *RelativeLocation*, och *SasBlobToken* från utdataresultat som för *output2* (som visas i den föregående bilden för omtränings utdata) och klistra in den fullständiga URL: en i webbläsarens adressfält.  
 
-Granska resultaten för att avgöra om den nyligen tränade modellen utför bra för att ersätta den befintliga versionen.
+Granska resultaten för att avgöra om den nyligen tränade modellen utför tillräckligt bra för att ersätta den befintliga.
 
-Kopiera den *BaseLocation*, *RelativeLocation*, och *SasBlobToken* utdata-resultaten ska du använda dem under omtränings-processen.
+Kopiera den *BaseLocation*, *RelativeLocation*, och *SasBlobToken* från utdataresultat som, ska du använda dem under omtränings.
 
 ## <a name="next-steps"></a>Nästa steg
-Om du har distribuerat förutsägande webbtjänsten genom att klicka på **distribuera webbtjänsten [klassisk]**, se [träna om en klassisk webbtjänst](retrain-a-classic-web-service.md).
+Om du har distribuerat förutsägbar webbtjänst genom att klicka på **distribuera webbtjänsten [klassisk]**, se [Omtrimma en klassisk webbtjänst](retrain-a-classic-web-service.md).
 
-Om du har distribuerat förutsägande webbtjänsten genom att klicka på **distribuera webbtjänsten [ny]**, se [träna om en ny webbtjänst med hjälp av Machine Learning Management-cmdlets](retrain-new-web-service-using-powershell.md).
+Om du har distribuerat förutsägbar webbtjänst genom att klicka på **distribuera webbtjänsten [nyhet]**, se [omtrimning av en ny webbtjänst med hjälp av Machine Learning Management-cmdletar](retrain-new-web-service-using-powershell.md).
 
 <!-- Retrain a New web service using the Machine Learning Management REST API -->
 

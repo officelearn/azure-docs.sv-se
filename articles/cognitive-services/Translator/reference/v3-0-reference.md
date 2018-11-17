@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 243ee16f8de8add8283581c8c03a37594797864b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6f679536d69f700fd6678eb3bbbb869e42439cde
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430042"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853361"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -33,7 +33,7 @@ Version 3 av Translator Text API innehåller ett moderna JSON-baserade webb-API.
 
 Text-API version 3.0 finns i följande molnet:
 
-| Beskrivning | Region | Grundläggande URL                                        |
+| Beskrivning | Område | Grundläggande URL                                        |
 |-------------|--------|-------------------------------------------------|
 | Azure       | Global | API.cognitive.microsofttranslator.com           |
 
@@ -70,7 +70,7 @@ En autentiseringstoken är giltig i 10 minuter. Token ska återanvändas när fl
 Sammanfattningsvis innehåller en klientbegäran Translator-API: et en auktoriseringsrubrik som kommer från följande tabell:
 
 <table width="100%">
-  <th width="30%">Rubriker</th>
+  <th width="30%">Sidhuvuden</th>
   <th>Beskrivning</th>
   <tr>
     <td>OCP-Apim-Subscription-Key</td>
@@ -135,6 +135,7 @@ Felkoden är en 6-siffrig nummer kombinera 3-siffriga HTTP-statuskoden följt av
 | 403000| Åtgärden tillåts inte.|
 | 403001| Åtgärden tillåts inte eftersom prenumerationen har överskridit den lediga kvoten.|
 | 405000| Begärandemetoden stöds inte för den begärda resursen.|
+| 408001| Den anpassade översättningssystemet begärt är inte tillgänglig ännu. Försök igen om några minuter.|
 | 415000| Content-Type-huvud är ogiltig eller saknas.|
 | 429000, 429001, 429002| Servern avvisade begäran eftersom klienten skickar för många förfrågningar. Minska frekvensen av begäranden för att undvika begränsning.|
 | 500000| Det uppstod ett oväntat fel. Om felet kvarstår kan du rapportera det med datum/tid för fel, begär identifierare från svarshuvud X-RequestId och klient-ID från begärandehuvudet X-ClientTraceId.|

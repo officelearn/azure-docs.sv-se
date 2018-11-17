@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: glenga
-ms.openlocfilehash: e317a9c3cea800e05fbf3d2df73c124d2e7ffd23
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9bb703f822a9b9cafe8318bfb7f7cc64c3854868
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457671"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853667"
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
@@ -193,17 +193,17 @@ Om du sparar loggar på Funktionskoden är deras kategori ”funktionen”.
 
 ### <a name="log-levels"></a>Loggningsnivåerna
 
-Azure functions-loggaren innehåller också en *certifikatutfärdarnivå* med varje logg. [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel#Microsoft_Extensions_Logging_LogLevel) är en uppräkning och heltal koden visar relativa prioriteten:
+Azure functions-loggaren innehåller också en *certifikatutfärdarnivå* med varje logg. [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) är en uppräkning och heltal koden visar relativa prioriteten:
 
 |LogLevel    |Kod|
 |------------|---|
 |Spårning       | 0 |
-|Felsökning       | 1 |
+|Felsök       | 1 |
 |Information | 2 |
-|Varning     | 3 |
+|Varning!     | 3 |
 |Fel       | 4 |
-|Kritisk    | 5 |
-|Ingen        | 6 |
+|Kritiska    | 5 |
+|Inga        | 6 |
 
 Certifikatutfärdarnivå `None` förklaras i nästa avsnitt. 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: jeedes
-ms.openlocfilehash: e55d161b7c95118736f4443c3fed0312418feee7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 898d7cf6cdded08cd09c4b1f1f845473af1650a3
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441943"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824018"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Självstudier: Azure Active Directory-integration med Leapsome
 
@@ -59,7 +59,7 @@ För att konfigurera integrering av Leapsome i Azure AD, som du behöver lägga 
 
 **Utför följande steg för att lägga till Leapsome från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -134,7 +134,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | bild | Webbadressen till medarbetarens bild | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
 
     > [!Note]
-    > Värdet för bild-attributet är inte verkliga. Uppdatera det här värdet med URL: en för bilden. Att hämta värdet kontakten [Leapsome klienten supportteamet](mailto:support@leapsome.com).
+    > Värdet för bild-attributet är inte verkliga. Uppdatera det här värdet med URL: en för bilden. Att hämta värdet kontakten [Leapsome klienten supportteamet](mailto:support@leapsome.com).
     
     a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
 
@@ -218,7 +218,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="create-a-leapsome-test-user"></a>Skapa en Leapsome testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Leapsome. Arbeta med [Leapsome klienten supportteamet](mailto:support@leapsome.com) att lägga till användare eller domän, som måste tillåtas i Leapsome-plattformen. Om domänen har lagts till av teamet, kommer användare får automatiskt tillhandahållas för Leapsome-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
+I det här avsnittet skapar du en användare som kallas Britta Simon i Leapsome. Arbeta med [Leapsome klienten supportteamet](mailto:support@leapsome.com) att lägga till användare eller domän, som måste tillåtas i Leapsome-plattformen. Om domänen har lagts till av teamet, kommer användare får automatiskt tillhandahållas för Leapsome-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

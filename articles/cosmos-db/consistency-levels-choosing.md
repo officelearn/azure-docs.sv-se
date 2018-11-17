@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: mjbrown
-ms.openlocfilehash: f51673e628798f2c92e4ef7cf9327f4d5c6e5370
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
-ms.translationtype: HT
+ms.openlocfilehash: 2fc21ffde5f3f4b84b2ed025cba5d228e592343f
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51704690"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823426"
 ---
 # <a name="choose-the-right-consistency-level-for-your-application"></a>Välja rätt konsekvens för ditt program
 
@@ -52,7 +52,7 @@ I praktiken kan du få bättre konsekvensgarantier. Konsekvensgarantier för en 
 
 * Fönstret föråldring är i hög grad beroende på din arbetsbelastning för de återstående tre konsekvensnivåerna. Exempel: om det finns inga skrivåtgärder på databasen, en Läsåtgärd med **slutlig**, **session**, eller **konsekvent prefix** konsekvensnivåer troligen kommer att ge samma resultat som en Läsåtgärd med stark konsekvensnivå.
 
-Om ditt Cosmos DB-konto har konfigurerats med en konsekvensnivå än stark konsekvens, kan du ta reda på sannolikheten att dina klienter kan få stark och konsekventa läsningar för dina arbetsbelastningar genom att titta på i avsnittet om Sannolikhetsbunden bunden föråldring (PBS) mått. Det här måttet visas i Azure-portalen, mer information finns i [övervaka probabilistically begränsad föråldring måttet](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
+Om ditt Cosmos DB-konto har konfigurerats med en konsekvensnivå än stark konsekvens, kan du ta reda på sannolikheten att dina klienter kan få stark och konsekventa läsningar för dina arbetsbelastningar genom att titta på i avsnittet om Sannolikhetsbunden bunden föråldring (PBS) mått. Det här måttet visas i Azure-portalen, mer information finns i [övervakaren Probabilistically bunden föråldring (PBS) mått](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
 
 Avsnittet om sannolikhetsbunden begränsad föråldring visar hur eventuell är din slutlig konsekvens. Det här måttet ger en inblick i hur ofta du kan få en bättre konsekvens än konsekvensnivå som du för närvarande har konfigurerat på ditt Cosmos DB-konto. Med andra ord kan du se sannolikheten (mätt i millisekunder) för att få starkt konsekventa läsningar för en kombination av Skriv- och läsregioner.
 
@@ -63,4 +63,4 @@ Läs mer om konsekvensnivåer i följande artiklar:
 * [Konsekvens mappning på i Cosmos DB API: er](consistency-levels-across-apis.md)
 * [Tillgänglighet och prestanda kompromisser för olika konsekvensnivåer](consistency-levels-tradeoffs.md)
 * [Så här hanterar du sessionstoken för ditt program](how-to-manage-consistency.md#utilize-session-tokens)
-* [Övervaka probabilistically begränsad föråldring-mått](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)
+* [Övervaka Probabilistically bunden föråldring (PBS) mått](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)

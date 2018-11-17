@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
 ms.component: alerts
-ms.openlocfilehash: a86a7188c488a634de7b0ac71657bea0105381c7
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1fcbbce87c822c49882f8e42a1eaccfd389ee310
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961899"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852936"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Skapa aviseringar för aktivitetsloggen för tjänstmeddelanden
 ## <a name="overview"></a>Översikt
@@ -70,7 +70,7 @@ Information om hur du konfigurerar tjänsten hälsovarningar för meddelande med
 
 1. Definiera en lista över mottagare genom att tillhandahålla mottagarens:
 
-    a. **Namn på**: Ange mottagarens s namn, alias eller identifierare.
+    a. **Namn på**: Ange mottagarens namn, alias eller identifierare.
 
     b. **Åtgärdstyp**: Välj SMS, e-post, webhook, Azure-app med mera.
 

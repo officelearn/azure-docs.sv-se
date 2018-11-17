@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2018
+ms.date: 11/16/2018
 ms.author: terrylan
-ms.openlocfilehash: 8d2964c5b0cd0a19273b4ee1e18c8be727850454
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 04e4085715993560fee5b73cf4ae546cb58e2e5e
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715998"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853225"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Utveckla säkra program i Azure
 ## <a name="abstract"></a>Abstrakt
@@ -27,4 +27,4 @@ Det här dokumentet är en allmän vägledning till säkerhetsfrågor och kontro
 
 Det här dokumentet är avsett att vara en resurs för programvaruutvecklare, utvecklare och testare på alla nivåer som skapa och distribuera säkra Azure-lösningar.
 
-[Ladda ned dokumentet](https://acomportal.azure.net/files/resourcefiles/develop-secure-applications-on-azure/Develop%20secure%20applications%20on%20Azure.pdf)
+[Ladda ned dokumentet](https://azure.microsoft.com/mediahandler/files/resourcefiles/develop-secure-applications-on-azure/Develop%20secure%20applications%20on%20Azure.pdf)

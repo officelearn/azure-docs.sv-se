@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 6debfaed28be2b5dee5e24a443b791f75f7bea8f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 10f76ea58b859611483c99c2f4accec607bc2939
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634200"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822916"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualisera Azure Network Watcher NSG-flödesloggar med verktyg för öppen källkod
 
 Flödesloggar för Nätverkssäkerhetsgruppen innehåller information som du kan använda förstå ingående och utgående IP-trafik på Nätverkssäkerhetsgrupper. Dessa flödesloggar visar utgående och inkommande flöden på basis av per regel, flödet som gäller för nätverkskortet, 5 tuppel information om flödet (käll-och mål IP, källa/mål-Port, protokoll), och om trafik tillåts eller nekas.
 
 Dessa flödesloggar kan vara svårt att tolka och få insikter från manuellt. Det finns dock flera verktyg för öppen källkod som kan hjälpa dig att visualisera data. Den här artikeln ger en lösning för att visualisera dessa loggar med hjälp av Elastic Stack, som gör att du kan snabbt indexera och visualisera ditt flöde loggar in på en Kibana-instrumentpanelen.
+
+> [!Warning]  
+> Följande steg fungerar med flow loggar version 1. Mer information finns i [introduktion till flödesloggar för nätverkssäkerhetsgrupper](network-watcher-nsg-flow-logging-overview.md). Följande instruktioner fungerar inte med version 2 av loggfiler, utan modifiering.
 
 ## <a name="scenario"></a>Scenario
 

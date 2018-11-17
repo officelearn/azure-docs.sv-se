@@ -1,46 +1,51 @@
 ---
-title: Kontinuerlig Jenkins-distribution med Azure Kubernetes Service (AKS)
-description: Lär dig att automatisera en process för kontinuerlig distribution med Jenkins för att distribuera och uppgradera en behållarbaserad app i Azure Kubernetes Service (AKS)
+title: Självstudie – distribuera från GitHub till Azure Kubernetes Service (AKS) med Jenkins
+description: Konfigurera Jenkins för kontinuerlig integrering (CI) från GitHub och distribution (CD) till Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
 ms.service: container-service
+author: iainfoulds
+ms.author: iainfou
 ms.topic: article
 ms.date: 09/27/2018
-ms.author: iainfou
-ms.openlocfilehash: 5417e59f15ffcf48cc2af27044355d2bb5c9edaf
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: d252e275280ed2a5c2129f6b228e9989a33b37fd
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087703"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853640"
 ---
-# <a name="create-a-continuous-deployment-pipeline-with-jenkins-and-azure-kubernetes-service-aks"></a>Skapa en pipeline för kontinuerlig distribution med Jenkins och Azure Kubernetes Service (AKS)
+# <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Självstudie: Distribuera från GitHub till Azure Kubernetes Service (AKS) med Jenkins kontinuerlig integrering och distribution
 
-För att snabbt distribuera uppdateringar till program i Azure Kubernetes Service (AKS), använder du ofta en kontinuerlig integrering och kontinuerlig leverans (CI/CD). I en CI/CD-platform, kan en kodgenomförande Utlös en ny behållare-version som används för att distribuera en uppdaterad programinstans. I den här artikeln får använder du Jenkins som CI/CD-plattformen att bygga och push-överför avbildningar till Azure Container Registry (ACR) och sedan köra dessa program i AKS. Lär dig att:
+Den här självstudien distribuerar en exempelapp från GitHub till en [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) kluster genom att konfigurera kontinuerlig integrering (CI) och kontinuerlig distribution (CD) i Jenkins. När du uppdaterar din app genom att skicka incheckningar till GitHub, Jenkins automatiskt körs en ny version av behållare, push-meddelanden behållaravbildningar till Azure Container Registry (ACR) och kör din app i AKS. 
+
+I de här självstudierna ska du utföra dessa uppgifter:
 
 > [!div class="checklist"]
-> * Distribuera ett exempelprogram för Azure voting till ett AKS-kluster
-> * Skapa en grundläggande Jenkins-instans
-> * Konfigurera autentiseringsuppgifter för Jenkins kan interagera med ACR
-> * Skapa en Jenkins-byggjobb och GitHub-webbhook för automatiserade versioner
-> * Testa CI/CD-pipeline för att uppdatera ett program i AKS baserat på GitHub-incheckningar kod
+> * Distribuera en exempelapp för Azure voting till ett AKS-kluster.
+> * Skapa en grundläggande Jenkins-projektet.
+> * Ställ in autentiseringsuppgifter för Jenkins kan interagera med ACR.
+> * Skapa en Jenkins-byggjobb och GitHub-webbhook för automatiserade versioner.
+> * Testa CI/CD-pipeline för att uppdatera ett program i AKS baserat på GitHub-incheckningar kod.
 
-## <a name="before-you-begin"></a>Innan du börjar
+## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver följande för att kunna slutföra stegen i den här artikeln.
+Den här kursen behöver du följande objekt:
 
 - Grundläggande förståelse för Kubernetes, Git, CI/CD och container-avbildningar
 
-- En [AKS-kluster] [ aks-quickstart] och `kubectl` konfigurerats med den [AKS kluster autentiseringsuppgifter][aks-credentials].
-- En [Azure Container Registry (ACR) registret][acr-quickstart], namnet på ACR-inloggningsservern och AKS-kluster som har konfigurerats att [autentisera med ACR-registret] [ acr-authentication].
+- En [AKS-kluster] [ aks-quickstart] och `kubectl` konfigurerats med den [autentiseringsuppgifter för AKS-kluster][aks-credentials]
+
+- En [Azure Container Registry (ACR) registret][acr-quickstart], namnet på ACR-inloggningsservern och AKS-kluster som har konfigurerats att [autentisera med ACR-registret][acr-authentication]
 
 - Azure CLI version 2.0.46 eller senare installerat och konfigurerat. Kör `az --version` att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [installera Azure CLI][install-azure-cli].
-- [Docker installerat] [ docker-install] i utvecklingssystemet.
-- En GitHub-konto, [personlig åtkomsttoken för GitHub][git-access-token], och Git-klient installerad i utvecklingssystemet.
+
+- [Docker installerat] [ docker-install] i utvecklingssystemet
+
+- En GitHub-konto, [personlig åtkomsttoken för GitHub][git-access-token], och Git-klient installerad i utvecklingssystemet
 
 - Om du anger din egen Jenkins-instans i stället för att det här exemplet skriptade sätt att distribuera Jenkins kan Jenkins-instans behov [Docker installerat och konfigurerat] [ docker-install] och [kubectl][kubectl-install].
 
-## <a name="prepare-the-application"></a>Förbereda programmet
+## <a name="prepare-your-app"></a>Förbereda din app
 
 I den här artikeln använder du ett exempelprogram för Azure voting som innehåller ett webbgränssnitt som finns i en eller flera poddar och en andra pod som är värd för Redis för tillfällig lagring. Innan du integrerar Jenkins och AKS för automatisk distribution, först manuellt förbereda och distribuera programmet Azure voting till AKS-klustret. Den här manuell distribution är versionen av programmet och kan du se hur programmet fungerar i praktiken.
 

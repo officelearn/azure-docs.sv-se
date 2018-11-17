@@ -5,16 +5,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.author: jmartens
-author: j-martens
+ms.author: shwinne
+author: swinner95
 ms.reviewer: jmartens
 ms.date: 10/1/2018
-ms.openlocfilehash: a298a49c5bdf28b30da05c1b6296fc211ec14c1d
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 57fe511e5de0d73f2a372da0ecab3e9a3039b194
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713154"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854211"
 ---
 # <a name="vs-code-tools-for-ai-get-started-with-azure-machine-learning-from-visual-studio-code"></a>VS Code Tools för AI: Kom igång med Azure Machine Learning från Visual Studio Code
 
@@ -22,7 +22,7 @@ I den här artikeln får du lära dig om tillägg för Visual Studio Code (VS Co
 
 Använd verktyg för AI-tillägg i Visual Studio code för att använda Azure Machine Learning-tjänsten till Förbered dina data, träna och testa ML-modeller på lokala och fjärranslutna beräkningsmål, distribuerar modellerna och spåra anpassade mått och experiment.
 
-## <a name="prerequisite"></a>Krav
+## <a name="prerequisite"></a>Förutsättning
 
 + Visual Studio Code måste installeras. VS Code är en enkel men kraftfull källkodsredigerare som körs på skrivbordet. Den innehåller inbyggt stöd för Python med mera.  [Lär dig att installera VS Code](https://code.visualstudio.com/docs/setup/setup-overview).
 

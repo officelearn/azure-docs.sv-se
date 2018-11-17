@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: d794648d3af086263ccffc782f3f3fdf6456eacc
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 8d5403ab91323cea44e31c4ef99c33b387229ef0
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013385"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820434"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Host.JSON-referens för Azure Functions 2.x  
 
@@ -69,7 +69,7 @@ I följande exempel *host.json* filer har alla möjliga alternativ som har anget
           "default": "None"
         },
         "applicationInsights": {
-            "sampling": {
+            "samplingSettings": {
               "isEnabled": true,
               "maxTelemetryItemsPerSecond" : 5
             }

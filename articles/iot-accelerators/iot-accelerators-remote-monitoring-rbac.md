@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: a56cb92dc8870bf3fff6de0b1d5d907a0898c216
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 56fbb5d45e55e63ae887d915367cfc649e531095
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364303"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820230"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Konfigurera rollbaserade åtkomstkontroller i lösningsacceleratorn för fjärrövervakning
 
@@ -23,29 +23,33 @@ Den här artikeln innehåller information om hur du konfigurerar rollbaserad åt
 
 Första gången du distribuerar lösningen för fjärrövervakning, det finns två roller: **Admin** och **skrivskyddad**.
 
-Alla användare i den **Admin** rollen har fullständig åtkomst till lösningen. En användare i den **skrivskyddad** rollen inte göra någon av följande uppgifter:
+Alla användare i den **Admin** rollen har fullständig åtkomst till lösning, inklusive följande behörigheter nedan. En användare i den **skrivskyddad** rollen har endast åtkomst till visa lösningen.
 
-- Uppdatera larm
-- Ta bort larm
-- Skapa enheter
-- Uppdatera enheter
-- Ta bort enheter
-- Skapa enhetsgrupper
-- Uppdatera enhetsgrupper
-- Ta bort enhetsgrupper
-- Skapa regler
-- Uppdateringsregler
-- Ta bort regler
-- Skapa jobb
-- SIM-hantering av uppdatering
+| Behörighet            | Administratör | Skrivskyddad |
+|----------------       |-------|-----------|
+| Visa lösningen         | Ja   | Ja       |
+| Uppdatera larm         | Ja   | Nej        |
+| Ta bort larm         | Ja   | Nej        |
+| Skapa enheter        | Ja   | Nej        |
+| Uppdatera enheter        | Ja   | Nej        |
+| Ta bort enheter        | Ja   | Nej        |
+| Skapa enhetsgrupper  | Ja   | Nej        |
+| Uppdatera enhetsgrupper  | Ja   | Nej        |
+| Ta bort enhetsgrupper  | Ja   | Nej        |
+| Skapa regler          | Ja   | Nej        |
+| Uppdateringsregler          | Ja   | Nej        |
+| Ta bort regler          | Ja   | Nej        |
+| Skapa jobb           | Ja   | Nej        |
+| SIM-hantering av uppdatering | Ja   | Nej        |
 
-Den person som distribuerar lösningen för fjärrövervakning tilldelas automatiskt till den **Admin** roll och är en Azure Active Directory-programmets ägare. Du kan tilldela roller till andra användare i Azure-portalen som programmet ägare.
+Som standard tilldelas automatiskt den användare som distribueras lösningen i **Admin** roll och är en Azure Active Directory-programmets ägare. Ägare program kan tilldela du roller till andra användare via Azure portal. Om du vill att en annan användare att tilldela roller i lösningen, måste de också anges som programägare i Azure-portalen.
 
-Om du vill att en annan användare att tilldela roller i lösningen, måste de också anges som programägare i Azure-portalen.
+> [!NOTE]
+> Den användare som distribueras lösningen är den **endast person** som kan visa den direkt efter dess har skapats. Om du vill bevilja andra åtkomst till om du vill visa programmet som en skrivskyddad, administratör, eller en anpassad roll, se följande anvisningarna nedan på Lägg till eller ta bort användare.
 
 ## <a name="add-or-remove-users"></a>Lägg till eller ta bort användare
 
-Använda Azure-portalen för att lägga till eller ta bort en användare från lösningen för fjärrövervakning. I följande anvisningar används den [företagsprogram i Azure Active Directory](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) som har skapats för dig när du distribuerade av lösningen för fjärrövervakning.
+Ägare Azure Active Directory-program kan använda du Azure-portalen för att lägga till eller ta bort en användare till en roll från lösningen för fjärrövervakning. I följande anvisningar används den [företagsprogram i Azure Active Directory](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) som skapades när du har distribuerat av lösningen för fjärrövervakning.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 

@@ -3,7 +3,8 @@ title: Så här väljer du maskininlärningsalgoritmer | Microsoft Docs
 description: Så här väljer du Azure Machine Learning Studio-algoritmer för övervakad och oövervakad inlärning i kluster-, klassificerings- eller regressionsmodell experiment.
 services: machine-learning
 author: pakalra
-ms.author: pakalra
+ms.custom: (previous ms.author pakalra)
+ms.author: amlstudiodocs
 manager: cgronlun
 editor: cgronlun
 tags: ''
@@ -12,12 +13,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: c3aa1bfe2cc1513d636452031de62da814af6cd7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f02355239bb908cded1f65a5b41953c4148efaec
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262309"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823239"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Så här väljer du algoritmer för Azure Machine Learning Studio
 
@@ -73,7 +74,7 @@ Baserat på den här ändrar algoritmen sin strategi för att uppnå högsta tra
 
 ## <a name="considerations-when-choosing-an-algorithm"></a>Att tänka på när du väljer en algoritm
 
-### <a name="accuracy"></a>Precision
+### <a name="accuracy"></a>Tillförlitlighet
 
 Hämta det mest korrekta svaret möjliga är inte alltid nödvändigt.
 Ibland är ett approximativt värde lämplig, beroende på vad du vill använda den för. Om så är fallet kan du kunna klippa ut din bearbetningstid avsevärt genom fastna mer ungefärliga metoder. En annan fördel med mer ungefärliga metoder är att de naturligt tenderar att undvika [overfitting](https://youtu.be/DQWI1kvmwRg).

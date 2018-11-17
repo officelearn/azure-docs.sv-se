@@ -1,10 +1,11 @@
 ---
 title: 'Steg 6: Få åtkomst till webbtjänsten för Machine Learning | Microsoft Docs'
-description: 'Steg 6 i utveckla en förutsägelselösning genomgång: komma åt en aktiva Azure Machine Learning-webbtjänst.'
+description: 'Steg 6 i utveckla en förutsägelselösning genomgång: komma åt en active Azure Machine Learning-webbtjänst.'
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
-ms.author: yahajiza
+ms.custom: (previous ms.author yahajiza)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 6a65c89a-40ab-4673-8dd8-8eee0a150e3b
@@ -15,16 +16,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: be63a04d0fe71039b19eb6bc0678a319f622a811
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: abb94165d08a9f4e45924d71ed11a088d662339e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836712"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822171"
 ---
 # <a name="walkthrough-step-6-access-the-azure-machine-learning-web-service"></a>Genomgång steg 6: Få åtkomst till Azure Machine Learning-webbtjänsten
 
-Detta är det sista steget i den här genomgången [utveckla en förutsägelseanalys i Azure Machine Learning](walkthrough-develop-predictive-solution.md)
+Det här är det sista steget i den här genomgången [utveckla en lösning för förutsägelseanalys i Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
 1. [Skapa en Machine Learning-arbetsyta](walkthrough-1-create-ml-workspace.md)
 2. [Överför befintliga data](walkthrough-2-upload-data.md)
@@ -34,20 +35,20 @@ Detta är det sista steget i den här genomgången [utveckla en förutsägelsean
 6. **Få åtkomst till webbtjänsten**
 
 - - -
-I föregående steg i den här genomgången distribuerade vi en webbtjänst som använder vår kredit risk förutsägelse modell. Användare ska nu kunna skicka data till den och få resultat. 
+I föregående steg i den här genomgången distribuerade vi en webbtjänst som använder våra kredit risk förutsägelsemodell. Användare kan nu skicka data till den och ta emot resultaten. 
 
-Webbtjänsten är en Azure-webbtjänst som kan ta emot och returnera data med hjälp av REST API: er i ett av två sätt:  
+Webbtjänsten är en Azure-webbtjänst som kan ta emot och returnera data med hjälp av REST API: er på ett av två sätt:  
 
-* **Frågor och svar** – användaren skickar en eller flera datarader kredit till tjänsten med hjälp av en HTTP-protokollet och tjänsten svarar med en eller flera uppsättningar av resultaten.
-* **Batch-körningen** – användaren lagrar en eller fler rader med kredit data i ett Azure blob- och skickar sedan blobbplats till tjänsten. Tjänsten poäng alla rader med data i indata blob, lagrar resultaten i en annan blob och returnerar URL för behållaren.  
+* **Begäran/svar** – användaren skickar en eller flera rader med kredit-data till tjänsten med hjälp av en HTTP-protokollet och tjänsten svarar med en eller flera uppsättningar med resultat.
+* **Batch-körningen** – användaren lagrar en eller flera rader med kredit-data i en Azure blob- och skickar sedan blobbplats till tjänsten. Tjänsten bedömer alla rader med data i indata-blob, lagrar resultatet i en annan blob och returnerar URL: en för behållaren.  
 
-Det snabbaste och enklaste sättet att komma åt en klassisk webbtjänst är via den [Azure ML-svar på begäranden Service Web App](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) eller [Azure ML Batch Execution Service Web Appmallen](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/).
+Det snabbaste och enklaste sättet att få åtkomst till en klassisk webbtjänst är via den [Azure ML-Request-Response Service-Webbapp](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) eller [Webbappmall för Azure ML Batch Execution Service](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/).
 
-Mallarna web app kan skapa ett anpassat webbprogram som känner din webbtjänsten indata och vad returneras. Allt du behöver göra är att ge åtkomst till webbtjänsten och data och mallen gör resten.
+Dessa mallar för web app kan skapa ett anpassat webbprogram som känner till din webbtjänst indata och vad den ska returnera. Allt du behöver göra är att ge åtkomst till din webbtjänst och dina data och mallen resten.
 
-Mer information om hur du använder app webbmallar finns [använda en Azure Machine Learning webbtjänst med en mall för app](consume-web-service-with-web-app-template.md).
+Mer information om hur du använder webbappmallar finns i [använda en Azure Machine Learning webbtjänst med en webbappmall](consume-web-service-with-web-app-template.md).
 
-Du kan också skapa ett anpassat program för att få åtkomst till webbtjänsten genom att använda starter code enligt du R, C# och Python programmeringsspråk.
+Du kan också skapa en anpassad App för att få åtkomst till webbtjänsten med hjälp av starter koden automatiskt i R, C#, och Python programmeringsspråk.
 
-Du hittar information i [använda en Azure Machine Learning-webbtjänst](consume-web-services.md).
+Fullständig information finns i [hur du använder en Azure Machine Learning-webbtjänst](consume-web-services.md).
 

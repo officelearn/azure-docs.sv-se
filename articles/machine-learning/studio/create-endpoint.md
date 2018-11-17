@@ -4,7 +4,8 @@ description: Skapa slutpunkter för webbtjänster i Azure Machine Learning
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
-ms.author: yahajiza
+ms.custom: (previous ms.author yahajiza)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
@@ -15,47 +16,47 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
-ms.openlocfilehash: 8cdf8c5ac3676d8abc9084fc842484aca5b6d1c7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 45115f0a987093d7e3816891fa5f4c242b449fb7
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833554"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819244"
 ---
 # <a name="creating-endpoints"></a>Skapa slutpunkter
 > [!NOTE]
->  Det här avsnittet beskrivs metoder som gäller för en **klassiska** Machine Learning-webbtjänst.
+>  Det här avsnittet beskrivs tekniker som kan användas till en **klassiska** Machine Learning-webbtjänster.
 > 
 > 
 
-Du måste ange tränade modeller för varje kund som fortfarande är kopplade till experiment som webbtjänsten skapades från när du skapar webbtjänster som du säljer vidarebefordra till dina kunder. Dessutom tillämpas alla uppdateringar experimentet selektivt till en slutpunkt utan att skriva över anpassningar.
+När du skapar webbtjänster som du säljer framåt till dina kunder kan behöva du tillhandahålla anpassade modeller till kunder som fortfarande är länkade till arbetsytan för experimentet som webbtjänsten har skapats. Dessutom bör eventuella uppdateringar till arbetsytan för experimentet tillämpas selektivt på en slutpunkt utan att skriva över anpassningarna.
 
-För att åstadkomma detta kan du skapa flera slutpunkter för en distribuerad webbtjänst i Azure Machine Learning. Varje slutpunkt i webbtjänsten är oberoende av varandra åtgärdas, begränsas och hanteras. Varje slutpunkt är en unik URL och auktoriseringsnyckeln som du kan distribuera till dina kunder.
+För att åstadkomma detta kan Azure Machine Learning du skapa flera slutpunkter för en distribuerad webbtjänst. Varje slutpunkt i webbtjänsten är oberoende av varandra åtgärdas, begränsas och hanteras. Varje slutpunkt är en unik URL och auktoriseringsnyckeln som du kan distribuera till dina kunder.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="adding-endpoints-to-a-web-service"></a>Att lägga till slutpunkter till en webbtjänst
-Det finns två sätt att lägga till en slutpunkt till en webbtjänst.
+## <a name="adding-endpoints-to-a-web-service"></a>Lägga till slutpunkter till en webbtjänst
+Det finns två sätt att lägga till en slutpunkt i en webbtjänst.
 
 * Programmässigt
-* Via portalen Azure Machine Learning-webbtjänster
+* Via Azure Machine Learning Web Services-portalen
 
-När slutpunkten har skapats kan du använda via synkron API: er, batch-API: er, och excel-kalkylblad. Förutom att lägga till slutpunkter via Användargränssnittet, kan du också använda Endpoint Management-API: er att programmatiskt lägga till slutpunkter.
+När slutpunkten har skapats kan du använda via synkron API: er, batch API: er, och excel-kalkylblad. Förutom att lägga till slutpunkter via det här Användargränssnittet kan använda du också Management-API: er för slutpunkten att programmatiskt lägga till slutpunkter.
 
 > [!NOTE]
-> Om du har lagt till ytterligare slutpunkter webbtjänsten kan du inte ta bort standardslutpunkten.
+> Om du har lagt till ytterligare slutpunkter till webbtjänsten kan du inte ta bort standardslutpunkten.
 > 
 > 
 
-## <a name="adding-an-endpoint-programmatically"></a>Lägga till en slutpunkt programmässigt
-Du kan lägga till en slutpunkt för webbtjänsten via programmering med hjälp av [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) exempelkod.
+## <a name="adding-an-endpoint-programmatically"></a>Att lägga till en slutpunkt programmässigt
+Du kan lägga till en slutpunkt för webbtjänsten via programmering med hjälp av den [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) exempelkoden.
 
-## <a name="adding-an-endpoint-using-the-azure-machine-learning-web-services-portal"></a>Lägga till en slutpunkt med hjälp av Azure Machine Learning-webbtjänster-portalen
-1. Klicka på webbtjänster på kolumnen navigeringen till vänster i Machine Learning Studio.
-2. Längst ned i Web service instrumentpanelen klickar du på **hantera slutpunkter**. Azure Machine Learning-webbtjänster portal öppnar sidan slutpunkter för webbtjänsten.
+## <a name="adding-an-endpoint-using-the-azure-machine-learning-web-services-portal"></a>Att lägga till en slutpunkt med hjälp av Azure Machine Learning Web Services-portalen
+1. Klicka på webbtjänster i Machine Learning Studio, på den vänstra kolumnen.
+2. Längst ned i instrumentpanelen för webbtjänsten klickar du på **hantera slutpunkter för**. Azure Machine Learning Web Services-portalen öppnas på sidan slutpunkter för webbtjänsten.
 3. Klicka på **Ny**.
-4. Skriv ett namn och beskrivning för den nya slutpunkten. Slutpunkten namn måste vara 24 tecken eller mindre längd och måste bestå av gemena bokstäver eller siffror. Välj loggningsnivån och om exempeldata är aktiverad. Mer information om loggning finns [aktivera loggning för Machine Learning-webbtjänster](web-services-logging.md).
+4. Skriv ett namn och beskrivning för den nya slutpunkten. Slutpunktsnamn måste vara 24 tecken eller mindre långt och måste bestå av gemena bokstäver eller siffror. Välj loggningsnivån och om exempeldata är aktiverad. Mer information om loggning finns i [aktivera loggning för Machine Learning Web services](web-services-logging.md).
 
 ## <a name="next-steps"></a>Nästa steg
-[Använda en Azure Machine Learning-webbtjänst](consume-web-services.md).
+[Hur du använder en Azure Machine Learning-webbtjänst](consume-web-services.md).
 

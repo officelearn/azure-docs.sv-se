@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 418a98e0b5eeed6bc5b94ca78b8636116620b614
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
-ms.translationtype: HT
+ms.openlocfilehash: d104b5de22281817626f8de0f41029e76e06e3a2
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705420"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824820"
 ---
 # <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Azure global distribution Cosmos DB – under huven
 
@@ -81,5 +81,5 @@ Semantiken för de fem konsekvensmodeller i Cosmos DB beskrivs [här](consistenc
 Lär dig sedan att konfigurera global distribution med hjälp av följande artiklar:
 
 * [Så här konfigurerar du klienter för flera värdar](how-to-manage-database-account.md#configure-clients-for-multi-homing)
-* [Lägg till eller ta bort regioner från ditt Azure Cosmos DB-konto](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Lägg till/ta bort regioner från ditt databaskonto](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Så här skapar du en principen för anpassad konfliktlösning för SQL-API-konton](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

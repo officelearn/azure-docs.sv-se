@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d7c1eaa26edef830ca156eef943fcb256d737d77
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 3ab0edf4483763c1048b7026175ddce821624ac0
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989885"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821114"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Täckning för geokodning för Azure Maps
 
@@ -104,7 +104,7 @@ När du söker efter en plats med Azure Maps söktjänsten tar sökorden och ret
 | Japan                                               |                 |                |              |      ✓     |          ✓         |
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |
-| Macao SAR                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Macao                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malaysia                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Mikronesien |                 |                |              |      ✓     |          ✓         |
 | Mongoliet                                            |                 |                |              |      ✓     |          ✓         |
@@ -152,7 +152,7 @@ När du söker efter en plats med Azure Maps söktjänsten tar sökorden och ret
 | Belgien                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bosnien och Hercegovina                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Bulgarien                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Belerus|                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Vitryssland|                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Kroatien                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Cypern                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Tjeckien                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -174,7 +174,7 @@ När du söker efter en plats med Azure Maps söktjänsten tar sökorden och ret
 | Italien                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Jan Mayen                                           |        ✓        |                |              |      ✓     |          ✓         |
 | Jersey                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Kazakstan                                          |        ✓        |                |       ✓      |      ✓     |          ✓         |
+| Kazakhstan                                          |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Kosovo                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Kirgizistan                                          |                 |                |              |      ✓     |          ✓         |
 | Lettland                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -255,7 +255,7 @@ När du söker efter en plats med Azure Maps söktjänsten tar sökorden och ret
 | Maldiverna |                 |                |              |      ✓     |          ✓         |
 | Mali                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Marshallöarna |                 |                |              |      ✓     |          ✓         |
-| Mauritanien                                          |                 |                |       ✓      |      ✓     |          ✓         |
+| Mauretanien                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Mauritius                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Mayotte                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Marocko                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |

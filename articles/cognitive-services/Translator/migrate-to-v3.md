@@ -10,16 +10,19 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: e0654d6a4696e6f02939cad51a715412fdcfb61a
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2f0b2984bf2390a9af0b824495b84c71d04aeac2
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645242"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852851"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2 till V3-migrering
 
-Microsoft Translator-teamet har släppt Version 3 (V3) av Translator Text API. Den här versionen innehåller nya funktioner, föråldrad metoder och ett nytt format för att skicka till och ta emot data från tjänsten Microsoft Translator. Det här dokumentet innehåller information för att ändra programmen kan använda V3. V2 30 April 2018 kommer att bli inaktuella och kommer att upphöra den 30 April 2019.
+> [!NOTE]
+> V2 upphörde den 30 April 2018 och kommer att upphöra den 30 April 2019.
+
+Microsoft Translator-teamet har släppt Version 3 (V3) av Translator Text API. Den här versionen innehåller nya funktioner, föråldrad metoder och ett nytt format för att skicka till och ta emot data från tjänsten Microsoft Translator. Det här dokumentet innehåller information för att ändra programmen kan använda V3. 
 
 Slutet av det här dokumentet innehåller användbara länkar du vill veta mer.
 
@@ -66,7 +69,7 @@ Metoden språk kräver inte autentisering; Du kan se alla språkinformation för
 
 Den autentiseringsnyckel som du använder för V2 kommer accepteras för V3. Du behöver inte skaffa en ny prenumeration. Du kommer att kunna blanda V2 och V3 i dina appar under yearlong migreringen, vilket gör det enklare för dig att släppa nya versioner medan du fortfarande migrerar från V2-XML till V3-JSON.
 
-## <a name="pricing-model"></a>Prismodell
+## <a name="pricing-model"></a>Prissättningsmodell
 
 Microsoft Translator V3 debiteras på samma sätt som V2 har prissätts; per tecken inklusive blanksteg. De nya funktionerna i V3 gör några ändringar i vilka tecken räknas för fakturering.
 

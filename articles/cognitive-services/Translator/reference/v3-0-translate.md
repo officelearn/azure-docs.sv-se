@@ -10,18 +10,18 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: bebe9b6565d618cb773de0379122a17bf7f70403
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: a096bd2f23910eb2eb3bc4aa36e34400ccfbb701
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914302"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853412"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: översätta
 
 Översätter text.
 
-## <a name="request-url"></a>URL för begäran
+## <a name="request-url"></a>Fråge-URL
 
 Skicka en `POST` begäran om att:
 
@@ -45,7 +45,7 @@ Parametrarna som skickades mot frågesträngen är:
     <td>*Valfri parameter*.<br/>Anger språket i indatatexten. Hitta vilka språk är tillgängliga att översätta från genom att leta upp [språk som stöds](.\v3-0-languages.md) med hjälp av den `translation` omfång. Om den `from` parametern inte anges, automatisk språkidentifiering används för att fastställa en källspråket.</td>
   </tr>
   <tr>
-    <td>till</td>
+    <td>i</td>
     <td>*Obligatoriska parametern*.<br/>Anger språket i utdata texten. Målspråket som måste vara något av de [språk som stöds](.\v3-0-languages.md) ingår i den `translation` omfång. Till exempel använda `to=de` att översätta tyska.<br/>Det är möjligt att översätta på flera språk samtidigt genom att upprepa parametern i frågesträngen. Till exempel använda `to=de&to=it` att översätta tyska och italienska.</td>
   </tr>
   <tr>
@@ -84,12 +84,17 @@ Parametrarna som skickades mot frågesträngen är:
     <td>toScript</td>
     <td>*Valfri parameter*.<br/>Anger skriptet på den översatta texten.</td>
   </tr>
+  <tr>
+    <td>AllowFallback</td>
+    <td>*Valfri parameter*.<br/>Anger att tjänsten ska kunna återgå till ett allmänt system när en anpassad system inte finns. Möjliga värden är: `true` (standard) eller `false`.<br/><br/>`AllowFallback=false` Anger att översättningen bara ska använda system som har tränats för den `category` anges i begäran. Om en översättning för språk X språk Y kräver länkning via en pivot-språk E, sedan alla system i kedjan (X -> E- och E -> Y) måste vara anpassad och har samma kategori. Om inga så är fallet med viss kategori returnerar begäran 400-statuskod. `AllowFallback=true` Anger att tjänsten ska kunna återgå till ett allmänt system när en anpassad system inte finns.
+</td>
+  </tr>
 </table> 
 
 Begärandehuvuden är:
 
 <table width="100%">
-  <th width="20%">Rubriker</th>
+  <th width="20%">Sidhuvuden</th>
   <th>Beskrivning</th>
   <tr>
     <td>_En auktorisering_<br/>_Rubrik_</td>
@@ -106,6 +111,11 @@ Begärandehuvuden är:
   <tr>
     <td>X-ClientTraceId</td>
     <td>*Valfritt*.<br/>En klientgenererade GUID för unik identifiering på begäran. Du kan utelämna den här rubriken om du inkluderar trace-ID i frågesträngen med hjälp av en frågeparameter som heter `ClientTraceId`.</td>
+  </tr>
+  <tr>
+    <td>X-MT-System</td>
+    <td>*Valfritt*.<br/>Anger den systemtyp av som har använts för översättning för språket som efterfrågas för översättning varje ”till”. Värdet är en kommaavgränsad lista med strängar. Varje sträng Anger en typ:<br/><ul><li>Anpassad - begäran innehåller en anpassad system och minst en anpassad system används vid översättning.</li><li>Team – alla övriga förfrågningar</li></ul>
+</td>
   </tr>
 </table> 
 
@@ -186,6 +196,10 @@ Här följer möjliga HTTP-statuskoder som returnerar en begäran.
   <tr>
     <td>403</td>
     <td>Begäran har inte behörighet. Finns information om felmeddelandet. Detta innebär ofta att alla kostnadsfria översättningar som medföljer en utvärderingsprenumeration har förbrukats.</td>
+  </tr>
+  <tr>
+    <td>408</td>
+    <td>Begäran kan inte fullföljas eftersom en resurs saknas. Finns information om felmeddelandet. När du använder en anpassad `category`, detta indikerar ofta att den anpassade översättningssystemet inte ännu tillgänglig för att hantera begäranden. Begäran ska göras efter en väntetid (t.ex. 10 minuter).</td>
   </tr>
   <tr>
     <td>429</td>
@@ -348,7 +362,7 @@ Du kan använda svordomar filtrering alternativet om du vill undvika svordomar i
 
 <table width="100%">
   <th width="20%">ProfanityAction</th>
-  <th>Åtgärd</th>
+  <th>åtgärd</th>
   <tr>
     <td>`NoAction`</td>
     <td>Detta är standardbeteendet. Svordomar skickas från källan till målet.<br/><br/>

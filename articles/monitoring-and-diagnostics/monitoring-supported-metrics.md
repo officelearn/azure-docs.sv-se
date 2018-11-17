@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 5f6140b582b2412a164593bd2aa99bfbde5fb688
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0bb79c9d85e56308d9872baeb10868be8eaf7a5a
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964194"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824922"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mått som stöds med Azure Monitor
 Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inklusive diagram dem i portalen, få åtkomst till dem via REST API eller frågor till dem med PowerShell eller CLI. Nedan visas en fullständig lista över alla mått som är tillgänglig med Azure Monitor mått pipeline. Andra mått kan finnas i portalen eller med äldre API: er. Listan nedan innehåller endast mått som är tillgängliga med hjälp av konsoliderade pipelinen för Azure Monitor-mått. Fråga efter och komma åt de här måtten Använd den [2018-01-01 api-versionen](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -819,7 +819,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |IsEngineAnsweringQuery|Keep Alive|Antal|Medel|Kontrollera förstånd anger kluster respondes till frågor|Inga dimensioner|
 |IngestCommandOriginalSizeInMb|Datainmatning volymen (i MB)|Antal|Totalt|Totala mängden insamlade data i klustret (i MB)|Inga dimensioner|
 |EventAgeSeconds|Datainmatningssvarstid (i sekunder)|Sekunder|Medel|Datainmatning tid från källan (t.ex. meddelandet är EventHub) till klustret i sekunder|Inga dimensioner|
-|EventRecievedFromEventHub|Händelser som bearbetas (för Event Hubs)|Antal|Totalt|Antalet händelser som bearbetas av klustret om mata in från Event Hub|Inga dimensioner|
+|EventReceivedFromEventHub|Händelser som bearbetas (för Event Hubs)|Antal|Totalt|Antalet händelser som bearbetas av klustret om mata in från Event Hub|Inga dimensioner|
 |IngestionResult|Datainmatning resultat|Antal|Antal|Antal åtgärder för inmatning|IngestionResultDetails|
 |EngineCPU|Processor|Procent|Medel|Processor på en nivå|Inga dimensioner|
 
@@ -1570,6 +1570,6 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |MemoryPercentage|Minnesprocent|Procent|Medel|Minnesprocent|Instans|
 
 ## <a name="next-steps"></a>Nästa steg
-* [Läs mer om mätvärden i Azure Monitor](../monitoring/monitoring-data-collection.md)
+* [Läs mer om mätvärden i Azure Monitor](../azure-monitor/platform/data-collection.md)
 * [Skapa aviseringar för mått](monitoring-overview-alerts.md)
 * [Exportera mått till lagring, Event Hub eller Log Analytics](monitoring-overview-of-diagnostic-logs.md)

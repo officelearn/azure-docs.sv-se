@@ -4,7 +4,8 @@ description: Lär dig hur du tränar en modell och uppdatera webbtjänsten för 
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
-ms.author: yahajiza
+ms.custom: (previous ms.author yahajiza)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 3de17375670d7697a298023dc79ffc2418cb7e42
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: be4f1e4705d1f8357198f01e2fa6d5aae83159c7
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963784"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820094"
 ---
 # <a name="retrain-a-classic-web-service"></a>Omtrimma en klassisk webbtjänst
 Förutsägande webbtjänsten som du har distribuerat är standardinställningen bedömningsslutpunkten. Standardslutpunkterna hålls synkroniserade med den ursprungliga träningen och bedömning experiment och därför den tränade modellen för standardslutpunkten kan inte ersättas. För att träna om webbtjänsten, måste du lägga till en ny slutpunkt för webbtjänsten. 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: cb230dad22e6b0d67a4d6a589e9fba00560a9264
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: HT
+ms.openlocfilehash: ebbedb38256c997f39e30e27aa29139dc2496fd1
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715854"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819261"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Data samling information om lösningar i Azure
 Den här artikeln innehåller en lista över [hanteringslösningar](solutions.md) tillgängliga från Microsoft med länkar till deras detaljerad dokumentation.  Det innehåller även information om deras metod och frekvensen för insamling av data till Log Analytics.  Du kan använda informationen i den här artikeln för att identifiera de olika lösningarna som är tillgängliga och förstå datakrav för flödet och anslutningen för olika lösningar. 
@@ -66,7 +66,7 @@ Förklaringar av kolumnerna är följande:
 | [Office 365 Analytics (förhandsversion)](solution-office-365.md) |Windows | | | | | |på meddelandet |
 | **Lösning för hantering** | **Plattform** | **Microsoft övervakningsagent** | **Operations Manager-agent** | **Azure Storage** | **Operations Manager som krävs?** | **Operations Manager agent-data skickas via hanteringsgruppen** | **Insamlingsfrekvens** |
 | [Service Fabric-analys](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5 minuter |
-| [Tjänstkarta](../../monitoring/monitoring-service-map.md) | Windows och Linux | &#8226; | &#8226; |  |  |  | 15 sekunder |
+| [Tjänstkarta](../../azure-monitor/insights/service-map.md) | Windows och Linux | &#8226; | &#8226; |  |  |  | 15 sekunder |
 | [SQL-bedömning](../../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 dagar |
 | [SurfaceHub](../../log-analytics/log-analytics-surface-hubs.md) |Windows |&#8226; | | | | |anländer |
 | [System Center Operations Manager-utvärdering (förhandsversion)](../../log-analytics/log-analytics-scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | sju dagar |

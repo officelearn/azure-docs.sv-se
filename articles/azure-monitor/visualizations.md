@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: e44d267fcc9986c5e215fc4844f49b28918a3111
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: HT
+ms.openlocfilehash: 2fff332665652516e4ac25c4eb1a4612c15e2412
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711930"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824684"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisera data från Azure Monitor
-Den här artikeln innehåller en sammanfattning av de tillgängliga metoderna för att visualisera data som lagras i Azure Monitor. Detta inkluderar [mått i Azure-mått store](../monitoring/monitoring-data-collection.md#metrics) och [logga data i Log Analytics](../monitoring/monitoring-data-collection.md#logs). 
+Den här artikeln innehåller en sammanfattning av de tillgängliga metoderna för att visualisera data som lagras i Azure Monitor. Detta inkluderar [mått i Azure-mått store](../azure-monitor/platform/data-collection.md#metrics) och [logga data i Log Analytics](../azure-monitor/platform/data-collection.md#logs). 
 
 Visualiseringar, till exempel tabeller och diagram kan hjälpa dig att analysera övervakningsdata för att gå nedåt i problem och identifiera mönster. Beroende på vilket verktyg som du använder kanske du också alternativet för att dela visualiseringar med andra användare i och utanför din organisation.
 
@@ -138,7 +138,7 @@ Du kan komma åt data i Azure-mått och Log Analytics via sina API med valfri RE
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig mer om den [data som samlas in av Azure Monitor](../monitoring/monitoring-data-collection.md).
+- Lär dig mer om den [data som samlas in av Azure Monitor](../azure-monitor/platform/data-collection.md).
 - Lär dig mer om [Azure-instrumentpaneler](../azure-portal/azure-portal-dashboards.md).
 - Lär dig mer om [vyer i Azure Monitor](../log-analytics/log-analytics-view-designer.md).
 - Lär dig mer om [arbetsböcker i Application Insights](../application-insights/app-insights-usage-workbooks.md).

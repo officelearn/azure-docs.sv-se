@@ -1,10 +1,11 @@
 ---
-title: 'Steg 1: Skapa en arbetsyta i Machine Learning | Microsoft Docs'
+title: 'Steg 1: Skapa en Machine Learning-arbetsyta | Microsoft Docs'
 description: 'Steg 1 av utveckla en förutsägelselösning genomgång: Lär dig hur du ställer in en ny Azure Machine Learning Studio-arbetsyta.'
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: b3c97e3d-16ba-4e42-9657-2562854a1e04
@@ -15,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: f6f6ed67a1ddde3d8f3102a8f7032dc03b0e91b9
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7b4fa13551b08e157e835cbdd21cedbf4d989305
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835822"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822967"
 ---
 # <a name="walkthrough-step-1-create-a-machine-learning-workspace"></a>Genomgång steg 1: Skapa en arbetsyta i Machine Learning
-Detta är det första steget i den här genomgången [utveckla en förutsägelseanalys i Azure Machine Learning](walkthrough-develop-predictive-solution.md).
+Det här är det första steget i den här genomgången [utveckla en lösning för förutsägelseanalys i Azure Machine Learning](walkthrough-develop-predictive-solution.md).
 
 1. **Skapa en Machine Learning-arbetsyta**
 2. [Överför befintliga data](walkthrough-2-upload-data.md)
@@ -35,18 +36,18 @@ Detta är det första steget i den här genomgången [utveckla en förutsägelse
 - - -
 <!-- This needs to be updated to refer to the new way of creating workspaces in the Ibiza portal -->
 
-Om du vill använda Machine Learning Studio, behöver du en Microsoft Azure Machine Learning-arbetsytan. Den här arbetsytan innehåller de verktyg du behöver för att skapa, hantera och publicera experiment.  
+Du måste ha en Microsoft Azure Machine Learning-arbetsyta om du vill använda Machine Learning Studio. Den här arbetsytan innehåller de verktyg du behöver för att skapa, hantera och publicera experiment.  
 
-För din Azure-prenumeration måste administratören skapa arbetsytan och lägga till dig som ägare eller deltagare. Mer information finns i [skapa och dela en Azure Machine Learning-arbetsytan](create-workspace.md).
+Administratören för din Azure-prenumeration måste du skapa arbetsytan och sedan lägga till dig som ägare eller deltagare. Mer information finns i [skapa och dela en Azure Machine Learning-arbetsyta](create-workspace.md).
 
-När ditt arbetsområde har skapats kan du öppna Machine Learning Studio ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). Om du har mer än en arbetsyta kan välja du arbetsytan i verktygsfältet i det övre högra hörnet i fönstret.
+När arbetsytan har skapats kan du öppna Machine Learning Studio ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). Om du har fler än en arbetsyta kan du välja arbetsytan i verktygsfältet i det övre högra hörnet i fönstret.
 
-![Välj arbetsyta i Studio][2]
+![Välj en arbetsyta i Studio][2]
 
 > [!TIP]
-> Om du har gjort en ägare av arbetsytan kan dela du experiment som du arbetar med genom att bjuda in andra till arbetsytan. Du kan göra detta i Machine Learning Studio på den **inställningar** sidan. Du behöver bara Microsoft-konto eller organisationskonto för varje användare.
+> Om du har gjort en ägare för arbetsytan, kan du dela experiment som du arbetar med genom att bjuda in andra till arbetsytan. Du kan göra detta i Machine Learning Studio på den **inställningar** sidan. Du behöver bara det Microsoft-konto eller organisationskonto för varje användare.
 > 
-> På den **inställningar** klickar du på **användare**, klicka på **bjuda in fler användare** längst ned i fönstret.
+> På den **inställningar** klickar du på **användare**, klicka sedan på **bjuda in fler användare** längst ned i fönstret.
 > 
 > 
 

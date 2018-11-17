@@ -12,20 +12,19 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2017
+ms.date: 11/12/2018
 ms.author: dekapur
-ms.openlocfilehash: 37859a117c88238089a681e3814c2a52f62bfce4
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: c71473e975333d33406d78130ad28f417b9b967e
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412591"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853344"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Konfigurationsinställningar för ett fristående Windows-kluster
-Den här artikeln beskriver hur du konfigurerar ett fristående Azure Service Fabric-kluster med hjälp av ClusterConfig.json-filen. Du använder den här filen för att ange information om de klusternoder, säkerhetskonfigurationer, samt nätverkstopologi när det gäller fel- och uppgraderingsdomäner.
+Den här artikeln beskriver konfigurationsinställningarna för ett fristående Azure Service Fabric-kluster som kan ställas in i den *ClusterConfig.json* fil. Du använder den här filen för att ange information om de klusternoder, säkerhetskonfigurationer, samt nätverkstopologi när det gäller fel- och uppgraderingsdomäner.  När du ändrar eller lägger till konfigurationsinställningar, kan du antingen [skapa ett fristående kluster](service-fabric-cluster-creation-for-windows-server.md) eller [uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
 
 När du [hämtningspaketet fristående Service Fabric](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), ClusterConfig.json-exempel ingår också. De exempel som har ”DevCluster” i sina namn kan du skapa ett kluster med alla tre noder på samma dator, med logiska noderna. Utanför dessa noder måste minst en markeras som den primära noden. Den här typen av kluster är användbart för utvecklings- och testmiljöer. Det kan inte användas som ett produktionskluster. Med hjälp av exempel som har ”MultiMachine” i sina namn skapar produktion i företagsklass kluster, med varje nod på en separat dator. Antalet primära noder för dessa kluster är baserad på klustrets [tillförlitlighetsnivån](#reliability). I version 5.7, API-Version 2017-05, vi har tagit bort tillförlitlighetsnivån egenskapen. I stället beräknar vår kod mest optimerad tillförlitlighetsnivån för klustret. Försök inte att ange ett värde för den här egenskapen i versioner 5.7 och senare.
-
 
 * ClusterConfig.Unsecure.DevCluster.json och ClusterConfig.Unsecure.MultiMachine.json visar hur du skapar ett oskyddat test- eller produktionskluster respektive.
 
@@ -48,26 +47,27 @@ Du kan ge ett eget namn till Service Fabric-klustret genom att tilldela den till
 
 ## <a name="nodes-on-the-cluster"></a>Noder i klustret
 Du kan konfigurera noderna i ditt Service Fabric-kluster med hjälp av avsnittet noder som i följande fragment visas:
-
-    "nodes": [{
-        "nodeName": "vm0",
-        "iPAddress": "localhost",
-        "nodeTypeRef": "NodeType0",
-        "faultDomain": "fd:/dc1/r0",
-        "upgradeDomain": "UD0"
-    }, {
-        "nodeName": "vm1",
-        "iPAddress": "localhost",
-        "nodeTypeRef": "NodeType1",
-        "faultDomain": "fd:/dc1/r1",
-        "upgradeDomain": "UD1"
-    }, {
-        "nodeName": "vm2",
-        "iPAddress": "localhost",
-        "nodeTypeRef": "NodeType2",
-        "faultDomain": "fd:/dc1/r2",
-        "upgradeDomain": "UD2"
-    }],
+```json
+"nodes": [{
+    "nodeName": "vm0",
+    "iPAddress": "localhost",
+    "nodeTypeRef": "NodeType0",
+    "faultDomain": "fd:/dc1/r0",
+    "upgradeDomain": "UD0"
+}, {
+    "nodeName": "vm1",
+    "iPAddress": "localhost",
+    "nodeTypeRef": "NodeType1",
+    "faultDomain": "fd:/dc1/r1",
+    "upgradeDomain": "UD1"
+}, {
+    "nodeName": "vm2",
+    "iPAddress": "localhost",
+    "nodeTypeRef": "NodeType2",
+    "faultDomain": "fd:/dc1/r2",
+    "upgradeDomain": "UD2"
+}],
+```
 
 Service Fabric-kluster måste innehålla minst tre noder. Du kan lägga till fler noder i det här avsnittet enligt din konfiguration. Följande tabell förklarar konfigurationsinställningar för varje nod:
 
@@ -88,57 +88,65 @@ Begreppet reliabilityLevel definierar antalet repliker eller instanser av Servic
 ### <a name="diagnostics"></a>Diagnostik
 Du kan konfigurera parametrar för att aktivera diagnostik och felsökning nod eller det kluster fel, enligt följande kodavsnitt i avsnittet diagnosticsStore: 
 
-    "diagnosticsStore": {
-        "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
-        "dataDeletionAgeInDays": "7",
-        "storeType": "FileShare",
-        "IsEncrypted": "false",
-        "connectionstring": "c:\\ProgramData\\SF\\DiagnosticsStore"
-    }
+```json
+"diagnosticsStore": {
+    "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
+    "dataDeletionAgeInDays": "7",
+    "storeType": "FileShare",
+    "IsEncrypted": "false",
+    "connectionstring": "c:\\ProgramData\\SF\\DiagnosticsStore"
+}
+```
 
 Metadata är en beskrivning av kluster-diagnostik och kan ställas in enligt din konfiguration. Dessa variabler hjälper dig att samla in ETW-spårningsloggarna och kraschdumpar samt prestandaräknare. Mer information om ETW-spårningsloggar finns i [spårloggen finns](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) och [ETW-spårning](https://msdn.microsoft.com/library/ms751538.aspx). Alla loggar, inklusive [kraschdumpar](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) och [prestandaräknare](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx), kan dirigeras till mappen connectionString på din dator. Du kan också använda AzureStorage för att lagra diagnostik. Se följande exempel kodavsnitt:
 
-    "diagnosticsStore": {
-        "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
-        "dataDeletionAgeInDays": "7",
-        "storeType": "AzureStorage",
-        "IsEncrypted": "false",
-        "connectionstring": "xstore:DefaultEndpointsProtocol=https;AccountName=[AzureAccountName];AccountKey=[AzureAccountKey]"
-    }
+```json
+"diagnosticsStore": {
+    "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
+    "dataDeletionAgeInDays": "7",
+    "storeType": "AzureStorage",
+    "IsEncrypted": "false",
+    "connectionstring": "xstore:DefaultEndpointsProtocol=https;AccountName=[AzureAccountName];AccountKey=[AzureAccountKey]"
+}
+```
 
 ### <a name="security"></a>Säkerhet
 Säkerhets-avsnittet är nödvändigt för säker fristående Service Fabric-kluster. Följande fragment visas en del av det här avsnittet:
 
-    "security": {
-        "metadata": "This cluster is secured using X509 certificates.",
-        "ClusterCredentialType": "X509",
-        "ServerCredentialType": "X509",
-        . . .
-    }
+```json
+"security": {
+    "metadata": "This cluster is secured using X509 certificates.",
+    "ClusterCredentialType": "X509",
+    "ServerCredentialType": "X509",
+    . . .
+}
+```
 
 Metadata är en beskrivning av det säkra klustret och kan ställas in enligt din konfiguration. ClusterCredentialType och ServerCredentialType bestämmer vilken typ av säkerhet som implementerar klustret och noderna. De kan vara inställd på antingen *X509* för en säkerhets-och certifikatbaserad eller *Windows* för Azure Active Directory-baserad säkerhet. Resten av avsnittet baseras på vilken typ av säkerhet. Information om hur du fyller i resten av Säkerhetsavsnittet finns i [certifikat-baserad säkerhet i ett fristående kluster](service-fabric-windows-cluster-x509-security.md) eller [Windows-säkerhet i ett fristående kluster](service-fabric-windows-cluster-windows-security.md).
 
 ### <a name="node-types"></a>Nodtyper
 Avsnittet nodeTypes beskriver vilken typ av noder som klustret har. Minst en nodtyp måste anges för ett kluster som du ser i följande kodavsnitt: 
 
-    "nodeTypes": [{
-        "name": "NodeType0",
-        "clientConnectionEndpointPort": "19000",
-        "clusterConnectionEndpointPort": "19001",
-        "leaseDriverEndpointPort": "19002"
-        "serviceConnectionEndpointPort": "19003",
-        "httpGatewayEndpointPort": "19080",
-        "reverseProxyEndpointPort": "19081",
-        "applicationPorts": {
-            "startPort": "20575",
-            "endPort": "20605"
-        },
-        "ephemeralPorts": {
-            "startPort": "20606",
-            "endPort": "20861"
-        },
-        "isPrimary": true
-    }]
+```json
+"nodeTypes": [{
+    "name": "NodeType0",
+    "clientConnectionEndpointPort": "19000",
+    "clusterConnectionEndpointPort": "19001",
+    "leaseDriverEndpointPort": "19002"
+    "serviceConnectionEndpointPort": "19003",
+    "httpGatewayEndpointPort": "19080",
+    "reverseProxyEndpointPort": "19081",
+    "applicationPorts": {
+        "startPort": "20575",
+        "endPort": "20605"
+    },
+    "ephemeralPorts": {
+        "startPort": "20606",
+        "endPort": "20861"
+    },
+    "isPrimary": true
+}]
+```
 
 Namnet är det egna namnet för den här viss nodtyp. Om du vill skapa en nod i den här nodtypen tilldela dess eget namn som nodeTypeRef variabeln för den nod som [vi nämnde tidigare](#nodes-on-the-cluster). För varje nod, anger du anslutningens slutpunkter som används. Du kan välja alla portnumret för dessa anslutningsslutpunkter, så länge de inte är i konflikt med andra slutpunkter i det här klustret. Det finns en eller flera primära noder i ett kluster med flera noder, (det vill säga isPrimary är inställd på *SANT*), beroende på den [reliabilityLevel](#reliability). Mer information om primära och icke-primära nodtyper finns [Service Fabric-kluster kapacitetsplanering](service-fabric-cluster-capacity.md) information om nodeTypes och reliabilityLevel. 
 
@@ -155,44 +163,53 @@ Namnet är det egna namnet för den här viss nodtyp. Om du vill skapa en nod i 
 ### <a name="log-settings"></a>Logginställningar
 Du kan ange rotkataloger för Service Fabric-data och loggfiler i avsnittet fabricSettings. Du kan anpassa dessa kataloger endast när det första klustret skapandet. Se följande exempel kodavsnitt med det här avsnittet:
 
-    "fabricSettings": [{
-        "name": "Setup",
-        "parameters": [{
-            "name": "FabricDataRoot",
-            "value": "C:\\ProgramData\\SF"
-        }, {
-            "name": "FabricLogRoot",
-            "value": "C:\\ProgramData\\SF\\Log"
-    }]
+```json
+"fabricSettings": [{
+    "name": "Setup",
+    "parameters": [{
+        "name": "FabricDataRoot",
+        "value": "C:\\ProgramData\\SF"
+    }, {
+        "name": "FabricLogRoot",
+        "value": "C:\\ProgramData\\SF\\Log"
+}]
+```
 
 Vi rekommenderar att du använder en icke-OS-enhet som FabricDataRoot och FabricLogRoot. Det ger bättre tillförlitlighet för att undvika situationer när Operativsystemet slutar svara. Om du har ändrat dataroten placeras log roten på en nivå under dataroten.
 
 ### <a name="stateful-reliable-services-settings"></a>Tillståndskänsliga Reliable Services-inställningar
 Du kan ange globala konfigurationsinställningarna för Reliable Services i avsnittet KtlLogger. Mer information om dessa inställningar finns i [konfigurera tillståndskänsliga Reliable Services](service-fabric-reliable-services-configuration.md). I följande exempel visas hur du ändrar delade transaktionsloggen som skapas för att säkerhetskopiera alla tillförlitliga samlingar för tillståndskänsliga tjänster:
 
-    "fabricSettings": [{
-        "name": "KtlLogger",
-        "parameters": [{
-            "name": "SharedLogSizeInMB",
-            "value": "4096"
-        }]
+```json
+"fabricSettings": [{
+    "name": "KtlLogger",
+    "parameters": [{
+        "name": "SharedLogSizeInMB",
+        "value": "4096"
     }]
+}]
+```
 
 ### <a name="add-on-features"></a>Tilläggsfunktioner
 Konfigurera apiVersion som 04-2017 eller senare för att konfigurera tilläggsfunktioner, och konfigurera addonFeatures som visas här:
 
-    "apiVersion": "04-2017",
-    "properties": {
-      "addOnFeatures": [
-          "DnsService",
-          "RepairManager"
-      ]
-    }
+```json
+"apiVersion": "04-2017",
+"properties": {
+    "addOnFeatures": [
+        "DnsService",
+        "RepairManager"
+    ]
+}
+```
 
-### <a name="container-support"></a>Stöd för behållare
+### <a name="container-support"></a>Stöd för containrar
 Om du vill aktivera stöd för både Windows Server-behållare och Hyper-V-behållare för fristående kluster måste tilläggsfunktion DnsService aktiveras.
 
-
 ## <a name="next-steps"></a>Nästa steg
-När du har en hel ClusterConfig.json fil som har konfigurerats enligt din konfiguration av fristående kan distribuera du dina kluster. Följ stegen i [skapa fristående Service Fabric-kluster](service-fabric-cluster-creation-for-windows-server.md). Gå sedan vidare till [visualisera ditt kluster med Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) och följ anvisningarna.
+När du har ett komplett *ClusterConfig.json* fil som har konfigurerats enligt din konfiguration av fristående, kan du distribuera dina kluster. Följ stegen i [skapa fristående Service Fabric-kluster](service-fabric-cluster-creation-for-windows-server.md). 
+
+Om du har ett fristående kluster som distribueras, kan du också [uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md). 
+
+Lär dig hur du [visualisera ditt kluster med Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 

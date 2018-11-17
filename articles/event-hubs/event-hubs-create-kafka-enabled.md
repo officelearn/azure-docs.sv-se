@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: bahariri
-ms.openlocfilehash: 7ce12f9dcaa15ade95274419f99c13d5915dbaaa
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: b72f6b190aad436398629c67f271020ffd0a8da9
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42062087"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822083"
 ---
 # <a name="create-apache-kafka-enabled-event-hubs"></a>Skapa Apache Kafka aktiverat händelsehubbar
 
@@ -39,7 +39,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
  
 3. Ange ett unikt namn och aktivera Kafka för namnområdet. Klicka på **Skapa**.
     
-    ![Skapa ett namnområde](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.png)
+    ![Skapa ett namnområde](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  
 4. När namnområdet har skapats går du till fliken **Inställningar** och klickar på **Policyer för delad åtkomst** för att hämta anslutningssträngen.
 
@@ -57,7 +57,7 @@ Nu kan du strömma händelser från program som använder Kafka-protokollet till
 
 Mer information om Händelsehubbar finns i följande länkar:
 
-* [Stream till Event Hubs från Kafka-program](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+* [Strömma till Event Hubs från Kafka-program](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 * [Läs om Event Hubs för Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 * [Läs om Event Hubs](event-hubs-what-is-event-hubs.md)
 

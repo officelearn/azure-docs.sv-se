@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 11/15/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 2f9868abd0eb8bf96928aeba6f96c10bcb91c4e2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3bb7e9837f74fd04d38cc77a9504cc26c6dcf803
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958568"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854194"
 ---
 # <a name="writing-advanced-queries-in-log-analytics"></a>Skriva avancerade frågor i Log Analytics
 
@@ -76,28 +76,6 @@ Event
 | extend USTimeGenerated = utc_to_us_date_format(TimeGenerated)
 | project TimeGenerated, USTimeGenerated, Source, Computer, EventLevel, EventData 
 ```
-
-## <a name="functions"></a>Functions
-Du kan spara en fråga med ett funktionsalias så att den kan refereras av andra frågor. Till exempel returnerar följande standard fråga alla saknade säkerhetsuppdateringar som rapporteras i den sista dagen:
-
-```Kusto
-Update
-| where TimeGenerated > ago(1d) 
-| where Classification == "Security Updates" 
-| where UpdateState == "Needed"
-```
-
-Du kan spara den här frågan som en funktion och ge den ett alias som _security_updates_last_day_. Du kan sedan använda den i en annan fråga för att söka efter SQL-relaterade nödvändiga säkerhetsuppdateringar:
-
-```Kusto
-security_updates_last_day | where Title contains "SQL"
-```
-
-Om du vill spara en fråga som en funktion, Välj den **spara** knappen i portalen och ändra **Spara som** till _funktionen_. Funktionens alias kan innehålla bokstäver, siffror och understreck, men måste börja med en bokstav eller ett understreck.
-
-> [!NOTE]
-> Det är möjligt i Log Analytics-frågor, men för närvarande inte för Application Insights frågor att spara en funktion.
-
 
 ## <a name="print"></a>Skriva ut
 `print` Returnerar en tabell med en enda kolumn och en enskild rad som visar resultatet av en beräkning. Det här används ofta i fall där du behöver en enkel calcuation. Till exempel vill hitta den aktuella tiden i PST och lägga till en kolumn med EST:

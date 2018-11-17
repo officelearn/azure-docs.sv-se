@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 26500f3e557a27046edc5c833b8c8d88ae266e68
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: e1d4f9f5c91900216398dd651d238fc3fa305234
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409007"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823936"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB Diagnostisk loggning
 
@@ -29,9 +29,9 @@ Följande bild visar de olika typerna av Azure-loggar som är tillgängliga:
 
 ![Olika typer av Azure-loggar](./media/logging/azurelogging.png)
 
-I bild, den **beräkningsresurser** representerar Azure-resurser som du kan komma åt Microsoft gäst-OS. Till exempel Azure-datorer, VM-skalningsuppsättningar, Azure Container Service, och så vidare är räknas som beräkningsresurser. Compute-resurser genererar aktivitetsloggar, diagnostikloggar och programloggar. Mer information finns i [källor för övervakningsdata i Azure](../monitoring/monitoring-data-sources.md#) artikeln.
+I bild, den **beräkningsresurser** representerar Azure-resurser som du kan komma åt Microsoft gäst-OS. Till exempel Azure-datorer, VM-skalningsuppsättningar, Azure Container Service, och så vidare är räknas som beräkningsresurser. Compute-resurser genererar aktivitetsloggar, diagnostikloggar och programloggar. Mer information finns i [källor för övervakningsdata i Azure](../azure-monitor/platform/data-sources.md#) artikeln.
 
-Den **icke-beräkningsresurser** finns resurser som du inte kan komma åt det underliggande Operativsystemet och arbeta direkt med resursen. Nätverkssäkerhetsgrupper, Logic Apps och så vidare. Azure Cosmos DB är en icke-compute-resurs. Du kan visa loggar för icke-beräkningsresurser i aktivitetsloggen eller aktiverar diagnostikloggar i portalen. Mer information finns i [datakällor i Azure Monitor](../monitoring/monitoring-data-sources.md) artikeln.
+Den **icke-beräkningsresurser** finns resurser som du inte kan komma åt det underliggande Operativsystemet och arbeta direkt med resursen. Nätverkssäkerhetsgrupper, Logic Apps och så vidare. Azure Cosmos DB är en icke-compute-resurs. Du kan visa loggar för icke-beräkningsresurser i aktivitetsloggen eller aktiverar diagnostikloggar i portalen. Mer information finns i [datakällor i Azure Monitor](../azure-monitor/platform/data-sources.md) artikeln.
 
 Aktivitetsloggen registrerar åtgärderna på prenumerationsnivå för Azure Cosmos DB. Åtgärder som Listnycklar och skriva DatabaseAccounts loggas. Diagnostikloggar ger mer detaljerad loggning och kan du logga DataPlaneRequests (skapa, läsa, fråga och så vidare) och MongoRequests.
 

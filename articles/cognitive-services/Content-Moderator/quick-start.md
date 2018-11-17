@@ -10,23 +10,23 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 79fe761bc6d8bb9561701fd11b06b010bf3454f6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 259919f3b7cb0b614450c94f876cff933a5e01e8
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260014"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852698"
 ---
 # <a name="quickstart-get-familiar-with-content-moderator"></a>Snabbstart: Bekanta dig med Content Moderator
 
-I den här snabbstarten ska du använda online Content Moderator-Granskningsverktyget för att testa de grundläggande funktionerna i Content Moderator utan att behöva skriva någon kod. Om du vill integrera den här tjänsten i din app snabbare kan se de andra snabbstarterna i den [nästa steg](#next-steps) avsnittet.
+I den här snabbstarten ska du använda online Content Moderator granskningsverktyget för att testa de grundläggande funktionerna i Content Moderator utan att behöva skriva någon kod. Om du vill integrera den här tjänsten i din app snabbare kan se de andra snabbstarterna i den [nästa steg](#next-steps) avsnittet.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - En webbläsare
 
 ## <a name="set-up-the-review-tool"></a>Konfigurera granskningsverktyget
-Content Moderator-Granskningsverktyget är ett webbaserat verktyg som gör att mänsklig granskare för att fatta beslut enklare cognitive service. I den här guiden får du genomgå kort processen för att ställa in granskningsverktyget så att du kan se hur tjänsten Content Moderator fungerar. Gå till den [Content Moderator-Granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) plats och registrera dig.
+Granskningsverktyget för Content Moderator är ett webbaserat verktyg som gör att mänsklig granskare för att fatta beslut enklare cognitive service. I den här guiden får du genomgå kort processen för att ställa in granskningsverktyget så att du kan se hur tjänsten Content Moderator fungerar. Gå till den [Content Moderator-granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) plats och registrera dig.
 
 ![Startsida för innehåll Moderator](images/homepage.PNG)
 
@@ -50,15 +50,15 @@ Skicka in ditt innehåll för moderering. Internt anropar granskningsverktyget m
 
 Granska de tillämpade moderering taggarna. Du kan se vilka taggar har kopplats till ditt innehåll och vad poängen var i varje kategori. Se den [bild](image-moderation-api.md), [Text](text-moderation-api.md), och [Video](video-moderation-api.md) moderering avsnitt mer information om olika innehåll taggar visas.
 
-![Granska resultatet](images/reviewresults_text.png)
+![Granska resultat](images/reviewresults_text.png)
 
 Du eller ditt granskningsteam kan ändra dessa taggar eller lägga till fler taggar efter behov i ett projekt. Du skickar ändringarna med den **nästa** knappen. Dina affärsprogram anropar Moderator-API: er, kommer taggade innehållet köa här, kan granskas av mänsklig granskning-team. Du kan snabbt granska stora mängder innehåll med hjälp av den här metoden.
 
-Du har nu använt Content Moderator-Granskningsverktyget för att se exempel på vad tjänsten Content Moderator kan göra. Därefter kan du antingen lära dig mer om verktyg för granskning och hur du integrerar dem i ett programvaruprojekt med API: erna granska eller du kan gå vidare till den [nästa steg](#next-steps) att ta reda på hur du använder Moderering API: erna sig själva i din app.
+Du har nu använt granskningsverktyget för Content Moderator för att se exempel på vad tjänsten Content Moderator kan göra. Därefter kan du antingen lära dig mer om verktyg för granskning och hur du integrerar dem i ett programvaruprojekt med API: erna granska eller du kan gå vidare till den [nästa steg](#next-steps) att ta reda på hur du använder Moderering API: erna sig själva i din app.
 
 ## <a name="learn-more-about-the-review-tool"></a>Mer information om granskningsverktyget
 
-Mer information om hur du använder Content Moderator granska för att ta en titt på de [Human-i-the-loop](Review-Tool-User-Guide/human-in-the-loop.md) guide och se granska verktyget API: erna information om hur du finjustera upplevelse för mänsklig granskning:
+Mer information om hur du använder verktyget Content Moderator granska, ta en titt på de [granskningsverktyget](Review-Tool-User-Guide/human-in-the-loop.md) guide och se granskningsverktyget API: er och lär dig att finjustera upplevelse för mänsklig granskning:
 - Den [jobbet API](try-review-api-job.md) söker igenom ditt innehåll med hjälp av API: er för moderering och genererar granskningar i granskningsverktyget. 
 - Den [granska API](try-review-api-review.md) direkt skapar bild, text eller video granskningar för mänskliga moderatorer utan att söka igenom innehållet. 
 - Den [arbetsflöde API](try-review-api-workflow.md) skapar, uppdaterar och hämtar information om de anpassade arbetsflöden som ditt team skapar.

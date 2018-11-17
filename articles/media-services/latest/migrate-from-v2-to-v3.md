@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/07/2018
+ms.date: 11/15/2018
 ms.author: juliako
-ms.openlocfilehash: 8c3ff4af3b556614d0b2179dceed6cabd9cbabff
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 41ad4b26247fa8037de01ff956921146a2238abc
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616018"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823397"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Riktlinjer för att flytta från Media Services v2 till v3
 
@@ -65,9 +65,7 @@ Om du har en videotjänst som har utvecklats i dag ovanpå den [äldre Media Ser
 * Följande enheter har bytt namn
     * JobOutput ersätter aktiviteten och ingår nu i ett jobb.
     * StreamingLocator ersätter lokaliserare.
-    * LiveEvent ersätter kanal.
-        
-        LiveEvents fakturering baseras på livekanal mätare. Mer information finns i [Livestreaming översikt](live-streaming-overview.md#billing) och [priser](https://azure.microsoft.com/pricing/details/media-services/).
+    * LiveEvent ersätter kanal.<br/>LiveEvents fakturering baseras på livekanal mätare. Mer information finns i [Livestreaming översikt](live-streaming-overview.md#billing) och [priser](https://azure.microsoft.com/pricing/details/media-services/).
     * LiveOutput ersätter programmet.
 * LiveOutputs behöver inte uttryckligen startas, de börjar vid skapandet och avbryts när tas bort. Program som fungerade inte på samma sätt i v2-API: er som de hade startas när du har skapat.
 
@@ -75,10 +73,7 @@ Om du har en videotjänst som har utvecklats i dag ovanpå den [äldre Media Ser
 
 V3-API: et har följande funktion-avstånd till v2 API: et. De kunskapsluckor är pågående arbete.
 
-* Den [Premium-kodare](../previous/media-services-premium-workflow-encoder-formats.md) och äldre [mediebearbetare för analys](../previous/media-services-analytics-overview.md) (förhandsversion av Azure Media Services Indexer 2, Ansiktsredigering osv.) är inte tillgängliga via v3.
-
-    Kunder som vill migrera från Media Indexer 1 eller 2 preview kan omedelbart använda AudioAnalyzer förinställda i v3-API: et.  Den nya förinställningen innehåller fler funktioner än äldre Media Indexer 1 eller 2. 
-
+* Den [Premium-kodare](../previous/media-services-premium-workflow-encoder-formats.md) och äldre [mediebearbetare för analys](../previous/media-services-analytics-overview.md) (förhandsversion av Azure Media Services Indexer 2, Ansiktsredigering osv.) är inte tillgängliga via v3.<br/>Kunder som vill migrera från Media Indexer 1 eller 2 preview kan omedelbart använda AudioAnalyzer förinställda i v3-API: et.  Den nya förinställningen innehåller fler funktioner än äldre Media Indexer 1 eller 2. 
 * Många av de avancerade funktionerna i Media Encoder Standard i v2 API: er är för närvarande inte tillgängliga i v3, till exempel:
     * Avklippta (för på begäran och live-scenario)
     * Gå till tillgångar
@@ -103,13 +98,12 @@ I följande tabell visas kodskillnaderna mellan v2 och v3 för vanliga scenarier
 ## <a name="known-issues"></a>Kända problem
 
 * För närvarande kan använda du inte Azure-portalen för att hantera v3-resurser. Använd den [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, eller någon av de stödda SDK: erna.
-* Mediereserverade enheter kan idag endast hanteras med hjälp av Media Services v2 API. Mer information finns i [skala mediebearbetning](../previous/media-services-scale-media-processing-overview.md).
+* Du måste etablera Mediereserverade enheter (MRUs) i ditt konto om du vill styra samtidighet och prestanda för dina jobb, särskilt de som som involverar Video eller ljudanalys. Mer information finns i [Skala mediebearbetning](../previous/media-services-scale-media-processing-overview.md). Du kan hantera MRUs med [CLI 2.0 för Media Services v3](media-reserved-units-cli-how-to.md)med hjälp av den [Azure-portalen](../previous/media-services-portal-scale-media-processing.md), eller med hjälp av den[ v2 API: er](../previous/media-services-dotnet-encoding-units.md). Du måste etablera MRUs, oavsett om du använder Media Services v2 eller v3 API: er.
 * Media Services-entiteter som skapats med v3 API inte kan hanteras av v2 API: et.  
 * Det rekommenderas inte att hantera enheter som har skapats med v2 API: er v3-API: er. Följande är exempel på skillnaderna gör entiteterna i två versioner inkompatibla:   
     * Jobb och aktiviteter som skapats i v2 visas inte i v3 eftersom de inte är associerade med en transformering. Rekommendationen är att växla till v3-transformeringar och jobb. Det blir en relativt kort tidsperiod för att övervaka den tillhörande v2 behöver jobb under övergången.
-    * Kanaler och program som skapats med v2 (som är mappade till LiveEvents och LiveOutputs i v3) kan inte fortsätta att hanteras med v3. Rekommendationen är att växla till v3 LiveEvents och LiveOutputs vid en lämplig kanal stoppa.
-    
-        För närvarande kan migrera du inte kanaler som körs kontinuerligt.  
+    * Kanaler och program som skapats med v2 (som är mappade till LiveEvents och LiveOutputs i v3) kan inte fortsätta att hanteras med v3. Rekommendationen är att växla till v3 LiveEvents och LiveOutputs vid en lämplig kanal stoppa.<br/>För närvarande kan migrera du inte kanaler som körs kontinuerligt.  
+
 > [!NOTE]
 > Bokmärk den här artikeln och hålla sökning efter uppdateringar.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: e5915f18799386ae92019073fb50dac96da107ea
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 92cbd3570d48bf12d603f68593465aafed62985c
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960114"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852324"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Systemprestandaräknare i Application Insights
 Windows innehåller en mängd olika [prestandaräknare](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) , till exempel processor användandet, minne, disk och nätverksanvändning. Du kan också definiera egna. [Application Insights](app-insights-overview.md) kan visa dessa prestandaräknare om ditt program körs under IIS på en lokal värd eller virtuell dator som du har administrativ åtkomst. Diagrammen visar resurserna som är tillgängliga för ditt liveprogram och hjälper dig för att identifiera obalanserad belastning mellan server-instanser.
@@ -96,7 +96,7 @@ Eller så kan du göra samma sak med anpassade mått som du skapade:
 ## <a name="performance-counters-in-analytics"></a>Prestandaräknare i Analytics
 Du kan söka efter och visa räknare prestandarapporter i [Analytics](app-insights-analytics.md).
 
-Den **performanceCounters** schemat exponerar den `category`, `counter` namn, och `instance` för varje prestandaräknare.  I telemetri för varje program ser du lla räknarna för programmet. Till exempel om du vill se vilka räknare är tillgängliga: 
+Den **performanceCounters** schemat exponerar den `category`, `counter` namn, och `instance` för varje prestandaräknare.  I telemetri för varje program visas endast räknarna för programmet. Till exempel om du vill se vilka räknare är tillgängliga: 
 
 ![Prestandaräknare i Application Insights analytics](./media/app-insights-performance-counters/analytics-performance-counters.png)
 
@@ -119,7 +119,7 @@ Som andra telemetri **performanceCounters** också har en kolumn `cloud_RoleInst
 ## <a name="performance-counters-in-aspnet-core-applications"></a>Prestandaräknare i Asp.Net Core-program
 Prestandaräknare stöds bara om programmet är inställd på fullständiga .NET Framework. Det finns ingen möjlighet att samla in prestandaräknare för .net Core program.
 
-## <a name="alerts"></a>Aviseringar
+## <a name="alerts"></a>Varningar
 Till exempel andra mått, kan du [ställa in en avisering](app-insights-alerts.md) att varna dig om en prestandaräknare går utanför en gräns som du anger. Öppna bladet aviseringar och klicka på Lägg till avisering.
 
 ## <a name="next"></a>Nästa steg

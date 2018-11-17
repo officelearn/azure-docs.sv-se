@@ -14,12 +14,12 @@ ms.date: 10/26/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 8c5da669d490bf295c4066854ac1173bcc79ad5e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 0c8fe0759e115288e9f8cc2ea313f6dc3dc89b6b
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686134"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854014"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratör i Azure Active Directory
 
@@ -165,7 +165,7 @@ Följande administratörsroller är tillgängliga:
   | --- | --- |
   |Allmänna behörigheter|<p>Skapa användare och grupper</p><p>Skapa och hantera användarvyer</p><p>Hantera supportärenden för Office|
   |<p>På alla användare, inklusive alla administratörer</p>|<p>Hantera licenser</p><p>Hantera alla användaregenskaper utom User Principal Name</p>
-  |Endast på användare som är icke-administratörer eller begränsade administrativa roller i något av följande:<ul><li>Katalogläsare<li>Gäst bjuder in<li>Supportavdelningsadministratör<li>Meddelandecenterläsare<li>Rapportläsare<li>Användarkonto-administratör|<p>Ta bort och återställning</p><p>Inaktivera och aktivera</p><p>Ogiltigförklara uppdatera token</p><p>Hantera egenskaper för alla användare, inklusive användarens huvudnamn</p><p>Återställa lösenord</p><p>Uppdatera (FIDO) enhetsnycklar</p>
+  |Endast på användare som är icke-administratörer eller begränsade administrativa roller i något av följande:<ul><li>Katalogläsare<li>Gäst bjuder in<li>Supportavdelningsadministratör<li>Meddelandecenterläsare<li>Rapportläsare<li>Användarkonto-administratör|<p>Ta bort och återställning</p><p>Inaktivera och aktivera</p><p>Ogiltigförklara uppdatera token</p><p>Hantera egenskaper för alla användare, inklusive användarens huvudnamn</p><p>Återställ mitt lösenord</p><p>Uppdatera (FIDO) enhetsnycklar</p>
   
   <b>Viktiga</b>: användare med den här rollen kan ändra lösenord för personer som kan ha åtkomst till känslig eller privat information eller kritiska konfiguration i och utanför Azure Active Directory. Ändra lösenordet för en användare kan det innebära att möjlighet att anta användarens identitet och behörigheter. Exempel:
   * Programregistrering och företagsprogram ägare, som kan hantera autentiseringsuppgifterna för appar som de äger. Apparna kan ha privilegierad behörigheter i Azure AD och någon annanstans inte beviljas till administratörer. Den här sökvägen som en användare med rollen kanske kan anta identiteten av ett programmets ägare och sedan ytterligare anta identiteten av ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
@@ -178,11 +178,6 @@ I följande tabeller beskrivs de särskilda behörigheterna i Azure Active Direc
 
 ### <a name="application-administrator"></a>Programadministratör
 Kan skapa och hantera alla aspekter av appregistreringar och enterprise-appar.
-
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
@@ -223,11 +218,6 @@ Kan skapa och hantera alla aspekter av appregistreringar och enterprise-appar.
 ### <a name="application-developer"></a>Programutvecklare
 Kan skapa programregistreringar oberoende av den ”användare kan registrera program' inställningen.
 
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
-
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
 | microsoft.aad.directory/applications/createAsOwner | Skapa program i Azure Active Directory. Skaparen läggs till som första ägare och det skapade objektet räknas mot Skaparens kvot på 250 skapade objekt. |
@@ -237,11 +227,6 @@ Kan skapa programregistreringar oberoende av den ”användare kan registrera pr
 
 ### <a name="billing-administrator"></a>Faktureringsadministratör
 Kan utföra vanliga faktureringsrelaterade uppgifter som uppdatering av betalningsinformation.
-
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
 
   > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
@@ -263,11 +248,6 @@ Kan utföra vanliga faktureringsrelaterade uppgifter som uppdatering av betalnin
 Kan komma åt och hantera skrivbordshanteringsverktyg och tjänster, inklusive Intune.
 
   > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
-
-  > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
@@ -283,11 +263,6 @@ Kan komma åt och hantera skrivbordshanteringsverktyg och tjänster, inklusive I
 
 ### <a name="cloud-application-administrator"></a>Molnprogramadministratör
 Kan skapa och hantera alla aspekter av appregistreringar och enterprise-appar förutom App Proxy.
-
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
@@ -327,11 +302,6 @@ Kan skapa och hantera alla aspekter av appregistreringar och enterprise-appar f�
 ### <a name="cloud-device-administrator"></a>Molnenhetsadministratör
 Fullständig åtkomst för att hantera enheter i Azure AD.
 
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
-
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
 | Microsoft.aad.Directory/Devices/delete | Ta bort enheter i Azure Active Directory. |
@@ -344,11 +314,6 @@ Fullständig åtkomst för att hantera enheter i Azure AD.
 
 ### <a name="company-administrator"></a>Företagsadministratör
 Kan hantera alla aspekter av Azure AD och Microsoft-tjänster som använde Azure AD-identiteter.
-
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från rollen.
-  >
-  >
 
   > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
@@ -411,11 +376,6 @@ Kan hantera alla aspekter av Azure AD och Microsoft-tjänster som använde Azure
 Kan läsa och hantera efterlevnadskonfiguration och rapporter i Azure AD och Office 365.
 
   > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
-
-  > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
@@ -435,11 +395,6 @@ Kan läsa och hantera efterlevnadskonfiguration och rapporter i Azure AD och Off
 ### <a name="conditional-access-administrator"></a>Administratör för villkorsstyrd åtkomst
 Kan hantera funktioner för villkorsstyrd åtkomst.
 
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
-
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
 | microsoft.aad.directory/policies/conditionalAccess/basic/read | Läs egenskapen policies.conditionalAccess i Azure Active Directory. |
@@ -452,11 +407,6 @@ Kan hantera funktioner för villkorsstyrd åtkomst.
 
 ### <a name="crm-service-administrator"></a>Administratör för CRM-tjänst
 Kan hantera alla aspekter av Dynamics 365-produkten.
-
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
 
   > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
@@ -476,11 +426,6 @@ Kan hantera alla aspekter av Dynamics 365-produkten.
 Kan godkänna förfrågningar till Microsoft Support om att få åtkomst till kundens organisationsdata.
 
   > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
-
-  > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
@@ -493,11 +438,6 @@ Kan godkänna förfrågningar till Microsoft Support om att få åtkomst till ku
 ### <a name="device-administrators"></a>Enhetsadministratörer
 Medlemmar i den här rollen har lagts till i gruppen lokala administratörer på Azure AD-anslutna enheter.
 
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
-
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
 | microsoft.aad.directory/groupSettings/basic/read | Läs grundläggande egenskaper om groupSettings i Azure Active Directory. |
@@ -505,11 +445,6 @@ Medlemmar i den här rollen har lagts till i gruppen lokala administratörer på
 
 ### <a name="directory-readers"></a>Katalogläsare
 Kan läsa grundläggande kataloginformation. För att bevilja åtkomst till program inte avsedd för användare.
-
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från rollen.
-  >
-  >
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
@@ -570,11 +505,6 @@ Kan läsa grundläggande kataloginformation. För att bevilja åtkomst till prog
 ### <a name="directory-synchronization-accounts"></a>Konton för katalogen katalogsynkronisering
 Endast används av Azure AD Connect-tjänsten.
 
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från rollen.
-  >
-  >
-
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
 | microsoft.aad.directory/organization/dirSync/update | Uppdatera egenskapen organization.dirSync i Azure Active Directory. |
@@ -604,11 +534,6 @@ Endast används av Azure AD Connect-tjänsten.
 ### <a name="directory-writers"></a>Katalogskrivare
 Kan läsa och skriva grundläggande kataloginformation. För att bevilja åtkomst till program inte avsedd för användare.
 
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
-
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
 | Microsoft.aad.Directory/groups/Create | Skapa grupper i Azure Active Directory. |
@@ -630,11 +555,6 @@ Kan läsa och skriva grundläggande kataloginformation. För att bevilja åtkoms
 
 ### <a name="exchange-service-administrator"></a>Exchange Service-administratör
 Kan hantera alla aspekter av Exchange-produkten.
-
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
 
   > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
@@ -659,11 +579,6 @@ Kan hantera alla aspekter av Exchange-produkten.
 ### <a name="guest-inviter"></a>Gäst bjuder in
 Kan bjuda in gästanvändare oberoende av inställningen medlemmar kan bjuda in gäster.
 
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från rollen.
-  >
-  >
-
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
 | microsoft.aad.directory/users/appRoleAssignments/read | Läs egenskapen users.appRoleAssignments i Azure Active Directory. |
@@ -682,11 +597,6 @@ Kan bjuda in gästanvändare oberoende av inställningen medlemmar kan bjuda in 
 ### <a name="helpdesk-administrator"></a>Supportavdelningsadministratör
 Kan återställa lösenord för icke-administratörer och Helpdeks-administratörer.
 
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
-
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | Invalidera alla tokens för användaruppdatering i Azure Active Directory. |
@@ -699,11 +609,6 @@ Kan återställa lösenord för icke-administratörer och Helpdeks-administratö
 
 ### <a name="information-protection-administrator"></a>Information Protection-administratör
 Kan hantera alla aspekter av Azure Information Protection-produkten.
-
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
 
   > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
@@ -720,11 +625,6 @@ Kan hantera alla aspekter av Azure Information Protection-produkten.
 
 ### <a name="intune-service-administrator"></a>Administratör för Intune-tjänsten
 Kan hantera alla aspekter av Intune-produkten.
-
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
 
   > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
@@ -761,11 +661,6 @@ Kan hantera alla aspekter av Intune-produkten.
 ### <a name="license-administrator"></a>Licensadministratör
 Kan hantera produktlicenser på användare och grupper.
 
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
-
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
 | microsoft.aad.directory/users/assignLicense | Hantera licenser för användare i Azure Active Directory. |
@@ -776,11 +671,6 @@ Kan hantera produktlicenser på användare och grupper.
 
 ### <a name="lync-service-administrator"></a>Lync-tjänstadministratör
 Kan hantera alla aspekter av Skype för Business-produkten.
-
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
 
   > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
@@ -800,11 +690,6 @@ Kan hantera alla aspekter av Skype för Business-produkten.
 Kan endast läsa meddelanden och uppdateringar avseende sin organisation i meddelandecenter för Office 365. 
 
   > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
-
-  > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
@@ -816,11 +701,6 @@ Kan endast läsa meddelanden och uppdateringar avseende sin organisation i medde
 
 ### <a name="partner-tier1-support"></a>Partnersupport, nivå 1
 Använd inte – inte avsett för allmänt bruk.
-
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
 
   > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
@@ -853,11 +733,6 @@ Använd inte – inte avsett för allmänt bruk.
 
 ### <a name="partner-tier2-support"></a>Partnersupport, nivå 2
 Använd inte – inte avsett för allmänt bruk.
-
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
 
   > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
@@ -895,11 +770,6 @@ Använd inte – inte avsett för allmänt bruk.
 Kan hantera alla aspekter av Power BI-produkten.
 
   > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
-
-  > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
@@ -917,11 +787,6 @@ Kan hantera alla aspekter av Power BI-produkten.
 Kan hantera rolltilldelningar i Azure AD och alla aspekter av Privileged Identity Management.
 
   > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
-
-  > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
@@ -933,11 +798,6 @@ Kan hantera rolltilldelningar i Azure AD och alla aspekter av Privileged Identit
 
 ### <a name="reports-reader"></a>Rapportläsare
 Kan läsa inloggnings- och granskningsrapporter.
-
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
 
   > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
@@ -954,11 +814,6 @@ Kan läsa inloggnings- och granskningsrapporter.
 
 ### <a name="security-administrator"></a>Säkerhetsadministratör
 Kan läsa säkerhetsinformation och rapporter och hantera konfigurationen i Azure AD och Office 365.
-
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
 
   > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
@@ -988,11 +843,6 @@ Kan läsa säkerhetsinformation och rapporter och hantera konfigurationen i Azur
 Kan läsa säkerhetsinformation och rapporter i Azure AD och Office 365.
 
   > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
-
-  > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
@@ -1012,11 +862,6 @@ Kan läsa säkerhetsinformation och rapporter i Azure AD och Office 365.
 Kan läsa information om Service Health och hantera supportärenden.
 
   > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
-
-  > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
@@ -1031,11 +876,6 @@ Kan läsa information om Service Health och hantera supportärenden.
 
 ### <a name="sharepoint-service-administrator"></a>SharePoint-tjänstadministratör
 Kan hantera alla aspekter av SharePoint-tjänsten.
-
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
 
   > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
@@ -1061,11 +901,6 @@ Kan hantera alla aspekter av SharePoint-tjänsten.
 Kan hantera anrops- och mötesfunktioner i Microsoft Teams-tjänsten.
 
   > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
-
-  > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
@@ -1084,11 +919,6 @@ Kan hantera anrops- och mötesfunktioner i Microsoft Teams-tjänsten.
 Kan felsöka kommunikationsproblem i grupper med hjälp av avancerade verktyg.
 
   > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
-
-  > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
@@ -1104,11 +934,6 @@ Kan felsöka kommunikationsproblem i grupper med hjälp av avancerade verktyg.
 Kan felsöka kommunikationsproblem i grupper med hjälp av grundläggande verktyg.
 
   > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
-
-  > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
   >
   >
@@ -1122,11 +947,6 @@ Kan felsöka kommunikationsproblem i grupper med hjälp av grundläggande verkty
 
 ### <a name="teams-service-administrator"></a>Teams-tjänstadministratör
 Kan hantera Microsoft Teams-tjänsten.
-
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
 
   > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
@@ -1152,11 +972,6 @@ Kan hantera Microsoft Teams-tjänsten.
 
 ### <a name="user-account-administrator"></a>Användarkonto-administratör
 Kan hantera alla aspekter av användare och grupper, inklusive återställning av lösenord för begränsade administratörer.
-
-  > [!NOTE]
-  > Den här rollen ärver behörigheterna från katalogläsarrollen.
-  >
-  >
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |

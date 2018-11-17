@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 952d8801c189322161bbf8b795676af48b92c29f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 71e39c6430231ae8d175f9c09a9059c3da4c9a1e
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394348"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854262"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Skriv frågor för Azure Data Explorer
 
@@ -28,7 +28,7 @@ Du kan köra frågor i den här artikeln på något av två sätt:
 
 - På ett eget kluster innehåller som exempeldata StormEvents. Mer information finns i [Snabbstart: skapa ett Azure Data Explorer-kluster och databasen](create-cluster-database-portal.md) och [mata in exempeldata i Azure Data Explorer](ingest-sample-data.md).
 
-Exempeldatauppsättning för StormEvents innehåller väder-relaterade data från den [National Lagringsprotokollet för miljöinformation](https://www.ncdc.noaa.gov/stormevents/).
+[!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
 ## <a name="overview-of-the-query-language"></a>Översikt över frågespråket
 
@@ -70,7 +70,7 @@ Köra frågor på ett eget kluster:
 
 1. Högst upp på programmet, Välj **kör**.
 
-### <a name="count"></a>count
+### <a name="count"></a>antal
 
 [**antal**](https://docs.microsoft.com/azure/kusto/query/countoperator): returnerar antalet rader i tabellen.
 
@@ -97,7 +97,7 @@ StormEvents | take 5
 > [!TIP]
 > Det finns ingen garanti för vilka poster som returneras om inte källdata sorteras.
 
-### <a name="project"></a>projekt
+### <a name="project"></a>Projekt
 
 [**projektet**](https://docs.microsoft.com/azure/kusto/query/projectoperator): väljer en delmängd med kolumner.
 
@@ -147,7 +147,7 @@ StormEvents
 
 ### <a name="top"></a>längst upp
 
-[**översta**](https://docs.microsoft.com/azure/kusto/query/topoperator): returnerar första *N* poster sorterade efter de angivna kolumnerna.
+[**översta**](https://docs.microsoft.com/azure/kusto/query/topoperator): returnerar första *N* poster sorterade efter de angivna kolumnerna.
 
 Följande fråga returnerar samma resultat som ovan med en mindre operator.
 
@@ -473,7 +473,7 @@ MyTrace
 | project resourceName ,totalSlices , sliceNumber , lockTime , releaseTime , previousLockTime
 ```
 
-## <a name="time-series-analysis"></a>Analys av tidsserier
+## <a name="time-series-analysis"></a>Time Series-analys
 
 ### <a name="make-series"></a>Kontrollera-serien
 
@@ -570,7 +570,7 @@ StormEvents
 
 ### <a name="dcounthll"></a>dcount_hll()
 
-[**dcount_hll()**](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction): beräknar den **dcount** HyperLogLog resultaten (genereras av [ **hll** ](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction) eller [ **hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction).
+[**dcount_hll()**](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction): beräknar den **dcount** HyperLogLog resultaten (genereras av [**hll** ](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction)   eller [**hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction).
 
 Följande fråga använder algoritmen HLL för att generera antalet.
 
@@ -632,7 +632,7 @@ FloodDataSet
 
 ### <a name="percentiles"></a>percentiles()
 
-[**percentiles()**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction): returnerar en uppskattning för den angivna [ **närmaste rangordning: e percentilen** ](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction) från den population som definieras av ett uttryck. Precisionen är beroende av tätheten av befolkningen i regionen i den: e percentilen. Kan endast användas i kontexten för aggregering i [ **sammanfatta**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator).
+[**percentiles()**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction): returnerar en uppskattning för den angivna [**närmaste rangordning: e percentilen**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction) från den population som definieras av ett uttryck. Precisionen är beroende av tätheten av befolkningen i regionen i den: e percentilen. Kan endast användas i kontexten för aggregering i [**sammanfatta**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator).
 
 Följande fråga beräknar percentilerna för storm varaktighet.
 
@@ -685,7 +685,7 @@ LightningStorms
 
 ### <a name="join"></a>join
 
-[**Anslut till**](https://docs.microsoft.com/azure/kusto/query/joinoperator): sammanfogar raderna i två tabeller för att skapa en ny tabell genom att matcha värdena för den eller de angivna kolumnerna från varje tabell. Kusto stöder en hel rad join-typer: **fullouter**, **inre**, **innerunique**, **leftanti**, **leftantisemi** , **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter** , **rightsemi**.
+[**Anslut till**](https://docs.microsoft.com/azure/kusto/query/joinoperator): sammanfogar raderna i två tabeller för att skapa en ny tabell genom att matcha värdena för den eller de angivna kolumnerna från varje tabell. Kusto stöder en hel rad join-typer: **fullouter**, **inre**, **innerunique**, **leftanti**, **leftantisemi **, **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter **, **rightsemi**.
 
 I följande exempel kopplar ihop två tabeller med en inre koppling.
 
@@ -842,7 +842,7 @@ range _day from _start to _end step 1d
 
 ### <a name="newactivitymetrics-plugin"></a>new_activity_metrics plugin-programmet
 
-[**plugin-programmet för new_activity_metrics**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin): beräknar användbara aktivitetsmått (Distinkt antal värden, Distinkt antal för nya värden och kvarhållningsfrekvensen omsättningsfrekvensen) för kohorten för nya användare. Konceptet med det här pluginprogrammet liknar [ **activity_metrics plugin-programmet**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin), men fokuserar på nya användare.
+[**plugin-programmet för new_activity_metrics**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin): beräknar användbara aktivitetsmått (Distinkt antal värden, Distinkt antal för nya värden och kvarhållningsfrekvensen omsättningsfrekvensen) för kohorten för nya användare. Konceptet med det här pluginprogrammet liknar [**activity_metrics plugin-programmet**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin), men fokuserar på nya användare.
 
 Följande fråga beräknar ett kvarhållning och omsättning pris med ett vecka over vecka fönster för den nya kohort för användare (användare som anlänt på den första veckan).
 
@@ -902,7 +902,7 @@ StormEvents
 
 [**plugin-programmet för funnel_sequence_completion**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-completion-plugin): beräknar tratten för slutförda sekvens steg inom olika tidsperioder.
 
-Följande fråga kontrollerar slutförande tratten ordningen: `Hail -> Tornado -> Thunderstorm -> Wind` i ”övergripande” gånger på en timme, fyra timmar och en dag (`[1h, 4h, 1d]`).
+Följande fråga kontrollerar slutförande tratten ordningen: `Hail -> Tornado -> Thunderstorm -> Wind` i ”övergripande” gånger på en timme, fyra timmar och en dag (`[1h, 4h, 1d]`).
 
 **\[**[**Klicka om du vill köra frågan**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA12QTYvCMBCG74L/YW6tkIV2XT9g8SjsnlvwICKhM9JAOqlJqrj4402CW0RIIB/PPLwzmjwcnZfWwwZQevKqo/yzKFYfRRnW7Hs60ZEhxjdi/UZcFaO5VuqPAjhfLvD/w9F5IG7iM95YdqrJ99mPVDoTkNXGskSTju3ASNZ5Y7t43wVhdhj9PVll0L1aylbAV9glJqyKldsLsXfTyR3oIvUQAsNpYCY95jg2puuDUhnOt71yBukXBVRxCnVoTjwnIlLX4rUzAUlf3/pEPYViDDd7AOyqowFQAQAA)**\]**
 
@@ -916,9 +916,9 @@ StormEvents
 | evaluate funnel_sequence_completion(EpisodeId, StartTime, _start, _end, _windowSize, EventType, _sequence, _periods)
 ```
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Funktioner
 
-Det här avsnittet beskriver [ **functions**](https://docs.microsoft.com/azure/kusto/query/functions): återanvändbara frågor som lagras på servern. Functions kan anropas av frågor och andra funktioner (rekursiva funktioner inte stöds).
+Det här avsnittet beskriver [ **functions**](https://docs.microsoft.com/azure/kusto/query/functions): återanvändbara frågor som lagras på servern. Functions kan anropas av frågor och andra funktioner (rekursiva funktioner inte stöds).
 
 > [!NOTE]
 > Du kan inte skapa funktioner på Hjälp-kluster, vilket är skrivskyddad. Använd dina egna testkluster för den här delen.

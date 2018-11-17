@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 07/27/201
 ms.author: v-jamebr
-ms.openlocfilehash: c590c9d1ccbbb84a76ba09021a97464ec85c5784
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 2f84550c83c646b44f4a59c3ae506df7c18d1555
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506271"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852987"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Installera och konfigurera omvänd proxy i Azure Service Fabric
 Omvänd proxy är en valfri Azure Service Fabric-tjänst som hjälper dig att mikrotjänster som körs i ett Service Fabric-kluster identifiera och kommunicera med andra tjänster som har http-slutpunkter. Mer information finns i [omvänd proxy i Azure Service Fabric](service-fabric-reverseproxy.md). Den här artikeln visar hur du skapar och konfigurerar omvänd proxy i klustret. 
@@ -231,7 +231,7 @@ Följande steg visar inställningarna för att använda för att aktivera omvän
 
    Läs mer om konfigurering och hantering av certifikat för ett fristående kluster, samt mer information om hur du konfigurerar certifikat som används för att skydda omvänd proxy i [X509 certifikatbaserad security](./service-fabric-windows-cluster-x509-security.md).
 
-När du har ändrat din ClusterConfig.json-fil för att aktivera omvänd proxy, följer du anvisningarna i [uppgradera klusterkonfigurationen](./service-fabric-cluster-upgrade-windows-server.md#upgrade-the-cluster-configuration) till push-överföra ändringarna till ditt kluster.
+När du har ändrat din ClusterConfig.json-fil för att aktivera omvänd proxy, följer du anvisningarna i [uppgradera klusterkonfigurationen](service-fabric-cluster-config-upgrade-windows-server.md) till push-överföra ändringarna till ditt kluster.
 
 
 ## <a name="expose-reverse-proxy-on-a-public-port-through-azure-load-balancer"></a>Exponera omvänd proxy på en offentlig port via Azure Load Balancer
@@ -332,7 +332,7 @@ Du kan till exempel ange värdet för **DefaultHttpRequestTimeout** att ange tim
    }
    ``` 
 
-Mer information om att uppdatera infrastrukturinställningarna för Azure-kluster finns i [Anpassa inställningar för klustret med hjälp av Resource Manager-mallar](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-using-resource-manager-templates). Fristående kluster, se [anpassa klusterinställningarna för fristående kluster](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-for-standalone-clusters). 
+Mer information om att uppdatera infrastrukturinställningarna för Azure-kluster finns i [Anpassa inställningar för klustret med hjälp av Resource Manager-mallar](service-fabric-cluster-config-upgrade-azure.md). Fristående kluster, se [anpassa klusterinställningarna för fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md). 
 
 Flera infrastrukturinställningarna används för att upprätta säker kommunikation mellan omvänd proxy och tjänster. Detaljerad information om dessa inställningar finns i [Anslut till en säker tjänst med omvänd proxy](service-fabric-reverseproxy-configure-secure-communication.md).
 

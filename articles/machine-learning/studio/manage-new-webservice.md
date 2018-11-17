@@ -4,7 +4,8 @@ description: Hantera åtkomst till Azure Machine Learning-arbetsytor och distrib
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
-ms.author: yahajiza
+ms.custom: (previous ms.author yahajiza)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: b62cf2ca-dd2a-4a83-bb54-469f948fb026
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
-ms.openlocfilehash: 4e1444f385859044b2dadd83c8e9841d8fc78bb0
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 3ccf097134e21f7f0649b0748a6335d102de7285
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096419"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823409"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Hantera en webbtjänst med hjälp av Azure Machine Learning Web Services-portalen
 Du kan hantera dina Machine Learning nya och klassiska webbtjänster med hjälp av Microsoft Azure Machine Learning Web Services-portalen. Eftersom klassiska webbtjänster och nya Web services baseras på olika underliggande teknik, har du lite olika hanteringsfunktioner för var och en av dem.

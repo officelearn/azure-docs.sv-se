@@ -10,12 +10,12 @@ ms.author: netahw
 author: nhaiby
 ms.date: 05/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 97d988332a2c5234cb260cef29f195f0fecfee45
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 73f95280cc02b6f891c4ef67cd11084768d7d282
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994946"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853021"
 ---
 # <a name="build-and-deploy-text-classification-models-with-azure-machine-learning"></a>Skapa och distribuera text klassificering modeller med Azure Machine Learning
 
@@ -436,7 +436,7 @@ Normalt kan ange du parametrarna innan du anpassar en modell.
 
 Följande kodexempel visar hur du tränar standardparametrarna pipeline och modell. 
 
-Om du vill se vilka parametrar som ingår i de ”text_word_ngrams” använda [get_step_param_names_by_name](https://docs.microsoft.com/python/api/tatk.core.base_text_model.basetextmodel). Den här funktionen returnerar parametrar, till exempel gemener, input_col, output_col och så vidare. 
+Om du vill se vilka parametrar som ingår i de ”text_word_ngrams” använda [get_step_param_names_by_name](/python/api/msft-tatk/tatk.core.base_text_model.basetextmodel#get-step-param-names-by-name). Den här funktionen returnerar parametrar, till exempel gemener, input_col, output_col och så vidare. 
 
 ```python
 text_classifier.get_step_param_names_by_name("text_word_ngrams")
@@ -625,7 +625,7 @@ Tillämpa tränade text-klassificerare mot testdatauppsättningen att generera k
 </div>
 
 ## <a name="evaluate-model-performance"></a>Utvärdera modellprestanda
-Den [utvärdering modulen](https://docs.microsoft.com/python/api/tatk.evaluation) utvärderar riktighet tränade text klassificerare mot testdatauppsättningen. Utvärdera funktionen tillhandahålls en felmatris och en makrot F1-poäng.
+Den [utvärdering modulen](/python/api/msft-tatk/tatk.evaluation) utvärderar riktighet tränade text klassificerare mot testdatauppsättningen. Utvärdera funktionen tillhandahålls en felmatris och en makrot F1-poäng.
 
 ```python
  text_classifier.evaluate(df_test)          

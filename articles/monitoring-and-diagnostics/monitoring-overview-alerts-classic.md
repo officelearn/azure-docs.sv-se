@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: e7622ffcfbaca4f83f0b5233159fc94720148365
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 2caf3d6373e764f5d5538a14a1750f1bfee2871d
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614148"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822287"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Vad är klassiska aviseringar i Microsoft Azure?
 
@@ -89,7 +89,7 @@ Webhooks gör automation och åtgärder, till exempel med hjälp av:
 ## <a name="next-steps"></a>Nästa steg
 Hämta information om Varningsregler och konfigurera dem med hjälp av:
 
-* Läs mer om [mått](../monitoring/monitoring-data-collection.md)
+* Läs mer om [mått](../azure-monitor/platform/data-collection.md)
 * Konfigurera [klassiska mått aviseringar via Azure-portalen](alert-metric-classic.md)
 * Konfigurera [klassisk mått aviseringar PowerShell](alert-metric-classic.md)
 * Konfigurera [klassiska mått aviseringar kommandoradsgränssnittet (CLI)](alert-metric-classic.md)

@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 68f987daff5bc0ef81c248f6f5e75aaf1318b025
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 6a302c611b7c71dd8bc8c472330b79ea21504770
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395499"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824633"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Lägga till, uppdatera eller ta bort ett kreditkort eller bankkort kort för Azure
 
-I Kontocenter, kan du lägga till ett nytt kreditkort, uppdatera ett befintligt kreditkort eller ta bort ett kreditkort som du inte använder. Du måste vara [kontoadministratör](billing-subscription-transfer.md#whoisaa) du gör dessa ändringar.
+I Kontocenter, kan du lägga till ett nytt kreditkort, uppdatera ett befintligt kreditkort eller ta bort ett kreditkort som du inte använder. Du måste vara en [kontoadministratör](billing-subscription-transfer.md#whoisaa) du gör dessa ändringar.
 
 **Vill du istället för att betala med faktura?** Se [betala för Azure-prenumerationer med faktura](billing-how-to-pay-by-invoice.md).
  
@@ -40,7 +40,7 @@ I Kontocenter, kan du lägga till ett nytt kreditkort, uppdatera ett befintligt 
 1. Välj ”+” för att lägga till ett kort.
 
     ![Skärmbild som visar alternativet Redigera bredvid betalningsmetoden.](./media/billing-how-to-change-credit-card/editcard_new.png)
-1. Ange kredit- eller debetkort kortinformationen.
+1. Ange kredit- eller debetkortsinformation.
 1. Välj **Spara**. 
 
 Om du får ett felmeddelande när du lägger till kreditkortet [kreditkort avvisade på Azure-registrering](billing-credit-card-fails-during-azure-sign-up.md).
@@ -82,7 +82,7 @@ Om du vill ta bort ditt kreditkort eller bankkort kort innan 90-dagars kvarhåll
 
 ### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>Varför får jag ”din inloggningssession har upphört att gälla. Klicka här för att logga in igen ”?
 
-Om du får detta felmeddelande även om redan du loggas ut och tillbaka i, försök igen med en privat surfning.
+Om du får detta felmeddelande även om du redan har loggat och tillbaka i, försök igen med en privat surfning.
 
 ### <a name="how-do-i-use-a-different-card-for-each-subscription-i-have"></a>Hur använder jag ett nytt kort för varje prenumeration som jag har?
 

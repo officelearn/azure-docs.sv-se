@@ -1,10 +1,11 @@
 ---
-title: 'Steg 3: Skapa ett nytt experiment i Machine Learning | Microsoft Docs'
-description: 'Steg 3 i utveckla en förutsägelselösning genomgång: skapa ett nytt utbildning experiment i Azure Machine Learning Studio.'
+title: 'Steg 3: Skapa ett nytt Machine Learning-experiment | Microsoft Docs'
+description: 'Steg 3 i utveckla en förutsägelselösning genomgång: skapa en ny träningsexperiment i Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
@@ -15,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 95000f9fb57b95bf1edcda9abfba3668b5f5b523
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 2fdeab83d1e668fbbb68155c1695ffb40d71c15b
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835747"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824446"
 ---
 # <a name="walkthrough-step-3-create-a-new-azure-machine-learning-experiment"></a>Genomgång steg 3: Skapa ett nytt Azure Machine Learning-experiment
-Detta är det tredje steget i den här genomgången [utveckla en förutsägelseanalys i Azure Machine Learning](walkthrough-develop-predictive-solution.md)
+Det här är det tredje steget i den här genomgången [utveckla en lösning för förutsägelseanalys i Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
 1. [Skapa en Machine Learning-arbetsyta](walkthrough-1-create-ml-workspace.md)
 2. [Överför befintliga data](walkthrough-2-upload-data.md)
@@ -33,104 +34,104 @@ Detta är det tredje steget i den här genomgången [utveckla en förutsägelsea
 6. [Få åtkomst till webbtjänsten](walkthrough-6-access-web-service.md)
 
 - - -
-Nästa steg i den här genomgången är att skapa ett experiment i Machine Learning Studio som använder datauppsättningen som vi har överförts.  
+Nästa steg i den här genomgången är att skapa ett experiment i Machine Learning Studio som använder den datauppsättning som vi laddade upp.  
 
-1. Klicka på Studio **+ ny** längst ned i fönstret.
+1. I Studio, klickar du på **+ ny** längst ned i fönstret.
 2. Välj **EXPERIMENT**, och välj sedan ”tomt Experiment”. 
 
     ![Skapa ett nytt experiment][0]
 
-2. Välj experiment för standardnamnet överst på arbetsytan och Byt till ett beskrivande.
+2. Välj det fördefinierade experimentnamnet överst på arbetsytan och Byt namn på den till något beskrivande.
 
     ![Byt namn på experimentet][5]
    
    > [!TIP]
-   > Är det en bra idé att fylla i **sammanfattning** och **beskrivning** för experiment i den **egenskaper** fönstret. De här egenskaperna ger dig möjlighet att dokumentera experimentet så att alla som tittar på det senare kan förstå dina mål och metoder.
+   > Det är en bra idé att fylla i **sammanfattning** och **beskrivning** för experiment i den **egenskaper** fönstret. De här egenskaperna ger dig möjlighet att dokumentera experimentet så att alla som tittar på det senare kan förstå dina mål och metoder.
    > 
-   > ![Experiment egenskaper][6]
+   > ![Egenskaper för experiment][6]
    > 
 3. Expandera i modulpaletten till vänster om arbetsytan för experimentet **sparade datauppsättningar**.
-4. Hitta datamängden som du skapade under **Mina datauppsättningar** och drar den till arbetsytan. Du kan också hitta datauppsättningen genom att ange namnet i den **Sök** rutan ovanför paletten.  
+4. Leta upp datauppsättningen som du skapade under **Mina datauppsättningar** och dra den till arbetsytan. Du kan också hitta datauppsättningen genom att ange namnet i den **Search** rutan ovanför paletten.  
 
-    ![Lägg till dataset i experimentet][7]
+    ![Lägga till datauppsättningen till experimentet][7]
 
-## <a name="prepare-the-data"></a>Förbered data
-Du kan visa de första 100 dataraderna och del statistisk information för hela datauppsättningen: Klicka på utdataporten för datauppsättningen (liten cirkel längst ned) och välj **visualisera**.  
+## <a name="prepare-the-data"></a>Förbereda data
+Du kan visa de första 100 datarader och del statistisk information för hela datauppsättningen: Klicka på utdataporten för datauppsättningen (liten cirkel längst ned på sidan) och välj **visualisera**.  
 
-Eftersom filen inte levererades med kolumnrubriker Studio tillhandahåller allmänna rubriker (Kol1, Col2, *etc.*). Bra rubriker är inte nödvändigt att skapa en modell, men de gör det enklare att arbeta med data i experimentet. Dessutom när vi publicerar slutligen den här modellen i en webbtjänst, så att rubrikerna identifiera kolumner till användaren i tjänsten.  
+Eftersom datafilen inte levererades med kolumnrubriker, Studio har tillhandahållit allmän rubriker (Kol1, Col2, *etc.*). Bra rubriker är inte nödvändigt för att skapa en modell, men de gör det lättare att arbeta med data i experimentet. Dessutom när du publicerar till slut den här modellen i en webbtjänst, så att rubrikerna identifiera kolumner för användare av tjänsten.  
 
-Vi kan lägga till kolumnrubriker använder de [redigera Metadata] [ edit-metadata] modul.
-Du använder den [redigera Metadata] [ edit-metadata] modul för att ändra metadata som associeras med en datamängd. I det här fallet använda vi den för att ge mer vänliga namn för kolumnrubrikerna. 
+Vi kan lägga till kolumnrubrikerna med hjälp av den [redigera Metadata] [ edit-metadata] modulen.
+Du använder den [redigera Metadata] [ edit-metadata] modul för att ändra metadata som associeras med en datauppsättning. I det här fallet använda vi den för att ge mer vänliga namn för kolumnrubrikerna. 
 
-Att använda [redigera Metadata][edit-metadata], du först ange vilka kolumner som ska ändras (i det här fallet för alla.) Därefter måste ange du åtgärden som ska utföras på dessa kolumner (i det här fallet, ändra kolumnrubrikerna.)
+Att använda [redigera Metadata][edit-metadata], du först ange vilka kolumner som ska ändras (i det här fallet, alla.) Ange sedan åtgärden som ska utföras på dessa kolumner (i det här fallet, ändra kolumnrubrikerna.)
 
-1. På modulpaletten, skriver du ”metadata” i den **Sök** rutan. Den [redigera Metadata] [ edit-metadata] visas i modullistan.
+1. På modulpaletten, skriver du ”metadata” i den **Search** box. Den [redigera Metadata] [ edit-metadata] visas i listan modulen.
 
-2. Klicka och dra den [redigera Metadata] [ edit-metadata] modulen till arbetsytan och släpp nedan datauppsättningen som vi har lagt till tidigare.
+2. Klicka och dra den [redigera Metadata] [ edit-metadata] modulen till arbetsytan och släpp den under den datauppsättning som vi lade till tidigare.
 
-3. Dataset för att ansluta den [redigera Metadata][edit-metadata]: Klicka på utdataporten för datauppsättningen (liten cirkel längst ned i datauppsättningen) genom att dra till indataport av [redigera Metadata] [ edit-metadata] (små cirkeln längst upp i modulen), släpper musknappen. Modulen och dataset vara ansluten även om du flyttar antingen på arbetsytan.
+3. Ansluta datauppsättningen till den [redigera Metadata][edit-metadata]: Klicka på utdataporten för datauppsättningen (liten cirkel längst ned i datauppsättningen) genom att dra till indataporten för [redigera Metadata] [ edit-metadata] (den lilla cirkeln överst i modulen), släpper musknappen. Datauppsättningen och modulen vara anslutna även om du flyttar antingen på arbetsytan.
    
    Experimentet bör nu se ut ungefär så här:  
    
-   ![Lägga till redigera Metadata][1]
+   ![Att lägga till redigera Metadata][1]
    
-   Rött utropstecken visar att vi inte har ställts in egenskaperna för den här modulen ännu. Vi ska göra nästa avsnitt.
+   Rött utropstecken visar att vi inte har ställts in egenskaperna för den här modulen ännu. Vi ska göra nu.
    
    > [!TIP]
-   > Du kan lägga till en kommentar till en modul genom att dubbelklicka på modulen och skriva text. På så sätt kan du snabbt se vad modulen gör i experimentet. I det här fallet dubbelklickar du på den [redigera Metadata] [ edit-metadata] modulen och Skriv kommentaren ”Lägg till kolumnrubrikerna”. Klicka på någon annanstans på arbetsytan för att stänga dialogrutan. Om du vill visa kommentaren klickar du på nedpilen i modulen.
+   > Du kan lägga till en kommentar till en modul genom att dubbelklicka på modulen och skriva text. På så sätt kan du snabbt se vad modulen gör i experimentet. I det här fallet dubbelklickar du på den [redigera Metadata] [ edit-metadata] modulen och Skriv kommentaren ”Add kolumnrubrikerna”. Klicka på någon annanstans på arbetsytan för att stänga textrutan. Om du vill visa kommentaren klickar du på nedpilen i modulen.
    > 
    > ![Redigera Metadatamodul med kommentar har lagts till][8]
    > 
-4. Välj [redigera Metadata][edit-metadata], och i den **egenskaper** till höger om arbetsytan klickar du på **starta kolumnväljaren**.
+4. Välj [redigera Metadata][edit-metadata], och i den **egenskaper** rutan till höger om arbetsytan och klicka på **starta kolumnväljaren**.
 
 5. I den **Markera kolumner** dialogrutan Välj alla rader i **tillgängliga kolumner** och klicka på > att flytta dem till **valda kolumner**.
    Dialogrutan bör se ut så här:
 
    ![Kolumnväljaren med alla kolumner har valts][2]
 
-6. Klicka på den **OK** är markerat.
+6. Klicka på den **OK** kryssmarkeringen.
 
-7. I den **egenskaper** rutan Sök efter den **nya kolumnnamn** parameter. Ange en lista över namn för de 21 kolumnerna i datauppsättning, avgränsade med kommatecken och kolumnordning i det här fältet. Du kan hämta kolumner namnen i dataset-dokumentationen på webbplatsen UCI eller av praktiska skäl kan du kopiera och klistra in i följande lista:  
+7. I den **egenskaper** rutan Sök efter den **nya kolumnnamnen** parametern. Ange en lista med namnen för 21 kolumner i datauppsättningen, avgränsade med kommatecken och i kolumnordning i det här fältet. Du kan hämta kolumnnamnen i datauppsättningen-dokumentationen på webbplatsen UCI eller för att underlätta kan du kopiera och klistra in följande lista:  
    
        Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
    
    Egenskapsrutan ser ut så här:
    
-   ![Egenskaper för redigera-Metadata][3]
+   ![Egenskaper för redigera Metadata][3]
 
 > [!TIP]
-> Om du vill kontrollera kolumnrubrikerna kör experimentet (klicka på **kör** under arbetsytan för experimentet). När körningen (en grön bock på [redigera Metadata][edit-metadata]), klicka på utdataporten för den [redigera Metadata] [ edit-metadata] modulen och välj **visualisera**. Du kan visa resultatet av alla moduler på samma sätt att visa förloppet för data via experimentet.
+> Om du vill kontrollera kolumnrubrikerna, kör experimentet (klicka på **kör** under arbetsytan för experimentet). När den är klar körs (en grön bock visas på [redigera Metadata][edit-metadata]), klicka på utdataporten för den [redigera Metadata] [ edit-metadata] -modulen Välj **visualisera**. Du kan visa utdata från alla moduler på samma sätt att visa förloppet för data via experimentet.
 > 
 > 
 
 ## <a name="create-training-and-test-datasets"></a>Skapa utbildning och testa datauppsättningar
-Vi måste vissa data att träna modellen och vissa att testa den.
-Så i nästa steg i experimentet vi dela datauppsättningen i två separata datauppsättningar: en för vår modell och en för att testa den.
+Vi behöver några data att träna modellen och vissa att testa den.
+Så i nästa steg i experimentet vi dela datauppsättningen i två olika datauppsättningar: en för vår modell och en för att testa den.
 
-Detta gör vi använder den [dela Data] [ split] modul.  
+Detta gör vi använder den [dela Data] [ split] modulen.  
 
-1. Hitta de [dela Data] [ split] , drar den till arbetsytan, och koppla den till den [redigera Metadata] [ edit-metadata] modul.
+1. Hitta den [dela Data] [ split] modulen genom att dra den till arbetsytan och anslut den till den [redigera Metadata] [ edit-metadata] modulen.
 
-2. Som standard är delade förhållandet mellan 0,5 och **Randomized dela** parameter har angetts. Det innebär att en slumpmässig halvan av data utdata via en port för den [dela Data] [ split] modulen och hälften via den andra. Du kan justera parametrarna, samt de **slumptal** parameter, ändra delningen av träning och testning av data. I det här exemplet vi lämna dem som-är.
+2. Som standard är dela förhållandet mellan 0,5 och **Randomized dela** parametern anges. Det innebär att en slumpmässig hälften av data är utdata via en port på den [dela Data] [ split] modulen och hälften via den andra. Du kan justera de här parametrarna behållargruppens **slumptal** parameter för att ändra delningen av träning och testning av data. I det här exemplet vi lämnar dem som – är.
    
    > [!TIP]
-   > Egenskapen **andel av rader i den första utdatauppsättningen** avgör hur mycket data som utdata med den *vänstra* utgående port. Till exempel om du anger förhållandet till 0,7 är 70% av data utdata genom vänstra porten och 30% via rätt port.  
+   > Egenskapen **del av rader i den första utdatauppsättningen** avgör hur mycket data är utdata via den *vänstra* utgående port. Till exempel om du anger i förhållande till 0,7 är 70% av data utdata via den vänstra porten och 30% via rätt port.  
    > 
    > 
 
-3. Dubbelklicka på den [dela Data] [ split] modulen och Skriv kommentaren, ”utbildning/testning data dela 50%”. 
+3. Dubbelklicka på den [dela Data] [ split] modulen och Skriv kommentaren, ”träning och testning data delas upp 50%”. 
 
-Vi kan använda utdata för den [dela Data] [ split] modulen men vi vill, men vi väljer att använda vänstra utdata som träningsdata och rätt utdata som tester.  
+Vi kan använda utdata för den [dela Data] [ split] modulen men vi vill, men nu ska vi välja att använda vänstra utdata som träningsdata och rätt utdata som testdata.  
 
-Som anges i den [föregående steg](walkthrough-2-upload-data.md), kostnaden för misclassifying en hög kreditrisk som låg är fem gånger högre än kostnaden för misclassifying en låg kreditrisk som hög. Kontot för den här vi för att generera en ny datamängd som visar den här kostnaden-funktionen. I den nya datamängden replikeras varje hög risk exempel fem gånger medan varje låg risk exempel inte replikeras.   
+Som vi nämnde i den [föregående steg](walkthrough-2-upload-data.md), kostnaden för misclassifying en hög kreditrisk som låg är fem gånger högre än kostnaden för misclassifying ett låga kreditrisk som hög. För att redovisa detta vi för att generera en ny datauppsättning som visar den här kostnaden-funktionen. I den nya datauppsättningen replikeras varje hög risk exempel fem gånger medan varje lågrisk-exempel inte replikeras.   
 
-Vi kan göra replikeringen med hjälp av R-koden:  
+Vi kan göra replikeringen med R-kod:  
 
-1. Leta upp och dra den [köra R-skriptet] [ execute-r-script] modul på arbetsytan för experimentet. 
+1. Leta upp och dra den [kör R-skript] [ execute-r-script] modul till experimentets arbetsyta. 
 
-2. Anslut den vänstra utdataporten för den [dela Data] [ split] modul till den första indataporten (”Dataset1”) för den [köra R-skriptet] [ execute-r-script] modul.
+2. Anslut den vänstra utdataporten för den [dela Data] [ split] modul till den första ingångsporten (”Dataset1”) för den [kör R-skript] [ execute-r-script] modulen.
 
-3. Dubbelklicka på den [köra R-skriptet] [ execute-r-script] modulen och Skriv kommentaren ”ange kostnaden justering”.
+3. Dubbelklicka på den [kör R-skript] [ execute-r-script] modulen och ange kommentaren (Set kostnad justering).
 
 4. I den **egenskaper** fönstret Ta bort standardtexten i den **R-skriptet** parametern och ange det här skriptet:
    
@@ -140,30 +141,30 @@ Vi kan göra replikeringen med hjälp av R-koden:
        for (i in 1:5) data.set<-rbind(data.set,pos)
        maml.mapOutputPort("data.set")
 
-    ![R-skriptet i modulen köra R-skriptet][9]
+    ![R-skript i modulen köra R-skript][9]
 
-Vi behöver göra den här samma replikeringsåtgärden för varje utdata från den [dela Data] [ split] modulen så att data utbildning och tester har samma kostnadsjustering. Det enklaste sättet att göra detta är genom att duplicera den [köra R-skriptet] [ execute-r-script] modul som vi har gjort och ansluta det till ett annat utgående porten för den [dela Data] [ split] modul.
+Vi behöver göra den här samma replikeringsåtgärden för varje utdata från den [dela Data] [ split] modulen så att data för utbildning och tester har samma flytta. Det enklaste sättet att göra detta är genom att duplicera den [kör R-skript] [ execute-r-script] modul som vi just skapade och ansluter det till en annan utgående port på den [dela Data] [ split] modulen.
 
-1. Högerklicka på den [köra R-skriptet] [ execute-r-script] modulen och välj **kopiera**.
+1. Högerklicka på den [kör R-skript] [ execute-r-script] modul och välj **kopiera**.
 
 2. Högerklicka på arbetsytan för experimentet och välj **klistra in**.
 
-3. Dra modulen nya på plats och ansluter sedan den högra utdataporten för den [dela Data] [ split] modul till den första indataporten på detta nya [köra R-skriptet] [ execute-r-script] modul. 
+3. Dra den nya modulen på plats och sedan ansluta den rätta utdataporten för den [dela Data] [ split] modul till den första indataporten på detta nya [kör R-skript] [ execute-r-script] modulen. 
 
 4. Längst ned på arbetsytan klickar du på **kör**. 
 
 > [!TIP]
-> Kopia av modulen köra R-skriptet innehåller samma skript som den ursprungliga modulen. När du kopierar och klistrar in en modul på arbetsytan behåller alla egenskaper för ursprungligt kopian.  
+> Kopia av den kör R-skript-modulen innehåller samma skript som den ursprungliga modulen. När du kopierar och klistrar in en modul på arbetsytan, behåller alla egenskaper för ursprungligt kopian.  
 > 
 > 
 
-Vårt experiment nu ser ut ungefär så här:
+Vår experimentet nu ser ut ungefär så här:
 
-![Lägga till delade modulen och R-skript][4]
+![Att lägga till Split-modulen och R-skript][4]
 
-Mer information om hur du använder R-skript i experimenten finns [Utöka ditt experiment med R](extend-your-experiment-with-r.md).
+Mer information om hur du använder R-skript i dina experiment finns i [Utöka ditt experiment med R](extend-your-experiment-with-r.md).
 
-**Nästa: [tåg och utvärdera modellerna](walkthrough-4-train-and-evaluate-models.md)**
+**Nästa: [träna och utvärdera modellerna](walkthrough-4-train-and-evaluate-models.md)**
 
 [0]: ./media/walkthrough-3-create-new-experiment/create-new-experiment.png
 [5]: ./media/walkthrough-3-create-new-experiment/rename-experiment.png

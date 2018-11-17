@@ -1,5 +1,5 @@
 ---
-title: Distribuera en webbtjänst till flera regioner | Microsoft Docs
+title: Hur du distribuerar en webbtjänst till flera regioner | Microsoft Docs
 description: Steg för att distribuera (kopiera) en ny webbtjänst till andra regioner.
 services: machine-learning
 documentationcenter: ''
@@ -14,40 +14,41 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: aashishb
-ms.openlocfilehash: 78b37f0e7ac554c1823a0607e43718e5a0ac0067
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.custom: (previous ms.author aashishb)
+ms.author: amlstudiodocs
+ms.openlocfilehash: b3b5f8e5c4a1a4baee7b06c9ac2e766fa59996b5
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835142"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820383"
 ---
 # <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>Så här distribuerar du en webbtjänst till flera regioner
-Den nya Azure Web Services kan du enkelt distribuera en webbtjänst till flera regioner utan att behöva flera prenumerationer eller arbetsytor. 
+De nya webbtjänsterna i Azure kan du enkelt distribuera en webbtjänst till flera regioner utan att behöva flera prenumerationer eller arbetsytor. 
 
-Priser är regionspecifika, därför måste du definiera ett faktureringsavtal för varje region där du ska distribuera webbtjänsten.
+Priserna beror på region, därför måste du definiera ett faktureringsavtal för varje region där du distribuerar webbtjänsten.
 
-## <a name="to-create-a-plan-in-another-region"></a>Att skapa en plan i en annan region
+## <a name="to-create-a-plan-in-another-region"></a>Skapa en plan i en annan region
 1. Logga in på [Microsoft Azure Machine Learning-webbtjänster](https://services.azureml.net/).
-2. Klicka på den **planer** menyalternativet.
-3. Klicka på planer över sidan Visa **ny**.
-4. Från den **prenumeration** listrutan väljer du den prenumeration som den nya planen kommer att finnas.
-5. Från den **Region** listrutan, Välj en region för den nya planen. Planera inställningar för den valda regionen visas i den **planera alternativ** avsnitt på sidan.
-6. Från den **resursgruppen** listrutan, Välj en resursgrupp för planen. För mer information om resursgrupper finns [översikt över Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
-7. I **schemanamn** skriver du namnet på planen.
-8. Under **alternativ**, klicka på nivån fakturering för den nya planen.
+2. Klicka på den **planer** menyalternativ.
+3. På planer över visningssida, klickar du på **New**.
+4. Från den **prenumeration** listrutan väljer du den prenumeration där den nya planen kommer att finnas.
+5. Från den **Region** listrutan väljer du en region för den nya planen. Planera alternativ för den valda regionen visas i den **planera alternativ** på sidan.
+6. Från den **resursgrupp** listrutan, Välj en resursgrupp för planen. För mer information om resursgrupper, se [översikt över Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+7. I **Plannamnet** skriver du namnet på planen.
+8. Under **Avtalsalternativ**, klickar du på den faktureringen för den nya planen.
 9. Klicka på **Skapa**.
 
 ## <a name="deploying-the-web-service-to-another-region"></a>Distribuera webbtjänsten till en annan region
-1. Klicka på den **Web Services** menyalternativet.
+1. Klicka på den **webbtjänster** menyalternativ.
 2. Välj den webbtjänst som du distribuerar till en ny region.
 3. Klicka på **kopiera**.
-4. I **Webbtjänstnamn**, ange ett nytt namn för webbtjänsten.
-5. I **Web tjänstbeskrivningen**, ange en beskrivning för webbtjänsten.
-6. Från den **prenumeration** listrutan väljer du den prenumeration som den nya webbtjänsten kommer att finnas.
-7. Från den **resursgruppen** listrutan, Välj en resursgrupp för webbtjänsten. För mer information om resursgrupper finns [översikt över Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+4. I **Webbtjänstnamn**, Skriv ett nytt namn för webbtjänsten.
+5. I **Web tjänstbeskrivning**, ange en beskrivning för webbtjänsten.
+6. Från den **prenumeration** listrutan väljer du den prenumeration där den nya webbtjänsten kommer att finnas.
+7. Från den **resursgrupp** listrutan, Välj en resursgrupp för webbtjänsten. För mer information om resursgrupper, se [översikt över Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 8. Från den **Region** listrutan väljer du den region där du vill distribuera webbtjänsten.
-9. Från den **lagringskonto** listrutan väljer du ett storage-konto för lagring av webbtjänsten.
-10. Från den **prisplan** listrutan, Välj en plan i den region som du valde i steg 8.
+9. Från den **lagringskonto** listrutan väljer du en storage-konto där du vill lagra webbtjänsten.
+10. Från den **prisplan** listrutan väljer du en plan i den region som du valde i steg 8.
 11. Klicka på **kopiera**.
 

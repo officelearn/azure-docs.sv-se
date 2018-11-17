@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: b3c652baa515035fc91d2a5f7f962685b673a25e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0801e3a0e9217ab0855d09df8a054926b488d759
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013334"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821556"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 i Azure Service Bus och Event Hubs-protokollguide
 
@@ -258,7 +258,7 @@ En transaktion grupperar två eller flera åtgärder tillsammans i en körning o
 
 För transaktionell interaktion klienten fungerar som en `transaction controller` , som styr vilka åtgärder som ska grupperas tillsammans. Service Bus-tjänsten fungerar som en `transactional resource` och utför arbete enligt en förfrågan från den `transaction controller`.
 
-Klienten och tjänsten kommunicerar via en `control link` , som har upprättats genom klienten. Den `declare` och `discharge` meddelanden skickas av controller med länken kontroll att allokera och genomföra transaktioner respektive (de utgör inte avgränsning av transaktionella arbete). Faktiska skicka och ta emot utförs inte på den här länken. Varje transaktionella den begärda åtgärden är uttryckligen anges med önskad `txn-id` och därför kan uppstå på en länk på anslutningen. Om länken kontroll stängs även om det finns inte ut transaktioner som den skapats sedan alla sådana transaktioner återställs omedelbart och försöker utföra ytterligare transaktionella arbete på dem. leder till misslyckad. Meddelanden i kontrollen länk får inte vara före reglerats.
+Klienten och tjänsten kommunicerar via en `control link` , som har upprättats genom klienten. Den `declare` och `discharge` meddelanden skickas av controller med länken kontroll att allokera och genomföra transaktioner respektive (de utgör inte avgränsning av transaktionella arbete). De faktiska skicka och ta emot utförs inte på den här länken. Varje transaktionella den begärda åtgärden är uttryckligen anges med önskad `txn-id` och därför kan uppstå på en länk på anslutningen. Om länken kontroll stängs även om det finns inte ut transaktioner som den skapats sedan alla sådana transaktioner återställs omedelbart och försöker utföra ytterligare transaktionella arbete på dem. leder till misslyckad. Meddelanden i kontrollen länk får inte vara före reglerats.
 
 Varje anslutning måste initiera en egen kontroll länk för att kunna börja och sluta transaktioner. Tjänsten definierar ett särskilt mål som fungerar som en `coordinator`. Klienten/kontrollanten upprättar en kontroll länk till det här målet. Kontroll av länk är utanför gränsen för en entitet, det vill säga samma kontroll länk kan användas för att initiera och utskrivning transaktioner för flera enheter.
 

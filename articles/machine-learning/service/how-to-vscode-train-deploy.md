@@ -5,16 +5,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.author: jmartens
-author: j-martens
+ms.author: shwinne
+author: swinner95
 ms.reviewer: jmartens
 ms.date: 10/1/2018
-ms.openlocfilehash: 38a7a4e80542551057b230e9d0217d1cecbc5c42
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 377a4bbf359b2c65136625fcef8a1093e49da728
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710315"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854313"
 ---
 # <a name="vs-code-tools-for-ai-train-and-deploy-ml-models-from-vs-code"></a>VS Code Tools för AI: träna och distribuera maskininlärningsmodeller från VS Code
 I den här artikeln får du lära dig hur du använder den **VS Code Tools för AI** träna och distribuera machine learning och deep learning-modeller med Azure Machine Learning-tjänsten i VS Code-tillägget.

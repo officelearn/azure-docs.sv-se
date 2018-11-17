@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 46671a559f4db9aaa798e2c0d8cc668794687a58
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 36d37adff6d45b7d154511c11888aad090c54638
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686338"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853684"
 ---
 # <a name="update-the-mysql-resource-provider"></a>Uppdatera MySQL-resursprovider 
 
@@ -27,8 +27,8 @@ ms.locfileid: "51686338"
 
 En ny SQL-resursprovideradaptern kan frigöras när Azure Stack-versioner har uppdaterats. Befintliga kortet fortsätter att fungera, rekommenderar vi uppdaterar till den senaste versionen så snart som möjligt. 
 
->[!IMPORTANT]
->Du måste installera uppdateringar i den ordning de ges ut. Du kan inte hoppa över versioner. Se listan över versioner i [distribuera resource provider krav](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites).
+> [!IMPORTANT]
+> Du måste installera uppdateringar i den ordning de ges ut. Du kan inte hoppa över versioner. Se listan över versioner i [distribuera resource provider krav](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
 ## <a name="update-the-mysql-resource-provider-adapter-integrated-systems-only"></a>Uppdatera MySQL-resursprovideradaptern (endast integrerade system)
 

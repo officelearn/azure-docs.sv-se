@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 08/01/2018
+ms.date: 11/15/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ecde7cb3662fc80e7968acfcac99bc8f28e8b15b
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 60bd7cc2084ce64477cf89a5fd28d9a505fbfbfb
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287581"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852647"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Snabbstart: Skapa och fråga en Azure SQL data warehouse med Azure PowerShell
 
@@ -31,24 +31,24 @@ För den här självstudien krävs Azure PowerShell-modul version 5.1.1 eller se
 >
 >
 
-## <a name="log-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in till Azure
 
-Logga in på Azure-prenumerationen med kommandot [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) och följ anvisningarna på skärmen.
+Logga in på Azure-prenumerationen med den [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) och följer den på skärmen riktningar.
 
 ```powershell
 Add-AzureRmAccount
 ```
 
-Om du vill se vilken prenumeration du använder kör du [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
+Om du vill se vilken prenumeration som du använder kör [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-Om du behöver använda en annan prenumeration än standardprenumerationen kör du [Select-AzureRmSubscription](/powershell/module/azurerm.profile/select-azurermsubscription).
+Om du vill använda en annan prenumeration än standard, kör [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "MySubscription"
+Set-AzureRmContext -SubscriptionName "MySubscription"
 ```
 
 
@@ -60,10 +60,10 @@ Definiera variabler för användning i skripten i den här snabbstartsguiden.
 # The data center and resource name for your resources
 $resourcegroupname = "myResourceGroup"
 $location = "WestEurope"
-# The logical server name: Use a random value or replace with your own value (do not capitalize)
+# The logical server name: Use a random value or replace with your own value (don't capitalize)
 $servername = "server-$(Get-Random)"
-# Set an admin login and password for your database
-# The login information for the server
+# Set an admin name and password for your database
+# The sign-in information for the server
 $adminlogin = "ServerAdmin"
 $password = "ChangeYourAdminPassword1"
 # The ip address range that you want to allow to access your server - change as appropriate
@@ -82,7 +82,7 @@ New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
 ```
 ## <a name="create-a-logical-server"></a>Skapa en logisk server
 
-Skapa en [logiska Azure SQL-servern](../sql-database/sql-database-logical-servers.md) med hjälp av den [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) kommando. En logisk server innehåller en uppsättning databaser som hanteras som en grupp. I följande exempel skapas en server med ett slumpmässigt namn i resursgruppen med en administratörsinloggning med namnet `ServerAdmin` och lösenordet `ChangeYourAdminPassword1`. Ersätt dessa fördefinierade värden efter behov.
+Skapa en [logiska Azure SQL-servern](../sql-database/sql-database-logical-servers.md) med hjälp av den [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) kommando. En logisk server innehåller en uppsättning databaser som hanteras som en grupp. I följande exempel skapas en slumpmässigt namn i resursgruppen med en administratörsanvändare med namnet `ServerAdmin` och lösenordet `ChangeYourAdminPassword1`. Ersätt dessa fördefinierade värden efter behov.
 
 ```powershell
 New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
@@ -102,7 +102,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 ```
 
 > [!NOTE]
-> SQL Database och SQL Data Warehouse kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 1433 nekas av nätverkets brandvägg. I så fall kan du inte ansluta till Azure SQL-servern om inte din IT-avdelning öppnar port 1433.
+> SQL Database och SQL Data Warehouse kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 1433 inte tillåtas av nätverkets brandvägg. I så fall kan du inte ansluta till Azure SQL-servern om inte din IT-avdelning öppnar port 1433.
 >
 
 
@@ -123,14 +123,14 @@ New-AzureRmSqlDatabase `
 Erfordrade parametrar är:
 
 * **RequestedServiceObjectiveName**: mängden [data informationslagerenheter](what-is-a-data-warehouse-unit-dwu-cdwu.md) du begär. Öka den mängden ökar beräkningskostnader. En lista över värden som stöds finns i [minne och samtidighet gränser](memory-and-concurrency-limits.md).
-* **DatabaseName**: Namnet på det SQL Data Warehouse som du skapar.
+* **DatabaseName**: namnet på SQL Data Warehouse som du skapar.
 * **ServerName**: namnet på den server som du använder för att skapa.
-* **ResourceGroupName**: Resursgruppen som du använder dig av. Använd Get-AzureResource för att hitta tillgängliga resursgrupper i din prenumeration.
+* **ResourceGroupName**: resursgruppen som du använder. Använd Get-AzureResource för att hitta tillgängliga resursgrupper i din prenumeration.
 * **Version**: Måste vara ”DataWarehouse” för att skapa ett SQL Data Warehouse.
 
 Valfria parametrar är:
 
-- **CollationName**: Standardsortering om inte annat anges är SQL_Latin1_General_CP1_CI_AS. Sorteringen kan inte ändras för en databas.
+- **CollationName**: Standardsortering om inte annat anges är SQL_Latin1_General_CP1_CI_AS. Sortering kan inte ändras på en databas.
 - **MaxSizeBytes**: Maximal standardstorlek för en databas är 10 GB.
 
 Mer information om parameteralternativen finns i [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase).
@@ -141,7 +141,7 @@ Mer information om parameteralternativen finns i [New-AzureRmSqlDatabase](/power
 De andra snabbstartsguiderna i den här samlingen bygger på den här snabbstarten. 
 
 > [!TIP]
-> Om du planerar att fortsätta att arbeta med efterföljande snabbstartsguider ska du inte rensa resurserna som du skapade i den här snabbstarten. Om du inte planerar att fortsätta kan du använda stegen nedan för att ta bort alla resurser som har skapats i den här snabbstarten i Azure-portalen.
+> Om du planerar att fortsätta att arbeta med senare snabbstartsguider skapas inte rensa upp resurserna i den här snabbstarten. Om du inte planerar att fortsätta, kan du använda följande steg för att ta bort alla resurser som skapades i snabbstarten i Azure-portalen.
 >
 
 ```powershell
@@ -150,6 +150,6 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har nu skapat ett informationslager och en brandväggsregel, anslutit till ditt informationslager och kört några frågor. Om du vill veta mer om Azure SQL Data Warehouse kan fortsätta med självstudiekursen om att läsa in data.
+Du har nu skapat ett informationslager, skapat en brandväggsregel som är anslutna till ditt informationslager och kört några frågor. Om du vill veta mer om Azure SQL Data Warehouse kan fortsätta med självstudiekursen om att läsa in data.
 > [!div class="nextstepaction"]
 >[Läsa in data i ett SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

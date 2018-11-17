@@ -1,10 +1,11 @@
 ---
-title: 'Steg 4: Träna och utvärdera de analytiska förutsägelsemodeller | Microsoft Docs'
-description: 'Steg 4 i utveckla en förutsägelselösning genomgång: tåg och poängsätta och utvärdera flera modeller i Azure Machine Learning Studio.'
+title: 'Steg 4: Träna och utvärdera förutsägbara analytiska modeller | Microsoft Docs'
+description: 'Steg 4 i utveckla en förutsägelselösning genomgång: Train, bedöma och utvärdera flera modeller i Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: d905f6b3-9201-4117-b769-5f9ed5ee1cac
@@ -15,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 95937ee74be3f6facbc482c3cfd80a8af9128ea3
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 069e2f4d2cb6ae1e9890610bbace5298c62eee75
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836022"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821029"
 ---
 # <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models"></a>Genomgång steg 4: Utbilda i och utvärdera förutsägbara analytiska modeller
-Det här avsnittet innehåller det fjärde steget i den här genomgången [utveckla en förutsägelseanalys i Azure Machine Learning](walkthrough-develop-predictive-solution.md)
+Det här avsnittet innehåller det fjärde steget i den här genomgången [utveckla en lösning för förutsägelseanalys i Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
 1. [Skapa en Machine Learning-arbetsyta](walkthrough-1-create-ml-workspace.md)
 2. [Överför befintliga data](walkthrough-2-upload-data.md)
@@ -33,156 +34,156 @@ Det här avsnittet innehåller det fjärde steget i den här genomgången [utvec
 6. [Få åtkomst till webbtjänsten](walkthrough-6-access-web-service.md)
 
 - - -
-En av fördelarna med att använda Azure Machine Learning Studio för att skapa machine learning-modeller är möjligheten att testa fler än en typ av modellen samtidigt i en enda experiment och jämför resultaten. Den här typen av experiment hjälper dig att hitta den bästa lösningen för ditt problem.
+En av fördelarna med att använda Azure Machine Learning Studio för att skapa machine learning-modeller är möjligheten att testa mer än en typ av modell i taget i ett enda experiment och jämföra resultaten. Den här typen av experimentering hjälper dig att hitta den bästa lösningen för ditt problem.
 
-I experimentet Vi utvecklar i den här genomgången, vi skapa två olika typer av modeller och sedan jämföra bedömningsprofil resultaten för att avgöra vilken algoritm som vi vill använda i vår slutliga experimentet.  
+I experimentet som vi håller på att utveckla i den här genomgången, vi skapar två olika typer av modeller och jämför deras bedömnings resultaten för att bestämma vilken algoritm som vi vill använda i vår slutliga experimentet.  
 
-Det finns olika modeller som vi kan välja från. För att se de tillgängliga modellerna, expandera den **Maskininlärning** nod på modulpaletten, och expandera sedan **initiera modell** och noderna under den. Vid tillämpningen av experimentet vi välja den [Two-Class Support Vector Machine] [ two-class-support-vector-machine] (SVM) och [två-Tvåklassförhöjt beslutsträd] [ two-class-boosted-decision-tree] moduler.    
+Det finns olika modeller som vi kan välja från. Om du vill se de tillgängliga modellerna, expandera den **Maskininlärning** noden på modulpaletten, och expandera sedan **initiera modell** och noderna under den. För det här experimentet väljer vi den [två-Class Support Vector Machine] [ two-class-support-vector-machine] (SVM) och [Tvåklassförhöjt beslutsträd] [ two-class-boosted-decision-tree] moduler.    
 
 > [!TIP]
-> För att få hjälp för att bestämma vilken Machine Learning-algoritm som bäst passar viss problemet du försöker lösa, se [så väljer du algoritmer för Microsoft Azure Machine Learning](algorithm-choice.md).
+> Om du vill ha hjälp med att bestämma vilka Machine Learning-algoritm som bäst passar särskilt problematisk du försöker lösa, se [så väljer du algoritmer för Microsoft Azure Machine Learning](algorithm-choice.md).
 > 
 > 
 
 ## <a name="train-the-models"></a>Träna modeller
 
-Vi lägger till både den [två-Tvåklassförhöjt beslutsträd] [ two-class-boosted-decision-tree] modulen och [Two-Class Support Vector Machine] [ two-class-support-vector-machine] modul i experimentet.
+Vi lägger till både den [Tvåklassförhöjt beslutsträd] [ two-class-boosted-decision-tree] modulen och [två-Class Support Vector Machine] [ two-class-support-vector-machine] modul i det här experimentet.
 
-### <a name="two-class-boosted-decision-tree"></a>Two-Class Tvåklassförhöjda beslutsträdet
+### <a name="two-class-boosted-decision-tree"></a>Tvåklassförhöjt beslutsträd
 
-Först ska vi ställa in förstärkta trädet modellen.
+Först måste vi ställer in beslutsträd trädet modellen.
 
-1. Hitta de [två-Tvåklassförhöjt beslutsträd] [ two-class-boosted-decision-tree] modulen på modulpaletten och drar den till arbetsytan.
+1. Hitta den [Tvåklassförhöjt beslutsträd] [ two-class-boosted-decision-tree] modulen på modulpaletten och dra den till arbetsytan.
 
-2. Hitta de [Träningsmodell] [ train-model] modulen, drar den till arbetsytan och ansluter sedan utdata från den [två-Tvåklassförhöjt beslutsträd] [ two-class-boosted-decision-tree] modulen till vänster inkommande port för den [Träningsmodell] [ train-model] modul.
+2. Hitta den [Träningsmodell] [ train-model] modulen genom att dra den till arbetsytan och Anslut utdataporten för den [Tvåklassförhöjt beslutsträd] [ two-class-boosted-decision-tree] modul till vänstra indataporten för den [Träningsmodell] [ train-model] modulen.
    
-   Den [två-Tvåklassförhöjt beslutsträd] [ two-class-boosted-decision-tree] modulen initierar allmän modell och [träna modell] [ train-model] använder utbildningsdata för att träna på modell. 
+   Den [Tvåklassförhöjt beslutsträd] [ two-class-boosted-decision-tree] modulen initierar allmän modell och [träna modell] [ train-model] använder utbildningsdata för att träna den modell. 
 
-3. Ansluta vänstra utdata från vänster [köra R-skriptet] [ execute-r-script] modulen till höger inkommande port för den [Träningsmodell] [ train-model] modul (vi valt i [Steg3](walkthrough-3-create-new-experiment.md) i den här genomgången för att använda data från vänster sida av modulen dela Data för utbildning).
+3. Anslut vänstra utdataporten för vänster [kör R-skript] [ execute-r-script] indataporten för modulen till höger för den [Träningsmodell] [ train-model] modulen (beslutat i [Steg3](walkthrough-3-create-new-experiment.md) i den här genomgången för att använda data från vänster sida av modulen dela Data för träning).
    
    > [!TIP]
-   > Vi behöver inte två indata och en av utdata för den [köra R-skriptet] [ execute-r-script] modul för experimentet, så vi kan lämna dem. 
+   > Vi behöver inte två av indata och en av utdata för den [kör R-skript] [ execute-r-script] -modulen för det här experimentet, så vi kan lämna dem ej anslutna. 
    > 
    > 
 
 Den här delen av experimentet nu ser ut ungefär så här:  
 
-![En modell][1]
+![Träna en modell][1]
 
-Nu behöver vi berätta det [Träningsmodell] [ train-model] modul som vi vill modellen för att förutsäga kreditrisken för värdet.
+Nu behöver vi visa den [Träningsmodell] [ train-model] modul som vi vill modellen att förutsäga kreditrisk värdet.
 
-1. Välj den [Träningsmodell] [ train-model] modul. I den **egenskaper** rutan klickar du på **starta kolumnväljaren**.
+1. Välj den [Träningsmodell] [ train-model] modulen. I den **egenskaper** fönstret klickar du på **starta kolumnväljaren**.
 
-2. I den **Markera en kolumn** dialogrutan Skriv ”kredit risk” i sökfältet under **tillgängliga kolumner**, markerar ”kredit risk” nedan och klicka på högerpilen (**>**) att flytta ”kreditrisk” till **valda kolumner**. 
+2. I den **Markera en enda kolumn** dialogrutan skriver du ”kredit risk” i sökfältet under **tillgängliga kolumner**, Välj ”kredit risk” nedan och klicka på högerpilen (**>**) att flytta ”kreditrisk” till **valda kolumner**. 
 
-    ![Välj kolumnen kreditrisken för träningsmodellmodulen][0]
+    ![Välj kolumnen kreditrisk för träningsmodellmodulen][0]
 
-3. Klicka på den **OK** är markerat.
+3. Klicka på den **OK** kryssmarkeringen.
 
 ### <a name="two-class-support-vector-machine"></a>Tvåklassig dator för vektorstöd
 
 Nu ska ställa vi in SVM modellen.  
 
-Första, en förklaring om SVM. Förstärkta beslutsträd fungerar bra med funktioner för alla typer. Men eftersom modulen SVM genererar en linjär klassificerare, har den modell som genereras bästa testfel när alla numeriska funktioner har samma skala. Om du vill konvertera alla numeriska funktioner samma skala vi använder en ”Tanh”-omvandling (med den [normalisera Data] [ normalize-data] module). Detta omvandlar våra nummer i intervallet [0,1]. Modulen SVM konverterar sträng funktioner till kategoriska funktioner och sedan till binära 0-1-funktioner, så vi inte behöver manuellt Omforma strängen funktioner. Dessutom vill vi inte transformera kreditrisk kolumnen (kolumn 21) - är det numeriska men det är det värde som vi tränar modellen för att förutsäga, så vi behöver inte använder den.  
+Första, en förklaring om SVM. Förbättrat beslutsträd fungerar bra med funktioner i alla typer. Men eftersom modulen SVM genererar en linjär klassificerare, har den modell som genererar det bästa testfel när alla numeriska funktioner har samma skala. Om du vill konvertera alla numeriska funktioner samma skala, använder vi en ”Tanh”-omvandling (med den [normalisera Data] [ normalize-data] modul). Detta omvandlar vår nummer i intervallet [0,1]. Modulen SVM konverterar sträng funktioner till kategoriska funktioner och sedan till binär 0/1-funktioner, så vi inte behöver manuellt transformera sträng funktioner. Dessutom vi vill inte omvandla den kreditrisk kolumnen (21) – är det numeriska, men det är det värde som vi tränar modellen för att förutsäga, så vi behöver inte använder den.  
 
 Om du vill konfigurera SVM modellen gör du följande:
 
-1. Hitta de [Two-Class Support Vector Machine] [ two-class-support-vector-machine] modulen på modulpaletten och drar den till arbetsytan.
+1. Hitta den [två-Class Support Vector Machine] [ two-class-support-vector-machine] modulen på modulpaletten och dra den till arbetsytan.
 
-2. Högerklicka på den [Träningsmodell] [ train-model] modulen, Välj **kopiera**, och högerklicka sedan på arbetsytan och välj **klistra in**. Kopia av den [Träningsmodell] [ train-model] modulen har samma kolumn urval som originalet.
+2. Högerklicka på den [Träningsmodell] [ train-model] modulen, väljer **kopia**, och högerklicka på arbetsytan och välj **klistra in**. Kopia av den [Träningsmodell] [ train-model] modulen har samma Kolumnurval som originalet.
 
-3. Ansluta utdata från den [Two-Class Support Vector Machine] [ two-class-support-vector-machine] modulen till vänster inkommande port för andra [Träningsmodell] [ train-model] modul.
+3. Anslut utdataporten för den [två-Class Support Vector Machine] [ two-class-support-vector-machine] modul till vänstra indataporten för andra [Träningsmodell] [ train-model] modulen.
 
-4. Hitta de [normalisera Data] [ normalize-data] modulen och drar den till arbetsytan.
+4. Hitta den [normalisera Data] [ normalize-data] modulen och dra den till arbetsytan.
 
-5. Ansluta vänstra utdata från vänster [köra R-skriptet] [ execute-r-script] modulen till indata för den här modulen (Observera att utdataporten för en modul kan anslutas till mer än en modul).
+5. Anslut vänstra utdataporten för vänster [kör R-skript] [ execute-r-script] modulen till indata för den här modulen (Observera att utdataporten för en modul kan anslutas till mer än en modul).
 
-6. Anslut den vänstra utdataporten för den [normalisera Data] [ normalize-data] modulen till höger inkommande port för andra [Träningsmodell] [ train-model] modul.
+6. Anslut den vänstra utdataporten för den [normalisera Data] [ normalize-data] indataporten för modulen till höger för andra [Träningsmodell] [ train-model] modulen.
 
-Den här delen av vår experimentet bör nu se ut ungefär så här:  
+Den här delen av vårt experiment bör nu se ut ungefär så här:  
 
-![Andra modell][2]  
+![Träna andra modell][2]  
 
 Konfigurera nu den [normalisera Data] [ normalize-data] modulen:
 
-1. Markera den [normalisera Data] [ normalize-data] modul. I den **egenskaper** väljer **Tanh** för den **omvandling metoden** parameter.
+1. Klickar du på den [normalisera Data] [ normalize-data] modulen. I den **egenskaper** väljer **Tanh** för den **omvandling metoden** parametern.
 
-2. Klicka på **starta kolumnväljaren**, Välj ”inga kolumner” för **börjar med**väljer **inkludera** i den första listrutan väljer **kolumntypen** i den andra listrutan och välj **numeriska** i tredje listrutan. Anger att alla numeriska kolumner (och endast numeriskt) omvandlas.
+2. Klicka på **starta kolumnväljaren**, Välj ”inga kolumner” för **börjar med**väljer **inkludera** i den första listrutan väljer du **kolumntyp** i den andra listrutan och välj **numeriska** i tredje listrutan. Detta anger att alla numeriska kolumner (och endast numeriskt) omvandlas.
 
-3. Klicka på plustecknet (+) till höger om den här raden - detta skapar en rad av nedrullningsbara listorna. Välj **undanta** i den första listrutan väljer **kolumnnamn** i andra listrutan och ange ”kredit risk” i textfältet. Detta anger att kolumnen kreditrisk ska ignoreras (vi behöver göra detta eftersom den här kolumnen är numeriska och så skulle omvandlas om vi inte utesluter den).
+3. Klicka på plustecknet (+) till höger om den här raden – detta skapar en rad med listrutor. Välj **undanta** i den första listrutan Välj **kolumnnamn** i andra listrutan och ange ”kredit risk” i textfältet. Detta anger att kolumnen kreditrisk ska ignoreras (vi måste göra detta eftersom den här kolumnen är numeriska och så skulle omvandlas om vi inte utesluter den).
 
-4. Klicka på den **OK** är markerat.  
+4. Klicka på den **OK** kryssmarkeringen.  
 
-    ![Välj kolumner för modulen normalisera Data][5]
+    ![Markera kolumner för modulen normalisera Data][5]
 
 Den [normalisera Data] [ normalize-data] modulen nu är inställd på att utföra en Tanh omvandling på alla numeriska kolumner utom den kreditrisk.  
 
 ## <a name="score-and-evaluate-the-models"></a>Poängsätta och utvärdera modellerna
 
-Vi använder informationen tester som separeras av den [dela Data] [ split] modulen poängsätta våra tränade modeller. Vi kan sedan jämföra resultatet av de två modellerna Se som genererats bättre resultat.  
+Vi använder testdata som separeras av den [dela Data] [ split] modul för att bedöma vår tränade modeller. Vi kan sedan jämföra resultaten av de två modellerna att se som genereras bättre resultat.  
 
-### <a name="add-the-score-model-modules"></a>Lägga till poängsätta modell-moduler
+### <a name="add-the-score-model-modules"></a>Lägg till modulerna som poängsätta modell
 
-1. Hitta de [Poängmodell] [ score-model] modulen och drar den till arbetsytan.
+1. Hitta den [Poängmodell] [ score-model] modulen och dra den till arbetsytan.
 
-2. Ansluta den [Träningsmodell] [ train-model] modul som är ansluten till den [två-Tvåklassförhöjt beslutsträd] [ two-class-boosted-decision-tree] modulen till vänster inkommande port för den [Poängmodell] [ score-model] modul.
+2. Anslut den [Träningsmodell] [ train-model] modul som är ansluten till den [Tvåklassförhöjt beslutsträd] [ two-class-boosted-decision-tree] modul till vänstra indataporten för den [Poängmodell] [ score-model] modulen.
 
-3. Ansluta till höger [köra R-skriptet] [ execute-r-script] modul (våra tester data) till höger inkommande port för den [Poängmodell] [ score-model] modul.
+3. Ansluta höger [kör R-skript] [ execute-r-script] indataporten för modulen (vår testdata) till höger för den [Poängmodell] [ score-model] modulen.
 
     ![Ansluten att modulen poängsätta modell][6]
    
-   Den [Poängmodell] [ score-model] modul kan nu ta kredit information från tester data, kör via modellen och jämföra förutsägelser modellen genererar med den faktiska kredit risk kolumnen i den testa data.
+   Den [Poängmodell] [ score-model] modulen kan nu ta kredit informationen från testdata, kör via modellen och jämföra förutsägelser modellen genererar med den faktiska kredit risk kolumnen i den testa data.
 
 4. Kopiera och klistra in den [Poängmodell] [ score-model] modul för att skapa en andra kopia.
 
-5. Ansluta utdata från SVM modellen (det vill säga utdataporten för den [Träningsmodell] [ train-model] modul som är ansluten till den [Two-Class Support Vector Machine] [ two-class-support-vector-machine] modulen) till den inkommande porten för andra [Poängmodell] [ score-model] modul.
+5. Anslut utdataporten för SVM-modellen (det vill säga utdataporten för den [Träningsmodell] [ train-model] modul som är ansluten till den [två-Class Support Vector Machine] [ two-class-support-vector-machine] modulen) till indataporten för andra [Poängmodell] [ score-model] modulen.
 
-6. Vi har utför samma transformeringen till testdata som vi gjorde för utbildning-data för SVM-modellen. Så kopiera och klistra in den [normalisera Data] [ normalize-data] modul för att skapa en andra kopia och ansluta till höger [köra R-skriptet] [ execute-r-script] modul.
+6. För SVM-modellen har vi göra samma omvandlingen till testdata som vi gjorde att träningsdata. Så kopiera och klistra in den [normalisera Data] [ normalize-data] modul för att skapa en andra kopia och ansluter den till höger [kör R-skript] [ execute-r-script] modulen.
 
-7. Ansluta vänstra utdata från andra [normalisera Data] [ normalize-data] modulen till höger inkommande port för andra [Poängmodell] [ score-model] modul.
+7. Anslut vänstra utdataporten för andra [normalisera Data] [ normalize-data] indataporten för modulen till höger för andra [Poängmodell] [ score-model] modulen.
 
-    ![Båda poängsätta modell-moduler som är ansluten][7]
+    ![Båda poängsätta modell-moduler som är anslutna][7]
 
 ### <a name="add-the-evaluate-model-module"></a>Lägg till modulen utvärdera modell
 
-Om du vill utvärdera bedömningsprofil resultaten och jämför dem, använder vi en [utvärdera modell] [ evaluate-model] modul.  
+För att utvärdera de två bedömnings resultaten och jämföra dem, använder vi en [utvärdera modell] [ evaluate-model] modulen.  
 
-1. Hitta de [utvärdera modell] [ evaluate-model] modulen och drar den till arbetsytan.
+1. Hitta den [utvärdera modell] [ evaluate-model] modulen och dra den till arbetsytan.
 
-2. Ansluta utdataporten för den [Poängmodell] [ score-model] modul som är associerade med den förstärkta träd modellen till den vänstra indataporten av den [utvärdera modell] [ evaluate-model] modul.
+2. Anslut utdataporten för den [Poängmodell] [ score-model] som är associerade med beslutsträd trädet modellen till den vänstra indataporten för modulen den [utvärdera modell] [ evaluate-model] modulen.
 
-3. Anslut den andra [Poängmodell] [ score-model] modulen till höger inkommande port.  
+3. Anslut den andra [Poängmodell] [ score-model] indataporten för modulen till höger.  
 
-    ![Utvärdera modellen modulen ansluten][8]
+    ![Utvärdera modellen moduler som är anslutna][8]
 
 ### <a name="run-the-experiment-and-check-the-results"></a>Kör experimentet och kontrollera resultaten
 
-Kör experimentet genom att klicka på den **kör** knapp under arbetsytan. Det kan ta några minuter. En snurrande indikator för varje modul visar att den körs, och sedan en grön bock visas när modulen är klar. När alla moduler är markerat har experimentet slutförts.
+Kör experimentet genom att klicka på den **kör** knappen under arbetsytan. Det kan ta några minuter. En snurrande indikator på varje modul visar att den körs och sedan en grön bock visas när modulen är klar. När alla moduler med en bock, är experimentet klart.
 
 Experimentet bör nu se ut ungefär så här:  
 
-![Utvärdering av båda modellerna][3]
+![Utvärdera båda modellerna][3]
 
-Kontrollera resultaten, klicka på utdataporten för den [utvärdera modell] [ evaluate-model] modulen och välj **visualisera**.  
+Kontrollera resultaten genom att klicka på utdataporten för den [utvärdera modell] [ evaluate-model] modul och välj **visualisera**.  
 
-Den [utvärdera modell] [ evaluate-model] modulen genererar ett par med kurvor och mått som gör det möjligt att jämföra resultatet av de två poängsatta modellerna. Du kan visa resultat som mottagaren operatorn egenskap (ROC) kurvor, Precision/återkalla kurvor eller Lift kurvor. Ytterligare data som visas innehåller en förvirring matris kumulativa värden för området under kurvan (AUC) och andra mått. Du kan ändra tröskelvärdet genom att flytta skjutreglaget åt vänster eller höger och se hur den påverkar uppsättningen mått.  
+Den [utvärdera modell] [ evaluate-model] modulen genererar ett par kurvor och mått som gör det möjligt att jämföra resultatet av de två poängsatta modellerna. Du kan visa resultat som mottagare operatorn egenskap (ROC) kurvor, Precision/återkallande kurvor eller Lift kurvor. Ytterligare data som visas innehåller en felmatris, kumulativa värden för området under kurvan (AUC) och andra mått. Du kan ändra tröskelvärdet genom att flytta skjutreglaget åt vänster eller höger och se hur den påverkar uppsättning mått.  
 
-Klicka till höger om diagrammet **bedömas dataset** eller **bedömas dataset för att jämföra** Markera associerade kurvan och visa den associerade måtten nedan. I förklaringen för kurvorna ”bedömas dataset” motsvarar den vänstra indataporten av den [utvärdera modell] [ evaluate-model] modul - i vårt fall är detta förstärkta trädet modellen. ”Bedömas dataset för att jämföra” motsvarar den högra indataporten - SVM modellen i vårt fall. När du klickar på en av etiketterna kurvan för den modellen som är markerad och motsvarande mått visas som visas i följande bild.  
+Till höger i diagrammet, klickar du på **poängsätts datauppsättning** eller **poängsätts datauppsättning för att jämföra** att markera associerade kurvan och för att visa de associera mått nedan. I förklaringen för kurvorna ”poängsätts datauppsättningen” motsvarar den vänstra indataporten för den [utvärdera modell] [ evaluate-model] modul – i vårt fall är detta beslutsträd trädet modellen. ”Poängsätts datauppsättning för att jämföra” motsvarar den högra indataporten - SVM modellen i vårt fall. När du klickar på någon av dessa etiketter kurvan för den modellen är markerad och motsvarande mått visas, enligt följande bild.  
 
 ![ROC kurvor för modeller][4]
 
-Du kan välja vilken modell som ligger närmast ger dig det resultat som du letar efter genom att undersöka dessa värden. Du kan gå tillbaka och iterera experimentet genom att ändra parametervärden i olika modeller. 
+Du kan bestämma vilken modell som är närmast ger dig det resultat som du letar efter genom att undersöka dessa värden. Du kan gå tillbaka och iterera ditt experiment genom att ändra parametervärden i de olika modellerna. 
 
-Vetenskap och bilder av tolka resultaten och justera prestanda för modellen ligger utanför omfånget för den här genomgången. För ytterligare hjälp kan du läsa följande artiklar:
-- [Hur du utvärdera modellen prestanda i Azure Machine Learning](evaluate-model-performance.md)
+Vetenskap och bilder av tolka resultaten och justera modellens prestanda ligger utanför omfånget för den här genomgången. Mer hjälp kan du läsa följande artiklar:
+- [Hur du utvärderar du modellens prestanda i Azure Machine Learning](evaluate-model-performance.md)
 - [Välj parametrar för att optimera algoritmerna i Azure Machine Learning](algorithm-parameters-optimize.md)
-- [Tolka modellen resultaten i Azure Machine Learning](interpret-model-results.md)
+- [Tolka modellresultat i Azure Machine Learning](interpret-model-results.md)
 
 > [!TIP]
-> Varje gång du kör experimentet en post på den iterationen sparas i historiken kör. Du kan visa dessa iterationer och återgå till någon av dem, genom att klicka på **visa KÖRNINGSHISTORIK** under arbetsytan. Du kan också klicka på **tidigare kör** i den **egenskaper** rutan Gå tillbaka till iteration omedelbart före den som du har öppnat.
+> Varje gång du kör experimentet en post i den iterationen sparas i historiken kör. Du kan visa dessa iterationer och återgå till någon av dem genom att klicka på **visa KÖRNINGSHISTORIK** under arbetsytan. Du kan också klicka på **tidigare kör** i den **egenskaper** att du återgår till iteration omedelbart före den som du har öppen.
 > 
 > Du kan göra en kopia av eventuella iterationer av experimentet genom att klicka på **Spara som** under arbetsytan. 
-> Använda arbetsytan för experimentet **sammanfattning** och **beskrivning** egenskaper för att hålla reda på vad du har gjort i iterationer av experiment.
+> Använd experimentet **sammanfattning** och **beskrivning** egenskaper så att ha koll på vad du har gjort i din iterationer av experiment.
 > 
 > Mer information finns i [hantera iterationer av experiment i Azure Machine Learning Studio](manage-experiment-iterations.md).  
 > 

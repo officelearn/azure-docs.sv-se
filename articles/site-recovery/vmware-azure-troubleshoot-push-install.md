@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 10/29/2018
-ms.openlocfilehash: 2051f37656b6717c879a24f6e06c31a0ade0b950
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a9738f95ce8a0de750ffa348e167bce3b0e659f6
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012334"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821403"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Felsöka installationsproblem med Mobilitetstjänsten push
 
@@ -21,6 +21,7 @@ Installationen av mobilitetstjänsten är ett viktigt steg vid aktivering av rep
 * Autentiseringsuppgifter/behörighet fel
 * Anslutningsfel
 * Operativsystem som stöds inte
+* VSS-installationsfel
 
 När du aktiverar replikering, installera Azure Site Recovery försöker skicka mobilitetstjänstagenten på den virtuella datorn. Som en del av detta försöker konfigurationsservern ansluta med den virtuella datorn och kopiera agenten. Följ steg för steg-felsökningsinformation som anges nedan om du vill aktivera lyckad installation.
 
@@ -40,13 +41,10 @@ Om du vill ändra autentiseringsuppgifterna för valda användarkonto, följ ins
 ## <a name="connectivity-check-errorid-95117--97118"></a>**Anslutningskontroll (samtalsstatus: 95117 & 97118)**
 
 * Kontrollera att du kan pinga källdatorn från konfigurationsservern. Om du har valt skalbar processerver under Aktivera replikering, kontrollera att du kan pinga källdatorn från processervern.
-  * Från kommandoraden för källservern datorn använda Telnet för att pinga konfigurationsservern / skala ut processervern med https-porten (standard 9443) som visas nedan för att se om det finns problem med nätverksanslutningen eller brandväggen port blockerande problem.
+  * Från kommandoraden för källservern datorn, använda Telnet för att pinga konfigurationsservern / skalbar processerver med https-porten (135) som visas nedan för att se om det finns problem med nätverksanslutningen eller brandväggen port blockerande problem.
 
-     `telnet <CS/ scale-out PS IP address> <port>`
-
-  * Om du inte kan ansluta, kan du inkommande port 9443 på konfigurationsservern / skalbar processerver.
+     `telnet <CS/ scale-out PS IP address> <135>`
   * Kontrollera status för tjänsten **InMage Scout VX Agent – Sentinel/Outpost**. Starta tjänsten, om den inte körs.
-
 * Dessutom för **virtuell Linux-dator**,
   * Kontrollera om senaste openssh, openssh-server och openssl paketen har installerats.
   * Kontrollera och se till att Secure Shell (SSH) är aktiverad och körs på port 22.
@@ -95,6 +93,43 @@ Andra felsökning WMI-artiklar hittades i följande artiklar.
 En annan vanligaste orsaken till felet kan bero på operativsystem som inte stöds. Se till att du är på den operativsystem/Kernel-versionen som stöds för installation av mobilitetstjänsten.
 
 Läs om vilka operativsystem som stöds av Azure Site Recovery, vår [matris stöddokument](vmware-physical-azure-support-matrix.md#replicated-machines).
+
+## <a name="vss-installation-failures"></a>Installera VSS-fel
+
+Installera VSS är en del av Mobility agentinstallation. Den här tjänsten används under processen skapar programmet konsekventa återställningspunkter. Fel under installationen av VSS kan inträffa på grund av flera orsaker. För att identifiera de exakta fel som avser **c:\ProgramData\ASRSetupLogs\ASRUnifiedAgentInstaller.log**. Några vanliga fel och Lösningssteg är markerade i följande avsnitt.
+
+### <a name="vss-error--2147023170-0x800706be---exit-code-511"></a>Fel i VSS-2147023170 [0x800706BE] - slutkoden 511
+
+Det här problemet är främst visas när ett antivirusprogram hindrar drift för Azure Site Recovery-tjänster. Att lösa problemet,
+
+1. Undanta alla mappar som tidigare nämnts [här](vmware-azure-set-up-source.md#exclude-antivirus-on-the-configuration-server).
+2. Följ riktlinjerna som publicerats av antivirus-leverantören att avblockera registreringen av DLL-filen i Windows.
+
+### <a name="vss-error-7-0x7---exit-code-511"></a>Fel i VSS 7 [0x7] - slutkoden 511
+
+Det här är ett körningsfel och beror på grund av otillräckligt med minne för att installera VSS. Se till att öka diskutrymmet för den här åtgärden slutförs.
+
+### <a name="vss-error--2147023824-0x80070430---exit-code-517"></a>Fel i VSS-2147023824 [0x80070430] - slutkoden 517
+
+Det här felet uppstår när Azure Site Recovery VSS Provider-tjänsten är [markerats för borttagning](https://msdn.microsoft.com/en-us/library/ms838153.aspx). Försök att installera VSS manuellt på källdatorn under installationen genom att köra följande kommandorad
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+### <a name="vss-error--2147023841-0x8007041f---exit-code-512"></a>Fel i VSS-2147023841 [0x8007041F] - slutkoden 512
+
+Det här felet uppstår när Azure Site Recovery VSS Provider-tjänstdatabasen är [låst](https://msdn.microsoft.com/en-us/library/ms833798.aspx). Försök att installera VSS manuellt på källdatorn under installationen genom att köra följande kommandorad
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+### <a name="vss-exit-code-806"></a>VSS slutkod 806
+
+Det här felet uppstår när användarkontot som används för installation inte har behörighet att köra kommandot CSScript. Ger behörighet till användarkontot som du kör skriptet och försök igen.
+
+### <a name="other-vss-errors"></a>Andra VSS-fel
+
+Försök att installera VSS-provider-tjänsten manuellt på källdatorn under installationen genom att köra följande kommandorad
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
 
 ## <a name="next-steps"></a>Nästa steg
 

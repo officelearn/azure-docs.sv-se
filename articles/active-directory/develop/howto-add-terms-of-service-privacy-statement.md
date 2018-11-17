@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 2195a43665f99e8388b13fc6dc3e528496bd3901
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: b1276ab227f4bf65483fb2cdec57c759573bc7c5
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242695"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853599"
 ---
 # <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>Användningsvillkor och sekretesspolicy för registrerade Azure Active Directory-appar
 
@@ -64,10 +64,10 @@ När användningsvillkor och sekretesspolicy är redo kan du lägga till länkar
 
 Följ dessa steg om du har registrerat din app i Azure-portalen.
 
-1. Logga in på  [Azure-portalen](https://portal.azure.com/).
-2. Navigera till den **Appregistreringar** och väljer din app.
-3. Öppna den **egenskaper** i appen.
-4. Fyll i **villkoren av tjänstens URL** och **URL till sekretesspolicy** fält.
+1. Logga in på [Azure Portal](https://portal.azure.com/).
+2. Navigera till den **Appregistreringar** och väljer din app.
+3. Öppna den **egenskaper** i appen.
+4. Fyll i **villkoren av tjänstens URL** och **URL till sekretesspolicy** fält.
 5. Spara ändringarna.
 
     ![App properties-avsnittet med villkor för och sekretesspolicy instruktionen URL: er](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
@@ -76,9 +76,9 @@ Följ dessa steg om du har registrerat din app i Azure-portalen.
 
 Följ dessa steg om du registrerade din app på Programregistreringsportalen eller Dev Center.
 
-1. Logga in på den [Programregistreringsportalen](https://apps.dev.microsoft.com/).
-2. Välj din app och bläddra till den **profil** avsnittet.
-3. Fyll i **villkoren av tjänstens URL** och **URL till sekretesspolicy** fält.
+1. Logga in på den [Programregistreringsportalen](https://apps.dev.microsoft.com/).
+2. Välj din app och bläddra till den **profil** avsnittet.
+3. Fyll i **villkoren av tjänstens URL** och **URL till sekretesspolicy** fält.
 4. Spara ändringarna.
 
     ![App profilavsnittet med villkor för och sekretesspolicy instruktionen URL: er](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)

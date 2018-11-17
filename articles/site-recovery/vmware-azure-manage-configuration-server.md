@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/11/2018
 ms.author: raynew
-ms.openlocfilehash: e8f41ef44adbd72e8ab16329d5fec94c08df2fe7
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 8096f1b5b29c0445d8bae85fb56e2735469184d4
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568462"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823953"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Hantera konfigurationsservern för VMware-VM-katastrofåterställning
 
@@ -222,9 +222,16 @@ Certifikatets förfallodatum angavs för configuration server-distributioner inn
 2. Utgångsdatum visas under **konfigurationsservern hälsotillstånd**.
 3. Välj **förnya certifikat**.
 
-## <a name="update-windows-licence"></a>Uppdatera Windows-licens
+## <a name="refresh-configuration-server"></a>Uppdatera konfigurationsservern
 
-Licensen som medföljer OVF-mallen är en licens för utvärdering som är giltig i 180 dagar. För kontinuerlig användning, måste du aktivera Windows med upphandlade licens.
+1. I Azure-portalen går du till **Recovery Services-valv** > **hantera** > **Site Recovery-infrastruktur**  >   **För VMware och fysiska datorer** > **Konfigurationsservrar**
+2. Klicka på configuration server du vill uppdatera.
+3. Klicka på bladet med information om valda konfigurationsservern **mer** > **uppdatera Server**.
+4. Övervaka förloppet för jobbet under **Recovery Services-valv** > **övervakning** > **Site Recovery-jobb**.
+
+## <a name="update-windows-license"></a>Uppdatera Windows-licens
+
+Licensnumret du fått med OVF-mallen är en utvärderingslicens som är giltig i 180 dagar. Du måste aktivera Windows med en licens för upphandlade för kontinuerlig användning.
 
 ## <a name="failback-requirements"></a>Krav för återställning efter fel
 

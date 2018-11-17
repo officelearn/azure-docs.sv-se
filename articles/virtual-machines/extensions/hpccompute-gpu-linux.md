@@ -12,40 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 11/15/2018
 ms.author: roiyz
-ms.openlocfilehash: 307bdb5fa7a5d14a77c71d0ea40634a55d8507b6
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 8883111387bea4a78e81123f95201ed4826dcb1c
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42058260"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820349"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>NVIDIA GPU-drivrutinen tillägg för Linux
 
 ## <a name="overview"></a>Översikt
 
-Det här tillägget installerar NVIDIA GPU-drivrutiner på Linux N-serien virtuella datorer. Beroende på VM-familjen installerar tillägget CUDA- eller NÄTVERKSBASERADE drivrutiner. När du installerar NVIDIA drivrutinerna med hjälp av det här tillägget du accepterar och samtycker till villkoren i licensavtalet NVIDIA. Under installationen, kan den virtuella datorn startas om för att slutföra installationen för drivrutinen.
+Det här tillägget installerar NVIDIA GPU-drivrutiner på Linux N-serien virtuella datorer. Beroende på VM-familjen installerar tillägget CUDA- eller NÄTVERKSBASERADE drivrutiner. När du installerar NVIDIA drivrutinerna med hjälp av det här tillägget du accepterar och samtycker till villkoren i den [NVIDIA licensavtalet](https://go.microsoft.com/fwlink/?linkid=874330). Under installationen, kan den virtuella datorn startas om för att slutföra installationen för drivrutinen.
 
 Ett tillägg kan även installera NVIDIA GPU-drivrutiner på [Windows virtuella datorer i N-serien](hpccompute-gpu-windows.md).
-
-Villkoren i licensavtalet för NVIDIA finns här – https://go.microsoft.com/fwlink/?linkid=874330
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 
-Det här tillägget har stöd för följande operativsystem:
+Det här tillägget stöder följande OS-distributioner, beroende på drivrutinstöd för specifika OS-version.
 
 | Distribution | Version |
 |---|---|
-| Linux: Ubuntu | 16.04 LTS |
-| Linux: Red Hat Enterprise Linux | 7.3, 7.4 |
-| Linux: CentOS | 7.3, 7.4 |
+| Linux: Ubuntu | 16.04 LTS, 18.04 LTS |
+| Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5 |
+| Linux: CentOS | 7.3, 7.4, 7.5 |
 
 ### <a name="internet-connectivity"></a>Internetanslutning
 
-Microsoft Azure-tillägget för NVIDIA GPU-drivrutiner kräver att den virtuella måldatorn är ansluten till internet och har åtkomst.
+Microsoft Azure-tillägget för NVIDIA GPU-drivrutiner kräver att den Virtuella måldatorn är ansluten till internet och har åtkomst.
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
@@ -63,7 +61,7 @@ Följande JSON visar schemat för tillägget.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.1",
+    "typeHandlerVersion": "1.2",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -71,14 +69,24 @@ Följande JSON visar schemat för tillägget.
 }
 ```
 
-### <a name="property-values"></a>Egenskapsvärden
+### <a name="properties"></a>Egenskaper
 
 | Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | datum |
 | utgivare | Microsoft.HpcCompute | sträng |
 | typ | NvidiaGpuDriverLinux | sträng |
-| typeHandlerVersion | 1.1 | int |
+| typeHandlerVersion | 1.2 | int |
+
+### <a name="settings"></a>Inställningar
+
+Alla inställningar är valfria. Standardinställningen är att inte uppdatera kernel om det inte krävs för installation av drivrutiner, installera den senaste stödda drivrutinen och CUDA-toolkit (som tillämpligt).
+
+| Namn | Beskrivning | Standardvärde | Giltiga värden | Datatyp |
+| ---- | ---- | ---- | ---- | ---- |
+| updateOS | Uppdatera kernel även om det inte krävs för installation av drivrutiner | false | SANT, FALSKT | boolesk |
+| driverVersion | NV: GRID drivrutinsversion<br> NC/ND: CUDA toolkit version. De senaste drivrutinerna för valt CUDA installeras automatiskt. | senaste | GRID: ”390.75”, ”390.57”, ”390.42”<br> CUDA: ”10.0.130”, ”9.2.88”, ”9.1.85” | sträng |
+| installCUDA | Installera CUDA toolkit. Detta gäller endast för NC/ND-serien virtuella datorer. | true | SANT, FALSKT | boolesk |
 
 
 ## <a name="deployment"></a>Distribution
@@ -104,7 +112,7 @@ I följande exempel förutsätter att tillägget är kapslade i den virtuella da
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.1",
+    "typeHandlerVersion": "1.2",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -122,12 +130,14 @@ Set-AzureRmVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverLinux" `
     -ExtensionType "NvidiaGpuDriverLinux" `
-    -TypeHandlerVersion 1.1 `
+    -TypeHandlerVersion 1.2 `
     -SettingString '{ `
     }'
 ```
 
 ### <a name="azure-cli"></a>Azure CLI
+
+I följande exempel speglar ovanstående exempel för Azure Resource Manager och PowerShell och även lägger till anpassade inställningar som ett exempel på icke-standard drivrutinsinstallation. Mer specifikt den uppdaterar OS-kernel och installerar en specifik CUDA toolkit version drivrutin.
 
 ```azurecli
 az vm extension set `
@@ -135,8 +145,10 @@ az vm extension set `
   --vm-name myVM `
   --name NvidiaGpuDriverLinux `
   --publisher Microsoft.HpcCompute `
-  --version 1.1 `
+  --version 1.2 `
   --settings '{ `
+    "updateOS": true, `
+    "driverVersion": "9.1.85", `
   }'
 ```
 
@@ -165,13 +177,12 @@ Tillägget utförande-utdatan loggas till följande fil:
 | Slutkod | Betydelse | Möjlig åtgärd |
 | :---: | --- | --- |
 | 0 | Åtgärden lyckades |
-| 1 | Felaktig användning av tillägget. | Kontakta supporten med körningsloggen för utdata. |
-| 10 | Linux Integration-tjänster för Hyper-V och Azure saknas eller är installerade. | Kontrollera resultatet av lspci. |
-| 11 | NVIDIA GPU hittades inte på den här VM-storleken. | Använd en [VM-storlek och operativsystem som stöds](../linux/n-series-driver-setup.md). |
+| 1 | Felaktig användning av tillägget | Kontrollera körningsloggen för utdata |
+| 10 | Linux Integration-tjänster för Hyper-V och Azure saknas eller är installerade | Kontrollera resultatet av lspci |
+| 11 | NVIDIA GPU hittades inte på den här VM-storlek | Använd en [VM-storlek och operativsystem som stöds](../linux/n-series-driver-setup.md) |
 | 12 | Bild-erbjudande som inte stöds |
 | 13 | VM-storlek som inte stöds | Använda en virtuell dator i N-serien för att distribuera |
-| 14 | Åtgärden misslyckades | |
-| 21 | Uppdateringen misslyckades på Ubuntu | Kontrollera resultatet av ”sudo apt-get update” |
+| 14 | Åtgärden misslyckades | Kontrollera körningsloggen för utdata |
 
 
 ### <a name="support"></a>Support

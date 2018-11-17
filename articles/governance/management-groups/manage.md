@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: rithorn
-ms.openlocfilehash: a3de0df8fde3b271b7ba9bb9aab01dbcd5c3bf08
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 627ef0123f05e768dd8a83c197b25da7f161a37c
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991237"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853004"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Hantera dina resurser med hanteringsgrupper
 
@@ -207,7 +207,7 @@ För att se vilka behörigheter du har, Välj hanteringsgruppen och välj sedan 
 
 ### <a name="move-subscriptions-in-powershell"></a>Flytta prenumerationer i PowerShell
 
-Om du vill flytta en prenumeration i PowerShell kan du använda kommandot Lägg till AzureRmManagementGroupSubscription.  
+Om du vill flytta en prenumeration i PowerShell kan du använda kommandot New-AzureRmManagementGroupSubscription.  
 
 ```azurepowershell-interactive
 New-AzureRmManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
@@ -279,5 +279,5 @@ Mer information om hanteringsgrupper finns:
 - [Organisera dina resurser med Azure-hanteringsgrupper](overview.md)
 - [Skapa hanteringsgrupper för att organisera Azure-resurser](create.md)
 - [Installera Azure Powershell-modulen](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [Granska REST API-specifikationen](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
+- [Granska specifikationerna för REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
 - [Installera Azure CLI-tillägg](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)

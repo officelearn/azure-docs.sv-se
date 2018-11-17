@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Konfigurera Netsuite för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Netsuite.
+title: 'Självstudie: Konfigurera Netsuite OneWorld för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Netsuite OneWorld.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: e14f74f3dd6d49b882dedcb2ae01029a50a459a3
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 81e590297283a8fe88d9257e201259056a3e3744
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346754"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823866"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Netsuite för automatisk användaretablering
 
-Målet med den här självstudien är att visa dig de steg du måste utföra i Netsuite och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till Netsuite.
+Målet med den här självstudien är att visa dig de steg du måste utföra i Netsuite OneWorld och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till Netsuite.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
 *   En Azure Active directory-klient.
-*   En Netsuite enkel inloggning aktiverad prenumeration.
-*   Ett användarkonto i Netsuite Team administratörsbehörigheter.
+*   En Netsuite OneWorld-prenumeration. Observera att automatisk användaretablering är för närvarande stöds endast med NetSuite OneWorld.
+*   Ett användarkonto i Netsuite med administratörsbehörighet.
 
-## <a name="assigning-users-to-netsuite"></a>Tilldela användare till Netsuite
+## <a name="assigning-users-to-netsuite-oneworld"></a>Tilldela användare till Netsuite OneWorld
 
 Azure Active Directory använder ett begrepp som kallas ”tilldelningar” för att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användarkontoetablering, synkroniseras de användare och grupper som är ”kopplade” till ett program i Azure AD.
 
@@ -41,7 +41,7 @@ Innan du konfigurerar och aktiverar etableringstjänsten, måste du bestämma vi
 
 [Tilldela en användare eller grupp till en företagsapp](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-to-netsuite"></a>Viktiga tips för att tilldela användare till Netsuite
+### <a name="important-tips-for-assigning-users-to-netsuite-oneworld"></a>Viktiga tips för att tilldela användare till Netsuite OneWorld
 
 *   Vi rekommenderar att en enda Azure AD-användare har tilldelats Netsuite att testa etablering konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
 

@@ -5,23 +5,23 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/15/2018
 ms.author: danlep
-ms.openlocfilehash: 4492e05339c72c371eb2c935d0397b469440c4f6
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: b2b6da1739aa97f69f5744905564f638309a587f
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632700"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854330"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Köra flera steg skapa, testa och patch uppgifter i ACR-uppgifter
 
-Uppgifter i flera steg utöka enda avbildning build och push kapaciteten för ACR-aktiviteter med flera steg, flera container-baserade arbetsflöden. Använda aktiviteter med flera steg för att bygga och överföra flera bilder i serien eller parallellt och kör dessa avbildningar som kommandon i en enda aktivitet som körs. Varje steg definierar en behållaravbildning skapa eller skicka åtgärden och kan också definiera körningen av en behållare. Varje steg i en aktivitet med flera steg använder en behållare som dess körningsmiljö.
+Uppgifter i flera steg utöka enda avbildning build och push kapaciteten för ACR-aktiviteter med flera steg, flera container-baserade arbetsflöden. Använda aktiviteter med flera steg för att bygga och överföra flera bilder i serien eller parallellt. Kör sedan dessa avbildningar som kommandon i en enskild uppgift-körning. Varje steg definierar en behållaravbildning skapa eller skicka åtgärden och kan också definiera körningen av en behållare. Varje steg i en aktivitet med flera steg använder en behållare som dess körningsmiljö.
 
 > [!IMPORTANT]
 > Om du tidigare skapade uppgifter i förhandsversionen med kommandot `az acr build-task` behöver de uppgifterna skapas på nytt med hjälp av kommandot [az acr task][az-acr-task].
 
-Du kan till exempel köra en aktivitet för steg och automatiserar följande:
+Du kan till exempel köra en aktivitet för steg och automatiserar följande logik:
 
 1. Skapa en avbildning för web-program
 1. Kör webbprogramsbehållaren
@@ -37,11 +37,11 @@ Alla åtgärder utförs i Azure, avlastning av arbetet som Azure-beräkningsresu
 
 ## <a name="common-task-scenarios"></a>Vanliga scenarier för uppgift
 
-Uppgifter i flera steg gör det möjligt för scenarier som följande:
+Uppgifter i flera steg gör det möjligt för scenarier som följande logik:
 
 * Skapa tagg, och skicka en eller flera behållaravbildningar i serien eller parallellt.
 * Kör och samla in enhet test och kod täckning resultat.
-* Kör och samla in funktionella tester. ACR-aktiviteter har stöd för flera behållare som körs, köra ett antal begäranden mellan dem.
+* Kör och samla in funktionella tester. ACR-uppgifter kan köras flera behållare, köra ett antal begäranden mellan dem.
 * Utföra uppgiftsbaserade körningen, inklusive före/efter steg i en behållare bild build.
 * Distribuera en eller flera behållare med ditt favorit distributionsmotorn till målmiljön.
 
@@ -176,5 +176,5 @@ Du kan hitta referens för flera steg och exemplen här:
 
 <!-- LINKS - Internal -->
 [az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-run]: /cli/azure/acr/run#az-acr-run
-[az-acr-task]: /cli/azure/acr#az-acr-task
+[az-acr-run]: /cli/azure/acr#az-acr-run
+[az-acr-task]: /cli/azure/acr/task

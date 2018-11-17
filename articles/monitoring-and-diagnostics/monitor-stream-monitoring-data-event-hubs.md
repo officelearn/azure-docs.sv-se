@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 0c85b65e9b6eabcb5c74e1d178c0f26235cdf624
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 4c6765e54dc881c35e344f111e82721be0852052
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961831"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823766"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stream Azure-övervakningsdata till en händelsehubb för användning av något externt verktyg
 
@@ -71,7 +71,7 @@ Om du vill skicka data från Azure-aktivitetsloggen till Event Hubs-namnområdet
 
 Azure-resurser genererar två typer av övervakning av data:
 1. [Resursdiagnostikloggar](./monitoring-overview-of-diagnostic-logs.md)
-2. [Mått](../monitoring/monitoring-data-collection.md)
+2. [Mått](../azure-monitor/platform/data-collection.md)
 
 Båda typerna av data skickas till en händelsehubb med en resursdiagnostikinställning. [Den här guiden](./monitoring-stream-diagnostic-logs-to-event-hubs.md) att ställa in en resursdiagnostikinställning på en viss resurs. Ange en resursdiagnostikinställning för varje resurs som du vill samla in loggar.
 

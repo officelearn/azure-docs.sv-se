@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 41e3f38817abbdd0cab9ab2c72d39cb6f3f69531
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 062308622e3170a4eb8f75a96300f04f683a90e7
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978186"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820366"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Felsöka vanliga problem i Azure Container Instances
 
@@ -24,7 +24,7 @@ Den här artikeln visar hur du felsöker vanliga problem för att hantera och di
 
 När du definierar din container-specifikationen kräver vissa parametrar infört naming begränsningar. Nedan visas en tabell med särskilda krav för behållaren gruppegenskaper. Mer information om namngivningskonventioner för Azure finns i [namngivningskonventioner] [ azure-name-restrictions] i Azure Architecture Center.
 
-| Omfång | Längd | Skiftläge | Giltiga tecken | Föreslagna mönster | Exempel |
+| Scope | Längd | Skiftläge | Giltiga tecken | Föreslagna mönster | Exempel |
 | --- | --- | --- | --- | --- | --- | --- |
 | Namnet på behållargruppen | 1-64 |Skiftlägesokänsligt |Alfanumeriskt och bindestreck var som helst utom det första eller sista tecknet |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Containerns namn | 1-64 |Skiftlägesokänsligt |Alfanumeriskt och bindestreck var som helst utom det första eller sista tecknet |`<name>-<role>-CG<number>` |`web-batch-CG1` |
@@ -205,6 +205,9 @@ Det här felet indikerar att på grund av hög belastning i den region där du v
 ## <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>Det går inte att ansluta till den underliggande Docker API eller köra Privilegierade behållare
 
 Azure Container Instances exponerar inte direkt åtkomst till den underliggande infrastrukturen som är värd för behållargrupper. Detta inkluderar åtkomst till Docker-API som körs på den behållare värden och Privilegierade behållare som körs. Om du behöver Docker interaktion kan kontrollera den [referensdokumentation för REST](https://aka.ms/aci/rest) ACI API stöder. Om det inte finns något saknas, skicka en begäran på den [ACI feedback-forum](https://aka.ms/aci/feedback).
+
+## <a name="ips-may-not-be-accessible-due-to-mismatched-ports"></a>IP-adresser är kanske inte tillgänglig på grund av felaktigt portar
+Azure Container Instances stöder för närvarande inte port mappning som med vanlig docker konfiguration, men den här snabbkorrigeringen är på översikten. Om du hittar IP-adresser inte är tillgängliga när du tycker att det ska vara, kan du kontrollera att du har konfigurerat en behållaravbildning för att lyssna på samma portar som du exponera i din behållargrupp med den `ports` egenskapen.
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig hur du [hämta behållarloggarna och händelser](container-instances-get-logs.md) för att felsöka dina behållare.

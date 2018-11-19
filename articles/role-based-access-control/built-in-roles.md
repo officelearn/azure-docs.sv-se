@@ -15,12 +15,12 @@ ms.date: 10/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 72a8a09d04dc009598dafc35b65304662b7b8915
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: a57aae3b5f854871c94d5a4d62b41ad6a1bafcfd
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955923"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824939"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 [Rollbaserad åtkomstkontroll (RBAC)](overview.md) har flera inbyggda rolldefinitioner som du kan tilldela till användare, grupper och tjänstens huvudnamn. Rolltilldelningar är det sätt som du styr åtkomst till resurser i Azure. Om de inbyggda rollerna inte uppfyller organisationens specifika krav kan du skapa egna, [anpassade roller](custom-roles.md).
@@ -39,7 +39,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 | [AcrImageSigner](#acrimagesigner) | acr-bildsignerare |
 | [AcrQuarantineReader](#acrquarantinereader) | acr-karantändataläsare |
 | [AcrQuarantineWriter](#acrquarantinewriter) | acr-karantändataskrivare |
-| [API Management-Tjänstdeltagare](#api-management-service-contributor) | Låter dig hantera API Management-tjänster, men ger dig inte tillgång till dem. |
+| [API Management-Tjänstdeltagare](#api-management-service-contributor) | Låter dig hantera API Management-tjänster, men inte tillgång till dem. |
 | [Operatörsroll för API Management](#api-management-service-operator-role) | Kan hantera tjänsten men inte API:er |
 | [Läsarroll för API Management-tjänsten](#api-management-service-reader-role) | Skrivskyddad åtkomst till tjänst och API:er |
 | [Application Insights-Komponentdeltagare](#application-insights-component-contributor) | Kan hantera Application Insights-komponenter |
@@ -47,13 +47,13 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 | [Automation-Jobboperator](#automation-job-operator) | Skapa och hantera jobb med Automation Runbooks. |
 | [Automation-operatör](#automation-operator) | Automation-operatörer kan starta, stoppa, göra uppehåll i och återuppta jobb |
 | [Automation Runbook-Operator](#automation-runbook-operator) | Läs runbook-egenskaperna för att kunna skapa jobb av den runbooken. |
-| [Administratörsroll för Azure Kubernetes Service-kluster](#azure-kubernetes-service-cluster-admin-role) | Lista över kluster administratörsåtgärd autentiseringsuppgifter. |
-| [Användarrollen för Azure Kubernetes Service-kluster](#azure-kubernetes-service-cluster-user-role) | Lista över autentiseringsuppgifter för kluster användaråtgärd. |
+| [Administratörsroll för Azure Kubernetes Service-kluster](#azure-kubernetes-service-cluster-admin-role) | Åtgärden lista autentiseringsuppgifter för klusteradministratör. |
+| [Användarrollen för Azure Kubernetes Service-kluster](#azure-kubernetes-service-cluster-user-role) | Åtgärden lista autentiseringsuppgifter för klusteranvändare. |
 | [Azure Stack-registrering ägare](#azure-stack-registration-owner) | Låter dig hantera Azure Stack-registreringar. |
 | [Säkerhetskopieringsmedarbetare](#backup-contributor) | Låter dig hantera säkerhetskopieringstjänsten, men låter dig inte skapa valv eller ge åtkomst till andra |
 | [Ansvarig för säkerhetskopiering](#backup-operator) | Låter dig hantera säkerhetskopieringstjänster, med undantag för att ta bort säkerhetskopior, skapa valv eller ge åtkomst till andra |
 | [Säkerhetskopieringsläsare](#backup-reader) | Kan visa säkerhetskopieringstjänster, men inte göra några ändringar |
-| [Faktureringsläsare](#billing-reader) | Låter dig läsa faktureringsdata |
+| [Faktureringsläsare](#billing-reader) | Kan du läsa faktureringsinformation |
 | [BizTalk-deltagare](#biztalk-contributor) | Låter dig hantera BizTalk-tjänster, men ger dig inte tillgång till dem. |
 | [CDN-Slutpunktsdeltagare](#cdn-endpoint-contributor) | Kan hantera CDN-slutpunkter, men kan inte bevilja åtkomst till andra användare. |
 | [CDN-Slutpunktsläsare](#cdn-endpoint-reader) | Kan visa CDN-slutpunkter, men kan inte göra ändringar. |
@@ -63,20 +63,20 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 | [Klassisk Lagringskontodeltagare](#classic-storage-account-contributor) | Låter dig hantera klassiska lagringskonton, men ger dig inte åtkomst att hantera dem. |
 | [Tjänstroll som operatör av Lagringskontonyckel konto klassisk lagring](#classic-storage-account-key-operator-service-role) | Operatörer av klassiska lagringskontonycklar får lista och återskapa nycklar till klassiska lagringskonton |
 | [Klassisk virtuell Datordeltagare](#classic-virtual-machine-contributor) | Låter dig hantera klassiska virtuella datorer, men ger dig inte tillgång till dem eller till det virtuella nätverk eller lagringskonto som de är anslutna till. |
-| [Cognitive Services-deltagare](#cognitive-services-contributor) | Kan du skapa, läsa, uppdatera, ta bort och hantera nycklar för Cognitive Services. |
-| [Cognitive Services-användare](#cognitive-services-user) | Kan du läsa och lista nycklar för Cognitive Services. |
+| [Cognitive Services-deltagare](#cognitive-services-contributor) | Låter dig skapa, läsa, uppdatera, ta bort och hantera nycklar för Cognitive Services. |
+| [Cognitive Services-användare](#cognitive-services-user) | Låter dig läsa och lista nycklar för Cognitive Services. |
 | [Läsarroll för cosmos DB-konto](#cosmos-db-account-reader-role) | Kan läsa data i Azure Cosmos DB-konto. Se [DocumentDB-Kontodeltagare](#documentdb-account-contributor) för att hantera Azure Cosmos DB-konton. |
-| [Kostnadshantering deltagare](#cost-management-contributor) | Kan visa kostnaderna och hantera kostnaden konfiguration (t.ex. budgetar, export) |
-| [Kostnadshantering läsare](#cost-management-reader) | Visa kostnadsdata och konfiguration (t.ex. budgetar, export) |
+| [Kostnadshantering deltagare](#cost-management-contributor) | Kan visa kostnader och hantera kostnadskonfiguration (t.ex. budgetar, exporter) |
+| [Kostnadshantering läsare](#cost-management-reader) | Kan visa kostnadsdata och konfiguration (t.ex. budgetar, exporter) |
 | [Data Box-deltagare](#data-box-contributor) | Låter dig hantera allt under Data Box-tjänsten förutom att ge åtkomst till andra. |
-| [Data Box-läsare](#data-box-reader) | Låter dig hantera Data Box-tjänsten förutom att skapas eller redigera orderinformationen och ge åtkomst till andra. |
-| [Data Factory-deltagare](#data-factory-contributor) | Låter dig hantera datafabriker, men ger dig inte tillgång till dem. |
+| [Data Box-läsare](#data-box-reader) | Låter dig hantera Data Box-tjänsten förutom att skapa sortering eller redigera sortingsinformation och ge åtkomst till andra. |
+| [Data Factory-deltagare](#data-factory-contributor) | Låter dig hantera datafabriker, men inte tillgång till dem. |
 | [Data Lake Analytics-utvecklare](#data-lake-analytics-developer) | Låter dig skicka in, övervaka och hantera dina egna jobb, men inte skapa eller ta bort Data Lake Analytics-konton. |
 | [Data Purger](#data-purger) | Det går att rensa analysdata |
-| [DevTest Labs-användare](#devtest-labs-user) | Låter dig ansluta, starta, starta om och stänga av virtuella datorer i din Azure DevTest Labs. |
+| [DevTest Labs-användare](#devtest-labs-user) | Kan du ansluta, start, starta om och stänga av virtuella datorer i Azure DevTest Labs. |
 | [DNS-Zondeltagare](#dns-zone-contributor) | Låter dig hantera DNS-zoner och postuppsättningar i Azure DNS, men låter dig inte kontrollera vem som har åtkomst till dem. |
 | [DocumentDB-Kontodeltagare](#documentdb-account-contributor) | Hantera Azure Cosmos DB-konton. Azure Cosmos DB är kallades DocumentDB. |
-| [HDInsight domäntjänster deltagare](#hdinsight-domain-services-contributor) | Kan läsa, skapa, ändra och ta bort domäntjänster relaterade åtgärder som behövs för Enterprise-säkerhetspaketet för HDInsight |
+| [HDInsight domäntjänster deltagare](#hdinsight-domain-services-contributor) | Kan läsa, skapa, ändra och ta bort domäntjänstrelaterade åtgärder som behövs för HDInsight Enterprise Security Package |
 | [Intelligent Systems-Kontodeltagare](#intelligent-systems-account-contributor) | Låter dig hantera Intelligent Systems-konton, men ger dig inte tillgång till dem. |
 | [Nyckelvalvsdeltagare](#key-vault-contributor) | Låter dig hantera nyckelvalv, men inte ha åtkomst till dem. |
 | [Labbskaparen](#lab-creator) | Låter dig skapa, hantera och ta bort dina hanterade labbar under dina Azure Lab-konton. |
@@ -84,14 +84,14 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 | [Log Analytics Reader](#log-analytics-reader) | Log Analytics Reader kan visa och söka i alla övervakningsdata och dessutom visa övervakningsinställningar, bl.a. konfigurationen av Azure Diagnostics på alla Azure-resurser. |
 | [Logic App-deltagare](#logic-app-contributor) | Låter dig hantera logikappar, men du kan inte komma åt dem. |
 | [Logic App-operatör](#logic-app-operator) | Låter dig läsa, aktivera och inaktivera logikapp. |
-| [Operatörsroll för hanterat program](#managed-application-operator-role) | Du kan läsa och utföra åtgärder på hanterade resurser |
-| [Läsare för hanterade program](#managed-applications-reader) | Kan du läsa resurser i en hanterad app och begära JIT-åtkomst. |
+| [Operatörsroll för hanterat program](#managed-application-operator-role) | Låter dig läsa och utföra åtgärder för hanterade programresurser |
+| [Läsare för hanterade program](#managed-applications-reader) | Låter dig läsa resurser i en hanterad app och begära JIT-åtkomst. |
 | [Hanterad Identitetsdeltagare](#managed-identity-contributor) | Skapa, läs, uppdatera och ta bort användartilldelad identitet |
 | [Hanterade Identitetsoperatör](#managed-identity-operator) | Läs och tilldela användartilldelad identitet |
 | [Hanteringsgrupp-deltagare](#management-group-contributor) | Rollen hanteringsgrupp-deltagare |
 | [Hanteringsgruppen läsare](#management-group-reader) | Rollen hanteringsgrupp-läsare |
 | [Övervaka deltagare](#monitoring-contributor) | Kan läsa alla övervakningsdata och redigera övervakningsinställningarna. Se även [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
-| [Övervaka mått utgivare](#monitoring-metrics-publisher) | Aktiverar publicering av måtten mot Azure-resurser |
+| [Övervaka mått utgivare](#monitoring-metrics-publisher) | Tillåter publicering av mått mot Azure-resurser |
 | [Övervaka läsare](#monitoring-reader) | Kan läsa alla övervakningsdata (mått, loggar osv.). Se även [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
 | [Nätverksdeltagare](#network-contributor) | Låter dig hantera nätverk, men ger dig inte tillgång till dem. |
 | [Nya Relic APM-Kontodeltagare](#new-relic-apm-account-contributor) | Låter dig hantera New Relic Application Performance Management-konton och program, men ger dig inte tillgång till dem. |
@@ -118,9 +118,9 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 | [Supportförfrågningsdeltagare](#support-request-contributor) | Låter dig skapa och hantera supportförfrågningar |
 | [Traffic Manager-deltagare](#traffic-manager-contributor) | Låter dig hantera Traffic Manager-profiler, men låter dig inte kontrollera vem som har åtkomst till dem. |
 | [Administratör för användaråtkomst](#user-access-administrator) | Låter dig hantera användaråtkomst till Azure-resurser. |
-| [Administratörsinloggning för virtuell dator](#virtual-machine-administrator-login) | Visa virtuella datorer i portalen och logga in som administratör |
-| [Virtuell datordeltagare](#virtual-machine-contributor) | Låter dig hantera virtuella datorer, men ger dig inte åtkomst till dem eller till det virtuella nätverk eller lagringskonto som de är anslutna till. |
-| [Användarinloggning för virtuell dator](#virtual-machine-user-login) | Visa virtuella datorer i portalen och logga in som en vanlig användare. |
+| [Administratörsinloggning för virtuell dator](#virtual-machine-administrator-login) | Visa Virtual Machines i portalen och logga in som administratör |
+| [Virtuell datordeltagare](#virtual-machine-contributor) | Kan du hantera virtuella datorer, men inte åtkomst till dem, och inte det virtuella nätverk eller lagringskonto som de är anslutna till. |
+| [Användarinloggning för virtuell dator](#virtual-machine-user-login) | Visa Virtual Machines i portalen och logga in som en vanlig användare. |
 | [Webbplan-deltagare](#web-plan-contributor) | Låter dig hantera webbplaner för webbplatser, men ger dig inte tillgång till dem. |
 | [Webbplatsdeltagare](#website-contributor) | Låter dig hantera webbplatser (men inte webbplaner), men ger dig inte tillgång till dem. |
 
@@ -146,8 +146,8 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Authorization/*/Delete | Det går inte att ta bort roller och rolltilldelningar |
 > | Microsoft.Authorization/*/Write | Det går inte att skapa roller och rolltilldelningar |
 > | Microsoft.Authorization/elevateAccess/Action | Ger anroparen åtkomst till administratör för användaråtkomst i klientomfattningen |
-> | Microsoft.Blueprint/blueprintAssignments/write | Skapa eller uppdatera eventuella skissartefakter |
-> | Microsoft.Blueprint/blueprintAssignments/delete | Ta bort eventuella skissartefakter |
+> | Microsoft.Blueprint/blueprintAssignments/write | Skapa eller uppdatera eventuella Skissartefakter |
+> | Microsoft.Blueprint/blueprintAssignments/delete | Ta bort eventuella Skissartefakter |
 
 ## <a name="reader"></a>Läsare
 > [!div class="mx-tableFixed"]
@@ -175,7 +175,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | **Beskrivning** | acr-karantändataläsare |
 > | **Id** | cdda3590-29a3-44f6-95f2-9f980659eb04 |
 > | **Åtgärder** |  |
-> | Microsoft.ContainerRegistry/registries/*/read |  |
+> | Microsoft.ContainerRegistry/registries/quarantineRead/read |  |
 
 ## <a name="acrquarantinewriter"></a>AcrQuarantineWriter
 > [!div class="mx-tableFixed"]
@@ -184,14 +184,14 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | **Beskrivning** | acr-karantändataskrivare |
 > | **Id** | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
 > | **Åtgärder** |  |
-> | Microsoft.ContainerRegistry/registries/*/write |  |
-> | Microsoft.ContainerRegistry/registries/*/read |  |
+> | Microsoft.ContainerRegistry/registries/quarantineWrite/write |  |
+> | Microsoft.ContainerRegistry/registries/quarantineRead/read |  |
 
 ## <a name="api-management-service-contributor"></a>API Management-tjänstdeltagare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Låter dig hantera API Management-tjänster, men ger dig inte tillgång till dem. |
+> | **Beskrivning** | Låter dig hantera API Management-tjänster, men inte tillgång till dem. |
 > | **Id** | 312a565d-c81f-4fd8-895a-4e21e48d571c |
 > | **Åtgärder** |  |
 > | Microsoft.ApiManagement/service/* | Skapa och hantera API Management-tjänsten |
@@ -339,20 +339,20 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 
-## <a name="azure-kubernetes-service-cluster-admin-role"></a>Administratörsroll för Azure Kubernetes Service-kluster
+## <a name="azure-kubernetes-service-cluster-admin-role"></a>Rollen klusteradministratör för Azure Kubernetes Service
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Lista över kluster administratörsåtgärd autentiseringsuppgifter. |
+> | **Beskrivning** | Åtgärden lista autentiseringsuppgifter för klusteradministratör. |
 > | **Id** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | **Åtgärder** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Lista över clusterAdmin autentiseringsuppgifterna för ett hanterat kluster |
 
-## <a name="azure-kubernetes-service-cluster-user-role"></a>Användarrollen för Azure Kubernetes Service-kluster
+## <a name="azure-kubernetes-service-cluster-user-role"></a>Rollen klusteranvändare för Azure Kubernetes Service
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Lista över autentiseringsuppgifter för kluster användaråtgärd. |
+> | **Beskrivning** | Åtgärden lista autentiseringsuppgifter för klusteranvändare. |
 > | **Id** | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
 > | **Åtgärder** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Lista över clusterUser autentiseringsuppgifterna för ett hanterat kluster |
@@ -536,7 +536,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Låter dig läsa faktureringsdata |
+> | **Beskrivning** | Kan du läsa faktureringsinformation |
 > | **Id** | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
@@ -695,7 +695,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Kan du skapa, läsa, uppdatera, ta bort och hantera nycklar för Cognitive Services. |
+> | **Beskrivning** | Låter dig skapa, läsa, uppdatera, ta bort och hantera nycklar för Cognitive Services. |
 > | **Id** | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
@@ -720,15 +720,15 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Kan du läsa och lista nycklar för Cognitive Services. |
+> | **Beskrivning** | Låter dig läsa och lista nycklar för Cognitive Services. |
 > | **Id** | a97b65f3-24c7-4388-baec-2e87135dc908 |
 > | **Åtgärder** |  |
 > | Microsoft.CognitiveServices/*/read |  |
 > | Microsoft.CognitiveServices/accounts/listkeys/action | Visa nyckellista |
 > | Microsoft.Insights/metricdefinitions/read | Läs måttdefinitioner |
 > | Microsoft.Insights/metrics/read | Läs mått |
-> | Microsoft.Insights/alertRules/read | Läsa en klassisk måttavisering |
-> | Microsoft.Insights/diagnosticSettings/read | Läsa en resursdiagnostikinställning |
+> | Microsoft.Insights/alertRules/read | Läs en klassisk måttavisering |
+> | Microsoft.Insights/diagnosticSettings/read | Läs en resursdiagnostikinställning |
 > | Microsoft.Insights/logDefinitions/read | Läs loggdefinitioner |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighetsstatusarna för alla resurser i det angivna området |
 > | Microsoft.Resources/deployments/operations/read | Hämtar eller listar distributionsåtgärder. |
@@ -752,11 +752,11 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 
-## <a name="cost-management-contributor"></a>Kostnadshantering deltagare
+## <a name="cost-management-contributor"></a>Cost Management-deltagare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Kan visa kostnaderna och hantera kostnaden konfiguration (t.ex. budgetar, export) |
+> | **Beskrivning** | Kan visa kostnader och hantera kostnadskonfiguration (t.ex. budgetar, exporter) |
 > | **Id** | 434105ed-43f6-45c7-a02f-909b2ba83430 |
 > | **Åtgärder** |  |
 > | Microsoft.Consumption/* |  |
@@ -766,11 +766,11 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 
-## <a name="cost-management-reader"></a>Kostnadshantering läsare
+## <a name="cost-management-reader"></a>Cost Management-läsare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Visa kostnadsdata och konfiguration (t.ex. budgetar, export) |
+> | **Beskrivning** | Kan visa kostnadsdata och konfiguration (t.ex. budgetar, exporter) |
 > | **Id** | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
 > | **Åtgärder** |  |
 > | Microsoft.Consumption/*/read |  |
@@ -798,13 +798,13 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Låter dig hantera Data Box-tjänsten förutom att skapas eller redigera orderinformationen och ge åtkomst till andra. |
+> | **Beskrivning** | Låter dig hantera Data Box-tjänsten förutom att skapa sortering eller redigera sortingsinformation och ge åtkomst till andra. |
 > | **Id** | 028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027 |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
 > | Microsoft.Databox/*/read |  |
 > | Microsoft.Databox/jobs/listsecrets/action |  |
-> | Microsoft.Databox/jobs/listcredentials/action | Visar en lista över okrypterade autentiseringsuppgifter beställningen. |
+> | Microsoft.Databox/jobs/listcredentials/action | Visar lista med okrypterade autentiseringsuppgifter för beställningen. |
 > | Microsoft.Databox/locations/availableSkus/action | Den här metoden returnerar listan över tillgängliga SKU:er. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighetsstatusarna för alla resurser i det angivna området |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
@@ -813,7 +813,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Låter dig hantera datafabriker, men ger dig inte tillgång till dem. |
+> | **Beskrivning** | Låter dig hantera datafabriker, men inte tillgång till dem. |
 > | **Id** | 673868aa-7521-48A0-acc6-0f60742d39f5 |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rollen tilldelningar |
@@ -872,7 +872,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Låter dig ansluta, starta, starta om och stänga av virtuella datorer i din Azure DevTest Labs. |
+> | **Beskrivning** | Kan du ansluta, start, starta om och stänga av virtuella datorer i Azure DevTest Labs. |
 > | **Id** | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rollen tilldelningar |
@@ -937,11 +937,11 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 
-## <a name="hdinsight-domain-services-contributor"></a>HDInsight domäntjänster deltagare
+## <a name="hdinsight-domain-services-contributor"></a>HDInsight-domäntjänstdeltagare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Kan läsa, skapa, ändra och ta bort domäntjänster relaterade åtgärder som behövs för Enterprise-säkerhetspaketet för HDInsight |
+> | **Beskrivning** | Kan läsa, skapa, ändra och ta bort domäntjänstrelaterade åtgärder som behövs för HDInsight Enterprise Security Package |
 > | **Id** | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
 > | **Åtgärder** |  |
 > | Microsoft.AAD/*/read |  |
@@ -1082,20 +1082,20 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Web/customApis/*/read | Läsa anpassat API. |
 > | Microsoft.Web/serverFarms/read | Visa egenskaperna för en App Service Plan |
 
-## <a name="managed-application-operator-role"></a>Operatörsroll för hanterat program
+## <a name="managed-application-operator-role"></a>Rollen hanterat program-operatör
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Du kan läsa och utföra åtgärder på hanterade resurser |
+> | **Beskrivning** | Låter dig läsa och utföra åtgärder för hanterade programresurser |
 > | **Id** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | **Åtgärder** |  |
 > | Microsoft.Solutions/applications/read | Hämtar en lista över program. |
 
-## <a name="managed-applications-reader"></a>Läsare för hanterade program
+## <a name="managed-applications-reader"></a>Hanterat program-läsare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Kan du läsa resurser i en hanterad app och begära JIT-åtkomst. |
+> | **Beskrivning** | Låter dig läsa resurser i en hanterad app och begära JIT-åtkomst. |
 > | **Id** | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
 > | **Åtgärder** |  |
 > | * / läsa | Läsa resurser av alla typer utom hemligheter. |
@@ -1187,11 +1187,11 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
 > | Microsoft.WorkloadMonitor/workloadInsights/* |  |
 
-## <a name="monitoring-metrics-publisher"></a>Övervaka mått utgivare
+## <a name="monitoring-metrics-publisher"></a>Övervakningsmått-publicerare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Aktiverar publicering av måtten mot Azure-resurser |
+> | **Beskrivning** | Tillåter publicering av mått mot Azure-resurser |
 > | **Id** | 3913510d-42f4-4e42-8a64-420c390055eb |
 > | **Åtgärder** |  |
 > | Microsoft.Insights/Register/Action | Registrera Microsoft Insights-providern |
@@ -1737,7 +1737,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Visa virtuella datorer i portalen och logga in som administratör |
+> | **Beskrivning** | Visa Virtual Machines i portalen och logga in som administratör |
 > | **Id** | 1c0163c0-47e6-4577-8991-ea5c82e286e4 |
 > | **Åtgärder** |  |
 > | Microsoft.Network/publicIPAddresses/read | Hämtar en definition av offentlig ip-adress. |
@@ -1753,7 +1753,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Låter dig hantera virtuella datorer, men ger dig inte åtkomst till dem eller till det virtuella nätverk eller lagringskonto som de är anslutna till. |
+> | **Beskrivning** | Kan du hantera virtuella datorer, men inte åtkomst till dem, och inte det virtuella nätverk eller lagringskonto som de är anslutna till. |
 > | **Id** | 9980e02c-c2be-4D73-94e8-173b1dc7cf3c |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läsa auktorisering |
@@ -1799,7 +1799,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Visa virtuella datorer i portalen och logga in som en vanlig användare. |
+> | **Beskrivning** | Visa Virtual Machines i portalen och logga in som en vanlig användare. |
 > | **Id** | fb879df8-f326-4884-b1cf-06f3ad86be52 |
 > | **Åtgärder** |  |
 > | Microsoft.Network/publicIPAddresses/read | Hämtar en definition av offentlig ip-adress. |

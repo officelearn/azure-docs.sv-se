@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.openlocfilehash: 7b6752196d3512ab3ede4f5e339d681948e732e8
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715935"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853769"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Hur att publicera Azure övervakar för virtuella datorer (förhandsversion)
 Den här artikeln beskriver hur du ställer in Azure Monitor för virtuella datorer för att övervaka hälsotillståndet för operativsystemet för dina Azure-datorer och skalningsuppsättningar för virtuella datorer och virtuella datorer i din miljö, inklusive identifiering och mappning av programberoenden som kan vara baserad på dem.  
@@ -38,8 +38,8 @@ Innan du börjar bör du kontrollera att du förstår följande enligt beskrivni
 Log Analytics-arbetsytan i följande regioner är för närvarande:
 
   - Västra centrala USA  
-  - Östra USA  
-  - Västra Europa  
+  - USA, östra  
+  - Europa, västra  
   - Sydostasien<sup>1</sup>  
 
 <sup>1</sup> den här regionen stöder för närvarande inte funktionen Health i Azure Monitor för virtuella datorer   
@@ -61,7 +61,7 @@ Konfigurera din arbetsyta för den skala scenariot överblick över [installatio
 
 I följande tabell visas de Windows- och Linux-operativsystem som stöds med Azure Monitor för virtuella datorer.  En fullständig lista med information om Linux-operativsystem högre och den lägre versionen och kernel-versioner som stöds finns senare i det här avsnittet.
 
-|Operativsystemversion |Prestanda |Kartor |Hälsa |  
+|OS-version |Prestanda |Kartor |Hälsa |  
 |-----------|------------|-----|-------|  
 |Windows Server 2016 1803 | X | X | X |
 |Windows Server 2016 | X | X | X |  
@@ -88,7 +88,7 @@ I följande tabell visas de Windows- och Linux-operativsystem som stöds med Azu
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 
-| Operativsystemversion | Kernel-version |
+| OS-version | Kernel-version |
 |:--|:--|
 | 7.0 | 3.10.0-123 |
 | 7.1 | 3.10.0-229 |
@@ -99,7 +99,7 @@ I följande tabell visas de Windows- och Linux-operativsystem som stöds med Azu
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
-| Operativsystemversion | Kernel-version |
+| OS-version | Kernel-version |
 |:--|:--|
 | 6.0 | 2.6.32-71 |
 | 6.1 | 2.6.32-131 |
@@ -114,7 +114,7 @@ I följande tabell visas de Windows- och Linux-operativsystem som stöds med Azu
 
 #### <a name="ubuntu-server"></a>Ubuntu Server
 
-| Operativsystemversion | Kernel-version |
+| OS-version | Kernel-version |
 |:--|:--|
 | Ubuntu 18.04 | Kernel 4.15. * |
 | Ubuntu 16.04.3 | Kernel 4.15. * |
@@ -122,7 +122,7 @@ I följande tabell visas de Windows- och Linux-operativsystem som stöds med Azu
 | 14.04 | 3.13.\*<br>4.4.\* |
 
 #### <a name="oracle-enterprise-linux-6-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux 6 med Unbreakable Enterprise Kernel
-| Operativsystemversion | Kernel-version
+| OS-version | Kernel-version
 |:--|:--|
 | 6.2 | Oracle 2.6.32-300 (UEK R1) |
 | 6.3 | Oracle 2.6.39-200 (UEK R2) |
@@ -132,14 +132,14 @@ I följande tabell visas de Windows- och Linux-operativsystem som stöds med Azu
 
 #### <a name="oracle-enterprise-linux-5-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux 5 med Unbreakable Enterprise Kernel
 
-| Operativsystemversion | Kernel-version
+| OS-version | Kernel-version
 |:--|:--|
 | 5.10 | Oracle 2.6.39-400 (UEK R2) |
 | 5.11 | Oracle 2.6.39-400 (UEK R2) |
 
 #### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
-| Operativsystemversion | Kernel-version
+| OS-version | Kernel-version
 |:--|:--|
 |12 SP2 | 4.4. * |
 |12 SP3 | 4.4. * |
@@ -157,7 +157,7 @@ I följande tabell beskrivs de anslutna källor som har stöd för funktionen ka
 
 Beroendeagenten kan hämtas från följande plats.
 
-| Fil | Operativsystem | Version | SHA-256 |
+| Fil | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.1 | 55030ABF553693D8B5112569FB2F97D7C54B66E9990014FC8CC43EFB70DE56C6 |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.1 | 43C75EF0D34471A0CBCE5E396FFEEF4329C9B5517266108FA5D6131A353D29FE |

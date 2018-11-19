@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: kgremban
-ms.openlocfilehash: cab3e5ee64ced59e9eb861e468f7a3c1dc600e8e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 8c8cf77107f87522f9ae121845f53d8993449651
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220746"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824803"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Skicka meddelanden från moln till enhet med IoT Hub (Python)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -291,7 +291,7 @@ Nu är det dags att köra programmen.
    
 1. Observera meddelandet tas emot av enheten.
 
-    ![Det mottagna meddelandet][img-message-recieved]
+    ![Det mottagna meddelandet][img-message-received]
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -304,7 +304,7 @@ Mer information om hur du utvecklar lösningar med IoT Hub finns det [utvecklarh
 <!-- Images -->
 [img-simulated-device]: media/iot-hub-python-python-c2d/simulated-device.png
 [img-send-command]:  media/iot-hub-python-python-c2d/send-command.png
-[img-message-recieved]: media/iot-hub-python-python-c2d/message-recieved.png
+[img-message-received]: media/iot-hub-python-python-c2d/message-received.png
 
 <!-- Links -->
 [lnk-python-download]: https://www.python.org/downloads/

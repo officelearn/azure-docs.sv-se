@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 3de1939ec4004c2709fb0e366fb492462cf2d216
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: HT
+ms.openlocfilehash: 6a3e33fe74199f0b9c02c6924d5e5e41b37f385c
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710774"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820978"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
@@ -27,14 +27,14 @@ Azure Monitor maximerar tillgänglighet och prestanda för dina program genom at
 > [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
 
 ## <a name="overview"></a>Översikt
-Följande diagram ger en översikt över Azure Monitor. I mitten av diagrammet är datalager för mått och loggar som finns två grundläggande typer av data används av Azure Monitor. Till vänster är den [källor som samlar in telemetri från olika övervakas resurser](../monitoring/monitoring-data-sources.md) och fylla den [datalager](../monitoring/monitoring-data-collection.md). Till höger är olika funktioner som Azure Monitor utför med den här insamlade data, till exempel analys, aviseringar och direktuppspelning till externa system.
+Följande diagram ger en översikt över Azure Monitor. I mitten av diagrammet är datalager för mått och loggar som finns två grundläggande typer av data används av Azure Monitor. Till vänster är den [källor som samlar in telemetri från olika övervakas resurser](../azure-monitor/platform/data-sources.md) och fylla den [datalager](../azure-monitor/platform/data-collection.md). Till höger är olika funktioner som Azure Monitor utför med den här insamlade data, till exempel analys, aviseringar och direktuppspelning till externa system.
 
 
 ![Översikt över Azure Monitor](media/overview/overview.png)
 
 
 ## <a name="monitoring-data-platform"></a>Övervaka dataplattform
-Alla data som samlas in av Azure Monitor passar in i en av två grundläggande typer [mått och loggar](../monitoring/monitoring-data-collection.md). [Mått](../monitoring/monitoring-data-collection.md#metrics) är numeriska värden som beskriver någon aspekt av ett system vid en viss tidpunkt. De är enkel och kan stödja scenarier i nästan realtid. [Loggar](../monitoring/monitoring-data-collection.md#logs) innehåller olika typer av data ordnas i poster med olika uppsättningar med egenskaper för varje typ. Telemetri, till exempel händelser och spårningar lagras som loggar dessutom till prestandadata så att den kan alla kombineras för analys.
+Alla data som samlas in av Azure Monitor passar in i en av två grundläggande typer [mått och loggar](../azure-monitor/platform/data-collection.md). [Mått](../azure-monitor/platform/data-collection.md#metrics) är numeriska värden som beskriver någon aspekt av ett system vid en viss tidpunkt. De är enkel och kan stödja scenarier i nästan realtid. [Loggar](../azure-monitor/platform/data-collection.md#logs) innehåller olika typer av data ordnas i poster med olika uppsättningar med egenskaper för varje typ. Telemetri, till exempel händelser och spårningar lagras som loggar dessutom till prestandadata så att den kan alla kombineras för analys.
 
 För många Azure-resurser visas data som samlas in av Azure Monitor direkt i sina översiktssidan i Azure-portalen. Till exempel ta en titt på en virtuell dator och du ser flera diagram som visar prestandamått. Klicka på något av diagrammen för att öppna data i [Metric explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md) i Azure-portalen, där du kan skapa diagram över värdena för flera mått med tiden.  Du kan visa diagrammen interaktivt eller fästa dem på en instrumentpanel för att visa dem med andra visualiseringar.
 
@@ -145,6 +145,6 @@ Det finns flera API: er för att läsa och skriva mått och loggar till och frå
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om:
 
-* [Mått och loggar](../monitoring/monitoring-data-collection.md) för de data som samlas in av Azure Monitor.
-* [Datakällor](../monitoring/monitoring-data-sources.md) för hur de olika komponenterna i ditt program skickar telemetri.
+* [Mått och loggar](../azure-monitor/platform/data-collection.md) för de data som samlas in av Azure Monitor.
+* [Datakällor](../azure-monitor/platform/data-sources.md) för hur de olika komponenterna i ditt program skickar telemetri.
 * [Log Analytics](../log-analytics/log-analytics-queries.md) för att analysera insamlade data.

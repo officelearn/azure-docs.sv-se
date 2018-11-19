@@ -1,6 +1,6 @@
 ---
 title: Diagnostisera och felsöka Azure Cosmos DB Java Async SDK | Microsoft Docs
-description: Använd funktioner som loggning på klientsidan och andra tredjepartsverktyg för att identifiera, diagnostisera och felsöka problem med Azure Cosmos DB.
+description: Använda funktioner som loggning på klientsidan och andra tredjepartsverktyg för att identifiera, diagnostisera och felsöka problem med Azure Cosmos DB.
 services: cosmos-db
 author: moderakh
 ms.service: cosmos-db
@@ -9,61 +9,67 @@ ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.openlocfilehash: ee92a5dd474cdf4f32ed2c7327d732a2cfbbbf79
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 2c73cda19a3f8b9b7c5ab493c0dfcd6c2e7be745
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632942"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820247"
 ---
-# <a name="troubleshooting-issues-when-using-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Felsökning av problem när du använder Async-SDK för Java med Azure Cosmos DB SQL API-konton
-Den här artikeln beskriver vanliga problem, lösningar, diagnostik steg och verktyg när du använder [Java Async ADK](sql-api-sdk-async-java.md) med Azure Cosmos DB SQL API-konton.
-Java Async SDK tillhandahåller klientsidan logisk representation för att komma åt Azure Cosmos DB SQL API. Den här artikeln beskrivs de verktyg och metoder för att hjälpa dig om du stöter på problem.
+# <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Felsöka problem när du använder Async Java-SDK med Azure Cosmos DB SQL API-konton
+Den här artikeln beskriver vanliga problem, lösningar, diagnos och verktyg när du använder den [Java Async SDK](sql-api-sdk-async-java.md) med Azure Cosmos DB SQL API-konton.
+Async Java SDK tillhandahåller klientsidan logisk representation för att komma åt Azure Cosmos DB SQL API. Den här artikeln beskriver verktyg och metoder för att hjälpa dig om du stöter på problem.
 
 Börja med den här listan:
-    * Ta en titt på de [vanliga problem och lösningar] i den här artikeln.
-    * Vår SDK är [öppen källkod på github](https://github.com/Azure/azure-cosmosdb-java) har vi [utfärdar avsnittet](https://github.com/Azure/azure-cosmosdb-java/issues) som vi övervakar aktivt. Kontrollera om du hittar alla liknande problem med en lösning som redan har arkiverats.
-    * Granska [prestandatips](performance-tips-async-java.md) och följ de föreslagna metoderna.
-    * Följ resten av den här artikeln om du inte hittar en lösning, en [GitHub-ärende](https://github.com/Azure/azure-cosmosdb-java/issues).
+
+* Ta en titt på de [vanliga problem och lösningar] i den här artikeln.
+* Titta på SDK, som är tillgänglig [öppen källkod på GitHub](https://github.com/Azure/azure-cosmosdb-java). Den har en [utfärdar avsnittet](https://github.com/Azure/azure-cosmosdb-java/issues) som övervakas aktivt. Kontrollera om alla liknande problem med en lösning redan har arkiverats.
+* Granska den [prestandatips](performance-tips-async-java.md), och följ de föreslagna metoderna.
+* Läsa resten av den här artikeln om du inte hittar en lösning. Sedan filens en [GitHub-ärende](https://github.com/Azure/azure-cosmosdb-java/issues).
 
 ## <a name="common-issues-workarounds"></a>Vanliga problem och lösningar
 
 ### <a name="network-issues-netty-read-timeout-failure-low-throughput-high-latency"></a>Nätverksproblem, Netty läsa timeout-fel, lågt dataflöde, svarstider
 
 #### <a name="general-suggestions"></a>Allmänna förslag
-* Kontrollera att programmet körs i samma region som ditt Cosmos DB-konto. 
-* Kontrollera processoranvändningen på den värd där appen körs. Om processoranvändningen är 90% eller mer, Överväg att köra din app på en värd med högre konfiguration eller distribuera belastningen på flera datorer.
+* Kontrollera att programmet körs i samma region som Azure Cosmos DB-kontot. 
+* Kontrollera processoranvändningen på den värd där appen körs. Om processoranvändningen är 90 procent eller mer, kan du köra din app på en värd med en högre konfiguration. Eller du kan distribuera belastningen på flera datorer.
 
 #### <a name="connection-throttling"></a>Anslutningsbegränsning
-Anslutningsbegränsning kan inträffa på grund av något [anslutningsgränsen på värddatorn], eller [Portöverbelastning Azure SNAT (PAT)]:
+Anslutningsbegränsning kan inträffa på grund av antingen en [anslutningsgränsen på en värddator] eller [Portöverbelastning Azure SNAT (PAT)].
 
-##### <a name="connection-limit-on-host"></a>Anslutningsgränsen på värddatorn
-Vissa Linux-system (till exempel ”Red Hat”) har en övre gräns för totalt antal öppna filer. Sockets i Linux implementeras som filer, så det här talet begränsar det totala antalet anslutningar för.
-Kör följande kommando:
+##### <a name="connection-limit-on-host"></a>Anslutningsgränsen på en värddator
+Vissa Linux-system, till exempel Red Hat, har en övre gräns för totalt antal öppna filer. Sockets i Linux implementeras som filer, så det här talet begränsar det totala antalet anslutningar, för.
+Kör följande kommando.
 
 ```bash
 ulimit -a
 ```
-Antal öppna filer (”nofile”) måste vara tillräckligt stor för (på minst som dubbelt som poolstorlek för användaranslutning). Läs mer ingående i [prestandatips](performance-tips-async-java.md).
+Antal max tillåtna öppna filer, som identifieras som ”nofile” måste vara minst dubbelt din poolstorlek för användaranslutning. Mer information finns i [prestandatips](performance-tips-async-java.md).
 
 ##### <a name="snat"></a>Portöverbelastning Azure SNAT (PAT)
 
-Om din app distribueras på virtuella Azure-datorer utan en offentlig IP-adress som standard [Azure SNAT portar](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) används för att upprätta anslutningar till valfri slutpunkt utanför den virtuella datorn. Antalet tillåtna anslutningar från den virtuella datorn till Cosmos DB-slutpunkten är begränsat av den [Azure SNAT configuration](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+Om din app distribueras på Azure virtuella datorer utan en offentlig IP-adress som standard [Azure SNAT portar](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) upprätta anslutningar till valfri slutpunkt utanför den virtuella datorn. Antalet tillåtna anslutningar från den virtuella datorn till Azure Cosmos DB-slutpunkten är begränsat av den [Azure SNAT configuration](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
 
-Azure SNAT-portar används endast när den virtuella Azure-datorn har en privat IP-adress och en process från den virtuella datorn försöker upprätta en anslutning till en offentlig IP-adress. Det finns därför två lösningar för att undvika Azure SNAT begränsning:
-    * Lägger till ditt Azure Cosmos DB-tjänstslutpunkt i undernät för ditt Azure VM-VNET som beskrivs i [aktiverar VNET-tjänstslutpunkt](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). När tjänsteslutpunkt har aktiverats kan begäranden inte längre skickas från en offentlig IP-adress till cosmos DB i stället det virtuella nätverket och undernätet identitet skickas. Den här ändringen kan resultera i brandväggen släpper om endast offentliga IP-adresser tillåts. Om du använder-brandväggen när du aktiverar tjänstslutpunkten, Lägg till undernät om du vill använda i brandväggen [VNET ACL: er](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
-    * Tilldela en offentlig IP-adress till den virtuella Azure-datorn.
+ Azure SNAT portar används endast när den virtuella datorn har en privat IP-adress och en process från den virtuella datorn försöker ansluta till en offentlig IP-adress. Det finns två sätt att undvika Azure SNAT begränsning:
+
+* Lägga till ditt Azure Cosmos DB-tjänstslutpunkt i undernätet för det virtuella nätverket i Azure Virtual Machines. Mer information finns i [Azure Virtual Network-tjänstslutpunkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). 
+
+    När tjänsteslutpunkt är aktiverat skickas inte längre begäranden från en offentlig IP-adress till Azure Cosmos DB. Istället skickas det virtuella nätverket och undernätet identitet. Den här ändringen kan resultera i brandväggen släpper om endast offentliga IP-adresser tillåts. Om du använder en brandvägg, när du aktiverar tjänstslutpunkten, lägga till ett undernät i brandväggen med hjälp av [ACL: er med virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
+* Tilldela en offentlig IP-adress till den virtuella Azure-datorn.
 
 #### <a name="http-proxy"></a>HTTP-proxy
 
-Om du använder en HttpProxy, se till att antalet anslutningar som konfigurerats i SDK har stöd för din HttpProxy `ConnectionPolicy`.
+Om du använder en HTTP-proxy, kontrollera att den har stöd för antalet anslutningar som konfigurerats i SDK `ConnectionPolicy`.
 Annars kan du står inför problem med anslutningen.
 
 #### <a name="invalid-coding-pattern-blocking-netty-io-thread"></a>Ogiltig kodning mönster: blockerar Netty i/o-tråd
 
-SDK: N använder [Netty](https://netty.io/) i/o-biblioteket för att kommunicera med Azure Cosmos DB-tjänsten. Vi har Async-API och vi använder icke-blockerande i/o-API: er för netty. SDK-i/o-arbetet utförs i netty i/o-trådar. Antalet i/o netty trådar är konfigurerad för att vara samma som antalet CPU-kärnor för app-datorn. Netty i/o-trådar är endast avsedda att användas för icke-blockerande netty i/o-arbete. SDK: N returnerar resultatet för API-anrop på en av de netty i/o-trådarna i appar-kod. Om appen när du har fått resultat på netty tråden utför en hållbara för netty tråden, som kan leda till SDK för att inte har tillräckligt med antal i/o-trådar för att utföra sitt internt i/o-jobb. Sådana app kodning kan leda till lågt dataflöde, lång svarstid och `io.netty.handler.timeout.ReadTimeoutException` fel. Lösningen är att växla tråden när du vet att åtgärden tar tid.
+SDK: N använder den [Netty](https://netty.io/) i/o-biblioteket för att kommunicera med Azure Cosmos DB. SDK: N har Async APIs och icke-blockerande Netty-i/o-API: er. SDK-i/o arbetet utförs i i/o-Netty trådar. Antalet i/o-Netty trådar är konfigurerad för att vara samma som antalet CPU-kärnor för app-datorn. 
 
-   Följande kodavsnitt visar till exempel att om du utför hållbara arbetet, vilket tar mer än några millisekunder för netty tråden du så småningom hamna i ett tillstånd där det finns ingen netty i/o-tråd att bearbeta arbetsuppgifter för i/o, och därför får du ReadTimeou tException:
+Netty-i/o-trådar är avsedda att användas endast för icke-blockerande Netty i/o-arbete. SDK: N returnerar resultatet för API-anrop på en av Netty i/o-trådar appens kod. Om appen utför en åtgärd för långvariga när den har fått resultat på Netty tråden, kanske inte tillräckligt många i/o-trådar för att utföra arbetet internt i/o i SDK: N. Sådana app kodning kan leda till lågt dataflöde, lång svarstid och `io.netty.handler.timeout.ReadTimeoutException` fel. Lösningen är att växla tråden när du vet att åtgärden tar tid.
+
+Till exempel ta en titt på följande kodavsnitt. Du kan utföra långvariga arbete som tar mer än några millisekunder för Netty tråden. I så, fall får så småningom du i ett tillstånd där ingen Netty-i/o-tråd förekommer att bearbeta i/o-arbetsuppgifter. Därför kan få du ett ReadTimeoutException-fel.
 ```java
 @Test
 public void badCodeWithReadTimeoutException() throws Exception {
@@ -89,19 +95,19 @@ public void badCodeWithReadTimeoutException() throws Exception {
                 .createDocument(getCollectionLink(), docDefinition, null, false);
         createObservable.subscribe(r -> {
                     try {
-                        // time consuming work. For example:
-                        // writing to a file, computationally heavy work, or just sleep
-                        // basically anything which takes more than a few milliseconds
-                        // doing such operation on the IO netty thread
-                        // without a proper scheduler, will cause problems.
-                        // The subscriber will get ReadTimeoutException failure.
+                        // Time-consuming work is, for example,
+                        // writing to a file, computationally heavy work, or just sleep.
+                        // Basically, it's anything that takes more than a few milliseconds.
+                        // Doing such operations on the IO Netty thread
+                        // without a proper scheduler will cause problems.
+                        // The subscriber will get a ReadTimeoutException failure.
                         TimeUnit.SECONDS.sleep(2 * requestTimeoutInSeconds);
                     } catch (Exception e) {
                     }
                 },
 
                 exception -> {
-                    //will be io.netty.handler.timeout.ReadTimeoutException
+                    //It will be io.netty.handler.timeout.ReadTimeoutException.
                     exception.printStackTrace();
                     failureCount.incrementAndGet();
                     latch.countDown();
@@ -115,42 +121,42 @@ public void badCodeWithReadTimeoutException() throws Exception {
     assertThat(failureCount.get()).isGreaterThan(0);
 }
 ```
-   Lösningen är att ändra tråd som du utför tid med arbete. Definiera en singleton-instans av Scheduler för din app:
+   Lösningen är att ändra den tråd som du utför arbete som tar tid. Definiera en singleton-instans av scheduler för din app.
    ```java
-// have a singleton instance of executor and scheduler
+// Have a singleton instance of an executor and a scheduler.
 ExecutorService ex  = Executors.newFixedThreadPool(30);
 Scheduler customScheduler = rx.schedulers.Schedulers.from(ex);
    ```
-   När du behöver tid att möjliggöra arbete (till exempel beräkningsmässigt tunga arbetet, blockerar i/o) kan du växla tråden till en arbetsroll som tillhandahålls av din `customScheduler` med `.observeOn(customScheduler)` API.
+   Du kan behöva fungerar som tar tid, till exempel beräkningsmässigt tung arbets- eller blockerar IO. I det här fallet växla tråden till en arbetsroll som tillhandahålls av din `customScheduler` med hjälp av den `.observeOn(customScheduler)` API.
 ```java
 Observable<ResourceResponse<Document>> createObservable = client
         .createDocument(getCollectionLink(), docDefinition, null, false);
 
 createObservable
-        .observeOn(customScheduler) // switches the thread.
+        .observeOn(customScheduler) // Switches the thread.
         .subscribe(
             // ...
         );
 ```
-Med hjälp av `observeOn(customScheduler)`, du släpper den netty i/o-tråden och växla till dina egna anpassade tråd som tillhandahålls av customScheduler. Den här ändringen kommer att lösa problemet och du inte får `io.netty.handler.timeout.ReadTimeoutException` fel längre.
+Med hjälp av `observeOn(customScheduler)`, du släpper Netty i/o-trådar och växla till dina egna anpassade tråd som tillhandahålls av anpassade scheduler. Den här ändringen löser problemet. Du kommer inte få en `io.netty.handler.timeout.ReadTimeoutException` fel längre.
 
 ### <a name="connection-pool-exhausted-issue"></a>Anslutningspool förbrukat problemet
 
-`PoolExhaustedException` är ett fel på klientsidan. Om du får det här felet ofta är indikation på att din app-arbetsbelastning är högre än vad SDK anslutningspoolen kan fungera. Öka poolstorlek för användaranslutning eller distribuering av belastningen på flera appar kan hjälpa.
+`PoolExhaustedException` är ett fel på klientsidan. Det här felet indikerar att din app-arbetsbelastning är högre än vad anslutningspoolen SDK kan fungera. Öka storlek eller distribuera belastningen på flera appar.
 
 ### <a name="request-rate-too-large"></a>Frågehastigheten är för stor
-Det här felet är ett serversidan fel som indikerar att du förbrukat det etablerade dataflödet och bör försöka senare. Om du får det här felet ofta kan du överväga att öka på samlingsdataflödet.
+Det här felet är ett fel på serversidan. Det anger du förbrukat det etablerade dataflödet. Försök igen senare. Om du får det här felet ofta kan du överväga att en ökning på samlingsdataflödet.
 
 ### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Går inte att ansluta till Azure Cosmos DB-emulator
 
-Cosmos DB-emulatorn HTTPS-certifikatet är självsignerat. För SDK om du vill arbeta med emulatorn som du ska importera emulatorn certifikatet till Java TrustStore. Enligt beskrivningen [här](local-emulator-export-ssl-certificates.md).
+Azure Cosmos DB-emulatorn HTTPS-certifikatet är självsignerat. Importera emulatorn certifikatet till en Java-TrustStore för SDK att arbeta med emulatorn. Mer information finns i [exportera Azure Cosmos DB-emulatorcertifikat](local-emulator-export-ssl-certificates.md).
 
 
 ## <a name="enable-client-sice-logging"></a>Aktivera loggning för klient-SDK
 
 SDK för Java-Async-använder SLF4j som loggning fasad som stöder inloggning till populära loggningsramverk, till exempel log4j och logback.
 
-Till exempel om du vill använda log4j som vilket loggningsramverk lägger du till följande libs i Java-klassökvägen:
+Till exempel om du vill använda log4j som vilket loggningsramverk lägger du till följande libs i Java-klassökvägen.
 
 ```xml
 <dependency>
@@ -165,7 +171,7 @@ Till exempel om du vill använda log4j som vilket loggningsramverk lägger du ti
 </dependency>
 ```
 
-Lägg även till en log4j-konfiguration:
+Lägg även till en log4j-konfiguration.
 ```
 # this is a sample log4j configuration
 
@@ -183,25 +189,25 @@ log4j.appender.A1.layout=org.apache.log4j.PatternLayout
 log4j.appender.A1.layout.ConversionPattern=%d %5X{pid} [%t] %-5p %c - %m%n
 ```
 
-Granska [sfl4j loggning manuell](https://www.slf4j.org/manual.html) för mer information.
+Mer information finns i den [sfl4j loggning manuell](https://www.slf4j.org/manual.html).
 
 ## <a name="netstats"></a>OS-nätverksstatistik
-Kör netstat-kommando för att få en uppfattning om hur många anslutningar finns i `Established` tillstånd, `CLOSE_WAIT` tillstånd osv.
+Kör netstat-kommando för att få en uppfattning om hur många anslutningar är i ett tillstånd som `ESTABLISHED` och `CLOSE_WAIT`.
 
-I Linux kan du köra följande kommando:
+På Linux, kan du köra följande kommando.
 ```bash
 netstat -nap
 ```
-Filtrera resultatet ska endast anslutningar till Cosmos DB-slutpunkt.
+Filtrera resultatet ska endast anslutningar till Azure Cosmos DB-slutpunkten.
 
-Uppenbarligen, antalet anslutningar till Cosmos DB-slutpunkt i `Established` tillstånd bör inte vara större än den konfigurerade storleken på administratörsanslutningspool.
+Antalet anslutningar till Azure Cosmos DB-slutpunkt i den `ESTABLISHED` tillstånd får inte vara större än den konfigurerade storleken på administratörsanslutningspool.
 
-Om det finns många anslutningar till Cosmos DB-slutpunkt i `CLOSE_WAIT` tillstånd, för exempel som är mer än 1000 anslutningar, som är en indikation på anslutningar upprättas och datakanalen snabbt, vilket kan medföra problem. Granska [vanliga problem och lösningar] avsnitt för mer information.
+Många anslutningar till Azure Cosmos DB-slutpunkten kan finnas i den `CLOSE_WAIT` tillstånd. Det kan finnas fler än 1 000. Ett tal som är så hög indikerar att anslutningar har upprättats och datakanalen snabbt. Den här situationen orsakar potentiellt problem. Mer information finns i den [vanliga problem och lösningar] avsnittet.
 
  <!--Anchors-->
 [Vanliga problem och lösningar]: #common-issues-workarounds
 [Enable client SDK logging]: #enable-client-sice-logging
-[Anslutningsgränsen på värddatorn]: #connection-limit-on-host
+[Anslutningsgränsen på en värddator]: #connection-limit-on-host
 [Portöverbelastning Azure SNAT (PAT)]: #snat
 
 

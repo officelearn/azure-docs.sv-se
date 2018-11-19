@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 2d2688799b1a0b4518b9c91bbc530936c834c5e3
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 352ff105f5cd443fba74e05ebce22c14f08e63a0
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407444"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823681"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Förfina grupper med beroendemappning för grupp
 
@@ -71,7 +71,7 @@ Installera agenten på en Linux-dator:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-Mer information om stöd för beroende-agenten för den [Windows](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) och [Linux](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems) operativsystem.
+Mer information om stöd för beroende-agenten för den [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) och [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) operativsystem.
 
 ## <a name="refine-the-group-based-on-dependency-visualization"></a>Sedan ändra gruppen utifrån beroendevisualisering
 När du har installerat agenter på alla datorer i gruppen kan du visualisera beroenden i gruppen och förfina genom att följa de stegen nedan.

@@ -1,11 +1,12 @@
 ---
 title: Är dina data klara för datavetenskap? -Utvärdering av Azure Machine Learning | Microsoft Docs
-description: Fyra villkor som måste uppfylla för att vara klar för datavetenskap. Den här videon har konkreta exempel för att hjälpa dig med grundläggande data utvärdering.
-keywords: relevanta data utvärdera data, förbereder data, Datakriterier, data som är redo
+description: Fyra villkor som måste uppfylla för att vara klara för datavetenskap. Den här videon har konkreta exempel som hjälper med grundläggande data utvärdering.
+keywords: relevanta data, utvärdera data, förbereda data, Datakriterier, data som är redo
 services: machine-learning
 documentationcenter: na
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cjgronlund
 ms.assetid: d502062c-da70-4b21-9054-0bfd9902612e
@@ -16,18 +17,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 5ab3c7716485053432240cb74be8ebc60c9ad274
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7709f4f299f5cfc112d60910178bd68d115d8521
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834625"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51818990"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Är dina data klara för datavetenskap?
-## <a name="video-2-data-science-for-beginners-series"></a>Video 2: Datavetenskap för nybörjare serien
-Lär dig att utvärdera dina data att kontrollera att den uppfyller grundläggande kriterier för att vara klar för datavetenskap.
+## <a name="video-2-data-science-for-beginners-series"></a>Video 2: Datavetenskap för nybörjare-serien
+Lär dig att utvärdera dina data så att den uppfyller grundläggande kriterier för att vara klara för datavetenskap.
 
-Titta på alla för att få ut mesta möjliga av serien. [Gå till listan över videor](#other-videos-in-this-series)
+Titta på alla för att få ut det mesta av serien. [Gå till listan över videor](#other-videos-in-this-series)
 <br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/9/player]
@@ -35,79 +36,79 @@ Titta på alla för att få ut mesta möjliga av serien. [Gå till listan över 
 >
 
 ## <a name="other-videos-in-this-series"></a>Andra videor i den här serien
-*Datavetenskap för nybörjare* är en snabb introduktion till datavetenskap i fem kort video.
+*Datavetenskap för nybörjare* är en snabbintroduktion i datakunskap med fem korta filmer.
 
-* Video 1: [5 frågor datavetenskap svar](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min. 14 sek)*
-* Video 2: Är redo för datavetenskap dina data?
-* Video 3: [Ställ en fråga som du kan svara med data](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sek)*
-* Video 4: [förutsäga ett svar med en enkel modell](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min. 42 sek)*
+* Video 1: [5 frågor och svar om datavetenskap](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 sek.)*
+* Video 2: Är dina data klara för datavetenskap?
+* Video 3: [Ställ en fråga som du kan svara på med data](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sek)*
+* Video 4: [förutsäga ett svar med en enkel modell](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sek)*
 * Video 5: [kopiera andras arbete för att göra datavetenskap](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sek)*
 
-## <a name="transcript-is-your-data-ready-for-data-science"></a>Betyg: Är redo för datavetenskap dina data?
-Välkommen till ”är dina data redo för datavetenskap”? andra videon i serien *datavetenskap för nybörjare*.  
+## <a name="transcript-is-your-data-ready-for-data-science"></a>Avskriften: Är dina data klara för datavetenskap?
+Välkommen till ”är dina data klara för datavetenskap”? andra videon i serien *datavetenskap för nybörjare*.  
 
-Innan datavetenskap kan ge dig svaren som du vill ha så att det vissa hög kvalitet raw material att arbeta med. Precis som upprättar en pizza, desto bättre beståndsdelarna du börjar med bättre färdiga produkten. 
+Innan datavetenskap kan ge dig de svar som du vill ha så att det vissa högkvalitativa råmaterial att arbeta med. Precis som gör en platt, desto bättre ingredienser du börjar med, desto bättre slutliga produkt. 
 
 ## <a name="criteria-for-data"></a>Kriterier för data
-Datavetenskap finns det vissa komponenter som hämtas tillsammans inklusive:
+Det finns vissa komponenter som måste hämtas tillsammans inklusive i dataforskning:
 
 * Relevanta
 * Ansluten
 * Korrekt
 * Tillräckligt för att arbeta med
 
-## <a name="is-your-data-relevant"></a>Gäller dina data?
-Den första komponenten - du behöver data som är relevanta.
+## <a name="is-your-data-relevant"></a>Är dina data relevanta?
+Så att den första komponenten - du behöver data som är relevanta.
 
-![Relevanta data kontra irrelevanta data - utvärdera data](./media/data-science-for-beginners-is-your-data-ready-for-data-science/relevant-and-irrelevant-data.png)
+![Relevanta data jämfört med irrelevanta data – utvärdera data](./media/data-science-for-beginners-is-your-data-ready-for-data-science/relevant-and-irrelevant-data.png)
 
-Till vänster anger tabellen blod alkohol andelen sju personer testas utanför en Boston stapel, Red Sox batting medelvärdet för de senaste spelet och pris av i arkivet närmaste bekvämlighet.
+Till vänster visas i tabell blod alkohol andelen sju personer som testas utanför ett fält i Boston, Red Sox batting medelvärdet i deras senaste spel och pris av i arkivet närmaste bekvämlighet.
 
-Det här är alla perfekt legitima data. Endast fel är att den inte är relevanta. Det finns ingen uppenbara relation mellan dessa siffror. Om någon har gett dig mjölk och rött Sox batting medelvärdet aktuella pris, går det inte kunde du tror blod alkohol innehållet.
+Det här är alla perfekt legitima data. Endast fel är att det inte är relevanta. Det finns ingen uppenbar relation mellan dessa siffror. Om någon har gett dig aktuella priset för mjölk och Red Sox batting medelvärdet, finns det inget sätt som du kan gissa blod alkohol innehållet.
 
-Nu vill titta på tabellen till höger. Den här gången varje person brödtext massa var mäts samt antalet drycker som de har haft.  Talen i varje rad är nu relevanta till varandra. Om jag gav min brödtext massa och antalet Margaritas som jag har haft du göra en uppskattning av min blod alkohol innehåll.
+Nu vill titta på tabellen till höger. Den här gången varje person brödtext lagringsenheter har mäts samt antalet drycker som de har haft.  Talen i varje rad är nu relevanta till varandra. Om jag gav dig min brödtext lagringsenheter och antalet Margaritas som jag har haft, du kan göra en uppskattning av min blod alkohol innehåll.
 
 ## <a name="do-you-have-connected-data"></a>Du har anslutit data?
-Nästa komponenten är anslutna data.
+Nästa ingrediens är anslutna.
 
-![Ansluten data kontra frånkopplade data - Datakriterier data är klar](./media/data-science-for-beginners-is-your-data-ready-for-data-science/connected-vs-disconnected-data.png)
+![Anslutna data jämfört med frånkopplade data – data villkor, data som är redo](./media/data-science-for-beginners-is-your-data-ready-for-data-science/connected-vs-disconnected-data.png)
 
-Här är några relevanta data för hamburgers kvalitet: grill temperatur, patty vikt och betyg i den lokala mat magazine. Men hittar luckor i tabellen till vänster.
+Här är några relevanta data på kvaliteten på hamburgers: grill temperatur, patty vikt och klassificering i lokala livsmedelskedjan magazine. Men Observera luckor i tabellen till vänster.
 
-De flesta datauppsättningar saknas vissa värden. Det är vanligt att ha hål så här och det finns olika sätt att komma runt dem. Men om det finns för mycket saknas, dina data börjar likna ost och Schweiz.
+De flesta datauppsättningar saknar vissa värden. Det är vanligt att ha hål så här och det finns sätt att arbeta runt dem. Men om det finns för mycket saknas, dina data börjar likna Schweiz ost.
 
-Om du tittar på tabellen till vänster, finns det så mycket data som saknas, är det svårt att få fram alla typer av relationen mellan galler temperatur- och patty vikt. Det här exemplet visar frånkopplade data.
+Om du tittar på tabellen till vänster, finns det så mycket data som saknas, det är svårt att få fram alla slags relationen mellan galler temperatur och patty vikt. Det här exemplet visar frånkopplade data.
 
-I högra tabellen men är full och slutföra – ett exempel på anslutna data.
+Tabellen till höger, men är full och slutför – ett exempel på anslutna data.
 
-## <a name="is-your-data-accurate"></a>Stämmer din data?
-Nästa komponenten är korrekta. Här är fyra mål att träffa.
+## <a name="is-your-data-accurate"></a>Är dina data korrekt?
+Nästa ingrediens är precision. Här är fyra mål att träffa.
 
-![Korrekta data kontra felaktiga data - data villkor](./media/data-science-for-beginners-is-your-data-ready-for-data-science/inaccurate-vs-accurate-data.png)
+![Korrekta data jämfört med felaktiga data - Datakriterier](./media/data-science-for-beginners-is-your-data-ready-for-data-science/inaccurate-vs-accurate-data.png)
 
-Titta på målet i det övre högra hörnet. Det finns en nära gruppering höger runt tjurar ögat. Naturligtvis är korrekt. Oväntat, på samma språk som datavetenskap prestanda till målet höger under den anses också vara korrekt.
+Titta på målet i det övre högra hörnet. Det finns en nära gruppering direkt runt tjurar ögat. Det är naturligtvis korrekt. Oväntat, på språket för datavetenskap prestanda till höger mål under den också anses vara korrekt.
 
-Om du har mappat i mitten av pilarna visas att det är mycket nära tjurar öga. Pilarna sprids ut alla runt mål, så att de ska anses vara inexakt, men de är uppbyggd kring ögat tjurar så att de ska anses vara korrekt.
+Om du som anges i mitten av dessa pilar, ser du att det ligger mycket nära tjurar ögat. Pilarna sprids ut hela målet, så att de betraktas inexakt, men de är uppbyggd kring tjurar ögat, så att de betraktas som korrekt.
 
-Nu titta på det övre vänstra målet. Pilarna nådde här mycket nära varandra en nära gruppering. De är exakt, men de är felaktigt eftersom mitt går ut tjurar öga. Pilarna i det nedre vänstra målet är både stämmer och inexakt. Den här archer måste flera praxis.
+Nu se ut på angivna längst upp till vänster. Pilarna når här mycket nära varandra en nära gruppering. De exakta, men de är felaktigt eftersom mitten är stor tjurar ögat. Pilarna i nedre vänstra målet är felaktiga såväl som inexakt. Den här archer behöver mer praxis.
 
-## <a name="do-you-have-enough-data-to-work-with"></a>Har du tillräckligt med data att arbeta med?
-Slutligen är beståndsdel #4 tillräckliga data.
+## <a name="do-you-have-enough-data-to-work-with"></a>Har du tillräckligt med data att fungera med?
+Slutligen är ingrediens #4 tillräckligt med data.
 
-![Har du tillräckligt med data för analys? Utvärdering av](./media/data-science-for-beginners-is-your-data-ready-for-data-science/barely-enough-data.png)
+![Har du tillräckligt med data för analys? Utvärdering av data](./media/data-science-for-beginners-is-your-data-ready-for-data-science/barely-enough-data.png)
 
-Tänk på att varje datapunkt i tabellen som en pensellinje i en återgivningen. Om du har några av dem återgivningen kan vara fuzzy – det är svårt att se vad det är.
+Tänk på varje datapunkt i tabellen som ett penseldrag i en tavla. Om du har några av dem kan de målningen avslutas kan vara fuzzy – det är svårt att se vad det är.
 
-Om du lägger till vissa mer penseldrag startar din återgivnings lite frågesporten.
+Om du lägger till lite mer penseldrag startar din tavla frågesporten lite.
 
-När du har knappt tillräckligt med linjer kan se du bara tillräckligt för att göra en bred beslut. Är det någon plats kanske du vill besöka? Det ser ut klara, som ser ut som ren vattenstämplar – Ja, som är där vi på semester.
+När du har oändliga möjligheter som finns tillräckligt med linjer, du kan bara se tillräckligt för att göra vissa breda beslut. Är en plats kanske du vill gå till? Det verkar ljus, som ser ut som rent vatten – Ja, som är där jag på semester.
 
-När du lägger till mer data bilden blir tydligare och du kan göra mer detaljerad beslut. Nu kan du titta på tre hotell på den vänstra banken. Du kan se arkitektur funktioner för i förgrunden. Du kan även välja att stanna kvar på den tredje våningen på grund av vyn.
+När du lägger till mer data bilden blir tydligare och du kan fatta mer detaljerad. Nu kan du titta på de tre hotell på den vänstra banken. Du kan se funktionerna i förgrunden. Du kan även välja att stanna kvar på den tredje våningen på grund av vyn.
 
-Med data som är relevanta, ansluten, korrekt och tillräckligt, du har alla komponenter krävs för att göra vissa datavetenskap med hög kvalitet.
+Med data som är relevant, ansluten, korrekt och tillräckligt, du har alla komponenter krävs för att göra vissa datavetenskap med hög kvalitet.
 
-Se till att checka ut de fyra videor som i *datavetenskap för nybörjare* från Microsoft Azure Machine Learning.
+Se till att Kolla in andra fyra videor i *datavetenskap för nybörjare* från Microsoft Azure Machine Learning.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Försök med ett första datavetenskap experiment i Machine Learning Studio](create-experiment.md)
-* [Få en introduktion till Maskininlärning på Microsoft Azure](what-is-machine-learning.md)
+* [Prova en första dataexperiment med Machine Learning Studio](create-experiment.md)
+* [Få en introduktion till Machine Learning på Microsoft Azure](what-is-machine-learning.md)

@@ -1,10 +1,11 @@
 ---
-title: Skapa text analytics modeller i Azure Machine Learning Studio | Microsoft Docs
-description: Hur du skapar text analytics modeller i Azure Machine Learning Studio med moduler för text förbearbetning, N g eller hash-funktionen
+title: Skapa textanalysmodeller i Azure Machine Learning Studio | Microsoft Docs
+description: Hur du kan skapa textanalysmodeller i Azure Machine Learning Studio med hjälp av moduler för förbearbetning av text, N-gram eller funktions-hashning
 services: machine-learning
 documentationcenter: ''
 author: rastala
-ms.author: roastala
+ms.custom: (previous ms.author roastala)
+ms.author: amlstudiodocs
 manager: cgronlun
 editor: ''
 ms.assetid: 08cd6723-3ae6-4e99-a924-e650942e461b
@@ -15,81 +16,81 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.openlocfilehash: a9d4ee9015b5781301dcc9c0fe4f8944dbf244e8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7b455025faffe5a1a84bbc57ea2d65ec6c24cc2d
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835890"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823171"
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Skapa textanalysmodeller i Azure Machine Learning Studio
-Du kan använda Azure Machine Learning för att skapa och använda text analytics modeller. Med hjälp av dessa modeller kan du till exempel lösa problem med dokumentet klassificering eller sentiment analys.
+Du kan använda Azure Machine Learning för att skapa och operationalisera modeller för textanalys. Dessa modeller kan hjälpa dig att lösa, exempelvis dokument klassificerings- eller sentiment analysis problem.
 
 I en text analytics experiment skulle du normalt:
 
-1. Rensa och Förbearbeta text dataset
-2. Extrahera numeriska funktionen angreppsmetoderna från förbearbetade text
-3. Klassificerings- eller regressionsmodell träningsmodell
-4. Poängsätta och validera modellen
+1. Rensa och Förbearbeta text datauppsättning
+2. Extrahera numeriska funktionen vektorer från förbearbetade text
+3. Träna klassificerings- eller regressionsmodell modell
+4. Poängsätta och verifiera modellen
 5. Distribuera modellen till produktion
 
-I kursen får du lära dig stegen som vi går igenom en sentiment analysmodell använder Amazon Book granskningar dataset (finns i det här dokumentet, research ”biografier, Bollywood, BOM rutor och blandningsföretag: domän anpassning för Sentiment klassificering” av John Blitzer Markera Dredze och Fernando Pereira; Koppling av beräkningar Linguistics (ACL) 2007.) Den här datauppsättningen består av Granska resultat (1 till 2 eller 4-5) och en valfri form text. Målet är att förutsäga granska poäng: låg (1 - 2) eller hög (4-5).
+I den här självstudien får du lära dig de här stegen som vi går igenom en sentiment analysmodell använder Amazon boken granskningar datauppsättning (finns i det här dokumentet för forskning ”biografier, Bollywood, sådär rutorna och blandningsföretag: domän anpassning om segmentklassificering” av John Blitzer Markera Dredze och Fernando Pereira; Associationen mellan databaserad lingvistik (ACL) 2007.) Den här datauppsättningen består av granska poängen (1 – 2 eller 4-5) och en egen text. Målet är att förutsäga att granska resultatet: låg (1 - 2) eller hög (4-5).
 
-Du kan hitta experiment som beskrivs i den här självstudiekursen i Azure AI-galleriet:
+Du kan hitta experiment som beskrivs i den här självstudien i Azure AI-galleriet:
 
-[Förutsäga Book granskningar](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
+[Förutsäga boken granskningar](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
 
-[Förutsäga Book granskningar - Prediktivt Experiment](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
+[Förutsäga boken granskningar - förutsägbart Experiment](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
 
-## <a name="step-1-clean-and-preprocess-text-dataset"></a>Steg 1: Rensa och Förbearbeta text dataset
-Vi börjar experimentet genom att dela granska resultaten i kategoriska låg och hög behållare för att formulera problemet som tvåklass klassificering. Vi använder [redigera Metadata](https://msdn.microsoft.com/library/azure/dn905986.aspx) och [Kategoriska Gruppvärden](https://msdn.microsoft.com/library/azure/dn906014.aspx) moduler.
+## <a name="step-1-clean-and-preprocess-text-dataset"></a>Steg 1: Rensa och Förbearbeta text datauppsättning
+Vi börjar experimentet genom att dela granska poängen i kategoriska låga och höga behållare för att formulera problemet på två klassificering. Vi använder [redigera Metadata](https://msdn.microsoft.com/library/azure/dn905986.aspx) och [grupp Kategoriska värden](https://msdn.microsoft.com/library/azure/dn906014.aspx) moduler.
 
 ![Skapa etikett](./media/text-analytics-module-tutorial/create-label.png)
 
-Sedan rensning text med [Förbearbeta Text](https://msdn.microsoft.com/library/azure/mt762915.aspx) modul. Rensning tar bort brus i datauppsättningen hjälpa dig hitta de viktigaste funktionerna och förbättra sista modellen. Vi ta bort stoppord - vanliga ord som ”” eller ”a” - och siffror, specialtecken, duplicerade tecken, e-postadresser och URL: er. Vi också konvertera text till gemener, lemmatize orden och identifiera meningen gränser som sedan visas som ”|||” symbol i förbearbetade text.
+Sedan kan vi Rensa text med [Förbearbeta Text](https://msdn.microsoft.com/library/azure/mt762915.aspx) modulen. Rensning minskar bruset i datauppsättningen, kan du hitta de viktigaste funktionerna och förbättra den slutliga modellen. När du tar vi bort stoppord - vanliga ord som ”” eller ”a” - och siffror, specialtecken, duplicerade tecken, e-postadresser och URL: er. Vi också konvertera text till gemener, lemmatize orden och identifiera mening gränser som sedan visas som ”|||” symbolen i förväg bearbetade text.
 
 ![Förbearbeta Text](./media/text-analytics-module-tutorial/preprocess-text.png)
 
-Vad händer om du vill använda en egen lista över stoppord? Du kan överföra den i som valfria indata. Du kan också använda anpassade C#-syntax reguljärt uttryck för att ersätta delsträngar och ta bort ord som en del av tal: substantiv, verb eller adjektiv.
+Vad händer om du vill använda en anpassad lista över stoppord? Du kan skicka den i som valfri inmatning. Du kan också använda anpassade C# syntax reguljärt uttryck för att ersätta delsträngar och ta bort ord som en del av tal: substantiv, verb eller adjektiv.
 
-När den förbearbetning är klar kan vi dela data i tåg och testa uppsättningar.
+När den Förbearbeta är klar kan vi dela upp data i träna och testa uppsättningar.
 
-## <a name="step-2-extract-numeric-feature-vectors-from-pre-processed-text"></a>Steg 2: Extrahera numeriska funktionen angreppsmetoderna från förbearbetade text
-Om du vill skapa en modell för textdata vanligtvis måste du konvertera Fritextfält till numeriska funktionen angreppsmetoderna. I det här exemplet använder vi [extrahera N Gram funktioner från Text](https://msdn.microsoft.com/library/azure/mt762916.aspx) modulen att omvandla textdata till dessa format. Den här modulen tar en kolumn med avgränsade med blanksteg ord och beräknar en ordlista med ord eller N-g ord som förekommer i dina dataset. Sedan Räknar hur många gånger varje word eller N gram visas i varje post och skapar angreppsmetoderna funktionen från dem räknar. I den här självstudiekursen värdet vi N gram storleken 2, vilket våra funktionen angreppsmetoderna omfattar kombinationer av två efterföljande ord och enstaka ord.
+## <a name="step-2-extract-numeric-feature-vectors-from-pre-processed-text"></a>Steg 2: Extrahera numeriska funktionen vektorer från förbearbetade text
+Om du vill skapa en modell för textdata behöva du normalt konvertera Fritextfält till numeriska funktionen vektorer. I det här exemplet använder vi [N-Gram extrahera funktioner från Text](https://msdn.microsoft.com/library/azure/mt762916.aspx) modul för att omvandla textdata till sådana format. Den här modulen tar en kolumn med blanksteg kommaavgränsade ord och beräknar en ordlista med ord eller N-gram av ord, som visas i din datauppsättning. Sedan räknar den hur många gånger varje ord eller N-gram, visas i varje post och skapar funktionen vektorer från de som räknas. I den här självstudien anger vi N-gram storlek till 2, så våra funktionen vektorer inkludera enstaka ord och kombinationer av två efterföljande ord.
 
-![Extrahera N g](./media/text-analytics-module-tutorial/extract-ngrams.png)
+![Extrahera N-gram](./media/text-analytics-module-tutorial/extract-ngrams.png)
 
-Det använda TF * IDF (termen frekvens inverterade dokumentet frekvens) fråga N gram räknar. Den här metoden lägger till vikten av ord som ofta visas i en enskild post men är ovanliga över hela datamängden. Andra alternativ inkluderar binary TF, och ett diagram över väger.
+Vi tillämpar TF * IDF (termen frekvens inverterade dokumentet frekvens) fråga N-gram räknas. Den här metoden ökar vikten av ord som visas ofta i en enda post men är ovanliga i hela datamängden. Andra alternativ inkluderar binary, TF, och graph vägas mot varandra.
 
-Textfunktioner har ofta högt dimensionalitet. Till exempel om din Kristi har 100 000 unika ord, skulle funktionen-utrymme ha 100 000 dimensioner eller mer om N gram används. Modulen extrahera N Gram funktioner ger en uppsättning alternativ för att minska dimensionaliteten. Du kan välja att utesluta ord som är för kort eller lång, eller för ovanliga eller för ofta har betydande värde. I den här självstudiekursen exkludera vi N gram som visas i färre än 5 poster eller mer än 80% av poster.
+Sådana textfunktioner har ofta högt dimensionalitet. Till exempel om din Kristi har 100 000 unika ord, skulle funktionen-utrymme ha 100 000 dimensioner eller mer om N-gram används. Extrahera funktioner för N-Gram-modulen får du en uppsättning med alternativ för att minska dimensionaliteten. Du kan välja att exkludera ord som är kort eller long, eller för ovanliga eller för ofta har betydande värde. I de här självstudierna utesluter vi N-gram som visas i färre än 5 posterna eller i mer än 80% av posterna.
 
-Du kan också använda val av funktioner för att välja endast de funktioner som är mest korrelerade med mål-förutsägelse. Vi använder chi2 Funktionsurval för att välja 1000 funktioner. Du kan visa ordförråd för markerade ord eller N gram genom att klicka på Extrahera N-g modulen rätt utdata.
+Du kan också använda val av funktioner för att välja endast de funktioner som är mest till korrelerade med mål-förutsägelse. Vi använder chi2 Funktionsurval för att välja 1000 funktioner. Du kan visa vokabulär markerade ord eller N-gram genom att klicka på rätt utdata från extrahera N-gram-modul.
 
-Du kan använda funktions-hashning modulen som en annan metod för Extrahera N Gram funktioner. Observera dock att [funktions-hashning](https://msdn.microsoft.com/library/azure/dn906018.aspx) har inte inbyggda val av funktioner eller TF * IDF väger.
+Du kan använda funktions-hashning modulen som en annan metod för med hjälp av extrahera N-Gram-funktioner. Observera dock att [funktions-hashning](https://msdn.microsoft.com/library/azure/dn906018.aspx) har inte inbyggda val av funktioner eller TF * IDF vägas mot varandra.
 
-## <a name="step-3-train-classification-or-regression-model"></a>Steg 3: Klassificerings- eller regressionsmodell träningsmodell
-Texten har nu tagits omvandlas till funktionen för numeriska kolumner. Dataset innehåller fortfarande sträng kolumner från föregående steg så att vi använda Välj kolumner i datauppsättning för att utesluta dem.
+## <a name="step-3-train-classification-or-regression-model"></a>Steg 3: Träna klassificerings- eller regressionsmodell modell
+Texten har nu tagits omvandlas till funktionen för numeriska kolumner. Datauppsättningen innehåller fortfarande strängkolumner från föregående steg, så vi använder Välj kolumner i datauppsättning så de utesluts.
 
-Vi använder sedan [Two-Class Logistic Regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) att förutsäga målet: granska för hög eller låg poäng. Text analytics problemet har nu tagits omvandlas till en vanlig klassificeringsproblem. Du kan använda verktyg som finns i Azure Machine Learning för att förbättra modellen. Du kan till exempel experimentera med olika klassificerare ta reda på hur korrekta resultat som de ger eller använda hyperparameter för att förbättra.
+Sedan använder vi [Tvåklassförhöjt Logistic Regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) att förutsäga våra mål: granska för hög eller låg poäng. Nu har text analytics problemet omvandlats till en vanlig klassificeringsproblem. Du kan använda verktyg som finns tillgängliga i Azure Machine Learning för att förbättra modellen. Du kan till exempel experimentera med olika klassificerare att ta reda på hur korrekta resultat som de ger eller använda finjustering justering för att förbättra noggrannheten.
 
-![Tåg och poäng](./media/text-analytics-module-tutorial/scoring-text.png)
+![Träna upp och poäng](./media/text-analytics-module-tutorial/scoring-text.png)
 
-## <a name="step-4-score-and-validate-the-model"></a>Steg 4: Poängsätta och validera modellen
-Hur vill du validera den tränade modellen? Vi poängsätta mot testdatauppsättningen och utvärdera noggrannhet. Dock modellen lärt dig ordförråd för N g och deras vikt i utbildning DataSet. Därför ska användas som ordförråd och dessa vikter när funktioner från testdata i stället för att skapa ordlistan på nytt. Därför vi lägga till extrahera N Gram funktioner modul på den bedömningsprofil grenen av experimentet ansluta ordförråd för utdata från utbildning gren och ange läget ordförråd som skrivskyddad. Vi också inaktivera filtrering på N-g av frekvensen genom att ange minst 1 förekomst och maximalt 100% och inaktivera funktionen markeringen.
+## <a name="step-4-score-and-validate-the-model"></a>Steg 4: Poängsätta och verifiera modellen
+Hur skulle du verifierar den tränade modellen? Vi poäng mot testdatauppsättningen och utvärdera det arbete du utfört. Dock modellen lärt dig vokabulär N-gram och deras vikt från datauppsättning för träning. Vi bör därför använda den ordförråd och dessa vikter vid extrahering av funktioner från testdata, till skillnad från skapar vokabulär på nytt. Därför vi Lägg till funktioner för Extrahera N-Gram modul bedömnings-grenen av experimentet ansluta vokabulär utdata från utbildning gren och ange läget ordförråd till skrivskyddat läge. Vi också inaktivera filtrering av N-gram av frekvensen genom att ange minst 1 instans och maximalt 100 procent och Stäng av val av funktioner.
 
-När textkolumnen i testdata har transformerats till funktionen för numeriska kolumner, exkludera vi sträng kolumner från föregående steg som i utbildning grenen. Vi använder sedan modulen poängsätta modell att göra förutsägelser och utvärdera modell att utvärdera noggrannhet.
+När textkolumnen i testdata har omvandlats till funktionen för numeriska kolumner, utesluter vi strängkolumner från föregående steg som i utbildning gren. Vi använder sedan modulen poängsätta modell att göra förutsägelser och utvärdera modell att utvärdera det arbete du utfört.
 
 ## <a name="step-5-deploy-the-model-to-production"></a>Steg 5: Distribuera modellen till produktion
-Modellen är nästan klar att distribueras till produktionen. När du distribuerade som webbtjänsten den tar Fritextfält sträng som inmatning och returnera en förutsägelse ”hög” eller ”låg”. Inlärda N gram ordförråd används för att omvandla texten som ska funktioner och tränad regressionsmodell logistic att göra en förutsägelse från dessa funktioner. 
+Modellen är nästan klar att distribueras till produktion. När distribuerat som webbtjänst, den tar fri form textsträng som indata och returnerar en förutsägelse ”hög” eller ”låg”. Den inlärda N-gram ordförråd används för att omvandla text till funktioner och tränade logistic regression-modellen för att göra en förutsägelse från de här funktionerna. 
 
-Om du vill konfigurera prediktivt experiment spara vi först N gram ordförråd som dataset och utbildade logistic regressionsmodellen från grenen utbildning för experimentet. Vi spara experiment med ”Spara som” för att skapa ett experiment diagram för prediktivt experiment. Vi kan ta bort modulen dela Data och grenen utbildning från experimentet. Vi ansluter sedan tidigare sparad N gram ordförråd och modell till extrahera N Gram funktioner och Poängmodell moduler respektive. Vi har också ta bort modulen utvärdera modell.
+Om du vill konfigurera förutsägbart experiment spara vi först N-gram ordförråd som datauppsättning och tränade logistic regression-modellen från grenen utbildning av experimentet. Sedan kan spara vi experiment som använder ”Spara som” för att skapa ett experimentdiagram för förutsägelseexperiment. Vi kan ta bort modulen dela Data och utbildning gren från experimentet. Vi sedan ansluta tidigare sparad N-gram ordförråd och modell till extrahera N-Gram-funktioner och poängsätta modell moduler, respektive. Vi har också ta bort modulen utvärdera modell.
 
-Vi Infoga Välj kolumner i datauppsättning modulen innan Förbearbeta Text-modulen för att ta bort etikettkolumnen och avmarkerar alternativet ”Lägg till resultatkolumnen DataSet” i modulen poängsätta. På så sätt kan webbtjänsten inte begär etiketten ska förutsäga och har inte echo indata funktioner i svaret.
+Vi Infoga Välj kolumner i datauppsättning modulen innan du Förbearbeta Text-modulen för att ta bort etikettkolumnen och avmarkerar alternativet ”Lägg till poäng kolumn till datauppsättningen” i poäng-modulen. På så sätt kan webbtjänsten inte begär etiketten det försöker förutse och gör inte echo indata funktioner i svaret.
 
-![Prediktivt Experiment](./media/text-analytics-module-tutorial/predictive-text.png)
+![Förutsägbart Experiment](./media/text-analytics-module-tutorial/predictive-text.png)
 
-Nu har vi ett experiment som kan publiceras som en webbtjänst och anropas med begäran och svar eller batch execution API: er.
+Nu har vi ett experiment som kan publiceras som en webbtjänst och anropas med begäranden och svar eller batch-körningen API: er.
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig mer om text analytics moduler från [MSDN-dokumentationen](https://msdn.microsoft.com/library/azure/dn905886.aspx).
+Lär dig mer om modulerna för textanalys från [MSDN-dokumentationen](https://msdn.microsoft.com/library/azure/dn905886.aspx).
 

@@ -12,7 +12,6 @@ En virtuell dator i Azure stöder tillkoppling av ett antal datadiskar. Den här
 > | Premium Managed Disks | 10 000 | 50,000 |
 > | Standard_LRS ögonblicksbilder | 10 000 | 50,000 |
 > | Standard_ZRS ögonblicksbilder | 10 000 | 50,000 |
-> | Premium_LRS ögonblicksbilder | 10 000 | 50,000 |
 > | Hanterad avbildning | 10 000 | 50,000 |
 
 * **För standardlagringskonton:** Ett standardlagringskonto har en högsta totala begärandefrekvens på 20 000 IOPS. Det totala antalet IOPS för alla virtuella datordiskar på ett standardlagringskonto bör inte överskrida den här gränsen.

@@ -9,13 +9,13 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 09/24/2018
-ms.openlocfilehash: f6f669bd9ab45ba3800722eb3bcdba88f2e72f5e
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 11/20/2018
+ms.openlocfilehash: 72a6e7fdc8bd5887782ab23d29812bed792fd53f
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710247"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164599"
 ---
 # <a name="prepare-data-for-modeling-with-azure-machine-learning"></a>Förbereda data för modellering med Azure Machine Learning
  
@@ -25,15 +25,18 @@ Du kan förbereda dina data i Python med hjälp av den [Azure Machine Learning D
 
 ## <a name="azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning Dataförberedelser SDK
 
-Azure Machine Learning Data Prep SDK är ett Python-bibliotek som innehåller många vanliga verktyg som används för att förbearbetning data. Det ger också avancerade funktioner som automatisk funktionsframställning och transformeringar som härletts från exempel. SDK: N liknar i grundläggande funktioner populära bibliotek, till exempel Pandas och PySpark, men erbjuder mer flexibilitet. Pandas är vanligtvis mest användbara på mindre datamängder (< 2 – 5 GB) innan minne kapacitetsbegränsningar påverkar prestanda. Däremot PySpark är vanligtvis för stordata program, men innebär en belastning som gör att arbeta med små datauppsättningar som är mycket långsammare.
+Den [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) är ett Python-bibliotek som innehåller:
++ Många vanliga verktyg som används för att förbearbetning data
++ Automatiserad funktionsframställning och transformeringar som härletts från exempel
 
-SDK: N erbjuder:
+SDK: N är liknande grundläggande funktioner som populära bibliotek som **Pandas** och **PySpark**, erbjuder ännu mer flexibilitet. Pandas är vanligtvis mest användbara på mindre datamängder (< 2 – 5 GB) innan minne kapacitetsbegränsningar påverkar prestanda. Däremot PySpark är vanligtvis för stordata program, men innebär en belastning som gör att arbeta med små datauppsättningar som är mycket långsammare.
 
+Azure Machine Learning Data Prep SDK erbjuder:
 - Praktiska och bekvämlighet när du arbetar med små datauppsättningar
-- Skalbarhet för moderna program för stordata
-- Möjligheten att använda och skalar upp samma kod för båda användningsfall
 
-I följande exempel beskrivs några av de unika funktionerna i SDK.
+- Skalbarhet för moderna program för stordata
+
+- Möjligheten att använda och skalar upp samma kod för båda användningsfall
 
 ### <a name="install-the-sdk"></a>Installera SDK:n
 
@@ -49,7 +52,16 @@ Använd följande kod för att importera paketet.
 import azureml.dataprep as dprep
 ```
 
-### <a name="automatic-file-type-detection"></a>Automatisk identifiering
+### <a name="examples-and-reference"></a>Referens och exempel
+
+Läs mer om moduler och funktioner i den här SDK, i den [Data Prep SDK referensdokument](https://aka.ms/data-prep-sdk).
+
+I följande exempel beskrivs några av de unika funktionerna i SDK, inklusive:
++ Automatisk identifiering
++ Automatiska funktioner
++ Sammanfattande statistik
+
+#### <a name="automatic-file-type-detection"></a>Automatisk identifiering
 
 Använd den `smart_read_file()` funktionen för att läsa in data utan att behöva ange filtypen. Den här funktionen automatiskt identifierar och tolkar filtypen.
 
@@ -57,7 +69,7 @@ Använd den `smart_read_file()` funktionen för att läsa in data utan att behö
 dataflow = dprep.smart_read_file(path="<your-file-path>")
 ```
 
-### <a name="automated-feature-engineering"></a>Automatiska funktioner
+#### <a name="automated-feature-engineering"></a>Automatiska funktioner
 
 Använda SDK för att dela och härleda kolumner efter både exempel och inferens att automatisera funktionsframställning. Anta att du har ett fält i ditt dataflöde-objekt som kallas `datetime` med värdet `2018-09-15 14:30:00`.
 
@@ -77,7 +89,7 @@ new_dataflow = dataflow.derive_column_by_example(
     )
 ```
 
-### <a name="summary-statistics"></a>Sammanfattande statistik
+#### <a name="summary-statistics"></a>Sammanfattande statistik
 
 Du kan generera quick sammanfattande statistik för ett dataflöde med en rad med kod. Den här metoden erbjuder ett enkelt sätt att förstå dina data och hur den ska distribueras.
 

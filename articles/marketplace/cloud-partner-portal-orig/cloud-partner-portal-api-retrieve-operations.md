@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3f0f087c98f2b6594ab7e841f92ffac7ffe4003e
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: a7666ada6c4535010297415eac8b0bd9e5226d9e
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811534"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974475"
 ---
 <a name="retrieve-operations"></a>Hämta åtgärder
 ===================
@@ -48,7 +48,7 @@ Hämtar alla åtgärder på erbjudandet, eller för att hämta en viss åtgärd 
 |  |  |  |
 
 
-<a name="header"></a>Sidhuvud
+<a name="header"></a>Huvud
 ------
 
 |  **Namn**          |  **Värde**           |
@@ -189,7 +189,7 @@ Hämtar alla åtgärder på erbjudandet, eller för att hämta en viss åtgärd 
 |  submissionType              | Identifierar typ av åtgärd som har rapporterats för erbjudandet, till exempel `Publish/GGoLive`      |
 |  createdDateTime             | UTC-datum/tid när åtgärden har skapats                                                       |
 |  lastActionDateTime          | UTC-datum/tid när den senaste uppdateringen gjordes på åtgärden                                       |
-|  status                      | Status för åtgärden, antingen ”inte har startats | körs | misslyckades | slutfört`. Only one operation can have status `kör ”i taget. |
+|  status                      | Status för åtgärden, antingen `not started` \| `running` \| `failed` \| `completed`. Endast en åtgärd kan ha status `running` i taget. |
 |  fel                       | Felmeddelande för misslyckade åtgärder                                                               |
 |  |  |
 

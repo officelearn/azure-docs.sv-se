@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 20a87148e3c0df29e5f4dffd74a8f5389e3658b9
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: 1ed08562657eb0c50f05efb335c1790d35dcab01
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364566"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976833"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor (och svar FAQ) om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via vanliga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära där data används.
@@ -205,7 +205,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
     Om den prenumeration som har distribuerats för filresursen är associerad med samma Azure AD-klient som Azure AD Domain Services-deploymnet som den virtuella datorn är ansluten till domänen och du kan sedan komma åt Azure Files med samma Azure AD-autentiseringsuppgifter. Orsakas begränsningen inte i prenumerationen, men i den associerade Azure AD-klient.    
     
 * <a id="ad-support-subscription"></a>
-**Kan jag aktivera Azure AD-autentisering över SMB för Azure Files med en Azure AD-klient som skiljer sig från den primära klientorganisationen som filresursen är assoicated?**
+**Kan jag aktivera Azure AD-autentisering över SMB för Azure Files med en Azure AD-klient som skiljer sig från den primära klienten som är associerad till filresursen?**
 
     Nej, Azure Files stöder endast Azure AD-integrering med en Azure AD-klient som finns i samma prenumeration som filresursen. Endast en prenumeration kan associeras med en Azure AD-klient.
 
@@ -242,7 +242,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
 * <a id="data-compliance-policies"></a>
 **Vilka data efterlevnadsprinciper har stöd för Azure Files?**  
 
-   Azure Files körs ovanpå samma lagringsarkitektur som används i andra lagringstjänster i Azure Storage. Azure Files gäller efterlevnadsprinciper för samma data som används i andra Azure-lagringstjänster. Mer information om kompatibilitet för Azure Storage-data som du kan referera till [Azure Storage-efterlevnadserbjudanden](https://docs.microsoft.com/en-us/azure/storage/common/storage-compliance-offerings), och gå till den [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
+   Azure Files körs ovanpå samma lagringsarkitektur som används i andra lagringstjänster i Azure Storage. Azure Files gäller efterlevnadsprinciper för samma data som används i andra Azure-lagringstjänster. Mer information om kompatibilitet för Azure Storage-data som du kan referera till [Azure Storage-efterlevnadserbjudanden](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings), och gå till den [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 ## <a name="on-premises-access"></a>Lokal åtkomst
 * <a id="expressroute-not-required"></a>
@@ -258,7 +258,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
 ## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **Hur delar jag säkerhetskopiera min Azure?**  
-    Du kan använda periodiska [resursögonblicksbilder](storage-snapshots-files.md) för skydd mot oavsiktliga borttagningar. Du kan också använda AzCopy, Robocopy eller ett verktyg för säkerhetskopiering från tredje part som kan säkerhetskopiera en monterad filresurs. Azure Backup erbjuder säkerhetskopiering av Azure Files. Läs mer om [säkerhetskopiera Azure-filresurser med Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files).
+    Du kan använda periodiska [resursögonblicksbilder](storage-snapshots-files.md) för skydd mot oavsiktliga borttagningar. Du kan också använda AzCopy, Robocopy eller ett verktyg för säkerhetskopiering från tredje part som kan säkerhetskopiera en monterad filresurs. Azure Backup erbjuder säkerhetskopiering av Azure Files. Läs mer om [säkerhetskopiera Azure-filresurser med Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-files).
 
 ## <a name="share-snapshots"></a>Ögonblicksbilder av filresurser
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 4c56a1164a589af5d325d1378f331a7d0ee138b7
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 55d4f53a23c92bb96934e84c0400bc182bc3d87e
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956450"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976816"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Introduktionsguide för Azure-utvecklare
 
@@ -92,7 +92,7 @@ I stället för att behöva bekymra dig om att bygga ut och hantera hela program
 
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att bygga, paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster. Det ger också funktioner för hantering av omfattande program för etablering, distribution, övervakning, uppgradering/uppdatering och tar bort distribuerade program. Appar som körs på en delad pool med datorer, kan börja i liten skala och skalar till hundratals eller tusentals datorer efter behov.
 
-Service Fabric stöder WebAPI med Open Web Interface för .NET (OWIN) och ASP.NET Core. Det tillhandahåller SDK: er för att skapa tjänster på Linux i både .NET Core och Java. Läs mer om Service Fabric i den [utbildningsvägen för Service Fabric](https://azure.microsoft.com/documentation/learning-paths/service-fabric/).
+Service Fabric stöder WebAPI med Open Web Interface för .NET (OWIN) och ASP.NET Core. Det tillhandahåller SDK: er för att skapa tjänster på Linux i både .NET Core och Java. Läs mer om Service Fabric i den [dokumentation om Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/).
 
 >**När du ska använda:** Service Fabric är ett bra val när du skapar ett program eller skriva om ett befintligt program till att använda en mikrotjänstarkitektur. Använda Service Fabric när du behöver mer kontroll över, eller direkt åtkomst till den underliggande infrastrukturen.
 

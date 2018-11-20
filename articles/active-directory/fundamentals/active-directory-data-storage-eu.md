@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.custom: it-pro
-ms.openlocfilehash: d0015f40714b639d15245827ae0da3ca0f132df4
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 6aa2307123d62983f7afde3d871e8aa96e0abb5d
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733405"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976901"
 ---
 # <a name="where-does-microsoft-azure-active-directory-azure-ad-store-identity-data-for-european-customers"></a>Var lagrar Microsoft Azure Active Directory (Azure AD) identitetsdata för europeiska kunder?
 Azure AD hjälper dig att hantera användaridentiteter och att skapa intelligensdrivna åtkomstprinciper som hjälper dig att skydda din organisations resurser. Identitetsdata lagras på en plats som baseras på den adress som din organisationen uppgav när du registrerade dig för tjänsten. Till exempel när du registrerar dig för en prenumeration på Office 365 eller Azure. Specifik information om var dina identitetsdata lagras finns i avsnittet [Var finns dina data?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) på Microsoft Trust Center.
@@ -25,7 +25,7 @@ De flesta Azure AD-relaterade europeiska identitetsdata lagras på europeiska da
 
 ## <a name="data-stored-outside-of-european-datacenters-for-european-customers"></a>Data som lagras utanför europeiska datacenter för europeiska kunder
 
-Merparten av alla Azure AD-relaterade europeiska identitetsdata, för organisationer med europeiska adresser, lagras på europeiska datacenter. Exempel på Azure AD-data som inte lagras på europeiska datacenter är:
+Merparten av alla Azure AD-relaterade europeiska identitetsdata, för organisationer med europeiska adresser, lagras på europeiska datacenter. Azure AD-data som lagras i Europeiska datacenter, och också replikeras till datacenter i USA, innehåller:
 
 - **Identitetsrelaterade attribut**
 

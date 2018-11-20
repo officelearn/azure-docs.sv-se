@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: bba15ee901e7ccecc513f526339bde2fcc6277fa
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 7e0734790a0b33a52ace01ad961b1bc3127fa3d4
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142572"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976527"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilen produktionsprogram i Azure med Application Insights
 ## <a name="enable-profiler-for-your-application"></a>Aktivera Profiler för ditt program
@@ -38,7 +38,7 @@ Kör Profiler lokalt officiellt stöds inte, men vi har några [instruktioner so
 
 ## <a name="view-profiler-data"></a>Visa profiler data
 
-För profiler om du vill ladda upp spårningar, begär aktivt hantera programmet. Om du gör ett experiment, du kan generera begäranden till web app med [prestandatestning för Application Insights](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Om du har nyligen aktiverat Profiler, kan du köra ett kort belastningstest. När belastningstestet körs, trycker du på den **profil nu** knappen i den [ **Profiler inställningssidan**](). När profiler körs ska den profilera slumpmässigt om en gång i timmen och under en period på två minuter. Om ditt program hanterar en stadig ström av begäranden, Profiler kommer att överföra spårningar varje timme.
+För profiler om du vill ladda upp spårningar, begär aktivt hantera programmet. Om du gör ett experiment, du kan generera begäranden till web app med [prestandatestning för Application Insights](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Om du har nyligen aktiverat Profiler, kan du köra ett kort belastningstest. När belastningstestet körs, trycker du på den **profil nu** knappen i den [ **Profiler inställningssidan**](app-insights-profiler-settings.md#profiler-settings-page). När profiler körs ska den profilera slumpmässigt om en gång i timmen och under en period på två minuter. Om ditt program hanterar en stadig ström av begäranden, Profiler kommer att överföra spårningar varje timme.
 
 När ditt program tar emot en del trafik och profiler har fått tid att ladda upp trances, bör du ha spårningarna för att se. Den här processen kan ta 5 – 10 minuter. Om du vill visa spår, går du till den **prestanda** väljer **vidta åtgärder** att visa profiler-spårningar och välj sedan den **Profiler-spårningar** knappen.
 

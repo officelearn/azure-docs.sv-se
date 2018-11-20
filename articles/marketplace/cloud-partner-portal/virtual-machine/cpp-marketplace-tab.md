@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: aa43a6f1f7c757366e321e7da0fb1e47d4928cee
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: b68f7004366dcb502ffc8332cf8266a434c7ecfb
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639920"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977156"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Virtual machine Marketplace-fliken
 
@@ -40,7 +40,8 @@ I följande tabell beskrivs syftet med och innehållet i de här fälten.
 | **Beskrivning**           | Beskrivning av lösning.  Maximal längd på 3000 tecken har stöd för enkel HTML-formatering. |
 | **Identifierare för marknadsföring**  | En unik URL att koppla till det här erbjudandet innehåller normalt sett din organisation och lösningsnamn, maximal längd 50 tecken.  Exempel: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
 | **Förhandsversion av prenumerations-ID: N** | Lägg till en till 100 prenumeration identifierare av förhandsgranskningar. Dessa white visas prenumerationer har åtkomst till erbjudandet när den publiceras innan det lanseras. |
-| **Användbara länkar**          | Flera val för verksamheten och teknisk kategorier som erbjuder kan kopplas bäst.  Maximalt fem tillåts.  |
+| **Användbara länkar**          | Lägga till URL: er till dokumentation, viktig information, vanliga frågor och svar och så vidare. |
+| **Föreslås kategorier (Max 5)** | Flera val för verksamheten och teknisk kategorier som erbjuder kan kopplas bäst.  Maximalt fem tillåts.  |
 |  |  |
 
 

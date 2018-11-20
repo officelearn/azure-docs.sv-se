@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e87cd3742a5dcd52c3a447bb66ea9089c18d5aee
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e8608782c71f8afc2ae32b16077cb26b5dcc6849
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214689"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976196"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights med hjälp av AI att övervaka och felsöka databasen prestanda
 
@@ -41,7 +41,7 @@ Intelligent Insights är en unik funktion i Azure inbyggd intelligens som ger f�
 
 Smarta insikter analyserar databasens prestanda genom att jämföra databas-arbetsbelastning från den senaste timmen med de senaste sju dagar baslinje arbetsbelastningen. Databas-arbetsbelastning består av frågor för de viktigaste databasprestanda, till exempel de största och mest upprepade frågorna. Eftersom varje databas är unikt baserat på dess struktur, data, användning och program, är varje arbetsbelastning baslinje som genereras specifika och unik för en enskild instans. Smarta insikter, oberoende av baslinjen arbetsbelastning också övervakar absolut operativa tröskelvärden och identifierar problem med långa väntetider, kritiska undantag och problem med frågan parameterizations som kan påverka prestanda.
 
-Om en försämring prestandaproblem har identifierats från flera observerade mått med hjälp av artificiell intelligens, utförs analysen. En diagnostiklogg skapas med en intelligent insight på vad som händer med din databas. Intelligent Insights gör det enkelt att spåra prestandaproblemet databasen från utseendet första fram till lösning. Alla upptäckta problem spåras under dess livscykel från första problemet identifiering och kontroll av prestandaförbättring den har slutförts. Uppdateringar finns i diagnostikloggen för var 15: e minut.
+Om en försämring prestandaproblem har identifierats från flera observerade mått med hjälp av artificiell intelligens, utförs analysen. En diagnostiklogg skapas med en intelligent insight på vad som händer med din databas. Intelligent Insights gör det enkelt att spåra prestandaproblemet databasen från utseendet första fram till lösning. Alla upptäckta problem spåras under dess livscykel från första problemet identifiering och kontroll av prestandaförbättring den har slutförts.
 
 ![Databasen prestanda analysis arbetsflöde](./media/sql-database-intelligent-insights/intelligent-insights-concept.png)
 

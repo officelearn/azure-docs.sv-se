@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/04/2018
-ms.openlocfilehash: 70096c8f3a5c07fa757b68494c04519b63435dcd
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: fb18507cc9b7aef92a07e6c34c99403e47be1c88
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166902"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977105"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Använda diagnostikloggen för Intelligent Insights Azure SQL Database-prestanda
 
@@ -39,9 +39,7 @@ Rubriken på loggen är vanligt och består av tidsstämpeln (TimeGenerated) som
 
 ## <a name="issue-id-and-database-affected"></a>Problem-ID och databasen som påverkas
 
-Egenskapen problemet identifiering (issueId_d) ger ett sätt att spåra prestandaproblem unikt förrän de är löst. Smarta insikter iakttar varje problemet livscykel som ”aktiv”, ”verifiera” eller ”slutförd”. Via respektive fas status registrera smarta insikter flera händelseposter i loggen. För var och en av de här posterna fortfarande problem-ID-nummer unika. Intelligent Insights spårar problemet under dess livscykel och genererar en insikt i diagnostikloggen för var 15: e minut.
-
-När ett prestandaproblem har identifierats och för så länge som den tar problemet rapporteras som ”aktiv” under statusegenskapen (status_s). Den har verifierats och rapporteras som ”verifiera” under statusegenskapen (status_s) efter ett identifierat problem har minimerats. Om problemet inte längre finns i statusegenskapen (status_s) rapporterar problemet som ”slutförd”.
+Egenskapen problemet identifiering (issueId_d) ger ett sätt att spåra unikt prestandaproblem förrän löst. Flera händelseposter i loggen rapporterar status för samma problem kommer att dela samma problem-ID.
 
 Tillsammans med ärende-ID rapporterar diagnostikloggen start (intervalStartTime_t)- och slut (intervalEndTme_t) tidsstämplar händelse som rör ett problem som rapporteras i diagnostikloggen för.
 
@@ -100,7 +98,7 @@ Prestandaproblemet som har identifierats, information för utdata i diagnostiken
 
 Effekten (inverkan) egenskapen beskriver hur mycket ett identifierade beteende bidragit till problemet som har en databas. Påverkan på mellan 1 och 3, med 3 som högsta bidrag, 2 som Måttlig och 1 som lägst bidrag. Påverkan värdet kan användas som indata för anpassade aviseringar automation, beroende på dina specifika behov. Frågor om egenskaper påverkas (QueryHashes) tillhandahåller en lista över frågan hashvärden som har påverkats av en viss identifiering.
 
-### <a name="impacted-queries"></a>Påverkade frågor
+### <a name="impacted-queries"></a>Frågor som påverkas
 
 Nästa avsnitt av Intelligent Insights loggen innehåller information om specifika frågor som har påverkats av de identifierade prestandaproblem. Den här informationen anges som en matris med objekt som är inbäddade i egenskapen impact_s. Hur egenskapen påverkan består av entiteter och mått. Entiteter som refererar till en viss fråga (typ: fråga). Unikt fråge-hash anges under egenskapen value (värde). Dessutom är alla frågor uppges följt av ett mått och ett värde som indikerar ett identifierade prestandaproblem.
 

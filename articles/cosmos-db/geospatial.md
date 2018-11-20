@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: sngun
-ms.openlocfilehash: 6ad59f14a0ade305bc9b1f9f125c21e9bdc39c0d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0bd91eba80aba340619f5aa76d5bc19894a3510f
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961916"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163086"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Använda geospatiala och GeoJSON platsdata med Azure Cosmos DB SQL API-konto
 
@@ -151,7 +151,7 @@ Om du inte har nödvändig information för latitud och longitud, men har fysisk
 Nu när vi har tagit en titt på hur du infogar geospatiala data, låt oss ta en titt på hur du frågar efter dessa data med Azure Cosmos DB med SQL och LINQ.
 
 ### <a name="spatial-sql-built-in-functions"></a>Spatial inbyggda SQL-funktioner
-Azure Cosmos DB stöder följande öppna geospatiala Consortium (OGC) inbyggda funktioner för geospatiala frågor. Mer information om en fullständig uppsättning med inbyggda funktioner i SQL-språket finns i [fråga Azure Cosmos DB](sql-api-sql-query.md).
+Azure Cosmos DB stöder följande öppna geospatiala Consortium (OGC) inbyggda funktioner för geospatiala frågor. Mer information om en fullständig uppsättning med inbyggda funktioner i SQL-språket finns i [fråga Azure Cosmos DB](how-to-sql-query.md).
 
 <table>
 <tr>
@@ -392,6 +392,6 @@ Bredvid nu när du har lärt dig hur du kommer igång med geospatialt stöd i Az
 
 * Börja koda med den [geospatiala .NET-kodexempel på GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * Praktiska övningar och få med geospatiala frågor på den [Frågespelplan för Azure Cosmos DB](http://www.documentdb.com/sql/demo#geospatial)
-* Läs mer om [Azure Cosmos DB-fråga](sql-api-sql-query.md)
+* Läs mer om [Azure Cosmos DB-fråga](how-to-sql-query.md)
 * Läs mer om [indexera Azure Cosmos DB-principer](indexing-policies.md)
 

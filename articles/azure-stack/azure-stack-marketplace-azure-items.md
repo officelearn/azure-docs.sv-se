@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/15/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: c3c5e904d8e933c09754e13ccb22d6c16d0a37eb
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 229c0a6afee893a4a8eb5cd62a1d25266ee8fc3e
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713477"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977190"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-objekt tillgängliga för Azure Stack
 
@@ -203,7 +203,7 @@ Microsoft Azure Stack har stöd för följande virtuella datorer i Azure Marketp
 | ![RabbitMQ-kluster](media/azure-stack-marketplace-azure-items/rabbitmq.png) | [RabbitMQ-kluster](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.rabbitmq-cluster) | RabbitMQ är en asynkron meddelandetjänst som ger en gemensam plattform för att skicka och ta emot meddelanden och meddelanden kassaskåp placera TTL-värde förrän togs emot för dina program. Den här lösningen använder flera virtuella datorer för att etablera flera noder i ett RabbitMQ kluster för att skapa en enskild logisk koordinator. **Den här lösningsmallen kräver också Debian 8 och anpassat skript för Linux 2.0-tillägget.** | Bitnami |
 | ![RE: dash](media/azure-stack-marketplace-azure-items/redash.png) | [RE: dash](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redash) | Datavisualisering med öppen källkod och samarbetsplattform. | Bitnami |
 | ![Redis](media/azure-stack-marketplace-azure-items/redis.png) | [Redis](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redis) | Kraftfulla öppen källkod nyckel / värde-lager. | Bitnami |
-| ![Redis hög tillgänglighet](media/azure-stack-marketplace-azure-items/redis.png) | [Redis hög tillgänglighet](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-redis) | Kraftfulla öppen källkod nyckel / värde-lager. **Den här lösningsmallen kräver din Azure Stack är version 1807 eller senare och kräver också Debian 8 och anpassat skript för Linux 2.0-tillägget.** | Bitnami |
+| ![Redis hög tillgänglighet](media/azure-stack-marketplace-azure-items/redis.png) | [Redis hög tillgänglighet](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redis-cluster) | Kraftfulla öppen källkod nyckel / värde-lager. **Den här lösningsmallen kräver din Azure Stack är version 1807 eller senare och kräver också Debian 8 och anpassat skript för Linux 2.0-tillägget.** | Bitnami |
 | ![Redmine](media/azure-stack-marketplace-azure-items/redmine.png) | [Redmine](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redmine) | Kraftfulla webbapp för hantering | Bitnami |
 | ![Redmine + flexibel](media/azure-stack-marketplace-azure-items/redmineagile.png) | [Redmine + flexibel](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redmineplusagile) | Projicera hanteringsprogram som är förkonfigurerad med flexibel plugin-programmet. | Bitnami |
 | ![ReportServer Community](media/azure-stack-marketplace-azure-items/reportserver.png) | [ReportServer Community](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.reportserver) | Plattform för öppen källkod business intelligence. | Bitnami |
@@ -250,5 +250,5 @@ Microsoft Azure Stack har stöd för följande virtuella datorer i Azure Marketp
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall identifierar kända och okända säkerhetsrisker och förebygger attacker i web apps. **Hämta båda PT Marketplace-objekt.** | Positivt tekniker |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise kan du automatisera hela livscykeln för din Azure Stack-infrastruktur. **Hämta båda Puppet Marketplace-objekt.** | Puppet |
 | ![Begäran om snabb återställning](media/azure-stack-marketplace-azure-items/quest.png) | [Begäran om snabb återställning Core](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Snabb återställning avancerade dataskydd förenar säkerhetskopiering, replikering och återställning i en enkel att använda programvarulösning. | Quest-program |
-| ![SUSE Manager 3.1 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.1 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSE-Manager) | Bästa klassens infrastrukturhantering för öppen källkod. | SUSE |
+| ![SUSE Manager 3.1 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.1 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.suse-manager-proxy-byos?tab=Overview) | Bästa klassens infrastrukturhantering för öppen källkod. | SUSE |
 | ![ZeroDown programvara BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [Affärskontinuitet för ZeroDown programvara som en tjänst](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | ZeroDown® programvaruteknik erbjuder företag med kontinuerlig åtkomst till deras företagsdata via deras kontinuitet för företag som en tjänst (BCaaS)™ arkitektur, skydda program och transaktioner, om nätverksavbrott inträffar som vanligt cripple företaget. | ZeroDown programvara |

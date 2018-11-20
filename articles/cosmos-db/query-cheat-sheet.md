@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: 22f8384105ed31ac2b11e0c6094b01549a270144
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c79a1c0e6449e1ae87c2ed09acdc1ecd380cfaaf
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230877"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160978"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Facit för Azure Cosmos DB-fråga
 
@@ -36,7 +36,7 @@ Ladda ned den [facit för Azure Cosmos DB A3-storlek fråga](https://go.microsof
 
 ## <a name="next-steps"></a>Nästa steg
 Mer hjälp skriver frågor finns i följande artiklar:
-* SQL API-frågor finns i [frågar med SQL API](tutorial-query-sql-api.md), [SQL-frågor för Azure Cosmos DB](sql-api-sql-query.md), och [referens för SQL-syntax](sql-api-sql-query-reference.md)
+* SQL API-frågor finns i [frågar med SQL API](tutorial-query-sql-api.md), [SQL-frågor för Azure Cosmos DB](how-to-sql-query.md), och [referens för SQL-syntax](sql-api-sql-query-reference.md)
 * MongoDB-frågor finns i [frågar med hjälp av MongoDB API](tutorial-query-mongodb.md) och [MongoDB API-stöd för MongoDB-funktioner och syntax](mongodb-feature-support.md)
 * Gremlin-API-frågor finns i [fråga med hjälp av Gremlin-API](tutorial-query-graph.md) och [grafstöd för Azure Cosmos DB Gremlin](gremlin-support.md)
 * Tabell-API-frågor finns [ställa frågor med tabell-API](tutorial-query-table.md)

@@ -1,18 +1,18 @@
 ---
 title: Konfigurera en processerver i Azure för att växla tillbaka under haveriberedskap för virtuella VMware-datorer och fysiska servrar med Azure Site Recovery | Microsoft Docs
 description: Den här artikeln beskriver hur du ställer in en processerver i Azure, för att återställa från Azure till lokala under haveriberedskap för virtuella VMware-datorer och fysiska servrar.
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
-ms.author: raynew
-ms.openlocfilehash: 330f0197b8a7735043e93f00dc4baa5578f50228
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.date: 11/19/2018
+ms.author: ramamill
+ms.openlocfilehash: 50d1170f64ae199f4a1bf4b852c1ed3232df4d42
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212241"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974812"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>Skala för återställning efter fel med ytterligare processervrar
 
@@ -41,6 +41,7 @@ Där varje skyddad källdatorn är konfigurerad med 3 diskar på 100 GB vardera.
 Krav för den kompletterande processervern sammanfattas i tabellen nedan.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
+
 
 
 ## <a name="download-installation-file"></a>Ladda ned installationsfilen

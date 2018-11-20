@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 17029f51be9fed8fc36c5f919ece84acbf0461d9
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 9c614d18b96c182fa166a4bc43fb1bb2f8d5d6f5
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42055166"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976747"
 ---
 # <a name="dcos-agent-pools-for-azure-container-service"></a>DC/OS-agentpooler för Azure Container Service
 DC/OS-kluster i Azure Container Service innehåller agentnoder i två pooler, poolen offentliga och privata poolen. Ett program kan bara distribueras till antingen poolen, påverkar tillgängligheten mellan datorer i container service. Datorerna kan exponerade mot internet (offentlig) eller behöll intern (privat). Den här artikeln ger en kort översikt över varför det är offentliga och privata pooler.
@@ -37,7 +37,7 @@ DC/OS-agentpooler i Azure Container Service skapas på följande sätt:
 Poolen privata och offentliga poolen är Azure VM-skalningsuppsättningar. Du kan ändra storlek på dessa pooler efter distributionen.
 
 ## <a name="use-agent-pools"></a>Använda agentpooler
-Som standard **Marathon** distribuerar ett nytt program till den *privata* agentnoder. Du måste uttryckligen distribuera programmet till den *offentliga* noder under genereringen av programmet. Välj den **valfritt** fliken och ange **slave_public** för den **accepterade resursroller** värde. Den här processen beskrivs [här](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) och i den [DC/OS](https://dcos.io/docs/1.7/administration/installing/custom/create-public-agent/) dokumentation.
+Som standard **Marathon** distribuerar ett nytt program till den *privata* agentnoder. Du måste uttryckligen distribuera programmet till den *offentliga* noder under genereringen av programmet. Välj den **valfritt** fliken och ange **slave_public** för den **accepterade resursroller** värde. Den här processen beskrivs [här](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) och i den [DC/OS](https://docs.mesosphere.com/1.7/administration/installing/oss/custom/create-public-agent/) dokumentation.
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om [hantera DC/OS-behållare](container-service-mesos-marathon-ui.md).

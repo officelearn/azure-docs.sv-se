@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: dea343dee65ab66d52b431614fd334fd6e380f50
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e73c295c214728bf07b65ae4402c3b5abe21932f
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629190"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165296"
 ---
-# <a name="working-with-azure-cosmos-db-accounts"></a>Arbeta med Azure Cosmos DB-konton
+# <a name="working-with-azure-cosmos-account"></a>Arbeta med ett Azure Cosmos-konto
 
-Azure Cosmos DB är en fullständigt hanterad platform-as-a-service (PaaS). Om du vill börja använda Azure Cosmos DB, bör du först skapa ett Azure Cosmos DB-konto i Azure-prenumerationen. Ditt Azure Cosmos-konto innehåller ett unikt DNS-namn och du kan hantera ett konto med hjälp av Azure-portalen, Azure CLI eller genom att använda olika språkspecifika SDK: er. Mer information finns i [så här hanterar du ditt Azure Cosmos-konto](how-to-manage-database-account.md).
+Azure Cosmos DB är en fullständigt hanterad platform-as-a-service (PaaS). För att börja använda Azure Cosmos DB, bör du först skapa ett Azure Cosmos-konto i Azure-prenumerationen. Ditt Azure Cosmos-konto innehåller ett unikt DNS-namn och du kan hantera ett konto med hjälp av Azure-portalen, Azure CLI eller genom att använda olika språkspecifika SDK: er. Mer information finns i [så här hanterar du ditt Azure Cosmos-konto](how-to-manage-database-account.md).
 
-Azure Cosmos DB-kontot är den grundläggande enheten på global distribution och hög tillgänglighet. För att distribuera globalt dina data och dataflöde över flera Azure-regioner, kan du lägga till och ta bort Azure-regioner till ditt Azure Cosmos-konto när som helst. Du kan konfigurera ditt Azure Cosmos-konto om du vill ha en enda eller flera Skriv-regioner. Mer information finns i [att lägga till och ta bort Azure-regioner till ditt Azure Cosmos-konto](how-to-manage-database-account.md). Du kan konfigurera den [standardkonsekvens](consistency-levels.md) nivå på Azure Cosmos-konto. Azure Cosmos DB tillhandahåller omfattande serviceavtal som omfattar genomflöde, svarstid på 99: e percentilen, konsekvens och hög tillgänglighet. Mer information finns i [Azure Cosmos DB-serviceavtal](https://azure.microsoft.com/en-us/support/legal/sla/cosmos-db/v1_2/).
+Azure Cosmos-kontot är den grundläggande enheten på global distribution och hög tillgänglighet. För att distribuera globalt dina data och dataflöde över flera Azure-regioner, kan du lägga till och ta bort Azure-regioner till ditt Azure Cosmos-konto när som helst. Du kan konfigurera ditt Azure Cosmos-konto om du vill ha en enda eller flera Skriv-regioner. Mer information finns i [att lägga till och ta bort Azure-regioner till ditt Azure Cosmos-konto](how-to-manage-database-account.md). Du kan konfigurera den [standardkonsekvens](consistency-levels.md) nivå på Azure Cosmos-konto. Azure Cosmos DB tillhandahåller omfattande serviceavtal som omfattar genomflöde, svarstid på 99: e percentilen, konsekvens och hög tillgänglighet. Mer information finns i [Azure Cosmos DB-serviceavtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/).
 
 För att på ett säkert sätt hantera åtkomst till alla data i ditt Azure Cosmos-konto, kan du använda huvudnycklar som är associerat med ditt konto. Att ytterligare skydda åtkomsten till dina data kan du konfigurera en tjänstslutpunkt för virtuellt nätverk och IP-brandvägg på ditt Azure Cosmos-konto. 
 
@@ -41,4 +41,4 @@ Du kan nu fortsätta att lära dig hur du hanterar din Azure Cosmos-konto och se
 * [VNET-tjänstslutpunkt för ditt Azure Cosmos-konto](firewall-support.md)
 * [IP-brandväggen för ditt Azure Cosmos-konto](vnet-service-endpoint.md)
 * [Anvisningar: lägga till och ta bort Azure-regioner till ditt Azure Cosmos-konto](how-to-manage-database-account.md)
-* [Azure Cosmos DB-serviceavtal](https://azure.microsoft.com/en-us/support/legal/sla/cosmos-db/v1_2/)
+* [Azure Cosmos DB-serviceavtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

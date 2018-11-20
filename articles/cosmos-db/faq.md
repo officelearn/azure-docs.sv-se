@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: sngun
-ms.openlocfilehash: 4dfe6bb2c648b0983482633500790db6d510d2eb
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 50d606486a6d80f00424685494eae28a95fe361a
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853990"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164718"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB vanliga frågor och svar
 
@@ -180,7 +180,7 @@ SQL-frågespråket som stöds av SQL API-konton är en förbättrad underuppsät
 
 ### <a name="does-the-sql-api-support-sql-aggregation-functions"></a>SQL-API som har stöd för SQL-aggregeringsfunktioner?
 
-SQL-API: et stöder med låg latens aggregering i valfri skala via mängdfunktioner `COUNT`, `MIN`, `MAX`, `AVG`, och `SUM` via SQL-grammatik. Mer information finns i [mängdfunktioner](sql-api-sql-query.md#Aggregates).
+SQL-API: et stöder med låg latens aggregering i valfri skala via mängdfunktioner `COUNT`, `MIN`, `MAX`, `AVG`, och `SUM` via SQL-grammatik. Mer information finns i [mängdfunktioner](how-to-sql-query.md#Aggregates).
 
 ### <a name="how-does-the-sql-api-provide-concurrency"></a>Hur tillhandahåller SQL API samtidighet?
 
@@ -278,7 +278,7 @@ Det finns ett antal slutpunkter/frågealternativ som inte stöds av Azure Cosmos
 | ------------| ------------- | ---------- | ----------- |
 | HÄMTA, PLACERA | /? restype =service@comp= egenskaper| [Ange egenskaper för tabellen](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) och [hämta egenskaper för tabell](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Den här slutpunkten används för att ange CORS-regler, lagringskonfiguration för analys och loggningsinställningar. CORS stöds inte för närvarande och analyser och loggning hanteras annorlunda i Azure Cosmos DB än Azure Storage-tabeller |
 | ALTERNATIV | / < table-resource-name > | [Tabell före flygning CORS-förfrågan](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Det här är en del av CORS som Azure Cosmos DB inte stöder för närvarande. |
-| GET | /? restype =service@comp= stats | [Hämta statistik för tjänsten i tabellen](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Innehåller information hur snabbt data replikeras mellan primära och sekundära databaser. Detta är inte nödvändigt i Cosmos DB som replikeringen är en del av skrivningar. |
+| HÄMTA | /? restype =service@comp= stats | [Hämta statistik för tjänsten i tabellen](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Innehåller information hur snabbt data replikeras mellan primära och sekundära databaser. Detta är inte nödvändigt i Cosmos DB som replikeringen är en del av skrivningar. |
 | HÄMTA, PLACERA | /mytable? comp = acl | [Hämta ACL-tabellen](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) och [ange tabellen ACL](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Detta hämtar och anger de lagrade åtkomstprinciper som används för att hantera signaturer för delad åtkomst (SAS). Även om SAS stöds kan de ange och hanteras annorlunda. |
 
 Azure Cosmos DB Table API stöder dessutom endast JSON-format, inte ATOM.
@@ -466,7 +466,7 @@ Den kan från .NET SDK skickas i filen app.config:
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>Det verkar som om Azure Cosmos DB som en plattform har många funktioner, till exempel sortering, samlingar, hierarkin och andra funktioner. Du lägger till de här funktionerna till tabell-API?
 
-Tabell-API ger samma frågefunktion som Azure Table storage. Azure Cosmos DB stöder också sortering, samlingar, geospatiala frågor, hierarki och en mängd inbyggda funktioner. Vi ger ytterligare funktioner i tabell-API i en framtida tjänstuppdatering. Mer information finns i [SQL-frågor](sql-api-sql-query.md).
+Tabell-API ger samma frågefunktion som Azure Table storage. Azure Cosmos DB stöder också sortering, samlingar, geospatiala frågor, hierarki och en mängd inbyggda funktioner. Mer information finns i [SQL-frågor](how-to-sql-query.md).
 
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>När bör jag ändra TableThroughput för tabell-API?
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: ''
-ms.openlocfilehash: 9569a9da81848c279db6d6d45b7621f84060387b
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: db0de3ec354fd599d2c10b26eea2991469410c12
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958635"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163375"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Skicka gäst-OS mått till Azure Monitor-datalager för en Windows-dator (klassisk)
 
@@ -36,7 +36,7 @@ Processen som beskrivs i den här artikeln fungerar bara på klassiska virtuella
 ## <a name="create-a-classic-virtual-machine-and-storage-account"></a>Skapa en klassisk virtuell dator och storage-konto
 
 1. Skapa en klassisk virtuell dator med hjälp av Azure portal.
-   ![Skapa klassiska virtuell dator](./media/metrics-store-custom-guestos-classic-vm/create-classic-vm.png)
+   ![Skapa en klassisk virtuell dator](./media/metrics-store-custom-guestos-classic-vm/create-classic-vm.png)
 
 1. När du skapar den här virtuella datorn, väljer du alternativet för att skapa ett klassiskt lagringskonto. Vi använder det här lagringskontot i senare steg.
 

@@ -1,7 +1,7 @@
 ---
-title: SQL-frågan mätvärden för Azure SQL DB-API Cosmos | Microsoft Docs
-description: Lär dig mer om hur du instrumentera och felsöka frågeprestanda SQL Azure DB som Cosmos-begäranden.
-keywords: SQL-syntax, sql-fråga, sql-frågor, json-frågespråket, databasbegrepp och sql-frågor, mängdfunktioner
+title: SQL-fråga mått för Azure Cosmos DB SQL API | Microsoft Docs
+description: Läs mer om hur du instrumenterar och felsöka SQL-frågeprestanda för Azure Cosmos DB-begäranden.
+keywords: SQL-syntax, sql-fråga, sql-frågor, frågespråk för json, databasbegrepp och sql-frågor, mängdfunktioner
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -11,49 +11,49 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
-ms.openlocfilehash: 4ed0008f4b574691387d6e0ee0300b5f05f1ec1b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 9358e0a712f820671edec518b1cc93ecee5302ad
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798703"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162548"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Justera prestanda för frågor med Azure Cosmos DB
 
-Azure Cosmos-DB tillhandahåller en [SQL API för datafrågor](sql-api-sql-query.md), utan att schemat eller sekundärindex. Den här artikeln innehåller följande information för utvecklare:
+Azure Cosmos DB tillhandahåller en [SQL-API för att fråga data](how-to-sql-query.md), utan att kräva schema eller sekundära index. Den här artikeln innehåller följande information för utvecklare:
 
-* Utförlig information om hur fungerar Azure Cosmos DB SQL-frågan
-* Information om frågan begärande- och svarshuvuden och alternativ för klient-SDK
+* Utförlig information om hur Azure Cosmos DB SQL-frågekörning fungerar
+* Information om frågan sidhuvuden för begäran och svar och alternativ för klient-SDK
 * Tips och bästa praxis för prestanda för frågor
-* Exempel på hur du använder SQL-körningen statistik för att felsöka prestanda för frågor
+* Exempel på hur du använder SQL-körningen statistik för att felsöka frågeprestanda
 
-## <a name="about-sql-query-execution"></a>Om körning av SQL-fråga
+## <a name="about-sql-query-execution"></a>Om SQL-frågekörning
 
-I Azure Cosmos DB du lagra data i behållare, som kan växa till någon [storlek eller begäran genomflödet](partition-data.md). Azure Cosmos-DB skalas sömlöst data över fysiska partitioner under försättsbladen att hantera datatillväxt eller ökar med etablerat dataflöde. Du kan utfärda SQL-frågor till en behållare med REST API eller något av de stöds [SQL SDK](sql-api-sdk-dotnet.md).
+I Azure Cosmos DB kan du lagra data i behållare som kan växa till någon [storlek eller begäran genomflödet](partition-data.md). Azure Cosmos DB skalas sömlöst data över fysiska partitioner under försättsbladen att hantera datatillväxt eller öka i etablerat dataflöde. Du kan utfärda SQL-frågor till en behållare med hjälp av REST API eller en av de stöds [SQL SDK: er](sql-api-sdk-dotnet.md).
 
-En kort översikt över partitionering: du anger en partitionsnyckel som ”stad”, som avgör hur data delas mellan fysiska partitioner. Data som hör till en enda partitionsnyckel (till exempel ”stad” == ”Seattle”) lagras i en fysiska partition, men en enda fysisk partition har vanligtvis flera partitionsnycklar. När en partition når lagringsstorlek, tjänsten sömlöst delar partitionen i två nya partitioner och dividerar Partitionsnyckeln jämnt mellan dessa partitioner. Eftersom partitioner är tillfälligt använda API: er i en abstraktion av en ”partitionsnyckelintervallet”, som anger intervall för partition viktiga hashvärden. 
+En kort översikt över partitionering: du definiera en partitionsnyckel som ”city”, som avgör hur data delas över fysiska partitioner. Data som hör till en enda partitionsnyckel (till exempel ”stad” == ”Seattle”) som lagrats i en fysisk partition, men en enda fysisk partition har vanligtvis flera partitionsnycklar. När en partition når storage storlek, tjänsten sömlöst delar upp partitionen i två nya partitioner och dividerar Partitionsnyckeln jämnt över dessa partitioner. Eftersom partitioner är tillfälligt, använda API: erna en abstraktion av en ”partitionsnyckelintervall”, som anger intervall för partition viktiga hashvärden. 
 
-När du skickar en fråga till Azure Cosmos DB utför stegen logiska SDK:
+När du skickar en fråga till Azure Cosmos DB utför SDK dessa logiska steg:
 
-* Parsa SQL-frågan för att fastställa körning frågeplanen. 
-* Om frågan innehåller ett filter mot Partitionsnyckeln, som `SELECT * FROM c WHERE c.city = "Seattle"`, dirigeras till en enskild partition. Om frågan inte har ett filter på partitionsnyckel, sedan den körs i alla partitioner och resultat kombineras på klientsidan.
-* Frågan köras inom varje partition i serien eller parallell, baserat på klientens konfiguration. Inom varje partition frågan kan göra att en eller flera sändningar beroende på hur komplex fråga konfigurerats sidstorlek och etableras genomflöde i mängden. Varje körning returnerar antalet [programbegäran](request-units.md) används genom att köra frågor och eventuellt statistik för körning av frågan. 
-* SDK utför en sammanfattning av frågeresultatet över partitioner. Till exempel om frågan innefattar en ORDER BY över partitioner, är sedan resultaten från enskilda partitioner merge sorteras du returnerar resultat på globalt sorteringsordningen. Om frågan är en samling som `COUNT`, antal från enskilda partitioner summeras för att skapa det totala antalet.
+* Parsa SQL-fråga för att fastställa frågeplan för körning. 
+* Om frågan innehåller ett filter mot Partitionsnyckeln, som `SELECT * FROM c WHERE c.city = "Seattle"`, dirigeras den till en enda partition. Om frågan inte har ett filter på Partitionsnyckeln och den körs i alla partitioner, och resultatet slås samman på klientsidan.
+* Frågan köras inom varje partition i serien eller parallell, baserat på klientkonfigurationen för. Inom varje partition frågan kan göra något eller mer tur och RETUR beroende på komplexiteten fråga konfigurerats sidstorlek och etablerat dataflöde i samlingen. Varje körning returnerar antalet [programbegäran](request-units.md) förbrukas av frågekörning och eventuellt frågestatistik för körning. 
+* SDK: N utför en sammanfattning av frågeresultatet över partitioner. Till exempel om frågan innefattar en ORDER BY över partitioner, är sedan resultaten från enskilda partitioner merge sorterade att returnera resultat i globalt sorterade ordning. Om frågan är en sammansättning som `COUNT`, antalen från enskilda partitioner läggs ihop för att skapa det totala antalet.
 
 SDK: erna tillhandahåller olika alternativ för frågekörning. Till exempel i .NET dessa alternativ är tillgängliga i den `FeedOptions` klass. I följande tabell beskrivs dessa alternativ och hur de påverkar körningstid för frågan. 
 
 | Alternativ | Beskrivning |
 | ------ | ----------- |
-| `EnableCrossPartitionQuery` | Måste anges till true för en fråga som måste köras på mer än en partition. Det här är en explicit flagga så att du kompromissa medvetna prestanda under utveckling. |
-| `EnableScanInQuery` | Måste anges till true om du har valt att inte indexera, men vill ändå kör frågan via en genomsökning. Endast är tillgängligt för indexering för den begärda filtret sökvägen inaktiverad. | 
-| `MaxItemCount` | Maximalt antal objekt som ska returneras per tur och RETUR till servern. Genom att ange-1, kan du låta servern hantera antalet objekt. Eller så kan du sänka detta värde att hämta litet antal objekt per onödig kommunikation. 
-| `MaxBufferedItemCount` | Detta är ett alternativ för klientsidan och används för att begränsa minnesförbrukningen när du utför cross-partition ORDER BY. Ett högre värde hjälper till att minska svarstiden för cross-partition sortering. |
-| `MaxDegreeOfParallelism` | Hämtar eller anger antalet samtidiga åtgärder som körs på klientsidan under parallell frågekörning i tjänsten Azure DB som Cosmos-databasen. Ett positivt egenskapsvärde begränsar antalet samtidiga åtgärder att ange värdet. Om det är mindre än 0, bestämmer systemet automatiskt antalet samtidiga åtgärder att köra. |
-| `PopulateQueryMetrics` | Aktiverar detaljerad loggning av statistik tid som ägnats åt olika faser i Frågekörningen som kompileringstid, indexet loop tid och dokument laddas gång. Utdata från frågan statistik kan du dela med Azure-supporten att diagnostisera prestandaproblem för frågan. |
-| `RequestContinuation` | Du kan återuppta körning av fråga genom att passera i täckande fortsättningstoken som returnerades av en fråga. Fortsättningstoken kapslar in alla tillstånd som krävs för frågekörning. |
-| `ResponseContinuationTokenLimitInKb` | Du kan begränsa den maximala storleken för fortsättningstoken som returnerades av servern. Du kan behöva ange detta om din programvärden har gränser för huvudstorlek. Anger det här kan öka den övergripande varaktighet och RUs som används för frågan.  |
+| `EnableCrossPartitionQuery` | Måste anges till true för någon fråga som måste köras på mer än en partition. Det här är en explicit flagga så att du kan fatta medvetna prestanda kompromisser under tiden för produktutveckling. |
+| `EnableScanInQuery` | Måste anges till true om du har valt att inte indexera, men vill ändå köra frågan via en genomsökning. Endast har gäller om indexering för den begärda filter-sökvägen inaktiverats. | 
+| `MaxItemCount` | Det maximala antalet objekt som ska returneras per serveranrop till servern. Genom att ange-1, kan du låta servern hantera antal objekt. Eller så kan du sänka det här värdet att hämta endast ett litet antal objekt per serveranrop. 
+| `MaxBufferedItemCount` | Detta är ett alternativ för klientsidan och används för att begränsa minnesförbrukningen så att när du utför flera partitioner ORDER BY. Ett högre värde bidrar till att minska svarstiden för sortering av flera olika partitioner. |
+| `MaxDegreeOfParallelism` | Hämtar eller anger antalet samtidiga åtgärder som körs på klientsidan under parallell frågekörning i tjänsten Azure Cosmos DB-databas. Ett positivt egenskapsvärde begränsar antalet samtidiga åtgärder till set-värde. Om det är inställt på mindre än 0, avgör systemet automatiskt antalet samtidiga åtgärder som ska köras. |
+| `PopulateQueryMetrics` | Möjliggör detaljerad loggning av statistik tid har använt i olika faser i körningen av frågan som kompileringstid, loop-tiden för index och dokument läsa in tid. Du kan dela utdata från frågestatistik med Azures Support för att diagnostisera prestandaproblem för frågan. |
+| `RequestContinuation` | Du kan återuppta Frågekörningen genom att skicka in täckande fortsättningstoken som returneras av en fråga. Fortsättningstoken kapslar in alla tillstånd som krävs för frågekörning. |
+| `ResponseContinuationTokenLimitInKb` | Du kan begränsa den maximala storleken för fortsättningstoken som returnerades av servern. Du kan behöva ange detta om programmet värden har en gräns på rubriken svarsstorlek. Ställa in det här kan öka övergripande varaktighet och antalet förbrukade ru för frågan.  |
 
-Till exempel ta en exempelfråga på partitionsnyckel som efterfrågas på en samling med `/city` som partition nyckel och etablerats med 100 000 RU/s genomströmning. Du begär den här frågan med `CreateDocumentQuery<T>` i .NET på följande:
+Exempel: Anta en exempelfråga på partitionsnyckel som begärdes för en samling med `/city` som partitionen viktiga och har etablerats med 100 000 RU/s genomströmning. Du begär den här frågan med hjälp av `CreateDocumentQuery<T>` i .NET som liknar följande:
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -70,7 +70,7 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
 FeedResponse<dynamic> result = await query.ExecuteNextAsync();
 ```
 
-SDK-fragment ovan motsvarar följande REST API-begäran:
+SDK-kodavsnitt som visas ovan, motsvarar följande REST API-begäran:
 
 ```
 POST https://arramacquerymetrics-westus.documents.azure.com/dbs/db/colls/sample/docs HTTP/1.1
@@ -97,9 +97,9 @@ Expect: 100-continue
 {"query":"SELECT * FROM c WHERE c.city = 'Seattle'"}
 ```
 
-Varje sida för körning av frågan som motsvarar en REST-API `POST` med den `Accept: application/query+json` sidhuvud och SQL-frågan i brödtexten. Varje fråga gör en eller flera förfrågningar till servern med den `x-ms-continuation` token eko mellan klienten och servern för att återuppta körning. Konfigurationsalternativen i FeedOptions skickas till servern i form av huvuden för begäran. Till exempel `MaxItemCount` motsvarar `x-ms-max-item-count`. 
+Varje sida för körning av fråga motsvarar ett REST-API `POST` med den `Accept: application/query+json` rubrik och SQL-fråga i brödtexten. Varje fråga gör ett eller flera förfrågningar till servern med den `x-ms-continuation` token som ett eko mellan klienten och servern att återuppta körningen. Konfigurationsalternativen i FeedOptions skickas till servern i form av begärandehuvuden. Till exempel `MaxItemCount` motsvarar `x-ms-max-item-count`. 
 
-Begäran returnerar följande (trunkerad för läsbarhet) svar:
+Begäran returnerar följande (trunkerat för läsbarhet) svar:
 
 ```
 HTTP/1.1 200 Ok
@@ -126,54 +126,54 @@ x-ms-gatewayversion: version=1.14.33.2
 Date: Tue, 27 Jun 2017 21:59:49 GMT
 ```
 
-Nyckel-svarshuvuden som returnerades från frågan inkluderar följande:
+Följande: viktiga svarshuvuden som returneras av frågan
 
 | Alternativ | Beskrivning |
 | ------ | ----------- |
-| `x-ms-item-count` | Antal objekt som returneras i svaret. Detta är beroende av den angivna `x-ms-max-item-count`, antalet objekt som får plats i nyttolasten för Maximal svarsstorlek, dataflöde och körningstid för frågan. |  
-| `x-ms-continuation:` | Fortsättningstoken att återuppta körning av frågan, om ytterligare resultat är tillgängliga. | 
-| `x-ms-documentdb-query-metrics` | Frågan statistik för körning. Det här är en avgränsad sträng som innehåller statistik över tid i olika faser i frågan. Returneras om `x-ms-documentdb-populatequerymetrics` är inställd på `True`. | 
-| `x-ms-request-charge` | Antalet [programbegäran](request-units.md) förbrukas av frågan. | 
+| `x-ms-item-count` | Antal objekt som returnerades i svaret. Detta beror på den angivna `x-ms-max-item-count`, antalet objekt som ryms i nyttolasten för Maximal svarsstorlek, dataflöde och fråga körningstid. |  
+| `x-ms-continuation:` | Fortsättningstoken att återuppta körningen av frågan, om ytterligare resultat är tillgängliga. | 
+| `x-ms-documentdb-query-metrics` | Frågestatistik för körningen. Det här är en avgränsad sträng som innehåller statistik över tid i olika faser i Frågekörningen. Returneras om `x-ms-documentdb-populatequerymetrics` är inställd på `True`. | 
+| `x-ms-request-charge` | Antalet [programbegäran](request-units.md) används av frågan. | 
 
-Mer information om REST API-huvuden för begäran och alternativ finns [förfrågan efter resurser med hjälp av REST-API](https://docs.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api).
+Mer information om REST API-begärandehuvuden och alternativ finns [förfrågan efter resurser med hjälp av REST-API](https://docs.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api).
 
-## <a name="best-practices-for-query-performance"></a>Bästa praxis för prestanda för frågor
-Följande är de vanligaste faktorer som påverkar Azure Cosmos DB frågeprestanda. Vi gräva djupare i var och en av dessa avsnitt i den här artikeln.
+## <a name="best-practices-for-query-performance"></a>Metodtips för prestanda för frågor
+Följande är de vanligaste faktorer som påverkar prestanda för Azure Cosmos DB-frågor. Vi närmare titt på var och en av de här ämnena i den här artikeln.
 
 | Faktor | Tips | 
 | ------ | -----| 
-| Etablerat dataflöde | Mät RU per fråga och se till att du har det tillhandahållna dataflödet som krävs för dina frågor. | 
-| Partitionering och partitionsnycklar | Ge företräde åt frågor med partitionsnyckelvärde i filterinstruktionen för låg fördröjning. |
-| SDK-och frågealternativ | Följ Metodtips för SDK som direkt anslutning och finjustera frågealternativ körning på klientsidan. |
-| Svarstid för nätverk | Kontot för nätverk omkostnader i mått och använda flera API: er för att läsa från den närmaste regionen. |
-| Indexeringspolicy | Se till att du har den nödvändiga sökvägar/indexprincip för frågan. |
-| Mätvärden för körning av frågan | Analysera de mått för körning av frågan för att identifiera potentiella omskrivningar av frågor och former.  |
+| Etablerat dataflöde | Mät RU per fråga och se till att du har det etablerade dataflödet som krävs för dina frågor. | 
+| Partitionering och partitionsnycklar | Prioriterar frågor med partitionsnyckelvärdet i filterinstruktionen för låg latens. |
+| SDK och frågealternativ | Följ de rekommenderade säkerhetsmetoderna för SDK som direkt anslutning och finjustera körning av klientsidan frågealternativ. |
+| Svarstid för nätverk | Kontot för nätverk overhead i mätning och använda flera API: er för att läsa från den närmaste regionen. |
+| Indexeringspolicy | Kontrollera att du har den nödvändiga sökvägar/indexprincip för frågan. |
+| Fråga körningsstatistik | Analysera de mått för körning av frågan för att identifiera potentiella omskrivningar av frågor och former.  |
 
 ### <a name="provisioned-throughput"></a>Etablerat dataflöde
-Skapa behållare av data med reserverat dataflöde, uttryckt i begäran enheter (RU) per sekund i Cosmos DB. En läsning av ett dokument på 1 KB är 1 RU och varje åtgärd (inklusive frågor) är normaliserat till ett fast antal RUs baserat på dess komplexitet. Till exempel om du har 1000 RU/s som skapats för din behållare och du har en fråga som `SELECT * FROM c WHERE c.city = 'Seattle'` som förbrukar 5 RUs och du kan utföra (1000 RU/s) / (5 RU/query) = 200 frågan/s sådana frågor per sekund. 
+I Cosmos DB kan skapa du behållare av data, var och en med reserverat dataflöde, uttryckt i begäran enheter (RU) per sekund. En läsning av ett 1 KB-dokument är 1 RU, och varje åtgärd (inklusive frågor) normaliseras till ett fast antal ru: er baserat på dess komplexitet. Till exempel om du har 1000 RU/s har etablerats för din behållare och du har en fråga av typen `SELECT * FROM c WHERE c.city = 'Seattle'` som förbrukar 5 ru: er och du kan utföra (1000 RU/s) / (5 RU/fråga) = 200 fråga/s sådana frågor per sekund. 
 
-Om du skickar fler än 200 per sekund startas tjänsten hastighetsbegränsande inkommande begäranden över 200/s. SDK: erna hanterar automatiskt det här fallet genom att utföra en backoff/försök, därför ser du kanske en högre latens för dessa frågor. Öka dataflöde till det obligatoriska värdet förbättrar dina svarstid och genomströmning. 
+Om du skickar in mer än 200 hälsoförfrågningar/sek, startar tjänsten hastighetsbegränsande inkommande begäranden över 200/s. SDK: erna hanterar automatiskt det här fallet genom att utföra ett backoff/återförsök, därför märker du en högre svarstider för de här frågorna. Ökar det etablerade dataflödet till det obligatoriska värdet förbättrar din svarstid och dataflöde. 
 
-Mer information om frågeenheter finns [programbegäran](request-units.md).
+Mer information om begäransenheter finns [programbegäran](request-units.md).
 
 ### <a name="partitioning-and-partition-keys"></a>Partitionering och partitionsnycklar
-Med Azure Cosmos DB brukar utföra frågor i följande ordning från snabbaste/mest effektiva till långsammare/mindre effektiva. 
+Med Azure Cosmos DB, vanligtvis utför frågor i följande ordning från snabbaste/mest effektivt för att långsammare/mindre effektiv. 
 
-* HÄMTA på en enda partitionsnyckel och objektet nyckel
-* Frågan med en filtersats på en enda partitionsnyckel
-* Fråga utan en likhet eller intervallet filtersats om en egenskap
-* Fråga utan filter
+* HÄMTA på en enda partitionsnyckel och Objektnyckel
+* Fråga med en filtersats på en enda partitionsnyckel
+* Fråga utan en filtersats för likhet eller ett intervall om en egenskap
+* Skicka frågor utan filter
 
-Frågor som behöver kontakta alla partitioner måste högre latens och kan använda högre RUs. Eftersom varje partition har automatisk indexering mot alla egenskaper, kan frågan hanteras effektivt från indexet i det här fallet. Du kan skapa frågor som sträcker sig över partitioner snabbare genom att använda parallellitet.
+Frågor som behöver läsa alla partitioner måste svarstider och kan använda högre ru: er. Eftersom varje partition har automatisk indexering mot alla egenskaper, kan frågan hanteras effektivt från indexet i det här fallet. Du kan göra frågor som sträcker sig över partitioner snabbare genom att använda parallellitet.
 
 Mer information om partitionering och partitionsnycklar finns [partitionering i Azure Cosmos DB](partition-data.md).
 
-### <a name="sdk-and-query-options"></a>SDK-och frågealternativ
-Se [prestandatips](performance-tips.md) och [prestandatester](performance-testing.md) att få bästa möjliga prestanda för klientsidan från Azure Cosmos DB. Detta inkluderar med de senaste SDK: er, konfigurera plattformsspecifika konfigurationer som Standardantal anslutningar, frekvensen för skräpinsamling, samt med lightweight anslutningsalternativ som direkt/TCP. 
+### <a name="sdk-and-query-options"></a>SDK och frågealternativ
+Se [prestandatips](performance-tips.md) och [prestandatestning](performance-testing.md) för hur du får bästa möjliga prestanda för klientsidan av Azure Cosmos DB. Detta inkluderar med de senaste SDK: er, konfigurera plattformsspecifika nätverkskonfigurationer som standardvärdet för antal anslutningar, frekvensen för skräpinsamling, samt med hjälp av enkel anslutningsalternativ som Direct/TCP. 
 
 
 #### <a name="max-item-count"></a>Max antal objekt
-För frågor med värdet för `MaxItemCount` kan ha en betydande inverkan på Frågetid för slutpunkt till slutpunkt. Varje onödig kommunikation till servern returnerar inga fler än antalet objekt i `MaxItemCount` (standard 100 objekt). Ange detta till ett högre värde (-1 är högsta och rekommenderade) förbättrar din övergripande varaktighet för frågan genom att begränsa antalet sändningar mellan servern och klienten, särskilt för frågor med stora resultatuppsättningar.
+För frågor, värdet för `MaxItemCount` kan ha en betydande inverkan på frågetiden för slutpunkt till slutpunkt. Varje tur och RETUR till servern kommer att returnera högst antal objekt i `MaxItemCount` (standard är 100 objekt). Du anger detta till ett högre värde (-1 är högsta och rekommenderade) förbättrar din övergripande frågevaraktigheten genom att begränsa antalet överföringar mellan servern och klienten, särskilt för frågor med stora resultatuppsättningar.
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -185,8 +185,8 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
     }).AsDocumentQuery();
 ```
 
-#### <a name="max-degree-of-parallelism"></a>Max grad av parallellitet
-Frågor, finjustera den `MaxDegreeOfParallelism` att identifiera de bästa konfigurationerna för programmet, särskilt om du utför mellan partition-frågor (utan ett filter på partitionsnyckel värdet). `MaxDegreeOfParallelism`  Anger det maximala antalet parallella aktiviteter, t.ex. maximalt antalet partitioner som ska användas parallellt. 
+#### <a name="max-degree-of-parallelism"></a>Maxgrad av parallellitet
+Frågor, finjustera det `MaxDegreeOfParallelism` att identifiera de bästa konfigurationerna för ditt program, särskilt om du utför flera partitioner frågor (utan ett filter på Partitionsnyckeln värdet). `MaxDegreeOfParallelism`  styr det maximala antalet parallella aktiviteter, t.ex, maximalt antalet partitioner besöks parallellt. 
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -199,29 +199,29 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
     }).AsDocumentQuery();
 ```
 
-Vi antar som
-* D = standard maximalt antal parallella aktiviteter (= totalt antal processorn i klientdatorn)
-* P = användaren har angett maximalt antal parallella aktiviteter
-* N = antalet partitioner som ska användas för att svara på en fråga
+Låt oss anta att
+* D = standard högsta antalet parallella aktiviteter (= totalt antal processorer i klientdatorn)
+* P = användardefinierade maximala antalet parallella uppgifter
+* N = antalet partitioner som behöver besökas för besvarande av en fråga
 
-Följande är effekterna av hur de parallella frågorna skulle fungera för olika värden för P.
-* (P == 0) = > Serial-läge
-* (P == 1) = > maximalt en uppgift
-* (P > 1) = > Min (P, N) parallella aktiviteter 
-* (P < 1) = > Min (N, D) parallella aktiviteter
+Följande är effekterna av hur de parallella frågorna skulle fungera för olika värden på s.
+* (P == 0) = > seriell läge
+* (P == 1) = > högst en aktivitet
+* (P > 1) = > Min (P, N) parallella uppgifter 
+* (P < 1) = > Min (N, D) parallella uppgifter
 
-För SDK viktig information och information om implementerade klasser och metoder finns [SQL-SDK](sql-api-sdk-dotnet.md)
+För SDK viktig information och information om implementerad klasser och metoder i [SQL SDK: er](sql-api-sdk-dotnet.md)
 
 ### <a name="network-latency"></a>Svarstid för nätverk
-Se [Azure Cosmos DB global distributionsplatsen](tutorial-global-distribution-sql-api.md) att konfigurera distributionslistor och ansluta till den närmaste regionen. Nätverksfördröjningen har en betydande inverkan på prestanda när du behöver göra flera turer eller hämta en stor resultatmängd från frågan. 
+Se [global distribution i Azure Cosmos DB](tutorial-global-distribution-sql-api.md) att konfigurera global distribution och ansluta till den närmaste regionen. Svarstid för nätverk har en betydande inverkan på prestanda för frågor när du behöver göra flera turer eller hämta en stor resultatmängd från frågan. 
 
-Avsnitt om frågan körning mått förklarar hur du hämta server körningstiden för frågor ( `totalExecutionTimeInMs`), så att du kan skilja mellan tid i Frågekörningen och tid i nätverket överföring.
+I avsnittet om frågan körningsstatistik förklarar hur du hämtar servertid för körning av frågor ( `totalExecutionTimeInMs`), så att du kan skilja mellan tid i frågekörning och tid i nätverket överföring.
 
-### <a name="indexing-policy"></a>Indexprincip
-Se [konfigurera indexprincip](indexing-policies.md) för indexering sökvägar, typer, och lägen och hur de påverkar Frågekörningen. Som standard indexprincip använder hash-indexering för strängar, vilket är effektiv för likhetsfrågor, men inte för intervall frågor/order by-frågor. Om du behöver intervallet frågor efter strängar, rekommenderar vi att ange intervallet index för alla strängar. 
+### <a name="indexing-policy"></a>Indexeringspolicy
+Se [konfigurera indexeringsprincip](indexing-policies.md) för indexering sökvägar, typer, och lägen och hur de påverkar Frågekörningen. Som standard indexprincip använder hash-indexering för strängar, vilket är effektiva för likhetsfrågor, men inte för intervallet frågor/order by-frågor. Om du behöver omfångsfrågor för strängar, rekommenderar vi att ange intervallet Indextypen för alla strängar. 
 
-## <a name="query-execution-metrics"></a>Mätvärden för körning av frågan
-Du kan få detaljerad mått på körning av fråga om den valfria `x-ms-documentdb-populatequerymetrics` huvud (`FeedOptions.PopulateQueryMetrics` i .NET SDK). Det värde som returneras i `x-ms-documentdb-query-metrics` har följande nyckel-värdepar avsett för avancerad felsökning av Frågekörningen. 
+## <a name="query-execution-metrics"></a>Fråga körningsstatistik
+Du kan få detaljerad statistik om frågekörning genom att skicka in den valfria `x-ms-documentdb-populatequerymetrics` rubrik (`FeedOptions.PopulateQueryMetrics` i .NET SDK). Det värde som returneras i `x-ms-documentdb-query-metrics` har följande nyckel / värde-par som avsett för avancerad felsökning av Frågekörningen. 
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -241,41 +241,41 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 | Mått | Enhet | Beskrivning | 
 | ------ | -----| ----------- |
-| `totalExecutionTimeInMs` | millisekunder | Körningstid för frågan | 
-| `queryCompileTimeInMs` | millisekunder | Frågan kompilering  | 
-| `queryLogicalPlanBuildTimeInMs` | millisekunder | Tid att skapa logiska frågeplan | 
-| `queryPhysicalPlanBuildTimeInMs` | millisekunder | Tid att skapa fysisk frågeplan | 
-| `queryOptimizationTimeInMs` | millisekunder | Tid som ägnats åt att optimera frågan | 
+| `totalExecutionTimeInMs` | millisekunder | Körningstid för fråga | 
+| `queryCompileTimeInMs` | millisekunder | Fråga kompilering  | 
+| `queryLogicalPlanBuildTimeInMs` | millisekunder | Dags att skapa logiska frågeplan | 
+| `queryPhysicalPlanBuildTimeInMs` | millisekunder | Dags att skapa fysiska frågeplan | 
+| `queryOptimizationTimeInMs` | millisekunder | Tid i Optimera fråga | 
 | `VMExecutionTimeInMs` | millisekunder | Tid i frågan runtime | 
 | `indexLookupTimeInMs` | millisekunder | Tid i fysiska index lager | 
 | `documentLoadTimeInMs` | millisekunder | Tid i inläsning av dokument  | 
-| `systemFunctionExecuteTimeInMs` | millisekunder | Total tid som ägnats verkställande system (inbyggda) funktioner i millisekunder  | 
-| `userFunctionExecuteTimeInMs` | millisekunder | Total tid som ägnats verkställande användardefinierade funktioner i millisekunder | 
-| `retrievedDocumentCount` | antal | Totalt antal hämtade dokument  | 
+| `systemFunctionExecuteTimeInMs` | millisekunder | Total tid på verkställande system (inbyggda) funktioner i millisekunder  | 
+| `userFunctionExecuteTimeInMs` | millisekunder | Total tid på köra användardefinierade funktioner i millisekunder | 
+| `retrievedDocumentCount` | count | Totalt antal hämtade dokument  | 
 | `retrievedDocumentSize` | byte | Total storlek på hämtade dokument i byte  | 
-| `outputDocumentCount` | antal | Antal dokument som utdata | 
+| `outputDocumentCount` | count | Antal dokument som utdata | 
 | `writeOutputTimeInMs` | millisekunder | Tid i millisekunder för att köra frågan | 
-| `indexUtilizationRatio` | förhållandet mellan (< = 1) | Förhållandet mellan antalet dokument som matchar filtret till antal dokument som läses in  | 
+| `indexUtilizationRatio` | förhållandet mellan (< = 1) | Förhållandet mellan antalet dokument som matchas av filtret till antalet dokument som läses in  | 
 
-Klient-SDK: internt göra flera frågeåtgärder att utföra frågan inom varje partition. Klienten gör flera anrop per partition om totalt resultat överskrider `x-ms-max-item-count`, om frågan överskrider det tillhandahållna dataflödet för partition, eller om frågan nyttolasten når maximal storlek per sida, eller om frågan når systemets allokerade Timeout-gränsen. Varje partiella Frågekörningen returnerar en `x-ms-documentdb-query-metrics` för sidan. 
+Klient-SDK: er göra internt flera frågeåtgärder att betjäna frågan inom varje partition. Klienten skickar mer än ett samtal per partition om det sammanlagda resultatet överskrider `x-ms-max-item-count`om frågan överstiger det etablerade dataflödet för partition, eller om frågan nyttolasten når maximal storlek per sida eller om frågan når systemet allokeras Timeout-gränsen. Varje partiella Frågekörningen returnerar en `x-ms-documentdb-query-metrics` för sidan. 
 
-Här är några exempelfrågor och hur du tolkar vissa av mätvärdena som returnerades från Frågekörningen: 
+Här är några exempelfrågor och så här tolkar du några av mätvärdena som returneras från Frågekörningen: 
 
-| Fråga | Exempel mått | Beskrivning | 
+| Söka i data | Exempel-mått | Beskrivning | 
 | ------ | -----| ----------- |
-| `SELECT TOP 100 * FROM c` | `"RetrievedDocumentCount": 101` | Antal dokument som hämtats är 100 + 1 för att matcha TOP-instruktion. Frågetid används främst i `WriteOutputTime` och `DocumentLoadTime` eftersom det är en genomsökning. | 
-| `SELECT TOP 500 * FROM c` | `"RetrievedDocumentCount": 501` | RetrievedDocumentCount är nu högre (500 + 1 för att matcha TOP-instruktion). | 
-| `SELECT * FROM c WHERE c.N = 55` | `"IndexLookupTime": "00:00:00.0009500"` | Om 0,9 ms används i IndexLookupTime för en nyckel sökning, eftersom det är ett index sökning `/N/?`. | 
-| `SELECT * FROM c WHERE c.N > 55` | `"IndexLookupTime": "00:00:00.0017700"` | Något mer tid (1,7 ms) som används IndexLookupTime via en genomsökning för intervallet, eftersom det är ett index sökning `/N/?`. | 
-| `SELECT TOP 500 c.N FROM c` | `"IndexLookupTime": "00:00:00.0017700"` | Samma tid som ägnats `DocumentLoadTime` som tidigare frågor men lägre `WriteOutputTime` eftersom vi projicerar bara en egenskap. | 
-| `SELECT TOP 500 udf.toPercent(c.N) FROM c` | `"UserDefinedFunctionExecutionTime": "00:00:00.2136500"` | Om 213 ms ägnats åt `UserDefinedFunctionExecutionTime` köra en användardefinierad funktion på varje värde i `c.N`. |
-| `SELECT TOP 500 c.Name FROM c WHERE STARTSWITH(c.Name, 'Den')` | `"IndexLookupTime": "00:00:00.0006400", "SystemFunctionExecutionTime": "00:00:00.0074100"` | Om 0,6 ms ägnats åt `IndexLookupTime` på `/Name/?`. De flesta av frågan körningstid (ms ~ 7) i `SystemFunctionExecutionTime`. |
-| `SELECT TOP 500 c.Name FROM c WHERE STARTSWITH(LOWER(c.Name), 'den')` | `"IndexLookupTime": "00:00:00", "RetrievedDocumentCount": 2491,  "OutputDocumentCount": 500` | Frågan utförs som en genomsökning eftersom den använder `LOWER`, och 500 utanför 2491 hämtade dokument som returneras. |
+| `SELECT TOP 100 * FROM c` | `"RetrievedDocumentCount": 101` | Antal dokument som hämtats är 100 + 1 för att matcha TOP-satsen. Fråga tid det tar huvudsakligen i `WriteOutputTime` och `DocumentLoadTime` eftersom det är en sökning. | 
+| `SELECT TOP 500 * FROM c` | `"RetrievedDocumentCount": 501` | RetrievedDocumentCount är nu högre (500 + 1 för att matcha TOP-satsen). | 
+| `SELECT * FROM c WHERE c.N = 55` | `"IndexLookupTime": "00:00:00.0009500"` | Om 0,9 ms går åt i IndexLookupTime för nyckelsökningen, eftersom det är en sökning med indexet `/N/?`. | 
+| `SELECT * FROM c WHERE c.N > 55` | `"IndexLookupTime": "00:00:00.0017700"` | Lite mer tid (1.7 ms) på i IndexLookupTime över ett intervall skanna eftersom det är en sökning med indexet `/N/?`. | 
+| `SELECT TOP 500 c.N FROM c` | `"IndexLookupTime": "00:00:00.0017700"` | Samma tid som ägnats åt `DocumentLoadTime` som tidigare frågor, men lägre `WriteOutputTime` eftersom vi projicerar bara en egenskap. | 
+| `SELECT TOP 500 udf.toPercent(c.N) FROM c` | `"UserDefinedFunctionExecutionTime": "00:00:00.2136500"` | Om 213 ms går åt i `UserDefinedFunctionExecutionTime` köra en användardefinierad funktion på varje värde i `c.N`. |
+| `SELECT TOP 500 c.Name FROM c WHERE STARTSWITH(c.Name, 'Den')` | `"IndexLookupTime": "00:00:00.0006400", "SystemFunctionExecutionTime": "00:00:00.0074100"` | Om 0,6 ms går åt i `IndexLookupTime` på `/Name/?`. De flesta fråga körningstid (ms ~ 7) i `SystemFunctionExecutionTime`. |
+| `SELECT TOP 500 c.Name FROM c WHERE STARTSWITH(LOWER(c.Name), 'den')` | `"IndexLookupTime": "00:00:00", "RetrievedDocumentCount": 2491,  "OutputDocumentCount": 500` | Frågan utförs som en genomsökning eftersom den använder `LOWER`, och 500 utanför 2491 hämtade dokument returneras. |
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs om stöds SQL frågeoperatorer och nyckelord i [SQL-frågan](sql-api-sql-query.md). 
-* Mer information om frågeenheter, se [programbegäran](request-units.md).
-* Läs om indexprincip i [indexering princip](indexing-policies.md) 
+* Läs om stöds SQL frågeoperatorer och nyckelorden i [SQL-fråga](how-to-sql-query.md). 
+* Läs om begäransenheter i [programbegäran](request-units.md).
+* Läs om indexeringsprincip i [indexeringsprincip](indexing-policies.md) 
 
 

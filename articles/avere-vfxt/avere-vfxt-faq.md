@@ -6,14 +6,14 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 334b4c912c40949cbecab2173425927d46350d07
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 21b5dae6fda857a3a69aa06e461fdf3b716b5eb8
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634526"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163325"
 ---
-# <a name="avere-vfxt-for-azure-faq"></a>Avere vFXT för vanliga frågor om Azure
+# <a name="avere-vfxt-for-azure-faq"></a>Vanliga frågor och svar om Avere vFXT för Azure
 
 Den här artikeln ger svar på frågor som kan hjälpa dig avgöra om Avere vFXT lösning är rätt för dina behov. Den ger grundläggande information om Avere vFXT funktioner och förklarar hur den fungerar med andra Azure-komponenter och produkter från fristående leverantörer. 
 
@@ -277,4 +277,4 @@ Läs dessa länkar om du vill veta hur du planerar och distribuerar ditt system 
 * [Förbereda för att skapa Avere vFXT](avere-vfxt-prereqs.md)
 * [Distribuera vFXT-kluster](avere-vfxt-deploy.md)
 
-Om du vill lära dig mer om Avere vFXT funktioner och användningsfall, besök [Avere vFXT för Azure (förhandsversion)](https://azure.microsoft.com/services/storage/avere-vfxt/).
+Om du vill lära dig mer om Avere vFXT funktioner och användningsfall, besök [Avere vFXT för Azure](https://azure.microsoft.com/services/storage/avere-vfxt/).

@@ -1,25 +1,18 @@
 ---
 title: Flytta ExpressRoute-kretsar från klassisk modell till Resource Manager | Microsoft Docs
 description: Den här sidan innehåller en översikt över vad du behöver veta om att skapa en bryggning i klassiska och Resource Manager-distributionsmodeller.
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carmonm
-editor: ''
-ms.assetid: bdf01217-1a98-4ec0-a08e-d84fd37f78af
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: ganesr
-ms.openlocfilehash: 7f8386b518ada850fc03e23c5cae3b159b3b213e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6b9ac7408f83677ed9898dc37fc234b9b9a6386f
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22710073"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977037"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Flytta ExpressRoute-kretsar från den klassiska till Resource Manager-distributionsmodellen
 Den här artikeln innehåller en översikt över vad det innebär att flytta en Azure ExpressRoute-krets från den klassiska till Azure Resource Manager-distributionsmodellen.
@@ -64,7 +57,7 @@ Följande klassiska åtgärder stöds på en ExpressRoute-krets när **allowClas
 * Skapa/uppdatera/hämta/ta bort virtuella nätverkslänkar till klassiska virtuella nätverk
 * Skapa/uppdatera/hämta/ta bort auktoriseringar för virtuella nätverkslänkar till anslutningen mellan prenumerationer
 
-Du kan inte utföra följande klassiska åtgärder när **allowClassicOperations** har angetts till TRUE:
+Men när **allowClassicOperations** har angetts till TRUE, du kan inte utföra följande klassiska åtgärder:
 
 * Skapa/uppdatera/hämta/ta bort BGP-peerings (Border Gateway Protocol) för Azures privata, Azures offentliga och Microsoft-peerings
 * Ta bort ExpressRoute-kretsar

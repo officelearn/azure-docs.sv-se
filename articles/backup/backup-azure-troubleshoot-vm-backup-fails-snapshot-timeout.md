@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 496afab869d8cf1b7b00791913c3082e31b45327
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: d8b78551a762b4388344aaf3b44e7472127737ae
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633928"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977122"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: problem med agenten eller -tillägget
 
@@ -77,9 +77,9 @@ När du har registrerat och schemalägga en virtuell dator för Azure Backup-tj�
 **Orsak 2: [säkerhetskopieringstillägget inte går att uppdatera eller läsa in](#the-backup-extension-fails-to-update-or-load)**  
 **Orsak 3: [den virtuella datorn inte har tillgång till internet](#the-vm-has-no-internet-access)**
 
-## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailed - vmsnapshot-tillägget misslyckades
+## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>Det gick inte att ExtentionOperationFailedForManagedDisks - vmsnapshot-tillägget
 
-**Felkod**: ExtentionOperationFailed <br>
+**Felkod**: ExtentionOperationFailedForManagedDisks <br>
 **Felmeddelande**: Det gick inte att vmsnapshot-tillägget<br>
 
 När du har registrerat och schemalägga en virtuell dator för Azure Backup-tjänsten Initierar säkerhetskopiering jobbet genom att kommunicera med VM-tillägg att ta en ögonblicksbild i tidpunkt för säkerhetskopiering. Något av följande villkor kan förhindra att ögonblicksbilden utlöses. Om ögonblicksbilden inte utlöses, kan det uppstå en säkerhetskopieringen har misslyckats. Slutför följande felsökningssteg i angiven ordning och försök igen:  
@@ -205,7 +205,7 @@ Följande villkor kan orsaka uppgiften ögonblicksbild misslyckas:
 | Orsak | Lösning |
 | --- | --- |
 | Virtuella datorns status rapporteras felaktigt eftersom Virtuellt datorn stängs av i Remote Desktop Protocol (RDP). | Om du stänger av den virtuella datorn i RDP Kontrollera portalen för att avgöra om virtuella datorns status är rätt. Om det inte är korrekt, stänger du den virtuella datorn i portalen med hjälp av den **avstängning** alternativet på VM-instrumentpanelen. |
-| Den virtuella datorn kan inte hämta värden eller fabric-adress från DHCP. | DHCP måste vara aktiverat på gästen för IaaS VM-säkerhetskopiering för att fungera. Om den virtuella datorn inte kan hämta värden eller fabric-adress från DHCP-svar 245, kan inte den hämta eller köra några tillägg. Om du behöver en statisk privat IP-adress kan du konfigurera den med plattformen. DHCP-alternativ i den virtuella datorn måste vara aktiverat till vänster. Mer information finns i [ange en statisk IP för interna privata](../virtual-network/virtual-networks-reserved-private-ip.md). |
+| Den virtuella datorn kan inte hämta värden eller fabric-adress från DHCP. | DHCP måste vara aktiverat på gästen för IaaS VM-säkerhetskopiering för att fungera. Om den virtuella datorn inte kan hämta värden eller fabric-adress från DHCP-svar 245, kan inte den hämta eller köra några tillägg. Om du behöver en statisk privat IP-adress kan du konfigurera det via den **Azure-portalen** eller **PowerShell** och kontrollera att DHCP-alternativ i den virtuella datorn är aktiverad. Läs mer om hur du installerar en statisk IP-adress via PowerShell [klassisk virtuell dator](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm) och [Resource Manager-VM](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface).
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>Säkerhetskopieringstillägget inte går att uppdatera eller läsa in
 Om tillägg inte kan läsas in, misslyckas säkerhetskopieringen eftersom det går inte att ta en ögonblicksbild.

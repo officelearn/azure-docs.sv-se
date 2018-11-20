@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 10/29/2018
-ms.openlocfilehash: a9738f95ce8a0de750ffa348e167bce3b0e659f6
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 1a8396f91f1e6f863d99be17dc8d00133a1bdd3a
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821403"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162559"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Felsöka installationsproblem med Mobilitetstjänsten push
 
@@ -102,7 +102,7 @@ Installera VSS är en del av Mobility agentinstallation. Den här tjänsten anv�
 
 Det här problemet är främst visas när ett antivirusprogram hindrar drift för Azure Site Recovery-tjänster. Att lösa problemet,
 
-1. Undanta alla mappar som tidigare nämnts [här](vmware-azure-set-up-source.md#exclude-antivirus-on-the-configuration-server).
+1. Undanta alla mappar som tidigare nämnts [här](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program).
 2. Följ riktlinjerna som publicerats av antivirus-leverantören att avblockera registreringen av DLL-filen i Windows.
 
 ### <a name="vss-error-7-0x7---exit-code-511"></a>Fel i VSS 7 [0x7] - slutkoden 511

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 770d8950e25431e1edc496e0710cf199b45e5847
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 4584104e9c9833b5f3f586581dd5a58f420fe0bd
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283844"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165347"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Distribuerad spårning och korrelation via Service Bus-meddelanden
 
@@ -155,27 +155,27 @@ Här är en fullständig lista över instrumenterade åtgärder:
 
 | Åtgärdsnamn | Spårade API | Egenskaper för specifika nyttolast|
 |----------------|-------------|---------|
-| Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | IList<Message> meddelanden - lista med meddelanden som skickas |
-| Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | Meddelandet meddelandet - meddelande som bearbetas<br/>DateTimeOffset ScheduleEnqueueTimeUtc - schemalagt meddelande förskjutning<br/>lång SequenceNumber - sekvensnumret för schemalagt meddelande (”stoppa” händelsenyttolast) |
-| Microsoft.Azure.ServiceBus.Cancel | [MessageSender.CancelScheduledMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.cancelscheduledmessageasync) | lång SequenceNumber - meddelandesekvensnummer te så avbryts | 
-| Microsoft.Azure.ServiceBus.Receive | [MessageReceiver.ReceiveAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receiveasync) |int RequestedMessageCount – det maximala antalet meddelanden som kan tas emot.<br/>IList<Message> meddelanden - lista över mottagna meddelanden (”stoppa” händelsenyttolast) |
-| Microsoft.Azure.ServiceBus.Peek | [MessageReceiver.PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync) | int FromSequenceNumber - startpunkt som att bläddra i en grupp med meddelanden.<br/>int RequestedMessageCount - antalet meddelanden som ska hämtas.<br/>IList<Message> meddelanden - lista över mottagna meddelanden (”stoppa” händelsenyttolast) |
-| Microsoft.Azure.ServiceBus.ReceiveDeferred | [MessageReceiver.ReceiveDeferredMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receivedeferredmessageasync) | IEnumerable<long> SequenceNumbers - listan som innehåller sekvensnummer att ta emot.<br/>IList<Message> meddelanden - lista över mottagna meddelanden (”stoppa” händelsenyttolast) |
-| Microsoft.Azure.ServiceBus.Complete | [MessageReceiver.CompleteAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.completeasync) | IList<string> LockTokens - listan som innehåller Lås token motsvarande meddelanden att slutföra.|
-| Microsoft.Azure.ServiceBus.Abandon | [MessageReceiver.AbandonAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.abandonasync) | sträng LockToken - låstoken för meddelandet att lämna motsvarande. |
-| Microsoft.Azure.ServiceBus.Defer | [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) | sträng LockToken - låstoken för motsvarande meddelandet som ska skjutas upp. | 
-| Microsoft.Azure.ServiceBus.DeadLetter | [MessageReceiver.DeadLetterAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deadletterasync) | sträng LockToken - låstoken för motsvarande meddelandet att obeställbara meddelanden. | 
-| Microsoft.Azure.ServiceBus.RenewLock | [MessageReceiver.RenewLockAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync) | sträng LockToken - låstoken för motsvarande meddelandet att förnya låset.<br/>DateTime LockedUntilUtc - nya Lås token förfallodatum och tid i UTC-format. (”Stoppa” händelsenyttolast)|
-| Microsoft.Azure.ServiceBus.Process | Meddelandet hanteraren lambda funktion i [IReceiverClient.RegisterMessageHandler](/dotnet/api/microsoft.azure.servicebus.core.ireceiverclient.registermessagehandler) | Meddelandet meddelande - meddelande som bearbetas. |
-| Microsoft.Azure.ServiceBus.ProcessSession | Meddelandet Session hanteraren lambda funktion i [IQueueClient.RegisterSessionHandler](/dotnet/api/microsoft.azure.servicebus.iqueueclient.registersessionhandler) | Meddelandet meddelande - meddelande som bearbetas.<br/>IMessageSession Session - Session som bearbetas |
-| Microsoft.Azure.ServiceBus.AddRule | [SubscriptionClient.AddRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.addruleasync) | RuleDescription regel - regelbeskrivningen som innehåller regeln för att lägga till. |
-| Microsoft.Azure.ServiceBus.RemoveRule | [SubscriptionClient.RemoveRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.removeruleasync) | sträng Regelnamn – namnet på regeln för att ta bort. |
-| Microsoft.Azure.ServiceBus.GetRules | [SubscriptionClient.GetRulesAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.getrulesasync) | IEnumerable<RuleDescription> regler för alla regler som är associerade med prenumerationen. (Endast ”stoppa” nyttolast) |
-| Microsoft.Azure.ServiceBus.AcceptMessageSession | [ISessionClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.azure.servicebus.isessionclient.acceptmessagesessionasync) | sträng sessions-ID - sessionId finns i meddelandena. |
-| Microsoft.Azure.ServiceBus.GetSessionState | [IMessageSession.GetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.getstateasync) | sträng sessions-ID - sessionId finns i meddelandena.<br/>byte [] tillstånd - sessionens tillstånd (”stoppa” händelsenyttolast) |
-| Microsoft.Azure.ServiceBus.SetSessionState | [IMessageSession.SetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.setstateasync) | sträng sessions-ID - sessionId finns i meddelandena.<br/>byte [] tillstånd - sessionstillstånd |
-| Microsoft.Azure.ServiceBus.RenewSessionLock | [IMessageSession.RenewSessionLockAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.renewsessionlockasync) | sträng sessions-ID - sessionId finns i meddelandena. |
-| Microsoft.Azure.ServiceBus.Exception | instrumenterade API: er| Undantag undantag - instans för undantag |
+| Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | `IList<Message> Messages` -Lista med meddelanden som skickas |
+| Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | `Message Message` -Meddelande som bearbetas<br/>`DateTimeOffset ScheduleEnqueueTimeUtc` -Offset schemalagt meddelande<br/>`long SequenceNumber` -Sekvensnumret för schemalagt meddelande (”stoppa” händelsenyttolast) |
+| Microsoft.Azure.ServiceBus.Cancel | [MessageSender.CancelScheduledMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.cancelscheduledmessageasync) | `long SequenceNumber` -Meddelandesekvensnummer te så avbryts | 
+| Microsoft.Azure.ServiceBus.Receive | [MessageReceiver.ReceiveAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receiveasync) | `int RequestedMessageCount` -Det maximala antalet meddelanden som kan tas emot.<br/>`IList<Message> Messages` -Lista över mottagna meddelanden (”stoppa” händelsenyttolast) |
+| Microsoft.Azure.ServiceBus.Peek | [MessageReceiver.PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync) | `int FromSequenceNumber` -Startpunkt som att bläddra i en grupp med meddelanden.<br/>`int RequestedMessageCount` – Hur många meddelanden som ska hämtas.<br/>`IList<Message> Messages` -Lista över mottagna meddelanden (”stoppa” händelsenyttolast) |
+| Microsoft.Azure.ServiceBus.ReceiveDeferred | [MessageReceiver.ReceiveDeferredMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receivedeferredmessageasync) | `IEnumerable<long> SequenceNumbers` -Lista som innehåller sekvensnummer att ta emot.<br/>`IList<Message> Messages` -Lista över mottagna meddelanden (”stoppa” händelsenyttolast) |
+| Microsoft.Azure.ServiceBus.Complete | [MessageReceiver.CompleteAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.completeasync) | `IList<string> LockTokens` -Lista som innehåller Lås token motsvarande meddelanden att slutföra.|
+| Microsoft.Azure.ServiceBus.Abandon | [MessageReceiver.AbandonAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.abandonasync) | `string LockToken` -Låstoken för meddelandet att lämna motsvarande. |
+| Microsoft.Azure.ServiceBus.Defer | [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) | `string LockToken` -Låstoken för motsvarande meddelandet att skjuta upp. | 
+| Microsoft.Azure.ServiceBus.DeadLetter | [MessageReceiver.DeadLetterAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deadletterasync) | `string LockToken` -Låstoken för motsvarande meddelandet att obeställbara meddelanden. | 
+| Microsoft.Azure.ServiceBus.RenewLock | [MessageReceiver.RenewLockAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync) | `string LockToken` -Låstoken för motsvarande meddelandet att förnya låset.<br/>`DateTime LockedUntilUtc` – Nya Lås token förfallodatum och tid i UTC-format. (”Stoppa” händelsenyttolast)|
+| Microsoft.Azure.ServiceBus.Process | Meddelandet hanteraren lambda funktion i [IReceiverClient.RegisterMessageHandler](/dotnet/api/microsoft.azure.servicebus.core.ireceiverclient.registermessagehandler) | `Message Message` -Meddelande som bearbetas. |
+| Microsoft.Azure.ServiceBus.ProcessSession | Meddelandet Session hanteraren lambda funktion i [IQueueClient.RegisterSessionHandler](/dotnet/api/microsoft.azure.servicebus.iqueueclient.registersessionhandler) | `Message Message` -Meddelande som bearbetas.<br/>`IMessageSession Session` -Session som bearbetas |
+| Microsoft.Azure.ServiceBus.AddRule | [SubscriptionClient.AddRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.addruleasync) | `RuleDescription Rule` -Regelbeskrivningen som innehåller regeln för att lägga till. |
+| Microsoft.Azure.ServiceBus.RemoveRule | [SubscriptionClient.RemoveRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.removeruleasync) | `string RuleName` – Namnet på regeln för att ta bort. |
+| Microsoft.Azure.ServiceBus.GetRules | [SubscriptionClient.GetRulesAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.getrulesasync) | `IEnumerable<RuleDescription> Rules` -Alla regler som är associerade med prenumerationen. (Endast ”stoppa” nyttolast) |
+| Microsoft.Azure.ServiceBus.AcceptMessageSession | [ISessionClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.azure.servicebus.isessionclient.acceptmessagesessionasync) | `string SessionId` -Sessions-ID finns i meddelandena. |
+| Microsoft.Azure.ServiceBus.GetSessionState | [IMessageSession.GetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.getstateasync) | `string SessionId` -Sessions-ID finns i meddelandena.<br/>`byte [] State` -Sessionens tillstånd (”stoppa” händelsenyttolast) |
+| Microsoft.Azure.ServiceBus.SetSessionState | [IMessageSession.SetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.setstateasync) | `string SessionId` -Sessions-ID finns i meddelandena.<br/>`byte [] State` -Sessionstillstånd |
+| Microsoft.Azure.ServiceBus.RenewSessionLock | [IMessageSession.RenewSessionLockAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.renewsessionlockasync) | `string SessionId` -Sessions-ID finns i meddelandena. |
+| Microsoft.Azure.ServiceBus.Exception | instrumenterade API: er| `Exception Exception` -Instans undantag |
 
 I varje händelse kan du komma åt `Activity.Current` som innehåller den aktuella åtgärdskontexten.
 

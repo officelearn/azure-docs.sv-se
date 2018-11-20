@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d166d490c00a9805ec9cecae6509acc531d8d711
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 5be556ca13b9e4f681239998205aac073cc0fb99
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959876"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974763"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Anslut en Windows IoT Core-enhet till din Azure IoT Central program
 
@@ -23,7 +23,7 @@ Den här artikeln beskrivs hur du som utvecklare enheten att ansluta en Windows 
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
-1. Ett Azure IoT Central program som skapats från den **exempel Devkits** mall för program. Mer information finns i den [en program-snabbstarten för att skapa](quick-deploy-iot-central.md).
+1. Ett Azure IoT Central program som skapats från den **exempel Devkits** mall för program. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
 2. En enhet som kör operativsystemet Windows 10 IoT Core. Den här genomgången använder vi en Raspberry Pi.
 
 
@@ -57,7 +57,7 @@ I Azure IoT Central programmet, lägger du till en riktig enhet från den **Wind
 
 ### <a name="what-youll-need"></a>Det här behöver du
 
-Om du vill konfigurera en fysisk Windows 10 IoT Core-enhet behöver du först ha en enhet som kör Windows 10 IoT Core. Lär dig hur du konfigurerar en Windows 10 IoT Core-enhet [här](https://developer.microsoft.com/en-us/windows/iot/getstarted/prototype/setupdevice).
+Om du vill konfigurera en fysisk Windows 10 IoT Core-enhet behöver du först ha en enhet som kör Windows 10 IoT Core. Lär dig hur du konfigurerar en Windows 10 IoT Core-enhet [här](https://docs.microsoft.com/en-us/windows/iot-core/tutorials/quickstarter/devicesetup).
 
 Du måste också ett klientprogram som kan kommunicera med Azure IoT Central. Du kan skapa egna anpassade program med Azure SDK och distribuera den till din enhet med hjälp av Visual Studio eller du kan ladda ned en [färdiga exemplet](https://developer.microsoft.com/en-us/windows/iot/samples) och helt enkelt distribuera och köra den på enheten. 
 

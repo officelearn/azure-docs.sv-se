@@ -10,18 +10,18 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: a096bd2f23910eb2eb3bc4aa36e34400ccfbb701
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 847794d46addc7f3cba09437c2d2c6e8a3a04e89
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853412"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165432"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: översätta
 
 Översätter text.
 
-## <a name="request-url"></a>Fråge-URL
+## <a name="request-url"></a>URL för begäran
 
 Skicka en `POST` begäran om att:
 
@@ -45,7 +45,7 @@ Parametrarna som skickades mot frågesträngen är:
     <td>*Valfri parameter*.<br/>Anger språket i indatatexten. Hitta vilka språk är tillgängliga att översätta från genom att leta upp [språk som stöds](.\v3-0-languages.md) med hjälp av den `translation` omfång. Om den `from` parametern inte anges, automatisk språkidentifiering används för att fastställa en källspråket.</td>
   </tr>
   <tr>
-    <td>i</td>
+    <td>till</td>
     <td>*Obligatoriska parametern*.<br/>Anger språket i utdata texten. Målspråket som måste vara något av de [språk som stöds](.\v3-0-languages.md) ingår i den `translation` omfång. Till exempel använda `to=de` att översätta tyska.<br/>Det är möjligt att översätta på flera språk samtidigt genom att upprepa parametern i frågesträngen. Till exempel använda `to=de&to=it` att översätta tyska och italienska.</td>
   </tr>
   <tr>
@@ -86,7 +86,7 @@ Parametrarna som skickades mot frågesträngen är:
   </tr>
   <tr>
     <td>AllowFallback</td>
-    <td>*Valfri parameter*.<br/>Anger att tjänsten ska kunna återgå till ett allmänt system när en anpassad system inte finns. Möjliga värden är: `true` (standard) eller `false`.<br/><br/>`AllowFallback=false` Anger att översättningen bara ska använda system som har tränats för den `category` anges i begäran. Om en översättning för språk X språk Y kräver länkning via en pivot-språk E, sedan alla system i kedjan (X -> E- och E -> Y) måste vara anpassad och har samma kategori. Om inga så är fallet med viss kategori returnerar begäran 400-statuskod. `AllowFallback=true` Anger att tjänsten ska kunna återgå till ett allmänt system när en anpassad system inte finns.
+    <td>*Valfri parameter*.<br/>Anger att tjänsten ska kunna återgå till ett allmänt system när en anpassad system inte finns. Möjliga värden är: `true` (standard) eller `false`.<br/><br/>`allowFallback=false` Anger att översättningen bara ska använda system som har tränats för den `category` anges i begäran. Om en översättning för språk X språk Y kräver länkning via en pivot-språk E, sedan alla system i kedjan (X -> E- och E -> Y) måste vara anpassad och har samma kategori. Om inga så är fallet med viss kategori returnerar begäran 400-statuskod. `allowFallback=true` Anger att tjänsten ska kunna återgå till ett allmänt system när en anpassad system inte finns.
 </td>
   </tr>
 </table> 
@@ -94,7 +94,7 @@ Parametrarna som skickades mot frågesträngen är:
 Begärandehuvuden är:
 
 <table width="100%">
-  <th width="20%">Sidhuvuden</th>
+  <th width="20%">Rubriker</th>
   <th>Beskrivning</th>
   <tr>
     <td>_En auktorisering_<br/>_Rubrik_</td>
@@ -111,11 +111,6 @@ Begärandehuvuden är:
   <tr>
     <td>X-ClientTraceId</td>
     <td>*Valfritt*.<br/>En klientgenererade GUID för unik identifiering på begäran. Du kan utelämna den här rubriken om du inkluderar trace-ID i frågesträngen med hjälp av en frågeparameter som heter `ClientTraceId`.</td>
-  </tr>
-  <tr>
-    <td>X-MT-System</td>
-    <td>*Valfritt*.<br/>Anger den systemtyp av som har använts för översättning för språket som efterfrågas för översättning varje ”till”. Värdet är en kommaavgränsad lista med strängar. Varje sträng Anger en typ:<br/><ul><li>Anpassad - begäran innehåller en anpassad system och minst en anpassad system används vid översättning.</li><li>Team – alla övriga förfrågningar</li></ul>
-</td>
   </tr>
 </table> 
 
@@ -174,6 +169,21 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i Indatam
 
 Exempel på JSON-svaren finns i den [exempel](#examples) avsnittet.
 
+## <a name="response-headers"></a>Svarshuvud
+
+<table width="100%">
+  <th width="20%">Rubriker</th>
+  <th>Beskrivning</th>
+    <tr>
+    <td>X-RequestId</td>
+    <td>Värde som genereras av tjänsten för att identifiera begäran. Den används för felsökning.</td>
+  </tr>
+  <tr>
+    <td>X-MT-System</td>
+    <td>Anger den systemtyp av som har använts för översättning för språket som efterfrågas för översättning varje ”till”. Värdet är en kommaavgränsad lista med strängar. Varje sträng Anger en typ:<br/><ul><li>Anpassad - begäran innehåller en anpassad system och minst en anpassad system används vid översättning.</li><li>Team – alla övriga förfrågningar</li></td>
+  </tr>
+</table> 
+
 ## <a name="response-status-codes"></a>Svarsstatuskoder
 
 Här följer möjliga HTTP-statuskoder som returnerar en begäran. 
@@ -199,7 +209,7 @@ Här följer möjliga HTTP-statuskoder som returnerar en begäran.
   </tr>
   <tr>
     <td>408</td>
-    <td>Begäran kan inte fullföljas eftersom en resurs saknas. Finns information om felmeddelandet. När du använder en anpassad `category`, detta indikerar ofta att den anpassade översättningssystemet inte ännu tillgänglig för att hantera begäranden. Begäran ska göras efter en väntetid (t.ex. 10 minuter).</td>
+    <td>Begäran kan inte fullföljas eftersom en resurs saknas. Finns information om felmeddelandet. När du använder en anpassad `category`, detta indikerar ofta att den anpassade översättningssystemet inte ännu tillgänglig för att hantera begäranden. Begäran ska göras efter en väntetid (t.ex. 1 minut).</td>
   </tr>
   <tr>
     <td>429</td>
@@ -362,7 +372,7 @@ Du kan använda svordomar filtrering alternativet om du vill undvika svordomar i
 
 <table width="100%">
   <th width="20%">ProfanityAction</th>
-  <th>åtgärd</th>
+  <th>Åtgärd</th>
   <tr>
     <td>`NoAction`</td>
     <td>Detta är standardbeteendet. Svordomar skickas från källan till målet.<br/><br/>

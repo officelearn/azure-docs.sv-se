@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: d88a59d3b9a39a42120b302fd8e7989c968db952
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: f6a818e0f628924342ddd50322bb54bf1d1d6079
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624785"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976669"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Insamling av data i Azure Security Center
 Security Center samlar in data från dina virtuella Azure-datorer (VM) och icke-Azure-datorer för att övervaka säkerhetsproblem och hot. Data samlas in med Microsoft Monitoring Agent, som läser olika säkerhetsrelaterade konfigurationer och händelseloggar från datorn och kopierar data till din arbetsyta för analys. Exempel på sådana data är: driva systemtyp och version, operativsystemloggar (Windows-händelseloggar), kör processer, datornamn, IP-adresser och inloggad användare. Microsoft Monitoring Agent kopierar också kraschdumpfiler till din arbetsyta.
@@ -48,7 +48,7 @@ När automatisk etablering är aktiverat, stöds etablerar Security Center Micro
 
 Så här aktiverar du automatisk försörjning för Microsoft Monitoring Agent:
 1. Huvudmenyn i Security Center, Välj **säkerhetsprincip**.
-2. Välj prenumerationen.
+2. Klicka på **redigera inställningar för** i kolumnen inställningar i den önskade prenumerationen i listan.
 
   ![Välj en prenumeration][7]
 
@@ -135,7 +135,7 @@ Att välja en befintlig Log Analytics-arbetsyta:
 
     a.  I huvudmenyn i Security Center väljer **säkerhetsprincip**.
      
-    b.  Välj önskad arbetsyta där du tänker ansluta agenten.
+    b.  Välj önskad arbetsyta där du tänker ansluta agenten genom att klicka på **redigera inställningar för** i kolumnen inställningar i den önskade prenumerationen i listan.
         ![Välj arbetsyta][8] c. Ställer in prisnivån.
         ![Välj prisnivå][9] 
    

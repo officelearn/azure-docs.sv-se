@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 093a5eb7ee366abfdbc4c5dba68739544b438ff2
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 46ce112f420a6534140d293332e7ca7efc2def94
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684536"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975694"
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Använd skriptåtgärd till att installera externa Python-paket för Jupyter notebook i Apache Spark-kluster i HDInsight
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ Lär dig hur du använder skriptåtgärder för att konfigurera ett Apache Spark
 > 
 > 
 
-Du kan söka i [paketindexet](https://pypi.python.org/pypi) för en fullständig lista över paket som är tillgängliga. Du kan också hämta en lista över tillgängliga paket från andra källor. Du kan till exempel installera paket som har gjorts tillgängliga via [Anaconda](https://docs.continuum.io/anaconda/pkg-docs) eller [conda-bedömningar](https://conda-forge.org/feedstocks/).
+Du kan söka i [paketindexet](https://pypi.python.org/pypi) för en fullständig lista över paket som är tillgängliga. Du kan också hämta en lista över tillgängliga paket från andra källor. Du kan till exempel installera paket som har gjorts tillgängliga via [conda-bedömningar](https://conda-forge.org/feedstocks/).
 
 I den här artikeln får du lära dig hur du installerar den [TensorFlow](https://www.tensorflow.org/) paketera med skriptåtgärd i ditt kluster och använda den via Jupyter-anteckningsboken som ett exempel.
 

@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: a57e7ccedd0c3b776a39c6750a3d5b4b5cc41d88
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 67cddf5eb3f675337afbb7e620bd135383f20960
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685454"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976085"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET change Feed Processor SDK: Ladda ned och viktig information
 > [!div class="op_single_selector"]
@@ -43,8 +43,15 @@ ms.locfileid: "51685454"
 
 ### <a name="v2-builds"></a>v2-versioner
 
+### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
+* Stöd har lagts till för att använda anpassade store för att bevara fortsättning token per partition.
+  * En anpassad leasing store kan till exempel vara Azure Cosmos DB lånsamling partitioneras på något sätt med anpassade.
+  * Anpassad leasing butiker kan använda nya utökningsbarhet punkt ChangeFeedProcessor.WithLeaseStoreManager(ILeaseStoreManager) och ILeaseStoreManager offentliga gränssnittet.
+  * Omstrukturerats ILeaseManager gränssnitt till flera gränssnitt för rollen.
+* Mindre icke-bakåtkompatibel ändring: borttagna utökningsbarhet tjänstanslutningspunkten ChangeFeedProcessorBuilder.WithLeaseManager(ILeaseManager), Använd ChangeFeedProcessor.WithLeaseStoreManager(ILeaseStoreManager) istället.
+
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
-* Ett problem som kan uppstå under bearbetning av dela upp när lån samlingen är partitionerad har åtgärdats. Problemet kan leda till lån för borta partitioner som inte tas bort från lånsamling. Problemet är löst med den här versionen.
+* Den här versionen åtgärdas ett problem som uppstår under bearbetning av en delning i övervakade samling och använder en partitionerad lånsamling. Vid bearbetning av ett lån för partition split kan lånet som motsvarar den partitionen inte tas bort. Problemet är löst i den här versionen.
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * Beräkning av fast kostnadsuppskattning för flera Master-konton och ny Session tokenformat.

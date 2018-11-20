@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: aba023667094fb00647861fb2dd300eda64e4897
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: cd868996066110c8d0457b177e60523886912dd8
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634509"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163179"
 ---
 # <a name="configure-storage"></a>Konfigurera lagring
 
@@ -48,15 +48,20 @@ Följande steg lägger du till en NAS core-filer:
 
 1. I Kontrollpanelen Avere klickar du på den **inställningar** fliken högst upp.
 
-2. Klicka på **Core Filer** > **hantera Core filter** till vänster.
+1. Klicka på **Core Filer** > **hantera Core filter** till vänster.
 
-3. Klicka på **Skapa**.
+1. Klicka på **Skapa**.
 
-   ![Skärmbild av sidan Lägg till ny core filer med namnet på core-filer och dess fullständigt kvalificerade domännamn](media/avere-vfxt-add-core-filer.png)
+   ![Skärmbild av sidan Lägg till ny core filer med en markören över knappen Skapa](media/avere-vfxt-add-core-filer-start.png)
+
+1. Fyll i informationen som krävs i guiden: 
 
    * Namnge din core-filer.
    * Ange ett fullständigt kvalificerat domännamn (FQDN) om tillgängligt. I annat fall ange en IP-adress eller värdnamn som motsvarar din core-filer.
    * Välj klassen filer i listan. Om du är osäker, Välj **andra**.
+
+     ![Skärmbild av sidan Lägg till ny core filer med namnet på core-filer och dess fullständigt kvalificerade domännamn](media/avere-vfxt-add-core-filer.png)
+  
    * Klicka på **nästa** och välja en cache-princip. 
    * Klicka på **lägga till Filer**.
    * Mer detaljerad information, referera till [att lägga till en ny NAS viktiga filer](http://library.averesystems.com/ops_guide/4_7/new_core_filer_nas.html) i Avere kluster inställningar guide.
@@ -110,7 +115,7 @@ Följ dessa steg för att lägga till Blob-lagring när du har skapat klustret.
 
 1. Öppna Kontrollpanelen Avere för klustret. Klicka på **inställningar**, öppna sedan **kluster** > **Molnautentiseringsuppgifter** i det vänstra navigeringsfönstret. På sidan Molnautentiseringsuppgifter **Lägg till autentiseringsuppgift**.
 
-   ![Att klicka på knappen Lägg till autentiseringsuppgift på konfigurationssidan Molnautentiseringsuppgifter](media/avere-vfxt-new-credential-button.png)
+   ![Klicka på knappen Lägg till autentiseringsuppgift på konfigurationssidan Molnautentiseringsuppgifter](media/avere-vfxt-new-credential-button.png)
 
 1. Fyll i följande information för att skapa en autentiseringsuppgift för molnet core filer: 
 

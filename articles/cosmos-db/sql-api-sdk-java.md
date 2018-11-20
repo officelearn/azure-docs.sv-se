@@ -12,16 +12,16 @@ ms.topic: reference
 ms.date: 06/29/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7d00d6236b601d145be03e6086bec2d72faafcd
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f5ac49f20404f8734e833da754aacb615663afbf
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344945"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161811"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-sdk-dotnet.md)
+> * [NET](sql-api-sdk-dotnet.md)
 > * [.NET-Ändringsfeed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
@@ -105,7 +105,7 @@ SQL API Java SDK har stöd för synkrona åtgärder. Använd för asynkron suppo
 * Korrigerat några fel i sessionen behållaren som kan orsaka ett ”ägare resursen hittades inte”-undantag för begäranden omedelbart när samlingen har skapats.
 
 ### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
-* Stöd har lagts till för mängdfrågor (COUNT, MIN, MAX, SUM och Genomsnittlig). Se [aggregering support](sql-api-sql-query.md#Aggregates).
+* Stöd har lagts till för mängdfrågor (COUNT, MIN, MAX, SUM och Genomsnittlig). Se [aggregering support](how-to-sql-query.md#Aggregates).
 * Tillagt stöd för ändringsfeed.
 * Stöd har lagts till för samlingen kvotinformation via RequestOptions.setPopulateQuotaInfo.
 * Stöd har lagts till för lagrad procedur skriptet loggning via RequestOptions.setScriptLoggingEnabled.
@@ -206,7 +206,7 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
 | [1.16.2](#1.16.2) |Den 29 juni 2018 |--- |
-| [1.16.1](#1.16.1) |Den 16 maj 2018 |--- |
+| [1.16.1](#1.16.1) |16 maj 2018 |--- |
 | [1.16.0](#1.16.0) |Den 15 mars 2018 |--- |
 | [1.15.0](#1.15.0) |Den 14 november 2017 |--- |
 | [1.14.0](#1.14.0) |Den 28 oktober 2017 |--- |

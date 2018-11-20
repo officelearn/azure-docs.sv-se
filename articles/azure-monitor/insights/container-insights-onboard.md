@@ -14,29 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: a2219de6dfae9e17be1595d224c597fb31e00cae
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 4893141ec199d21e09bfa2b6a790473d983acd32
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715737"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165418"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers-preview"></a>Hur du integrera Azure Monitor för behållare (förhandsgranskning) 
 Den här artikeln beskriver hur du ställer in Azure Monitor för behållare för att övervaka prestanda för arbetsbelastningar som distribueras till Kubernetes-miljöer och finns på [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
 
+Azure Monitor för behållare kan aktiveras för nya distributioner av AKS med hjälp av följande metoder:
+
+* Distribuera ett hanterat Kubernetes-kluster från Azure portal eller med Azure CLI
+* Skapar en Kubernetes-kluster med [Terraform och AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
+
+Du kan också aktivera övervakning för en eller flera befintliga AKS-kluster från Azure portal eller med Azure CLI. 
+
 ## <a name="prerequisites"></a>Förutsättningar 
 Innan du börjar bör du kontrollera att du har följande:
 
-- En ny eller befintlig AKS-kluster.
-- En behållare Log Analytics-agenten för Linux-versionen microsoft / oms:ciprod04202018 eller senare. Versionsnumret representeras av ett datum i följande format: *mmddyyyy*. Agenten installeras automatiskt under publiceringen av den här funktionen. 
 - En Log Analytics-arbetsyta. Du kan skapa den när du aktiverar övervakning av din nya AKS-klustret eller låta publiceringsupplevelsen skapa en standardarbetsyta i standardresursgruppen för prenumerationen för AKS-kluster. Om du väljer att skapa den själv, kan du skapa den via [Azure Resource Manager](../../log-analytics/log-analytics-template-workspace-configuration.md), via [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), eller i den [Azure-portalen](../../log-analytics/log-analytics-quick-create-workspace.md).
-- Log Analytics deltagarrollen, att aktivera behållarövervakning. Läs mer om hur du styr åtkomst till en Log Analytics-arbetsyta, [hantera arbetsytor](../../log-analytics/log-analytics-manage-access.md).
+- Du är medlem i rollen som deltagare Log Analytics för att aktivera behållarövervakning. Läs mer om hur du styr åtkomst till en Log Analytics-arbetsyta, [hantera arbetsytor](../../log-analytics/log-analytics-manage-access.md).
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 ## <a name="components"></a>Komponenter 
 
-Du kan övervaka prestanda är beroende av en behållare Log Analytics-agenten för Linux som samlar in prestanda- och händelsedata från alla noder i klustret. Agenten har automatiskt distribuerat och registrerat med den angivna Log Analytics-arbetsytan när du aktiverar behållarövervakning. 
+Du kan övervaka prestanda är beroende av en behållare Log Analytics-agenten för Linux som samlar in prestanda- och händelsedata från alla noder i klustret. Agenten har automatiskt distribuerat och registrerat med den angivna Log Analytics-arbetsytan när du har aktiverat Azure Monitor för behållare. Programvaruversion som distribueras är microsoft / oms:ciprod04202018 eller senare och representeras av ett datum i följande format: *mmddyyyy*. 
 
 >[!NOTE] 
 >Om du redan har distribuerat ett AKS-kluster kan aktivera du övervakning genom att använda Azure CLI eller en angiven Azure Resource Manager-mall, som visas längre fram i den här artikeln. Du kan inte använda `kubectl` om du vill uppgradera, ta bort, omdistribuera eller distribuera agenten. Mallen måste distribueras i samma resursgrupp som klustret ”.
@@ -45,13 +50,15 @@ Du kan övervaka prestanda är beroende av en behållare Log Analytics-agenten f
 Logga in på [Azure Portal](https://portal.azure.com). 
 
 ## <a name="enable-monitoring-for-a-new-cluster"></a>Aktivera övervakning av ett nytt kluster
-Under distributionen kan aktivera du övervakning av ett nytt AKS-kluster i Azure portal eller med Azure CLI. Följ stegen i snabbstartsartikeln [distribuera ett kluster i Azure Kubernetes Service (AKS)](../../aks/kubernetes-walkthrough-portal.md) om du vill aktivera från portalen. På den **övervakning** sidan för den **aktivera övervakning** väljer **Ja**, och välj en befintlig Log Analytics-arbetsyta eller skapa en ny. 
+Du kan aktivera övervakning av ett nytt AKS-kluster i Azure-portalen, Azure CLI eller med Terraform under distributionen.  Följ stegen i snabbstartsartikeln [distribuera ett kluster i Azure Kubernetes Service (AKS)](../../aks/kubernetes-walkthrough-portal.md) om du vill aktivera från portalen. På den **övervakning** sidan för den **aktivera övervakning** väljer **Ja**, och välj en befintlig Log Analytics-arbetsyta eller skapa en ny. 
 
 Om du vill aktivera övervakning av ett nytt AKS-kluster som skapats med Azure CLI följer du steg i snabbstartsartikeln under avsnittet [skapa AKS-kluster](../../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 
 >[!NOTE]
 >Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt. Du måste köra Azure CLI version 2.0.43 eller senare. För att identifiera din version, kör `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 >
+
+Om du är [distribuerar ett AKS-kluster med Terraform](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md), du kan också aktivera Azure Monitor för behållare genom att inkludera argumentet [ **addon_profile** ](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) och ange **oms_agent**.  
 
 När du har aktiverat övervakning och alla åtgärder för konfiguration har slutförts kan övervaka du prestanda för ditt kluster på något av två sätt:
 

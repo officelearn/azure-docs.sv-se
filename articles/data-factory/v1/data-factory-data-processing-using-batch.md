@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b8a9973738ac28a686488a816da0f7da5fe2ac3e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0865c8b88788387eff173443d190658cc6488946
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238530"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976867"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Bearbeta datauppsättningar i stor skala med hjälp av Data Factory och Batch
 > [!NOTE]
@@ -41,7 +41,7 @@ Med Batch-tjänsten definierar du Azure-beräkningsresurser att köra dina progr
 * [Grunderna i Batch](../../batch/batch-technical-overview.md)
 * [Funktionsöversikt för batch](../../batch/batch-api-basics.md)
 
-Du kan också mer information om Batch finns [utbildningsvägen för Batch](https://azure.microsoft.com/documentation/learning-paths/batch/).
+Du kan också mer information om Batch finns [Batch documentatnion](https://docs.microsoft.com/en-us/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>Varför Azure Data Factory?
 Data Factory är en molnbaserad dataintegreringstjänst som samordnar och automatiserar förflyttning och transformering av data. Du kan använda Data Factory för att skapa hanterade datapipelines som flyttar data från lokala och molnbaserade datalager till ett centraliserat datalager. Ett exempel är Azure Blob storage. Du kan använda Data Factory för att bearbeta/omvandla data med hjälp av tjänster som Azure HDInsight och Azure Machine Learning. Du kan även schemalägga datapipelines för att köra på ett schemalagt sätt (till exempel varje timme, varje dag, och varje vecka). Du kan övervaka och hantera pipelines blixtsnabbt och identifiera problem och vidta åtgärder.
@@ -51,7 +51,7 @@ Data Factory är en molnbaserad dataintegreringstjänst som samordnar och automa
 * [Introduktion till Data Factory](data-factory-introduction.md)
 * [Skapa din första datapipeline](data-factory-build-your-first-pipeline.md)   
 
-Du kan också mer information om Data Factory finns [utbildningsvägen för Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/).
+Du kan också mer information om Data Factory finns [Data Factory-dokumentation](https://docs.microsoft.com/en-us/rest/api/datafactory/v1/data-factory-data-factory).
 
 ## <a name="data-factory-and-batch-together"></a>Data Factory och Batch tillsammans
 Data Factory innehåller inbyggda aktiviteter. Exempelvis används kopieringsaktiviteten för att kopiera/flytta data från ett källdatalager till ett måldatalager. Hive-aktivitet används för att bearbeta data med hjälp av Hadoop-kluster (HDInsight) på Azure. En lista över transformeringsaktiviteter som stöds finns i [datatransformeringsaktiviteter](data-factory-data-transformation-activities.md).

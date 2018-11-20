@@ -1,0 +1,60 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 89aad876eb087817c8514b4268a18fa20925f810
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52167086"
+documentType: LandingData
+title: Azure SQL Database - plattform som en tjänst
+metadata:
+  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
+  title: Azure SQL Database - plattform som en tjänst
+  meta.description: Learn about the PaaS capabilities of Azure SQL Database.
+  services: sql-database
+  author: jovanpop-msft
+  manager: craigg
+  ms.service: sql-database
+  ms.tgt_pltfrm: na
+  ms.devlang: 
+  ms.topic: overview
+  ms.date: 11/11/2018
+  ms.author: jovanpop-msft
+sections:
+- items:
+  - type: paragraph
+    text: Azure SQL Database är en helt hanterad plattform som en tjänst (PaaS) Database Engine som hanterar de flesta av databasen hanteringsfunktionerna, till exempel uppgradera, korrigeringar, säkerhetskopiering, och övervaka utan inblandning av användaren. Azure SQL-databas är alltid körs på den senaste stabila versionen av SQL Server Database Engine och korrigerade OS med 99,99% tillgänglighet. PaaS-funktioner som är inbyggda i Azure SQL database kan du fokusera på domänen specifik databas administration och optimering aktiviteter som är viktiga för verksamheten.
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - title: Verksamhetskontinuitet
+      href: /azure/sql-database/sql-database-business-continuity
+      html: <p>Azure SQL Database gör det möjligt för din verksamhet även körs vid störningar, särskilt i sin infrastruktur för databehandling.</p>
+    - title: Hög tillgänglighet
+      href: /azure/sql-database/sql-database-high-availability
+      html: <p>Azure SQL Database garanterar att dina databaser är igång och körs 99,99% av tiden, utan att behöva bekymra dig om underhåll och stillestånd.</p>
+    - title: Automatiserade säkerhetskopieringar
+      href: /azure/sql-database/sql-database-automated-backups
+      html: <p>Azure SQL Database skapar säkerhetskopior av databasen och använder Azure read-access geo-redundant lagring (RA-GRS) för att tillhandahålla geografisk redundans automatiskt.</p>
+    - title: Långsiktig kvarhållning av säkerhetskopior
+      href: /azure/sql-database/sql-database-long-term-retention
+      html: <p>I Azure SQL Database kan du lagra angivna SQL-databas och fullständiga säkerhetskopieringar för upp till 10 år.</p>
+    - title: Geo-replikering
+      href: /azure/sql-database/sql-database-geo-replication-overview
+      html: <p>Azure SQL Database kan du skapa läsbara repliker av databasen i samma eller olika datacenter (region).</p>
+    - title: Skala resurser
+      href: /azure/sql-database/sql-database-scale-resources
+      html: <p>Azure SQL Database kan du enkelt lägga till fler resurser (CPU, minne, lagring) utan att behöva etablera lång.</p>
+- title: Fler resurser
+  items:
+  - type: paragraph
+    text: Azure SQL Database innehåller en uppsättning ytterligare inbyggda PaaS-funktioner som du kan använda för att enkelt hantera dina databaser.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/sql-database/sql-database-security-index">Avancerad säkerhet</a> identifierar hot och vunerabilities i dina databaser och gör det möjligt för dig att skydda dina data.
+    - html: <a href="/azure/sql-database/sql-database-automatic-tuning">Automatisk justering</a> analyserar din arbetsbelastning och ger dig rekommendationer som kan optimera prestanda för dina program genom att lägga till index, ta bort oanvända index och automatiskt åtgärda frågan plan problem.
+    - html: <a href="/azure/log-analytics/log-analytics-azure-sql">Inbyggda funktioner för övervakning</a> kan du få insikter om prestanda för dina databaser och arbetsbelastning och Felsök problem med prestanda.
+    - html: <a href="/azure/sql-database/sql-database-intelligent-insights">Inbyggd intelligens</a> automatiskt identifierar potentiella problem i din arbetsbelastning och ger dig rekommendationer som kan hjälpa dig att åtgärda problem.

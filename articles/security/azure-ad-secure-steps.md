@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 8ce75efae2d735c5653f9dae72c670b0714351ac
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 3e2fa822698f3888e1168ab7773d87e41db9eb5c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567958"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165653"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att skydda din infrastruktur för Identitetshantering
 
@@ -77,6 +77,9 @@ Om din organisation använder en hybrididentitetslösning med direktautentiserin
 * Vid ett avbrott för lokala (till exempel i en utpressningstrojan-attack) kommer du att kunna växla till [autentisering i molnet med hjälp av lösenordshashsynkronisering](https://docs.microsoft.com/azure/security/azure-ad-choose-authn). Den här autentiseringsmetoden för säkerhetskopiering kan du fortsätta använda appar som har konfigurerats för autentisering med Azure Active Directory, inklusive Office 365. I det här fallet behöver IT-personal inte använda personliga e-postkonton att dela data förrän den lokala driftstörningarna har åtgärdats.
 
 Läs mer om hur [lösenordshashsynkronisering](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization) fungerar.
+
+> [!NOTE]
+> Om du aktiverar synkronisering av lösenords-hash och använder Azure AD Domain services, hashvärden för Kerberos (AES-256) och eventuellt hashvärden för NTLM (RC4, inga salt) också krypteras och synkroniseras till Azure AD. 
 
 ### <a name="implement-ad-fs-extranet-smart-lockout"></a>Implementera AD FS smart extranätsutelåsning
 

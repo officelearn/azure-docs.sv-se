@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: b8494150a060e02145eab3674bdd2dd62cdda225
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 1ae06fe9cc459d86bdd46d9b033a726339493dc5
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277298"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164789"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Använda HDInsight Spark-kluster för att läsa och skriva data till Azure SQL database
 
@@ -36,15 +36,10 @@ Lär dig hur du ansluter ett Apache Spark-kluster i Azure HDInsight med en Azure
 
 Börja med att skapa en Jupyter-anteckningsbok som är associerade med Spark-klustret. Du kan använda den här anteckningsboken för att köra kodavsnitt som används i den här artikeln. 
 
-1. Från den [Azure-portalen](https://portal.azure.com/), öppna ditt kluster. 
+1. Från den [Azure-portalen](https://portal.azure.com/), öppna ditt kluster.
+1. Välj **Jupyter-anteckningsbok** under **Klusterinstrumentpaneler** på höger sida.  Om du inte ser **Klusterinstrumentpaneler**, klickar du på **översikt** menyn till vänster på bladet. Ange administratörsautentiseringsuppgifterna för klustret om du uppmanas att göra det.
 
-1. Från den **snabblänkar** klickar du på **Klusterinstrumentpaneler** att öppna den **Klusterinstrumentpaneler** vy.  Om du inte ser **snabblänkar**, klickar du på **översikt** menyn till vänster på bladet.
-
-    ![Instrumentpanelen för klustret i Spark](./media/apache-spark-connect-to-sql-database/hdinsight-cluster-dashboard-on-spark.png "klusterinstrumentpanel på Spark") 
-
-1. Klicka på **Jupyter-anteckningsbok**. Ange administratörsautentiseringsuppgifterna för klustret om du uppmanas att göra det.
-
-    ![Jupyter notebook i Spark](./media/apache-spark-connect-to-sql-database/hdinsight-jupyter-notebook-on-spark.png "Jupyter notebook i Spark")
+    ![Jupyter notebook i Spark](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Jupyter notebook i Spark")
    
    > [!NOTE]
    > Du kan också nå Jupyter notebook i Spark-kluster genom att öppna följande URL i webbläsaren. Ersätt **CLUSTERNAME** med namnet på klustret:

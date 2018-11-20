@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9aae08aa5906f341a890ac15e30d2863109d83a2
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: b0fc10099f1388169146d90efcd7c20dcbe8df27
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140016"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164956"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profilera live-Azure-webbappar med Application Insights
 
@@ -31,18 +31,18 @@ Följ anvisningarna nedan om du vill aktivera Profiler för en webbapp. Om du k�
 * [Virtual Machines](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 
-Application Insights Profiler har installerats med Application Insights-webbplatstillägg. Du måste installera platstillägget och konfigurera den för att få profiler för Azure Web Apps. När du har distribuerat en Webbapp, även om du har inkluderat App Insights SDK i källkoden, följer du stegen nedan för att aktivera profiler.
+Application Insights Profiler är förinstallerade som en del av App Services runtime, men du måste stänga den in på get-profiler för Azure Web Apps. När du har distribuerat en Webbapp, även om du har inkluderat App Insights SDK i källkoden, följer du stegen nedan för att aktivera profiler.
 
 1. Gå till den **Apptjänster** fönstret i Azure-portalen.
 1. Gå till **Inställningar > övervakning** fönstret.
 
    ![Aktivera App Insights på App Services-portalen](./media/app-insights-profiler/AppInsights-AppServices.png)
 
-1. Antingen följer du anvisningarna i fönstret för att skapa en ny resurs eller välj en befintlig App Insights-resurs för att övervaka ditt webbprogram. Acceptera alla standardalternativ. **Diagnostik på kodnivå** är aktiverad som standard och gör det möjligt för Profiler.
+1. Antingen följer du anvisningarna i fönstret för att skapa en ny resurs eller välj en befintlig App Insights-resurs för att övervaka ditt webbprogram. Kontrollera också att Profiler är **på**.
 
    ![Lägg till App Insights-webbplatstillägg][Enablement UI]
 
-1. Profiler har installerats med App Insights-webbplatstillägg och aktiveras med hjälp av en Appinställning för App Services.
+1. Profiler har nu aktiverats med hjälp av en Appinställning för App Services.
 
     ![App-inställning för Profiler][profiler-app-setting]
 

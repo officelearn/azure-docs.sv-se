@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 378baad0735238dc0921e5e78e2a27b3ae907e19
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 611cd0878e88d2e1c0a988f73b57e391c5a8551d
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627799"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975915"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrera Hub arbetsyta och projekt till anpassad Translator
 
@@ -134,6 +134,19 @@ Om du vill ha mer detaljerad migreringsrapport om ditt projekt, utbildningar och
 
 >[!Note]
 >Migrering stöds bara för språkpar där NMT språk finns. Kontrollera listan över för närvarande [NMT språk som stöds](https://www.microsoft.com/translator/business/languages/). Data kommer att flyttas från hubben till anpassad Translator för språkpar där NMT språk inte finns, men utbildningar kan inte utföras på dessa språkpar.
+
+## <a name="custom-translator-versus-hub"></a>Anpassade Translator jämfört med Hub
+
+Den här tabellen jämförs funktionerna mellan Microsoft Translator Hub och anpassade Translator.
+
+|   | Hub | Custom Translator |
+|:-----|:----:|:----:|
+|Anpassning av funktionsstatus   | Allmän tillgänglighet  | Förhandsversion |
+| API för textöversättning version  | V2    | V3  |
+| SMT anpassning | Ja   | Nej |
+| NMT anpassning | Nej    | Ja |
+| Nya enhetliga Speech services anpassning | Nej    | Ja |
+| Ingen spårning | Ja | Ja |
 
 ## <a name="next-steps"></a>Nästa steg
 

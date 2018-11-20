@@ -1,6 +1,6 @@
 ---
-title: Kör aktiviteten Pipeline i Azure Data Factory | Microsoft Docs
-description: Lär dig hur du kan använda aktiviteten köra pipelinen för att anropa en Data Factory-pipelinen från en annan Data Factory-pipelinen.
+title: Kör Pipeline-aktivitet i Azure Data Factory | Microsoft Docs
+description: Lär dig hur du kan använda Kör Pipeline-aktivitet för att anropa en Data Factory-pipeline från en annan Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 2aa25004fb9c2e914cd8c669095953e174686197
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: aace01fedd0c2ab538d4e11b418907f962128d0e
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051771"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163133"
 ---
-# <a name="execute-pipeline-activity-in-azure-data-factory"></a>Köra Pipeline aktiviteten i Azure Data Factory
-Aktiviteten kör Pipeline kan Data Factory-pipelinen att anropa en annan pipeline.
+# <a name="execute-pipeline-activity-in-azure-data-factory"></a>Kör Pipeline-aktivitet i Azure Data Factory
+Kör Pipeline-aktiviteten kan Data Factory-pipeline anropa en annan pipeline.
 
 ## <a name="syntax"></a>Syntax
 
@@ -59,20 +59,20 @@ Aktiviteten kör Pipeline kan Data Factory-pipelinen att anropa en annan pipelin
 }
 ```
 
-## <a name="type-properties"></a>Typegenskaper
+## <a name="type-properties"></a>Egenskaperna för anslutningstypen
 Egenskap  | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | Namnet på aktiviteten kör pipeline. | Sträng | Ja
-typ | Måste anges till: **ExecutePipeline**. | Sträng | Ja
-pipelina | Pipeline-referens till beroende pipeline som anropar denna pipeline. Ett pipeline referensobjekt har två egenskaper: **referensnamn** och **typen**. Egenskapen referensnamn anger namnet på referens-pipeline. Egenskapen type måste anges till PipelineReference. | PipelineReference | Ja
-parameters | Parametrar som ska skickas till den anropade pipelinen | Ett JSON-objekt som matchar parameternamn till argumentvärden | Nej
-waitOnCompletion | Definierar om körning av aktiviteten ska vänta tills beroende pipelinekörningen ska slutföras. | Standardvärdet är false. | Boolesk | Nej
+namn | Namnet på execute pipeline-aktivitet. | Sträng | Ja
+typ | Måste vara inställt på: **ExecutePipeline**. | Sträng | Ja
+pipelina | Pipelinereferens till beroende pipelinen som anropar denna pipeline. En pipeline-referensobjektet har två egenskaper: **referenceName** och **typ**. Egenskapen referenceName anger namnet på referens-pipeline. Type-egenskapen måste anges till PipelineReference. | PipelineReference | Ja
+parameters | Parametrar som ska skickas till anropad pipeline | En JSON-objekt som motsvarar argumentvärden parameternamn | Nej
+waitOnCompletion | Definierar om körningsmiljön för aktiviteten ska vänta tills beroende pipeline-åtgärd ska slutföras. | Standardvärdet är false. | Boolesk | Nej
 
 ## <a name="sample"></a>Exempel
-Det här scenariot har två pipelines:
+Det här scenariot har du två pipelines:
 
-- **Master pipeline** -den här pipelinen har en köra Pipeline-aktivitet som anropar anropade pipeline. Master pipelinen har två parametrar: `masterSourceBlobContainer`, `masterSinkBlobContainer`.
-- **Anropade pipeline** -den här pipelinen har en kopia aktivitet som kopierar data från en källa för Azure Blob till Azure Blob-mottagare. Anropade pipelinen har två parametrar: `sourceBlobContainer`, `sinkBlobContainer`.
+- **Master pipeline** – den här pipelinen har en kör Pipeline-aktivitet som anropar anropad pipeline. Master pipelinen har två parametrar: `masterSourceBlobContainer`, `masterSinkBlobContainer`.
+- **Anropad pipeline** – den här pipelinen har en Kopieringsaktivitet som kopierar data från en Azure Blob-källan till Azure Blob-mottagaren. Anropade pipelinen har två parametrar: `sourceBlobContainer`, `sinkBlobContainer`.
 
 ### <a name="master-pipeline-definition"></a>Master pipeline-definition
 
@@ -93,7 +93,7 @@ Det här scenariot har två pipelines:
               "value": "@pipeline().parameters.masterSourceBlobContainer",
               "type": "Expression"
             },
-            "sinkBlobCountainer": {
+            "sinkBlobContainer": {
               "value": "@pipeline().parameters.masterSinkBlobContainer",
               "type": "Expression"
             }
@@ -116,7 +116,7 @@ Det här scenariot har två pipelines:
 
 ```
 
-### <a name="invoked-pipeline-definition"></a>Anropade pipeline-definition
+### <a name="invoked-pipeline-definition"></a>Anropad pipeline-definition
 
 ```json
 {
@@ -178,7 +178,7 @@ Det här scenariot har två pipelines:
 }
 ```
 
-**Källan dataset**
+**Källdatauppsättning**
 ```json
 {
     "name": "SourceBlobDataset",
@@ -199,7 +199,7 @@ Det här scenariot har två pipelines:
 }
 ```
 
-**Sink dataset**
+**Datauppsättning för mottagare**
 ```json
 {
     "name": "sinkBlobDataset",
@@ -219,9 +219,9 @@ Det här scenariot har två pipelines:
 }
 ```
 
-### <a name="running-the-pipeline"></a>Kör pipeline
+### <a name="running-the-pipeline"></a>Kör pipelinen
 
-Om du vill köra master pipeline i det här exemplet skickas följande värden för parametrarna masterSourceBlobContainer och masterSinkBlobContainer: 
+Om du vill köra master pipelinen i det här exemplet skickas följande värden för parametrarna masterSourceBlobContainer och masterSinkBlobContainer: 
 
 ```json
 {
@@ -230,7 +230,7 @@ Om du vill köra master pipeline i det här exemplet skickas följande värden f
 }
 ```
 
-Master pipeline vidarebefordrar dessa värden för den anropade pipelinen som visas i följande exempel: 
+Master pipelinen vidarebefordrar dessa värden till anropad pipeline som du ser i följande exempel: 
 
 ```json
 {
@@ -245,7 +245,7 @@ Master pipeline vidarebefordrar dessa värden för den anropade pipelinen som vi
           "value": "@pipeline().parameters.masterSourceBlobContainer",
           "type": "Expression"
         },
-        "sinkBlobCountainer": {
+        "sinkBlobContainer": {
           "value": "@pipeline().parameters.masterSinkBlobContainer",
           "type": "Expression"
         }
@@ -256,7 +256,7 @@ Master pipeline vidarebefordrar dessa värden för den anropade pipelinen som vi
 
 ```
 ## <a name="next-steps"></a>Nästa steg
-Se annan kontrollflödesaktiviteter som stöds av Data Factory: 
+Se andra kontrollflödesaktiviteter som stöds av Data Factory: 
 
 - [För varje aktivitet](control-flow-for-each-activity.md)
 - [GetMetadata-aktivitet](control-flow-get-metadata-activity.md)

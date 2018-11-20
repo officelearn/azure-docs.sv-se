@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 803fa89145d3a38b2df34666754fe8949a74eb53
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 743ea02235780efb8c165d14f9386024248a4fca
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262343"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976782"
 ---
 # <a name="api-management-advanced-policies"></a>API Management avancerade principer
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -649,7 +649,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Attribut|Beskrivning|Krävs|Standard|
 |---------------|-----------------|--------------|-------------|
 |mode="string"|Anger om detta är en ny begäran eller en kopia av den aktuella begäran. I läget för utgående, läge = Kopiera inte initiera begärandetexten.|Nej|Ny|
-|response-variable-name="string"|Namnet på sammanhangsvariabeln som tar emot ett svarsobjekt. Om variabeln inte finns det skapas efter lyckade körningen av principen och blir tillgänglig via [ `context.Variable` ](api-management-policy-expressions.md#ContextVariables) samling.|Ja|Gäller inte|
+|response-variable-name="string"|Namnet på sammanhangsvariabeln som tar emot ett svarsobjekt. Om variabeln inte finns det skapas efter en lyckad körning av principen och blir tillgänglig via [ `context.Variable` ](api-management-policy-expressions.md#ContextVariables) samling.|Ja|Gäller inte|
 |timeout = ”heltal”|Det går inte att timeout-intervall i sekunder innan anropet till URL: en.|Nej|60|
 |Ignorera fel|Om SANT och begäran resulterar i ett fel:<br /><br /> – Om svar-variabeln-name har angetts innehåller ett null-värde.<br />– Om variabeln svarsnamnet inte har angetts, kontext. Begäran kommer inte att uppdateras.|Nej|false|
 |namn|Anger namnet på rubriken anges.|Ja|Gäller inte|

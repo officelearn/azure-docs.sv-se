@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6013c0a1b404336ad7cca21edafb7adec5c7f7ca
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: fa6e70fe58e5066fcf308425a4c0d104c072a756
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978850"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164311"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Felsöka problem med att aktivera och visa Application Insights Profiler
 
@@ -46,9 +46,6 @@ Profiler skriver spårningsmeddelanden och anpassade händelser till application
 
 1. Om det finns begäranden under tidsperioden profiler kördes, se till att begäranden hanteras av en del av ditt program som har aktiverat profiler. Program består ibland av flera komponenter men Profiler är endast aktiverad i vissa fall inte alla, komponenter. Konfigurera Application Insights Profiler-sidan visas de komponenter som har överfört spårningar.
 
-### <a name="net-core-21-bug"></a>.NET core 2.1 bugg
-Det finns en bugg i profiler-agent som förhindrar att ladda upp spårningar som kommer från program som körs på ASP.NET Core 2.1. Vi arbetar på att lösa och har klar snart. Korrigering för den här buggen kommer att distribueras i slutet av oktober.
-
 ### <a name="other-things-to-check"></a>Annat att kontrollera:
 * Din app körs på .NET Framework 4.6.
 * Om din webbapp är ett ASP.NET Core-program, måste den köra minst ASP.NET Core 2.0.
@@ -69,10 +66,11 @@ Skicka in ett supportärende i portalen. Glöm inte att ta Korrelations-ID från
 ## <a name="troubleshooting-profiler-on-app-services"></a>Felsökning av Profiler på App Services
 ### <a name="for-the-profiler-to-work-properly"></a>För profiler ska fungera korrekt:
 * Web app service-planen måste vara Basic-nivån eller högre.
-* Din webbapp måste ha Application Insights-tillägget för App Services (2.6.5) installerat.
+* Din webbapp måste ha Application Insights som aktiveras.
 * Din webbapp måste ha den **APPINSIGHTS_INSTRUMENTATIONKEY** appinställningen som konfigurerats med samma instrumenteringsnyckeln som används av Application Insights SDK.
 * Din webbapp måste ha den **APPINSIGHTS_PROFILERFEATURE_VERSION** appinställningen definieras och inställd på 1.0.0.
-* Den **ApplicationInsightsProfiler2** webbjobb måste köras. Du kan kontrollera web-jobbet genom att gå till [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/), och öppna den **WebJobs-instrumentpanelen** under Verktyg-menyn. Som du ser i skärmbilderna nedan, genom att klicka på länken ApplicationInsightsProfiler2 kan se du information av webbjobbet, inklusive loggen.
+* Din webbapp måste ha den **DiagnosticServices_EXTENSION_VERSION** appinställningen definieras och ange värdet till ~ 3.
+* Den **ApplicationInsightsProfiler3** webbjobb måste köras. Du kan kontrollera web-jobbet genom att gå till [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/), och öppna den **WebJobs-instrumentpanelen** under Verktyg-menyn. Som du ser i skärmbilderna nedan, genom att klicka på länken ApplicationInsightsProfiler2 kan se du information av webbjobbet, inklusive loggen.
 
     Här är en länk som du måste klicka för att se webjob-information: 
 
@@ -91,11 +89,7 @@ När du konfigurerar Profiler görs uppdateringar till webbappens inställningar
 1. Ange **Always On** till **på**.
 1. Lägg till den **APPINSIGHTS_INSTRUMENTATIONKEY** app inställning och ange värdet till samma instrumenteringsnyckeln som används av SDK: N.
 1. Lägg till den **APPINSIGHTS_PROFILERFEATURE_VERSION** appinställningen och ange 1.0.0.
-1. Öppna **Avancerade analysverktyg**.
-1. Välj **Gå** att öppna Kudu-webbplatsen.
-1. Välj på Kudu-webbplatsen **Platstillägg**.
-1. Installera **Programinsikter** från Azure Web Apps-galleriet.
-1. Starta om webbappen.
+1. Lägg till den **DiagnosticServices_EXTENSION_VERSION** appinställningen och ange värdet till ~ 3.
 
 ### <a name="too-many-active-profiling-sessions"></a>För många aktiva sessioner för profilering
 

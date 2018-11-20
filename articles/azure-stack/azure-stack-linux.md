@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 11/16/2018
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: db52d145c3bfbd9415072be13ccb502969f07374
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.reviewer: ''
+ms.openlocfilehash: 3154c3a5a677f208973d442ff3875bb5ee8df6a1
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077655"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160638"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Lägga till Linux-avbildningar i Azure Stack
 
@@ -29,25 +29,23 @@ Du kan distribuera virtuella Linux-datorer (VM) på Azure Stack genom att lägga
 
 ## <a name="marketplace-management"></a>Marketplace-hantering
 
-Använd procedurerna i följande artikel för att ladda ned Linux-avbildningar från Azure Marketplace. Välj Linux-avbildningar som du vill erbjuda användare på Azure Stack. 
-
-[Hämta marketplace-objekt från Azure till Azure Stack](azure-stack-download-azure-marketplace-item.md).
+Om du vill ladda ned Linux-avbildningar från Azure Marketplace, Följ stegen i den [hämta marketplace-objekt från Azure till Azure Stack](azure-stack-download-azure-marketplace-item.md) artikeln. Välj Linux-avbildningar som du vill erbjuda användare på Azure Stack. 
 
 Observera att det finns frekventa uppdateringar till dessa bilder, så kontrollera Marketplace Management ofta för att hålla dig uppdaterad.
 
 ## <a name="prepare-your-own-image"></a>Förbereda en egen avbildning
 
- Om möjligt hämta avbildningar via Marketplace-hantering som har förberetts och testats för Azure Stack. 
+Om möjligt hämta avbildningar via Marketplace-hantering som har förberetts och testats för Azure Stack. 
  
- Azure Linux Agent (kallas vanligtvis `WALinuxAgent` eller `walinuxagent`) krävs, och inte alla versioner av agenten fungerar i Azure Stack. Du bör använda version 2.2.18 eller senare om du skapar en egen avbildning. Observera att [cloud-init](https://cloud-init.io/) stöds inte på Azure Stack just nu.
+Azure Linux Agent (kallas vanligtvis `WALinuxAgent` eller `walinuxagent`) krävs, och inte alla versioner av agenten fungerar i Azure Stack. Du bör använda version 2.2.18 eller senare om du skapar en egen avbildning. Observera att [cloud-init](https://cloud-init.io/) stöds inte på Azure Stack just nu.
 
- Du kan förbereda din egen Linux-avbildning med följande anvisningar:
+Du kan förbereda din egen Linux-avbildning med följande anvisningar:
 
-   * [CentOS-baserade distributioner](../virtual-machines/linux/create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-   * [Debian Linux](../virtual-machines/linux/debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-   * [Red Hat Enterprise Linux](azure-stack-redhat-create-upload-vhd.md)
-   * [SLES & openSUSE](../virtual-machines/linux/suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-   * [Ubuntu Server](../virtual-machines/linux/create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [CentOS-baserade distributioner](../virtual-machines/linux/create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Debian Linux](../virtual-machines/linux/debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Red Hat Enterprise Linux](azure-stack-redhat-create-upload-vhd.md)
+* [SLES & openSUSE](../virtual-machines/linux/suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Ubuntu Server](../virtual-machines/linux/create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
     
 ## <a name="add-your-image-to-the-marketplace"></a>Lägg till din avbildning på Marketplace
@@ -55,3 +53,10 @@ Observera att det finns frekventa uppdateringar till dessa bilder, så kontrolle
 Följ [lägga till bilden i Marketplace](azure-stack-add-vm-image.md). Se till att den `OSType` parametern är inställd på `Linux`.
 
 När du har lagt till bilden i Marketplace, ett Marketplace-objekt skapas och användare kan distribuera en Linux-dator.
+
+## <a name="next-steps"></a>Nästa steg
+
+Se följande artiklar för mer information:
+
+- [Hämta marketplace-objekt från Azure till Azure Stack](azure-stack-download-azure-marketplace-item.md)
+- [Översikt över Azure Stack Marketplace](azure-stack-marketplace.md)

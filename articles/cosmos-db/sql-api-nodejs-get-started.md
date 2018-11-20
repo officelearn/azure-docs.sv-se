@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: 7eeb4fdba8272d9bc2b67d8a33dd7b1d210f5e47
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 61d9d33ae7e8e2104e61bbd24862a709dd6d78ec
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278607"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636500"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Självstudie: Skapa ett Node.js-konsolprogram med JavaScript SDK för att hantera Azure Cosmos DB SQL API-data
 
@@ -218,7 +218,7 @@ Nu har du koden för att initiera Azure Cosmos DB-klienten och det är dags att 
    const containerId = config.container.id;
    ```
 
-   En [databas](sql-api-resources.md#databases) kan skapas genom att använda funktionen [createIfNotExists](/javascript/api/%40azure/cosmos/databases) eller [create](/javascript/api/%40azure/cosmos/databases) för klassen **Databaser**. En databas är en logisk container med objekt som är partitionerade över containrar. 
+   En databas kan skapas genom att använda funktionen [createIfNotExists](/javascript/api/%40azure/cosmos/databases) eller [create](/javascript/api/%40azure/cosmos/databases) för klassen **Databaser**. En databas är en logisk container med objekt som är partitionerade över containrar. 
 
 2. Kopiera och klistra in metoderna **createDatabase** och **readDatabase** i app.js-filen under definitionen för ```databaseId``` och ```containerId```. Funktionen **createDatabase** skapar en ny databas med ID ```FamilyDatabase```, som anges från ```config```-objektet om den inte redan finns. Funktionen **readDatabase** läser databasens definition för att säkerställa att databasen finns.
 

@@ -12,58 +12,52 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/16/2018
+ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 55e97ff95245ce222ccbc2a99f6ae2882cef3715
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: de905466d47774decf864ace5464bb2a68e5e6bc
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248783"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612006"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>Komma igång med HTTP-begäranden för Relay-hybridanslutningar i .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-Den här självstudien innehåller en introduktion till [Azure Relay-hybridanslutningar](relay-what-is-it.md#hybrid-connections). Lär dig att skapa ett klientprogram med Microsoft .NET som skickar begäranden till ett motsvarande lyssnarprogram. 
+I den här snabbstarten skapar du ett sändar- och mottagarprogram i .NET som skickar och tar emot meddelanden med HTTP-protokollet. Programmen använder funktionen Hybridanslutningar i Azure Relay. Läs mer om Azure Relay i allmänhet i [Azure Relay](relay-what-is-it.md). 
 
-## <a name="what-will-be-accomplished"></a>Detta kommer att utföras
-Hybridanslutningar kräver både en klient- och en serverkomponent. I den här självstudien har du slutfört de här stegen för att skapa två konsolprogram:
+I den här snabbstarten gör du följande:
 
 1. Skapa ett Relay-namnområde med Azure Portal.
 2. Skapa en hybridanslutning i det namnområdet med Azure Portal.
-3. Skriva ett serverkonsolprogram (lyssnare) för att ta emot begäranden.
-4. Skriva ett klientkonsolprogram (avsändare) för att skicka begäranden.
+3. Skriva ett serverkonsolprogram (lyssnare) för att ta emot meddelanden.
+4. Skriva ett klientkonsolprogram (avsändare) för att ta emot meddelanden.
+5. Kör program. 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här självstudien, finns följande förhandskrav:
 
-* [Visual Studio 2015 eller senare](https://www.visualstudio.com). I exemplen i den här självstudiekursen används Visual Studio 2017.
-* En Azure-prenumeration.
+* [Visual Studio 2015 eller senare](http://www.visualstudio.com). I exemplen i den här självstudiekursen används Visual Studio 2017.
+* En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
-## <a name="1-create-a-namespace-by-using-the-azure-portal"></a>1. Skapa ett namnområde med Azure Portal
-Om du redan har skapat ett Relay-namnområde går du till [Skapa en hybridanslutning med Azure Portal](#2-create-a-hybrid-connection-using-the-azure-portal).
-
+## <a name="create-a-namespace"></a>Skapa ett namnområde
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
-## <a name="2-create-a-hybrid-connection-by-using-the-azure-portal"></a>2. Skapa en hybridanslutning med Azure Portal
-Om du redan har skapat en hybridanslutning går du till [Skapa ett serverprogram](#3-create-a-server-application-listener).
-
+## <a name="create-a-hybrid-connection"></a>Skapa en hybridanslutning
 [!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
 
-## <a name="3-create-a-server-application-listener"></a>3. Skapa ett serverprogram (lyssnare)
+## <a name="create-a-server-application-listener"></a>Skapa ett serverprogram (lyssnare)
 För att lyssna på och ta emot meddelanden från Relay skriver du ett C#-konsolprogram i Visual Studio.
 
 [!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-server](../../includes/relay-hybrid-connections-http-requests-dotnet-get-started-server.md)]
 
-## <a name="4-create-a-client-application-sender"></a>4. Skapa ett klientprogram (avsändare)
+## <a name="create-a-client-application-sender"></a>Skapa ett klientprogram (avsändare)
 För att skicka meddelanden till Relay skriver du ett C#-konsolprogram i Visual Studio.
 
 [!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-client](../../includes/relay-hybrid-connections-http-requests-dotnet-get-started-client.md)]
 
-## <a name="5-run-the-applications"></a>5. Köra programmen
+## <a name="run-the-applications"></a>Köra programmen
 1. Kör serverprogrammet. Du kan se följande text i konsolfönstret:
 
     ```
@@ -77,7 +71,6 @@ Grattis, du har skapat ett end-to-end hybridanslutningsprogram!
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Vanliga frågor och svar om Relay](relay-faq.md)
-* [Skapa ett namnområde](relay-create-namespace-portal.md)
-* [Kom igång med Node](relay-hybrid-connections-node-get-started.md)
+I den här snabbstarten skapade du .NET-klient- och -serverprogram som använde HTTP för att skicka och ta emot meddelanden. Funktionen Hybridanslutningar i Azure Relay stöder också användningen av WebSockets för att skicka och ta emot meddelanden. Läs om hur du använder WebSockets med Azure Relay-hybridanslutningar i [WebSockets-snabbstarten](relay-hybrid-connections-dotnet-get-started.md).
 
+I den här snabbstarten använde du .NET Framework för att skapa klient- och serverprogram. Om du vill läsa om hur du skriver klient- och serverprogram med hjälp av Node.js läser du [Node.js-snabbstarten](relay-hybrid-connections-node-get-started.md) eller [Node.jsT HTTP-snabbstarten](relay-hybrid-connections-http-requests-dotnet-get-started.md).

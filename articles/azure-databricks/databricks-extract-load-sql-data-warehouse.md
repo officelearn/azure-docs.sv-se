@@ -10,16 +10,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 07/26/2018
-ms.openlocfilehash: c67a223a95e73161b58f8cd4f2aeba2614a9ee76
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: bf7351f5d62958b77473440d618d31cda2c983ea
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419087"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615525"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Självstudier: Extrahera, transformera och läsa in data med Azure Databricks
 
-I den här självstudien får du utföra en ETL-åtgärd (extrahera, transformera och läsa in data) med Azure Databricks. Du extraherar data från Azure Data Lake Store till Azure Databricks, kör transformationer av data i Azure Databricks och läser sedan in dessa transformerade data i Azure SQL Data Warehouse. 
+I den här självstudien får du utföra en ETL-åtgärd (extrahera, transformera och läsa in data) med Azure Databricks. Du extraherar data från Azure Data Lake Store till Azure Databricks, kör transformationer av data i Azure Databricks och läser sedan in dessa transformerade data i Azure SQL Data Warehouse.
 
 Stegen i den här självstudiekursen använder SQL Data Warehouse-anslutningsappen så att Azure Databricks kan överföra data till Azure Databricks. Den här anslutningsappen använder i sin tur Azure Blob Storage som temporär lagring för de data som överförs mellan ett Azure Databricks-kluster och Azure SQL Data Warehouse.
 
@@ -27,7 +27,7 @@ Följande bild visar programflödet:
 
 ![Azure Databricks med Data Lake Store och SQL Data Warehouse](./media/databricks-extract-load-sql-data-warehouse/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks med Data Lake Store och SQL Data Warehouse")
 
-Den här självstudien omfattar följande uppgifter: 
+Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
 > * Skapa en Azure Databricks-arbetsyta
@@ -64,7 +64,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
     ![Skapa en arbetsyta för Azure Databricks](./media/databricks-extract-load-sql-data-warehouse/create-databricks-workspace.png "Skapa en arbetsyta för Azure Databricks")
 
-    Ange följande värden: 
+    Ange följande värden:
      
     |Egenskap  |Beskrivning  |
     |---------|---------|
@@ -95,14 +95,14 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
     Godkänn alla övriga standardvärden förutom följande värden:
 
     * Ange ett namn för klustret.
-    * För den här artikeln skapar du ett kluster med körningen **4.0**. 
+    * För den här artikeln skapar du ett kluster med körningen **4.0**.
     * Se till att markera kryssrutan **Avsluta efter \_\_ minuters inaktivitet**. Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
     
     Välj **Skapa kluster**. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
 
 ## <a name="create-an-azure-data-lake-store-account"></a>Skapa ett Azure Data Lake Store-konto
 
-I det här avsnittet skapar du ett Azure Data Lake Store-konto och associerar ett tjänstens huvudnamn för Azure Active Directory med det. Senare i den här självstudiekursen kommer du att använda det här tjänstens huvudnamn i Azure Databricks för att få åtkomst till Azure Data Lake Store. 
+I det här avsnittet skapar du ett Azure Data Lake Store-konto och associerar ett tjänstens huvudnamn för Azure Active Directory med det. Senare i den här självstudiekursen kommer du att använda det här tjänstens huvudnamn i Azure Databricks för att få åtkomst till Azure Data Lake Store.
 
 1. Välj **Skapa en resurs** > **Storage** > **Data Lake Store** i [Azure Portal](https://portal.azure.com).
 3. På bladet **Ny Data Lake Store**, anger du de värden som visas på följande skärmbild:
@@ -189,7 +189,7 @@ När du loggar in med programmet måste du skicka klientorganisations-ID:t med d
 
 1. Kopiera **katalog-ID:t**. Det här värdet är ditt klientorganisations-ID.
 
-   ![klientorganisations-ID](./media/databricks-extract-load-sql-data-warehouse/copy-directory-id.png) 
+   ![klientorganisations-ID](./media/databricks-extract-load-sql-data-warehouse/copy-directory-id.png)
 
 ## <a name="upload-data-to-data-lake-store"></a>Ladda upp data till Data Lake Store
 
@@ -306,7 +306,7 @@ Du har nu extraherat data från Azure Data Lake Store till Azure Databricks.
 
 ## <a name="transform-data-in-azure-databricks"></a>Transformera data med Azure Databricks
 
-Exempelrådata **small_radio_json.json** fångar målgruppen för en radiostation och har flera olika kolumner. I det här avsnittet kommer du att transformera data så att endast specifika kolumner hämtas från datamängden. 
+Exempelrådata **small_radio_json.json** fångar målgruppen för en radiostation och har flera olika kolumner. I det här avsnittet kommer du att transformera data så att endast specifika kolumner hämtas från datamängden.
 
 1. Börja med att endast hämta kolumnerna *förnamn*, *efternamn*, *kön*, *plats* och *nivå* från den dataram som du redan har skapat.
 
@@ -340,7 +340,7 @@ Exempelrådata **small_radio_json.json** fångar målgruppen för en radiostatio
         |  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
         +---------+----------+------+--------------------+-----+
 
-2.  Du kan transformera dessa data ytterligare genom att t.ex. ändra namnet på kolumnen **nivå** till **prenumerationstyp**.
+2. Du kan transformera dessa data ytterligare genom att t.ex. ändra namnet på kolumnen **nivå** till **prenumerationstyp**.
 
         val renamedColumnsDf = specificColumnsDf.withColumnRenamed("level", "subscription_type")
         renamedColumnsDf.show()
@@ -382,7 +382,7 @@ Som tidigare nämnts använder SQL Data Warehouse-anslutningen Azure Blob Storag
 
         val blobStorage = "<STORAGE ACCOUNT NAME>.blob.core.windows.net"
         val blobContainer = "<CONTAINER NAME>"
-        val blobAccessKey =  "<ACCESS KEY>"
+        val blobAccessKey = "<ACCESS KEY>"
 
 2. Ange en tillfällig mapp som ska användas när du flyttar data mellan Azure Databricks och Azure SQL Data Warehouse.
 
@@ -397,15 +397,15 @@ Som tidigare nämnts använder SQL Data Warehouse-anslutningen Azure Blob Storag
 
         //SQL Data Warehouse related settings
         val dwDatabase = "<DATABASE NAME>"
-        val dwServer = "<DATABASE SERVER NAME>" 
+        val dwServer = "<DATABASE SERVER NAME>"
         val dwUser = "<USER NAME>"
         val dwPass = "<PASSWORD>"
-        val dwJdbcPort =  "1433"
+        val dwJdbcPort = "1433"
         val dwJdbcExtraOptions = "encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
         val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
         val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
 
-5. Kör följande fragment om du vill läsa in den transformerande dataramen **renamedColumnsDf** som en tabell i SQL Data Warehouse. Det här kodfragmentet skapar en tabell med namnet **SampleTable** i SQL-databasen. Observera att Azure SQL DW kräver en huvudnyckel.  Du kan skapa en huvudnyckel genom att köra kommandot ”CREATE MASTER KEY;” i SQL Server Management Studio.
+5. Kör följande fragment om du vill läsa in den transformerande dataramen **renamedColumnsDf** som en tabell i SQL Data Warehouse. Det här kodfragmentet skapar en tabell med namnet **SampleTable** i SQL-databasen. Observera att Azure SQL DW kräver en huvudnyckel. Du kan skapa en huvudnyckel genom att köra kommandot ”CREATE MASTER KEY;” i SQL Server Management Studio.
 
         spark.conf.set(
           "spark.sql.parquet.writeLegacyFormat",
@@ -413,7 +413,7 @@ Som tidigare nämnts använder SQL Data Warehouse-anslutningen Azure Blob Storag
         
         renamedColumnsDf.write
             .format("com.databricks.spark.sqldw")
-            .option("url", sqlDwUrlSmall) 
+            .option("url", sqlDwUrlSmall)
             .option("dbtable", "SampleTable")
             .option( "forward_spark_azure_storage_credentials","True")
             .option("tempdir", tempDir)
@@ -434,9 +434,9 @@ När du är klar med självstudien kan du avsluta klustret. Detta gör du genom 
 
 ![Stoppa ett Databricks-kluster](./media/databricks-extract-load-sql-data-warehouse/terminate-databricks-cluster.png "Stoppa ett Databricks-kluster")
 
-Om du inte manuellt avslutar klustret kommer det att stoppas automatiskt, förutsatt att du har markerat kryssrutan **Avsluta efter ___ minuters inaktivitet** när klustret skapades. I sådant fall stoppas klustret automatiskt om det har varit inaktivt under den angivna tiden.
+Om du inte manuellt avslutar klustret kommer det att stoppas automatiskt, förutsatt att du har markerat kryssrutan **Avsluta efter \_\_ minuters inaktivitet** när klustret skapades. I sådant fall stoppas klustret automatiskt om det har varit inaktivt under den angivna tiden.
 
-## <a name="next-steps"></a>Nästa steg 
+## <a name="next-steps"></a>Nästa steg
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]

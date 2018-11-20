@@ -12,15 +12,15 @@ ms.component: report-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/23/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ba2784663a585aebb82ee149be3b54e73920f6dd
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: cd5da2a3c5fa3d9cd67715493eb649926badb694
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816658"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622542"
 ---
 # <a name="quickstart-install-azure-active-directory-power-bi-content-pack"></a>Snabbstart: Installera Azure Active Directory Power BI-innehållspaketet
 
@@ -29,7 +29,7 @@ ms.locfileid: "48816658"
 |För närvarande använder Azure AD Power BI-innehållspaketet Azure AD Graph-API:er för att hämta data från din Azure AD-klientorganisation. Därför kan det hända att du ser vissa skillnader mellan data som är tillgängliga i innehållspaketet och de data som hämtas med hjälp av [Microsoft Graph-API:er för rapportering](concept-reporting-api.md). |
 |  |
 
-Power BI-Innehållspaketet för Azure Active Directory ger dig möjlighet att få djupa insikter om vad som händer med din Active Directory. Du kan hämta det fördefinierade innehållspaketet och använda det för att rapportera alla aktiviteter i din katalog med hjälp av den omfattande visualiseringsupplevelse som Power BI erbjuder. Du kan även skapa en egen instrumentpanel och enkelt dela den med andra i din organisation. 
+Power BI-innehållspaketet för Azure Active Directory (Azure AD) ger dig möjligheten att visualisera rapportdata från din miljö. Du kan hämta det fördefinierade innehållspaketet och använda det för att rapportera alla aktiviteter i din katalog med hjälp av den omfattande visualiseringsupplevelse som Power BI erbjuder. Du kan även skapa en egen instrumentpanel och enkelt dela den med andra i din organisation. 
 
 I den här snabbstarten lär du dig hur du installerar innehållspaketet.
 

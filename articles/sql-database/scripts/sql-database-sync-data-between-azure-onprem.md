@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: f9f8677b6aa34e4c6f1120e12cf1488f2b266a2d
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: d7e8d41d3136513e1bce466f1b3e8ecf43c42a01
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239772"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687276"
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>Använda PowerShell för att synkronisera mellan en SQL Database och en lokal SQL Server-databas
 
@@ -389,14 +389,18 @@ Ytterligare PowerShell-skriptexempel för SQL Database finns i [PowerShell-skrip
 
 Mer information om SQL Data Sync finns i:
 
--   [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](../sql-database-sync-data.md)
--   [Konfigurera Azure SQL Data Sync](../sql-database-get-started-sql-data-sync.md)
--   [Metodtips för Azure SQL Data Sync](../sql-database-best-practices-data-sync.md)
--   [Övervaka Azure SQL Data Sync med Log Analytics](../sql-database-sync-monitor-oms.md)
--   [Felsöka problem med Azure SQL Data Sync](../sql-database-troubleshoot-data-sync.md)
-
--   Slutför PowerShell-exempel som visar hur du konfigurerar SQL Data Sync:
-    -   [Använda PowerShell för att synkronisera mellan flera Azure SQL-databaser](sql-database-sync-data-between-sql-databases.md)
+-   Översikt – [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](../sql-database-sync-data.md)
+-   Konfigurera Data Sync
+    - I portalen – [Självstudie: Konfigurera SQL Data Sync att synkronisera data mellan Azure SQL Database och SQL Server lokalt](../sql-database-get-started-sql-data-sync.md)
+    - Med PowerShell
+        -  [Använda PowerShell för att synkronisera mellan flera Azure SQL-databaser](sql-database-sync-data-between-sql-databases.md)
+-   Datasynkroniseringsagent – [Datasynkroniseringsagent för Azure SQL Data Sync](../sql-database-data-sync-agent.md)
+-   Metodtips – [Metodtips för Azure SQL Data Sync](../sql-database-best-practices-data-sync.md)
+-   Övervakning – [Övervaka SQL Data Sync med Log Analytics](../sql-database-sync-monitor-oms.md)
+-   Felsökning – [Felsöka problem med Azure SQL Data Sync](../sql-database-troubleshoot-data-sync.md)
+-   Uppdatera synkroniseringsschemat
+    -   Med Transact-SQL – [Automatisera replikeringen av schemaändringar i Azure SQL Data Sync](../sql-database-update-sync-schema.md)
+    -   Med PowerShell – [Använd PowerShell för att uppdatera synkroniseringsschemat i en befintlig synkroniseringsgrupp](sql-database-sync-update-schema.md)
 
 Mer information om SQL Database finns i:
 

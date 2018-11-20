@@ -15,24 +15,38 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
 ms.custom: mvc
-ms.openlocfilehash: a29f0f4be6286f8acf367a3ea0b4b0e6b31e7d98
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9474b2d64c97b6e6d0fc06c3c448fa6e0515e70c
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406474"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633656"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Konfigurera din Python-app för Azure App Service i Linux
 
 Den här artikeln beskriver hur [Azure App Service i Linux](app-service-linux-intro.md) kör Python-appar och hur du kan anpassa beteendet för App Service när det behövs.
 
+## <a name="set-python-version"></a>Ange Python-version
+
+Två basavbildningar är tillgängliga: Python 3.6 och Python 3.7. Du kan skapa en app med önskad Python-basavbildning. Om du till exempel vill köra en app med Python 3.7 kör du följande kommando i Cloud Shell:
+
+```azurecli-interactive
+az webapp create --resource-group <group_name> --plan <plan_name> --name <app_name> --runtime "PYTHON|3.7"
+```
+
+Om du vill ändra Python-version (basavbildning) till exempelvis Python 3.6 kör du följande kommando i Cloud Shell:
+
+```azurecli-interactive
+az webapp config set --resource-group <group_name> --name <app_name> --linux-fx-version "PYTHON|3.6"
+```
+
+Om du behöver en annan version av Python måste du skapa och distribuera en egen containeravbildning i stället. Mer information finns i [Använda en anpassad Docker-avbildning för Web App for Containers](tutorial-custom-docker-image.md).
+
 ## <a name="container-characteristics"></a>Containeregenskaper
 
-Python-appar som distribueras till App Service i Linux körs i en Docker-container som har definierats på GitHub-lagringsplatsen [Azure-App-Service/python container](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
+Python-appar som distribueras till App Service i Linux körs i en Docker-container som har definierats på GitHub-lagringsplatsen, [Python 3.6](https://github.com/Azure-App-Service/python/tree/master/3.6.6) eller [Python 3.7](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
 
 Den här containern har följande egenskaper:
-
-- Bascontaineravbildningen är `python-3.7.0-slim-stretch`, vilket innebär att appar körs med Python 3.7. Om du behöver en annan version av Python måste du skapa och distribuera en egen containeravbildning i stället. Mer information finns i [Använda en anpassad Docker-avbildning för Web App for Containers](tutorial-custom-docker-image.md).
 
 - Appar körs med hjälp av [Gunicorn WSGI HTTP Server](http://gunicorn.org/), med de ytterligare argumenten `--bind=0.0.0.0 --timeout 600`.
 

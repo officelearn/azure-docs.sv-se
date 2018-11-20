@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 85016ffb412b9f8773606639eb1496ac8ad251a7
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 23a62197d20901347be247d331e21d076bcf9e83
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730000"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288041"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Snabbstart: Skapa en pipeline för kognitiv sökning med kunskaper och exempeldata
 
@@ -26,15 +26,21 @@ I den här snabbstarten får du prova berikningspipelinen på [Azure Portal](htt
 * Kör guiden (en entitetskunskap upptäcker personer, platser och organisationer)
 * Fråga berikade data med [Sökutforskaren](search-explorer.md).
 
+## <a name="supported-regions"></a> Regioner som stöds
+
 Du kan prova kognitiva sökning i en Azure Search-tjänst som skapats i någon av följande regioner:
 
+* Västra centrala USA
 * Södra centrala USA
+* Östra USA
 * Västra Europa
+* Norra Europa
+* Sydostasien
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 > [!NOTE]
-> Kognitiv sökning är tillgängligt som en förhandsversion. Kompetenskörning och extrahering av avbildning och normalisering erbjuds för närvarande kostnadsfritt. Priserna för de här funktionerna meddelas längre fram. 
+> Kognitiv sökning är tillgängligt som en förhandsversion. Körning av kunskapsuppsättning och extrahering och normalisering av bilder erbjuds för närvarande kostnadsfritt. Priserna för dessa funktioner meddelas vid ett senare tillfälle. 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -57,7 +63,7 @@ Börja med att registrera dig för Azure Search-tjänsten.
 
 1. För Resursgrupp skapar du en resursgrupp som ska innehålla alla resurser som du skapar i den här snabbstarten. På så sätt blir det enklare att rensa resurserna när du är klar med snabbstarten.
 
-1. För Plats väljer du antingen **USA, södra centrala** eller **Europa, västra**. Förhandsversionen är för närvarande endast tillgänglig i dessa regioner.
+1. För Plats väljer du en av de [regioner som stöds](#supported-regions) för Kognitiv sökning.
 
 1. För Prisnivå kan du skapa en **kostnadsfri** tjänst för användning med självstudier och snabbstarter. För djupare analys med egna data väljer du en [betaltjänst](https://azure.microsoft.com/pricing/details/search/) som **Basic** eller **Standard**. 
 

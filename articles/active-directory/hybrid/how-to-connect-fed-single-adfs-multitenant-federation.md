@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5239788f06ed3e738d1f0b62ddcde77c2a13b5f2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: afc24d75b128c192efe14af061ac1df7521c7ef2
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241743"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621272"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Federera flera instanser av Azure AD med en enda instans av AD FS
 
@@ -47,7 +47,7 @@ För att AD FS i contoso.com ska kunna autentisera användare i fabrikam.com kr�
  
 Standardutfärdaren för en enskild domän som federeras till AD FS är "http://ADFSServiceFQDN/adfs/services/trust", t.ex. "http://fs.contoso.com/adfs/services/trust". Azure Active Directory kräver en unik utfärdare för varje federerad domän. Eftersom samma AD FS ska federera två domäner måste utfärdarens värde ändras så att det är unikt för varje domän som AD FS federerar med Azure Active Directory. 
  
-Öppna Azure AD PowerShell på AD FS-servern och utför följande steg:
+Öppna Azure AD PowerShell på AD FS-servern (se till att MSOnline-modulen är installerad) och utför följande steg:
  
 Anslut till den Azure Active Directory som innehåller domänen contoso.com Connect-MsolService Uppdatera federationsinställningarna för contoso.com Update-MsolFederatedDomain -DomainName contoso.com –SupportMultipleDomain
  

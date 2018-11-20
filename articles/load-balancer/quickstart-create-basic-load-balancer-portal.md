@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7451d6ade7f8b042a68f456e604e2919cacab0a5
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 523f5eba632b15eaaf45f24be820f7b255aae7c0
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378439"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616035"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Snabbstart: Skapa en offentlig grundläggande lastbalanserare med Azure Portal
 
@@ -159,6 +159,7 @@ Om du vill att den grundläggande lastbalanseraren ska övervaka status för din
    - **myHealthProbe** för hälsoavsökningens namn
    - **HTTP** för protokolltypen
    - **80** för portnumret
+   - **Healthprobe.aspx** för URI-sökvägen. Du kan antingen ersätta värdet med något annat URI eller behålla standardvärdet **”\\”** för sökvägen för att hämta standard-URI:n.
    - **15** för **Intervall**, antalet sekunder mellan avsökningsförsök
    - **2** för **tröskelvärden för ohälsosamt värde** eller antalet avsökningsfel i följd som måste inträffa innan en virtuell dator anses vara felaktig
 

@@ -1,7 +1,6 @@
 ---
-title: 'Exempel: Språkidentifiering med REST API för textanalys'
-titleSuffix: Azure Cognitive Services
-description: Lär dig att identifiera språk med hjälp av den REST API för textanalys.
+title: Instruktioner för språkidentifiering i REST API för textanalys (Microsoft Cognitive Services på Azure) | Microsoft Docs
+description: Instruktioner för att identifiera språk med hjälp av REST API för textanalys i Microsoft Cognitive Services på Azure i den här självstudien.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
@@ -10,18 +9,21 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: fa71e4ce2e5cb5967bb583c7314072830de08051
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 460dfb168894d28d5fbc5e5585a6054917127931
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604560"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633572"
 ---
 # <a name="example-how-to-detect-language-in-text-analytics"></a>Exempel: Hur man identifiera språk i textanalys
 
 [Språkidentifiering-API:et](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) utvärderar textindata och för varje dokument och returnerar språkidentifierare med ett värde som anger styrkan hos analysen. Textanalysen kan identifiera upp till 120 språk.
 
 Den här funktionen är användbar för innehållslager samlar in godtycklig text, där språket är okänt. Du kan parsa resultatet av den här analysen för att avgöra vilket språk som används i dokumentet. Svaret returnerar också ett resultat som återspeglar modellens förtroende (ett värde mellan 0 och 1).
+
+> [!TIP]
+> Textanalys ger även en Linux-baserad Docker-containeravbildning för språkidentifiering, så att du kan [installera och köra Textanalys-containern](text-analytics-how-to-install-containers.md) nära dina data.
 
 ## <a name="preparation"></a>Förberedelse
 
@@ -58,11 +60,11 @@ Dokumentstorleken måste vara under 5 000 tecken per dokument och du kan ha upp 
 
 ## <a name="step-1-structure-the-request"></a>Steg 1: Strukturera begäran
 
-Information om begäransdefinitionen finns i [Hur anropar man textanalys-API:et](text-analytics-how-to-call-api.md). Följande punkter har anges på nytt för enkelhetens skull:
+Information om begäransdefinitionen finns i [Hur anropar man textanalys API:et](text-analytics-how-to-call-api.md). Följande punkter har anges på nytt för enkelhetens skull:
 
 + Skicka en **POST**-begäran. Läs API-dokumentationen för denna begäran: [Språkidentifierings-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
 
-+ Ange HTTP-slutpunkt för språkidentifiering. Den måste innehålla `/languages`-resursen `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
++ Ange HTTP-slutpunkten för språkidentifiering, med hjälp av en Textanalys-resurs på Azure eller en instansierad [Textanalys-container](text-analytics-how-to-install-containers.md). Den måste innehålla `/languages`-resursen: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
 
 + Ange en begäransrubrik som inkluderar åtkomstnyckeln för textanalysåtgärder. Mer information finns i [Hitta slutpunkter och åtkomstnycklar](text-analytics-how-to-access-key.md).
 
@@ -73,16 +75,16 @@ Information om begäransdefinitionen finns i [Hur anropar man textanalys-API:et]
 
 ## <a name="step-2-post-the-request"></a>Steg 2: Publicera begäran
 
-Analysen utförs vid när begäran har tagits emot. Tjänsten godtar upp till 100 förfrågningar per minut. Varje förfrågan kan vara högst 1 MB.
+Analysen utförs när begäran har tagits emot. Tjänsten accepterar upp till 100 begäranden per minut. Varje begäran kan vara högst 1 MB.
 
 Kom ihåg att tjänsten är tillståndslös. Inga data lagras i ditt konto. Resultaten returneras omedelbart i svaret.
 
 
 ## <a name="step-3-view-results"></a>Steg 3: Visa resultat
 
-Alla POST-förfrågningar returnerar ett JSON-formaterat svar med ID:n och identifierade egenskaper.
+Alla POST-begäranden returnerar ett JSON-formaterat svar med ID:n och identifierade egenskaper.
 
-Utdata har returnerats direkt. Du kan strömma resultaten till ett program som stöder JSON eller spara utdata till en fil på den lokala datorn och sedan importera den till ett program som gör så att du kan sortera, söka och hantera data.
+Utdata returneras direkt. Du kan strömma resultaten till ett program som stöder JSON eller spara utdata till en fil på den lokala datorn och sedan importera den till ett program som gör så att du kan sortera, söka och hantera data.
 
 Resultat för exempelbegäran bör se ut som följande JSON. Observera att det är ett dokument med flera objekt. Utdata är på engelska. Språkidentifierarna innehåller ett eget namn och en språkkod i [ISO 639-1](https://www.iso.org/standard/22109.html)-format.
 

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: df0b0e945550cbab34f409da9499efdd446be85a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0c706130cfa60e0710373b2214e6834789a1b484
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947310"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160927"
 documentType: LandingData
 title: Dokumentation om App Service på Linux
 metadata:
@@ -41,7 +41,7 @@ sections:
     - image:
         src: https://docs.microsoft.com/azure/app-service/media/index/logo_java.svg
       text: Java
-      href: https://docs.microsoft.com/azure/azure-toolkit-for-intellij-hello-world-web-app-linux?toc=/azure/app-service/containers/toc.json
+      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-java
     - image:
         src: https://docs.microsoft.com/azure/app-service/media/index/logo_python.svg
       text: Python
@@ -98,7 +98,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Skapa ett program med hjälp av <a href="/azure/app-service/containers/tutorial-dotnetcore-sqldb-app">.NET Core med Azure SQL DB</a> eller <a href="/azure/app-service/containers/tutorial-nodejs-mongodb-app">Node.js med MongoDB</a>
+    - html: Skapa ett program med <a href="/azure/app-service/containers/tutorial-dotnetcore-sqldb-app">.NET Core med Azure SQL DB</a>, <a href="/azure/app-service/containers/tutorial-java-enterprise-postgresql-app">Java Enterpise med PostgreSQL</a> eller <a href="/azure/app-service/containers/tutorial-nodejs-mongodb-app">Node.js med MongoDB</a>
     - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Mappa en befintlig anpassad domän till ditt program</a>
     - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">Bind ett befintligt SSL-certifikat till ditt program</a>
     - html: <a href="/azure/cdn/cdn-add-to-web-app">Lägga till ett CDN till ditt program</a>
@@ -121,6 +121,6 @@ sections:
     - title: Kommandorad
       html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI</a></p>
     - title: Språk
-      html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
+      html: <p><a href="/dotnet/api">NET</a></p><p><a href="/java/api/">Java</a></p>
     - title: REST
       html: <p><a href="/rest/api/appservice">REST API-referens</a></p>

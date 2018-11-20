@@ -7,14 +7,14 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: 6834ad6c6915ceb3306284ea738d76027e2c9479
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: ba4f5fcb08d671937c677d8a14c27aaec16bcb1b
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365364"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288721"
 ---
-# <a name="azure-iot-technologies-and-solutions-paas-and-saas"></a>Azure IoT-tekniker och befintliga lösningar: PaaS och SaaS
+# <a name="internet-of-things-iot-technologies-and-solutions-paas-and-saas"></a>Sakernas Internet (IoT)-tekniker och -lösningar: PaaS och SaaS
 
 Microsoft har skapat en portfölj som har stöd för alla kunder, vilket gör att alla kan komma åt fördelarna med digital transformering. Azure IoT-produktportfölj är en översikt över tillgängliga PaaS-/SaaS-tekniker och -lösningar. Den innehåller de två sökvägarna som är tillgängliga för att skapa din egen lösning:
 
@@ -24,7 +24,7 @@ Microsoft har skapat en portfölj som har stöd för alla kunder, vilket gör at
 
 - Programvara som en tjänst (SaaS): Kom igång snabbt med [Azure IoT Central](https://azure.microsoft.com/services/iot-central/), den nya SaaS-lösningen för att utveckla IoT-program utan att utsättas för komplexiteten hos IoT-lösningen. Om din organisation saknar resurser för att skapa en egen IoT-lösning, är Azure IoT Central en kodlös IoT-lösning som kan skapa enhetsmodeller, instrumentpaneler och regler på några få minuter.
 
-![Azure IoT-tekniker och -lösningar](./media/iot-comparison/paas-saas-technologies-solutions.png)
+![Azure IoT-tekniker och -lösningar](./media/iot-services-and-technologies/paas-saas-technologies-solutions.png)
 
 ## <a name="solutions"></a>Lösningar
 

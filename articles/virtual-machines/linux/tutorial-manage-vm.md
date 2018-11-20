@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 01e8f74f409271810652a9202b634762ad88dcea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5605ac9f3ac4f9a1c85cfedf257cb721205564db
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981254"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613434"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Självstudie: Skapa och hantera virtuella Linux-datorer med Azure CLI
 
@@ -262,7 +262,7 @@ En virtuell Azure-dator kan ha en av många energinivåer. Det här tillståndet
 | Frigjord | Anger att den virtuella datorn är frånkopplad från hypervisor-programmet, men att den fortfarande är tillgänglig i kontrollplanet. Virtuella datorer med tillståndet Frigjord medför inte några debiteringar. |
 | - | Anger att energinivån för den virtuella datorn är okänd. |
 
-### <a name="find-power-state"></a>Hitta energinivå
+### <a name="find-the-power-state"></a>Hitta energinivån
 
 Om du vill hämta tillståndet för en viss virtuell dator, använder du kommandot [az vm get instance-view](/cli/azure/vm#az_vm_get_instance_view). Du måste ange ett giltigt namn för en virtuell dator och resursgrupp. 
 

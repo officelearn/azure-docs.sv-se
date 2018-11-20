@@ -8,21 +8,22 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: sample
-ms.date: 09/15/2018
+ms.date: 11/12/2018
 ms.author: juliako
-ms.openlocfilehash: 53dc65c3d2c56308dd298f33bb78047904810ae5
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 513c64ba7c9dad29fbef4a4010f5320dadda3c82
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377837"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625189"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
 Den här artikeln visar hur du laddar upp en video med Azure Video Indexer. Video Indexer-API:t innehåller två alternativ för uppladdning: 
 
 * ladda upp videon från en URL (rekommenderas),
-* skicka videofilen som en bytematris i begärandetexten.
+* skicka videofilen som en bytematris i begärandetexten,
+* Använd befintliga Azure Media Services-tillgångar genom att tillhandahålla [tillgångs-id](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (stöds i endast betalda konton).
 
 Artikeln visar hur du använder [Ladda upp video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?)-API:t för att ladda upp och indexera videor baserat på en URL. Kodexemplet i artikeln innehåller den kommenterade koden som visar hur du laddar upp bytematrisen.  
 
@@ -50,6 +51,35 @@ I det här avsnittet beskrivs några av de valfria parametrarna och när du kan 
 
 Med den här parametern kan du ange ett ID som ska associeras med videon. ID:t kan tillämpas på extern VCM-systemintegrering (Video Content Management). Det går att söka efter de videor som finns på Video Indexer-portalen med det angivna externa ID:t.
 
+### <a name="callbackurl"></a>callbackUrl
+
+En URL som används för att meddela kunder (med en POST-begäran) om följande händelser:
+
+- Indexering av tillståndsändring: 
+    - Egenskaper:    
+    
+        |Namn|Beskrivning|
+        |---|---|
+        |id|Video-ID:n|
+        |state|Videotillståndet|  
+    - Exempel: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
+- Person som identifierades i videon:
+    - Egenskaper
+    
+        |Namn|Beskrivning|
+        |---|---|
+        |id| Video-ID:n|
+        |faceId|Ansikts-ID som visas i videoindexet|
+        |knownPersonId|Person-ID som är unikt inom en ansikts-modell|
+        |personName|Namnet på personen|
+        
+     - Exempel: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+
+#### <a name="notes"></a>Anteckningar
+
+- Video Indexer returnerar alla befintliga parametrar som anges i den ursprungliga webbadressen.
+- Den tillhandahållna webbadressen måste vara kodad.
+
 ### <a name="indexingpreset"></a>indexingPreset
 
 Använd den här parametern om RAW-inspelningar eller externa inspelningar innehåller bakgrundsljud. Den här parametern används för att konfigurera indexeringsprocessen. Du kan ange följande värden:
@@ -60,11 +90,11 @@ Använd den här parametern om RAW-inspelningar eller externa inspelningar inneh
 
 Priset beror på det valda indexeringsalternativet.  
 
-### <a name="callbackurl"></a>callbackUrl
+### <a name="priority"></a>prioritet
 
-En POST-URL för att meddela när indexeringen har slutförts. Video Indexer lägger till två frågesträngparametrar i den: id och tillstånd. Om motringnings-URL:en till exempel är ”https://test.com/notifyme?projectName=MyProject” skickas meddelandet med ytterligare parametrar till ”https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed”.
+Videor indexeras av Video Indexer enligt deras prioritet. Använd parametern **prioritet** för att ange prioritet för indexet. Följande värden är giltiga: **Låg**, **Normal** (standard), och **Hög**.
 
-Du kan också lägga till fler parametrar i URL:en innan anropet skickas via POST till Video Indexer. De parametrarna ingår då i motringningen. Senare kan du parsa frågesträngen i koden och få tillbaka alla angivna parametrar i frågesträngen (data som du ursprungligen hade lagt till i URL:en plus informationen som Video Indexer har tillhandahållit.) URL:en måste vara kodad.
+**Prioritet**-parametern stöds endast för betalda konton.
 
 ### <a name="streamingpreset"></a>streamingPreset
 

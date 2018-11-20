@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: ''
 ms.date: 10/30/2018
 ms.author: bahariri
-ms.openlocfilehash: 2a9f1ea069bdb45adb1b8c6b52392f15a4660b5c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: a2ab9a77728509b794c2f5b810fb939f6d1a16e3
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285126"
+ms.locfileid: "51286783"
 ---
 # <a name="connect-your-apache-spark-application-with-kafka-enabled-azure-event-hubs"></a>Ansluta ditt Apache Spark-program till Kafka-aktiverade Azure-händelsehubbar
 Den här självstudien går igenom hur du ansluter ditt Spark-program till Kafka-aktiverade händelsehubbar för strömning i realtid. Den här integreringen möjliggör strömning utan att du behöver ändra protokollklienter eller köra dina egna Kafka- eller Zookeeper-kluster. Den här självstudien kräver Apache Spark v2.4+ och Apache Kafka v2.0+.

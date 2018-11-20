@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/19/2018
+ms.date: 11/09/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 6b935322c9d892793f3695e0922d15f5886c7e25
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 40f3f56c15956a93176a753f7c66f66df1b8f5f4
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471296"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515734"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Snabbstart: Utforska och analysera kostnader med kostnadsanalys
 
@@ -32,27 +32,14 @@ I den här snabbstarten lär du dig att:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Kostnadsanalys är tillgängligt för alla [Enterprise-avtalskunder (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Du måste minst ha skrivskyddad åtkomst till ett eller flera av följande omfång för att visa kostnadsdata.
+Kostnadsanalys är tillgängligt för alla [Enterprise-avtalskunder (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Du måste minst ha skrivskyddad åtkomst till ett eller flera av följande omfång för att visa kostnadsdata. Mer information om hur du får åtkomst till Cost Management finns i [Tilldela åtkomst till data](assign-access-acm-data.md).
 
-
-|**Omfång**|**Definieras på**|**Åtkomst som krävs för analys av kostnader för omfånget**|**Nödvändig EA-inställning**|**Konsoliderar faktureringsinformation till**|
-|---                |---                  |---                   |---            |---           |
-|Faktureringskonto<sup>1</sup>|[https://ea.azure.com ](https://ea.azure.com )|Företagsadministratör|Ingen|Alla prenumerationer från Enterprise-avtalet|
-|Avdelning|[https://ea.azure.com ](https://ea.azure.com )|Avdelningsadministratör|DA-visningsdebitering aktiverad|Alla prenumerationer som tillhör ett registreringskonto som är länkade till avdelningen|
-|Registreringskonto<sup>2</sup2>|[https://ea.azure.com ](https://ea.azure.com )|Kontoägare|AO-visningsdebitering aktiverad|Alla prenumerationer från registreringskontot|
-|Hanteringsgrupp|[https://portal.azure.com ](https://portal.azure.com )|Cost Management-läsare (eller Läsare)|AO-visningsdebitering aktiverad|Alla prenumerationer under hanteringsgruppen|
-|Prenumeration|[https://portal.azure.com ](https://portal.azure.com )|Cost Management-läsare (eller Läsare)|AO-visningsdebitering aktiverad|Alla resurser/resursgrupper i prenumerationen|
-|Resursgrupp|[https://portal.azure.com ](https://portal.azure.com )|Cost Management-läsare (eller Läsare)|AO-visningsdebitering aktiverad|Alla resurser i resursgruppen|
-
-<sup>1</sup>Faktureringskontot kallas ofta Enterprise-avtal eller Registrering.
-
-<sup>2</sup>Registreringskontot kallas ofta kontoägare.
-
-Mer information om hur du konfigurerar inställningar för **DA-visningsdebitering** och **AO-visningsdebitering** finns i [Aktivera åtkomst till kostnader](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs).
-
-
-
-
+- Faktureringskonto
+- Avdelning
+- Registreringskonto
+- Hanteringsgrupp
+- Prenumeration
+- Resursgrupp
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 

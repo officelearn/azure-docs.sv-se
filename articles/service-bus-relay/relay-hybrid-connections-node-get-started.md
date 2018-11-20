@@ -12,75 +12,63 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: node
 ms.workload: na
-ms.date: 05/02/2018
+ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 25e9095561f72583bad86aa96b64a412e0983ab6
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 9bdf3d319735d8d4ca85235dfb949d440bba9a02
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702365"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615084"
 ---
-# <a name="get-started-with-relay-hybrid-connections-websockets-in-node"></a>Komma igång med Azure Relay-hybridanslutningar med Websockets i Node
+# <a name="get-started-with-relay-hybrid-connections-websockets-in-nodejs"></a>Komma igång med Azure Relay-hybridanslutningar med WebSockets i Node.js
 
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-I den här självstudien ger dig en introduktion till [Azure Relay-hybridanslutningar](relay-what-is-it.md#hybrid-connections) med Websockets och visar hur du använder Node.js för att skapa ett klientprogram som skickar Websockets-meddelanden till motsvarande lyssnarprogram.
+I den här snabbstarten skapar du ett sändar- och mottagarprogram i Node.js som skickar och tar emot meddelanden med hybridanslutningar med Websockets i Azure Relay. Läs mer om Azure Relay i allmänhet i [Azure Relay](relay-what-is-it.md). 
 
-## <a name="what-will-be-accomplished"></a>Detta kommer att utföras
-
-Eftersom hybridanslutningar kräver både en klient och en serverkomponent skapar du två konsolprogram i den här självstudien. Här är stegen:
+I den här snabbstarten gör du följande: 
 
 1. Skapa ett Relay-namnområde med Azure Portal.
-2. Skapa en hybridanslutning med Azure Portal.
-3. Skriv ett serverkonsolprogram för att ta emot meddelanden.
-4. Skriv ett klientkonsolprogram för att ta emot meddelanden.
+2. Skapa en hybridanslutning i det namnområdet med Azure Portal.
+3. Skriva ett serverkonsolprogram (lyssnare) för att ta emot meddelanden.
+4. Skriva ett klientkonsolprogram (avsändare) för att ta emot meddelanden.
+5. Kör program. 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-1. [Node.js](https://nodejs.org/en/).
-2. En Azure-prenumeration.
+- [Node.js](https://nodejs.org/en/).
+- En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
-## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Skapa ett namnområde med Azure Portal
-
-Om du redan har skapat ett Relay-namnområde, går du vidare till avsnittet [Skapa en hybridanslutning med Azure Portal](#2-create-a-hybrid-connection-using-the-azure-portal).
-
+## <a name="create-a-namespace"></a>Skapa ett namnområde
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
-## <a name="2-create-a-hybrid-connection-using-the-azure-portal"></a>2. Skapa en hybridanslutning med Azure Portal
-
-Om du redan har skapat en hybridanslutning, går du vidare till avsnittet [skapa ett serverprogram](#3-create-a-server-application-listener).
-
+## <a name="create-a-hybrid-connection"></a>Skapa en hybridanslutning
 [!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
 
-## <a name="3-create-a-server-application-listener"></a>3. Skapa ett serverprogram (lyssnare)
-
+## <a name="create-a-server-application-listener"></a>Skapa ett serverprogram (lyssnare)
 För att lyssna på och ta emot meddelanden från Relay skriver du ett Node.js-konsolprogram.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-server](../../includes/relay-hybrid-connections-node-get-started-server.md)]
 
-## <a name="4-create-a-client-application-sender"></a>4. Skapa ett klientprogram (avsändare)
-
+## <a name="create-a-client-application-sender"></a>Skapa ett klientprogram (avsändare)
 För att skicka meddelanden till Relay skriver du ett Node.js-konsolprogram.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-client](../../includes/relay-hybrid-connections-node-get-started-client.md)]
 
-## <a name="5-run-the-applications"></a>5. Köra programmen
+## <a name="run-the-applications"></a>Köra programmen
 
 1. Kör serverprogrammet: i en Node.js-kommandotolk skriver du in `node listener.js`.
 2. Kör klientprogrammet: från en Node.js-kommandotolken skriver du in `node sender.js` och anger lite text.
 3. Se till att serverprogramkonsolen matar ut den text som angavs i klientprogrammet.
 
-![running-applications](./media/relay-hybrid-connections-node-get-started/running-applications.png)
+    ![running-applications](./media/relay-hybrid-connections-node-get-started/running-applications.png)
 
 Grattis, du har skapat ett hybridanslutningsprogram från slutpunkt till slutpunkt med hjälp av Node.js!
 
 ## <a name="next-steps"></a>Nästa steg
+I den här snabbstarten skapade du Node.js-klient- och -serverprogram som använde WebSockets för att skicka och ta emot meddelanden. Funktionen Hybridanslutningar i Azure Relay stöder också användningen av HTTP för att skicka och ta emot meddelanden. Läs om hur du använder HTTP med Azure Relay-hybridanslutningar i den [Node.js HTTP-snabbstarten](relay-hybrid-connections-http-requests-node-get-started.md).
 
-* [Vanliga frågor och svar om Relay](relay-faq.md)
-* [Skapa ett namnområde](relay-create-namespace-portal.md)
-* [Kom igång med .NET](relay-hybrid-connections-dotnet-get-started.md)
-* [Kom igång med Node](relay-hybrid-connections-node-get-started.md)
+I den här snabbstarten använde du Node.js för att skapa klient- och serverprogram. Om du vill läsa om hur du skriver klient- och serverprogram med hjälp av .NET Framework läser du [.NET WebSockets-snabbstarten](relay-hybrid-connections-dotnet-get-started.md) eller [.NET HTTP-snabbstarten](relay-hybrid-connections-http-requests-dotnet-get-started.md).
+
 

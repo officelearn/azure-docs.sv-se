@@ -13,17 +13,17 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c8157820f7137eb06a0fe10c42645ec91f33edbc
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 7582c578e91fb3e36d7a0ecc1da7ede0cefc0f4c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364094"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623792"
 ---
-# <a name="tutorial-stream-azure-ad-logs-to-an-azure-event-hub-preview"></a>Självstudie: Strömma Azure AD-loggar till en Azure-händelsehubb (förhandsversion)
+# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>Självstudie: Strömma Azure Active Directory-loggar till en Azure-händelsehubb (förhandsversion)
 
 I den här självstudien får du lära dig hur du konfigurerar Azure Monitor-diagnostikinställningar för att strömma Azure Active Directory-loggar (Azure AD) till en Azure-händelsehubb. Använd den här mekanismen för att integrera dina loggar med SIEM-verktyg (Säkerhetsinformation och händelsehantering) från tredje part, till exempel Splunk och QRadar.
 
@@ -36,9 +36,9 @@ Om du vill använda den här funktionen behöver du:
 * En användare som är *global administratör* eller *säkerhetsadministratör* för Azure AD-klientorganisationen.
 * En Event Hubs-namnrymd och en händelsehubb i din Azure-prenumeration. Lär dig att [skapa en händelsehubb](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
-## <a name="archive-logs-to-an-event-hub"></a>Arkivera loggar till en händelsehubb
+## <a name="stream-logs-to-an-event-hub"></a>Strömma loggar till en händelsehubb
 
-1. Logga in på [Azure Portal](https://portal.azure.com). 
+1. Logga in på [Azure-portalen](https://portal.azure.com). 
 
 2. Välj **Azure Active Directory** > **Aktivitet** > **Spårningsloggar**. 
 

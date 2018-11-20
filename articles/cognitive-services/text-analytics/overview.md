@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: overview
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: fcc10723b2fb750b099f99999de01ab699d5d5e8
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 545d60207bbd1941920bc0e70096417c35486634
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887776"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634608"
 ---
 # <a name="what-is-text-analytics"></a>Vad är textanalys?
 
@@ -32,7 +32,11 @@ Textanalys kan betyda olika saker men i Cognitive Services innehåller API för 
 |[**Attitydanalys**](how-tos/text-analytics-how-to-sentiment-analysis.md) | Få reda på vad kunder tycker om ditt varumärke eller ämne genom att analysera råtext för att få ledtrådar om positiva eller negativa attityder. Detta API returnerar attitydpoäng mellan 0 och 1 för varje dokument, där 1 är det mest positiva.<br /> Analysmodellen tränas i förväg med hjälp av en omfattande textmängd och tekniker för naturligt språk från Microsoft. För [utvalda språk](text-analytics-supported-languages.md) kan API:et analysera och poängsätta råtext som du anger, och direkt returnera resultat till det anropande programmet. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) <br /> [NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package)  |
 |[**Extrahering av diskussionsämne**](how-tos/text-analytics-how-to-keyword-extraction.md) | Extrahera automatiskt nyckelfraser för att snabbt identifiera huvudpoängerna. Exempel: För den inmatade texten ”Maten var härlig och personalen var underbar” returnerar API:et de huvudsakliga diskussionsämnena: ”mat” och ”underbar personal”.  | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) <br /> [NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) |
 |[**Språkidentifiering**](how-tos/text-analytics-how-to-language-detection.md) | För upp till 120 språk kan du identifiera vilka språk den inmatade texten är skriven på och rapportera en enda språkkod för varje dokument som skickats på begäran. Språkkoden paras med poäng som anger styrkan hos poängen. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) <br />  [NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) | 
-|[**Entitetsigenkänning (förhandsversion)**](how-tos/text-analytics-how-to-entity-linking.md) | Identifiera och kategorisera entiteter som personer, platser, organisationer, datum/tid, kvantiteter, procentsatser, valutor med mera. Välkända entiteter identifieras även länkas till mer information på webben. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) | 
+|[**Entitetsigenkänning (förhandsversion)**](how-tos/text-analytics-how-to-entity-linking.md) | Identifiera och kategorisera entiteter som personer, platser, organisationer, datum/tid, kvantiteter, procentsatser, valutor med mera. Välkända entiteter identifieras även länkas till mer information på webben. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) |
+
+## <a name="use-containers"></a>Använda containrar
+
+[Använd textanalyscontainrarna](how-tos/text-analytics-how-to-install-containers.md) för att extrahera nyckelfraser, identifiera språk och analysera sentiment lokalt genom att installera standardiserade Docker-containrar närmare dina data.
 
 ## <a name="typical-workflow"></a>Typiskt arbetsflöde
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cd33b7cb45bb165a120a7efe20eba962ec75e273
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9d10464dac8d9e47d80f11b8bfaf70740e3ad250
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252147"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567102"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrera virtuella AWS-datorer (Amazon Web Services) till Azure
 
@@ -241,7 +241,10 @@ Kör en riktig redundansväxling för EC2-instanserna för att migrera dem till 
 1. I **Skyddade objekt** > **Replikerade objekt**, klickar du på AWS-instanser och därefter på **Redundans**.
 2. I **Redundans** väljer du en **Återställningspunkt** att redundansväxla till. Välj den senaste återställningspunkten och starta redundansväxlingen. Du kan följa redundansförloppet på sidan **Jobb**.
 1. Kontrollera att den virtuella datorn visas i **Replikerade objekt**.
-2. Högerklicka på varje virtuell dator och välj sedan **Slutför migrering**. Detta avslutar migreringsprocessen, stoppar replikeringen för virtuella datorer i AWS och stoppar Site Recovery-debitering för den virtuella datorn.
+2. Högerklicka på varje virtuell dator och välj sedan **Slutför migrering**. Det här gör följande:
+
+    - Detta avslutar migreringsprocessen, stoppar replikeringen för virtuella datorer i AWS och stoppar Site Recovery-debitering för den virtuella datorn.
+    - Det här steget rensar replikeringsdata. Men det raderar inte de migrerade virtuella datorerna. 
 
     ![Slutföra migrering](./media/migrate-tutorial-aws-azure/complete-migration.png)
 

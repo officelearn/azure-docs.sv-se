@@ -5,38 +5,44 @@ services: digital-twins
 author: alinamstanciu
 ms.service: digital-twins
 ms.topic: include
-ms.date: 09/19/2018
+ms.date: 11/13/2018
 ms.author: alinast
 ms.custom: include file
-ms.openlocfilehash: 1887efd741f4779a5186707d60b27ca66fc3c06f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 216e2db82d5a07bd8e4cae8b9f357ac7dcee330a
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51284007"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51626409"
 ---
-1. I [Azure-portalen](https://portal.azure.com)öppnar du **Azure Active Directory** från den vänstra navigeringspanelen och öppnar sedan fönstret **Egenskaper**. Kopiera **katalog-ID:t** till en temporär fil. Du använder det här värdet för att konfigurera exempelprogrammet i följande avsnitt.
+1. I [Azure-portalen](https://portal.azure.com)öppnar du **Azure Active Directory** från den vänstra panelen och öppnar sedan fönstret **Egenskaper**. Kopiera **katalog-ID:t** till en temporär fil. Du använder det här värdet för att konfigurera exempelprogrammet i nästa avsnitt.
 
     ![ID för Azure Active Directory-katalog](./media/digital-twins-permissions/aad-app-reg-tenant.png)
 
-1. Öppna fönstret **Appregistreringar** och klicka sedan på knappen **Ny programregistrering**.
-    
-    ![Azure Active Directory-appregistrering, ny](./media/digital-twins-permissions/aad-app-reg-start.png)
+1. Öppna fönstret **Appregistreringar** och välj sedan knappen **Ny programregistrering**.
 
-1. Ge appregistreringen ett eget namn i fältet **Namn**. Ställ in **Programtyp** på **_Intern_** och  **	Omdirigerings-URI** som **_https://microsoft.com_**. Klicka på **Skapa**.
+    ![Fönstret Appregistreringar](./media/digital-twins-permissions/aad-app-reg-start.png)
 
-    ![Azure Active Directory-appregistrering, skapa](./media/digital-twins-permissions/aad-app-reg-create.png)
+1. Ge appregistreringen ett eget namn i rutan **Namn**. Ställ in **Programtyp** på **Intern** och  **	Omdirigerings-URI** som `https://microsoft.com`. Välj **Skapa**.
+
+    ![Skapa fönster](./media/digital-twins-permissions/aad-app-reg-create.png)
 
 1. Öppna den registrerade appen och kopiera värdet för fältet **Program-ID** till en temporär fil. Det här värdet identifierar din Azure Active Directory-app. Du använder program-ID:t för att konfigurera exempelprogrammet i följande avsnitt.
 
     ![ID för Azure Active Directory-programmet](./media/digital-twins-permissions/aad-app-reg-app-id.png)
 
-1. Öppna appregistreringsfönstret och klicka på **Inställningar** >  **	Nödvändiga behörigheter**:
-    - Klicka på **Lägg till** uppe till vänster att öppna fönstret **Lägg till API-åtkomst**.
-    - Klicka på **Välj ett API** och sök efter **Azure Digital Twins**. Om sökningen inte hittar API:et söker du efter **Azure Smart Spaces** i stället.
-    - Välj **Azure Digital Twins (Azure Smart Spaces-tjänsten)** och klicka på **Välj**.
-    - Klicka på **Välj behörigheter**. Markera rutan för **läs-/skrivbehörighet** för delegerade behörigheter och klicka på **Välj**.
-    - Klicka på **Klar** i fönstret **Lägg till API-åtkomst**.
-    - I fönstret **Nödvändiga behörigheter** klickar du på knappen **Bevilja behörigheter** och godkänner bekräftelsen som visas.
+1. Öppna fönstret för registrering av din app. Välj **Inställningar** > **Nödvändiga behörigheter** och sedan:
 
-       ![Azure Active Directory-appregistrering, lägg till api](./media/digital-twins-permissions/aad-app-req-permissions.png)
+   a. Välj **Lägg till** längst upp till vänster för att öppna fönstret **Lägg till API-åtkomst**.
+
+   b. Markera **Välj ett API** och sök efter **Azure Digital Twins**. Om sökningen inte hittar API:et söker du efter **Azure Smart Spaces** i stället.
+
+   c. Välj **Azure Digital Twins (Azure Smart Spaces-tjänsten)** och sedan **Välj**.
+
+   d. Välj **Välj behörigheter**. Markera kryssrutan för **läs-/skrivbehörighet** för delegerade behörigheter och markera **Välj**.
+
+   e. Markera **Klar** i fönstret **Lägg till API-åtkomst**.
+
+   f. I fönstret **Nödvändiga behörigheter** väljer du knappen **Bevilja behörigheter** och godkänner bekräftelsen som visas.
+
+      ![Fönstret Nödvändiga behörigheter](./media/digital-twins-permissions/aad-app-req-permissions.png)

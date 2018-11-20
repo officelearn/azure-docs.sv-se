@@ -9,17 +9,17 @@ editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 06/15/2018
-ms.openlocfilehash: 86a8b824479173024b1a14bb8612073ffbfac468
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 11/14/2018
+ms.openlocfilehash: c1e90e9e39bb9ff698b2e53a2b7cf02340e1111f
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092165"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685862"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Vad är Azure Database for PostgreSQL?
 
-Azure Database for PostgreSQL är en relationsdatabastjänst i Microsoft-molnet som har utformats för utvecklare och baseras på [PostgreSQL](https://www.postgresql.org/)-databasmotorn med communityversionen av öppen källkod. Azure Database for PostgreSQL ger:
+Azure Database for PostgreSQL är en relationsdatabastjänst i Microsoft-molnet som har utformats för utvecklare och baseras på [PostgreSQL](https://www.postgresql.org/)-databasmotorn med communityversionen av öppen källkod, version 9.5, 9.6 och 10. Azure Database for PostgreSQL ger:
 
 - Inbyggd hög tillgänglighet utan extra kostnad
 - Förutsägbara prestanda med hjälp av priser enligt principen Betala per användning
@@ -40,7 +40,7 @@ En uppsättning Azure CLI-exempel finns här:
 - [Azure CLI-exempel för Azure Database for PostgreSQL](./sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Justera prestanda och skalning på några sekunder
-Tjänsten Azure Database for PostgreSQL erbjuder tre tjänstnivåer: Basic, Generell användning och Minnesoptimerad. Varje nivå erbjuder olika resursfunktioner som har stöd för arbetsbelastningar för databaser. Du kan skapa din första app i en liten databas för några kronor i månaden och sedan justera skalan för att bemöta lösningens behov. Dynamisk skalbarhet gör att databasen reagerar transparent på resurskrav som ändras snabbt. Du betalar bara för de resurser du behöver och endast när du behöver dem. Mer information finns i [Prisnivåer](concepts-pricing-tiers.md).
+Tjänsten Azure Database for PostgreSQL erbjuder tre tjänstnivåer: Basic, Generell användning och Minnesoptimerad. Varje nivå erbjuder olika resursfunktioner som har stöd för arbetsbelastningar för databaser. Du kan skapa din första app i en liten databas för några kronor i månaden och sedan justera skalan för att bemöta lösningens behov. Dynamisk skalbarhet gör att databasen reagerar transparent på resurskrav som ändras snabbt. Du betalar bara för de resurser du behöver och endast när du behöver dem. Mer information finns i  [Prisnivåer](concepts-pricing-tiers.md).
 
 ## <a name="monitoring-and-alerting"></a>Övervakning och avisering
 Hur avgör du när du ska reglera upp eller ner? Använd de inbyggda övervaknings- och aviseringsfunktionerna i Azure. Med de här verktygen kan du snabbt utvärdera effekten av att skala upp eller ner baserat på dina aktuella eller beräknade prestanda- eller lagringsbehov. Mer information finns i [Aviseringar](howto-alert-on-metric.md).

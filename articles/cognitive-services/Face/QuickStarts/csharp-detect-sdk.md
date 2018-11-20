@@ -1,192 +1,91 @@
 ---
-title: 'Snabbstart: Identifiera ansikten i en bild med hjälp av .NET SDK med C#'
+title: 'Snabbstart: Identifiera ansikten i en bild med Azure .NET SDK för ansiktsigenkänning'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten identifierar du ansikten med Windows ansiktsigenkänning med C#-klientbibliotek i Cognitive Services.
+description: I den här snabbstarten ska du använda Azure SDK för ansiktsigenkänning med C# för att identifiera ansikten i en bild.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-ms.date: 09/14/2018
+ms.date: 11/07/2018
 ms.author: pafarley
-ms.openlocfilehash: a4b0b8b277ed6bc6e2bc3c7549d1e67d5f18c615
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 4fbbde167a8c895a71ab3614e8c3ecbce26604a9
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954971"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578169"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-net-sdk-with-c"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av .NET SDK med C#
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av .NET SDK för ansiktsigenkänning
 
-I den här snabbstarten identifierar du människoansikten i en bild med klientbiblioteket för Windows-ansiktsigenkänning.
+I den här snabbstarten ska du använda SDK för ansiktsigenkänningstjänsten med C# för att identifiera ansikten i en bild. Ett exempel på koden i den här snabbstarten finns i ansiktsigenkänningsprojektet i databasen [Cognitive Services Vision csharp quickstarts](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face) på GitHub.
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Du behöver en prenumerationsnyckel för att köra exemplet. Du kan hämta nycklar för kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
-* Valfri version av [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* NuGet-paketet för klientbiblioteket [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview). Du behöver inte ladda ned paketet. Installationsinstruktioner finns nedan.
+- En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
+- Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/).
 
-## <a name="detectwithurlasync-method"></a>Metoden DetectWithUrlAsync
+## <a name="create-the-visual-studio-project"></a>Skapa Visual Studio-projektet
 
-> [!TIP]
-> Hämta den senaste koden som en Visual Studio-lösning från [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face).
+1. Skapa ett nytt projekt för **Konsolprogram (.NET Framework)** i Visual Studio och ge det namnet **FaceDetection**. 
+1. Om det finns andra projekt i din lösning väljer du den här kopian som det enda startprojektet.
+1. Hämta de NuGet-paket som behövs. Högerklicka på projektet i Solution Explorer och välj **Hantera NuGet-paket**. Klicka på fliken **Bläddra** och välj **Inkludera förhandsversion**. Leta sedan reda på och installera följande paket:
+    - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
 
-Metoderna `DetectWithUrlAsync` och `DetectWithStreamAsync` omsluter [API:et för ansiktsigenkänning](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) för fjärrbilder respektive lokala bilder. Använd dessa metoder för att identifiera ansikten i en bild och returnera ansiktsattribut som:
+## <a name="add-face-detection-code"></a>Lägga till kod för ansiktsigenkänning
 
-* Ansikts-ID: unikt ID som används i flera Ansikts-API-scenarier.
-* Ansiktsrektangel: vänster, överkant, bredd och höjd som anger ansiktets placering i bilden.
-* Landmärke: en matris med ansiktslandmärken med 27 punkter som pekar på viktiga positioner för ansiktsdelar.
-* Ansiktsattribut som ålder, kön, leendeintensitet, huvudställning och ansiktsbehåring.
+Öppna det nya projektets *Program.cs*-fil. Här lägger du till den kod som behövs för att läsa in bilder och identifiera ansikten.
 
-För att köra exemplet följer du dessa steg:
+### <a name="include-namespaces"></a>Inkludera namnområden
 
-1. Skapa en ny Visual C#-konsolapp i Visual Studio.
-1. Installera NuGet-paketet för klientbiblioteket för ansiktsigenkänning.
-    1. Klicka på **Verktyg** på toppmenyn, välj **NuGet Package Manager** (NuGet-pakethanteraren) och välj sedan **Manage NuGet Packages for Solution** (Hantera NuGet-paket för lösning).
-    1. Klicka på fliken **Bläddra** och välj sedan **Inkludera förhandsversion**.
-    1. I **sökrutan** skriver du ”Microsoft.Azure.CognitiveServices.Vision.Face”.
-    1. Välj **Microsoft.Azure.CognitiveServices.Vision.Face** när det visas. Klicka på kryssrutan bredvid namnet på ditt projekt och sedan på **Installera**.
-1. Ersätt *Program.cs* med följande kod.
-1. Ersätt `<Subscription Key>` med en giltig prenumerationsnyckel.
-1. Om det behövs ändrar du `faceEndpoint` till den Azure-region som är associerad med dina prenumerationsnycklar.
-1. Om du vill kan du ersätta <`LocalImage>` med sökvägen och filnamnet för en lokal bild (ignoreras om det inte anges).
-1. Du kan också ange `remoteImageUrl` till en annan bild om du vill.
-1. Kör programmet.
+Lägg till följande `using`-instruktioner överst i *Program.cs*-filen.
 
-```csharp
-using Microsoft.Azure.CognitiveServices.Vision.Face;
-using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=1-7)]
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
+### <a name="add-essential-fields"></a>Lägga till grundläggande fält
 
-namespace DetectFace
-{
-    class Program
-    {
-        // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
-        private const string subscriptionKey = "<SubscriptionKey>";
+Lägg till följande fält i klassen **Program**. Dessa data anger hur du ansluter till ansiktsigenkänningstjänsten och var du hämtar indata. Du måste uppdatera `subscriptionKey`-fältet med värdet för din prenumerationsnyckel, och du kanske måste ändra `faceEndpoint`-strängen så att den innehåller rätt regionsidentifierare. Du behöver även ange `localImagePath`- och/eller `remoteImageUrl`-värden till sökvägar som pekar på faktiska bildfiler.
 
-        // You must use the same region as you used to get your subscription
-        // keys. For example, if you got your subscription keys from westus,
-        // replace "westcentralus" with "westus".
-        //
-        // Free trial subscription keys are generated in the westcentralus
-        // region. If you use a free trial subscription key, you shouldn't
-        // need to change the region.
-        // Specify the Azure region
-        private const string faceEndpoint =
-            "https://westcentralus.api.cognitive.microsoft.com";
+Fältet `faceAttributes` är helt enkelt en matris med vissa typer av attribut. Det anger vilken information som ska hämtas om de identifierade ansiktena.
 
-        // localImagePath = @"C:\Documents\LocalImage.jpg"
-        private const string localImagePath = @"<LocalImage>";
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=13-34)]
 
-        private const string remoteImageUrl =
-            "https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg";
+### <a name="create-and-use-the-face-client"></a>Skapa och använda ansikts-API-klienten
 
-        private static readonly FaceAttributeType[] faceAttributes =
-            { FaceAttributeType.Age, FaceAttributeType.Gender };
+Lägg nu till följande kod i metoden **Main** i klassen **Program**. Då konfigureras ansikts-API-klienten.
 
-        static void Main(string[] args)
-        {
-            FaceClient faceClient = new FaceClient(
-                new ApiKeyServiceClientCredentials(subscriptionKey),
-                new System.Net.Http.DelegatingHandler[] { });
-            faceClient.Endpoint = faceEndpoint;
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=38-41)]
 
-            Console.WriteLine("Faces being detected ...");
-            var t1 = DetectRemoteAsync(faceClient, remoteImageUrl);
-            var t2 = DetectLocalAsync(faceClient, localImagePath);
+I metoden **Main** lägger du även till följande kod för att använda den nya ansikts-API-klienten för att identifiera ansikten i en fjärransluten eller lokal bild. Identifieringsmetoden definieras härnäst. 
 
-            Task.WhenAll(t1, t2).Wait(5000);
-            Console.WriteLine("Press any key to exit");
-            Console.ReadLine();
-        }
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=43-49)]
 
-        // Detect faces in a remote image
-        private static async Task DetectRemoteAsync(
-            FaceClient faceClient, string imageUrl)
-        {
-            if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
-            {
-                Console.WriteLine("\nInvalid remoteImageUrl:\n{0} \n", imageUrl);
-                return;
-            }
+### <a name="detect-faces"></a>Identifiera ansikten
 
-            try
-            {
-                IList<DetectedFace> faceList =
-                    await faceClient.Face.DetectWithUrlAsync(
-                        imageUrl, true, false, faceAttributes);
+Lägg till följande metod i klassen **Program**. Den använder klienten för ansiktsigenkänningstjänsten för att identifiera ansikten i en fjärransluten bild, som refereras till av en URL. Observera att den använder fältet `faceAttributes` &mdash; **DetectedFace**-objekt som lagts till i `faceList` har de angivna attributen (i det här fallet ålder och kön).
 
-                DisplayAttributes(GetFaceAttributes(faceList, imageUrl), imageUrl);
-            }
-            catch (APIErrorException e)
-            {
-                Console.WriteLine(imageUrl + ": " + e.Message);
-            }
-        }
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=52-74)]
 
-        // Detect faces in a local image
-        private static async Task DetectLocalAsync(FaceClient faceClient, string imagePath)
-        {
-            if (!File.Exists(imagePath))
-            {
-                Console.WriteLine(
-                    "\nUnable to open or read localImagePath:\n{0} \n", imagePath);
-                return;
-            }
+Lägg också till metoden **DetectLocalAsync**. Den använder klienten för ansiktsigenkänningstjänsten för att identifiera ansikten i en lokal bild, som refereras till av en sökväg.
 
-            try
-            {
-                using (Stream imageStream = File.OpenRead(imagePath))
-                {
-                    IList<DetectedFace> faceList =
-                            await faceClient.Face.DetectWithStreamAsync(
-                                imageStream, true, false, faceAttributes);
-                    DisplayAttributes(
-                        GetFaceAttributes(faceList, imagePath), imagePath);
-                }
-            }
-            catch (APIErrorException e)
-            {
-                Console.WriteLine(imagePath + ": " + e.Message);
-            }
-        }
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=76-101)]
 
-        private static string GetFaceAttributes(
-            IList<DetectedFace> faceList, string imagePath)
-        {
-            string attributes = string.Empty;
+### <a name="retrieve-and-display-face-attributes"></a>Hämta och visa ansiktsattribut
 
-            foreach (DetectedFace face in faceList)
-            {
-                double? age = face.FaceAttributes.Age;
-                string gender = face.FaceAttributes.Gender.ToString();
-                attributes += gender + " " + age + "   ";
-            }
+Definiera sedan metoden **GetFaceAttributes**. Den returnerar en sträng med relevant attributinformation.
 
-            return attributes;
-        }
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=103-116)]
 
-        // Display the face attributes
-        private static void DisplayAttributes(string attributes, string imageUri)
-        {
-            Console.WriteLine(imageUri);
-            Console.WriteLine(attributes + "\n");
-        }
-    }
-}
-```
+Definiera slutligen metoden **DisplayAttributes** för att skriva ansiktsattributdata till konsolutdata.
 
-### <a name="detectwithurlasync-response"></a>Svar på DetectWithUrlAsync
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=118-123)]
 
-Ett lyckat svar visar kön och ålder för varje ansikte i bilden.
+## <a name="run-the-app"></a>Kör appen
 
-Ett exempel på JSON-råutdata finns i [API-snabbstarter: Analysera en lokal bild med C#](CSharp.md).
+Ett lyckat svar visar kön och ålder för varje ansikte i bilden. Exempel:
 
 ```
 https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg
@@ -195,7 +94,7 @@ Male 37   Female 56
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du skapar ett WPF-Windows-program som använder tjänsten Ansiktsigenkänning för att identifiera ansikten i en bild. Appen ritar en ram runt varje ansikte och visar en beskrivning av ansiktet i statusfältet.
+I den här snabbstarten har du skapat ett enkelt .NET-konsolprogram som kan använda tjänsten Ansikts-API till att identifiera ansikten i både lokala och fjärranslutna bilder. Följ sedan en mer djupgående självstudie för att se hur du kan visa ansiktsinformation för användaren på ett intuitivt sätt.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Skapa en WPF-app för att upptäcka och rama in ansikten i en bild](../Tutorials/FaceAPIinCSharpTutorial.md)
+> [Självstudie: Skapa en WPF-app för att upptäcka och analysera ansikten i en bild](../Tutorials/FaceAPIinCSharpTutorial.md)

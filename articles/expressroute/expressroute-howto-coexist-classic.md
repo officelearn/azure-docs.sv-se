@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: charwen
-ms.openlocfilehash: 09d1649f0ca0cf4ca464d95b29461cad3fe51788
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 30d56acf6bd3a882622af41ca0f2095572f72f71
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
-ms.locfileid: "22710141"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615746"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Konfigurera ExpressRoute-anslutningar och VPN-anslutningar för plats-till-plats som kan samexistera (klassisk)
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "22710141"
 > 
 > 
 
-Att kunna konfigurera VPN för plats till plats och ExpressRoute har flera fördelar. Du kan konfigurera VPN för plats till plats som en säker redundanssökväg för ExpressRoute, eller använda VPN för plats till plats för att ansluta till platser som inte är anslutna via ExpressRoute. Vi beskriver stegen för att konfigurera båda scenarierna i den här artikeln. Den här artikeln gäller den klassiska distributionsmodellen. Den här konfigurationen är inte tillgänglig i portalen.
+Att kunna konfigurera VPN för plats till plats och ExpressRoute har flera fördelar. Du kan konfigurera en VPN för plats till plats som en säker redundanssökväg för ExpressRoute, eller använda plats-till-plats-VPN för att ansluta till platser som inte är anslutna via ExpressRoute. Vi beskriver stegen för att konfigurera båda scenarierna i den här artikeln. Den här artikeln gäller den klassiska distributionsmodellen. Den här konfigurationen är inte tillgänglig i portalen.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -47,7 +47,7 @@ Att kunna konfigurera VPN för plats till plats och ExpressRoute har flera förd
 * **Punkt-till-plats stöds inte.** Du kan inte aktivera punkt-till-plats-VPN-anslutningar till samma VNet som är anslutet till ExpressRoute. Punkt-till-plats-VPN och ExpressRoute kan inte samexistera för samma VNet.
 * **Framtvingad tunneling kan inte aktiveras för plats-till-plats-VPN-gatewayen.** Du kan bara "tvinga" all Internetriktad trafik tillbaka till ditt lokala nätverk via ExpressRoute.
 * **Basic-SKU-gatewayen stöds inte.** Du måste använda en icke-Basic SKU-gateway för både [ExpressRoute-gatewayen](expressroute-about-virtual-network-gateways.md) och [VPN-gatewayen](../vpn-gateway/vpn-gateway-about-vpngateways.md).
-* **Enbart routebaserad VPN-gateway stöds.** Du måste använda en routebaserad [VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+* **Enbart routebaserad VPN-gateway stöds.** Du måste använda en routebaserad [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **Statiska vägar ska konfigureras för din VPN-gateway.** Om ditt lokala nätverk är anslutet både till ExpressRoute och en plats-till-plats-VPN så måste du ha konfigurerat en statisk väg i ditt lokala nätverk för att routa plats-till-plats-VPN-anslutningen till det offentliga Internet.
 * **ExpressRoute-gatewayen måste konfigureras först.** Du måste skapa ExpressRoute-gatewayen först innan du lägger till en plats-till-plats-VPN-gateway för plats till plats.
 
@@ -82,7 +82,7 @@ Det finns två uppsättningar procedurer att välja mellan för att konfigurera 
   
     Du kanske redan har ett virtuellt nätverk på plats med en befintlig VPN-anslutning för plats till plats eller en ExpressRoute-anslutning. Artikelavsnittet [Så här konfigurerar du samexisterande anslutningar för ett befintligt VNet](#add) visar hur du tar bort gatewayen och sedan skapar nya ExpressRoute- och VPN-anslutningar för plats till plats. Observera att när du skapar nya anslutningar måste stegen utföras i en mycket specifik ordning. Följ inte anvisningarna i andra artiklar när du skapar dina gateways och anslutningar.
   
-    I den här proceduren skapar du anslutningar som kan samexistera, vilket kräver att du tar bort din gateway och sedan konfigurerar nya gateways. Detta innebär att du har stilleståndstid för anslutningar på flera platser när du tar bort och återskapar din gateway och dina anslutningar, men du behöver inte migrera några virtuella datorer eller tjänster till ett nytt virtuellt nätverk. Dina virtuella datorer och tjänster kommer fortfarande att kunna kommunicera ut via belastningsutjämnaren när du konfigurerar din gateway, om de är konfigurerade för att göra det.
+    I den här proceduren skapar du anslutningar som kan samexistera, vilket kräver att du tar bort din gateway och sedan konfigurerar nya gateways. Detta innebär att du har stilleståndstid för anslutningar på flera platser när du tar bort och återskapar din gateway och dina anslutningar, men du behöver inte migrera några virtuella datorer eller tjänster till ett nytt virtuellt nätverk. Dina virtuella datorer och tjänster kommer fortfarande att kunna kommunicera ut via lastbalanseraren när du konfigurerar din gateway, om de är konfigurerade för att göra det.
 
 ## <a name="new"></a>Så här skapar du ett nytt virtuellt nätverk och samexisterande anslutningar
 Den här proceduren vägleder dig genom att skapa ett VNet samt plats-till-plats- och ExpressRoute-anslutningar som ska finnas samtidigt.

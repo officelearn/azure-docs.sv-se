@@ -3,24 +3,24 @@ title: Introduktion till Azure IoT-lösningsacceleratorer | Microsoft Docs
 description: Läs mer om Azure IoT-lösningsacceleratorer. IoT-lösningsacceleratorer är kompletta, heltäckande, distributionsklara IoT-lösningar.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/24/2018
+ms.date: 11/09/2018
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 7020d8a1756702d8c2b1998eef5a3fc64809ca5e
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: aac079feefde53ff30cbeab942ee0443c113cdc8
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308120"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345121"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Vad är Azure IoT-lösningsacceleratorer?
 
-En molnbaserad IoT-lösning använder normalt anpassad kod och flera molntjänster för att hantera anslutningsmöjligheter för enheter, databearbetning och -analys samt presentation.
+En molnbaserad IoT-lösning använder normalt anpassad kod och molntjänster för att hantera anslutningsmöjligheter för enheter, databearbetning och -analys samt presentation.
 
-IoT-lösningsacceleratorerna är en samling kompletta, distributionsklara IoT-lösningar som implementerar vanliga IoT-scenarier som fjärrövervakning, ansluten fabrik, förutsägande underhåll och enhetssimulering. När du distribuerar en lösningsaccelerator omfattar distributionen alla molnbaserade tjänster som krävs tillsammans med programkod som krävs.
+IoT-lösningsacceleratorer är kompletta och redo att distribuera IoT-lösningar som implementerar vanliga IoT-scenarier. Scenarierna omfattar fjärrövervakning, ansluten fabrik, förebyggande underhåll och enhetssimulering. När du distribuerar en lösningsaccelerator omfattar distributionen alla molnbaserade tjänster som krävs tillsammans med programkod som krävs.
 
 Lösningsacceleratorerna är startpunkter för dina egna IoT-lösningar. Källkoden för alla lösningsacceleratorer är öppen källkod och finns i GitHub. Vi rekommenderar att du laddar ned och anpassar lösningsacceleratorerna så att de uppfyller dina krav.
 
@@ -34,7 +34,7 @@ Det finns för närvarande fyra lösningsacceleratorer för dig att distribuera:
 
 ### <a name="remote-monitoring"></a>Fjärrövervakning
 
-Använd lösningsacceleratorn till att samla in telemetri från flera fjärrenheter och kontrollera dem. Exempelenheter omfattar kylsystem installerade på kundernas platser eller valv installerade i fjärrpumpstationer.
+Använd lösningsacceleratorn till att samla in telemetri från fjärrenheter och kontrollera dem. Exempelenheter omfattar kylsystem installerade på kundernas platser eller valv installerade i fjärrpumpstationer.
 
 Du kan använda instrumentpanelen för fjärrövervakning för att visa telemetri från dina anslutna enheter, etablera nya enheter eller uppgradera den inbyggda programvaran på de anslutna enheterna:
 
@@ -58,7 +58,7 @@ Du kan använda instrumentpanelen för förutsägande underhåll för att visa a
 
 ### <a name="device-simulation"></a>Enhetssimulering
 
-Använd den här lösningsacceleratorn till att köra flera simulerade enheter som genererar realistisk telemetri. Du kan använda den här lösningsacceleratorn till att testa beteendet för andra lösningsacceleratorer eller till att testa dina egna anpassade IoT-lösningar.
+Använd den här lösningsacceleratorn till att köra simulerade enheter som genererar realistisk telemetri. Du kan använda den här lösningsacceleratorn till att testa beteendet för andra lösningsacceleratorer eller till att testa dina egna anpassade IoT-lösningar.
 
 Du kan använda webbappen för enhetssimulering för att konfigurera och köra simuleringar:
 
@@ -81,9 +81,9 @@ De ursprungliga lösningsacceleratorerna skrevs med .NET med hjälp av en MVC-ar
 | Lösningsaccelerator   | Arkitektur  | Språk     |
 | ---------------------- | ------------- | ------------- |
 | Fjärrövervakning      | Mikrotjänster | [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) och [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) |
-| Förutsägande underhåll | MVC           | [.NET](https://github.com/Azure/azure-iot-predictive-maintenance)          |
-| Ansluten fabrik      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
-| Enhetssimulering      | Mikrotjänster | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
+| Förutsägande underhåll | MVC           | [NET](https://github.com/Azure/azure-iot-predictive-maintenance)          |
+| Ansluten fabrik      | MVC           | [NET](https://github.com/Azure/azure-iot-connected-factory)          |
+| Enhetssimulering      | Mikrotjänster | [NET](https://github.com/Azure/device-simulation-dotnet)          |
 
 Läs mer om arkitekturer för mikrotjänster i [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) (.NET-programarkitektur) och [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Mikrotjänster: En programrevolution som drivs av molnet).
 

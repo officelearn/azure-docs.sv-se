@@ -1,6 +1,6 @@
 ---
-title: Vad är HDInsight och Hadoop- och Spark-teknikstacken? – Azure
-description: En introduktion till HDInsight och Hadoop- och Spark-teknikstacken samt deras komponenter, inklusive Kafka, Hive, Storm och HBase för stordataanalys.
+title: Vad är HDInsight och Apache Hadoop- och Apache Spark-teknikstacken? – Azure
+description: En introduktion till HDInsight och Apache Hadoop- och Apache Spark-teknikstacken samt deras komponenter, inklusive Kafka, Hive, Storm och HBase för stordataanalys.
 keywords: Azure hadoop, hadoop azure, introduktion av hadoop, introduktion av hadoop, hadoop-teknikstacken, introduktion till hadoop, introduktion till hadoop, vad är ett hadoop-kluster, vad är hadoop-kluster, vad används hadoop för
 services: hdinsight
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017, mvc
 ms.topic: overview
 ms.date: 05/07/2018
-ms.openlocfilehash: 0c617f09c846811f876206e6045b640e63ad90b1
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 190d6203c4a00ed3f448bdbb7366db5bc22c45f8
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007063"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634523"
 ---
-# <a name="what-is-azure-hdinsight-and-the-hadoop-technology-stack"></a>Vad är AzureHDInsight och Hadoop-teknikstacken
+# <a name="what-is-azure-hdinsight-and-the-apache-hadoop-technology-stack"></a>Vad är AzureHDInsight och Apache Hadoop-teknikstacken
 
 Den här artikeln ger en introduktion till Apache Hadoop i Azure HDInsight. Azure HDInsight är en fullständigt hanterad analystjänst med fullständigt spektrum med öppen källkod för företag. Du kan använda ramverk baserade på öppen källkod, till exempel Hadoop, Spark, Hive, LLAP, Kafka, Storm, R med flera. 
 

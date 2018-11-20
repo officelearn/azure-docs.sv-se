@@ -1,60 +1,65 @@
 ---
-title: 'Snabbstart: Identifiera ansikten i en bild med hjälp av REST API och cURL'
+title: 'Snabbstart: Identifiera ansikten i en bild med Azure REST API och cURL'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten identifierar du ansikten med hjälp av Ansikts-API:et med cURL.
+description: I den här snabbstarten ska du använda Azure ansikts-REST API med cURL för att identifiera ansikten i en bild.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-ms.date: 05/10/2018
+ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: ab403ec6a9db4d1a0dc03074044eeb424e4ba875
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: a9e3b4713e11b5f01ea8343471aa33a327210338
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953356"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578054"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-curl"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av REST API och cURL
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av ansikts-REST API och cURL
 
-I den här snabbstarten identifierar du ansikten i en bild med hjälp av Ansikts-API.
+I den här snabbstarten ska du använda Azure ansikts-REST API med cURL för att identifiera mänskliga ansikten i en bild.
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver en prenumerationsnyckel för att köra exemplet. Du kan hämta nycklar för kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
 
-## <a name="detect-faces-in-an-image"></a>Identifiera ansikten i en bild
-
-Använd metoden [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (Ansiktsigenkänning) för att identifiera ansikten i en bild och returnera ansiktsattribut som:
-
-* Ansikts-ID: unikt ID som används i flera Ansikts-API-scenarier.
-* Ansiktsrektangel: vänster, överkant, bredd och höjd som anger ansiktets placering i bilden.
-* Landmärke: en matris med ansiktslandmärken med 27 punkter som pekar på viktiga positioner för ansiktsdelar.
-* Ansiktsattribut som ålder, kön, leendeintensitet, huvudställning och ansiktsbehåring.
-
-För att köra exemplet följer du dessa steg:
-
-1. Öppna en kommandotolk.
-2. Ersätt `<Subscription Key>` med en giltig prenumerationsnyckel.
-3. Ändra webbadressen (`https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect`) till att använda den plats där du fått dina prenumerationsnycklar om det behövs.
-4. Du kan också ändra bilden (`"{\"url\":...`) som ska analyseras om du vill.
-5. Klistra in koden i kommandofönstret.
-6. Kör kommandot.
-
-### <a name="face---detect-request"></a>Begäran om ansiktsigenkänning
-
-> [!NOTE]
-> Du måste använda samma plats i REST-anropet som du använde för att hämta prenumerationsnycklarna. Om du till exempel fått dina prenumerationsnycklar från regionen westus (USA, västra), ersätter du ”westcentralus” i webbadressen nedan med ”westus”.
+## <a name="write-the-command"></a>Skriva kommandot
+ 
+Du kommer att använda ett kommando som följande för att anropa ansikts-API:et och hämta ansiktsattributdata från en bild. Kopiera först koden till ett redigeringsprogram&mdash;du måste göra ändringar av vissa delar av kommandot innan du kan köra den.
 
 ```shell
 curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
 ```
 
-### <a name="face---detect-response"></a>Svar från ansiktsigenkänning
+### <a name="subscription-key"></a>Prenumerationsnyckel
+Ersätt `<Subscription Key>` med en giltig ansiktsprenumerationsnyckel.
 
-Ett svar som anger att åtgärden lyckades returneras i JSON.
+### <a name="face-endpoint-url"></a>Ansiktsslutpunktens webbadress
+
+Webbadressen `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` anger Azure-ansiktsslutpunkten för att fråga. Du behöver ändra den första delen av URL:en så att den matchar den region som motsvarar din prenumerationsnyckel (såvida den inte redan är rätt).
+
+### <a name="url-query-string"></a>URL-frågesträng
+
+Frågesträngen för ansiktsslutpunktens webbadress anger vilka ansiktsattribut som ska hämtas. Du kanske vill ändra den här strängen beroende på den avsedda användningen.
+
+```
+?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise
+```
+
+### <a name="image-source-url"></a>URL för bildkälla
+URL:en för källa anger bilden som ska användas som indata. Du kan ändra det så att det pekar på en bild du vill analysera.
+
+```
+https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
+``` 
+
+## <a name="run-the-command"></a>Köra kommandot
+
+När du har gjort dina ändringar öppnar du en kommandotolk och anger det nya kommandot. Du bör se ansiktsinformationen som visas som JSON-data i konsolfönstret. Exempel:
 
 ```json
 [
@@ -150,7 +155,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska de ansikts-API:er som används för att identifiera ansikten i en bild, avgränsa ansikten med rektanglar och returnera attribut som ålder och kön.
+I den här snabbstarten har du skrivit ett cURL-kommando som anropar Azure ansikts-API för att identifiera ansikten på en bild och returnera deras attribut. Läs ansikts-API-referensdokumentationen om du vill veta mer.
 
 > [!div class="nextstepaction"]
-> [Ansikts-API:er](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c2c80790fa3e7c20408346fbebf60c39879a94df
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 971b00f54d59782d5aa7ca752fc06e490d372760
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41918139"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514850"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Konfigurera molnresurser för enhetsetablering med IoT Hub Device Provisioning-tjänst
 
@@ -37,8 +37,11 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 Följ de här stegen för att skapa en ny Device Provisioning-tjänstinstans.
 
 1. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
+
 2. I sökrutan skriver du **enhetsetablering**. 
+
 3. Klicka på **IoT Hub Device Provisioning-tjänst**.
+
 4. Fyll i följande information i formuläret **IoT Hub Device Provisioning-tjänst**:
     
    | Inställning       | Föreslaget värde | Beskrivning | 
@@ -51,10 +54,18 @@ Följ de här stegen för att skapa en ny Device Provisioning-tjänstinstans.
    ![Ange grundläggande information om enhetsetableringstjänsten på portalen](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
 5. Klicka på **Skapa**. Efter en liten stund skapas instansen för enhetsetableringstjänsten, och sidan **Översikt** visas.
+
 6. På sidan **Översikt** för den nya tjänstinstansen kopierar du värdet för **ID-omfånget** för senare användning. Det värdet används för att identifiera registrerings-ID och erbjuder en garanti för att registrerings-ID:t är unikt.
+
 7. Kopiera även **Tjänstslutpunkten** värde för senare användning. 
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT-hubben
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 Nu har du skapat din IoT Hub och du har värdnamnet och IoT Hub-anslutningssträngen som du behöver för att slutföra resten av den här kursen.
 
@@ -63,22 +74,29 @@ Nu har du skapat din IoT Hub och du har värdnamnet och IoT Hub-anslutningssträ
 Nästa steg är att länka Device Provisioning-tjänsten och IoT Hub så att IoT Hub Device Provisioning-tjänsten kan registrera enheter till den hubben. Tjänsten kan endast etablera enheter till IoT-hubbar som har länkats till Device Provisioning-tjänsten. Följ de här stegen.
 
 1. På sidan **Alla resurser** klickar du på Device Provisioning-tjänsteinstansen du skapade tidigare.
+
 2. Välj **Linked IoT hubs** (Länkade IoT-hubbar) på Device Provisioning-tjänstens sida.
+
 3. Klicka på **Lägg till**.
+
 4. På sidan **Lägg till länk i IoT Hub** anger du följande information och klickar på **Spara**:
 
     * **Prenumeration:** Se till att den prenumeration som innehåller IoT-hubben är markerad. Du kan länka till en IoT-hubb som finns i en annan prenumeration.
+
     * **IoT-hubb:** Välj namnet på den IoT-hubb som du vill länka med den här instansen för enhetsetableringstjänsten.
+
     * **Åtkomstprincip:** Välj **iothubowner** som autentiseringsuppgifter som ska användas för etablering av länken till IoT-hubben.
 
    ![Länka hubbnamnet för att länka till enhetsetableringstjänsten på portalen](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
 ## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>Ange allokeringsprincip för enhetsetableringstjänsten
 
-Allokeringsprincipen är en inställning för IoT Hub Device Provisioning-tjänsten som bestämmer hur enheter tilldelas till en IoT-hubb. Det finns tre allokeringsprinciper som stöds: 
+Allokeringsprincipen är en inställning för IoT Hub Device Provisioning-tjänsten som bestämmer hur enheter tilldelas till en IoT-hubb. Det finns tre allokeringsprinciper som stöds: 
 
 1. **Kortast svarstid**: Enheter etableras till en IoT-hubb baserat på hubben med kortast svarstid till enheten.
-2. **Jämnt viktad distribution** (standard): Det är lika sannolikt att länkade IoT-hubbar får enheter etablerade till sig. Den här inställningen är standardinställningen. Om du endast etablerar enheter till en IoT-hubb kan du behålla den här inställningen. 
+
+2. **Jämnt viktad distribution** (standard): Det är lika sannolikt att länkade IoT-hubbar får enheter etablerade till sig. Den här inställningen är standardinställningen. Om du endast etablerar enheter till en IoT-hubb kan du behålla den här inställningen. 
+
 3. **Statisk konfiguration via registreringslistan**: Specificering av den önskade IoT-hubben på registreringslistan har högre prioritet än allokeringsprincipen på Device Provisioning-tjänstnivå.
 
 Om du vill ställa in allokeringsprincipen går du till Device Provisioning-tjänstsidan och klickar på **Hantera allokeringsprincip**. Kontrollera att allokeringsprincipen är inställd på **Jämnt viktad distribution** (standardinställningen). Om du gör några ändringar ska du klicka på **Spara** när du är klar.
@@ -90,6 +108,7 @@ Om du vill ställa in allokeringsprincipen går du till Device Provisioning-tjä
 Andra självstudier i den här samlingen bygger på den här självstudien. Om du tänker fortsätta med efterföljande snabbstarter eller självstudier ska du inte rensa resurserna du har skapat i den här självstudien. Om du inte planerar att fortsätta följer du stegen nedan för att ta bort alla resurser som du har skapat i den här självstudien på Azure-portalen.
 
 1. Klicka på **Alla resurser** på menyn till vänster på Azure-portalen och välj din IoT Hub Device Provisioning-tjänstinstans. Klicka på **Ta bort** överst på sidan **Alla resurser**.  
+
 2. Klicka på **Alla resurser** på menyn till vänster på Azure-portalen och välj din IoT-hubb. Klicka på **Ta bort** överst på sidan **Alla resurser**.
  
 ## <a name="next-steps"></a>Nästa steg

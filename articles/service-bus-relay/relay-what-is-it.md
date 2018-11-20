@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 10/08/2018
+ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 3cc87c0acbed317cccaccec687f27c23a1d32cf0
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 132fca9c8904c4f64fffe167e3a3f2c6bb0d2cfe
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319344"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621038"
 ---
 # <a name="what-is-azure-relay"></a>Vad är Azure Relay?
-Med Azure Relay-tjänsten kan du på ett säkert sätt visa tjänster som körs i företagets nätverk för det offentliga molnet. Du kan göra det utan att behöva öppna en brandväggsanslutning eller göra störande ändringar i företagets nätverksinfrastruktur. 
+Med Azure Relay-tjänsten kan du på ett säkert sätt visa tjänster som körs i företagets nätverk för det offentliga molnet. Du kan göra det utan att behöva öppna en port i brandväggen eller göra störande ändringar i företagets nätverksinfrastruktur. 
 
 Relay-tjänsten har stöd för följande scenarier mellan lokala tjänster och program som körs i molnet eller i en annan lokal miljö. 
 
@@ -68,7 +68,7 @@ Både Hybridanslutningar och WCF Relay tillhandahåller säker anslutning till r
 | **.NET Framework** |x |x |
 | **Java script/Node.JS** | |x |
 | **Standardbaserat öppet protokoll** | |x |
-| **Flera RPC-programmeringsmodeller** | |x |
+| **RPC-programmeringsmodeller** | |x |
 
 ## <a name="architecture-processing-of-incoming-relay-requests"></a>Arkitektur: Bearbetning av inkommande vidarebefordrade begäranden
 Följande diagram visar hur inkommande reläbegäranden hanteras av Azure Relay-tjänsten:

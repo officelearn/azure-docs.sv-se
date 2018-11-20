@@ -48,7 +48,7 @@
 #### [SQL-bedömning](../log-analytics/log-analytics-sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Surface Hub](../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Uppgraderingsanalys](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396)
-#### [VMWare-analys](../log-analytics/log-analytics-vmware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+#### [VMware Analytics](../log-analytics/log-analytics-vmware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Wire Data](../log-analytics/log-analytics-wire-data.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### Automatisering och kontroll
 #### [Spårning av ändringar](../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)

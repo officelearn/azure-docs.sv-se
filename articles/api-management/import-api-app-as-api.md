@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 717ce40caccd1114f8bae762fe38ce986421a4c9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 120fe358e5c8afe63e98038ad353d5ebc45a1937
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306703"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636481"
 ---
 # <a name="import-an-api-app-as-an-api"></a>Importera en API-app som ett API
 
@@ -34,7 +34,7 @@ I den här artikeln kan du se hur du:
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 + Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
-+ Kontrollera att det finns en API-app i din prenumeration. Mer information finns i [App-tjänstdokumentationen][https://docs.microsoft.com/azure/app-service/]
++ Kontrollera att det finns en API-app i din prenumeration. Mer information finns i [App Service-dokumentationen](https://docs.microsoft.com/azure/app-service/)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -43,7 +43,7 @@ I den här artikeln kan du se hur du:
 1. Välj **API: er** under **API-HANTERING**.
 2. Välj **API-app** från listan **Lägg till ett nytt API**.
 
-    !(API app)[./media/import-api-app-as-api/api-app.png]
+    ![API-app](./media/import-api-app-as-api/api-app.png)
 3. Tryck på **Bläddra** för att se listan över API-appar i din prenumeration.
 4. Välj appen. APIM hittar den swagger som är associerad med den valda appen, hämtar den och importerar den. 
 

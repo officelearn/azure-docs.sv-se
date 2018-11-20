@@ -12,15 +12,15 @@ ms.component: report-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/23/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d99f077449529fb4a4a7f124fe1c0263d4113dee
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 49d0840ff7a41ed48151b65e1351628d32d46d24
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363453"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623256"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Snabbstart: Konfigurera namngivna platser i Azure Active Directory
 
@@ -40,7 +40,7 @@ Följande krävs för att slutföra den här snabbstarten:
 
 ## <a name="configure-named-locations"></a>Konfigurera namngivna platser
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 2. I den vänstra rutan väljer du **Azure Active Directory** och sedan **Villkorlig åtkomst** från avsnittet **Säkerhet**.
 
@@ -62,8 +62,6 @@ Följande krävs för att slutföra den här snabbstarten:
 
 Mer information finns i:
 
-- [Villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
-
+- [Azure AD villkorsstyrd åtkomst](../active-directory-conditional-access-azure-portal.md).
 - [Platsvillkor i villkorsstyrd åtkomst i Azure AD](../conditional-access/location-condition.md)
-
-- [Rapport om riskfyllda inloggningar på Azure AD-portalen](concept-risky-sign-ins.md).  
+- [Rapport över riskfyllda inloggningar](concept-risky-sign-ins.md).  

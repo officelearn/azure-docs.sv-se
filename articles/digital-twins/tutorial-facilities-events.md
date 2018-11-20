@@ -7,24 +7,26 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: 91dd16938efbd1e24419352f66e3238646a77e8a
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 994c864f04980dc963f9e7c4eb99b33382ad17e4
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323436"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614913"
 ---
-# <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-using-logic-apps"></a>Självstudie: Ta emot meddelanden från dina Azure Digital Twins-utrymmen med hjälp av Logic Apps
+# <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Självstudie: Ta emot meddelanden från dina Azure Digital Twins-utrymmen med hjälp av Logic Apps
 
 När du har distribuerat din Azure Digital Twins-instans, etablerat dina utrymmen och implementerat anpassade funktioner för att övervaka specifika villkor kan du meddela din kontorsadministratör via e-post när de övervakade villkoren är uppfyllda. 
 
-I [den första självstudien](tutorial-facilities-setup.md) konfigurerade du ett spatialt diagram över en imaginär byggnad, med ett rum som innehåller sensorer för rörelse, koldioxid och temperatur. I [den andra självstudien](tutorial-facilities-udf.md) etablerade du diagrammet och en anpassad funktion som kallas den användardefinierade funktionen för att övervaka dessa sensorvärden och utlösa meddelanden när utrymmet är tomt och temperatur och kolkoldioxid är i ett lämpligt intervall. Den här självstudien visar hur du kan integrera dessa meddelanden med Azure Logic Apps för att skicka e-postmeddelanden när det finns ett sådant rum tillgängligt. En kontorsadministratör kan använda den här informationen för att hjälpa medarbetarna att boka det mest produktiva mötesrummet. 
+I [den första självstudien](tutorial-facilities-setup.md) konfigurerade du den rumsliga grafen för en föreställd byggnad. Ett rum i byggnaden innehåller sensorer för rörelse, koldioxid och temperatur. I [den andra självstudien](tutorial-facilities-udf.md) etablerade du diagrammet och en användardefinierad funktion för att övervaka dessa sensorvärden och utlösa meddelanden när utrymmet är tomt och temperatur och kolkoldioxid är i ett lämpligt intervall. 
+
+Den här självstudien visar hur du kan integrera dessa meddelanden med Azure Logic Apps för att skicka e-postmeddelanden när det finns ett sådant rum tillgängligt. En kontorsadministratör kan använda den här informationen för att hjälpa medarbetarna att boka det mest produktiva mötesrummet. 
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Integrera händelser med Event Grid
-> * Meddela händelser med Logic App
+> * Integrera händelser med Azure Event Grid.
+> * Meddela händelser med Logic App.
     
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -36,32 +38,32 @@ Den här självstudien förutsätter att du har [konfigurerat](tutorial-faciliti
 - Ett Office 365-konto för att skicka e-postmeddelanden.
 
 ## <a name="integrate-events-with-event-grid"></a>Integrera händelser med Event Grid 
-I det här avsnittet konfigurerar du en [Event Grid](../event-grid/overview.md) för att samla in händelser från din Digital Twins-instans och omdirigerar dem till en [händelsehanterare](../event-grid/event-handlers.md) såsom Logic Apps.
+I det här avsnittet konfigurerar du en [Event Grid](../event-grid/overview.md) för att samla in händelser från din Azure Digital Twins-instans och omdirigerar dem till en [händelsehanterare](../event-grid/event-handlers.md) såsom Logic Apps.
 
-### <a name="create-event-grid-topic"></a>Skapa ett Event Grid-ämne
+### <a name="create-an-event-grid-topic"></a>Skapa ett Event Grid-ämne
 [Event Grid-ämnen](../event-grid/concepts.md#topics) tillhandahåller ett gränssnitt för att dirigera händelser som genereras av den användardefinierade funktionen. 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-1. I den vänstra navigeringspanelen klickar du på **Skapa en resurs**. 
+1. Välj **Skapa en resurs** i fönstret till vänster. 
 
-1. Sök efter och välj **Event Grid-ämne**. Klicka på **Skapa**.
+1. Sök efter och välj **Event Grid-ämne**. Välj **Skapa**.
 
-1. Ange ett **namn** för Event Grid-ämnet och välj **prenumeration**. Välj den **resursgrupp** som du använde eller skapade för din Digital Twins-instans samt **plats**. Klicka på **Skapa**. 
+1. Ange ett **namn** för Event Grid-ämnet och välj **prenumeration**. Välj den **resursgrupp** som du använde eller skapade för din Digital Twins-instans samt **plats**. Välj **Skapa**. 
 
     ![Skapa ett Event Grid-ämne](./media/tutorial-facilities-events/create-event-grid-topic.png)
 
-1. Navigera till Event Grid-ämnet från resursgruppen, klicka på **Översikt** och kopiera värdet för **Ämnesslutpunkt** till en temporär fil. Du behöver den här URL:en i följande avsnitt. 
+1. Gå till Event Grid-ämnet från resursgruppen, välj **Översikt** och kopiera värdet för **Ämnesslutpunkt** till en temporär fil. Du behöver webbadressen i nästa avsnitt. 
 
-1. Klicka på **Åtkomstnycklar** och kopiera **Key 1** och **Key 2** (nyckel 1 och nyckel 2) till en temporär fil. Du behöver dessa värden för att skapa slutpunkten i följande avsnitt.
+1. Välj **Åtkomstnycklar** och kopiera **Key 1** och **Key 2** (nyckel 1 och nyckel 2) till en temporär fil. Du behöver dessa värden för att skapa slutpunkten i nästa avsnitt.
 
     ![Event Grid-nycklar](./media/tutorial-facilities-events/event-grid-keys.png)
 
 ### <a name="create-an-endpoint-for-the-event-grid-topic"></a>Skapa en slutpunkt för Event Grid-ämnet
 
-1. I kommandofönstret kontrollerar du att du är i mappen **_occupancy-quickstart\src_** för Digital Twins-exemplet.
+1. I kommandofönstret kontrollerar du att du är i mappen **occupancy-quickstart\src** för Digital Twins-exemplet.
 
-1. Öppna filen **_actions\createEndpoints.yaml_** i Visual Studio Code-redigeringsprogrammet. Kontrollera att den har följande innehåll:
+1. Öppna filen **actions\createEndpoints.yaml** i Visual Studio Code-redigeringsprogrammet. Kontrollera att den har följande innehåll:
 
     ```yaml
     - type: EventGrid
@@ -79,10 +81,10 @@ I det här avsnittet konfigurerar du en [Event Grid](../event-grid/overview.md) 
 
 1. Ersätt platshållaren `Secondary_connection_string_for_your_Event_Grid` med värdet för **Key2**.
 
-1. Ersätt platshållaren `Event_Grid_Topic_Path` med sökvägen till Event Grid-ämnet. Hämta den här sökvägen genom att ta bort den *https://* och avslutande resurssökvägar från **Ämnesslutpunkt**-URL: en. Det bör se ut ungefär som det här formatet: **yourEventGridName.yourLocation.eventgrid.azure.net**. 
+1. Ersätt platshållaren `Event_Grid_Topic_Path` med sökvägen till Event Grid-ämnet. Hämta den här sökvägen genom att ta bort den **https://** och avslutande resurssökvägar från **Ämnesslutpunkt**-URL: en. Det bör se ut ungefär som det här formatet: *yourEventGridName.yourLocation.eventgrid.azure.net*. 
 
     > [!IMPORTANT]
-    > Ange alla värden utan citattecken. Se till att det finns minst ett blanksteg efter kolonen i *YAML*-filen. Du kan även verifiera *YAML*-filinnehållet med hjälp av en YAML-onlineverifierare, till exempel [det här verktyget](https://onlineyamltools.com/validate-yaml).
+    > Ange alla värden utan citattecken. Se till att det finns minst ett blanksteg efter kolonen i YAML-filen. Du kan även verifiera YAML-filinnehållet med hjälp av en YAML-onlineverifierare, till exempel [det här verktyget](https://onlineyamltools.com/validate-yaml).
 
 1. Spara och stäng filen. I kommandofönstret kör du följande kommando och loggar in när du tillfrågas. 
 
@@ -95,38 +97,40 @@ I det här avsnittet konfigurerar du en [Event Grid](../event-grid/overview.md) 
    ![Slutpunkter för Event Grid](./media/tutorial-facilities-events/dotnet-create-endpoints.png)
 
 
-## <a name="notify-events-with-logic-app"></a>Meddela händelser med Logic App
-Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-tjänsten kan du skapa automatiserade uppgifter för händelser som tas emot från andra tjänster. I det här avsnittet konfigurerar du Logic Apps att skapa e-postmeddelanden för händelser som dirigeras från dina spatiala sensorer, med hjälp av ett [Event Grid-ämne](../event-grid/overview.md).
+## <a name="notify-events-with-logic-apps"></a>Meddela händelser med Logic Apps
+Du kan använda [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-tjänsten för att skapa automatiserade uppgifter för händelser som tas emot från andra tjänster. I det här avsnittet konfigurerar du Logic Apps att skapa e-postmeddelanden för händelser som dirigeras från dina spatiala sensorer, med hjälp av ett [Event Grid-ämne](../event-grid/overview.md).
 
-1. I det vänstra navigeringsfönstret i [Azure-portalen](https://portal.azure.com) klickar du på **Skapa en resurs**.
+1. Välj **Skapa en resurs** längst upp till vänster i [Azure-portalen](https://portal.azure.com).
 
-1. Sök efter och välj en ny **logikappresurs**. Klicka på **Skapa**.
+1. Sök efter och välj en ny **logikappresurs**. Välj **Skapa**.
 
-1. Ange ett **namn** för logikappen och välj sedan din **prenumeration**, din **resursgrupp** samt **plats**. Klicka på **Skapa**.
+1. Ange ett **namn** för logikappresursen och välj sedan din **prenumeration**, din **resursgrupp** samt **plats**. Välj **Skapa**.
 
-    ![Skapa en logikapp](./media/tutorial-facilities-events/create-logic-app.png)
+    ![Skapa en resurs för en logikapp](./media/tutorial-facilities-events/create-logic-app.png)
 
-1. Öppna logikappen när den har distribuerats och öppna sedan fönsterrutan **Logic App Designer**. 
+1. Öppna logikappresursen när den har distribuerats och öppna sedan fönsterrutan **Logic App Designer**. 
 
-1. Välj utlösaren **When an Event Grid event occurs** (När en Event Grid-händelse inträffar). **Logga in** till din klientorganisation med Azure-kontot när du tillfrågas. Bekräfta att **tillåta åtkomst** till din Event Grid när du tillfrågas. Klicka på **Fortsätt**.
+1. Välj utlösaren **When an Event Grid event occurs** (När en Event Grid-händelse inträffar). Logga in till din klientorganisation med Azure-kontot när du tillfrågas. Välj **Tillåt åtkomst** för Event Grid när du tillfrågas. Välj **Fortsätt**.
 
-1. I fönstret **When a resource event occurs (Preview)** (När en resurshändelse inträffar (förhandsversion)) 
-    1. väljer du den **prenumeration** som du använde för att skapa Event Grid tidigare,
+1. I fönstret **When a resource event occurs (Preview)** (När en resurshändelse inträffar (förhandsversion)): 
+   
+   a. Välj den **prenumeration** som du använde för att skapa Event Grid-ämnet.
 
-    1. välj **Microsoft.EventGrid.Topics** som **Resurstyp** och
+   b. Välj **Microsoft.EventGrid.Topics** som **Resurstyp**.
 
-    1. välj din Event Grid-resurs från listrutan för **Resursnamn**.
+   c. Välj din Event Grid-resurs från listrutan för **Resursnamn**.
 
-    ![Skapa en logikapp](./media/tutorial-facilities-events/logic-app-resource-event.png)
+   ![Fönstret Logic App Designer](./media/tutorial-facilities-events/logic-app-resource-event.png)
 
-1. Klicka på knappen **Nytt steg**.
+1. Välj knappen **Nytt steg**.
 
-1. I fönstret **Välj en åtgärd**
-    1. söker du efter frasen *parse json* och väljer åtgärden **Parsa JSON**.
+1. I fönstret **Välj en åtgärd**:
+    
+   a. söker du efter frasen **parse json** och väljer åtgärden **Parsa JSON**.
 
-    1. Klicka i fältet **Innehåll** och markera **Brödtext** från listan **Dynamiskt innehåll**.
+   b. I fältet **Innehåll** markerar du **Brödtext** på listan **Dynamiskt innehåll**.
 
-    1. Välj **Use sample to payload to generate schema** (Använd exempelnyttolast för att generera schema). Klistra in följande JSON-nyttolast och klicka sedan på **Klar**.
+   c. Markera **Use sample to payload to generate schema** (Använd exempelnyttolast för att generera schema). Klistra in följande JSON-nyttolast och välj sedan **Klar**.
 
         ```JSON
         {
@@ -146,57 +150,59 @@ Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-tjänsten kan du sk
         }
         ```
     
-    Den här nyttolasten har fiktiva värden. Logic App använder den här exempelnyttolasten för att generera ett **Schemat**.
+    Den här nyttolasten har fiktiva värden. Logic App använder den här exempelnyttolasten för att generera ett *schema*.
     
-    ![Logic App Parsa JSON för Event Grid](./media/tutorial-facilities-events/logic-app-parse-json.png)
+    ![Logic Apps Parsa JSON-fönstret för Event Grid](./media/tutorial-facilities-events/logic-app-parse-json.png)
 
-1. Klicka på knappen **Nytt steg**.
+1. Välj knappen **Nytt steg**.
 
-1. I fönstret **Välj en åtgärd**
-    1. Sök och välj **Villkorskontroll** från listan över **åtgärder**. 
+1. I fönstret **Välj en åtgärd**:
 
-    1. Klicka i den första textrutan **Välj ett värde** och välj **eventType** (händelsetyp) från listan **Dynamic content** för fönstret **Parsa JSON**.
+   a. Sök och välj **Villkorskontroll** från listan över **åtgärder**. 
 
-    1. Klicka i den andra textrutan **Välj ett värde** och skriv *UdfCustom*.
+   b. I den första textrutan **Välj ett värde** väljer du **eventType** (händelsetyp) från listan **Dynamiskt innehåll** för fönstret **Parsa JSON**.
 
-    ![Logic App Parsa JSON för Event Grid](./media/tutorial-facilities-events/logic-app-condition.png)
+   c. I den andra **Välj ett värde**-textrutan anger du **UdfCustom**.
 
-1. I fönstret **If true** (Om sant)
-    1. klickar du på **Lägg till en åtgärd** och väljer *Office 365 Outlook*.
+   ![Valda villkor](./media/tutorial-facilities-events/logic-app-condition.png)
 
-    1. Från listan med **Åtgärder** väljer du **Skicka ett e-postmeddelande**. Klicka på **Logga in** och använd autentiseringsuppgifterna för ditt e-postkonto. Klicka på **Tillåt åtkomst** när du tillfrågas.
+1. I fönstret **If true** (Om sant):
+   
+   a. Markera **Lägg till en åtgärd** och väljer **Office 365 Outlook**.
 
-    1. I rutan **Till** anger du ditt e-post-ID för att få meddelanden. I **Ämne** anger du texten *Digital Twins-meddelande för dålig luftkvalitet i utrymmet* och väljer sedan **TopologyObjectId** från listan **Dynamiskt innehåll** för **Parsa JSON**.
+   b. I listan med **Åtgärder** väljer du **Skicka ett e-postmeddelande**. Välj **Logga in** och använd autentiseringsuppgifterna för ditt e-postkonto. Välj **Tillåt åtkomst** när du tillfrågas.
 
-    1. I **Brödtext** i samma fönster anger du text som liknar detta: *Dålig luftkvalitet har identifierats i ett rum och temperatur behöver justeras*. Du kan utveckla detta med element från listan **Dynamiskt innehåll** såsom det visas nedan.
+   c. I rutan **Till** anger du ditt e-post-ID för att få meddelanden. I **Ämne** anger du texten **Digital Twins notification for poor air quality in space** (Digital Twins-meddelande för dålig luftkvalitet i utrymmet). Välj sedan **TopologyObjectId** på listan **Dynamiskt innehåll** för **Parsa JSON**.
 
-    ![Logic App Skicka ett e-postmeddelande](./media/tutorial-facilities-events/logic-app-send-email.png)
+   d. I **Brödtext** i samma fönster anger du text som liknar detta: **Dålig luftkvalitet har identifierats i ett rum och temperatur behöver justeras**. Du kan utveckla detta med element från listan **Dynamiskt innehåll**.
 
-1. Klicka på knappen **Spara** längst upp på fönsterrutan **Logic App Designer**.
+   ![Logic Apps-val för ”Skicka ett e-postmeddelande”](./media/tutorial-facilities-events/logic-app-send-email.png)
 
-1. Se till att simulera sensordata genom att navigera till mappen **_device-connectivity_** för Digital Twin-exemplet i ett kommandofönster och köra `dotnet run`.
+1. Välj knappen **Spara** längst upp på fönsterrutan **Logic App Designer**.
 
-Om några minuter bör du börja få e-postmeddelanden från den här logikappen. 
+1. Se till att simulera sensordata genom att gå till mappen **device-connectivity** för Digital Twin-exemplet i ett kommandofönster och köra `dotnet run`.
 
-   ![Logic App Skicka ett e-postmeddelande](./media/tutorial-facilities-events/logic-app-notification.png)
+Om några minuter bör du börja få e-postmeddelanden från den här Logic Apps-resursen. 
 
-Om du vill sluta få dessa e-postmeddelanden navigerar du till din **logikapp** i portalen och väljer fönsterrutan **Översikt**. Klicka på **Inaktivera**.
+   ![E-postavisering](./media/tutorial-facilities-events/logic-app-notification.png)
+
+Om du vill sluta få dessa e-postmeddelanden går du till din logikappresurs i portalen och väljer fönsterrutan **Översikt**. Välj **Inaktivera**.
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte vill utforska Azure Digital Twins vidare kan du ta bort resurser som du har skapat i den här självstudien:
+Om du inte vill utforska Azure Digital Twins nu kan du ta bort resurser som du har skapat i den här självstudien:
 
-1. På den vänstra menyn i [Azure-portalen](http://portal.azure.com) klickar du på **Alla resurser**, väljer din Digital Twins-resursgrupp och **tar bort** den.
-2. Om du vill kan fortsätta att ta bort exempelprogrammen på arbetsdatorn också. 
+1. På den vänstra menyn i [Azure-portalen](http://portal.azure.com) väljer du **Alla resurser**, väljer din Digital Twins-resursgrupp och **Ta bort**.
+2. Ta bort exempelprogrammen på datorn om det behövs. 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan gå vidare till nästa självstudie och lär dig att visualisera dina sensordata, analysera trender och upptäcka avvikelser. 
+Du kan gå till nästa självstudie och lära dig att visualisera dina sensordata, analysera trender och upptäcka avvikelser: 
 > [!div class="nextstepaction"]
 > [Självstudie: Visualisera och analysera händelser från dina Azure Digital Twins-utrymmen med hjälp av Time Series Insights](tutorial-facilities-analyze.md)
 
-Du kan även gå vidare till mer information om diagram för spatial intelligens och objektmodeller i Azure Digital Twins. 
+Du kan även lära dig mer om diagram för spatial intelligens och objektmodeller i Azure Digital Twins: 
 > [!div class="nextstepaction"]
 > [Förstå Digital Twins-objektmodeller och diagram för spatial intelligens](concepts-objectmodel-spatialgraph.md)

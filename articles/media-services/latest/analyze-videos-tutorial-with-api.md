@@ -10,18 +10,18 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/15/2018
+ms.date: 11/08/2018
 ms.author: juliako
-ms.openlocfilehash: 5bb840be119f5eac380c44e2cf45b3f73a9d981e
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 3f0d6784f7b7c476313c5cc4190cacd99e4c3973
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985717"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612772"
 ---
-# <a name="tutorial-analyze-videos-with-azure-media-services"></a>Självstudie: Analysera videor med Azure Media Services 
+# <a name="tutorial-analyze-videos-with-media-services-v3-using-apis"></a>Självstudie: Analysera videor med Media Services v3 med API:er
 
-Den här självstudien visar hur du analyserar videor med Azure Media Services. Det finns många scenarier där du kanske vill veta mer om inspelat video- eller ljudinnehåll. Organisationer kan till exempel för att uppnå högre kundnöjdhet köra tal-till-text-bearbetning och konvertera inspelningar från kundtjänst till en sökbar katalog med index och instrumentpaneler. Det blir då lättare att få fler insikter om verksamheten, till exempel en lista med vanliga klagomål, källor till sådana klagomål osv.
+Den här självstudien visar hur du analyserar videor med Azure Media Services. Det finns många scenarier där du kanske vill veta mer om inspelat video- eller ljudinnehåll. Organisationer kan till exempel för att uppnå högre kundnöjdhet köra tal-till-text-bearbetning och konvertera inspelningar från kundtjänst till en sökbar katalog med index och instrumentpaneler. Det blir då lättare att få fler insikter om verksamheten, till exempel en lista med vanliga klagomål, källor till sådana klagomål och annan användbar information.
 
 I den här självstudiekursen lär du dig att:    
 
@@ -38,7 +38,14 @@ I den här självstudiekursen lär du dig att:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Om du inte har Visual Studio installerat kan du hämta [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
+- Om du inte har Visual Studio installerat kan du hämta [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
+- Installera och använd CLI lokalt – du måste ha Azure CLI version 2.0 eller senare. Kör `az --version` för att se vilken version du har. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). 
+
+    För närvarande fungerar inte alla [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref)-kommandon i Azure Cloud Shell. Vi rekommenderar att du använder CLI lokalt.
+
+- [Skapa ett Media Services-konto](create-account-cli-how-to.md).
+
+    Se till att komma ihåg de värden som du använde för resursgruppens namn och namnet på Media Services-kontot.
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 
@@ -49,10 +56,6 @@ Klona en GitHub-lagringsplats som innehåller .NET-exemplet till din dator med f
  ```
 
 Du hittar exemplet i mappen [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos).
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -154,11 +157,11 @@ Utdatafilen för videoanalysen kallas insights.json. Den här filen innehåller 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte längre behöver någon av resurserna i resursgruppen, inklusive Media Services och de lagringskonton som du skapade för självstudien, tar du bort resursgruppen som du skapade tidigare. Du kan använda verktyget **CloudShell**.
+Om du inte längre behöver någon av resurserna i resursgruppen, inklusive Media Services och de lagringskonton som du skapade för självstudien, tar du bort resursgruppen som du skapade tidigare. 
 
-Kör följande kommando i **CloudShell**:
+Kör följande CLI-kommando:
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 

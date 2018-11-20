@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2.0 Snabbstart för ASP.NET Core-webbapp | Microsoft Docs
-description: Lär dig hur du implementerar Microsoft-inloggning i en ASP.NET Core-Webbapp med hjälp av OpenID Connect
+title: 'Snabbstart: Azure AD v2.0 ASP.NET Core-webbapp | Microsoft Docs'
+description: Lär dig hur du implementerar Microsoft-inloggning på en ASP.NET Core-webbapp med OpenID Connect
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -10,139 +10,151 @@ ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2018
+ms.date: 11/09/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 4ab3d0b74e8305d67af862020197c69b15221086
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
-ms.translationtype: MT
+ms.openlocfilehash: 4849ffcc6fd71a0b88b270f2e6cbdb23b18ecc76
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830233"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51611649"
 ---
-# <a name="add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Lägga till logga in med Microsoft i en ASP.NET Core-webbapp
+# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Snabbstart: Lägga till inloggning med Microsoft till en ASP.NET-webbapp
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-Den här snabbstarten innehåller ett kodexempel som visar hur en ASP.NET Core-Webbapp kan logga in personal (hotmail.com, live.com eller andra) och fungerar och skolkonton från valfri Azure Active Directory-instans.
+I den här snabbstarten lär du dig hur en ASP.NET Core-webbapp kan logga in personliga konton (hotmail.com, outlook.com osv.) och arbets- och skolkonton från alla instanser av Active Directory (Azure AD).
 
-![Så här fungerar den exempelapp som skapas med den här snabbstarten](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro.png)
+![Så fungerar den exempelapp som genereras med den här snabbstarten](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro.png)
 
 
 > [!div renderon="docs"]
-> ## <a name="register-your-application-and-download-your-quickstart-app"></a>Registrera appen och ladda ned snabbstartsappen
+> ## <a name="register-and-download-your-quickstart-app"></a>Registrera och ladda ned snabbstartsappen
+> Det finns två alternativ för att starta snabbstartsprogrammet:
+> * [Express] [Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * [Manuellt] [Alternativ 2: Registrera och konfigurera programmet och kodexemplet](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
-> ### <a name="register-and-configure-your-application-and-code-sample"></a>Registrera och konfigurera appen och kodexemplet
-> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera din app
-> 
-> 1. Gå till [Microsoft-portalen för appregistrering](https://apps.dev.microsoft.com/portal/register-app).
-> 1. Ange namnet på din app, kontrollera att alternativet **Guided Setup** (Interaktiv installation) är avmarkerat och klicka på **Create** (Skapa).
-> 1. Klicka på `Add Platform` och välj sedan `Web`.
-> 1. Kontrollera att **Allow Implicit Flow** (Tillåt implicit flöde) är *markerat*.
-> 1. I **Redirect URLs** (Omdirigerings-URL:er) anger du `http://localhost:3110/`.
-> 1. Rulla längst ned på sidan och klicka på **Spara**.
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel
+>
+> 1. Gå till [Azure-portalen – Appregistreringar (förhandsversion)](https://aka.ms/aspnetcore2-1-aad-quickstart-v2).
+> 1. Ange ett namn för programmet och välj **Registrera**.
+> 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt med ett enda klick.
+>
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet manuellt
+>
+> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
+> Du registrerar programmet och lägger till appens registreringsinformationen i lösningen manuellt med hjälp av följande steg:
+>
+> 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+> 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
+> 1. I det vänstra navigeringsfönstret väljer du **Azure Active Directory**-tjänsten och sedan **Appregistreringar (förhandsversion)** > **Ny registrering**.
+> 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
+>    - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `AspNetCore-Quickstart`.
+>    - I **Svars-URL** lägger du till `https://localhost:44321/` och väljer **Registrera**.
+> 1. Välj menyn **Autentisering** och lägg sedan till följande information:
+>    - I **Svars-URL** lägger du till `https://localhost:44321/signin-oidc` och markerar **Registrera**.
+>    - I avsnittet **Avancerade inställningar** ställer du in **Utloggnings-URL** på `https://localhost:44321/signout-oidc`.
+>    - Under **Implicit beviljande** kontrollerar du **ID-token**.
+>    - Välj **Spara**.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-1-configure-your-application-in-azure-portal"></a>Steg 1: Konfigurera din app i Azure-portalen
-> För att kodexemplet för den här snabbstarten ska fungera måste vi lägga till en svars-URL som `http://localhost:3110/`.
+> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Steg 1: Konfigurera din app i Azure-portalen
+> För kodexemplen för att den här snabbstarten ska fungera måste du lägga till svars-URL som `https://localhost:44321/` och `https://localhost:44321/signin-oidc`, lägga till Utloggnings-URL som `https://localhost:44321/signout-oidc` och begära att ID-token ska utfärdas av auktoriseringsslutpunkten.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Gör den här ändringen åt mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerad](media/quickstart-v2-aspnet-core-webapp/green-check.png) appen konfigureras med det här attributet
+> > ![Redan konfigurerad](media/quickstart-v2-aspnet-webapp/green-check.png) Programmet konfigureras med de här attributen.
 
 #### <a name="step-2-download-your-aspnet-core-project"></a>Steg 2: Ladda ned ditt ASP.NET Core-projekt
 
-- [Ladda ned ASP.NET Core-projektet](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/master.zip)
+- [Ladda ned Visual Studio 2017-lösningen](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
-#### <a name="step-3-configure-your-project"></a>Steg 3: Konfigurera projektet
+#### <a name="step-3-configure-your-visual-studio-project"></a>Steg 3: Konfigurera ditt Visual Studio-projekt
 
-1. Extrahera zip-filen till en lokal mapp närmare till rotmappen – till exempel **C:\Azure-Samples**
-1. Om du använder Visual Studio 2017 kan du öppna projektet i Visual Studio (valfritt)
-1. Redigera **appsettings.json** och Ersätt värdet för `ClientId` med program-Id från programmet som du just registrerade:
+1. Extrahera zip-filen i en lokal mapp i rotkatalogen, till exempel **C:\Azure-Samples**
+1. Om du använder Visual Studio 2017 öppnar du lösningen i Visual Studio (valfritt).
+1. Redigera filen **appsettings.json**. Leta reda på `ClientId` och ersätt `Enter_the_Application_Id_here` med värdet i **Program-ID (klient)** från appen du precis har registrerat. 
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"
-    "TenantId": "common"
+    "TenantId": "Enter_the_Tenant_Info_Here"
     ```
-1. Om programmet är en *enda klient programmet* (riktar in sig på konton i den aktuella katalogen) i din **appsettings.json** filen, hitta värdet för `TenantId` och Ersätt `common`med din **klient-Id** eller **klientnamn** (till exempel contoso.microsoft.com). Du kan hämta klientorganisationsnamnet på **översiktssidan**.
+
+> [!div renderon="docs"]
+> Där:
+> - `Enter_the_Application_Id_here` – är **Program-ID (klient)** för det program som registrerats på Azure-portalen. Du kan hitta **Program-ID (klient)** på appens **översiktssida**.
+> - `Enter_the_Tenant_Info_Here` – är något av följande alternativ:
+>   - Om ditt program stöder **Endast konton i den här organisationskatalogen** ska du ersätta värdet med **klient-ID** eller **klientnamn** (till exempel contoso.microsoft.com)
+>   - Om ditt program stöder **Konton i valfri organisationskatalog** ersätter du värdet med `organizations`
+>   - Om ditt program stöder **Alla Microsoft-kontoanvändare** ersätter du värdet med `common`
+>
+> > [!TIP]
+> > För att hitta värdena för **program-ID (klient)**, **katalog-ID (klient)** och **Kontotyper som stöds** går du till appens **översiktssida** i Azure-portalen.
 
 ## <a name="more-information"></a>Mer information
 
-I det här avsnittet får du en översikt över koden som krävs för att logga in användare. Detta kan vara användbar för att förstå hur koden fungerar, huvudsakliga argument, och även om du vill lägga till inloggning till ett befintligt ASP.NET Core-program.
+I det här avsnittet får du en översikt över koden som krävs för att logga in användare. Det kan vara användbart för att förstå hur koden fungerar, huvudargumenten och också om du vill lägga till inloggning för en befintlig ASP.NET Core-app.
 
 ### <a name="startup-class"></a>Startklass
 
-*Microsoft.AspNetCore.Authentication* mellanprogram använder en startklass som körs när värdprocessen initierar:
+*Microsoft.AspNetCore.Authentication*-mellanprogram använder en startklass som körs när värdprocessen startar:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-    services.AddAuthentication(sharedOptions =>
-    {
-        sharedOptions.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        sharedOptions.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
-    })
-    .AddAzureAd(options => Configuration.Bind("AzureAd", options))
-    .AddCookie();
+  services.Configure<CookiePolicyOptions>(options =>
+  {
+    // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+    options.CheckConsentNeeded = context => true;
+    options.MinimumSameSitePolicy = SameSiteMode.None;
+  });
 
-    services.AddMvc();
+  services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
+          .AddAzureAD(options => Configuration.Bind("AzureAd", options));
+
+  services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
+  {
+    options.Authority = options.Authority + "/v2.0/";         // Azure AD v2.0
+
+    options.TokenValidationParameters.ValidateIssuer = false; // accept several tenants (here simplified)
+  });
+
+  services.AddMvc(options =>
+  {
+     var policy = new AuthorizationPolicyBuilder()
+                     .RequireAuthenticatedUser()
+                     .Build();
+     options.Filters.Add(new AuthorizeFilter(policy));
+  })
+  .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 }
 ```
 
-Metoden `AddAuthentication` konfigurerar tjänsten för att lägga till Cookie-baserad autentisering - använde på webbläsare scenarier, samt inställd OpenIdConnect utmaningen. 
+Metoden `AddAuthentication` konfigurerar tjänsten för att lägga till cookie-baserad autentisering, vilket används i webbläsarscenarier, samt ange frågan för OpenID Connect. 
 
-Den rad som innehåller `.AddAzureAd` lägger till Azure Active Directory-autentisering för ditt program.
+Den rad som innehåller `.AddAzureAd` lägger till Azure AD-autentisering för ditt program. Den konfigureras sedan för att logga in med Azure AD v2.0-slutpunkten.
 
-Förutom som filen **AzureAdAuthenticationBuilderExtensions.cs** lägger till tilläggsmetod i AzureAd-autentiseringsflödet. Den här tilläggsmetod Konfigurera attribut som krävs för Azure AD-autentisering. Den `Configure` -metod i `IConfigureNamedOptions` gränssnittet innehåller följande:
-
-```csharp
-public void Configure(string name, OpenIdConnectOptions options)
-{
-    options.ClientId = _azureOptions.ClientId;
-    options.Authority = $"{_azureOptions.Instance}common/v2.0";   // V2 specific
-    options.UseTokenLifetime = true;
-    options.RequireHttpsMetadata = false;
-    options.TokenValidationParameters.ValidateIssuer = false;     // accept several tenants (here simplified)
-}
-```
 > |Var  |  |
 > |---------|---------|
-> |ClientId     |Program-Id från programmet som är registrerad i Azure portal|
-> |Myndighet | STS-slutpunkten för användaren att autentisera. Vanligtvis https://login.microsoftonline.com/{tenant}/v2.0 för offentligt moln, där {tenant} är namnet på din klientorganisation, ditt klientorganisations-ID eller *gemensam* för en referens till den gemensamma slutpunkten (används för appar för en innehavare)|
-> |UseTokenLifetime |Anger att autentiseringscookien bör matcha autentiseringstoken|
-> |RequireHttpsMetadata     |Kräv HTTPS för metadata-adress eller utfärdare. Det rekommenderas att ändra det här värdet till `True`|
-> |TokenValidationParameters     | En lista över parametrar för tokenvalidering. I det här fallet `ValidateIssuer` är inställd på `false` att indikera att den kan acceptera inloggningar från några personliga,- eller arbets- eller skolkonto konton|
-
-### <a name="initiate-an-authentication-challenge"></a>Initiera en autentiseringsfråga
-
-Du kan tvinga användaren att logga in genom att begära en autentiseringsfråga i din kontrollant precis som i **AccountController.cs**:
-
-```csharp
-public IActionResult SignIn()
-{
-    var redirectUrl = Url.Action(nameof(HomeController.Index), "Home");
-    return Challenge(
-        new AuthenticationProperties { RedirectUri = redirectUrl },
-        OpenIdConnectDefaults.AuthenticationScheme);
-}
-```
-
-> [!TIP]
-> Begär en autentiseringsfråga med hjälp av metoden ovan är valfritt och commonsly används när du vill att vyn ska vara tillgängliga för både autentiserade och icke-autentiserade användare. Du kan skydda domänkontrollanter med hjälp av den metod som beskrivs i nästa avsnitt.
+> | ClientId  | Program-ID (klient) från appen som registrerats i Azure-portalen. |
+> | Myndighet | STS-slutpunkten för autentisering av användaren. Vanligtvis https://login.microsoftonline.com/{tenant}/v2.0 för offentligt moln, där {tenant} är namnet på din klientorganisation eller ditt klientorganisations-ID eller *gemensam* för en referens till den gemensamma slutpunkten (används för appar för en innehavare) |
+> | TokenValidationParameters | En lista över parametrar för tokenvalidering. I det här fallet ställs `ValidateIssuer` in på `false` för att ange att den kan acceptera inloggningar från personliga konton eller arbets- eller skolkonton. |
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>Skydda en kontrollant eller en kontrollants metod
 
-Du kan skydda en domänkontrollant eller domänkontrollern methodss med den `[Authorize]` attribut. Det här attributet begränsar åtkomsten till domänkontrollanten eller metoder genom att bara tillåta autentiserade användare – vilket innebär att autentiseringsfråga kan startas för att få åtkomst till kontrollanten om användaren inte autentiserats.
+Du kan skydda en kontrollant eller kontrollantmetoder med attributet `[Authorize]`. Det här attributet begränsar åtkomsten till kontrollanten eller metoderna genom att bara tillåta autentiserade användare. Det innebär att autentiseringsfrågan kan startas för att få åtkomst till kontrollanten om användaren inte har autentiserats.
+
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kolla in GitHub-lagringsplatsen för den här ASP.NET Core-snabbstarten för mer information – inklusive anvisningar om hur du lägger till autentisering i en helt ny ASP.NET Core-webbprogram:
+Kolla in GitHub-lagringsplatsen för den här ASP.NET Core-snabbstarten för mer information, inklusive anvisningar om hur du lägger till autentisering i ett helt nytt ASP.NET Core-webbprogram:
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core Web App-kodexempel](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)
+> [Kodexempel för ASP.NET Core-webbapp](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

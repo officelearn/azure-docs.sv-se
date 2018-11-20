@@ -1,7 +1,6 @@
 ---
-title: 'Exempel: Analysera attityd med REST API för textanalys'
-titleSuffix: Azure Cognitive Services
-description: Lär dig att identifiera attityd med hjälp av den REST API för textanalys.
+title: Instruktioner för attitydanalys i REST API för textanalys (Microsoft Cognitive Services på Azure) | Microsoft Docs
+description: Instruktioner för att identifiera attityder med hjälp av REST API för textanalys i Microsoft Cognitive Services på Azure i den här självstudien.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +9,12 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 981e663b6a93abed1da9c2765a1b43063c70ad43
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: bbe9ffd0709157b5f0389ccc68a285b9c3829db9
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605903"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632874"
 ---
 # <a name="example-how-to-detect-sentiment-in-text-analytics"></a>Exempel: Hur man identifierar attityd i textanalys
 
@@ -24,6 +23,9 @@ ms.locfileid: "45605903"
 Den här funktionen är användbar för att upptäcka positiva och negativa åsikter i sociala medier, kundrecensioner och diskussionsforum. Innehållet kommer från modeller, utbildningsdata och tillhandahålls av tjänsten.
 
 Attitydanalys stöder för närvarande engelska, tyska, spanska och franska. Övriga språk är i förhandsversion. Mer information finns i [språk som stöds](../text-analytics-supported-languages.md).
+
+> [!TIP]
+> Textanalys ger även en Linux-baserad Docker-containeravbildning för attitydanalys, så att du kan [installera och köra Textanalys-containern](text-analytics-how-to-install-containers.md) nära dina data.
 
 ## <a name="concepts"></a>Begrepp
 
@@ -73,11 +75,11 @@ Dokumentstorleken måste vara under 5 000 tecken per dokument och du kan ha upp 
 
 ## <a name="step-1-structure-the-request"></a>Steg 1: Strukturera begäran
 
-Information om begäransdefinitionen finns i [Hur anropar man textanalys-API:et](text-analytics-how-to-call-api.md). Följande punkter har anges på nytt för enkelhetens skull:
+Information om begäransdefinitionen finns i [Hur anropar man textanalys API:et](text-analytics-how-to-call-api.md). Följande punkter har anges på nytt för enkelhetens skull:
 
 + Skicka en **POST**-begäran. Läs API-dokumentationen för denna begäran: [Attitydidentifierings-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
 
-+ Ange en HTTP-slutpunkt för extrahering av nyckelfras. Den måste innehålla resursen `/sentiment`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
++ Ange HTTP-slutpunkten för attitydanalys, med hjälp av en Textanalys-resurs på Azure eller en instansierad [Textanalys-container](text-analytics-how-to-install-containers.md). Den måste innehålla `/sentiment`-resursen: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
 
 + Ange en begäransrubrik som inkluderar åtkomstnyckeln för textanalysåtgärder. Mer information finns i [Hitta slutpunkter och åtkomstnycklar](text-analytics-how-to-access-key.md).
 
@@ -88,7 +90,7 @@ Information om begäransdefinitionen finns i [Hur anropar man textanalys-API:et]
 
 ## <a name="step-2-post-the-request"></a>Steg 2: Publicera begäran
 
-Analysen utförs vid när begäran har tagits emot. Tjänsten godtar upp till 100 förfrågningar per minut. Varje förfrågan kan vara högst 1 MB.
+Analysen utförs när begäran har tagits emot. Tjänsten accepterar upp till 100 begäranden per minut. Varje begäran kan vara högst 1 MB.
 
 Kom ihåg att tjänsten är tillståndslös. Inga data lagras i ditt konto. Resultaten returneras omedelbart i svaret.
 

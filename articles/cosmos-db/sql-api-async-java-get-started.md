@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: sngun
-ms.openlocfilehash: 66e937e92528e2f0a1fca9d9aac78f7265eef4f7
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: f79455166ef0d1bec9a2fb1d6045005f844e55ac
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741240"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636755"
 ---
 # <a name="tutorial-build-a-java-app-with-async-java-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Självstudie: Skapa en Java-app med Async Java SDK för att hantera Azure Cosmos DB SQL API-data
 
@@ -116,7 +116,7 @@ client = new AsyncDocumentClient.Builder()
 
 ## <a id="CreateDatabase"></a>Steg 5: Skapa en databas
 
-Du kan skapa Azure Cosmos DB-[databasen](sql-api-resources.md#databases) med hjälp av metoden createDatabaseIfNotExists() i klassen DocumentClient. En databas är en logisk container för JSON-dokumentlagring, partitionerad över samlingarna.
+Du kan skapa Azure Cosmos DB-[databasen](databases-containers-items.md#azure-cosmos-databases) med hjälp av metoden createDatabaseIfNotExists() i klassen DocumentClient. En databas är en logisk container för JSON-dokumentlagring, partitionerad över samlingarna.
 
 ```java
 private void createDatabaseIfNotExists() throws Exception 
@@ -203,7 +203,7 @@ private void createDocumentCollectionIfNotExists() throws Exception
 
 ## <a id="CreateDoc"></a>Steg 7: Skapa JSON-dokument
 
-Ett [dokument](sql-api-resources.md#documents) kan skapas med hjälp av metoden createDocument i klassen DocumentClient. Dokument är användardefinierat (godtyckligt) JSON-innehåll. Vi kan nu infoga ett eller flera dokument. Filen ”src/main/java/com/microsoft/azure/cosmosdb/sample/Families.java” definierar familjen med JSON-dokument 
+Ett dokument kan skapas med hjälp av metoden createDocument i klassen DocumentClient. Dokument är användardefinierat (godtyckligt) JSON-innehåll. Vi kan nu infoga ett eller flera dokument. Filen ”src/main/java/com/microsoft/azure/cosmosdb/sample/Families.java” definierar familjen med JSON-dokument 
 
 ```java
 public static Family getJohnsonFamilyDocument() {

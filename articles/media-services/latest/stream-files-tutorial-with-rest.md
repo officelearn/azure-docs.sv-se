@@ -1,5 +1,5 @@
 ---
-title: Ladda upp, koda och strömma med Azure Media Services | Microsoft Docs
+title: Ladda upp, koda och strömma med Azure Media Services – REST | Microsoft Docs
 description: Följ stegen i den här självstudien för att överföra en fil, koda videoklippet och strömma ditt innehåll med Azure Media Services med hjälp av REST.
 services: media-services
 documentationcenter: ''
@@ -10,20 +10,20 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/16/2018
+ms.date: 11/11/2018
 ms.author: juliako
-ms.openlocfilehash: e49b450ef2c731e9ddbafa0c8366d9eae29dc5ef
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 67a0b6ced771519bd97934f8914ba420ee3119ce
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377443"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615780"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>Självstudie: överför, koda och strömma videoklipp med REST
 
-Den här självstudien visar hur du överför, kodar och strömmar videofiler med Azure Media Services.
+Med Azure Media Services kan du koda dina mediefiler till format som kan spelas upp på en mängd olika webbläsare och enheter. Du kanske vill strömma ditt innehåll i Apples HLS- eller MPEG DASH-formaten. Innan du strömmar, bör du koda dina högkvalitativa digitala mediafiler. Vägledning om kodning finns i [Kodningskoncept](encoding-concept.md).
 
-Media Services låter dig koda dina mediefiler till format som kan spelas upp på en mängd olika webbläsare och enheter. Du kanske vill strömma ditt innehåll i Apples HLS- eller MPEG DASH-formaten. Innan du strömmar, bör du koda dina högkvalitativa digitala mediafiler. Vägledning om kodning finns i [Kodningskoncept](encoding-concept.md).
+Den här självstudien visar hur du överför, kodar och strömmar videofiler med Azure Media Services med hjälp av REST. 
 
 ![Spela upp videon](./media/stream-files-tutorial-with-api/final-video.png)
 
@@ -42,6 +42,14 @@ I den här självstudiekursen lär du dig att:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
+- Installera och använd CLI lokalt – du måste ha Azure CLI version 2.0 eller senare. Kör `az --version` för att se vilken version du har. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). 
+
+    För närvarande fungerar inte alla [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref)-kommandon i Azure Cloud Shell. Vi rekommenderar att du använder CLI lokalt.
+
+- [Skapa ett Media Services-konto](create-account-cli-how-to.md).
+
+    Se till att komma ihåg de värden som du använde för resursgruppens namn och namnet på Media Services-kontot
+
 - Installera [Postman](https://www.getpostman.com/) REST-klienten för att köra REST API:er som visas i några AMS REST-självstudierna. 
 
     Vi använder **Postman** men ett REST-verktyg skulle vara lämpligt. Andra alternativ är: **Visual Studio Code** med plugin-programmet för REST eller **Telerik Fiddler**. 
@@ -53,10 +61,6 @@ Klona en GitHub-lagringsplats som innehåller Postman-samlingen och miljöfilern
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-rest-postman.git
  ```
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -352,11 +356,11 @@ Om du vill ta bort en resurs, väljer du åtgärden Ta bort... under den resurs 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte längre behöver någon av resurserna i resursgruppen, inklusive Media Services och de lagringskonton som du skapade för självstudien, tar du bort resursgruppen som du skapade tidigare. Du kan använda verktyget **CloudShell**.
+Om du inte längre behöver någon av resurserna i resursgruppen, inklusive Media Services och de lagringskonton som du skapade för självstudien, tar du bort resursgruppen som du skapade tidigare.  
 
-Kör följande kommando i **CloudShell**:
+Kör följande CLI-kommando:
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 

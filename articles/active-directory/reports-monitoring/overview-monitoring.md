@@ -13,15 +13,15 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 09/24/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 82cd29cf1a635d1cd613d289a5d8db6ef54ee661
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 0afa4f85f443789d1ce7e79d0708967e308a4683
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49398760"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623213"
 ---
 # <a name="what-is-azure-active-directory-monitoring-preview"></a>Vad är Azure Active Directory-övervakning? (förhandsversion)
 
@@ -32,7 +32,6 @@ För närvarande kan du dirigera loggarna till:
 - Ett Azure-lagringskonto.
 - En Azure-händelsehubb, så du kan integrera med dina Splunk- och Sumologic-instanser.
 - Azure Log Analytics-arbetsyta, där du kan analysera data, skapa en instrumentpanel och avisera vid specifika händelser
-
 
 ## <a name="diagnostic-settings-configuration"></a>Konfiguration av diagnostikinställningar
 
@@ -53,7 +52,7 @@ Genom att dirigera loggar till ett Azure Storage-konto kan du behålla dem läng
 
 ## <a name="stream-logs-to-event-hub"></a>Strömma loggar till händelsehubb
 
-När du dirigerar loggar till en Azure-händelsehubb kan du integrera med SIEM-tredjepartsverktyg som Sumologic och Splunk. Den här integrationen gör att du kan kombinera Azure AD-aktivitetsloggdata med andra data som hanteras av ditt SIEM, vilket resulterar i bättre inblick i din miljö. Lär dig hur du [skickar händelser till en händelsehubb](tutorial-azure-monitor-stream-logs-to-event-hub.md).
+När du dirigerar loggar till en Azure-händelsehubb kan du integrera med SIEM-tredjepartsverktyg som Sumologic och Splunk. Den här integrationen gör att du kan kombinera Azure AD-aktivitetsloggdata med andra data som hanteras av ditt SIEM, för att ge bättre inblick i din miljö. Lär dig hur du [skickar händelser till en händelsehubb](tutorial-azure-monitor-stream-logs-to-event-hub.md).
 
 ## <a name="send-logs-to-log-analytics"></a>Skicka loggar till Log Analytics
 

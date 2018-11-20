@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: sample
 ms.date: 08/16/2018
 ms.author: erhopf
-ms.openlocfilehash: b15f4000d30b7b6c6f8055d596b9ab5336d173c5
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 375a2f14bdc6fc13d23b59ec71870cfe9c15517b
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126028"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514068"
 ---
 # <a name="bing-web-search-sdk-samples"></a>SDK-exempel för webbsökning i Bing
 
@@ -33,7 +33,7 @@ Använd dessa länkar om du vill få åtkomst till SDK: för det språk du före
 * Kom igång med [Python-exempel](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
   * Information om definitioner och beroenden finns i [Python-bibliotek](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-websearch).
 * Kom igång med [Node.js-exempel](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
-  * Mer information om definitioner och beroenden finns i [Node.js-bibliotek](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/webSearch).
+  * Se även avsnittet om [Node.js-webbsökning](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesWebSearch).
 * Kom igång med [.NET-exempel](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
   * [NuGet-paket](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0)
   * Mer information om definitioner och beroenden finns i [.NET-bibliotek](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Search/BingWebSearch).

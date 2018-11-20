@@ -1,7 +1,6 @@
 ---
-title: 'Exempel: så här extraherar du nyckelfraser i textanalys'
-titleSuffix: Azure Cognitive Services
-description: Läs hur du extraherar nyckelfraser med hjälp av REST API för textanalys.
+title: Instruktioner för extrahering av diskussionsämnen i REST API för textanalys (Microsoft Cognitive Services på Azure) | Microsoft Docs
+description: Instruktioner för extrahering av diskussionsämnen med hjälp av REST API för textanalys i Microsoft Cognitive Services på Azure i den här självstudien.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +9,12 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 62c078a8a72cd0a3633b7dd5fda1545f01067dbc
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: d38886d40a92d5e75f5d0b6b189dbf7c067e1635
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605495"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632398"
 ---
 # <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Exempel: så här extraherar du nyckelfraser i textanalys
 
@@ -24,6 +23,9 @@ ms.locfileid: "45605495"
 Den här funktionen är användbar om du snabbt behöver identifiera de viktigaste punkterna i en samling av dokument. Exempel: med den inmatade texten ”Maten var härlig och personalen var underbar” returnerar API:et de huvudsakliga diskussionsämnena: ”mat” och ”underbar personal”.
 
 För tillfället stöder extraktion av nyckelfraser engelska, tyska, spanska och japanska. Övriga språk är i förhandsversion. Mer information finns i [språk som stöds](../text-analytics-supported-languages.md).
+
+> [!TIP]
+> Textanalys ger även en Linux-baserad Docker-containeravbildning för nyckelfrasextrahering, så att du kan [installera och köra Textanalys-containern](text-analytics-how-to-install-containers.md) nära dina data.
 
 ## <a name="preparation"></a>Förberedelse
 
@@ -71,7 +73,7 @@ Information om begäransdefinitionen finns i [Hur anropar man textanalys API:et]
 
 + Skicka en **POST**-begäran. Läs API-dokumentationen för denna begäran: [Nyckelfraser API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
 
-+ Ange en HTTP-slutpunkt för extrahering av nyckelfraser. Den måste innehålla `/keyphrases`-resursen: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
++ Ange HTTP-slutpunkten för nyckelfrasextrahering, med hjälp av en Textanalys-resurs på Azure eller en instansierad [Textanalys-container](text-analytics-how-to-install-containers.md). Den måste innehålla `/keyPhrases`-resursen: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
 
 + Ange en begäransrubrik som inkluderar åtkomstnyckeln för textanalysåtgärder. Mer information finns i [Hitta slutpunkter och åtkomstnycklar](text-analytics-how-to-access-key.md).
 

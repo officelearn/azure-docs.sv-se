@@ -10,12 +10,12 @@ ms.component: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: 4caa05ffa96dbc15922fed85edfdefdb68ead68b
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 3a277b10561b2756fab0af6455d17557a8d93a53
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361719"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345716"
 ---
 # <a name="what-is-bing-spell-check-api"></a>Vad är API för Bing-stavningskontroll?
 
@@ -42,9 +42,12 @@ Standardläget är `Proof`. Stavningsläget `Proof` ger de mest omfattande kontr
 <br /><br/>**Ob!**  Om frågetexten är längre än 4 096 tecken kortas den av till 4 096 tecken innan den bearbetas. 
 ### <a name="spell----for-web-searchesqueries-scenario"></a>Stavningskontroll – för webb-/sökningsscenarier
 `Spell` är mer aggressivt för att returnera bättre sökresultat. Läget `Spell` hittar de flesta stavfel men hittar inte en del grammatikfel som `Proof` fångar upp, som versaler/gemener och upprepade ord.
-<br /></br>**Ob!** Maximal frågelängd visas nedan. Om frågan överskrider teckenbegränsningen visas resultatet som om frågan inte har ändrats.
-<ul><li>130 tecken för språkkod för en, de, es, fr, pl, pt, sv, ru, nl, nb, tr-tr, den, zh, ko. </li>
-<li>65 tecken för övriga språk</li></ul>
+
+> [!NOTE]
+> * Den högsta frågelängd som stöds visas nedan. Om frågan överskrider maxlängden ändras inte frågan och dess resultat.
+>    * 130 tecken för följande språkkoder: en, de, es, fr, pl, pt, sv, ru, nl, nb, tr-tr, den, zh, ko. 
+>    * 65 tecken för alla andra.
+> * Stavningskontrollsläget stöder inte hakparenteser (`[` och `]`) i frågor, och kan orsaka inkonsekventa resultat. Vi rekommenderar att du tar bort dem från dina frågor när du använder läget för stavningskontroll.
 
 ## <a name="market-setting"></a>Marknadsinställning
 Marknad måste anges i frågeparametern i frågans webbadress. Annars använder stavningskontrollen standardmarknaden baserat på IP-adress.

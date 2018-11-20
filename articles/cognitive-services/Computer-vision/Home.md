@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
-ms.openlocfilehash: 39b3f51693229e75f58c4244089f21c7d3f8677d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 8f18b01409680c07b942087b75b1618c75973391
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250622"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634336"
 ---
 # <a name="what-is-computer-vision"></a>Vad är visuellt innehåll?
 
@@ -53,6 +53,10 @@ Du kan även [identifiera utskriven och handskriven text](concept-recognizing-te
 ## <a name="moderating-content-in-images"></a>Moderera innehåll i bilder
 
 Du kan använda visuellt innehåll för att [identifiera stötande eller olämpligt innehåll](concept-detecting-adult-content.md) i en bild och ge ett omdöme om sannolikheten att bilden innehåller stötande eller olämpligt innehåll samt generera förtroendepoäng för båda. Filtret för stötande och olämpligt innehåll kan ställas in på en skala för att passa dina preferenser.
+
+## <a name="using-containers"></a>Använda containrar
+
+[Använd containrar för visuellt innehåll](computer-vision-how-to-install-containers.md) för att känna igen tryckt och handskriven text lokalt genom att installera en standardiserad Docker-container närmare till dina data.
 
 ## <a name="image-requirements"></a>Avbildningskrav
 

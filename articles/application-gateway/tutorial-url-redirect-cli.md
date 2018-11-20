@@ -1,6 +1,6 @@
 ---
-title: Skapa en programgateway med webbadressbaserad omdirigering – Azure CLI
-description: Lär dig hur du skapar en programgateway med webbadressbaserad omdirigering av trafiken i Azure CLI.
+title: Självstudie – Skapa en programgateway med webbadressbaserad omdirigering – Azure CLI
+description: I den här självstudien lär du dig hur du skapar en programgateway med webbadressbaserad omdirigering av trafiken i Azure CLI.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 3515d603c16bffe911df1b927d02644fcffa0788
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8489cf79848eb41e3c6334242ca607e925ae0b31
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947558"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568156"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Självstudie: Skapa en programgateway med webbadressbaserad omdirigering i Azure CLI
 
@@ -313,14 +313,6 @@ När du inte behöver dem längre tar du bort resursgruppen, programgatewayen oc
 az group delete --name myResourceGroupAG --location eastus
 ```
 ## <a name="next-steps"></a>Nästa steg
-
-I den här självstudiekursen lärde du dig att:
-
-> [!div class="checklist"]
-> * Konfigurera nätverket
-> * Skapa en programgateway
-> * Lägga till lyssnare och routningsregler
-> * Skapa VM-skalningsuppsättningar för serverdelspooler
 
 > [!div class="nextstepaction"]
 > [Läs mer om vad du kan göra med en programgateway](application-gateway-introduction.md)

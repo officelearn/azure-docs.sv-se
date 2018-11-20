@@ -7,16 +7,16 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: 67cd78d4900b8ce53cf0c50116c02a9c1b967687
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0683516d16bf1501eee83901c5171811b8c0e44d
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958771"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621555"
 ---
 # <a name="manage-database-accounts-in-azure-cosmos-db"></a>Hantera databaskonton i Azure Cosmos DB
 
-I den här artikeln beskrivs hur du hanterar ditt Cosmos DB-konto för att konfigurera flera värdar, lägga till/ta bort en region, konfigurera flera skrivregioner och konfigurera redundansprioriteringar. 
+I den här artikeln beskrivs hur du hanterar ditt Azure Cosmos DB-konto för att konfigurera flera värdar, lägga till/ta bort en region, konfigurera flera skrivregioner och konfigurera redundansprioriteringar. 
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
 
@@ -28,7 +28,7 @@ I den här artikeln beskrivs hur du hanterar ditt Cosmos DB-konto för att konfi
 
 ```bash
 # Create an account
-az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Group Name>
+az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group Name>
 ```
 
 ## <a name="configure-clients-for-multi-homing"></a>Konfigurera klienter för flera värdar
@@ -122,13 +122,13 @@ I skrivläge för flera regioner kan du lägga till/ta bort vilka regioner som h
 
 ```bash
 # Given an account created with 1 region like so
-az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Group name> --locations 'eastus=0'
+az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'eastus=0'
 
 # Add a new region by adding another region to the list
-az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Group name> --locations 'eastus=0 westus=1'
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'eastus=0 westus=1'
 
 # Remove a region by removing a region from the list
-az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Group name> --locations 'westus=0'
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'westus=0'
 ```
 
 ## <a name="configure-multiple-write-regions"></a>Konfigurera flera skrivregioner
@@ -137,17 +137,17 @@ az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Gr
 
 Se till att inställningen **Multi-region Writes** (Skrivning till flera regioner) är aktiverad när du skapar ett databaskonto.
 
-![Skärmbild av skapande av Cosmos DB-konto](./media/how-to-manage-database-account/account-create.png)
+![Skärmbild av skapande av Azure Cosmos-konto](./media/how-to-manage-database-account/account-create.png)
 
 ### <a id="configure-multiple-write-regions-cli"></a>Azure CLI
 
 ```bash
-az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Group name> --enable-multiple-write-locations true
+az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-multiple-write-locations true
 ```
 
 ### <a id="configure-multiple-write-regions-arm"></a>Resource Manager-mall
 
-Följande JSON-kod är ett exempel på en Resource Manager-mall. Du kan använda den till att distribuera ett Azure Cosmos DB-konto med en konsekvensprincip som Begränsad föråldring, ett maximalt föråldringsintervall på 5 sekunder och 100 som högsta antal inaktuella begäranden som tolereras. Du kan läsa om Resource Manager-mallformatet, och syntaxen, i [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)-dokumentationen.
+Följande JSON-kod är ett exempel på en Resource Manager-mall. Du kan använda den till att distribuera ett Azure Cosmos-konto med en konsekvensprincip som Begränsad föråldring, ett maximalt föråldringsintervall på 5 sekunder och 100 som högsta antal inaktuella begäranden som tolereras. Du kan läsa om Resource Manager-mallformatet, och syntaxen, i [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)-dokumentationen.
 
 ```json
 {
@@ -202,11 +202,11 @@ Följande JSON-kod är ett exempel på en Resource Manager-mall. Du kan använda
 ```
 
 
-## <a name="enable-manual-failover-for-your-cosmos-account"></a>Aktivera manuell redundans för ditt Cosmos-konto
+## <a id="manual-failover"></a>Aktivera manuell redundans för ditt Azure Cosmos-konto
 
 ### <a id="enable-manual-failover-via-portal"></a>Azure-portalen
 
-1. Gå till ditt Azure Cosmos DB-konto och öppna menyn **Replikera data globalt**.
+1. Gå till ditt Azure Cosmos-konto och öppna menyn **”Replikera data globalt”**.
 
 2. Klicka på knappen **Manuell redundans** högst upp i menyn.
 
@@ -223,14 +223,14 @@ Följande JSON-kod är ett exempel på en Resource Manager-mall. Du kan använda
 ```bash
 # Given your account currently has regions with priority like so: 'eastus=0 westus=1'
 # Change the priority order to trigger a failover of the write region
-az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Group name> --locations 'eastus=1 westus=0'
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'eastus=1 westus=0'
 ```
 
-## <a name="enable-automatic-failover-for-your-cosmos-account"></a>Aktivera automatisk redundans för ditt Cosmos-konto
+## <a id="automatic-failover"></a>Aktivera automatisk redundans för ditt Azure Cosmos-konto
 
 ### <a id="enable-automatic-failover-via-portal"></a>Azure-portalen
 
-1. Öppna fönstret **Replikera data globalt** i ditt Azure Cosmos DB-konto. 
+1. Öppna fönstret **Replikera data globalt** i ditt Azure Cosmos-konto. 
 
 2. Klicka på knappen **Automatisk redundans** högst upp i fönstret.
 
@@ -248,20 +248,20 @@ Du kan även ange redundansprioritet på den här menyn.
 
 ```bash
 # Enable automatic failover on account creation
-az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Group name> --enable-automatic-failover true
+az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-automatic-failover true
 
 # Enable automatic failover on an existing account
-az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Group name> --enable-automatic-failover true
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-automatic-failover true
 
 # Disable automatic failover on an existing account
-az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Group name> --enable-automatic-failover false
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-automatic-failover false
 ```
 
-## <a name="set-failover-priorities-for-your-cosmos-account"></a>Ange redundansprioritet för ditt Cosmos-konto
+## <a name="set-failover-priorities-for-your-azure-cosmos-account"></a>Ange redundansprioritet för ditt Azure Cosmos-konto
 
 ### <a id="set-failover-priorities-via-portal"></a>Azure-portalen
 
-1. Öppna fönstret **Replikera data globalt** i ditt Azure Cosmos DB-konto. 
+1. Öppna fönstret **Replikera data globalt** i ditt Azure Cosmos-konto. 
 
 2. Klicka på knappen **Automatisk redundans** högst upp i fönstret.
 
@@ -280,12 +280,12 @@ Du kan inte ändra skrivregionen på den här menyn. Du måste göra en manuell 
 ### <a id="set-failover-priorities-via-cli"></a>Azure CLI
 
 ```bash
-az cosmosdb failover-priority-change --name <Cosmos DB Account name> --resource-group <Resource Group name> --failover-policies 'eastus=0 westus=2 southcentralus=1'
+az cosmosdb failover-priority-change --name <Azure Cosmos account name> --resource-group <Resource Group name> --failover-policies 'eastus=0 westus=2 southcentralus=1'
 ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan läsa om hur du hanterar konsekvensnivåer och datakonflikter i Cosmos DB med hjälp av följande dokument:
+Du kan läsa om hur du hanterar konsekvensnivåer och datakonflikter i Azure Cosmos DB med hjälp av följande dokument:
 
 * [Hantera konsekvens](how-to-manage-consistency.md)
 * [Hantera konflikter mellan regioner](how-to-manage-conflicts.md)

@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/6/2018
+ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4873da97b790df98b6d10ae8b7a57fc39b534755
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8a3a9e4019be0b6039fe43df11a5f6093545f9cd
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278590"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685374"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal
 
@@ -97,46 +97,36 @@ Skapa ett nytt undernät med namnet **Jump-SN** och adressintervallet **10.0.3.0
 
 Skapa nu de virtuella hopp- och arbetsbelastningsdatorerna och placera dem i respektive undernät.
 
-1. Klicka på **Alla tjänster** på startsidan i Azure Portal.
-2. Under **Compute** klickar du på **Virtuella datorer**.
-3. Klicka på **Lägg till** > **Windows Server** > **Windows Server 2016 Datacenter** > **Skapa**.
+1. Klicka på **Skapa en resurs** i Azure Portal.
+2. Klicka på **Compute** och sedan **Windows Server 2016 Datacenter** i listan Aktuella.
+3. Ange följande värden för den virtuella datorn:
 
-**Grundläggande inställningar**
+    - *Test-FW-RG* som resursgrupp.
+    - *Srv-Jump* – som namn på den virtuella datorn.
+    - *azureuser* – för administratörens användarnamn.
+    - *Azure123456!* som lösenord.
 
-1. I fältet **Namn** skriver du **Srv-Jump**.
-5. Ange ett användarnamn och lösenord.
-6. I fältet **Prenumeration** väljer du din prenumeration.
-7. I fältet **Resursgrupp** klickar du på **Använd befintlig** > **Test-FW-RG**.
-8. Välj samma plats som tidigare i fältet **Plats**.
-9. Klicka på **OK**.
+4. Under **Regler för inkommande portar**, i fältet **Offentliga inkommande portar** klickar du på **Tillåt valda portar**.
+5. I fältet **Välj inkommande portar** väljer du **RDP (3389)**.
 
-**Storlek**
-
-1. Välj en lämplig storlek för den virtuella testdator som ska köra Windows Server. Exempelvis **B2ms** (8 GB RAM-minne, 16 GB lagring).
-2. Klicka på **Välj**.
-
-**Inställningar**
-
-1. Under **Nätverk**, i fältet **Virtuellt nätverk**, väljer du **Test-FW-VN**.
-2. I fältet **Undernät** väljer du **Jump-SN**.
-3. I fältet **Välj offentliga inkommande portar** väljer du **RDP (3389)**. 
-
-    Du vill förmodligen begränsa åtkomsten till din offentliga IP-adress, men du måste öppna port 3389 så att du kan ansluta ett fjärrskrivbord till hoppservern. 
-2. Lämna övriga standardvärden och klicka på **OK**.
-
-**Sammanfattning**
-
-Granska sammanfattningen och klicka sedan på **Skapa**. Det här kan ta några minuter.
+6. Acceptera de andra standardvärdena och klicka på **Nästa: Diskar**.
+7. Acceptera diskstandardvärdet och klicka på **Nästa: Nätverk**.
+8. Kontrollera att **Test-FW-VN** har valts som virtuellt nätverk och att undernätet är **Jump-SN**.
+9. I fältet **Offentlig IP-adress** klickar du på **Skapa ny**.
+10. Skriv **Srv-Jump-PIP** som namn på den offentliga IP-adressen och klicka på **OK**.
+11. Acceptera de andra standardvärdena och klicka på **Nästa: Hantering**.
+12. Klicka på **Av** för att inaktivera startdiagnostik. Acceptera de andra standardvärdena och klicka på **Granska + skapa**.
+13. Granska inställningarna på sammanfattningssidan och klicka sedan på **Skapa**.
 
 Upprepa proceduren och skapa en annan virtuell dator med namnet **Srv-Work**.
 
-Använd informationen i följande tabell och konfigurera **inställningarna** för den virtuella datorn Srv-Work. Resten av konfigurationen är samma som för den virtuella datorn Srv-Jump.
+Använd informationen i följande tabell och konfigurera den virtuella datorn Srv-Work. Resten av konfigurationen är samma som för den virtuella datorn Srv-Jump.
 
 |Inställning  |Värde  |
 |---------|---------|
 |Undernät|Workload-SN|
 |Offentlig IP-adress|Ingen|
-|Välj offentliga inkommande portar|Inga offentliga inkommande portar|
+|Offentliga inkommande portar|Ingen|
 
 ## <a name="deploy-the-firewall"></a>Distribuera brandväggen
 
@@ -196,15 +186,16 @@ Det här är den programregel som tillåter utgående åtkomst till github.com.
 
 1. Öppna **Test-FW-RG** och klicka på brandväggen **Test-FW01**.
 2. På sidan **Test-FW01**, under **Inställningar**, klickar du på **Regler**.
-3. Klicka på **Lägg till programregelsamling**.
-4. I fältet **Namn** skriver du **App-Coll01**.
-5. I fältet **Prioritet** skriver du **200**.
-6. I fältet **Åtgärd** väljer du **Tillåt**.
-7. Under **Regler**, i fältet **Namn**, skriver du **AllowGH**.
-8. I fältet **Källadresser** skriver du **10.0.2.0/24**.
-9. I fältet **Protokoll: port** skriver du **http, https**.
-10. I fältet **Fullständiga domännamn för mål** skriver du **github.com**.
-11. Klicka på **Lägg till**.
+3. Klicka på fliken **Programregelsamling**.
+4. Klicka på **Lägg till programregelsamling**.
+5. I fältet **Namn** skriver du **App-Coll01**.
+6. I fältet **Prioritet** skriver du **200**.
+7. I fältet **Åtgärd** väljer du **Tillåt**.
+8. Under **Regler**, **Fullständiga domännamn för mål**, i fältet **Namn** skriver du **AllowGH**.
+9. I fältet **Källadresser** skriver du **10.0.2.0/24**.
+10. I fältet **Protokoll: port** skriver du **http, https**.
+11. I fältet **Fullständiga domännamn för mål** skriver du **github.com**.
+12. Klicka på **Lägg till**.
 
 Azure Firewall innehåller en inbyggd regelsamling för fullständiga domännamn för mål (FQDN) i infrastrukturen som tillåts som standard. Dessa FQDN är specifika för plattformen och kan inte användas för andra ändamål. Mer information finns i [Infrastruktur-FQDN](infrastructure-fqdns.md).
 
@@ -212,6 +203,7 @@ Azure Firewall innehåller en inbyggd regelsamling för fullständiga domännamn
 
 Det här är nätverksregel som tillåter utgående åtkomst till två IP-adresser på port 53 (DNS).
 
+1. Klicka på fliken **Nätverksregelsamling**.
 1. Klicka på **Lägg till nätverksregelsamling**.
 2. I fältet **Namn** skriver du **Net-Coll01**.
 3. I fältet **Prioritet** skriver du **200**.

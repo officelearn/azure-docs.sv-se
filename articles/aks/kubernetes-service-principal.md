@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: get-started-article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: ef3139c4b3f06644b219e177fad0c094ed600fb6
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 4af4cae07f4e02bc8306c0b317da3a58e4586494
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394598"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578357"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Tjänstens huvudnamn med Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Den här artikeln visar hur du skapar och använder ett tjänstens huvudnamn fö
 
 För att skapa ett Azure AD-huvudnamn för tjänsten måste du ha behörighet att registrera ett program med din Azure AD-klientorganisation, samt behörighet att tilldela programmet till en roll i din prenumeration. Om du inte har de behörigheter som du behöver kan du be din Azure AD- eller prenumerationsadministratör att tilldela de nödvändiga behörigheterna eller att skapa ett tjänstens huvudnamn att använda med AKS-klustret.
 
-Du måste också ha installerat och konfigurerat Azure CLI version 2.0.46 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
+Du måste också ha installerat och konfigurerat Azure CLI version 2.0.46 eller senare. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>Skapa och använda ett tjänstens huvudnamn automatiskt
 
@@ -75,6 +75,45 @@ Om du distribuerar ett AKS-kluster med hjälp av Azure Portal, så välj **Konfi
 
 ![Bild som illustrerar hur du navigerar till Azure Vote](media/kubernetes-service-principal/portal-configure-service-principal.png)
 
+## <a name="delegate-access-to-other-azure-resources"></a>Delegera åtkomst till andra Azure-resurser
+
+Tjänstens huvudnamn för AKS-klustret kan användas för att komma åt andra resurser. Om du vill använda avancerade nätverk för att ansluta till befintliga virtuella nätverk eller ansluta till Azure Container Registry (ACR) måste du delegera åtkomst till tjänstens huvudnamn.
+
+Om du vill delegera behörigheter måste du skapa en rolltilldelning med kommandot [az role assignment create][az-role-assignment-create]. Du tilldelar `appId` till ett visst omfång, till exempel en resursgrupp eller en resurs för virtuella nätverk. En roll definierar därefter vilka behörigheter som tjänstens huvudnamn har på resursen, som visas i följande exempel:
+
+```azurecli
+az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
+```
+
+En resurs `--scope` måste vara ett fullständigt resurs-ID, som */subscriptions/\<guid\>/resourceGroups/myResourceGroup* eller */subscriptions/\<guid\>/resourceGroups/myResourceGroupVnet/providers/Microsoft.Network/virtualNetworks/myVnet*
+
+Följande avsnitt beskriver vanliga delegeringar som du kan behöva göra.
+
+### <a name="azure-container-registry"></a>Azure Container Registry
+
+Om du använder Azure Container Registry (ACR) som containeravbildningsarkiv måste du bevilja behörigheter för AKS-klustret för att läsa och hämta avbildningar. Tjänstens huvudnamn för AKS-klustret måste delegeras till rollen *Läsare* i registret. Detaljerade anvisningar finns i [Grant AKS access to ACR][aks-to-acr] (Ge AKS åtkomst till ACR).
+
+### <a name="networking"></a>Nätverk
+
+Du kan använda avancerade nätverk där det virtuella nätverket och undernätet eller offentliga IP-adresser finns i en annan resursgrupp. Tilldela behörigheter till någon av följande uppsättningar:
+
+- Skapa en [anpassad roll][rbac-custom-role] och definiera följande rollbehörigheter:
+  - *Microsoft.Network/virtualNetworks/subnets/join/action*
+  - *Microsoft.Network/virtualNetworks/subnets/read*
+  - *Microsoft.Network/publicIPAddresses/read*
+  - *Microsoft.Network/publicIPAddresses/write*
+  - *Microsoft.Network/publicIPAddresses/join/action*
+- Eller tilldela [Nätverksdeltagare][rbac-network-contributor] en inbyggd roll i undernätet i det virtuella nätverket
+
+### <a name="storage"></a>Storage
+
+Du kan behöva åtkomst till befintliga diskresurser i en annan resursgrupp. Tilldela behörigheter till någon av följande uppsättningar:
+
+- Skapa en [anpassad roll][rbac-custom-role] och definiera följande rollbehörigheter:
+  - *Microsoft.Compute/disks/read*
+  - *Microsoft.Compute/disks/write*
+- Eller tilldela den inbyggda rollen [Lagringskontodeltagare][rbac-storage-contributor] i resursgruppen
+
 ## <a name="additional-considerations"></a>Annat som är bra att tänka på
 
 Tänk på följande när du använder AKS och Azure AD-tjänstens huvudnamn.
@@ -107,3 +146,8 @@ Mer information om Azure Active Directory-tjänstens huvudnamn finns i [Objekt f
 [az-ad-app-list]: /cli/azure/ad/app#az-ad-app-list
 [az-ad-app-delete]: /cli/azure/ad/app#az-ad-app-delete
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[rbac-network-contributor]: ../role-based-access-control/built-in-roles.md#network-contributor
+[rbac-custom-role]: ../role-based-access-control/custom-roles.md
+[rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor
+[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[aks-to-acr]: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json#grant-aks-access-to-acr

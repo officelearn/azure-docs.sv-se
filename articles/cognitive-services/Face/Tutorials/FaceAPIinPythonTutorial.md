@@ -1,41 +1,43 @@
 ---
-title: 'Självstudie: Identifiera och rama in ansikten i en bild – Ansiktsigenkänning, Python'
+title: 'Snabbstart: Identifiera och rama in ansikten i en bild med Python SDK'
 titleSuffix: Azure Cognitive Services
-description: Lär dig mer om att använda Ansikts-API med Python SDK för att identifiera ansikten i en bild.
+description: I den här snabbstarten skapar du ett enkelt Python-skript som använder ansikts-API för att identifiera och rama in ansikten i en fjärrbild.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: tutorial
-ms.date: 03/01/2018
+ms.topic: quickstart
+ms.date: 11/13/2018
 ms.author: sbowles
-ms.openlocfilehash: 6cc3ac25d2196c0275b445503b79b9ac06a791d3
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e8b16f7ebe918e5b8d59c6b57794c4f35a89b5f3
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127745"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684009"
 ---
-# <a name="tutorial-detect-and-frame-faces-with-the-face-api-and-python"></a>Självstudie: Känna igen och rama in ansikten med API för ansiktsigenkänning och Python 
+# <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Snabbstart: Skapa ett Python-skript för att identifiera och rama in ansikten i en bild
 
-I den här självstudien får du lära dig att anropa API för ansiktsigenkänning via Python SDK för att identifiera ansikten i en bild.
+I den här snabbstarten skapar du ett enkelt Python-skript som använder ansikts-API för Azure, via Python SDK, för att identifiera ansikten i en fjärrbild. Appen visar en utvald bild och ritar en ram runt varje identifierat ansikte.
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-I självstudiekursen måste du göra följande:
+- En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
+- [Python 2.7+ eller 3.5+](https://www.python.org/downloads/)
+- [pip](https://pip.pypa.io/en/stable/installing/)-verktyget
+- Python SDK för Ansikts-API. Du kan installera det genom att köra följande kommando:
+    ```bash
+    pip install cognitive_face
+    ```
 
-- Installera Python 2.7 + eller Python 3.5 +.
-- Installera pip.
-- Installera Python SDK för API för ansiktsigenkänning på följande sätt:
+## <a name="detect-faces-in-an-image"></a>Identifiera ansikten i en bild
 
-```bash
-pip install cognitive_face
-```
+Skapa ett nytt Python-skript, _FaceQuickstart.py_. Lägg till följande kod. Det här är huvudfunktionerna för ansiktsigenkänning. Du måste ersätta `<Subscription Key>` med värdet för din nyckel. Du kanske även måste ändra värdet för `BASE_URL` så att rätt regionsidentifierare används för din nyckel. Nycklar för kostnadsfri utvärderingsprenumeration genereras i regionen **westus** (USA, västra). Du kan också ange `img_url` till URL:en för en bild du vill använda.
 
-- Hämta en [prenumerationsnyckel](https://azure.microsoft.com/try/cognitive-services/) för Microsoft Cognitive Services. Du kan använda din primära eller sekundära nyckel i den här självstudien. (Observera att du måste ha en giltig prenumerationsnyckel om du vill använda API:er för ansiktsigenkänning).
-
-## <a name="detect-a-face-in-an-image"></a>Identifiera ett ansikte i en bild
+Skriptet identifierar ansikten genom att anropa metoden **cognitive_face.face.detect**, som omsluter REST API för [identifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) och returnerar en lista över ansikten.
 
 ```python
 import cognitive_face as CF
@@ -52,15 +54,22 @@ faces = CF.face.detect(img_url)
 print(faces)
 ```
 
-Nedan visas ett exempelresultat. Det är en `list` av identifierade ansikten. Varje objekt i listan är en `dict`-instans där `faceId` är ett unikt ID för det identifierade ansiktet och `faceRectangle` beskriver positionen för det identifierade ansiktet. Ett ansikts-ID upphör att gälla efter 24 timmar.
+### <a name="try-the-app"></a>Prova appen
 
-```python
-[{u'faceId': u'68a0f8cf-9dba-4a25-afb3-f9cdf57cca51', u'faceRectangle': {u'width': 89, u'top': 66, u'height': 89, u'left': 446}}]
+Kör appen med kommandot `python FaceQuickstart.py`. Du bör få ett textsvar i konsolfönstret, till exempel följande:
+
+```shell
+[{'faceId': '26d8face-9714-4f3e-bfa1-f19a7a7aa240', 'faceRectangle': {'top': 124, 'left': 459, 'width': 227, 'height': 227}}]
 ```
 
-## <a name="draw-rectangles-around-the-faces"></a>Rita rektanglar runt varje ansikte
+Det här är en lista över identifierade ansikten. Varje objekt i listan är en **dict**-instans där `faceId` är ett unikt ID för det identifierade ansiktet och `faceRectangle` beskriver positionen för det identifierade ansiktet. 
 
-Du kan använda json-koordinaterna från föregående kommando för att rita rektanglar på bilden för att visa varje ansikte visuellt. Du måste `pip install Pillow` för att använda avbildningsmodulen `PIL`.  Lägg till följande överst i filen:
+> [!NOTE]
+> Ansikts-ID:n upphör att gälla efter 24 timmar, så du måste lagra ansiktsinformation uttryckligen om du vill behålla den långsiktigt.
+
+## <a name="draw-face-rectangles"></a>Rita ansiktsrektanglar
+
+Du kan använda koordinaterna från föregående kommando för att rita rektanglar på bilden för att visa varje ansikte visuellt. Du måste installera Pillow (`pip install pillow`) för att kunna använda Pillow Image-modulen. Högst upp i *FaceQuickstart.py* lägger du till följande kod:
 
 ```python
 import requests
@@ -68,7 +77,7 @@ from io import BytesIO
 from PIL import Image, ImageDraw
 ```
 
-Sedan när `print(faces)`, inkluderar du följande i ditt skript:
+Längs ned i skriptet lägger du sedan till följande kod. Det skapar en enkel funktion för parsning av rektangelkoordinaterna och använder Pillow till att rita rektanglar på den ursprungliga bilden. Sedan visar den bilden i ditt standardprogram för bildvisning.
 
 ```python
 #Convert width height to a point in a rectangle
@@ -93,21 +102,15 @@ for face in faces:
 img.show()
 ```
 
-## <a name="further-exploration"></a>Ytterligare utforskning
+## <a name="run-the-app"></a>Kör appen
 
-Den här självstudien innehåller ett exempel på ett grafiskt användargränssnitt som hjälper dig att utforska API för ansiktsigenkänning ytterligare. För att köra den installerar du först [wxPython](https://wxpython.org/pages/downloads/) och kör kommandona nedan.
+Du kan uppmanas att välja ett standardprogram för bildvisning först. Då bör du se en bild som följande. Du bör även se rektangeldata utskrivna i konsolfönstret.
 
-```bash
-git clone https://github.com/Microsoft/Cognitive-Face-Python.git
-cd Cognitive-Face-Python
-python sample
-```
+![En ung kvinna med den röd rektangel ritad runt ansiktet](../images/face-rectangle-result.png)
 
-## <a name="summary"></a>Sammanfattning
+## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig det grundläggande sättet att använda API för ansiktsigenkänning för att anropa Python SDK. Mer information om API-information finns i anvisningar och [API-referens](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+I den här snabbstarten har du lärt dig den grundläggande processen för att använda Python SDK för Ansikts-API och skapat ett skript för att identifiera och rama in ansikten i en bild. Härnäst får du utforska användningen av Python SDK i ett mer avancerat exempel. Gå till Cognitive Face Python-exemplet på GitHub, klona det i din projektmapp och följ instruktionerna i _README.md_-filen.
 
-## <a name="related-topics"></a>Relaterade ämnen
-
-- [Komma igång med API för ansiktsigenkänning i CSharp](FaceAPIinCSharpTutorial.md)
-- [ Komma igång med API för ansiktsigenkänning i Java för Android](FaceAPIinJavaForAndroidTutorial.md)
+> [!div class="nextstepaction"]
+> [Cognitive Face Python-exempel](https://github.com/Microsoft/Cognitive-Face-Python)

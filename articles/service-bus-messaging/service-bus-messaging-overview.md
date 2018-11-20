@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: spelluru
-ms.openlocfilehash: 870cfcf8712cc5bee2674b82d5292e4241433386
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7b4045737ea2be466a436e6abb0de6a1a61e6a5b
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342215"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636602"
 ---
 # <a name="what-is-azure-service-bus"></a>Vad är Azure Service Bus?
 
@@ -39,7 +39,7 @@ Meddelanden skickas till och tas emot från *köer*. Med köer kan du lagra medd
 
 ![Kö](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-Meddelanden i köer är beställs och tidsstämplas när de ankommer. När de har godkänts lagras meddelanden på ett säkert sätt i redundant lagring. Meddelanden levereras i *pull*-läge, vilket levererar meddelanden på begäran.
+Meddelanden i köer är beställs och tidsstämplas när de ankommer. När de har godkänts lagras meddelanden på ett säkert sätt i redundant lagring. Meddelanden levereras i  *pull*-läge, vilket levererar meddelanden på begäran.
 
 ## <a name="topics"></a>Ämnen
 
@@ -93,7 +93,7 @@ Med [automatisk borttagning vid inaktivitet](/dotnet/api/microsoft.servicebus.me
 
 ### <a name="duplicate-detection"></a>Dubblettidentifiering
 
-Om ett fel som leder till att klienten är osäker på resultatet av en sändningsåtgärd kan [dubblettidentifiering](duplicate-detection.md) eliminera osäkerheten genom att låta avsändaren skicka om samma meddelande. Kön eller ämnet tar bort eventuella dubletter.
+Om ett fel som leder till att klienten är osäker på resultatet av en sändningsåtgärd kan [dubblettidentifiering](duplicate-detection.md) eliminera osäkerheten genom att låta avsändaren skicka om samma meddelande. Kön eller ämnet tar bort eventuella dubbletter.
 
 ### <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>SAS, RBAC och hanterade identiteter för Azure-resurser
 
@@ -115,9 +115,9 @@ Service Bus stöder klientbibliotek för [.NET](https://github.com/Azure/azure-s
 
 Service Bus är helt integrerad med följande Azure-tjänster:
 
-- [Event Grid](https://azure.microsoft.com/services/event-grid/) 
-- [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
-- [Funktioner](https://azure.microsoft.com/services/functions/) 
+- [Event Grid](https://azure.microsoft.com/services/event-grid/) 
+- [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
+- [Funktioner](https://azure.microsoft.com/services/functions/) 
 - [Dynamics 365](https://dynamics.microsoft.com)
 - [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
  

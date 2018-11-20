@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 08/21/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 2197ab230341fb2945e7b1acd9a010ef3d3f8c22
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: df79581f4ad6af3dc420e7c7895acf46b5e3d997
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42702414"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615236"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snabbstart: Skapa en Standard Load Balancer som lastbalanserar virtuella datorer med Azure Portal
 
@@ -145,6 +145,7 @@ Om du vill att lastbalanseraren ska övervaka status för din app kan du använd
     - *myHealthProbe* – för hälsoavsökningens namn.
     - **HTTP** – för protokolltypen.
     - *80* – för portnumret.
+    - *Healthprobe.aspx* – för URI-sökvägen. Du kan antingen ersätta värdet med något annat URI eller behålla standardvärdet **”\\”** för sökvägen för att hämta standard-URI:n.
     - *15* – för antalet **intervall** i sekunder mellan avsökningsförsöken.
     - *2* – för antalet **tröskelvärden för ohälsosamt värde** eller antalet avsökningsfel i följd som måste inträffa innan en virtuell dator anses vara felaktig.
 4. Klicka på **OK**.
@@ -184,5 +185,4 @@ Ta bort resursgruppen, lastbalanseraren och alla relaterade resurser när de int
 I den här snabbstarten har du skapat en Standard Load Balancer, anslutit virtuella datorer till den, konfigurerat trafikregeln för lastbalansering, hälsoavsökningen och sedan testat lastbalanseraren. Om du vill läsa mer om Azure Load Balancer fortsätter du till självstudierna för Azure Load Balancer.
 
 > [!div class="nextstepaction"]
-> 
-  [Självstudier om Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Självstudier om Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

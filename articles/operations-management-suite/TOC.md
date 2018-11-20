@@ -42,9 +42,9 @@
 #### [Office 365](oms-solution-office-365.md)
 #### [Service Fabric-analys](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### Tjänstkarta
-##### [Använd](../monitoring/monitoring-service-map.md)
-##### [Konfigurera](../monitoring/monitoring-service-map-configure.md)
-##### [Integration med Operations Manager](../monitoring/monitoring-service-map-scom.md)
+##### [Använd](../azure-monitor/insights/service-map.md)
+##### [Konfigurera](../azure-monitor/insights/service-map-configure.md)
+##### [Integration med Operations Manager](../azure-monitor/insights/service-map-scom.md)
 #### [SQL-bedömning](../log-analytics/log-analytics-sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Surface Hub](../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Uppgraderingsanalys](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396)
@@ -65,7 +65,7 @@
 ### [Bästa praxis](../azure-monitor/insights/solutions-best-practices.md)
 
 ## Hanteringsscenarier
-### [Samla in analysdata från runbook](../monitoring/monitoring-runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Samla in analysdata från runbook](../azure-monitor/platform/runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)

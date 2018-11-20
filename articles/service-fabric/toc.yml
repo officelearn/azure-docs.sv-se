@@ -239,12 +239,16 @@ items:
       items:
       - name: Nodtyper och VM Scale Sets
         href: service-fabric-cluster-nodetypes.md
+      - name: Uppgradera kluster i Azure
+        href: service-fabric-cluster-upgrade.md
       - name: Skalning
         href: service-fabric-cluster-scaling.md
       - name: Nätverksmönster för kluster
         href: service-fabric-patterns-networking.md
     - name: Fristående kluster
       items:
+      - name: Uppgradera fristående kluster
+        href: service-fabric-cluster-upgrade-standalone.md
       - name: Skalning
         href: service-fabric-cluster-scaling-standalone.md
     - name: Klusterresurshanterare
@@ -585,19 +589,27 @@ items:
         - name: Skala ut med nodtyp för skalningsuppsättning för virtuell dator
           href: virtual-machine-scale-set-scale-node-type-scale-out.md
       - name: Uppgradera
-        href: service-fabric-cluster-upgrade.md
-      - name: Ange åtkomstkontroll
-        href: service-fabric-cluster-security-roles.md
-      - name: Öppna en port i lastbalanseraren
-        href: create-load-balancer-rule.md
-      - name: Ändra klustercertifikat till unika namn
-        href: service-fabric-cluster-change-cert-thumbprint-to-cn.md
-      - name: Förnya klustercertifikat manuellt
-        href: service-fabric-cluster-rollover-cert-cn.md
-      - name: Hantera klustercertifikat
-        href: service-fabric-cluster-security-update-certs-azure.md
-      - name: Fjärransluta till klusternod för virtuell dator
-        href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+        items:
+        - name: Uppgradera Service Fabric-versionen
+          href: service-fabric-cluster-upgrade-version-azure.md
+        - name: Uppgradera klusterkonfigurationen
+          href: service-fabric-cluster-config-upgrade-azure.md
+        - name: Korrigera klusternoder (Windows)
+          href: service-fabric-patch-orchestration-application.md
+        - name: Korrigera klusternoder (Linux)
+          href: service-fabric-patch-orchestration-application-linux.md
+        - name: Ange åtkomstkontroll
+          href: service-fabric-cluster-security-roles.md
+        - name: Öppna en port i lastbalanseraren
+          href: create-load-balancer-rule.md
+        - name: Ändra klustercertifikat till unika namn
+          href: service-fabric-cluster-change-cert-thumbprint-to-cn.md
+        - name: Förnya klustercertifikat manuellt
+          href: service-fabric-cluster-rollover-cert-cn.md
+        - name: Hantera klustercertifikat
+          href: service-fabric-cluster-security-update-certs-azure.md
+        - name: Fjärransluta till klusternod för virtuell dator
+          href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
     - name: Fristående kluster
       items:
       - name: Skapa
@@ -612,20 +624,22 @@ items:
           href: service-fabric-cluster-standalone-package-contents.md
       - name: Skala
         href: service-fabric-cluster-windows-server-add-remove-nodes.md
-      - name: Ange åtkomstkontroll
-        href: service-fabric-cluster-security-roles.md
-      - name: Konfigurera
-        href: service-fabric-cluster-manifest.md
       - name: Uppgradera
-        href: service-fabric-cluster-upgrade-windows-server.md
+        items:
+        - name: Uppgradera Service Fabric-versionen
+          href: service-fabric-cluster-upgrade-windows-server.md
+        - name: Uppgradera klusterkonfigurationen
+          href: service-fabric-cluster-config-upgrade-windows-server.md
+        - name: Konfigurationsinställningar
+          href: service-fabric-cluster-manifest.md
+        - name: Ange åtkomstkontroll
+          href: service-fabric-cluster-security-roles.md
+        - name: Korrigera klusternoder (Windows)
+          href: service-fabric-patch-orchestration-application.md
     - name: Visualisera ett kluster
       href: service-fabric-visualizing-your-cluster.md
     - name: Ansluta till ett säkert kluster
       href: service-fabric-connect-to-secure-cluster.md
-    - name: Korrigera klusternoder (Windows)
-      href: service-fabric-patch-orchestration-application.md
-    - name: Korrigera klusternoder (Linux)
-      href: service-fabric-patch-orchestration-application-linux.md
   - name: Övervaka och diagnostisera
     items:
     - name: Övervakning av program
@@ -767,9 +781,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Videoklipp
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: 810c04b2d6b2b5e7a8db64e21c10225ccddcb117
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 98ca5a1cbf5298931c14d6c696119d0c98893072
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634285"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853650"

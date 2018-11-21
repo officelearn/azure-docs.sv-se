@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: bcfc4cb65c94e34e9f6056ada53726f88489fefb
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8268a6b04d7ddbb35821999142d3a33bdd2bedcc
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646659"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261810"
 ---
 # <a name="validate-oem-packages"></a>Verifiera OEM-paket
 
@@ -58,22 +58,17 @@ När du skapar en **Paketvalideringen** arbetsflöde i VaaS-portalen, måste du 
 
 #### <a name="option-1-generating-an-account-sas-url"></a>Alternativ 1: Generera en kontots SAS-URL
 
-1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
+1. I den [Azure-portalen](https://portal.azure.com/), gå till ditt storage-konto och navigera till .zip som innehåller ditt paket
 
-1. Välj **Blob** från **tillåtna tjänster alternativ**. Avmarkera eventuella återstående alternativen.
+2. Välj **generera SAS** på snabbmenyn
 
-1. Välj **behållare** och **objekt** från **tillåtna resurstyper**. Avmarkera eventuella återstående alternativen.
+3. Välj **Läs** från **behörigheter**
 
-1. Välj **Läs** och **lista** från **behörigheter**. Avmarkera eventuella återstående alternativen.
+4. Ange **starttid** till aktuell tid och **sluttid** minst 48 timmar från **starttid**. Om du ska köra andra tester med samma paket måste du överväga att öka **sluttid** för längden på testet. Alla tester som schemalagts via VaaS efter **sluttid** kommer misslyckas och en ny SAS behöver ska genereras.
 
-1. Ange **starttid** till aktuell tid och **sluttid** till 1 timme från den aktuella tiden.
+5. Välj **generera blob SAS-token och URL: en**
 
-1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
-    Här är hur formatet ska visas: `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
-
-1. Ändra den genererade SAS-URL och inkludera behållaren paketet `{containername}`, och namnet på din paketet blob `{mypackage.zip}`, enligt följande:  `https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
-
-    Använd det här värdet när du startar en ny **Paketvalideringen** arbetsflöde i VaaS-portalen.
+Använd **Blob SAS-Webbadressen** när startar en ny **Paketvalideringen** arbetsflöde i VaaS-portalen.
 
 #### <a name="option-2-using-public-read-container"></a>Alternativ 2: Använda offentliga Läs behållare
 

@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: fe2b509b62884c1cea554bc8dc5df25489205264
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eb9d35b132a0aa3f0702604444f8a760bf66cf9a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966970"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275589"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Anropa ett SSIS-paket med hjälp av aktivitet för lagrad procedur i Azure Data Factory
 Den här artikeln beskriver hur du anropar ett SSIS-paket från en Azure Data Factory-pipeline med hjälp av en lagrad procedur-aktivitet. 
@@ -115,7 +115,7 @@ Det här är en dummy datauppsättning som styr schemat för pipelinen. Lägg m�
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Skapa en pipeline med en aktivitet för lagrad procedur 
 I det här steget skapar du en pipeline med en lagrad procedur-aktivitet. Aktiviteten anropar sp_executesql lagrade proceduren för att köra dina SSIS-paket. 
 
-1. I den vänstra rutan klickar du på **... More (Mer)** och sedan på **Ny pipeline**.
+1. I den vänstra rutan klickar du på **... More (Mer)** och sedan på **Ny pipeline.
 2. Kopiera följande JSON-kodfragment i JSON-redigeraren: 
 
     > [!IMPORTANT]
@@ -236,7 +236,7 @@ Skapa en länkad tjänst för att länka Azure SQL database som är värd för S
 ### <a name="create-an-output-dataset"></a>Skapa en datauppsättning för utdata
 Det här är en dummy datauppsättning som styr schemat för pipelinen. Lägg märke till att frekvensen är inställd på Hour och interval anges till 1. Därför körs pipelinen när en timme i pipeline- och sluttider. 
 
-1. Skapa en OuputDataset.json-fil med följande innehåll: 
+1. Skapa en OutputDataset.json-fil med följande innehåll: 
     
     ```json
     {

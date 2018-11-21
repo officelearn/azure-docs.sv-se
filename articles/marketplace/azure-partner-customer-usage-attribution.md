@@ -12,26 +12,27 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 3a1c5341e391c8be1af42eea940fbf147b88e7c8
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 1ae10fb749e671f7a8b5ca48e652711d7dcf98c8
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685709"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262609"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure-partner kundens användning attribution
 
-Dina lösningar kräver Azure-komponenter som programvara partner för Azure, eller de behöver för att distribueras direkt på Azure-infrastrukturen. Kunder som distribuerar en partnerlösning och etablera sina egna Azure-resurser kan vara svårt att få insyn i statusen för distributionen och få optik i påverkan på Azure tillväxt. När du lägger till en högre nivå av synlighet överensstämmer med Microsofts säljteam och få kredit för Microsoft partner-program.   
+Dina lösningar kräver Azure-komponenter som programvara partner för Azure, eller de behöver för att distribueras direkt på Azure-infrastrukturen. Kunder som distribuerar en partnerlösning och etablera sina egna Azure-resurser kan vara svårt att få insyn i statusen för distributionen och få optik i påverkan på Azure tillväxt. När du lägger till en högre nivå av synlighet överensstämmer med Microsofts säljteam och få kredit för Microsoft partner-program. 
 
 Microsoft erbjuder nu en metod för att hjälpa partner att bättre spåra Azure-användning av kunders distributioner av sin programvara på Azure. Den nya metoden använder Azure Resource Manager för att dirigera distributionen av Azure-tjänster.
 
 Som Microsoft-partner kan associera du Azure-användning med alla Azure-resurser som du etablerar för en kunds räkning. Du kan skapa kopplingen via Azure Marketplace, Snabbstart-databasen, privat GitHub-databaser och personlig Kundengagemang. Om du vill aktivera spårning finns två sätt:
 
 - Azure Resource Manager-mallar: Resource Manager-mallar eller lösningsmallar att distribuera Azure-tjänster för att köra partnerns programvara. Partner kan skapa en Resource Manager-mall för att definiera infrastrukturen och konfigurationen av sina Azure-lösning. Resource Manager-mall kan du och dina kunder att distribuera din lösning under dess livscykel. Du kan vara säker på att resurserna distribueras i ett konsekvent tillstånd. 
-
 - Azure Resource Manager API: er: Partner kan anropa Resource Manager API: er direkt för att distribuera en Resource Manager-mall eller att generera API-anrop till direkt etablera Azure-tjänster. 
+
+Kundens användning attribution krävs på alla [lösningsmallar](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md) publiceras på Azure Marketplace. 
 
 ## <a name="use-resource-manager-templates"></a>Använda Resource Manager-mallar
 

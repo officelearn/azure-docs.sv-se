@@ -9,18 +9,18 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: larryfr
 ms.date: 10/30/2018
-ms.openlocfilehash: 75faf344c64dc330a98b836a8852b42531645c49
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 58c1b53a4b97aad7b916e593fd4d6b52b51b7a52
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685182"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262915"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Använd en Azure Machine Learning-modell som distribueras som en webbtjänst
 
 Distribuera en Azure Machine Learning-modell som en webbtjänst skapas ett REST-API. Du kan skicka data till den här API: et och få förutsägelser som returneras av modellen. I det här dokumentet lär du dig hur du skapar klienter för en web service med hjälp av C#, Go, Java och Python.
 
-En webbtjänst skapas när du distribuerar en avbildning till ett Azure Container-instans, Azure Kubernetes Service eller Project Brainwave (fältet programmable gate Array). Bilder skapas från registrerade modeller och bedömningsfilerna. Den URI som används för åtkomst till en webbtjänst kan hämtas med hjälp av den [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Du kan också använda SDK: N för att hämta autentiseringsnycklarna om autentisering är aktiverad.
+En webbtjänst skapas när du distribuerar en avbildning till ett Azure Container-instans, Azure Kubernetes Service eller Project Brainwave (fältet programmable gate Array). Bilder skapas från registrerade modeller och bedömningsfilerna. Den URI som används för åtkomst till en webbtjänst kan hämtas med hjälp av den [Azure Machine Learning SDK](https://aka.ms/aml-sdk). Du kan också använda SDK: N för att hämta autentiseringsnycklarna om autentisering är aktiverad.
 
 Det allmänna arbetsflödet när du skapar en klient som använder en Machine Learning-webbtjänst är:
 

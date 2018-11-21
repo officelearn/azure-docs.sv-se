@@ -8,14 +8,14 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 10/24/2018
+ms.date: 11/19/2018
 ms.author: danlep
-ms.openlocfilehash: 458b0f7bbf581c7f2490a8122f351dac612b4ff0
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 1d915482a3a8b1f6416b50ab52de997a9d33294f
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155634"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262439"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Kör program med behållare på Azure Batch
 
@@ -25,7 +25,7 @@ Du bör känna till behållaren begrepp och hur du skapar ett Batch-poolen och j
 
 ## <a name="why-use-containers"></a>Varför använda behållare?
 
-Med hjälp av behållare ger ett enkelt sätt att köra Batch-aktiviteterna utan att behöva hantera en miljö och beroenden för att köra program. Behållare kan du distribuera program som enkel och smidig oberoende enheter som kan köras i flera olika miljöer. Du kan till exempel skapa och testa en behållare lokalt och sedan överföra behållaravbildningen till ett register i Azure eller någon annanstans. Distributionsmodell för behållaren säkerställer att körningsmiljö för ditt program alltid korrekt installerat och konfigurerat oavsett var du vara värd för programmet. Behållarbaserad aktiviteter i Batch kan också dra nytta av funktionerna i icke-container aktiviteter, inklusive programpaket och hantering av resursfiler och utdatafiler. 
+Med hjälp av behållare ger ett enkelt sätt att köra Batch-aktiviteterna utan att behöva hantera en miljö och beroenden för att köra program. Behållare kan du distribuera program som enkel och smidig oberoende enheter som kan köras i flera olika miljöer. Till exempel skapa och testa en behållare lokalt och sedan överföra behållaravbildningen till ett register i Azure eller någon annanstans. Distributionsmodell för behållaren säkerställer att körningsmiljö för ditt program alltid korrekt installerat och konfigurerat oavsett var du vara värd för programmet. Behållarbaserad aktiviteter i Batch kan också dra nytta av funktionerna i icke-container aktiviteter, inklusive programpaket och hantering av resursfiler och utdatafiler. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -74,7 +74,7 @@ Dessa avbildningar stöds endast för användning i Azure Batch-pooler. De omfat
 
 * Förinstallerade NVIDIA GPU-drivrutiner, att förenkla distributionen på Azure virtuella datorer i N-serien
 
-* Bilder med eller utan förinstallerade RDMA-drivrutiner. de här drivrutinerna Tillåt poolnoder komma åt Azure RDMA-nätverket när de distribueras på RDMA-kompatibla VM-storlekar  
+* Ditt val av bilder med eller utan förinstallerat RDMA drivrutiner. De här drivrutinerna Tillåt poolnoder komma åt Azure RDMA-nätverket när de distribueras på RDMA-kompatibla VM-storlekar. 
 
 Du kan också skapa anpassade avbildningar från virtuella datorer som kör Docker på en Linux-distributioner som är kompatibel med Batch. Om du väljer att ge dina egna anpassade Linux-avbildning, se anvisningarna i [använda en hanterad anpassad avbildning för att skapa en pool med virtuella datorer](batch-custom-images.md).
 
@@ -222,41 +222,62 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 ...
 ```
 
-
 ## <a name="container-settings-for-the-task"></a>Behållarinställningar för aktiviteten
 
-Du måste ange container-specifika inställningar som behållaren kör alternativ och bilder för att använda registret för att köra behållare aktiviteter på beräkningsnoderna.
+Om du vill köra en behållare aktivitet på poolen container-aktiverade, ange container-specifika inställningar. Inställningarna omfattar att avbildningen ska användas, register och körningsalternativ för behållare.
 
-Använd den `ContainerSettings` egenskapen i klasserna uppgift att konfigurera container-specifika inställningar. De här inställningarna definieras av den [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) klass.
+* Använd den `ContainerSettings` egenskapen i klasserna uppgift att konfigurera container-specifika inställningar. De här inställningarna definieras av den [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) klass.
 
-Om du kör uppgifter på behållaravbildningar, den [molnet uppgift](/dotnet/api/microsoft.azure.batch.cloudtask) och [job manager-aktivitet](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) kräver behållarinställningar. Men den [startaktivitet](/dotnet/api/microsoft.azure.batch.starttask), [jobbförberedelseaktiviteten](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask), och [jobbpubliceringsaktivitet](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) kräver inte behållarinställningar (det vill säga de kan köras inom kontexten för en behållare eller direkt på noden).
+* Om du kör uppgifter på behållaravbildningar, den [molnet uppgift](/dotnet/api/microsoft.azure.batch.cloudtask) och [job manager-aktivitet](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) kräver behållarinställningar. Men den [startaktivitet](/dotnet/api/microsoft.azure.batch.starttask), [jobbförberedelseaktiviteten](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask), och [jobbpubliceringsaktivitet](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) kräver inte behållarinställningar (det vill säga de kan köras inom kontexten för en behållare eller direkt på noden).
 
-Den valfria [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) finns ytterligare argument till den `docker create` kommandot körs aktiviteten för att skapa behållaren.
+### <a name="container-task-command-line"></a>Behållaren aktivitetens kommandorad
+
+När du kör en behållare aktivitet använder Batch automatiskt den [docker skapa](https://docs.docker.com/engine/reference/commandline/create/) kommando för att skapa en behållare med den avbildning som angetts i aktiviteten. Batch styr sedan körning av aktiviteten i behållaren. 
+
+Som med icke-container Batch-aktiviteter kan ange du en kommandorad för en behållare. Eftersom Batch skapar automatiskt behållaren, anger kommandoraden endast eller flera kommandon som körs i behållaren.
+
+Om behållaravbildning för en batchuppgift är konfigurerad med en [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example) skript som du kan ange kommandoraden till antingen genom att använda standard ENTRYPOINT eller åsidosätta den: 
+
+* Ställ in aktivitetens kommandorad om du vill använda standardvärdet STARTPUNKT i behållaravbildningen till en tom sträng `""`.
+
+* Att åsidosätta standardinställningen ENTRYPOINT eller om bilden inte har en STARTPUNKT, ange en kommandorad lämpliga för behållaren, t.ex `/app/myapp` eller `/bin/sh -c python myscript.py`.
+
+Valfritt [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) finns ytterligare argument som du tillhandahåller den `docker create` kommandot att Batch använder för att skapa och köra behållaren. Till exempel om du vill ange en arbetskatalog för behållaren, ange den `--workdir <directory>` alternativet. Se den [docker skapa](https://docs.docker.com/engine/reference/commandline/create/) referens för ytterligare alternativ.
 
 ### <a name="container-task-working-directory"></a>Arbetskatalogen behållare
 
-Kommandoraden för en Azure Batch-aktiviteter för behållare som körs i en arbetskatalog i behållaren som liknar den miljö som Batch ställer in för en vanlig (icke-behållare):
+En aktivitet för Batch-behållare som körs i en arbetskatalog i behållaren som liknar den katalog som Batch ställer in för en vanlig (icke-behållare). Observera att den här arbetskatalogen skiljer sig från den [WORKDIR](https://docs.docker.com/engine/reference/builder/#workdir) om konfigurerat i bilden eller arbetskatalog för standard-behållaren (`C:\` på en Windows-behållare eller `/` på en Linux-behållare). 
 
-* Alla kataloger rekursivt nedan i `AZ_BATCH_NODE_ROOT_DIR` (rot med Azure Batch-kataloger på noden) mappas till behållaren
+För en aktivitet av Batch-behållare:
+
+* Alla kataloger rekursivt nedan i `AZ_BATCH_NODE_ROOT_DIR` på värden nod (rot med Azure Batch kataloger) mappas till behållaren
 * Alla miljövariabler för aktiviteten är mappade till behållaren
-* Programmet arbetskatalogen anges desamma som för en vanlig aktivitet så att du kan använda funktioner som programpaket och resursfiler
+* Arbetskatalogen för uppgiften `AZ_BATCH_TASK_WORKING_DIR` är ange desamma som för en vanlig aktivitet på noden och mappa till behållaren. 
 
-Aktiviteten körs på en plats som skiljer sig från arbetskatalogen vanliga behållaren eftersom Batch ändras standard arbetskatalogen i behållaren, (till exempel `c:\` som standard på en Windows-behållare eller `/` på Linux eller någon annan katalogen om konfigurerat i behållaravbildningen). För att säkerställa att dina behållarprogram köras i Batch-kontexten, gör du något av följande: 
+Dessa mappningar kan du arbeta med behållare uppgifter på ungefär samma sätt som icke-container uppgifter. Till exempel installera program som använder programpaket för, komma åt resursfiler från Azure Storage, använda uppgiften miljöinställningar och kvar uppgiften utdatafilerna när behållaren stoppas.
 
-* Se till att aktivitetens kommandorad (eller behållare arbetskatalog) anger en absolut sökväg om det inte redan har konfigurerats på så sätt.
+### <a name="troubleshoot-container-tasks"></a>Felsöka behållare uppgifter
 
-* Ange en arbetskatalog i körningsalternativ för behållare i aktivitetens Containerconfiguration. Till exempel `--workdir /app`.
+Om din behållare uppgift inte fungerar som förväntat kan behöva du hämta information om WORKDIR eller ENTRYPOINT konfigurationen av behållaravbildningen. Om du vill se hur du kör den [docker-avbildning inspektera](https://docs.docker.com/engine/reference/commandline/image_inspect/) kommando. 
 
-Python följande utdrag visar en grundläggande kommandorad som körs i en Ubuntu-behållare som hämtas från Docker Hub. Här är den `--rm` behållare som kör alternativet tar bort behållaren när uppgiften har slutförts.
+Om det behövs, justera inställningarna för aktiviteten behållare baserat på avbildningen:
+
+* Ange en absolut sökväg i aktivitetens kommandorad. Om bildens standard ENTRYPOINT används för aktivitetens kommandorad, kontrollerar du att en absolut sökväg har angetts.
+
+* I uppgiftens körningsalternativ för behållare, ändrar du arbetskatalogen för att matcha WORKDIR i avbildningen. Till exempel `--workdir /app`.
+
+## <a name="container-task-examples"></a>Behållaren aktivitetsexempel
+
+Python följande utdrag visar en grundläggande kommandorad som körs i en behållare som skapats från en fiktiva avbildning från Docker Hub. Här är den `--rm` behållare alternativet tar bort behållaren när uppgiften har slutförts och `--workdir` alternativet anger en arbetskatalog. Kommandoraden åsidosätter behållaren ENTRYPOINT med enkla shell-kommandon som skriver en liten fil till arbetskatalogen för uppgiften på värden. 
 
 ```python
 task_id = 'sampletask'
 task_container_settings = batch.models.TaskContainerSettings(
-    image_name='ubuntu', 
-    container_run_options='--rm')
+    image_name='myimage', 
+    container_run_options='--rm --workdir /')
 task = batch.models.TaskAddParameter(
     id=task_id,
-    command_line='/bin/echo hello',
+    command_line='/bin/sh -c \"echo \'hello world\' > $AZ_BATCH_TASK_WORKING_DIR/output.txt\"',
     container_settings=task_container_settings
 )
 
@@ -267,11 +288,11 @@ I följande C#-exempel visas grundläggande behållarinställningar för en clou
 ```csharp
 // Simple container task command
 
-string cmdLine = "c:\myApp.exe";
+string cmdLine = "c:\\app\\myApp.exe";
 
 TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
-    imageName: "tensorflow/tensorflow:latest-gpu",
-    containerRunOptions: "--rm --read-only"
+    imageName: "myimage",
+    containerRunOptions: "--rm --workdir c:\\app"
     );
 
 CloudTask containerTask = new CloudTask (
@@ -287,6 +308,6 @@ CloudTask containerTask = new CloudTask (
 
 * Mer information om att installera och använda Docker CE för Linux finns i den [Docker](https://docs.docker.com/engine/installation/) dokumentation.
 
-* Mer information om hur du använder anpassade avbildningar finns i [använda en hanterad anpassad avbildning för att skapa en pool med virtuella datorer ](batch-custom-images.md).
+* Mer information om hur du använder anpassade avbildningar finns i [använda en hanterad anpassad avbildning för att skapa en pool med virtuella datorer](batch-custom-images.md).
 
 * Läs mer om den [Moby projekt](https://mobyproject.org/), ett ramverk för att skapa behållaren-baserade system.

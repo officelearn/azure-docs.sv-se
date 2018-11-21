@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: b64a35f6b7422b1e24812c1041305dab2ebad6c0
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 6d05323eb08a69ef4b76dbbf35217d80b9b2dc3c
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578505"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261079"
 ---
 # <a name="determine-your-publishing-option"></a>Fastställa din publiceringsalternativ
 Publiceringsalternativ som du väljer för ditt erbjudande kopplat direkt till både marketplace GTM-fördelar och krav för berättigande. Ännu viktigare är definierar valet av publicera alternativet och erbjudandetypen i Cloud Partner Portal hur användare kommer att interagera med ditt erbjudande i marketplace.
@@ -64,26 +64,18 @@ Storefront där kommer att se ditt erbjudande, Azure Marketplace och/eller AppSo
 
 Publicera alternativen erbjuder differentierad Kundengagemang samtidigt som du får åtkomst till dela leads och [Go-To-Market-fördelar](https://partner.microsoft.com/en-US/reach-customers/gtm). Välj tre möjliga publiceringsalternativ innan du använder Cloud Partner Portal för att skapa ett marketplace-erbjudande. Observera den anrop-till-åtgärd som motsvarar publiceringsalternativet:
 
-**Lista** – enkel lista över programmet eller tjänsten som gör det möjligt för en marketplace-användare att begära att du kan ansluta till kunden via den **kontakta mig** anrop till åtgärden.
+| **Publiceringsalternativ**    | **Beskrivning**  |
+| :------------------- | :-------------------|
+| **Lista** | Enkel lista över programmet eller tjänsten som gör det möjligt för en marketplace-användare att begära att du kan ansluta till kunden via den **kontakta mig** anrop till åtgärden. |
+| **Utvärdering** | Använd marketplace för att förbättra identifieringsmöjligheten och automatisera etableringen av ditt programs utvärderingen, potentiella användare att använda din SaaS, IaaS eller Microsoft app-upplevelse utan kostnad under en begränsad tid innan de köper. Används för utvärdering publiceringsalternativ anrop-till-action är antingen: **kostnadsfri utvärderingsversion av** eller **Test Drive**. |
+| **Transact** | Ditt program körs på Azure och kan etableras som en resurs direkt till kundens Azure-prenumeration när kunden väljer Get det nu anropa åtgärden. Din programvarulicensavgifter kan du kan också köpas och faktureras via kundens val av betalningsmedel och villkor och du kan välja att erbjuda tidsbegränsad åtkomst till din **kostnadsfri utvärderingsversion av programvara** (endast tillgängligt för Azure Marketplace.) |
 
-**Utvärderingsversion** – Använd marketplace för att förbättra identifieringsmöjligheten och automatisera etableringen av ditt programs utvärderingen, potentiella användare att använda din SaaS, IaaS eller Microsoft app-upplevelse utan kostnad under en begränsad tid innan de köper. Används för utvärdering publiceringsalternativ anrop-till-action är antingen: **kostnadsfri utvärderingsversion av** eller **Test Drive**.
-
-**Transact** – ditt program körs på Azure och kan etableras som en resurs direkt till kundens Azure-prenumeration när kunden väljer Get det nu anropa åtgärden. Din programvarulicensavgifter kan du kan också köpas och faktureras via kundens val av betalningsmedel och villkor och du kan välja att erbjuda tidsbegränsad åtkomst till din **kostnadsfri utvärderingsversion av programvara** (endast tillgängligt för Azure Marketplace.) 
-
-## <a name="select-an-offer-type"></a>Välj en typ av erbjudande
-
-När du bestämmer dig på ett publiceringsalternativ du är redo att välja den typ av erbjudande som används för att presentera ditt erbjudande. 
-
-Erbjudandet är publishing-objekt som du ska skapa, publicera och hantera i partnerportalen i molnet. Erbjudandet strukturen inklusive metadata, artefakter och annat innehåll som används för att presentera erbjudandet i marketplace definieras av typ av erbjudande.
-
-Innan du kan skapa ett erbjudande, måste du välja en typ av erbjudande. Typ av erbjudande motsvarar typ av lösning, app, eller tjänsterbjudande som du önskar att publicera, samt dess justering till Microsoft-produkter och tjänster. 
-
-En typ av erbjudande kan konfigureras på olika sätt i Cloud Partner Portal att aktivera olika publiceringsalternativ anrop till åtgärden, etablering och priser. Publicering alternativet och konfigurationen av typ av erbjudande också justera erbjudandet behörighet och tekniska krav. 
-
-Se till att granska storefront och erbjuder krav för berättigande av typen i den här [Publiceringsguiden](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) och tekniska publicera krav innan du skapar ditt erbjudande.
+>[!Note]
+>När du använder Transact publicera alternativet, är det viktigt att förstå de priser, fakturering, fakturering och payout att tänka på innan du väljer en typ av erbjudande och skapa ditt erbjudande. Granska den [Marketplace fakturering och affärsmässiga överväganden mer artikeln](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
+*   När du bestämmer dig för ett publiceringsalternativ är du redo att [Välj typ av erbjudande](./publisher-guide-by-offer-type.md) som ska användas för att presentera ditt erbjudande.
 *   Granska krav för berättigande i publiceringsalternativ erbjudandet typ avsnittet för att slutföra valet av och konfigurationen av ditt erbjudande.
 *   Granska publicering mönster genom butik för exempel på hur din lösning mappar till en typ av erbjudande och konfiguration.
 *   Logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com) du skapar och konfigurerar ditt erbjudande.

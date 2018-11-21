@@ -4,8 +4,8 @@ description: PowerShell-modulen för Azure Machine Learning finns tillgänglig i
 keywords: experiment, linjär regression,machine learning algoritmer, machine learning självstudier, teknik för förutsägbar modellering, dataexperiment
 services: machine-learning
 documentationcenter: ''
-author: hning86
-ms.custom: (previous ms.author haining)
+author: ericlicoding
+ms.custom: (previous ms.author=haining, author=hning86)
 ms.author: amlstudiodocs
 manager: mwinkle
 editor: cgronlun
@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.openlocfilehash: c46b99de8a93c54246d52a3cb369fd926e7c60cd
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 795ce4e86c5fd8dac34f18cbbe80dd1395d94c5c
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822049"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263136"
 ---
 # <a name="powershell-module-for-microsoft-azure-machine-learning"></a>PowerShell-modul för Microsoft Azure Machine Learning
 PowerShell-modulen för Azure Machine Learning är ett kraftfullt verktyg som gör att du kan använda Windows PowerShell för att hantera arbetsytor, experiment, datauppsättningar, klassiska webbtjänster och mycket mer.

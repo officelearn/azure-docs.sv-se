@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: e84d2a446de537924f55f1b784731e54c94c768d
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: b79d64cc063105cb8ecce537a09a7f39a78eef4c
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51851578"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275035"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Ta bort SQL-resursprovider
 
@@ -28,20 +28,16 @@ Innan du tar bort SQL-resursprovider måste du ta bort alla beroenden för provi
 > [!NOTE]
 > Du kan hitta länkarna för resursen providern installationsprogram i [distribuera resource provider krav](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
+SQL-resursprovider bort inte klientdatabaser från som är värd för servrar.
+
 ## <a name="dependency-cleanup"></a>Beroende rensning
 
 Det finns flera rensningsuppgifter innan du kör skriptet DeploySqlProvider.ps1 för att ta bort resursprovidern.
 
-Azure Stack-klientanvändare ansvarar för att rensa följande uppgifter:
-
-* Ta bort alla sina databaser från resursprovidern. (Klientdatabaserna inte bort data.)
-* Avregistrera från leverantörens namnområde.
-
 Azure Stack-operatör ansvarar för att rensa följande uppgifter:
 
-* Tar bort värdservrar från MySQL-kortet.
-* Tar bort eventuella planer som refererar till MySQL-nätverkskort.
-* Tar bort alla kvoter som är associerade med MySQL-kort.
+* Ta bort eventuella planer som refererar till SQL-Adapter.
+* Ta bort kvoter som är associerade med SQL-Adapter.
 
 ## <a name="to-remove-the-sql-resource-provider"></a>Ta bort SQL-resursprovider
 
@@ -50,9 +46,9 @@ Azure Stack-operatör ansvarar för att rensa följande uppgifter:
    > [!NOTE]
    > Avinstallera SQL-resursprovider fortsätter även om beroende resurser använder resursprovidern.
   
-2. Hämta en kopia av SQL-resursprovider binära och kör sedan Self-Extractor för att extrahera innehållet till en tillfällig katalog.
+2. Hämta en kopia av installationspaketet för SQL resource provider och kör sedan Self-Extractor för att extrahera innehållet till en tillfällig katalog.
 
-3. Öppna en ny förhöjd PowerShell-konsolfönster och ändra till den katalog där du extraherade de binära filerna för SQL resource provider.
+3. Öppna en ny förhöjd PowerShell-konsolfönster och ändra till den katalog där du extraherade installationsfilerna för SQL resource provider.
 
 4. Kör skriptet DeploySqlProvider.ps1 med följande parametrar:
 

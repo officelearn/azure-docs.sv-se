@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8f3185a2c7633ba0cb5a9b266bcddf023d3c36e1
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 1680a7d9fae9f8b8c04383c9f199e4c2ec8b8dfe
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166460"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275239"
 ---
 # <a name="my-first-powershell-runbook"></a>Min första PowerShell-runbook
 
@@ -116,7 +116,7 @@ Nu när din runbook autentiseras med din Azure-prenumeration, kan du hantera res
 
 1. Efter *Connect-AzureRmAccount*, typ *Start-AzureRmVM-Name 'VMName' - ResourceGroupName 'NameofResourceGroup'* att ange namn och resursgruppsnamnet för den virtuella datorn ska starta.  
    
-   ```
+   ```powershell
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
@@ -131,7 +131,7 @@ Din runbook startar för närvarande den virtuella datorn som du hårdkodade i r
 
 1. Lägga till parametrar för *VMName* och *ResourceGroupName* i runbooken och Använd dessa variabler med den **Start-AzureRmVM** cmdlet som i följande exempel.
 
-   ```
+   ```powershell
    Param(
     [string]$VMName,
     [string]$ResourceGroupName

@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 888b9a256a68b77b91145bb3ccfeea820c97ccfa
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: f610a221dca296561fefab65a6c40b52a5dd292a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515383"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275844"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Utveckla Azure-funktioner med hjälp av Visual Studio  
 
@@ -83,7 +83,7 @@ Projektmallen skapar ett C#-projekt, installerar den `Microsoft.NET.Sdk.Function
 * **Local.Settings.JSON**: underhåller inställningar som används när du kör funktioner lokalt. De här inställningarna används inte av Azure, de som används av den [Azure Functions Core Tools](functions-run-local.md). Använd den här filen för att ange inställningar för variabler som krävs av dina funktioner. Lägg till ett nytt objekt i den **värden** matris för varje anslutning som krävs av funktions-bindningar i projektet. Mer information finns i [lokala inställningsfilen](functions-run-local.md#local-settings-file) i Azure Functions Core Tools-artikeln.
 
     >[!IMPORTANT]
-    >Eftersom filen local.settings.json kan innehålla hemligheter, måste den undantas från ditt projekt källkontroll. Den **kopiera till utdata Directory** inställningen för den här filen bör alltid vara **kopiera om nyare**. 
+    >Eftersom filen local.settings.json kan innehålla hemligheter, måste den undantas från ditt projekt källkontroll. Den **kopiera till utdatakatalog** inställningen för den här filen bör alltid vara **kopiera om nyare**. 
 
 Mer information finns i [Functions klassbiblioteksprojektet](functions-dotnet-class-library.md#functions-class-library-project).
 

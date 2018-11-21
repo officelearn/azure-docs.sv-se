@@ -10,16 +10,16 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 06e7d227511a9b651a905df3172f59a191acce01
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 76b417d1592671006d3d5cfa2363e306e4db48fd
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945679"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263051"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformera data med Azure Machine Learning Data Prep SDK
 
-Den [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) erbjuder annan transformering metoder för att rensa dina data. De här metoderna gör det enkelt att lägga till kolumner, filtrera bort oönskade rader eller kolumner och sedan imputera värden som saknas.
+Den [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) erbjuder annan transformering metoder för att rensa dina data. De här metoderna gör det enkelt att lägga till kolumner, filtrera bort oönskade rader eller kolumner och sedan imputera värden som saknas.
 
 Det finns för närvarande metoder för följande uppgifter:
 - [Lägg till kolumnen med ett uttryck](#column)
@@ -347,7 +347,7 @@ df
 
 SDK innehåller metoder `Dataflow.drop_columns` och `Dataflow.filter` så att du kan filtrera bort kolumner eller rader.
 
-### <a name="initial-setup"></a>Den första installationen
+### <a name="initial-setup"></a>Första installation
 ```
 import azureml.dataprep as dprep
 from datetime import datetime

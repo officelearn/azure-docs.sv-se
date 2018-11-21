@@ -4,7 +4,7 @@ description: Lär dig hur du läser och förstår användningen och fakturan fö
 services: ''
 documentationcenter: ''
 author: tonguyen10
-manager: tonguyen
+manager: jureid
 editor: ''
 tags: billing
 ms.service: billing
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: cwatson
-ms.openlocfilehash: 4bfaaa51e39a7db297626a8009306eef9e3efa80
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: de5cb85e751ad1d0c25ea31b185a3266eb9de05d
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393789"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275409"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Förstå villkoren på din faktura för Microsoft Azure
 

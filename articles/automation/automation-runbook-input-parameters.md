@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 941a7242e1f6fddd1ff91721141be4e1f9816b31
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 650effed388dde4419e2ff6aede2f0468551a959
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344871"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276694"
 ---
 # <a name="runbook-input-parameters"></a>Indataparametrar för Runbook
 
@@ -230,9 +230,8 @@ Du kan se de attribut som har angetts för parametern i etiketten under rutan. A
   ```
 
 #### <a name="start-a-runbook-by-using-the-rest-api-and-assign-parameters"></a>Starta en runbook med hjälp av REST-API och tilldela parametrar
-Runbook-jobb kan skapas och startas med Azure Automation REST-API med hjälp av den **PLACERA** metoden med följande begärande-URI:
+Runbook-jobb kan skapas och startas med Azure Automation REST-API med hjälp av den **PLACERA** metoden med följande begärande-URI: https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08`
 
-    https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08`
 
 Ersätt följande parametrar i begärans URI:
 

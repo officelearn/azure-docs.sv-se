@@ -4,18 +4,18 @@ description: Den här artikeln hjälper dig att aktivera och konfigurera utökad
 services: cost-management
 keywords: ''
 author: bandersmsft
+manager: vitavor
 ms.author: banders
 ms.date: 11/13/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 5f1b4cf63379f0007b87c44164168b8510612f52
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a41136837a56137ce92bd186cb4ee825e4f664c4
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624105"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274967"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Lägga till utökade mått för Azure-datorer
 

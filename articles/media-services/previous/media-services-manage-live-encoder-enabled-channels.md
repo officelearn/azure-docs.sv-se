@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: ada5f55cf356ca79efb7cb45c76a4812804400c5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 13edef4c02aff167316ccae2755a6ec1b58e2e89
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222071"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262626"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Liveuppspelning med Azure Media Services för att skapa dataströmmar med flera bithastigheter
 
@@ -268,8 +268,8 @@ När värdet är true, den här inställningen konfigurerar livekodaren att info
 Valfri. Anger tillgångs-Id för Media Services tillgång som innehåller bakgrundsbild. Standardvärdet är null. 
 
 
->[!NOTE] 
->Innan du skapar kanalen ska bakgrundsbild med följande begränsningar överföras som en dedikerad tillgång (inga andra filer bör finnas i den här tillgången). Den här bilden används endast när live Encoding infoga en bakgrundsbild på grund av en ad-break, eller har uttryckligen signalerat att infoga en bakgrundsbild. Live Encoding kan även gå till ett läge med statiska under vissa felvillkor – till exempel om den inkommande signalen går förlorad. Det finns för närvarande inget alternativ för att använda en anpassad avbildning när livekodaren kommer sådana ett inkommande signal förlorat läge. Du kan rösta på den här funktionen [här](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
+> [!NOTE] 
+> Innan du skapar kanalen ska bakgrundsbild med följande begränsningar överföras som en dedikerad tillgång (inga andra filer bör finnas i den här tillgången). Den här bilden används endast när live Encoding infoga en bakgrundsbild på grund av en ad-break, eller har uttryckligen signalerat att infoga en bakgrundsbild. Det finns för närvarande inget alternativ för att använda en anpassad avbildning när livekodaren kommer sådana ett inkommande signal förlorat läge. Du kan rösta på den här funktionen [här](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
 
 
 * Högst 1 920 x 1 080 i lösningen.

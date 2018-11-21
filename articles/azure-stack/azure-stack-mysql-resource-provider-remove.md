@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: ca5322c3c874c434f16a42900227a47245851b02
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: c3dbecfcaf40a85c57b9f795d7f2d9b76d27c195
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854041"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274079"
 ---
 # <a name="remove-the-mysql-resource-provider"></a>Ta bort MySQL-resursprovider
 
@@ -28,32 +28,27 @@ Innan du tar bort MySQL-resursprovider måste du ta bort alla beroenden för pro
 > [!NOTE]
 > Du kan hitta länkarna för resursen providern installationsprogram i [distribuera resource provider krav](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
+Ta bort MySQL-resursprovider tar inte bort klientdatabaser från som är värd för servrar.
+
 ## <a name="dependency-cleanup"></a>Beroende rensning
 
 Det finns flera rensningsuppgifter innan du kör skriptet DeployMySqlProvider.ps1 för att ta bort resursprovidern.
 
-Azure Stack-klientanvändare ansvarar för att rensa följande uppgifter:
-
-* Ta bort alla sina databaser från resursprovidern. (Klientdatabaserna inte bort data.)
-* Avregistrera från leverantörens namnområde.
-
 Azure Stack-operatör ansvarar för att rensa följande uppgifter:
 
-* Tar bort värdservrar från MySQL-kortet.
-* Tar bort eventuella planer som refererar till MySQL-nätverkskort.
-* Tar bort alla kvoter som är associerade med MySQL-kort.
+* Ta bort eventuella planer som refererar till MySQL-nätverkskort.
+* Ta bort kvoter som är associerade med MySQL-kort.
 
 ## <a name="to-remove-the-mysql-resource-provider"></a>Ta bort MySQL-resursprovider
 
 1. Kontrollera att du har tagit bort alla befintliga MySQL resource provider beroenden.
 
-   >[!NOTE]
-   >Avinstallera MySQL-resursprovider fortsätter även om beroende resurser använder resursprovidern.
+   > [!NOTE]
+   > Avinstallera MySQL-resursprovider fortsätter även om beroende resurser använder resursprovidern.
   
-2. Hämta en kopia av MySQL-resursprovider binära och kör sedan Self-Extractor för att extrahera innehållet till en tillfällig katalog.
-3. Hämta en kopia av SQL-resursprovider binära och kör sedan Self-Extractor för att extrahera innehållet till en tillfällig katalog.
-4. Öppna en ny förhöjd PowerShell-konsolfönster och ändra till den katalog där du extraherade de binära filerna för MySQL resource provider.
-5. Kör skriptet DeployMySqlProvider.ps1 med följande parametrar:
+2. Hämta en kopia av installationspaketet för MySQL resource provider och kör sedan Self-Extractor för att extrahera innehållet till en tillfällig katalog.
+3. Öppna en ny förhöjd PowerShell-konsolfönster och ändra till den katalog där du extraherade MySQL resource provider-installationsfilerna.
+4. Kör skriptet DeployMySqlProvider.ps1 med följande parametrar:
     - **Avinstallera**. Tar bort resursprovidern och alla associerade resurser.
     - **PrivilegedEndpoint**. IP-adressen eller DNS-namnet på den privilegierade slutpunkten.
     - **AzureEnvironment**. Azure-miljön används för att distribuera Azure Stack. Krävs endast för Azure AD-distributioner.

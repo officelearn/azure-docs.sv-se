@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 2d17f4471383be623cb40276ec1e51257bf3fbce
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 7835674536c43fcb694ad8eaeb18aebb89de5fad
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740390"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262082"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Styrning av infrastruktur för Azure DevTest Labs - resurser
 Den här artikeln tar upp justering och hantering av resurser för DevTest Labs i din organisation. 
@@ -35,7 +35,7 @@ Innan en organisation börjar använda Azure för utveckling av allmänt program
 - Är segmentering som krävs för att avgränsa miljöer för utveckling och produktion? 
 - Vilka kontroller har introducerats för långsiktig enkel hantering, stabilitet och tillväxt?
 
-Den **först rekommenderar** är att granska organisationers Azure taxonomi där indelningar mellan produktion och utveckling prenumerationer beskrivs. I följande diagram kan den föreslagna taxonomin för en logisk avgränsning av utveckling och testning och produktionsmiljöer. Med den här metoden kan en organisation introducera fakturering koder för att spåra kostnader i samband med varje miljö separat. Mer information finns i [förebyggande Prenumerationsåtgärder](/architecture/cloud-adoption/appendix/azure-scaffold). Du kan dessutom använda [Azure taggar](../azure-resource-manager/resource-group-using-tags.md) organisera resurser för spårning och fakturering.
+Den **först rekommenderar** är att granska organisationers Azure taxonomi där indelningar mellan produktion och utveckling prenumerationer beskrivs. I följande diagram kan den föreslagna taxonomin för en logisk avgränsning av utveckling och testning och produktionsmiljöer. Med den här metoden kan en organisation introducera fakturering koder för att spåra kostnader i samband med varje miljö separat. Mer information finns i [förebyggande Prenumerationsåtgärder](/azure/architecture/cloud-adoption/appendix/azure-scaffold). Du kan dessutom använda [Azure taggar](../azure-resource-manager/resource-group-using-tags.md) organisera resurser för spårning och fakturering.
 
 Den **andra rekommenderas** är att aktivera DevTest-prenumeration inom Azure Enterprise portal. Det gör att en organisation att köra klientoperativsystem som inte är normalt tillgängliga i en Azure enterprise-prenumeration. Använd sedan företagsprogram där du betalar bara för beräkningen och inte oroa dig inte om licensiering. Det innebär att faktureringen för avsedda tjänster, inklusive galleriavbildningar i IaaS, till exempel Microsoft SQL Server, är baserat på förbrukning endast. Information om Azure DevTest-prenumerationen finns [här](https://azure.microsoft.com/offers/ms-azr-0148p/) för kunder med Enterprise Agreement (EA) och [här](https://azure.microsoft.com/offers/ms-azr-0023p/) för kunder med Användningsbaserad betalning.
 

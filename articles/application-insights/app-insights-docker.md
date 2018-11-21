@@ -1,6 +1,6 @@
 ---
 title: Övervaka Docker-program i Azure Application Insights | Microsoft Docs
-description: Docker prestandaräknarna, händelser och undantag kan visas i Application Insights, tillsammans med telemetri från av appar.
+description: Prestandaräknare för docker, händelser och undantag kan visas på Application Insights, tillsammans med telemetri från behållarbaserade appar.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -11,119 +11,96 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 11/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 53ade76b9dbdc27df90da1f7e197464816529d1d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 4df6780fa61c1ed32279d882f383097dc0287716
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295769"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275923"
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>Övervaka Docker-program i Application Insights
-Livscykelhändelser och prestanda prestandaräknare från [Docker](https://www.docker.com/) kan ritas upp behållare på Application Insights. Installera den [Programinsikter](https://hub.docker.com/r/microsoft/applicationinsights/) bilden i en behållare i värden och den visar prestandaräknare för värden och för andra bilder.
 
-Med Docker, kan du distribuera dina appar i lightweight-behållare med alla beroenden. De kan köras på en värddator som kör en Docker-motorn.
+Livscykelhändelser och prestanda-räknare från [Docker](https://www.docker.com/) behållare kan vara läggas till på Application Insights. Installera den [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) bild i en behållare i värden och den visar prestandaräknare för värden, samt för andra avbildningar.
 
-När du kör den [Application Insights bild](https://hub.docker.com/r/microsoft/applicationinsights/) på Docker-värden som du får följande fördelar:
+Med Docker, kan du distribuera dina appar i Förenklade behållare som är klar med alla beroenden. De ska köras på en värddator som kör en Docker-motor.
+
+När du kör den [Application Insights bild](https://hub.docker.com/r/microsoft/applicationinsights/) på din Docker-värd som du får följande fördelar:
 
 * Livscykel telemetri om alla behållare som körs på värd - starta, stoppa och så vidare.
-* Prestandaräknare för alla behållare. CPU, minne, nätverksanvändning och mer.
-* Om du [installerat Application Insights SDK för Java](app-insights-java-live.md) i appar som körs i behållare, all telemetri för dessa appar har ytterligare egenskaper som identifierar datorn behållare och värden. Om du har instanser av en app som körs i mer än en värddator kan du exempelvis enkelt filtrera din app telemetri av värden.
-
-![Exempel](./media/app-insights-docker/00.png)
-
-## <a name="set-up-your-application-insights-resource"></a>Konfigurera Application Insights-resurs
-1. Logga in på [Microsoft Azure-portalen](https://azure.com) och öppna Application Insights-resurs för din app, eller [skapa en ny](app-insights-create-new-resource.md). 
-   
-    *Vilken resurs som ska jag använda?* Om de appar som körs på värden har utvecklats av någon annan, så du behöver [skapar en ny Application Insights-resurs](app-insights-create-new-resource.md). Detta är där du kan visa och analysera telemetrin. (Välj Allmänt för typ av app).
-   
-    Men om du utvecklar appar, så vi hoppas att du [lagt till Application Insights SDK](app-insights-java-live.md) dem. Om de är alla verkligen komponenter i ett enda affärsprogram du kan konfigurera dem att skicka telemetri till en resurs och du använder samma resursen för att visa data för Docker livscykel och prestanda. 
-   
-    Ett tredje scenario är att de flesta av apparna som du utvecklat, men du använder separata resurser för att visa sina telemetri. I så fall måste du förmodligen också vill skapa en separat resurs för Docker-data. 
-2. Lägga till panelen Docker: Välj **lägga till panelen**Dra panelen Docker från galleriet och klicka sedan på **klar**. 
-   
-    ![Exempel](./media/app-insights-docker/03.png)
+* Prestandaräknare för alla behållare. Processor, minne, nätverksanvändning och mer.
+* Om du [installerat Application Insights SDK för Java](app-insights-java-live.md) i appar som körs i behållare, all telemetri till apparna har ytterligare egenskaper som identifierar den behållare och värd-datorn. Om du har instanser av en app som körs på flera värden, kan du till exempel enkelt filtrera apptelemetrin av värden.
 
 > [!NOTE]
-> Översiktsfönstret i Application Insights nu är låst och tillåter inte att lägga till paneler från galleriet. Du kan fortfarande lägga till panelen Docker enligt beskrivningen ovan via instrumentpanelen för Azure-gränssnittet.
+> Den här lösningen är inaktuell. Mer information om våra befintliga investeringar i behållarövervakning rekommenderar vi checka ut [Azure Monitor för behållare](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
 
-3. Klicka på den **Essentials** listrutan och kopiera nyckeln Instrumentation. Du kan använda den som visar SDK var att skicka telemetri om dess.
+## <a name="set-up-your-application-insights-resource"></a>Konfigurera Application Insights-resursen
 
-    ![Exempel](./media/app-insights-docker/02-props.png)
+1. Logga in på [Microsoft Azure-portalen](https://azure.com) och öppna Application Insights-resurs för din app; eller [skapa en ny](app-insights-create-new-resource.md). 
+   
+    *Vilken resurs som ska jag använda?* Om de appar som körs på värden har utvecklats av någon annan, måste du [skapa en ny Application Insights-resurs](app-insights-create-new-resource.md). Detta kan du visa och analysera telemetri. (Välj Allmänt för typ av app).
+   
+    Men om du utvecklar appar, så vi hoppas att du [har lagts till Application Insights SDK](app-insights-java-live.md) dem. Om de är alla verkligen komponenter i ett enda affärsprogram, du kan konfigurera alla för att skicka telemetri till en resurs och du använder den samma resursen för att visa data för Docker livscykel och prestanda. 
+   
+    Ett tredje scenario är att du har utvecklat de flesta av apparna, men du använder separata resurser för att visa sina telemetri. I så fall kan du förmodligen också vill du skapa en separat resurs för Docker-data.
 
-Håll webbläsarfönstret praktiskt när du kommer tillbaka till den snart att titta på din telemetri.
+2. Klicka på den **Essentials** listrutan och kopierar Instrumenteringsnyckeln. Du kan använda detta för att uppmana SDK att skicka dess telemetri.
 
-## <a name="run-the-application-insights-monitor-on-your-host"></a>Kör en Application Insights på värden
-Nu när du har någonstans för att kunna visa telemetrin kan ställa du in av app som samlar in och skicka den.
+Hålla webbläsarfönstret till hands när du kommer tillbaka till den snart för att titta på din telemetri.
 
-1. Ansluta till Docker-värden. 
-2. Redigera din instrumentation nyckeln i det här kommandot och kör det:
+## <a name="run-the-application-insights-monitor-on-your-host"></a>Köra Övervakaren Application Insights på värden
+
+Nu när du har en plats för att visa telemetri kan konfigurera du appen med behållare som kommer samla in och skicka den.
+
+1. Anslut till din Docker-värd.
+2. Redigera din instrumentationsnyckel i det här kommandot och kör den:
    
    ```
    
    docker run -v /var/run/docker.sock:/docker.sock -d microsoft/applicationinsights ikey=000000-1111-2222-3333-444444444
    ```
 
-Endast en Application Insights-avbildning krävs per Docker-värd. Om programmet distribueras på flera Docker-värdar, kör du kommandot på varje värd.
+Endast en Application Insights-avbildning krävs per Docker-värd. Om programmet distribueras på flera Docker-värdar, upprepar du kommandot på varje värd.
 
-## <a name="update-your-app"></a>Uppdatera ditt program
-Om ditt program är försett med den [Application Insights SDK för Java](app-insights-java-get-started.md), Lägg till följande rad i filen ApplicationInsights.xml i projektet, under den `<TelemetryInitializers>` element:
+## <a name="update-your-app"></a>Uppdatera din app
+Om ditt program är utrustade med det [Application Insights SDK för Java](app-insights-java-get-started.md), lägga till följande rad i filen ApplicationInsights.xml i projektet, under den `<TelemetryInitializers>` element:
 
 ```xml
 
     <Add type="com.microsoft.applicationinsights.extensibility.initializer.docker.DockerContextInitializer"/> 
 ```
 
-Detta lägger till Docker information, till exempel behållare och värd-id varje telemetri objekt som skickats från din app.
+Detta lägger till uppgifter om Docker-behållare och värd-id till varje telemetriobjekt som skickas från din app.
 
 ## <a name="view-your-telemetry"></a>Visa telemetrin
-Gå tillbaka till Application Insights-resurs i Azure-portalen.
+Gå tillbaka till Application Insights-resursen i Azure-portalen.
 
-Klicka på via Docker-panelen.
+Klicka dig igenom Docker-panelen.
 
-Inom kort visas data som kommer från Docker-appen, särskilt om du har andra behållare som körs på Docker-motorn.
+Data som kommer från Docker-appen visas inom kort särskilt om du har andra behållare som körs på Docker-motorn.
 
-Här är några av de vyer som du kan hämta.
-
-### <a name="perf-counters-by-host-activity-by-image"></a>Prestandaräknarna av värden, aktivitet efter bilden
-![Exempel](./media/app-insights-docker/10.png)
-
-![Exempel](./media/app-insights-docker/11.png)
-
-Klicka på värden eller image-namn för mer information.
-
-Klicka på diagram, rutnätet rubriken för att anpassa vyn, eller Använd Lägg till diagram. 
-
-[Mer information om metrics explorer](app-insights-metrics-explorer.md).
-
-### <a name="docker-container-events"></a>Docker behållaren händelser
+### <a name="docker-container-events"></a>Händelser för docker-behållare
 ![Exempel](./media/app-insights-docker/13.png)
 
-För att undersöka enskilda händelser klickar du på [Sök](app-insights-diagnostic-search.md). Sök och filtrera efter de händelser som du vill. Klicka på alla händelser för att få mer information.
+Om du vill undersöka enskilda händelser, klickar du på [Search](app-insights-diagnostic-search.md). Sök och filtrera för att hitta händelser som du vill. Klicka på en händelse om du vill ha mer information.
 
-### <a name="exceptions-by-container-name"></a>Undantag av behållarens namn
+### <a name="exceptions-by-container-name"></a>Undantag av ett behållarnamn
 ![Exempel](./media/app-insights-docker/14.png)
 
-### <a name="docker-context-added-to-app-telemetry"></a>Docker-kontexten lades till i appen telemetri
-Telemetri som skickas från programmet försett med AI SDK, utökat med Docker kontext för begäran:
-
-![Exempel](./media/app-insights-docker/16.png)
-
-Processortid och tillgängligt minnesprestandaräknare utökat grupperade efter Docker behållarnamn:
-
-![Exempel](./media/app-insights-docker/15.png)
+### <a name="docker-context-added-to-app-telemetry"></a>Docker-kontext som lagts till i apptelemetri
+Begärandetelemetri som skickas från programmet som är utrustade med AI SDK, berikats med Docker kontextinformation.
 
 ## <a name="q--a"></a>Frågor och svar
-*Vad Application Insights mig som jag inte kan hämta från Docker?*
+*Vad Application Insights ger mig som jag inte kan hämta från Docker?*
 
-* Specificering av prestandaräknare av behållaren och image.
+* Detaljer för prestandaräknare genom att behållare och bild.
 * Integrera behållare och app-data i en instrumentpanel.
-* [Exportera telemetri](app-insights-export-telemetry.md) för ytterligare analys till en databas, Power BI eller andra instrumentpanelen.
+* [Exportera telemetri](app-insights-export-telemetry.md) för vidare analys till en databas, Power BI eller andra instrumentpanel.
 
 *Hur får jag telemetri från själva appen?*
 
-* Installera Application Insights SDK i appen. Lär dig hur för: [Java-webbappar](app-insights-java-get-started.md), [Windows web apps](app-insights-asp-net.md).
+* Installera Application Insights SDK i appen. Lär dig hur för: [Java-webbappar](app-insights-java-get-started.md), [Windows webbappar](app-insights-asp-net.md).
 
 ## <a name="video"></a>Video
 

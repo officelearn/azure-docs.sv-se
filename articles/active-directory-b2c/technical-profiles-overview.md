@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: faf3cc6c333ee8f8757ec24ecc8ea8299657c4a7
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 0f36cd798faac275e0f6dcb8a81bd37e14ab6d8d
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578492"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275827"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Om tekniska profiler i Azure Active Directory B2C anpassade principer
 
@@ -106,7 +106,7 @@ Båda **AAD-UserReadUsingAlternativeSecurityId-NoError** och **AAD-UserReadUsing
 </TechnicalProfile>
 ```
 
-Tekniska profilen kan inkludera eller ärver ett annat tekniska profilen, som kan innehålla en annan. Det finns ingen gräns för hur många nivåer. Beroende på företagets behov användarresan kan anropa **AAD-UserReadUsingAlternativeSecurityId** som genererar ett fel om en social användarkontot inte finns, eller  **AAD-UserReadUsingAlternativeSecurityId-NoError** som inte returnerar ett fel.
+Tekniska profilen kan inkludera eller ärver ett annat tekniska profilen, som kan innehålla en annan. Det finns ingen gräns för hur många nivåer. Beroende på företagets behov användarresan kan anropa **AAD-UserReadUsingAlternativeSecurityId** som genererar ett fel om ett socialt konto inte finns, eller  **AAD-UserReadUsingAlternativeSecurityId-NoError** som inte returnerar ett fel.
 
 
 

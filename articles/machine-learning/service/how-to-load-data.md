@@ -10,16 +10,16 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 91db32b7056a0cf211e6293a891d58e0239ca499
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: f8092c7a05935dcb2ca176bee2c5820b50f3c814
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237593"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263561"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Läsa in och läsa data med Azure Machine Learning
 
-Använd den [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) att läsa in olika typer av indata. 
+Använd den [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) att läsa in olika typer av indata. 
 
 Ange datatyp för fil och dess parametrar för att läsa in data
 
@@ -149,11 +149,11 @@ dataflow.head(5)
 Exempel på utdata:
 ||Kolumn1|Kolumn2|Kolumn3|Kolumn4|Column5|Kolumn6|Column7|Column8|
 |------|------|------|-----|------|-----|-------|----|-----|
-|0|Hoba|Järn IVB|60000000.0|Hittad|1920.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |-19.58333|17.91667|
-|1|Kap York|Järn, IIIAB|58200000.0|Hittad|1818.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |76.13333|-64.93333|
-|2|Campo del Cielo|Järn IAB MG|50000000.0|Hittad|1576.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |-27.46667|-60.58333|
-|3|Canyon Diablo|Järn IAB MG|30000000.0|Hittad|1891.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |35.05000|-111.03333|
-|4|Armanty|Järn, IIIE|28000000.0|Hittad|1898.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |47.00000|88.00000|
+|0|Hoba|Järn IVB|60000000.0|Hitta|1920.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |-19.58333|17.91667|
+|1|Kap York|Järn, IIIAB|58200000.0|Hitta|1818.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |76.13333|-64.93333|
+|2|Campo del Cielo|Järn IAB MG|50000000.0|Hitta|1576.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |-27.46667|-60.58333|
+|3|Canyon Diablo|Järn IAB MG|30000000.0|Hitta|1891.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |35.05000|-111.03333|
+|4|Armanty|Järn, IIIE|28000000.0|Hitta|1898.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |47.00000|88.00000|
 
 Du har läst in det första bladet för Excel-filen. Du kan göra detta genom att ange namnet på bladet som du vill läsa in. Om du vill läsa in det andra arket i stället kan du ange dess namn som ett argument. Exempel:
 ```python
@@ -194,13 +194,13 @@ dataflow.head(5)
 ```
 
 Exempel på utdata:
-||010000|99999|MUSENHETEN NORGE|NEJ|NO_1|ENRS|Column7|Column8|Column9|
+||010000|99999|MUSENHETEN NORGE|NO|NO_1|ENRS|Column7|Column8|Column9|
 |------|------|------|-----|------|-----|-------|----|-----|----|
-|0|010003|99999|MUSENHETEN NORGE|NEJ|NEJ|ENSO||||
-|1|010010|99999|JAN MAYEN|NEJ|JN|ENJA|+70933|-008667|+00090|
-|2|010013|99999|ROST|NEJ|NEJ|||||
-|3|010014|99999|SOERSTOKKEN|NEJ|NEJ|ENSO|+59783|+005350|+00500|
-|4|010015|99999|BRINGELAND|NEJ|NEJ|ENBL|+61383|+005867|+03270|
+|0|010003|99999|MUSENHETEN NORGE|NO|NO|ENSO||||
+|1|010010|99999|JAN MAYEN|NO|JN|ENJA|+70933|-008667|+00090|
+|2|010013|99999|ROST|NO|NO|||||
+|3|010014|99999|SOERSTOKKEN|NO|NO|ENSO|+59783|+005350|+00500|
+|4|010015|99999|BRINGELAND|NO|NO|ENBL|+61383|+005867|+03270|
 
 
 Om det finns inga rubriker i filer, ska du behandla den första raden som data. Genom att skicka `PromoteHeadersMode.NONE` till lösenordsargument rubrik som du kan undvika identifiering av rubriken och få rätt data. Exempel:
@@ -217,12 +217,12 @@ Exempel på utdata:
 
 ||Kolumn1|Kolumn2|Kolumn3|Kolumn4|Column5|Kolumn6|Column7|Column8|Column9|
 |------|------|------|-----|------|-----|-------|----|-----|----|
-|0|010000|99999|MUSENHETEN NORGE|NEJ|NO_1|ENRS|Column7|Column8|Column9|
-|1|010003|99999|MUSENHETEN NORGE|NEJ|NEJ|ENSO||||
-|2|010010|99999|JAN MAYEN|NEJ|JN|ENJA|+70933|-008667|+00090|
-|3|010013|99999|ROST|NEJ|NEJ|||||
-|4|010014|99999|SOERSTOKKEN|NEJ|NEJ|ENSO|+59783|+005350|+00500|
-|5|010015|99999|BRINGELAND|NEJ|NEJ|ENBL|+61383|+005867|+03270|
+|0|010000|99999|MUSENHETEN NORGE|NO|NO_1|ENRS|Column7|Column8|Column9|
+|1|010003|99999|MUSENHETEN NORGE|NO|NO|ENSO||||
+|2|010010|99999|JAN MAYEN|NO|JN|ENJA|+70933|-008667|+00090|
+|3|010013|99999|ROST|NO|NO|||||
+|4|010014|99999|SOERSTOKKEN|NO|NO|ENSO|+59783|+005350|+00500|
+|5|010015|99999|BRINGELAND|NO|NO|ENBL|+61383|+005867|+03270|
 
 ## <a name="use-sql-data"></a>Använda SQL-data
 Azure Machine Learning Data Prep SDK kan också läsa in data från SQL-servrar. För närvarande stöds endast Microsoft SQL Server.

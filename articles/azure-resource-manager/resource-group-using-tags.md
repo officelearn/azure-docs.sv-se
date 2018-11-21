@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7520b79baa43a60373ca60e15abf76b351f57d02
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: d9afc62b4ab5d5d83394dcaaacf85a7642a2ba22
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975660"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52260605"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Använd taggar för att organisera Azure-resurser
 
@@ -272,8 +272,6 @@ REST API-åtgärder, se [Azure Billing REST API-referens](/rest/api/billing/).
 
 ## <a name="next-steps"></a>Nästa steg
 
+* Inte alla resurstyper stöder taggar. För att avgöra om du kan använda en tagg för en resurstyp, se [tagga stöd för Azure-resurser](tag-support.md).
 * Du kan använda begränsningar och konventioner på din prenumeration med hjälp av anpassade principer. En princip som du definierar kan kräva att alla resurser har ett värde för en viss tagg. Mer information finns i [vad är Azure Policy?](../azure-policy/azure-policy-introduction.md)
-* En introduktion till med hjälp av Azure PowerShell när du distribuerar resurser finns i [med hjälp av Azure PowerShell med Azure Resource Manager](powershell-azure-resource-manager.md).
-* En introduktion till med hjälp av Azure CLI när du distribuerar resurser finns i [med Azure CLI för Mac, Linux och Windows med Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 * En introduktion till med hjälp av portalen finns i [med Azure portal för att hantera dina Azure-resurser](resource-group-portal.md).  
-* Vägledning för hur företag kan använda resurshanteraren för att effektivt hantera prenumerationer finns i [Azure enterprise scaffold - förebyggande prenumerationsåtgärder](/azure/architecture/cloud-adoption-guide/subscription-governance).

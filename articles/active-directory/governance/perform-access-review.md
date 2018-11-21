@@ -1,6 +1,6 @@
 ---
-title: Granska åtkomst med hjälp av Azure AD åtkomstgranskningar | Microsoft Docs
-description: Lär dig hur du granskar åtkomst med hjälp av Azure Active Directory-åtkomstgranskningar.
+title: Starta en åtkomstgranskning med Azure AD-Åtkomstgranskningar | Microsoft Docs
+description: Lär dig mer om att starta en åtkomstgranskning med hjälp av Azure Active Directory-Åtkomstgranskningar.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -14,14 +14,14 @@ ms.component: compliance
 ms.date: 07/16/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 09247a430d2ece44c307297838b7f4dc2819d56d
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 455a4922dfd0832c49729bed007dd696562be07a
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607873"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263434"
 ---
-# <a name="review-access-with-azure-ad-access-reviews"></a>Granska åtkomst med Azure AD åtkomstgranskningar
+# <a name="start-an-access-review-with-azure-ad-access-reviews"></a>Starta en åtkomstgranskning med Azure AD-Åtkomstgranskningar
 
 Azure Active Directory (AD Azure) gör det enklare företag hantera åtkomst till program och medlemmar i grupper i Azure AD och andra Microsoft Online Services med en funktion som kallas åtkomst går igenom. Kanske du har fått ett e-postmeddelande från Microsoft som ber dig att granska åtkomst för medlemmar i en grupp eller användare med åtkomst till ett program. 
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: a0e0d2c3604ea2357f52c3d464933c622ba1810d
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3e838cd45eefa5b5b644992bb8eae36abf3ec33a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523248"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276354"
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights för ASP.NET Core
 
@@ -214,7 +214,7 @@ I Visual Studio-menyn väljer du **projekt** > **Programinsikter** > **öppna Ap
 
 ## <a name="collect-failed-requests-live-stream-and-page-view-load-time"></a>Samla in misslyckade förfrågningar, Live Stream och inläsningstid för Sidvisning
 
-### <a name="failed-requests"></a>Misslyckade begäranden
+### <a name="failed-requests"></a>Misslyckade förfrågningar
 
 Tekniskt sett misslyckade förfrågningar samlas in, men inga misslyckade förfrågningar har inträffat ännu. Du kan lägga till en anpassad undantag till befintligt projekt för att simulera en verklig undantag så att processen går snabbare. Om din app körs fortfarande i Visual Studio innan du fortsätter, Välj **stoppa felsökning** (SKIFT + F5).
 
@@ -321,7 +321,7 @@ Det här avsnittet kan hjälpa dig att bättre förstå hur Application Insights
 
 Om du söker utdata för ordet _insight_, markeras resultat som liknar följande:
 
-```DebugOuput
+```DebugOutput
 'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\store\x64\netcoreapp2.0\microsoft.aspnetcore.applicationinsights.hostingstartup\2.0.3\lib\netcoreapp2.0\Microsoft.AspNetCore.ApplicationInsights.HostingStartup.dll'.
 'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\store\x64\netcoreapp2.0\microsoft.applicationinsights.aspnetcore\2.1.1\lib\netstandard1.6\Microsoft.ApplicationInsights.AspNetCore.dll'.
 

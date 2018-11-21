@@ -10,18 +10,18 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 11/20/2018
-ms.openlocfilehash: 72a6e7fdc8bd5887782ab23d29812bed792fd53f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 08510961616d2be8eac9b6a19063d5f0d613321f
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164599"
+ms.locfileid: "52263306"
 ---
 # <a name="prepare-data-for-modeling-with-azure-machine-learning"></a>Förbereda data för modellering med Azure Machine Learning
  
 I den här artikeln får du lära dig om användningsfall och unika funktioner i Azure Machine Learning Data Prep SDK. Förberedelse av data är den viktigaste delen av machine learning-arbetsflöde. Verkliga data delas ofta inkonsekvent eller kan inte användas som träningsdata utan betydande rengöring och omvandling. Korrigering och avvikelser i rådata och skapa nya funktioner som är relevanta för problemet du försöker lösa, ökar modellens precision.
 
-Du kan förbereda dina data i Python med hjälp av den [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py).
+Du kan förbereda dina data i Python med hjälp av den [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk).
 
 ## <a name="azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning Dataförberedelser SDK
 

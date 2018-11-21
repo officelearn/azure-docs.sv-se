@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 6de0d29895a6d12d3a5aa761c0c4c5148f62dd81
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 086399f669b704a0ae2c9f719906e7efa672b5b1
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256280"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262519"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Förbereda säkerhetskopiering av virtuella Azure-datorer
 
@@ -34,7 +34,7 @@ Om dessa villkor finns redan i din miljö, fortsätter du till den [säkerhetsko
 
 ## <a name="supported-operating-systems-for-backup"></a>Operativsystem som stöds för säkerhetskopiering
 
- * **Linux**: Azure Backup stöder [en lista över distributioner som Azure godkänner](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), förutom CoreOS Linux. Lista över Linux-operativsystem som stöd för att återställa filer, finns i [återställa filer från säkerhetskopiering av virtuella datorer](backup-azure-restore-files-from-vm.md#for-linux-os).
+ * **Linux**: Azure Backup stöder [en lista över distributioner som Azure godkänner](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), utom CoreOS Linux- och 32-bitars operativsystem. Lista över Linux-operativsystem som stöd för att återställa filer, finns i [återställa filer från säkerhetskopiering av virtuella datorer](backup-azure-restore-files-from-vm.md#for-linux-os).
 
     > [!NOTE]
     > Andra bring-your-own-Linux-distributioner kan fungera, så länge som den Virtuella datoragenten är tillgänglig på den virtuella datorn och har stöd för Python finns. Dessa distributioner stöds dock inte.

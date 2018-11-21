@@ -6,21 +6,21 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/19/2018
+ms.date: 11/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 31d794aa1dccddc8018e9413c9743a0abe13f4ac
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 6cbefe01632b37c225e0a5d4cd916c66f8c4524d
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160203"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274797"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Så här uppdaterar du Azure PowerShell-moduler i Azure Automation
 
-De vanligaste Azure PowerShell-moduler som tillhandahålls som standard i varje Automation-konto. Azure-teamet uppdaterar regelbundet, Azure-moduler så att du får ett sätt att uppdatera moduler i kontot när nya versioner är tillgängliga från portalen i Automation-kontot.
+De vanligaste Azure PowerShell-moduler som tillhandahålls som standard i varje Automation-konto. Azure-teamet uppdaterar regelbundet Azure-moduler. I ditt Automation-konto får du ett sätt att uppdatera moduler i kontot när nya versioner är tillgängliga från portalen.
 
-Eftersom modulerna uppdateras regelbundet av produktgruppen, kan ändras med inkluderade cmdlets som kan negativt påverka dina runbooks beroende på vilken typ av ändring, till exempel byta namn på en parameter eller avvecklar en cmdlet helt och hållet. För att undvika att påverka dina runbooks och de processer som de automatisera, bör du testa och verifiera innan du fortsätter. Om du inte har ett särskilt Automation-konto som är avsedd för detta ändamål kan du skapa en så att du kan testa många olika scenarier och permutationer under utvecklingen av dina runbooks dessutom till iterativ ändringar, till exempel uppdaterar de PowerShell-moduler. När resultaten verifieras och du har gjort några ändringar som krävs, Fortsätt med samordna migrering av alla runbooks som krävs för ändring av och utföra följande uppdatering som beskrivs i produktion.
+Eftersom modulerna uppdateras regelbundet av produktgruppen och ändringar som kan uppstå med cmdletarna som ingår. Den här åtgärden kan negativt påverka dina runbooks beroende på vilken typ av ändring, till exempel byta namn på en parameter eller avvecklar en cmdlet helt och hållet. För att undvika att påverka dina runbooks och de processer som de automatisera, testa och verifiera innan du fortsätter. Om du inte har ett särskilt Automation-konto som är avsedd för detta ändamål kan du skapa en så att du kan testa många olika scenarier under utvecklingen av dina runbooks. Detta test bör innehålla iterativ ändringar, till exempel uppdaterar PowerShell-moduler. När resultaten verifieras och du har använt alla ändringar som krävs, kan du flytta ändringarna till produktion.
 
 > [!NOTE]
 > Ett nytt Automation-konto kan inte innehålla de senaste modulerna.
@@ -48,27 +48,26 @@ Eftersom modulerna uppdateras regelbundet av produktgruppen, kan ändras med ink
   * AzureRm.Sql
   * AzureRm.Storage
 
-    Om modulerna som redan är uppdaterad, Slutför processen i några sekunder. När uppdateringen är klar visas ett meddelande.<br><br> ![Uppdatera status för Azure-moduler](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
+    Om modulerna som redan är uppdaterad, Slutför processen i några sekunder. När uppdateringen har slutförts meddelas du.<br><br> ![Uppdatera status för Azure-moduler](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
 
     .NET core AzureRm moduler (AzureRm.*. Kärnor) stöds inte i Azure Automation och kan inte importeras.
 
 > [!NOTE]
 > Azure Automation använder de senaste modulerna i ditt Automation-konto när ett nytt schemalagt jobb körs.  
 
-Om du använder cmdlets från dessa Azure PowerShell-moduler i dina runbooks du vill köra den här uppdateringen varje månad eller så se till att du har de senaste modulerna. Azure Automation använder AzureRunAsConnection anslutningen att autentisera när du uppdaterar moduler, om tjänstens huvudnamn har upphört att gälla eller finns inte längre på prenumerationsnivå modulen uppdateringen misslyckas.
+Om du använder cmdlets från dessa Azure PowerShell-moduler i dina runbooks du vill köra den här uppdateringen varje månad eller så se till att du har de senaste modulerna. Azure Automation används den `AzureRunAsConnection` anslutning för autentisering när du uppdaterar moduler. Om tjänstens huvudnamn har upphört att gälla eller finns inte längre på prenumerationsnivån, misslyckas uppdateringen modulen.
 
 ## <a name="alternative-ways-to-update-your-modules"></a>Olika sätt att uppdatera dina moduler
 
-Som tidigare nämnts kan den **uppdatera Azure-moduler** knappen är inte tillgängliga i suveräna moln, det är endast tillgängligt i globala Azure-molnet. Detta beror på att den senaste versionen av Azure PowerShell-moduler från PowerShell-galleriet inte kanske fungerar med Resource Manager-tjänsterna för närvarande har distribuerats i dessa moln.
+Som tidigare nämnts kan den **uppdatera Azure-moduler** knappen är inte tillgängliga i suveräna moln, det är endast tillgängligt i globala Azure-molnet. Detta beror på att den senaste versionen av Azure PowerShell-moduler från PowerShell-galleriet inte fungerar med Resource Manager-resurser som för närvarande har distribuerats i dessa moln.
 
-Uppdatera moduler kan fortfarande göras genom att importera den [uppdatering AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook i ditt Automation-konto och kör den. Med denna runbook kan du uppdatera Azure-moduler, men de kan fortfarande inte är kompatibla med det för närvarande har distribuerats i Azure-miljö som du använder. Du måste se till att rätt versioner som behövs för varje modul att säkerställa att Azure Automation kan fortfarande hantera dina resurser. Azure Automation inte hantera och spåra versioner av tjänster som distribueras.
+Du kan importera och köra den [uppdatering AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook att uppdatera Azure-moduler i ditt Automation-konto. Den här processen kan misslyckas om de versioner som du försöker importera från galleriet är inte kompatibel med Azure-tjänsterna för närvarande har distribuerats till mål-Azure-miljön. Du kan behöva du kontrollerar kompatibla versioner av moduler har angetts i runbook-parametrar.
 
-Använd den `AzureRmEnvironment` parameter för att skicka rätt miljö till runbooken.  Godkända värden är **AzureCloud**, **AzureChinaCloud**, **AzureGermanCloud**, och **AzureUSGovernmentCloud**. Dessa värden kan hämtas från att använda `Get-AzureRmEnvironment | select Name`. Om du inte skickar ett värde för den här parametern runbook som standard i Azures offentliga moln **AzureCloud**
+Använd den `AzureRmEnvironment` parameter för att skicka rätt miljö till runbooken.  Godkända värden är **AzureCloud**, **AzureChinaCloud**, **AzureGermanCloud**, och **AzureUSGovernmentCloud**. Dessa värden kan hämtas från att använda `Get-AzureRmEnvironment | select Name`. Om du inte skickar ett värde för den här parametern, runbooken som standard i Azures offentliga moln **AzureCloud**
 
-Om du vill använda en specifik version av Azure PowerShell-modulen i stället för den senaste tillgängliga på PowerShell-galleriet, skicka dessa versioner till den valfria `ModuleVersionOverrides` -parametern för den **uppdatering AzureModule** runbook. Exempel finns i den [uppdatering AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook. Azure PowerShell-moduler som inte nämns i den `ModuleVersionOverrides` parametern uppdateras med de senaste modulversionerna på PowerShell-galleriet. Om ingenting har överförts till den `ModuleVersionOverrides` parameter, alla moduler som uppdateras med de senaste modulversionerna på PowerShell-galleriet, vilket är beteendet för den **uppdatera Azure-moduler** knappen.
+Om du vill använda en specifik version av Azure PowerShell-modulen i stället för den senaste tillgängliga på PowerShell-galleriet, skicka dessa versioner till den valfria `ModuleVersionOverrides` -parametern för den **uppdatering AzureModule** runbook. Exempel finns i den [uppdatering AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook. Azure PowerShell-moduler som inte nämns i den `ModuleVersionOverrides` parametern uppdateras med de senaste modulversionerna på PowerShell-galleriet. Om du skickar något till den `ModuleVersionOverrides` parameter, alla moduler som uppdateras med de senaste modulversionerna på PowerShell-galleriet. Det här beteendet är samma som den **uppdatera Azure-moduler** knappen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om integreringsmoduler och hur du skapar anpassade moduler för att ytterligare integrera Automation med andra system, tjänster eller lösningar i [integreringsmoduler](automation-integration-modules.md).
 
-* Överväg att datakällan kontroll integrering med [GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md) eller [Azure DevOps](automation-scenario-source-control-integration-with-vsts.md) att centralt hantera och styra versioner av ditt Automation-runbook och konfiguration portfölj.  

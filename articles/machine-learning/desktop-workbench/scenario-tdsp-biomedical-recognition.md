@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0ca8e1081b514d5569c84a6364d55e8f49bee533
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 0d31fc0ecb06727aa44d31d832b0bfd5145b7c7d
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239013"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262100"
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Biomedicinsk Enhetsidentifiering med Team Data Science Process TDSP ()-mall
 
@@ -174,7 +174,7 @@ Word2Vec är ordet bädda in oövervakade Inlärningsalgoritmen som tränar en m
 
 ![Hoppa över Gram modell](./media/scenario-tdsp-biomedical-recognition/skip-gram.png)
 
-Modellen använder hierarkisk Softmax och negativa sampling för att optimera prestanda. Hierarkisk SoftMax (H-SoftMax) är en uppskattning INSPIRERAD av binära träd. H-SoftMax ersätter i stort sett fast SoftMax lagret med en hierarkisk layer med orden som lämnar. På så sätt kan vi dela upp beräkna sannolikheten för ett ord i en sekvens med sannolikhetsberäkningar, vilket sparar oss slipper beräkna dyra normalisering över alla orden. Eftersom ett balanserat binära träd har en mängd log2 (| V |) (V är vokabulär), vi behöver bara att utvärdera högst log2 (| V |) noder för att hämta den slutliga sannolikheten för ett ord. Sannolikheten för en word-w får sin kontext c är sedan bara produkten av sannolikheten för rätt och vänster stängs respektive den leda till dess lövnod. Vi kan skapa ett huffmanträd baserat på antalet ord i datauppsättningen för att säkerställa att oftare ord får kortare garantier. Mer information finns i [den här länken](http://sebastianruder.com/word-embeddings-softmax/).
+Modellen använder hierarkisk Softmax och negativa sampling för att optimera prestanda. Hierarkisk SoftMax (H-SoftMax) är en uppskattning INSPIRERAD av binära träd. H-SoftMax ersätter i stort sett fast SoftMax lagret med en hierarkisk layer med orden som lämnar. På så sätt kan vi dela upp beräkna sannolikheten för ett ord i en sekvens med sannolikhetsberäkningar, vilket sparar oss slipper beräkna dyra normalisering över alla orden. Eftersom ett balanserat binära träd har en mängd log2 (| V |) (V är vokabulär), vi behöver bara att utvärdera högst log2 (| V |) noder för att hämta den slutliga sannolikheten för ett ord. Sannolikheten för en word-w får sin kontext c är sedan bara produkten av sannolikheten för rätt och vänster stängs respektive den leda till dess lövnod. Vi kan skapa ett huffmanträd baserat på antalet ord i datauppsättningen för att säkerställa att oftare ord får kortare garantier. Mer information finns i [den här länken](http://ruder.io/word-embeddings-softmax/).
 Bild som kommer från [här](https://ahmedhanibrahim.wordpress.com/2017/04/25/thesis-tutorials-i-understanding-word2vec-for-word-embedding-i/).
 
 ##### <a name="visualization"></a>Visualisering

@@ -3,6 +3,7 @@ title: Länka Azure-konto och partner ID | Microsoft Docs
 description: Spåra arbete med Azure-kunder genom att länka partner-ID till det användarkonto som används för att hantera kundens resurser.
 services: billing
 author: dhirajgandhi
+manager: dhgandhi
 ms.author: cwatson
 ms.date: 03/12/2018
 ms.service: billing
@@ -10,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 342e182466d2fe704c5ee188e35dece0abaeea02
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 1e2492d978073f63c1c9494d652ec35a7d6565b7
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823103"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274187"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Länka partner-ID till dina Azure-konton
 

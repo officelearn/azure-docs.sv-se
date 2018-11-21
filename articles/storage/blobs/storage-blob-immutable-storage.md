@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: hux
 ms.component: blobs
-ms.openlocfilehash: 261f66013ab9c0ba493d18b84856d17db953402e
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: d3d83e240fec692d5aa655923637910006c7a62f
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037013"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261481"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Store verksamhetskritiska data i Azure Blob storage
 
@@ -47,7 +47,7 @@ Oföränderlig lagring är aktiverat i alla offentliga Azure-regioner.
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
-Oföränderlig lagring för Azure Blob storage stöder två typer av mask eller inte kan ändras principer: tidsbaserat bevarande och bevarande av juridiska skäl. Mer information om hur du skapar dessa kan ändras principer finns i den [komma igång](#Getting-started) avsnittet.
+Oföränderlig lagring för Azure Blob storage stöder två typer av mask eller inte kan ändras principer: tidsbaserat bevarande och bevarande av juridiska skäl. Mer information om hur du skapar dessa kan ändras principer finns i den [komma igång](#getting-started) avsnittet.
 
 När en tidsbaserad bevarandeprincip eller bevarande av juridiska skäl har tillämpats på en behållare, alla befintliga blobar flytta till den inte kan ändras (skriva och ta bort skyddade) tillstånd. Alla nya blobar som har laddats upp till behållaren kommer också flytta till tillståndet inte kan ändras.
 
@@ -69,7 +69,7 @@ För nya blobbar är den effektiva kvarhållningsperioden lika med det kvarhåll
 
 ### <a name="legal-holds"></a>Bevarande av juridiska skäl
 
-När du ställer in ett bevarande av juridiska skäl Behåll alla befintliga och nya BLOB kan ändras tillståndet tills bevarande av juridiska skäl är avmarkerad. Mer information om hur du definierar och rensa bevarande av juridiska skäl finns i den [komma igång](#Getting-started) avsnittet.
+När du ställer in ett bevarande av juridiska skäl Behåll alla befintliga och nya BLOB kan ändras tillståndet tills bevarande av juridiska skäl är avmarkerad. Mer information om hur du definierar och rensa bevarande av juridiska skäl finns i den [komma igång](#getting-started) avsnittet.
 
 En behållare kan ha både ett bevarande av juridiska skäl och en tidsbaserad bevarandeprincip på samma gång. Alla blobar i behållaren förblir kan ändras statusen tills alla bevarande av juridiska skäl rensas, även om deras effektiva kvarhållningsperiod har upphört att gälla. Omvänt kan är en blob i ett tillstånd som inte kan ändras tills effektiva kvarhållningsperioden upphör att gälla, även om alla bevarande av juridiska skäl har rensats.
 

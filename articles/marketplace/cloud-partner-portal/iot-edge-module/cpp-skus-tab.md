@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 205fd258ed397f5a9588773549368fc3c4aec058
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 370d8160661c1f73124151a3a49d0bb3170dfb77
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684825"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276048"
 ---
 # <a name="iot-edge-module-skus-tab"></a>Fliken för IoT Edge modul SKU: er
 
@@ -125,7 +125,7 @@ I följande tabell beskrivs syftet, innehåll, och formatering av fälten för *
 
 |  **Fält**       |     **Beskrivning**                                                          |
 |  ---------       |     ---------------                                                          |
-| **Standardvägar**        | Varje standard väg namnet och värdet måste vara färre än 512 tecken. Du kan definiera upp till 5 standardvägar. Se till att använda en korrekt [dirigera syntax](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) route-värde. Refererar till din modul, använder du dess standardnamnet för modulen som blir din **SKU rubrik** utan blanksteg eller specialtecken. Om du vill referera till andra moduler har ännu inte använda den `<FROM_MODULE_NAME>` konvention att kunderna vet att de behöver för att uppdatera den här informationen. Läs mer om [IoT Edge dirigerar](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes). <br/> Till exempel om modulen `ContosoModule` lyssnar för indata på `ContosoInput` och utdata på `ContosoOutput`, är det praktiskt att definiera standardvägar som 2 följande:<br/>-Name #1: `ToContosoModule`<br/>-Värdet #1:`FROM /messages/modules/<FROM_MODULE_NAME>/outputs/* INTO BrokeredEndpoint("/modules/ContosoModule/inputs/ContosoInput")`<br/>-Namnet #2: `FromContosoModuleToCloud`<br/>-Värdet #2: `FROM /messages/modules/ContonsoModule/outputs/ContosoOuput INTO $upstream`<br/>  |
+| **Standardvägar**        | Varje standard väg namnet och värdet måste vara färre än 512 tecken. Du kan definiera upp till 5 standardvägar. Se till att använda en korrekt [dirigera syntax](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) route-värde. Refererar till din modul, använder du dess standardnamnet för modulen som blir din **SKU rubrik** utan blanksteg eller specialtecken. Om du vill referera till andra moduler har ännu inte använda den `<FROM_MODULE_NAME>` konvention att kunderna vet att de behöver för att uppdatera den här informationen. Läs mer om [IoT Edge dirigerar](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes). <br/> Till exempel om modulen `ContosoModule` lyssnar för indata på `ContosoInput` och utdata på `ContosoOutput`, är det praktiskt att definiera standardvägar som 2 följande:<br/>-Name #1: `ToContosoModule`<br/>-Värdet #1:`FROM /messages/modules/<FROM_MODULE_NAME>/outputs/* INTO BrokeredEndpoint("/modules/ContosoModule/inputs/ContosoInput")`<br/>-Namnet #2: `FromContosoModuleToCloud`<br/>-Värdet #2: `FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream`<br/>  |
 | **Standard enhetstvillingens egenskaper**      | Varje standard twin önskade egenskaper namnet och värdet måste vara färre än 512 tecken. Du kan definiera upp till 5 enhetstvillingens egenskaper för namn/värde. Värdena för enhetstvillingens egenskaper måste vara giltig JSON, icke-undantaget, utan matriser och med en kapslad maxhierarki på 4. Läs mer om [twin önskade egenskaper](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties). <br/> Till exempel om en modul stöder en dynamiskt konfigurerbara uppdateringsintervall via enhetstvillingens egenskaper kan det vara bra att definiera följande standard enhetstvillingens egenskap:<br/> -Name #1: `RefreshRate`<br/>-Värdet #1: `60`|
 | **Standard-miljövariabler**  | Varje standard miljö variabler namnet och värdet måste vara färre än 512 tecken. Du kan definiera upp till 5 namn/värde-miljövariabler. <br/>Om en modul kräver för att godkänna användningsvillkoren innan startas, till exempel kan du definiera följande miljövariabler:<br/> -Name #1: `ACCEPT_EULA`<br/>-Värdet #1: `Y`|
 | **Standard createOptions**  | CreateOptions måste vara färre än 512 tecken. Det måste vara giltig JSON, icke-undantaget. Läs mer om [createOptions](https://docs.microsoft.com/azure/iot-edge/module-composition#configure-modules). <br/> Till exempel om en modul kräver binda en port, kan du definiera följande createOptions:<br/>  `"HostConfig":{"PortBindings":{"5012/tcp":[{"HostPort":"5012"}]}`|

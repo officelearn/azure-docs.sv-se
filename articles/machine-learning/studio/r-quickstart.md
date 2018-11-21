@@ -4,8 +4,8 @@ description: Använd den här programming R-självstudiekursen för att komma ig
 keywords: Snabbstart, r-språket, r-programspråket, r-programmeringsspråket självstudien
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 32e1d321d745ac80a857b75910619b02b7521ca7
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 028672a9bb0fb1aa256083a0422cc1c565977250
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822814"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52265329"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Snabbstartssjälvstudier till R-programmeringsspråket för Azure Machine Learning
 

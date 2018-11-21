@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 3883fc71c099718face38c16897040788fe0c6ab
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: ca3a0e9a8c63ddc9a5c2ca34faffc683d0324321
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056516"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262561"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Etablera en Linux CentOS Data Science-dator på Azure
 
@@ -77,7 +77,7 @@ Här följer stegen för att skapa en instans av den Linux virtuella datorn för
    * **Namn på**: namnet på din data science-server som du skapar.
    * **Användarnamnet**: första kontoinloggningen ID.
    * **Lösenord**: första kontolösenordet (du kan använda offentlig SSH-nyckel i stället för lösenord).
-   * **Prenumeration**: Om du har mer än en prenumeration kan du välja den som som datorn är skapas och faktureras. Du måste ha behörighet för resursen skapas för den här prenumerationen.
+   * **Prenumeration**: Om du har mer än en prenumeration kan du välja den som som datorn är skapas och faktureras. Du måste ha behörighet att skapa resurser för prenumerationen.
    * **Resursgrupp**: du kan skapa en ny eller Använd en befintlig grupp.
    * **Plats**: Välj det datacenter som är mest lämplig. Vanligtvis är det datacenter som har de flesta av dina data, eller så är närmast dina fysiska platsen för snabbaste nätverksåtkomst.
    
@@ -97,12 +97,12 @@ Här följer stegen för att skapa en instans av den Linux virtuella datorn för
    
    e. **Köpa**:
    
-   * Starta etableringen, klicka på **köpa**. Det finns en länk till villkoren i transaktionen. Den virtuella datorn har inte några ytterligare avgifter utöver beräkning för serverstorlek som du valde i den **storlek** steg.
+   * Starta etableringen, klicka på **köpa**. Det finns en länk till villkoren för transaktionen. Den virtuella datorn har inte några ytterligare avgifter utöver beräkning för serverstorlek som du valde i den **storlek** steg.
 
 Etableringen tar cirka 10-20 minuter. Status för etableringen visas på Azure portal.
 
 ## <a name="how-to-access-the-linux-data-science-virtual-machine"></a>Hur du kommer åt Linux Data Science Virtual Machine
-När den virtuella datorn har skapats kan logga du in till den med hjälp av SSH. Använda de autentiseringsuppgifter som du skapade i den **grunderna** avsnittet i steg 3 för text shell-gränssnittet. På Windows, kan du ladda ned ett SSH-klientverktyg som [Putty](http://www.putty.org). Du kan använda X11 vidarebefordran på Putty eller installera X2Go klienten om du föredrar en grafisk desktop (X Windows System).
+När den virtuella datorn har skapats kan logga du in till den med hjälp av SSH. Använda de autentiseringsuppgifter som du skapade i den **grunderna** avsnittet i steg 3 för text shell-gränssnittet. I Windows kan du ladda ned ett SSH-klientverktyg som [Putty](http://www.putty.org). Du kan använda X11 vidarebefordran på Putty eller installera X2Go klienten om du föredrar en grafisk desktop (X Windows System).
 
 > [!NOTE]
 > Klienten X2Go utförs avsevärt bättre än X11 vidarebefordran i testet. Vi rekommenderar att du använder X2Go-klienten för ett grafiskt gränssnitt för fjärrskrivbord.
@@ -160,7 +160,7 @@ Om du vill installera ytterligare Python-bibliotek, måste du köra ```conda``` 
     sudo /anaconda/bin/conda install -n py35 <package> #conda for Python 3.5
 
 
-### <a name="jupyter-notebook"></a>Jupyter-anteckningsbok
+### <a name="jupyter-notebook"></a>Jupyter Notebook
 Anaconda distribution levereras också med en Jupyter-anteckningsbok, en miljö för att dela kod och analys. Jupyter-anteckningsboken sker via JupyterHub. Du loggar in med ditt lokala Linux-användarnamn och lösenord.
 
 Jupyter notebook-server har konfigurerats före med Python 2, Python 3 och R-kärnor. Det finns en skrivbordsikonen med namnet ”Jupyter Notebook” för att starta webbläsaren för att komma åt notebook-server. Om du är på den virtuella datorn via SSH- eller X2Go-klient kan du kan också besöka [ https://localhost:8000/ ](https://localhost:8000/) till Jupyter notebook-server.
@@ -374,6 +374,6 @@ Här är hur du kan fortsätta din inlärning och undersökning:
 
 * Den [datavetenskap på den Linux Data Science Virtual Machine](linux-dsvm-walkthrough.md) genomgången visar hur du utför flera vanliga datavetenskapsuppgifter med den Linux virtuell dator för datavetenskap etablerats här. 
 * Utforska de olika verktyg för datavetenskap på den virtuella datorn för datavetenskap genom att prova de verktyg som beskrivs i den här artikeln. Du kan också köra *dsvm-mer-info* på gränssnittet på den virtuella datorn för en grundläggande introduktion och länkar till mer information om verktygen som installeras på den virtuella datorn.  
-* Lär dig att skapa slutpunkt till slutpunkt Analyslösningar systematiskt med hjälp av den [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+* Lär dig att skapa slutpunkt till slutpunkt Analyslösningar systematiskt med hjälp av den [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 * Gå till den [Cortana Analytics-galleriet](http://gallery.cortanaanalytics.com) för machine learning och data analytics-exempel som använder Cortana Analytics Suite.
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e2a931b14719775ac3d901591b6424d9c9e9ee10
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 88df62b6e8c4eb519c51d82763634cf7d6d14418
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625835"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262660"
 ---
 # <a name="log-analytics-faq"></a>Vanliga frågor och svar om Log Analytics
 Den här Microsoft-FAQ är en lista över vanliga frågor om Log Analytics i Microsoft Azure. Om du har ytterligare frågor om Log Analytics kan du gå till den [diskussionsforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) och ställa frågor. När en fråga är vanliga vi lägga till det i den här artikeln så att den finns snabbt och enkelt.
@@ -37,7 +37,7 @@ S: de är samma sak. [Log Analytics ingår som en funktion i Azure Monitor](../a
 S: log Search finns för närvarande är fortfarande tillgängliga i OMS-portalen och i Azure-portalen under namnet **loggar (klassisk)**. OMS-portalen kommer officiellt dras tillbaka den 15 januari 2019. Den klassiska upplevelsen för loggar i Azure-portalen kommer att dras tillbaka gradvis och ersätts den nya upplevelsen för loggar. 
 
 ### <a name="q-can-i-still-use-advanced-analytics-portal"></a>F. Kan jag fortfarande använda Advanced Analytics-portalen? 
-Den nya upplevelsen för loggar i Azure-portalen är baserad på den [Advanced Analytics-portalen](https://portal.loganalytics.io/), men den fortfarande kan användas utanför Azure-portalen. En översikt över för att ta bort den här externa portalen tillkännages snart.
+Den nya upplevelsen för loggar i Azure-portalen är baserad på Advanced Analytics-portalen, men den fortfarande kan användas utanför Azure-portalen. En översikt över för att ta bort den här externa portalen tillkännages snart.
 
 ### <a name="q-why-cant-i-see-query-explorer-and-save-buttons-in-the-new-logs-experience"></a>F. Varför kan inte se Query Explorer och spara knappar i den nya upplevelsen för loggar?
 
@@ -71,7 +71,7 @@ S: Om du vill öppna en arbetsyta i Azure måste du ha Azure behörigheter. Det 
 S: view Designer finns bara i loggarna för användare som har tilldelats med deltagarbehörighet eller högre.
 
 ### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>F. Kan jag fortfarande använda analysportalen utanför Azure?
-A. Ja, loggarna sidan i Azure och [Advanced Analytics-portalen](https://portal.loganalytics.io) baseras på samma kod. Log Analytics ingår som en funktion i Azure Monitor för att ge en mer enhetlig upplevelse för övervakning. Du kan fortfarande komma åt Analytics-portalen med hjälp av URL: https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
+A. Ja, sidan loggar i Azure och Advanced Analytics-portalen är baserade på samma kod. Log Analytics ingår som en funktion i Azure Monitor för att ge en mer enhetlig upplevelse för övervakning. Du kan fortfarande komma åt Analytics-portalen med hjälp av URL: https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
 
 
 

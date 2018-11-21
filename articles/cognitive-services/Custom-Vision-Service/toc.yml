@@ -42,6 +42,8 @@ items:
     href: export-model-python.md
   - name: Skapa en modell med hjälp av REST API
     href: rest-api-tutorial.md
+  - name: Exportera eller ta bort kontodata
+    href: ./export-delete-data.md
 - name: Referens
   items:
   - name: API för Custom Vision Training
@@ -60,25 +62,23 @@ items:
       href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices
 - name: Resurser
   items:
-  - name: Viktig information
-    href: release-notes.md
   - name: Exempel
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
   - name: Priser och begränsningar
     href: limits-and-quotas.md
-  - name: Exportera eller ta bort kontodata
-    href: ./export-delete-data.md
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/598141-custom-vision-service
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+    href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Regional tillgänglighet
-    href: https://azure.microsoft.com/global-infrastructure/services/
-ms.openlocfilehash: 1394f71bceef7a0646411a155b63825771e839d3
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+  - name: Viktig information
+    href: release-notes.md
+ms.openlocfilehash: 9a084dbfbbc6d90a56e5986d967375da8a8fbb03
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281040"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276083"

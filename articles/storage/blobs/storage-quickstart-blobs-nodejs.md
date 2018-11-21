@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: d47878502816a0a61829859cc166c125448a2850
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 31804932cd4176cd55af752a7c1d05ae0a5f0cdf
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710893"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52260775"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-nodejs-sdk-v2"></a>Hur du laddar upp, ladda ned och lista blobar med Node.js SDK v2
 
@@ -124,7 +124,7 @@ const listContainers = async () => {
 };
 ```
 
-Storleken på grupperna kan konfigureras via [ListContainersOptions](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.listcontaineroptions?view=azure-node-latest). Anrop till *listContainersSegmented* returnerar blobmetadata som en matris med [ContainerResult](/nodejs/api/azure-storage/blobresult)-instanser. Resultaten returneras i 5 000 inkrementella batchar (segment). Om det finns fler än 5 000 blobbar i en container kommer resultatet innehålla ett värde för *continuationToken*. Visa efterföljande segment från blobcontainern genom att skicka fortsättningstoken tillbaka till *listContainersSegment* som det andra argumentet.
+Storleken på grupperna kan konfigureras via [ListContainersOptions](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.listcontaineroptions?view=azure-node-latest). Anrop till *listContainersSegmented* returnerar blobmetadata som en matris med [ContainerResult](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.containerresult?view=azure-node-latest)-instanser. Resultaten returneras i 5 000 inkrementella batchar (segment). Om det finns fler än 5 000 blobbar i en container kommer resultatet innehålla ett värde för *continuationToken*. Visa efterföljande segment från blobcontainern genom att skicka fortsättningstoken tillbaka till *listContainersSegment* som det andra argumentet.
 
 ### <a name="create-a-container"></a>Skapa en container
 
@@ -167,7 +167,7 @@ const uploadString = async (containerName, blobName, text) => {
 ```
 ### <a name="upload-a-local-file"></a>Ladda upp en lokal fil
 
-Funktionen *uploadLocalFile* använder [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromLocalFile) för att ladda upp och skriva (eller skriva över) en fil från filsystemet till bloblagringen. 
+Funktionen *uploadLocalFile* använder [createBlockBlobFromLocalFile](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromlocalfile-string--string--string--errororresult-blobresult--) för att ladda upp och skriva (eller skriva över) en fil från filsystemet till bloblagringen. 
 
 ```javascript
 const uploadLocalFile = async (containerName, filePath) => {
@@ -184,11 +184,11 @@ const uploadLocalFile = async (containerName, filePath) => {
     });
 };
 ```
-Andra metoder som är tillgängliga för att ladda upp innehåll till blobbar är att arbeta med [text](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) och [dataströmmar](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromStream). Om du vill kontrollera att filen har laddats upp till blobblagringen, kan du använda [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) till att visa datan på ditt konto.
+Andra metoder som är tillgängliga för att ladda upp innehåll till blobbar är att arbeta med [text](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromtext-string--string--string---buffer--errororresult-blobresult--) och [dataströmmar](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromstream-string--string--stream-readable--number--errororresult-blobresult--). Om du vill kontrollera att filen har laddats upp till blobblagringen, kan du använda [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) till att visa datan på ditt konto.
 
 ### <a name="list-the-blobs"></a>Visa en lista över blobarna
 
-Funktionen *listBlobs* anropar metoden [listBlobsSegmented](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) för att returnera en lista med blobmetadata i en container. 
+Funktionen *listBlobs* anropar metoden [listBlobsSegmented](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#listblobssegmented-string--continuationtoken--errororresult-listblobsresult--) för att returnera en lista med blobmetadata i en container. 
 
 ```javascript
 const listBlobs = async (containerName) => {
@@ -228,7 +228,7 @@ Implementeringen som visas här gör att källan returnerar innehållet i bloben
 
 ### <a name="delete-a-blob"></a>Ta bort en blob
 
-Funktionen *deleteBlob* anropar funktionen [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists). Som namnet antyder returnerar den här funktionen inte ett fel om bloben redan har tagits bort.
+Funktionen *deleteBlob* anropar funktionen [deleteBlobIfExists](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deleteblobifexists-string--string--errororresult-boolean--). Som namnet antyder returnerar den här funktionen inte ett fel om bloben redan har tagits bort.
 
 ```javascript
 const deleteBlob = async (containerName, blobName) => {

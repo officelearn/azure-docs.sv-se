@@ -8,14 +8,14 @@ ms.author: banders
 ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: benshy
 ms.custom: ''
-ms.openlocfilehash: e4d4c2115ddae592e9ca7bdf119b36d0ccee2da4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b4e1ffa0b7bd524fc9029b21e77b09ea07e1f202
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998720"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276660"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Förstå Cloudyn kostnad rapporter
 
@@ -166,7 +166,7 @@ Varje numrerad område i den föregående bilden beskrivs i detalj i följande i
 
     Använd format för att välja olika vyer för diagrammet eller tabellen.
 
-    ![visningsformat](./media/understanding-cost-reports/display-formats.png)
+    ![Visningsformat](./media/understanding-cost-reports/display-formats.png)
 
 13. **Flera färg**
 

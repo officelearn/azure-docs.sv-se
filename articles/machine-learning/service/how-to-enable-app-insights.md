@@ -1,6 +1,6 @@
 ---
-title: Aktivera Application Insights för Azure Machine Learning-tjänsten i produktion
-description: Lär dig hur du ställer in Application Insights för Azure Machine Learning-tjänsten för distribution till Azure Kubernetes Service
+title: Aktivera Application Insights för Azure Machine Learning-tjänsten
+description: Lär dig hur du ställer in Application Insights för tjänster som distribueras via Azure Machine Learning-tjänsten
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,14 +9,14 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
-ms.openlocfilehash: 71dc7c0dbb2400802235da4f1bb952c7863a1862
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 9e0f07e744aaf5f1c35666b40285937dce6dd4de
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713222"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275062"
 ---
-# <a name="monitor-your-azure-machine-learning-models-in-production-with-application-insights"></a>Övervaka dina Azure Machine Learning-modeller i produktion med Application Insights
+# <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Övervaka dina Azure Machine Learning-modeller med Application Insights
 
 I den här artikeln får du lära dig hur du ställer in Azure Application Insights för Azure Machine Learning-tjänsten. Application Insights ger dig möjlighet att övervaka:
 * Begära frekvens, svarstider och Felfrekvens.
@@ -32,14 +32,53 @@ I den här artikeln får du lära dig hur du ställer in Azure Application Insig
 ## <a name="prerequisites"></a>Förutsättningar
 * En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLfree) innan du börjar.
 * En lokal katalog som innehåller dina skript och Azure Machine Learning-SDK för Python installerat en Azure Machine Learning-arbetsyta. Information om hur du hämtar dessa krav finns i [så här konfigurerar du en utvecklingsmiljö](how-to-configure-environment.md).
-* En tränad modell för maskininlärning som ska distribueras till Azure Kubernetes Service (AKS). Om du inte har någon kan se den [träningsmodell bild klassificering](tutorial-train-models-with-aml.md) självstudien.
-* En [AKS-kluster](how-to-deploy-to-aks.md).
+* En tränad modell för maskininlärning för distribution till Azure Kubernetes Service (AKS) eller Azure Container-instans (ACI). Om du inte har någon kan se den [träningsmodell bild klassificering](tutorial-train-models-with-aml.md) självstudien.
 
+
+## <a name="enable-and-disable-from-the-sdk"></a>Aktivera och inaktivera från SDK
+
+### <a name="update-a-deployed-service"></a>Uppdatera en distribuerad tjänst
+1. Identifiera tjänsten i din arbetsyta. Värdet för `ws` är namnet på din arbetsyta.
+
+    ```python
+    from azureml.core.webservice import Webservice
+    aks_service= Webservice(ws, "my-service-name")
+    ```
+2. Uppdatera din tjänst och aktivera Application Insights. 
+
+    ```python
+    aks_service.update(enable_app_insights=True)
+    ```
+
+### <a name="log-custom-traces-in-your-service"></a>Anpassade loggspårningar i din tjänst
+Om du vill logga anpassade spårningar följer standard distributionsprocessen för [AKS](how-to-deploy-to-aks.md) eller [ACI](how-to-deploy-to-aci.md) . Sedan:
+
+1. Uppdatera bedömningsfil genom att lägga till Skriv ut utdrag.
+    
+    ```python
+    print ("model initialized" + time.strftime("%H:%M:%S"))
+    ```
+
+2. Uppdatera tjänstekonfigurationen.
+    
+    ```python
+    config = Webservice.deploy_configuration(enable_app_insights=True)
+    ```
+
+3. Skapa en avbildning och distribuera den på [AKS](how-to-deploy-to-aks.md) eller [ACI](how-to-deploy-to-aci.md).  
+
+### <a name="disable-tracking-in-python"></a>Inaktivera spårning i Python
+
+Om du vill inaktivera Application Insights, Använd följande kod:
+
+```python 
+## replace <service_name> with the name of the web service
+<service_name>.update(enable_app_insights=False)
+```
+    
 ## <a name="enable-and-disable-in-the-portal"></a>Aktivera och inaktivera i portalen
 
 Du kan aktivera och inaktivera Application Insights i Azure-portalen.
-
-### <a name="enable"></a>Aktivera
 
 1. I den [Azure-portalen](https://portal.azure.com), öppna din arbetsyta.
 
@@ -68,47 +107,7 @@ Du kan aktivera och inaktivera Application Insights i Azure-portalen.
    [![Avmarkerad kryssruta för att aktivera diagnostik](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
 
 1. Välj **uppdatering** längst ned på skärmen för att tillämpa ändringarna. 
-
-## <a name="enable-and-disable-from-the-sdk"></a>Aktivera och inaktivera från SDK
-
-### <a name="update-a-deployed-service"></a>Uppdatera en distribuerad tjänst
-1. Identifiera tjänsten i din arbetsyta. Värdet för `ws` är namnet på din arbetsyta.
-
-    ```python
-    aks_service= Webservice(ws, "my-service-name")
-    ```
-2. Uppdatera din tjänst och aktivera Application Insights. 
-
-    ```python
-    aks_service.update(enable_app_insights=True)
-    ```
-
-### <a name="log-custom-traces-in-your-service"></a>Anpassade loggspårningar i din tjänst
-Om du vill anpassade loggspårningar, följer du de [standard distributionsprocessen för AKS](how-to-deploy-to-aks.md). Sedan:
-
-1. Uppdatera bedömningsfil genom att lägga till Skriv ut utdrag.
-    
-    ```python
-    print ("model initialized" + time.strftime("%H:%M:%S"))
-    ```
-
-2. Uppdatera AKS-konfigurationen.
-    
-    ```python
-    aks_config = AksWebservice.deploy_configuration(enable_app_insights=True)
-    ```
-
-3. [Skapa avbildningen och distribuera den](how-to-deploy-to-aks.md).  
-
-### <a name="disable-tracking-in-python"></a>Inaktivera spårning i Python
-
-Om du vill inaktivera Application Insights, Använd följande kod:
-
-```python 
-## replace <service_name> with the name of the web service
-<service_name>.update(enable_app_insights=False)
-```
-    
+ 
 
 ## <a name="evaluate-data"></a>Utvärdera data
 Din tjänsts data lagras i ditt Application Insights-konto, inom samma resursgrupp som din Azure Machine Learning-tjänsten.

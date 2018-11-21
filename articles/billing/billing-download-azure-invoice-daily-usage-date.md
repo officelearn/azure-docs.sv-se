@@ -5,7 +5,7 @@ keywords: faktura, nedladdning av faktura, azure-faktura, azure-användning
 services: billing
 documentationcenter: ''
 author: genlin
-manager: tonguyen
+manager: adpick
 editor: ''
 tags: billing
 ms.service: billing
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: f0cdfef50c07674a08766933f2f7edfc946462a4
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 9067162c6f1bd95b0a1c25bef17836b19ecf6946
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395023"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276117"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Ladda ned eller visa din faktura för Azure och uppgifter om daglig användning
 Du kan hämta din faktura från den [Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) eller så har den skickas via e-post. För att hämta det dagliga arbetet, går du till den [Azure Kontocenter](https://account.azure.com/Subscriptions). Endast vissa roller har behörighet att hämta faktura och information om användning, som kontoadministratör. Läs mer om att få åtkomst till faktureringsinformation på sidan om att [hantera åtkomst till Azure-fakturering med hjälp av roller](billing-manage-access.md).
@@ -100,15 +100,15 @@ Läs mer om din dagliga användning i [Förstå fakturan för Microsoft Azure](b
 
 ## <a name="noinvoice"></a> Varför ser jag en faktura för den senaste faktureringsperioden?
 
-Det kan finnas flera orsaker till att du inte ser en faktura:
+Det kan finnas flera orsaker till att den inte visas:
 
-- Du har en månatlig kredit med din prenumeration som du inte överskrider eller så har en kostnadsfri utvärderingsversion. En faktura skapas bara när du är skyldig pengar.
+- Du har en månatlig kredit med din prenumeration som du inte har uppnått än, eller så har du en kostnadsfri utvärderingsversion. En faktura skapas först när du är skyldig pengar.
 
-- Det är mindre än 30 dagar från den dag som du prenumererar på Azure.
+- Det är mindre än 30 dagar sedan du började prenumerera på Azure.
 
-- Fakturan är inte genererat än. Vänta tills slutet av faktureringsperioden.
+- Fakturan har inte genererats än. Vänta till slutet av faktureringsperioden.
 
-- Om du inte är kontoadministratören kanske inte äldre fakturor tillgängliga för dig.
+- Om du inte är kontoadministratör kan det hända att du inte har tillgång till äldre fakturor.
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
 Om du har fler frågor, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 11/21/2018
 ms.author: jingwang
-ms.openlocfilehash: ec0fc11ac2caf421f331a8fe72f1dacdf6b8a702
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 1e561a59ebe503e0088362087dbda4d7d89fee4c
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42312171"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275694"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Kopiera data från och till Oracle med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,11 +65,46 @@ Följande egenskaper har stöd för Oracle-länkade tjänsten.
 >[!TIP]
 >Om du stöter på fel som säger ”ORA-01025: UPI parametern är utanför intervallet” och din Oracle är av version 8i, lägga till `WireProtocolMode=1` till din anslutningssträng och försök igen.
 
-Om du vill aktivera kryptering på Oracle-anslutning, har du två alternativ:
+**Aktivera kryptering på Oracle anslutning**, har du två alternativ:
 
-1.  Gå till Oracle avancerad säkerhet (OAS) och konfigurera krypteringsinställningar, vilken har stöd för kryptering av trippel-DES (3DES) och Advanced Encryption Standard (AES), finns på Oracle serversidan [här](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). ADF Oracle-anslutningsapp förhandlar automatiskt krypteringsmetod för att använda den som du konfigurerar i OAS när anslutning till Oracle.
+1.  Att använda **kryptering trippel-DES (3DES) och Advanced Encryption Standard (AES)** på Oracle serversidan, går du till Oracle avancerad säkerhet (OAS) och konfigurera krypteringsinställningar för, finns [här](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). ADF Oracle-anslutningsapp förhandlar automatiskt krypteringsmetod för att använda den som du konfigurerar i OAS när anslutning till Oracle.
 
-2.  På klientsidan kan du lägga till `EncryptionMethod=1` i anslutningssträngen. Detta använder SSL/TLS som krypteringsmetod. För att använda detta, måste du inaktivera icke-SSL krypteringsinställningar i OAS på serversidan Oracle för att undvika konflikt för kryptering.
+2.  Att använda **SSL**, följer du dessa steg:
+
+    1.  Få information om SSL-certifikat. Hämta information om DER-kodat certifikat för SSL-certifikat och spara utdata (---börjar certifikat... Sluta Certificate---) som en textfil.
+
+        ```
+        openssl x509 -inform DER -in [Full Path to the DER Certificate including the name of the DER Certificate] -text
+        ```
+
+        **Exempel:** extrahera cert information från DERcert.cer; spara utdata till cert.txt
+
+        ```
+        openssl x509 -inform DER -in DERcert.cer -text
+        Output:
+        -----BEGIN CERTIFICATE-----
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXX
+        -----END CERTIFICATE-----
+        ```
+    
+    2.  Skapa keystore eller truststore. Följande kommando skapar truststore-filen med eller utan lösenord i PKCS-12-format.
+
+        ```
+        openssl pkcs12 -in [Path to the file created in the previous step] -out [Path and name of TrustStore] -passout pass:[Keystore PWD] -nokeys -export
+        ```
+
+        **Exempel:** skapar en PKCS12 trustsotre-fil med namnet MyTrustStoreFile med ett lösenord
+
+        ```
+        openssl pkcs12 -in cert.txt -out MyTrustStoreFile -passout pass:ThePWD -nokeys -export  
+        ```
+
+    3.  Placera filen truststore på lokal IR-dator, t.ex. vid C:\MyTrustStoreFile.
+    4.  I ADF, konfigurerar du anslutningssträngen för Oracle med `EncryptionMethod=1` och motsvarande `TrustStore` / `TrustStorePassword`värde, t.ex. `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
 
 **Exempel:**
 

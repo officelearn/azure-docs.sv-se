@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ae962cba5e3d08661eb1c93edfc2feb221a9367e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: d3705267520087e098e3e2bcc55e677935dc6097
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623806"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275341"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
@@ -46,7 +46,7 @@ Det här avsnittet ger en översikt över rapporten inloggningar.
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Vilken Azure AD-licens behöver du för att komma åt inloggningsaktiviteter?
 * Din klient måste ha en associerad Azure AD Premium-licens för att det ska gå att se alla rapporter om inloggningsaktiviteter
 
-## <a name="sign-ins-report"></a>Rapporten inloggningar
+## <a name="sign-ins-report"></a>Rapport över inloggningar
 
 Användaren loggar in rapporten innehåller svar på följande frågor:
 
@@ -57,6 +57,9 @@ Användaren loggar in rapporten innehåller svar på följande frågor:
 Du kan komma åt rapporten inloggningar genom att välja **inloggningar** i den **aktivitet** delen av den **Azure Active Directory** -bladet i den [Azure-portalen](https://portal.azure.com).
 
 ![Inloggningsaktivitet](./media/concept-sign-ins/61.png "inloggningsaktivitet")
+
+> [!IMPORTANT]
+> Inloggningar rapporterar endast visar de **interaktiva** inloggningar, som är, inloggningar, där en användare manuellt loggar in med sitt användarnamn och lösenord. Icke-interaktiva inloggningar, till exempel tjänst-till-tjänst-autentisering, visas inte i rapporten inloggningar. 
 
 En inloggningslogg har en standardlistvy som visar:
 

@@ -3,8 +3,8 @@ title: Träna om Machine Learning-modeller via programmering | Microsoft Docs
 description: Lär dig hur du tränar en modell och uppdatera webbtjänsten för att använda den nyligen tränade modellen i Azure Machine Learning programmässigt.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.custom: (previous ms.author yahajiza)
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: e6be52dbfbe6f5d51589f3a3738013dedeee6bdd
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 2dd72446bd1238b7c70535bf848d52909f82d990
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824769"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262235"
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>Omtrimning av Azure Machine Learning-modeller via programmering
 I den här genomgången får du lära dig hur du programmässigt omtrimning av en Azure Machine Learning-webbtjänst med hjälp av C# och Machine Learning Batch Execution service.

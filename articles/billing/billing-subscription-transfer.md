@@ -5,7 +5,7 @@ keywords: överföra prenumerationen för överföring av azure-prenumeration, a
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing,top-support-issue
 ms.assetid: c8ecdc1e-c9c5-468c-a024-94ae41e64702
@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e9b5d1a84417cf6e6264211ea6e542ab712f9fe
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 66ad7c4eb07946daa278589e4a1a819f12315270
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422615"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276382"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Överföra ägarskapet för en Azure-prenumeration till ett annat konto
 
@@ -110,9 +110,9 @@ Prenumerationsöverföring med självbetjäning är tillgänglig för erbjudande
 
 ### <a name="whoisaa"></a> Vem är kontoadministratör för prenumerationen?
 
-Kontoadministratören är den person som har registrerat sig för eller har köpt Azure-prenumeration. De har behörighet att komma åt den [Kontocenter](https://account.azure.com/Subscriptions) och utföra olika hanteringsuppgifter som att skapa prenumerationer, avbryta prenumerationer, ändra faktureringen för en prenumeration eller ändra tjänstadministratör. Om du inte vet som kontoadministratör för en prenumeration, använder du följande steg för att ta reda på.
+Kontoadministratören är den person som har registrerat sig för eller har köpt Azure-prenumeration. De har behörighet att komma åt den [Kontocenter](https://account.azure.com/Subscriptions) och utföra olika hanteringsuppgifter som att skapa prenumerationer, avbryta prenumerationer, ändra faktureringen för en prenumeration eller ändra tjänstadministratör. Om du inte vet som är kontoadministratör för en prenumeration, tar du reda på det med hjälp av följande steg.
 
-1. Gå till den [prenumerationssidan i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Gå till [prenumerationssidan i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Välj den prenumeration som du vill kontrollera och tittar sedan under **inställningar**.
 1. Välj **egenskaper**. Kontoadministratör för prenumerationen visas i den **kontoadministratören** box.
 

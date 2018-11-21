@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 2ba6fefb9c1d952fbfdb6942694d69565a299c2e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 61e8a7732b7e6dc7fd521819a135fb1a7a6a13b3
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241267"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261674"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – vanliga frågor och svar
 Den här artikeln innehåller vanliga frågor och svar om Azure Backup-tjänsten.
@@ -125,7 +125,7 @@ Windows Storage Server 2012 64-bitars | Standard, Workgroup | Med de senaste ser
 Windows Server 2008 R2 SP1 64-bitars | Standard, Enterprise, Datacenter, Foundation | Med de senaste uppdateringarna.
 Windows Server 2008 64-bitars | Standard, Enterprise, Datacenter | Med de senaste uppdateringarna.
 
-Azure Backup stöder för Azure VM Linux säkerhetskopior [lista över distributioner som godkänts av Azure](../virtual-machines/linux/endorsed-distros.md), undantag för Core OS Linux.  Andra bring-your-own Linux-distributioner kan fungera så länge som den Virtuella datoragenten är tillgänglig på den virtuella datorn och har stöd för Python finns.
+Azure Backup stöder för Azure VM Linux säkerhetskopior [lista över distributioner som godkänts av Azure](../virtual-machines/linux/endorsed-distros.md), undantag för Core OS Linux- och 32-bitars operativsystem. Andra bring-your-own Linux-distributioner kan fungera så länge som den Virtuella datoragenten är tillgänglig på den virtuella datorn och har stöd för Python finns.
 
 
 ## <a name="are-there-size-limits-for-data-backup"></a>Finns det begränsningar för meddelandestorlek för säkerhetskopiering av data?

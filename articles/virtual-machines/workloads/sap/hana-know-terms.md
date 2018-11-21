@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 11/20/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d8197e3695da8869806e44775f601d95b17fcb2
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 902c4c94cc7366af342816e9b4776af603711c8b
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028674"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275456"
 ---
 # <a name="know-the-terms"></a>Vet villkoren
 
@@ -39,7 +39,7 @@ Flera gemensamma definitioner används mycket i arkitekturen och tekniska distri
    Domänanvändare på den lokala domänen kan komma åt servrarna och köra tjänster på dessa virtuella datorer (till exempel DBMS tjänster). Kommunikation och namnmatchning mellan virtuella datorer distribueras på plats och Azure-distribuerade virtuella datorer är möjligt. Det här scenariot är vanliga på vägen där de flesta SAP-resurser distribueras. Mer information finns i [planering och utformning för Azure VPN Gateway](../../../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) och [skapa ett virtuellt nätverk med en plats-till-plats-anslutning med hjälp av Azure portal](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 - **Klient**: en kund som distribuerats i stora HANA-instansen stämpel hämtar isolerade i en *klient.* En klient är isolerade i nätverk, lagring och beräkningslager från andra klienter. Lagrings- och enheter som är tilldelade till olika klienter kan inte se varandra eller kommunicera med varandra på stora HANA-instansen stämpel nivå. En kund kan du har distributioner i olika klienter. Det finns även sedan ingen kommunikation mellan klienter på stora HANA-instansen stämpel nivå.
 - **SKU-kategori**: för stora HANA-instansen, erbjuds följande två typer av SKU: er:
-    - **Typen som jag klassen**: S72, S72m, S144, S144m, S192, S192m och S192xm
+    - **Typen som jag klassen**: S72, S72m, S96, S144, S144m, S192, S192m och S192xm
     - **Skriv II klass**: S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm och S960m
 
 

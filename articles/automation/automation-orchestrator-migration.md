@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 83fff9fa322431983c1d385705ae235a8e818570
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 80b0523f8442e30e6af329263be454fa545933d6
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237272"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275290"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Migrera från Orchestrator till Azure Automation (Beta)
 Runbooks i [System Center Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) baseras på aktiviteter från integrationspaket som är skrivna specifikt för Orchestrator medan runbooks i Azure Automation baseras på Windows PowerShell.  [Grafiska runbooks](automation-runbook-types.md#graphical-runbooks) i Azure Automation har en liknande utseende till Orchestrator-runbooks med deras aktiviteter som representerar PowerShell-cmdlet: ar, underordnade runbooks och tillgångar.
@@ -79,7 +79,9 @@ Följande är den grundläggande processen att konvertera en Orchestrator-runboo
 ### <a name="using-runbook-converter"></a>Med hjälp av Runbook-konverterare
 Syntaxen för **ConvertFrom SCORunbook** är följande:
 
-    ConvertFrom-SCORunbook -RunbookPath <string> -Module <string[]> -OutputFolder <string>
+```powershell
+ConvertFrom-SCORunbook -RunbookPath <string> -Module <string[]> -OutputFolder <string>
+```
 
 * RunbookPath - sökvägen till filen med exporterade som innehåller runbooks för att konvertera.
 * Modulen – kommaavgränsad lista över integreringsmoduler som innehåller aktiviteter i runbooks.
@@ -87,8 +89,9 @@ Syntaxen för **ConvertFrom SCORunbook** är följande:
 
 Följande exempelkommando konverterar runbooks i en exportfil kallas **MyRunbooks.ois_export**.  Dessa runbooks använder Active Directory och Data Protection Manager-integreringspaket.
 
-    ConvertFrom-SCORunbook -RunbookPath "c:\runbooks\MyRunbooks.ois_export" -Module c:\ip\SystemCenter_IntegrationModule_ActiveDirectory.zip,c:\ip\SystemCenter_IntegrationModule_DPM.zip -OutputFolder "c:\runbooks"
-
+```powershell
+ConvertFrom-SCORunbook -RunbookPath "c:\runbooks\MyRunbooks.ois_export" -Module c:\ip\SystemCenter_IntegrationModule_ActiveDirectory.zip,c:\ip\SystemCenter_IntegrationModule_DPM.zip -OutputFolder "c:\runbooks"
+```
 
 ### <a name="log-files"></a>Loggfiler
 Runbook-Converter skapas följande loggfiler på samma plats som den konverterade runbooken.  Om filerna redan finns, sedan de kommer att skrivas över med information från senaste konverteringen.

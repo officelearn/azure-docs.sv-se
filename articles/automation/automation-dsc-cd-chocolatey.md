@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f685b584b701d2772ec5b3915facb97f0d15658a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4172afc3adf23a05384fec0413465cf491af3a79
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259181"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275307"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Användningsexempel: Kontinuerlig distribution till virtuella datorer med Automation-Tillståndskonfiguration och Chocolatey
 
@@ -64,8 +64,10 @@ Om du inte börjar med en Resource Manager-mall, är det också OK. Det finns Po
 
 När en autentiserad (`Connect-AzureRmAccount`) PowerShell-kommandoraden: (kan ta några minuter medan hämtningsservern har ställts in)
 
-    New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
-    New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
+```azurepowershell-interactive
+New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
+New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
+```
 
 Du kan placera ditt automation-konto på någon av följande regioner (även kallat plats): östra USA 2, södra centrala USA, Virginia (USA-förvaltad region), Västeuropa, Sydostasien, östra Japan, centrala Indien och Australien, sydöstra Australien, centrala, Europa, norra.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 68488788f73c9662b5d1eaa3b670f2120941defc
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: e2326f56ad367f744bc7895bc8c4bfd6f32d0310
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616494"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264887"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Felsökning av aviseringar i Azure Monitor  
 ## <a name="overview"></a>Översikt
@@ -61,7 +61,7 @@ Eftersom kommandot innefattar *... summera efter* och två variabler (tidsstämp
 
 ![Metrisk mätning Frågekörningen med flera värden](./media/monitor-alerts-unified/LogMMQuery.png)
 
-Som ”sammanställd” är $table – sorteras data på $table kolumn (som i rött); Vi gruppen och leta efter typer av fältet ”sammanställd vid” (det vill säga) $table – till exempel: värdena för availabilityResults betraktas som en rityta/entitet (som markerade i Orange). I det här värdet diagram/entitet – avisering tjänsten söker efter tre på varandra följande intrång inträffar (som visas i grönt) för vilka aviseringen ska hämta utlöst för tabellvärde ”availabilityResults”. På samma sätt, om för ett annat värde för $table om tre efterföljande överträdelser ses - en annan avisering utlöses för samma; med alert-tjänsten Sortera automatiskt värdena i en rityta/entitet (som i Orange) efter tid.
+Som ”sammanställd” är $table – sorteras data på $table kolumn (som i rött); Vi gruppen och leta efter typer av fältet ”sammanställd vid” (det vill säga) $table – till exempel: värdena för availabilityResults betraktas som en rityta/entitet (som markerade i Orange). I det här värdet diagram/entitet – avisering tjänsten söker efter tre på varandra följande intrång inträffar (som visas i grönt) för vilka aviseringen ska hämta utlöst för tabellvärde ”availabilityResults”. På samma sätt, om för ett annat värde för $table om tre efterföljande överträdelser ses – en annan avisering om utlöses för samma sak; med alert-tjänsten Sortera automatiskt värdena i en rityta/entitet (som i Orange) efter tid.
 
 Anta nu, metriska måttenheter loggvarningsregler ändrades och frågan var `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)` med resten av konfig kvar samma som innan inklusive aviseringslogiken för tre efterföljande överträdelser. Alternativet ”Aggregera på” i det här fallet kommer att som standard: tidsstämpel. Eftersom bara ett värde har angetts i frågan för summera... efter tidsstämpel (det vill säga); liknar tidigare exempel slutet av körningen utdata skulle vara som på bilden nedan. 
 

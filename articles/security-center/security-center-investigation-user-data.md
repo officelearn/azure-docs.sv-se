@@ -3,7 +3,7 @@ title: Hantera användardata finns i en undersökning av Azure Security Center |
 description: " Lär dig hur du hanterar användardata finns i undersökningsfunktionen i Azure Security Center. "
 services: operations-management-suite
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/23/2018
-ms.author: terrylan
-ms.openlocfilehash: d3b5f0ee4aa656fa66d577aa40f66fc98dff148d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 11/20/2018
+ms.author: rkarlin
+ms.openlocfilehash: d9bf3618b32ce7c5ba7a300a929428dd0614743d
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301658"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276252"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Hantera användardata finns i en undersökning av Azure Security Center
 Den här artikeln innehåller information om hur du hanterar användardata finns i undersökningsfunktionen i Azure Security Center. Undersökning data lagras i [Azure Log Analytics](../log-analytics/log-analytics-overview.md) och visas i Security Center. Hantering av användardata omfattar möjligheten att ta bort eller exportera data.
@@ -58,3 +58,4 @@ En Security Center-användare tilldelas rollen som ägare, deltagare, eller kont
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om hur du hanterar användardata, [hanterar användardata i Azure Security Center](security-center-privacy.md).
+Mer information om att ta bort personliga data i Log Analytics finns [exportera och ta bort privata data](../log-analytics/log-analytics-personal-data-mgmt.md#how-to-export-and-delete-private-data).

@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 6688432342ff08d2ca177570cc6bbbe0095ccbe0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b6813bf20eed17ed5b101d56b0c9d5a6adf2d7b5
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229073"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52265312"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Skalbar datavetenskap med Azure Data Lake: genomgång för en slutpunkt till slutpunkt
-Den här genomgången visar hur du använder Azure Data Lake att göra datagranskning och binär klassificering uppgifter på ett exempel på NYC taxi resa och färdavgiften datauppsättning för att förutsäga om ett tips betalas av en avgiften. Vi går igenom stegen i den [Team Data Science Process](https://aka.ms/datascienceprocess), slutpunkt till slutpunkt, från datainsamling modellera utbildning och sedan till distributionen av en webbtjänst som publicerar modellen.
+Den här genomgången visar hur du använder Azure Data Lake att göra datagranskning och binär klassificering uppgifter på ett exempel på NYC taxi resa och färdavgiften datauppsättning för att förutsäga om ett tips betalas av en avgiften. Vi går igenom stegen i den [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), slutpunkt till slutpunkt, från datainsamling modellera utbildning och sedan till distributionen av en webbtjänst som publicerar modellen.
 
 ### <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
 Den [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) har alla funktioner som gör det enklare för datatekniker att lagra data av valfri storlek, form och hastighet och genomföra databearbetning, avancerad analys och maskininlärning modellering med hög skalbarhet på ett kostnadseffektivt sätt.   Du betalar per jobb regelbundet, bara när data bearbetas faktiskt. Azure Data Lake Analytics innehåller U-SQL, ett språk som för samman den deklarativa karaktären i SQL med kraften i C# för att tillhandahålla skalbara distribuerad fråga funktionen. Den gör det möjligt att bearbeta Ostrukturerade data genom att använda schema vid läsning, infoga anpassad logik och användardefinierade funktioner (UDF) och innehåller utökningsbarhet för att aktivera de detaljerade kontroll över hur du kör i skala. Läs mer om designfilosofin bakom U-SQL i [Visual Studio-blogginlägget](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
@@ -684,7 +684,7 @@ Instrumentpanelen för webbtjänsten visas inom kort:
 Om du har slutfört den här genomgången har du skapat en datavetenskapsmiljö för att skapa skalbara lösningar för slutpunkt till slutpunkt i Azure Data Lake. Den här miljön har använts för att analysera en stor offentlig datauppsättning, tar det kanoniska stegen för Data Science Process från datainsamling genom modellträning och sedan till distributionen av modellen som en webbtjänst. U-SQL användes för att bearbeta, utforska och hämtar exempel från data. Python- och Hive har använts med Azure Machine Learning Studio för att skapa och distribuera förutsägelsemodeller.
 
 ## <a name="whats-next"></a>Nästa steg
-Utbildningsväg för den [Team Data Science Process (TDSP)](https://aka.ms/datascienceprocess) innehåller länkar till avsnitt som beskriver varje steg i processen för avancerad analys. Det finns ett antal genomgångar uppdelat på den [Team Data Science Process genomgångar](walkthroughs.md) sida som visar hur du använder resurser och tjänster i olika scenarier för förutsägande analys:
+Utbildningsväg för den [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) innehåller länkar till avsnitt som beskriver varje steg i processen för avancerad analys. Det finns ett antal genomgångar uppdelat på den [Team Data Science Process genomgångar](walkthroughs.md) sida som visar hur du använder resurser och tjänster i olika scenarier för förutsägande analys:
 
 * [Team Data Science Process i praktiken: använda SQL Data Warehouse](sqldw-walkthrough.md)
 * [Team Data Science Process i praktiken: med hjälp av HDInsight Hadoop-kluster](hive-walkthrough.md)

@@ -3,8 +3,8 @@ title: Utvärderar du modellens prestanda i Machine Learning | Microsoft Docs
 description: Beskriver hur du utvärderar du modellens prestanda i Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 14fb1772b138946639796ddf71f3dc56fe677d82
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 98704f00c6b086772d9e0440ace79c3ca713f13a
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823664"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261608"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning"></a>Så här utvärderar du modellens prestanda i Azure Machine Learning
 Den här artikeln visar hur du utvärderar prestanda för en modell i Azure Machine Learning Studio och ger en kort förklaring av mått som är tillgängliga för den här uppgiften. Tre vanliga scenarier för övervakad inlärning visas: 

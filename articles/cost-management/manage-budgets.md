@@ -8,14 +8,14 @@ ms.author: banders
 ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: vitavor
 ms.custom: ''
-ms.openlocfilehash: bbd232c819a11de691c4d3c3209273b064eddf62
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 92236547e2100ab57f4ec6b4953f6c61ec87892d
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963448"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275512"
 ---
 # <a name="manage-budgets"></a>Hantera budgetar
 
@@ -27,7 +27,7 @@ Baserat på tilldelade budgetar kan du ange tröskelvärde för aviseringar base
 
 Budgetrapporter visar tilldelade budgeten. Användare kan visa när deras utgifter är över, under eller översättningsminnen med deras användning över tid. När du väljer **Visa/dölj fält** högst upp på rapportsidan budget du kan visa kostnaden, budget, ackumulerade kostnaden eller total budget.
 
-Azure Cost Management innehåller liknande funktioner på Cloudyn. Azure Cost Management är en lösning för intern Azure kostnadshantering. Det hjälper dig att analysera kostnaderna, skapa och hantera budgetar, exportera data, och granska och vidta åtgärder för optimering rekommendationer för att spara pengar. Läs mer om budgetar i Cost Management [skapa och hantera budgetar](tutorial-acm-create-budgets.md).
+Azure Cost Management innehåller liknande funktioner som Cloudyn. Azure Cost Management är en lösning för intern kostnadshantering i Azure. Du får hjälp att analysera kostnader, skapa och hantera budgetar, exportera data samt granska och arbeta med optimeringsrekommendationer för att spara pengar. Läs mer om budgetar i Cost Management [skapa och hantera budgetar](tutorial-acm-create-budgets.md).
 
 ## <a name="create-budgets"></a>Skapa budgetar
 

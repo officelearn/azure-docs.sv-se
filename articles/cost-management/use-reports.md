@@ -8,20 +8,20 @@ ms.author: banders
 ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 8267401a0dade0ca7cfb1dbf69d2fdfd6786f1df
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: efb199a9e97a6e80cc24dfe32f6477b4c7abf89a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976796"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276031"
 ---
-# <a name="use-cloudyn-reports"></a>Använda Cloudyn-rapporter
+# <a name="use-cloudyn-reports"></a>Använd Cloudyn-rapporter
 
 Den här artikeln beskriver syftet med Cloudyn-rapporter som ingår i Cloudyn-portalen. Här beskrivs också hur du effektivt kan använda rapporterna. De flesta rapporter är intuitivt och har ett enhetligt utseende. De flesta av de åtgärder som du kan göra i en rapport, kan du också göra i andra rapporter. En översikt om hur du använder Cloudyn-rapporter, inklusive hur du anpassar och spara eller för att schemalägga rapporter finns i [förstå kostnadsrapporterna](understanding-cost-reports.md).
 
-Azure Cost Management innehåller liknande funktioner på Cloudyn. Azure Cost Management är en lösning för intern Azure kostnadshantering. Det hjälper dig att analysera kostnaderna, skapa och hantera budgetar, exportera data, och granska och vidta åtgärder för optimering rekommendationer för att spara pengar. Mer information finns i [Azure Cost Management](overview-cost-mgt.md).
+Azure Cost Management innehåller liknande funktioner som Cloudyn. Azure Cost Management är en lösning för intern kostnadshantering i Azure. Du får hjälp att analysera kostnader, skapa och hantera budgetar, exportera data samt granska och arbeta med optimeringsrekommendationer för att spara pengar. Mer information finns i [Azure Cost Management](overview-cost-mgt.md).
 
 ## <a name="report-types"></a>Rapporttyper
 

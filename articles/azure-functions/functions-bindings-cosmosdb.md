@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 6f3b568fb23de51990f96a86cdc2b1814afe4530
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3d4c9e974f92f26b93900318c01dc8a659d8edbe
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249931"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276218"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Cosmos DB-bindningar för Azure Functions 1.x
 
@@ -1103,9 +1103,9 @@ Här är JavaScript-kod:
 
 <a name="infsharp"></a>
 
-### <a name="input---f-examples"></a>Indata - F #-exempel
+### <a name="input---f-examples"></a>Indata - F# exempel
 
-I följande exempel visas en Cosmos DB-indatabindning i en *function.json* fil och en [F #-funktion](functions-reference-fsharp.md) som använder bindningen. Funktionen läser ett enskilt dokument och uppdaterar dokumentets textvärde.
+I följande exempel visas en Cosmos DB-indatabindning i en *function.json* fil och en [ F# funktionen](functions-reference-fsharp.md) som använder bindningen. Funktionen läser ett enskilt dokument och uppdaterar dokumentets textvärde.
 
 Här är bindningsdata i den *function.json* fil:
 
@@ -1123,7 +1123,7 @@ Här är bindningsdata i den *function.json* fil:
 
 Den [configuration](#input---configuration) förklaras de här egenskaperna.
 
-Här är F #-kod:
+Här är den F# kod:
 
 ```fsharp
     (* Change input document contents using Azure Cosmos DB input binding *)
@@ -1147,7 +1147,7 @@ Det här exemplet kräver en `project.json` -fil som anger den `FSharp.Interop.D
 }
 ```
 
-Att lägga till en `project.json` fil, se [F #-pakethantering](functions-reference-fsharp.md#package).
+Att lägga till en `project.json` fil, se [ F# paket på](functions-reference-fsharp.md#package).
 
 ## <a name="input---attributes"></a>Indata - attribut
 
@@ -1175,7 +1175,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 ## <a name="input---usage"></a>Indata - användning
 
-I C# och F #-funktioner, när funktionen avslutas, sparas ändringar som görs till dokumentet via namngivna indataparametrar automatiskt. 
+I C# och F# funktion, när funktionen avslutas, ändringar som görs till dokumentet via namngivna indata parametrar sparas automatiskt. 
 
 I JavaScript-funktioner görs uppdateringar inte automatiskt vid utloggning av funktionen. Använd i stället `context.bindings.<documentName>In` och `context.bindings.<documentName>Out` att göra uppdateringar. Se den [JavaScript exempel](#input---javascript-example).
 
@@ -1196,7 +1196,7 @@ Se även de [inkommande exempel](#input---c-examples) som använder `DocumentCli
 
 [Hoppa över exempel på utdata](#output---attributes)
 
-### <a name="ouput---c-examples"></a>Utdata - C#-exempel
+### <a name="output---c-examples"></a>Utdata - C# exempel
 
 Det här avsnittet innehåller följande exempel:
 
@@ -1477,9 +1477,9 @@ Här är JavaScript-kod:
 
 [Hoppa över exempel på utdata](#output---attributes)
 
-### <a name="output---f-examples"></a>Resultat – F #-exempel
+### <a name="output---f-examples"></a>Utdata - F# exempel
 
-I följande exempel visar ett Azure Cosmos DB-utdatabindning i en *function.json* fil och en [F #-funktion](functions-reference-fsharp.md) som använder bindningen. Funktionen använder en indatabindning i kö för en kö som tar emot JSON i följande format:
+I följande exempel visar ett Azure Cosmos DB-utdatabindning i en *function.json* fil och en [ F# funktionen](functions-reference-fsharp.md) som använder bindningen. Funktionen använder en indatabindning i kö för en kö som tar emot JSON i följande format:
 
 ```json
 {
@@ -1515,7 +1515,7 @@ Här är bindningsdata i den *function.json* fil:
 ```
 Den [configuration](#output---configuration) förklaras de här egenskaperna.
 
-Här är F #-kod:
+Här är den F# kod:
 
 ```fsharp
     open FSharp.Interop.Dynamic
@@ -1553,7 +1553,7 @@ Det här exemplet kräver en `project.json` -fil som anger den `FSharp.Interop.D
 }
 ```
 
-Att lägga till en `project.json` fil, se [F #-pakethantering](functions-reference-fsharp.md#package).
+Att lägga till en `project.json` fil, se [ F# paket på](functions-reference-fsharp.md#package).
 
 ## <a name="output---attributes"></a>Utdata - attribut
 

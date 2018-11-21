@@ -4,8 +4,8 @@ description: Dessa felkoder kan returneras av en åtgärd på en Azure Machine L
 keywords: ''
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 4bf260e070ef5724686531750266abcba9e420ac
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 92e85f123cc19d579a86d5cdedfaaf1df8c24e4c
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822406"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263248"
 ---
 # <a name="machine-learning-rest-api-error-codes"></a>Machine Learning REST API-felkoder
  

@@ -2,8 +2,8 @@
 title: Visa och ta bort dina data från Azure AI-galleriet | Microsoft Docs
 description: 'Du kan exportera och ta bort i produkten användardata från Azure AI-galleriet med hjälp av gränssnittet eller AI-galleriet Catalog API: et. Den här artikeln visar hur du gör.'
 services: machine-learning
-author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
 ms.author: amlstudiodocs
 manager: cgronlun
 ms.reviewer: jmartens, mldocs
@@ -11,12 +11,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: conceptual
 ms.date: 05/25/2018
-ms.openlocfilehash: 557896dd31f9a8acfe1ca630142be25a1d8cd5b8
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 472a27fb129f8ed9d4745610bde17fb2b69326c3
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820587"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264836"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Visa och ta bort i produkten användardata från Azure AI-galleriet
 

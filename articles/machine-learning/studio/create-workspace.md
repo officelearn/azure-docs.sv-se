@@ -2,8 +2,8 @@
 title: Skapa en Machine Learning Studio-arbetsyta | Microsoft Docs
 description: Skapa en arbetsyta för Azure Machine Learning Studio
 services: machine-learning
-author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.component: studio
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 606ee124d8e7a59fc653f11f2ad7542fc84af4e4
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: c05a7720cf3ac039fc2503221a602e0281738a2c
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823443"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264207"
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>Skapa och dela en Azure Machine Learning-arbetsyta
 

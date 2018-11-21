@@ -1,5 +1,5 @@
 ---
-title: RUBRIK | Microsoft Docs
+title: Gör ditt Azure-program som erbjudandet live på Azure Marketplace | Microsoft Docs
 description: .
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 643b7d674de3d51f98b69d6f0659478c9893e3b1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 18a8e6ae8ab3bd4299c6a014f938e73a2a021492
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811518"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263603"
 ---
 <a name="make-your-azure-application-offer-live-on-azure-marketplace"></a>Gör ditt Azure-program som erbjudandet live på Azure Marketplace 
 ===========================================================
@@ -33,19 +33,22 @@ Låt\'s går igenom den här processen i större detalj för att bättre först�
 <a name="publishing-process"></a>Process för att publicera 
 ------------------
 
-Du kan klicka på \"publicera\" under fliken redigerare för att starta publiceringsprocessen.
+Du kan klicka på \"publicera\" under den **redigeraren** flik för att starta publiceringsprocessen.
 
 ![Erbjuder Go Live serie 1 – publicera](./media/cloud-partner-portal-publish-managed-app/newOffer_managedApp_publish.png)
 
-Under fliken Status visas Publishing stegen och vilket steg ditt erbjudande är på.
+Under den **Status** fliken visas Publishing stegen och vilket steg ditt erbjudande är på.
 
 ![Erbjuder Go Live serie 2 - arbetsflöde](./media/cloud-partner-portal-publish-managed-app/newOffer_managedApp_workflow.png)
 
-När som helst i publiceringsprocessen kan också logga in och klicka på fliken alla erbjuder om du vill visa den senaste statusen för någon av dina erbjudanden. Du kan klicka direkt på status för ditt erbjudande och se informationen om där ditt erbjudande är i publiceringsprocessen.
+När som helst i publiceringsprocessen kan du också logga in och klicka på den **alla erbjuder** fliken för att visa den senaste statusen för någon av dina erbjudanden. Du kan klicka direkt på status för ditt erbjudande och se informationen om där ditt erbjudande är i publiceringsprocessen.
 
-Låt\'s genomgången varje publishing steg, diskutera vad som händer i varje steg och hur länge du beräkna varje steg tar.
+> [!WARNING]
+> Om kunden användning attribution inte är aktiverad, visas följande felmeddelande under publiceringsprocessen: ”Azure-partner kundens användning attribution saknas i en eller flera Azure Resource Manager-mallar. Lös genom att lägga till en spårning GUID för Azure Resource Manager-mallen i mainTemplate.json paket för följande plan: servicenow. Mer information finns i http://aka.ms/customerusageattribution”. 
 
-### <a name="validate-pre-requisites-1-day"></a>Verifiera förutsättningar (\<1 dag) 
+Nu ska vi gå igenom varje publishing steg och diskutera vad som händer i varje steg och hur länge du beräkna varje steg tar.
+
+### <a name="validate-prerequisites-1-day"></a>Verifiera förutsättningar (\<1 dag) 
 
 När du klickar på \"publicera\", automatiska kontroller kommer att äga rum för att säkerställa att du\'stött fylls i alla obligatoriska fält i ditt erbjudande. Om alla fält inte har fyllts i, visas en varning bredvid fältet och du måste fylla i korrekt och klicka sedan på \'publicera\' igen.
 
@@ -59,7 +62,7 @@ Det här steget är där vi kör flera tester för att säkerställa att din Azu
 
 Eftersom det här steget kan ta flera dagar, kan du logga ut från partnerportalen i molnet. Vi skickar ett e-postmeddelande om det finns några fel. Om allt går med framgång ska processen automatiskt gå vidare till steg för etablering.
 
-### <a name="packaging-and-lead-generation-registration-1-hour"></a>Paketering och leda Generation registrering (\<1 timme) 
+### <a name="packaging-and-lead-generation-registration-1-hour"></a>Paketera och leda generation registrering (\<1 timme) 
 
 Under det här steget kombinerar vi teknik- och innehållet i vad blir sidan på webbplatsen.
 

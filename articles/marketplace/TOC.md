@@ -5,7 +5,6 @@
 ### [Publicera på marknadsplatsen](./become-publisher.md)  
 #### [Skapa ett Microsoft-konto](./guidelines.md)
 #### [Registrera i Dev Center](./register-dev-center.md) 
-#### [Faktureringsalternativ för Azure Marketplace](./billing-options-azure-marketplace.md)  
 #### [Spårning av kundanvändning för Azure-partner](./azure-partner-customer-usage-attribution.md)
 #### [Leadhantering för marknadsplatsen i molnet](./lead-management-for-cloud-marketplace.md)
 
@@ -13,7 +12,7 @@
 
 ### [Fastställa publiceringsalternativet för lösningen](./determine-your-listing-type.md)  
 
-### Publiceringsguide efter erbjudandetyp 
+### [Publiceringsguide efter erbjudandetyp](./publisher-guide-by-offer-type.md)
 #### [Virtual Machines](./marketplace-virtual-machines.md)
 #### [Azure-program: lösningsmallar](./marketplace-solution-templates.md)
 #### [Azure-program: hanterade program](./marketplace-managed-apps.md)
@@ -27,6 +26,8 @@
 ### [Låt din verksamhet växa genom marknadsplatsen](./grow-your-business-with-azure-marketplace.md)  
 #### [Önskade lösningar](./preferred-solutions.md) 
 #### [Validering av Marketplace-innehåll](./marketplace-criteria-content-validation.md)
+#### [Privata erbjudanden](./private-offers.md)
+#### [Marketplace ‎– överväganden och funktioner för kommersiella transaktioner](./marketplace-commercial-transaction-capabilities-and-considerations.md)
 
 ### [Support för Azure Marketplace och AppSource](./support-azure-marketplace.md)  
 
@@ -34,6 +35,16 @@
 <!-- Following section is for Cloud Partner Portal (CPP). -->
 
 # [Partnerportalen i molnet](./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md) 
+
+## [Presentation av portalen](./cloud-partner-portal/portal-tour/cpp-portal-tour.md)
+### [Navigering i portalen](./cloud-partner-portal/portal-tour/cpp-portal-navigation.md)
+### [Meny för nya erbjudanden](./cloud-partner-portal/portal-tour/cpp-new-offer-menu.md)
+### [Sidan med alla erbjudanden](./cloud-partner-portal/portal-tour/cpp-all-offers-page.md)
+### [Sidan med godkännanden](./cloud-partner-portal/portal-tour/cpp-approvals-page.md)
+### [Sidan med alla utgivare](./cloud-partner-portal/portal-tour/cpp-all-publishers-page.md)
+### [Användarsidan](./cloud-partner-portal/portal-tour/cpp-users-page.md)
+### [Sidan med granskningshistorik](./cloud-partner-portal/portal-tour/cpp-history-page.md)
+### [Sidan med insikter](./cloud-partner-portal/portal-tour/cpp-insights-page.md)
 
 ## Portalhantering
 ### [Kontoregistrering i Dev Center](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)

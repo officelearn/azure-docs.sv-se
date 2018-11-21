@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: a3d59d0e7575721dbb719944f27fd673ba41f469
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0c47600082a2c633116d1e85e9f31324544c2c57
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963826"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261759"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Seriekonsol för virtuell dator för Linux
 
@@ -95,7 +95,7 @@ Som standard har alla prenumerationer seriell konsolåtkomst är aktiverad för 
 > Om du vill aktivera eller inaktivera seriekonsol för en prenumeration, måste du ha skrivbehörighet till prenumerationen. Dessa behörigheter kan vara administratörer eller ägare. Anpassade roller kan också ha skrivbehörighet.
 
 ### <a name="subscription-level-disable"></a>Prenumerationsnivå inaktivera
-Seriell konsol kan inaktiveras för en hel prenumeration via den [inaktivera konsolen REST API-anrop](https://docs.microsoft.com/rest/api/serialconsole/console/console_disableconsole). Du kan använda den **prova** funktionen som är tillgängliga på den här API-dokumentationssidan inaktiverar och aktiverar Seriell konsol för en prenumeration. Ange ditt prenumerations-ID för **subscriptionId**, ange **standard** för **standard**, och välj sedan **kör**. Azure CLI-kommandon är ännu inte tillgängliga.
+Seriell konsol kan inaktiveras för en hel prenumeration via den [inaktivera konsolen REST API-anrop](/rest/api/serialconsole/console/disableconsole). Du kan använda den **prova** funktionen som är tillgängliga på den här API-dokumentationssidan inaktiverar och aktiverar Seriell konsol för en prenumeration. Ange ditt prenumerations-ID för **subscriptionId**, ange **standard** för **standard**, och välj sedan **kör**. Azure CLI-kommandon är ännu inte tillgängliga.
 
 ![Testa REST-API](./media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 

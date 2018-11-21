@@ -64,6 +64,8 @@ items:
     items:
     - name: Hitta aktivitetsrapporter
       href: howto-find-activity-reports.md
+    - name: Felsöka inloggningsfel för en användare
+      href: howto-troubleshoot-sign-in-errors.md
     - name: Åtgärda användare som har flaggats för risk
       href: howto-remediate-users-flagged-for-risk.md
     - name: Använda Power BI-innehållspaket för Azure AD-rapporter
@@ -95,6 +97,10 @@ items:
   items:
   - name: Rapporter
     items:
+    - name: API-referens för granskningsloggar
+      href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit
+    - name: API-referens för inloggningsloggar
+      href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin
     - name: Granskningsaktiviteter
       href: reference-audit-activities.md
     - name: Datakvarhållningsprinciper
@@ -112,9 +118,9 @@ items:
     - name: Schema för inloggningslogg
       href: reference-azure-monitor-sign-ins-log-schema.md
   expanded: true
-ms.openlocfilehash: 6c7dedc0bc592ba47b9fc0a0e017012f2b0be2cd
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 4763477baca827eca93f05356dd92249f4c0e63c
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623243"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276621"

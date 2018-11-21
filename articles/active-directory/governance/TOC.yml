@@ -5,37 +5,58 @@ items:
   items:
   - name: Vad är identitetsstyrning?
     href: identity-governance-overview.md
-  expanded: true
+  - name: Vad är åtkomstgranskningar?
+    href: access-reviews-overview.md
+  expanded: false
+- name: Begrepp
+  items:
+  - name: Hantera gäståtkomst med granskningar
+    href: manage-guest-access-with-access-reviews.md
+  - name: Hantera användaråtkomst med granskningar
+    href: manage-user-access-with-access-reviews.md
+  - name: Hantera program och deras kontroller
+    href: manage-programs-controls.md
+  - name: Hantera användare som undantagits från villkorsstyrd åtkomst
+    href: conditional-access-exclusion.md
+  expanded: false
 - name: Instruktionsguider
   items:
   - name: Åtkomstgranskningar
     items:
-    - name: Vad är en åtkomstgranskning?
-      href: access-reviews-overview.md
-    - name: Skapa en åtkomstgranskning
-      href: create-access-review.md
-    - name: Slutför en åtkomstgranskning
-      href: complete-access-review.md
-    - name: Utför en åtkomstgranskning
-      href: perform-access-review.md
-    - name: Granska din åtkomst
-      href: review-your-access.md
-    - name: Gäståtkomst med åtkomstgranskning
-      href: manage-guest-access-with-access-reviews.md
-    - name: Hantera användaråtkomst med granskningar
-      href: manage-user-access-with-access-reviews.md
-    - name: Hantera program och deras kontroller
-      href: manage-programs-controls.md
-    - name: Hämta resultat av åtkomstgranskningar
-      href: retrieve-access-review.md
-    - name: Hantera exkluderade användare
-      href: conditional-access-exclusion.md
+    - name: Grupper och appar
+      items:
+      - name: Skapa en åtkomstgranskning
+        href: create-access-review.md
+      - name: Starta en åtkomstgranskning
+        href: perform-access-review.md
+      - name: Granska din egen åtkomst
+        href: review-your-access.md
+      - name: Slutför en åtkomstgranskning
+        href: complete-access-review.md
+      - name: Hämta resultat av åtkomstgranskningar
+        href: retrieve-access-review.md
+    - name: Katalogroller
+      items:
+      - name: Granska mina katalogroller
+        href: ../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+      - name: Starta en åtkomstgranskning
+        href: ../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+      - name: Slutför en åtkomstgranskning
+        href: ../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+    - name: Resursroller
+      items:
+      - name: Granska mina resursroller
+        href: ../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+      - name: Starta en åtkomstgranskning
+        href: ../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+      - name: Slutför en åtkomstgranskning
+        href: ../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
   - name: Användningsvillkor
     href: active-directory-tou.md
   expanded: true
-ms.openlocfilehash: b6280e42839344169ab651cd5d882bb6abfbf388
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b1c70e219aab05e8f8bd905cdc341ccd0d7b563a
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163145"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261154"

@@ -3,8 +3,8 @@ title: Skapa textanalysmodeller i Azure Machine Learning Studio | Microsoft Docs
 description: Hur du kan skapa textanalysmodeller i Azure Machine Learning Studio med hjälp av moduler för förbearbetning av text, N-gram eller funktions-hashning
 services: machine-learning
 documentationcenter: ''
-author: rastala
-ms.custom: (previous ms.author roastala)
+author: ericlicoding
+ms.custom: (previous ms.author=roastala, author=rastala)
 ms.author: amlstudiodocs
 manager: cgronlun
 editor: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.openlocfilehash: 7b455025faffe5a1a84bbc57ea2d65ec6c24cc2d
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 10b4f8a494a9effc04db731f05eeb010f4fb0b6a
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823171"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262490"
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Skapa textanalysmodeller i Azure Machine Learning Studio
 Du kan använda Azure Machine Learning för att skapa och operationalisera modeller för textanalys. Dessa modeller kan hjälpa dig att lösa, exempelvis dokument klassificerings- eller sentiment analysis problem.

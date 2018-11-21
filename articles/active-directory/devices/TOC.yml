@@ -18,13 +18,18 @@ items:
   - name: Konfigurera Azure AD-anslutning under första körningen av Windows 10
     href: azuread-joined-devices-frx.md
   expanded: false
+- name: Begrepp
+  items:
+  - name: Enkel inloggning till lokala resurser
+    href: azuread-join-sso.md
+  expanded: false
 - name: Instruktionsguider
   items:
   - name: Hantera enheter med Azure Portal
     href: device-management-azure-portal.md
   - name: Hantera inaktuella enheter
     href: manage-stale-devices.md
-  - name: Planera Azure AD-anslutning
+  - name: Planera implementeringen av Azure AD-anslutningen
     href: azureadjoin-plan.md
   - name: Planera implementering av Azure AD-anslutningshybriden
     href: hybrid-azuread-join-plan.md
@@ -65,9 +70,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-active-directory
   - name: Videoklipp
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: aa3be36e660c1e0a68446166d3ec90a8a24fa3e8
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 54f55af14658fa02999d7f134937fcd357d83d75
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092329"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276507"

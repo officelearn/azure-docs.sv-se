@@ -10,12 +10,12 @@ ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: 406936200a39e21d7377e7b2dba19a7ee745de57
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: ad09c1d6f9e7cea1150ce1638c723c5c35d66a32
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568843"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284446"
 ---
 # <a name="quickstart-bing-spell-check-sdk-with-c"></a>Snabbstart: SDK för stavningskontroll i Bing med C#
 
@@ -23,26 +23,26 @@ SDK för Stavningskontroll i Bing innehåller funktionerna för REST API för st
 
 ## <a name="application-dependencies"></a>Programberoenden
 
-Om du vill konfigurera ett konsolprogram med hjälp av SDK för Stavningskontroll i Bing bläddrar du till alternativet `Manage NuGet Packages` från Solution Explorer i Visual Studio. Lägg till paketet `Microsoft.Azure.CognitiveServices.SpellCheck`.
+Om du vill konfigurera ett konsolprogram med hjälp av SDK för Stavningskontroll i Bing bläddrar du till alternativet `Manage NuGet Packages` från Solution Explorer i Visual Studio. Lägg till paketet `Microsoft.Azure.CognitiveServices.Language.SpellCheck`.
 
 När du installerar [SpellCheck SDK-paketet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.SpellCheck/1.2.0) installeras även beroenden, inklusive:
 
 * Microsoft.Rest.ClientRuntime
-* Microsoft.Rest.ClientRuntime.AZure
+* Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
 ## <a name="spell-check-client"></a>Stavningskontrollklient
 
-För att skapa en instans av `SpellCheckAPI`-klienten lägger du till med hjälp av direktiv:
+För att skapa en instans av `SpellCheckClient`-klienten lägger du till med hjälp av direktiv:
 
 ```cs
-using Microsoft.Azure.CognitiveServices.SpellCheck;
+using Microsoft.Azure.CognitiveServices.Language.SpellCheck;
 ```
 
 Instansiera sedan klienten:
 
 ```cs
-var client = new SpellCheckAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+var client = new SpellCheckClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 ```
 
 Använd klienten för att kontrollera stavning:
@@ -102,7 +102,7 @@ namespace SpellCheckSDK
     {
         static void Main(string[] args)
         {
-            var client = new SpellCheckAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+            var client = new SpellCheckClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
             try
             {
@@ -146,6 +146,8 @@ namespace SpellCheckSDK
                 Console.WriteLine("Encountered exception. " + ex.Message);
             }
 
+            SpellCheckError("YOUR-ACCESS-KEY");
+
             Console.WriteLine("Any key to exit...");
             Console.ReadKey();
         }
@@ -153,15 +155,16 @@ namespace SpellCheckSDK
         // This will trigger an error response from the API.
         public static void SpellCheckError(string subscriptionKey)
         {
-            var client = new SpellCheckAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
+            var client = new SpellCheckClient(new ApiKeyServiceClientCredentials(subscriptionKey));
 
             try
             {
-                var result = client.SpellCheckerAsync(mode: "proof").Result;
-                Console.WriteLine("Correction for Query# \"empty text field\"");
+                var result = client.SpellCheckerAsync(text: "", mode: "proof").Result;
             }
             catch (Exception ex)
             {
+                Console.WriteLine("Correction for Query# \"empty text field\"");
+
                 if (ex.GetBaseException().GetType() == typeof(Exception) )
                 {
                     Console.WriteLine("Encountered exception. " + ex.Message);

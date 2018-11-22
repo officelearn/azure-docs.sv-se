@@ -3,19 +3,19 @@ title: 'Snabbstart: Anropa slutpunkt med hjälp av Python – Anpassad sökning 
 titlesuffix: Azure Cognitive Services
 description: Den här snabbstarten visar hur du begär sökresultat från din anpassade sökinstans genom att använda Python för att anropa slutpunkten för Anpassad sökning i Bing.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: v-brapel
-ms.openlocfilehash: d16b7354b0ef727ba3c670b97105e1bd6f99034e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.author: aahi
+ms.openlocfilehash: e3e4256d3654f532f16d33c77f4c7e8cb7e93dd4
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815468"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162644"
 ---
 # <a name="quickstart-call-bing-custom-search-endpoint-python"></a>Snabbstart: Anropa slutpunkten för anpassad sökning i Bing (Python)
 
@@ -25,7 +25,7 @@ Den här snabbstarten visar hur du begär sökresultat från din anpassade söki
 
 Följande krävs för att slutföra den här snabbstarten:
 
-- En färdig anpassad sökinstans. Läs [Skapa din första instans för anpassad sökning i Bing](quick-start.md).
+- En anpassad sökinstans som är redo att användas. Läs [Skapa din första instans för anpassad sökning i Bing](quick-start.md).
 - [Python](https://www.python.org/) installerad.
 - En prenumerationsnyckel. Du kan få en prenumerationsnyckel när du aktiverar din [kostnadsfria utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), eller så kan du använda en betald prenumerationsnyckel från instrumentpanelen i Azure (se [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
 

@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: v-mavick
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 9ef27166e84192dec81fd8f8da508785342ffefc
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 15ef4795544044427805e21f7a8e98646c9cf9bd
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288024"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284343"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Skapa en grundläggande Terraform-mall i Azure med hjälp av Yeoman
 
@@ -227,7 +227,7 @@ Processen blir betydligt enklare om du använder Cloud Shell istället för att 
 
 ### <a name="start-a-cloud-shell-session"></a>Starta en Cloud Shell-session
 
-1. Starta en Azure Cloud Shell-session via [Azure-portalen](https:/portal.azure.com/), [shell.azure.com](https://shell.azure.com) eller [Azure-mobilappen](https://azure.microsoft.com/features/azure-portal/mobile-app/).
+1. Starta en Azure Cloud Shell-session via [Azure-portalen](https://portal.azure.com/), [shell.azure.com](https://shell.azure.com) eller [Azure-mobilappen](https://azure.microsoft.com/features/azure-portal/mobile-app/).
 
 1. Sidan **Välkommen till Azure Cloud Shell** öppnas. Välj **Bash (Linux)**. (Power Shell stöds inte.)
 

@@ -3,23 +3,23 @@ title: 'Snabbstart: API för nyhetssökning i Bing, Node.js'
 titlesuffix: Azure Cognitive Services
 description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med API:et för nyhetssökning i Bing.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 923566dc2764037164725f795e411beef939d92a
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: aahi
+ms.openlocfilehash: 2551e950630821a31c86b3d27f6ff5e74c09695a
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802078"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52159890"
 ---
 # <a name="quickstart-for-bing-news-search-api-with-nodejs"></a>Snabbstart för API:et för nyhetssökning i Bing med Node.js
 
-Den här artikeln visar hur använder API:n för nyhetssökning i Bing, som ingår i Microsoft Cognitive Services i Azure. Även om den här artikeln använder Node.js, är API:et för bildsökning i Bing kompatibelt med alla programmeringsspråk som kan göra HTTP-begäranden och tolka JSON. 
+I den här artikeln får du se hur du använder API:et för nyhetssökning i Bing, som ingår i Microsoft Cognitive Services i Azure. Även om den här artikeln använder Node.js, är API:et för bildsökning i Bing kompatibelt med alla programmeringsspråk som kan göra HTTP-begäranden och tolka JSON. 
 
 Exemplet är skrivet i JavaScript och körs under Node.js 6.
 

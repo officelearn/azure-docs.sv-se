@@ -3,19 +3,19 @@ title: 'Snabbstart: Använda SDK för Webbsökning i Bing för Python'
 titleSuffix: Azure Cognitive Services
 description: SDK för Webbsökning i Bing gör det enkelt att integrera Webbsökning i Bing i Python-programmet. I den här snabbstarten lär du dig att skicka en begäran, ta emot ett JSON-svar och filtrera och parsa resultaten.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
-ms.author: erhopf
-ms.openlocfilehash: c83848bc3c8f14aa49c1f87f1cd44224bb3e8081
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: aahi
+ms.openlocfilehash: d810704d0f18915d805a4db46818df30147c8dfa
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127651"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283300"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Snabbstart: Använda SDK för Webbsökning i Bing för Python
 
@@ -206,7 +206,7 @@ I det här exemplet används parametrarna `count` och `offset` för att begräns
 
 ### <a name="filter-for-news-and-freshness"></a>Filtrera efter nyheter och aktualitet
 
-I det här exemplet används parametrarna `response_filter` och `freshness` för att filtrera sökresultat med hjälp av SDK:ns [`search`-metod](https://docs.microsoft.com//api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search). De sökresultat som returneras är begränsade till nyhetsartiklar och sidor som Bing har identifierat under de senaste 24 timmarna. `name` och `URL` för det första resultatet skrivs ut.
+I det här exemplet används parametrarna `response_filter` och `freshness` för att filtrera sökresultat med hjälp av SDK:ns [`search`-metod](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations#search). De sökresultat som returneras är begränsade till nyhetsartiklar och sidor som Bing har identifierat under de senaste 24 timmarna. `name` och `URL` för det första resultatet skrivs ut.
 
 1. Lägg till den här koden i Python-projektet:
     ```python

@@ -1,3 +1,16 @@
+---
+author: dlepow
+ms.service: batch
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+ms.openlocfilehash: a8ea55a40f1ee4681b6aec147e02b7bce6f1d7cf
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279951"
+---
 ### <a name="retrieve-output-files"></a>Hämta utdatafiler
 
 Du kan använda Azure-portalen till att hämta de utdatafiler i MP3-format som genereras av ffmpeg-uppgifter. 

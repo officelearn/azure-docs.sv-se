@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: a41ffdb31cb54e1488c0f114632c605b92d4c444
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6311316ab5aeab4685ca820ef5dbec4832896dcd
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255293"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164514"
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Bygga mobilappar med Xamarin och Azure Cosmos DB
 
@@ -35,7 +35,7 @@ Azure Cosmos DB innehåller följande viktiga funktioner för utvecklare av mobi
 
 ![Azure Cosmos DB-funktioner för mobilappar](media/mobile-apps-with-xamarin/documentdb-for-mobile.png)
 
-* Omfattande frågor för schemalösa data. Azure Cosmos DB lagrar data som schemalösa JSON-dokument i heterogena samlingar. Den erbjuder [omfattande och snabba frågor](sql-api-sql-query.md) utan att du behöver bekymra dig om scheman eller index.
+* Omfattande frågor för schemalösa data. Azure Cosmos DB lagrar data som schemalösa JSON-dokument i heterogena samlingar. Den erbjuder [omfattande och snabba frågor](how-to-sql-query.md) utan att du behöver bekymra dig om scheman eller index.
 * Högt dataflöde. Det tar bara några millisekunder att läsa och skriva dokument med Azure Cosmos DB. Utvecklare kan specificera vilket dataflöde de behöver och Azure Cosmos DB erbjuder ett serviceavtal med 99,99 % tillgänglighet för alla konton med tillgång till en eller flera regioner med konsekvensmodellen ”relaxed” (avslappnad), samt 99,999 % läsningstillgänglighet för alla databaskonton med tillgång till flera regioner.
 * Obegränsad skalning. Dina Azure Cosmos DB-samlingar [växer i takt med din app](partition-data.md). Du kan starta med ett liten datastorlek och ett dataflöde på ett par hundra förfrågningar per sekund. Dina samlingar eller databaser kan växa till flera petabyte data och ett högt dataflöde med hundratals miljoner förfrågningar per sekund.
 * Globalt distribuerad. Användare av mobilappar är ofta på resande fot över hela världen. Azure Cosmos DB är en [globalt distribuerad databas](distribute-data-globally.md). Klicka på kartan för att göra data tillgängliga för användarna.
@@ -107,7 +107,7 @@ Grattis! Du har slutfört lösningen och har en mobilapp med Xamarin och Azure C
 * Visa källkoden för [Xamarin och Azure Cosmos DB på GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
 * Ladda ned [Cosmos Azure DB .NET Core SDK](sql-api-sdk-dotnet-core.md).
 * Hitta fler kodexempel för [.NET-program](sql-api-dotnet-samples.md).
-* Lär dig mer om [Azure Cosmos DB omfattande frågefunktioner](sql-api-sql-query.md).
+* Lär dig mer om [Azure Cosmos DB omfattande frågefunktioner](how-to-sql-query.md).
 * Lär dig mer om [geospatialt stöd i Azure Cosmos DB](geospatial.md).
 
 

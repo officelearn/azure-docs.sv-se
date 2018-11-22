@@ -3,19 +3,19 @@ title: 'Snabbstart: Utföra en sökning med Java – API för webbsökning i Bin
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten lär du dig att göra ditt första anrop API för webbsökning i Bing med Java och att ta emot ett JSON-svar.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
-ms.author: erhopf
-ms.openlocfilehash: 9fc9d35db50305b632f5d9c8bdfa13d28ab97980
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.author: aahi
+ms.openlocfilehash: 1a942e39e680c9399145a629d03a1202b1f85ae7
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412983"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164242"
 ---
 # <a name="quickstart-use-java-to-call-the-bing-web-search-api"></a>Snabbstart: Använda Java för att anropa API för webbsökning i Bing  
 

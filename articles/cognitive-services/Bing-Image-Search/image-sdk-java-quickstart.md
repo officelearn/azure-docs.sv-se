@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: 42fc3dfb48c041ba187e2034eed81183dba02cb4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: b6cecdb2418be78c40ff08c53f98f4c709a47728
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413885"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974417"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-java"></a>Snabbstart: Sök efter bilder med API för bildsökning i Bing och Java
 
@@ -34,7 +34,7 @@ Installera SDK för bildsökning i Bing med hjälp av Maven eller Gradle eller n
     <dependency>
       <groupId>com.microsoft.azure.cognitiveservices</groupId>
       <artifactId>azure-cognitiveservices-imagesearch</artifactId>
-      <version>0.0.1-beta-SNAPSHOT</version>
+      <version>1.0.1</version>
     </dependency>
  </dependencies>
 ```
@@ -64,7 +64,7 @@ Installera SDK för bildsökning i Bing med hjälp av Maven eller Gradle eller n
 ## <a name="send-a-search-request-to-the-bing-image-search-api"></a>Skicka en sökbegäran till API för bildsökning i Bing
 
 1. Med hjälp av `bingImages().search()`, skicka en HTTP-begäran som innehåller sökfrågan. Spara svaret som en `ImagesModel`.
-    ```java
+   ```java
     ImagesModel imageResults = client.bingImages().search()
                 .withQuery(searchTerm)
                 .withMarket("en-us")
@@ -87,8 +87,8 @@ if (imageResults != null && imageResults.value().size() > 0) {
 }
 else {
         System.out.println("Couldn't find image results!");
-    }
-}
+     }
+
 ```
 
 ## <a name="next-steps"></a>Nästa steg

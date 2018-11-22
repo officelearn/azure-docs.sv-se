@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 237599a5dbd39147b02e9a85cbe34502d0d91923
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: c58bb19a18e6f0f78e07e403df5489f2f7342203
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227052"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853106"
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Överföra avbildningsdata i molnet med Azure Storage
 
@@ -103,7 +103,7 @@ Skapa en App Service-plan med kommandot [az appservice plan create](/cli/azure/a
 I följande exempel skapas en App Service-plan med namnet `myAppServicePlan` på prisnivån **Kostnadsfri**:
 
 ```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku Free
 ```
 
 ## <a name="create-a-web-app"></a>Skapa en webbapp
@@ -262,7 +262,7 @@ router.post('/', uploadStrategy, (req, res) => {
 
 ## <a name="verify-the-image-is-shown-in-the-storage-account"></a>Kontrollera att avbildningen visas på lagringskontot
 
-Logga in på [Azure Portal](https://portal.azure.com). I den vänstra menyn väljer du **Lagringskonton** och sedan namnet på ditt lagringskonto. Under **Översikt** väljer du containern **avbildningar**.
+Logga in på [Azure-portalen](https://portal.azure.com). I den vänstra menyn väljer du **Lagringskonton** och sedan namnet på ditt lagringskonto. Under **Översikt** väljer du containern **avbildningar**.
 
 Kontrollera att avbildningen visas i containern.
 
@@ -272,7 +272,7 @@ Kontrollera att avbildningen visas i containern.
 
 Om du vill testa miniatyrvisning ska du överföra en avbildning till miniatyrcontainern för att säkerställa att appen kan läsa miniatyrcontainern.
 
-Logga in på [Azure Portal](https://portal.azure.com). I den vänstra menyn väljer du **Lagringskonton** och sedan namnet på ditt lagringskonto. Välj **Containers** under **Blob-tjänst** och välj containern **Miniatyrer**. Välj **Överför** för att öppna fönstret **Överför blobb**.
+Logga in på [Azure-portalen](https://portal.azure.com). I den vänstra menyn väljer du **Lagringskonton** och sedan namnet på ditt lagringskonto. Välj **Containers** under **Blob-tjänst** och välj containern **Miniatyrer**. Välj **Överför** för att öppna fönstret **Överför blobb**.
 
 Välj en fil med filväljaren och välj **Överför**.
 

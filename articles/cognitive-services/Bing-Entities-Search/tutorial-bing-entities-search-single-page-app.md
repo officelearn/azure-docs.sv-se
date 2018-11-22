@@ -3,19 +3,19 @@ title: 'Självstudie: Enkelsidig webbapp med Entitetssökning i Bing'
 titlesuffix: Azure Cognitive Services
 description: Visar hur du använder API för entitetsökning i Bing i ett enkelsidigt webbprogram.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
 ms.topic: tutorial
 ms.date: 12/08/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 9aabecbec144797b9fbafdff7179213b68921447
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.author: aahi
+ms.openlocfilehash: 6bf3944017075ee04fe6ed3472a0cbe12d7f8ba0
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815553"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162015"
 ---
 # <a name="tutorial-single-page-web-app"></a>Självstudie: Enkelsidig webbapp
 
@@ -134,7 +134,7 @@ HTML-formuläret innehåller följande kontroller:
 
 | | |
 |-|-|
-|`where`|En nedrullningsbar meny för att välja marknad (plats och språk) som används för sökningen.|
+|`where`|En listruta för att välja marknad (plats och språk) som används för sökningen.|
 |`query`|Textfältet för att ange sökvillkor.|
 |`safe`|En kryssruta som anger huruvida SafeSearch är aktiverat (begränsar ”vuxna” resultat)|
 |`what`|En meny för att välja att söka efter entiteter, platser eller båda.|
@@ -383,7 +383,7 @@ En stor del av koden i de båda föregående funktionerna är dedikerade för fe
 |Fas|Potentiella fel|Hanterat av|
 |-|-|-|
 |Skapa objekt för JavaScript-begäran|Ogiltig URL|`try`/`catch` blockera|
-|Skapa förfrågan|Nätverksfel, avbrutna anslutningar|`error` och `abort` händelsehanterare|
+|Skapa begäran|Nätverksfel, avbrutna anslutningar|`error` och `abort` händelsehanterare|
 |Genomföra sökningen|Ogiltig begäran, ogiltig JSON, hastighetsbegränsningar|tests i `load` händelsehanterare|
 
 Fel hanteras genom att anropa `renderErrorMessage()` med all känd information om felet. Om svaret klarar alla feltester anropar vi `renderSearchResults()` för att visa sökresultatet på sidan.
@@ -514,7 +514,7 @@ Entitetsrenderarfunktionen:
 
 ## <a name="persisting-client-id"></a>Bestående klient-ID
 
-Svar från API:er för Bing-sökning kan innehålla ett `X-MSEdge-ClientID`-sidhuvud som ska skickas tillbaka till API:et med efterföljande förfrågningar. Om flera API:er för Bing Search används ska samma klient-ID användas för dem om möjligt.
+Svar från API:er för Bing Search kan innehålla ett `X-MSEdge-ClientID`-huvud som ska skickas tillbaka till API:et med efterföljande förfrågningar. Om flera API:er för Bing-sökning används ska samma klient-ID användas för dem om möjligt.
 
 När `X-MSEdge-ClientID`-huvudet tillhandahålls kan Bing-API:er associera alla sökningar för en användare, vilket innebär två viktiga fördelar.
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 06/28/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7c1e56b7c94c51a00fabdac56dd2d8c3eb621ae0
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: a5b6ae833fcd340a639c068156940e6b9ad469ca
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42139602"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711998"
 ---
 # <a name="tutorial-load-balance-internal-traffic-with-basic-load-balancer-to-vms-using-the-azure-portal"></a>Självstudier: Lastbalansera intern trafik till virtuella datorer med en enkel lastbalanserare med hjälp av Azure Portal
 
@@ -50,10 +50,8 @@ Skapa en intern enkel lastbalanserare med hjälp av portalen.
 
 1. Längst upp till vänster på skärmen klickar du på **Skapa en resurs** > **Nätverk** > **Lastbalanserare**.
 2. Ange dessa värden för lastbalanseraren på sidan **Skapa en lastbalanserare**:
-    - 
-  *myLoadBalancer* – namnet på lastbalanseraren.
-    - 
-  **Internal** – typen av lastbalanserare.
+    - *myLoadBalancer* – namnet på lastbalanseraren.
+    - **Internal** – typen av lastbalanserare.
     - **Basic** – SKU-versionen.
     - **10.1.0.7** – den statiska privata IP-adressen.
     - *myVNet* – det virtuella nätverk som du väljer i listan över befintliga nätverk.
@@ -104,7 +102,7 @@ I det här avsnittet skapar du två virtuella datorer för lastbalanserarens bac
 
 ## <a name="create-basic-load-balancer-resources"></a>Skapa en grundläggande lastbalanserare
 
-I det här avsnittet ska du konfigurera lastbalanseringsinställningarna för en serverdelsadresspool och en hälsoavsökning, och ange lastbalanserare och NAT-regler.
+I det här avsnittet konfigurerar du inställningarna för lastbalanseraren för en serverdelsadresspool och en hälsoavsökning och anger regler för lastbalanseraren.
 
 
 ### <a name="create-a-backend-address-pool"></a>Skapa en serverdelsadresspool

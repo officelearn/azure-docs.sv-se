@@ -3,19 +3,19 @@ title: 'Snabbstart: Videosökning i Bing, Ruby'
 titlesuffix: Azure Cognitive Services
 description: Hämta information och exempel på kod som hjälper dig att snabbt komma igång med API för videosökning i Bing.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: dfabfe24a653f84e5e242f32167b57b6a28b0075
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.author: aahi
+ms.openlocfilehash: b92fbbfdeb38c0fadca038007918c882c16e97cd
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223584"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165721"
 ---
 # <a name="quickstart-bing-video-search-api-with-ruby"></a>Snabbstart: API för videosökning i Bing med Ruby
 
@@ -23,11 +23,11 @@ Den här artikeln visar dig hur använder API för videosökning i Bing, en del 
 
 Exempelkoden skrevs för att köras med Ruby 2.4.
 
-Referera till [API-referensen](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) för teknisk information om API:erna.
+Teknisk information om API:erna finns i [API-referensen](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du måste ha ett [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API:er för Bing-sökresultat**. Den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) är tillräcklig för den här snabbstarten. Du behöver den åtkomstnyckel som tillhandahållits när du aktiverar din kostnadsfria utvärderingsversion eller du kan använda en betald prenumerationsnyckel från instrumentpanelen i Azure.
+Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API:er för Bing-sökresultat**. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten. Du behöver den åtkomstnyckel som du fick när du aktiverade din kostnadsfria utvärderingsversion, eller så kan du använda en betald prenumerationsnyckel från instrumentpanelen i Azure.
 
 ## <a name="bing-video-search"></a>Videosökning i Bing
 
@@ -198,7 +198,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 > [!div class="nextstepaction"]
 > [Sidindelning av videor](paging-videos.md)
-> [Ändra storlek och beskära miniatyrbilder](resize-and-crop-thumbnails.md)
+> [Ändra storlek på och beskära miniatyrbilder](resize-and-crop-thumbnails.md)
 
 ## <a name="see-also"></a>Se även 
 

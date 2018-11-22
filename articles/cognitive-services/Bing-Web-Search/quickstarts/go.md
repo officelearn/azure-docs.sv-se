@@ -3,20 +3,20 @@ title: 'Snabbstart: Utföra en sökning med Go – API för webbsökning i Bing'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten lär du dig att göra ditt första anrop API för webbsökning i Bing med Go och att ta emot ett JSON-svar.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
-ms.author: erhopf
+ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
-ms.openlocfilehash: 7ce3dd565709567bf75dbbb4ec8f206bba96c195
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9ba0501f9d4b408e4972f36806ab21cba6519b59
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408685"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163783"
 ---
 # <a name="quickstart-use-go-to-call-the-bing-web-search-api"></a>Snabbstart: Använda Go för att anropa API för webbsökning i Bing  
 

@@ -3,19 +3,19 @@ title: 'Snabbstart: API för videosökning i Bing, Java'
 titlesuffix: Azure Cognitive Services
 description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med API:n för videosökning i Bing.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 8ec5aa9e832a24fcd3b029727217bffb3b4d94e0
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.author: aahi
+ms.openlocfilehash: 0f1fc9fc5481adab3e5addfb5771a4e274077464
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223244"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164446"
 ---
 # <a name="quickstart-bing-video-search-api-with-java"></a>Snabbstart: API för videosökning i Bing med Java
 
@@ -23,7 +23,7 @@ Den här artikeln visar hur använder API:n för Bing-sökning, som ingår i Mic
 
 Exempelkoden skrivs att köras under Java 7 som ett konsolprogram.
 
-Se [API-referensen](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) för teknisk information om API:erna.
+Teknisk information om API:erna finns i [API-referensen](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -34,7 +34,7 @@ Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/
 [API:n för videosökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) returnerar videoresultat från Bings sökmotor.
 
 1. Hämta eller installera [gson-biblioteket](https://github.com/google/gson).
-2. Skapa ett nytt Java-projekt i dem IDE eller det redigeringsprogram som du föredrar.
+2. Skapa ett nytt Java-projekt i den IDE eller redigerare du föredrar.
 3. Lägg till koden nedan.
 4. Ersätt värdet `subscriptionKey` med en giltig åtkomstnyckel för din prenumeration.
 5. Kör programmet.

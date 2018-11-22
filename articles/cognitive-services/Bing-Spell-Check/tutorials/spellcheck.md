@@ -3,19 +3,19 @@ title: 'Självstudie: Visa resultat från stavningskontrollen med hjälp av API:
 titlesuffix: Azure Cognitive Services
 description: Visar hur du använder stavningskontroll i Bing.
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
 ms.topic: tutorial
 ms.date: 09/28/2017
-ms.author: v-jaswel
-ms.openlocfilehash: d7afcd18e00e820ad63b8b12bbc352faaca24c84
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: aahi
+ms.openlocfilehash: d0cfc952511ac0d8e1328f7b01fe5eeb2b4f7e48
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803604"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160554"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Självstudie: Skapa en klient för en webbsida med stavningskontroll
 
@@ -25,7 +25,7 @@ I den här självstudiekursen lär du dig att:
 
 > [!div class="checklist"]
 > - Skicka en enkel fråga till API:et för stavningskontroll i Bing
-> - Visa frågeresultatet
+> - Visa frågeresultat
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -68,7 +68,7 @@ Lägg till HTML-huvudinformationen och börja skriptavsnittet på följande sät
 
 GetSubscriptionKey-funktionen returnerar nyckeln för API:et för stavningskontroll i Bing. Den hämtar den antingen från lokal lagring (det vill säga en cookie) eller frågar användaren efter den om det behövs.
 
-Starta getSubscriptionKey-funktionen och deklarera cookie-namnet på följande sätt.
+Starta funktionen getSubscriptionKey och deklarera cookie-namnet enligt följande.
 
 ```html
 getSubscriptionKey = function() {
@@ -106,7 +106,7 @@ getSubscriptionKeyCookie-hjälpfunktionen frågar användaren efter värdet på 
     }
 ```
 
-getSubscriptionKeyLocalStorage-hjälpfunktionen försöker först hämta nyckeln för API:et för stavningskontroll i Bing genom att leta upp rätt cookie. Om cookien inte hittas frågar den användaren efter nyckelvärdet. Den returnerar sedan nyckelvärdet.
+getSubscriptionKeyLocalStorage-hjälpfunktionen försöker först hämta nyckeln för API:et för stavningskontroll i Bing genom att leta upp rätt cookie. Om cookien inte hittas frågar den användaren efter nyckelvärdet. Sedan returneras nyckelvärdet.
 
 ```html
     function getSubscriptionKeyLocalStorage() {
@@ -206,7 +206,7 @@ Ange **Ocp-Apim-Subscription-Key**-huvudet till värdet på nyckeln för API:et 
     request.setRequestHeader("Ocp-Apim-Subscription-Key", key);
 ```
 
-Hantera svaret från slutpunkten. Visa resultatet om statusen är 200 (OK), och visa felinformation i annat fall.
+Hantera svaret från slutpunkten. Visa resultatet om statusen är 200 (OK). Visa i annat fall felinformationen.
 
 ```html
     request.addEventListener("load", function() {

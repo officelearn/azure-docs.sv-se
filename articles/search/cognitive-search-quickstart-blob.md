@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 23a62197d20901347be247d331e21d076bcf9e83
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: bc88ca63f14c5480210455abcf403771b6a4c232
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288041"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264136"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Snabbstart: Skapa en pipeline för kognitiv sökning med kunskaper och exempeldata
 
@@ -33,9 +33,16 @@ Du kan prova kognitiva sökning i en Azure Search-tjänst som skapats i någon a
 * Västra centrala USA
 * Södra centrala USA
 * Östra USA
+* USA, östra 2
+* Västra USA 2
+* Centrala Kanada
 * Västra Europa
+* Storbritannien, södra
 * Norra Europa
+* Södra Brasilien
 * Sydostasien
+* Indien, centrala
+* Östra Australien
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 

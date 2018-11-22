@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 0aadb5964b5fe08b02397588dd9b2695fb4db4ce
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 27650605601a24e11d63e56343535c35c8b72f5d
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746725"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285160"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Uppdatera operativsystemet Linux i Service Fabric-klustret
 
@@ -147,7 +147,7 @@ Patch orchestration appens beteende kan konfigureras för att uppfylla dina beho
 
 1. Förbered klustret genom att slutföra alla nödvändiga steg.
 2. Distribuera patch orchestration-appen som med andra Service Fabric-app. Du kan distribuera appen med hjälp av PowerShell eller Azure Service Fabric CLI. Följ stegen i [distribuera och ta bort program med hjälp av PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications) eller [distribuera program med Azure Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/scripts/cli-deploy-application)
-3. För att konfigurera programmet vid tidpunkten för distribution, skickar den `ApplicationParamater` till den `New-ServiceFabricApplication` cmdlet eller skripten som tillhandahålls. Powershell (Deploy.ps1) och bash (Deploy.sh)-skript har angetts tillsammans med programmet för din bekvämlighet. Du använder skriptet:
+3. För att konfigurera programmet vid tidpunkten för distribution, skickar den `ApplicationParameter` till den `New-ServiceFabricApplication` cmdlet eller skripten som tillhandahålls. Powershell (Deploy.ps1) och bash (Deploy.sh)-skript har angetts tillsammans med programmet för din bekvämlighet. Du använder skriptet:
 
     - Anslut till Service Fabric-kluster.
     - Kör skriptet Deploy. Du kan också skicka program-parametern till skriptet. till exempel:.\Deploy.ps1 - ApplicationParameter @{UpdateFrequency = ”varje dag, 11:00:00”} eller./Deploy.sh ”{\"UpdateFrequency\":\"dagligen, 11:00:00\"}” 

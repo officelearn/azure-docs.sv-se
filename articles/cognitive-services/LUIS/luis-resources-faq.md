@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: db8fc0b6926930521f11285dc56c886c10c42fc2
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: d371ead3280bca5239a9ee6bf2c4275414141fb4
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649320"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284378"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding vanliga frågor och svar
 
@@ -60,6 +60,16 @@ Cortana färdiga appar tagits bort 2017. De stöds inte längre.
 
 ## <a name="luis-endpoint"></a>LUIS-slutpunkt
 
+### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Min endpoint-frågan returnerade ett oväntat resultat. Vad ska jag göra?
+
+Oväntad fråga förutsagda resultaten som baseras på tillståndet för den publicerade modellen. Åtgärda modellen genom kanske du behöver att behöva ändra modellen, träna och publicera igen. 
+
+Korrigera modellen börjar med [aktiv inlärning](luis-how-to-review-endoint-utt.md).
+
+Du kan ta bort icke-deterministisk utbildning genom att uppdatera den [application version inställningar API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) för att kunna använda alla träningsdata. 
+
+Granska den [bästa praxis](luis-concept-best-practices.md) andra tips. 
+
 ### <a name="why-does-luis-add-spaces-to-the-query-around-or-in-the-middle-of-words"></a>Varför LUIS lägga till utrymmen i frågan runt eller i mitten ord?
 LUIS [tokenizes](luis-glossary.md#token) i uttryck baserat på den [kultur](luis-language-support.md#tokenization). Både det ursprungliga värdet och principfilerna värdet är tillgängliga för [dataextrahering](luis-concept-data-extraction.md#tokenized-entity-returned).
 
@@ -67,7 +77,7 @@ LUIS [tokenizes](luis-glossary.md#token) i uttryck baserat på den [kultur](luis
 [Skapa slutpunktsnyckeln](luis-how-to-azure-subscription.md#create-luis-endpoint-key) i Azure för dina [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) nivå. [Tilldela nyckeln](luis-how-to-manage-keys.md#assign-endpoint-key) på den **[nycklar och slutpunkter](luis-how-to-manage-keys.md)** sidan. Det finns inga motsvarande API: et för den här åtgärden. Du måste ändra HTTP-begäran till slutpunkten till [använder den nya slutpunktsnyckeln](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Hur tolkar LUIS poäng?
-Systemet bör använda högsta bedömnings avsikten oavsett dess värde. Till exempel en poäng under 0,5 (mindre än 50%) inte nödvändigtvis att LUIS har låg förtroende. Tillhandahåller mer utbildningsdata för kan du öka poängen för den mest sannolika avsikten.
+Systemet bör använda högsta bedömnings avsikten oavsett dess värde. Till exempel en poäng under 0,5 (mindre än 50%) inte nödvändigtvis att LUIS har låg förtroende. Ger mer utbildning kan öka den [poäng](luis-concept-prediction-score.md) av den mest sannolika avsikten.
 
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>Varför ser jag min endpoint träffar i instrumentpanelen för min app?
 Totala endpoint träffar i din app instrumentpanelen uppdateras regelbundet, men de mått som är associerade med din LUIS slutpunktsnyckeln i Azure-portalen uppdateras oftare.

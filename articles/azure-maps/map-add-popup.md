@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 0be10c155398133887fadb1fe9954068f3afb9d9
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: f56e15e12bc176e6b6837e144494599ea4fb5403
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568122"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282540"
 ---
 # <a name="add-a-popup-to-the-map"></a>Lägga till ett popup-fönster på kartan
 
@@ -33,7 +33,7 @@ Andra kodblocket skapar en datakälla objekt med den [DataSource](https://docs.m
 
 En [symbol layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) använder text eller ikoner för att rendera platsbaserad data och är inneslutna i den [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som symboler på kartan.  En symbol-lager har skapats i det tredje kodblocket. Datakällan har lagts till symbol-lagret, som sedan läggs till i kartan.
 
-Det fjärde kodblocket skapar en [popup-fönstret objektet](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) via `new atlas.Popup()`. Popup-fönstret Egenskaper som position och pixelOffset är en del av [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.popupoptions?view=azure-iot-typescript-latest). PopupOptions kan definieras i popup-konstruktorn eller via [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) funktion i klassen popup-fönstret. En `mouseover` händelselyssnaren för symbolen lager skapas.
+Det fjärde kodblocket skapar en [popup-fönstret objektet](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) via `new atlas.Popup()`. Popup-fönstret Egenskaper som position och pixelOffset är en del av [PopupOptions](/javascript/api/azure-maps-control/atlas.popupoptions). PopupOptions kan definieras i popup-konstruktorn eller via [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) funktion i klassen popup-fönstret. En `mouseover` händelselyssnaren för symbolen lager skapas.
 
 Det sista blocket kod skapar en funktion som utlöses av den `mouseover` händelselyssnaren. Den anger innehåll och egenskaper för popup-fönstret och lägger till objektet popup-fönster på kartan.
 

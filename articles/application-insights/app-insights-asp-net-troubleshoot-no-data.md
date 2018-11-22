@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 47cf32a57fc4a2d0e20a9f2c242db1f3dec96fe5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8bc4c0617ebf9b400260a217462abbcc439ae440
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228546"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284684"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Felsökning utan data, Application Insights för .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Några av Mina telemetri saknas
@@ -175,8 +175,14 @@ Om ditt program skickar stora mängder data och du använder Application Insight
 
 Du kan inaktivera det, men detta rekommenderas inte. Sampling är utformat så att relaterad telemetri är korrekt överförs i diagnostiskt syfte. 
 
-## <a name="client-ip-address-is-0000"></a>Klientens IP-adress är 0.0.0.0 
-Februari 2018 börjar vi [meddelade](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/02/01/all-octets-of-ip-address-will-be-set-to-zero/) att vi har tagit bort loggning av klient-IP-adress. Detta påverkar inte geografisk plats.
+## <a name="client-ip-address-is-0000"></a>Klientens IP-adress är 0.0.0.0
+
+Februari 5 2018 meddelade vi att vi har tagit bort loggning av klient-IP-adress. Detta påverkar inte geografisk plats.
+
+> [!NOTE]
+> Om du behöver först 3 oktetter i IP-adress kan du använda en [telemetriinitieraren](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer) att lägga till ett anpassat attribut.
+> Detta påverkar inte data som samlats in före den 5 februari 2018.
+
 
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>Fel geografiska data i användaren telemetri
 Den ort, region och land dimensioner härleds från IP-adresser och alltid är inte korrekt. Dessa IP-adresser bearbetas för platsen först och sedan ändrades till 0.0.0.0 ska lagras.

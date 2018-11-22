@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 8a2a9728a9fcc0c409cd2020c4aa831433538157
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: ef8a01228ff31afa78f469b2ad80b864fc9d3497
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976136"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283460"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Verktyg för Azure Stack-diagnostik
 
@@ -76,9 +76,6 @@ if($s)
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Att köra Get-AzureStackLog på ett Azure Stack Development Kit (ASDK)
 Följ dessa steg för att köra Get-AzureStackLog på en värddator för ASDK.
 
-- Parametrarna **OutputSharePath** och **OutputShareCredential** används för att lagra loggar i en användardefinierad plats.
-- Den **FromDate** och **ToDate** parametrar kan användas för att samla in loggar för en viss tidsperiod. Om dessa parametrar inte anges, insamlade loggar för de senaste fyra timmarna som standard.
-
 1. Logga in som **AzureStack\CloudAdmin** på värddatorn ASDK.
 2. Öppna ett nytt PowerShell-fönster som administratör.
 3. Kör den **Get-AzureStackLog** PowerShell-cmdlet.
@@ -111,7 +108,10 @@ Följ dessa steg för att köra Get-AzureStackLog på en värddator för ASDK.
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Parametern överväganden för både ASDK och integrerade system
 
-- Om den **FromDate** och **ToDate** parametrar har angetts, loggar samlas in för de senaste fyra timmarna som standard.
+- Parametrarna **OutputSharePath** och **OutputShareCredential** används för att lagra loggar i en användardefinierad plats.
+
+- Den **FromDate** och **ToDate** parametrar kan användas för att samla in loggar för en viss tidsperiod. Om dessa parametrar inte anges, insamlade loggar för de senaste fyra timmarna som standard.
+
 - Använd den **FilterByNode** parameter för att filtrera loggar efter datornamn. Exempel:
 
     ```powershell

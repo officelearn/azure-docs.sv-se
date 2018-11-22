@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ca19ce2cca314950adc40bbf065dec80e7fa3e1f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a518d00a50c0fc6ec83626852f30f739d64b18ea
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227934"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283305"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Runbook- och gallerier för Azure Automation
 I stället för att skapa egna runbooks och moduler i Azure Automation kan du komma åt en mängd olika scenarier som redan har skapats av Microsoft och communityn.  Du kan antingen använda de här scenarierna utan ändringar eller du kan använda dem som en startpunkt och redigera dem efter behov.
@@ -68,7 +68,7 @@ Microsoft rekommenderar att du vill lägga till runbooks i Runbook-galleriet som
 * Automation uppdaterar galleriet en gång i timmen, så att du inte se dina bidrag omedelbart.
 
 ## <a name="modules-in-powershell-gallery"></a>Moduler i PowerShell-galleriet
-PowerShell-moduler innehåller cmdletar som du kan använda i dina runbooks och befintliga moduler som du kan installera i Azure Automation är tillgängliga i den [PowerShell-galleriet](http://www.powershellgallery.com).  Du kan starta det här galleriet från Azure-portalen och installera dem direkt i Azure Automation, eller du kan hämta dem och installera dem manuellt.  
+PowerShell-moduler innehåller cmdletar som du kan använda i dina runbooks och befintliga moduler som du kan installera i Azure Automation är tillgängliga i den [PowerShell-galleriet](https://www.powershellgallery.com).  Du kan starta det här galleriet från Azure-portalen och installera dem direkt i Azure Automation, eller du kan hämta dem och installera dem manuellt.  
 
 ### <a name="to-import-a-module-from-the-automation-module-gallery-with-the-azure-portal"></a>Importera en modul från galleriet för automatisering av modulen med Azure portal
 1. Öppna ditt Automation-konto på Azure Portal.

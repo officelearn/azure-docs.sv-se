@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: efe04b19188d7324c3f86565610040b8eaa97c43
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 18e668249c50ffbc1020aa12455fdfb87dcb8a24
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855399"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282557"
 ---
 # <a name="message-deferral"></a>Skjut upp meddelanden
 
@@ -40,7 +40,6 @@ Om du vill hämta ett uppskjutet meddelande ägaren ansvarar för att komma ihå
 
 Om ett meddelande inte kan bearbetas eftersom en viss resurs för hantering av meddelandet är inte tillgänglig för tillfället men meddelandebehandling bör inte pausas summarily, ett sätt att placera meddelandet på sida för ett par minuter är att komma ihåg det  **SequenceNumber** i en [schemalagt meddelande](message-sequencing.md) att publiceras på några minuter och hämta det uppskjutna meddelandet igen när den schemalagda meddelanden anländer. Om en meddelandehanterare är beroende av en databas för alla åtgärder och att databasen är otillgänglig, det bör inte använda uppskjutande utan i stället inaktivera ta emot meddelanden funktionen helt och hållet tills databasen är tillgänglig igen.
 
-Skjuta upp meddelanden påverkar inte förfallodatum för meddelanden, vilket innebär att uppskjutna meddelanden fortfarande går ut vid den ursprungligen schemalagda tiden och sedan flyttas till kön för obeställbara meddelanden, om detta konfigureras.
 
 ## <a name="next-steps"></a>Nästa steg
 

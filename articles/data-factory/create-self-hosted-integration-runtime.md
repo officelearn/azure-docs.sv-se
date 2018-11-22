@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: cae81bd2b856ae0fb4a648c03cbec1f87f222902
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 0f48d65d1b3e6d1f608d85cff3a24ef379caa9cf
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038476"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284837"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Skapa och konfigurera en lokal integration runtime
 Integration runtime (IR) är beräkningsinfrastrukturen som Azure Data Factory använder för att tillhandahålla funktioner för dataintegrering olika nätverksmiljöer integrationsfunktioner. Mer information om IR finns [översikten över Integration runtime](concepts-integration-runtime.md).
@@ -198,7 +198,9 @@ Titta på följande videoklipp för en tolv minuters introduktion och demonstrat
 
 * Azure PowerShell-version som stöder den här funktionen är 6.6.0 eller senare (AzureRM.DataFactoryV2, 0.5.7 eller senare).
 
-* Användaren måste rollen ägare eller ärvda ägarrollen i datafabriken där det finns delad IR för att ge behörighet. 
+* Användaren måste rollen ägare eller ärvda ägarrollen i datafabriken där det finns delad IR för att ge behörighet.
+
+* Funktionen för delning fungerar endast för Datafabriker inom samma Azure Active Directory-klientorganisation.
 
 * För Active Directory [gästanvändare](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews), sökfunktionen (lista alla datafabriker med hjälp av en sökordet) i Användargränssnittet [fungerar inte](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). Men så länge som gästanvändare är ägare till data factory, de kan dela IR utan att sökningen genom att direkt skriva MSI på data factory IR måste delas i den **tilldela behörighet** textruta och att välja **Lägg till** i Användargränssnittet för Azure Data Factory. 
 

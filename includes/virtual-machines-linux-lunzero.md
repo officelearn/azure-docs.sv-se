@@ -4,12 +4,12 @@ ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 46fd31b54b7692700cce0bebe484c4f5de591942
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 87dd3680aae3e87f78ab2dbe70c44b2008706747
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227270"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279962"
 ---
 När du lägger till datadiskar till en Linux-VM, kan det uppstå fel om en disk inte finns på LUN 0. Om du lägger till en disk manuellt med hjälp av den `azure vm disk attach-new` kommandot och du anger en LUN (`--lun`) i stället för att tillåta Azure-plattformen för att avgöra lämpliga LUN noga med att en disk redan finns / kommer att finnas på LUN 0. 
 
@@ -20,7 +20,7 @@ När du lägger till datadiskar till en Linux-VM, kan det uppstå fel om en disk
 [5:0:0:1]    disk    Msft     Virtual Disk     1.0   /dev/sdd 
 ```
 
-De två diskarna finns på LUN 0 och 1 för LUN (den första kolumnen i den `lsscsi` utdata information `[host:channel:target:lun]`). Båda diskarna bör vara accessbile från den virtuella datorn. Om du har angett den första disken som ska läggas till på LUN-1 och den andra disken på LUN 2 manuellt, syns inte diskarna rätt från din virtuella dator.
+De två diskarna finns på LUN 0 och 1 för LUN (den första kolumnen i den `lsscsi` utdata information `[host:channel:target:lun]`). Båda diskarna måste vara tillgängliga från den virtuella datorn. Om du har angett den första disken som ska läggas till på LUN-1 och den andra disken på LUN 2 manuellt, syns inte diskarna rätt från din virtuella dator.
 
 > [!NOTE]
 > Azure `host` värdet är 5 i de här exemplen, men detta kan variera beroende på vilken typ av lagring som du väljer.

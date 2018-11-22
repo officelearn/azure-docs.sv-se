@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 99bac69d096095f660e2624194b72e1390c6fc22
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a4bb423dc5eddde0fd2d2b9b4f263ab39dbd801f
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275572"
+ms.locfileid: "52284990"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tagg-stöd för Azure-resurser
 Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-using-tags.md).
@@ -193,7 +193,6 @@ Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-us
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
 | DataBoxEdgeDevices | Ja | 
-| DataBoxEdgeDevices/checkNameAvailability | Nej | 
 
 ## <a name="data-catalog"></a>Data Catalog
 | Resurstyp | Har stöd för taggar |
@@ -451,8 +450,8 @@ Den här artikeln beskriver om en resurstyp stöder [taggning](resource-group-us
 ## <a name="resources"></a>Resurser
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
-| Resursgrupper | Nej | 
-| prenumerationerna/resursgrupperna | Nej | 
+| Resursgrupper | Ja | 
+| prenumerationerna/resursgrupperna | Ja | 
 
 ## <a name="scheduler"></a>Scheduler
 | Resurstyp | Har stöd för taggar |

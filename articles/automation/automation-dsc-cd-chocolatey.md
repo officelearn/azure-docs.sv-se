@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4172afc3adf23a05384fec0413465cf491af3a79
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: d3957038410e7a7d80e1ac710f0c227047b636a7
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275307"
+ms.locfileid: "52284803"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Användningsexempel: Kontinuerlig distribution till virtuella datorer med Automation-Tillståndskonfiguration och Chocolatey
 
@@ -34,14 +34,14 @@ När båda dessa kärnprocesser är på plats är det ett kort steg för att aut
 ## <a name="component-overview"></a>Komponent-översikt
 
 Paketera chefer som [apt-get](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) är ganska välkända i Linux-världen, men inte så mycket Windows över hela världen.
-[Chocolatey](https://chocolatey.org/) är sådana en sak och Scott Hanselman [blogg](http://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx) på avsnittet är en bra introduktion. Kortfattat, kan Chocolatey du installera paket från en central lagringsplats med paket i ett Windows-system från kommandoraden. Du kan skapa och hantera din egen lagringsplats och Chocolatey kan installera paket från valfritt antal databaser som du har angett.
+[Chocolatey](https://chocolatey.org/) är sådana en sak och Scott Hanselman [blogg](https://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx) på avsnittet är en bra introduktion. Kortfattat, kan Chocolatey du installera paket från en central lagringsplats med paket i ett Windows-system från kommandoraden. Du kan skapa och hantera din egen lagringsplats och Chocolatey kan installera paket från valfritt antal databaser som du har angett.
 
 Desired State Configuration (DSC) ([översikt](/powershell/dsc/overview)) är ett PowerShell-verktyg som hjälper dig att deklarera den konfiguration som du vill använda för en dator. Anta exempelvis att du kan, ”jag vill Chocolatey installerad, jag vill att IIS är installerat, jag vill porten 80 är öppen, jag vill ha version 1.0.0 av min webbplats installeras”. DSC lokala Configuration Manager (LCM) implementerar konfigurationen. En DSC-Hämtningsserver innehåller en databas som konfigurationer för dina datorer. LCM på varje dator ansluter regelbundet till om dess konfiguration matchar lagrade konfigurationen. Det kan rapportera status, eller så kan du försöka att se datorn till justering till den lagrade konfigurationen. Du kan redigera den lagrade konfigurationen på hämtningsservern framkalla en dator eller en uppsättning datorer att komma i kombination med den ändrade konfigurationen.
 
 Azure Automation är en hanterad tjänst i Microsoft Azure som gör det möjligt att automatisera olika uppgifter med hjälp av runbooks, noder, autentiseringsuppgifter, resurser och tillgångar, till exempel scheman och globala variabler.
 Azure Automation State Configuration utökar den här automation-funktionen för att inkludera PowerShell DSC-verktyg. Här är en bra [översikt](automation-dsc-overview.md).
 
-En DSC-resurs är en modul av kod som har specifika funktioner, t.ex hantering av nätverk, Active Directory, eller SQL Server. Chocolatey DSC-resursen vet hur man åtkomst till en NuGet-Server (bland annat), ladda ned paket, installera paket och så vidare. Det finns många andra DSC-resurser i den [PowerShell-galleriet](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title).
+En DSC-resurs är en modul av kod som har specifika funktioner, t.ex hantering av nätverk, Active Directory, eller SQL Server. Chocolatey DSC-resursen vet hur man åtkomst till en NuGet-Server (bland annat), ladda ned paket, installera paket och så vidare. Det finns många andra DSC-resurser i den [PowerShell-galleriet](https://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title).
 Dessa moduler är installerade i Azure Automation tillstånd hämta konfigurationsservern (som du) så att de kan användas av dina konfigurationer.
 
 Resource Manager-mallar tillhandahåller en deklarativ metod för att generera din infrastruktur – till exempel nätverk, undernät, nätverkssäkerhet och routning, läsa in belastningsutjämnare, nätverkskort, virtuella datorer och så vidare. Här är en [artikeln](../azure-resource-manager/resource-manager-deployment-model.md) som jämför den Resource Manager-distributionsmodellen (deklarativt) med Azure Service Management (ASM eller klassisk)-distributionsmodellen (imperativt) och beskriver resursprovidrar core, databearbetning, lagring och nätverk.
@@ -179,7 +179,7 @@ De här stegen resulterar i en ny nodkonfiguration med namnet ”ISVBoxConfig.is
 ## <a name="step-5-creating-and-maintaining-package-metadata"></a>Steg 5: Skapa och underhålla paketmetadata
 
 För varje paket som du placerar i paketdatabasen, behöver du en nuspec som beskriver den.
-Den nuspec måste kompileras och lagras i NuGet-server. Den här processen beskrivs [här](http://docs.nuget.org/create/creating-and-publishing-a-package). Du kan använda MyGet.org som en NuGet-server. De sälja den här tjänsten, men har en starter SKU som är kostnadsfri. Du hittar anvisningar om hur du installerar en egen NuGet-server för dina privata paket på NuGet.org.
+Den nuspec måste kompileras och lagras i NuGet-server. Den här processen beskrivs [här](https://docs.nuget.org/create/creating-and-publishing-a-package). Du kan använda MyGet.org som en NuGet-server. De sälja den här tjänsten, men har en starter SKU som är kostnadsfri. Du hittar anvisningar om hur du installerar en egen NuGet-server för dina privata paket på NuGet.org.
 
 ## <a name="step-6-tying-it-all-together"></a>Steg 6: Binda allt på samma plats
 

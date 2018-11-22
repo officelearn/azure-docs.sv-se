@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5133a3d724a362a3d022e0dfd29f798a509c4743
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 804ac964949c947baf5285b3ec591b3d28263f4d
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275477"
+ms.locfileid: "52282745"
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Azure Automation-scenario – etablera en virtuell dator i AWS
 I den här artikeln får du lära dig hur du kan utnyttja Azure Automation för att etablera en virtuell dator i Amazon Web Service (AWS)-prenumeration och ge den virtuella datorn till ett visst namn – AWS refererar till som ”taggning” den virtuella datorn.
@@ -25,7 +25,7 @@ Du måste ha ett Azure Automation-konto och en AWS-prenumeration för den här a
 ## <a name="deploy-amazon-web-services-powershell-module"></a>Distribuera Amazon Web Services PowerShell-modul
 Den virtuella datorn etablering runbook utnyttjar AWS PowerShell-modulen för att utföra sitt arbete. Utför följande steg för att lägga till modulen till Automation-kontot som är konfigurerad med autentiseringsuppgifterna för din AWS-prenumeration.  
 
-1. Öppna webbläsaren och navigera till den [PowerShell-galleriet](http://www.powershellgallery.com/packages/AWSPowerShell/) och klicka på den **distribuera till Azure Automation-knappen**.<br><br> ![AWS PS Modulimport](./media/automation-scenario-aws-deployment/powershell-gallery-download-awsmodule.png)
+1. Öppna webbläsaren och navigera till den [PowerShell-galleriet](https://www.powershellgallery.com/packages/AWSPowerShell/) och klicka på den **distribuera till Azure Automation-knappen**.<br><br> ![AWS PS Modulimport](./media/automation-scenario-aws-deployment/powershell-gallery-download-awsmodule.png)
 2. Du kommer till inloggningssidan för Azure och när de har autentiserat, du ska dirigeras till Azure-portalen och visas följande sida:<br><br> ![Importera modulsida](./media/automation-scenario-aws-deployment/deploy-aws-powershell-module-parameters.png)
 3. Välj det Automation-kontot du använder och klicka på **OK** att starta distributionen.
 
@@ -60,7 +60,7 @@ När PowerShell-modulen AWS har distribuerats kan skapa du nu en runbook för at
     > 
     > * Denna runbook innehåller ett antal standardparametervärden. Utvärdera alla standardvärden och uppdatera vid behov.
     > * Om du har sparat dina AWS-autentiseringsuppgifter som en autentiseringsuppgifttillgång med namnet på ett annat sätt än **AWScred**, måste du uppdatera skriptet på rad 57 så att de matchar därefter.  
-    > * När du arbetar med AWS CLI-kommandon i PowerShell, särskilt i denna exempel-runbook, måste du ange AWS-region. Annars misslyckas cmdlets. Visa AWS avsnittet [ange AWS Region](http://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) i AWS-verktyg för PowerShell-dokument för mer information.  
+    > * När du arbetar med AWS CLI-kommandon i PowerShell, särskilt i denna exempel-runbook, måste du ange AWS-region. Annars misslyckas cmdlets. Visa AWS avsnittet [ange AWS Region](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) i AWS-verktyg för PowerShell-dokument för mer information.  
     >
 
 7. Om du vill hämta en lista med avbildningsnamn från din AWS-prenumeration, starta PowerShell ISE och importera PowerShell-modulen AWS. Autentisera mot AWS genom att ersätta **Get-AutomationPSCredential** i ISE-miljön med **AWScred = Get-Credential**. Detta uppmanar dig att dina autentiseringsuppgifter och du kan ange din **Åtkomstnyckelns ID** för användarnamnet och **hemliga åtkomstnyckel** för lösenordet. Se exemplet nedan:  

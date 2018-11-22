@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: eb44d6b0a4ea69d92f91af7ce1d6b19deff4e753
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 3ab775d57ba188930cc66b0fa1655307e9a78179
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567034"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284650"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Förstå utökade offlinefunktionerna för IoT Edge-enheter, moduler och underordnade enheter (förhandsversion)
 
@@ -48,7 +48,7 @@ I följande exempel visas hur en IoT Edge-scenariot fungerar i offline-läge:
 
 De utökade offline funktioner som beskrivs i den här artikeln är tillgängliga i [IoT Edge version 1.0.4 eller högre](https://github.com/Azure/azure-iotedge/releases). Tidigare versioner har en delmängd av Offlinefunktioner. Befintliga IoT Edge-enheter som inte har utökat offlinefunktionerna kan inte uppgraderas genom att ändra körningsversion, men måste konfigureras med en ny enhetsidentitet i IoT Edge att få dessa funktioner. 
 
-Utökad offline support är tillgänglig i alla regioner där IoT Hub inte är tillgängligt, östra USA och Västeuropa. 
+Utökad offline support är tillgänglig i alla regioner där IoT Hub är tillgänglig, **utom** östra USA.
 
 Icke - Edge IoT-enheter kan läggas till som underordnade enheter. 
 
@@ -65,6 +65,19 @@ Underordnade enheter kan vara vilken-Edge-enhet som registrerats till samma IoT 
    ![Hantera underordnade enheter från sidan IoT Edge-enhet](./media/offline-capabilities/manage-child-devices.png)
 
 Överordnade enheter kan ha flera underordnade enheter, men en underordnad enhet kan bara ha en överordnad.
+
+### <a name="specifying-dns-servers"></a>Ange DNS-servrar 
+
+Förbättrad stabilitet, bör du ange DNS-serveradresser som används i din miljö. Till exempel på Linux, uppdatera **/etc/docker/daemon.json** (du kan behöva skapa filen) att inkludera:
+
+```
+{
+    "dns": [“1.1.1.1”]
+}
+```
+
+Om du använder en lokal DNS-server, ersätter du 1.1.1.1 med IP-adressen för den lokala DNS-servern. Starta om docker-tjänsten för att ändringarna ska börja gälla.
+
 
 ## <a name="optional-offline-settings"></a>Valfria inställningar för offline
 

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: fea0a0dfd2e138fa4f33f4f489be74f5038b4ca6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 50f8fea04da3b1e414917a6404cb3f6e838bf716
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244533"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284820"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Konfigurera datorer för hantering av Azure Automation State Configuration
 
@@ -42,7 +42,7 @@ Med Azure Automation State Configuration kan du enkelt integrera Azure-datorer (
 
 ### <a name="azure-portal"></a>Azure Portal
 
-I den [Azure-portalen](http://portal.azure.com/), klickar du på **Bläddra** -> **virtuella datorer (klassiska)**. Välj Windows VM som du vill publicera. Den virtuella datorns instrumentpanelen bladet och klicka på **alla inställningar** -> **tillägg** -> **Lägg till** -> **Azure Automation DSC** -> **skapa**.
+I den [Azure-portalen](https://portal.azure.com/), klickar du på **Bläddra** -> **virtuella datorer (klassiska)**. Välj Windows VM som du vill publicera. Den virtuella datorns instrumentpanelen bladet och klicka på **alla inställningar** -> **tillägg** -> **Lägg till** -> **Azure Automation DSC** -> **skapa**.
 Ange den [PowerShell DSC lokal konfigurationshanterare värden](/powershell/dsc/metaconfig4) krävs för ditt användningsområde, Registreringsnyckeln för ditt Automation-konto och URL: en registrering och eventuellt en nodkonfiguration ska tilldelas den virtuella datorn.
 
 ![Azure VM-tillägg för DSC](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
@@ -132,7 +132,7 @@ Om datorn inte har PowerShell desired tillstånd-tillägget installerat och ener
 
 Under **registrering**, ange den [PowerShell DSC lokal konfigurationshanterare värden](/powershell/dsc/metaconfig4) krävs för ditt användningsområde och eventuellt en nodkonfiguration ska tilldelas den virtuella datorn.
 
-![](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
+![Onboarding](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
 

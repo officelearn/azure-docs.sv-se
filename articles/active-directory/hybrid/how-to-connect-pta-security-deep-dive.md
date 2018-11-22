@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7a787535d6e6e216df27c8cf7448fa584e85ef2b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c0729fd4c6d5e387b38c310a708505c3395ea41f
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312461"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284888"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory-direktautentisering djupgående om säkerhet
 
@@ -209,7 +209,7 @@ Att automatiskt uppdatera en autentiseringsagent:
 ## <a name="next-steps"></a>Nästa steg
 - [Aktuella begränsningar](how-to-connect-pta-current-limitations.md): Läs mer om vilka scenarier som stöds och vilka som inte är.
 - [Snabbstart](how-to-connect-pta-quick-start.md): komma igång på Azure AD-direktautentisering.
-- [Migrera från AD FS till direktautentisering](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) -en detaljerad vägledning för att migrera från AD FS (eller andra tekniker för federation) till direktautentisering.
+- [Migrera från AD FS till direktautentisering](https://aka.ms/adfstoptadpdownload) -en detaljerad vägledning för att migrera från AD FS (eller andra tekniker för federation) till direktautentisering.
 - [Smart kontoutelåsning](../authentication/howto-password-smart-lockout.md): konfigurera funktionen för smarta kontoutelåsning på din klient för att skydda användarkonton.
 - [Så här fungerar det](how-to-connect-pta-how-it-works.md): Lär dig grunderna för hur Azure AD-direktautentisering fungerar.
 - [Vanliga frågor och svar](how-to-connect-pta-faq.md): få svar på vanliga frågor och svar.

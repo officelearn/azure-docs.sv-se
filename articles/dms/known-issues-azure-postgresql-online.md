@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/22/2018
-ms.openlocfilehash: e30ffe2dd79d55e856ef297608745b60578cf7e7
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b83c889e72acb320c308c3ad5ee6243e715fd523
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46131303"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282884"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Begränsningar för kända problem/migrering med online migreringar till Azure DB för PostgreSQL
 
 I följande avsnitt beskrivs kända problem och begränsningar som är associerade med online migreringar från PostgreSQL till Azure Database för PostgreSQL. 
 
 ## <a name="online-migration-configuration"></a>Onlinemigrering konfiguration
-- Källan PostgreSQL-servern måste köra version 9.5.11, 9.6.7 eller 10.3 eller senare. Mer information finns i artikeln [versioner som stöds av PostgreSQL-databasen](1.2.%09https:/docs.microsoft.com/azure/postgresql/concepts-supported-versions).
+- Källan PostgreSQL-servern måste köra version 9.5.11, 9.6.7 eller 10.3 eller senare. Mer information finns i artikeln [versioner som stöds av PostgreSQL-databasen](../postgresql/concepts-supported-versions.md).
 - Endast samma version migreringar stöds. Till exempel stöds migrera PostgreSQL 9.5.11 till Azure Database för PostgreSQL 9.6.7 inte.
 - Att aktivera logiska replikering i den **source PostgreSQL postgresql.conf** fil, ange följande parametrar:
     - **wal_level** = logical
@@ -66,7 +66,7 @@ I följande avsnitt beskrivs kända problem och begränsningar som är associera
     
     ```
 
-    Kör drop-sekundärnyckeln (vilket är den andra kolumnen) i frågeresultatet.
+    Kör släpp sekundärnyckeln (som är den andra kolumnen) i frågeresultatet.
 
 - Schemat i målets Azure Database for PostgreSQL får inte ha utlösare. Använd följande för att inaktivera utlösare i måldatabasen:
 

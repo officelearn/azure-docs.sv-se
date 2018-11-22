@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1e9ca18d2075d40f6f55bc84723f79ae7e10850b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2a28c8056e6dc25148299415a63a32993e874e01
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261221"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284548"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Anslutningstillgångar i Azure Automation
 
@@ -102,11 +102,11 @@ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $
 
 Du lägger till en **Get-AutomationConnection** aktivitet för att en grafisk runbook genom att högerklicka på anslutningen i rutan bibliotek över den grafiska redigeraren och välja **Lägg till på ytan**.
 
-![](media/automation-connections/connection-add-canvas.png)
+![Lägg till på ytan](media/automation-connections/connection-add-canvas.png)
 
 Följande bild visar ett exempel på hur du använder en anslutning i en grafisk runbook.  Det här är det här exemplet som visas ovan för att autentisera med hjälp av kör som-konto med en textbaserade runbook.  Det här exemplet används den **konstantvärde** datauppsättning efter den **hämta RunAs-anslutning** aktivitet som använder ett anslutningsobjekt för autentisering.  En [pipelinelänk](automation-graphical-authoring-intro.md#links-and-workflow) kan användas här eftersom parameteruppsättningen ServicePrincipalCertificate förväntar ett enskilt objekt.
 
-![](media/automation-connections/automation-get-connection-object.png)
+![Hämta-anslutningar](media/automation-connections/automation-get-connection-object.png)
 
 ### <a name="python2-runbook-sample"></a>Python2 runbook-exempel
 I följande exempel visas hur man autentiserar med Kör som-anslutningen i en Python2-runbook.

@@ -9,16 +9,50 @@ author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 10/24/2018
-ms.openlocfilehash: 5ceb47f437f736829d0be10a856fe787fab944b0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 52c8eed7f8b5a65ef13215e677d52f44cb95fd64
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261592"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285007"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
 I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner. 
+
+## <a name="2018-11-20"></a>2018-11-20
+
+### <a name="azure-machine-learning-sdk-for-python-v0180"></a>Azure Machine Learning-SDK för Python v0.1.80
+
++ **Större ändringar** 
+  * *azureml.Train.widget* namnområde har flyttats till *azureml.train*.
+  * *azureml.core.compute.AmlCompute* gör blir föråldrat *azureml.core.compute.BatchAICompute*. Klassen senare tas bort i kommande versioner.
+### <a name="azure-machine-learning-data-prep-sdk-v051"></a>Azure Machine Learning Data Förbered SDK v0.5.1 
+Läs mer om Data Prep SDK genom att läsa [referera till docs](https://aka.ms/data-prep-sdk).
++ **Nya funktioner**
+   * Skapa en ny DataPrep CLI för att köra paket för förberedelse av data och visa data för en datauppsättning eller dataflöde
+   * Omarbetad SetColumnType API för att förbättra användbarhet
+   * Omdöpt smart_read_file till auto_read_file
+   * Innehåller nu skeva och datamängds i profilen för Data
+   * Kan ta prov med stratified sampling
+   * Kan läsa från zip-filer som innehåller CSV-filer
+   * Dela upp datauppsättningar efter rader med slumpmässiga Split (t.ex. i test-train-uppsättningar)
+   * Kan hämta kolumnen datatyper från en dataflöde eller en dataprofil för genom att anropa .dtypes
+   * Kan få antalet rader som ett dataflöde eller en dataprofil för genom att anropa .row_count
+
++ **Felkorrigeringar**
+   * Fast länge till dubbla konvertering 
+   * Fast assert när någon Lägg till kolumn 
+   * Ett problem har åtgärdats med FuzzyGrouping, där den inte kan identifiera grupper i vissa fall
+   * Fast sorteringsfunktionen respekterar sorteringsordning för flera kolumner
+   * Fast och/eller uttryck liknar hur Pandas hanterar dem.
+   * Fast läsning från antingen path
+   * Gjort det lättare att förstå felmeddelanden 
+   * Nu inte längre misslyckas vid läsning på fjärranslutna beräkningsmål med AML-token
+   * Nu inte längre på Linux DSVM
+   * Nu kraschar inte längre när icke-sträng värden är i strängen predikat
+   * Hanterar nu assertion fel när dataflöde inte bör fungera korrekt
+   * Stöder nu dbutils monterad lagringsplatser på Azure Databricks
 
 ## <a name="2018-11-05"></a>2018-11-05
 

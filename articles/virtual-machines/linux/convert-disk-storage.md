@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 8bd5a6012ef13d4cd63d4e5e63b510e55e75ab63
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0d777b5dcebfba7dbff7c9ea1f4fedad12b3cf1a
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987279"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283829"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Konvertera Azure managed disks-lagring från standard till premium, och vice versa
 
 Hanterade diskar erbjuder tre lagringsalternativ: [Premium SSD](../windows/premium-storage.md), Standard SSD(Preview) och [Standard HDD](../windows/standard-storage.md). Det kan du enkelt växla mellan alternativen med minimal avbrottstid utifrån dina behov. Det finns inte stöd för ohanterade diskar. Men du kan enkelt [konvertera till managed disks](convert-unmanaged-to-managed-disks.md) enkelt växla mellan disktyper.
 
-Den här artikeln visar hur du konverterar hanterade diskar från standard till premium och vice versa med hjälp av Azure CLI. Om du behöver installera eller uppgradera den kan du läsa [installera Azure CLI](/cli/azure/install-azure-cli.md). 
+Den här artikeln visar hur du konverterar hanterade diskar från standard till premium och vice versa med hjälp av Azure CLI. Om du behöver installera eller uppgradera den kan du läsa [installera Azure CLI](/cli/azure/install-azure-cli). 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

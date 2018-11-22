@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: erhopf
-ms.openlocfilehash: c1eeee35869f29170a7f15b1d9e2c1ee69a6314d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: fa4563b84eb0882832a89ccc98396ff487f51b48
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622524"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284769"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Stöd för språk och din region för tjänsten för Taligenkänning
 
@@ -70,7 +70,6 @@ ar-SA | Arabiska (Saudiarabien) | Man | ”Microsoft Server tal Text till tal-r�
 BG-BG | Bulgariska | Man | ”Microsoft Server tal Text till tal röst (bg-BG, Ivan)”
 CA-ES | Katalanska (Spanien) | Kvinna | ”Microsoft Server tal Text till tal röst (ca-ES, HerenaRUS)”
 CS-CZ | Tjeckiska | Man | ”Microsoft Server tal Text till tal-röst (cs-CZ, Jakub)”
-CS-CZ | Tjeckiska | Man | ”Microsoft Server tal Text till tal-röst (cs-CZ, Vit)”
 da-DK | Danska | Kvinna | ”Microsoft Server tal Text till tal-röst (da-DK, HelleRUS)”
 Tyskland-AT | Tyska (Österrike) | Man | ”Microsoft Server tal Text till tal-röst (Tyskland-AT, Michael)”
 Tyskland – CH | Tyska (Schweiz) | Man | ”Microsoft Server tal Text till tal-röst (Tyskland-CH, Karsten)”
@@ -86,7 +85,6 @@ en-GB | English (UK) | Kvinna | ”Microsoft Server tal Text till tal-röst (en-
 | | |Kvinna | ”Microsoft Server tal Text till tal-röst (en-GB, HazelRUS)”
 | | |Man | ”Microsoft Server tal Text till tal-röst (en-GB, George, Apollo)”
 en IE | Engelska (Irland) |Man | ”Microsoft Server tal Text till tal-röst (en IE, Stefan)”
-en IE | Engelska (Irland) |Man | ”Microsoft Server tal Text till tal-röst (en IE, Shaun)”
 en Indien | English (India) | Kvinna | ”Microsoft Server tal Text till tal-röst (en-IN-, Heera, Apollo)”
 | | |Kvinna | ”Microsoft Server tal Text till tal-röst (en-IN-, PriyaRUS)”
 | | |Man | ”Microsoft Server tal Text till tal-röst (en-IN-, Ravi, Apollo)”
@@ -153,10 +151,10 @@ zh-TW | Kinesiska (Taiwan)|Kvinna | ”Microsoft Server tal Text till tal-röst 
 
 ### <a name="customization"></a>Anpassning
 
-Röst anpassning är tillgängligt för amerikansk engelska (en-US), fastlandet kinesiska (zh-CN) och italienska (it-IT).
+Röst anpassning är tillgängliga för oss engelska (en-US), fastlandet kinesiska (zh-CN), franska (fr-FR), tyska (de-DE) och italienska (it-IT).
 
 > [!NOTE]
-> Italienska ton börjar med en uppsättning av över 2 000 yttranden. Kinesiska – engelska tvåspråkig modeller stöds också med en inledande data över 2 000 yttranden.
+> Franska, tyska och italienska röst utbildning börjar med en uppsättning av 2 000 + yttranden. Kinesiska – engelska tvåspråkig modeller stöds också med en inledande data över 2 000 yttranden.
 
 ## <a name="speech-translation"></a>Talöversättning
 

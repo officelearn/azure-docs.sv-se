@@ -1,3 +1,16 @@
+---
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: dobett
+ms.openlocfilehash: c95bca125ea70cf32acad0d5ea67c3ad195ed704
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279972"
+---
 ## <a name="automatic-device-management"></a>Automatisk enhetshantering
 Automatisk hantering av enheter i Azure IoT Hub automatiserar repetitiva och komplexa uppgifter för att hantera stora enheten fjärranläggning över hela deras livscykler. Med automatisk hantering av enheter du rikta en uppsättning enheter baserat på deras egenskaper, definiera en önskad konfiguration och låta IoT Hub uppdatera enheter när de träder i omfånget.  Består av [automatisk enhetskonfigurationer](../articles/iot-hub/iot-hub-auto-device-config.md) och [automatisk IoT Edge-distributioner](../articles/iot-edge/how-to-deploy-monitor.md).
 

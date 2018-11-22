@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 92d80d9a4d39a3f21539e5e6e498fc52df213a19
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c56ac35f49c364b7b0f2ad26b82b178411419414
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248820"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282693"
 ---
 # <a name="add-symbols-and-markers-to-a-map"></a>Lägg till symboler och markörer på en karta
 
@@ -51,7 +51,7 @@ I koden ovan skapar första kodblocket en Kartobjekt. Du kan se [skapa en karta]
 
 I det andra kodblocket, en matris med positioner definieras och en [MultiPoint](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.multipoint?view=azure-iot-typescript-latest) objektet skapas. Ett datakällobjekt skapas sedan med hjälp av den [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) klass och MultiPoint objekt läggs till datakällan.
 
-En [bubbla layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest) återger platsbaserad data och är inneslutna i den [datakälla](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som cirklar på kartan. Det sista blocket kod skapar ett bubbeldiagram lager och lägger till den på kartan. Se egenskaperna för en bubbla lager på [BubblerLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.bubblelayeroptions?view=azure-iot-typescript-latest).
+En [bubbla layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest) återger platsbaserad data och är inneslutna i den [datakälla](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som cirklar på kartan. Det sista blocket kod skapar ett bubbeldiagram lager och lägger till den på kartan. Se egenskaperna för en bubbla lager på [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions).
 
 MultiPoint-objekt och datakällan bubbla lagret skapas och läggs till kartan inom den [händelselyssnaren](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) funktion för att tillse att cirkeln visas när kartan har lästs in helt.
 
@@ -64,9 +64,9 @@ Koden ovan visar hur du visualisera och Märk data på kartan. Det första block
 
 Det andra kodblocket, skapar en [peka](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) objekt. Det skapar sedan en datakälla objekt med den [datakälla](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) klassen och lägger till punkten till datakällan.
 
-En [bubbla layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest) återger platsbaserad data och är inneslutna i den [datakälla](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som cirklar på kartan. Det tredje kodblocket skapas ett bubbeldiagram lager och lägger till den på kartan. Se egenskaperna för en bubbla lager på [BubblerLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.bubblelayeroptions?view=azure-iot-typescript-latest).
+En [bubbla layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest) återger platsbaserad data och är inneslutna i den [datakälla](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som cirklar på kartan. Det tredje kodblocket skapas ett bubbeldiagram lager och lägger till den på kartan. Se egenskaperna för en bubbla lager på [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions).
 
-En [symbol layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) använder text eller ikoner för att rendera platsbaserad data och är inneslutna i den [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som symboler på kartan. Senaste kodblocket skapar och lägger till en symbol-lager för kartan som återger textetiketten för bubblan. Se egenskaperna för en symbol-lager i [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.symbollayeroptions?view=azure-iot-typescript-latest).
+En [symbol layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) använder text eller ikoner för att rendera platsbaserad data och är inneslutna i den [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som symboler på kartan. Senaste kodblocket skapar och lägger till en symbol-lager för kartan som återger textetiketten för bubblan. Se egenskaperna för en symbol-lager i [SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions).
 
 Datakällan och lagren skapas och läggs till kartan inom den [händelselyssnaren](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) funktion för att tillse att data visas när kartan har lästs in helt.
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 1b76bfded6562f61a0a9f4a870a18a1fff71bc6a
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 9c82ad04b22a29f4a548b79b9b46a08d46de24ca
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309747"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284326"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Förstå och använda modultvillingar i IoT Hub
 
@@ -327,7 +327,7 @@ Den här informationen sparas på alla nivåer (inte bara löv av JSON-strukture
 ## <a name="optimistic-concurrency"></a>Optimistisk samtidighet
 
 Taggar och önskade och rapporterade egenskaper alla stöd för Optimistisk samtidighet.
-Taggar har en ETag enligt [RFC7232]()https://tools.ietf.org/html/rfc7232, som representerar den taggen JSON-representation. Du kan använda ETags i villkorlig uppdateringsåtgärder från lösningens backend-server för att garantera konsekvens.
+Taggar har en ETag enligt [RFC7232](https://tools.ietf.org/html/rfc7232), som representerar den taggen JSON-representation. Du kan använda ETags i villkorlig uppdateringsåtgärder från lösningens backend-server för att garantera konsekvens.
 
 Modultvilling önskad och rapporterade egenskaper har inte ETags, men har en `$version` värdet som garanterat är en inkrementell. På samma sätt till en ETag kan versionen användas av den uppdatera parten för att upprätthålla konsekvens av uppdateringar. Till exempel en modul-app för en rapporterad egenskap eller lösningens backend-server för en önskad egenskap.
 

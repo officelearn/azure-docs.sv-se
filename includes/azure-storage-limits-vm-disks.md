@@ -1,3 +1,16 @@
+---
+author: roygara
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: rogarana
+ms.openlocfilehash: aa701ada917811382351fee9469a5cfa9a7599b8
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279971"
+---
 En virtuell dator i Azure stöder tillkoppling av ett antal datadiskar. Den här artikeln beskriver mål för skalbarhet och prestanda för en virtuell dators datadiskar. Använd dessa mål för att bestämma antalet och typen av disk som du behöver för att uppfylla dina krav på prestanda och kapacitet. 
 
 > [!IMPORTANT]

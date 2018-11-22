@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: spelluru
-ms.openlocfilehash: ef1b8b2dd96a89a553239168d412d84e63a29f2a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: daefb07761217ff4bb0800dfd9f1f05b6e22c1e1
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254595"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284922"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus åtkomstkontroll med signaturer för delad åtkomst
 
@@ -31,7 +31,7 @@ SAS skyddar åtkomst till Service Bus baserat på regler. De är konfigurerade p
 
 Signaturer för delad åtkomst är en mekanism för anspråksbaserad auktorisering med enkel token. Med hjälp av SAS, skickas nycklar aldrig för anslutningen. Nycklar används kryptografiskt logga information som senare kan verifieras av tjänsten. SAS kan användas liknar ett användarnamn och lösenord schema där klienten är omedelbar tillgång ett regelnamn för auktorisering och en motsvarande nyckel. SAS kan också användas liknar en federerad säkerhetsmodell där klienten tar emot en tidsbegränsad och signerade åtkomst-token från en säkerhetstokentjänst utan att någonsin kommer till tillgång till signering nyckeln.
 
-SAS-autentisering i Service Bus har konfigurerats med med namnet [auktoriseringsregler för delad åtkomst](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) med associerade åtkomsträttigheter och ett par med primära och sekundära kryptografiska nycklar. Nycklarna är 256-bitars värden i Base64-representation. Du kan konfigurera regler på namnområdesnivå på Service Bus [vidarebefordrar](../service-bus-relay/relay-what-is-it.md), [köer](/service-bus-messaging/service-bus-messaging-overview.md#queues), och [ämnen](/service-bus-messaging/service-bus-messaging-overview.md#topics).
+SAS-autentisering i Service Bus har konfigurerats med med namnet [auktoriseringsregler för delad åtkomst](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) med associerade åtkomsträttigheter och ett par med primära och sekundära kryptografiska nycklar. Nycklarna är 256-bitars värden i Base64-representation. Du kan konfigurera regler på namnområdesnivå på Service Bus [vidarebefordrar](../service-bus-relay/relay-what-is-it.md), [köer](service-bus-messaging-overview.md#queues), och [ämnen](service-bus-messaging-overview.md#topics).
 
 Den [signatur för delad åtkomst](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) token innehåller namnet på den valda auktoriseringsregeln URI för den resurs som ska användas, en slutar att gälla direkt, och en kryptografisk HMAC-SHA256-signatur beräknas över dessa fält med hjälp av primärt eller sekundära kryptografisk nyckel för den valda auktoriseringsregeln.
 

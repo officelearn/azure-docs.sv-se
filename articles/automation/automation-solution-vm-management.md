@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 642fc66bff763105e9d5463886474703a9a50781
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: fa1fa65315f38d0ce2900b738b70ca3718b0c00e
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376711"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285109"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning i Azure Automation
 
@@ -78,7 +78,7 @@ Utför följande steg för att lägga till Starta/stoppa virtuella datorer vid l
    Här kan uppmanas du att:
    - Ange den **rikta ResourceGroup namn**. Dessa värden är Resursgruppsnamn som innehåller virtuella datorer som hanteras av den här lösningen. Du kan ange flera namn och skilja dem åt med semikolon (värden inte är skiftlägeskänsliga). Användning av jokertecken stöds om du vill inkludera virtuella datorer i alla resursgrupper i prenumerationen. Det här värdet lagras i den **External_Start_ResourceGroupNames** och **External_Stop_ResourceGroupNames** variabler.
    - Ange den **VM uteslutningslista (sträng)**. Det här värdet är namnet på en eller flera virtuella datorer från målresursgruppen. Du kan ange flera namn och skilja dem åt med semikolon (värden inte är skiftlägeskänsliga). Användning av jokertecken stöds. Det här värdet lagras i den **External_ExcludeVMNames** variabeln.
-   - Välj en **schema**. Det här värdet är ett återkommande datum och tid för att starta och stoppa virtuella datorer i target-resursgrupper. Som standard konfigureras schemat i 30 minuter från nu. Det går inte att välja en annan region. Om du vill konfigurera schemat för din specifika tidszon när du har konfigurerat lösningen, se [ändra schemat för start och avstängning](#modify-the-startup-and-shutdown-schedule).
+   - Välj en **schema**. Det här värdet är ett återkommande datum och tid för att starta och stoppa virtuella datorer i target-resursgrupper. Som standard konfigureras schemat i 30 minuter från nu. Det går inte att välja en annan region. Om du vill konfigurera schemat för din specifika tidszon när du har konfigurerat lösningen, se [ändra schemat för start och avstängning](#modify-the-startup-and-shutdown-schedules).
    - Att ta emot **e-postmeddelanden** från en åtgärdsgrupp godkänner du standardvärdet för **Ja** och ange en giltig e-postadress. Om du väljer **nr** men besluta vid ett senare tillfälle att du vill ta emot e-postmeddelanden, kan du uppdatera den [åtgärdsgrupp](../monitoring-and-diagnostics/monitoring-action-groups.md) som skapas med giltiga e-postadresser avgränsade med kommatecken. Du måste också aktivera följande regler för avisering:
 
      - AutoStop_VM_Child
@@ -217,16 +217,16 @@ I samtliga scenarier den **External_Start_ResourceGroupNames**, **External_Stop_
 
 ### <a name="schedules"></a>Scheman
 
-I följande tabell visas var och en av standard-scheman som skapats i ditt Automation-konto. Du kan ändra dem eller skapa egna anpassade scheman. Som standard alla scheman inaktiveras undantag för **Scheduled_StartVM** och **Scheduled_StopVM**.
+I följande tabell visas var och en av standard-scheman som skapats i ditt Automation-konto. Du kan ändra dem eller skapa egna anpassade scheman. Som standard alla scheman inaktiveras undantag för **Scheduled_StartVM** och **Scheduled_StopVM**.
 
 Du bör inte aktivera alla scheman, eftersom detta kan orsaka överlappande Schemaläggningsåtgärder. Det är bäst att avgöra vilka optimeringar som du vill utföra och ändra. Se i exempelscenarierna i översiktsavsnittet för ytterligare förklaring.
 
 |Namn på schema | Frekvens | Beskrivning|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | Var åttonde timme | Kör AutoStop_CreateAlert_Parent runbook var åttonde timme, vilket i sin tur avbryter VM-baserade värdena i External_Start_ResourceGroupNames och External_Stop_ResourceGroupNames External_ExcludeVMNames i Azure Automation-variabler. Du kan också ange en kommaavgränsad lista över virtuella datorer med hjälp av parametern VMList.|
-|Scheduled_StopVM | Användardefinierade, varje dag | Kör Scheduled_Parent runbook med en parameter av _stoppa_ varje dag vid den angivna tidpunkten. Stoppas automatiskt alla virtuella datorer som uppfyller de regler som definieras av tillgången variabler. Aktivera relaterade schema **schemalagd StartVM**.|
-|Scheduled_StartVM | Användardefinierade, varje dag | Kör Scheduled_Parent runbook med en parameter av _starta_ varje dag vid den angivna tidpunkten. Startar automatiskt alla virtuella datorer som uppfyller de regler som definieras av lämplig variablerna. Aktivera relaterade schema **schemalagd StopVM**.|
-|Sekvenserade StopVM | 01:00:00 (UTC), varje fredag | Kör Sequenced_Parent runbook med en parameter av _stoppa_ varje fredag vid den angivna tidpunkten. Sekventiellt (stigande) stoppas alla virtuella datorer med en tagg för **SequenceStop** definieras av lämplig variablerna. Mer information om taggvärden och tillgången variabler finns i avsnittet om Runbooks. Aktivera relaterade schema **Sequenced StartVM**.|
+|Scheduled_StopVM | Användardefinierade, varje dag | Kör Scheduled_Parent runbook med en parameter av _stoppa_ varje dag vid den angivna tidpunkten. Stoppas automatiskt alla virtuella datorer som uppfyller de regler som definieras av tillgången variabler. Aktivera relaterade schema **schemalagd StartVM**.|
+|Scheduled_StartVM | Användardefinierade, varje dag | Kör Scheduled_Parent runbook med en parameter av _starta_ varje dag vid den angivna tidpunkten. Startar automatiskt alla virtuella datorer som uppfyller de regler som definieras av lämplig variablerna. Aktivera relaterade schema **schemalagd StopVM**.|
+|Sekvenserade StopVM | 01:00:00 (UTC), varje fredag | Kör Sequenced_Parent runbook med en parameter av _stoppa_ varje fredag vid den angivna tidpunkten. Sekventiellt (stigande) stoppas alla virtuella datorer med en tagg för **SequenceStop** definieras av lämplig variablerna. Mer information om taggvärden och tillgången variabler finns i avsnittet om Runbooks. Aktivera relaterade schema **Sequenced StartVM**.|
 |Sekvenserade StartVM | 1:00 PM (UTC) varje måndag | Kör Sequenced_Parent runbook med en parameter av _starta_ varje måndag vid den angivna tidpunkten. Sekventiellt (fallande) börjar alla virtuella datorer med en tagg för **SequenceStart** definieras av lämplig variablerna. Mer information om taggvärden och tillgången variabler finns i avsnittet om Runbooks. Aktivera relaterade schema **Sequenced StopVM**.|
 
 ## <a name="log-analytics-records"></a>Log Analytics-poster
@@ -279,7 +279,7 @@ När du utför en loggsökning som returnerar poster kategori av **JobLogs** ell
 
 Följande tabell innehåller exempel på sökningar i loggen för jobbposter som har samlats in av den här lösningen.
 
-|Fråga | Beskrivning|
+|Söka i data | Beskrivning|
 |----------|----------|
 |Hitta jobb för runbook ScheduledStartStop_Parent att har slutförts | ''' Sök kategori == ”JobLogs” | där (RunbookName_s == ”ScheduledStartStop_Parent”) | där (ResultType == ”slutfört”)  | Sammanfatta |AggregatedValue = antal() efter ResultType bin (TimeGenerated, 1 timme) | Sortera efter TimeGenerated fall '''|
 |Hitta jobb för runbook SequencedStartStop_Parent att har slutförts | ''' Sök kategori == ”JobLogs” | där (RunbookName_s == ”SequencedStartStop_Parent”) | där (ResultType == ”slutfört”) | Sammanfatta |AggregatedValue = antal() efter ResultType bin (TimeGenerated, 1 timme) | Sortera efter TimeGenerated fall '''|

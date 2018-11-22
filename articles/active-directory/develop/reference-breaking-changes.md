@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: da681500ccff24e6e9bfa6b7bb9e5a14a725f158
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8e00674f331a56be9abe6f2356aa88d7dcf1d0b0
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279644"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282392"
 ---
 # <a name="whats-new-for-authentication"></a>Vad är nytt för autentisering? 
 
@@ -56,7 +56,7 @@ Från och med 15 November 2018, att Azure AD sluta acceptera tidigare autentiser
 
 Om din app återanvänder auktoriseringskoder för att hämta token för flera resurser, rekommenderar vi att du använda koden för att få en uppdateringstoken och sedan använda den uppdateringstoken för att hämta ytterligare token för andra resurser. Auktoriseringskoder kan bara användas en gång, men uppdateringstoken kan användas flera gånger i flera resurser. Alla nya appar som försöker att återanvända en Autentiseringskod under flödet för OAuth-kod får ett invalid_grant-fel.
 
-Läs mer om uppdateringstoken [uppdatera åtkomsttoken](v1-protocols-oauth-code.md#refreshing-the-access-tokens).
+Läs mer om uppdateringstoken [uppdatera åtkomsttoken](v1-protocols-oauth-code.md#refreshing-the-access-tokens).  Om du använder ADAL eller MSAL, hanteras åt dig i Library - Ersätt den andra förekomsten av ”AcquireTokenByAuthorizationCodeAsync' med 'AcquireTokenSilentAsync'. 
 
 ## <a name="may-2018"></a>Maj 2018
 

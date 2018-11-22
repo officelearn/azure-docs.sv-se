@@ -7,12 +7,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: a7c2d1e41fa4ac26854e2e6ab57184cd6ed0bd0c
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 16cd959a83850a3bc940803cd23e7542e34825c8
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633690"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283220"
 ---
 # <a name="how-to-access-azure-cosmos-db-resources-from-virtual-networks"></a>Hur du kommer åt Azure Cosmos DB-resurser från virtuella nätverk
 
@@ -25,7 +25,7 @@ Azure cosmos DB-konton kan konfigureras för att tillåta åtkomst från specifi
 > [!NOTE]
 > När service-slutpunkten för din Azure-Cosmos kontot är aktiverat på ett undernät och källan för trafiken når Azure Cosmos DB växlar från offentlig IP-adress till VNET och undernät. Trafiken växlar gäller för alla Azure Cosmos-konto som du ansluter från det här undernätet. Om dina Azure Cosmos-konton har IP-baserad Brandvägg för att det här undernätet kan begär från aktiverad undernät inte längre matchar IP-brandväggsregler och de avvisas. Mer information finns i de steg som beskrivs i [migrera från IP-brandväggsregel till VNET Access Control List](#migrate-from-firewall-to-vnet) i den här artikeln. 
 
-I följande avsnitt beskrivs hur du konfigurerar VNET-tjänstslutpunkt för ett Azure Cosmos DB-konto.
+I följande avsnitt beskrivs hur du konfigurerar VNET-tjänstslutpunkt för ett Azure Cosmos-konto.
 
 ## <a id="configure-using-portal"></a>Konfigurera tjänsteslutpunkt med hjälp av Azure-portalen
 
@@ -53,25 +53,23 @@ I följande avsnitt beskrivs hur du konfigurerar VNET-tjänstslutpunkt för ett 
 
 ### <a name="configure-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>Konfigurera tjänstslutpunkt för en ny Azure-nätverk och undernät
 
-1. Från **alla resurser** hittar Azure Cosmos DB-konto som du vill skydda bladet.  
+1. Från **alla resurser** hitta Azure-Cosmos-konto som du vill skydda bladet.
 
-2. Innan du aktiverar tjänstslutpunkt för virtuellt nätverk, kopiera IP-brandväggen information som är associerade med ditt Azure Cosmos DB-konto för framtida användning. Du kan återaktivera IP-brandväggen när du har konfigurerat tjänsteslutpunkt.  
+1. Välj **brandväggar och virtuella Azure-nätverk** från inställningsmenyn och väljer Tillåt åtkomst från **valda nätverk**.  
 
-3. Välj **brandväggar och virtuella Azure-nätverk** från inställningsmenyn och väljer Tillåt åtkomst från **valda nätverk**.  
+1. Om du vill bevilja åtkomst till en ny Azure-nätverk under virtuella nätverk, Välj **Lägg till nytt virtuellt nätverk**.  
 
-4. Om du vill bevilja åtkomst till en ny Azure-nätverk under virtuella nätverk, Välj **Lägg till nytt virtuellt nätverk**.  
-
-5. Ange de information som krävs för att skapa ett nytt virtuellt nätverk och välj sedan skapa. Undernätet skapas med en tjänstslutpunkt för ”Microsoft.AzureCosmosDB” aktiverat.
+1. Ange de information som krävs för att skapa ett nytt virtuellt nätverk och välj sedan skapa. Undernätet skapas med en tjänstslutpunkt för ”Microsoft.AzureCosmosDB” aktiverat.
 
    ![Välj ett virtuellt nätverk och undernät för nytt virtuellt nätverk](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png)
 
-Om ditt Azure Cosmos-konto används av andra Azure-tjänster som Azure Search, eller komma åt från Stream analytics eller Power BI, kan du tillåta åtkomst genom att kontrollera Tillåt åtkomst till Azure-tjänster.
+Om ditt Azure Cosmos-konto används av andra Azure-tjänster som Azure Search, eller komma åt från Stream analytics eller Power BI, du tillåter åtkomst genom att kontrollera **accepterar anslutningar från offentliga Azure-Datacenter**.
 
-För att säkerställa att du har åtkomst till Azure Cosmos DB-mått från portalen, måste du aktivera **Tillåt åtkomst till Azure-portalen** alternativ. Mer information om de här alternativen finns begäranden från Azure-portalen och begäran från Azure PaaS-tjänster delar av Konfigurera [IP-brandvägg](how-to-configure-firewall.md) artikeln. När du har valt åtkomst, Välj **spara** att spara inställningarna.
+För att säkerställa att du har åtkomst till Azure Cosmos DB-mått från portalen, måste du aktivera **tillåter åtkomst från Azure Portal** alternativ. Mer information om de här alternativen finns begäranden från Azure-portalen och begäran från Azure PaaS-tjänster delar av Konfigurera [IP-brandvägg](how-to-configure-firewall.md) artikeln. När du har valt åtkomst, Välj **spara** att spara inställningarna.
 
 ## <a id="remove-vnet-or-subnet"></a>Ta bort ett virtuellt nätverk eller undernät 
 
-1. Från **alla resurser** bladet, Sök i Azure Cosmos DB-konto som du tilldelats tjänstslutpunkter.  
+1. Från **alla resurser** bladet hittar Azure Cosmos-kontot som du tilldelats tjänstslutpunkter.  
 
 2. Välj **brandväggar och virtuella nätverk** från inställningsmenyn.  
 
@@ -81,17 +79,20 @@ För att säkerställa att du har åtkomst till Azure Cosmos DB-mått från port
 
 4.  Klicka på **spara** att tillämpa ändringarna.
 
-## <a id="configure-using-powershell"></a>Konfigurera tjänsteslutpunkt med hjälp av Azure PowerShell 
+## <a id="configure-using-powershell"></a>Konfigurera tjänsteslutpunkt med hjälp av Azure PowerShell
 
-Använd följande steg för att konfigurera tjänstslutpunkt till en Azure Cosmos DB-konto med hjälp av Azure PowerShell:  
+> [!NOTE]
+> När du använder PowerShell eller CLI, måste du ange den fullständiga listan med IP-filter och VNET ACL: er i parametrar, inte bara de som behöver läggas till.
+
+Använd följande steg för att konfigurera tjänstslutpunkt på ett Azure Cosmos-konto med hjälp av Azure PowerShell:  
 
 1. Installera senast [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) och [inloggning](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  
 
 1. Aktivera tjänstslutpunkt för ett befintligt undernät i ett virtuellt nätverk.  
 
    ```powershell
-   $rgname= "<Resource group name>"
-   $vnName = "<virtual network name>"
+   $rgname = "<Resource group name>"
+   $vnName = "<Virtual network name>"
    $sname = "<Subnet name>"
    $subnetPrefix = "<Subnet address range>"
 
@@ -103,68 +104,69 @@ Använd följande steg för att konfigurera tjänstslutpunkt till en Azure Cosmo
     -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzureRmVirtualNetwork
    ```
 
-1. Gör dig redo för aktivering av ACL för Azure Cosmos-kontot genom att se till att det virtuella nätverk och undernät har tjänstslutpunkt aktiverad för ditt konto.
+1. Få information om virtuellt nätverk.
 
    ```powershell
    $vnProp = Get-AzureRmVirtualNetwork `
-     -Name $vnName  -ResourceGroupName $rgName
+     -Name $vnName `
+     -ResourceGroupName $rgName
    ```
 
-1. Hämta egenskaper för Azure Cosmos DB-konto genom att köra följande cmdlet:  
+1. Hämta egenskaper för Azure Cosmos-konto genom att köra följande cmdlet:  
 
    ```powershell
    $apiVersion = "2015-04-08"
-   $acctName = "<Azure Cosmos DB account name>"
+   $acctName = "<Azure Cosmos account name>"
 
-   $cosmosDBConfiguration = Get-AzureRmResource -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
+   $cosmosDBConfiguration = Get-AzureRmResource `
+     -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
      -Name $acctName
    ```
 
-1. Initiera variabler för användning senare. Konfigurera alla variabler från den befintliga definitionen för kontot om du har flera platser, som du behöver lägga till dem som en del av matrisen. I det här steget ska konfigurera du också tjänstslutpunkt för virtuellt nätverk genom att ange variabeln ”accountVNETFilterEnabled” till ”True”. Det här värdet är senare tilldelad till parametern ”isVirtualNetworkFilterEnabled”. 
+1. Initiera variabler för användning senare. Konfigurera alla variabler från den befintliga definitionen för kontot.
 
    ```powershell
-   $locations = @(@{})
+   $locations = @()
 
-   <# If you have read regions in addition to a write region, use the following code to set the $locations variable instead.
+   foreach ($readLocation in $cosmosDBConfiguration.Properties.readLocations) {
+      $locations += , @{
+         locationName     = $readLocation.locationName;
+         failoverPriority = $readLocation.failoverPriority;
+      }
+   }
 
-   $locations = @(@{"locationName"="<Write location>"; 
-                 "failoverPriority"=0}, 
-               @{"locationName"="<Read location>"; 
-                  "failoverPriority"=1}) #>
+   $virtualNetworkRules = @(@{
+      id = "$($vnProp.Id)/subnets/$sname";
+   })
 
-   $consistencyPolicy = @{}
-   $cosmosDBProperties = @{}
-
-   $locations[0]['failoverPriority'] = $cosmosDBConfiguration.Properties.failoverPolicies.failoverPriority
-   $locations[0]['locationName'] = $cosmosDBConfiguration.Properties.failoverPolicies.locationName
-
-   $consistencyPolicy = $cosmosDBConfiguration.Properties.consistencyPolicy
-
-   $accountVNETFilterEnabled = $True
-   $subnetID = $vnProp.Id+"/subnets/" + $sname  
-   $virtualNetworkRules = @(@{"id"=$subnetID})
-   $databaseAccountOfferType = $cosmosDBConfiguration.Properties.databaseAccountOfferType
+   if ($cosmosDBConfiguration.Properties.isVirtualNetworkFilterEnabled) {
+      $virtualNetworkRules = $cosmosDBConfiguration.Properties.virtualNetworkRules + $virtualNetworkRules
+   }
    ```
 
-1. Uppdatera egenskaper för Azure Cosmos DB-konto med den nya konfigurationen genom att köra följande cmdlets: 
+1. Uppdatera egenskaper för Azure Cosmos-konto med den nya konfigurationen genom att köra följande cmdlets: 
 
    ```powershell
-   $cosmosDBProperties['databaseAccountOfferType'] = $databaseAccountOfferType
-   $cosmosDBProperties['locations'] = $locations
-   $cosmosDBProperties['consistencyPolicy'] = $consistencyPolicy
-   $cosmosDBProperties['virtualNetworkRules'] = $virtualNetworkRules
-   $cosmosDBProperties['isVirtualNetworkFilterEnabled'] = $accountVNETFilterEnabled
+   $cosmosDBProperties = @{
+      databaseAccountOfferType      = $cosmosDBConfiguration.Properties.databaseAccountOfferType;
+      consistencyPolicy             = $cosmosDBConfiguration.Properties.consistencyPolicy;
+      ipRangeFilter                 = $cosmosDBConfiguration.Properties.ipRangeFilter;
+      locations                     = $locations;
+      virtualNetworkRules           = $virtualNetworkRules;
+      isVirtualNetworkFilterEnabled = $True;
+   }
 
    Set-AzureRmResource `
      -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
-     -Name $acctName -Properties $CosmosDBProperties
+     -Name $acctName `
+     -Properties $CosmosDBProperties
    ```
 
-1. Kör följande kommando för att bekräfta att Azure Cosmos DB-kontot har uppdaterats med tjänstslutpunkt för virtuellt nätverk som du konfigurerade i föregående steg:
+1. Kör följande kommando för att kontrollera att ditt Azure Cosmos-konto har uppdaterats med tjänstslutpunkt för virtuellt nätverk som du konfigurerade i föregående steg:
 
    ```powershell
    $UpdatedcosmosDBConfiguration = Get-AzureRmResource `
@@ -188,7 +190,7 @@ Använd följande steg för att konfigurera tjänstslutpunkt till en Azure Cosmo
    resourceGroupName="<Resource group name>"
 
    az cosmosdb update \
-      --name $name \
+    --name $name \
     --resource-group $resourceGroupName \
     --enable-virtual-network true \
     --virtual-network-rules "/subscriptions/testsub/resourceGroups/testRG/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/frontend"
@@ -226,47 +228,48 @@ När tjänstslutpunkt för Azure Cosmos-kontot är aktiverat för ett undernät,
      -Name $acctName
    ```
 
-1. Initiera variabler för att använda dem senare. Konfigurera alla variabler från den befintliga definitionen för kontot. Lägg till VNET-ACL till alla Azure-Cosmos-konton som du ansluter från undernätet med `ignoreMissingVNetServiceEndpoint` flaggan.  
-
-   Om du har flera platser kan behöva du lägga till dem som en del av matrisen. I det här steget ska konfigurera du också tjänstslutpunkt för virtuellt nätverk genom att ange variabeln ”accountVNETFilterEnabled” till ”True”. Det här värdet är senare tilldelad till parametern ”isVirtualNetworkFilterEnabled”.
+1. Initiera variabler för att använda dem senare. Konfigurera alla variabler från den befintliga definitionen för kontot. Lägg till VNET-ACL till alla Azure-Cosmos-konton som du ansluter från undernätet med `ignoreMissingVNetServiceEndpoint` flaggan.
 
    ```powershell
-   $locations = @(@{})
+   $locations = @()
 
-   <# If you have read regions in addition to a write region, use the following code to set the $locations variable instead.
+   foreach ($readLocation in $cosmosDBConfiguration.Properties.readLocations) {
+      $locations += , @{
+         locationName     = $readLocation.locationName;
+         failoverPriority = $readLocation.failoverPriority;
+      }
+   }
 
-   $locations = @(@{"locationName"="<Write location>"; 
-              "failoverPriority"=0}, 
-            @{"locationName"="<Read location>"; 
-               "failoverPriority"=1}) #>
+   $subnetID = "Subnet ARM URL" e.g "/subscriptions/f7ddba26-ab7b-4a36-a2fa-7d01778da30b/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/subnet1"
 
-   $consistencyPolicy = @{}
-   $cosmosDBProperties = @{}
+   $virtualNetworkRules = @(@{
+      id = $subnetID;
+      ignoreMissingVNetServiceEndpoint = "True";
+   })
 
-   $locations[0]['failoverPriority'] = $cosmosDBConfiguration.Properties.failoverPolicies.failoverPriority
-   $locations[0]['locationName'] = $cosmosDBConfiguration.Properties.failoverPolicies.locationName
-   $consistencyPolicy = $cosmosDBConfiguration.Properties.consistencyPolicy
-   $accountVNETFilterEnabled = $True
-   $subnetID = “Subnet ARM URL” e.g "/subscriptions/f7ddba26-ab7b-4a36-a2fa-7d01778da30b/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/subnet1"
-
-   $virtualNetworkRules = @(@{"id"=$subnetID, "ignoreMissingVNetServiceEndpoint"="True"})
-   $databaseAccountOfferType = $cosmosDBConfiguration.Properties.databaseAccountOfferType
+   if ($cosmosDBConfiguration.Properties.isVirtualNetworkFilterEnabled) {
+      $virtualNetworkRules = $cosmosDBConfiguration.Properties.virtualNetworkRules + $virtualNetworkRules
+   }
    ```
 
 1. Uppdatera egenskaper för Azure Cosmos-konto med den nya konfigurationen genom att köra följande cmdlets:
 
    ```powershell
-   $cosmosDBProperties['databaseAccountOfferType'] = $databaseAccountOfferType
-   $cosmosDBProperties['locations'] = $locations
-   $cosmosDBProperties['consistencyPolicy'] = $consistencyPolicy
-   $cosmosDBProperties['virtualNetworkRules'] = $virtualNetworkRules
-   $cosmosDBProperties['isVirtualNetworkFilterEnabled'] = $accountVNETFilterEnabled
+   $cosmosDBProperties = @{
+      databaseAccountOfferType      = $cosmosDBConfiguration.Properties.databaseAccountOfferType;
+      consistencyPolicy             = $cosmosDBConfiguration.Properties.consistencyPolicy;
+      ipRangeFilter                 = $cosmosDBConfiguration.Properties.ipRangeFilter;
+      locations                     = $locations;
+      virtualNetworkRules           = $virtualNetworkRules;
+      isVirtualNetworkFilterEnabled = $True;
+   }
 
    Set-AzureRmResource `
-    -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
-    -ApiVersion $apiVersion `
-    -ResourceGroupName $rgName `
-    -Name $acctName -Properties $CosmosDBProperties
+      -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
+      -ApiVersion $apiVersion `
+      -ResourceGroupName $rgName `
+      -Name $acctName `
+      -Properties $CosmosDBProperties
    ```
 
 1. Upprepa steg 1 – 3 för alla Azure Cosmos-konton som du kommer åt från undernätet.
@@ -282,11 +285,11 @@ När tjänstslutpunkt för Azure Cosmos-kontot är aktiverat för ett undernät,
    $subnetPrefix = "<Subnet address range>"
 
    Get-AzureRmVirtualNetwork `
-    -ResourceGroupName $rgname `
-    -Name $vnName | Set-AzureRmVirtualNetworkSubnetConfig `
-    -Name $sname `
-    -AddressPrefix $subnetPrefix `
-    -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzureRmVirtualNetwork
+      -ResourceGroupName $rgname `
+      -Name $vnName | Set-AzureRmVirtualNetworkSubnetConfig `
+      -Name $sname `
+      -AddressPrefix $subnetPrefix `
+      -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzureRmVirtualNetwork
    ```
 
 1. Ta bort IP-brandväggsregel för undernätet.
@@ -294,4 +297,3 @@ När tjänstslutpunkt för Azure Cosmos-kontot är aktiverat för ett undernät,
 ## <a name="next-steps"></a>Nästa steg
 
 * För att konfigurera en brandvägg för Azure Cosmos DB, se [stöd i brandväggen](firewall-support.md) artikeln.
-

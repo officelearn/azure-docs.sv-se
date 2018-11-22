@@ -10,12 +10,12 @@ ms.author: mattcon
 author: matthewconners
 ms.date: 07/13/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 06613ed1eac43ebe865666f85235de74903b1d5c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d3fac7c6d0a2274813c6ba6d96d8014d6452d28f
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953613"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284905"
 ---
 # <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Skapa och distribuera prognosmodellen modeller med Azure Machine Learning
 
@@ -109,7 +109,7 @@ print('imports done')
 
 ## <a name="load-data-and-explore"></a>Läs in data och utforska
 
-Det här kodstycket visar hur vanliga börjar med en rå datauppsättning i det här fallet den [data från Dominicks finare livsmedel](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  Du kan också använda funktionen bekvämlighet [load_dominicks_oj_data](https://docs.microsoft.com/python/api/ftk.data.dominicks_oj.load_dominicks_oj_data).
+Det här kodstycket visar hur vanliga börjar med en rå datauppsättning i det här fallet den [data från Dominicks finare livsmedel](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  Du kan också använda funktionen bekvämlighet [load_dominicks_oj_data](/python/api/azuremlftk/ftk.data.dominicks_oj.load_dominicks_oj_data).
 
 
 ```python
@@ -285,7 +285,7 @@ whole_df[['store','brand','WeekLastDay','Quantity']].head()
       <th>Store</th>
       <th>varumärke</th>
       <th>WeekLastDay</th>
-      <th>Antal</th>
+      <th>Kvantitet</th>
     </tr>
   </thead>
   <tbody>
@@ -340,7 +340,7 @@ print('{} time series in the data frame.'.format(nseries))
 
 Data innehåller cirka 250 olika kombinationer av lagring och en dataram varumärke. Varje kombination definierar en egen tidsserier med försäljning. 
 
-Du kan använda den [TimeSeriesDataFrame](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) klassen för att modellera bekvämt flera serier i en enda struktur med den _grain_. Grain anges av den `store` och `brand` kolumner.
+Du kan använda den [TimeSeriesDataFrame](/python/api/azuremlftk/ftk.time_series_data_frame.timeseriesdataframe) klassen för att modellera bekvämt flera serier i en enda struktur med den _grain_. Grain anges av den `store` och `brand` kolumner.
 
 Skillnaden mellan _grain_ och _grupp_ är att grain alltid är fysiskt betydelse i den verkliga världen, medan grupp inte behöver vara. Intern paketet functions använder gruppen för att skapa en enkel modell från flera tidsserier om du tror att den här grupperingen hjälper till att förbättra modellprestanda. Som standard grupp anges så att det motsvarar grain och en enda modell har skapats för varje grain. 
 
@@ -368,7 +368,7 @@ whole_tsdf[['Quantity']].head()
       <th></th>
       <th></th>
       <th></th>
-      <th>Antal</th>
+      <th>Kvantitet</th>
     </tr>
     <tr>
       <th>WeekLastDay</th>
@@ -433,7 +433,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
       <th></th>
       <th></th>
       <th></th>
-      <th>Antal</th>
+      <th>Kvantitet</th>
     </tr>
     <tr>
       <th>WeekLastDay</th>
@@ -500,10 +500,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
   </tbody>
 </table>
 
-
-
-Den [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) funktionen genererar en omfattande rapport med tidsram för data i serien. Rapporten innehåller både en beskrivning av allmänna data samt statistik som är specifika för time series-data. 
-
+Den [TimeSeriesDataFrame.ts_report](/python/api/azuremlftk/ftk.time_series_data_frame.timeseriesdataframe#ts-report) funktionen genererar en omfattande rapport med tidsram för data i serien. Rapporten innehåller både en beskrivning av allmänna data samt statistik som är specifika för time series-data. 
 
 ```python
 whole_tsdf.ts_report()
@@ -725,7 +722,7 @@ whole_tsdf.head()
       <th>SSTRVOL</th>
       <th>CPDIST5</th>
       <th>CPWVOL5</th>
-      <th>Antal</th>
+      <th>Kvantitet</th>
       <th>WeekFirstDay</th>
       <th>TEMP</th>
       <th>DEWP</th>
@@ -889,14 +886,14 @@ whole_tsdf.head()
 
 ## <a name="preprocess-data-and-impute-missing-values"></a>Förbearbeta data och sedan imputera värden som saknas
 
-Börja med att dela data i träningsmängden och en testning med den [last_n_periods_split](https://docs.microsoft.com/python/api/ftk.ts_utils?view=azure-ml-py-latest) verktygsfunktionen. Den resulterande testning set innehåller de senast 40 observationerna för varje tidsserie. 
+Börja med att dela data i träningsmängden och en testning med den [last_n_periods_split](/python/api/azuremlftk/ftk.ts_utils#last-n-periods-split) verktygsfunktionen. Den resulterande testning set innehåller de senast 40 observationerna för varje tidsserie. 
 
 
 ```python
 train_tsdf, test_tsdf = last_n_periods_split(whole_tsdf, 40)
 ```
 
-Grundläggande time series modeller kräver sammanhängande tidsserier. Kontrollera om serien är Normal, vilket innebär att de har ett index för tid som samplas med jämna mellanrum, med hjälp av den [check_regularity_by_grain](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain) funktion.
+Grundläggande time series modeller kräver sammanhängande tidsserier. Kontrollera om serien är Normal, vilket innebär att de har ett index för tid som samplas med jämna mellanrum, med hjälp av den [check_regularity_by_grain](/python/api/azuremlftk/ftk.time_series_data_frame.timeseriesdataframe#check-regularity-by-grain) funktion.
 
 
 ```python
@@ -971,7 +968,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-Du kan se att de flesta av serien (213 av 249) är oregelbunden. En [uppräkning transformeringen](https://docs.microsoft.com/python/api/ftk.transforms.ts_imputer.timeseriesimputer?view=azure-ml-py-latest) krävs för att fylla i saknade värden och antal. Det finns många alternativ för uppräkning, använder följande exempelkod linjär interpolation.
+Du kan se att de flesta av serien (213 av 249) är oregelbunden. En [uppräkning transformeringen](/python/api/azuremlftk/ftk.transforms.time_series_imputer.timeseriesimputer) krävs för att fylla i saknade värden och antal. Det finns många alternativ för uppräkning, använder följande exempelkod linjär interpolation.
 
 
 ```python
@@ -1037,8 +1034,7 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### <a name="combine-multiple-models"></a>Kombinera flera modeller
 
-Den [ForecasterUnion](https://docs.microsoft.com/python/api/ftk.models.forecaster_union?view=azure-ml-py-latest) estimator kan du kombinera flera estimators och anpassa/förutsäga på dem med hjälp av en rad med kod.
-
+Den [ForecasterUnion](/python/api/azuremlftk/ftk.models.forecaster_union.forecasterunion) estimator kan du kombinera flera estimators och anpassa/förutsäga på dem med hjälp av en rad med kod.
 
 ```python
 forecaster_union = ForecasterUnion(
@@ -1251,7 +1247,7 @@ print(train_feature_tsdf.head())
 
  **RegressionForecaster**
 
-Den [RegressionForecaster](https://docs.microsoft.com/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) funktionen omsluter sklearn regression estimators så att de kan vara tränats på TimeSeriesDataFrame. Den omslutna prognosmodell också placerar varje grupp i det här fallet arkivet i samma modell. Prognosmodell kan lära dig en modell för en grupp i serie som bedömdes som liknande och kan delas tillsammans. En modell för en grupp av serien använder ofta data från längre serie för att förbättra prognoser för kort-serien. Du kan ersätta dessa modeller för alla andra modeller i biblioteket som har stöd för regression. 
+Den [RegressionForecaster](/python/api/azuremlftk/ftk.models.regression_forecaster.regressionforecaster) funktionen omsluter sklearn regression estimators så att de kan vara tränats på TimeSeriesDataFrame. Den omslutna prognosmodell också placerar varje grupp i det här fallet arkivet i samma modell. Prognosmodell kan lära dig en modell för en grupp i serie som bedömdes som liknande och kan delas tillsammans. En modell för en grupp av serien använder ofta data från längre serie för att förbättra prognoser för kort-serien. Du kan ersätta dessa modeller för alla andra modeller i biblioteket som har stöd för regression. 
 
 
 ```python
@@ -1369,13 +1365,13 @@ Vissa maskininlärningsmodeller kunde dra nytta av nya funktioner och likheter m
 
 ### <a name="cross-validation-parameter-and-model-sweeping"></a>Korsvalidering, parametern och modell av oinskränkt    
 
-Paketet anpassas efter vissa traditionella machine learning-funktioner för ett program med prognostisering.  [RollingOriginValidator](https://docs.microsoft.com/python/api/ftk.model_selection.cross_validation.rollingoriginvalidator?view=azure-ml-py-latest) har korsvalidering tillfälligt, följer vad skulle och skulle inte känd i ett ramverk för prognostisering. 
+Paketet anpassas efter vissa traditionella machine learning-funktioner för ett program med prognostisering.  [RollingOriginValidator](/python/api/azuremlftk/ftk.model_selection.cross_validation.rollingoriginvalidator) har korsvalidering tillfälligt, följer vad skulle och skulle inte känd i ett ramverk för prognostisering. 
 
 I figuren nedan visas representerar varje ruta data från en tidpunkt. Blå rutor representerar utbildning och orange rutor representerar testar i varje vikningsantalet. Testdata måste komma från tidpunkter när du har den största utbildning tidpunkten. I annat fall läckts framtida data i träningsdata som orsakar modellen utvärderingen ska bli ogiltig. 
 ![PNG](./media/how-to-build-deploy-forecast-models/cv_figure.PNG)
 
 **Parametern oinskränkt**  
-Den [TSGridSearchCV](https://docs.microsoft.com/python/api/ftk.model_selection.search.tsgridsearchcv?view=azure-ml-py-latest) klassen söker efter angivna parametervärden omfattande och använder `RollingOriginValidator` att utvärdera prestanda för parametern för att hitta de lämpligaste parametrarna.
+Den [TSGridSearchCV](/python/api/azuremlftk/ftk.model_selection.search.tsgridsearchcv) klassen söker efter angivna parametervärden omfattande och använder `RollingOriginValidator` att utvärdera prestanda för parametern för att hitta de lämpligaste parametrarna.
 
 
 ```python
@@ -1423,7 +1419,7 @@ best_of_forecaster_prediction.head()
       <th></th>
       <th>PointForecast</th>
       <th>DistributionForecast</th>
-      <th>Antal</th>
+      <th>Kvantitet</th>
     </tr>
     <tr>
       <th>WeekLastDay</th>
@@ -1647,7 +1643,7 @@ aml_deployment.deploy()
 
 ### <a name="score-the-web-service"></a>Bedöma webbtjänsten
 
-För att bedöma en liten datamängd, använda den [poäng](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) metod för att skicka en webbtjänst anropa för alla data.
+För att bedöma en liten datamängd, använda den [poäng](/python/api/azuremlftk/ftk.operationalization.forecast_web_service.forecastwebservice#score) metod för att skicka en webbtjänst anropa för alla data.
 
 
 ```python
@@ -1668,8 +1664,7 @@ aml_web_service = aml_deployment.get_deployment()
 results = aml_web_service.score(score_context=score_context)
 ```
 
-För att bedöma en stor datauppsättning, använder den [parallella bedömning](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) läge för att skicka flera webbtjänst-anrop, en för varje grupp av data.
-
+För att bedöma en stor datauppsättning, använder den [parallella bedömning](/python/api/azuremlftk/ftk.operationalization.forecast_web_service.forecastwebservice#score-parallel) läge för att skicka flera webbtjänst-anrop, en för varje grupp av data.
 
 ```python
 results = aml_web_service.score(score_context=score_context, method='parallel')

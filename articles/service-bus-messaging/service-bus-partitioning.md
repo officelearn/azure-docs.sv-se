@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 2ca2063158634dfa42da094b77c70a2730e82176
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 049b6969b33290edf6ef8a2ea437808d914057a9
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423178"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285075"
 ---
 # <a name="partitioned-queues-and-topics"></a>Partitionerade köer och ämnen
 
@@ -38,7 +38,7 @@ Använd Azure SDK 2.2 eller senare för att använda partitionerade köer och ä
 
 ### <a name="standard"></a>Standard
 
-I Standard messaging-nivån kan skapa du Service Bus-köer och ämnen i 1, 2, 3, 4 eller 5 GB storlekar (standardvärdet är 1 GB). Med partitionering aktiverat, skapar Service Bus 16 kopior (16 partitioner) för entiteten för varje GB som du anger. Därmed, om du skapar en kö som är 5 GB i storlek med 16 partitioner största köstorlek blir (5 \* 16) = 80 GB. Du kan se den maximala storleken för din partitionerad kö eller ämne genom att titta på posten den [Azure-portalen][Azure portal]i den **översikt** bladet för denna entitet.
+I Standard messaging-nivån kan skapa du Service Bus-köer och ämnen i 1, 2, 3, 4 eller 5 GB storlekar (standardvärdet är 1 GB). Med partitionering aktiverat, skapar Service Bus 4 kopior (4 partitioner) för entiteten för varje GB som du anger. Därmed, om du skapar en kö som är 5 GB i storlek med 4 partitioner största köstorlek blir (5 \* 4) = 20 GB. Du kan se den maximala storleken för din partitionerad kö eller ämne genom att titta på posten den [Azure-portalen][Azure portal]i den **översikt** bladet för denna entitet.
 
 ### <a name="premium"></a>Premium
 

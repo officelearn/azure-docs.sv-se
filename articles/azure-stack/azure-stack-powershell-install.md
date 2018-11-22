@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: sethm
 ms.reviewer: thoroet
-ms.openlocfilehash: f6644d8a2e01242937943f8139059abbd65d1913
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 2e31b9f88857d84bd0b507ccd1622279e72aa575
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017407"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282727"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installera PowerShell för Azure Stack
 
@@ -73,12 +73,16 @@ Innan du installerar versionen som krävs, se till att avinstallera eventuella t
 
 1. Om du vill avinstallera de befintliga AzureRM PowerShell-modulerna, Stäng alla aktiva PowerShell-sessioner och kör följande cmdlets:
 
-  ````PowerShell
-    Uninstall-Module -Name AzureRM.AzureStackAdmin -Force
-    Uninstall-Module -Name AzureRM.AzureStackStorage -Force
-    Uninstall-Module -Name AzureStack -Force
-    Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force
-  ````
+    ````PowerShell
+    Uninstall-Module -Name AzureRM.AzureStackAdmin -Force 
+    Uninstall-Module -Name AzureRM.AzureStackStorage -Force 
+    Uninstall-Module -Name AzureStack -Force -Verbose
+    Uninstall-Module -Name AzureRM -Force -Verbose
+    Uninstall-Module -Name Azure.Storage -Force -Verbose
+    Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
+    Get-Module -Name AzureRM.* -ListAvailable | Uninstall-Module -Force -Verbose
+    ````
+    Om du stöter på fel som ”modulen används redan', Stäng PowerShell-sessioner som använder moduler och kör skriptet ovan.
 
 2. Ta bort alla mappar som börjar med `Azure` från den `C:\Program Files\WindowsPowerShell\Modules` och `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` mappar. Tar bort dessa mappar tar bort alla befintliga PowerShell-moduler.
 

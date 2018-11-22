@@ -8,12 +8,12 @@ author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 2786de150307b21b06b624914d5fea55ded6e3c7
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 4068ce42babb786ca33e1b0d41fdfefc7d3f78be
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249831"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282780"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Skapa en Azure Automation-watcher uppgifter för att spåra ändringar i filen på en lokal dator
 
@@ -103,13 +103,13 @@ Om du vill testa bevakaren fungerar som förväntat, måste du skapa en testfil.
 
 Fjärranslut till hybrid worker. Öppna **PowerShell** och skapar en testfil i mappen.
   
-   ```PowerShell-interactive
-   New-Item -Name ExampleFile1.txt
-   ```
+```azurepowerShell-interactive
+New-Item -Name ExampleFile1.txt
+```
 
 I följande exempel visar utdata som förväntas.
 
-```
+```output
     Directory: D:\examplefiles
 
 
@@ -129,7 +129,7 @@ Mode                LastWriteTime         Length Name
 
 Utdata som förväntas när den nya filen hittas kan ses i följande exempel:
 
-```
+```output
 Message is Process new file...
 
 

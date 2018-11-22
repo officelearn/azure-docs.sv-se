@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: 2870bf8911c48ac4cbb442278f172b37a474152b
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 4bd36744cc417e85f49e58f9a08d2b9006da9fe4
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078061"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284037"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack Managed Disks: Skillnader och överväganden
 Den här artikeln sammanfattas de kända skillnaderna mellan Azure Stack Managed Disks och Managed Disks för Azure. Läs mer om övergripande skillnader mellan Azure Stack och Azure, i den [viktiga överväganden](azure-stack-considerations.md) artikeln.
@@ -40,7 +40,7 @@ Hanterade diskar förenklar Diskhantering för virtuella IaaS-datorer genom att 
 |Premium-diskar  |Stöds fullt ut |Kan tillhandahållas, men ingen prestandagräns eller garanterar  |
 |Premium-diskar IOPs  |Beror på diskstorleken  |2300 IOPs per disk |
 |Dataflöde för Premium-diskar |Beror på diskstorleken |145 MB/sekund per disk |
-|Maxstorlek för disk  |4 TB       |1 TB       |
+|Diskstorlek  |Azure Premium-Disk: P4 (32 GiB) till P80 (32 TiB)<br>Azure Standard SSD-Disk: E10 (128 GiB) till E80 (32 TiB)<br>Azure Standard HDD Disk: S4 (32 GiB) till S80 (32 TiB) |M4: 32 GiB<br>M6: 64 GiB<br>M10: 128 GiB<br>M15: 256 GB<br>M20: 512 GiB<br>M30: 1024 GiB |
 |Diskar prestanda analytiska |Aggregera mått och per disk-mått som stöds |Stöds inte än |
 |Migrering      |Innehåller verktyg för att migrera från befintliga ohanterade virtuella Azure Resource Manager-datorer utan att behöva återskapa den virtuella datorn  |Stöds inte än |
 

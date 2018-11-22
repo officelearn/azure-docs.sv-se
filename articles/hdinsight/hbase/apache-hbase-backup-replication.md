@@ -1,5 +1,5 @@
 ---
-title: Konfigurera HBase och Phoenix säkerhetskopiering och replikering – Azure HDInsight
+title: Konfigurera Apache HBase- och Apache Phoenix säkerhetskopiering och replikering – Azure HDInsight
 description: Konfigurera säkerhetskopiering och replikering för HBase och Phoenix.
 services: hdinsight
 author: ashishthaps
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 0dfb1cf5ce16e9aa30bb7f9fcc43bd24ccb90d76
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 00402b7ba6004d382693d5f6f82c1108a254fba8
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042227"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283579"
 ---
-# <a name="set-up-backup-and-replication-for-hbase-and-phoenix-on-hdinsight"></a>Konfigurera säkerhetskopiering och replikering för HBase och Phoenix i HDInsight
+# <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Konfigurera säkerhetskopiering och replikering för Apache HBase- och Apache Phoenix i HDInsight
 
-HBase stöder flera metoder för skydd mot dataförlust:
+Apache HBase stöder flera metoder för skydd mot dataförlust:
 
 * Kopiera den `hbase` mapp
 * Exportera sedan importera
@@ -101,7 +101,7 @@ Måladressen består av följande tre delar:
 
     <destinationAddress> = <ZooKeeperQuorum>:<Port>:<ZnodeParent>
 
-* `<ZooKeeperQuorum>` är en kommaavgränsad lista över ZooKeeper-noder, till exempel:
+* `<ZooKeeperQuorum>` är en kommaavgränsad lista med Apache ZooKeeper-noder, till exempel:
 
     zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net
 
@@ -109,7 +109,7 @@ Måladressen består av följande tre delar:
 
     zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net:2181:/hbase-unsecure
 
-Se [manuellt samla in listan ZooKeeper kvorum](#manually-collect-the-zookeeper-quorum-list) i den här artikeln för information om hur du hämtar dessa värden för ditt HDInsight-kluster.
+Se [manuellt samla in listan Apache ZooKeeper kvorum](#manually-collect-the-apache-zookeeper-quorum-list) i den här artikeln för information om hur du hämtar dessa värden för ditt HDInsight-kluster.
 
 Verktyget CopyTable har även stöd för parametrar för att ange tidsintervall rader att kopiera och för att ange delen av kolumnserier i en tabell för att kopiera. Om du vill se den fullständiga listan över parametrar som stöds av CopyTable, kör du CopyTable utan några parametrar:
 
@@ -120,7 +120,7 @@ CopyTable söker igenom hela tabellen källinnehållet som ska kopieras över ti
 > [!NOTE]
 > Om du vill automatisera att kopiera data mellan tabeller, se den `hdi_copy_table.sh` skript i den [Azure HBase Utils](https://github.com/Azure/hbase-utils/tree/master/replication) arkivet på GitHub.
 
-### <a name="manually-collect-the-zookeeper-quorum-list"></a>Manuellt samla in zookeeperkvorum lista
+### <a name="manually-collect-the-apache-zookeeper-quorum-list"></a>Manuellt samla in Apache ZooKeeper kvorum lista
 
 När båda HDInsight-kluster finns i samma virtuella nätverk, som beskrivs ovan, är interna värdnamnsmatchning automatisk. Om du vill använda CopyTable för HDInsight-kluster i två separata virtuella nätverk som är anslutna via en VPN-Gateway, behöver du ange IP-adresserna för Zookeeper-noder i kvorum.
 
@@ -201,8 +201,8 @@ Allmänna steg för att konfigurera replikering är:
 5. Kopiera befintliga data från källtabellerna till måltabeller.
 6. Replikeringen kopierar automatiskt nya dataändringar av i källtabellerna till måltabeller.
 
-Om du vill aktivera replikering på HDInsight, gäller en skriptåtgärd för ditt körs källa HDInsight-kluster. En genomgång av att ha aktiverat replikering i klustret eller för att experimentera med replikering på exemplet kluster som skapas i virtuella nätverk med hjälp av Azure Resource Manager-mallar finns i [konfigurera HBase-replikering](apache-hbase-replication.md). Den här artikeln innehåller också anvisningar för att aktivera replikering av Phoenix metadata.
+Om du vill aktivera replikering på HDInsight, gäller en skriptåtgärd för ditt körs källa HDInsight-kluster. En genomgång av att ha aktiverat replikering i klustret eller för att experimentera med replikering på exemplet kluster som skapas i virtuella nätverk med hjälp av Azure Resource Manager-mallar finns i [konfigurerar Apache HBase-replikering](apache-hbase-replication.md). Den här artikeln innehåller också anvisningar för att aktivera replikering av Phoenix metadata.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurera HBase-replikering](apache-hbase-replication.md)
+* [Konfigurera Apache HBase-replikering](apache-hbase-replication.md)

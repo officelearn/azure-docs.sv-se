@@ -9,15 +9,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 751c2df42ee8e4ace22fe94e1fef8d734ab81c3c
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 9602b8ff4d0df15b030626d5e2cfeca9bcc2bd5d
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275674"
+ms.locfileid: "52284122"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbook-utdata och meddelanden i Azure Automation
-De flesta Azure Automation-runbooks har någon form av utdata, till exempel ett felmeddelande för användaren eller ett komplext objekt som ska användas av ett annat arbetsflöde. Windows PowerShell innehåller [flera strömmar](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) att skicka utdata från ett skript eller ett arbetsflöde. Azure Automation fungerar olika med var och en av dessa strömmar och du bör följa bästa praxis för hur du använder när du skapar en runbook.
+De flesta Azure Automation-runbooks har någon form av utdata, till exempel ett felmeddelande för användaren eller ett komplext objekt som ska användas av ett annat arbetsflöde. Windows PowerShell innehåller [flera strömmar](https://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) att skicka utdata från ett skript eller ett arbetsflöde. Azure Automation fungerar olika med var och en av dessa strömmar och du bör följa bästa praxis för hur du använder när du skapar en runbook.
 
 Följande tabell innehåller en kort beskrivning av varje ström och deras beteende i Azure-portalen, både när du kör en publicerad runbook och när [testar en runbook](automation-testing-runbook.md). Ytterligare information om varje dataström finns i följande avsnitt.
 
@@ -135,7 +135,7 @@ Write-Error –Message "This is an error message that will stop the runbook beca
 ```
 
 ### <a name="verbose-stream"></a>Utförlig dataström
-Den utförliga meddelandeströmmen är allmän information om runbook-åtgärden. Eftersom den [Debug Stream](#Debug) är inte tillgänglig i en runbook utförliga meddelanden ska användas för felsökningsinformation. Som standard lagras inte utförliga meddelanden från publicerade runbooks i jobbhistoriken. För att lagra utförliga meddelanden konfigurerar du publicerade runbooks till utförlig loggning på fliken Konfigurera för runbook i Azure-portalen. I de flesta fall bör du behålla standardinställningen att inte logga utförliga poster för en runbook av prestandaskäl. Aktivera det här alternativet endast att felsöka en runbook.
+Den utförliga meddelandeströmmen är allmän information om runbook-åtgärden. Eftersom den [Debug Stream](#debug-stream) är inte tillgänglig i en runbook utförliga meddelanden ska användas för felsökningsinformation. Som standard lagras inte utförliga meddelanden från publicerade runbooks i jobbhistoriken. För att lagra utförliga meddelanden konfigurerar du publicerade runbooks till utförlig loggning på fliken Konfigurera för runbook i Azure-portalen. I de flesta fall bör du behålla standardinställningen att inte logga utförliga poster för en runbook av prestandaskäl. Aktivera det här alternativet endast att felsöka en runbook.
 
 När [testar en runbook](automation-testing-runbook.md), visas inte utförlig meddelanden även om runbooken har konfigurerats för att logga utförliga poster. Att visa utförliga meddelanden vid [testar en runbook](automation-testing-runbook.md), måste du ange variabeln $VerbosePreference till Fortsätt. Med dessa variabeln visas utförliga meddelanden i rutan Testutdata i Azure Portal.
 

@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: bd75ecde75d0f22dc66f047cd063dd85807f6f33
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: aec12e6dc7d331b2610546d0b0c92fa6ce0789ee
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304449"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284531"
 ---
 # <a name="manage-access-for-external-users-using-rbac"></a>Hantera åtkomst för externa användare med RBAC
 
@@ -45,7 +45,7 @@ Azure-portalen när du har loggat in som administratör, Välj ”prenumeratione
 ![prenumerationsbladet i Azure-portalen](./media/role-assignments-external-users/0.png) som standard om administratören har köpt Azure-prenumerationen för användaren visas som **kontoadministratören**, detta är rollen prenumeration. Läs mer om Azure-prenumeration roller [Lägg till eller ändra Azure-prenumerationsadministratörer](../billing/billing-add-change-azure-subscription-administrator.md).
 
 I det här exemplet är användaren ”alflanigan@outlook.com” är den **ägare** av ”kostnadsfri utvärdering” prenumerationen i AAD-klient ”standard klient Azure”. Eftersom den här användaren är skapare av Azure-prenumeration med inledande Account ”Outlook” (Account = Outlook, Live osv) standarddomännamnet för alla andra användare som har lagts till i den här klienten kommer att **”\@ alflaniganuoutlook.onmicrosoft.com ”**. Avsiktligt bildas syntaxen för den nya domänen genom att sätta ihop användarnamn och namnet på användaren som skapade klienten och att lägga till tillägget **”. onmicrosoft.com”**.
-Dessutom kan användare logga in med ett anpassat domännamn i klienten efter att lägga till och verifierar den för den nya innehavaren. Mer information om hur du verifierar ett anpassat domännamn i Azure Active Directory-klient finns i [lägga till ett anpassat domännamn i katalogen](/active-directory/active-directory-add-domain).
+Dessutom kan användare logga in med ett anpassat domännamn i klienten efter att lägga till och verifierar den för den nya innehavaren. Mer information om hur du verifierar ett anpassat domännamn i Azure Active Directory-klient finns i [lägga till ett anpassat domännamn i katalogen](../active-directory/fundamentals/add-custom-domain.md).
 
 I det här exemplet innehåller katalogen ”standard-klientorganisation Azure” endast användare med domännamnet ”\@alflanigan.onmicrosoft.com”.
 
@@ -85,7 +85,7 @@ När du är en gäst i katalogen, den externa användaren kan hantera alla resur
 
 ![åtkomst begränsad till azure active directory Azure-portalen](./media/role-assignments-external-users/9.png)
 
-Azure Active Directory och en Azure-prenumeration inte har en underordnad-överordnad relation som andra Azure-resurser (till exempel: virtuella datorer, virtuella nätverk, webbappar, lagring osv) har med en Azure-prenumeration. Alla dessa skapas, hanteras och debiteras enligt en Azure-prenumeration medan en Azure-prenumeration används för att hantera åtkomst till en Azure-katalog. Mer information finns i [hur en Azure-prenumeration är kopplad till Azure AD](/active-directory/active-directory-how-subscriptions-associated-directory).
+Azure Active Directory och en Azure-prenumeration inte har en underordnad-överordnad relation som andra Azure-resurser (till exempel: virtuella datorer, virtuella nätverk, webbappar, lagring osv) har med en Azure-prenumeration. Alla dessa skapas, hanteras och debiteras enligt en Azure-prenumeration medan en Azure-prenumeration används för att hantera åtkomst till en Azure-katalog. Mer information finns i [hur en Azure-prenumeration är kopplad till Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 Från alla de inbyggda RBAC-rollerna, **ägare** och **deltagare** ger fullständig åtkomst till alla resurser i miljön, skillnaden är att deltagare inte kan skapa eller ta bort nya RBAC-roller . De inbyggda rollerna som **virtuell Datordeltagare** erbjuder fullständig hantering endast åtkomst till de resurser som anges av namnet, oavsett den **resursgrupp** de som skapas i.
 

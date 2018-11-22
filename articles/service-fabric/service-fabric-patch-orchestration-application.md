@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: a8b2070b6f5b10cb60c6658aefc8cc90331ecfd9
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 3416d257a23e94460199a1ddfe63302ff55ad5a5
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409364"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285058"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Uppdatera Windows-operativsystemet i Service Fabric-klustret
 
@@ -167,7 +167,7 @@ Patch orchestration appens beteende kan konfigureras för att uppfylla dina beho
 
 1. Slut alla nödvändiga steg för att förbereda klustret.
 2. Distribuera patch orchestration-appen som med andra Service Fabric-app. Du kan distribuera appen med hjälp av PowerShell. Följ stegen i [distribuera och ta bort program med hjälp av PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
-3. För att konfigurera programmet vid tidpunkten för distribution, skickar den `ApplicationParamater` till den `New-ServiceFabricApplication` cmdlet. Vi tillhandahåller skriptet Deploy.ps1 tillsammans med programmet för din bekvämlighet. Du använder skriptet:
+3. För att konfigurera programmet vid tidpunkten för distribution, skickar den `ApplicationParameter` till den `New-ServiceFabricApplication` cmdlet. Vi tillhandahåller skriptet Deploy.ps1 tillsammans med programmet för din bekvämlighet. Du använder skriptet:
 
     - Ansluta till ett Service Fabric-kluster med hjälp av `Connect-ServiceFabricCluster`.
     - Kör PowerShell-skriptet Deploy.ps1 med lämplig `ApplicationParameter` värde.

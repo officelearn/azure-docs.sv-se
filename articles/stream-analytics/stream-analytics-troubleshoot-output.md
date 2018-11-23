@@ -7,13 +7,13 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.openlocfilehash: 4209ce8d15bf53381825e8bb3e47f0a16366a436
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 11/21/2018
+ms.openlocfilehash: 5124e06296962f1b673c77bfe318ff48d7fb11aa
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49346986"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291331"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Felsöka Azure Stream Analytics-utdata
 
@@ -29,7 +29,7 @@ Den här sidan beskriver vanliga problem med utgående anslutningar och hur du f
       - Om jobbet använder en Event Hub, kontrollerar du om meddelandets brödtext är *Null*.
       
     - Om datakonverteringsfel > 0 och stiger kan det bero på följande:
-      - Jobbet kan inte deserialisera händelserna.
+      - Händelsen utdata följer inte schemat för mål-mottagare. 
       - Händelseschemat kanske inte överensstämmer med den definierade eller förväntade händelseschemat i frågan.
       - Datatyper i vissa fält kanske i händelsen inte matchar förväntningar.
       

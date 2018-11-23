@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/11/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 68374cd1675f76555ff313b42e35bdf2aed96874
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 88b956fbe283dd39dfc51d6127b32b6f031e8b85
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408089"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291138"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Konfigurera Log Analytics för ett kluster
 
@@ -72,7 +72,7 @@ Kontot visas nu som en del av ditt storage-konto loggar i din arbetsyta-datakäl
 Du har lagt till Service Fabric-analys-lösningen i en Log Analytics-arbetsyta som nu är korrekt ansluten till ditt kluster-plattformen och application log-tabell. Du kan lägga till ytterligare källor till arbetsytan på samma sätt.
 
 
-## <a name="deploy-log-analytics-by-using-a-resource-manager-template"></a>Distribuera Log Analytics med hjälp av Resource Manager-mall
+## <a name="deploy-log-analytics-with-azure-resource-manager"></a>Distribuera Log Analytics med Azure Resource Manager
 
 När du distribuerar ett kluster med hjälp av Resource Manager-mall mallen skapar en ny Log Analytics-arbetsyta, lägger till Service Fabric-lösningen till arbetsytan och konfigurerar den för att läsa data från tabellerna lämpligt.
 
@@ -93,7 +93,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "<resourceGroupName>" -Tem
 
 Azure Resource Manager identifierar att det här kommandot är en uppdatering till en befintlig resurs. Den bearbetar endast ändringar mellan den mall som driver den befintliga distributionen och den nya mall som tillhandahålls.
 
-## <a name="deploy-log-analytics-by-using-azure-powershell"></a>Distribuera Log Analytics med hjälp av Azure PowerShell
+## <a name="deploy-log-analytics-with-azure-powershell"></a>Distribuera Log Analytics med Azure PowerShell
 
 Du kan också distribuera din Log Analytics-resurs via PowerShell genom att använda den `New-AzureRmOperationalInsightsWorkspace` kommando. Om du vill använda den här metoden gör att du har installerat [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Använd det här skriptet för att skapa en ny Log Analytics-arbetsyta och lägga till Service Fabric-lösningen: 
 

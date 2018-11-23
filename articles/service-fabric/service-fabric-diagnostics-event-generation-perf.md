@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/16/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 1e6ea5d6ae321a0443631ec928912611a68346c6
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 843feb83b8202d3ef8e2c6c8c60cb9b509048530
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408021"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290781"
 ---
 # <a name="performance-metrics"></a>Prestandamått
 
@@ -31,6 +31,7 @@ Mått ska samlas in för att förstå prestanda för ditt kluster, samt de progr
 
 | Räknaren kategori | Räknarnamn |
 | --- | --- |
+| Logisk Disk | Ledigt utrymme för logisk Disk |
 | Fysisk disk (per Disk) | Genomsn. Läs diskkölängd |
 | Fysisk disk (per Disk) | Genomsn. Diskkölängd för skrivning |
 | Fysisk disk (per Disk) | Genomsn. S/diskläsning |
@@ -49,6 +50,9 @@ Mått ska samlas in för att förstå prestanda för ditt kluster, samt de progr
 | Process (per tjänst) | Virtuella byte |
 | Process (per tjänst) | Arbetsminne |
 | Process (per tjänst) | Privat arbetsminne |
+| Nätverk Interface(all-instances) | Byte recd |
+| Nätverk Interface(all-instances) | Skickade byte |
+| Nätverk Interface(all-instances) | Totalt antal byte |
 | Nätverk Interface(all-instances) | Kölängd-utdata |
 | Nätverk Interface(all-instances) | Utgående paket som tagits bort |
 | Nätverk Interface(all-instances) | Mottagna paket |
@@ -65,6 +69,8 @@ Samla in följande räknare om du distribuerar .NET-tjänster till ditt kluster.
 | .NET CLR-minne (per tjänst) | # Totalt antal allokerade byte |
 | .NET CLR-minne (per tjänst) | # Totalt antal reserverade byte |
 | .NET CLR-minne (per tjänst) | Antal byte i alla Heapar |
+| .NET CLR-minne (per tjänst) | Stora objekt. generace |
+| .NET CLR-minne (per tjänst) | # GC hanterar |
 | .NET CLR-minne (per tjänst) | Antal generation 0-insamlingar |
 | .NET CLR-minne (per tjänst) | Antal generation 1-insamlingar |
 | .NET CLR-minne (per tjänst) | Antal generation 2-insamlingar |
@@ -76,7 +82,7 @@ Service Fabric genererar en stor mängd anpassade prestandaräknare. Om du har i
 
 Program som du distribuerar till ditt kluster om du använder Reliable Actors, lägga till countes från `Service Fabric Actor` och `Service Fabric Actor Method` kategorier (se [Service Fabric tillförlitliga aktörer-diagnostik](service-fabric-reliable-actors-diagnostics.md)).
 
-Om du använder Reliable Services, på samma sätt har vi `Service Fabric Service` och `Service Fabric Service Method` räknaren kategorier som du bör samla in prestandaräknare från. 
+Om du använder Reliable Services eller Service Remoting, på samma sätt har vi `Service Fabric Service` och `Service Fabric Service Method` räknare kategorier som du bör samla in prestandaräknare från Se [övervakning med service remoting](service-fabric-reliable-serviceremoting-diagnostics.md) och [tillförlitlig Services prestandaräknare](service-fabric-reliable-services-diagnostics.md#performance-counters). 
 
 Om du använder tillförlitliga samlingar, rekommenderar vi att lägga till den `Avg. Transaction ms/Commit` från den `Service Fabric Transactional Replicator` att samla in den genomsnittliga commit svarstiden per transaktion mått.
 

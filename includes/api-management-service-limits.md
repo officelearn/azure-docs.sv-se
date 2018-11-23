@@ -9,26 +9,37 @@ ms.topic: include
 ms.date: 03/22/2018
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 676bd3b3a369e3f834016f626a8e69f6b41d9b23
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: e01eebe41010135d0dc0a2cb4170e6b6687ff546
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52170708"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52292714"
 ---
 | Resurs | Gräns |
 | --- | --- |
-| Enheter av skala | 10 per region<sup>1</sup> |
-| Cache | 5 GB per enhet<sup>1</sup> |
-| Samtidiga serverdel anslutningar<sup>2</sup> per HTTP-utfärdare | 2048 per enhet<sup>3</sup> |
+| Maximalt antal skalningsenheter | 10 per region<sup>1</sup> |
+| Cachestorlek | 5 GB per enhet<sup>2</sup> |
+| Samtidiga serverdel anslutningar<sup>3</sup> per HTTP-utfärdare | 2048 per enhet<sup>4</sup> |
 | Maximal cachelagrade svarsstorlek | 2MB |
-| Princip för maximal storlek | 256KB |
-| Maximal anpassade gateway-domäner | 20 per tjänstinstans<sup>4</sup> |
+| Princip för maximal storlek | 256KB<sup>5</sup> | 
+| Maximal anpassade gateway domäner per tjänstinstans<sup>6</sup> | 20 | 
+| Maximalt antal instanser av tjänsten per prenumeration<sup>7</sup> | 5 | 
+| Högsta antalet prenumerationer per tjänstinstans<sup>7</sup> | 500 |
+| Maximalt antal klientcertifikat per tjänstinstans<sup>7</sup> | 50 | 
+| Maximalt antal API: er per tjänstinstans<sup>7</sup> | 50 | 
+| Maximalt antal API-åtgärder per tjänstinstans<sup>7</sup> | 1000 | 
+| Maximal total varaktighet för begäran<sup>7</sup> | 30 sekunder | 
+| Maximalt buffras nyttolast<sup>7</sup> | 2MB | 
 
 
-<sup>1</sup>API Management-gränserna är olika för varje prisnivå. Om du vill se prissättningen nivåerna och deras skalningsgränser går till [API Management-priser](https://azure.microsoft.com/pricing/details/api-management/).
-<sup>2</sup> anslutningar i pooler och används igen, om inte explicit avslutades av serverdelen.
-<sup>3</sup> per enhet för nivåerna Basic, Standard och Premium. Developer-nivån är begränsad till 1024.
-<sup>4</sup> tillgänglig på Premium-nivån.
+<sup>1</sup> skalning gränserna beror på prisnivå. Om du vill se prissättningen nivåerna och deras skalningsgränser går till [API Management-priser](https://azure.microsoft.com/pricing/details/api-management/).<br/>
+<sup>2</sup> per enhet cache storleken beror på prisnivå. Om du vill se prissättningen nivåerna och deras skalningsgränser går till [API Management-priser](https://azure.microsoft.com/pricing/details/api-management/).<br/>
+<sup>3</sup> anslutningar i pooler och används igen, om inte explicit avslutades av serverdelen.<br/>
+<sup>4</sup> per enhet för nivåerna Basic, Standard och Premium. Developer-nivån är begränsad till 1024. Gäller inte för förbrukning-nivå.<br/> 
+<sup>5</sup> nivåerna i Basic, Standard och Premium. Nivåstorlek princip för dokumentet är begränsad till 4KB för förbrukningen.<br/>
+<sup>6</sup> tillgänglig på Premium-nivån.<br/>
+<sup>7</sup> gäller till förbrukning-nivån.<br/>
+
 
 

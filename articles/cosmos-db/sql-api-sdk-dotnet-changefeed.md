@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: 67cddf5eb3f675337afbb7e620bd135383f20960
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 611f7ccf9ef701bf589a8f9450f8f02695357224
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976085"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291189"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET change Feed Processor SDK: Ladda ned och viktig information
 > [!div class="op_single_selector"]
@@ -46,9 +46,9 @@ ms.locfileid: "51976085"
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
 * Stöd har lagts till för att använda anpassade store för att bevara fortsättning token per partition.
   * En anpassad leasing store kan till exempel vara Azure Cosmos DB lånsamling partitioneras på något sätt med anpassade.
-  * Anpassad leasing butiker kan använda nya utökningsbarhet punkt ChangeFeedProcessor.WithLeaseStoreManager(ILeaseStoreManager) och ILeaseStoreManager offentliga gränssnittet.
+  * Anpassad leasing butiker kan använda nya utökningsbarhet punkt ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager) och ILeaseStoreManager offentliga gränssnittet.
   * Omstrukturerats ILeaseManager gränssnitt till flera gränssnitt för rollen.
-* Mindre icke-bakåtkompatibel ändring: borttagna utökningsbarhet tjänstanslutningspunkten ChangeFeedProcessorBuilder.WithLeaseManager(ILeaseManager), Använd ChangeFeedProcessor.WithLeaseStoreManager(ILeaseStoreManager) istället.
+* Mindre icke-bakåtkompatibel ändring: borttagna utökningsbarhet tjänstanslutningspunkten ChangeFeedProcessorBuilder.WithLeaseManager(ILeaseManager), Använd ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager) istället.
 
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
 * Den här versionen åtgärdas ett problem som uppstår under bearbetning av en delning i övervakade samling och använder en partitionerad lånsamling. Vid bearbetning av ett lån för partition split kan lånet som motsvarar den partitionen inte tas bort. Problemet är löst i den här versionen.

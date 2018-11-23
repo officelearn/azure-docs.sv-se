@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 11/01/2018
+ms.date: 11/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: e7204c223681b9a33c439b0d9fc653167422384a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4a715020e37d5885dac26ac0573efe985c3f2cfb
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011705"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291223"
 ---
 # <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Konfigurera säkerhetsaviseringar för Azure AD-katalogroller i PIM
 
@@ -34,6 +34,47 @@ Det här avsnittet visar en lista över alla säkerhetsvarningar för katalogrol
 * **Medel**: inte kräver omedelbar åtgärd men signalerar potentiella Policyöverträdelse.
 * **Låg**: inte kräver omedelbar åtgärd men en ändring av en bättre.
 
+### <a name="administrators-arent-using-their-privileged-roles"></a>Administratörer använder inte sina Privilegierade roller
+
+| | |
+| --- | --- |
+| **Allvarlighetsgrad** | Låg |
+| **Varför får jag den här aviseringen?** | Användare som har tilldelats Privilegierade roller som de inte behöver ökar risken för angrepp. Det är även lättare för angripare att förbli oupptäckt i konton som inte används aktivt. |
+| **Så här åtgärdar du?** | Granska användare i listan och ta bort dem från Privilegierade roller som de inte behöver. |
+| **Dataförlustskydd** | Endast tilldela Privilegierade roller till användare som har en motivering. </br>Schemalägga regular [åtkomstgranskningar](pim-how-to-start-security-review.md) att verifiera att användare behöver fortfarande ha sin åtkomst. |
+| **I portalen minskning åtgärd** | Tar bort kontot från sina Privilegierade roller. |
+| **Utlösare** | Utlöses om en användare går en viss tidsperiod utan att aktivera en roll. |
+| **Antal dagar** | Den här inställningen anger hur många dagar från 0 till 100, som en användare kan gå utan att aktivera en roll.|
+
+### <a name="roles-dont-require-multi-factor-authentication-for-activation"></a>Roller som inte kräver autentisering på flera plan för aktivering
+
+| | |
+| --- | --- |
+| **Allvarlighetsgrad** | Låg |
+| **Varför får jag den här aviseringen?** | Utan MFA, kan komprometterade användare aktivera Privilegierade roller. |
+| **Så här åtgärdar du?** | Granska listan över roller och [kräva MFA](pim-how-to-change-default-settings.md) för varje roll. |
+| **Dataförlustskydd** | [Kräva MFA](pim-how-to-change-default-settings.md) för varje roll.  |
+| **I portalen minskning åtgärd** | Gör MFA krävs för aktivering av Privilegierade roller. |
+
+### <a name="the-tenant-doesnt-have-azure-ad-premium-p2"></a>Klienten har inte Azure AD Premium P2
+
+| | |
+| --- | --- |
+| **Allvarlighetsgrad** | Låg |
+| **Varför får jag den här aviseringen?** | Aktuell klient har inte Azure AD Premium P2. |
+| **Så här åtgärdar du?** | Granska informationen om [Azure AD-versioner](../fundamentals/active-directory-whatis.md). Uppgradera till Azure AD Premium P2. |
+
+### <a name="potential-stale-accounts-in-a-privileged-role"></a>Potentiella inaktuella konton i en privilegierad roll
+
+| | |
+| --- | --- |
+| **Allvarlighetsgrad** | Medel |
+| **Varför får jag den här aviseringen?** | Konton som inte har ändrat sitt lösenord kanske tjänsten nyligen eller delade konton som inte är kvar. Dessa konton i Privilegierade roller är sårbara för angripare. |
+| **Så här åtgärdar du?** | Granska kontona i listan. Om de inte längre behöver åtkomst kan du ta bort dem från sina Privilegierade roller. |
+| **Dataförlustskydd** | Se till att konton som delas rotera starka lösenord när det finns en ändring i de användare som känner till lösenordet. </br>Granska regelbundet konton med Privilegierade roller med hjälp av [åtkomstgranskningar](pim-how-to-start-security-review.md) och ta bort rolltilldelningar som inte längre behövs. |
+| **I portalen minskning åtgärd** | Tar bort kontot från sina Privilegierade roller. |
+| **Bästa praxis** | Delad tjänst, och konton för åtkomst vid akutfall som autentiseras med ett lösenord och har tilldelats mycket Privilegierade administrativa roller som Global administratör eller säkerhetsadministratör ska ha sina lösenord roteras för följande fall:<ul><li>När du har en säkerhetsincident som involverar missbruk eller förlikning gällande administrativa åtkomstbehörigheter</li><li>När en användares behörigheter ändras så att de inte längre är en administratör (till exempel efter en medarbetare som har en administratör lämnar kvar IT eller lämnar organisationen)</li><li>Med jämna mellanrum (till exempel varje kvartal eller år), även om det finns inga kända intrång eller ändring av IT databehandlingskraften</li></ul>Eftersom flera personer har åtkomst till dessa konton autentiseringsuppgifter, ska autentiseringsuppgifterna roteras för att säkerställa att personer som har lämnat deras roller inte längre kan komma åt kontona. [Läs mer](https://aka.ms/breakglass) |
+
 ### <a name="roles-are-being-assigned-outside-of-pim"></a>Roller tilldelas utanför PIM
 
 | | |
@@ -43,28 +84,6 @@ Det här avsnittet visar en lista över alla säkerhetsvarningar för katalogrol
 | **Så här åtgärdar du?** | Granska användare i listan och ta bort dem från Privilegierade roller som tilldelats utanför PIM. |
 | **Dataförlustskydd** | Undersök där användare som tilldelas Privilegierade roller utanför PIM och förhindra framtida tilldelningar därifrån. |
 | **I portalen minskning åtgärd** | Tar bort kontot från sina Privilegierade roller. |
-
-### <a name="potential-stale-accounts-in-a-privileged-role"></a>Potentiella inaktuella konton i en privilegierad roll
-
-| | |
-| --- | --- |
-| **Allvarlighetsgrad** | Medel |
-| **Varför får jag den här aviseringen?** | Konton som inte har ändrat sitt lösenord kanske tjänsten nyligen eller delade konton som inte är kvar. Dessa konton i Privilegierade roller är sårbara för angripare. |
-| **Så här åtgärdar du?** | Granska kontona i listan. Om de inte längre behöver åtkomst kan du ta bort dem från sina Privilegierade roller. |
-| **Dataförlustskydd** | Se till att konton som delas rotera starka lösenord när det finns en ändring i de användare som känner till lösenordet. </br>Regelbundet granska konton med Privilegierade roller med hjälp av åtkomstgranskningar och ta bort rolltilldelningar som inte längre behövs. |
-| **I portalen minskning åtgärd** | Tar bort kontot från sina Privilegierade roller. |
-
-### <a name="users-arent-using-their-privileged-roles"></a>Användarna använder inte sina Privilegierade roller
-
-| | |
-| --- | --- |
-| **Allvarlighetsgrad** | Låg |
-| **Varför får jag den här aviseringen?** | Användare som har tilldelats Privilegierade roller som de inte behöver ökar risken för angrepp. Det är även lättare för angripare att förbli oupptäckt i konton som inte används aktivt. |
-| **Så här åtgärdar du?** | Granska användare i listan och ta bort dem från Privilegierade roller som de inte behöver. |
-| **Dataförlustskydd** | Endast tilldela Privilegierade roller till användare som har en motivering. </br>Schema för regelbundna åtkomstgranskningar att verifiera att användarna fortfarande måste deras åtkomst. |
-| **I portalen minskning åtgärd** | Tar bort kontot från sina Privilegierade roller. |
-| **Utlösare** | Utlöses om en användare går en viss tidsperiod utan att aktivera en roll. |
-| **Antal dagar** | Den här inställningen anger hur många dagar från 0 till 100, som en användare kan gå utan att aktivera en roll.|
 
 ### <a name="there-are-too-many-global-administrators"></a>Det finns för många globala administratörer
 
@@ -91,16 +110,6 @@ Det här avsnittet visar en lista över alla säkerhetsvarningar för katalogrol
 | **Utlösare** | Utlöses om en användare aktiverar rollen för samma Privilegierade flera gånger inom en angiven tidsperiod. Du kan konfigurera både hur lång tid och antalet aktiveringar. |
 | **Aktiveringsförnyelse** | Den här inställningen anger i dagar, timmar, minuter och andra hur lång tid som du vill använda för att spåra misstänkta förnyelser. |
 | **Antal förnyelser för aktivering** | Den här inställningen anger antalet aktiveringar från 2 till 100, som du anser vara värt aviseringens under den tidsperiod som du har valt. Du kan ändra den här inställningen genom att flytta skjutreglaget eller ange ett värde i textrutan. |
-
-### <a name="roles-dont-require-mfa-for-activation"></a>Roller som inte kräver MFA för aktivering
-
-| | |
-| --- | --- |
-| **Allvarlighetsgrad** | Låg |
-| **Varför får jag den här aviseringen?** | Utan MFA, kan komprometterade användare aktivera Privilegierade roller. |
-| **Så här åtgärdar du?** | Granska listan över roller och [kräva MFA](pim-how-to-change-default-settings.md) för varje roll. |
-| **Dataförlustskydd** | [Kräva MFA](pim-how-to-change-default-settings.md) för varje roll.  |
-| **I portalen minskning åtgärd** | Gör MFA krävs för aktivering av Privilegierade roller. |
 
 ## <a name="configure-security-alert-settings"></a>Konfigurera säkerhetsaviseringsinställningar
 

@@ -12,17 +12,17 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/29/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 6dee895ba9fc024baac0500619b7d6cc62167b6d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: ed6a709418871ededc8ddfe06b0eb1ab3e4546e1
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404485"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291087"
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Händelseanalys och visualisering med Log Analytics
-Log Analytics samlar in och analyserar telemetri från program och tjänster i molnet och ger analysverktyg som hjälper dig att maximera tillgänglighet och prestanda. Den här artikeln beskrivs hur du kör frågor i Log Analytics för att få insikter och felsöka vad som händer i ditt kluster. Följande vanliga frågor tas upp:
+ Log Analytics samlar in och analyserar telemetri från program och tjänster i molnet och ger analysverktyg som hjälper dig att maximera tillgänglighet och prestanda. Den här artikeln beskrivs hur du kör frågor i Log Analytics för att få insikter och felsöka vad som händer i ditt kluster. Följande vanliga frågor tas upp:
 
 * Hur felsöker jag health-händelser?
 * Hur vet jag när en nod stängs av?
@@ -30,9 +30,12 @@ Log Analytics samlar in och analyserar telemetri från program och tjänster i m
 
 ## <a name="log-analytics-workspace"></a>Log Analytics-arbetsyta
 
+>[!NOTE] 
+>När lagringskontot är aktiverat som standard när kluster skapas, måste du fortfarande ställa in Log Analytics-arbetsytan att läsa från den diagnostiska lagringen.
+
 Log Analytics samlar in data från hanterade resurser, inklusive en Azure storage-tabell eller en agent och underhåller i ett centrallager. Data kan sedan användas för analys, aviseringar och visualisering eller ytterligare export. Log Analytics har stöd för händelser, prestandadata eller anpassade data. Kolla in [steg för att konfigurera diagnostics-tillägg för att aggregera händelser](service-fabric-diagnostics-event-aggregation-wad.md) och [steg för att skapa en Log Analytics-arbetsyta för att läsa från händelser i storage](service-fabric-diagnostics-oms-setup.md) att kontrollera att data flödar till Log Analytics .
 
-När data har tagits emot av Log Analytics, Azure har flera *hanteringslösningar* som är förpaketerade lösningar för att övervaka inkommande data, anpassade till flera scenarier. Dessa inkluderar en *Service Fabric-analys* lösning och en *behållare* lösning som är de två mest relevanta som diagnostik och övervakning av när du använder Service Fabric-kluster. Den här artikeln beskriver hur du använder Service Fabric-analys-lösning som har skapats med arbetsytan.
+När data har tagits emot av Log Analytics, Azure har flera *hanteringslösningar* som är förpaketerade lösningar eller driftsinstrumentpaneler övervaka inkommande data, anpassade till flera scenarier. Dessa inkluderar en *Service Fabric-analys* lösning och en *behållare* lösning som är de två mest relevanta som diagnostik och övervakning av när du använder Service Fabric-kluster. Den här artikeln beskriver hur du använder Service Fabric-analys-lösning som har skapats med arbetsytan.
 
 ## <a name="access-the-service-fabric-analytics-solution"></a>Lösning för Service Fabric-analys
 
@@ -40,7 +43,7 @@ När data har tagits emot av Log Analytics, Azure har flera *hanteringslösninga
 
 2. Välj resursen som **ServiceFabric\<nameOfOMSWorkspace\>**.
 
-2. Sammanfattningsvis visas paneler i form av ett diagram för var och en av de lösningar som är aktiverad, inklusive ett för Service Fabric. Klicka på den **Service Fabric** graph (första bilden nedan) för att fortsätta till Service Fabric-analys-lösningen (andra bilden nedan).
+2. I `Summary`, visas paneler i form av ett diagram för var och en av de lösningar som är aktiverad, inklusive ett för Service Fabric. Klicka på den **Service Fabric** graph (första bilden nedan) för att fortsätta till Service Fabric-analys-lösningen (andra bilden nedan).
 
     ![Service Fabric-lösning](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 
@@ -48,12 +51,12 @@ När data har tagits emot av Log Analytics, Azure har flera *hanteringslösninga
 
 Bilden ovan är startsidan för Service Fabric-analys-lösning. Det här är en ögonblicksbild vy över vad som händer i ditt kluster. Om du har aktiverat diagnostik när klustret har skapats kan du se händelser för 
 
-* [Användningskanal](service-fabric-diagnostics-event-generation-operational.md): på högre nivå åtgärder som utförs av Service Fabric-plattformen (insamling av systemtjänster).
+* [Service Fabric-kluster-händelser](service-fabric-diagnostics-event-generation-operational.md)
 * [Reliable Actors programming modellhändelser](service-fabric-reliable-actors-diagnostics.md)
 * [Reliable Services programming modellhändelser](service-fabric-reliable-services-diagnostics.md)
 
 >[!NOTE]
->Förutom den operativa kanalen, mer detaljerad händelser kan samlas in av [uppdatera konfigurationen av diagnostiktillägget](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations).
+>Utöver Service Fabric-händelser direkt ur lådan mer detaljerad händelser kan samlas in av [uppdatera konfigurationen av diagnostiktillägget](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations).
 
 ### <a name="view-service-fabric-events-including-actions-on-nodes"></a>Visa Service Fabric-händelser, inklusive åtgärder på noder
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 804ac964949c947baf5285b3ec591b3d28263f4d
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 8a5b34cd92f3afd166d5d67ca445c99a52c684e2
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282745"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290900"
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Azure Automation-scenario – etablera en virtuell dator i AWS
 I den här artikeln får du lära dig hur du kan utnyttja Azure Automation för att etablera en virtuell dator i Amazon Web Service (AWS)-prenumeration och ge den virtuella datorn till ett visst namn – AWS refererar till som ”taggning” den virtuella datorn.
@@ -41,7 +41,7 @@ Den virtuella datorn etablering runbook utnyttjar AWS PowerShell-modulen för at
 När PowerShell-modulen AWS har distribuerats kan skapa du nu en runbook för att automatisera etablering av en virtuell dator i AWS med hjälp av ett PowerShell-skript. Stegen nedan visar hur man utnyttjar inbyggda PowerShell-skript i Azure Automation.  
 
 > [!NOTE]
-> För ytterligare alternativ och information om det här skriptet finns i [PowerShell-galleriet](https://www.powershellgallery.com/packages/New-AwsVM/DisplayScript).
+> För ytterligare alternativ och information om det här skriptet finns i [PowerShell-galleriet](https://www.powershellgallery.com/packages/New-AwsVM/).
 > 
 
 1. Hämta PowerShell-skript New AwsVM från PowerShell-galleriet genom att öppna en PowerShell-session och skriva följande:<br>

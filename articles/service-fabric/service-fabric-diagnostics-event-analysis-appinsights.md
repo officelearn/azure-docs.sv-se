@@ -12,22 +12,24 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/04/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: aedbc5925a6e101299170843abef79ef6125eafe
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: f9c7a70eae4c49173b3e11b7fbfa901f7e5b89d6
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230428"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291053"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Händelseanalys och visualisering med Application Insights
 
-Microsoft Azure Application Insights är en utökningsbar plattform för programmet övervakning och diagnostik. Den innehåller en kraftfull analys och frågor till verktyget, anpassningsbar instrumentpanel och visualiseringar och ytterligare alternativ inklusive automatiserade aviseringar. Det är den rekommendera plattformen för övervakning och diagnostik för Service Fabric-program och tjänster. Den här artikeln hjälper dig att lösa följande vanliga frågor
+En del av Azure Monitor, Application Insights är en utökningsbar plattform för programmet övervakning och diagnostik. Den innehåller en kraftfull analys och frågor till verktyget, anpassningsbar instrumentpanel och visualiseringar och ytterligare alternativ inklusive automatiserade aviseringar. Application Insights-integrering med Service Fabric innehåller verktyg för Visual Studio och Azure portal, samt Service Fabric-specifika mått, ger en omfattande loggning för out-of the box-upplevelse. Även om många loggar som skapas automatiskt och som samlas in för dig med Application Insights, rekommenderar vi att du lägger till ytterligare anpassad loggning dina program att skapa en rikare upplevelse för diagnostik.
 
-* Hur kan jag se vad som händer i Mina program och tjänster och samla telemetri
-* Hur felsöker jag mitt program, särskilt de tjänster som kommunicerar med varandra
-* Hur får jag mått om hur Mina tjänster fungerar, till exempel, sidinläsningstiden, http-begäranden
+Den här artikeln hjälper dig att lösa följande frågor:
+
+* Hur kan jag se vad som händer i Mina program och tjänster och samla telemetri?
+* Hur felsöker jag mitt program, särskilt de tjänster som kommunicerar med varandra?
+* Hur får jag mått om hur Mina tjänster fungerar, till exempel, sidinläsningstiden, HTTP-begäranden?
 
 Syftet med den här artikeln är att visa hur du få insikter och felsöka från i Application Insights. Om du vill lära dig hur du skapar och konfigurerar Application Insights med Service Fabric finns i denna [självstudien](service-fabric-tutorial-monitoring-aspnet.md).
 
@@ -110,7 +112,7 @@ Se till att göra ändringarna i dina filter, samt innehålla andra indata (till
 
 Det rekommenderas att använda EventFlow och WAD som aggregering lösningar, eftersom de gör att en mer modulära metod för diagnostik och övervakning, dvs. Om du vill ändra dina utdata från EventFlow, det krävs ingen ändring till din faktiska instrumentation bara en enkla ändringar i konfigurationsfilen. Om, men du bestämmer dig för att investera i med hjälp av Application Insights och sannolikt inte kan ändra till en annan plattform, bör du fundera på med nya Application Insights-SDK för insamling av händelser och skicka dem till Application Insights. Det innebär att du inte längre att konfigurera EventFlow för att skicka data till Application Insights, men i stället installeras den ApplicationInsight Service Fabric NuGet-paketet. Information om paketet finns [här](https://github.com/Microsoft/ApplicationInsights-ServiceFabric).
 
-[Application Insights-stöd för Mikrotjänster och behållare](https://azure.microsoft.com/blog/app-insights-microservices/) visar några av de nya funktionerna som arbete utförs i (fortfarande för närvarande i beta), som gör att du kan ha bättre out-of the box övervakningsalternativ med Application Insights. Dessa omfattar beroende spårning (används för att skapa en AppMap för alla dina tjänster och program i ett kluster och kommunikationen mellan dem) och bättre korrelation av spårningen från dina tjänster (hjälper i bättre lokalisera ett problem i arbetsflödet för en app eller tjänst).
+[Application Insights-stöd för Mikrotjänster och behållare](https://azure.microsoft.com/blog/app-insights-microservices/) visar några av de nya funktionerna som arbete utförs i (fortfarande för närvarande i beta), som gör att du kan ha bättre out-of the box övervakningsalternativ med Application Insights. Dessa omfattar beroende spårning (används för att skapa en AppMap för alla dina tjänster och program i ett kluster och kommunikationen mellan dem) och bättre korrelation av spårningen från dina tjänster (hjälper i bättre lokalisera ett problem i arbetsflödet för ett program eller tjänst).
 
 Om du utvecklar i .NET och kommer sannolikt att använda några av Service Fabrics programmeringsmodeller och kan använda Application Insights som plattform för att visualisera och analysera händelse-och logga sedan rekommenderar vi att du går via Application Insights SDK-väg som arbetsflödet övervakning och diagnostik. Läs [detta](../application-insights/app-insights-asp-net-more.md) och [detta](../application-insights/app-insights-asp-net-trace-logs.md) att komma igång med Application Insights om du vill samla in och visa dina loggar.
 

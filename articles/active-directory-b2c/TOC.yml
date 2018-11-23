@@ -71,6 +71,8 @@ items:
   items:
   - name: Åtkomst till granskningsloggar
     href: active-directory-b2c-reference-audit-logs.md
+  - name: Åldershantering
+    href: basic-age-gating.md
   - name: Konfigurera token
     href: active-directory-b2c-token-session-sso.md
   - name: Anpassa språk
@@ -123,6 +125,8 @@ items:
         href: active-directory-b2c-custom-setup-adfs2016-idp.md
       - name: Salesforce
         href: active-directory-b2c-setup-sf-app-custom.md
+    - name: Spåra användarbeteende
+      href: active-directory-b2c-custom-guide-eventlogger-appins.md
     - name: Användarflöden
       items:
       - name: Konfigurera användarinmatning
@@ -264,8 +268,6 @@ items:
     href: active-directory-b2c-reference-usage-reporting-api.md
   - name: Autentiseringsuppgifter för lösenord för resursägare
     href: configure-ropc.md
-  - name: Konfigurera åldershantering
-    href: basic-age-gating.md
   - name: Ställ in direkt inloggning
     href: direct-signin.md
   - name: Konfigurera återställning av lösenord för självbetjäning
@@ -274,8 +276,6 @@ items:
     href: b2clogin.md
   - name: Använd Azure AD Graph API:n
     href: active-directory-b2c-devquickstarts-graph-dotnet.md
-  - name: Spåra användarbeteende
-    href: active-directory-b2c-custom-guide-eventlogger-appins.md
   - name: Webbappar
     items:
     - name: ASP.NET
@@ -300,6 +300,8 @@ items:
       href: active-directory-b2c-support-create-directory.md
     - name: Tilläggsapp
       href: active-directory-b2c-reference-extensions-app.md
+    - name: Användarflödesversioner
+      href: user-flow-versions.md
 - name: Resurser
   items:
   - name: Azure-översikt
@@ -322,9 +324,9 @@ items:
     href: active-directory-b2c-support.md
   - name: Videoklipp
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: 276a67a6dc5708f5e4f25796d7d31523db7a7446
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 55fb2bda4013369cecd797cd90b152ad58d2bd6e
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415873"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291422"

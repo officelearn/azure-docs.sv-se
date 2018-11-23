@@ -285,22 +285,23 @@ items:
     items:
     - name: Övervakningsöversikt
       href: service-fabric-diagnostics-overview.md
+    - name: Programövervakning
+      href: service-fabric-diagnostics-event-generation-app.md
     - name: Klusterövervakning
-      href: service-fabric-diagnostics-event-generation-infra.md
       items:
+      - name: Översikt över klusterövervakning
+        href: service-fabric-diagnostics-event-generation-infra.md
       - name: Service Fabric-händelser
         href: service-fabric-diagnostics-events.md
       - name: Översikt över EventStore
         href: service-fabric-diagnostics-eventstore.md
       - name: Reliable Services-händelser
         href: service-fabric-reliable-services-diagnostics.md
-      - name: Reliable Actors-händelser
-        href: service-fabric-reliable-actors-diagnostics.md
       - name: Övervaka Service Remoting
         href: service-fabric-reliable-serviceremoting-diagnostics.md
-    - name: Programloggning
-      href: service-fabric-diagnostics-event-generation-app.md
-    - name: Prestandamått
+      - name: Reliable Actors-händelser
+        href: service-fabric-reliable-actors-diagnostics.md
+    - name: Infrastrukturövervakning
       href: service-fabric-diagnostics-event-generation-perf.md
     - name: Översikt över hälsotillståndsmodell
       href: service-fabric-health-introduction.md
@@ -642,33 +643,35 @@ items:
       href: service-fabric-connect-to-secure-cluster.md
   - name: Övervaka och diagnostisera
     items:
+    - name: Diagnosticera vanliga scenarier
+      href: service-fabric-diagnostics-common-scenarios.md
     - name: Övervakning av program
       items:
-      - name: Analysera med Application Insights
-        href: service-fabric-diagnostics-event-analysis-appinsights.md
       - name: Lägg till loggning i programmet
         href: service-fabric-how-to-diagnostics-log.md
-      - name: Sammanfatta händelser med EventFlow
+      - name: Analysera med Application Insights
+        href: service-fabric-diagnostics-event-analysis-appinsights.md
+      - name: Aggregera loggar med EventFlow
         href: service-fabric-diagnostics-event-aggregation-eventflow.md
       - name: Övervaka containrar
         href: service-fabric-diagnostics-oms-containers.md
     - name: Övervaka kluster
       items:
+      - name: Konfigurera Log Analytics till att samla in klusterhändelser
+        href: service-fabric-diagnostics-oms-setup.md
+      - name: Övervaka ditt kluster med Log Analytics
+        href: service-fabric-diagnostics-event-analysis-oms.md
       - name: Fråga EventStore-API:er
         href: service-fabric-diagnostics-eventstore-query.md
-      - name: Windows Azure Diagnostics
+      - name: Anpassa WAD-agenten
         href: service-fabric-diagnostics-event-aggregation-wad.md
-      - name: Linux Azure Diagnostics
+      - name: Anpassa LAD-agenten
         href: service-fabric-diagnostics-event-aggregation-lad.md
-      - name: Konfigurera Log Analytics
-        href: service-fabric-diagnostics-oms-setup.md
-      - name: Övervaka med Log Analytics
-        href: service-fabric-diagnostics-event-analysis-oms.md
     - name: Övervaka infrastruktur
       items:
-      - name: Prestandaövervakning med Log Analytics-agenten
+      - name: Samla in prestandaräknare med Log Analytics-agenten
         href: service-fabric-diagnostics-oms-agent.md
-      - name: Prestandaövervakning med WAD
+      - name: Samla in prestandaräknare med WAD
         href: service-fabric-diagnostics-perf-wad.md
     - name: Övervaka hälsa
       items:
@@ -682,8 +685,6 @@ items:
       href: service-fabric-reverse-proxy-diagnostics.md
     - name: Felsök ditt lokala kluster
       href: service-fabric-troubleshoot-local-cluster-setup.md
-    - name: Diagnosticera vanliga scenarier
-      href: service-fabric-diagnostics-common-scenarios.md
   - name: Bästa praxis
     items:
     - name: Checklista för produktionsberedskap
@@ -781,9 +782,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Videoklipp
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: 98ca5a1cbf5298931c14d6c696119d0c98893072
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 320399b277b7b6aa05b128994f68058455353e7b
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853650"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291512"

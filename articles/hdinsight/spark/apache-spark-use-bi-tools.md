@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: Analysera Apache Spark-data med Power BI i Azure HDInsight '
-description: Använda Microsoft Power BI till att visualisera Spark-data som lagras i HDInsight-kluster
+description: Använda Microsoft Power BI till att visualisera Apache Spark-data som lagras i HDInsight-kluster
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: 341346b290fc3dab94773f75f2269cc147e71b82
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dcd28d8e33045f4c0324f964a854e98dfe004321
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252470"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712423"
 ---
-# <a name="tutorial-analyze-spark-data-using-power-bi-in-hdinsight"></a>Självstudie: Analysera Spark-data med Power BI i HDInsight 
+# <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Självstudie: Analysera Apache Spark-data med Power BI i HDInsight 
 
 Lär dig att använda Microsoft Power BI till att visualisera data i Apache Spark-kluster i Azure HDInsight.
 
@@ -78,7 +78,7 @@ De första stegen i att arbeta med Spark är att ansluta till klustret i Power B
     ![Hämta data till Power BI Desktop från Apache Spark i HDInsight](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "Hämta data till Power BI från Apache Spark BI")
 
 
-2. Ange `Spark` i sökrutan, välj **Azure HDInsight Spark (betaversion)** och klicka sedan på **Anslut**.
+2. Ange `Spark` i sökrutan, välj **Azure HDInsight Spark** och klicka sedan på **Anslut**.
 
     ![Hämta data till Power BI från Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Hämta data till Power BI från Apache Spark BI")
 

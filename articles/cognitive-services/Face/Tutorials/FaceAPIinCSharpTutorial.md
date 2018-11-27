@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: tutorial
 ms.date: 11/05/2018
 ms.author: pafarley
-ms.openlocfilehash: 5319584d892c261dcc6290703e9ca6518640cc94
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 8db2437b7f78271aee131cf5b4dfd9f06f744c66
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685488"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852681"
 ---
 # <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>Självstudie: Skapa en WPF-app för att visa ansiktsinformation i en bild
 
@@ -67,7 +67,7 @@ I det här avsnittet lägger du till appens grundläggande ramverk utan dess ans
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=1-12)]
 
-Infoga därefter följande kod i klassen **MainWindow**. Det skapar en **FaceClient**-instans med hjälp av prenumerationsnyckeln, som du måste ange själv. Du måste även ange regionssträngen i `faceEndpoint` till rätt region för prenumerationen.
+Infoga därefter följande kod i klassen **MainWindow**. Det skapar en **FaceClient**-instans med hjälp av prenumerationsnyckeln, som du måste ange själv. Du måste även ange regionssträngen i `faceEndpoint` till rätt region för din prenumeration (se [dokumentet om Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) för att få en lista över alla region regionsslutpunkter).
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=18-46)]
 

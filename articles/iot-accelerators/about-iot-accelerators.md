@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: aac079feefde53ff30cbeab942ee0443c113cdc8
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 6fed0c5e3f24fbcefec427cf56a625d1d8d7aba2
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345121"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824548"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Vad är Azure IoT-lösningsacceleratorer?
 
@@ -50,7 +50,7 @@ Du kan använda instrumentpanelen för ansluten fabrik för att övervaka och ha
 
 ### <a name="predictive-maintenance"></a>Förutsägande underhåll
 
-Använd den här lösningsacceleratorn till att förutsäga när en det förväntas bli fel på enhet så att du kan utföra underhåll innan det förväntade felet inträffar. Den här lösningsacceleratorn använder maskininlärningsalgoritmer för att förutse fel utifrån enhetstelemetri. Exempel på enheter kan vara flygplansmotorer eller hissar.
+Använd den här lösningsacceleratorn till att förutsäga när en det förväntas bli fel på enhet så att du kan utföra underhåll innan enheten kraschar. Den här lösningsacceleratorn använder maskininlärningsalgoritmer för att förutse fel utifrån enhetstelemetri. Exempel på enheter kan vara flygplansmotorer eller hissar.
 
 Du kan använda instrumentpanelen för förutsägande underhåll för att visa analyser för förutsägande underhåll:
 
@@ -97,7 +97,7 @@ Du kan distribuera lösningsacceleratorn för fjärrövervakning i följande kon
 * **Basic:** Version till reducerad kostnad för en demonstration eller för att testa en distribution. Alla mikrotjänster distribueras till en enda virtuell Azure-dator.
 * **Lokal:** Distribution på lokala datorer för testning och utveckling. Den här metoden distribuerar mikrotjänsterna till en lokal Docker-container och ansluter till IoT Hub-, Azure Cosmos DB- och Azure Storage-tjänster i molnet.
 
-Kostnaden för att köra en lösningsaccelerator är en sammanräkning av [kostnaden för underliggande Azure-tjänster](https://azure.microsoft.com/pricing). Du ser information om Azure-tjänster som används när du väljer dina distributionsalternativ.
+Kostnaden för att köra en lösningsaccelerator är den sammanlagda [kostnaden för att köra de underliggande Azure-tjänsterna](https://azure.microsoft.com/pricing). Du ser information om Azure-tjänster som används när du väljer dina distributionsalternativ.
 
 ## <a name="next-steps"></a>Nästa steg
 

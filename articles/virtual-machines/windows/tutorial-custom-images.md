@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1481c32512266f494c03f9ffdc1ce67ef503b4a8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 415652739c4987deafe820c31499132ec3829c8b
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255208"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263323"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Självstudier: Skapa en anpassad avbildning av en virtuell dator i Azure med hjälp av Azure PowerShell
 
@@ -101,7 +101,7 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
  
 ## <a name="create-vms-from-the-image"></a>Skapa virtuella datorer från avbildningen
 
-Nu när du har en avbildning kan du skapa en eller flera nya virtuella datorer från avbildningen. Att skapa en virtuell dator från en anpassad avbildning påminner om att skapa en virtuell dator med hjälp av en Marketplace-avbildning. När du använder en Marketplace-avbildning måste du ange information om avbildningen, avbildningsprovidern, produkten, SKU och version. Med den förenklade parameteruppsättningen för cmdleten [New-AzureRMVM]() behöver du bara ange namnet på den anpassade avbildningen, förutsatt att den finns i samma resursgrupp. 
+Nu när du har en avbildning kan du skapa en eller flera nya virtuella datorer från avbildningen. Att skapa en virtuell dator från en anpassad avbildning påminner om att skapa en virtuell dator med hjälp av en Marketplace-avbildning. När du använder en Marketplace-avbildning måste du ange information om avbildningen, avbildningsprovidern, produkten, SKU och version. Med den förenklade parameteruppsättningen för cmdleten [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm) behöver du bara ange namnet på den anpassade avbildningen, förutsatt att den finns i samma resursgrupp. 
 
 I det här exemplet skapas den virtuella datorn *myVMfromImage* från *myImage* i *myResourceGroup*.
 
@@ -130,11 +130,11 @@ $images = Get-AzureRMResource -ResourceType Microsoft.Compute/images
 $images.name
 ```
 
-Ta bort en avbildning. I det här exemplet tar vi bort avbildningen med namnet *myOldImage* från *myResourceGroup*.
+Ta bort en avbildning. I det här exemplet tar vi bort avbildningen med namnet *myImage* från *myResourceGroup*.
 
 ```azurepowershell-interactive
 Remove-AzureRmImage `
-    -ImageName myOldImage `
+    -ImageName myImage `
     -ResourceGroupName myResourceGroup
 ```
 

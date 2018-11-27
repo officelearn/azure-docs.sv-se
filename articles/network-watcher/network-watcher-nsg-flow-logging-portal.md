@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: f010bebcf1130b3061c60987ffbd4e706a030773
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 2ec2ac6508dfbf0c1a42f72dc393fa8b841ab877
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41920918"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822474"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Självstudier: Logga nätverkstrafik till och från en virtuell dator med hjälp av Azure Portal
 
@@ -36,6 +36,9 @@ Med en nätverkssäkerhetsgrupp (NSG) kan du filtrera inkommande trafik till och
 > * Visa loggdata
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
+> [!NOTE] 
+> Flödesloggar av version 2 är endast tillgängliga i regionen USA, västra centrala. Konfiguration är tillgänglig via Azure-portalen och REST API. Om du aktiverar loggar av version 2 i en region som inte stöds sparas loggar av version 1 i ditt lagringskonto.
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 
@@ -100,8 +103,9 @@ Providern **Microsoft.Insights** krävs för NSG-flödesloggning. Registrera pro
 
 6. Välj nätverkssäkerhetsgruppen **myVm-nsg** i listan med nätverkssäkerhetsgrupper.
 7. Välj **På** under **Flödesloggsinställningar**.
-8. Välj lagringskontot som du skapade i steg 3.
-9. Ange **Bevarande (dagar)** till 5 och välj sedan **Spara**.
+8. Välj version av flödesloggning. Version 2 innehåller flödessessionens statistik (byte och paket) A. ![Välj version av flödesloggar](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+9. Välj lagringskontot som du skapade i steg 3.
+10. Ange **Bevarande (dagar)** till 5 och välj sedan **Spara**.
 
 ## <a name="download-flow-log"></a>Ladda ned flödeslogg
 
@@ -126,6 +130,7 @@ Providern **Microsoft.Insights** krävs för NSG-flödesloggning. Registrera pro
 
 Följande JSON-kod är ett exempel på vad du ser i PT1H.json-filen för varje flöde som data loggas för:
 
+### <a name="version-1-flow-log-event"></a>Flödesloggshändelse version 1
 ```json
 {
     "time": "2018-05-01T15:00:02.1713710Z",
@@ -135,29 +140,83 @@ Följande JSON-kod är ett exempel på vad du ser i PT1H.json-filen för varje f
     "operationName": "NetworkSecurityGroupFlowEvents",
     "properties": {
         "Version": 1,
-        "flows": [{
-            "rule": "UserRule_default-allow-rdp",
-            "flows": [{
-                "mac": "000D3A170C69",
-                "flowTuples": ["1525186745,192.168.1.4,10.0.0.4,55960,3389,T,I,A"]
-            }]
-        }]
+        "flows": [
+            {
+                "rule": "UserRule_default-allow-rdp",
+                "flows": [
+                    {
+                        "mac": "000D3A170C69",
+                        "flowTuples": [
+                            "1525186745,192.168.1.4,10.0.0.4,55960,3389,T,I,A"
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 }
 ```
+### <a name="version-2-flow-log-event"></a>Flödesloggshändelse version 2
+```json
+{
+    "time": "2018-11-13T12:00:35.3899262Z",
+    "systemId": "a0fca5ce-022c-47b1-9735-89943b42f2fa",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+        "Version": 2,
+        "flows": [
+            {
+                "rule": "DefaultRule_DenyAllInBound",
+                "flows": [
+                    {
+                        "mac": "000D3AF87856",
+                        "flowTuples": [
+                            "1542110402,94.102.49.190,10.5.16.4,28746,443,U,I,D,B,,,,",
+                            "1542110424,176.119.4.10,10.5.16.4,56509,59336,T,I,D,B,,,,",
+                            "1542110432,167.99.86.8,10.5.16.4,48495,8088,T,I,D,B,,,,"
+                        ]
+                    }
+                ]
+            },
+            {
+                "rule": "DefaultRule_AllowInternetOutBound",
+                "flows": [
+                    {
+                        "mac": "000D3AF87856",
+                        "flowTuples": [
+                            "1542110377,10.5.16.4,13.67.143.118,59831,443,T,O,A,B,,,,",
+                            "1542110379,10.5.16.4,13.67.143.117,59932,443,T,O,A,E,1,66,1,66",
+                            "1542110379,10.5.16.4,13.67.143.115,44931,443,T,O,A,C,30,16978,24,14008",
+                            "1542110406,10.5.16.4,40.71.12.225,59929,443,T,O,A,E,15,8489,12,7054"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
+
 
 Värdet för **mac** i föregående utdata är nätverksgränssnittets MAC-adress som skapades när den virtuella datorn skapades. Den kommateckenavgränsade informationen för **flowTuples** är som följer:
 
 | Exempeldata | Vad data representerar   | Förklaring                                                                              |
 | ---          | ---                    | ---                                                                                      |
-| 1525186745   | Tidsstämpel             | Tidsstämpeln för när flödet uppstod, i UNIX EPOK-format. I föregående exempel konverterades datumet till 1 maj 2018 kl. 14:59:05 GMT.                                                                                    |
-| 192.168.1.4  | Källans IP-adress      | Käll-IP-adressen som flödet kom från.
-| 10.0.0.4     | Mål-IP-adress | Mål-IP-adressen som flödet skickades till. 10.0.0.4 är den privata IP-adressen för den virtuella datorn som du skapade i [Skapa en virtuell dator](#create-a-vm).                                                                                 |
-| 55960        | Källport            | Källporten som flödet kom från.                                           |
-| 3389         | Målport       | Målporten som flödet skickades till. Eftersom trafiken skulle till port 3389 bearbetades flödet av regeln med namnet **UserRule_default-allow-rdp** i loggfilen.                                                |
+| 1542110377   | Tidsstämpel             | Tidsstämpeln för när flödet uppstod, i UNIX EPOK-format. I föregående exempel konverterades datumet till 1 maj 2018 kl. 14:59:05 GMT.                                                                                    |
+| 10.0.0.4  | Källans IP-adress      | Käll-IP-adressen som flödet kom från. 10.0.0.4 är den privata IP-adressen för den virtuella datorn som du skapade i [Skapa en virtuell dator](#create-a-vm).
+| 13.67.143.118     | Mål-IP-adress | Mål-IP-adressen som flödet skickades till.                                                                                  |
+| 44931        | Källport            | Källporten som flödet kom från.                                           |
+| 443         | Målport       | Målporten som flödet skickades till. Eftersom trafiken skulle till port 443 bearbetades flödet av regeln med namnet **UserRule_default-allow-rdp** i loggfilen.                                                |
 | T            | Protokoll               | Anger om protokollet för flödet var TCP (T) eller UDP (U).                                  |
-| I            | Riktning              | Anger om trafiken var inkommande (I) eller utgående (O).                                     |
-| A            | Åtgärd                 | Anger om trafiken tilläts (A) eller nekades (D).                                           |
+| O            | Riktning              | Anger om trafiken var inkommande (I) eller utgående (O).                                     |
+| A            | Åtgärd                 | Anger om trafiken tilläts (A) eller nekades (D).  
+| C            | Flödestillstånd **endast version 2** | Registrerad flödets tillstånd. Möjliga tillstånd är **B**: Börja, när ett flöde skapas. Statistik tillhandahålls inte. **C**: Fortsätter (Continuing) för en pågående flöde. Statistik tillhandahålls med 5 minuters mellanrum. **E**: Slutet (End), när ett flöde avslutas. Statistik tillhandahålls. |
+| 30 | Skickade paket – källa till mål **endast version 2** | Det totala antalet TCP- eller UDP-paket som skickats från källa till mål sedan den senaste uppdateringen. |
+| 16978 | Skickade byte – källa till mål **endast version 2** | Det totala antalet TCP- eller UDP-paketbyte som skickats från källa till mål sedan den senaste uppdateringen. Paketbyte omfattar paketets huvud och nyttolast. | 
+| 24 | Skickade paket – mål till källa **endast version 2** | Det totala antalet TCP- eller UDP-paket som skickats från mål till källa sedan den senaste uppdateringen. |
+| 14008| Skickade byte – mål till källa **endast version 2** | Det totala antalet TCP- och UDP-paketbyte som skickats från mål till källa sedan den senaste uppdateringen. Paketbyte omfattar paketets huvud och nyttolast.| |
 
 ## <a name="next-steps"></a>Nästa steg
 

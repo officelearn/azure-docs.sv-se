@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/26/2018
+ms.date: 11/08/2018
 ms.author: dobett
-ms.openlocfilehash: 365c6e41db865edf8384ca1f82210d9471808f94
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 4071770a74d205570cee082d9af0c0fb7c77e203
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140865"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824786"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Snabbstart: Prova en molnbaserad fjärrövervakningslösning
 
@@ -32,7 +32,7 @@ När du distribuerar lösningsacceleratorn till Azure-prenumerationen måste du 
 
 Logga in på [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) med dina Azure-kontouppgifter.
 
-Klicka på **Testa nu** på panelen **Fjärrövervakning**.
+Klicka på panelen **Fjärrövervakning**. Klicka på **Testa nu** på sidan **Fjärrövervakning**:
 
 ![Välj Fjärrövervakning](./media/quickstart-remote-monitoring-deploy/remotemonitoring.png)
 
@@ -40,9 +40,10 @@ På sidan **Skapa Fjärrövervakning-lösning** väljer du en **Basic**-distribu
 
 Välj **.NET** som språk. Java- och .NET-implementeringarna har samma funktioner.
 
-Ange ett unikt **lösningsnamn** för din Fjärrövervakning-lösningsaccelerator. I den här snabbstarten kallar vi den för **contoso-rm2**.
+Ange ett unikt **lösningsnamn** för din Fjärrövervakning-lösningsaccelerator. I den här snabbstarten kallar vi den för **contoso-rm**.
 
-Välj den **prenumeration** och den **region** du vill använda för att distribuera lösningsacceleratorn. Normalt väljer du regionen närmast dig. I den här snabbstarten använder vi **Visual Studio Enterprise** och **Europa, västra**. Du måste vara [global administratör eller användare](iot-accelerators-permissions.md) i prenumerationen.
+Välj den **prenumeration** och den **region** du vill använda för att distribuera lösningsacceleratorn. Normalt väljer du regionen närmast dig. För den här snabbstarten använder vi **USA, östra**.
+Du kan välja **Visual Studio Enterprise**, men du måste vara en [global administratör eller användare](iot-accelerators-permissions.md) för att göra det.
 
 Inled distribution genom att trycka på **Skapa lösning**. Processen tar minst fem minuter att köra:
 

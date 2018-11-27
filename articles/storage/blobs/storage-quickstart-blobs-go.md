@@ -6,14 +6,14 @@ author: seguler
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/23/2018
+ms.date: 11/14/2018
 ms.author: seguler
-ms.openlocfilehash: d3f6f2c9a1ca5016eb9a6597ba32dc1471f77cb4
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 2939bd5c7b32cc9fe05326ee72dbb7367a72ef7f
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038332"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711165"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Go
 
@@ -21,17 +21,20 @@ I den här snabbstarten får du lära dig att använda Go-programmeringsspråket
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att slutföra den här snabbstarten behöver du: 
-* Installera [Go 1.8 eller senare](https://golang.org/dl/)
-* Ladda ned och installera [Azure Storage Blob SDK for Go](https://github.com/azure/azure-storage-blob-go/) med `go get -u github.com/Azure/azure-storage-blob-go/azblob`. 
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-> [!NOTE]
-> Kontrollera att du använder versaler för Azure i webbadressen. Om du inte gör det kan det orsaka importproblem när du arbetar med SDK. Du måste även använda versaler för Azure i importinstruktioner.
+Kontrollera att du har följande ytterligare krav installerade:
+ 
+* [Go 1.8 eller senare](https://golang.org/dl/)
+* [Azure Storage Blob SDK for Go](https://github.com/azure/azure-storage-blob-go/) med följande kommando:
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+    ```
+    go get -u github.com/Azure/azure-storage-blob-go/azblob
+    ``` 
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
-
+    > [!NOTE]
+    > Se till att du använder versaler `Azure` i webbadressen för att undvika ärenderelaterade importproblem när du arbetar med SDK:n. Använd även versaler för `Azure` i importinstruktioner.
+    
 ## <a name="download-the-sample-application"></a>Hämta exempelprogrammet
 [Exempelprogrammet](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git) som används i den här snabbstarten är ett enkelt Go-program.  
 

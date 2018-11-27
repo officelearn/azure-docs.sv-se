@@ -6,14 +6,14 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 11/14/2018
 ms.author: seguler
-ms.openlocfilehash: 88394d7da1aab52b752aee68de60e638d0c7e7f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f6a163b151a6b9066ea58c5834204ed54e51cfc2
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992770"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711233"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Ruby
 
@@ -21,18 +21,17 @@ I den här snabbstarten får du lära dig att använda Ruby för att ladda upp, 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att slutföra den här snabbstarten behöver du: 
-* Installera [Ruby](https://www.ruby-lang.org/en/downloads/)
-* Installera [Azure Storage-biblioteket för Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage) med hjälp av rubygem-paketet. 
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-```
-gem install azure-storage-blob
-```
+Kontrollera att du har följande ytterligare krav installerade:
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+* [Ruby](https://www.ruby-lang.org/en/downloads/)
+* [Azure Storage-biblioteket för Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage) med hjälp av rubygem-paketet: 
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
-
+    ```
+    gem install azure-storage-blob
+    ```
+    
 ## <a name="download-the-sample-application"></a>Hämta exempelprogrammet
 [Exempelprogrammet](https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git) som används i den här snabbstarten är ett enkelt Ruby-program.  
 

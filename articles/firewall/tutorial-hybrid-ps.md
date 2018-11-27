@@ -1,5 +1,5 @@
 ---
-title: Distribuera och konfigurera Azure Firewall i ett hybridnätverk med hjälp av Azure PowerShell
+title: 'Självstudie: Distribuera och konfigurera Azure Firewall i ett hybridnätverk med hjälp av Azure PowerShell'
 description: I den här självstudien får du lära dig att distribuera och konfigurera Azure Firewall via Azure Portal.
 services: firewall
 author: vhorne
@@ -7,32 +7,44 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/27/2018
 ms.author: victorh
-ms.openlocfilehash: 3c225e6fbfb13c04d650b8e6b72ee18d23139a8e
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 781365e32ce5602e9fb99b620e068ddf68de8c44
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158966"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854177"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Självstudie: Distribuera och konfigurera Azure Firewall i ett hybridnätverk med hjälp av Azure PowerShell
+
+När du ansluter ditt lokala nätverk till ett virtuellt Azure-nätverk för att skapa ett hybridnätverk är förmågan att styra åtkomst till dina Azure-nätverksresurser en viktig del av den övergripande säkerhetsplanen.
+
+Du kan använda Azure Firewall för att styra nätverksåtkomst i ett hybridnätverk med hjälp av regler som definierar tillåten respektive nekad nätverkstrafik.
+
+För den här självstudien skapar du tre virtuella nätverk:
+
+- **VNet-Hub** – brandväggen finns i det här virtuella nätverket.
+- **VNet-Spoke** – det virtuella ekernätverket representerar den arbetsbelastning som finns på Azure.
+- **VNet-Onprem** – det lokala virtuella nätverket representerar ett lokalt nätverk. I en verklig distribution kan det anslutas via en VPN- eller en Express Route-anslutning. För enkelhetens skull använder den här självstudien en VPN-gatewayanslutning, och ett virtuellt Azure-nätverk används för att representera ett lokalt nätverk.
+
+![Brandvägg i ett hybridnätverk](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Konfigurera nätverksmiljön
+> * Deklarera variablerna
+> * Skapa brandväggens virtuella hubbnätverk
+> * Skapa det virtuella ekernätverket
+> * Skapa det lokala virtuella nätverket
 > * Konfigurera och distribuera brandväggen
+> * Skapa och ansluta VPN-gatewayer
+> * Peera de virtuella hubb- och ekernätverken
 > * Skapa vägarna
 > * Skapa de virtuella datorerna
 > * Testa brandväggen
 
-För den här självstudien skapar du tre virtuella nätverk:
-- **VNet-Hub** – brandväggen finns i det här virtuella nätverket.
-- **VNet-Spoke** – det virtuella ekernätverket representerar den arbetsbelastning som finns på Azure.
-- **VNet-Onprem** – det virtuella OnPrem-nätverket representerar ett lokalt nätverk. I en verklig distribution kan det anslutas via en VPN- eller en Express Route-anslutning. För enkelhetens skull använder den här självstudien en VPN-gatewayanslutning, och ett virtuellt nätverk som finns i Azure används för att representera ett lokalt nätverk.
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-![Brandvägg i ett hybridnätverk](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
-
-## <a name="key-requirements"></a>Viktiga krav
+Den här självstudien kräver att du kör PowerShell lokalt. Du måste ha Azure PowerShell-modulen version 6.12.0 eller senare installerad. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Login-AzureRmAccount` för att skapa en anslutning till Azure.
 
 Det finns tre viktiga krav för att det här scenariot ska fungera korrekt:
 
@@ -45,11 +57,9 @@ Information om hur dessa vägar skapas finns i avsnittet [Skapa vägar](#create-
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
-
 ## <a name="declare-the-variables"></a>Deklarera variablerna
 
-I följande exemplet deklareras variablerna med hjälp av värdena för den här självstudien. I de flesta fall bör du ersätta värdena med dina egna. Du kan dock använda dessa variabler om du bara vill följa anvisningarna för att bekanta dig med den här typen av konfiguration. Ändra variablerna om det behövs och kopiera och klistra in dem i PowerShell-konsolen.
+I följande exemplet deklareras variablerna med hjälp av värdena för den här självstudien. I vissa fall kan du behöva ersätta vissa värden med dina egna för att de ska fungera i din prenumeration. Ändra variablerna om det behövs och kopiera och klistra in dem i PowerShell-konsolen.
 
 ```azurepowershell
 $RG1 = "FW-Hybrid-Test"
@@ -67,7 +77,7 @@ $GWHubpipName = "VNet-hub-GW-pip"
 $GWIPconfNameHub = "GW-ipconf-hub"
 $ConnectionNameHub = "hub-to-Onprem"
 
-# Variables for the spoke VNet
+# Variables for the spoke virtual network
 
 $VnetNameSpoke = "VNet-Spoke"
 $SNnameSpoke = "SN-Workload"
@@ -75,7 +85,7 @@ $VNetSpokePrefix = "10.6.0.0/16"
 $SNSpokePrefix = "10.6.0.0/24"
 $SNSpokeGWPrefix = "10.6.1.0/24"
 
-# Variables for the OnPrem VNet
+# Variables for the on-premises virtual network
 
 $VNetnameOnprem = "Vnet-Onprem"
 $SNNameOnprem = "SN-Corp"
@@ -90,15 +100,14 @@ $GWOnprempipName = "VNet-Onprem-GW-pip"
 $SNnameGW = "GatewaySubnet"
 ```
 
-## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp som ska innehålla alla resurser som krävs för den här självstudien:
+## <a name="create-the-firewall-hub-virtual-network"></a>Skapa brandväggens virtuella hubbnätverk
+
+Skapa först den resursgrupp som ska innehålla resurserna för den här självstudien:
 
 ```azurepowershell
   New-AzureRmResourceGroup -Name $RG1 -Location $Location1
   ```
-
-## <a name="create-and-configure-the-firewall-hub-vnet"></a>Skapa och konfigurera brandväggens virtuella hubbnätverk
 
 Definiera de undernät som ska ingå i det virtuella nätverket:
 
@@ -107,7 +116,7 @@ $FWsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameHub -AddressPrefix $
 $GWsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWHubPrefix
 ```
 
-Nu skapar brandväggens virtuella hubbnätverk:
+Skapa nu brandväggens virtuella hubbnätverk:
 
 ```azurepowershell
 $VNetHub = New-AzureRmVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1 `
@@ -121,7 +130,7 @@ Begär en offentlig IP-adress som ska allokeras till den VPN-gateway som du ska 
   -Location $Location1 -AllocationMethod Dynamic
 ```
 
-## <a name="create-and-configure-the-spoke-vnet"></a>Skapa och konfigurera det virtuella ekernätverket
+## <a name="create-the-spoke-virtual-network"></a>Skapa det virtuella ekernätverket
 
 Definiera de undernät som ska ingå i det virtuella ekernätverket:
 
@@ -137,7 +146,7 @@ $VNetSpoke = New-AzureRmVirtualNetwork -Name $VnetNameSpoke -ResourceGroupName $
 -Location $Location1 -AddressPrefix $VNetSpokePrefix -Subnet $Spokesub,$GWsubSpoke
 ```
 
-## <a name="create-and-configure-the-onprem-vnet"></a>Skapa och konfigurera det virtuella OnPrem-nätverket
+## <a name="create-the-on-premises-virtual-network"></a>Skapa det lokala virtuella nätverket
 
 Definiera de undernät som ska ingå i det virtuella nätverket:
 
@@ -146,7 +155,7 @@ $Onpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNNameOnprem -AddressP
 $GWOnpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWOnpremPrefix
 ```
 
-Skapa nu det virtuella OnPrem-nätverket:
+Skapa nu det lokala virtuella nätverket:
 
 ```azurepowershell
 $VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
@@ -198,9 +207,9 @@ Set-AzureRmFirewall -AzureFirewall $Azfw
 
 ## <a name="create-and-connect-the-vpn-gateways"></a>Skapa och ansluta VPN-gatewayer
 
-De virtuella hubb- och OnPrem-nätverken är anslutna via VPN-gatewayer.
+De virtuella hubbnätverken och de lokala virtuella nätverken ansluts via VPN-gatewayer.
 
-### <a name="create-a-vpn-gateway-for-the-hub-vnet"></a>Skapa en VPN-gateway för det virtuella hubbnätverket
+### <a name="create-a-vpn-gateway-for-the-hub-virtual-network"></a>Skapa en VPN-gateway för det virtuella hubbnätverket
 
 Skapa VPN-gateway-konfigurationen. VPN-gateway-konfigurationen definierar undernätet och den offentliga IP-adress som ska användas.
 
@@ -211,7 +220,7 @@ Skapa VPN-gateway-konfigurationen. VPN-gateway-konfigurationen definierar undern
   -Subnet $subnet1 -PublicIpAddress $gwpip1
   ```
 
-Skapa nu VPN-gatewayen för det virtuella hubbnätverket. VNet-till-VNet-konfigurationer kräver VpnType RouteBased. Att skapa en VPN-gateway kan ofta ta 45 minuter eller mer, beroende på vald VPN-gateway-SKU.
+Skapa nu VPN-gatewayen för det virtuella hubbnätverket. Nätverk-till-nätverk-konfigurationer kräver VpnType RouteBased. Att skapa en VPN-gateway kan ofta ta 45 minuter eller mer, beroende på vald VPN-gateway-SKU.
 
 ```azurepowershell
 New-AzureRmVirtualNetworkGateway -Name $GWHubName -ResourceGroupName $RG1 `
@@ -219,7 +228,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWHubName -ResourceGroupName $RG1 `
 -VpnType RouteBased -GatewaySku basic
 ```
 
-### <a name="create-a-vpn-gateway-for-the-onprem-vnet"></a>Skapa en VPN-gateway för det virtuella OnPrem-nätverket
+### <a name="create-a-vpn-gateway-for-the-on-premises-virtual-network"></a>Skapa en VPN-gateway för det lokala virtuella nätverket
 
 Skapa VPN-gateway-konfigurationen. VPN-gateway-konfigurationen definierar undernätet och den offentliga IP-adress som ska användas.
 
@@ -230,7 +239,7 @@ $gwipconf2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfNameOnprem 
   -Subnet $subnet2 -PublicIpAddress $gwOnprempip
   ```
 
-Skapa nu VPN-gatewayen för det virtuella OnPrem-nätverket. VNet-till-VNet-konfigurationer kräver VpnType RouteBased. Att skapa en VPN-gateway kan ofta ta 45 minuter eller mer, beroende på vald VPN-gateway-SKU.
+Skapa nu VPN-gatewayen för det lokala virtuella nätverket. Nätverk-till-nätverk-konfigurationer kräver VpnType RouteBased. Att skapa en VPN-gateway kan ofta ta 45 minuter eller mer, beroende på vald VPN-gateway-SKU.
 
 ```azurepowershell
 New-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGroupName $RG1 `
@@ -240,7 +249,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGroupName $RG1 `
 
 ### <a name="create-the-vpn-connections"></a>Skapa VPN-anslutningarna
 
-Nu kan du skapa VPN-anslutningarna mellan hubb- och OnPrem-gatewayerna
+Nu kan du skapa VPN-anslutningarna mellan hubb-gatewayerna och de lokala gatewayerna
 
 #### <a name="get-the-vpn-gateways"></a>Hämta VPN-gatewayerna
 
@@ -251,14 +260,14 @@ $vnetOnpremgw = Get-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGr
 
 #### <a name="create-the-connections"></a>Skapa anslutningarna
 
-I det här steget skapar du anslutningen från det virtuella hubbnätverket till det virtuella OnPrem-nätverket. Du ser en delad nyckel som refereras i exemplen. Du kan använda egna värden för den delade nyckeln. Det är viktigt att den delade nyckeln matchar båda anslutningarna. Att skapa en anslutning kan ta en stund att slutföra.
+I det här steget skapar du anslutningen från det virtuella hubbnätverket till det lokala virtuella nätverket. Du ser en delad nyckel som refereras i exemplen. Du kan använda egna värden för den delade nyckeln. Det är viktigt att den delade nyckeln matchar båda anslutningarna. Att skapa en anslutning kan ta en stund att slutföra.
 
 ```azurepowershell
 New-AzureRmVirtualNetworkGatewayConnection -Name $ConnectionNameHub -ResourceGroupName $RG1 `
 -VirtualNetworkGateway1 $vnetHubgw -VirtualNetworkGateway2 $vnetOnpremgw -Location $Location1 `
 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
 ```
-Skapa anslutningen mellan det virtuella OnPrem-nätverket till det virtuella hubbnätverket. Det här steget liknar föregående steg förutom du skapar anslutningen från Vnet-Onprem till VNet-hub. Kontrollera att de delade nycklarna matchar. Anslutningen upprättas efter några minuter.
+Skapa anslutningen mellan det lokala virtuella nätverket och det virtuella hubbnätverket. Det här steget liknar det föregående steget förutom att du skapar anslutningen från Vnet-Onprem till VNet-hub. Kontrollera att de delade nycklarna matchar. Anslutningen upprättas efter några minuter.
 
   ```azurepowershell
   New-AzureRmVirtualNetworkGatewayConnection -Name $ConnectionNameOnprem -ResourceGroupName $RG1 `
@@ -282,9 +291,9 @@ Visa värdena när cmdleten är klar. I följande exempel visas anslutningsstatu
 "egressBytesTransferred": 4142431
 ```
 
-## <a name="peer-the-hub-and-spoke-vnets"></a>Peera de virtuella hubb- och ekernätverken
+## <a name="peer-the-hub-and-spoke-virtual-networks"></a>Peera de virtuella hubb- och ekernätverken
 
-Peera nu de virtuella eker- och hubbnätverken.
+Peera nu de virtuella hubb- och ekernätverken.
 
 ```azurepowershell
 # Peer hub to spoke
@@ -294,7 +303,7 @@ Add-AzureRmVirtualNetworkPeering -Name HubtoSpoke -VirtualNetwork $VNetHub -Remo
 Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -RemoteVirtualNetworkId $VNetHub.Id -AllowForwardedTraffic -UseRemoteGateways
 ```
 
-## <a name="create-routes"></a>Skapa roller
+## <a name="create-the-routes"></a>Skapa vägarna
 
 Därefter skapar du några vägar:
 
@@ -302,7 +311,7 @@ Därefter skapar du några vägar:
 - En standardväg från ekerundernätet via brandväggens IP-adress
 
 > [!NOTE]
-> Azure Firewall lär sig dina lokala nätverk med hjälp av BGP. Detta kan innefatta en standardväg, som dirigerar Internettrafik tillbaka genom ditt lokala nätverk. Om du i stället vill att Internettrafik ska skickas direkt från brandväggen till Internet lägger du till en användardefinierad standardväg (0.0.0.0/0) på AzureFirewallSubnet med nästa hopp-typ **Internet**. Den trafik som är avsedd för ditt lokala nätverk tvingas fortfarande att överföras via VPN/ExpressRoute-gatewayen med hjälp av de mer specifika vägar som lärts in från BGP.
+> Azure Firewall lär sig dina lokala nätverk med hjälp av BGP. Detta kan innefatta en standardväg, som dirigerar Internettrafik tillbaka genom ditt lokala nätverk. I en produktionsdistribution vill du kanske att Internettrafik skickas direkt från brandväggen till Internet. Du kan lägga till en användardefinierad standardväg (0.0.0.0/0) på AzureFirewallSubnet med nästa hopptyp **Internet**. Den trafik som är avsedd för ditt lokala nätverk tvingas fortfarande att överföras via VPN/ExpressRoute-gatewayen med hjälp av de mer specifika vägar som lärts in från BGP.
 
 ```azurepowershell
 #Create a route table
@@ -363,7 +372,7 @@ Set-AzureRmVirtualNetwork
 
 ## <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
-Skapa nu ekerarbetsbelastningen och de virtuella OnPrem-datorerna och placera dem i respektive undernät.
+Skapa nu ekerarbetsbelastningen och de lokala virtuella datorerna, och placera dem i respektive undernät.
 
 ### <a name="create-the-workload-virtual-machine"></a>Skapa den virtuella arbetsbelastningsdatorn
 
@@ -415,9 +424,9 @@ Set-AzureRmVMExtension `
     -SettingString '{"commandToExecute":"powershell New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4"}' `
     -Location $Location1--->
 
-### <a name="create-the-onprem-virtual-machine"></a>Skapa den virtuella OnPrem-datorn
+### <a name="create-the-on-premises-virtual-machine"></a>Skapa den lokala virtuella datorn
 
-Det här är en enkel virtuell dator som du kan ansluta till med hjälp av fjärrskrivbord till den offentliga IP-adressen. Därifrån kan du sedan ansluta till OnPrem-servern via brandväggen. När du uppmanas anger du användarnamn och lösenord för den virtuella datorn.
+Det här är en enkel virtuell dator som du använder för att ansluta med hjälp av Fjärrskrivbord till den offentliga IP-adressen. Därifrån kan du sedan ansluta till den lokala servern via brandväggen. När du uppmanas anger du användarnamn och lösenord för den virtuella datorn.
 
 ```azurepowershell
 New-AzureRmVm `
@@ -432,23 +441,23 @@ New-AzureRmVm `
 
 ## <a name="test-the-firewall"></a>Testa brandväggen
 
-Först hämtar och antecknar du den privata IP-adressen för den virtuella datorn **VM-spoke-01**.
+Först hämtar du och sedan antecknar den privata IP-adressen för den virtuella datorn **VM-spoke-01**.
 
 ```azurepowershell
 $NIC.IpConfigurations.privateipaddress
 ```
 
-1. Från Azure-portalen ansluter du till den virtuella datorn **VM-Onprem**.
+Från Azure-portalen ansluter du till den virtuella datorn **VM-Onprem**.
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-2. Öppna en webbläsare på **VM-Onprem** och gå till http://\<privat IP-ress för VM-spoke-01\>
+Öppna en webbläsare på **VM-Onprem** och gå till http://\<privat IP-adress för VM-spoke-01\>.
 
-   Du bör se standardsidan för Internet Information Services.
+Du bör se standardsidan för Internet Information Services.
 
-3. Från **VM-Onprem** öppnar du ett fjärrskrivbord till **VM-spoke-01** på den privata IP-adressen.
+Från **VM-Onprem** öppnar du ett fjärrskrivbord till **VM-spoke-01** på den privata IP-adressen.
 
-   Anslutningen bör upprättas, och du bör kunna logga in med ditt valda användarnamn och lösenord.
+Anslutningen bör upprättas, och du bör kunna logga in med ditt valda användarnamn och lösenord.
 
 Nu har du verifierat att brandväggsreglerna fungerar:
 
@@ -472,15 +481,6 @@ Kör nu testerna igen. De bör alla misslyckas den här gången. Stäng alla bef
 Du kan behålla dina brandväggsresurser för nästa självstudie eller, om de inte längre behövs, så tar du bort resursgruppen **FW-Hybrid-Test** för att ta bort alla brandväggsrelaterade resurser.
 
 ## <a name="next-steps"></a>Nästa steg
-
-I den här självstudiekursen lärde du dig att:
-
-> [!div class="checklist"]
-> * Konfigurera nätverksmiljön
-> * Konfigurera och distribuera brandväggen
-> * Skapa vägarna
-> * Skapa de virtuella datorerna
-> * Testa brandväggen
 
 Därefter kan du övervaka Azure Firewall-loggarna.
 

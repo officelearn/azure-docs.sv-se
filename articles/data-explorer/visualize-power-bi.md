@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: fc2d96c4dc8184ba26001fd77732ce7c45253d5a
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: c04c9d9618cfc507ebdba170e0697aeaeecb1e99
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393720"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854109"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Självstudie: Visualisera data från Azure Data Explorer i Power BI
 
@@ -36,9 +36,9 @@ Förutom Azure- och Power BI-prenumerationer så behöver du följande för att 
 
 * [Ett testkluster och en databas](create-cluster-database-portal.md)
 
-* [StormEvents exempeldata](ingest-sample-data.md)
+* [StormEvents exempeldata](ingest-sample-data.md). [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
-* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (klicka på **Hämta kostnadsfritt**)
+* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (klicka på **DOWNLOAD FREE**) (LADDA NED KOSTNADSFRITT)
 
 ## <a name="render-visuals-in-azure-data-explorer"></a>Rendera visuella objekt i Azure Data Explorer
 
@@ -82,17 +82,17 @@ Nu är dags att titta på Power BI, men det finns mycket mer du kan göra med vi
 
 Anslut nu till Azure Data Explorer i Power BI Desktop.
 
-1. I Power BI Desktop, väljer du **Hämta Data** sedan **Mer**.
+1. I Power BI Desktop går du till fliken **Start**, väljer **Hämta data** och sedan **Mer**.
 
     ![Hämta data](media/visualize-power-bi/get-data-more.png)
 
-1. Sök efter *Kusto*, välj **Azure Kusto (Beta)** och därefter **Anslut**.
+1. Sök efter *Azure Data Explorer*, välj **Azure Data Explorer (Beta)** och därefter **Anslut**.
 
     ![Sök efter och hämta data](media/visualize-power-bi/search-get-data.png)
 
 1. På skärmen **Förhandsgranska anslutningsapp** väljer du **Fortsätt**.
 
-1. På skärmen **Kusto** anger du namnet på ditt testkluster och databas. Kluster bör vara i formen `https://<ClusterName>.<Region>.kusto.windows.net`. Ange *StormEvents* för namnet på tabellen. Lämna alla andra alternativ med standardvärden och välj **OK**.
+1. På nästa skärm anger du namnet på ditt testkluster och databas. Kluster bör vara i formen `https://<ClusterName>.<Region>.kusto.windows.net`. Ange *StormEvents* för namnet på tabellen. Lämna alla andra alternativ med standardvärden och välj **OK**.
 
     ![Kluster-, databas-, tabellalternativ](media/visualize-power-bi/cluster-database-table.png)
 

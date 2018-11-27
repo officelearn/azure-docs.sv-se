@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: sbowles
-ms.openlocfilehash: e8b16f7ebe918e5b8d59c6b57794c4f35a89b5f3
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: dc84014f3dce027c830f3f46b4aba16b775251d8
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684009"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853157"
 ---
 # <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Snabbstart: Skapa ett Python-skript för att identifiera och rama in ansikten i en bild
 
@@ -35,7 +35,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="detect-faces-in-an-image"></a>Identifiera ansikten i en bild
 
-Skapa ett nytt Python-skript, _FaceQuickstart.py_. Lägg till följande kod. Det här är huvudfunktionerna för ansiktsigenkänning. Du måste ersätta `<Subscription Key>` med värdet för din nyckel. Du kanske även måste ändra värdet för `BASE_URL` så att rätt regionsidentifierare används för din nyckel. Nycklar för kostnadsfri utvärderingsprenumeration genereras i regionen **westus** (USA, västra). Du kan också ange `img_url` till URL:en för en bild du vill använda.
+Skapa ett nytt Python-skript, _FaceQuickstart.py_. Lägg till följande kod. Det här är huvudfunktionerna för ansiktsigenkänning. Du måste ersätta `<Subscription Key>` med värdet för din nyckel. Du kanske även måste ändra värdet för `BASE_URL` så att rätt regionsidentifierare används för din nyckel (i [dokumentet om Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) finns en lista över alla regionsslutpunkter). Nycklar för kostnadsfri utvärderingsprenumeration genereras i regionen **westus** (USA, västra). Du kan också ange `img_url` till URL:en för en bild du vill använda.
 
 Skriptet identifierar ansikten genom att anropa metoden **cognitive_face.face.detect**, som omsluter REST API för [identifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) och returnerar en lista över ansikten.
 

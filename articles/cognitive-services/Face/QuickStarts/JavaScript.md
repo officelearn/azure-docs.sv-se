@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: pafarley
-ms.openlocfilehash: 355d3258392fa722fbdc3762a9125a22e8a69b67
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 0d0ff627ad2549ff9b6f09b6c934c5a17a102962
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954313"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852381"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Snabbstart: Identifiera ansikten i en bild med REST API och JavaScript
 
@@ -37,10 +37,10 @@ Använd metoden [Face - Detect](https://westcentralus.dev.cognitive.microsoft.co
 För att köra exemplet följer du dessa steg:
 
 1. Kopiera följande och spara det till en fil såsom `detectFaces.html`.
-2. Ersätt `<Subscription Key>` med en giltig prenumerationsnyckel.
-3. Ändra värdet för `uriBase` till den plats där du fått dina prenumerationsnycklar, om det behövs.
-4. Dra och släpp filen i webbläsaren.
-5. Klicka på knappen `Analyze faces`.
+1. Ersätt `<Subscription Key>` med en giltig prenumerationsnyckel.
+1. Om det behövs ändrar du värdet `uriBase` för att använda den plats där du har fått dina prenumerationsnycklar (i [dokumentationen om Ansikts-API:et](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) finns en lista över alla slutpunkter i regionen).
+1. Dra och släpp filen i webbläsaren.
+1. Klicka på knappen `Analyze faces`.
 
 ### <a name="face---detect-request"></a>Begäran om ansiktsigenkänning
 
@@ -63,7 +63,7 @@ För att köra exemplet följer du dessa steg:
         // subscription keys from westus, replace "westcentralus" in the URL
         // below with "westus".
         //
-        // Free trial subscription keys are generated in the westcentralus region.
+        // Free trial subscription keys are generated in the "westus" region.
         // If you use a free trial subscription key, you shouldn't need to change 
         // this region.
         var uriBase =

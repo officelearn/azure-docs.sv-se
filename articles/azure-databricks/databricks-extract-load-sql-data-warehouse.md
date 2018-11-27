@@ -9,13 +9,13 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
-ms.date: 07/26/2018
-ms.openlocfilehash: bf7351f5d62958b77473440d618d31cda2c983ea
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.date: 11/19/2018
+ms.openlocfilehash: 5a6d3265fde3b7633036ddc4cae0a5ea7d246957
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615525"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52265278"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Självstudier: Extrahera, transformera och läsa in data med Azure Databricks
 
@@ -378,7 +378,7 @@ I det här avsnittet kommer du att överföra de data du transformerade till Azu
 
 Som tidigare nämnts använder SQL Data Warehouse-anslutningen Azure Blob Storage som temporär lagringsplats vid överföring av data mellan Azure Databricks och Azure SQL Data Warehouse. Så du börjar med att tillhandahålla den konfiguration som ska ansluta till lagringskontot. Du måste redan ha skapat kontot som en del av de nödvändiga förutsättningarna för den här artikeln.
 
-1. Ange konfigurationen så att du får åtkomst till Azure Storage-kontot från Azure Databricks.
+1. Ange konfigurationen så att du får åtkomst till Azure Storage-kontot från Azure Databricks. Om du kopierar webbadressen för din bloblagring från portalen måste du ta bort *https://* i början. 
 
         val blobStorage = "<STORAGE ACCOUNT NAME>.blob.core.windows.net"
         val blobContainer = "<CONTAINER NAME>"

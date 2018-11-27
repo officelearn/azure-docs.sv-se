@@ -3,23 +3,23 @@ title: 'Snabbstart: API för entitetssökning i Bing, Python'
 titlesuffix: Azure Cognitive Services
 description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med API:et för entitetssökning i Bing.
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 11/28/2017
-ms.author: v-jaswel
-ms.openlocfilehash: 80265c883214812acbd0af3bd186a0fbd3703132
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.author: aahi
+ms.openlocfilehash: 8650d241be5d3a34ae24b25c4e694792925ee300
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814346"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161828"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-python"></a>Snabbstart för API för entitetssökning i Bing med Python
 
-Den här artikeln visar hur du använder [API:et för entitetssökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) med Python.
+Den här artikeln visar hur du använder [API:et för entitetssökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web)  med Python.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -27,9 +27,9 @@ Du behöver [Python 3.x](https://www.python.org/downloads/) för att köra koden
 
 Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API:et för entitetssökning i Bing**. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) för den här snabbstarten. Du behöver den åtkomstnyckel som du fick när du aktiverade din kostnadsfria utvärderingsversion, eller så kan du använda en betald prenumerationsnyckel från instrumentpanelen i Azure.
 
-## <a name="search-entities"></a>Sök efter enheter
+## <a name="search-entities"></a>Entitetssökning
 
-Följ dessa steg om du vill köra programmet:
+Följ dessa steg om du vill köra programmet.
 
 1. Skapa ett nytt Python-projekt i valfri IDE.
 2. Lägg till koden nedan.

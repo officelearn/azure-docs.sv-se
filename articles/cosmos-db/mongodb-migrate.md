@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: d3a7ddcd4a95660264bdf9609f54af39a05c97b3
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 13422434e6392ec7681ec4478533c45a84f40c9a
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741036"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706984"
 ---
 # <a name="tutorial-migrate-your-data-to-azure-cosmos-db-mongodb-api-account"></a>Självstudie: Migrera data till Azure Cosmos DB MongoDB-API-konto
 
@@ -36,13 +36,13 @@ Innan du migrera data till MongoDB API-konto ser du till att ha lite exempel på
 
 1. Skapa samlingar i förväg och skala dem:
         
-    * Som standard etablerar Azure Cosmos DB en ny MongoDB-samling med 1 000 enheter för programbegäran per sekund (RU/s). Innan du påbörjar migreringen med mongoimport eller mongorestore skapar du alla samlingar i förväg från [Azure Portal](https://portal.azure.com) eller från MongoDB-drivrutiner och MongoDB-verktyg. Om datastorleken är större än 10 GB skapar du en [partitionerad samling](partition-data.md) med lämplig shard-nyckel.
+   * Som standard etablerar Azure Cosmos DB en ny MongoDB-samling med 1 000 enheter för programbegäran per sekund (RU/s). Innan du påbörjar migreringen med mongoimport eller mongorestore skapar du alla samlingar i förväg från [Azure Portal](https://portal.azure.com) eller från MongoDB-drivrutiner och MongoDB-verktyg. Om datastorleken är större än 10 GB skapar du en [partitionerad samling](partition-data.md) med lämplig shard-nyckel. MongoDB rekommenderar att du lagrar entitetsdata i samlingar. Du kan samplacera enheterna med jämförbar storlek och etablera dataflöde på Azure Cosmos-databasnivå.
 
-    * Öka samlingarnas dataflöde på [Azure Portal](https://portal.azure.com) från 1000 RU/s för en enskild partitionssamling och 2 500 RU/s för en fragmenterad samling under migreringen. Med ett högre dataflöde kan du undvika begränsningar och migrera snabbare. Du kan minska dataflödet direkt efter migreringen för att spara kostnader.
+   * Öka samlingarnas dataflöde på [Azure-portalen](https://portal.azure.com) från 1000 RU/s för en enskild partitionssamling och 2 500 RU/s för en fragmenterad samling under migreringen. Med ett högre dataflöde kan du undvika begränsningar och migrera snabbare. Du kan minska dataflödet direkt efter migreringen för att spara kostnader.
 
-    * Förutom att etablera RU/s på samlingsnivå kan du även etablera RU/s för en uppsättning samlingar på den överordnade databasnivån. Detta kräver att du skapar databasen och samlingarna i förväg, samt att du definierar en shard-nyckel för varje samling.
+   * Förutom att etablera RU/s på samlingsnivå kan du även etablera RU/s för en uppsättning samlingar på den överordnade databasnivån. Detta kräver att du skapar databasen och samlingarna i förväg, samt att du definierar en shard-nyckel för varje samling.
 
-    * Du kan skapa fragmenterade (sharded) samlingar med valfritt verktyg, drivrutin eller SDK. I det här exemplet använder vi Mongo Shell för att skapa en fragmenterad samling:
+   * Du kan skapa fragmenterade (sharded) samlingar med valfritt verktyg, drivrutin eller SDK. I det här exemplet använder vi Mongo Shell för att skapa en fragmenterad samling:
 
         ```bash
         db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )

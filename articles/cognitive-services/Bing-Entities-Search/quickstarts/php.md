@@ -3,31 +3,31 @@ title: 'Snabbstart: API för entitetssökning i Bing, PHP'
 titlesuffix: Azure Cognitive Services
 description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med API:et för entitetssökning i Bing.
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 11/28/2017
-ms.author: v-jaswel
-ms.openlocfilehash: 30cfa98fc38f92d834e908b6d77306bed1d2b5cb
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.author: aahi
+ms.openlocfilehash: d2c31c44d84ed2f71a75ff60310794d63038ea97
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815536"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165022"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-php"></a>Snabbstart för API för entitetssökning i Bing med PHP
 
-Den här artikeln visar hur du använder [API:et för entitetssökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) med PHP.
+Den här artikeln visar hur du använder [API:et för entitetssökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web)  med PHP.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [PHP 5.6.x](http://php.net/downloads.php) för att köra koden.
+Du behöver [PHP 5.6.x](http://php.net/downloads.php) för att köra den här koden.
 
 Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API:et för entitetssökning i Bing**. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) för den här snabbstarten. Du behöver den åtkomstnyckel som du fick när du aktiverade din kostnadsfria utvärderingsversion, eller så kan du använda en betald prenumerationsnyckel från instrumentpanelen i Azure.
 
-## <a name="search-entities"></a>Söka efter enheter
+## <a name="search-entities"></a>Entitetssökning
 
 Följ dessa steg om du vill köra programmet:
 

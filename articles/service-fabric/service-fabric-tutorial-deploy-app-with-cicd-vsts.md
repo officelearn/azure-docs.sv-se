@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/13/2017
+ms.date: 11/15/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7f14151224a9e2baa74183696c92bca06695bf4f
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 5d53250ebdc14b7b6631e2f419b5b24ac98f3038
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380156"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853752"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Självstudie: Distribuera ett program med CI/CD till ett Service Fabric-kluster
 
@@ -40,7 +40,7 @@ I den här självstudieserien får du lära du dig att:
 > * [Distribuera programmet till ett fjärrkluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Lägga till en HTTPS-slutpunkt i en klienttjänst i ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 > * Konfigurera CI/CD med hjälp av Azure Pipelines
-> * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
+> * [konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -94,23 +94,23 @@ En versionspipeline för Azure DevOps beskriver ett arbetsflöde som distribuera
 
 Öppna en webbläsare och navigera till det nya projektet på: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
 
-Välj fliken **Build and release** (Bygge och version), därefter **Builds** (Byggen) och klicka sedan på **New Pipeline** (Ny pipeline).
+Välj fliken **Pipelines**, därefter **Builds** (Byggen) och klicka sedan på **Ny pipeline**.
 
 ![Ny pipeline][new-pipeline]
 
-Välj **Azure DevOps Git** som källa, projektet **Voting** (Röstning), lagringsplatsen **Voting** och standardgrenen **master** eller manuella och schemalagda byggen.  Klicka sedan på **Fortsätt**.
+Välj **Azure Repos Git** som källa, teamprojektet **Voting** (Röstning), lagringsplatsen **Voting** och standardgrenen **master** eller manuella och schemalagda byggen.  Klicka sedan på **Fortsätt**.
+
+![Välj lagringsplats][select-repo]
 
 I **Välj en mall** väljer du mallen **Azure Service Fabric-program** och klickar på **Använd**.
 
 ![Välj byggesmall][select-build-template]
 
-I **Uppgifter** anger du Hosted VS2017 som **Agent queue** (Agentkö).
+I **Uppgifter** anger du ”Hosted VS2017” som **agentpool**.
 
 ![Välj uppgifter][save-and-queue]
 
-Under **Utlösare** aktiverar du kontinuerlig integrering genom att markera **Aktivera kontinuerlig integrering**. I **Branch filters** (Grenfilter) klickar du på **+ Lägg till** så får **Branch specification** (Grenspecifikation) standardvärdet **master**. Välj alternativet för att **spara och köa** för att manuellt starta en version.
-
-I **dialogrutan för att spara bygg-pipeline och kö** klickar du på **Save & queue** (Spara och köra).
+Under **Utlösare** aktiverar du kontinuerlig integrering genom att markera **Aktivera kontinuerlig integrering**. I **Branch filters** (Grenfilter) får **Branch specification** (Grenspecifikation) standardvärdet **master**. Välj alternativet för att **spara och köa** för att manuellt starta en version.
 
 ![Välj utlösare][save-and-queue2]
 
@@ -118,7 +118,7 @@ Byggen utlöser också vid push och incheckning. Om du vill kontrollera förlopp
 
 ### <a name="create-a-release-pipeline"></a>Skapa en versionspipeline
 
-Välj fliken **Build & Release** (Bygge och version), fliken **Releases** (Versioner) och sedan **+New pipeline** (+ Ny pipeline).  I **Välj en mall** väljer du mallen **Azure Service Fabric Deployment** på listan och sedan **Använd**.
+Välj fliken **Pipelines** och sedan **Versioner** och **+Ny pipeline**.  I **Välj en mall** väljer du mallen **Azure Service Fabric Deployment** på listan och sedan **Använd**.
 
 ![Välj versionsmall][select-release-template]
 
@@ -191,13 +191,14 @@ I den här självstudiekursen lärde du dig att:
 > * distribuera och uppgradera ett program automatiskt.
 
 Gå vidare till nästa kurs:
-> [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
+> [konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
 
 <!-- Image References -->
 [publish-app-profile]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfile.png
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
 [new-pipeline]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewPipeline.png
+[select-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectRepo.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
 [save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
 [save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue2.png

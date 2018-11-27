@@ -4,17 +4,17 @@ description: I den här snabbstarten lär du dig hur du fjärrdistribuerar färd
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/14/2018
+ms.date: 10/14/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a392c4c20e54081ae5e4876b7c718759b8200ce5
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: d4ea7d3fba891e954ca7faa5176a73d2341630d6
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566439"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976918"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Snabbstart: Distribuera din första IoT Edge-modul till en Linux x64-enhet
 
@@ -58,8 +58,10 @@ IoT Edge-enhet:
 * En Linux-enhet eller en virtuell dator som ska fungera som din IoT Edge-enhet. Om du vill skapa en virtuell dator i Azure använder du följande kommando för att snabbt komma igång:
 
    ```azurecli-interactive
-   az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_B1ms
+   az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
+
+   När du skapar en ny virtuell dator noterar du **publicIpAddress**, som anges som en del av utdata från kommandot för att skapa. Du använder den här offentliga IP-adressen för att ansluta till den virtuella datorn senare i snabbstarten.
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
@@ -75,7 +77,7 @@ Följande kod skapar en kostnadsfri **F1**-hubb i resursgruppen **IoTEdgeResourc
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
    ```
 
-   Om du får ett felmeddelande eftersom det redan finns en kostnadsfri hubb i din prenumeration ändrar du SKU till **S1**.
+   Om du får ett felmeddelande eftersom det redan finns en kostnadsfri hubb i din prenumeration ändrar du SKU till **S1**. Om du får ett felmeddelande om att IoT Hub-namnet inte är tillgängligt innebär det att någon annan redan har en hubb med det namnet. Prova med ett nytt namn. 
 
 ## <a name="register-an-iot-edge-device"></a>Registrera en IoT Edge-enhet
 
@@ -84,7 +86,7 @@ Registrera en IoT Edge-enhet med IoT-hubben som du nyss skapade.
 
 Skapa en enhetsidentitet för den simulerade enheten så att den kan kommunicera med din IoT Hub. Enhetsidentiteten finns i molnet, och du använder en unik enhetsanslutningssträng för att associera en fysisk enhet med en enhetsidentitet. 
 
-Eftersom IoT Edge-enheter fungerar och kan hanteras på annat sätt än typiska IoT-enheter, kan du ange denna som en IoT Edge-enhet från början. 
+Eftersom IoT Edge-enheter fungerar och kan hanteras på annat sätt än typiska IoT-enheter deklarerar du den här identiteten till att höra till en IoT Edge-enhet med flaggan `--edge-enabled`. 
 
 1. Ange följande kommando i Azure Cloud Shell för att skapa en enhet med namnet **myEdgeDevice** i din hubb.
 
@@ -92,13 +94,15 @@ Eftersom IoT Edge-enheter fungerar och kan hanteras på annat sätt än typiska 
    az iot hub device-identity create --hub-name {hub_name} --device-id myEdgeDevice --edge-enabled
    ```
 
-1. Hämta anslutningssträngen för din enhet som länkar den fysiska enheten med dess identitet i IoT Hub. 
+   Om du får ett felmeddelande om iothubowner-principnycklar kontrollerar du att CloudShell kör den senaste versionen av tillägget azure-cli-iot-ext. 
+
+2. Hämta anslutningssträngen för din enhet som länkar den fysiska enheten med dess identitet i IoT Hub. 
 
    ```azurecli-interactive
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-1. Kopiera anslutningssträngen och spara den. Du behöver det här värdet för att konfigurera IoT Edge-körningen i nästa avsnitt. 
+3. Kopiera anslutningssträngen och spara den. Du behöver det här värdet för att konfigurera IoT Edge-körningen i nästa avsnitt. 
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>Installera och starta IoT Edge-körningen
 
@@ -109,13 +113,21 @@ IoT Edge-körningen distribueras på alla IoT Edge-enheter. Den har tre komponen
 
 Under körningskonfigurationen anger du en enhetsanslutningssträng. Använd den sträng som du hämtade från Azure CLI. Den här strängen associerar den fysiska enheten med IoT Edge-enhetsidentiteten i Azure. 
 
-Slutför följande steg på den Linux-dator eller virtuella dator som du har konfigurerat som en IoT Edge-enhet. 
+### <a name="connect-to-your-iot-edge-device"></a>Ansluta till din IoT Edge-enhet
+
+Alla steg i det här avsnittet sker på din IoT Edge-enhet. Om du använder din egen dator som IoT Edge-enhet kan du hoppa över den här delen. Om du använder en virtuell dator eller sekundär maskinvara bör du ansluta till den datorn nu. 
+
+Om du har skapat en virtuell Azure-dator för den här snabbstarten hämtar du den offentliga IP-adress som var utdata för kommandot för att skapa. Du hittar även den offentliga IP-adressen på den virtuella datorns översiktssida i Azure-portalen. Använd följande kommando för att ansluta till din virtuella dator. Ersätt **{publicIpAddress}** med adressen för din dator. 
+
+```azurecli-interactive
+ssh azureuser@{publicIpAddress}
+```
 
 ### <a name="register-your-device-to-use-the-software-repository"></a>Registrera din enhet för att använda programvarudatabasen
 
 De paket som du behöver för IoT Edge-körningen hanteras i en programvarudatabas. Konfigurera din IoT Edge-enhet för att få åtkomst till den här databasen. 
 
-Stegen i det här avsnittet gäller x64-enheter som kör **Ubuntu 16.04**. För att komma åt programvarudatabasen i andra versioner av Linux eller i enhetsarkitekturer kan du läsa [Installera Azure IoT Edge-körning på Linux (x64)](how-to-install-iot-edge-linux.md) eller [Installera Azure IoT Edge-körning på Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
+Stegen i det här avsnittet gäller x64-enheter som kör **Ubuntu 16.04**. För att komma åt programvarudatabasen i andra versioner av Linux eller i enhetsarkitekturer kan du läsa [Installera Azure IoT Edge-körning på Linux (x64)](how-to-install-iot-edge-linux.md) eller [Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
 
 1. Installera databaskonfigurationen på den dator du använder som IoT Edge-enhet.
 
@@ -164,7 +176,7 @@ Denna säkerhetsdaemon installeras som en systemtjänst så att IoT Edge-körnin
    sudo apt-get install iotedge
    ```
 
-2. Öppna konfigurationsfilen för IoT Edge. Konfigurationsfilen är skyddad, så du kan behöva använda förhöjd behörighet att komma åt den.
+2. Öppna konfigurationsfilen för IoT Edge. Filen är skyddad, så du kan behöva använda utökade privilegier för att komma åt den.
    
    ```bash
    sudo nano /etc/iotedge/config.yaml
@@ -242,7 +254,7 @@ Visa meddelanden som skickas från modulen tempSensor:
 
 Temperatursensormodulen kanske väntar på att ansluta till Edge Hub om den sista raden i loggen är `Using transport Mqtt_Tcp_Only`. Avbryt modulen och låt Edge-agenten starta om den. Du kan avsluta den med kommandot `sudo docker stop tempSensor`.
 
-Du kan också visa telemetrin när den tas emot på IoT-hubben med hjälp av [Azure IoT Toolkit-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+Du kan även se när meddelandena tas emot av din IoT Hub med hjälp av [Azure IoT Toolkit-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -250,7 +262,7 @@ Om du vill fortsätta med IoT Edge-självstudierna kan du använda enheten du re
 
 ### <a name="delete-azure-resources"></a>Ta bort Azure-resurser
 
-Om du skapade den virtuella datorn och IoT-hubben i en ny resursgrupp kan du ta bort den gruppen och alla associerade resurser. Om det finns något i den resursgruppen som du vill behålla tar du bara bort de enskilda resurser som du vill rensa. 
+Om du skapade den virtuella datorn och IoT-hubben i en ny resursgrupp kan du ta bort den gruppen och alla associerade resurser. Kontrollera att det inte finns något du vill behålla i innehållet i resursgruppen. Om du inte vill ta bort hela gruppen kan du ta bort enskilda resurser i stället.
 
 Ta bort gruppen **IoTEdgeResources**.
 

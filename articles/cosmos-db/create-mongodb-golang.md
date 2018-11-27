@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: sclyon
 ms.custom: mvc
-ms.openlocfilehash: 7bfcbf2c72dbe33727097841f34f3f6869e9d2d8
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 79196e2e89ec28236b7256571ccaa087866c2e76
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053139"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706474"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB: Skapa en MongoDB API-konsolapp med Golang och Azure Portal
 
 > [!div class="op_single_selector"]
-> * [.NET](create-mongodb-dotnet.md)
+> * [NET](create-mongodb-dotnet.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
 > * [Python](create-mongodb-flask.md)
@@ -42,7 +42,7 @@ Med andra ord vet ditt Golang-program bara att det ansluter till en databas som 
   [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 - [Go](https://golang.org/dl/) och grundläggande kunskaper i språket [Go](https://golang.org/).
-- En IDE — [Gogland](https://www.jetbrains.com/go/) från Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) från Microsoft eller [Atom](https://atom.io/). Jag använder Goglang i den här självstudiekursen.
+- En IDE – [GoLand](https://www.jetbrains.com/go/) från Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) från Microsoft eller [Atom](https://atom.io/). Jag använder Goglang i den här självstudiekursen.
 
 <a id="create-account"></a>
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
@@ -65,7 +65,7 @@ Klona exempelprogrammet och installera de nödvändiga paketen.
     go get gopkg.in/mgo.v2
     ```
 
-Drivrutinen [mgo](http://labix.org/mgo) (uttalas *mango*) är en [MongoDB](http://www.mongodb.org/)-drivrutin för [språket Go](http://golang.org/) som implementerar ett omfattande och noggrant testat urval funktioner i ett mycket enkelt API som följer Go-standard.
+Drivrutinen [mgo](http://labix.org/mgo) är en [MongoDB](http://www.mongodb.org/)-drivrutin för [språket Go](http://golang.org/) som implementerar ett omfattande och noggrant testat urval funktioner i ett mycket enkelt API som följer Go-standard.
 
 <a id="connection-string"></a>
 

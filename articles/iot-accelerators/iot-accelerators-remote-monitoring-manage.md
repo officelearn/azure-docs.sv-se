@@ -6,15 +6,15 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 07/19/2018
+ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 6e92ef276d270fcc4c351fb89c699c8addd74632
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b54f7601f66bd115b7ceb937e2c0ebf8ca8eb01e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222157"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821087"
 ---
 # <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>Självstudie: Konfigurera och hantera enheter som är anslutna till din övervakningslösning
 
@@ -63,7 +63,7 @@ Om du vill visa detaljerad diagnostik rullar du nedåt i panelen **Enhetsinforma
 
 ## <a name="act-on-a-device"></a>Utföra åtgärder på en enhet
 
-Du kan testa om den simulerade motorn svarar korrekt på åtgärder som initieras via instrumentpanelen genom att köra metoden **FirmwareUpdate** (Uppdatering av inbyggd programvara). Om du vill utföra åtgärder på en enhet genom att köra en metod väljer du enheten i listan över enheter och klickar sedan på **Jobb**. Du kan välja mellan fler än en enhet om du vill utföra åtgärder på flera enheter. I panelen **Jobb** väljer du **Kör metod**. Enhetsmodellen **Engine** (Motor) anger tre metoder: **FirmwareUpdate** (Uppdatering av inbyggd programvara), **FillTank** (Fyll tanken) och **EmptyTank** (Töm tanken):
+Du kan testa om den simulerade motorn svarar korrekt på åtgärder som initieras via instrumentpanelen genom att köra metoden **FirmwareUpdate** (Uppdatering av inbyggd programvara). Om du vill utföra åtgärder på en enhet genom att köra en metod väljer du enheten i listan över enheter och klickar sedan på **Jobb**. Du kan välja mellan fler än en enhet om du vill utföra åtgärder på flera enheter. I panelen **Jobb** väljer du **Metoder**. Enhetsmodellen **Engine** (Motor) anger tre metoder: **FirmwareUpdate** (Uppdatering av inbyggd programvara), **FillTank** (Fyll tanken) och **EmptyTank** (Töm tanken):
 
 [![Engine-metoder (Motor)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-expanded.png#lightbox)
 
@@ -81,7 +81,7 @@ Om du väljer flera enheter av olika typ på sidan **Enheter** kan du fortfarand
 
 ## <a name="reconfigure-a-device"></a>Konfigurera om en enhet
 
-Du kan testa att du kan uppdatera motorns konfigurationsegenskaper genom att välja den i enhetslistan på sidan **Enheter**. Klicka sedan på **Jobb** och välj **Konfigurera om**. Jobbpanelen visar de egenskapsvärden som kan uppdateras för den valda enheten:
+Du kan testa att du kan uppdatera motorns konfigurationsegenskaper genom att välja den i enhetslistan på sidan **Enheter**. Klicka sedan på **Jobb** och välj **Egenskaper**. Jobbpanelen visar de egenskapsvärden som kan uppdateras för den valda enheten:
 
 [![Konfigurera om en enhet](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-expanded.png#lightbox)
 

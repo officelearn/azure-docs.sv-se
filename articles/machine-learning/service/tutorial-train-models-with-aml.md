@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 09/24/2018
-ms.openlocfilehash: e6e49a03ee76c50cb2fff492bfd50b2820abafe4
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 11/21/2018
+ms.openlocfilehash: 067a8deb935fb8a49d72c6ce441e8d9760c5390c
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343766"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283663"
 ---
 # <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Självstudie #1: Träna en modell för avbildningsklassificering med Azure Machine Learning-tjänsten
 
@@ -33,7 +33,10 @@ Lär dig att:
 
 Du lär dig hur du väljer en modell och distribuerar den i [del två av de här självstudierna](tutorial-deploy-models-with-aml.md). 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLfree) innan du börjar.
+
+>[!NOTE]
+> Koden i den här artikeln har testats med Azure Machine Learning SDK version 0.1.79
 
 ## <a name="get-the-notebook"></a>Hämta anteckningsboken
 
@@ -42,7 +45,7 @@ Denna självstudie finns tillgänglig som en [Jupyter Notebook](https://github.c
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 >[!NOTE]
-> Den här självstudien har testats med Azure Machine Learning SDK version 0.168 
+> Den här självstudien har testats med Azure Machine Learning SDK version 0.1.74 
 
 ## <a name="set-up-your-development-environment"></a>Ställ in din utvecklingsmiljö
 
@@ -93,41 +96,43 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### <a name="create-remote-compute-target"></a>Skapa ett fjärrberäkningsmål
 
-Azure Batch AI är en hanterad tjänst som gör det möjligt för dataexperter att träna maskininlärningsmodeller i kluster med virtuella Azure-datorer, inklusive virtuella datorer med GPU-stöd.  I den här självstudien ska du skapa ett Azure Batch AI-kluster som din träningsmiljö. Den här koden skapar ett kluster om det inte redan finns på din arbetsyta. 
+Azure ML Managed Compute är en hanterad tjänst som gör det möjligt för dataexperter att träna maskininlärningsmodeller i kluster med virtuella Azure-datorer, inklusive virtuella datorer med GPU-stöd.  I den här självstudien ska du skapa ett Azure-hanterat beräkningskluster som din träningsmiljö. Den här koden skapar ett kluster om det inte redan finns på din arbetsyta. 
 
  **Det tar cirka fem minuter att skapar klustret.** Om klustret redan finns på arbetsytan använder den här koden det klustret och hoppar över genereringsprocessen.
 
 
 ```python
-from azureml.core.compute import ComputeTarget, BatchAiCompute
-from azureml.core.compute_target import ComputeTargetException
+from azureml.core.compute import AmlCompute
+from azureml.core.compute import ComputeTarget
+import os
 
 # choose a name for your cluster
-batchai_cluster_name = "traincluster"
+compute_name = os.environ.get("BATCHAI_CLUSTER_NAME", "cpucluster")
+compute_min_nodes = os.environ.get("BATCHAI_CLUSTER_MIN_NODES", 0)
+compute_max_nodes = os.environ.get("BATCHAI_CLUSTER_MAX_NODES", 4)
 
-try:
-    # look for the existing cluster by name
-    compute_target = ComputeTarget(workspace=ws, name=batchai_cluster_name)
-    if type(compute_target) is BatchAiCompute:
-        print('found compute target {}, just use it.'.format(batchai_cluster_name))
-    else:
-        print('{} exists but it is not a Batch AI cluster. Please choose a different name.'.format(batchai_cluster_name))
-except ComputeTargetException:
+# This example uses CPU VM. For using GPU VM, set SKU to STANDARD_NC6
+vm_size = os.environ.get("BATCHAI_CLUSTER_SKU", "STANDARD_D2_V2")
+
+
+if compute_name in ws.compute_targets:
+    compute_target = ws.compute_targets[compute_name]
+    if compute_target and type(compute_target) is AmlCompute:
+        print('found compute target. just use it. ' + compute_name)
+else:
     print('creating a new compute target...')
-    compute_config = BatchAiCompute.provisioning_configuration(vm_size="STANDARD_D2_V2", # small CPU-based VM
-                                                                #vm_priority='lowpriority', # optional
-                                                                autoscale_enabled=True,
-                                                                cluster_min_nodes=0, 
-                                                                cluster_max_nodes=4)
+    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size,
+                                                                min_nodes = compute_min_nodes, 
+                                                                max_nodes = compute_max_nodes)
 
     # create the cluster
-    compute_target = ComputeTarget.create(ws, batchai_cluster_name, compute_config)
+    compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
     
     # can poll for a minimum number of nodes and for a specific timeout. 
-    # if no min node count is provided it uses the scale settings for the cluster
+    # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
     
-    # Use the 'status' property to get a detailed status for the current cluster. 
+     # For a more detailed view of current BatchAI cluster status, use the 'status' property    
     print(compute_target.status.serialize())
 ```
 
@@ -143,7 +148,7 @@ Innan du tränar en modell måste du förstå de data som du använder för att 
 
 ### <a name="download-the-mnist-dataset"></a>Ladda ned MNIST-datauppsättningen
 
-Ladda ned MNIST-datauppsättningen och spara filerna i en `data`-katalog lokalt.  Bilder och etiketter för både träning och testning laddas ned.  
+Ladda ned MNIST-datauppsättningen och spara filerna i en `data`-katalog lokalt.  Bilder och etiketter för både träning och testning laddas ned.
 
 
 ```python
@@ -160,7 +165,7 @@ urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ub
 
 ### <a name="display-some-sample-images"></a>Visa några exempelbilder
 
-Läs in de komprimerade filerna i `numpy`-matriser. Använd sedan `matplotlib` för att rita 30 slumpmässiga bilder från datauppsättningen med tillhörande etiketter ovanför dem. Observera att det här steget kräver en `load_data`-funktion som ingår i `util.py`-filen. Den här filen finns med i exempelmappen. Kontrollera att den finns i samma mapp som den här anteckningsboken. Funktionen `load_data` parsar de komprimerade filerna till numpy-matriser.
+Läs in de komprimerade filerna i `numpy`-matriser. Använd därefter `matplotlib` till att rita 30 slumpmässiga bilder från datauppsättningen med sina etiketter ovanför dem. Observera att det här steget kräver en `load_data`-funktion som ingår i `util.py`-filen. Den här filen finns med i exempelmappen. Kontrollera att den finns i samma mapp som den här anteckningsboken. Funktionen `load_data` parsar enkelt de komprimerade filerna till numpy-matriser.
 
 
 
@@ -209,9 +214,9 @@ ds.upload(src_dir='./data', target_path='mnist', overwrite=True, show_progress=T
 ```
 Nu har du allt du behöver för att börja träna en modell. 
 
-## <a name="train-a-model-locally"></a>Träna en modell lokalt
+## <a name="train-a-local-model"></a>Träna en lokal modell
 
-Träna en enkel logistikregressionsmodell från scikit-learn lokalt.
+Träna en enkel logistikregressionsmodell med scikit-learn lokalt.
 
 **Det tar en minut eller två att träna lokalt**, beroende på din datorkonfiguration.
 
@@ -314,11 +319,10 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 Observera hur skriptet hämtar data och sparar modeller:
 
-+ Träningsskriptet läser ett argument för att hitta katalogen som innehåller data.  När du skickar jobbet senare pekar du på datalagret för det här argumentet: `parser.add_argument('--data-folder', type = str, dest = 'data_folder', help = 'data directory mounting point')`
-
++ Träningsskriptet läser ett argument för att hitta katalogen som innehåller data.  När du skickar jobbet senare pekar du på datalagret för det här argumentet: `parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`
     
 + Träningsskriptet sparar din modell i en katalog med namnet outputs. <br/>
-`joblib.dump(value = clf, filename = 'outputs/sklearn_mnist_model.pkl')`<br/>
+`joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`<br/>
 Allt som skrivs i den här katalogen överförs automatiskt till din arbetsyta. Du ska komma åt din modell från den här katalogen senare i självstudien.
 
 Träningsskriptet måste referera till filen `utils.py` för att datauppsättningen ska läsas in korrekt.  Kopiera det här skriptet till skriptmappen så att det kan nås tillsammans med träningsskriptet på den fjärranslutna resursen.
@@ -341,7 +345,7 @@ Ett beräkningsobjekt används för att skicka körningen.  Skapa beräkningsobj
 * Parametrar som krävs från träningsskriptet 
 * Python-paket som behövs för träning
 
-I den här självstudien är det här målet Batch AI-klustret. Alla filer i projektkatalogen laddas upp till klusternoderna för körning. Data-folder konfigureras att använda datalagret (`ds.as_mount()`).
+I den här självstudien är det här målet Batch AI-klustret. Alla filer i skriptmappen laddas upp till klusternoderna för körning. Data-folder konfigureras att använda datalagret (`ds.as_mount()`).
 
 ```python
 from azureml.train.estimator import Estimator
@@ -395,7 +399,7 @@ Följ körningsförloppet med en Jupyter-widget.  Precis som körningsöverföri
 
 
 ```python
-from azureml.train.widgets import RunDetails
+from azureml.widgets import RunDetails
 RunDetails(run).show()
 ```
 
@@ -423,7 +427,7 @@ Resultatet visar att fjärrmodellen har en något högre precision än den lokal
 
 `{'regularization rate': 0.8, 'accuracy': 0.9204}`
 
-I självstudien om distribution ska du analysera den här modellen i detalj.
+I nästa självstudie ska du analysera den här modellen i detalj.
 
 ## <a name="register-model"></a>Registrera modellen
 

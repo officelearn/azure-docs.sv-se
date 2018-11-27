@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: ca8702cfd70b245c10df9251b6ced9ac1bc40bba
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 24b506b0dd22b388a57f88f1105742660b02269c
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578078"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854024"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av ansikts-REST API och C#
 
@@ -51,7 +51,7 @@ using System.Text;
 
 ### <a name="add-essential-fields"></a>Lägga till grundläggande fält
 
-Lägg till följande fält i klassen **Program**. Dessa data anger hur du ansluter till ansiktsigenkänningstjänsten och var du hämtar indata. Du måste uppdatera `subscriptionKey`-fältet med värdet för din prenumerationsnyckel, och du kanske måste ändra `uriBase`-strängen så att den innehåller rätt regionsidentifierare.
+Lägg till följande fält i klassen **Program**. Dessa data anger hur du ansluter till ansiktsigenkänningstjänsten och var du hämtar indata. Du måste uppdatera fältet `subscriptionKey` med värdet för din prenumerationsnyckel, och du kan behöva ändra strängen `uriBase` så att den innehåller rätt regionsidentifierare (en lista över alla regionsslutpunkter finns i [dokument om Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)).
 
 
 ```csharp
@@ -63,7 +63,7 @@ const string subscriptionKey = "<Subscription Key>";
 // subscription keys from westus, replace "westcentralus" in the URL
 // below with "westus".
 //
-// Free trial subscription keys are generated in the westcentralus region.
+// Free trial subscription keys are generated in the "westus" region.
 // If you use a free trial subscription key, you shouldn't need to change
 // this region.
 const string uriBase =

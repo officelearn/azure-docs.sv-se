@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: 76747f7e9f1a95ee14ee570dcc29b42f98c26838
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: ba42cc7ede2ab790e5f50f3db525e48ebd21f522
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578003"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852511"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Snabbstart: Identifiera ansikten i en bild med ansikts-REST API och Node.js
 
@@ -81,7 +81,7 @@ Ersätt `<Subscription Key>` med en giltig ansiktsprenumerationsnyckel.
 
 ### <a name="face-endpoint-url"></a>Ansiktsslutpunktens webbadress
 
-Webbadressen `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` anger Azure-ansiktsslutpunkten för att fråga. Du behöver ändra den första delen av URL:en så att den matchar den region som motsvarar din prenumerationsnyckel (såvida den inte redan är rätt).
+Webbadressen `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` anger Azure-ansiktsslutpunkten för att fråga. Du kan behöva ändra den första delen av URL:en så att den matchar den region som motsvarar din prenumerationsnyckel (en lista över alla regionsslutpunkter finns i [dokument om Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)).
 
 ### <a name="url-query-string"></a>URL-frågesträng
 

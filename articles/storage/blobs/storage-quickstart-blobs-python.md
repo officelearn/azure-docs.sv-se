@@ -6,14 +6,14 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/31/2018
+ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 3550d9e63288ad0cfb45dc6267f20762d3068b6a
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: dd304bd4a53094605149483c0996cd5f12040a84
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219400"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713188"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Python
 
@@ -21,13 +21,12 @@ I den här snabbstarten får du lära dig att använda Python för att ladda upp
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att slutföra den här snabbstarten behöver du: 
-* Installera [Python](https://www.python.org/downloads/).
-* Ladda ned och installera [Azure Storage SDK för Python](https://github.com/Azure/azure-sdk-for-python). 
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Kontrollera att du har följande ytterligare krav installerade:
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+* [Python](https://www.python.org/downloads/)
+* [Azure Storage SDK för Python](https://github.com/Azure/azure-sdk-for-python)
 
 ## <a name="download-the-sample-application"></a>Hämta exempelprogrammet
 [Exempelprogrammet](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) i den här snabbstarten är ett grundläggande Python-program.  
@@ -131,7 +130,7 @@ block_blob_service.create_blob_from_path(container_name, local_file_name, full_p
 
 Det går att använda flera uppladdningsmetoder med Blob Storage. Om du till exempel har en minnesström kan du kan använda metoden `create\_blob\_from\_stream` snarare än `create\_blob\_from\_path`. 
 
-Blockblobar kan vara så stora som 4,7 TB och kan vara allt från Excel-kalkylblad till stora videofiler. Sidblobar används främst för VHD-filer som används för att säkerhetskopiera virtuella IaaS-datorer. Tilläggsblobar används för loggning, till exempel när du vill skriva till en fil och sedan fortsätta att lägga till mer information. De flesta objekt som lagras i Blob Storage är blockblobar.
+Blockblobar kan vara så stora som 4,7 TB och kan vara allt från Excel-kalkylblad till stora videofiler. Sidblobar används främst för VHD-filer som backar IaaS-datorer. Tilläggsblobar används för loggning, till exempel när du vill skriva till en fil och sedan fortsätta att lägga till mer information. De flesta objekt som lagras i Blob Storage är blockblobar.
 
 ### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
 

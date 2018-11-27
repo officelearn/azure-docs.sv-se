@@ -1,49 +1,61 @@
-
+---
+author: MightyPen
+ms.service: sql-database
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: genemi
+ms.openlocfilehash: c4329b9efef3cdb2911466e64ac6c9f07a1e9b31
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52272370"
+---
 <a name="cs_0_csharpprogramexample_h2"/>
 
-## <a name="c-program-example"></a>C#-program-exempel
+## <a name="c-program-example"></a>C#-programexempel
 
-I nästa avsnitt i den här artikeln finns ett C#-program som använder ADO.NET för att skicka Transact-SQL-uttryck till SQL-databasen. C# utförs följande åtgärder:
+I följande avsnitt i den här artikeln finns ett C#-program som använder ADO.NET för att skicka Transact-SQL-instruktioner till SQL-databasen. C#-programmet utför följande åtgärder:
 
-1. [Ansluter till vår SQL-databas med hjälp av ADO.NET](#cs_1_connect).
+1. [Ansluter till vår SQL-databas med ADO.NET](#cs_1_connect).
 2. [Skapar tabeller](#cs_2_createtables).
-3. [Fyller tabeller med data, genom att utfärda T-SQL INSERT-instruktioner](#cs_3_insert).
+3. [Fyller tabeller med data genom att utfärda INSERT T-SQL-instruktioner](#cs_3_insert).
 4. [Uppdaterar data med hjälp av en koppling](#cs_4_updatejoin).
 5. [Tar bort data med hjälp av en koppling](#cs_5_deletejoin).
-6. [Väljer datarader med hjälp av en koppling](#cs_6_selectrows).
-7. Stänger anslutningen (som utelämnar eventuella temporära tabeller från tempdb).
+6. [Markerar datarader med hjälp av en koppling](#cs_6_selectrows).
+7. Stänger anslutningen (som släpper alla temporära tabeller från TempDB-databasen).
 
 C#-programmet innehåller:
 
 - C#-kod för att ansluta till databasen.
 - Metoder som returnerar T-SQL-källkoden.
-- Två metoder som skickar T-SQL i databasen.
+- Två metoder som skickar T-SQL till databasen.
 
-#### <a name="to-compile-and-run"></a>Att kompilera och köra
+#### <a name="to-compile-and-run"></a>Kompilera och köra
 
-Den här C#-program är logiskt en .cs fil. Men det här programmet fysiskt är uppdelad i flera kodblock att göra det lättare att förstå och varje block. För att kompilera och köra det här programmet måste göra följande:
+Det här C#-programmet är logiskt en .cs-fil. Men programmet är fysiskt uppdelat i flera kodblock, som gör det lättare att se och förstå varje block. Gör följande för att kompilera och köra det här programmet:
 
-1. Skapa ett C#-projekt i Visual Studio.
-    - Projekttypen ska vara en *konsolen* program från något som liknar följande hierarki: **mallar** > **Visual C#** >  **Klassiska Windows-skrivbordet** > **konsolen App (.NET Framework)**.
-3. I filen **Program.cs**, radera små starter rader med kod.
-3. I Program.cs, kopiera och klistra in var och en av de följande blocken i samma ordning som de visas här.
-4. I Program.cs redigera följande värden i den **Main** metoden:
+1. Skapa C#-projektet i Visual Studio.
+    - Projekttypen ska vara ett *konsolprogram* från något som liknar följande hierarki: **Mallar** > **Visual C#**  > **Windows Classic Desktop** > **Konsolprogram (.NET Framework)**.
+3. I filen **Program.cs** raderar du de små startraderna med kod.
+3. I Program.cs kopierar och klistrar du in var och en av de följande blocken i samma ordning som de visas här.
+4. I Program.cs redigerar du följande värden i **Main**-metoden:
 
-   - **CB. DataSource**
-   - **CD: n. Användar-ID**
-   - **CB. Lösenord**
+   - **cb.DataSource**
+   - **cd.UserID**
+   - **cb.Password**
    - **InitialCatalog**
 
-5. Kontrollera att sammansättningen **System.Data.dll** refererar till. Om du vill kontrollera, expandera den **referenser** nod i den **Solution Explorer** fönstret.
-6. Om du vill bygga program i Visual Studio klickar du på den **skapa** menyn.
-7. Om du vill köra programmet från Visual Studio klickar du på den **starta** knappen. Rapportutdata visas i ett fönster för cmd.exe.
+5. Kontrollera att sammansättningen **System.Data.dll** är refererad. Du kan kontrollera det genom att expandera noden **Referenser** i fönstret **Solution Explorer**.
+6. För att skapa programmet i Visual Studio klickar du på menyn **Skapa**.
+7. Om du vill köra programmet från Visual Studio klickar du på knappen **Start**. Rapportutdata visas i ett cmd.exe-fönster.
 
 > [!NOTE]
-> Du har möjlighet att redigera T-SQL för att lägga till en inledande  **#**  tabellnamnen, vilket skapar dem som temporära tabeller i **tempdb**. Detta kan vara användbart i demonstrationssyfte, när ingen testdatabasen är tillgänglig. Temporära tabeller tas bort automatiskt när anslutningen stängs. Alla referenser till sekundärnycklar tillämpas inte för temporära tabeller.
+> Du har möjlighet att redigera T-SQL för att lägga till en ledande **#** till tabellnamnen, vilket skapar dem som temporära tabeller i **tempdb**. Det kan vara användbart i visningssyfte när ingen testdatabas är tillgänglig. Temporära tabeller tas bort automatiskt när anslutningen avbryts. Referenser till sekundärnycklar tillämpas inte för temporära tabeller.
 >
 
 <a name="cs_1_connect"/>
-### <a name="c-block-1-connect-by-using-adonet"></a>C#-blocket 1: ansluta med hjälp av ADO.NET
+### <a name="c-block-1-connect-by-using-adonet"></a>C#-block 1: Ansluta med hjälp av ADO.NET
 
 - [Nästa](#cs_2_createtables)
 
@@ -99,9 +111,9 @@ namespace csharp_db_test
 
 
 <a name="cs_2_createtables"/>
-### <a name="c-block-2-t-sql-to-create-tables"></a>C# block 2: T-SQL för att skapa tabeller
+### <a name="c-block-2-t-sql-to-create-tables"></a>C#-block 2: T-SQL för att skapa tabeller
 
-- [Tidigare](#cs_1_connect) &nbsp;  /  &nbsp; [nästa](#cs_3_insert)
+- [Föregående](#cs_1_connect) &nbsp; / &nbsp; [Nästa](#cs_3_insert)
 
 ```csharp
       static string Build_2_Tsql_CreateTables()
@@ -131,19 +143,19 @@ CREATE TABLE tabEmployee
       }
 ```
 
-#### <a name="entity-relationship-diagram-erd"></a>Diagram för entiteten relation (ERD)
+#### <a name="entity-relationship-diagram-erd"></a>Entitetsambandsdiagram (ERD)
 
-Föregående CREATE TABLE-instruktioner omfattar den **referenser** nyckelord för att skapa en *sekundärnyckeln* (FK) relation mellan två tabeller.  Om du använder tempdb kommentera ut den `--REFERENCES` nyckelordet med ett par med inledande streck.
+Föregående CREATE TABLE-instruktioner som innehåller nyckelordet **REFERENCES** för att skapa en *sekundärnyckelrelation* mellan två tabeller.  Om du använder tempdb kommenterar du ut `--REFERENCES`-nyckelordet med hjälp av ett par inledande tankstreck.
 
-Nästa är en Reparationsdiskett som visar relationen mellan två tabeller. Värdena i #tabEmployee.DepartmentCode *underordnade* kolumnen är begränsade till värdena som finns i #tabDepartment.Department *överordnade* kolumn.
+Här följer en ERD som visar relationen mellan de två tabellerna. Värdena i den *underordnade* kolumnen #tabEmployee.DepartmentCode är begränsade till värdena som finns i den *överordnade* kolumnen #tabDepartment.Department.
 
-![ERD visar sekundärnyckeln](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
+![ERD som visar sekundärnyckel](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
 
 
 <a name="cs_3_insert"/>
-### <a name="c-block-3-t-sql-to-insert-data"></a>C# block 3: T-SQL infoga data
+### <a name="c-block-3-t-sql-to-insert-data"></a>C#-block 3: T-SQL för att infoga data
 
-- [Tidigare](#cs_2_createtables) &nbsp;  /  &nbsp; [nästa](#cs_4_updatejoin)
+- [Föregående](#cs_2_createtables) &nbsp; / &nbsp; [Nästa](#cs_4_updatejoin)
 
 
 ```csharp
@@ -173,9 +185,9 @@ INSERT INTO tabEmployee
 
 
 <a name="cs_4_updatejoin"/>
-### <a name="c-block-4-t-sql-to-update-join"></a>C# block 4: T-SQL för update-kopplingen
+### <a name="c-block-4-t-sql-to-update-join"></a>C#-block 4: T-SQL för update-join
 
-- [Tidigare](#cs_3_insert) &nbsp;  /  &nbsp; [nästa](#cs_5_deletejoin)
+- [Föregående](#cs_3_insert) &nbsp; / &nbsp; [Nästa](#cs_5_deletejoin)
 
 
 ```csharp
@@ -201,9 +213,9 @@ UPDATE empl
 
 
 <a name="cs_5_deletejoin"/>
-### <a name="c-block-5-t-sql-to-delete-join"></a>C# block 5: T-SQL för att ta bort koppling
+### <a name="c-block-5-t-sql-to-delete-join"></a>C#-block 5: T-SQL för delete-join
 
-- [Tidigare](#cs_4_updatejoin) &nbsp;  /  &nbsp; [nästa](#cs_6_selectrows)
+- [Föregående](#cs_4_updatejoin) &nbsp; / &nbsp; [Nästa](#cs_6_selectrows)
 
 
 ```csharp
@@ -233,9 +245,9 @@ DELETE tabDepartment
 
 
 <a name="cs_6_selectrows"/>
-### <a name="c-block-6-t-sql-to-select-rows"></a>C# block 6: T-SQL för att markera rader
+### <a name="c-block-6-t-sql-to-select-rows"></a>C#-block 6: T-SQL för att välja rader
 
-- [Tidigare](#cs_5_deletejoin) &nbsp;  /  &nbsp; [nästa](#cs_6b_datareader)
+- [Föregående](#cs_5_deletejoin) &nbsp; / &nbsp; [Nästa](#cs_6b_datareader)
 
 
 ```csharp
@@ -261,11 +273,11 @@ SELECT
 
 
 <a name="cs_6b_datareader"/>
-### <a name="c-block-6b-executereader"></a>C# block 6b: ExecuteReader
+### <a name="c-block-6b-executereader"></a>C#-block 6b: ExecuteReader
 
-- [Tidigare](#cs_6_selectrows) &nbsp;  /  &nbsp; [nästa](#cs_7_executenonquery)
+- [Föregående](#cs_6_selectrows) &nbsp; / &nbsp; [Nästa](#cs_7_executenonquery)
 
-Den här metoden är utformat för att köra T-SQL SELECT-uttrycket som skapats av den **Build_6_Tsql_SelectEmployees** metod.
+Den här metoden är utformad för att köra T-SQL SELECT-instruktionen som skapas genom metoden **Build_6_Tsql_SelectEmployees**.
 
 
 ```csharp
@@ -297,11 +309,11 @@ Den här metoden är utformat för att köra T-SQL SELECT-uttrycket som skapats 
 
 
 <a name="cs_7_executenonquery"/>
-### <a name="c-block-7-executenonquery"></a>C# block 7: ExecuteNonQuery
+### <a name="c-block-7-executenonquery"></a>C#-block 7: ExecuteNonQuery
 
-- [Tidigare](#cs_6b_datareader) &nbsp;  /  &nbsp; [nästa](#cs_8_output)
+- [Föregående](#cs_6b_datareader) &nbsp; / &nbsp; [Nästa](#cs_8_output)
 
-Den här metoden anropas för åtgärder som ändrar datainnehållet i tabeller utan att returnera alla rader med data.
+Den här metoden anropas för åtgärder som ändrar datainnehållet i tabeller utan att returnera några rader med data.
 
 
 ```csharp
@@ -335,11 +347,11 @@ Den här metoden anropas för åtgärder som ändrar datainnehållet i tabeller 
 
 
 <a name="cs_8_output"/>
-### <a name="c-block-8-actual-test-output-to-the-console"></a>C# block 8: faktiska testet av utdata till konsolen
+### <a name="c-block-8-actual-test-output-to-the-console"></a>C#-block 8: Faktiska testutdata till konsolen
 
-- [Tidigare](#cs_7_executenonquery)
+- [Föregående](#cs_7_executenonquery)
 
-Det här avsnittet innehåller de utdata som skickades till konsolen. Endast guid-värdena variera mellan testkörningar.
+Det här avsnittet innehåller de utdata som skickades till konsolen. Endast guid-värdena varierar mellan testkörningar.
 
 
 ```text

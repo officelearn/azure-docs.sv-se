@@ -10,23 +10,23 @@ ms.component: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: a5223b026705cef5abbcd0be6f64cf0c98fd0930
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 59469b6c27ceb0ed96659198edd6ddbca12685e2
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309033"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283969"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av C#
 <a name="HOLTop"></a>
 
-Den här artikeln visar hur du identifierar språk, analyserar sentiment extraherar nyckelfraser med hjälp av [API:er för textanalys](//go.microsoft.com/fwlink/?LinkID=759711) med C#. Koden har skrivits för att fungera med ett .Net Core-program med minimala referenser till externa bibliotek, så du kan även köra det på Linux eller MacOS.
+Den här artikeln visar hur du identifierar språk, analyserar sentiment extraherar nyckelfraser med hjälp av  [API:er för textanalys](//go.microsoft.com/fwlink/?LinkID=759711)  med C#. Koden har skrivits för att fungera med ett .Net Core-program med minimala referenser till externa bibliotek, så du kan även köra det på Linux eller MacOS.
 
 Se [API-definitionerna](//go.microsoft.com/fwlink/?LinkID=759346) för teknisk dokumentation för API:erna.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du måste ha ett [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API för textanalys**. Du kan använda den **kostnadsfria nivån för 5 000 transaktioner/månad** för att slutföra den här snabbstarten.
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 Du måste även ha [den slutpunkt och den åtkomstnyckel](../How-tos/text-analytics-how-to-access-key.md) som genererades åt dig vid registreringen. 
 

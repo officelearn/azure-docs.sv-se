@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: f84eda2269df0bbe7186a2f1a9abb9c594b75455
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fbe286313bce9b735665b134a5ea18ba4995548b
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245077"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712270"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Snabbstart: Distribuera Azure Data Box Disk med hjälp av Azure Portal (förhandsversion)
 
@@ -67,7 +67,7 @@ Det här steget tar ungefär 5 minuter.
 
     1. På Azure Portal går du till **Allmänt > Enhetsinformation** och hämtar nyckeln.
     2. Ladda ned och extrahera det operativsystemspecifika Data Box Disk-upplåsningsverktyget på den dator som används för att kopiera data till diskarna. 
-    3. Kör upplåsningsverktyget för Data Box Disk och ange nyckeln. Om du sätter i nya diskar kör du upplåsningsverktyget igen och anger nyckeln. **Använd inte BitLocker-dialogrutan eller BitLocker-nyckeln för att låsa upp disken.** Mer information om hur du låser upp diskar finns i [Låsa upp diskar på en Windows-klient]() eller [Låsa upp diskar på en Linux-klient]().
+    3. Kör upplåsningsverktyget för Data Box Disk och ange nyckeln. Om du sätter i nya diskar kör du upplåsningsverktyget igen och anger nyckeln. **Använd inte BitLocker-dialogrutan eller BitLocker-nyckeln för att låsa upp disken.** Mer information om hur du låser upp diskar finns i [Låsa upp diskar på en Windows-klient](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) eller [Låsa upp diskar på en Linux-klient](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client).
     4. Diskens tilldelade enhetsbeteckning visas i verktyget. Skriv ned diskens enhetsbeteckning. Du behöver den i efterföljande steg.
 
 ## <a name="copy-data-and-validate"></a>Kopiera data och verifiera
@@ -85,7 +85,6 @@ Hur lång tid det tar att slutföra den här åtgärden beror på datastorleken.
 2. (Valfritt) När kopieringen är klar rekommenderar vi att du kör `DataBoxDiskValidation.cmd` i mappen *DataBoxDiskImport* för att generera kontrollsummor för verifiering. Beroende på datastorleken kan det här steget ta en stund. 
 3. Koppla från enheten. 
 
-
 ## <a name="ship-to-azure"></a>Skicka till Azure
 
 Det här steget tar cirka 5–7 minuter att slutföra.
@@ -94,7 +93,6 @@ Det här steget tar cirka 5–7 minuter att slutföra.
 2. Lämna in det förseglade paketet på inlämningsstället.  
 
 Data Box Disk-tjänsten skickar ett e-postmeddelande och uppdaterar orderstatusen på Azure Portal.
-
 
 ## <a name="verify-your-data"></a>Verifiera dina data
 
@@ -126,5 +124,3 @@ I den här snabbstarten har du distribuerat Azure Data Box Disk för att importe
 
 > [!div class="nextstepaction"]
 > [Administrera Data Box Disk via Azure Portal](data-box-portal-ui-admin.md)
-
-

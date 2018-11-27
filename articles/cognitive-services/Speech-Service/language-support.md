@@ -88,7 +88,7 @@ en IE | Engelska (Irland) |Man | ”Microsoft Server tal Text till tal-röst (en
 en Indien | English (India) | Kvinna | ”Microsoft Server tal Text till tal-röst (en-IN-, Heera, Apollo)”
 | | |Kvinna | ”Microsoft Server tal Text till tal-röst (en-IN-, PriyaRUS)”
 | | |Man | ”Microsoft Server tal Text till tal-röst (en-IN-, Ravi, Apollo)”
-sv-SE | English (US) |Kvinna | ”Microsoft Server tal Text till tal-röst (en-US, ZiraRUS)”
+en-US | English (US) |Kvinna | ”Microsoft Server tal Text till tal-röst (en-US, ZiraRUS)”
 | | |Kvinna | ”Microsoft Server tal Text till tal-röst (en-US, JessaRUS)”
 | | |Man | ”Microsoft Server tal Text till tal-röst (en-US, BenjaminRUS)”
 | | |Kvinna | ”Microsoft Server tal Text till tal-röst (en-US, Jessa24kRUS)”

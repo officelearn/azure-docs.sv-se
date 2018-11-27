@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 65d0d6848534326bb3ef43f1bd8bc700971603e6
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: a514359edcf21d5882b2361d10c06214d8e39502
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636806"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274878"
 ---
 # <a name="copy-managed-disks-to-same-or-different-subscription-with-cli"></a>Kopiera hanterade diskar till samma eller en annan prenumeration med CLI
 
-Det här skriptet kopierar en hanterad disk till samma eller en annan prenumeration men inom samma region. Du måste vara en global AAD-klientadministratör för båda prenumerationerna för att kunna köra det här skriptet.
+Det här skriptet kopierar en hanterad disk till samma eller en annan prenumeration men inom samma region. Kopian fungerar bara när prenumerationerna ingår i samma AAD-klientorganisation.
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]

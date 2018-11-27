@@ -1,6 +1,6 @@
 ---
-title: Skapa en CI/CD-pipeline för din befintliga kod med Azure DevOps-projekt | Självstudie för Azure DevOps Services
-description: DevOps-projekt gör det enkelt att komma igång med Azure. Det hjälper dig att använda egen kod och din GitHub-lagringsplats för att starta en app på en Azure-tjänst med några enkla få steg.
+title: 'Självstudie: Skapa en CI/CD-pipeline för din befintliga kod med hjälp av Azure DevOps Projects'
+description: Azure DevOps Projects gör det enkelt att komma igång med Azure. DevOps Projects hjälper dig att använda egen kod och din GitHub-lagringsplats för att lansera en app på en Azure-tjänst med några enkla få steg.
 services: vsts
 documentationcenter: vs-devops-build
 ms.author: mlearned
@@ -17,26 +17,27 @@ ms.date: 07/09/2018
 author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 02b6823a46c94edb0ba28c7a2a8b9ae0efc44ae8
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 88ee15a3b5cc53542d9e098dee485b8a526bb9a6
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406100"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161762"
 ---
-# <a name="tutorial--create-a-cicd-pipeline-for-your-existing-code-with-the-azure-devops-project"></a>Självstudie: Skapa en CI/CD-pipeline för din befintliga kod med Azure DevOps-projektet
+# <a name="tutorial-create-a-cicd-pipeline-for-your-existing-code-by-using-azure-devops-projects"></a>Självstudie: Skapa en CI/CD-pipeline för din befintliga kod med hjälp av Azure DevOps Projects
 
-Azure DevOps-projektet ger ett förenklat sätt som gör att du kan ta med befintlig kod och Git-lagringsplatser i Azure, eller välja ett av exempelprogrammen för att skapa en pipeline för kontinuerlig integration (CI) och kontinuerlig leverans (CD) till Azure.
+Azure DevOps Projects ger ett förenklat sätt att ta med befintlig kod och Git-lagringsplatser i Azure, eller välja ett exempelprogram för att skapa en pipeline för kontinuerlig integration (CI) och kontinuerlig leverans (CD) till Azure.
 
 Du kommer att:
 
 > [!div class="checklist"]
-> * Skapa ett Azure DevOps-projekt
-> * Konfigurera åtkomst till din GitHub-lagringsplats och välj ett ramverk
-> * Konfigurera Azure DevOps Services och en Azure-prenumeration 
-> * Genomför ändringar i GitHub och distribuera automatiskt till Azure
-> * Granska CI/CD-pipelinen för Azure DevOps Services
+> * Använda DevOps Projects för att skapa en CI/CD-pipeline
+> * Konfigurera åtkomst till din GitHub-lagringsplats och välja ett ramverk
+> * Konfigurera Azure DevOps och en Azure-prenumeration 
+> * Genomföra ändringar i GitHub och automatiskt distribuera dem till Azure
+> * Granska Azure Pipelines-CI/CD-pipelinen
 > * Konfigurera övervakning med Azure Application Insights
+> * Rensa resurser
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -45,129 +46,163 @@ Du kommer att:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Azure DevOps-projektet skapar en CI/CD-pipeline i Azure DevOps Services.  Du kan skapa en **ny Azure DevOps Services-organisation** eller använda en **befintlig organisation**.  Azure DevOps-projektet skapar även **Azure-resurser** i den **Azure-prenumeration** som du väljer.
+Azure DevOps Projects skapar en CI/CD-pipeline i Azure Pipelines. Du kan skapa en ny Azure DevOps-organisation eller använda en befintlig organisation. Azure DevOps Projects skapar även Azure-resurser i den Azure-prenumeration som du väljer.
 
-1. Logga in i [Microsoft Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-1. Välj ikonen **+ Ny** i det vänstra navigeringsfältet och sök efter **DevOps-projekt**.  Välj **Skapa**.
+1. Välj **Nytt** i den vänstra fönsterrutan.
 
-    ![Startar kontinuerlig leverans](_img/azure-devops-project-github/fullbrowser.png)
+1. I sökrutan skriver du **DevOps Projects** och väljer sedan **Skapa**.
 
-1. Välj **Ha med din egen kod**.  När du är klar väljer du **Nästa**.
+    ![DevOps Projects-instrumentpanelen](_img/azure-devops-project-github/fullbrowser.png)
 
-## <a name="configure-access-to-your-github-repository-and-choose-a-framework"></a>Konfigurera åtkomst till din GitHub-lagringsplats och välj ett ramverk
+1. Välj **Ha med din egen kod** och sedan **Nästa**.
 
-1. Välj **GitHub**.  Om du vill kan du välja en **extern Git-lagringsplats**.  Välj din **lagringsplats** och **gren** som innehåller programmet.
+## <a name="configure-access-to-your-github-repo-and-choose-a-framework"></a>Konfigurera åtkomst till din GitHub-lagringsplats och välja ett ramverk
 
-1. Välj ditt **webbramverk**.  När du är klar väljer du **Nästa**.
+1. Välj antingen **GitHub** eller en extern Git-lagringsplats, och välj sedan din lagringsplats och den gren som innehåller programmet.
+
+1. Välj ditt webbramverk och sedan **Nästa**.
 
     ![.NET-ramverk](_img/azure-devops-project-github/webframework.png)
 
-1. Programramverket som du valde i föregående steg avgör vilka typer av distributionsmål som finns tillgängliga för Azure-tjänsten här.  Välj **target service** (måltjänsten) du önskar.  När du är klar väljer du **Nästa**.
-
-## <a name="configure-azure-devops-services-and-an-azure-subscription"></a>Konfigurera Azure DevOps Services och en Azure-prenumeration 
-
-1. Skapa en **ny** Azure DevOps Services-organisation eller använd en **befintlig** organisation.  Välj ett **namn** för ditt Azure DevOps-projekt.  Välj din **Azure-prenumeration**, **plats** och välj ett **namn** för ditt program.  När du är klar väljer du **Klar**.
-
-1. **Azure DevOps-projektinstrumentpanelen** läses in i Azure-portalen på några minuter.  Ett exempelprogram konfigureras på en lagringsplats i Azure DevOps Services-organisationen, en version körs och programmet distribueras till Azure.  Den här instrumentpanelen ger insyn i GitHub-**kodlagringsplatsen**, **CI/CD-pipelinen för Azure DevOps Services** och ditt **program i Azure**.  På höger sida av instrumentpanelen väljer du **Bläddra** för att visa dt program som körs.
-
-    ![Instrumentpanelsvy](_img/azure-devops-project-github/dashboardnopreview.png) 
+    Det programramverk som du valde tidigare avgör vilken typ av distributionsmål som finns tillgängliga för Azure-tjänsten här. 
     
-Azure DevOps-projektet konfigurerar automatiskt en CI-version och släpper utlösaren.  Koden finns kvar i din GitHub eller annan extern lagringsplats.  
+1. Välj måltjänsten och sedan **Nästa**.
 
-## <a name="commit-changes-to-github-and-automatically-deploy-to-azure"></a>Genomför ändringar i GitHub och distribuera automatiskt till Azure 
+## <a name="configure-azure-devops-and-an-azure-subscription"></a>Konfigurera Azure DevOps och en Azure-prenumeration 
 
-Nu är du redo att samarbeta med ett team på din app med en CI/CD-process som automatiskt distribuerar ditt senaste arbete till din webbplats.  Varje ändring i GitHub-lagringsplatsen startar en version i Azure DevOps och en CD-pipeline för Azure DevOps kör en distribution till Azure.
+1. Skapa en ny Azure DevOps-organisation eller välj en befintlig organisation.
 
-1.  Gör en ändring i ditt program och **genomför** ändringen till GitHub-lagringsplatsen.
-2.  Efter en liten stund startar en version i Azure DevOps Services.  Du kan övervaka versionstillståndet med Azure DevOps-projektets instrumentpanel eller i webbläsaren med din Azure DevOps Services-organisation.
-3.  När versionen har slutförts **uppdaterar du ditt program** i webbläsaren för att kontrollera dina ändringar.
+    a. Ange ett namn för ditt projekt i Azure DevOps. 
+    
+    b. Välj din Azure-prenumeration och plats, ange ett namn för programmet och välj sedan **Klar**.
 
-## <a name="examine-the-azure-devops-services-cicd-pipeline"></a>Granska CI/CD-pipelinen för Azure DevOps Services
+    Efter några minuter visas DevOps Projects-instrumentpanelen i Azure-portalen. Ett exempelprogram konfigureras i en lagringsplats i din Azure DevOps-organisation, en version körs och programmet distribueras till Azure. Den här instrumentpanelen ger insyn i din GitHub-kodlagringsplats, din CI/CD-pipeline och i ditt program i Azure. 
+    
+1. Visa ditt körande program genom att välja **Bläddra**.
 
-Azure DevOps-projektet har automatiskt konfigurerat en CI/CD-pipeline för Azure DevOps Services i Azure DevOps Services-organisationen.  Utforska och anpassa pipelinen efter behov.  Följ stegen nedan för att bekanta dig med bygg- och versionspipelinerna för Azure DevOps Services.
+    ![Vy av DevOps Projects-instrumentpanel](_img/azure-devops-project-github/dashboardnopreview.png) 
+    
+Azure DevOps Projects konfigurerar automatiskt en CI-version och versionsutlösare. Koden finns kvar i din GitHub-lagringsplats eller annan extern lagringsplats. 
 
-1. Välj **Skapa pipelines** **längst upp** på Azure DevOps-projektets instrumentpanel.  Den här länken öppnar en flik i webbläsaren och öppnar bygg-pipelinen för Azure DevOps Services för det nya projektet.
+## <a name="commit-changes-to-github-and-automatically-deploy-them-to-azure"></a>Genomföra ändringar i GitHub och automatiskt distribuera dem till Azure 
 
-1. Flytta markören till höger om bygg-pipelinen bredvid fältet **Status**. Välj den **ellips** som visas.  Den här åtgärden öppnar en meny där du kan starta flera aktiviteter, till exempel lägga till en ny version i en kö, pausa en version och redigera bygg-pipelinen.
+Nu är du redo att samarbeta med ett team på din app med en CI/CD-process som automatiskt distribuerar ditt senaste arbete till din webbplats. Varje ändring i GitHub-lagringsplatsen startar en version i Azure DevOps och en CD-pipeline för kör en distribution till Azure.
+
+1. Gör en ändring i ditt program och checka sedan in ändringen till GitHub-lagringsplatsen.  
+    Efter en liten stund startar en version i Azure Pipelines. Du kan övervaka versionsstatusen på DevOps Projects-instrumentpanelen eller i webbläsaren med din Azure DevOps-organisation.
+
+1. När versionen har slutförts uppdaterar du programmet för att verifiera dina ändringar.
+
+## <a name="examine-the-azure-pipelines-cicd-pipeline"></a>Granska Azure Pipelines-CI/CD-pipelinen
+
+Azure DevOps Projects konfigurerar automatiskt en CI/CD-pipeline i Azure Pipelines. Utforska och anpassa pipelinen efter behov. Utför följande för att bekanta dig med bygg- och versionspipelines:
+
+1. Välj **Bygg-pipelines** längst upp på DevOps Projects-instrumentpanelen.  
+    En webbläsarflik visar bygg-pipelinen för det nya projektet.
+
+1. Peka på fältet **Status** och välj ellipsen (...).  
+    En meny med flera alternativ visas, till exempel alternativ för att köa en ny version, pausa en version och redigera bygg-pipelinen.
 
 1. Välj **Redigera**.
 
-1. Från den här vyn **granskar du de olika uppgifterna** för bygg-pipelinen.  Versionen utför olika uppgifter som att hämta källor från Git-lagringsplatsen, återställa beroenden och publicera utdata för distributioner.
+1. I den här fönsterrutan kan du granska de olika uppgifterna för bygg-pipelinen.  
+    Versionen utför olika uppgifter som att hämta källor från Git-lagringsplatsen, återställa beroenden och publicera utdata för distributioner.
 
-1. Välj **bygg-pipelinens namn** längst upp i bygg-pipelinen.
+1. Välj bygg-pipelinens namn längst upp i bygg-pipelinen.
 
-1. Ändra **namnet** på din bygg-pipeline till något mer beskrivande.  Välj **Save & queue** (Spara och köa) och välj sedan **Spara**.
+1. Ändra på din bygg-pipeline till något mer beskrivande, välj **Spara och köa** och sedan **Spara**.
 
-1. Under ditt bygg-pipelinenamn väljer du **Historik**.  Du kan se en spårningslogg över de senaste ändringarna för versionen.  Azure DevOps Services spårar alla ändringar som görs av bygg-pipelinen, vilket innebär att du kan jämföra versioner.
+1. Under ditt bygg-pipelinenamn väljer du **Historik**.  
+    Du kan se en spårningslogg över de senaste ändringarna för versionen. Azure DevOps spårar alla ändringar som görs av bygg-pipelinen, vilket innebär att du kan jämföra versioner.
 
-1. Välj **Utlösare**.  Azure DevOps-projektet skapade automatiskt en CI-utlösare, och varje incheckning till lagringsplatsen startar en ny version.  Du kan välja att inkludera eller exkludera grenar från CI-processen.
+1. Välj **Utlösare**.  
+    Azure DevOps Projects skapar automatiskt en CI-utlösare, och varje incheckning till lagringsplatsen startar en ny version. Du kan välja att inkludera eller exkludera grenar från CI-processen.
 
-1. Välj **Kvarhållning**.  Baserat på ditt scenario kan du ange principer för att behålla eller ta bort ett visst antal versioner.
+1. Välj **Kvarhållning**.  
+        Beroende på ditt scenario kan du ange principer för att behålla eller ta bort ett visst antal versioner.
 
-1. Välj **Build and Release** (Build-versioner och versioner) och sedan **Versioner**.  Azure DevOps-projektet skapade en Azure DevOps Services-versionspipeline för att hantera distributioner till Azure.
+1. Välj **Build and Release** (Byggen och versioner) och sedan **Versioner**.  
+    Azure DevOps Projects skapar en versionspipeline för att hantera distributioner till Azure.
 
-1. På vänster sida i webbläsaren väljer du **ellipsen** bredvid din versionspipeline och sedan väljer du **Redigera**.
+1. Välj ellipsen (...) intill din versionspipeline och välj sedan **Redigera**.  
+    Versionspipelinen innehåller en *pipeline* som definierar släpprocessen. 
+    
+1. Under **Artefakter** väljer du **Släpp**.  
+    Den bygg-pipeline som du undersökte i de föregående stegen skapar de utdata som används för artefakten. 
 
-1. Versionspipelinen innehåller en **pipeline** som definierar släpprocessen.  Under **Artefakter** väljer du **Släpp**.  Den bygg-pipeline du undersökte i de föregående stegen skapar de utdata som används för artefakten. 
+1. Intill ikonen **Släpp** väljer du **Utlösare av kontinuerlig distribution**.  
+    Den här versionspipelinen har en aktiverad CD-utlösare som kör en distribution varje gång en ny versionsartefakt är tillgänglig. Du kan även inaktivera utlösaren så att dina distributioner kräver manuell körning. 
 
-1. På höger sida av ikonen **Släpp** väljer du **Utlösare av kontinuerlig distribution**.  Den här versionspipelinen har en aktiverad CD-utlösare som kör en distribution varje gång en ny versionsartefakt är tillgänglig.  Du kan även inaktivera utlösaren så att dina distributioner kräver manuell körning. 
+1. Till vänster väljer du **Uppgifter**.  
+    Uppgifter är de aktiviteter som distributionsprocessen kör. I det här exemplet skapades en uppgift för att distribuera till Azure App-tjänsten.
 
-1. På vänster sida i webbläsaren väljer du **Uppgifter**.  Uppgifter är de aktiviteter som distributionsprocessen utför.  I det här exemplet skapades en uppgift för att distribuera till **Azure App-tjänsten**.
+1. Till höger väljer du **Visa versioner** för att visa en historik över versioner.
 
-1. Till höger i webbläsaren väljer du **Visa versioner**.  Den här vyn visar en historik över versioner.
+1. Välj ellipsen (...) intill en version och välj sedan **Öppna**.  
+    Det finns flera menyer att utforska, till exempel en versionssammanfattning, tillhörande arbetsobjekt och tester.
 
-1. Välj **ellipsen** bredvid en versionerna och välj **Öppna**.  Det finns flera menyer att utforska från den här vyn, till exempel en versionssammanfattning, tillhörande arbetsobjekt och tester.
+1. Välj **Incheckningar**.  
+    Den här vyn visar kodincheckningar som är associerade med den här distributionen. 
 
-1. Välj **Incheckningar**.  Den här vyn visar kodincheckningar som är associerade med den specifika distributionen. 
-
-1. Välj **Loggar**.  Loggarna innehåller användbar information om distributionsprocessen.  De kan visas både under och efter distributionerna.
+1. Välj **Loggar**.  
+    Loggarna innehåller användbar information om distributionsprocessen. Du kan visa dem både under och efter distributionerna.
 
 ## <a name="configure-azure-application-insights-monitoring"></a>Konfigurera övervakning med Azure Application Insights
 
-Med Azure Application Insights kan du enkelt övervaka ett programs prestanda och användning.  Azure DevOps-projektet konfigurerade automatiskt en Application Insights-resurs för ditt program.  Du kan konfigurera ytterligare aviseringar och övervakningsfunktioner efter behov.
+Med Azure Application Insights kan du enkelt övervaka ett programs prestanda och användning. Azure DevOps Projects konfigurerar automatiskt en Application Insights-resurs för ditt program. Du kan konfigurera ytterligare aviseringar och övervakningsfunktioner efter behov.
 
-1. I Microsoft Azure-portalen navigerar du till instrumentpanelen för **Azure DevOps-projektet**.  Längst ned till höger på instrumentpanelen väljer du länken **Application Insights** för din app.
+1. Gå till DevOps Projects-instrumentpanelen i Azure-portalen. 
 
-1. Bladet **Application Insights** öppnas på Microsoft Azure-portalen.  Den här vyn innehåller övervakningsinformation om användning, prestanda och tillgänglighet för din app.
+1. Nere till höger väljer du **Application Insights**-länken för din app.  
+    Fönsterrutan **Application Insights** öppnas. Den här vyn innehåller övervakningsinformation om användning, prestanda och tillgänglighet för din app.
 
-    ![Application Insights](_img/azure-devops-project-github/appinsights.png) 
+    ![Fönsterrutan Application Insights](_img/azure-devops-project-github/appinsights.png) 
 
-1. Välj **Tidsintervall** och sedan **Senaste timmen**.  Välj **Uppdatera** för att filtrera resultaten.  Nu ser du alla aktiviteter från de senaste 60 minuterna.  Välj **x** för att avsluta inställningen av tidsintervall.
+1. Välj **Tidsintervall** och sedan **Senaste timmen**. Välj **Uppdatera** för att filtrera resultaten.  
+    Nu kan du se all aktivitet från de senaste 60 minuterna. Om du vill avsluta tidsintervallet väljer du **x**.
 
-1. Välj **Aviseringar** och sedan **+ Lägg till metrisk varning**.  
+1. Välj **Aviseringar** och sedan **Lägg till metrisk varning**. 
 
-1. Ange ett **namn** för aviseringen.
+1. Ange ett namn för aviseringen.
 
-1. Välj listrutan för **Source Alter on** (Ändring av källa: På).  Välj din **App Service-resurs.**
-<!-- Could you please confirm if this should be "Source Alter on" instead of "Source Alert on"? -->
-1. Standardaviseringen är för en **serversvarstid som är större än 1 sekund**.  Välj listrutan **Statistik** för att undersöka statistik om aviseringar.  Du kan enkelt konfigurera en mängd olika aviseringar för att förbättra övervakningsfunktionerna i din app.
+1. I listrutan **Source Alter on** (Ändring av källa: På) väljer du din **App Service-resurs.** <!-- Please confirm whether this should be "Source Alter on" or "Source Alert on" -->
 
-1. Välj kryssrutan för att **meddela e-postägare, deltagare och läsare**.  Alternativt kan du utföra ytterligare åtgärder när en avisering utlöses genom att köra Azure-logikapp.
+1. I listrutan **Mått** undersöker du de olika måtten för aviseringar.  
+    Standardaviseringen är för en **serversvarstid som är större än 1 sekund**. Du kan enkelt konfigurera en mängd olika aviseringar för att förbättra övervakningsfunktionerna i din app.
 
-1. Välj **OK** för att skapa aviseringen.  Efter en liten stund visas aviseringen som aktiv på instrumentpanelen.  **Avsluta** området för aviseringar och gå tillbaka till **Application Insights-bladet**.
+1. Välj kryssrutan **Meddela via e-postägare, deltagare och läsare**.  
+    Alternativt kan du utföra ytterligare åtgärder när en avisering visas genom att köra Azure-logikapp.
 
-1. Välj **Tillgänglighet**och sedan **+ Lägg till test**. 
+1. Skapa aviseringen genom att välja **OK**.  
+    Efter en liten stund visas aviseringen som aktiv på instrumentpanelen.
+    
+1. Avsluta området **Aviseringar** och gå tillbaka till fönsterrutan **Application Insights**.
 
-1. Ange ett **Testnamn** och välj sedan **Skapa**.  Ett enkelt pingtest skapas för att kontrollera tillgängligheten för ditt program.  Testresultaten blir tillgängliga efter några minuter och Application Insights-instrumentpanelen visar en tillgänglighetsstatus.
+1. Välj **Tillgänglighet** och sedan **Lägg till test**. 
+
+1. Ange ett testnamn och välj sedan **Skapa**.  
+    Ett enkelt pingtest skapas för att kontrollera tillgängligheten för ditt program. Testresultaten blir tillgängliga efter några minuter och Application Insights-instrumentpanelen visar en tillgänglighetsstatus.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När de inte längre behövs kan du ta bort Azure App-tjänsten och relaterade resurser som skapats i den här snabbstarten med hjälp av funktionen **Ta bort** på instrumentpanelen för Azure DevOps-projektet.
+När de inte längre behövs kan du ta bort Azure App-databasen och relaterade resurser som du skapade i den här självstudien. Det gör du med funktionen **Ta bort** på DevOps Projects-instrumentpanelen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du konfigurerade CI/CD-processen i den här självstudien, skapades automatiskt en bygg- och versionspipeline i Azure DevOps-projektet. Du kan ändra dessa bygg- och versionspipelines för att tillgodose ditt teams behov. Du har lärt dig att:
+När du konfigurerade CI/CD-processen i den här självstudien skapades en bygg- och versionspipeline automatiskt i Azure DevOps Projects. Du kan ändra dessa bygg- och versionspipelines för att tillgodose ditt teams behov. Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Skapa ett Azure DevOps-projekt
-> * Konfigurera åtkomst till din GitHub-lagringsplats och välj ett ramverk
-> * Konfigurera Azure DevOps Services och en Azure-prenumeration 
-> * Genomför ändringar i GitHub och distribuera automatiskt till Azure
-> * Granska CI/CD-pipelinen för Azure DevOps Services
+> * Använda DevOps Projects för att skapa en CI/CD-pipeline
+> * Konfigurera åtkomst till din GitHub-lagringsplats och välja ett ramverk
+> * Konfigurera Azure DevOps och en Azure-prenumeration 
+> * Genomföra ändringar i GitHub och automatiskt distribuera dem till Azure
+> * Granska Azure Pipelines-CI/CD-pipelinen
 > * Konfigurera övervakning med Azure Application Insights
+> * Rensa resurser
 
-Mer information om CI/CD-pipelinen för Azure DevOps Services finns i den här självstudien:
+Mer information om CI/CD-pipelinen finns i:
 
 > [!div class="nextstepaction"]
-> [Anpassa CD-process](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Definiera din CD-pipeline med flera steg](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

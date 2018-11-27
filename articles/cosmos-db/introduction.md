@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 12e3cf028b4812abd43dd2b6f23190fa6b75157a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 717a0234f0155229597c6fc4fe70a7868a536975
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242298"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160741"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Välkommen till Azure Cosmos DB
 
@@ -50,7 +50,7 @@ Som en globalt distribuerad databastjänst med fler modeller gör Azure Cosmos D
 
 * **Bygg högdynamiska och verksamhetskritiska program**
     * Azure Cosmos DB garanterar sina kunder svarstider från slutpunkt till slutpunkt som ligger inom den 99:e percentilen. 
-    * För ett typiskt 1 kB-objekt garanterar Cosmos DB en svarstid på läsningar från slutpunkt till slutpunkt på under 10 ms och indexerade skrivningar under 15 ms i den 99:e percentilen, inom samma Azure-region. Median-svarstiderna är betydligt lägre (under 5 ms).
+    * För ett typiskt 1 kB-objekt garanterar Cosmos DB en svarstid på läsningar från slutpunkt till slutpunkt på under 10 ms och indexerade skrivningar under 10 ms i den 99:e percentilen, inom samma Azure-region. Median-svarstiderna är betydligt lägre (under 5 ms).
 
 * **Se till att tillgängligheten alltid är så hög som möjligt**
     * Serviceavtal med 99,99 % tillgänglighet för alla databaskonton i en region och 99,999 % läsningstillgänglighet för alla databaskonton med tillgång till flera regioner.
@@ -79,9 +79,9 @@ Azure Cosmos DB erbjuder de bästa funktionerna för traditionella relations- oc
 | --- | --- | --- | --- |
 | Global distribution | Nej | Nej | Ja, nyckelfärdig distribution i fler än 30 områden, med flera API: er|
 | Horisontell skalning | Nej | Ja | Ja, oberoende skalning av lagring och dataflöde är möjligt | 
-| Svarstidsgarantier | Nej | Ja | Ja, 99 % läsningar på < 10 ms och skrivningar på < 15 ms | 
+| Svarstidsgarantier | Nej | Ja | Ja, 99 % läsningar på < 10 ms och skrivningar på < 10 ms | 
 | Hög tillgänglighet | Nej | Ja | Ja, Azure Cosmos DB är alltid aktiverat, har väldefinierade PACELC-kompromisser och erbjuder alternativ för automatisk och manuell redundans vid fel|
-| Datamodell + API | Relations + SQL | Multi-modell + OSS API | Multi-modell + SQL + OSS API (mer kommer snart) |
+| Datamodell + API | Relations + SQL | Multi-modell + OSS API | Multi-modell + SQL + OSS API |
 | Serviceavtal | Ja | Nej | Ja, omfattande serviceavtal för svarstider, dataflöde, konsekvens och tillgänglighet |
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Lösningar som har nytta av Azure Cosmos DB

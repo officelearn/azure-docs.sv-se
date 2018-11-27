@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: overview
 ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: c54f5c5fba31933a6dd9f98d1ecfb6d03a3ad9be
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 28f80dc71afd7d4865763561682ce54de1b118ab
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003755"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852205"
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Välj mellan Azure-tjänster som levererar meddelanden
 
@@ -54,6 +54,8 @@ Ett meddelande är rådata som genereras av en tjänst och som ska förbrukas el
 Event Grid är en händelsebakplan som möjliggör händelsedriven och reaktiv programmering. Den använder en publicera/prenumerera-modell. Utgivarna genererar händelser, men har ingen förväntan på vilka händelser som hanteras. Prenumeranterna bestämmer vilka händelser de vill hantera.
 
 Event Grid är djupt integrerat med Azures tjänster och kan även integreras med tjänster från tredje part. Det förenklar händelsekonsumtionen och sänker kostnaderna genom att eliminera behovet av konstant avsökning. Event Grid dirigerar effektivt och tillförlitligt händelser från resurser, oavsett om de kommer från Azure eller ej. Det distribuerar händelserna till registrerade prenumerantslutpunkter. Händelsemeddelandet innehåller den information du behöver för att kunna reagera på ändringar i tjänster och program. Event Grid är inte en datapipeline och levererar inte själva objektet som uppdaterades.
+
+Event Grid stöder obeställbara meddelanden för händelser som inte levereras till en slutpunkt.
 
 Den har följande egenskaper:
 

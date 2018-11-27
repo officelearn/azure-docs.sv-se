@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: quickstart
-ms.openlocfilehash: 949fb2487c3ca519c1d7022c1434d0a029ed20bb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: cb713ac53b399d8ba79d003ee6d948bb5af5220b
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626584"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975780"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Snabbstart: Skapa, distribuera och använda en anpassad modell för översättning
 
@@ -26,7 +26,7 @@ Den här artikeln innehåller stegvisa instruktioner för att skapa ett översä
 
 2. En prenumeration på Translator Text API via Azure-portalen. Du behöver prenumerationsnyckeln för Translator Text API för att associera med din arbetsyta i Custom Translator. Se [hur du registrerar dig för Translator Text API](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
 
-3. När du har båda av ovanstående kan du logga in på [Custom Translator](https://portal.customtranslator.azure.ai)-portalen. När du är i Custom Translator-portalen går du till sidan Inställningar där du kan koppla din Microsoft Translator Text API-prenumerationsnyckel till din arbetsyta. 
+3. När du har båda av ovanstående kan du logga in på [Custom Translator](https://portal.customtranslator.azure.ai)-portalen. När du är i Custom Translator-portalen går du till sidan Inställningar där du kan koppla din Microsoft Translator Text API-prenumerationsnyckel till din arbetsyta.
 
 ## <a name="create-a-project"></a>Skapa ett projekt
 

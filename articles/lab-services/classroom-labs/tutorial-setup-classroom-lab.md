@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/05/2018
+ms.date: 11/14/2018
 ms.author: spelluru
-ms.openlocfilehash: 6696d6e7e53e98dfab2a65c7c66825936020f33c
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: babff55d6684feb1f0414970616260be96b994f4
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856649"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706015"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Självstudie: Konfigurera ett klassrumslabb 
 I självstudien konfigurerar du ett klassrumslabb med virtuella datorer som används av eleverna i klassrummet.  
@@ -81,7 +81,7 @@ Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i
 
         > [!WARNING]
         > När du väl har publicerat kan du inte ångra publiceringen. 
-    2. Om du vill publicera senare väljer **Spara till senare**. Du kan publicera mallen för den virtuella datorn när guiden har slutförts. Mer information om hur du konfigurerar och publicerar när guiden slutförts finns i avsnittet [Publicera mallen](how-to-manage-classroom-labs.md#publish-the-template) i artikeln om att [hantera klassrumslabb](how-to-manage-classroom-labs.md).
+    2. Om du vill publicera senare väljer **Spara till senare**. Du kan publicera mallen för den virtuella datorn när guiden har slutförts. Mer information om hur du konfigurerar och publicerar när guiden slutförts finns i avsnittet [Publicera mallen](how-to-create-manage-template.md#publish-the-template-vm) i artikeln om att [hantera klassrumslabb](how-to-manage-classroom-labs.md).
 
         ![Publicera mall](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. Du ser **förloppet för publiceringen**  av mallen. Den här processen kan ta upp till en timma. 
@@ -97,17 +97,33 @@ Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i
 
     ![Virtuella datorer i stoppat tillstånd](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
+## <a name="add-users-to-the-lab"></a>Lägga till användare i labbet
+
+1. Välj **Användare** på den vänstra menyn. Som standard är alternativet **Begränsa åtkomst** aktiverat. När den här inställningen är aktiverad kan inte användaren registrera med labbet även om användaren har registreringslänken, såvida inte användaren finns i listan över användare. Endast användare i listan kan registreras med labbet genom att använda registreringslänken som du skickar. I den här proceduren ska du lägga till användare i listan. Du kan också stänga av **Begränsa åtkomst**, vilket gör att användare registrerar sig med labbet så länge de har registreringslänken. 
+2. Välj **Lägg till användare** i verktygsfältet. 
+3. På sidan **Lägg till användare** anger du e-postadresser för användare i separata rader eller på en enda rad, avgränsade med semikolon. 
+
+    ![Lägga till e-postadress till användare](../media/how-to-configure-student-usage/add-users-email-addresses.png)
+4. Välj **Spara**. Du ser användarnas e-postadresser och deras status (registrerad eller inte) i listan. 
+
+    ![Användarlista](../media/how-to-configure-student-usage/users-list-new.png)
+
+
 ## <a name="send-registration-link-to-students"></a>Skicka en registreringslänk till eleverna
 
-1. Växla till vyn med **instrumentpanelen** genom att välja **Instrumentpanel** på den vänstra menyn. 
-2. Välj panelen **Användarregistrering**.
+1. Växla till **användarvyn** om du inte är på sidan redan. 
+2. Välj panelen **Hämta registreringslänk**.
 
     ![Länk för elevregistrering](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
-1. I dialogrutan **Användarregistrering** väljer du knappen **Kopiera**. Länken kopieras till Urklipp. Klistra in den i ett e-postredigeringsprogram och skicka ett e-postmeddelande till eleven. 
+1. I dialogrutan **Användarregistrering** väljer du knappen **Kopiera**. Länken kopieras till Urklipp. 
 
     ![Länk för elevregistrering](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. I dialogrutan **Användarregistrering** väljer du **Stäng**. 
-3. Dela registreringslänken med en student så att studenten kan registrera sig för klassen. 
+4. Dela registreringslänken med en student så att studenten kan registrera sig för klassen. Om du har inställningen **Begränsa alternativ** aktiverad och har en lista över användare i listan gör du följande:
+    1. Välj **e-postadressen** för användaren i listan. 
+    2. Du ser ett fönster från ditt standard-e-postprogram med **TILL**-adressen ifylld. 
+    3. Klistra in den **registreringswebbadress** du kopierade tidigare. 
+    4. Skicka **e-postmeddelandet**.
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/23/2018
 ms.author: pareshmu
-ms.openlocfilehash: 14529ede47d69e30102a74a0f5ed84573ea108f9
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 817dd1ec5cd047035099fb88d998f79cd8c39078
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025216"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276065"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -40,18 +40,19 @@ Du har åtkomst till Azure-tjänster i alla regioner inom en geopolitisk region,
 ### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Azure-regioner till ExpressRoute-platser inom en geopolitisk region.
 Följande tabell innehåller en karta över Azures regioner till ExpressRoute-platser inom en geopolitisk region.
 
-| **Geopolitisk region** | **Azure-regioner** | **ExpressRoute-platser** |
-| --- | --- | --- |
-| **Nordamerika** |USA, östra; USA, västra; USA, östra 2; USA, västra 2; USA, centrala; USA, södra centrala; USA, norra centrala; USA västra centrala; Kanada, centrala; Kanada, östra |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City, Toronto |
-| **Sydamerika** |Södra Brasilien |Sao Paulo |
-| **Europa** |Frankrike, centrala; Frankrike, södra; Europa, norra; Europa, västra; Storbritannien, västra; Storbritannien, södra |Amsterdam, Amsterdam2, Dublin, London, Marseille, Newport (Wales), Paris |
-| **Asien** |Östra Asien, Sydostasien |Hongkong SAR, Kuala Lumpur, Singapore, Singapore2 |
-| **Japan** |Västra Japan, östra Japan |Osaka, Tokyo |
-| **Australien** |Sydöstra Australien, östra Australien |Melbourne, Sydney |
-| **Australiensiska myndigheter** | Centrala Australien, Centrala Australien 2 |Canberra, Canberra2 | 
-| **Indien** |Västra Indien, centrala Indien, södra Indien |Chennai, Chennai2, Mumbai, Mumbai2 |
-| **Sydkorea** |Sydkorea, centrala; Sydkorea, södra |Busan, Söul |
-| **Sydafrika** |[Sydafrika, västra+, Sydafrika, norra+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |Kapstaden, Johannesburg |
+| **Geopolitisk region** | **Zon** | **Azure-regioner** | **ExpressRoute-platser** |
+| --- | --- | --- | --- |
+| **Australiensiska myndigheter** |Zon 1 | Centrala Australien, Centrala Australien 2 |Canberra, Canberra2 |
+| **Europa** |Zon 1 |Frankrike, centrala; Frankrike, södra; Europa, norra; Europa, västra; Storbritannien, västra; Storbritannien, södra |Amsterdam, Amsterdam2, Dublin, London, Marseille, Newport (Wales), Paris |
+| **Nordamerika** |Zon 1 |USA, östra; USA, västra; USA, östra 2; USA, västra 2; USA, centrala; USA, södra centrala; USA, norra centrala; USA västra centrala; Kanada, centrala; Kanada, östra |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City, Toronto |
+| **Asien** |Zon 2 |Östra Asien, Sydostasien |Hongkong SAR, Kuala Lumpur, Singapore, Singapore2 |
+| **Australien** |Zon 2 |Sydöstra Australien, östra Australien |Melbourne, Sydney | 
+| **Indien** |Zon 2 |Västra Indien, centrala Indien, södra Indien |Chennai, Chennai2, Mumbai, Mumbai2 |
+| **Japan** |Zon 2 |Västra Japan, östra Japan |Osaka, Tokyo |
+| **Sydkorea** |Zon 2 |Sydkorea, centrala; Sydkorea, södra |Busan, Söul|
+| **Sydafrika** |Zon 3 |[Sydafrika, västra+, Sydafrika, norra+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |Kapstaden, Johannesburg |
+| **Sydamerika** |Zon 3 |Södra Brasilien |Sao Paulo |
+
 
  **+** kommer snart
 

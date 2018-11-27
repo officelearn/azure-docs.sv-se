@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 08/28/2018
 ms.author: alkohli
-ms.openlocfilehash: b98653ea0896e617a666147d243f24cb55483a28
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f4ea5e282e9b915cffeac7daff07f5934be1a424
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091700"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974997"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk-preview"></a>Administrera din Data Box Disk (förhandsversion) på Azure-portalen
 
@@ -129,7 +129,7 @@ Följ stegen nedan om du vill redigera meddelandeinformationen.
 |Bearbetad     | Orderbearbetningen har slutförts. <br> Under orderbearbetningen utförs följande åtgärder:<li>Diskarna krypteras med AES-128 BitLocker-kryptering. </li> <li>Data Box-diskarna låses för att förhindra obehörig åtkomst.</li><li>Nyckeln som låser upp diskarna genereras under den här processen.</li>        |
 |Skickat     | Beställningen har skickats. Du bör få beställningen inom en till två dagar.        |
 |Levererade     | Beställningen har levererats till adressen som angetts i ordern.        |
-|Hämtat     |Ditt returpaket har hämtats. <br> När leveransen har tagits emot på Azures datacenter överförs data automatiskt till Azure.         |
+|Hämtat     |Ditt returpaket har hämtats. <br> När leveransen har tagits emot på Azure-datacentret laddas data automatiskt upp till Azure.         |
 |Mottaget     | Dina diskar har tagits emot på Azures datacenter. Datakopieringen startar inom kort.        |
 |Kopierade data     |Data kopieras.<br> Vänta tills datakopieringen är klar.         |
 |Slutfört       |Ordern har slutförts.<br> Kontrollera att dina data finns i Azure innan du tar bort lokala data från servrarna.         |

@@ -15,7 +15,7 @@ ms.component: hybrid
 ms.author: billmath
 ms.openlocfilehash: f830a27e9caf032443c2b27bdd2f95fa8069bcf2
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51247287"

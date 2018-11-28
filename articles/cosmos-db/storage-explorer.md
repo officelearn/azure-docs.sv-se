@@ -15,7 +15,7 @@ ms.date: 03/20/2018
 ms.author: jejiang
 ms.openlocfilehash: 1e18db960b9e07ae412d0c41c4544ef6bb35977c
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51261168"

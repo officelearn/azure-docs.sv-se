@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/27/2018
 ms.author: victorh
-ms.openlocfilehash: 781365e32ce5602e9fb99b620e068ddf68de8c44
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: d69bd055c95592961216f5da1efaedc4a642fd63
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854177"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316407"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Självstudie: Distribuera och konfigurera Azure Firewall i ett hybridnätverk med hjälp av Azure PowerShell
 
@@ -309,9 +309,6 @@ Därefter skapar du några vägar:
 
 - En väg från hubbgateway-undernätet till ekerundernätet via brandväggens IP-adress
 - En standardväg från ekerundernätet via brandväggens IP-adress
-
-> [!NOTE]
-> Azure Firewall lär sig dina lokala nätverk med hjälp av BGP. Detta kan innefatta en standardväg, som dirigerar Internettrafik tillbaka genom ditt lokala nätverk. I en produktionsdistribution vill du kanske att Internettrafik skickas direkt från brandväggen till Internet. Du kan lägga till en användardefinierad standardväg (0.0.0.0/0) på AzureFirewallSubnet med nästa hopptyp **Internet**. Den trafik som är avsedd för ditt lokala nätverk tvingas fortfarande att överföras via VPN/ExpressRoute-gatewayen med hjälp av de mer specifika vägar som lärts in från BGP.
 
 ```azurepowershell
 #Create a route table

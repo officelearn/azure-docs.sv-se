@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 82d7e5ab57d9cf12c6917386282182faacb07725
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5e8345deb629d293d9673819893181e652d5dbb9
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282398"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423426"
 ---
 # <a name="tutorial-3-extract-well-formatted-data"></a>Självstudie 3: Extrahera välformade data
 I den här självstudien ska du ändra Human Resources-appen så att den extraherar data med ett enhetligt format från yttranden med entiteten **Regular Expression**.
@@ -48,7 +48,7 @@ Ett reguljärt uttryck passar bra för den här typen av data i följande fall:
 > * Publicera
 > * Hämta avsikter och entiteter från en slutpunkt
 
-[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Använda en befintlig app
 Fortsätt med appen du skapade i föregående självstudie med namnet **HumanResources**. 
@@ -63,7 +63,7 @@ Om du inte har appen HumanResources från föregående självstudie gör du så 
 
 ## <a name="findform-intent"></a>Avsikten FindForm
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Välj **Create new intent** (Skapa ny avsikt). 
 
@@ -90,7 +90,7 @@ Om du inte har appen HumanResources från föregående självstudie gör du så 
 
     Programmet har en fördefinierad nummerentitet som lagts till från den föregående självstudien. Därför är varje formulärnummer taggat. Det här kan vara tillräckligt för klientprogrammet, men numret kommer inte att märkas med den typen av nummer. Om en ny entitet med ett lämpligt namn skapas kan klientprogrammet bearbeta entiteten på rätt sätt när den returneras från LUIS.
 
-    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="regular-expression-entity"></a>Entitet för reguljära uttryck 
 Entiteten för reguljära uttryck för att matcha formulärnumret är `hrf-[0-9]{6}`. Den här reguljära uttrycket matchar de exakta tecknen `hrf-` men ignorerar konjugationer och kulturella varianter. Det matchar siffrorna 0–9 för exakt 6 siffror.

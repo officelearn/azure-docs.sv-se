@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4da20ffebb9943787fa487336dbd2ba22fdcf875
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: fb1ef9c2bb448d74d447e647f6dc8122cda6e1f7
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458181"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445770"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Snabbstart: Distribuera ett Azure Kubernetes Service-kluster (AKS)
 
@@ -100,7 +100,7 @@ aks-agentpool-14693408-0   Ready     agent     10m       v1.11.2
 Kubernetes-manifestfiler definierar ett önskat tillstånd för ett kluster, till exempel vilka containeravbildningar som ska köras. I den här snabbstarten används ett manifest för att skapa alla de objekt som behövs för att köra ett Azure Vote-exempelprogram. De här objekten innefattar två [Kubernetes-distributioner][kubernetes-deployment] – en för Azure Vote-klientdelen och den andra för en Redis-instans. Dessutom skapas två [Kubernetes-tjänster][kubernetes-service] – en intern tjänst för Redis-instansen och en extern tjänst för att komma åt Azure Vote-programmet från Internet.
 
 > [!TIP]
-> I den här snabbstarten skapar och distribuerar du manuellt programmanifest till AKS-kluster. I verkliga scenarier kan du använda [Azure Dev Spaces][azure-dev-spaces] för att snabbt iterera och felsöka koden direkt i AKS-klustret. Du kan använda Dev Spaces på olika OS-plattformar och i olika utvecklingsmiljöer, och arbeta tillsammans med andra i ditt team.
+> I den här snabbstarten skapar och distribuerar du manuellt applikationsmanifest till AKS-klustret. I verkliga scenarier kan du använda [Azure Dev Spaces][azure-dev-spaces] för att snabbt iterera och felsöka koden direkt i AKS-klustret. Du kan använda Dev Spaces på olika OS-plattformar och i olika utvecklingsmiljöer samt arbeta tillsammans med andra i ditt team.
 
 Skapa en fil med namnet `azure-vote.yaml` och kopiera följande YAML-kod till den. Om du arbetar i Azure Cloud Shell kan du skapa filen med `vi` eller `Nano` som i ett virtuellt eller fysiskt system.
 
@@ -188,7 +188,7 @@ spec:
 Använd kommandot [kubectl apply][kubectl-apply] för att köra programmet.
 
 ```azurecli-interactive
-kubectl create -f azure-vote.yaml
+kubectl apply -f azure-vote.yaml
 ```
 
 Följande exempelutdata visar Kubernetes-resurser som skapas på AKS-klustret:

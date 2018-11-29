@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d2400c09a7d18faccc94464158419c81962d4a86
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8fbe856826770eb38cd4a6d921c1b0f4eacf9c2a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282160"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426969"
 ---
 # <a name="tutorial-1-fix-unsure-predictions"></a>Självstudie 1: Åtgärda osäkra förutsägelser
 I den här självstudien kommer vi att förbättra förutsägelserna i dina appar genom att verifiera eller korrigera yttranden som tas emot via HTTP-slutpunkten för LUIS och som LUIS inte kan fastställa säkert. I vissa yttranden kan avsikten behöva verifieras och i vissa kan du behöva verifiera entiteter. Du bör granska yttranden vid slutpunkter inom ramen för det schemalagda underhållet av LUIS. 
@@ -61,7 +61,7 @@ Om du inte har appen HumanResources från föregående självstudie gör du så 
 
 ## <a name="review-endpoint-utterances"></a>Granska slutpunktsyttranden
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Välj **Granska slutpunktsyttranden** i det vänstra navigeringsfönstret. Listan filtreras efter avsikten **ApplyForJob**. 
 

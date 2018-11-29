@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 983b966ad304afb467df26193dd609f6f21a1b32
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8738ac52eeaf1f27df5f9cc21ffb0c683a912195
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614285"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427037"
 ---
 # <a name="what-is-azure-network-watcher"></a>Vad är Azure Network Watcher?
 
@@ -37,7 +37,7 @@ Om en slutpunkt inte kan nås, informerar anslutningens felsökning dig om orsak
 
 Anslutningsövervakaren visar också den minsta, genomsnittliga och högsta svarstid som observerats över tid. När du har sett vilken svarstid en anslutning har, kan du kanske minska svarstiden genom att flytta Azure-resurserna till olika Azure-regioner. Läs mer om hur du avgör [relativa svarstider mellan Azure-regioner och Internetleverantörer](#determine-relative-latencies-between-azure-regions-and-internet-service-providers), samt hur du övervakar kommunikationen mellan en virtuell dator och en slutpunkt med [anslutningsövervakaren](connection-monitor.md). Om du hellre vill testa en anslutning vid en specifik tidpunkt, i stället för att övervaka anslutningen över tid som du gör med anslutningsövervakaren, använder du [anslutningsfelsökning](#connection-troubleshoot).
 
-Övervakaren för nätverksprestanda är en molnbaserad lösning för övervakning av hybridnätverk som hjälper dig att övervaka nätverkets prestanda mellan olika punkter i din nätverksinfrastruktur. Du kan också övervaka nätverksanslutningar till tjänsten och programslutpunkterna samt övervaka prestanda för Azure ExpressRoute. Övervakaren för nätverksprestanda identifierar nätverksproblem som blockering av svartlistad trafik, routningsfel och problem som inte kan identifieras med vanliga nätverksövervakningsmetoder. Lösningen genererar aviseringar och meddelar dig när ett tröskelvärde överskrids för en nätverkslänk. Detta säkerställer att problem med nätverksprestanda upptäcks i god tid och att källan till problemet kan ringas in till ett visst nätverkssegment eller enhet. Läs mer om [övervakaren av nätverksprestanda](../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+Övervakaren för nätverksprestanda är en molnbaserad lösning för övervakning av hybridnätverk som hjälper dig att övervaka nätverkets prestanda mellan olika punkter i din nätverksinfrastruktur. Du kan också övervaka nätverksanslutningar till tjänsten och programslutpunkterna samt övervaka prestanda för Azure ExpressRoute. Övervakaren för nätverksprestanda identifierar nätverksproblem som blockering av svartlistad trafik, routningsfel och problem som inte kan identifieras med vanliga nätverksövervakningsmetoder. Lösningen genererar aviseringar och meddelar dig när ett tröskelvärde överskrids för en nätverkslänk. Detta säkerställer att problem med nätverksprestanda upptäcks i god tid och att källan till problemet kan ringas in till ett visst nätverkssegment eller enhet. Läs mer om [övervakaren av nätverksprestanda](../azure-monitor/insights/network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ### <a name="view-resources-in-a-virtual-network-and-their-relationships"></a>Visa resurser i ett virtuellt nätverk och deras relationer
 
@@ -97,7 +97,7 @@ Lär mer om NSG flödet loggarna genom att slutföra kursen [Logga nätverkstraf
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>Visa diagnostikloggar för nätverksresurser
 
-Du kan aktivera diagnostisk loggning för Azures nätverksresurser, till exempel nätverkssäkerhetsgrupper, offentliga IP-adresser, lastbalanserare, gatewayer för virtuella nätverk och programgatewayer. Funktionen *Diagnostikloggar* innehåller ett enda gränssnitt som aktiverar och inaktiverar nätverksresursens diagnostikloggar för alla befintliga nätverksresurser som genererar en diagnostiklogg. Du kan visa diagnostikloggar med hjälp av verktyg som Microsoft Power BI och Azure Log Analytics. Mer information om att analysera diagnostikloggar för Azure-nätverk finns [Azures nätverkslösningar i Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+Du kan aktivera diagnostisk loggning för Azures nätverksresurser, till exempel nätverkssäkerhetsgrupper, offentliga IP-adresser, lastbalanserare, gatewayer för virtuella nätverk och programgatewayer. Funktionen *Diagnostikloggar* innehåller ett enda gränssnitt som aktiverar och inaktiverar nätverksresursens diagnostikloggar för alla befintliga nätverksresurser som genererar en diagnostiklogg. Du kan visa diagnostikloggar med hjälp av verktyg som Microsoft Power BI och Azure Log Analytics. Mer information om att analysera diagnostikloggar för Azure-nätverk finns [Azures nätverkslösningar i Log Analytics](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## <a name="network-watcher-automatic-enablement"></a>Automatisk aktivering av Network Watcher
 När du skapar eller uppdaterar ett virtuellt nätverk i din prenumeration aktiveras Network Watcher automatiskt i din virtuella nätverksregion. Dina resurser påverkas inte av den automatiska aktiveringen av Network Watcher, och inga kostnader tillkommer. Mer information finns i avsnittet om att [skapa Network Watcher](network-watcher-create.md).

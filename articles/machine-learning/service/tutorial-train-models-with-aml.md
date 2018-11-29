@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 11/21/2018
-ms.openlocfilehash: 067a8deb935fb8a49d72c6ce441e8d9760c5390c
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 53de4715a458c5713a31541da64a4a671bf8c132
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283663"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496212"
 ---
 # <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Självstudie #1: Träna en modell för avbildningsklassificering med Azure Machine Learning-tjänsten
 
@@ -40,7 +40,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="get-the-notebook"></a>Hämta anteckningsboken
 
-Denna självstudie finns tillgänglig som en [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb). Kör anteckningsboken `01.train-models.ipynb` antingen i Azure Notebooks eller i din egen Jupyter Notebook-server.
+Denna självstudie finns tillgänglig som en [Jupyter Notebook](https://aka.ms/aml-notebook-tut-01). Kör anteckningsboken `01.train-models.ipynb` antingen i Azure Notebooks eller i din egen Jupyter Notebook-server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 

@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: ad6b296543cffedb215c87b1fc893a22b29a3052
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 841448f477accb8a73d543447cd317bb9b427408
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427356"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497602"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Självstudie nr 2: Distribuera en bildklassificeringsmodell i Azure Container Instances (ACI)
 
@@ -35,7 +35,7 @@ ACI är inte idealiskt för produktionsdistributioner, men den fungerar bra vid 
 
 ## <a name="get-the-notebook"></a>Hämta anteckningsboken
 
-Denna självstudie finns tillgänglig som en [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/02.deploy-models.ipynb). Kör anteckningsboken `02.deploy-models.ipynb` antingen i Azure Notebooks eller i din egen Jupyter Notebook-server.
+Denna självstudie finns tillgänglig som en [Jupyter Notebook](https://aka.ms/aml-notebook-tut-02). Kör anteckningsboken `02.deploy-models.ipynb` antingen i Azure Notebooks eller i din egen Jupyter Notebook-server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 

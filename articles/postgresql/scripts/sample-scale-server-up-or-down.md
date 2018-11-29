@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.custom: mvc
 ms.topic: sample
 ms.date: 04/05/2018
-ms.openlocfilehash: 431a9f99c35a8dfe484c8ae542bfcc6e3d6a0b84
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2602165a6fb5aea85383d4e435479f0bf0f7e48c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949357"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582121"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Övervaka och skala en enskild PostgreSQL-server med Azure CLI
 Det här CLI-exempelskriptet skalar en enda Azure Database for PostgreSQL-servern till en annan prestandanivå när du har kört frågor mot måtten. 
@@ -27,7 +27,7 @@ Om du väljer att köra CLI lokalt måste du ha Azure CLI version 2.0 eller sena
 
 ## <a name="sample-script"></a>Exempelskript
 I det här exempelskriptet ändrar du de markerade raderna om du vill uppdatera administratörens användarnamn och lösenord till dina egna. Ersätt prenumerations-ID som används i `az monitor`-kommandon med ditt eget prenumerations-ID.
-[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/scale-postgresql-server/scale-postgresql-server.sh?highlight=18-19 "Create and scale Azure Database for PostgreSQL.")]
+[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/scale-postgresql-server/scale-postgresql-server.sh?highlight=15-16 "Create and scale Azure Database for PostgreSQL.")]
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 När skriptet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den. 

@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: sample
 ms.date: 02/28/2018
-ms.openlocfilehash: 58b8e4ee75a0dd676033f39afbd7a30efec80628
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4d14ca7ee70dc7d24f0fa95a2139d88231d36a7d
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962265"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580568"
 ---
 # <a name="create-an-azure-database-for-postgresql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Skapa en Azure Database for PostgreSQL-server och konfigurera en brandväggsregel med hjälp av Azure CLI
 Det här CLI-skriptexemplet skapar en Azure Database for PostgreSQL-server och konfigurerar en brandväggsregel på servernivå. När skriptet har körts utan problem kan PostgreSQL-servern nås från alla Azure-tjänster och den konfigurerade IP-adressen.
@@ -27,7 +27,7 @@ Om du väljer att köra CLI lokalt måste du ha Azure CLI version 2.0 eller sena
 
 ## <a name="sample-script"></a>Exempelskript
 I det här exempelskriptet ändrar du de markerade raderna om du vill uppdatera administratörens användarnamn och lösenord till dina egna.
-[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh?highlight=18-19 "Create an Azure Database for PostgreSQL, and server-level firewall rule.")]
+[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh?highlight=15-16 "Create an Azure Database for PostgreSQL, and server-level firewall rule.")]
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 När skriptet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den. 

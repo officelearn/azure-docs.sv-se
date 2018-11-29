@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 3903f247df0bc9dc4bc27d61b195492c585d7634
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: d3b8d0597f0732a4a3cfab79125a885b2d141c9f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282279"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424714"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>Självstudiekurs 5: Extrahera sammanhangsbaserade data
 I den här självstudien hittar du relaterade datadelar baserat på kontext. Till exempel är ett ursprung och målplatser för en fysisk flytt från en byggnad och ett kontor till en annan byggnad och ett annat kontor relaterade. För att generera en arbetsorder kan båda datadelarna krävas, och de är relaterade till varandra.  
@@ -57,7 +57,7 @@ Om du inte har appen HumanResources från föregående självstudie gör du så 
 ## <a name="remove-prebuilt-number-entity-from-app"></a>Ta bort fördefinierad nummerentitet från appen
 Om du vill se hela yttrandet och märka de underordnade delarna i hierarkin kan du ta bort den fördefinierade nummerentiteten tillfälligt.
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Välj **Entities** (Entiteter) på den vänstra menyn.
 
@@ -83,7 +83,7 @@ Om du vill se hela yttrandet och märka de underordnade delarna i hierarkin kan 
 
     I enlighet med självstudien om [listentitet](luis-quickstart-intent-and-list-entity.md) anges en medarbetare med namn, e-postadress, telefonanknytning, mobilnummer eller amerikanskt socialförsäkringsnummer. Dessa medarbetarnummer används i yttranden. Föregående exempelyttranden innehåller olika sätt att ange ursprungs- och målplatser, markerade i fetstil. I några av yttrandena ingår endast målplatser. Detta hjälper LUIS-appen att förstå hur dessa platser placeras i yttranden när ursprungsplats inte anges.     
 
-    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="create-a-location-entity"></a>Skapa en platsentitet
 LUIS-appen behöver förstå vad en plats är genom att märka ursprungs- och målplatser i yttranden. Om du behöver se ett yttrande i tokenvyn (obearbetad) väljer du växlingsknappen i fältet ovanför yttrandena som är märkta **Entities View** (Entitetsvy). När du byter läge är kontrollen märkt **Tokens View** (Tokenvy).

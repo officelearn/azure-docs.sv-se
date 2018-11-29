@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: dd73ca876385cf81059228088f7b027f533315eb
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: d13d77fdb741f7f7cf16e3d25c755f4363e56f93
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277844"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427496"
 ---
 # <a name="tutorial-4-extract-contextually-related-patterns"></a>Självstudie 4: Extrahera kontextuellt relaterade mönster
 
@@ -49,7 +49,7 @@ Om du har problem med enkel entitetsidentifiering eftersom det är ett namn, til
 > * Skapa en fraslista över städer
 > * Hämta avsikter och entiteter från en slutpunkt
 
-[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Använda en befintlig app
 Fortsätt med appen du skapade i föregående självstudie med namnet **HumanResources**. 
@@ -64,7 +64,7 @@ Om du inte har appen HumanResources från föregående självstudie gör du så 
 
 ## <a name="create-new-entities"></a>Skapa nya entiteter
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Välj **Entities** (Entiteter) i det vänstra navigeringsfönstret. 
 
@@ -254,7 +254,7 @@ Städer, precis som namn på personer, är svåra på så sätt att de kan vara 
 
 ## <a name="get-intent-and-entities-from-endpoint"></a>Hämta avsikter och entiteter från slutpunkten
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Gå till slutet av URL:en i adressen och ange `Move wayne berry from miami to mount vernon`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. 
 

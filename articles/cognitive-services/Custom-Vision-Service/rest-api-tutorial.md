@@ -10,12 +10,12 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: larryfr
-ms.openlocfilehash: a38f737b5281903328a53d6552b1666ca4f58d80
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: afdc306a3d5a3130ecb44f88910e76f23f7c0c0e
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364968"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334728"
 ---
 # <a name="tutorial-use-the-custom-vision-rest-api"></a>Självstudier: Använd Custom Vision REST API
 
@@ -100,7 +100,7 @@ Svaret på begäran liknar följande JSON-dokument:
 > [!TIP]
 > Posten `id` i svaret fungerar som ID för det nya projektet. Detta kommer att användas i andra exempel senare i det här dokumentet.
 
-Mer information om denna begäran finns i [CreateProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a8290).
+Mer information om denna begäran finns i [CreateProject](https://go.microsoft.com/fwlink/?linkid=865446).
 
 ### <a name="specific-domains"></a>Specifika domäner
 

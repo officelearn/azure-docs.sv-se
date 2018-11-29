@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 119853df5b5234b65bdade890df1fecb72c326b7
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 48ac46a9087e8027d0282533afccc4d9b28481ba
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157385"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582476"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Snabbstart: Skapa och hantera en Azure-filresurs med Azure PowerShell 
 Den här guiden går igenom grunderna med att arbeta med [Azure-filresurser](storage-files-introduction.md) med PowerShell. Azure-filresurser är precis som andra filresurser men lagras i molnet och täcks av Azure-plattformen. Azure-filresurser stöder SMB-protokollet, som är branschstandard och möjliggör fildelning på olika datorer, program och instanser. 
@@ -49,7 +49,7 @@ $storageAcct = New-AzureRmStorageAccount `
 ```
 
 ## <a name="create-an-azure-file-share"></a>Skapa en Azure-filresurs
-Nu kan du skapa din första Azure-filresurs. Du kan skapa en filresurs med hjälp av cmdleten [New-AzureStorageShare](/powershell/module/azurerm.storage/new-azurestorageshare). I det här exemplet skapar vi en resurs som heter `myshare`.
+Nu kan du skapa din första Azure-filresurs. Du kan skapa en filresurs med hjälp av cmdleten [New-AzureStorageShare](/powershell/module/azure.storage/new-azurestorageshare). I det här exemplet skapar vi en resurs som heter `myshare`.
 
 ```azurepowershell-interactive
 New-AzureStorageShare `
@@ -79,7 +79,7 @@ I de flesta fall använder du Azure-filresursen via SMB-protokollet, eftersom du
 I följande exempel visas hur du använder AzureRM PowerShell-modulen till att ändra din Azure-filresurs med fil-REST-protokollet. 
 
 #### <a name="create-directory"></a>Skapa katalog
-Om du vill skapa en ny katalog med namnet *myDirectory* i roten av din Azure-filresurs, använder du cmdleten [New-AzureStorageDirectory](/powershell/module/azurerm.storage/new-azurestoragedirectory).
+Om du vill skapa en ny katalog med namnet *myDirectory* i roten av din Azure-filresurs, använder du cmdleten [New-AzureStorageDirectory](/powershell/module/azure.storage/new-azurestoragedirectory).
 
 ```azurepowershell-interactive
 New-AzureStorageDirectory `
@@ -166,7 +166,7 @@ Get-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "
 
 Även om cmdleten `Start-AzureStorageFileCopy` är användbar för ad hoc-filförflyttningar mellan Azure-filresurser och Azure Blob Storage-containrar så rekommenderar vi AzCopy för större flyttar (sett till antalet filer som flyttas eller hur stora filer som flyttas). Läs mer om [AzCopy för Windows](../common/storage-use-azcopy.md) och [AzCopy för Linux](../common/storage-use-azcopy-linux.md). AzCopy måste installeras lokalt – det är inte tillgängligt i Cloud Shell. 
 
-## <a name="create-and-manage-share-snapshots"></a>Skapa och hantera ögonblicksbilder
+## <a name="create-and-manage-share-snapshots"></a>Skapa och hantera resursögonblicksbilder
 Ytterligare en användbar uppgift som du kan göra med en Azure-filresurs är att skapa resursögonblicksbilder. En ögonblicksbild bevarar en tidpunkt för en Azure-filresurs. Ögonblicksbilder av resurser liknar de operativsystemtekniker som du kanske redan är bekant med såsom:
 - [Tjänsten Volume Shadow Copy(VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) för Windows-filsystem, till exempel NTFS och ReFS
 - [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) ögonblicksbilder för Linux-system

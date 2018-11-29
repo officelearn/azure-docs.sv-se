@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: 011178f539fcb826e0e6fb60925d740945461ea9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 59d72f36146e691412398220fc9ba51910e65e0b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952899"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582079"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Visa och uppdatera konfigurationer av en Azure Database for MySQL-server med Azure CLI
 Det här CLI-exempelskriptet visar alla tillgängliga konfigurationsparametrar samt tillåtna värden för Azure Database for MySQL-servern och anger *innodb_lock_wait_timeout* till ett annat värde än standardvärdet.
@@ -27,7 +27,7 @@ Om du väljer att köra CLI lokalt måste du ha Azure CLI version 2.0 eller sena
 
 ## <a name="sample-script"></a>Exempelskript
 I det här exempelskriptet ändrar du de markerade raderna om du vill uppdatera administratörens användarnamn och lösenord till dina egna.
-[!code-azurecli-interactive[main](../../../cli_scripts/mysql/change-server-configurations/change-server-configurations.sh?highlight=18-19 "List and update configurations of Azure Database for MySQL.")]
+[!code-azurecli-interactive[main](../../../cli_scripts/mysql/change-server-configurations/change-server-configurations.sh?highlight=15-16 "List and update configurations of Azure Database for MySQL.")]
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 När skriptet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den. 
@@ -39,10 +39,10 @@ Det här skriptet använder de kommandon som beskrivs i följande tabell:
 | **Kommando** | **Anteckningar** |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
-| [az mysql server create](/cli/azure/mysql/server#az-msql-server-create) | Skapar en MySQL-server som är värd för databaserna. |
-| [az mysql server configuration list](/cli/azure/mysql/server/configuration#az-msql-server-configuration-list) | Skapar en lista med konfigurationerna för en Azure Database for MySQL-server. |
-| [az mysql server configuration set](/cli/azure/mysql/server/configuration#az-msql-server-configuration-set) | Uppdaterar konfigurationen för en Azure Database for MySQL-server. |
-| [az mysql server configuration show](/cli/azure/mysql/server/configuration#az-msql-server-configuration-show) | Visar konfigurationen för en Azure Database for MySQL-server. |
+| [az mysql server create](/cli/azure/mysql/server#az-mysql-server-create) | Skapar en MySQL-server som är värd för databaserna. |
+| [az mysql server configuration list](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-list) | Skapar en lista med konfigurationerna för en Azure Database for MySQL-server. |
+| [az mysql server configuration set](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-set) | Uppdaterar konfigurationen för en Azure Database for MySQL-server. |
+| [az mysql server configuration show](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-show) | Visar konfigurationen för en Azure Database for MySQL-server. |
 | [az group delete](/cli/azure/group#az-group-delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg

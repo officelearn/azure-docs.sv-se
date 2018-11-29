@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b2e767bf27962472a19e5d2e704b456cffe18423
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: a48876adc853ca94f606f58f7eeb13c3d1a57ce8
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277542"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498603"
 ---
 # <a name="what-is-azure-blueprints"></a>Vad är Azure Blueprint?
 
@@ -57,7 +57,7 @@ En skiss består av _artefakter_. Skisser stöder för närvarande följande res
 |Resurs  | Hierarkialternativ| Beskrivning  |
 |---------|---------|---------|
 |Resursgrupper     | Prenumeration | Skapa en ny resursgrupp för användning av andra artefakter i skissen.  Med de här platshållarresursgrupperna kan du organisera resurser precis som du vill att de struktureras, och de ger en omfångsbegränsning för inkluderade princip- och rolltilldelningsartefakter samt Azure Resource Manager-mallar.         |
-|Azure Resource Manager-mall      | Resursgrupp | Mallar används till att skapa komplexa miljöer. Exempelmiljöer: en SharePoint-servergrupp, Azure Automation State Configuration eller en Log Analytics-arbetsyta. |
+|Azure Resource Manager-mall      | Prenumeration, resursgrupp | Mallar används till att skapa komplexa miljöer. Exempelmiljöer: en SharePoint-servergrupp, Azure Automation State Configuration eller en Log Analytics-arbetsyta. |
 |Principtilldelning     | Prenumeration, resursgrupp | Tillåter tilldelning av en princip eller ett initiativ till den prenumeration som skissen är tilldelad till. Principen eller initiativet måste vara inom skissens omfång (i skissens hanteringsgrupp eller tidigare). Om principen eller initiativet har parametrar kan de parametrarna tilldelas vid skapandet av skissen eller under skisstilldelningen.       |
 |Rolltilldelning   | Prenumeration, resursgrupp | Lägg till en befintlig användare eller grupp till en inbyggd roll för att se till att rätt personer alltid har rätt åtkomst till dina resurser. Rolltilldelningar kan definieras för hela prenumerationen eller kapslade till en specifik resursgrupp som ingår i skissen. |
 

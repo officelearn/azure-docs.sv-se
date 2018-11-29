@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d7c80cce3b046bb6c8e4412272c7d166bc038d9c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 657f5b6879f7782cbd94588657dc0082eff1f9c5
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282126"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423338"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Snabbstart: Använda en färdig hemautomatiseringsapp
 
@@ -88,11 +88,11 @@ Välj **Test** igen för att dölja testfönstret.
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicera appen för att få slutpunkts-URL
 
-[!INCLUDE[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>Skicka fråga till slutpunkten med ett annat yttrande
 
-1. [!INCLUDE[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
 2. Gå till slutet av webbadressen, skriv `turn off the living room light` och tryck på Retur. I webbläsaren visas JSON-svaret för HTTP-slutpunkten.
 
@@ -100,7 +100,7 @@ Välj **Test** igen för att dölja testfönstret.
     
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-[!INCLUDE[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

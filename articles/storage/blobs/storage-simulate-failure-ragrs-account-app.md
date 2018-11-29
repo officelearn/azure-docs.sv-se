@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: tamram
-ms.openlocfilehash: 84ced8a529c2e717dc3e5888466d9a2e1e7e928a
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 044cc30a418f3c54053a6f4878f97f5c9ea9f9e2
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180951"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335120"
 ---
 # <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Självstudie: Simulera ett fel vid läsåtkomst till redundant lagring
 
@@ -145,7 +145,7 @@ Om du vill lägga till en statisk väg för en målvärd skriver du följande ko
  
 Ersätt `<destination_ip>` med IP-adressen för ditt lagringskonto och `<gateway_ip>` med IP-adressen för din lokala värd. Tryck på **valfri tangent** för att börja köra programmet igen.
 
-När programmet är igång igen börjar begäranden till den primära slutpunkten att misslyckas. Programmet gör fem försök att ansluta till den primära slutpunkten. När feltröskeln på fem försök har nåtts begär programmet bilden från den sekundära skrivskyddade slutpunkten. När programmet har hämtat bilden 20 gånger från den sekundära slutpunkten försöker programmet ansluta till den primära slutpunkten. Om den primära slutpunkten fortfarande inte kan nås återupptar programmet läsningen från den sekundära slutpunkten. Det här mönstret är [kretsbrytarmönstret](/azure/architecture/patterns/circuit-breaker.md) som beskrivs i den föregående kursen.
+När programmet är igång igen börjar begäranden till den primära slutpunkten att misslyckas. Programmet gör fem försök att ansluta till den primära slutpunkten. När feltröskeln på fem försök har nåtts begär programmet bilden från den sekundära skrivskyddade slutpunkten. När programmet har hämtat bilden 20 gånger från den sekundära slutpunkten försöker programmet ansluta till den primära slutpunkten. Om den primära slutpunkten fortfarande inte kan nås återupptar programmet läsningen från den sekundära slutpunkten. Det här mönstret är [kretsbrytarmönstret](/azure/architecture/patterns/circuit-breaker) som beskrivs i den föregående kursen.
 
 ### <a name="simulate-primary-endpoint-restoration"></a>Simulerar en återställning av den primära slutpunkten
 

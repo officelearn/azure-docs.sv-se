@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: 2f690e6c930a1a119c9b7bf4b83ec04a564e47c9
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: ca99f9ac36281ecddf41bcc228440adcad90412b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288755"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582436"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Vad är Azure Sakernas Internet (IoT)?
 
@@ -113,7 +113,7 @@ Det finns flera IoT-relaterade tjänster i Azure och det kan vara förvirrande a
 
 5. [**IoT Edge**](/azure/iot-edge/): Den här tjänsten bygger på IoT Hub. Den kan användas för att analysera data på IoT-enheter i stället för i molnet. Färre meddelanden måste skickas till molnet eftersom delar av din arbetsbelastning flyttas till Edge. 
 
-6. [**Azure Digital Twins**](/azure/azure-digital-twins/): Med den här tjänsten kan du skapa omfattande modeller av den fysiska miljön. Du kan modellera relationer och interaktioner mellan människor, utrymmen och enheter. Du kan till exempel förutsäga underhållsbehov för en fabrik, analysera i realtidsenergikrav för ett elnät eller optimera användningen av tillgängligt utrymme för ett kontor.
+6. [**Azure Digital Twins**](../digital-twins/index.yml): Med den här tjänsten kan du skapa omfattande modeller av den fysiska miljön. Du kan modellera relationer och interaktioner mellan människor, utrymmen och enheter. Du kan till exempel förutsäga underhållsbehov för en fabrik, analysera i realtidsenergikrav för ett elnät eller optimera användningen av tillgängligt utrymme för ett kontor.
 
 7. [**Time Series Insights**](/azure/time-series-insights): Med den här tjänsten kan du lagra, visualisera fråga stora mängder time series-data som genererats av IoT-enheter. Du kan använda den här tjänsten med IoT Hub. 
 

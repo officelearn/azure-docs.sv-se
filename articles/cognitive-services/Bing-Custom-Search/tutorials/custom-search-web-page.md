@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: tutorial
 ms.date: 10/16/2017
 ms.author: aahi
-ms.openlocfilehash: ebc4779876a52113c20e2ace50b3333e254a744e
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: d39ec856d628a8a607c6a8ea214f5dd9fbd63a9c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161794"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427369"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Självstudie: Skapa en webbsida för anpassad sökning
 
@@ -120,7 +120,7 @@ Anpassad sökning ger ett värdbaserat gränssnitt för att rendera JSON-svar f�
   
   ![Skärmbild av ytterligare konfigurationssteg för värdbaserat användargränssnitt](./media/custom-search-hosted-ui-subscription-key.png)
 
-[!INCLUDE[publish or revert](../includes/publish-revert.md)]
+[!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
 <a name="consuminghostedui"></a>
 ## <a name="consuming-hosted-ui"></a>Använda värdbaserat användargränssnitt

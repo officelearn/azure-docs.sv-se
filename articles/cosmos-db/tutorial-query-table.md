@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: 8a629a7b1340547f43919a1e88abbda53e9e2ae0
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 9d47928984330f2366da066c221e2bb502aa7193
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763399"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442955"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Självstudie: Fråga Azure Cosmos DB med hjälp av tabell-API
 
@@ -43,7 +43,7 @@ Mer information om de förstklassiga funktioner som Azure Cosmos DB erbjuder fin
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att de här frågorna ska fungera måste du ha ett konto i Azure Cosmos DB och ha entitetsdata i behållaren. Har du detta? Slutför [snabbstarten på fem minuter](create-table-dotnet.md) eller [självstudien för utvecklare](tutorial-develop-table-dotnet.md) om du behöver skapa ett konto och fylla i databasen.
+För att de här frågorna ska fungera måste du ha ett konto i Azure Cosmos DB och ha entitetsdata i containern. Har du detta? Slutför [snabbstarten på fem minuter](create-table-dotnet.md) eller [självstudien för utvecklare](tutorial-develop-table-dotnet.md) om du behöver skapa ett konto och fylla i databasen.
 
 ## <a name="query-on-partitionkey-and-rowkey"></a>Fråga om PartitionKey och RowKey
 Eftersom egenskaperna PartitionKey och RowKey utformar en entitets primärnyckel kan du använda följande specialsyntax för att identifiera entiteten: 
@@ -95,9 +95,9 @@ CloudTable table = tableClient.GetTableReference("people");
 TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>()
     .Where(
         TableQuery.CombineFilters(
-            TableQuery.GenerateFilterCondition(PartitionKey, QueryComparisons.Equal, "Smith"),
+            TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"),
             TableOperators.And,
-            TableQuery.GenerateFilterCondition(Email, QueryComparisons.Equal,"Ben@contoso.com")
+            TableQuery.GenerateFilterCondition("Email", QueryComparisons.Equal,"Ben@contoso.com")
     ));
 
 await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);

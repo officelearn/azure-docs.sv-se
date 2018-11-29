@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 09/27/2018
-ms.openlocfilehash: 06a0f2416ecff9e2f9a21877e26487b56452d0a0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 14e675097a23b50c8ff193c69c377ac8edfb989f
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251329"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317270"
 ---
 # <a name="use-ansible-to-manage-a-linux-virtual-machine-in-azure"></a>Använda Ansible för att hantera en virtuell Linux-dator i Azure
 Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan använda Ansible för att hantera dina virtuella Azure-datorer på samma sätt som för alla andra resurser. Den här artikeln visar hur du använder en Ansible-spelbok för att starta och stoppa en virtuell Linux-dator. 
@@ -141,4 +141,4 @@ Det här avsnittet visar hur du använder Ansible för att starta en frigjord (s
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"] 
-> [Använda Ansible för att hantera dina dynamiska Azure-lager](/articles/ansible/ansible-manage-azure-dynamic-inventories)
+> [Använda Ansible för att hantera dina dynamiska Azure-lager](~/articles/ansible/ansible-manage-azure-dynamic-inventories.md)

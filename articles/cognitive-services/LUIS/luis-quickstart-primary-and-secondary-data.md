@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 4647e663f4a2734451835f90d2687bb6aaf91712
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f3e931344d2d2294c03756d630c688df1e5da9a8
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277808"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425267"
 ---
 # <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Självstudie 7: Extrahera namn med en enkel entitet och en fraslista
 
@@ -86,7 +86,7 @@ Den här LUIS-appen har jobbnamn i flera avsikter. Genom att märka ut orden i e
 
 När entiteterna har märkts ut i exempelyttrandena är det viktigt att du lägger till en fraslista som förbättrar extraheringen. En fraslista används **inte** för exakta matchningar och behöver inte innehålla alla möjliga värden du förväntar dig. 
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. På sidan **Intents** (Avsikter) väljer du avsikten **ApplyForJob**. 
 

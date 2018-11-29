@@ -3,17 +3,17 @@ title: ta med fil
 description: ta med fil
 services: functions
 author: ggailey777
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
 ms.date: 05/22/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: a8be74558fb71ceb1c28c27004b27a5a5f477a8f
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8c746fc86ea4d260575eb97b16d4a190b175f754
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650763"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52585844"
 ---
 Med Azure Functions-projektmallen i Visual Studio skapas ett projekt som kan publiceras till en funktionsapp i Azure. Med en funktionsapp kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser.
 

@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/6/2018
 ms.author: diberry
-ms.openlocfilehash: bcb19ebdcf6d4ca1c01612f815700fbbc0dd2fda
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 190a937a4239c08d844d271d2e1d8e858215a5c2
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567731"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334967"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>Snabbstart: Skapa en kunskapsbas i QnA Maker med hjälp av C#
 
@@ -67,7 +67,7 @@ Följande kod gör en HTTPS-begäran för API för QnA Maker för att skapa en k
 
 [!code-csharp[Add a POST request to create KB](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=91-105 "Add a POST request to create KB")]
 
-Detta API-anrop anropar ett JSON-svar som innehåller åtgärds-ID i rubrikfältet **Plats**. Använd åtgärds-ID:t för att fastställa om KB har skapats. 
+Detta API-anrop anropar ett JSON-svar som innehåller åtgärds-ID. Använd åtgärds-ID:t för att fastställa om KB har skapats. 
 
 ```JSON
 {

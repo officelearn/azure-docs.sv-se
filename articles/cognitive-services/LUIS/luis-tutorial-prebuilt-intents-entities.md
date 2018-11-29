@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d73284ecf40b2dfcd4954c1ddee82bf92a8931b9
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 3bad68d1a388a5bc8780df633313206afaadcef9
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281803"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422430"
 ---
 # <a name="tutorial-2-identify-common-intents-and-entities"></a>Självstudie 2: Identifiera vanliga avsikter och entiteter
 I den här självstudien ändrar du Human Resources-appen. Lägg till fördefinierade avsikter och entiteter i Human Resources-självstudieappen för att snabbt få avsiktsförutsägelse och dataextrahering. Du behöver inte märka några yttranden med fördefinierade entiteter eftersom entiteten identifieras automatiskt.
@@ -48,7 +48,7 @@ Om du inte har appen HumanResources från föregående självstudie gör du så 
 ## <a name="add-prebuilt-intents"></a>Lägga till fördefinierade avsikter
 LUIS har flera fördefinierade avsikter som hjälper dig med vanliga användaravsikter.  
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Välj **Lägg till fördefinierad avsikt**. 
 

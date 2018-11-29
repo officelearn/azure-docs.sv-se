@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/23/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 6eb06a2a4e83c9c293474f1692c2d33d4d0dfb36
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3e9c46e1315257d619f1624c06441adc08daddb2
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995745"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427023"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en Android-app
 
@@ -123,7 +123,7 @@ Läs följande avsnitt för att få mer information om den här snabbstarten.
 
 ### <a name="msal"></a>MSAL
 
-MSAL ([com.microsoft.identity.client](http://javadoc.io/doc/com.microsoft.identity.client/msal)) är det bibliotek som används för att logga in användare och begära token som används för åtkomst till ett API som skyddas av Microsoft Azure Active Directory (Azure AD). Du kan använda Gradle för att installera det genom att lägga till följande i **Gradle-skript** > **build.gradle (modul: app)** under **Beroenden**:
+MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) är det bibliotek som används för att logga in användare och begära token som används för åtkomst till ett API som skyddas av Microsoft Azure Active Directory (Azure AD). Du kan använda Gradle för att installera det genom att lägga till följande i **Gradle-skript** > **build.gradle (modul: app)** under **Beroenden**:
 
 ```gradle  
 implementation 'com.android.volley:volley:1.1.1'

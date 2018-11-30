@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 8f66c95202e0ccdef86f9630f7a98c20023a8955
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: b903d0ddbccac8fe4fa8b251d409bd8addebb435
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087754"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426007"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mått och diagnostikloggning 
 
@@ -101,7 +101,7 @@ Strömning av diagnostiktelemetri för **Azure SQL Database**, Följ dessa steg:
    ![Konfigurera diagnostik för SQL-databas](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 
 > [!NOTE]
-> Granskningsloggen kan inte aktiveras från databasen diagnostikinställningar. För att aktivera granskning av loggströmningen, se [konfigurera granskning för din databas](sql-database-auditing.md#subheading-2), och får även [SQL granskningsloggar i Azure Log Analytics och Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> Kan inte aktiveras säkerhetsgranskning loggar från databasen diagnostikinställningar. För att aktivera granskning av loggströmningen, se [konfigurera granskning för din databas](sql-database-auditing.md#subheading-2), och får även [SQL granskningsloggar i Azure Log Analytics och Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
 >
 
 > [!TIP]
@@ -182,7 +182,7 @@ Strömning av diagnostiktelemetri för **Managed Instance resource**, Följ dess
 2. Välj **diagnostikinställningar**
 3. Välj **slå på diagnostik** om inga tidigare inställningar finns, eller välj **Redigera inställning** så här redigerar du en föregående inställning
 
-   ![Aktivera diagnostik för hanterad instans](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
+   ![Aktivera diagnostik för hanterad instans](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-enable.png)
 
 4. Ange ett namn för inställningen – för din egen referens
 5. Välj till vilken resurs som ska stream diagnostics-data från den elastiska poolen: **arkivet till lagringskontot**, **Stream till en händelsehubb**, eller **skicka till Log Analytics**
@@ -190,7 +190,7 @@ Strömning av diagnostiktelemetri för **Managed Instance resource**, Följ dess
 7. Markera kryssrutan för instans-diagnostiktelemetri **ResourceUsageStats**
 8. Klicka på **Spara**
 
-   ![Konfigurera diagnostik för hanterad instans](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+   ![Konfigurera diagnostik för hanterad instans](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
 > [!TIP]
 > Upprepa ovanstående steg för varje hanterad instans som du vill övervaka.
@@ -424,7 +424,7 @@ Insamlade övervakning telemetri som kan användas för dina egna **anpassade an
 |SubscriptionId|Prenumerations-GUID som databasen tillhör.|
 |ResourceGroup|Namnet på resursgruppen som databasen tillhör.|
 |LogicalServerName_s|Namnet på den hanterade instansen.|
-|ResourceId|Resurs-URI.|
+|Resurs-ID|Resurs-URI.|
 |SKU_s|Hanterad instans produkt-SKU|
 |virtual_core_count_s|Numver av virtuella kärnor tillgängliga|
 |avg_cpu_percent_s|Genomsnittlig CPU-procent|
@@ -454,7 +454,7 @@ Insamlade övervakning telemetri som kan användas för dina egna **anpassade an
 |LogicalServerName_s|Namnet på den server som databasen tillhör.|
 |ElasticPoolName_s|Namnet på den elastiska poolen som databasen tillhör, om sådana.|
 |DatabaseName_s|Namnet på databasen.|
-|ResourceId|Resurs-URI.|
+|Resurs-ID|Resurs-URI.|
 |query_hash_s|Fråga hash.|
 |query_plan_hash_s|Fråge-hash för planen.|
 |statement_sql_handle_s|Sql instruktionsreferensen.|
@@ -505,7 +505,7 @@ Läs mer om [Query Store runtime statistikdata](https://docs.microsoft.com/sql/r
 |LogicalServerName_s|Namnet på den server som databasen tillhör.|
 |ElasticPoolName_s|Namnet på den elastiska poolen som databasen tillhör, om sådana.|
 |DatabaseName_s|Namnet på databasen.|
-|ResourceId|Resurs-URI.|
+|Resurs-ID|Resurs-URI.|
 |wait_category_s|Kategori för väntan.|
 |is_parameterizable_s|Är frågan parameteriseringsbar.|
 |statement_type_s|Typ av instruktionen.|
@@ -543,7 +543,7 @@ Läs mer om [Query Store vänta statistikdata](https://docs.microsoft.com/sql/re
 |LogicalServerName_s|Namnet på den server som databasen tillhör.|
 |ElasticPoolName_s|Namnet på den elastiska poolen som databasen tillhör, om sådana.|
 |DatabaseName_s|Namnet på databasen.|
-|ResourceId|Resurs-URI.|
+|Resurs-ID|Resurs-URI.|
 |Meddelande|Felmeddelande i oformaterad text.|
 |user_defined_b|Är fel användardefinierade biten.|
 |error_number_d|Felkod.|
@@ -572,7 +572,7 @@ Läs mer om [felmeddelanden för SQL Server](https://msdn.microsoft.com/library/
 |LogicalServerName_s|Namnet på den server som databasen tillhör.|
 |ElasticPoolName_s|Namnet på den elastiska poolen som databasen tillhör, om sådana.|
 |DatabaseName_s|Namnet på databasen.|
-|ResourceId|Resurs-URI.|
+|Resurs-ID|Resurs-URI.|
 |wait_type_s|Namnet på typen vänta.|
 |start_utc_date_t [UTC]|Mätt periodens starttid.|
 |end_utc_date_t [UTC]|Mätt period sluttid.|
@@ -601,7 +601,7 @@ Läs mer om [databasen vänta statistik](https://docs.microsoft.com/sql/relation
 |LogicalServerName_s|Namnet på den server som databasen tillhör.|
 |ElasticPoolName_s|Namnet på den elastiska poolen som databasen tillhör, om sådana.|
 |DatabaseName_s|Namnet på databasen.|
-|ResourceId|Resurs-URI.|
+|Resurs-ID|Resurs-URI.|
 |error_state_d|Felkod för tillstånd.|
 |query_hash_s|Fråga hash, om det är tillgängligt.|
 |query_plan_hash_s|Fråga plan hash, om det är tillgängligt.|
@@ -624,7 +624,7 @@ Läs mer om [databasen vänta statistik](https://docs.microsoft.com/sql/relation
 |LogicalServerName_s|Namnet på den server som databasen tillhör.|
 |ElasticPoolName_s|Namnet på den elastiska poolen som databasen tillhör, om sådana.|
 |DatabaseName_s|Namnet på databasen.|
-|ResourceId|Resurs-URI.|
+|Resurs-ID|Resurs-URI.|
 |lock_mode_s|LOCK-läge som används av frågan.|
 |resource_owner_type_s|Låsägare.|
 |blocked_process_filtered_s|Blockerad processen rapporten XML.|
@@ -648,7 +648,7 @@ Läs mer om [databasen vänta statistik](https://docs.microsoft.com/sql/relation
 |LogicalServerName_s|Namnet på den server som databasen tillhör.|
 |ElasticPoolName_s|Namnet på den elastiska poolen som databasen tillhör, om sådana.|
 |DatabaseName_s|Namnet på databasen. |
-|ResourceId|Resurs-URI.|
+|Resurs-ID|Resurs-URI.|
 |deadlock_xml_s|Deadlock rapport XML.|
 
 ### <a name="automatic-tuning-dataset"></a>Automatisk justering datauppsättning
@@ -669,13 +669,13 @@ Läs mer om [databasen vänta statistik](https://docs.microsoft.com/sql/relation
 |LogicalDatabaseName_s|Namnet på databasen.|
 |ElasticPoolName_s|Namnet på den elastiska poolen som databasen tillhör, om sådana.|
 |DatabaseName_s|Namnet på databasen.|
-|ResourceId|Resurs-URI.|
+|Resurs-ID|Resurs-URI.|
 |RecommendationHash_s|Unikt hash för automatisk justering rekommendation.|
 |OptionName_s|Åtgärd för automatisk justering.|
 |Schema_s|Databasschemat.|
 |Table_s|Tabell som påverkas.|
 |IndexName_s|Indexnamnet.|
-|IndexColumns_s|Kolumnnamnet.|
+|IndexColumns_s|Kolumnnamn.|
 |IncludedColumns_s|Kolumner som ingår.|
 |EstimatedImpact_s|Uppskattad påverkan av automatisk justering rekommendation JSON.|
 |Event_s|Typ av händelse med automatisk justering.|

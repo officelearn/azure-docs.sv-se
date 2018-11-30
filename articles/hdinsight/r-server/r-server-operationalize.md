@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 3f93f96c6c9fc551b8b66167eab58861b0ac0b52
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ce701c029c63256714452aa13f646af77991cb67
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005962"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496909"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Operationalisera ML-tjänster på Azure HDInsight-kluster
 
@@ -79,9 +79,9 @@ När du har använt ML-Services-kluster i HDInsight för att slutföra dina data
 
     d. I menyalternativen visas, ange **E** återgå till huvudmenyn och sedan ange **8** att avsluta admin-verktyget.
 
-### <a name="long-delays-when-consuming-web-service-on-spark"></a>Långa fördröjningar när webbtjänster på Spark
+### <a name="long-delays-when-consuming-web-service-on-apache-spark"></a>Långa fördröjningar när webbtjänster på Apache Spark
 
-Om du får långa fördröjningar när du försöker använda en webbtjänst som skapats med mrsdeploy-funktioner i en Spark-beräkningskontext kan du behöva lägga till vissa mappar som saknas. Spark-programmet tillhör en användare som kallas '*rserve2*' när den anropas från en webbtjänst med hjälp av mrsdeploy-funktioner. Så här kan du lösa problemet:
+Om du får långa fördröjningar när du försöker använda en webbtjänst som skapats med mrsdeploy-funktioner i ett Apache Spark-beräkningskontext kan du behöva lägga till vissa mappar som saknas. Spark-programmet tillhör en användare som kallas '*rserve2*' när den anropas från en webbtjänst med hjälp av mrsdeploy-funktioner. Så här kan du lösa problemet:
 
     # Create these required folders for user 'rserve2' in local and hdfs:
 
@@ -139,7 +139,7 @@ Om du vill skala beräkningsnoderna du först inaktivera arbetsnoder och sedan k
 
 ### <a name="step-1-decommission-the-worker-nodes"></a>Steg 1: Inaktivera arbetsnoder
 
-ML-tjänster kluster hanteras inte via YARN. Om arbetarnoderna inte är inaktiverade fungerar inte YARN-resurshanteraren som förväntat eftersom den inte känner till resurserna som förbrukas av servern. För att undvika detta rekommenderar vi att du inaktiverar arbetsnoderna innan du skalar ut beräkningsnoderna.
+ML-tjänster klustret inte hanteras via [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html). Om arbetarnoderna inte är inaktiverade fungerar inte YARN-resurshanteraren som förväntat eftersom den inte känner till resurserna som förbrukas av servern. För att undvika detta rekommenderar vi att du inaktiverar arbetsnoderna innan du skalar ut beräkningsnoderna.
 
 Så här inaktiverar du arbetsnoder:
 

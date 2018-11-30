@@ -1,5 +1,5 @@
 ---
-title: 'Steg 4: Träna och utvärdera förutsägbara analytiska modeller | Microsoft Docs'
+title: 'Steg 4: Utbilda förutsägande analysmodeller – Azure Machine Learning Studio | Microsoft Docs'
 description: 'Steg 4 i utveckla en förutsägelselösning genomgång: Train, bedöma och utvärdera flera modeller i Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
@@ -16,17 +16,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: d0277db665259d485c5a5a06f0013f3c0d6a177c
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 4b4ffcf8e6c886a2f182c844f940e53c24d1efa0
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261793"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313477"
 ---
-# <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models"></a>Genomgång steg 4: Utbilda i och utvärdera förutsägbara analytiska modeller
+# <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models-in-machine-learning-studio"></a>Genomgång steg 4: Träna och utvärdera förutsägbara analytiska modeller i Machine Learning Studio
 Det här avsnittet innehåller det fjärde steget i den här genomgången [utveckla en lösning för förutsägelseanalys i Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
-1. [Skapa en Machine Learning-arbetsyta](walkthrough-1-create-ml-workspace.md)
+1. [Skapa en Machine Learning Studio-arbetsyta](walkthrough-1-create-ml-workspace.md)
 2. [Överför befintliga data](walkthrough-2-upload-data.md)
 3. [Skapa ett nytt experiment](walkthrough-3-create-new-experiment.md)
 4. **Träna och utvärdera modellerna**
@@ -41,7 +41,7 @@ I experimentet som vi håller på att utveckla i den här genomgången, vi skapa
 Det finns olika modeller som vi kan välja från. Om du vill se de tillgängliga modellerna, expandera den **Maskininlärning** noden på modulpaletten, och expandera sedan **initiera modell** och noderna under den. För det här experimentet väljer vi den [två-Class Support Vector Machine] [ two-class-support-vector-machine] (SVM) och [Tvåklassförhöjt beslutsträd] [ two-class-boosted-decision-tree] moduler.    
 
 > [!TIP]
-> Om du vill ha hjälp med att bestämma vilka Machine Learning-algoritm som bäst passar särskilt problematisk du försöker lösa, se [så väljer du algoritmer för Microsoft Azure Machine Learning](algorithm-choice.md).
+> Om du vill ha hjälp med att bestämma vilka Machine Learning-algoritm som bäst passar särskilt problematisk du försöker lösa, se [så väljer du algoritmer för Microsoft Azure Machine Learning Studio](algorithm-choice.md).
 > 
 > 
 

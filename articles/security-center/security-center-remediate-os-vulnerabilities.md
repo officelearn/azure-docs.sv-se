@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d4523a9e2d5a5466c1617930d14a8a2d25a0e16f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d77e5265349db2fc433d2bb9a42140a6a4209ba1
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238785"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317508"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Åtgärda säkerhetskonfigurationer i Azure Security Center
 Azure Security Center analyserar dagligen operativsystemet (OS) på dina virtuella datorer (VM) och en konfiguration som kan göra de virtuella datorerna och datorer som är mer sårbara för angrepp. Security Center rekommenderar att du löser säkerhetsproblem när Operativsystemets konfiguration matchar inte de rekommendera säkerhetsreglerna för konfiguration och den rekommenderar konfigurationsändringar för att åtgärda dessa sårbarheter.
@@ -101,7 +101,7 @@ Om du vill granska vilka konfigurationer som övervakas, se [lista över rekomme
 Om du vill veta mer om Security Center finns i följande resurser:
 
 * En lista över Windows och Linux-datorer som stöds finns i [plattformar som stöds i Azure Security Center](security-center-os-coverage.md).
-* Läs hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper i [ange säkerhetsprinciper i Azure Security Center](security-center-policies.md).
+* Läs hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper i [ange säkerhetsprinciper i Azure Security Center](security-center-azure-policy.md).
 * Läs hur rekommendationer hjälper dig att skydda dina Azure-resurser i [hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md).
 * Läs hur du övervakar hälsotillståndet för dina Azure-resurser i [övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md).
 * Läs hur du hanterar och åtgärdar säkerhetsaviseringar i [hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md).

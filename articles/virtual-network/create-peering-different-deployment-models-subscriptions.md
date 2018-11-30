@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 01e8b5c518931411ba6e2d75168de6753bf55260
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 34c11c911b6c2ffbc4d4800cd7203a8d430814fb
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971730"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311253"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Skapa en virtuell nätverkspeering - olika distributionsmodeller och -prenumerationer
 
@@ -97,7 +97,7 @@ Den här självstudien använder olika konton för varje prenumeration. Om du an
 
 ## <a name="cli"></a>Skapa peering – Azure CLI
 
-Den här självstudien använder olika konton för varje prenumeration. Om du använder ett konto som har behörighet till båda prenumerationerna kan du använda samma konto för alla åtgärder, hoppa över stegen för att logga ut från Azure och ta bort raderna för skript som skapar rolltilldelningar för användare. Ersätt UserA@azure.com och UserB@azure.com i alla följande skript med det användarnamn som du använder för UserA och UserB. Utför följande steg med hjälp av den klassiska Azure CLI och Azure CLI. Du kan slutföra stegen från Azure Cloud Shell, genom att bara välja de **prova** knappen i någon av följande steg eller genom att installera den [klassiskt CLI](/cli/azure/install-cli-version-1.0.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och [CLI](/cli/azure/install-azure-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och köra kommandon på den lokala datorn.
+Den här självstudien använder olika konton för varje prenumeration. Om du använder ett konto som har behörighet till båda prenumerationerna kan du använda samma konto för alla åtgärder, hoppa över stegen för att logga ut från Azure och ta bort raderna för skript som skapar rolltilldelningar för användare. Ersätt UserA@azure.com och UserB@azure.com i alla följande skript med det användarnamn som du använder för UserA och UserB. Utför följande steg med hjälp av den klassiska Azure CLI och Azure CLI. Du kan slutföra stegen från Azure Cloud Shell, genom att bara välja de **prova** knappen i någon av följande steg eller genom att installera den [klassiskt CLI](/cli/azure/install-classic-cli) och [CLI](/cli/azure/install-azure-cli) och köra kommandon på den lokala datorn.
 
 1. Om du använder Cloud Shell, gå vidare till steg 2, eftersom Cloud Shell loggar du in automatiskt till Azure. Öppna en kommandosession och logga in på Azure med hjälp av den `azure login` kommando.
 2. Köra klassiska CLI i Service Management-läge genom att ange den `azure config mode asm` kommando.

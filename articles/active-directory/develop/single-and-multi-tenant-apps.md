@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: 8986f18b9f1f2953ad0612679d31996628870cb1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a965cd70e3eba04f278cf432196b9386b537462d
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988231"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424348"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Innehavare i Azure Active Directory
 
@@ -29,7 +29,7 @@ Azure Active Directory (Azure AD) organiserar objekt som användare och appar i 
 
 ## <a name="who-can-sign-in-to-your-app"></a>Vem som kan logga in till din app?
 
-När det gäller att utveckla appar utvecklare kan välja att konfigurera appen för att vara enda klient eller flera innehavare under registreringen i den [Azure-portalen](http://portal.azure.com).
+När det gäller att utveckla appar utvecklare kan välja att konfigurera appen för att vara enda klient eller flera innehavare under registreringen i den [Azure-portalen](https://portal.azure.com).
 * Appar för en enskild klient finns bara i klienten har registrerats i, även kallat sina startklientorganisation.
 * Appar för flera appar är tillgängliga för användare i både sina startklientorganisation och andra klienter.
 
@@ -38,7 +38,7 @@ Du kan konfigurera din app för att vara enda klient eller flera innehavare geno
 | Målgrupp | En/flera-tenant | Vem som kan logga in | 
 |----------|--------| ---------|
 | Konton i den här katalogen | Enskild klientorganisation | Alla användare och gästkonton i katalogen kan använda ditt program eller API.<br>*Använd det här alternativet om målgruppen är interna för din organisation.* |
-| Konton i Azure valfri AD-katalog | Flera innehavare | Alla användare och gäster med ett arbets- eller skolkonto konto från Microsoft kan använda ditt program eller din API. Detta inkluderar skolor och företag som använder Office 365.<br>*Använd det här alternativet om målgruppen är företag eller högskolor kunder.* |
+| Konton i alla Azure AD-katalog | Flera innehavare | Alla användare och gäster med ett arbets- eller skolkonto konto från Microsoft kan använda ditt program eller din API. Detta inkluderar skolor och företag som använder Office 365.<br>*Använd det här alternativet om målgruppen är företag eller högskolor kunder.* |
 | Konton i alla Azure AD-katalog och personliga Microsoft-konton (till exempel Skype, Xbox, Outlook.com) | Flera innehavare | Alla användare med ett arbets- eller Skol- eller personligt Microsoft-konto kan använda ditt program eller din API. Det omfattar skolor och företag som använder Office 365 samt personliga konton som används för att logga in på tjänster som Xbox och Skype.<br>*Använd det här alternativet för att rikta den bredaste uppsättningen Microsoft-konton.* | 
 
 ## <a name="best-practices-for-multi-tenant-apps"></a>Metodtips för appar för flera klienter

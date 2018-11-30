@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: e437e7b7d5298af325ae2a5e2ba689b417bad022
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e682b3780c26da9cf2398e93adc32cb107127d9c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002928"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426799"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Lookup-aktiviteten i Azure Data Factory
 
@@ -297,6 +297,15 @@ Den här Azure SQL Database-instansen innehåller data som ska kopieras till Blo
     }
 ]
 ```
+
+## <a name="limitations-and-workarounds"></a>Begränsningar och lösningar
+
+Här följer några begränsningar hos Lookup-aktiviteten och föreslagna lösningar.
+
+| Begränsning | Lösning |
+|---|---|
+| Lookup-aktiviteten har högst 5 000 rader och en maximal storlek på 2 MB. | Utforma en pipeline för två nivåer där yttre pipelinen itererar över en inre pipeline, som hämtar data som inte överstiger maximalt antal rader eller storlek. |
+| | |
 
 ## <a name="next-steps"></a>Nästa steg
 Se andra kontrollflödesaktiviteter som stöds av Data Factory: 

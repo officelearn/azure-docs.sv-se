@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: d8ab61d99b617f21557b6f1ef476418e25bcee55
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1d5a6dc6db3eaa46f6f2bd9944af7aefe759fbc7
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016938"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496123"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ansluta HDInsight till det lokala nätverket
 
@@ -321,12 +321,12 @@ Om du vill ansluta direkt till HDInsight via det virtuella nätverket, Använd f
     az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-2. Information om den port som en tjänst är tillgänglig på finns i [portar som används av Hadoop-tjänster på HDInsight](./hdinsight-hadoop-port-settings-for-services.md) dokumentet.
+2. Information om den port som en tjänst är tillgänglig på finns i [portar som används av Apache Hadoop-tjänster på HDInsight](./hdinsight-hadoop-port-settings-for-services.md) dokumentet.
 
     > [!IMPORTANT]
     > Vissa tjänster som finns på huvudnoderna är bara aktiva på en nod i taget. Om du försöker få åtkomst till en tjänst på en huvudnod och misslyckas, växla till andra huvudnoden.
     >
-    > Till exempel är Ambari endast aktiv på en huvudnod i taget. Om du försöker komma åt Ambari på en huvudnod och den returnerar ett 404-fel, körs det på andra huvudnoden.
+    > Till exempel är Apache Ambari endast aktiv på en huvudnod i taget. Om du försöker komma åt Ambari på en huvudnod och den returnerar ett 404-fel, körs det på andra huvudnoden.
 
 ## <a name="next-steps"></a>Nästa steg
 

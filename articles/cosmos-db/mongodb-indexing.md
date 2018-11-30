@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: orkostak
-ms.openlocfilehash: a3dadfc4257d43f9df1b93f5d486e5577b7889d6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ad04976136fc8db04dbe52bf78bea49a9149e5db
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055319"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312705"
 ---
 # <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Indexering i MongoDB-API:t för Azure Cosmos DB
 
@@ -99,5 +99,5 @@ Föregående kommando raderar alla dokument i samlingen ```db.coll``` som inte h
 För närvarande går det bara att skapa unika index när samlingen inte innehåller några dokument. Många av de vanligaste migreringsverktygen för MongoDB försöker skapa unika index när du har importerat data. Om du vill kringgå det här problemet rekommenderar vi att användarna manuellt skapar motsvarande samlingar och unika index istället för att låta migreringsverktyget göra detta (för ```mongorestore``` uppnås detta beteende med hjälp av flaggan --noIndexRestore på kommandoraden).
 
 ## <a name="next-steps"></a>Nästa steg
-* [Hur fungerar dataindexeringen i Azure Cosmos DB?](../cosmos-db/indexing-policies.md)
+* [Hur fungerar dataindexeringen i Azure Cosmos DB?](../cosmos-db/index-policy.md)
 * [Ta bort data från Azure Cosmos DB-samlingarna automatiskt med hjälp av förfallodatum](../cosmos-db/time-to-live.md)

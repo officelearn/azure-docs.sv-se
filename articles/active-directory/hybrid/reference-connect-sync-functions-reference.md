@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2302061d5a3eaf9ef51543b1304104e2dbe54bd9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cb6f74a1de3e91868d7b20563a790352486862ee
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312909"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425701"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect-synkronisering: referens för funktioner
 I Azure AD Connect används funktioner för att ändra ett attributvärde under synkroniseringen.  
@@ -600,7 +600,7 @@ Funktionen FormatDateTime används för att formatera ett datetime-värde till e
 * format: en sträng som representerar format för att konvertera till.
 
 **Anmärkning:**  
-De möjliga värdena för formatet finns här: [användardefinierade datum/tid-format (Format-funktionen)](http://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)
+De möjliga värdena för formatet finns här: [användardefinierade datum/tid-format (Format-funktionen)](https://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)
 
 **Exempel:**  
 
@@ -1013,7 +1013,7 @@ De PadRight funktionen höger-Pad en sträng till en angiven längd med en angiv
 **Anmärkning:**
 
 * Om längden på strängen är mindre än längden, sedan läggs padCharacter upprepade gånger till (höger) slutet av strängen förrän den har en längd som är lika med längden.
-* padCharacter kan vara ett blanksteg, men den kan inte vara ett null-värde.
+* PadCharacter kan vara ett blanksteg, men den kan inte vara ett null-värde.
 * Om längden på strängen är lika med eller större än längden, returneras sträng oförändrade.
 * Om strängen har en längd som är större än eller lika med längden, returneras en sträng som är identisk med sträng.
 * Om längden på strängen är mindre än längden, returneras en ny sträng med längden som innehåller strängen fylls ut med en padCharacter.

@@ -10,17 +10,19 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: b4c58a13c8b66add8ebd7e535ecac9d7b0f1075b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1560b8e574b0932e258353648c73f030ef19d314
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032129"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333504"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Testa med en uppsättning exempel yttranden batch
+
  Testning av batch är en omfattande test på din aktuella tränade modellen att mäta prestanda i LUIS. 
 
 <a name="batch-testing"></a>
+
 ## <a name="import-a-dataset-file-for-batch-testing"></a>Importera en datauppsättning-fil för att testa batch
 
 1. Välj **Test** längst upp och sedan väljer **Batch-testning panelen**.
@@ -36,6 +38,7 @@ ms.locfileid: "47032129"
 4. Välj **Done** (Klar). Datauppsättningsfilen har lagts till.
 
 ## <a name="run-rename-export-or-delete-dataset"></a>Kör, byta namn på, exportera eller ta bort datauppsättning
+
 Om du vill köra, byta namn på, exportera eller ta bort datauppsättningen, använder du de tre punkterna (***...*** ) i slutet av raden för datauppsättningen.
 
 ![Åtgärder för datauppsättning](./media/luis-how-to-batch-test/batch-testing-options.png)
@@ -55,7 +58,9 @@ Nedladdningsbara datauppsättningen är samma fil som har överförts för att t
 |![Redo att testa ikon](./media/luis-how-to-batch-test/batch-test-result-blue.png)|Testning är redo att köra.|
 
 <a name="access-batch-test-result-details-in-a-visualized-view"></a>
+
 ## <a name="view-batch-test-results"></a>Visa testresultat för batch 
+
 Om du vill granska resultaten av batch, Välj **se resultat**.
 
 ![Testresultat för batch](./media/luis-how-to-batch-test/run-test-results.png)
@@ -64,6 +69,7 @@ Om du vill granska resultaten av batch, Välj **se resultat**.
 
 
 <a name="filter-chart-results-by-intent-or-entity"></a>  
+
 ## <a name="filter-chart-results"></a>Filtrera diagrammet resultat
 
 Välj avsikt eller entitet i panelen höger filtrering för att filtrera diagrammet efter ett specifikt syfte eller en enhet. Uppdatera i diagrammet enligt ditt val av datapunkter och deras distribution. 
@@ -71,6 +77,7 @@ Välj avsikt eller entitet i panelen höger filtrering för att filtrera diagram
 ![Testresultat för visualiserade Batch](./media/luis-how-to-batch-test/filter-by-entity.png) 
 
 ## <a name="view-single-point-utterance-data"></a>Visa enda punkt uttryck data
+
 I diagrammet, hovrar du över en datapunkt för att se säkerhet poängen för dess förutsägelse. Välj en datapunkt för att hämta dess motsvarande uttryck i listan yttranden längst ned på sidan. 
 
 ![Valda uttryck](./media/luis-how-to-batch-test/selected-utterance.png)
@@ -78,7 +85,9 @@ I diagrammet, hovrar du över en datapunkt för att se säkerhet poängen för d
 
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
+
 ## <a name="view-section-data"></a>Visa avsnittet data
+
 I diagrammet är fyra avsnitt, välja avsnittsnamn, till exempel **falskt positivt** på upp till höger i diagrammet. Under diagrammet visas alla uttryck i avsnittet under diagrammet i en lista. 
 
 ![Valda yttranden avsnittet](./media/luis-how-to-batch-test/selected-utterances-by-section.png)

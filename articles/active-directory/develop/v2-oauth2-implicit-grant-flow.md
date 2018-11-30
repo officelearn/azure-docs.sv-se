@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d063c5e5a5b81f16d8921864ab2e2a0c3504e334
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 878c2596a1d884e26a4b4a4ed4764cfd9ce6b39b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289027"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424108"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protokoll – SPA med det implicita flödet
 
@@ -34,7 +34,7 @@ Du kan använda v2.0-slutpunkten för att registrera användare i dina enkelsidi
 * Många servrar för auktorisering och identitetsprovidrar har inte stöd för CORS-förfrågningar.
 * Helsida webbläsare omdirigerar bort från appen blir särskilt inkräktande användarupplevelsen.
 
-För dessa program (AngularJS, Ember.js, React.js osv.) stöder Azure Active Directory (Azure AD) Implicit beviljande av OAuth 2.0-flödet. Det implicita flödet beskrivs i den [OAuth 2.0-specifikationen](http://tools.ietf.org/html/rfc6749#section-4.2). Den största fördelen är att den tillåter appen att hämta token från Azure AD utan att utföra en backend-servern autentiseringsutbyte. På så sätt kan appen att logga in användaren, hålla sessionen aktiv och hämta token till andra webb-API: er inom klienten JavaScript-kod. Det finns några viktiga säkerhetsöverväganden ta hänsyn till när du använder det implicita flödet specifikt cirka [klienten](http://tools.ietf.org/html/rfc6749#section-10.3) och [användarpersonifiering](http://tools.ietf.org/html/rfc6749#section-10.3).
+För dessa program (AngularJS, Ember.js, React.js osv.) stöder Azure Active Directory (Azure AD) Implicit beviljande av OAuth 2.0-flödet. Det implicita flödet beskrivs i den [OAuth 2.0-specifikationen](https://tools.ietf.org/html/rfc6749#section-4.2). Den största fördelen är att den tillåter appen att hämta token från Azure AD utan att utföra en backend-servern autentiseringsutbyte. På så sätt kan appen att logga in användaren, hålla sessionen aktiv och hämta token till andra webb-API: er inom klienten JavaScript-kod. Det finns några viktiga säkerhetsöverväganden ta hänsyn till när du använder det implicita flödet specifikt cirka [klienten](https://tools.ietf.org/html/rfc6749#section-10.3) och [användarpersonifiering](https://tools.ietf.org/html/rfc6749#section-10.3).
 
 Om du vill använda implicit flöde och Azure AD för att lägga till autentisering i din app med JavaScript, vi rekommenderar att du använder JavaScript-bibliotek med öppen källkod, [msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js). 
 
@@ -81,7 +81,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `redirect_uri` | Rekommenderas |Redirect_uri för din app, där autentiseringssvar kan skickas och tas emot av din app. Det måste exakt matcha en av redirect_uris som du registrerade i portalen, men det måste vara url-kodas. |
 | `scope` | obligatorisk |En blankstegsavgränsad lista med omfattningar. Det måste innehålla omfånget för OpenID Connect, `openid`, vilket innebär att behörigheten ”logga du in” i godkännande-UI. Alternativt kan du också vill ska ingå i `email` eller `profile` [scope](v2-permissions-and-consent.md) för att få åtkomst till ytterligare användardata. Du kan också omfatta andra scope i den här begäran för att begära tillstånd att olika resurser. |
 | `response_mode` | valfri |Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app. Standardinställningen är att fråga efter ett åtkomsttoken, men fragment om förfrågningen innehåller en id_token. |
-| `state` | Rekommenderas |Ett värde som ingår i den begäran som också kommer att returneras i token-svaret. Det kan vara en sträng med innehåll som du önskar. Ett slumpmässigt genererat unikt värde som normalt används för [att förhindra attacker med förfalskning av begäran](http://tools.ietf.org/html/rfc6749#section-10.12). Tillstånd används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
+| `state` | Rekommenderas |Ett värde som ingår i den begäran som också kommer att returneras i token-svaret. Det kan vara en sträng med innehåll som du önskar. Ett slumpmässigt genererat unikt värde som normalt används för [att förhindra attacker med förfalskning av begäran](https://tools.ietf.org/html/rfc6749#section-10.12). Tillstånd används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
 | `nonce` | obligatorisk |Ett värde som ingår i den begäran som skapats av appen, som ska tas med i den resulterande id_token som ett anspråk. Appen kan sedan att verifiera det här värdet om du vill lösa token repetitionsattacker. Värdet är vanligtvis en slumpmässig, unik sträng som kan användas för att fastställa ursprunget för begäran. Krävs endast när en id_token har begärts. |
 | `prompt` | valfri |Anger vilken typ av interaktion från användaren som krävs. De enda giltiga värdena just nu är ”inloggning”, ”ingen”, ”select_account” och ”godkänna”. `prompt=login` kommer att tvinga användaren att ange sina autentiseringsuppgifter på begäran, vilket eliminerar enkel inloggning. `prompt=none` är motsatsen – det säkerställer att användaren inte visas med den interaktiva prompten alls. Om begäran inte kan slutföras tyst via enkel inloggning, returnerar v2.0-slutpunkten ett fel. `prompt=select_account` skickar användaren till en kontoväljare där alla konton som sparas i sessionen visas. `prompt=consent` utlöser OAuth godkännande i dialogrutan när användaren loggar in, ber användaren att bevilja behörigheter till appen. |
 | `login_hint`  |valfri |Kan användas till att fylla förväg adressfältet användarnamn/e-post i inloggningssidan för användaren, om du känner till sina användarnamn i tid. Ofta appar kommer att använda den här parametern under återautentiseringen redan har extraherats användarnamnet från en tidigare logga in med den `preferred_username` anspråk.|
@@ -131,7 +131,7 @@ error=access_denied
 
 ## <a name="validate-the-idtoken"></a>Verifiera id_token
 
-Bara tar emot en id_token är inte tillräckliga för att autentisera användaren. Du måste också verifiera signaturen för den id_token och verifiera anspråken i token baserat på dina appkrav. V2.0-slutpunkten använder [JSON Web token (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) och kryptering med offentlig nyckel att signera token och kontrollera att de är giltiga.
+Bara tar emot en id_token är inte tillräckliga för att autentisera användaren. Du måste också verifiera signaturen för den id_token och verifiera anspråken i token baserat på dina appkrav. V2.0-slutpunkten använder [JSON Web token (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) och kryptering med offentlig nyckel att signera token och kontrollera att de är giltiga.
 
 Du kan välja att verifiera den `id_token` i klienten kod, men en vanlig metod är att skicka den `id_token` till backend-servern och utföra valideringen det. När du har verifierat signaturen för id_token, finns det några anspråk uppmanas du att verifiera. Se den [ `id_token` referens](id-tokens.md) för mer information, inklusive [verifiera token](id-tokens.md#validating-an-idtoken) och [viktig information om signeringsnyckel](active-directory-signing-key-rollover.md). Vi rekommenderar att du utnyttjar ett bibliotek för parsning och validera token: det finns minst en tillgänglig för de flesta språk och plattformar.
 

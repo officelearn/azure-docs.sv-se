@@ -1,6 +1,6 @@
 ---
-title: Använda en lokal SQLServer i Azure Machine Learning | Microsoft Docs
-description: Använda data från en lokal SQL Server-databas för att utföra avancerade analyser med Azure Machine Learning.
+title: En lokal SQLServer med Azure Machine Learning Studio | Microsoft Docs
+description: Använda data från en lokal SQL Server-databas för att utföra avancerade analyser med Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,18 +16,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.openlocfilehash: 83ec812f18e7e47f30db79a6d665d60fae9e0e5d
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: d28c39ef909cffdc1ed907e05b60e61f02353710
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263221"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310964"
 ---
 # <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>Utföra avancerade analyser med Azure Machine Learning med hjälp av data från en lokal SQL Server-databas
 
 Ofta företag som fungerar med lokala data vill dra nytta av skalan och flexibilitet med molnet för sina maskininlärningsarbetsbelastningar. Men de vill inte störa deras aktuella affärsprocesser och arbetsflöden genom att flytta sina lokala data till molnet. Azure Machine Learning har nu stöd för att läsa data från en lokal SQL Server-databas och sedan utbildning och bedömning av en modell med dessa data. Du har inte längre att manuellt kopiera och synkronisera data mellan molnet och den lokala servern. I stället den **importdata** modul i Azure Machine Learning Studio kan nu läsa direkt från din lokala SQL Server-databas för utbildning och bedömning jobb.
 
-Den här artikeln innehåller en översikt över hur du ingående lokala SQL server-data i Azure Machine Learning. Det förutsätts att du är bekant med Azure Machine Learning-begrepp som arbetsytor, moduler, datauppsättningar, experiment, *etc*.
+Den här artikeln innehåller en översikt över hur du ingående lokala SQL server-data till Azure Machine Learning Studio. Det förutsätts att du är bekant med Azure Machine Learning-begrepp som arbetsytor, moduler, datauppsättningar, experiment, *etc*.
 
 > [!NOTE]
 > Den här funktionen är inte tillgänglig för kostnadsfria arbetsytor. Läs mer om Machine Learning-priser och nivåer [Azure Machine Learning-priser](https://azure.microsoft.com/pricing/details/machine-learning/).

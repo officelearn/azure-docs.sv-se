@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: ff194ef7f5ae609eba5334eb5c66db02d660ab08
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8a67327497c96cba570d2ddb8c525bf5a60be790
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049639"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308230"
 ---
-# <a name="phoenix-performance-best-practices"></a>Metodtips för prestanda för Phoenix
+# <a name="apache-phoenix-performance-best-practices"></a>Bästa praxis för prestanda för Apache Phoenix
 
-Den viktigaste delen av prestanda för Phoenix är att optimera den underliggande HBase. Phoenix skapar en relationsdatamodell ovanpå HBase som konverterar SQL-frågor till HBase-åtgärder, till exempel genomsökningar. Utformningen av din tabellschemat, markeringen och ordning på fälten i den primära nyckeln och din användning av alla index påverka prestanda för Phoenix.
+Den viktigaste delen av [Apache Phoenix](https://phoenix.apache.org/) prestanda är att optimera den underliggande [Apache HBase](http://hbase.apache.org/). Phoenix skapar en relationsdatamodell ovanpå HBase som konverterar SQL-frågor till HBase-åtgärder, till exempel genomsökningar. Utformningen av din tabellschemat, markeringen och ordning på fälten i den primära nyckeln och din användning av alla index påverka prestanda för Phoenix.
 
 ## <a name="table-schema-design"></a>Tabelldesign schema
 
@@ -229,5 +229,5 @@ Mer information om den här och andra alternativ finns i [Phoenix grammatik](htt
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Phoenix Justeringsguide](https://phoenix.apache.org/tuning_guide.html)
+* [Apache Phoenix-Justeringsguide](https://phoenix.apache.org/tuning_guide.html)
 * [Sekundära index](http://phoenix.apache.org/secondary_indexing.html)

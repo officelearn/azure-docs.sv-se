@@ -1,6 +1,6 @@
 ---
-title: Säkerhetsprincipinställningar för Azure Security Center | Microsoft Docs
-description: Konfigurera inställningar för säkerhetsprincip Azure Security Center.
+title: Azure Security Center-inställningar | Microsoft Docs
+description: Konfigurera inställningar för Azure Security Center.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,23 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3d2687f56b69174fde783060d994e3c01763ec94
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2aa4545aa79260bea792392e1bebf4166253fc87
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256637"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315723"
 ---
-# <a name="security-policy-settings"></a>Inställningar för säkerhetsprincip
-Den här artikeln innehåller en översikt över säkerhet principinställningar i Security Center.
+# <a name="security-center-settings"></a>Security Center-inställningar
+Den här artikeln innehåller en översikt över inställningar i Security Center.
 
-## <a name="what-are-security-policies"></a>Vad är säkerhetsprinciper?
-En säkerhetsprincip definierar den önskade konfigurationen för arbetsbelastningarna och hjälper till att säkerställa efterlevnaden av företagets eller bestämmelsemässiga säkerhetskrav. Du kan definiera principer för dina Azure-prenumerationer och anpassa dem till din typ av arbetsbelastning eller känslighet för dina data i Azure Security Center. Program som använder reglerade data, till exempel personligt identifierbar information kan till exempel kräva en högre säkerhetsnivå än andra arbetsbelastningar.
-
-Du kan ange följande under säkerhetsprincip:
+Följande inställningar kan nås under säkerhetsprincip:
 
 - **Datainsamling**: fastställer agentetablering och [datainsamling](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) inställningar.
-- **Säkerhetsprincip**: avgör vilket kontrollerar Security Center ska övervaka och rekommenderar. Du kan redigera den [säkerhetsprincip](security-center-policies.md) i Security Center. Du kan också använda [Azure Policy](security-center-azure-policy.md) för att skapa nya definitioner, definiera ytterligare principer och tilldela principer över hanteringsgrupper. 
+- **Säkerhetsprincip**: avgör vilket kontrollerar Security Center ska övervaka och rekommenderar. Du kan redigera den [säkerhetsprincip](security-center-azure-policy.md) i Security Center. Du kan också använda [Azure Policy](security-center-azure-policy.md) för att skapa nya definitioner, definiera ytterligare principer och tilldela principer över hanteringsgrupper. 
 - **E-postmeddelanden**: fastställer säkerhetskontakter, och [e-postavisering](security-center-provide-security-contact-details.md) inställningar.
 - **Prisnivån**: definierar kostnadsfritt eller standardpris [prissättningsval](security-center-pricing.md). Vilken nivå du väljer avgör vilka Security Center-funktioner som blir tillgängliga för resurser i området. Du kan ange en nivå för prenumerationer, resursgrupper och arbetsytor.
 
@@ -49,7 +46,7 @@ Security Center använder rollbaserad åtkomstkontroll (RBAC), som erbjuder inby
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du lärt dig om säkerhetsprinciper i Azure Security Center. Mer information om Azure Security Center finns i följande artiklar:
 
-* [Ange säkerhetsprinciper i Azure Security Center](security-center-policies.md): Lär dig hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper.
+* [Ange säkerhetsprinciper i Azure Security Center](security-center-azure-policy.md): Lär dig hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper.
 * [Hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md): Lär dig hur rekommendationerna i Security Center hjälper dig att skydda dina Azure-resurser.
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md): Lär dig hur du övervakar dina Azure-resursers hälsa.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md): Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.

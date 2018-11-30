@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 85fea195b05bea8a1db70f8b5b81cabdfe7c6c72
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 8525b1450ae8b7badfe1c569c2040ecf1ab78070
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041517"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314379"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Ta med din egen nyckel för Apache Kafka på Azure HDInsight (förhandsversion)
 
@@ -83,7 +83,7 @@ Du kan använda Azure portal eller Azure CLI för att på ett säkert sätt rote
 
    När klustret skapas, ange fullständiga webbadress, inklusive nyckelns version. Till exempel `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Du måste också tilldela den hanterade identitet till klustret och ange nyckel-URI.
 
-## <a name="faq-for-byok-to-kafka"></a>Vanliga frågor och svar för BYOK till Kafka
+## <a name="faq-for-byok-to-apache-kafka"></a>Vanliga frågor och svar för BYOK till Apache Kafka
 
 **Hur åt mitt nyckelvalv av Kafka-kluster?**
 

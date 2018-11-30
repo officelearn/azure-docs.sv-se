@@ -1,5 +1,5 @@
 ---
-title: 5 datavetenskap frågor – datavetenskap för nybörjare – Azure Machine Learning | Microsoft Docs
+title: 5 datavetenskap frågor – datavetenskap för nybörjare – Azure Machine Learning Studio | Microsoft Docs
 description: Datavetenskap Lär för nybörjare är grundläggande begrepp i 5 korta videor från och med den 5 frågor och svar om datavetenskap. Från Azure Machine Learning.
 keywords: göra datavetenskap, data science nybörjare, datavetenskap för nybörjare, data science grunderna, data science frågor, data science video, data science-introduktion
 services: machine-learning
@@ -17,12 +17,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 2e3d8805bfbe5b55aed111090cf1f7c02acb6a76
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: c59b4783c59c44604738a3056b3484e11ff90363
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262048"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314174"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Datavetenskap för nybörjare, video 1: Fem frågor och svar om datavetenskap
 Få en snabbintroduktion i datakunskap från *datavetenskap för nybörjare* i fem korta filmer från övre dataexpert. Dessa videoklipp är basic men användbart, oavsett om du är intresserad av i datavetenskap eller om du arbetar med dataexperter.

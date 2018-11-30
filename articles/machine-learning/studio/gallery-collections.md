@@ -1,6 +1,6 @@
 ---
-title: Azure AI-galleriet samlingar | Microsoft Docs
-description: Upptäcka och dela samlingar i Azure AI-galleriet.
+title: Azure AI-galleriet samlingar – Azure Machine Learning Studio | Microsoft Docs
+description: 'Du kan använda en samling i Azure AI-galleriet för att gruppera experiment, API: er och andra Galleriobjekt som du använder för en viss lösning eller begrepp. Du kan gruppera dem att använda, spara för senare referens eller att dela.'
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: e9b1bfd27e82d3ca091fba850b2e4a9b6b8aa61e
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: cc70405655cd07d87ca5b1004b7666d3b45bc649
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263646"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308689"
 ---
 # <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Upptäcka och dela samlingar i Azure AI-galleriet
 
@@ -55,7 +55,7 @@ Exempel: du kan använda en samling att gruppera objekt i ett visst ämne eller 
 
 3. Välj **Nytt objekt**.
    
-    ![Välj ”nytt objekt”](./media/gallery-collections/click-new-item.png)
+    ![Välj ”Nytt objekt”](./media/gallery-collections/click-new-item.png)
 4. På den **beskrivning** sidan för **OBJEKTTYPEN**väljer **samling**. Ange ett namn för din samling, en kort sammanfattning, en detaljerad beskrivning och alla taggar som kan hjälpa andra användare hitta din samling.
    
     ![Ange information för en ny samling](./media/gallery-collections/create-collection-page-1.png)

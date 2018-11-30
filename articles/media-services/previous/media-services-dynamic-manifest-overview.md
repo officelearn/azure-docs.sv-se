@@ -12,19 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 11/25/2018
 ms.author: cenkd;juliako
-ms.openlocfilehash: 6060f294820281df3124fb2fc702ece59a006af1
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: e0eaf88117aa3c67f7ffecad2e3811a22449a5f8
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282415"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312977"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filter och dynamiska manifest
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Version 2](media-services-dynamic-manifest-overview.md)
+> * [Version 3](../latest/filters-dynamic-manifest-overview.md)
+
 Från och med 2.17, kan Media Services du definiera filter för dina tillgångar. Dessa filter är serversidan regler som gör att kunderna kan välja att till exempel: spela bara en del av en video (i stället för att spela upp videon och hela) eller ange endast en delmängd av ljud och video återgivningar att din kunds enheten kan hantera () i stället för alla återgivningar som är associerade med tillgången). Den här filtrering av dina tillgångar uppnås via **dynamiska Manifest**s som skapas på din kunds begäran för direktuppspelning av video baserat på angivna filter.
 
-Det här avsnittet beskriver vanliga scenarier som skulle vara mycket fördelaktigt att dina kunder och länkar till ämnen som visar hur du kan skapa filter programmässigt med hjälp av filter.
+Det här avsnittet beskriver vanliga scenarier som skulle vara fördelaktigt att dina kunder och länkar till ämnen som visar hur du kan skapa filter programmässigt med hjälp av filter.
 
 ## <a name="overview"></a>Översikt
 När du levererar ditt innehåll till kunder (streaming direktsändningar eller video på begäran) är målet att leverera en video med hög kvalitet till olika enheter under olika nätverksförhållanden. Att uppnå detta mål att göra följande:
@@ -102,7 +107,7 @@ Det finns två typer av tillgången filter:
 Globala och lokala filtertyper har exakt samma egenskaper. Den största skillnaden mellan två är vilken typ av arkiverar är lämpligast för vilka scenarier. Globala filter är vanligtvis lämpliga för enhetsprofiler (återgivningsfiltrering) där lokala filter kan användas för att trimma en specifik tillgång.
 
 ## <a id="scenarios"></a>Vanliga scenarier
-Som nämndes innan när du levererar ditt innehåll till kunder (streaming direktsändningar eller video på begäran) målet är att leverera en video av hög kvalitet till olika enheter under olika nätverksförhållanden. Dessutom kan din kan ha andra krav som rör filtrera dina tillgångar och om hur du använder **dynamiska Manifest**s. I följande avsnitt ger en kort översikt över olika scenarier som filtrerande.
+Som nämndes innan när du levererar ditt innehåll till kunder (streaming direktsändningar eller video på begäran) målet är att leverera en video med hög kvalitet till olika enheter under olika nätverksförhållanden. Dessutom kan du kan ha andra krav som rör filtrera dina tillgångar och om hur du använder **dynamiska Manifest**s. I följande avsnitt ger en kort översikt över olika scenarier som filtrerande.
 
 * Ange endast en delmängd av ljud och video återgivningar som vissa enheter kan hantera (i stället för alla återgivningar som är associerade med tillgången). 
 * Spela upp endast en del av en video (i stället för hela videon).

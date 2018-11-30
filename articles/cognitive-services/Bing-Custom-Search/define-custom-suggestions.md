@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: maheshb
-ms.openlocfilehash: d8d3e954dde23ebf6d19607b61df87cd79703b56
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: cf3c9061b953264794fbe4f94cbcdcee9d3c69b3
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163294"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423015"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Konfigurera din anpassade automatiska förslag
 
@@ -52,7 +52,7 @@ Om du inkluderar förslag i Bing, kan du lägga till en lista över search fråg
 
 
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 >[!NOTE]  
 >Det kan ta upp till 24 timmar för anpassade automatiska förslag konfigurationsändringarna ska börja gälla.

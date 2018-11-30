@@ -13,23 +13,23 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 8dfe61430423298eea81510d3e92d49066217a05
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 3ff1db9ee7dc34ce529702d61b3ac5970bb5d9df
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708806"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309881"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Kan inte använda RDP till en virtuell dator eftersom den virtuella datorn startas i felsäkert läge
 
-Den här artikeln visar hur du löser ett problem där det går inte att fjärrskrivbord till Azure Windows Virtual Machines (VM) eftersom den virtuella datorn är konfigurerad att starta i felsäkert läge.
+Den här artikeln visar hur du löser problem som du inte kan ansluta till Azure Windows Virtual Machines (VM) eftersom den virtuella datorn är konfigurerad att starta i felsäkert läge.
 
 > [!NOTE] 
 > Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver Resource Manager-distributionsmodellen, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributionsmodellen. 
 
 ## <a name="symptoms"></a>Symtom 
 
-Du kan inte göra en RDP-anslutning och andra anslutningar (till exempel HTTP) till en virtuell dator i Azure eftersom den virtuella datorn är konfigurerad att starta i felsäkert läge. När du checkar skärmbilden den [Startdiagnostik](../troubleshooting/boot-diagnostics.md) i Azure-portalen kan du se den virtuella datorn startas normalt, men nätverksgränssnittet är inte tillgänglig:
+Du kan inte göra en RDP-anslutning eller andra anslutningar (till exempel HTTP) till en virtuell dator i Azure eftersom den virtuella datorn är konfigurerad att starta i felsäkert läge. När du checkar skärmbilden den [Startdiagnostik](../troubleshooting/boot-diagnostics.md) i Azure-portalen kan du se att den virtuella datorn startas normalt, men nätverksgränssnittet är inte tillgänglig:
 
 ![Bild som visar nätverk inferce i felsäkert läge](./media/troubleshoot-rdp-safe-mode/network-safe-mode.png)
 
@@ -54,11 +54,11 @@ Lös problemet genom att använda seriell kontroll för att konfigurera den virt
 
     Om den virtuella datorn är konfigurerad för att starta i felsäkert läge, ser du en extra flagga under den **Windows Boot Loader** avsnitt som heter **safeboot**. Om du inte ser den **safeboot** flagga den virtuella datorn är inte i felsäkert läge. Den här artikeln gäller inte för ditt scenario.
 
-    Flaggan safeboot kan visas med följande värden:
+    Den **safeboot** flaggan kan visas med följande värden:
     - Minimalt
     - Nätverk
 
-    I någon av dessa två lägen, kan RDP inte startas. Korrigeringen förblir desamma.
+    I dessa två lägena kan startas inte RDP. Därför förblir korrigeringen densamma.
 
     ![Bild som visar flaggan felsäkert läge](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
 
@@ -66,7 +66,7 @@ Lös problemet genom att använda seriell kontroll för att konfigurera den virt
 
         bcdedit /deletevalue {current} safeboot
         
-4. Kontrollera startkonfigurationsdata att se till att flaggan safeboot tas bort:
+4. Kontrollera boot configuration data för att se till att den **safeboot** flaggan tas bort:
 
         bcdedit /enum
 
@@ -120,14 +120,14 @@ Kör följande skript för att aktivera dump logg- och Seriekonsol.
         bcdedit /store F:\boot\bcd /enum
     Take note of the Identifier name of the partition that has the **\windows** folder. By default, the  Identifier name is "Default".  
 
-    If the VM is configured to boot into Safe Mode, you will see an extra flag under the **Windows Boot Loader** section called **safeboot**. If you do not see the “safeboot” flag, this article does not apply to your scenario.
+    If the VM is configured to boot into Safe Mode, you will see an extra flag under the **Windows Boot Loader** section called **safeboot**. If you do not see the **safeboot** flag, this article does not apply to your scenario.
 
     ![The image about boot Identifier](./media/troubleshoot-rdp-safe-mode/boot-id.png)
 
 3. Remove the **safeboot** flag, so the VM will boot into normal mode:
 
         bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
-4. Check the boot configuration data to make sure that the safeboot flag is removed:
+4. Check the boot configuration data to make sure that the **safeboot** flag is removed:
 
         bcdedit /store F:\boot\bcd /enum
 5. [Detach the OS disk and recreate the VM](../windows/troubleshoot-recovery-disks-portal.md). Then check whether the issue is resolved.

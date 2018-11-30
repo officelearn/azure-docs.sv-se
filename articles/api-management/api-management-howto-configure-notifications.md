@@ -1,6 +1,6 @@
 ---
-title: Konfigurera aviseringar och e-mallar i Azure API Management | Microsoft Docs
-description: Lär dig mer om att konfigurera aviseringar och e-mallar i Azure API Management.
+title: Konfigurera meddelanden och e-postmallar i Azure API Management | Microsoft Docs
+description: Lär dig mer om att konfigurera meddelanden och e-postmallar i Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,74 +13,76 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 60788f76dac58ead10e43e892d587a86bdd3fcad
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 16beaadae36dfc7445a88875d36786bd97889599
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934292"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445088"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Konfigurera meddelanden och e-postmallar i Azure API Management
-API Management gör möjligheten att konfigurera aviseringar för specifika händelser och konfigurera e-postmallar som används för kommunikation med administratörer och utvecklare av en API Management-instans. Den här artikeln visar hur du konfigurerar aviseringar för händelserna som är tillgängliga och ger en översikt över hur du konfigurerar e postmallar som används för dessa händelser.
+API Management gör möjligheten att konfigurera meddelanden för specifika händelser och för att konfigurera e-postmallar som används för att kommunicera med administratörer och utvecklare av en API Management-instans. Den här artikeln visar hur du konfigurerar aviseringar för de tillgängliga händelserna och ger en översikt över hur du konfigurerar e-mallarna som används för dessa händelser.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte har en instans för API Management-tjänsten utför du följande Snabbstart: [skapa en instans av Azure API Management](get-started-create-service-instance.md).
+Om du inte har en API Management-tjänstinstans, Slutför följande Snabbstart: [skapa en Azure API Management-instans](get-started-create-service-instance.md).
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="publisher-notifications"> </a>Konfigurera meddelanden
 
 1. Välj din **API MANAGEMENT** instans.
 2. Klicka på **meddelanden** att visa tillgängliga meddelanden.
 
-    ![Publisher meddelanden][api-management-publisher-notifications]
+    ![Publisher-meddelanden][api-management-publisher-notifications]
 
     Följande lista över händelser kan konfigureras för meddelanden.
 
-    * **Prenumerationsbegäranden (som kräver godkännande)** -de angivna e-postmottagare och användare får e-postmeddelanden om prenumerationen förfrågningar för API-produkter som kräver godkännande.
-    * **Nya prenumerationer** -de angivna e-postmottagare och användare får e-postmeddelanden om nya prenumerationer för API-produkten.
-    * **Galleriet programförfrågningar** -de angivna e-postmottagare och användare får e-postmeddelanden när nya program skickas till galleriet för programmet.
-    * **Hemlig kopia** -de angivna e-postmottagare och användare får e-post hemliga kopior av alla e-postmeddelanden skickas till utvecklare.
-    * **Nytt ärende eller kommentar** - de angivna e-postmottagare och användare får e-postmeddelanden när ett nytt ärende eller kommentar skickas på developer-portalen.
-    * **Avsluta konto meddelandet** -de angivna e-postmottagare och användare får e-postmeddelanden när ett konto har stängts.
-    * **Närmar sig kvotgränsen för prenumerationen** -följande e-postmottagare och användare får e-postaviseringar när prenumerationsanvändning hämtar nära kvot.
+    * **Prenumerationsbegäranden (kräva godkännande)** -den angivna e-postmottagare och användarna får ett e-postaviseringar om prenumerationsbegäranden för API-produkter som kräver godkännande.
+    * **Nya prenumerationer** -den angivna e-postmottagare och användare får ett e-postmeddelanden om nya prenumerationer för API-produkt.
+    * **Galleriet programförfrågningar** -angivna e-postmottagare och användarna får ett e-postmeddelanden när nya program skickas till programgalleriet.
+    * **Hemlig kopia** -den angivna e-postmottagare och användare får ett e-hemliga kopior av alla e-postmeddelanden skickas till utvecklare.
+    * **Nytt ärende eller kommentar** – den angivna e-postmottagare och användarna får ett e-postmeddelanden när ett nytt ärende eller kommentar har skickats i developer-portalen.
+    * **Stäng konto meddelande** -angivna e-postmottagare och användarna får ett e-postmeddelanden när ett konto har avslutats.
+    * **Närmar sig kvotgränsen för prenumerationen** -följande e-postmottagare och användarna får ett e-postmeddelanden när prenumerationsanvändning hämtar nära kvot för användning.
 
-    Du kan ange e-postmottagare med textrutan e-postadress för varje händelse eller kan du välja användare från en lista.
+    Du kan ange e-postmottagare med textrutan för e-postadress för varje händelse eller du kan välja användare från en lista.
 
-3. Ange e-postadresser som ska meddelas ange dem i textrutan e-postadress. Om du har flera e-postadresser avgränsade med kommatecken.
+3. Om du vill meddelas e-postadresser, anger du dem i textrutan för e-postadress. Om du har flera e-postadresser kan du avgränsa dem med kommatecken.
 
     ![Meddelandemottagare][api-management-email-addresses]
 4. Tryck på **Lägg till**.
 
 ## <a name="email-templates"> </a>Konfigurera aviseringsmallar
-API Management ger aviseringsmallar för e-postmeddelanden som skickas under administration och med hjälp av tjänsten. Följande e-mallar finns.
+API Management ger aviseringsmallar för e-postmeddelanden som skickas under administrationen och med hjälp av tjänsten. Följande e-postmallar tillhandahålls.
 
-* Application gallery skicka godkända
-* Utvecklare farewell bokstav
-* Kvot för utvecklare som närmar sig meddelande
+* Programmet galleriet bidrag godkänd
+* Developer farewell bokstav
+* Kvotgränsen för utvecklare närmar sig meddelande
 * Bjud in användare
-* Ny kommentar som läggs till ett problem
-* Nya problemet som tagits emot
+* Ny kommentar har lagts till på ett problem
+* Nytt ärende som tagits emot
 * Ny prenumeration som aktiverats
 * Prenumerationen förnyas bekräftelse
-* Prenumerationsbegäran avböjer
+* Prenumerationsbegäran nekar
 * Prenumerationsbegäran mottagen
 
 Dessa mallar kan ändras enligt önskemål.
 
-Om du vill visa och konfigurera e-mallar för API Management-instans, klickar du på **meddelanden mallar**.
+Om du vill visa och konfigurera de e-postmallar för din API Management-instans, klickar du på **meddelanden mallar**.
 
 ![E-postmallar][api-management-email-templates]
 
-Varje e-postmall har ett ämne med oformaterad text och en brödtext definition i HTML-format. Varje objekt kan anpassas enligt önskemål.
+Varje e-postmallen har ett ämne i oformaterad text och en brödtext definition i HTML-format. Varje objekt som kan anpassas enligt önskemål.
 
-![Redigeraren för mallen för e-post][api-management-email-template]
+![Redigeraren för e-mall][api-management-email-template]
 
-Den **parametrar** listan innehåller en lista över parametrar, som under infogas i ämnet eller texten, kommer att ersätta det avsedda värdet när e-postmeddelandet skickas. Om du vill infoga en parameter, placera markören där du vill att parametern för att gå och klickar du på pilen till vänster om parameternamnet.
+Den **parametrar** listan innehåller en lista över parametrar som under infogas i ämnet eller texten, kommer att ersättas avsedda värdet när e-postmeddelandet skickas. Placera markören där du vill att parametern för att gå för att infoga en parameter, och klicka på pilen till vänster om parameternamnet.
 
 > [!NOTE] 
-> Parametrarna är inte ersättas med verkliga värden när Förhandsgranska eller skickar ett test.
+> Parametrarna har inte ersatts med faktiska värden när jag förhandsgranskar eller skicka ett test.
 
-Om du vill spara ändringarna till e-postmall klickar du på **spara**, eller om du vill avbryta ändringarna Klicka **Ignorera**.
+Om du vill spara ändringarna till den e-postmallen klickar du på **spara**, eller för att avbryta ändringar Klicka **Ignorera**.
  
 
 [api-management-management-console]: ./media/api-management-howto-configure-notifications/api-management-management-console.png

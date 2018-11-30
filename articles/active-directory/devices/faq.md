@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 9402147e2dab7fbf52fc893f339f6f3b8e112377
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 3fd0dfb327e925ecb28a7ca12e03b79c873118dc
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515649"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309352"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory-enhetshantering vanliga frågor och svar
 
@@ -93,6 +93,7 @@ För äldre Windows OS-versioner som är en lokal AD-ansluten till domänen:
 
 >[!Note] 
 >För registrerade enheter rekommenderar vi att rensa en enhet för att säkerställa att användarna inte kan komma åt resurserna. Mer information finns i [registrera enheter för hantering i Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+
 ---
 
 # <a name="azure-ad-join-faq"></a>Azure AD Join vanliga frågor och svar
@@ -103,6 +104,20 @@ För äldre Windows OS-versioner som är en lokal AD-ansluten till domänen:
 - För enheter för hybrid Azure AD har anslutits kan du se till att inaktivera automatisk registrering, så att den schemalagda aktiviteten inte registrera enheten igen. Därefter öppnar du Kommandotolken som administratör och skriv `dsregcmd.exe /debug /leave`. Det här kommandot kan också köras som ett skript på flera enheter vid frånkoppling från gruppvis.
 
 - För ren Azure AD har anslutits enheter, kontrollera att du har en offline lokal administratör konto eller skapa ett, som du kan inte logga in med autentiseringsuppgifter för alla Azure AD-användare. Gå sedan till **inställningar** > **konton** > **åtkomst till arbete eller skola**. Välj ditt konto och klicka på **Disconnect**. Följ anvisningarna och ange autentiseringsuppgifterna som lokal administratör när du tillfrågas. Starta om enheten för att slutföra processen frånkoppling.
+
+---
+
+**F: kan Mina användare logga in på Azure AD-anslutna enheter som har tagits bort eller inaktiveras i Azure AD? ** 
+ **S:** Ja. Windows har cachelagrat inloggningsmöjlighet så att tidigare inloggade användare åtkomst till skrivbordet snabbt även utan nätverksanslutning. När en enhet tas bort eller inaktiveras i Azure AD, är det inte känt för Windows-enheten. Därför loggade in användare kan fortsätta att arbeta direkt med cachelagrade inloggning. Men eftersom enheten tas bort eller inaktiveras, användare kan inte komma åt några resurser som skyddas av enhetsbaserad villkorlig åtkomst. 
+
+Användare som inte redan har loggat in kan inte komma åt enheten eftersom det finns inga cachelagrade inloggning är aktiverat för dessa. 
+
+---
+
+**F: kan inaktiverad eller borttagen användare logga in på Azure AD-anslutna enheter? ** 
+ **S:** Ja, men endast under en begränsad tid. När en användare tas bort eller inaktiveras i Azure AD, är det inte omedelbart känt på Windows-enheten. Därför loggade in användare kan komma åt skrivbordet med cachelagrade inloggning. När enheten är medveten om användarens tillstånd (vanligtvis i mindre än 4 timmar), blockerar Windows dessa användare från att komma åt skrivbordet. När användaren tas bort eller inaktiveras i Azure AD, kommer alla sina tokens att återkallas, så att de inte kan komma åt några resurser. 
+
+Har tagits bort eller är inaktiverad användare som inte har loggat in tidigare inte åtkomst till en enhet eftersom det finns inga cachelagrade inloggning är aktiverat för dessa. 
 
 ---
 

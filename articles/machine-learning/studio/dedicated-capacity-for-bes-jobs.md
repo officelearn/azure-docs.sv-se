@@ -1,5 +1,5 @@
 ---
-title: Dedikerad kapacitet för Machine Learning Batch körning Service-jobb | Microsoft Docs
+title: Dedikerad kapacitet för machine learning batch-körningen service jobb – Azure Machine Learning Studio | Microsoft Docs
 description: Översikt över Azure Batch-tjänster för Machine Learning-jobb.
 services: machine-learning
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: e3df8c105e70edcd4bacd2c21fdb9c79b931c9cf
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 13e9921b15faff10ac250aa7c19d655ada782ce2
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265023"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308145"
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>Azure Batch-tjänsten för Machine Learning-jobb
 

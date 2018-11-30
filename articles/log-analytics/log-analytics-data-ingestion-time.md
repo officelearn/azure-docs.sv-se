@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2018
 ms.author: bwren
-ms.openlocfilehash: f40c8ed7eb6bfae958b3b57c4b7d525963ab9741
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4f7b0f7c1cd08168db3f0f0ffd6cf6c4fa2c604e
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955270"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334558"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Tid för inmatning av data i Log Analytics
 Azure Log Analytics är en tjänst för hög skala i Azure Monitor som hanterar tusentals kunder skickar terabyte data varje månad i en växande takt. Det finns ofta frågor om den tid det tar innan data blir tillgängliga i Log Analytics när den har samlats in. Den här artikeln beskrivs de olika faktorer som påverkar den här fördröjningen.
@@ -40,7 +40,7 @@ Information om olika svarstiden i den här processen beskrivs nedan.
 Agenter och lösningar för hantering kan du använda olika strategier för att samla in data från en virtuell dator, vilket kan påverka svarstiden. Vissa specifika exempel är följande:
 
 - Windows-händelser, syslog-händelser och prestandamått samlas omedelbart. Prestandaräknare för Linux avsökas med 30 sekunders mellanrum.
-- IIS-loggar och egna loggar samlas in när tidsstämpel ändras. För IIS-loggar är detta påverkas av den [förnya schema som konfigurerats på IIS](log-analytics-data-sources-iis-logs.md). 
+- IIS-loggar och egna loggar samlas in när tidsstämpel ändras. För IIS-loggar är detta påverkas av den [förnya schema som konfigurerats på IIS](../azure-monitor/platform/data-sources-iis-logs.md). 
 - Lösningen för Active Directory-replikering utför sin bedömning var femte dag, medan lösningen för Active Directory-utvärderingen utför en veckovis bedömning av Active Directory-infrastrukturen. Agenten samlar in dessa loggar endast när utvärderingen är klar.
 
 ### <a name="agent-upload-frequency"></a>Överföringsfrekvensen för agenten
@@ -61,7 +61,7 @@ I dokumentationen för varje lösning att fastställa dess insamlingsfrekvens.
 När loggposter är matas in i Log Analytics-pipeline, har de skrivits till ett tillfälligt lagringsutrymme så klientisolering och se till att data inte förloras. Den här processen lägger vanligtvis 5 till 15 sekunder. Vissa lösningar implementerar tyngre algoritmer för att samla in data och slutsatser som strömmar data i. Till exempel aggregerar prestanda nätverksövervakning inkommande data över 3 minuters intervall, ett effektivt sätt att lägga till 3-minuters fördröjning. En annan process som lägger till svarstiden är den process som hanterar anpassade loggar. Den här processen kan i vissa fall kan lägga till några minuter med svarstider till loggar som samlas in från filer av agenten.
 
 ### <a name="new-custom-data-types-provisioning"></a>Den nya anpassade datatyper etablering
-När en ny typ av anpassade data har skapats från en [anpassad logg](../log-analytics/log-analytics-data-sources-custom-logs.md) eller [Data Collector API](../log-analytics/log-analytics-data-collector-api.md), systemet skapar en dedikerad lagringsbehållare. Det här är en enstaka kostnader som uppstår bara på de första tecknen på den här datatypen.
+När en ny typ av anpassade data har skapats från en [anpassad logg](../log-analytics/../azure-monitor/platform/data-sources-custom-logs.md) eller [Data Collector API](../log-analytics/log-analytics-data-collector-api.md), systemet skapar en dedikerad lagringsbehållare. Det här är en enstaka kostnader som uppstår bara på de första tecknen på den här datatypen.
 
 ### <a name="surge-protection"></a>Ökning skydd
 Högsta prioritet för Log Analytics är att säkerställa att ingen kunddata går förlorade, så att systemet har ett inbyggt skydd för data toppar. Detta inkluderar buffertar för att säkerställa att även under stora belastning systemet ska hålla fungerar. Under normal belastning kontrollerna lägga till mindre än en minut, men det är säkert i extrema förhållanden och fel som mycket tid samtidigt som data kan du lägga till.

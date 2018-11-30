@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan; kasinh
-ms.openlocfilehash: 8e80d935bac94f3d4b2380799a1aed256828af75
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e963f675dfe2a57fc19f3169beeb1d7d4066af93
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625886"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315604"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Vad är nytt i Microsoft Azure Backup Server
 
@@ -60,6 +60,7 @@ Hitta mer information om installationen eller uppgraderingen steg för MABS [hä
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig att förbereda din server eller börjar skydda en arbetsbelastning:
+- [Kända problem i MABS V3](backup-mabs-release-notes-v3.md)
 - [Förbereda Backup Server-arbetsbelastningar](backup-azure-microsoft-azure-backup.md)
 - [Säkerhetskopiera en VMware-server med hjälp av Backup Server](backup-azure-backup-server-vmware.md)
 - [Säkerhetskopiera SQL Server med hjälp av Backup Server](backup-azure-sql-mabs.md)

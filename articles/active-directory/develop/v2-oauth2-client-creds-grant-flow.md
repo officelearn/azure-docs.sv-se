@@ -17,18 +17,18 @@ ms.date: 11/13/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3ecf837af735b97e269eb3fdc01d2e56ec40fb6e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: be10af7096a11fb27971af9dc28036df4a4b0968
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624513"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423566"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0- och OAuth 2.0 flödet
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-Du kan använda den [beviljande av autentiseringsuppgifter för OAuth 2.0-klient](http://tools.ietf.org/html/rfc6749#section-4.4) anges i RFC 6749, även kallad *tvåledade OAuth*, för att få åtkomst till webb-värdbaserade resurser med hjälp av identiteten för ett program. Den här typen av ge ofta används för server-till-server-interaktioner som måste köras i bakgrunden utan direkt interaktion med en användare. Dessa typer av program som ofta kallas *daemons* eller *tjänstkonton*.
+Du kan använda den [beviljande av autentiseringsuppgifter för OAuth 2.0-klient](https://tools.ietf.org/html/rfc6749#section-4.4) anges i RFC 6749, även kallad *tvåledade OAuth*, för att få åtkomst till webb-värdbaserade resurser med hjälp av identiteten för ett program. Den här typen av ge ofta används för server-till-server-interaktioner som måste köras i bakgrunden utan direkt interaktion med en användare. Dessa typer av program som ofta kallas *daemons* eller *tjänstkonton*.
 
 Autentiseringsuppgifter för OAuth 2.0-klient ge flow tillåter en webbtjänst (konfidentiell klient) för att använda sina egna autentiseringsuppgifter, i stället för att personifiera en användare för att autentisera vid anrop av en annan webbtjänst. I det här scenariot är klienten vanligtvis en webbtjänst på mellannivå, en daemon-tjänst eller webbplats. För en högre säkerhetsnivå kan Azure Active Directory (Azure AD) också anropa tjänsten att använda ett certifikat (i stället för en delad hemlighet) som en autentiseringsuppgift.
 

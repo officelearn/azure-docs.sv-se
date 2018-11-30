@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 11/26/2018
 ms.author: shlo
-ms.openlocfilehash: 23f00280a69212b9e623ae1da16a681ca30c9d51
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: e38a0ec39227b0064175c3c39d32bf87970ef9f5
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42055580"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423736"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>ForEach-aktiviteten i Azure Data Factory
 ForEach-aktiviteten definierar ett upprepat Kontrollflöde i din pipeline. Den här aktiviteten används till att iterera över en samling och kör angivna aktiviteter i en loop. Implementeringen av loopen för den här aktiviteten liknar Foreach-loopstrukturen i programmeringsspråk.
@@ -572,6 +572,17 @@ Uttryck för att samla in utdata från alla iterationer av en ForEach är `@acti
 ]
 
 ```
+
+## <a name="limitations-and-workarounds"></a>Begränsningar och lösningar
+
+Här följer några begränsningar hos ForEach-aktiviteten och föreslagna lösningar.
+
+| Begränsning | Lösning |
+|---|---|
+| Du kan inte kapsla en ForEach-loop i en annan ForEach-loop (eller en Until-loop). | Utforma en pipeline för två nivåer där de yttre pipelinen med yttre ForEach-loopen itererar över en inre pipeline med kapslade slinga. |
+| ForEach-aktiviteten har en maximal `batchCount` 50 för parallell bearbetning och högst 100 000 objekt. | Utforma en pipeline för två nivåer där de yttre pipelinen med ForEach-aktiviteten itererar över en inre pipeline. |
+| | |
+
 ## <a name="next-steps"></a>Nästa steg
 Se andra kontrollflödesaktiviteter som stöds av Data Factory: 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
-ms.openlocfilehash: 480bed08e15c41ee2a233b0d4ddf7d6f28fd3c5c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 060d10133ec4b8488410140faf32053acb59cf0d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259621"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307038"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Azure Security Center och Azure Virtual Machines med Linux
 [Azure Security Center](https://azure.microsoft.com/services/security-center/) hjälper dig att förebygga, identifiera och reagera på hot. Härifrån kan du övervaka och hantera principer för alla Azure-prenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
@@ -57,7 +57,7 @@ En säkerhetsprincip är ett antal kontrollfunktioner som rekommenderas för res
 ![Säkerhetsprincip](./media/security-center-linux-virtual-machine/security-center-linux-virtual-machine-fig1.png)
 
 > [!NOTE]
-> Mer information om varje tillgänglig **skyddsprincip** finns i artikeln [Ange säkerhetsprinciper](security-center-policies.md).
+> Mer information om varje tillgänglig **skyddsprincip** finns i artikeln [Ange säkerhetsprinciper](security-center-azure-policy.md).
 > 
 
 ## <a name="manage-security-recommendations"></a>Hantera säkerhetsrekommendationer
@@ -80,7 +80,7 @@ När du har angett en säkerhetsprincip analyseras säkerhetstillståndet för r
 > 
 
 ## <a name="monitor-security-health"></a>Övervaka säkerhetshälsa
-När du har aktiverat [säkerhetsprinciper](security-center-policies.md) för resurser i en prenumeration analyseras resursernas säkerhet för upptäckt av eventuella säkerhetsrisker.  Du kan se säkerhetsstatus för dina resurser, samt om det finns några problem, i bladet **Resource Security Health (Resurssäkerhetshälsa)**. När du klickar på **Virtuella datorer** på hälsoikonen **Resurssäkerhet** öppnas bladet **Virtuella datorer** med rekommendationer för dina virtuella datorer. 
+När du har aktiverat [säkerhetsprinciper](security-center-azure-policy.md) för resurser i en prenumeration analyseras resursernas säkerhet för upptäckt av eventuella säkerhetsrisker.  Du kan se säkerhetsstatus för dina resurser, samt om det finns några problem, i bladet **Resource Security Health (Resurssäkerhetshälsa)**. När du klickar på **Virtuella datorer** på hälsoikonen **Resurssäkerhet** öppnas bladet **Virtuella datorer** med rekommendationer för dina virtuella datorer. 
 
 ![Säkerhetshälsa](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
@@ -92,7 +92,7 @@ Security Center samlar automatiskt in, analyserar och integrerar loggdata från 
 Om du klickar på en säkerhetsavisering får du se vad det var som utlöste aviseringen och om det finns något du kan göra för att stoppa ett pågående angrepp. Säkerhetsaviseringarna är indelade i grupper efter [typ](security-center-alerts-type.md) och datum.
 
 ## <a name="monitor-security-health"></a>Övervaka säkerhetshälsa
-När du har aktiverat [säkerhetsprinciper](security-center-policies.md) för resurser i en prenumeration analyseras resursernas säkerhet för upptäckt av eventuella säkerhetsrisker.  Du kan se säkerhetsstatus för dina resurser, samt om det finns några problem, i bladet **Resource Security Health (Resurssäkerhetshälsa)**. När du klickar på **Virtuella datorer** på hälsoikonen **Resurssäkerhet** öppnas bladet **Virtuella datorer** med rekommendationer för dina virtuella datorer. 
+När du har aktiverat [säkerhetsprinciper](security-center-azure-policy.md) för resurser i en prenumeration analyseras resursernas säkerhet för upptäckt av eventuella säkerhetsrisker.  Du kan se säkerhetsstatus för dina resurser, samt om det finns några problem, i bladet **Resource Security Health (Resurssäkerhetshälsa)**. När du klickar på **Virtuella datorer** på hälsoikonen **Resurssäkerhet** öppnas bladet **Virtuella datorer** med rekommendationer för dina virtuella datorer. 
 
 ![Säkerhetshälsa](./media/security-center-linux-virtual-machine/security-center-linux-virtual-machine-fig4.png)
 
@@ -104,7 +104,7 @@ Om du klickar på den här rekommendationen, visas mer information om vilka åtg
 ## <a name="see-also"></a>Se också
 I följande avsnitt kan du lära dig mer om Security Center:
 
-* [Ange säkerhetsprinciper i Azure Security Center](security-center-policies.md) – Här får du lära dig hur du ställer in säkerhetsprinciper för prenumerationer och resursgrupper i Azure.
+* [Ange säkerhetsprinciper i Azure Security Center](security-center-azure-policy.md) – Här får du lära dig hur du ställer in säkerhetsprinciper för prenumerationer och resursgrupper i Azure.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
 

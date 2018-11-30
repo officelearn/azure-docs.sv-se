@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 086399f669b704a0ae2c9f719906e7efa672b5b1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 1092f5e21eab1e037c360408f17548b544a9e922
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262519"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422804"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Förbereda säkerhetskopiering av virtuella Azure-datorer
 
@@ -49,13 +49,14 @@ Innan du förbereder din miljö måste du förstå följande begränsningar:
 * Säkerhetskopiera virtuella Linux-datorer krypteras med kryptering för Linux Unified nyckel installationsprogrammet (LUKS) stöds inte.
 * Vi rekommenderar inte att du säkerhetskopierar virtuella datorer som innehåller klusterdelade volymer (CSV) eller skalbar filserver. Om gjort, förväntas fel i CSV-skrivare. De kräver som omfattar alla virtuella datorer som ingår i klusterkonfigurationen under en ögonblicksbild-aktivitet. Azure Backup stöder inte konsekvens.
 * Säkerhetskopierade data omfattar inte monterade nätverksenheter som är kopplade till en virtuell dator.
-* Att ersätta en befintlig virtuell dator under återställningen stöds inte. Om du försöker återställa den virtuella datorn när den virtuella datorn finns, misslyckas återställningen.
+* **Ersätt befintliga** alternativet i den **Återställ konfigurationen** bidrar till att byta ut befintliga diskar i den aktuella virtuella datorn med den valda återställningspunkten. Den här åtgärden kan utföras endast om aktuella virtuella datorn finns. 
 * Interregionala säkerhetskopiera och Återställ stöds inte.
 * När du konfigurerar tillbaka upp, se till att den **brandväggar och virtuella nätverk** inställningarna för lagringskontot tillåta åtkomst från alla nätverk.
 * Valda nätverk när du har konfigurerat brandvägg och inställningar för virtuella nätverk för ditt lagringskonto väljer **Tillåt att betrodda Microsoft-tjänster för att komma åt det här lagringskontot** som ett undantag för att aktivera Azure Backup-tjänsten till åtkomst till lagringskontot nätverksbegränsade. Återställning på objektnivå stöds inte för nätverksbegränsade lagringskonton.
 * Du kan säkerhetskopiera virtuella datorer i alla offentliga regioner för Azure. (Se den [checklista](https://azure.microsoft.com/regions/#services) över regioner som stöds.) Om den region som du letar efter inte stöds i dag, visas den inte i den nedrullningsbara listan under Skapa valv.
 * Återställa en domänkontrollant stöds (DC) virtuell dator som är en del av en multi-DC-konfiguration endast via PowerShell. Mer information finns i [återställa en multi-DC domänkontrollant](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Ögonblicksbild av disken Write Accelerator-aktiverade stöds inte. Den här begränsningen blockerar Azure Backup-tjänsten möjligheten att utföra en programkonsekvent ögonblicksbild för alla diskar på den virtuella datorn.
+* Azure Backup stöder inte automatisk justering av klockan för sommartid ändringar för att säkerhetskopiera virtuella Azure-datorer. Om det behövs kan du ändra principen så ta tidsändringar för sommartid besparingar hänsyn.
 * Återställning av virtuella datorer som har följande särskilda nätverkskonfigurationer stöds endast via PowerShell. Virtuella datorer som skapats via återställning arbetsflödet i Användargränssnittet inte dessa nätverkskonfigurationer när återställningen är klar. Mer information finns i [återställning av virtuella datorer med särskilda nätverkskonfigurationer](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
   * Virtuella datorer under konfigurationen för belastningsutjämnaren (interna och externa)
   * Virtuella datorer med flera reserverade IP-adresser

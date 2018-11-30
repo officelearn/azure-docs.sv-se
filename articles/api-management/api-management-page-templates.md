@@ -1,6 +1,6 @@
 ---
 title: Sidan mallar i Azure API Management | Microsoft Docs
-description: Lär dig hur du anpassar innehållet i developer portalens sidor med en uppsättning mallar i Azure API Management.
+description: Lär dig mer om att anpassa innehållet på utvecklarportalens sidor med en uppsättning mallar i Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,31 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: apimpm
-ms.openlocfilehash: 882bb27c7692f4eaf628d26f6081b1e1015be81b
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 1fbafcdab938a0f8653df48631d7733cc58a3668
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27745044"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441918"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Mallar i Azure API Management
-Azure API Management ger dig möjlighet att anpassa innehållet i developer portalens sidor med hjälp av en uppsättning mallar som konfigurerar deras innehåll. Med hjälp av [DotLiquid](http://dotliquidmarkup.org/) syntax och redigeringsprogram, t.ex [DotLiquid för Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), och en angiven uppsättning lokaliserade [String resurser](api-management-template-resources.md#strings), [glyf resurser](api-management-template-resources.md#glyphs), och [sidan kontroller](api-management-page-controls.md), du har stor flexibilitet för att konfigurera innehåll för sidorna som du vill använda dessa mallar.  
+Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarportalens sidor med en uppsättning mallar som konfigurerar sitt innehåll. Med hjälp av [DotLiquid](http://dotliquidmarkup.org/) syntax och redigeringsprogram, till exempel [DotLiquid för Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), och en angiven uppsättning lokaliserade [sträng resurser](api-management-template-resources.md#strings), [tecken resurser](api-management-template-resources.md#glyphs), och [sidan kontroller](api-management-page-controls.md), har bra möjlighet att konfigurera innehållet i sidorna som du vill med hjälp av dessa mallar.  
   
- Mallarna i det här avsnittet kan du anpassa innehållet i inloggning, logga in och att hitta inte sidan sidor i developer-portalen.  
+ Mallar i det här avsnittet kan du anpassa innehållet på Logga in, logga in och sidan att hitta inte sidor i developer-portalen.  
   
 -   [Logga in](#SignIn)  
   
--   [Registrera sig](#SignUp)  
+-   [Registrera dig](#SignUp)  
   
 -   [Det gick inte att hitta sidan](#PageNotFound)  
   
 > [!NOTE]
->  Standard exempelmallarna ingår i följande dokumentation, men kan komma att ändras på grund av kontinuerliga förbättringar. Du kan visa live standardmallarna i developer-portalen genom att navigera till önskade enskilda mallar. Mer information om hur du arbetar med mallar finns [hur du anpassar API Management developer-portalen med hjälp av mallar](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Standardmallarna för exemplet ingår i följande dokumentation, men kan komma att ändras på grund av fortlöpande med förbättringar. Du kan visa live standardmallarna i developer-portalen genom att navigera till önskad enskilda mallarna. Mer information om hur du arbetar med mallar finns i [hur du anpassar utvecklarportalen API Management med hjälp av mallar](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="SignIn"></a>Logga in  
- Den **inloggning** mall kan du anpassa inloggningssidan i developer-portalen.  
+##  <a name="SignIn"></a> Logga in  
+ Den **logga in** mall kan du anpassa inloggningssidan i developer-portalen.  
   
- ![Inloggningssidan i](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "APIM inloggning sidan Developer Portal mallar")  
+ ![Inloggningssidan](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "APIM inloggning sidan Utvecklarportalsmallar")  
   
 ### <a name="default-template"></a>Standardmall  
   
@@ -97,16 +99,16 @@ Azure API Management ger dig möjlighet att anpassa innehållet i developer port
 ```  
   
 ### <a name="controls"></a>Kontroller  
- Den här mallen kan du använda följande [sidan kontroller](api-management-page-controls.md).  
+ Den här mallen kan använda följande [sidan kontroller](api-management-page-controls.md).  
   
 -   [Basic-inloggning](api-management-page-controls.md#basic-signin)  
   
--   [providers](api-management-page-controls.md#providers)  
+-   [Providers](api-management-page-controls.md#providers)  
   
 ### <a name="data-model"></a>Datamodell  
- [Användarens](api-management-template-data-model-reference.md#UseSignIn) entitet.  
+ [Användarinloggning i](api-management-template-data-model-reference.md#UseSignIn) entitet.  
   
-### <a name="sample-template-data"></a>Mallen exempeldata  
+### <a name="sample-template-data"></a>Mall för exempeldata  
   
 ```json  
 {
@@ -134,10 +136,10 @@ Azure API Management ger dig möjlighet att anpassa innehållet i developer port
 }
 ```  
   
-##  <a name="SignUp"></a>Registrera sig  
- Den **registrering** mall kan du anpassa sidan registrering i developer-portalen.  
+##  <a name="SignUp"></a> Registrera sig  
+ Den **registrera** mall kan du anpassa sidan registrering i developer-portalen.  
   
- ![Inloggningssidan](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "APIM logga in sidan Developer Portal mallar")  
+ ![Registrera dig sidan](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "sidan Utvecklarportalsmallar APIM-registrering")  
   
 ### <a name="default-template"></a>Standardmall  
   
@@ -156,14 +158,14 @@ Azure API Management ger dig möjlighet att anpassa innehållet i developer port
 ```  
   
 ### <a name="controls"></a>Kontroller  
- Den här mallen kan du använda följande [sidan kontroller](api-management-page-controls.md).  
+ Den här mallen kan använda följande [sidan kontroller](api-management-page-controls.md).  
   
--   [registrering](api-management-page-controls.md#sign-up)  
+-   [Registrera dig](api-management-page-controls.md#sign-up)  
   
 ### <a name="data-model"></a>Datamodell  
- [Användaren loggar in](api-management-template-data-model-reference.md#UserSignUp) entitet.  
+ [Användarregistrering](api-management-template-data-model-reference.md#UserSignUp) entitet.  
   
-### <a name="sample-template-data"></a>Mallen exempeldata  
+### <a name="sample-template-data"></a>Mall för exempeldata  
   
 ```json  
 {  
@@ -182,8 +184,8 @@ Azure API Management ger dig möjlighet att anpassa innehållet i developer port
 }  
 ```  
   
-##  <a name="PageNotFound"></a>Det gick inte att hitta sidan  
- Den **sidan inte att hitta** mall kan du anpassa sidan inte att hitta sidan i developer-portalen.  
+##  <a name="PageNotFound"></a> Det gick inte att hitta sidan  
+ Den **sidan inte att hitta** mallen kan du anpassa sidan inte att hitta sidan i developer-portalen.  
   
  ![Gick inte att hitta sidan](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "APIM gick inte att hitta sidan Developer Portal mallar")  
   
@@ -224,15 +226,15 @@ Azure API Management ger dig möjlighet att anpassa innehållet i developer port
   
 ### <a name="data-model"></a>Datamodell  
   
-|Egenskap|Typ|Beskrivning|  
+|Egenskap |Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|referenceCode|sträng|Koden genereras om den här sidan visas som ett resultat av ett internt fel.|  
-|Felkod|sträng|Koden genereras om den här sidan visas som ett resultat av ett internt fel.|  
-|emailBody|sträng|E-brödtext genereras om den här sidan visas som ett resultat av ett internt fel.|  
-|requestedUrl|sträng|Den URL som begärts när sidan inte hittades.|  
-|referrerUrl|sträng|Referent URL till begärd URL.|  
+|referenceCode|sträng|Kod som genereras om den här sidan visades som ett resultat av ett internt fel.|  
+|Felkod|sträng|Kod som genereras om den här sidan visades som ett resultat av ett internt fel.|  
+|emailBody|sträng|E-brödtext som genereras om den här sidan visades som ett resultat av ett internt fel.|  
+|requestedUrl|sträng|Den Webbadress som efterfrågas när sidan inte hittades.|  
+|referrerUrl|sträng|Den begärda Webbadressen referent URL.|  
   
-### <a name="sample-template-data"></a>Mallen exempeldata  
+### <a name="sample-template-data"></a>Mall för exempeldata  
   
 ```json  
 {  
@@ -245,4 +247,4 @@ Azure API Management ger dig möjlighet att anpassa innehållet i developer port
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du arbetar med mallar finns [hur du anpassar API Management developer-portalen med hjälp av mallar](api-management-developer-portal-templates.md).
+Mer information om hur du arbetar med mallar finns i [hur du anpassar utvecklarportalen API Management med hjälp av mallar](api-management-developer-portal-templates.md).

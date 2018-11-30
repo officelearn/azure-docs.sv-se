@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: 070e405703a0a794266373a19f8e79977c71a17f
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 3af8aec6bb2fe08c4bd1ef65e4f272a6f85af50b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290863"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427445"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analysera video-och ljudfiler
 
@@ -33,7 +33,7 @@ Media Services stöder för närvarande följande inbyggda analyzer förinställ
 
 |**Förinställda namnet**|**Scenario**|**Detaljer**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Analysera ljud|Förinställningen gäller en fördefinierad uppsättning AI-baserade analysis-åtgärder, inklusive taltranskription. Förinställningen stöder för närvarande, bearbetning av innehåll med en enda ljudspår.<br/>Du kan ange språket för ljud nyttolasten i indata i BCP-47 formatet för ”språk tagg-regioner” (till exempel ”en-US”). Listan över språk som stöds är ”en-US”, ”en-GB”, ”es-ES”, ”es-MX”, fr-FR, it-IT, ja-JP, pt-BR, zh-CN.|
+|**AudioAnalyzerPreset**|Analysera ljud|Förinställningen gäller en fördefinierad uppsättning AI-baserade analysis-åtgärder, inklusive taltranskription. Förinställningen stöder för närvarande, bearbetning av innehåll med en enda ljudspår.<br/>Du kan ange språket för ljud nyttolasten i indata i BCP-47 formatet för ”språk tagg-regioner” (till exempel ”en-US”). Listan över språk som stöds är ”en-US”, ”en-GB”, ”es-ES”, ”es-MX”, fr-FR, it-IT, ja-JP, pt-BR, zh-CN. Om språket inte är har angetts eller värdet Null, ska automatisk språkidentifiering användas. Funktionen för identifiering av automatisk språk stöder för närvarande engelska, kinesiska, franska, tyska, italienska, japanska, spanska, ryska och portugisiska.|
 |**VideoAnalyzerPreset**|Analysera ljud och video|Extraherar insikter (omfattande metadata) från både ljud och video och matar ut en fil i JSON-format. Du kan ange om du bara vill lyfta ut kunskaper ljud vid bearbetning av en videofil. Mer information finns i [analysera video](analyze-videos-tutorial-with-api.md).|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset

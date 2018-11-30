@@ -2,30 +2,26 @@
 title: Funktionstekniker i datavetenskap | Microsoft Docs
 description: Förklarar syftet funktionsframställning och innehåller exempel på dess roll i processen för data förbättring av machine learning.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 3fde69e8-5e7b-49ad-b3fb-ab8ef6503a4d
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: deguhath
-ms.openlocfilehash: fd3f010c3fccca679daa6639c1427d17ae64a0d1
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 80e925fddf1aebd9f699ee8e22b96cc496faeba6
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344000"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446683"
 ---
 # <a name="feature-engineering-in-data-science"></a>Funktionstekniker i datavetenskap
 Den här artikeln förklarar syftet funktionsframställning och innehåller exempel på dess roll i processen för data förbättring av machine learning. I exemplen som används för att illustrera denna process hämtas från Azure Machine Learning Studio. 
 
-Den här uppgiften är ett steg i den [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Den här uppgiften är ett steg i den [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 Funktionen engineering försöker ökar förutsägande learning-algoritmer genom att skapa funktioner från rådata som underlättar learning processen. Teknik- och urval funktioner är en del av TDSP som beskrivs i den [vad är Team Data Science Process-livscykeln?](overview.md) Funktioner och egenskapsval är delar av den **utveckla funktioner** steg i TDSP. 
 

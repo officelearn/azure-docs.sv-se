@@ -10,12 +10,12 @@ ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 16f5b0fc94964a143f56191b1e4a99dc48891110
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: d60f2aca912f279f84710863e5f6ce507de64cb0
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852358"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309182"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Snabbstart: Skicka en fråga till den lokala företag i Bing med hjälp av Node.js
 
@@ -29,7 +29,7 @@ Det här exempelprogrammet hämtar lokala svarsdata från API: et för sökfråg
 
 * Den [Library för JavaScript-begäran](https://github.com/request/request)
 
-Du måste ha en [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med Bing-API: er. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten. Använd åtkomstnyckel som tillhandahållits av den kostnadsfria utvärderingsversionen.
+Du måste ha en [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med Bing-API: er. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten. Använd åtkomstnyckel som tillhandahållits av den kostnadsfria utvärderingsversionen.  Se även [Cognitive Services priser – API för Bing Search](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ##<a name="code-scenario"></a>Kodscenario
 Följande kod hämtar definierar och skickar en begäran. Den implementeras i följande steg:
@@ -51,12 +51,12 @@ let https = require('https');
 let subscriptionKey = 'your-access-key';
 
 let host = 'api.cognitive.microsoft.com/bing';
-let path = '/v7.0/search';
+let path = '/v7.0/localbusinesses/search';
 
 let mkt = 'en-US';
 let q = 'hotel in Bellevue';
 
-let params = '?q=' + encodeURI(q) + "&appid=" + accessKey + "&mkt=" + mkt;
+let params = '?q=' + encodeURI(q) + "&mkt=" + mkt;
 
 let response_handler = function (response) {
     let body = '';

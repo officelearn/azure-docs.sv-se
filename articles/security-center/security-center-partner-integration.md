@@ -3,7 +3,7 @@ title: Integrera säkerhetslösningar i Azure Security Center | Microsoft Docs
 description: Läs hur Azure Security Center integrerar med partners för att förbättra den övergripande säkerheten för dina Azure-resurser.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/20/2018
-ms.author: terrylan
-ms.openlocfilehash: 1abf9efb5c0bed205ce5b87b1f055c14a11ce9ec
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.date: 11/26/2018
+ms.author: rkarlin
+ms.openlocfilehash: bbdda5012e6132940d00ae23a6d26469b0216fd0
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245026"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335453"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrera säkerhetslösningar i Azure Security Center
 Det här dokumentet hjälper dig att hantera säkerhetslösningar som redan är anslutna till Azure Security Center och lägga till nya.
@@ -47,14 +47,17 @@ Integrerade säkerhetslösningar omfattar för närvarande följande:
 | Slutpunktsskydd               | Plattformar                             | Installation av Security Center | Security Center Discovery |
 |-----------------------------------|---------------------------------------|------------------------------|---------------------------|
 | Windows Defender (Microsoft-programvara mot skadlig kod)                  | Windows Server 2016                   | Nej, inbyggd i OS           | Ja                       |
-| System Center Endpoint Protection (Microsoft-programvara mot skadlig kod) | Windows Server 2012 R2, 2012, 2008 R2 | Via tillägg                | Ja                       |
+| System Center Endpoint Protection (Microsoft-programvara mot skadlig kod) | Windows Server 2012 R2, 2012, 2008 R2 (Se kommentaren nedan) | Via tillägg                | Ja                       |
 | Trend Micro – Alla versioner         | Windows Server-familjen                 | Nej                           | Ja                       |
 | Symantec v12.1.1100+              | Windows Server-familjen                 | Nej                           | Ja                       |
 | McAfee v10 +                       | Windows Server-familjen                 | Nej                           | Ja                       |
 | Kaspersky                         | Windows Server-familjen                 | Nej                           | Nej                        |
 | Sophos                            | Windows Server-familjen                 | Nej                           | Nej                        |
 
-
+> [!NOTE]
+> Identifiering av System Center Endpoint Protection (SCEP) på en Windows Server 2008 R2-dator kräver SCEP installeras efter PowerShell 3.0 (eller en övre version).
+>
+>
 
 ## <a name="how-security-solutions-are-integrated"></a>Så här integreras säkerhetslösningar
 Azure-säkerhetslösningar som distribueras från Security Center ansluts automatiskt. Du kan även ansluta andra datakällor för säkerhet, till exempel:

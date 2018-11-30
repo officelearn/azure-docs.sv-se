@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 49516523abdd927c3ae60235fcd74473689c6856
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 65649c3fdc11d74b5888b26b81ae85e10f2788bd
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48019872"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426884"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Atlassians Jira och växer samman administratörshandboken för Azure Active Directory
 
@@ -67,9 +67,23 @@ Observera följande innan du installerar plugin-programmet:
 
 Plugin-programmet stöder följande versioner av Jira och växer samman:
 
-* Jira Core- och programvara: 6.0 7.8
-* Jira-supporten: 3.0 till 3.2
+* Jira Core- och programvara: 6.0 7,12
+* Jira-supporten: 3.0.0 till 3.5.0
+* JIRA stöder också 5.2. Mer information klickar du på [Microsoft Azure Active Directory enkel inloggning för JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
 * Antal samverkande: 5.0 till 5.10
+* Antal samverkande: 6.0.1
+* Antal samverkande: 6.1.1
+* Antal samverkande: 6.2.1
+* Antal samverkande: 6.3.4
+* Antal samverkande: 6.4.0
+* Antal samverkande: 6.5.0
+* Antal samverkande: 6.6.2
+* Antal samverkande: 6.7.0
+* Antal samverkande: 6.8.1
+* Antal samverkande: 6.9.0
+* Antal samverkande: 6.10.0
+* Antal samverkande: 6.11.0
+* Antal samverkande: 6.12.0
 
 ## <a name="installation"></a>Installation
 
@@ -79,7 +93,7 @@ Följ dessa steg för att installera plugin-programmet:
 
 2. Gå till Jira/antal samverkande-administrationskonsolen och välj **tillägg**.
 
-3. Från Marketplace Atlassians, Sök efter **Microsoft SAML SSO-pluginprogrammet**.
+3. Från Microsoft Download Center, ladda ned den [Microsoft SAML SSO-Plugin för Jira](https://www.microsoft.com/download/details.aspx?id=56506)/ [Microsoft SAML SSO-Plugin för antal samverkande](https://www.microsoft.com/download/details.aspx?id=56503).
 
    Lämplig version av plugin-programmet visas i sökresultaten.
 
@@ -171,9 +185,23 @@ Nej. Plugin-programmet stöder endast lokala versioner av Jira och växer samman
 
 Plugin-programmet stöder följande versioner:
 
-* Jira Core- och programvara: 6.0 7.8
-* Jira-supporten: 3.0 till 3.2
+* Jira Core- och programvara: 6.0 7,12
+* Jira-supporten: 3.0.0 till 3.5.0
+* JIRA stöder också 5.2. Mer information klickar du på [Microsoft Azure Active Directory enkel inloggning för JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
 * Antal samverkande: 5.0 till 5.10
+* Antal samverkande: 6.0.1
+* Antal samverkande: 6.1.1
+* Antal samverkande: 6.2.1
+* Antal samverkande: 6.3.4
+* Antal samverkande: 6.4.0
+* Antal samverkande: 6.5.0
+* Antal samverkande: 6.6.2
+* Antal samverkande: 6.7.0
+* Antal samverkande: 6.8.1
+* Antal samverkande: 6.9.0
+* Antal samverkande: 6.10.0
+* Antal samverkande: 6.11.0
+* Antal samverkande: 6.12.0
 
 ### <a name="is-the-plug-in-free-or-paid"></a>Är plugin-programmet kostnadsfri eller betald?
 

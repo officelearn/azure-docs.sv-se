@@ -9,22 +9,22 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 4627593e4ab96c63423a7afd6152f3a004bc6c3f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 349298ba30de5540d5c86c81f483a1bd344dba9c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042371"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497276"
 ---
-# <a name="use-extended-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Använd utökat Spark-Historikserver att felsöka och diagnostisera Spark-program
+# <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Använd utökat Apache Spark-Historikserver att felsöka och diagnostisera Apache Spark-program
 
-Den här artikeln innehåller vägledning om hur du använder utökade Spark-Historikserver för att felsöka och diagnostisera slutförda och körs Spark-program. Tillägget innehåller data-fliken och graph flikarna och diagnos. På den **Data** fliken användare kan kontrollera inkommande och utgående data av Spark-jobbet. På den **Graph** fliken användare kan kontrollera data flödar och spela upp jobbdiagram. På den **diagnos** fliken som användaren kan referera till **Data förskjuta**, **Tidsförskjutningsintervallet** och **Executor användningsanalys**.
+Den här artikeln innehåller vägledning om hur du använder utökade Apache Spark-Historikserver för att felsöka och diagnostisera slutförda och körs Spark-program. Tillägget innehåller data-fliken och graph flikarna och diagnos. På den **Data** fliken användare kan kontrollera inkommande och utgående data av Spark-jobbet. På den **Graph** fliken användare kan kontrollera data flödar och spela upp jobbdiagram. På den **diagnos** fliken som användaren kan referera till **Data förskjuta**, **Tidsförskjutningsintervallet** och **Executor användningsanalys**.
 
-## <a name="get-access-to-spark-history-server"></a>Få åtkomst till Spark-Historikserver
+## <a name="get-access-to-apache-spark-history-server"></a>Få åtkomst till Apache Spark-Historikserver
 
-Spark-Historikserver är webbgränssnittet för slutförda och körs Spark-program. 
+Apache Spark-Historikserver är webbgränssnittet för slutförda och körs Spark-program. 
 
-### <a name="open-the-spark-history-server-web-ui-from-azure-portal"></a>Öppna Spark historik Server-Webbgränssnittet från Azure-portalen
+### <a name="open-the-apache-spark-history-server-web-ui-from-azure-portal"></a>Öppna Webbgränssnittet för Apache Spark historik Server från Azure-portalen
 
 1. Från den [Azure-portalen](https://portal.azure.com/), öppna Spark-klustret. Mer information finns i [lista och visa kluster](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 2. Från **snabblänkar**, klickar du på **Klusterinstrumentpanel**, och klicka sedan på **Spark-Historikserver**. När du uppmanas, anger du autentiseringsuppgifter som administratör för Spark-klustret. 
@@ -87,7 +87,7 @@ Välj jobb-ID och klicka sedan **Data** på Verktyg-menyn för att hämta datavy
     ![Graph-feedback](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## <a name="graph-tab-in-spark-history-server"></a>Graph-fliken i Spark-Historikserver
+## <a name="graph-tab-in-apache-spark-history-server"></a>Graph-fliken i Apache Spark-Historikserver
 Välj jobb-ID och klicka sedan **Graph** på Verktyg-menyn för att få jobbet diagramvy.
 
 + Kontrollera översikt över ditt jobb genom att den genererade jobbdiagram. 
@@ -158,7 +158,7 @@ Välj jobb-ID och klicka sedan **Graph** på Verktyg-menyn för att få jobbet d
     ![Graph-feedback](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## <a name="diagnosis-tab-in-spark-history-server"></a>Fliken diagnostik i Spark-Historikserver
+## <a name="diagnosis-tab-in-apache-spark-history-server"></a>Fliken diagnostik i Apache Spark-Historikserver
 Välj jobb-ID och klicka sedan **diagnos** på Verktyg-menyn för att få jobbet diagnos vy. Fliken diagnostik innehåller **Data förskjuta**, **Tidsförskjutningsintervallet**, och **Executor användningsanalys**.
     
 + Kontrollera den **Data förskjuta**, **Tidsförskjutningsintervallet**, och **Executor användningsanalys** genom att välja flikarna respektive.
@@ -326,8 +326,8 @@ Om du vill uppgradera med snabbkorrigering använda skriptet nedan som kommer at
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hantera resurser för en Spark-kluster i HDInsight](apache-spark-resource-manager.md)
-* [Konfigurera Spark-inställningar](apache-spark-settings.md)
+* [Hantera resurser för ett Apache Spark-kluster i HDInsight](apache-spark-resource-manager.md)
+* [Konfigurera inställningar för Apache Spark](apache-spark-settings.md)
 
 
 ## <a name="contact-us"></a>Kontakta oss

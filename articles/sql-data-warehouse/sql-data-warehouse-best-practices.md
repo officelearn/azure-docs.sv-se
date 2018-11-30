@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/18/2018
+ms.date: 11/26/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 81fd5ea082fe05c9908b2eb0689aba9a4fe4e789
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 0324a6f71a0a30fc9f3005a041b4c5413e6af8da
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307140"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317310"
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Metodtips för Azure SQL Data Warehouse
 Den här artikeln är en samling metodtips som hjälper dig att uppnå optimala prestanda med Azure SQL Data Warehouse.  Vissa begrepp i artikeln är grundläggande och enkla att förklara. Andra begrepp är mer avancerade och vi kommer bara att skrapa på ytan i den här artikeln.  Avsikten med den här artikeln är att ge dig grundläggande vägledning och att göra dig uppmärksam på viktiga områden som du bör fokusera på när du skapar ditt informationslager.  Varje avsnitt innehåller en introduktion till ett begrepp och hänvisar till mer detaljerade artiklar som beskriver begreppet i mer detalj.
@@ -39,7 +39,7 @@ En engångsinläsning till en liten tabell med en INSERT-instruktion eller en re
 Se även [INSERT][INSERT]
 
 ## <a name="use-polybase-to-load-and-export-data-quickly"></a>Använda PolyBase för att snabbt läsa in och exportera data
-SQL Data Warehouse stöder inläsning och export av data via flera verktyg, bland annat Azure Data Factory, PolyBase och BCP.  För små datamängder där prestanda inte är viktigt räcker alla verktygen för dina behov.  Om du däremot läser in eller exporterar stora mängder data eller om snabba prestanda krävs är PolyBase det bästa valet.  PolyBase är utformat att utnyttja MPP-arkitekturen (Massively Parallel Processing) i SQL Data Warehouse och kommer därför att läsa in och exportera datamängder snabbare än andra verktyg.  PolyBase-inläsningar kan utföras med hjälp av CTAS eller INSERT INTO.  **CTAS minimerar transaktionsloggningen och är det snabbaste sättet att läsa in data.**  Azure Data Factory stöder också PolyBase-inläsningar.  PolyBase stöder olika filformat, inklusive Gzip-filer.  **Du kan maximera genomflödet när du använder Gzip-textfiler genom att dela upp filerna i grupper om 60 eller fler filer för att maximera parallellbearbetningen vid inläsningen.**  För snabbare totalt genomflöde bör du överväga att använda samtidig inläsning av data.
+SQL Data Warehouse stöder inläsning och export av data via flera verktyg, bland annat Azure Data Factory, PolyBase och BCP.  För små datamängder där prestanda inte är viktigt räcker alla verktygen för dina behov.  Om du däremot läser in eller exporterar stora mängder data eller om snabba prestanda krävs är PolyBase det bästa valet.  PolyBase är utformat att utnyttja MPP-arkitekturen (Massively Parallel Processing) i SQL Data Warehouse och kommer därför att läsa in och exportera datamängder snabbare än andra verktyg.  PolyBase-inläsningar kan utföras med hjälp av CTAS eller INSERT INTO.  **CTAS minimerar transaktionsloggningen och är det snabbaste sättet att läsa in data.**  Azure Data Factory kan du också stöder PolyBase-inläsningar och kan uppnå ungefär samma prestanda som CTAS.  PolyBase stöder olika filformat, inklusive Gzip-filer.  **Du kan maximera genomflödet när du använder Gzip-textfiler genom att dela upp filerna i grupper om 60 eller fler filer för att maximera parallellbearbetningen vid inläsningen.**  För snabbare totalt genomflöde bör du överväga att använda samtidig inläsning av data.
 
 Se även [Load data][Load data] (Läsa in data), [Guide for using PolyBase][Guide for using PolyBase] (Guide för att använda PolyBase), [Azure SQL Data Warehouse loading patterns and strategies][Azure SQL Data Warehouse loading patterns and strategies] (Azure SQL Data Warehouse: inläsningsmönster och strategier), [Load Data with Azure Data Factory][Load Data with Azure Data Factory] (Läsa in data med Azure Data Factory), [Move data with Azure Data Factory][Move data with Azure Data Factory] (Flytta data med Azure Data Factory), [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT], [Create Table As Select (CTAS)][Create table as select (CTAS)]
 

@@ -9,14 +9,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: hrasheed
-ms.openlocfilehash: c87596099995cbd34a0ee32ec287de81ec741bda
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4b673423bcf3785b29cc287e025d1ee52bc402f7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008072"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312910"
 ---
-# <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>Använda Apache Phoenix med Linux-baserade HBase-kluster i HDInsight
+# <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>Använda Apache Phoenix med Linux-baserade Apache HBase-kluster i HDInsight
 Lär dig hur du använder [Apache Phoenix](http://phoenix.apache.org/) i Azure HDInsight och hur du använder SQLLine. Läs mer om Phoenix [Phoenix i 15 minuter eller mindre](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Phoenix-grammatik finns [Phoenix grammatik](http://phoenix.apache.org/language/index.html).
 
 > [!NOTE]
@@ -30,13 +30,13 @@ Lär dig hur du använder [Apache Phoenix](http://phoenix.apache.org/) i Azure H
 ### <a name="prerequisites"></a>Förutsättningar
 Innan du kan använda SQLLine, måste du ha följande objekt:
 
-* **Ett HBase-kluster i HDInsight**. Om du vill skapa en [Kom igång med Apache HBase i HDInsight](./apache-hbase-tutorial-get-started-linux.md).
+* **Ett Apache HBase-kluster i HDInsight**. Om du vill skapa en [Kom igång med Apache HBase i HDInsight](./apache-hbase-tutorial-get-started-linux.md).
 
-När du ansluter till ett HBase-kluster som du behöver ansluta till en av de virtuella datorer som ZooKeeper. Varje HDInsight-kluster är tre ZooKeeper virtuella datorer.
+När du ansluter till ett HBase-kluster måste du ansluta till en av de [Apache ZooKeeper](https://zookeeper.apache.org/) virtuella datorer. Varje HDInsight-kluster är tre ZooKeeper virtuella datorer.
 
 **Att hämta värdnamnet ZooKeeper**
 
-1. Öppna Ambari genom att bläddra till **https://\<klusternamnet\>. azurehdinsight.net**.
+1. Öppna [Apache Ambari](https://ambari.apache.org/) genom att bläddra till **https://\<klusternamnet\>. azurehdinsight.net**.
 2. Ange HTTP (kluster)-användarnamn och lösenord för att logga in.
 3. I den vänstra menyn väljer du **ZooKeeper**. Tre **ZooKeeper-Server** instanser visas.
 4. Välj en av de **ZooKeeper-Server** instanser. På den **sammanfattning** fönstret hitta den **värdnamn**. Den liknar *zk1 jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
@@ -61,16 +61,16 @@ När du ansluter till ett HBase-kluster som du behöver ansluta till en av de vi
 
         !quit
 
-Mer information finns i den [SQLLine manuell](http://sqlline.sourceforge.net/#manual) och [Phoenix grammatik](http://phoenix.apache.org/language/index.html).
+Mer information finns i den [SQLLine manuell](http://sqlline.sourceforge.net/#manual) och [Apache Phoenix grammatik](http://phoenix.apache.org/language/index.html).
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du lärt dig hur du använder Apache Phoenix i HDInsight. Mer information finns i följande artiklar:
 
 * [Översikt över HDInsight HBase][hdinsight-hbase-overview].
-  HBase är en Apache, öppen källkod, NoSQL-databas som bygger på Hadoop och ger direktåtkomst och stark konsekvens för stora mängder Ostrukturerade och semistrukturerade data.
-* [Etablera HBase-kluster i Azure Virtual Network][hdinsight-hbase-provision-vnet].
-  Med virtual network-integration, kan HBase-kluster bara distribueras till samma virtuella nätverk som dina program, så att program kan kommunicera direkt med HBase.
-* [Konfigurera HBase-replikering i HDInsight](apache-hbase-replication.md). Lär dig hur du ställer in HBase-replikering mellan två Azure-datacenter.
+  Apache HBase är en Apache, öppen källkod, NoSQL-databas som bygger på Apache Hadoop och ger direktåtkomst och stark konsekvens för stora mängder Ostrukturerade och semistrukturerade data.
+* [Etablera Apache HBase-kluster i Azure Virtual Network][hdinsight-hbase-provision-vnet].
+  Med virtual network-integration, kan Apache HBase-kluster bara distribueras till samma virtuella nätverk som dina program, så att program kan kommunicera direkt med HBase.
+* [Konfigurera Apache HBase-replikering i HDInsight](apache-hbase-replication.md). Lär dig hur du konfigurerar Apache HBase-replikering mellan två Azure-datacenter.
 
 
 [azure-portal]: https://portal.azure.com

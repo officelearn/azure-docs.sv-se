@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 809196411df56c7448a9d0f983c17c60d5d3b4ae
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: bd8bfb8775bc9c988bb7484ac25f189c3ff46991
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015425"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317287"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analysera loggar för Apache Kafka på HDInsight
 
 Lär dig hur du använder Log Analytics för att analysera loggar som genereras av Apache Kafka på HDInsight.
 
-## <a name="enable-log-analytics-for-kafka"></a>Aktivera logganalys för Kafka
+## <a name="enable-log-analytics-for-apache-kafka"></a>Aktivera logganalys för Apache Kafka
 
 Stegen för att aktivera Log Analytics för HDInsight är desamma för alla HDInsight-kluster. Använd följande länkar om du vill lära dig att skapa och konfigurera nödvändiga tjänster:
 
@@ -74,9 +74,9 @@ Stegen för att aktivera Log Analytics för HDInsight är desamma för alla HDIn
 
 Mer information om Log Analytics finns det [Kom igång med Log Analytics-arbetsytan](../../log-analytics/log-analytics-get-started.md) dokumentet.
 
-Mer information om hur du arbetar med Kafka finns i följande dokument:
+Mer information om hur du arbetar med Apache Kafka finns i följande dokument:
 
- * [Spegling Kafka mellan HDInsight-kluster](apache-kafka-mirroring.md)
- * [Ökad skalbalhet med Kafta på HDInsight](apache-kafka-scalability.md)
- * [Använda Spark-strömning (DStreams) med Kafka](../hdinsight-apache-spark-with-kafka.md)
- * [Använda Apache Spark structured streaming med Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
+ * [Spegling Apache Kafka mellan HDInsight-kluster](apache-kafka-mirroring.md)
+ * [Öka skalbarheten för Apache Kafka på HDInsight](apache-kafka-scalability.md)
+ * [Använda Apache Spark-strömning (DStreams) med Apache Kafka](../hdinsight-apache-spark-with-kafka.md)
+ * [Använda Apache Spark structured streaming med Apache Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)

@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: c85ad59acc8e307de05f41365855f3a9669ac2b5
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 0d2f55538517881ce6cc237885f3bcadfa084520
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034684"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52494962"
 ---
 # <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>Använd Apache Ambari-vyer för att felsöka Apache Tez-jobb på HDInsight
 
-Apache Ambari-Webbgränssnittet för HDInsight innehåller en Apache Tez-vy som kan användas för att förstå och felsöka jobb som använder Tez. Tez-vy kan du visualisera för jobbet som ett diagram över anslutna objekt, öka detaljnivån i varje objekt och hämta statistik och loggningsinformation.
+Den [Apache Ambari](https://ambari.apache.org/) Webbgränssnittet för HDInsight innehåller en [Apache TEZ](https://tez.apache.org/) vy som kan användas för att förstå och felsöka jobb som använder Tez. Tez-vy kan du visualisera för jobbet som ett diagram över anslutna objekt, öka detaljnivån i varje objekt och hämta statistik och loggningsinformation.
 
 > [!IMPORTANT]
 > Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Linux. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [versionshantering för HDInsight](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -101,8 +101,8 @@ Använd följande steg för att köra en Hive-fråga som använder Tez:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du använder vyn Tez, Läs mer om [med hjälp av Hive på HDInsight](hadoop/hdinsight-use-hive.md).
+Nu när du har lärt dig hur du använder Apache Tez-vy, Läs mer om [med Apache Hive på HDInsight](hadoop/hdinsight-use-hive.md).
 
-Mer detaljerad teknisk information om Tez finns i den [Tez-sidan på Hortonworks](http://hortonworks.com/hadoop/tez/).
+Mer detaljerad teknisk information om Apache Tez finns i den [Apache Tez-sidan på Hortonworks](http://hortonworks.com/hadoop/tez/).
 
-Mer information om att använda Ambari med HDInsight finns i [hantera HDInsight-kluster med Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md)
+Mer information om hur du använder Apache Ambari med HDInsight finns i [hantera HDInsight-kluster med hjälp av Apache Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md)

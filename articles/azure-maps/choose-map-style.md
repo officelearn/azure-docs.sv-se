@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 32571d88ffc08c19f819335254b4f5dda521bdb0
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: c77467efbbc1c33be5bc2aaf3251a5803beee864
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885929"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317117"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Välja en karta i Azure Maps
 
@@ -42,7 +42,7 @@ Andra kodblocket använder kartans [setStyle](https://docs.microsoft.com/javascr
 
 Det första kodblocket i koden ovan anger prenumerationsnyckeln och skapar en Kartobjekt, formatmallen kartan är redan inställd på grayscale_dark. Se [skapa en karta](./map-create.md) anvisningar om hur du skapar en karta.
 
-Andra kodblocket konstruerar en style väljare med hjälp av atlas [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol) konstruktor.
+Andra kodblocket konstruerar en style väljare med hjälp av atlas [StyleControl](/javascript/api/azure-maps-control/atlas.controls.stylecontrol) konstruktor.
 
 En style Väljaren kan style val för kartan. Det tredje kodblocket lägger till style-väljare på kartan med hjälp av kartans [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) metod. Style-Väljaren ligger inom kartan **händelselyssnaren** så att den läses in när kartan har lästs in helt.
 

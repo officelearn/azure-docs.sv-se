@@ -1,6 +1,6 @@
 ---
-title: Bilder Sök API Snabbstart | Microsoft Docs
-description: Visar hur du kommer igång med Bing bilder Sök-API.
+title: 'Snabbstart för API: et Search-avbildningar | Microsoft Docs'
+description: Visar hur du kommer igång med hjälp av Sök-API för Bing-avbildningar.
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
@@ -10,18 +10,18 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 9e211cf5acd17ab80948d0b7161bdd2a9220c4a6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5742efb2dca02565735cf308d9ede9316ce6d12e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351621"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314872"
 ---
-# <a name="your-first-images-search-query"></a>Bilderna första söka fråga
+# <a name="your-first-images-search-query"></a>Dina avbildningar från första sökfråga
 
-Du måste hämta en nyckel för Bing Search-kognitiva tjänster prenumeration innan du kan göra din första anropet. Om du vill få en nyckel finns [försök kognitiva Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).
+Innan du kan göra ditt första anrop måste du skaffa en prenumerationsnyckel för Cognitive Services för Bing-sökning. Information om hur du skaffar en nyckel finns i [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).  Se även [Cognitive Services priser – API för Bing Search](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-För att hämta bilden sökresultat, skulle du skickar en GET-begäran till följande slutpunkt:  
+För att få bildsökningsresultat, skulle du skickar en GET-begäran till slutpunkten för följande:  
   
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/search
@@ -29,24 +29,24 @@ https://api.cognitive.microsoft.com/bing/v7.0/images/search
   
 Begäran måste använda HTTPS-protokollet.
 
-Vi rekommenderar att alla begäranden som kommer från en server. Distribuera nyckeln som en del av ett klientprogram ger mer möjlighet för skadliga tredjeparts att komma åt den. Dessutom ger samtal från en server en enkel uppgradering för framtida versioner av API: et.
+Vi rekommenderar att alla förfrågningar kommer från en server. Om nyckeln distribueras som en del av ett klientprogram ökar risken för att en illvillig tredje part kan komma åt den. Anrop från en server innebär dessutom att det bara finns en enda uppgraderingspunkt för framtida versioner av API:et.
 
-Begäran måste ange den [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) frågeparameter som innehåller användarens sökord. Men det är valfritt, begäran måste också ange den [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#mkt) frågeparameter som identifierar marknaden där du vill att resultaten från. En lista över valfria fråga parametrar som `freshness` och `size`, se [frågeparametrar](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query-parameters). Alla parametervärden för frågan måste vara URL-kodade.  
+Begäran måste innehålla frågeparametern [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query), som innehåller användarens sökterm. Även om det är valfritt bör begäran även innehålla frågeparametern [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#mkt), som identifierar marknaden som du vill att resultatet ska komma från. En lista över valfria frågeparametrar som `freshness` och `size` finns i [Frågeparametrar](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query-parameters). Alla frågeparametervärden måste vara URL-kodade.  
   
-Begäran måste ange den [Ocp-Apim-prenumeration-nyckeln](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#subscriptionkey) huvud. Även om det är valfritt, uppmanas du att ange följande huvuden:  
+Begäran måste innehålla huvudet [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#subscriptionkey). Även om det är valfritt rekommenderar vi även att följande huvuden finns med:  
   
--   [Användaragent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#useragent)  
+-   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#useragent)  
 -   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#clientid)  
--   [X-Sök-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#clientip)  
--   [X sökplats](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#location)  
+-   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#clientip)  
+-   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#location)  
 
-Klientens IP- och plats huvuden är viktiga för att returnera var medveten om innehållet.  
+Sidhuvuden för klientens IP-adress och platsen är viktiga för att returnera platsmedvetet innehåll.  
 
-En lista över alla begärande- och svarshuvuden, finns i [huvuden](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#headers).
+En lista över alla sidhuvuden för begäranden och svar finns i [Sidhuvuden](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#headers).
 
 ## <a name="the-request"></a>Begäran
 
-Nedan visas en sökbegäran som innehåller alla föreslagna frågeparametrar och rubriker. Om det är först gången anropar någon av Bing-API: er, inte med klient-ID-huvudet. Ta bara med klient-ID om du har tidigare påbörjat en Bing-API och Bing returnerade ett klient-ID för användare och enhet kombination. 
+Nedan visas en sökbegäran som innehåller alla föreslagna frågeparametrar och sidhuvuden. Om det är först gången anropar någon av Bing-API: er, omfattar inte rubrik för klient-ID. Inkludera endast klient-ID om du har anropat ett Bing-API förut och om Bing returnerade ett klient-ID för användar- och enhetskombinationen. 
   
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies&mkt=en-us HTTP/1.1  
@@ -57,7 +57,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Nedan visas svaret på den tidigare begäranden.
+Nedan visas svaret på den tidigare begäran.
 
 ```json
 {
@@ -132,10 +132,10 @@ Nedan visas svaret på den tidigare begäranden.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Prova att använda API: et. Gå till [bild Sök API Testing-konsolen](https://dev.cognitive.microsoft.com/docs/services/8336afba49a84475ba401758c0dbf749/operations/571fab09dbe2d933e891028f). 
+Testa API:et. Gå till [bild-API för webbsökning Testing-konsolen](https://dev.cognitive.microsoft.com/docs/services/8336afba49a84475ba401758c0dbf749/operations/571fab09dbe2d933e891028f). 
 
-Mer information om förbrukar svar-objekt finns [söka på webben](./search-the-web.md).
+Mer information om hur du använder svarsobjekten finns i [Söka efter videor på webben](./search-the-web.md).
 
-Mer information om att få insikter om en avbildning, till exempel webbsidor som innehåller den eller de personer som har identifierats i bilden finns [avbildningen insikter](./image-insights.md).  
+Mer information om hur du får insikter om en bild, till exempel webbsidor som innehåller den eller de personer som har identifierats i avbildningen finns i [information om bilder](./image-insights.md).  
   
-Mer information om avbildningar som trender på sociala medier finns [trender bilder](./trending-images.md).  
+Mer information om avbildningar som är populära i sociala medier finns i [populära bilder](./trending-images.md).  

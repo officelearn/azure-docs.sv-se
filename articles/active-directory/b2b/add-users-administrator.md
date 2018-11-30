@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 11/26/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
-ms.reviewer: sasubram
-ms.openlocfilehash: fef4615517da08262cc5845aaa076472c3874b34
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.reviewer: mal
+ms.openlocfilehash: bda01b5c9fbd43feed8c407e85b90b31bef0ffa1
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984296"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335069"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Lägg till användare i Azure Active Directory B2B-samarbetet i Azure portal
 
@@ -30,23 +30,23 @@ När du lägger till en gästanvändare till katalogen du kan antingen skicka en
 
 Följ dessa steg om du vill lägga till användare i B2B-samarbetet i katalogen:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) som Azure AD-administratör.
+1. Logga in på [Azure Portal](https://portal.azure.com) som Azure AD-administratör.
 2. I navigeringsfönstret väljer **Azure Active Directory**.
-3. Under **hantera**väljer **användare**.
-4. Välj **ny gästanvändare**.
+3. Under **Hantera** väljer du **Användare**.
+4. Välj **Ny gästanvändare**.
 
    ![Visar där ny gästanvändare är i Användargränssnittet](./media/add-users-administrator/NewGuestUser-Directory.png) 
  
-5. Under **användarnamn**, ange den externa användaren e-postadress. Du kan också inkludera ett välkomstmeddelande. Exempel:
+5. Under **Användarnamn** anger du den externa användarens e-postadress. Du kan också lägga till ett välkomstmeddelande. Exempel:
 
    ![Visar där ny gästanvändare är i Användargränssnittet](./media/add-users-administrator/InviteGuest.png) 
 
     > [!NOTE]
     > Vissa e-postleverantörer Tillåt användare att lägga till ett plustecken symbolen (+) och ytterligare text till sina e-postadresser som hjälper med sådant som inkorg filtrering. Dock Azure AD stöder för närvarande inte plustecken i e-postadresser. Om du vill undvika problem med leverans, utelämnar du på plustecknet och eventuella tecknen efter det upp till den @-tecknet.
 
-6. Välj **bjuda in** att skicka inbjudan till gästanvändaren automatiskt. 
+6. Välj **Bjud in** för att skicka inbjudan till gästanvändaren automatiskt. 
  
-När du skickar inbjudan, läggs användarkontot automatiskt till katalogen som gäst.
+När du har skickat inbjudan läggs användarkontot automatiskt till i katalogen som gäst.
 
 
 ![Visar B2B-användare med gästen användartyp](./media/add-users-administrator/GuestUserType.png)  
@@ -54,7 +54,7 @@ När du skickar inbjudan, läggs användarkontot automatiskt till katalogen som 
 ## <a name="add-guest-users-to-a-group"></a>Lägga till gästanvändare till en grupp
 Följ dessa steg om du vill lägga till användare i B2B-samarbetet manuellt till en grupp som en Azure AD-administratör:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) som Azure AD-administratör.
+1. Logga in på [Azure Portal](https://portal.azure.com) som Azure AD-administratör.
 2. I navigeringsfönstret väljer **Azure Active Directory**.
 3. Under **hantera**väljer **grupper**.
 4. Välj en grupp (eller klicka på **ny grupp** att skapa en ny). Det är en bra idé att inkludera i gruppen att gruppen innehåller B2B-gästanvändare.
@@ -71,7 +71,7 @@ Du kan också använda dynamiska grupper med Azure AD B2B-samarbete. Mer informa
 
 Följ dessa steg om du vill lägga till användare i B2B-samarbetet i ett program som en Azure AD-administratör:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) som Azure AD-administratör.
+1. Logga in på [Azure Portal](https://portal.azure.com) som Azure AD-administratör.
 2. I navigeringsfönstret väljer **Azure Active Directory**.
 3. Under **hantera**väljer **företagsprogram** > **alla program**.
 4. Välj det program som du vill lägga till gästanvändare.
@@ -83,11 +83,11 @@ Följ dessa steg om du vill lägga till användare i B2B-samarbetet i ett progra
 7. Under **Lägg till tilldelning**väljer **användare och grupper**.
 8. Gör något av följande:
    - Om gästanvändaren finns redan i katalogen, söka efter B2B-användaren. Välj användaren, klicka på **Välj**, och klicka sedan på **tilldela** att lägga till användaren i appen.
-   - Om gästanvändaren inte redan finns i katalogen, väljer **bjuda in**.
+   - Om gästanvändaren inte redan finns i katalogen, under **Välj en medlem eller Bjud in en extern användare**, Skriv användarens e-postadress. Skriv ett valfritt personligt meddelande i meddelanderutan. Klicka på under meddelanderutan **bjuda in**.
            
        ![Lägg till inbjudan för att lägga till gästmedlemmar](./media/add-users-administrator/AppInviteUsers.png)
    
-      Under **Bjud in gäst**, ange den e-postadressen, skriver du ett valfritt personligt meddelande och välj sedan **bjuda in**. Klicka på **Välj**, och klicka sedan på **tilldela** att lägga till användaren i appen. En inbjudan skickas automatiskt ut till inbjuden användare.
+      Klicka på **Välj**, och klicka sedan på **tilldela** att lägga till användaren i appen. En inbjudan skickas automatiskt ut till inbjuden användare.
 
 9. Gästanvändaren visas i programmets **användare och grupper** listan med tilldelade rollen **standard åtkomst**. Om du vill ändra rollen gör du följande:
    - Välj gästanvändaren och välj sedan **redigera**. 
@@ -99,9 +99,9 @@ Följ dessa steg om du vill lägga till användare i B2B-samarbetet i ett progra
 
 Om en gästanvändare inte har ännu in sin inbjudan, kan du skicka e-postinbjudan.
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) som Azure AD-administratör.
+1. Logga in på [Azure Portal](https://portal.azure.com) som Azure AD-administratör.
 2. I navigeringsfönstret väljer **Azure Active Directory**.
-3. Under **hantera**väljer **användare**.
+3. Under **Hantera** väljer du **Användare**.
 5. Välj användarkontot.
 6. Under **hantera**väljer **profil**.
 7. Om användaren inte har accepterat inbjudan, en **skicka om inbjudan** alternativet är tillgängligt. Välj den här knappen Skicka om.

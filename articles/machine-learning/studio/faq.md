@@ -1,6 +1,6 @@
 ---
-title: Vanliga frågor och svar om Azure Machine Learning | Microsoft Docs
-description: 'Introduktion till Azure Machine Learning: Vanliga frågor och svar om fakturering, funktioner och begränsningar i en molntjänst för effektiv förutsägelsemodellering.'
+title: Machine Learning Studio vanliga frågor (FAQ) – Azure | Microsoft Docs
+description: 'Azure Machine Learning Studio: Vanliga frågor och svar som täcker fakturering, funktioner och begränsningar i en molntjänst för effektiv förutsägelsemodellering.'
 keywords: introduktion till maskininlärning, förutsägelsemodellering, vad är maskininlärning, machine learning
 services: machine-learning
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-ms.openlocfilehash: 9545c9a0cf77274b4ea68dea7a6640453a849093
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: c9c80da55737d0093813b84e33d3d90c5d7d4603
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263442"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309148"
 ---
-# <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Vanliga frågor och svar om Azure Machine Learning: Fakturering, funktioner, begränsningar och support
+# <a name="azure-machine-learning-studio-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Vanliga frågor och svar om Azure Machine Learning Studio: fakturering, funktioner, begränsningar och support
 Här får du svar på vanliga frågor om molntjänsten Azure Machine Learning som tillhandahåller förutsägelsemodeller och operationaliseringslösningar genom webbtjänster. Avsnittet ger svar på frågor om hur du använder tjänsten, inklusive faktureringsmodellen, funktioner, begränsningar och support.
 
 **Har en fråga som du inte kan hitta här?**
@@ -30,12 +30,6 @@ Här får du svar på vanliga frågor om molntjänsten Azure Machine Learning so
 Azure Machine Learning har även ett forum på MSDN där datatekniker kan ställa frågor om Azure Machine Learning. Forumet övervakas av Azure Machine Learning-teamet. Gå till [Azure Machine Learning-forumet](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning)för att söka efter svar eller ställa en ny fråga.
 
 ## <a name="general-questions"></a>Allmänna frågor
-**Vad är Azure Machine Learning?**
-
-Azure Machine Learning är en helt hanterad tjänst som du kan använda för att skapa, testa, tillämpa och hantera förutsägelseanalyslösningar i molnet. Du kan logga in, ladda upp data och genast starta maskininlärningsexperiment. Allt du behöver är en webbläsare. Förutsägelsemodellering med dra-och-släpp-funktioner, ett stort utbud av modeller och ett bibliotek med startmallar gör det enkelt att snabbt utföra vanliga maskininlärningsaktiviteter. Mer information finns i [Översikt över tjänsten Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/). En introduktion till maskininlärning där viktiga termer och begrepp beskrivs finns i [Introduktion till Azure Machine Learning](what-is-machine-learning.md).
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 **Vad är Machine Learning Studio?**
 
 Machine Learning Studio är en arbetsstationsmiljö som du kommer åt via en webbläsare. I Machine Learning Studio får du tillgång till flera olika moduler i ett visuellt gränssnitt så att du enkelt kan skapa ett datavetenskapsflöde från slutpunkt till slutpunkt i form av ett experiment.

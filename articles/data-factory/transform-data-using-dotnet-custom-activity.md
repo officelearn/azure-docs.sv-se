@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 11/26/2018
 ms.author: douglasl
-ms.openlocfilehash: 77e5d6c278436a1fc192421c9867106409389a66
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 424de36dbbd3b09e635679900110148b9edd0242
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888229"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422890"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -278,8 +278,8 @@ namespace SampleApp
   Activity Output section:
   "exitcode": 0
   "outputs": [
-    "https://shengcstorbatch.blob.core.windows.net/adfjobs/<GUID>/output/stdout.txt",
-    "https://shengcstorbatch.blob.core.windows.net/adfjobs/<GUID>/output/stderr.txt"
+    "https://<container>.blob.core.windows.net/adfjobs/<GUID>/output/stdout.txt",
+    "https://<container>.blob.core.windows.net/adfjobs/<GUID>/output/stderr.txt"
   ]
   "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)"
   Activity Error section:
@@ -292,7 +292,11 @@ Om du vill använda innehåll för stdout.txt i underordnade aktiviteter kan du 
 
   > [!IMPORTANT]
   > - Den activity.json och linkedServices.json datasets.json lagras i mappen körning av Batch-aktiviteter. I det här exemplet lagras den activity.json och linkedServices.json datasets.json i ”https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/” sökväg. Om det behövs kan behöva du rensa dem separat. 
-  > - För länkade tjänster använder lokal Integration Runtime, känslig information som t.ex. nycklar eller lösenord krypteras med den lokala Integration Runtime för att se till att autentiseringsuppgifterna definierats är kvar i kundens privat nätverksmiljö. Vissa känsliga fält kan vara saknas när de refereras av din anpassade programkoden i det här sättet. Använd SecureString i extendedProperties istället för att använda länkade tjänstreferensen om det behövs. 
+  > - För länkade tjänster som använder den lokala Integration Runtime definierats känslig information som nycklar eller lösenord krypteras med den lokala Integration Runtime för att se till att autentiseringsuppgifterna är kvar i kundens privata nätverk. Vissa känsliga fält kan vara saknas när de refereras av din anpassade programkoden i det här sättet. Använd SecureString i extendedProperties istället för att använda länkade tjänstreferensen om det behövs. 
+
+## <a name="pass-outputs-to-another-activity"></a>Pass utdata till en annan aktivitet
+
+Du kan skicka anpassade värden från din kod i en anpassad aktivitet tillbaka till Azure Data Factory. Du kan göra det genom att skriva dem till `outputs.json` från ditt program. Data Factory kopierar innehållet i `outputs.json` och lägger till dem i utdata för aktiviteten som värde för den `customOutput` egenskapen. (Storleksgränsen är 2MB.) Om du vill använda innehåll av `outputs.json` i underordnade aktiviteter kan du hämta värdet med uttrycket `@activity('<MyCustomActivity>').output.customOutput`.
 
 ## <a name="retrieve-securestring-outputs"></a>Hämta SecureString-utdata
 

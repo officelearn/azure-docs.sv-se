@@ -1,25 +1,21 @@
 ---
 title: Köra datavetenskapsaktiviteter – Azure Machine Learning | Microsoft Docs
 description: Hur datavetare kan köra ett datavetenskapsprojekt i en spårningsbar version kontrolleras och samarbetsfunktioner sätt.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: deguhath
-ms.openlocfilehash: 19267429510207129b0229dc55fbd46f12977d5d
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 7e25e2c95f377b1ad40cba24b29ababd0561e32a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112652"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495688"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Köra datavetenskapsaktiviteter: utforskning, modellering och distribution
 
@@ -34,7 +30,7 @@ Vanliga datavetenskapsuppgifter inkludera datautforskning, modellering och distr
 
 Dataexpert kan utföra utforskning och rapportering i en mängd olika sätt: med hjälp av bibliotek och paket som är tillgängliga för Python (matplotlib till exempel) eller med R (ggplot eller gitter till exempel). Dataexperter kan anpassa sådan kod så att de passar behoven för datagranskning för specifika scenarier. Behov för att hantera strukturerade data är olika för Ostrukturerade data, till exempel text eller bilder. 
 
-Produkter som Azure Machine Learning Workbench tillhandahåller även [avancerad dataförberedelse](../desktop-workbench/tutorial-bikeshare-dataprep.md) för data Datatransformering och undersökning, inklusive funktionen skapas. Användaren bör de verktyg, bibliotek och paket som bäst suite bestämma deras behov. 
+Produkter som Azure Machine Learning-tjänsten tillhandahåller även [avancerad dataförberedelse](../service/how-to-transform-data.md) för data Datatransformering och undersökning, inklusive funktionen skapas. Användaren bör de verktyg, bibliotek och paket som bäst suite bestämma deras behov. 
 
 Leverans i slutet av den här fasen är en rapport för utforskning av data. Rapporten bör ge en ganska omfattande vy över data som ska användas för modellering och en utvärdering av om data är lämpligt att gå vidare till steg modellering. Team Data Science Process TDSP ()-verktyg som beskrivs i följande avsnitt för halvautomatiserat utforskning, modellering och rapportering dessutom standardiserade datagranskning och modellering rapporter. 
 
@@ -90,7 +86,7 @@ Produktionsdistribution gör det möjligt för en modell att spela upp en aktiv 
 Det finns olika metoder och plattformar för att använda modeller i produktion. Här följer några alternativ:
 
 
-- [Distribution av modeller i Azure Machine Learning](../desktop-workbench/model-management-overview.md)
+- [Distribution av modeller i Azure Machine Learning-tjänsten](../service/how-to-deploy-and-where.md)
 - [Distribution av en modell i SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 

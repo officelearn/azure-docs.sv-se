@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 21fa41db2e205a7b17deae6d018308fe6e7ff213
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: fd9094d646b917cf811c28c9770fc2427a404ab4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006778"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309046"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Använd MirrorMaker för att replikera Apache Kafka-ämnen med Kafka på HDInsight
 
@@ -25,11 +25,11 @@ I det här exemplet används spegling för att replikera ämnen mellan två klus
 > [!WARNING]
 > Spegling ska inte betraktas som ett sätt att uppnå feltolerans. Förskjutningen till objekt i ett ämne skiljer sig mellan käll- och -kluster, så att klienter inte kan använda två synonymt.
 >
-> Om du är orolig feltolerans, anger du replikering för ämnena i klustret. Mer information finns i [Kom igång med Kafka på HDInsight](apache-kafka-get-started.md).
+> Om du är orolig feltolerans, anger du replikering för ämnena i klustret. Mer information finns i [Kom igång med Apache Kafka på HDInsight](apache-kafka-get-started.md).
 
-## <a name="how-kafka-mirroring-works"></a>Så här fungerar Kafka spegling
+## <a name="how-apache-kafka-mirroring-works"></a>Så här fungerar Apache Kafka spegling
 
-Spegling fungerar med hjälp av verktyget MirrorMaker (del av Apache Kafka) att använda poster ämnen på källklustret och sedan skapa en lokal kopia på målklustret. MirrorMaker använder en (eller flera) *konsumenter* som läser från källklustret, och en *producent* som skriver till klustret för lokal (mål).
+Spegling fungerar med hjälp av den [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) verktyget (del av Apache Kafka) att använda poster ämnen på källklustret och sedan skapa en lokal kopia på målklustret. MirrorMaker använder en (eller flera) *konsumenter* som läser från källklustret, och en *producent* som skriver till klustret för lokal (mål).
 
 Följande diagram illustrerar processen spegling:
 
@@ -56,7 +56,7 @@ Om du vill spegla mellan Kafka-kluster i olika nätverk, finns det ytterligare a
 
 Mer information om hur du ansluter två virtuella Azure-nätverk finns i [konfigurera en VNet-till-VNet-anslutning](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 
-## <a name="create-kafka-clusters"></a>Skapa Kafka-kluster
+## <a name="create-apache-kafka-clusters"></a>Skapa Apache Kafka-kluster
 
 Du kan skapa ett Azure-nätverk och Kafka-kluster manuellt, men det är enklare att använda en Azure Resource Manager-mall. Använd följande steg för att distribuera ett Azure-nätverk och två Kafka-kluster på Azure-prenumerationen.
 
@@ -106,7 +106,7 @@ Du kan skapa ett Azure-nätverk och Kafka-kluster manuellt, men det är enklare 
 
     Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
-2. Använd följande kommandon för att hitta Zookeeper-värdar för källklustret:
+2. Använd följande kommandon för att hitta Apache Zookeeper-värdar för källklustret:
 
     ```bash
     # Install jq if it is not installed
@@ -295,10 +295,10 @@ Eftersom stegen i det här dokumentet skapar båda klustren i samma Azure-resurs
 
 ## <a name="next-steps"></a>Nästa steg
 
-I det här dokumentet har du lärt dig hur du använder MirrorMaker för att skapa en replik av Kafka-kluster. Använd följande länkar för att upptäcka andra sätt att arbeta med Kafka:
+I det här dokumentet har du lärt dig hur du använder [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) att skapa en replik av en [Apache Kafka](https://kafka.apache.org/) kluster. Använd följande länkar för att upptäcka andra sätt att arbeta med Kafka:
 
 * [Dokumentation om Apache Kafka MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) på cwiki.apache.org.
 * [Kom igång med Apache Kafka på HDInsight](apache-kafka-get-started.md)
-* [Använda Apache Spark med Kafka på HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Använda Apache Storm med Kafka på HDInsight](../hdinsight-apache-storm-with-kafka.md)
-* [Ansluta till Kafka via ett trådlöst Azure-nätverk](apache-kafka-connect-vpn-gateway.md)
+* [Använda Apache Spark med Apache Kafka på HDInsight](../hdinsight-apache-spark-with-kafka.md)
+* [Använda Apache Storm med Apache Kafka på HDInsight](../hdinsight-apache-storm-with-kafka.md)
+* [Anslut till Apache Kafka via ett Azure-nätverk](apache-kafka-connect-vpn-gateway.md)

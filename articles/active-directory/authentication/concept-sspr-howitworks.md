@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5416c8ada8fcc7f630d68f223b88c50209d14438
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2713f48ce490aa42b6b1aa4e69a71f8f8053d1fb
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296404"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426212"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: återställning av lösenord för självbetjäning i Azure AD
 
@@ -60,8 +60,8 @@ Läs igenom följande steg för att lära dig om logiken bakom lösenordet för 
 
 Om SSPR är aktiverad, måste du välja minst en av följande alternativ för autentiseringsmetoder. Ibland hör du de här alternativen som kallas ”gates”. Vi rekommenderar starkt att som du **väljer minst två autentiseringsmetoder** så att användarna har mer flexibilitet om de inte går att komma åt en när de behöver den.
 
-* Mobilapp (förhandsversion)
-* Kod för mobilapp (förhandsversion)
+* Mobilappmeddelande (förhandsgranskning)
+* Mobilappkod (förhandsversion)
 * E-post
 * Mobiltelefon
 * Arbetstelefon
@@ -189,7 +189,7 @@ Den här kontrollen anger om användare som besöker portalen för återställni
    * **Användare som registrerar sig via** självanmälan: om organisationen du samarbetar med används den [självanmälan](../users-groups-roles/directory-self-service-signup.md) funktion för att komma åt en klient, vi låter dem återställa lösenord med e-postadress som de registrerade.
    * **B2B-användare**: alla nya B2B-användare som skapats med hjälp av den nya [Azure AD B2B-funktioner](../active-directory-b2b-what-is-azure-ad-b2b.md) kommer också att kunna återställa sina lösenord med e-postadress som de registrerade under inbjudan.
 
-Om du vill testa det här scenariot, går du till http://passwordreset.microsoftonline.com med någon av dessa partneranvändare. Om de har en alternativ e-postadress eller autentisering e-post som definierats för lösenordsåterställning fungerar som förväntat.
+Om du vill testa det här scenariot, går du till https://passwordreset.microsoftonline.com med någon av dessa partneranvändare. Om de har en alternativ e-postadress eller autentisering e-post som definierats för lösenordsåterställning fungerar som förväntat.
 
 > [!NOTE]
 > Microsoft-konton som har beviljats åtkomst till Azure AD-klienten, till exempel från Hotmail.com, Outlook.com eller andra personliga e-postadresser kan inte använda Azure AD SSPR. De behöver för att återställa sina lösenord med hjälp av informationen som finns i den [när du inte logga in på ditt Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artikeln.

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 333e73af3578cdc363e7ede08ca52207cfd0fdb0
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: a20dec67201cb7d8b7ccd3a7662438f2afabfe63
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248923"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446797"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP-utlösare och bindningar
 
@@ -157,13 +157,13 @@ public static string Run(CustomObject req, ILogger log)
 }
 
 public class CustomObject {
-     public String name {get; set;}
+     public string name {get; set;}
 }
 ```
 
-### <a name="trigger---f-example"></a>Utlösare – F #-exempel
+### <a name="trigger---f-example"></a>Utlösare – F# exempel
 
-I följande exempel visas en utlösare-bindning i en *function.json* fil och en [F #-funktion](functions-reference-fsharp.md) som använder bindningen. Funktionen söker efter en `name` parameter i frågesträngen eller brödtexten i HTTP-begäran.
+I följande exempel visas en utlösare-bindning i en *function.json* fil och en [ F# funktionen](functions-reference-fsharp.md) som använder bindningen. Funktionen söker efter en `name` parameter i frågesträngen eller brödtexten i HTTP-begäran.
 
 Här är den *function.json* fil:
 
@@ -188,7 +188,7 @@ Här är den *function.json* fil:
 
 Den [configuration](#trigger---configuration) förklaras de här egenskaperna.
 
-Här är F #-kod:
+Här är den F# kod:
 
 ```fsharp
 open System.Net
@@ -348,7 +348,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 ## <a name="trigger---usage"></a>Utlösare - användning
 
-För C# och F #, kan du deklarera vilken typ av utlösaren indata ska vara antingen `HttpRequestMessage` eller en anpassad typ. Om du väljer `HttpRequestMessage`, får du fullständig åtkomst till Begäranobjektet. För en anpassad typ försöker körningen parsa JSON-begärandetexten för att ange objektets egenskaper.
+För C# och F# funktion, kan du deklarera vilken typ av utlösaren indata ska vara antingen `HttpRequestMessage` eller en anpassad typ. Om du väljer `HttpRequestMessage`, får du fullständig åtkomst till Begäranobjektet. För en anpassad typ försöker körningen parsa JSON-begärandetexten för att ange objektets egenskaper.
 
 Functions-körning ger begärandetexten i stället för Begäranobjektet för JavaScript-funktioner. Mer information finns i den [JavaScript utlösaren exempel](#trigger---javascript-example).
 
@@ -434,6 +434,45 @@ Som standard alla funktionen vägar har prefixet *api*. Du kan också anpassa el
 }
 ```
 
+### <a name="working-with-client-identities"></a>Arbeta med klient-identiteter
+
+Om din funktionsapp använder [App Service-autentisering / auktorisering](../app-service/app-service-authentication-overview.md), du kan visa information om autentiserade klienter från din kod. Den här informationen är tillgänglig som [begärandehuvuden matas in av plattformen](../app-service/app-service-authentication-how-to.md#access-user-claims). 
+
+Du kan också läsa den här informationen från binda data. Den här funktionen är endast tillgängligt för funktioner 2.x-körningen. Det är också för närvarande endast tillgängliga för .NET-språk.
+
+I .NET languagues den här informationen är tillgänglig som en [ClaimsPrincipal](https://docs.microsoft.com/en-us/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0). ClaimsPrincipal är tillgänglig som en del av begärandets kontext som visas i följande exempel:
+
+```csharp
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+
+public static IActionResult Run(HttpRequest req, ILogger log)
+{
+    ClaimsPrincipal identities = req.HttpContext.User;
+    // ...
+    return new OkResult();
+}
+```
+
+Du kan också kan ClaimsPrincipal bara ingå som en extra parameter i i funktionssignaturen:
+
+```csharp
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using Newtonsoft.Json.Linq;
+
+public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
+{
+    // ...
+    return;
+}
+
+```
+
 ### <a name="authorization-keys"></a>Auktoriseringsregel för nycklar
 
 Functions kan du använda för att göra det svårare att komma åt din HTTP-slutpunkter för funktionen under utveckling.  En standard HTTP-utlösare kan kräva sådana en API-nyckel finnas i begäran. 
@@ -483,7 +522,7 @@ Du kan tillåta anonyma begäranden som inte kräver nycklar. Du kan också krä
 
 För att fullständigt skydda dina slutpunkter för funktionen i produktion, bör du implementering av en av följande alternativ för funktionen säkerhet på radnivå app:
 
-* Aktivera App Service-autentisering / auktorisering för din funktionsapp. App Service-plattformen kan använda Azure Active Directory (AAD) och flera Identitetsproviders från tredje part för att autentisera klienter. Du kan använda detta för att implementera anpassade regler för dina funktioner och du kan arbeta med användarinformation från funktionskoden. Mer information finns i [autentisering och auktorisering i Azure App Service](../app-service/app-service-authentication-overview.md).
+* Aktivera App Service-autentisering / auktorisering för din funktionsapp. App Service-plattformen kan använda Azure Active Directory (AAD) och flera Identitetsproviders från tredje part för att autentisera klienter. Du kan använda detta för att implementera anpassade regler för dina funktioner och du kan arbeta med användarinformation från funktionskoden. Mer information finns i [autentisering och auktorisering i Azure App Service](../app-service/app-service-authentication-overview.md) och [arbeta med klient-identiteter](#working-with-client-identities).
 
 * Använd Azure API Management (APIM) för att autentisera begäranden. APIM erbjuder en mängd olika API säkerhetsalternativ för inkommande begäranden. Mer information finns i [API Management autentiseringsprinciper](../api-management/api-management-authentication-policies.md). Med APIM på plats kan du konfigurera funktionsappen för att godkänna begäranden endast från IP-adressen för din APIM-instansen. Mer information finns i [IP-adressbegränsningar](ip-addresses.md#ip-address-restrictions).
 

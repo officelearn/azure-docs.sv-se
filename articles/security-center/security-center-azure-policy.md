@@ -1,9 +1,9 @@
 ---
-title: Azure Security Center-säkerhetsprinciper kan ställas in individuellt eller som en del av Azure-principer | Microsoft Docs
-description: Det här dokumentet hjälper dig att ange principer i Azure Security Center eller i Azure Policy.
+title: Azure Security Center-säkerhetsprinciper kan ställa in som en del av Azure-principer och visas i Security Center | Microsoft Docs
+description: Det här dokumentet hjälper dig att ange principer i Azure Policy eller visa dem i Azure Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
@@ -12,27 +12,39 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/5/2018
-ms.author: terrylan
-ms.openlocfilehash: 0b38c6895421b43d6f80e0c34cc23b379a673559
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/25/2018
+ms.author: rkarlin
+ms.openlocfilehash: 330b66e64484417e50f39c35cf90a6fd62b1e888
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261952"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334677"
 ---
-# <a name="setting-security-policies-in-security-center-or-in-azure-policy"></a>Ange säkerhetsprinciper i Security Center eller i Azure Policy
+# <a name="view-security-policies"></a>Visa säkerhetsprinciper
 
-Den här artikeln hjälper dig att konfigurera säkerhetsprinciper i Azure Security Center. Azure Scurity Center principer som integreras med Azure-principer så att du kan ställa in dem antingen i Security Center på en viss prenumeration eller i [Azure Policy](../azure-policy/azure-policy-introduction.md), vilket gör att du kan ange principer över hanteringsgrupper och över flera prenumerationer...
+Den här artikeln förklarar hur säkerhetsprinciper har konfigurerats och hur du visar dem i Security Center. Azure Security Center tilldelar automatiskt dess [inbyggda säkerhetsprinciper](security-center-policy-definitions.md) på varje prenumeration som har publicerats. Du kan konfigurera dem i [Azure Policy](../azure-policy/azure-policy-introduction.md), som också kan du ange principer över hanteringsgrupper och över flera prenumerationer.
+
+Anvisningar om hur du anger principer med hjälp av PowerShell finns i [Snabbstart: skapa en principtilldelning som identifierar icke-kompatibla resurser med hjälp av Azure RM PowerShell-modulen](../azure-policy/assign-policy-definition-ps.md).
+
+
 
 ## <a name="what-are-security-policies"></a>Vad är säkerhetsprinciper?
-En säkerhetsprincip definierar den önskade konfigurationen för arbetsbelastningarna och hjälper till att säkerställa efterlevnaden av företagets eller bestämmelsemässiga säkerhetskrav. Du kan definiera principer för dina Azure-prenumerationer och anpassa dem till din typ av arbetsbelastning eller känslighet för dina data i Azure Security Center. Program som använder reglerade data, till exempel personligt identifierbar information kan till exempel kräva en högre säkerhetsnivå än andra arbetsbelastningar. Om du vill ange en princip för prenumerationer eller hanteringsgrupper, ställa in dem [Azure Policy](../azure-policy/azure-policy-introduction.md).
+En säkerhetsprincip definierar den önskade konfigurationen för arbetsbelastningarna och hjälper till att säkerställa efterlevnaden av företagets eller bestämmelsemässiga säkerhetskrav. Du kan definiera principer för dina Azure-prenumerationer och anpassa dem till din typ av arbetsbelastning eller känslighet för dina data i Azure Policy. Program som använder reglerade data, till exempel personligt identifierbar information kan till exempel kräva en högre säkerhetsnivå än andra arbetsbelastningar. Om du vill ange en princip för prenumerationer eller hanteringsgrupper, ställa in dem [Azure Policy](../azure-policy/azure-policy-introduction.md).
+
+
+
+Dina säkerhetsprinciper innehåller säkerhetsrekommendationer som du får i Azure Security Center. Du kan övervaka efterlevnad med dem för att hjälpa dig att upptäcka potentiella säkerhetsrisker och avhjälpa hot. Mer information om hur du avgör vilket alternativ som passar dig finns i listan över [inbyggda säkerhetsprinciper](security-center-policy-definitions.md).
+
+### <a name="management-groups"></a>Hanteringsgrupper
+Om din organisation har många prenumerationer kan det behövas ett effektivt sätt att hantera åtkomst, principer och efterlevnad för prenumerationerna. Med Azures hanteringsgrupper får du en hanteringsnivå över prenumerationsnivån. Du kan ordna prenumerationerna i containrar som kallas hanteringsgrupper och tillämpa styrningsprinciper på hanteringsgrupperna. Alla prenumerationer i en hanteringsgrupp ärver automatiskt de principer som tillämpas på hanteringsgruppen. Varje katalog tilldelas en hanteringsgrupp på översta nivån som kallas rothanteringsgruppen. Rothanteringsgruppen är inbyggd i hierarkin så att alla hanteringsgrupper och prenumerationer är dess underordnade element. Med hjälp av rothanteringsgruppen kan globala principer och RBAC-tilldelningar tillämpas på katalognivå. Om du vill konfigurera hanteringsgrupper för användning med Azure Security Center, följer du anvisningarna i [klienttäckande insyn för Azure Security Center](security-center-management-groups.md).
 
 > [!NOTE]
-> Om du tidigare har konfigurerat säkerhetsprinciper för en prenumeration som en del av en hanteringsgrupp eller har flera princip rolltilldelningar visas dessa principer nedtonade i Security Center så att du kan hantera principerna på gruppnivå hantering via Azure Sidan för principen. 
+> Det är viktigt att du är införstådd med hierarkin för hanteringsgrupper och prenumerationer. Du kan läsa mer om hanteringsgrupper, rothantering och hanteringsgruppåtkomst i artikeln om att [organisera dina resurser med Azures hanteringsgrupper](../governance/management-groups/index.md#root-management-group-for-each-directory).
+>
 
 ## <a name="how-security-policies-work"></a>Hur fungerar säkerhetsprinciper?
-Security Center skapar automatiskt en standardsäkerhetsprincip för var och en av dina Azure-prenumerationer. Du kan redigera principer i Security Center eller använda Azure Policy för att göra följande:
+Security Center skapar automatiskt en standardsäkerhetsprincip för var och en av dina Azure-prenumerationer. Du kan redigera principer i Azure-principen för att göra följande:
 - Skapa nya principdefinitioner.
 - Tilldela principer över hanteringsgrupper och prenumerationer som motsvarar en hel organisation eller affärsenhet inom organisationen.
 - Övervaka principefterlevnad.
@@ -41,9 +53,9 @@ Om du vill ha mer information om Azure Policy kan du läsa [Create and manage po
 
 En Azure-princip består av följande komponenter:
 
-- En **princip** är en regel
-- Ett **initiativ** är en samling principer
-- En **tilldelning** är en tillämpning av ett initiativ eller en princip på ett specifikt omfång (hanteringsgrupp, prenumeration eller resursgrupp)
+- En **princip** är en regel.
+- En **initiativ** är en samling av principer.
+- En **tilldelning** är program till ett initiativ eller en princip för ett visst område (hanteringsgruppen, prenumeration eller resursgrupp).
 
 En resurs utvärderas mot de principer den tilldelats och får en efterlevnadsgrad utifrån antalet principer som gäller för resursen.
 
@@ -54,67 +66,45 @@ Security Center använder rollbaserad åtkomstkontroll (RBAC), som erbjuder inby
 - Säkerhetsadministratör: har samma visa rättigheter som security-läsare och de kan också uppdatera säkerhetsprinciper och stänga rekommendationer och aviseringar.
 
 ## <a name="edit-security-policies"></a>Redigera säkerhetsprinciper
-Du kan redigera standardsäkerhetsprincipen för var och en av dina Azure-prenumerationer och hanteringsgrupper i Security Center. Om du vill ändra en säkerhetsprincip måste du vara ägare, deltagare eller säkerhetsadministratör för prenumerationen eller hanteringsgruppen som innehåller den. Visa dina säkerhetsprinciper i Security Center:
+Du kan redigera standardsäkerhetsprincipen för var och en av dina Azure-prenumerationer och hanteringsgrupper i [Azure Policy](../governance/policy/tutorials/create-and-manage.md). Om du vill ändra en säkerhetsprincip måste du vara ägare, deltagare eller säkerhetsadministratör för prenumerationen eller hanteringsgruppen som innehåller den.
 
-> [!NOTE]
-> Alla principer som angetts för en prenumeration som en del av en hanteringsgrupp eller har flera princip-rolltilldelningar visas nedtonade i Security Center. Du kan redigera dessa principer i [Azure Policy](../azure-policy/azure-policy-introduction.md). 
+Instruktioner om hur du redigerar en säkerhetsprincip i Azure Policy finns och [skapa och hantera principer för att tvinga kompatibilitet](../governance/policy/tutorials/create-and-manage.md).
 
-1. Klicka på **Säkerhetsprincip** under **Princip och efterlevnad** på instrumentpanelen i **Security Center**. **Principhanteringen** öppnas.
+## <a name="view-security-policies"></a>Visa säkerhetsprinciper
 
-    ![Fönstret för principhantering](./media/security-center-azure-policy/security-center-policies-fig10.png)
+Visa dina säkerhetsprinciper i Security Center:
 
-  I principhanteringen visas antalet hanteringsgrupper, prenumerationer och arbetsytor, samt strukturen för hanteringsgruppen.
+1. I den **Security Center** instrumentpanelen, väljer **säkerhetsprincip**.
+
+    ![Fönstret för principhantering](./media/security-center-policies/security-center-policy-mgt.png)
+
+  I den **principhantering** skärmen, du kan se antalet hanteringsgrupper, prenumerationer och arbetsytor, samt dina hanteringsgruppsstruktur.
 
   > [!NOTE]
-  > Instrumentpanelen i Security Center kan visa ett högre antal prenumerationer under **Prenumerationstäckning** än antalet prenumerationer som visas under **Principhantering**. Prenumerationstäckningen visar antalet prenumerationer av typen Standard, Kostnadsfri och Omfattas inte. Security Center har inte aktiverats för Omfattas inte-prenumerationer och de visas inte under **Principhantering**.
-  >
+  > - Instrumentpanelen i Security Center kan indikera ett högre antal prenumerationer under **prenumerationstäckning** än antalet prenumerationer som visas under **principhantering**. Prenumerationstäckningen visar antalet prenumerationer av typen Standard, Kostnadsfri och Omfattas inte. ”Inte motsvarar”-prenumerationer har inte Security Center aktiverat och visas inte **principhantering**.
   >
 
   Tabellens kolumner:
 
- - Policy Initiative Assignment (Principinitiativstilldelning) – Inbyggda principer och initiativ i Security Center som tilldelas till en prenumeration eller hanteringsgrupp.
- - Compliance (Efterlevnad) – Total efterlevnadsgrad för en hanteringsgrupp, prenumeration eller arbetsyta. Efterlevnadsgraden är det viktade medelvärdet av tilldelningarna. Viktade medelvärdesfaktorer är antalet principer i en enda tilldelning och antalet resurser som omfattas av tilldelningen.
+ - **Principinitiativsuppgift** – Security Center [inbyggda principer](security-center-policy-definitions.md) och initiativ som har tilldelats en prenumerations- eller grupp.
+ - **Efterlevnad** – övergripande kompatibilitetspoäng för en hanteringsgrupp, en prenumeration eller en arbetsyta. Efterlevnadsgraden är det viktade medelvärdet av tilldelningarna. Viktade medelvärdesfaktorer är antalet principer i en enda tilldelning och antalet resurser som omfattas av tilldelningen.
 
  Om din prenumeration till exempel innehåller två virtuella datorer som är tilldelade ett initiativ med fem principer har prenumerationen 10 utvärderingar. Om en av de virtuella datorerna inte uppfyller två av principerna är den totala efterlevnadsgraden 80 % för din prenumerations tilldelning.
 
- - Coverage (Täckning) – Visar prisnivån (Kostnadsfri eller Standard) för hanteringsgruppen, prenumerationen eller arbetsytan.  Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
- - Settings (Inställningar) – För prenumerationer finns länken **Edit settings** (Redigera inställningar). Välj **Edit settings** (Redigera inställningar) om du vill uppdatera prenumerationsinställningar som datainsamling, prisnivå och e-postaviseringar.
+ - **Täckning** – identifierar prisnivån kostnadsfri eller Standard som hanteringsgruppen, prenumeration eller arbetsyta körs på.  Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
+ - **Inställningar för** – prenumerationer har länken **redigera inställningar för**. Att välja **redigera inställningar för** låter dig uppdatera ditt [Security Center-inställningar](security-center-policies-overview.md) för varje prenumerations- eller grupp.
 
-2. Välj den prenumeration eller hanteringsgrupp som du vill aktivera en säkerhetsprincip för. **Säkerhetsprincip** öppnas.
+2. Välj den prenumeration eller hanteringsgrupp grupp vars principer som du vill visa.
 
-3.  Under **Säkerhetsprincip** väljer du **På** för de kontroller du vill att Security Center ska övervaka och ge rekommendationer om.  Välj **Av** om du inte vill att en kontroll ska övervakas av Security Center.
+  - Den **säkerhetsprincip** skärmen återspeglar den åtgärd som de principer som tilldelats för prenumerations- eller gruppen som du har valt.
+  - Överst på sidan använder du länkarna för att öppna varje princip **tilldelning** som gäller för prenumerations- eller gruppen. Du kan använda länkarna för att komma åt tilldelningen och redigera eller inaktivera principen. Om du ser att en viss principtilldelning effektivt nekas slutpunktsskydd kan använda du länken till åtkomst till principen och redigera eller inaktivera den.
+  - I listan med principer ser du en effektiv tillämpning av principen på din prenumeration eller hanteringsgrupp. Det innebär att inställningarna för varje princip som gäller för omfånget beaktas och du får det kumulativa resultatet av vilka åtgärder som vidtas av principen. Om principen är inaktiverad i en tilldelning, men i en annan som den är inställd på AuditIfNotExist, gäller den ackumulerade effekten AuditIfNotExist. Mer aktiva effekten har alltid företräde.
+  - Effekten av de principer som kan vara: lägga till, granskning, AuditIfNotExists, neka, DeployIfNotExists, inaktiverad. Mer information om hur effekterna tillämpas finns [Förstå princip effekterna](../governance/policy/concepts/effects.md).
 
-    ![Principkomponenter](./media/security-center-azure-policy/security-policy.png)
-
-4. Välj **Spara**.
-
-## <a name="available-security-policy-definitions"></a>Tillgängliga säkerhetsprincipdefinitioner
-
-Använd följande tabell som referens för att förstå de principdefinitioner som finns tillgängliga i standard-säkerhetsprincipen:
-
-| Princip | Vad den aktiverade principen gör |
-| --- | --- |
-| Systemuppdateringar |Hämtar en daglig lista med tillgängliga säkerhetsuppdateringar och viktiga uppdateringar från Windows Update eller Windows Server Update Services. Den hämtade listan beror på vilken tjänst som har konfigurerats för de virtuella datorerna och den rekommenderar att saknade uppdateringar tillämpas. I Linux-system använder principen pakethanteringssystemet med distribution för att se vilka paket som har tillgängliga uppdateringar. Den söker också efter säkerhetsuppdateringar och viktiga uppdateringar från virtuella datorer i [Azure Cloud Services](../cloud-services/cloud-services-how-to-configure-portal.md). |
-| Säkerhetskonfigurationer |Analyserar dagligen konfigurationer av operativsystemet för att fastställa problem som kan göra den virtuella datorn sårbar för angrepp. Principen rekommenderar också konfigurationsändringar för att åtgärda dessa sårbarheter. Se [listan med rekommenderade baslinjer](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) för mer information om vilka konfigurationer som övervakas. (Just nu stöds inte Windows Server 2016 fullt ut.) |
-| Slutpunktsskydd |Rekommendationer om att slutpunktsskydd ska installeras på alla virtuella datorer (VM) med Windows så att virus, spionprogram och annan skadlig programvara kan identifieras och tas bort. |
-| Diskkryptering |Rekommenderar att aktivera diskkryptering på alla virtuella datorer för att förbättra skydd av data i vila. |
-| Nätverkssäkerhetsgrupper |Rekommenderar att [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) ska konfigureras för kontroll av inkommande och utgående trafik till virtuella datorer med offentliga slutpunkter. Nätverkssäkerhetsgrupper som konfigureras för ett undernät ärvs av alla VM-nätverksgränssnitt om inget annat anges. Förutom att kontrollera om en nätverkssäkerhetsgrupp har konfigurerats kontrollerar även den här principen att inkommande säkerhetsregler för att se om det finns några regler som tillåter inkommande trafik. |
-| Brandvägg för webbaserade program |Rekommenderar att en brandvägg för webbaserade program konfigureras på virtuella datorer när något av följande stämmer: <ul><li>En [Offentlig IP på instansnivå](../virtual-network/virtual-networks-instance-level-public-ip.md) används och de inkommande säkerhetsreglerna för den associerade nätverkssäkerhetsgruppen är konfigurerad för att tillåta åtkomst till port 80/443.</li><li>En belastningsutjämnad IP-adress används och associerad nätverksbelastning och inkommande NAT-regler (Network Address Translation) är konfigurerade för att tillåta åtkomst till port 80/443. Mer information finns i [Azure Resource Manager-stöd för lastbalanserare](../load-balancer/load-balancer-arm.md).</li> |
-| Nästa generations brandvägg |Nätverksskyddet utökas utöver nätverkssäkerhetsgrupperna, som är inbyggda i Azure. Security Center identifierar distributioner som nästa generations brandvägg rekommenderas för och du kan sedan göra en virtuell installation. |
-| SQL-granskning och hotidentifiering |Rekommenderar att granskning av åtkomst till Azure-databasen aktiveras för lag- och regelefterlevnad, avancerad hotidentifiering och undersökning. |
-| SQL-kryptering |Rekommenderar att kryptering i vila ska aktiveras för Azure SQL Database, tillhörande säkerhetskopior och transaktionsloggfiler. Även om intrång sker i dessa data så går dem inte att läsa. |
-| Sårbarhetsbedömning |Rekommenderar att du installerar en lösning för sårbarhetsbedömning på den virtuella datorn. |
-| Lagringskryptering |Den här funktionen är för närvarande tillgänglig för Azure Blob Storage och Azure Files. När du har aktiverat Kryptering av lagringstjänst kommer endast nya data att krypteras. Befintliga filer i lagringskontot förblir okrypterade. |
-| JIT-nätverksåtkomst |När JIT-nätverksåtkomst (Just-In-Time) är aktiverat begränsar Security Center inkommande trafik till dina virtuella Azure-datorer genom att skapa en gruppregel för nätverkssäkerhet. Du väljer vilka portar på den virtuella datorn som inkommande trafik ska begränsas till. Mer information finns i [Manage virtual machine access using just in time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) (Hantera åtkomsten till virtuella datorer med Just-In-Time). |
-
-## <a name="management-groups"></a>Hanteringsgrupper
-Om din organisation har många prenumerationer kan det behövas ett effektivt sätt att hantera åtkomst, principer och efterlevnad för prenumerationerna. Med Azures hanteringsgrupper får du en hanteringsnivå över prenumerationsnivån. Du kan ordna prenumerationerna i containrar som kallas hanteringsgrupper och tillämpa styrningsprinciper på hanteringsgrupperna. Alla prenumerationer i en hanteringsgrupp ärver automatiskt de principer som tillämpas på hanteringsgruppen. Varje katalog tilldelas en hanteringsgrupp på översta nivån som kallas rothanteringsgruppen. Rothanteringsgruppen är inbyggd i hierarkin så att alla hanteringsgrupper och prenumerationer är dess underordnade element. Med hjälp av rothanteringsgruppen kan globala principer och RBAC-tilldelningar tillämpas på katalognivå. Hanteringsgrupper konfigureras för användning med Azure Security Center genom att följa anvisningarna i artikeln om att få [synlighet i hela klientorganisationen för Azure Security Center](security-center-management-groups.md). 
+   ![princip för skärmen](./media/security-center-policies/policy-screen.png)
 
 > [!NOTE]
-> Det är viktigt att du är införstådd med hierarkin för hanteringsgrupper och prenumerationer. Du kan läsa mer om hanteringsgrupper, rothantering och hanteringsgruppåtkomst i artikeln om att [organisera dina resurser med Azures hanteringsgrupper](../governance/management-groups/index.md#root-management-group-for-each-directory).
->
->
-
+> - När du visa tilldelade principer, du kan se flera tilldelningar och du kan se hur varje uppgift är konfigurerad på egen hand.
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har vi berättat hur du ställer in säkerhetsprinciper i Security Center. I följande artiklar kan du lära dig mer om Security Center:
@@ -123,7 +113,7 @@ I den här artikeln har vi berättat hur du ställer in säkerhetsprinciper i Se
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md): Lär dig hur du övervakar dina Azure-resursers hälsa.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md): Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Lär dig hur du övervakar dina partnerlösningars hälsostatus.
-* [Få synlighet i hela klientorganisationen för Azure Security Center](security-center-management-groups.md): Lär dig hur du konfigurerar hanteringsgrupper för Azure Security Center. 
+* [Få synlighet i hela klientorganisationen för Azure Security Center](security-center-management-groups.md): Lär dig hur du konfigurerar hanteringsgrupper för Azure Security Center.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md): Få svar på vanliga frågor om att använda tjänsten.
 * [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/): Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
 

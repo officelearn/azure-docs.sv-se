@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 31461e1d316953c2e69d252f1313180c57562dfd
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 194f84d2ce5360aa9ad9f3d771bf24f153ac6f5c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009199"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496297"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Lägga till ytterligare lagringskonton till HDInsight
 
 Lär dig hur du använder skriptåtgärder för att lägga till ytterligare Azure storage-konton i HDInsight. Stegen i det här dokumentet för att lägga till ett lagringskonto till ett befintligt Linux-baserade HDInsight-kluster.
 
 > [!IMPORTANT]
-> Informationen i det här dokumentet handlar om att lägga till ytterligare lagringsutrymme i ett kluster när den har skapats. Information om att lägga till lagringskonton när klustret skapas finns i [Konfigurera kluster i HDInsight med Hadoop, Spark, Kafka med mera](hdinsight-hadoop-provision-linux-clusters.md).
+> Informationen i det här dokumentet handlar om att lägga till ytterligare lagringsutrymme i ett kluster när den har skapats. Information om att lägga till lagringskonton när klustret skapas finns i [Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
@@ -43,7 +43,7 @@ Under bearbetning utför skriptet följande åtgärder:
 
 * Lägger till lagringskontot i filen core-site.xml.
 
-* Stoppar och startar om tjänsten Oozie, YARN, MapReduce2 och HDFS. Stoppa och starta dessa tjänster gör att de kan använda det nya lagringskontot.
+* Stoppar och startar om den [Apache Oozie](https://oozie.apache.org/), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Apache Hadoop MapReduce2](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html), och [Apache Hadoop HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) tjänster. Stoppa och starta dessa tjänster gör att de kan använda det nya lagringskontot.
 
 > [!WARNING]
 > Med ett storage-konto i en annan plats än HDInsight-kluster stöds inte.

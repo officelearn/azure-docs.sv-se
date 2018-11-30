@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: 7726a28e0254f4316759c3d8c74f57db6a9e399e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 1df9b07d5a0a9e5018fc024038e65723c606ef71
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242202"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442989"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Konfigurera begränsade synkronisering från Azure AD till din hanterade domän
 Den här artikeln visar hur du konfigurerar endast specifika användarkonton som ska synkroniseras från din Azure AD-katalog till din hanterade domän i Azure AD Domain Services.
@@ -47,7 +47,12 @@ Tabellen nedan hjälper dig att avgöra hur du använder begränsade synkroniser
 >
 
 
-## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization"></a>Skapa en ny hanterad domän och aktivera gruppbaserad begränsade synkronisering
+## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-azure-portal"></a>Skapa en ny hanterad domän och aktivera gruppbaserad begränsade synkronisering med hjälp av Azure portal
+
+1. Följ den [komma igång-guiden](active-directory-ds-getting-started.md) att skapa en hanterad domän.
+2. Välj **begränsade** under synkronisering style val i guiden Skapa Azure AD Domain Services.
+
+## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-powershell"></a>Skapa en ny hanterad domän och aktivera gruppbaserad begränsade synkronisering med hjälp av PowerShell
 Använda PowerShell för att slutföra den här uppsättningen med steg. Se anvisningarna för att [aktiverar Azure Active Directory Domain Services med hjälp av PowerShell](active-directory-ds-enable-using-powershell.md). Några steg i den här artikeln har ändrats något om du vill konfigurera begränsade synkronisering.
 
 Utför följande steg för att konfigurera gruppbaserad begränsade synkronisering till din hanterade domän:

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/9/2018
+ms.date: 10/11/2018
 ms.author: Kumud
-ms.openlocfilehash: 0711b52b76a22e32d05f27e6aae6c981bd2c148a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
-ms.translationtype: HT
+ms.openlocfilehash: 258e093acd50946e95360416f89b2ceb96ee35d3
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902611"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426476"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Mått och hälsotillstånd diagnostik för Standard Load Balancer
 
@@ -220,6 +220,6 @@ Olika resource health statusvärden och deras beskrivningar finns i följande ta
 - Mer information finns i [Standard Load Balancer](load-balancer-standard-overview.md).
 - Läs mer om din [läsa in belastningsutjämnare utgående anslutning](https://aka.ms/lboutbound).
 - Lär dig mer om [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
-- Lär dig mer om den [Azure Monitor Metrics REST-API](https://docs.microsoft.com/rest/api/monitor/metrics/).
+- Lär dig mer om den [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/) och [hur du hämtar måtten via REST API](/rest/api/monitor/metrics/list).
 
 

@@ -1,5 +1,5 @@
 ---
-title: Azure AD UserPrincipalName population
+title: Ifyllnad av UserPrincipalName för Azure AD
 description: Följande dokument beskriver så här fylls UserPrincipalName-attribut.
 author: billmath
 ms.component: hybrid
@@ -9,14 +9,14 @@ ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
-ms.openlocfilehash: 35f1ed2fbeeea7ff3beffeae91f775c829deedec
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 59df0dc61be1f670f21b94fe24e56a2f040f950e
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637722"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426816"
 ---
-# <a name="azure-ad-userprincipalname-population"></a>Azure AD UserPrincipalName population
+# <a name="azure-ad-userprincipalname-population"></a>Ifyllnad av UserPrincipalName för Azure AD
 
 Den här artikeln beskrivs hur UserPrincipalName-attribut fylls i Azure Active Directory (AD Azure).
 Värdet för attributet UserPrincipalName är Azure AD-användarnamn för användarkonton.
@@ -34,7 +34,7 @@ De följande termer som används i den här artikeln:
 |Alternativa inloggnings-ID|En lokal attribut än UserPrincipalName, till exempel e-attribut som används för att logga in.|
 
 ## <a name="what-is-userprincipalname"></a>Vad är UserPrincipalName?
-UserPrincipalName är ett attribut som är ett inloggningsnamn för Internet-format för en användare baserat på Internet-standard [RFC 822](http://www.ietf.org/rfc/rfc0822.txt). 
+UserPrincipalName är ett attribut som är ett inloggningsnamn för Internet-format för en användare baserat på Internet-standard [RFC 822](https://www.ietf.org/rfc/rfc0822.txt). 
 
 ### <a name="upn-format"></a>UPN-format
 Ett UPN består av ett prefix för UPN (användarens kontonamn) och ett UPN-suffix (ett DNS-domännamn). Prefixet är ansluten med suffixet med hjälp av den ”\@” symbol. Till exempel ”någon\@example.com”. Ett UPN måste vara unikt bland alla säkerhetsobjekt inom en directory-skog. 

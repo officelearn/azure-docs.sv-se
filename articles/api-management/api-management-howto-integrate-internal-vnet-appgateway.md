@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: c85aa2f7a41511d809405f3b92c9ded2eb0693ad
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 6356d930b5bf909f1b209272e7367f5e2dcd5a13
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319871"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444623"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrera API Management i ett internt virtuellt nätverk med Application Gateway
 
@@ -32,6 +32,8 @@ Kombinera API Management som etablerats i ett internt virtuellt nätverk med App
 * Använd samma API Management-resurs för användning av både interna konsumenter och externa konsumenter.
 * Använd en enda API Management-resurs och har en delmängd av API: er som definierats i API Management som är tillgängliga för externa användare.
 * Ger en nyckelfärdig sätt att aktivera åtkomst till API Management från det offentliga Internet och inaktivera.
+
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 

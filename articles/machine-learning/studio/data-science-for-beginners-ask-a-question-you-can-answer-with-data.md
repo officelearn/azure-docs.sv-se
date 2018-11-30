@@ -1,5 +1,5 @@
 ---
-title: Ställ en fråga data kan besvara - data science problem – Azure Machine Learning | Microsoft Docs
+title: Ställ en fråga data kan besvara – Azure Machine Learning Studio | Microsoft Docs
 description: Lär dig att formulera en sharp data science-fråga i datavetenskap för nybörjare video 3. Innehåller en jämförelse av klassificerings- och regressionsmodeller frågor.
 keywords: data science problem, data science frågor Formulera frågor, regression frågor, klassificering frågor, sharp fråga
 services: machine-learning
@@ -17,12 +17,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 812d8ececa17dfe9d798d4454faf2ad66bf62536
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: c6d42ed7920b634994adf5313656c77e2df6dd5b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264921"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310845"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Ställ en fråga som du kan svara på med data
 ## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Datavetenskap för nybörjare-serien

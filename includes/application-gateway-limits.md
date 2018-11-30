@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: victorh
-ms.openlocfilehash: 44f9400a1ecebd3c204ec0b891c5d7fe01bdfd25
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 3d66d825306c5183bdd8d8e611d98904eef2022a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51628215"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440473"
 ---
 | Resurs | Standardgräns | Obs! |
 | --- | --- | --- |
@@ -26,7 +26,7 @@ ms.locfileid: "51628215"
 | Autentiseringscertifikat |40 | |
 | Minsta timeout för begäran |1 sekund | |
 | Högsta timeout för begäran |24 timmar | |
-| Antal platser |20 |1 per HTTP-lyssnare |
+| Antal platser |40 |1 per HTTP-lyssnare |
 | URL-mappningar per lyssnare |1 | |
 | Maximal sökväg-baserade regler per URL: en karta|100|
 | Omdirigerings-konfigurationer |40| |

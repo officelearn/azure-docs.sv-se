@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/05/2018
 ms.author: spelluru
-ms.openlocfilehash: a000c599ecf8287af57aec2f6e9d550bbe61f280
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8beb372c3fae567b23e51d2776dd9a79d837c657
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279889"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313851"
 ---
 # <a name="service-bus-faq"></a>Vanliga frågor och svar om Service Bus
 
@@ -86,7 +86,7 @@ Service Bus-meddelandetjänster (köer och ämnen/prenumerationer) gör att prog
 En lista över möjliga Service Bus-undantag finns i [undantag översikt][Exceptions overview].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>Vad är en signatur för delad åtkomst och vilka språk stöder du generera en signatur?
-Signaturer för delad åtkomst är en autentiseringsmetod baserat på SHA-256 säker hashvärden eller URI: er. Information om hur du skapar dina egna signaturer i Node, PHP, Java och C\#, finns i den [signaturer för delad åtkomst] [ Shared Access Signatures] artikeln.
+Signaturer för delad åtkomst är en autentiseringsmetod baserad på säkra SHA-256-hashvärden eller URI: er. Information om hur du skapar dina egna signaturer i Node.js, PHP, Java och C\#, finns i den [signaturer för delad åtkomst] [ Shared Access Signatures] artikeln.
 
 ## <a name="subscription-and-namespace-management"></a>Prenumeration och namnområde
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Hur migrerar jag ett namnområde till en annan Azure-prenumeration?

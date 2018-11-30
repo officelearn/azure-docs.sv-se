@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 343264f90ecf067786db9c0096625b87b2dbd319
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 40b8dfef3100ff8440165de74fb41f6b36afe37a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51004416"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315111"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-azure-functions-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka Azure functions för Azure IoT Edge
 
@@ -71,6 +71,7 @@ Det finns fyra objekt inne i lösningen:
    >Miljö-filen skapas endast om du anger en avbildningslagringsplatsen för modulen. Om du har godkänt localhost för att testa och felsöka lokalt, behöver du inte deklarera miljövariabler. 
 
 * En **deployment.template.json** filen visar en lista över dina nya modulen tillsammans med ett exempel **tempSensor** modul som simulerar data som du kan använda för testning. Mer information om hur distribution manifest work finns i [Lär dig hur du använder distribution manifest för att distribuera moduler och upprätta vägar](module-composition.md).
+* En **deployment.debug.template.json** filen behållare felsökningsversionen modulens avbildningar, med rätt behållare alternativ.
 
 ## <a name="develop-your-module"></a>Utveckla din modell
 
@@ -79,12 +80,10 @@ Standard Azure Function-koden som medföljer lösningen finns i **moduler** > [M
 När du är redo att anpassa Azure Function-mallen med din egen kod kan använda den [Azure IoT Hub SDK: er](../iot-hub/iot-hub-devguide-sdks.md) att skapa moduler adressen nyckeln måste för IoT-lösningar som säkerhet, hantering av enheter och tillförlitlighet. 
 
 ## <a name="build-your-module-for-debugging"></a>Skapa din modul för felsökning
-1. Starta felsökning med **Dockerfile.amd64.debug** att återskapa din docker-avbildning och distribuera din lösning igen. I VS Code-Utforskaren navigerar du till den `deployment.template.json` filen. Uppdatera din funktion-bild-URL genom att lägga till `.debug` i slutet.
-
-    ![Skapa debug-avbildning](./media/how-to-debug-csharp-function/build-debug-image.png)
-
+1. Starta felsökning med **Dockerfile.amd64.debug** att återskapa din docker-avbildning och distribuera din lösning igen. I VS Code-Utforskaren navigerar du till den `deployment.debug.template.json` filen.
 2. Återskapa din lösning. Ange i kommandopaletten VS Code och kör kommandot **Azure IoT Edge: skapa IoT Edge-lösningen**.
-3. Högerklicka på en IoT Edge-enhets-ID i Azure IoT Hub-enheter explorer och välj sedan **skapa distribution för Edge-enhet**. Välj den `deployment.json` fil i den `config` mapp. Distributionen har skapats med en distributions-ID i en terminal för VS Code-integrerade visas.
+3. Välj den `deployment.debug.template.json` -filen för din lösning från kommandopaletten. 
+4. Högerklicka på en IoT Edge-enhets-ID i Azure IoT Hub-enheter explorer och välj sedan **skapa distribution för Edge-enhet**. Välj den `deployment.debug.amd64.json` fil i den `config` mapp. Distributionen har skapats med en distributions-ID i en terminal för VS Code-integrerade visas.
 
 Kontrollera behållarstatus för i VS Code Docker explorer eller genom att köra den `docker ps` i terminalen.
 

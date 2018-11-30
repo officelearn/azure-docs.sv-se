@@ -1,6 +1,6 @@
 ---
-title: Köra Python machine learning-skript | Microsoft Docs
-description: Beskrivs designprinciper underliggande stöd för Python-skript i Azure Machine Learning och grundläggande Användningsscenarier, funktioner och begränsningar.
+title: Köra Python-machine learning-skript – Azure Machine Learning Studio | Microsoft Docs
+description: Beskrivs designprinciper underliggande stöd för Python-skript i Azure Machine Learning Studio och grundläggande Användningsscenarier, funktioner och begränsningar.
 keywords: Python maskininlärning, pandas, python pandas, python-skript, köra python-skript
 services: machine-learning
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 8378ccaf64dae9c3116bb175e6cb44ba75a2e367
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 958dd91277a81a9082a4149d2b0026fc11bf882a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261538"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317593"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Kör skript för Python-maskininlärning i Azure Machine Learning Studio
 

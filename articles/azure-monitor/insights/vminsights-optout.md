@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: b3639e76b55a9bdc0c981993181c8e23b09eceab
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: f7b9723f752b4da540c5860afde0afa62dcac9e0
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51716094"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333045"
 ---
 # <a name="how-to-disable-monitoring-of-your-virtual-machines-with-azure-monitor-for-vms-preview"></a>Så här inaktiverar du övervaka dina virtuella datorer med Azure Monitor för virtuella datorer (förhandsversion)
 
@@ -57,7 +57,7 @@ Följande steg beskriver hur du tar bort Azure Monitor för virtuella datorer om
 5. Välj i listan över lösningar, **InfrastructureInsights (namn på arbetsyta)**, och klicka sedan på den **översikt** för lösningen och klicka på **ta bort**.  När du uppmanas att bekräfta, klickar du på **Ja**.  
 6. I listan med lösningar, Välj **ServiceMap (namn på arbetsyta)**, och klicka sedan på den **översikt** för lösningen och klicka på **ta bort**.  När du uppmanas att bekräfta, klickar du på **Ja**.  
 
-Om innan onboarding Azure Monitor för virtuella datorer, inte var [insamling av prestandaräknare aktiverat](vminsights-onboard.md?toc=/azure/azure-monitor/toc.json#performance-counters-enabled) för Windows eller Linux-baserade virtuella datorer i din arbetsyta, måste du inaktivera dessa regler genom att följa stegen som beskrivs [här](../../log-analytics/log-analytics-data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json#configuring-performance-counters) för Windows och Linux.
+Om innan onboarding Azure Monitor för virtuella datorer, inte var [insamling av prestandaräknare aktiverat](vminsights-onboard.md?toc=/azure/azure-monitor/toc.json#performance-counters-enabled) för Windows eller Linux-baserade virtuella datorer i din arbetsyta, måste du inaktivera dessa regler genom att följa stegen som beskrivs [här](../../azure-monitor/platform/data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json#configuring-performance-counters) för Windows och Linux.
 
 ## <a name="disable-monitoring-for-an-azure-vm-and-retain-workspace"></a>Inaktivera övervakning för en Azure-dator och behålla arbetsyta  
 

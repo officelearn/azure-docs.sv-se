@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: 7eabe50ed1069a6027d5ec387f0c1dba45feb58e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 756e1426d417c47210e3b766d9d67ef1a70d2516
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828781"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334154"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Övervakning av data som samlas in av Azure Monitor
 [Azure Monitor](../../azure-monitor/overview.md) är en tjänst som hjälper dig att övervaka dina program och resurser som de förlitar sig på. Centrala för den här funktionen är lagring av telemetri och andra data från övervakade resurser. Den här artikeln innehåller en fullständig beskrivning av hur dessa data lagras och används av Azure Monitor.
@@ -131,14 +131,14 @@ Loggarna är särskilt användbart för att kombinera data från olika källor, 
 Loggar som samlats in från Azure Monitor lagras i Log Analytics som samlar in telemetri och övriga data från olika källor. Du får ett funktionsrikt frågespråk och en analytisk motor som ger dig insikter om hur dina program och resurser. Andra Azure-tjänster som [Azure Security Center](../../security-center/security-center-intro.md) lagrar sina data i Log Analytics för att tillhandahålla en gemensam dataplattform i Azure-hantering.
 
 > [!IMPORTANT]
-> Data från Application Insights lagras i Log Analytics som andra loggdata förutom att den är lagrad i en separat partition. Det ger stöd för samma funktioner som andra Log Analytics-data, men du måste använda den [Application Insights-konsolen](/application-insights/app-insights-analytics.md) eller [Application Insights API](https://dev.applicationinsights.io/) åt dessa data. Du kan använda en [mellan resurser fråga](../../log-analytics/log-analytics-cross-workspace-search.md) att analysera programdata tillsammans med andra loggdata.
+> Data från Application Insights lagras i Log Analytics som andra loggdata förutom att den är lagrad i en separat partition. Det ger stöd för samma funktioner som andra Log Analytics-data, men du måste använda den [Application Insights-konsolen](../../application-insights/app-insights-analytics.md) eller [Application Insights API](https://dev.applicationinsights.io/) åt dessa data. Du kan använda en [mellan resurser fråga](../../log-analytics/log-analytics-cross-workspace-search.md) att analysera programdata tillsammans med andra loggdata.
 
 
 ### <a name="sources-of-log-data"></a>Källor för loggdata
 Log Analytics kan samla in data från olika källor både i Azure och lokala resurser. Följande: källor för data som skrivs till Log Analytics
 
 - [Aktivitetsloggar](../../log-analytics/log-analytics-activity.md) från Azure-resurser med information om sina konfigurationer och hälsa och [diagnostikloggar](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) som ger insikt i deras funktion.
-- Agenter på [Windows](../../log-analytics/log-analytics-windows-agent.md) och [Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) virtuella datorer som skickar telemetri från gästoperativsystem och program till Log Analytics enligt [datakällor](../../log-analytics/log-analytics-data-sources.md) som du konfigurerar.
+- Agenter på [Windows](../../log-analytics/log-analytics-windows-agent.md) och [Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) virtuella datorer som skickar telemetri från gästoperativsystem och program till Log Analytics enligt [datakällor](../../azure-monitor/platform/agent-data-sources.md) som du konfigurerar.
 - Programdata som samlas in av [Application Insights](https://docs.microsoft.com/azure/application-insights/).
 - Data som ger insikter om ett visst program eller tjänst från [övervakningslösningar](../insights/solutions.md) eller funktioner som Behållareinsikter, VM insikter eller Resource Group insikter.
 - Säkerhetsdata som samlas in av [Azure Security Center](https://docs.microsoft.com/azure/security-center/).
@@ -156,7 +156,7 @@ Uppgifter som du kan utföra med loggar som följande:
 
 - Använd den [sidan Log Analytics](../../log-analytics/query-language/get-started-analytics-portal.md) i Azure portal för att skriva frågor som analyserar loggdata.  Fästa resultatet renderas som tabeller eller diagram för en [Azure-instrumentpanelen](../../azure-portal/azure-portal-dashboards.md).
 - Konfigurera en [loggvarningsregler](../../monitoring-and-diagnostics/alert-log.md) som skickar ett meddelande eller tar [automatisk åtgärd](../../monitoring-and-diagnostics/monitoring-action-groups.md) när frågans resultat matchar ett visst resultat.
-- Skapa ett arbetsflöde baserat på data i Log Analytics med hjälp av [Logikappar]().
+- Skapa ett arbetsflöde baserat på data i Log Analytics med hjälp av [Logikappar](~/articles/logic-apps/index.yml).
 - Exportera resultatet av en fråga till [Power BI](../../log-analytics/log-analytics-powerbi.md) att använda olika visualiseringar och dela med användare utanför Azure.
 - Komma åt mätvärden värden från en kommandorad eller anpassade program med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) eller [REST API](https://dev.loganalytics.io/).
 

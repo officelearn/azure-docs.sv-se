@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d104b5de22281817626f8de0f41029e76e06e3a2
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 5db43c6488a4592eb46d9a0fe9a044dde36fc494
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824820"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423355"
 ---
 # <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Azure global distribution Cosmos DB – under huven
 
@@ -72,7 +72,7 @@ För Cosmos-databaser som konfigurerats med flera Skriv-regioner, innehåller sy
 
 Om du konfigurerar din Cosmos-databas med en eller flera Skriv-regioner kan välja du mellan fem väldefinierade konsekvensmodeller. Med stöd för att aktivera flera Skriv-regioner som nyligen lagts till följer några viktiga aspekter av konsekvensnivåerna:  
 
-Som garanterar tidigare, begränsad föråldring konsekvens att alla läsningar inom k-prefix eller t sekunder från den senaste skrivningen i någon av regionerna. Dessutom är läsningar med begränsad föråldring, konsekvens garanterat Monoton och med konsekvent prefix garantier. Protokollet anti entropi fungerar på ett sätt som rate-limited och garanterar att ackumuleras inte prefixen och givet på skrivningar har inte tillämpas. Som tidigare, läsa sessionen konsekvens garanterar Monoton läsa Monoton skriva dina egna skrivningar, skrivning-följer-Läs- och konsekvent prefix att garanterar över hela världen. För databaser som konfigurerats med stark konsekvens, skriva system växlar tillbaka till en enda region genom att ange en ledare inom varje partition-typ. 
+Som garanterar tidigare, begränsad föråldring konsekvens att alla läsningar inom k-prefix eller t sekunder från den senaste skrivningen i någon av regionerna. Dessutom är läsningar med begränsad föråldring, konsekvens garanterat Monoton och med konsekvent prefix garantier. Protokollet anti entropi fungerar på ett sätt som rate-limited och garanterar att ackumuleras inte prefixen och givet på skrivningar har inte tillämpas. Som tidigare, läsa sessionen konsekvens garanterar Monoton läsa Monoton skriva dina egna skrivningar, skrivning-följer-Läs- och konsekvent prefix att garanterar över hela världen. För databaser som konfigurerats med stark konsekvens, fördelarna med multi-hantering (låg skrivfördröjningen, hög skrivning tillgänglighet) gäller inte på grund av synkron replikering över regioner.
 
 Semantiken för de fem konsekvensmodeller i Cosmos DB beskrivs [här](consistency-levels.md) och matematiskt visas med hjälp av en övergripande TLA + specifikationer [här](https://github.com/Azure/azure-cosmos-tla).
 

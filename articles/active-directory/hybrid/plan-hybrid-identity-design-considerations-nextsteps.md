@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: eb3bd1b2186d323c5b9d10d89bb68c03bd2b84a8
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a36dc0cd8148b8cf58729d2e8d22011e61140b0f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311831"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426356"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Azure Active Directory hybrid identity design överväganden nästa steg
 Nu när du har slutfört definiera dina krav och undersökt alla alternativ för din lösning för hantering av mobila enheter, är du redo att ta nästa steg för att distribuera stöd för den infrastruktur som är rätt för dig och din organisation.
@@ -32,7 +32,7 @@ Nu när du har slutfört definiera dina krav och undersökt alla alternativ för
 * Den [hantering av mobila enheter för Configuration Manager 2007-lösningen](https://technet.microsoft.com/library/dn508400.aspx) hjälper dig att hantera mobila enheter när din infrastruktur vilar på System Center Configuration Manager 2007. Den här lösningen visar hur du konfigurerar en server med System Center 2012 Configuration Manager så att du kan köra Microsoft Intune och dra nytta av dess MDM förmåga.
 * Den [hantering av mobila enheter i små miljöer lösning](https://technet.microsoft.com/library/dn715906.aspx) är avsedd för småföretag som behöver stöd för MDM. Den förklarar hur du använder Microsoft Intune för att utöka den befintliga infrastrukturen för att stödja hantering av mobila enheter och BYOD. Den här lösningen beskriver det enklaste scenariot som stöd för användning av Microsoft Intune i en fristående, molnbaserad konfiguration utan några lokala servrar.
 
-## <a name="hybrid-identity-documentation"></a>Hybrid identity-dokumentation
+## <a name="hybrid-identity-documentation"></a>Dokumentation om hybrididentitet
 Konceptuell och procedurmässig planering, distribution och administration av innehåll är användbara när du implementerar din lösning för hantering av mobila enheter:
 
 * [Microsoft System Center](https://technet.microsoft.com/library/cc507089.aspx) lösningar kan hjälpa dig att avbilda och sammanställa information om din infrastruktur, principer, processer och metodtips så att din IT-personal kan skapa användarvänliga system och automatisera åtgärder.
@@ -43,10 +43,10 @@ Konceptuell och procedurmässig planering, distribution och administration av in
 Ofta övervakning av följande resurser ger de senaste nyheterna och uppdateras på lösningar för hantering av mobila enheter:
 
 * [Microsoft Enterprise Mobility-bloggen](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
-* [Microsoft In The Cloud-bloggen](http://blogs.technet.com/b/in_the_cloud/)
-* [Microsoft Intune-bloggen](http://blogs.technet.com/b/microsoftintune/)
-* [Microsoft System Center Configuration Manager-blogg](http://blogs.technet.com/b/configurationmgr/)
-* [Microsoft System Center Configuration Manager Team-bloggen](http://blogs.technet.com/b/configmgrteam/)
+* [Microsoft In The Cloud-bloggen](https://blogs.technet.com/b/in_the_cloud/)
+* [Microsoft Intune-bloggen](https://blogs.technet.com/b/microsoftintune/)
+* [Microsoft System Center Configuration Manager-blogg](https://blogs.technet.com/b/configurationmgr/)
+* [Microsoft System Center Configuration Manager Team-bloggen](https://blogs.technet.com/b/configmgrteam/)
 
 ## <a name="see-also"></a>Se också
 [Översikt över design-överväganden](plan-hybrid-identity-design-considerations-overview.md)

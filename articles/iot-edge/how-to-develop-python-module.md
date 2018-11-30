@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0dfe096bb3a2a2116ead2423f53a5e44c8f02630
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: c3cf2b703760debb368e26d629ee73f56ce93d39
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567527"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441270"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-python-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka Python-moduler för Azure IoT Edge
 
@@ -66,7 +66,7 @@ Gör följande för att skapa en IoT Edge-modul som baseras på Azure IoT Python
 
 7. Ange ett namn för din modul. Välj ett namn som är unikt i ditt behållarregister. 
 
-8. Ange namnet på modulens avbildningslagringsplatsen. VS Code autopopulates modulen namnet med **localhost:5000**. Ersätt den med din egen information i registret. Om du använder en lokal Docker-register för testning, sedan **localhost** är bra. Om du använder Azure Container Registry kan du sedan använda inloggningsserver från din registerinställningar. Det ser ut som inloggningsserver  **\<registernamn\>. azurecr.io**. Ersätt endast localhost-delen av strängen; ta inte bort modulens namn. 
+8. Ange namnet på modulens avbildningslagringsplatsen. VS Code autopopulates modulen namnet med **localhost:5000**. Ersätt den med din egen information i registret. Om du använder en lokal Docker-register för testning, sedan **localhost** är bra. Om du använder Azure Container Registry kan du sedan använda inloggningsserver från din registerinställningar. Det ser ut som inloggningsserver  **\<registernamn\>. azurecr.io**. Ersätt endast localhost-delen av strängen; ta inte bort modulens namn. Den sista strängen ut \<registernamn\>.azurecr.io/\<modulename\>.
 
    ![Ange lagringsplatsen för Docker-avbildningen](./media/how-to-develop-c-module/repository.png)
 
@@ -81,6 +81,7 @@ Det finns fyra objekt inne i lösningen:
    > Miljö-filen skapas endast om du anger en avbildningslagringsplatsen för modulen. Om du har godkänt localhost för att testa och felsöka lokalt, behöver du inte deklarera miljövariabler. 
 
 * En **deployment.template.json** filen visar en lista över dina nya modulen tillsammans med ett exempel **tempSensor** modul som simulerar data som du kan använda för testning. Mer information om hur distribution manifest work finns i [Lär dig hur du använder distribution manifest för att distribuera moduler och upprätta vägar](module-composition.md). 
+* En **deployment.debug.template.json** filen behållare felsökningsversionen modulens avbildningar, med rätt behållare alternativ.
 
 ## <a name="develop-your-module"></a>Utveckla din modell
 
@@ -92,13 +93,7 @@ När du är redo att anpassa mallen Python med din egen kod kan använda den [Az
 
 Det finns flera Docker-filer för olika behållartyper i varje modul-mapp. Använd någon av dessa filer som slutar med tillägget **.debug** att skapa din modul för testning. För närvarande stöder Python-moduler felsökning endast i Linux amd64-behållare. 
 
-1. I VS Code, navigerar du till den `deployment.template.json` filen. Uppdatera din modulen bild-URL genom att lägga till **.debug** i slutet.
-
-2. Ersätt createOptions för Python-modulen i **deployment.template.json** med nedan innehåll och spara den här filen: 
-    
-    ```json
-    "createOptions": "{\"ExposedPorts\":{\"5678/tcp\":{}},\"HostConfig\":{\"PortBindings\":{\"5678/tcp\":[{\"HostPort\":\"5678\"}]}}}"
-    ```
+1. I VS Code, navigerar du till den `deployment.debug.template.json` filen. Den här filen innehåller felsökningsversionen modulens avbildningar med rätt alternativ för att skapa. 
 
 3. Gå till `main.py`, lägga till följande koder efter importavsnittet
     
@@ -132,9 +127,9 @@ Det finns flera Docker-filer för olika behållartyper i varje modul-mapp. Anvä
     ```
 
 2. Ange i kommandopaletten VS Code och kör kommandot **Azure IoT Edge: Build and Push IoT Edge-lösningen**.
-3. Välj den `deployment.template.json` -filen för din lösning från kommandopaletten. 
+3. Välj den `deployment.debug.template.json` -filen för din lösning från kommandopaletten. 
 4. I Azure IoT Hub Device Explorer högerklickar du på en IoT Edge-enhets-ID. Välj sedan **skapa distribution för enskild enhet**. 
-5. Öppna din lösning **config** mapp. Välj sedan den `deployment.json` filen. Välj **Välj Edge-distribution Manifest**. 
+5. Öppna din lösning **config** mapp. Välj sedan den `deployment.debug.amd64.json` filen. Välj **Välj Edge-distribution Manifest**. 
 
 Distributionen har skapats med en distributions-ID i en terminal för VS Code-integrerade visas.
 

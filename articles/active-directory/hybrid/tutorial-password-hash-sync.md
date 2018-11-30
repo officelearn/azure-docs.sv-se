@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f830a27e9caf032443c2b27bdd2f95fa8069bcf2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 4e8a39e16bd67169aac8dd7328338197b604e93f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247287"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426918"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Självstudie: Integrera en enda AD-skog med hjälp av lösenordets hash-synkronisering (PHS)
 
@@ -224,7 +224,7 @@ Vi kommer nu att verifiera att de användare som vi hade våra lokala katalog ha
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testa logga in med något av våra användare
 
-1.  Bläddra till [http://myapps.microsoft.com](https://myapps.microsoft.com)
+1.  Bläddra till [https://myapps.microsoft.com](httpss://myapps.microsoft.com)
 2. Logga in med ett användarkonto som har skapats i vår nya innehavaren.  Du måste logga in med följande format: (user@domain.onmicrosoft.com). Använd samma lösenord som användaren använder för att logga in lokalt.</br>
 ![Kontrollera](media/tutorial-password-hash-sync/verify1.png)</br>
 

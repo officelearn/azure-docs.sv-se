@@ -1,5 +1,5 @@
 ---
-title: Loggning för Machine Learning-webbtjänster | Microsoft Docs
+title: Loggning för Machine Learning Studio-webbtjänster | Microsoft Docs
 description: 'Lär dig hur du aktiverar loggning för Machine Learning-webbtjänster. Loggning ger ytterligare information för felsökning av API: erna.'
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 693c619945dc791cf5350909a26adb1e507614c2
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 5ac8712b1f5dbea4ed3225e87b1a6f51312c3529
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261233"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310420"
 ---
-# <a name="enable-logging-for-machine-learning-web-services"></a>Aktivera loggning för Machine Learning-webbtjänster
+# <a name="enable-logging-for-machine-learning-studio-web-services"></a>Aktivera loggning för Machine Learning Studio-webbtjänster
 Det här dokumentet innehåller information om funktionen loggning för Machine Learning web services. Loggning ger ytterligare information, utöver just en felkod och ett meddelande som kan hjälpa dig att felsöka dina anrop till API: er för Machine Learning.  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>Så här aktiverar du loggning för en webbtjänst

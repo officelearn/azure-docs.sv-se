@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: 9d41ab26876d464187466f566bbfafc4861c799d
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708791"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333302"
 ---
 # <a name="configure-expressroute-global-reach-using-azure-cli-preview"></a>Konfigurera ExpressRoute Global räckvidd med Azure CLI (förhandsversion)
 Den här artikeln hjälper dig att konfigurera ExpressRoute Global räckvidd med Azure CLI. Mer information finns i [ExpressRouteRoute Global räckvidd](expressroute-global-reach.md).

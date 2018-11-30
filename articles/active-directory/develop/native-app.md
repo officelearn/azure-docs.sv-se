@@ -16,16 +16,16 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 8879cc331c5d0e8c6aab24e8c6178d96ab23bf9d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8738205aec8e0b00115a185886ca293b2f96033c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955409"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422379"
 ---
 # <a name="native-apps"></a>Inbyggda appar
 
-Inbyggda appar är program som anropar ett webb-API för en användares räkning. Det här scenariot är byggt på beviljandetypen för OAuth 2.0 auktorisering kod med en offentlig klient enligt beskrivningen i avsnitt 4.1 i den [OAuth 2.0-specifikationen](http://tools.ietf.org/html/rfc6749). Internt program hämtar en åtkomsttoken för användaren med hjälp av OAuth 2.0-protokollet. Den här åtkomst-token som sedan skickas i begäran till webb-API som ger användaren behörighet och returnerar önskad resurs.
+Inbyggda appar är program som anropar ett webb-API för en användares räkning. Det här scenariot är byggt på beviljandetypen för OAuth 2.0 auktorisering kod med en offentlig klient enligt beskrivningen i avsnitt 4.1 i den [OAuth 2.0-specifikationen](https://tools.ietf.org/html/rfc6749). Internt program hämtar en åtkomsttoken för användaren med hjälp av OAuth 2.0-protokollet. Den här åtkomst-token som sedan skickas i begäran till webb-API som ger användaren behörighet och returnerar önskad resurs.
 
 ## <a name="diagram"></a>Diagram
 

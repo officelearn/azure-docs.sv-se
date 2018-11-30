@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: c5a947301b0861ffa09a24da79e04b5e92b2c29e
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: aaed6a6282da61a49698fdcdfefffe949630930a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44724138"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421835"
 ---
 # <a name="how-to-recognize-differences-between-delegated-and-application-permissions"></a>Förstå skillnaderna mellan behörigheter delegerad och programbehörigheter
 
@@ -30,4 +30,4 @@ ms.locfileid: "44724138"
 - Mer information lär du dig hur resursprogram visa [scope](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#scopes) och [programroller](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#roles) klientprogram som manifest som delegerad och programbehörigheter respektive i Azure portalen. 
 
 ## <a name="next-steps"></a>Nästa steg
-[AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

@@ -1,6 +1,18 @@
-
+---
+author: wesmc7777
+ms.service: redis-cache
+ms.topic: include
+ms.date: 11/21/2018
+ms.author: wesmc
+ms.openlocfilehash: 1ddb81de479317a098f9de8aa5756cbaae59cb72
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52331516"
+---
 ### <a name="cacheskuname"></a>cacheSKUName
-Prisnivån för den nya Azure Redis-Cache.
+Prisnivån för den nya Azure Redis Cache.
 
     "cacheSKUName": {
       "type": "string",
@@ -14,11 +26,11 @@ Prisnivån för den nya Azure Redis-Cache.
       }
     },
 
-Mallen definierar de värden som tillåts för den här parametern (Basic eller Standard), och tilldelas ett standardvärde (grundläggande), om inget värde anges. Basic tillhandahåller en enda nod med flera storlekar som är tillgängliga för upp till 53 GB.
-Standarden erbjuder två noder primära/repliken med flera storlekar som är tillgängliga för dig av 53 GB och 99,9% serviceavtal.
+Mallen definierar de värden som tillåts för den här parametern (Basic eller Standard), och tilldelar ett standardvärde (grundläggande), om inget värde anges. Basic tillhandahåller en enda nod med flera storlekar upp till 53 GB.
+Standard ger tvånods primär/replik med flera storlekar upp till 53 GB och 99,9% serviceavtal (SLA).
 
 ### <a name="cacheskufamily"></a>cacheSKUFamily
-Familj för SKU: n.
+Familjen för SKU: n.
 
     "cacheSKUFamily": {
       "type": "string",
@@ -33,7 +45,7 @@ Familj för SKU: n.
 
 
 ### <a name="cacheskucapacity"></a>cacheSKUCapacity
-Storleken på den nya Azure Redis-Cache-instansen. 
+Storleken på den nya Azure Redis Cache-instansen. 
 
     "cacheSKUCapacity": {
       "type": "int",
@@ -53,5 +65,5 @@ Storleken på den nya Azure Redis-Cache-instansen.
     }
 
 
-Mallen definierar de värden som tillåts för den här parametern (0, 1, 2, 3, 4, 5 eller 6) och tilldelar ett standardvärde (0) om inget värde anges. Dessa siffror motsvarar följande cache-storlekar: 0 = 250 MB, 1 = 1 GB, 2 = 2,5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
+Mallen definierar de värden som tillåts för den här parametern (0, 1, 2, 3, 4, 5 eller 6), och tilldelar ett standardvärde (0) om inget värde anges. Dessa siffror motsvarar följande cachestorlekarna: 0 = 250 MB, 1 = 1 GB, 2 = 2,5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
 

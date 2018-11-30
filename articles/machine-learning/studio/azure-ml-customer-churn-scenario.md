@@ -1,6 +1,6 @@
 ---
-title: Analysera kundens omsättning med hjälp av Machine Learning | Microsoft Docs
-description: Fallstudie av att utveckla en integrerad modell för att analysera och bedömning kundomsättning
+title: Analysera kundomsättningen med Azure Machine Learning Studio | Microsoft Docs
+description: Fallstudie av att utveckla en integrerad modell för att analysera och bedömning kundomsättningen med Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 7c55e35370e2aed67045333eaee7a42c3c69d318
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0ab398cc87472e3ede361f48f8e755ef294746da
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261181"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314992"
 ---
-# <a name="analyzing-customer-churn-using-azure-machine-learning"></a>Analysera kundens omsättning med hjälp av Azure Machine Learning
+# <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>Analysera kundens omsättning med hjälp av Azure Machine Learning Studio
 ## <a name="overview"></a>Översikt
 Den här artikeln beskriver vi en referensimplementering av ett kundomsättning analysis-projekt som skapats med hjälp av Azure Machine Learning. I den här artikeln diskuterar vi associerade allmän modeller för att lösa problemen med industriell kundomsättning holistiskt. Vi också mäta riktighet modeller som skapas med hjälp av Machine Learning och utvärdera anvisningarna för ytterligare utveckling.  
 

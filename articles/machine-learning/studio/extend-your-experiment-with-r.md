@@ -1,5 +1,5 @@
 ---
-title: Utöka ditt experiment med R | Microsoft Docs
+title: Utöka ditt experiment med R - Azure Machine Learning Studio | Microsoft Docs
 description: Så här utökar funktionerna i Azure Machine Learning Studio via R-språket med hjälp av modulen köra R-skript.
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 30ed2a71fcf00a511802afb5b126829b918615d6
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: df6453f1cf6e8b372239d528067a7258d645518d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263068"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311016"
 ---
-# <a name="extend-your-experiment-with-r"></a>Utöka experimentet med R
+# <a name="azure-machine-learning-studio-extend-your-experiment-with-r"></a>Azure Machine Learning Studio: Utöka ditt experiment med R 
 Du kan utöka funktionerna i Azure Machine Learning Studio via R-språket med hjälp av den [kör R-skript] [ execute-r-script] modulen.
 
 Den här modulen accepterar flera indatauppsättningar och ger en enda datauppsättning som utdata. Du kan skriva ett R-skript i den **R-skriptet** -parametern för den [kör R-skript] [ execute-r-script] modulen.
@@ -33,7 +33,7 @@ Du har åtkomst till varje indataporten för modulen med hjälp av kod som likna
     dataset1 <- maml.mapInputPort(1)
 
 ## <a name="listing-all-currently-installed-packages"></a>Visa en lista över alla installerade paket
-Ändra listan över installerade paket. En lista över installerade paket finns i [R-paket som stöds av Azure Machine Learning](https://msdn.microsoft.com/library/azure/mt741980.aspx).
+Ändra listan över installerade paket. En lista över installerade paket finns i [R-paket som stöds av Azure Machine Learning Studio](https://msdn.microsoft.com/library/azure/mt741980.aspx).
 
 Du kan också hämta fullständig, aktuell lista över installerade paket genom att ange följande kod till den [kör R-skript] [ execute-r-script] modulen:
 

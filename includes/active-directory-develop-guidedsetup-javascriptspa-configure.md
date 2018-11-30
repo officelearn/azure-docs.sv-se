@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: b3d46e10facdef26b36c910a5c23b40a415a2894
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2e65c5f0d6c2d493abcd61bea4077cbdd8ff95fa
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988426"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52331513"
 ---
 ## <a name="register-your-application"></a>Registrera ditt program
 
@@ -32,18 +32,18 @@ Det finns flera sätt att registrera ett program. Välj det alternativ som bäst
 1. Logga in på den [appregistreringen för Azure portal (förhandsversion)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) att registrera ett program.
 1. På den **registrera ett program** anger du ett namn för ditt program.
 1. Under **stöds kontotyper**väljer **konton alla organisationskatalog och personliga Microsoft-konton**.
-1. När du är klar väljer **registrera**.
+1. När det är klart väljer du **Registrera**.
 1. Följ instruktionerna för Snabbstart för att ladda ned och konfigurera det nya programmet åt dig automatiskt med ett klick.
 
 ### <a name="option-2-register-your-application-advanced-mode"></a>Alternativ 2: Registrera ditt program (Avancerat läge)
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com/) att registrera ett program.
-1. Om ditt konto får du tillgång till fler än en klient, Välj ditt konto i övre högra hörnet och ange din portal session med önskade Azure AD-klient.
-1. I det vänstra navigeringsfönstret väljer du den **Azure Active Directory** tjänsten och välj sedan **appregistreringar (förhandsversion) > Ny registrering**.
+1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
+1. I det vänstra navigeringsfönstret väljer du **Azure Active Directory**-tjänsten och sedan **Appregistreringar (förhandsversion) > Ny registrering**.
 1. När den **registrera ett program** visas, ange ett namn för ditt program.
 1. Under **stöds kontotyper**väljer **konton alla organisationskatalog och personliga Microsoft-konton**.
 1. Under den **omdirigerings-URI** väljer den **Web** plattform och ange värdet till programmets URL baserat på din webbserver. Se avsnitten nedan för instruktioner om hur du anger och hämtar omdirigerings-URL i Visual Studio och nod.
-1. När du är klar väljer **registrera**.
+1. När det är klart väljer du **Registrera**.
 1. I appen **översikt** sidan, Skriv ned den **(klient)-ID: T** värde.
 1. Den här snabbstarten krävs det [flöde beviljat med Implicit](../articles/active-directory/develop/v2-oauth2-implicit-grant-flow.md) aktiveras. I det vänstra navigeringsfönstret för det registrerade programmet, väljer **autentisering**.
 1. I **avancerade inställningar**under **Implicit beviljande**, aktivera båda **ID-token** och **åtkomsttoken** kryssrutorna. ID-token och åtkomsttoken krävs eftersom den här appen måste du logga in användare och anropa ett API.
@@ -67,7 +67,8 @@ Det finns flera sätt att registrera ett program. Välj det alternativ som bäst
 
     ```javascript
     var applicationConfig = {
-        clientID: "[Enter the application Id here]",
+        clientID: "Enter_the_Application_Id_here",
+        authority: "https://login.microsoftonline.com/common",
         graphScopes: ["user.read"],
         graphEndpoint: "https://graph.microsoft.com/v1.0/me"
     };

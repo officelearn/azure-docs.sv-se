@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: b6f6653381b5fcf80b9647c64334dfed1a2230bb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c6d5954ed3547666236130753dfd53d10475df43
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230860"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308996"
 ---
 # <a name="view-service-fabric-health-reports"></a>Visa hälsorapporter i Service Fabric
 Azure Service Fabric introducerar en [hälsomodellen](service-fabric-health-introduction.md) med health entiteter på vilka systemkomponenter och watchdogs kan rapporten lokal villkor som de övervakar. Den [hälsoarkivet](service-fabric-health-introduction.md#health-store) aggregerar alla hälsodata för att avgöra om entiteter är felfri.
@@ -613,7 +613,7 @@ HealthStatistics      :
 ```
 
 ### <a name="rest"></a>REST
-Du kan hämta partition health med en [GET-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition) eller en [POST-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) som innehåller hälsoprinciper som beskrivs i texten.
+Du kan hämta partition health med en [GET-begäran](/rest/api/servicefabric/sfclient-api-getpartitionhealth) eller en [POST-begäran](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) som innehåller hälsoprinciper som beskrivs i texten.
 
 ## <a name="get-replica-health"></a>Hämta replica health
 Returnerar hälsotillståndet för en replik för tillståndskänsliga tjänster eller en tillståndslös tjänst-instans. Indata:

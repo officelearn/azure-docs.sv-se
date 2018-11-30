@@ -1,5 +1,5 @@
 ---
-title: Azure säkerhetsdata exportera till SIEM - Pipeline Configuration [förhandsgranskning] | Microsoft Docs
+title: Azure säkerhetsdata exportera till SIEM - Pipeline-konfiguration | Microsoft Docs
 description: Den här artikeln beskrivs ges för att få Azure security center-loggar till en SIEM
 services: security-center
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2018
+ms.date: 11/26/2018
 ms.author: barclayn
-ms.openlocfilehash: aede60a729fe9c0594ded485e189c0b467e34271
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4cc9478197b39198a94ace1cbefab81de3cdb32b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298241"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306734"
 ---
-# <a name="azure-security-data-export-to-siem--pipeline-configuration-preview"></a>Azure Security dataexport till SIEM - Pipeline Configuration [förhandsgranskning]
+# <a name="azure-security-data-export-to-siem-pipeline-configuration"></a>Azure Security dataexport till SIEM-Pipeline-konfiguration
 
 Det här dokumentet beskriver hur du exporterar Azure Security Center säkerhetsdata till en SIEM.
 
@@ -37,11 +37,11 @@ I nästa avsnitt beskrivs hur du kan konfigurera data strömmas till en händels
 
 ## <a name="what-is-the-azure-security-data-exposed-to-siem"></a>Vad är Azure-säkerhetsdata som är exponerade för SIEM?
 
-I den här förhandsversionen vi exponerar den [säkerhetsaviseringar.](../security-center/security-center-managing-and-responding-alerts.md) Vi kommer berika datauppsättningen med säkerhetsrekommendationer i kommande versioner.
+I den här versionen vi exponerar den [säkerhetsaviseringar.](../security-center/security-center-managing-and-responding-alerts.md) Vi kommer berika datauppsättningen med säkerhetsrekommendationer i kommande versioner.
 
-## <a name="how-to-setup-the-pipeline"></a>Så här konfigurerar du pipelinen? 
+## <a name="how-to-setup-the-pipeline"></a>Så här konfigurerar du pipelinen
 
-### <a name="create-an-event-hub"></a>Skapa en händelsehubb 
+### <a name="create-an-event-hub"></a>Skapa en händelsehubb
 
 Innan du börjar måste du [skapa ett namnområde för Event Hubs](../event-hubs/event-hubs-create.md). Den här namnområde och en Händelsehubb är målet för alla dina övervakningsdata.
 

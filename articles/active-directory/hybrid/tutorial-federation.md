@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 161a5710766db626e4c4ec6bb6fdfafcc20650d5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 50868d32b35e77495965b9ee9d0023d23b43fd5a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248052"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426391"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Självstudie: Federera en enda AD-skogsmiljö till molnet
 
@@ -280,7 +280,7 @@ Vi kommer nu att verifiera att de användare som vi hade våra lokala katalog ha
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testa logga in med något av våra användare
 
-1.  Bläddra till [http://myapps.microsoft.com](https://myapps.microsoft.com)
+1.  Bläddra till [https://myapps.microsoft.com](httpss://myapps.microsoft.com)
 2. Logga in med ett användarkonto som har skapats i vår nya innehavaren.  Du måste logga in med följande format: (user@domain.onmicrosoft.com). Använd samma lösenord som användaren använder för att logga in lokalt.
 ![Kontrollera](media/tutorial-password-hash-sync/verify1.png)
 

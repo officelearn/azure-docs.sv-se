@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 788ce1f2543b9ed76d718cf01d28292f49594414
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 62bc6507e4b56c9df31a561f7677907486b0d562
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037362"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421597"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Ladda upp ett certifikat för Azure Service Management
 Hanteringscertifikat kan du autentisera med den klassiska distributionsmodellen som tillhandahålls av Azure. Många program och verktyg (till exempel Visual Studio eller Azure SDK) kan du använda dessa certifikat för att automatisera konfigurationen och distributionen av olika Azure-tjänster. 
@@ -38,7 +38,7 @@ Du kan också använda [Azure Active Directory](https://azure.microsoft.com/serv
 ## <a name="upload-a-management-certificate"></a>Överföra ett hanteringscertifikat
 När du har ett hanteringscertifikat som skapade, (CER-fil med endast den offentliga nyckeln) kan du överföra den till portalen. Om certifikatet är tillgänglig i portalen, kan vem som helst med ett matchande certifikat (privat nyckel) ansluta via API Management och komma åt resurser för samma prenumeration.
 
-1. Logga in på [Azure-portalen](http://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Klicka på **alla tjänster** på listan längst ned Azure-tjänsten väljer **prenumerationer** i den _Allmänt_ gruppen för dataåtkomsttjänst.
 
     ![Menyn för prenumeration](./media/azure-api-management-certs/subscriptions_menu.png)

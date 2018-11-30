@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: jroth
-ms.openlocfilehash: a748532de7e8b8e910e335b67a693c4470861bf1
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: b19cf9cd4b67479d811a590cb80a618680f3b3d5
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003567"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496479"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Priser för SQL Server Azure-datorer
 
@@ -90,6 +90,9 @@ Om du vill skapa en SQL Server 2017 Azure VM med en av avbildningarna betala per
 >
 >Det inkluderar inte ytterligare SQL Server-licenskostnaden för Web, Standard eller Enterprise Edition. För att få den mest korrekta priser uppfattning, Välj ditt operativsystem och version av SQL Server på sidan med priser för [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) eller [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
+> [!NOTE]
+> Nu är det möjligt att ändra så att licensieringsmodellen från betala per användning att använda din egen licens (BYOL) och sedan igen. Mer information finns i [ändra så att licensieringsmodellen för en SQL-VM](virtual-machines-windows-sql-ahb.md). 
+
 ## <a id="byol"></a> Använd din egen licens (BYOL)
 
 **Ta din egen SQL Server-licens via License Mobility**, vilket även kallas **BYOL**, innebär att använda en befintlig volymlicens för SQL Server med Software Assurance i en Azure VM. En SQL Server VM med BYOL endast avgifter för kostnaden för att köra den virtuella datorn, inte för SQL Server-licensiering, med hänsyn till att du har redan har köpt licenser med Software Assurance via volymlicensiering program.
@@ -123,7 +126,9 @@ Se de virtuella datorerna som föregås av prefixet ”{BYOL}” för att skapa 
 > Berätta för oss inom 10 dagar hur många SQL Server-licenser som du använder i Azure. Länkar till de föregående bilderna har anvisningar om hur du gör detta.
 
 > [!NOTE]
-> Det går inte att ändra licensieringsmodellen för en betala per sekund SQL Server-dator att använda din egen licens. I så fall måste du skapa en ny virtuell dator med BYOL och migrera dina databaser till den nya virtuella datorn.
+> Nu är det möjligt att ändra så att licensieringsmodellen från betala per användning att använda din egen licens (BYOL) och sedan igen. Mer information finns i [ändra så att licensieringsmodellen för en SQL-VM](virtual-machines-windows-sql-ahb.md). 
+
+
 
 ## <a name="reduce-costs"></a>Minska kostnaderna
 

@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: 50380f5168ebc97270aa5eca2291e43f018806c6
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a875e7517870e4a782d3169fd5eb0796c9b0f16a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009580"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496596"
 ---
-# <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Använd Azure Toolkit för Eclipse för att skapa Spark-program för ett HDInsight-kluster
+# <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Använd Azure Toolkit för Eclipse för att skapa Apache Spark-program för ett HDInsight-kluster
 
-Använda HDInsight-verktygen i Azure Toolkit för Eclipse för att utveckla Spark-program som skrivits i Scala och skicka dem till ett Azure HDInsight Spark-kluster direkt från Eclipse IDE. Du kan använda HDInsight-verktyg plugin-programmet på ett par olika sätt:
+Använda HDInsight-verktygen i Azure Toolkit för [Eclipse](https://www.eclipse.org/) att utveckla [Apache Spark](https://spark.apache.org/) program som skrivits i [Scala](https://www.scala-lang.org/) och skicka dem till ett Azure HDInsight Spark-kluster direkt från Eclipse IDE. Du kan använda HDInsight-verktyg plugin-programmet på ett par olika sätt:
 
 * Att utveckla och skicka in ett Scala Spark-program på ett HDInsight Spark-kluster
 * Åtkomst till dina Azure HDInsight Spark-klusterresurser
@@ -178,7 +178,7 @@ Du kan utföra olika åtgärder med hjälp av HDInsight-verktyg, inklusive åtko
 
      ![Logginformation](./media/apache-spark-eclipse-tool-plugin/Job-log-info.png)
 
-   * Öppna Spark historiken Användargränssnittet och YARN-Användargränssnittet (på programnivå) genom att välja hyperlänkarna överst i fönstret.
+   * Öppna Spark historiken Användargränssnittet och Apache Hadoop YARN-Gränssnittet (på programnivå) genom att välja hyperlänkarna överst i fönstret.
 
 ### <a name="access-the-storage-container-for-the-cluster"></a>Få åtkomst till behållaren för klustret
 1. I Azure Explorer, expandera den **HDInsight** rotnoden att se en lista med HDInsight Spark-kluster som är tillgängliga.
@@ -191,7 +191,7 @@ Du kan utföra olika åtgärder med hjälp av HDInsight-verktyg, inklusive åtko
 1. Högerklicka på ditt namn för Spark-kluster i Azure Explorer och välj sedan **öppna Användargränssnittet för Spark-historik**. När du uppmanas, ange administratörsautentiseringsuppgifterna för klustret. Du har angett dessa medan du etablera klustret.
 1. I instrumentpanelen Spark historik server använder du namnet på programmet för att söka efter programmet att du bara körts. I föregående kod, ange namnet på programmet med hjälp av `val conf = new SparkConf().setAppName("MyClusterApp")`. Därför programnamnet Spark har **MyClusterApp**.
 
-### <a name="start-the-ambari-portal"></a>Starta Ambari-portalen
+### <a name="start-the-apache-ambari-portal"></a>Starta Apache Ambari-portalen
 1. Högerklicka på ditt namn för Spark-kluster i Azure Explorer och välj sedan **öppna klustret hanteringsportalen (Ambari)**. 
 1. När du uppmanas, ange administratörsautentiseringsuppgifterna för klustret. Du har angett dessa medan du etablera klustret.
 
@@ -245,22 +245,22 @@ Om du har feedback, eller om du stöter på andra problem när du använder det 
 * [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenarier
-* [Spark med BI: Utföra interaktiv dataanalys med hjälp av Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
-* [Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark med Machine Learning: Använda Spark i HDInsight för att förutsäga resultatet av en livsmedelskontroll](apache-spark-machine-learning-mllib-ipython.md)
-* [Webbplatslogganalys med Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark med BI: utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: använda Spark i HDInsight för att förutse matinspektionsresultat](apache-spark-machine-learning-mllib-ipython.md)
+* [Webbplatslogganalys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="creating-and-running-applications"></a>Skapa och köra program
 * [Skapa ett fristående program med hjälp av Scala](apache-spark-create-standalone-application.md)
-* [Köra jobb via fjärranslutning på ett Spark-kluster med Livy](apache-spark-livy-rest-interface.md)
+* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Verktyg och tillägg
 * [Använd Azure Toolkit för IntelliJ för att skapa och skicka Spark Scala-appar](apache-spark-intellij-tool-plugin.md)
-* [Felsöka Spark-program via fjärranslutning via VPN med hjälp av Azure Toolkit för IntelliJ](../hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Felsöka Spark-program via fjärranslutning via SSH med hjälp av Azure Toolkit för IntelliJ](../hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [Felsöka Apache Spark-program via fjärranslutning via VPN med hjälp av Azure Toolkit för IntelliJ](../hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Felsöka Apache Spark-program via fjärranslutning via SSH med hjälp av Azure Toolkit för IntelliJ](../hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 * [Använda HDInsight Tools för IntelliJ med begränsat Hortonworks-läge](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
-* [Använda Zeppelin-anteckningsböcker med ett Spark-kluster i HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernlar som är tillgängliga för Jupyter Notebook i Spark-klustret för HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Använda Apache Zeppelin-anteckningsböcker med Apache Spark-kluster på HDInsight](apache-spark-zeppelin-notebook.md)
+* [Kernlar som är tillgängliga för Jupyter notebook i Apache Spark-kluster för HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Använda externa paket med Jupyter-anteckningsböcker](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installera Jupyter på datorn och ansluta till ett HDInsight Spark-kluster](apache-spark-jupyter-notebook-install-locally.md)
 

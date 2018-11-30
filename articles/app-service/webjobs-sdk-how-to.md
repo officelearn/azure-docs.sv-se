@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 3e06dc82baed4043ce490769aa0ec84ab3de8c24
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 2266f63f9689ec4d22659eb4a7c4876e25fa08b1
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577019"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335222"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Så här använder du Azure WebJobs SDK för händelsedrivna Bakgrundsbearbetning
 
@@ -462,7 +462,7 @@ Vi rekommenderar vilket loggningsramverk som har utvecklats specifikt för ASP.N
 
 ### <a name="log-filtering"></a>Log filtrering
 
-Varje log som skapats av en `ILogger` -instansen har en associerad `Category` och `Level`. [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel#Microsoft_Extensions_Logging_LogLevel) är en uppräkning och heltal koden visar relativa prioriteten:
+Varje log som skapats av en `ILogger` -instansen har en associerad `Category` och `Level`. [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) är en uppräkning och heltal koden visar relativa prioriteten:
 
 |LogLevel    |Kod|
 |------------|---|
@@ -474,7 +474,7 @@ Varje log som skapats av en `ILogger` -instansen har en associerad `Category` oc
 |Kritisk    | 5 |
 |Ingen        | 6 |
 
-Varje kategori kan filtreras oberoende till en viss [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel). Exempel: du kan se alla loggar för blob utlösare men endast bearbeta `Error` och högre för allt annat.
+Varje kategori kan filtreras oberoende till en viss [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel). Exempel: du kan se alla loggar för blob utlösare men endast bearbeta `Error` och högre för allt annat.
 
 Om du vill göra det enklare att ange filtreringsregler, WebJobs SDK innehåller de `LogCategoryFilter` som kan skickas till många av de befintliga loggning-dataleverantörer, inklusive Application Insights och konsolen.
 

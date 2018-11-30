@@ -3,24 +3,24 @@ title: Java HBase klient - Azure HDInsight
 description: Lär dig använda Apache Maven för att skapa ett Java-baserade Apache HBase-program och sedan distribuera den till HBase på Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/30/2018
-ms.author: hrasheed
-ms.openlocfilehash: 677714487aac6e25a0505cce978792c76bb1cee4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.date: 11/27/2018
+ms.openlocfilehash: 721e37349b406705a2cdfb52c64b5796cb590d78
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016088"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445659"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Skapa Java-program för Apache HBase
 
 Lär dig hur du skapar en [Apache HBase](http://hbase.apache.org/) program i Java. Använd sedan programmet med HBase i Azure HDInsight.
 
-Stegen i det här dokumentet används [Maven](http://maven.apache.org/) att skapa och bygga projektet. Maven är en programvara för projekthantering och förståelsen verktyg som hjälper dig att skapa programvara, dokumentation och rapporter för Java-projekt.
+Stegen i det här dokumentet används [Apache Maven](https://maven.apache.org/) att skapa och bygga projektet. Maven är en programvara för projekthantering och förståelsen verktyg som hjälper dig att skapa programvara, dokumentation och rapporter för Java-projekt.
 
 > [!NOTE]
 > Stegen i det här dokumentet har nyligen testats med HDInsight 3.6.
@@ -35,9 +35,9 @@ Stegen i det här dokumentet används [Maven](http://maven.apache.org/) att skap
     > [!NOTE]
     > HDInsight 3.5 och större kräver Java 8. Tidigare versioner av HDInsight kräver Java 7.
 
-* [Maven 3.](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
-* [Ett Linux-baserade Azure HDInsight-kluster med HBase](apache-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
+* [Ett Linux-baserade Azure HDInsight-kluster med Apache HBase](apache-hbase-tutorial-get-started-linux.md#create-apache-hbase-cluster)
 
 ## <a name="create-the-project"></a>Skapa projektet
 
@@ -59,7 +59,7 @@ Stegen i det här dokumentet används [Maven](http://maven.apache.org/) att skap
    * **pom.XML**: The Project Object Model ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) innehåller information om och konfiguration information som används för att skapa projektet.
    * **SRC**: den katalog som innehåller den **main/java/com/microsoft/exempel** directory, där du skapar programmet.
 
-3. Ta bort den `src/test/java/com/microsoft/examples/apptest.java` filen. Det är inte användas i det här exemplet.
+3. Ta bort den `src/test/java/com/microsoft/examples/apptest.java` filen. Den används inte i det här exemplet.
 
 ## <a name="update-the-project-object-model"></a>Uppdatera projekt-objektmodell
 
@@ -81,9 +81,9 @@ Stegen i det här dokumentet används [Maven](http://maven.apache.org/) att skap
     Det här avsnittet anger att projektet måste **hbase-client** och **phoenix kärnor** komponenter. Vid kompilering laddas dessa beroenden från Maven-centrallagret standard. Du kan använda den [Maven-sökning för centrala lagringsplatsen](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) mer information om det här beroendet.
 
    > [!IMPORTANT]
-   > Versionsnumret för hbase-klienten måste matcha versionen av HBase som medföljer HDInsight-kluster. Använd följande tabell för att hitta rätt versionsnumret.
+   > Versionsnumret för hbase-klienten måste matcha versionen av Apache HBase som medföljer HDInsight-kluster. Använd följande tabell för att hitta rätt versionsnumret.
 
-   | HDInsight-kluster av version | HBase-version som ska användas |
+   | HDInsight-kluster av version | Apache HBase-version som ska användas |
    | --- | --- |
    | 3.2 |0.98.4-hadoop2 |
    | 3.3, 3.4, 3.5 och 3.6 |1.1.2 |
@@ -363,7 +363,7 @@ Stegen i det här dokumentet används [Maven](http://maven.apache.org/) att skap
 
 ## <a name="upload-the-jar-and-run-jobs-ssh"></a>Ladda upp JAR och köra jobb (SSH)
 
-I följande anvisningar används `scp` att kopiera den JAR-filen till den primära huvudnoden av din HBase på HDInsight-kluster. Den `ssh` sedan används för att ansluta till klustret och köra exemplet direkt på huvudnoden.
+I följande anvisningar används `scp` att kopiera den JAR-filen till den primära huvudnoden av din Apache HBase på HDInsight-kluster. Den `ssh` sedan används för att ansluta till klustret och köra exemplet direkt på huvudnoden.
 
 1. Om du vill överföra jar klustret, använder du följande kommando:
 
@@ -412,7 +412,7 @@ I följande anvisningar används `scp` att kopiera den JAR-filen till den primä
 
 ## <a name="upload-the-jar-and-run-jobs-powershell"></a>Ladda upp JAR och köra jobb (PowerShell)
 
-Följande steg använder Azure PowerShell för att ladda upp JAR till standardlagringen för HBase-kluster. HDInsight-cmdlet: ar används sedan för att köra exemplen via fjärranslutning.
+Följande steg använder Azure PowerShell för att ladda upp JAR till standardlagring för Apache HBase-kluster. HDInsight-cmdlet: ar används sedan för att köra exemplen via fjärranslutning.
 
 1. När du installerar och konfigurerar Azure PowerShell, skapa en fil med namnet `hbase-runner.psm1`. Använd följande text som filens innehåll:
 
@@ -683,4 +683,4 @@ __Från Azure PowerShell__:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Lär dig hur du använder SQuirreL SQL med HBase](apache-hbase-phoenix-squirrel-linux.md)
+[Lär dig hur du använder SQuirreL SQL med Apache HBase](apache-hbase-phoenix-squirrel-linux.md)

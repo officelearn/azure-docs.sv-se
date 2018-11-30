@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 4e05d4ff9c090fac0242921e15ef16439d3ed27f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d2e7077e1196ab862d9f610f242fe30dde18ded4
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954457"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496883"
 ---
-# <a name="authorize-users-for-ambari-views"></a>Auktorisera användare för Ambari Views
+# <a name="authorize-users-for-apache-ambari-views"></a>Auktorisera användare för Apache Ambari Views
 
-[Enterprise Security Package (ESP) aktiverat HDInsight-kluster](./domain-joined/apache-domain-joined-introduction.md) tillhandahåller funktioner för företagsklass, inklusive Azure Active Directory-baserad autentisering. Du kan [synkronisera nya användare](hdinsight-sync-aad-users-to-cluster.md) lagts till i Azure AD-grupper som har fått åtkomst till klustret, så att dessa specifika användare att utföra vissa åtgärder. Arbeta med användare, grupper och behörigheter i Ambari har stöd för både ESP HDInsight-kluster och standard HDInsight-kluster.
+[Enterprise Security Package (ESP) aktiverat HDInsight-kluster](./domain-joined/apache-domain-joined-introduction.md) tillhandahåller funktioner för företagsklass, inklusive Azure Active Directory-baserad autentisering. Du kan [synkronisera nya användare](hdinsight-sync-aad-users-to-cluster.md) lagts till i Azure AD-grupper som har fått åtkomst till klustret, så att dessa specifika användare att utföra vissa åtgärder. Arbeta med användare, grupper och behörigheter i [Apache Ambari](https://ambari.apache.org/) stöds för både ESP HDInsight-kluster och standard HDInsight-kluster.
 
-Active Directory-användare kan logga in på noderna i klustret med hjälp av sina domänautentiseringsuppgifter. De kan också använda sina domänautentiseringsuppgifter för att autentisera kluster interaktioner med andra godkända slutpunkter som Hue, Ambari Views, ODBC, JDBC, PowerShell och REST API: er.
+Active Directory-användare kan logga in på noderna i klustret med hjälp av sina domänautentiseringsuppgifter. De kan också använda sina domänautentiseringsuppgifter för att autentisera kluster interaktioner med andra godkända slutpunkter som [Hue](http://gethue.com/), Ambari Views, ODBC, JDBC, PowerShell och REST API: er.
 
 > [!WARNING]
 > Ändra inte lösenordet för Ambari-watchdog (hdinsightwatchdog) på Linux-baserade HDInsight-klustret. Ändra lösenordet delar möjligheten att använda skriptåtgärder eller utföra skalningsåtgärder med klustret.
@@ -29,13 +29,13 @@ Om du inte redan har gjort det, Följ [instruktionerna](./domain-joined/apache-d
 
 ## <a name="access-the-ambari-management-page"></a>Komma åt sidan för hantering av Ambari
 
-Att komma till den **Ambari hanteringssida** på den [Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md), bläddra till **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Ange kluster administratörens användarnamn och lösenord som du definierade när klustret skapas. Välj sedan Ambari-instrumentpanelen **hantera Ambari** under den **admin** menyn:
+Att komma till den **Ambari hanteringssida** på den [Apache Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md), bläddra till **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Ange kluster administratörens användarnamn och lösenord som du definierade när klustret skapas. Välj sedan Ambari-instrumentpanelen **hantera Ambari** under den **admin** menyn:
 
 ![Hantera Ambari](./media/hdinsight-authorize-users-to-ambari/manage-ambari.png)
 
-## <a name="grant-permissions-to-hive-views"></a>Tilldela behörigheter till Hive-vyer
+## <a name="grant-permissions-to-apache-hive-views"></a>Bevilja behörigheter till Apache Hive-vyer
 
-Ambari levereras med Visa instanser för Hive och Tez, bland annat. Om du vill bevilja åtkomst till en eller flera Hive Visa instanser, går du till den **Ambari hanteringssidan**.
+Ambari medföljer Visa instanser för [Apache Hive](https://hive.apache.org/) och [Apache TEZ](https://tez.apache.org/), bland annat. Om du vill bevilja åtkomst till en eller flera Hive Visa instanser, går du till den **Ambari hanteringssidan**.
 
 1. Sidan väljer du den **vyer** länka den **vyer** rubrik på menyn till vänster.
 
@@ -72,9 +72,9 @@ Ambari levereras med Visa instanser för Hive och Tez, bland annat. Om du vill b
 
 Lägga till användare direkt i en vy är användbart när du vill tilldela behörigheter till en användare kan använda vyn, men inte vill att de ska vara medlem i en grupp som har ytterligare behörighet. Om du vill minska den administrativa kostnader, kan det vara enklare att tilldela behörigheter till grupper.
 
-## <a name="grant-permissions-to-tez-views"></a>Bevilja behörigheter till Tez vyer
+## <a name="grant-permissions-to-apache-tez-views"></a>Bevilja behörigheter till Apache TEZ vyer
 
-Tez Visa instanser Tillåt användare att övervaka och felsöka alla Tez-jobb från Hive-frågor och Pig-skript. Det finns en Tez visa standardinstansen som skapas när klustret har etablerats.
+Den [Apache TEZ](https://tez.apache.org/) Visa instanser Tillåt användare att övervaka och felsöka alla Tez-jobb från [Apache Hive](https://hive.apache.org/) frågor och [Apache Pig](https://pig.apache.org/) skript. Det finns en Tez visa standardinstansen som skapas när klustret har etablerats.
 
 Om du vill tilldela användare och grupper till en vy Tez-instans, expandera den **TEZ** raden på sidan vyer som tidigare beskrivits.
 
@@ -136,7 +136,7 @@ Vi har tilldelat vår Azure AD-domänanvändare ”hiveuser2” till den *Kluste
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurera Hive-principer i HDInsight med ESP](./domain-joined/apache-domain-joined-run-hive.md)
+* [Konfigurera principer för Apache Hive i HDInsight med ESP](./domain-joined/apache-domain-joined-run-hive.md)
 * [Hantera ESP HDInsight-kluster](./domain-joined/apache-domain-joined-manage.md)
-* [Använda Hive-vyn med Hadoop i HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
+* [Använda Apache Hive-vyn med Apache Hadoop i HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [Synkronisera Azure AD-användare i klustret](hdinsight-sync-aad-users-to-cluster.md)

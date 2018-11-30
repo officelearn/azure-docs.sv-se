@@ -1,5 +1,5 @@
 ---
-title: Använda Azure Machine Learning Webbtjänstparametrar | Microsoft Docs
+title: Använda webbtjänstparametrar för Azure Machine Learning Studio | Microsoft Docs
 description: Hur du använder Azure Machine Learning Webbtjänstparametrar för att ändra funktionssättet för din modell vid åtkomst av webbtjänsten.
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.openlocfilehash: 34ae252ff2c37a6e4e9f90155c4fda79b81e29a2
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0e8a1a4bb90f935bf3890bd803b9375d10261aa7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264343"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312018"
 ---
-# <a name="use-azure-machine-learning-web-service-parameters"></a>Använda parametrar för Azure Machine Learning-webbtjänst
+# <a name="use-azure-machine-learning-studio-web-service-parameters"></a>Använda webbtjänstparametrar för Azure Machine Learning Studio
 En Azure Machine Learning-webbtjänst skapas genom att publicera ett experiment som innehåller moduler med konfigurerbara parametrar. I vissa fall kan du ändra beteendet modulen medan webbtjänsten körs. *Web tjänstparametrar* gör att du kan göra detta. 
 
 Ett vanligt exempel att konfigurera den [importdata] [ reader] modulen så att användaren publicerade webbtjänsten kan ange en annan datakälla när webbtjänsten används. Eller konfigurera den [exportera Data] [ writer] modulen så att du kan ange ett annat mål. Några andra exempel är att ändra antalet bitar för den [funktions-hashning] [ feature-hashing] modul eller antalet önskade funktioner för den [Filter-baserade Funktionsurval] [ filter-based-feature-selection] modulen. 

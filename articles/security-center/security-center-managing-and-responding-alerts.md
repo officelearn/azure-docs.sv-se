@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/3/2018
+ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: f865a0a609422ae4938a9cccf15d9cd176a9400a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 779efdd509460ac8175b3922097d701edf8b9b68
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227798"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311236"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Hantera och åtgärda säkerhetsaviseringar i Azure Security Center
 Det här dokumentet beskriver hur du använder Azure Security Center för att hantera och svara på säkerhetsvarningar.
 
 > [!NOTE]
-> För avancerad identifiering rekommenderar vi att du uppgraderar till Azure Security Center. En kostnadsfri 60-dagars utvärderingsversion är tillgänglig. Om du vill uppgradera väljer du Prisnivå i avsnittet om [säkerhetsprinciper](security-center-policies.md). Mer information finns under [priser för Azure Security Center](security-center-pricing.md).
+> För avancerad identifiering rekommenderar vi att du uppgraderar till Azure Security Center. En kostnadsfri 60-dagars utvärderingsversion är tillgänglig. Om du vill uppgradera väljer du Prisnivå i avsnittet om [säkerhetsprinciper](security-center-azure-policy.md). Mer information finns under [priser för Azure Security Center](security-center-pricing.md).
 >
 >
 
@@ -63,6 +63,20 @@ Längst ned på sidan visas information om de olika aviseringarna. Du kan sorter
 > [!NOTE]
 > Säkerhetsvarningar som genererats av Security Center visas också under Azure-aktivitetsloggen. Mer information om hur du kommer åt Azure-aktivitetsloggen finns i [View activity logs to audit actions on resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) (Visa aktivitetsloggar för att granska åtgärder på resurser).
 >
+
+
+### <a name="alert-severity"></a>Allvarlighetsgrad för avisering
+
+> [!NOTE]
+> Allvarlighetsgrad för avisering visas på olika sätt i portalen och REST API, anges skillnaderna i listan nedan.
+
+-   **Hög**: det finns en hög sannolikhet att resursen har komprometterats. Du bör se ut till den direkt. Security Center har hög exakthet i skadligt syfte och resultaten används för att utfärda aviseringen. Exempelvis kan en avisering som identifierar körningen av en känd skadlig, till exempel Mimikatz, ett vanliga verktyg som används för stöld av autentiseringsuppgifter. 
+-   **Medel (låg i REST-API)**: Detta är förmodligen en misstänkt aktivitet som kan tyda på att en resurs har komprometterats.
+Förtroende för Security Center analytiska eller söker är medium och säkerheten i skadligt syfte är mellan till hög. Dessa är vanligtvis machine learning eller avvikelseidentifiering baserat identifieringar. Till exempel ett tecken i försök från en avvikande plats.
+-   **Låg (Information i REST-API)**: Det kan vara en ofarliga positiva eller en attack med blockerade. 
+    - Security Center är inte säker på nog att avsikten är skadlig och aktiviteten kan vara helt oskyldigt. Rensa logg är till exempel en åtgärd som kan inträffa när en angripare försöker att dölja ut sina spår, men i många fall en rutinmässig åtgärd utförs av administratörer.
+    - Security Center berättar inte vanligtvis när blockerades attacker, såvida inte är ett intressant vi föreslår att du tittar närmare på. 
+-   **Information (tyst i REST-API)**: du ser bara informationsaviseringar genom att granska nedåt i en säkerhetsincident eller om du använder REST-API med en specifik avisering ID. En incident består vanligtvis av ett antal aviseringar, vilket kan visas på egen hand ska bara endast i informationssyfte, men i kontexten för de andra aviseringarna kan vara värt av en närmare titt. 
 
 ### <a name="filtering-alerts"></a>Filtrera varningar
 Aviseringarna kan filtreras efter datum, status och allvarlighetsgrad. Att filtrera kan vara bra när du vill begränsa hur många aviseringar du vill se. Kanske vill du till exempel se säkerhetsaviseringar från det senaste dygnet eftersom du undersöker ett potentiellt angrepp i systemet under den här tiden.

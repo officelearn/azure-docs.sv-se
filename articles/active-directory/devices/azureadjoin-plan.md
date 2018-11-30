@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 7f553300ce87ad24042e4d75b2e6e3742125783b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 34b2658ef4b25b3d545932ceffd2f3cf8969034e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284633"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309370"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Så här: Planera implementeringen Azure AD join
 
@@ -62,7 +62,7 @@ Om du vill planera hybridimplementeringen Azure AD, bör du bekanta dig med:
 Även om Hybrid Azure AD-anslutning kan vara att föredra för vissa scenarier, kan Azure AD-anslutning du övergången till en molnbaserad modell med Windows. Om du planerar att modernisera din hantering av enheter och enhetsrelaterade IT-kostnader, ger Azure AD join en bra grund för att uppnå dessa mål.  
 
  
-Du bör överväga att Azure AD-anslutning om dina mål som överensstämmer med de följande kriterier:
+Du bör överväga att Azure AD-anslutning om dina mål uppfyller följande kriterier:
 
 - Du använder Microsoft 365 som programsviten produktivitet för dina användare.
 
@@ -95,12 +95,14 @@ En federerad miljö bör ha en identitetsprovider som har stöd för såväl WS-
 
 - **WS-Trust:** detta protokoll krävs för att logga in på en domänansluten Azure AD-enhet. 
 
-Om din identitetsprovider inte stöder dessa protokoll fungerar inte Azure AD join internt. Från och med Windows 10 1809 kan dina användare kan logga in på en domänansluten Azure AD-enhet med en SAML-baserad identitetsprovider via en [web logga in på Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). 
+Om din identitetsprovider inte stöder dessa protokoll fungerar inte Azure AD join internt. Från och med Windows 10 1809 kan dina användare kan logga in på en domänansluten Azure AD-enhet med en SAML-baserad identitetsprovider via [web logga in på Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). För närvarande är webbinloggning en funktion som skrivskyddade.
 
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>Smartkort och certifikatbaserad autentisering
 
 Du kan inte använda smartkort eller certifikatbaserad autentisering för att ansluta enheter till Azure AD. Smartkort kan dock användas för att logga in på Azure AD-anslutna enheter om du har konfigurerat ADFS.
+
+**Rekommendation:** implementera Windows Hello för företag för stark, lösenord utan autentisering till Windows 10-enheter.
 
 
 ### <a name="user-configuration"></a>Användarkonfiguration
@@ -209,7 +211,9 @@ Azure AD-anslutna enheter stöder inte lokala program som förlitar sig på dato
 
 **Rekommendation:** Överväg att ta bort dessa program och flytta till sina moderna alternativ.
 
+### <a name="remote-desktop-services"></a>Fjärrskrivbordstjänster
 
+Anslutning till fjärrskrivbord till en Azure AD-anslutna enheter kräver värddatorn ska vara antingen Azure AD-ansluten eller Hybrid Azure AD-anslutna. Fjärrskrivbord från en frånkopplas eller icke-Windows-enhet stöds inte. Mer information finns i [Anslut till fjärranslutna Azure AD-domänansluten dator](https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc)
 
 
 ## <a name="understand-your-provisioning-options"></a>Förstå dina alternativ för etablering

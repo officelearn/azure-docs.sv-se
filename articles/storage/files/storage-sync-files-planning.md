@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a2864ca743adf4ced1418630940146fed21b7fd5
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 89ab5ecb4e1a6a39e785a51c61e1344631b1f394
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625308"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335188"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -109,10 +109,11 @@ Så här visar resultatet i CSV:
 ```
 
 ### <a name="system-requirements"></a>Systemkrav
-- En server som kör Windows Server 2012 R2 eller Windows Server 2016:
+- En server som kör Windows Server 2012 R2, Windows Server 2016 eller Windows Server 2019:
 
     | Version | Godkända SKU: er | Distributionsalternativen som stöds |
     |---------|----------------|------------------------------|
+    | Windows Server 2019 | Datacenter och Standard | Fullständig (server med ett gränssnitt) |
     | Windows Server 2016 | Datacenter och Standard | Fullständig (server med ett gränssnitt) |
     | Windows Server 2012 R2 | Datacenter och Standard | Fullständig (server med ett gränssnitt) |
 
@@ -198,10 +199,10 @@ Microsofts interna antiviruslösningar, Windows Defender och System Center Endpo
 ### <a name="backup-solutions"></a>Lösningar för säkerhetskopiering
 Som antivirus orsaka säkerhetskopieringslösningar återkallande av nivåindelade filer. Vi rekommenderar att du använder en lösning för säkerhetskopiering av molnet för att säkerhetskopiera Azure-filresursen i stället för en lokal säkerhetskopiering produkt.
 
-Om du använder en lösning för säkerhetskopiering av en lokal ska säkerhetskopiering utföras på en server i synkroniseringsgruppen som har molnlagringsnivåer inaktiverad. När du återställer filer i slutpunkten serverplatsen, använder du alternativet för återställning på fil. Filer som har återställts kommer att synkroniseras till alla slutpunkter i synkroniseringsgruppen och befintliga filer kommer att ersättas med den version som återställts från en säkerhetskopia.
+Om du använder en lösning för säkerhetskopiering av en lokal ska säkerhetskopiering utföras på en server i synkroniseringsgruppen som har molnlagringsnivåer inaktiverad. När du utför en återställning, Använd volymnivå eller filnivå återställningsalternativen. Filer som har återställts med återställningsalternativet filnivå kommer att synkroniseras till alla slutpunkter i synkroniseringsgruppen och befintliga filer kommer att ersättas med den version som återställts från en säkerhetskopia.  Volymnivå återställningar ersätter inte nyare filversioner i Azure-filresurs eller andra serverslutpunkter.
 
 > [!Note]  
-> Programmedveten, återställningsalternativ för volymnivå och utan operativsystem (BMR) kan orsaka oväntade resultat och stöds inte för närvarande. Dessa återställning alternativ kommer att stödjas i framtida versioner.
+> Återställning utan operativsystem (BMR) kan orsaka oväntade resultat och stöds inte för närvarande.
 
 ### <a name="encryption-solutions"></a>Krypteringslösningar
 Stöd för krypteringslösningar beror på hur de implementeras. Azure File Sync är känt att arbeta med:

@@ -1,6 +1,6 @@
 ---
-title: Felsöka din modell i Azure Machine Learning | Microsoft Docs
-description: Så här felsöker du fel som genereras av modulerna Träningsmodell och Poängmodell i Azure Machine Learning.
+title: Felsöka din modell i Azure Machine Learning Studio | Microsoft Docs
+description: Så här felsöker du fel som genereras av modulerna Träningsmodell och Poängmodell i Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.openlocfilehash: fd81ff0ade0267d052862beed9d84649a7721ee9
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: bb1a3e778dcbcfacbc9e605ebf2d855786d71510
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263697"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312603"
 ---
-# <a name="debug-your-model-in-azure-machine-learning"></a>Felsöka din modell i Azure Machine Learning
+# <a name="debug-your-model-in-azure-machine-learning-studio"></a>Felsöka din modell i Azure Machine Learning Studio
 
 Den här artikeln beskrivs möjliga orsaker varför något av följande två fel kan uppstå när du kör en modell:
 

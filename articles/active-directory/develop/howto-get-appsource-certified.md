@@ -17,12 +17,12 @@ ms.date: 08/21/2018
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 603da0add9efba4e68088bf0eb6ab919ec9988e2
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 30dff14f322bcd66ea56b4b12843a6293cd95326
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955502"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423804"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Så här hämtar du AppSource-certifierat för Azure Active Directory
 
@@ -118,9 +118,9 @@ Läs mer om AppSource utvärderingen [videon](https://aka.ms/trialexperienceforw
 
 ## <a name="get-support"></a>Få support
 
-Azure AD-integrering, använder vi [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource) till communityn för att tillhandahålla stöd för. 
+Azure AD-integrering, använder vi [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) till communityn för att tillhandahålla stöd för. 
 
-Vi rekommenderar starkt att du först ställa dina frågor i Stack Overflow och bläddra bland befintliga problem om du vill se om någon har bett din fråga innan. Se till att dina frågor eller kommentarer är märkta med [ `[azure-active-directory]` och `[appsource]` ](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
+Vi rekommenderar starkt att du först ställa dina frågor i Stack Overflow och bläddra bland befintliga problem om du vill se om någon har bett din fråga innan. Se till att dina frågor eller kommentarer är märkta med [ `[azure-active-directory]` och `[appsource]` ](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 
 Använd följande avsnitt för kommentarer för att ge feedback och hjälp oss att förfina och forma vårt innehåll.
 

@@ -1,5 +1,5 @@
 ---
-title: PowerShell-modulen för Machine Learning | Microsoft Docs
+title: PowerShell-modulen för Machine Learning Studio – Azure | Microsoft Docs
 description: PowerShell-modulen för Azure Machine Learning finns tillgänglig i offentligt förhandsgranskningsläge. Skapa och hantera arbetsytor, experiment, webbtjänster och annat med hjälp av PowerShell.
 keywords: experiment, linjär regression,machine learning algoritmer, machine learning självstudier, teknik för förutsägbar modellering, dataexperiment
 services: machine-learning
@@ -17,14 +17,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.openlocfilehash: 795ce4e86c5fd8dac34f18cbbe80dd1395d94c5c
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 3191ff845f72c87b85fdd414716ed9a00b022d06
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263136"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312035"
 ---
-# <a name="powershell-module-for-microsoft-azure-machine-learning"></a>PowerShell-modul för Microsoft Azure Machine Learning
+# <a name="powershell-module-for-azure-machine-learning-studio"></a>PowerShell-modulen för Azure Machine Learning Studio
 PowerShell-modulen för Azure Machine Learning är ett kraftfullt verktyg som gör att du kan använda Windows PowerShell för att hantera arbetsytor, experiment, datauppsättningar, klassiska webbtjänster och mycket mer.
 
 Du kan visa dokumentationen och hämta modulen tillsammans med den fullständiga källkoden på [ https://aka.ms/amlps ](https://aka.ms/amlps). 

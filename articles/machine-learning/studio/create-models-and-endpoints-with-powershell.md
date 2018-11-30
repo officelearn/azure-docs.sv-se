@@ -1,5 +1,5 @@
 ---
-title: Skapa flera modeller från ett experiment | Microsoft Docs
+title: Skapa flera modeller från ett experiment – Azure Machine Learning Studio | Microsoft Docs
 description: Använda PowerShell för att skapa flera Machine Learning-modeller och webbtjänstslutpunkter med samma algoritm men olika utbildning datauppsättningar.
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.openlocfilehash: c3ba87459c8c24a948683319f6b3ab54436c88e1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e1a6eb4f61869c3c6299011c46a5953f93cc7305
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262388"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316573"
 ---
-# <a name="create-many-machine-learning-models-and-web-service-endpoints-from-one-experiment-using-powershell"></a>Skapa många Machine Learning-modeller och webbtjänstslutpunkter från ett experiment med PowerShell
+# <a name="azure-machine-learning-studio-use-powershell-to-create-many-models-and-web-service-endpoints-from-one-experiment"></a>Azure Machine Learning Studio: Använd PowerShell för att skapa många modeller och webbtjänstslutpunkter från ett experiment
+
 Här är ett vanligt problem för machine learning: du vill skapa många modeller som har samma arbetsflöde för utbildning och använder samma algoritm. Men du vill att de har olika utbildning datauppsättningar som indata. Den här artikeln visar vi hur du gör detta i skala i Azure Machine Learning Studio med bara ett enda experiment.
 
 Anta exempelvis att du äger en global cykel hyra franchise verksamhet. Du vill skapa en regressionsmodell för att förutsäga hyres-begäran baserat på historiska data. Du har 1 000 hyres-platser över hela världen och du har lagrat en datauppsättning för varje plats. De innehåller viktiga funktioner, till exempel datum, tid, väder och trafik som är specifika för varje plats.

@@ -1,5 +1,5 @@
 ---
-title: Så här väljer du maskininlärningsalgoritmer | Microsoft Docs
+title: Så här väljer du maskininlärningsalgoritmer - Azure Machine Learning Studio | Microsoft Docs
 description: Så här väljer du Azure Machine Learning Studio-algoritmer för övervakad och oövervakad inlärning i kluster-, klassificerings- eller regressionsmodell experiment.
 services: machine-learning
 author: ericlicoding
@@ -13,12 +13,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 4251bb5c0ad324d65ddcd0ab55476116ab918ab8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 7ddfb98a884779385cde643e213bebb98b050436
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263494"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312426"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Så här väljer du algoritmer för Azure Machine Learning Studio
 

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 11/20/2018
 ms.author: ergreenl
-ms.openlocfilehash: 6448e592db8024d911831b0b3634dabb4ed3b101
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 31e7307e427b175eb7424ecaee380bd90ce8150e
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063123"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443414"
 ---
 # <a name="suspended-domains"></a>Avbrutna domäner
 När Azure Active Directory Domain Services (Azure AD DS) är inte hantera en hanterad domän för en längre tidsperiod, placerar den hanterade domänen i ett väntetillstånd. Den här artikeln förklarar varför hanterade domäner pausas och hur du åtgärdar en pausad domän.
@@ -43,7 +43,7 @@ En hanterad domän som är korrekt konfigurerad och körs regelbundet finns i de
 
 
 ### <a name="needs-attention-state"></a>”Behöver åtgärdas” tillstånd
-En hanterad domän finns i den **Värdstatus** tillstånd om ett eller flera problem kräver en administratör kan vidta åtgärder. Hälsotillståndssidan för den hanterade domänen visas en eller flera aviseringar i det här tillståndet. 
+En hanterad domän finns i den **Värdstatus** tillstånd om ett eller flera problem kräver en administratör kan vidta åtgärder. Hälsotillståndssidan för den hanterade domänen visas en eller flera aviseringar i det här tillståndet.
 
 Till exempel om du har konfigurerat en begränsande NSG för det virtuella nätverket kan kanske Microsoft inte att uppdatera och övervaka din hanterade domän. Ogiltig konfigurationen utlöser en avisering som placerar den hanterade domänen i tillståndet ”Värdstatus”.
 

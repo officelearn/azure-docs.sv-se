@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: ae23e6b8fd1d2f6d63293a9626880ae3823afc61
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5f722e9eae45f2df86b8c0831ffd33ad3edd8e5b
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033285"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334116"
 ---
 # <a name="deprecated-entities"></a>Inaktuella entiteter
 Följande fördefinierade entiteter är föråldrade och går inte att lägga till nya LUIS-appar.
@@ -29,7 +29,7 @@ Följande fördefinierade entiteter är föråldrade och går inte att lägga ti
 
 #### <a name="3-geography-subtypes"></a>3 geografi undertyper
 
-Fördefinierade entitet   |   Exempel-uttryck   |   JSON
+Fördefinierade entitet   |   Exempel på yttrande   |   JSON
 ------|------|------|
 ```builtin.geography.city```   |  ```seattle```    |```{ "type": "builtin.geography.city", "entity": "seattle" }```|
 ```builtin.geography.city```   |  ```paris```    |```{ "type": "builtin.geography.city", "entity": "paris" }```|
@@ -64,7 +64,7 @@ Uppslagsverk inbyggda entitet innehåller fler än 100 underordnade typer i föl
  ```
 
 
-Fördefinierade entitet   |   Fördefinierade entitet (underordnade typer)   |   Exempel-uttryck
+Fördefinierade entitet   |   Fördefinierade entitet (underordnade typer)   |   Exempel på yttrande
 ------|------|------|
 ```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.people.person ```|```bryan adams``` |
 ```builtin.encyclopedia.people.person```| ```builtin.encyclopedia.film.producer ```| ```walt disney``` |

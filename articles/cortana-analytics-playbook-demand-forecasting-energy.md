@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 3f45f062cabaf31a10f24b01583575f5066bdaaf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 195776cda0005b3a79aa82220660fcc328f6ee98
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231540"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426262"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Cortana Intelligence Solution mallen Spelboken för prognostisering av efterfrågan på energi
 ## <a name="executive-summary"></a>Sammanfattning
@@ -122,7 +122,7 @@ Det är ganska viktigt att skilja mellan kort och lång sikt prognoser scenarier
 ### <a name="example-use-case-1-esmart-systems--overload-optimization"></a>Användningsfall för exempel 1: eSmart system – överlagring optimering
 En viktig roll i en [smart grid](https://en.wikipedia.org/wiki/Smart_grid) är att dynamiskt och ständigt optimera och justera efter föränderliga förbrukning mönster. Energiförbrukningen kan påverkas av kortsiktiga ändringar främst orsakade av temperatur variationer (*t.ex.*, mer kraft används för air villkor eller uppvärmning). På samma gång påverkas också energiförbrukningen av långvariga trender. Dessa kan innehålla säsongsberoende effekter, helgdagar, tillväxt för långsiktig användning och ekonomiska faktorer som konsument index, olja pris och BNP.
 
-I det här användningsfallet [eSmart](http://www.esmartsystems.com/) ville distribuera en molnbaserad lösning som gör det möjligt att förutsäga benägenhet av en överbelastning på alla angivna understation i rutnätet. I synnerhet ville eSmart identifiera delstationer som sannolikt kommer att överbelasta inom nästa timma, så en omedelbar åtgärd som kan utföras för att undvika eller lösa denna situation.
+I det här användningsfallet [eSmart](https://www.esmartsystems.com/) ville distribuera en molnbaserad lösning som gör det möjligt att förutsäga benägenhet av en överbelastning på alla angivna understation i rutnätet. I synnerhet ville eSmart identifiera delstationer som sannolikt kommer att överbelasta inom nästa timma, så en omedelbar åtgärd som kan utföras för att undvika eller lösa denna situation.
 
 Korrekt och snabbt utföra förutsägelse kräver implementering av tre förutsägande modeller:
 
@@ -365,7 +365,7 @@ När vi har lagt fasen modellering och godkänts modellprestanda vi är redo att
 Inom ramen för energi begäran prognosen är vår syftet att anropa kontinuerliga och regelbundna prognoser samtidigt som man säkerställer att nyaste data är tillgängliga för modellen och att prognosdata skickas tillbaka till konsumerande klienten.
 
 ### <a name="web-services-deployment"></a>Web Services-distribution
-Det huvudsakliga distribuerbar byggblocket i Azure ML är webbtjänsten. Det här är det mest effektiva sättet att aktivera förbrukning av en förutsägande modell i molnet. Webbtjänsten innehåller modellen och täcker med en [RESTful](http://www.restapitutorial.com/) API (Application Programming Interface). API: et kan användas som en del av alla klientkod enligt beskrivningen i diagrammet nedan.
+Det huvudsakliga distribuerbar byggblocket i Azure ML är webbtjänsten. Det här är det mest effektiva sättet att aktivera förbrukning av en förutsägande modell i molnet. Webbtjänsten innehåller modellen och täcker med en [RESTful](https://www.restapitutorial.com/) API (Application Programming Interface). API: et kan användas som en del av alla klientkod enligt beskrivningen i diagrammet nedan.
 
 ![Vi Tjänstdistribution och användning](media/cortana-analytics-playbook-demand-forecasting-energy/web-service-deployment-and-consumption.png)
 

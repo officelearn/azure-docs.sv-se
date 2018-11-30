@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 36099a49cc9e6c810727606bb73d2669f1e0df79
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 9c5cdf6c2baf4197b693b522848fc1fd04db7abf
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985700"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422518"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Mer information om automatisk SQL Database-säkerhetskopior
 
@@ -42,7 +42,7 @@ Du kan använda dessa säkerhetskopior till:
 
 ## <a name="how-long-are-backups-kept"></a>Hur lång tid hålls säkerhetskopior
 
-Varje SQL Database-säkerhetskopia har en standardkvarhållningsperioden som är baserad på tjänstenivå för databasen och skiljer sig mellan den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md). Du kan uppdatera kvarhållningsperioden för säkerhetskopior för en databas. Se [ändra kvarhållningsperiod](#how-to-change-backup-retention-period) för mer information.
+Varje SQL-databas har en standard-kvarhållningsperiod mellan 7 och 35 dagar som är beroende av den [inköpsmodellen och tjänstnivå](#pitr-retention-period). Du kan uppdatera kvarhållningsperioden för säkerhetskopior för en databas på Azure logisk Server (den här funktionen kommer att aktiveras snart i Managed Instance). Se [ändra kvarhållningsperiod](#how-to-change-backup-retention-period) för mer information.
 
 Om du tar bort en databas, behåller SQL Database säkerhetskopiorna på samma sätt som den skulle ha gjort för en online-databas. Om du tar bort en Basic-databas som har en kvarhållningsperiod på sju dagar, till exempel sparas en säkerhetskopia som är fyra dagar gamla i tre dagar.
 

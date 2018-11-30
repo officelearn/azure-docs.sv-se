@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: ac4aa3c8aafae24736cc7b48a9ca4e8ba9fd0742
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e3dfbc4fc4d7ed40ebac7de6fe78398b13eafd58
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125195"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316556"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Anpassa SQL information protection-principen i Azure Security Center (förhandsversion)
  
@@ -38,7 +38,7 @@ Mekanismen för klassificering är baserad på två primära konstruktionerna so
  
 Information Protection levereras med en inbyggd uppsättning etiketter och typer av information som används som standard. För att anpassa dessa, kan du anpassa information protection-principen i Azure Security Center.
  
-## <a name="customize-the-information-protection-policy"></a>Anpassa information protection-princip
+## <a name="customize-the-information-protection-policy"></a>Anpassa informationsskyddsprincipen
 Om du vill anpassa information protection-principen för din Azure-klient, måste du ha [administratörsbehörighet på klientens rot-hanteringsgruppen](security-center-management-groups.md). 
  
 1. I huvudmenyn i Security Center väljer **säkerhetsprincip**.
@@ -86,7 +86,7 @@ I den här artikeln har du lärt dig om hur du definierar en SQL Information Pro
 Mer information om säkerhetsprinciper och datasäkerhet i Azure Security Center finns i följande artiklar:
  
 - [Översikt över säkerhetsprinciper](security-center-policies-overview.md): få en översikt över säkerhetsprinciper i Security Center
-- [Ange säkerhetsprinciper i Azure Security Center](security-center-policies.md): Lär dig hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper
+- [Ange säkerhetsprinciper i Azure Security Center](security-center-azure-policy.md): Lär dig hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper
 - [Datasäkerhet i Azure Security Center](security-center-data-security.md): Lär dig hur Security Center hanterar och skyddar data
 
 

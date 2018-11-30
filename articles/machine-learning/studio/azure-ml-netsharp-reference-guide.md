@@ -1,6 +1,6 @@
 ---
-title: 'NET # Neural Networks specifikationen språk guiden – Azure Machine Learning | Microsoft Docs'
-description: 'Syntaxen för den Net # neural networks-språket, tillsammans med exempel på hur du skapar en modell för anpassade neurala nätverk med hjälp av Net #'
+title: 'NET # Neural Networks - Azure Machine Learning Studio | Microsoft Docs'
+description: 'Syntaxen för den Net # neural networks-språket, tillsammans med exempel på hur du skapar en modell för anpassade neurala nätverk med hjälp av Net # med Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: 8adb3c78f97311085aec3a5c86a062ec14f53e61
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 3aa364e92dd7ce3742d28ac2b36d9a7f16cbebbf
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263680"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315315"
 ---
-# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Guide till Net # språket för neurala nätverk för Azure Machine Learning
+# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guide till Net # språket för neurala nätverk för Azure Machine Learning Studio
 
 NET # är ett språk som utvecklats av Microsoft och som används för att definiera nätverksarkitekturer för neurala. Med Net # för att definiera strukturen för ett neural network gör det möjligt att definiera komplexa strukturer som djupa neurala nätverk eller faltningar av godtycklig dimensioner, som är kända för att förbättra learning på data, till exempel bild, ljud eller video.
 

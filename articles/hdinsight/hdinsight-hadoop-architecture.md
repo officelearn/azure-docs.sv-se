@@ -9,23 +9,23 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 066734c88890d5f1a6e42c5350db47d1a398b60a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f6393d15572eadb376cbd88dc94c3de0fd8fa80b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277587"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495567"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Arkitektur för Apache Hadoop i HDInsight
 
-Apache Hadoop innehåller två kärnkomponenter: Hadoop Distributed File System (HDFS) som tillhandahåller lagring och ännu en annan Resource Negotiator (YARN) som tillhandahåller bearbetning. Med lagring och bearbetningsfunktioner blir ett kluster kan köra MapReduce-program för att utföra den önskade databearbetningen.
+[Apache Hadoop](https://hadoop.apache.org/) innehåller två kärnkomponenter: den [Apache Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) som tillhandahåller lagring, och [Apache Hadoop ännu en annan Resource Negotiator (YARN)](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) som tillhandahåller bearbetning. Med lagring och bearbetning av funktioner, ett kluster blir kunna köra [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) program för att utföra den önskade databearbetningen.
 
 > [!NOTE]
 > Ett HDFS vanligtvis inte har distribuerats i HDInsight-klustret för att tillhandahålla lagring. I stället används ett HDFS-kompatibla gränssnittsnivån av Hadoop-komponenter. Funktionen verkligt lagringsutrymme som tillhandahålls av Azure Storage eller Azure Data Lake Store. För Hadoop, MapReduce-jobb som körs på HDInsight-klustret körs som om det fanns en HDFS och kräver inga ändringar till stöd för sina lagringsbehov. Lagring är utlagd i Hadoop på HDInsight, men YARN bearbetning förblir en central del. Mer information finns i [introduktion till Azure HDInsight](hadoop/apache-hadoop-introduction.md).
 
 Den här artikeln introducerar YARN och hur den samordnar körning av program på HDInsight.
 
-## <a name="apache-yarn-basics"></a>Apache YARN-grunderna 
+## <a name="apache-hadoop-yarn-basics"></a>Apache Hadoop YARN-grunderna 
 
 YARN reglerar och styr databearbetning i Hadoop. YARN har två viktiga tjänster som körs som processer på noder i klustret: 
 
@@ -50,5 +50,5 @@ Alla HDInsight-klustertyper distribuera YARN. ResourceManager distribueras för 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda MapReduce i Hadoop på HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Använda MapReduce i Apache Hadoop på HDInsight](hadoop/hdinsight-use-mapreduce.md)
 * [Introduktion till Azure HDInsight](hadoop/apache-hadoop-introduction.md)

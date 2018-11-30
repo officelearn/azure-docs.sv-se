@@ -1,6 +1,6 @@
 ---
 title: Azure API Management-Sidkontrollerna | Microsoft Docs
-description: Läs mer om tillgängliga för användning i developer portal mallar i Azure API Management Sidkontrollerna.
+description: Läs mer om Sidkontrollerna som är tillgängliga för användning i utvecklarportalsmallar i Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,41 +13,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: apimpm
-ms.openlocfilehash: da68c9b7ebbb1880e35bd60b12db9f920f51e13c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d87293d89e4009512494bf47f9742ea5901f909a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936180"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445370"
 ---
-# <a name="azure-api-management-page-controls"></a>Kontroller Azure API Management
-Azure API Management innehåller följande kontroller för användning i developer portal mallar.  
+# <a name="azure-api-management-page-controls"></a>Azure API Management kontroller
+Azure API Management ger följande kontroller för användning i utvecklaren portal mallar.  
   
-Om du vill använda en kontroll måste du placera det i önskad plats i mallen developer portal. Vissa kontroller, till exempel den [app åtgärder](#app-actions) styra har parametrar, som visas i följande exempel:  
+Om du vill använda en kontroll, placera den på önskad plats i mallen developer portal. Vissa kontroller, till exempel den [-åtgärder](#app-actions) genom har parametrar, som visas i följande exempel:  
   
 ```xml  
 <app-actions params="{ appId: '{{app.id}}' }"></app-actions>  
 ```  
   
- Värden för parametrar skickas i som en del av datamodellen för mallen. I de flesta fall, du kan bara klistra in i den angivna exemplet för varje kontroll att fungera korrekt. Du kan se avsnittet data modellen för varje mall som en kontroll kan användas för mer information om parametervärden.  
+ Värden för parametrarna skickas i som en del av datamodellen för mallen. I de flesta fall kan du helt enkelt klistra in det angivna exemplet för varje kontroll att fungera korrekt. Du kan se avsnittet data modellen för varje mall där en kontroll kan användas för mer information om parametervärden finns.  
   
- Mer information om hur du arbetar med mallar finns [hur du anpassar API Management developer-portalen med hjälp av mallar](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+ Mer information om hur du arbetar med mallar finns i [hur du anpassar utvecklarportalen API Management med hjälp av mallar](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-## <a name="developer-portal-template-page-controls"></a>Developer portal mallen kontroller  
+## <a name="developer-portal-template-page-controls"></a>Developer mall för kontroller  
   
 -   [App-åtgärder](#app-actions)  
 -   [Basic-inloggning](#basic-signin)  
--   [växlingsfil-kontroll](#paging-control)  
--   [providers](#providers)  
+-   [växling-kontroll](#paging-control)  
+-   [Providers](#providers)  
 -   [Sök-kontroll](#search-control)  
--   [registrering](#sign-up)  
+-   [Registrera dig](#sign-up)  
 -   [prenumerera på knappen](#subscribe-button)  
--   [Avbryt prenumeration](#subscription-cancel)  
+-   [prenumeration Avbryt](#subscription-cancel)  
   
 ##  <a name="app-actions"></a> App-åtgärder  
- Den `app-actions` kontrollen innehåller ett användargränssnitt för att interagera med program på användarprofilsidan i developer-portalen.  
+ Den `app-actions` kontrollen innehåller ett användargränssnitt för att interagera med program på användarens profilsida i developer-portalen.  
   
- ![appen&#45;åtgärder kontrollen](./media/api-management-page-controls/APIM-app-actions-control.png "APIM app åtgärder kontroll")  
+ ![App&#45;åtgärder kontroll](./media/api-management-page-controls/APIM-app-actions-control.png "APIM-åtgärder kontroll")  
   
 ### <a name="usage"></a>Användning  
   
@@ -61,15 +63,15 @@ Om du vill använda en kontroll måste du placera det i önskad plats i mallen d
 |---------------|-----------------|  
 |appId|Id för programmet.|  
   
-### <a name="developer-portal-templates"></a>Developer portal mallar  
- Den `app-actions` kontroll kan användas i följande developer portal mallar:  
+### <a name="developer-portal-templates"></a>Utvecklarportalsmallar  
+ Den `app-actions` kontroll kan användas i följande utvecklarportalsmallar:  
   
 -   [Program](api-management-user-profile-templates.md#Applications)  
   
 ##  <a name="basic-signin"></a> Basic-inloggning  
- Den `basic-signin` kontrollen innehåller en kontroll för att samla in användarinformation logga in på sidan logga in i developer-portalen.  
+ Den `basic-signin` kontrollen innehåller en kontroll för att samla in användarinformation logga in på sidan logga in på utvecklarportalen.  
   
- ![grundläggande&#45;inloggning kontrollen](./media/api-management-page-controls/APIM-basic-signin-control.png "APIM basic signin-kontroll")  
+ ![grundläggande&#45;inloggning från kontrollen](./media/api-management-page-controls/APIM-basic-signin-control.png "APIM basic-inloggning från kontroll")  
   
 ### <a name="usage"></a>Användning  
   
@@ -80,15 +82,15 @@ Om du vill använda en kontroll måste du placera det i önskad plats i mallen d
 ### <a name="parameters"></a>Parametrar  
  Ingen.  
   
-### <a name="developer-portal-templates"></a>Developer portal mallar  
- Den `basic-signin` kontroll kan användas i följande developer portal mallar:  
+### <a name="developer-portal-templates"></a>Utvecklarportalsmallar  
+ Den `basic-signin` kontroll kan användas i följande utvecklarportalsmallar:  
   
 -   [Logga in](api-management-page-templates.md#SignIn)  
   
-##  <a name="paging-control"></a> växlingsfil-kontroll  
- Den `paging-control` tillhandahåller funktioner för sidindelning på developer portal sidor som visar en lista med objekt.  
+##  <a name="paging-control"></a> växling-kontroll  
+ Den `paging-control` ger växlingsfunktionen för sidor som visar en lista med objekt.  
   
- ![växling kontrollen](./media/api-management-page-controls/APIM-paging-control.png "APIM sidindelning kontroll")  
+ ![växling kontroll](./media/api-management-page-controls/APIM-paging-control.png "APIM sidindelning kontroll")  
   
 ### <a name="usage"></a>Användning  
   
@@ -99,8 +101,8 @@ Om du vill använda en kontroll måste du placera det i önskad plats i mallen d
 ### <a name="parameters"></a>Parametrar  
  Ingen.  
   
-### <a name="developer-portal-templates"></a>Developer portal mallar  
- Den `paging-control` kontroll kan användas i följande developer portal mallar:  
+### <a name="developer-portal-templates"></a>Utvecklarportalsmallar  
+ Den `paging-control` kontroll kan användas i följande utvecklarportalsmallar:  
   
 -   [API-lista](api-management-api-templates.md#APIList)  
   
@@ -108,10 +110,10 @@ Om du vill använda en kontroll måste du placera det i önskad plats i mallen d
   
 -   [Produktlista](api-management-product-templates.md#ProductList)  
   
-##  <a name="providers"></a> providers  
- Den `providers` kontrollen innehåller en kontroll för val av autentiseringsproviders på sidan logga in i developer-portalen.  
+##  <a name="providers"></a> Providers  
+ Den `providers` kontrollen innehåller en kontroll för val av autentiseringsproviders på sidan logga in på utvecklarportalen.  
   
- ![providers kontrollen](./media/api-management-page-controls/APIM-providers-control.png "APIM providers kontroll")  
+ ![leverantörer kontroll](./media/api-management-page-controls/APIM-providers-control.png "APIM-providers kontroll")  
   
 ### <a name="usage"></a>Användning  
   
@@ -122,15 +124,15 @@ Om du vill använda en kontroll måste du placera det i önskad plats i mallen d
 ### <a name="parameters"></a>Parametrar  
  Ingen.  
   
-### <a name="developer-portal-templates"></a>Developer portal mallar  
- Den `providers` kontroll kan användas i följande developer portal mallar:  
+### <a name="developer-portal-templates"></a>Utvecklarportalsmallar  
+ Den `providers` kontroll kan användas i följande utvecklarportalsmallar:  
   
 -   [Logga in](api-management-page-templates.md#SignIn)  
   
 ##  <a name="search-control"></a> Sök-kontroll  
- Den `search-control` tillhandahåller funktioner för sökning på developer portal sidor som visar en lista med objekt.  
+ Den `search-control` ger sökfunktioner för sidor som visar en lista med objekt.  
   
- ![Sök kontrollen](./media/api-management-page-controls/APIM-search-control.png "APIM sökkontrollen")  
+ ![Sök kontroll](./media/api-management-page-controls/APIM-search-control.png "APIM sökkontrollen")  
   
 ### <a name="usage"></a>Användning  
   
@@ -141,17 +143,17 @@ Om du vill använda en kontroll måste du placera det i önskad plats i mallen d
 ### <a name="parameters"></a>Parametrar  
  Ingen.  
   
-### <a name="developer-portal-templates"></a>Developer portal mallar  
- Den `search-control` kontroll kan användas i följande developer portal mallar:  
+### <a name="developer-portal-templates"></a>Utvecklarportalsmallar  
+ Den `search-control` kontroll kan användas i följande utvecklarportalsmallar:  
   
 -   [API-lista](api-management-api-templates.md#APIList)  
   
 -   [Produktlista](api-management-product-templates.md#ProductList)  
   
-##  <a name="sign-up"></a> registrering  
- Den `sign-up` kontrollen innehåller en kontroll för att samla in användarens profilinformation i registreringssidan i developer-portalen.  
+##  <a name="sign-up"></a> Registrera dig  
+ Den `sign-up` kontrollen innehåller en kontroll för att samla in information om användarprofiler i registreringssidan i developer-portalen.  
   
- ![logga&#45;upp kontrollen](./media/api-management-page-controls/APIM-sign-up-control.png "APIM anmälan kontroll")  
+ ![logga&#45;upp kontrollen](./media/api-management-page-controls/APIM-sign-up-control.png "registrering APIM-kontroll")  
   
 ### <a name="usage"></a>Användning  
   
@@ -162,15 +164,15 @@ Om du vill använda en kontroll måste du placera det i önskad plats i mallen d
 ### <a name="parameters"></a>Parametrar  
  Ingen.  
   
-### <a name="developer-portal-templates"></a>Developer portal mallar  
- Den `sign-up` kontroll kan användas i följande developer portal mallar:  
+### <a name="developer-portal-templates"></a>Utvecklarportalsmallar  
+ Den `sign-up` kontroll kan användas i följande utvecklarportalsmallar:  
   
--   [Registrera sig](api-management-page-templates.md#SignUp)  
+-   [Registrera dig](api-management-page-templates.md#SignUp)  
   
 ##  <a name="subscribe-button"></a> prenumerera på knappen  
- Den `subscribe-button` innehåller en kontroll för att prenumerera på en användare för en produkt.  
+ Den `subscribe-button` innehåller en kontroll för att prenumerera på en användare till en produkt.  
   
- ![prenumerera&#45;knappen kontrollen](./media/api-management-page-controls/APIM-subscribe-button-control.png "APIM prenumerera knappen kontroll")  
+ ![prenumerera på&#45;knappkontroll](./media/api-management-page-controls/APIM-subscribe-button-control.png "APIM prenumerera knappen kontroll")  
   
 ### <a name="usage"></a>Användning  
   
@@ -181,15 +183,15 @@ Om du vill använda en kontroll måste du placera det i önskad plats i mallen d
 ### <a name="parameters"></a>Parametrar  
  Ingen.  
   
-### <a name="developer-portal-templates"></a>Developer portal mallar  
- Den `subscribe-button` kontroll kan användas i följande developer portal mallar:  
+### <a name="developer-portal-templates"></a>Utvecklarportalsmallar  
+ Den `subscribe-button` kontroll kan användas i följande utvecklarportalsmallar:  
   
 -   [Produkten](api-management-product-templates.md#Product)  
   
-##  <a name="subscription-cancel"></a> Avbryt prenumeration  
+##  <a name="subscription-cancel"></a> prenumeration Avbryt  
  Den `subscription-cancel` kontrollen innehåller en kontroll för att avbryta en prenumeration på en produkt i användarprofilsidan i developer-portalen.  
   
- ![prenumerationen&#45;Avbryt kontrollen](./media/api-management-page-controls/APIM-subscription-cancel-control.png "APIM Avbryt prenumeration kontroll")  
+ ![prenumeration&#45;Avbryt kontroll](./media/api-management-page-controls/APIM-subscription-cancel-control.png "APIM-prenumeration Avbryt kontroll")  
   
 ### <a name="usage"></a>Användning  
   
@@ -204,12 +206,12 @@ Om du vill använda en kontroll måste du placera det i önskad plats i mallen d
 |Parameter|Beskrivning|  
 |---------------|-----------------|  
 |subscriptionId|Id för att avbryta prenumerationen.|  
-|CancelUrl|Prenumerationen avbryter URL.|  
+|cancelUrl|Prenumerationen avbryter URL: en.|  
   
-### <a name="developer-portal-templates"></a>Developer portal mallar  
- Den `subscription-cancel` kontroll kan användas i följande developer portal mallar:  
+### <a name="developer-portal-templates"></a>Utvecklarportalsmallar  
+ Den `subscription-cancel` kontroll kan användas i följande utvecklarportalsmallar:  
   
 -   [Produkten](api-management-product-templates.md#Product)
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du arbetar med mallar finns [hur du anpassar API Management developer-portalen med hjälp av mallar](api-management-developer-portal-templates.md).
+Mer information om hur du arbetar med mallar finns i [hur du anpassar utvecklarportalen API Management med hjälp av mallar](api-management-developer-portal-templates.md).

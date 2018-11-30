@@ -1,5 +1,5 @@
 ---
-title: Skapa slutpunkter för webbtjänster i Machine Learning | Microsoft Docs
+title: Skapa slutpunkter för webbtjänster i Machine Learning - Azure Machine Learning Studio | Microsoft Docs
 description: Skapa slutpunkter för webbtjänster i Azure Machine Learning
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
-ms.openlocfilehash: f046db11bf3c04c9ea15e759b4e0080cab4f71d5
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 266970bec1e61dca808bb6358f2b4580359ee70d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265074"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314021"
 ---
-# <a name="creating-endpoints"></a>Skapa slutpunkter
+# <a name="creating-endpoints"></a>Skapa slutpunkter 
 > [!NOTE]
 >  Det här avsnittet beskrivs tekniker som kan användas till en **klassiska** Machine Learning-webbtjänster.
 > 
@@ -31,7 +31,7 @@ ms.locfileid: "52265074"
 
 När du skapar webbtjänster som du säljer framåt till dina kunder kan behöva du tillhandahålla anpassade modeller till kunder som fortfarande är länkade till arbetsytan för experimentet som webbtjänsten har skapats. Dessutom bör eventuella uppdateringar till arbetsytan för experimentet tillämpas selektivt på en slutpunkt utan att skriva över anpassningarna.
 
-För att åstadkomma detta kan Azure Machine Learning du skapa flera slutpunkter för en distribuerad webbtjänst. Varje slutpunkt i webbtjänsten är oberoende av varandra åtgärdas, begränsas och hanteras. Varje slutpunkt är en unik URL och auktoriseringsnyckeln som du kan distribuera till dina kunder.
+För att åstadkomma detta kan Azure Machine Learning Studio du skapa flera slutpunkter för en distribuerad webbtjänst. Varje slutpunkt i webbtjänsten är oberoende av varandra åtgärdas, begränsas och hanteras. Varje slutpunkt är en unik URL och auktoriseringsnyckeln som du kan distribuera till dina kunder.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

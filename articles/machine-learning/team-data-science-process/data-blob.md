@@ -1,34 +1,30 @@
 ---
-title: Bearbeta Azure blob-data med avancerade analyser | Microsoft Docs
+title: Bearbeta Azure-blobbdata med avancerade analyser | Microsoft Docs
 description: Bearbeta Data i Azure Blob storage.
-services: machine-learning,storage
-documentationcenter: ''
-author: deguhath
+services: machine-learning
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: d8a59078-91d3-4440-b85c-430363c3f4d1
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: 3daf86f59a84f8c442581160142dcf806173b626
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: ef5a3decec3ddd87bb73d513981bdfe081fadf74
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836610"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442394"
 ---
-# <a name="heading"></a>Bearbeta Azure blob-data med avancerade analyser
-Det här dokumentet beskriver utforska data och genererar funktioner från data som lagras i Azure Blob storage. 
+# <a name="heading"></a>Bearbeta Azure-blobbdata med avancerade analyser
+Det här dokumentet beskriver utforska data och skapar funktioner från data lagrade i Azure Blob storage. 
 
-## <a name="load-the-data-into-a-pandas-data-frame"></a>Läsa in data i ett Pandas data
-För att utforska och ändra en datamängd, måste den hämtas från blob-källan till en lokal fil som sedan kan läsas in i en Pandas data ram. Här följer de steg för den här proceduren:
+## <a name="load-the-data-into-a-pandas-data-frame"></a>Läsa in data i en dataram Pandas
+För att utforska och ändra en datauppsättning, måste den hämtas från blob-källan till en lokal fil som sedan kan läsas in i en dataram Pandas. Här följer stegen för den här proceduren:
 
-1. Hämta data från Azure blob med följande Python exempelkod med blob-tjänsten. Ersätt variabeln i koden nedan med dina specifika värden: 
+1. Hämta data från Azure-blob med följande Python-exempelkoden med blobtjänsten. Ersätt variabeln i koden nedan med ditt specifika värden: 
    
         from azure.storage.blob import BlobService
         import tables
@@ -45,17 +41,17 @@ För att utforska och ändra en datamängd, måste den hämtas från blob-källa
         blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
         t2=time.time()
         print(("It takes %s seconds to download "+blobname) % (t2 - t1))
-2. Läsa data i en Pandas data-ram från den hämta filen.
+2. Läsa in datan i en Pandas-dataram från den hämta filen.
    
         #LOCALFILE is the file path    
         dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-Du är nu redo att utforska data och generera funktioner på denna dataset.
+Nu är du redo att utforska data och generera funktioner för den här datauppsättningen.
 
-## <a name="blob-dataexploration"></a>Datagranskning
+## <a name="blob-dataexploration"></a>Datautforskning
 Här följer några exempel på hur du kan utforska data med hjälp av Pandas:
 
-1. Kontrollera antalet rader och kolumner 
+1. Granska antalet rader och kolumner 
    
         print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
 2. Granska de första eller sista raderna i datauppsättningen enligt nedan:
@@ -63,33 +59,33 @@ Här följer några exempel på hur du kan utforska data med hjälp av Pandas:
         dataframe_blobdata.head(10)
    
         dataframe_blobdata.tail(10)
-3. Kontrollera den datatyp som varje kolumn har importerats som använder följande exempelkod
+3. Kontrollera den datatyp som varje kolumn har importerats som med hjälp av följande exempelkod
    
         for col in dataframe_blobdata.columns:
             print dataframe_blobdata[col].name, ':\t', dataframe_blobdata[col].dtype
-4. Kontrollera följande grundläggande statistik för kolumner i datauppsättning
+4. Kontrollera grundläggande statistik för kolumner i datauppsättningen på följande sätt
    
         dataframe_blobdata.describe()
-5. Titta på hur många poster för varje värde i kolumnen enligt följande
+5. Titta på antalet poster för varje kolumnvärde enligt följande
    
         dataframe_blobdata['<column_name>'].value_counts()
 6. Antal saknade värden jämfört med det faktiska antalet poster i varje kolumn med hjälp av följande exempelkod
    
         miss_num = dataframe_blobdata.shape[0] - dataframe_blobdata.count()
         print miss_num
-7. Om du har värden som saknas för en viss kolumn i data, kan du släppa dem på följande sätt:
+7. Om du har värden som saknas för en viss kolumn i data kan släppa du dem på följande sätt:
    
      dataframe_blobdata_noNA = dataframe_blobdata.dropna() dataframe_blobdata_noNA.shape
    
-   Ett annat sätt att ersätta saknade värden är med funktionen läge:
+   Ett annat sätt att ersätta värden som saknas är med funktionen läge:
    
-     dataframe_blobdata_mode = dataframe_blobdata.fillna ({< kolumnnamn >: .mode()[0]}) dataframe_blobdata ['< kolumnnamn >']        
-8. Skapa ett histogram ritytans med hjälp av variabeln antal lagerplatser ska ritas distribution av en variabel    
+     dataframe_blobdata_mode = dataframe_blobdata.fillna ({< kolumnnamn >: dataframe_blobdata ['< kolumnnamn >'] .mode()[0]})        
+8. Skapa ett histogram diagram med hjälp av variabeln antal lagerplatser ska ritas distributionen av en variabel    
    
         dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
    
         np.log(dataframe_blobdata['<column_name>']+1).hist(bins=50)
-9. Titta på korrelationer mellan variabler med hjälp av en scatterplot eller inbyggda korrelationen
+9. Titta på korrelationer mellan variabler med hjälp av en spridningsdiagrammet eller inbyggda korrelationen
    
         #relationship between column_a and column_b using scatter plot
         plt.scatter(dataframe_blobdata['<column_a>'], dataframe_blobdata['<column_b>'])
@@ -98,19 +94,19 @@ Här följer några exempel på hur du kan utforska data med hjälp av Pandas:
         dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
 ## <a name="blob-featuregen"></a>Funktionen Generation
-Vi kan generera funktioner med Python på följande sätt:
+Vi kan ge funktioner med hjälp av Python enligt följande:
 
 ### <a name="blob-countfeature"></a>Indikatorvärdet baserat funktionen Generation
 Kategoriska funktioner kan skapas på följande sätt:
 
-1. Kontrollera distributionen av kolumnen kategoriska:
+1. Kontrollera distributionen av kategoriska kolumnen:
    
         dataframe_blobdata['<categorical_column>'].value_counts()
-2. Generera indikator värden för varje kolumnvärdena
+2. Generera indikator värden för var och en av kolumnvärdena
    
         #generate the indicator column
         dataframe_blobdata_identity = pd.get_dummies(dataframe_blobdata['<categorical_column>'], prefix='<categorical_column>_identity')
-3. Ansluta till kolumnen indikator med den ursprungliga dataramen 
+3. Ansluta till kolumnen indikator med ursprungliga dataram 
    
             #Join the dummy variables back to the original data frame
             dataframe_blobdata_with_identity = dataframe_blobdata.join(dataframe_blobdata_identity)
@@ -119,27 +115,27 @@ Kategoriska funktioner kan skapas på följande sätt:
         #Remove the original column rate_code in df1_with_dummy
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
-### <a name="blob-binningfeature"></a>Diskretisering funktionen Generation
-För att generera binned funktioner fortsätta enligt följande:
+### <a name="blob-binningfeature"></a>Datagruppering funktionen Generation
+För att generera binned funktioner, fortsätter vi på följande sätt:
 
-1. Lägga till en sekvens av kolumner till bin en numerisk kolumn
+1. Lägg till en sekvens med kolumner till lagerplats en numerisk kolumn
    
         bins = [0, 1, 2, 4, 10, 40]
         dataframe_blobdata_bin_id = pd.cut(dataframe_blobdata['<numeric_column>'], bins)
-2. Konvertera diskretisering till en sekvens med booleska variabler
+2. Konvertera datagruppering till en sekvens med booleska variabler
    
         dataframe_blobdata_bin_bool = pd.get_dummies(dataframe_blobdata_bin_id, prefix='<numeric_column>')
-3. Slutligen ansluta variablerna dummy tillbaka till den ursprungliga dataramen
+3. Slutligen kan ansluta till dummy variablerna tillbaka till den ursprungliga dataramen
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
-## <a name="sql-featuregen"></a>Data skrivs tillbaka till Azure blob och använda i Azure Machine Learning
-När du har gjort data och skapa nödvändiga funktioner, kan du överföra data (provtagning eller featurized) till ett Azure blob- och använda den i Azure Machine Learning med följande steg: Observera att du kan skapa ytterligare funktioner i Azure Machine Learning Studio samt. 
+## <a name="sql-featuregen"></a>Skriva data tillbaka till Azure-blob och använda i Azure Machine Learning
+När du har gjort data och skapat nödvändiga funktioner, kan du överföra data (samplas eller trädmodell) till ett Azure blob- och använda den i Azure Machine Learning med följande steg: Observera att ytterligare funktioner kan skapas på Azure-dator Samt Learning Studio. 
 
-1. Skriva dataramen till en lokal fil
+1. Skriv dataramen som lokal fil
    
         dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
-2. Överför data till Azure blob på följande sätt:
+2. Ladda upp data till Azure-blob enligt följande:
    
         from azure.storage.blob import BlobService
         import tables
@@ -160,9 +156,9 @@ När du har gjort data och skapa nödvändiga funktioner, kan du överföra data
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Nu går att läsa data från blob med hjälp av Azure Machine Learning [importera Data] [ import-data] modulen som visas på skärmen nedan:
+3. Nu går att läsa data från blob med hjälp av Azure Machine Learning [importdata] [ import-data] modulen som visas på skärmen nedan:
 
-![läsaren blob][1]
+![läsare blob][1]
 
 [1]: ./media/data-blob/reader_blob.png
 

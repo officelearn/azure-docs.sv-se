@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: asgang
-ms.openlocfilehash: 0ac90d8ef29d4293a5eeb5f932687788320c218e
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 22ea3d955fe2910dc99ab4015165008da899d48e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615804"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312858"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-ongoing-replication-issues"></a>Felsöka problem med pågående replikering för Azure till Azure VM
 
@@ -29,7 +29,7 @@ FEL-ID: 153007 </br>
 Azure Site Recovery replikerar data från källregionen till regionen disaster recovery konsekvent och skapar kraschkonsekvent återställningspunkt var femte minut. Om Site Recovery är det går inte att skapa återställningspunkter i 60 minuter, varnar användare. Här följer orsaker som kan resultera i det här felet:
 
 **Orsak 1: [hög dataändringshastighet på den virtuella källdatorn](#high-data-change-rate-on-the-source-virtal-machine)**    
-**Orsak 2: [nätverksanslutningsfel ](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
+**Orsak 2: [nätverksanslutningsfel ](#Network-connectivity-issue)**
 
 ## <a name="causes-and-solutions"></a>Orsaker och lösningar
 
@@ -77,5 +77,10 @@ Det här alternativet är endast möjligt om dataomsättningen för disken är m
 
 ### <a name="Network-connectivity-issue"></a>Problem med nätverksanslutningen
 
+#### <a name="network-latency-to-cache-storage-account-"></a>Svarstid för nätverk till cachelagringskontot:
+ Site Recovery skickar replikerade data till cachelagringskontot och problemet kan inträffa om dataöverföringen från den virtuella datorn till cachelagringskontot är långsammare den 4 MB i 3 sekunder. Att kontrollera om det finns några problem som rör svarstid Använd [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) att överföra data från den virtuella datorn till cachelagringskontot.<br>
+Om svarstiden är hög, kontrollerar du om du använder en virtuell nätverksutrustning för att styra utgående nätverkstrafik från virtuella datorer. Installationen kan begränsas om all replikeringstrafik som passerar genom NVA. Vi rekommenderar att du skapar en tjänstslutpunkt för nätverk i ditt virtuella nätverk för ”Storage” så att replikeringstrafiken inte går att NVA. Se [nätverkskonfiguration för virtuell installation](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration)
+
+#### <a name="network-connectivity"></a>Nätverksanslutning
 För Site Recovery-replikering till arbete, utgående anslutning till specifika URL: er eller IP-intervall krävs från den virtuella datorn. Om den virtuella datorn finns bakom en brandvägg eller använder regler för nätverkssäkerhetsgrupper (NSG) för att styra utgående anslutningar, kan du står inför ett av de här problemen.</br>
-Referera till [utgående anslutning för Site Recovery-webbadresser](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-troubleshoot-errors?#outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072)
+Referera till [utgående anslutning för Site Recovery-webbadresser](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) att kontrollera att alla URL: er är anslutna 

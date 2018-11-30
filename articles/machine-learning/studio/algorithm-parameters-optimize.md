@@ -1,6 +1,6 @@
 ---
-title: Optimera algoritmerna i Azure Machine Learning | Microsoft Docs
-description: Beskriver hur du väljer den optimala parameteruppsättning för en algoritm i Azure Machine Learning.
+title: Optimera algoritmer för Azure Machine Learning Studio | Microsoft Docs
+description: Beskriver hur du väljer den optimala parameteruppsättning för en algoritm i Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,14 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: c5445833d9f0e003304af3a1f60fb82a372898bf
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: f4b7ba04f643fc823ca627e279faea31dee9d2a4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261827"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314724"
 ---
-# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning"></a>Välj parametrar för att optimera algoritmerna i Azure Machine Learning
+# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Välj parametrar för att optimera algoritmerna i Azure Machine Learning Studio
+
 Det här avsnittet beskriver hur du väljer rätt finjustering för en algoritm i Azure Machine Learning. De flesta maskininlärningsalgoritmer har parametrar för att konfigurera. När du tränar en modell, måste du ange värden för dessa parametrar. Effekt av den tränade modellen beror på Modellparametrar som du väljer. Processen att hitta den optimala uppsättningen parametrar som kallas *modellera val av*.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]

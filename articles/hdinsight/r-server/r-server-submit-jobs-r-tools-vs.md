@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 400cb16e4f4440283a783116c4ee843bc0a7344c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d9d34441f36ea60141ed2659b3e33efdaac94ad3
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248579"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497127"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Skicka jobb från R Tools för Visual Studio
 
@@ -64,7 +64,7 @@ RTVS förbättrar R arbetsflödet genom att erbjuda verktyg som de [R interaktiv
 
 ## <a name="submit-jobs-to-an-hdinsight-ml-services-cluster"></a>Skicka jobb till en ML-tjänster för HDInsight-kluster
 
-Med en Microsoft ML Server/Microsoft R Client från en Windows-dator med PuTTY kan du skapa en beräkningskontext som ska köra distribuerade `RevoScaleR` funktioner från din lokala klient till ditt HDInsight-kluster. Använd `RxSpark` att skapa beräkningskontext, ange ditt användarnamn, Hadoop-kluster kantnod, SSH-växlar och så vidare.
+Med en Microsoft ML Server/Microsoft R Client från en Windows-dator med PuTTY kan du skapa en beräkningskontext som ska köra distribuerade `RevoScaleR` funktioner från din lokala klient till ditt HDInsight-kluster. Använd `RxSpark` att skapa beräkningskontext, ange ditt användarnamn, Apache Hadoop-klustrets kantnod, SSH växlar och så vidare.
 
 1. För att hitta värdnamnet för din edge-nod, öppna fönstret kluster HDInsight ML-tjänster på Azure och välj sedan **Secure Shell (SSH)** på menyn överst i fönstret Översikt.
 
@@ -132,7 +132,7 @@ Med en Microsoft ML Server/Microsoft R Client från en Windows-dator med PuTTY k
 
         ![Kopierade filen](./media/r-server-submit-jobs-r-tools-vs/copied-file.png)
 
-6. När du är klar med den aktuella Spark-kontexten, måste du stoppa den. Du kan inte köra flera sammanhang på samma gång.
+6. Du måste stoppa när du är klar med den aktuella Apache Spark-kontexten. Du kan inte köra flera sammanhang på samma gång.
 
     ```R
     rxStopEngine(mySparkCluster)

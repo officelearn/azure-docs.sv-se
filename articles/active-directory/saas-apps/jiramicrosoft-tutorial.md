@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/22/2018
 ms.author: jeedes
-ms.openlocfilehash: f3f7fc3b837dd4eef9bab8ff34a36329436bad9a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 608269a05ae1ed699954cd301aa03056e089fa8a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010736"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426109"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Självstudier: Azure Active Directory-integration med JIRA SAML SSO av Microsoft
 
@@ -154,11 +154,26 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Konfigurera enkel inloggning](./media/jiramicrosoft-tutorial/addon12.png)
 
-9. När plugin-programmet har installerats, visas det i **användarinstallerade** tillägg delen av **Hantera tillägg** avsnittet. Klicka på **konfigurera** att konfigurera nya plugin-programmet.
+9. Utför följande steg för att köra den omvända proxyn JIRA scenario eller load balancer-scenario:
+
+    > [!NOTE]
+    > Du bör konfigurera servern först med den nedan instruktioner och sedan installera plugin-programmet.
+
+    a. Lägg till nedan attribut i **connector** porten i **server.xml** för JIRA server-program.
+
+    `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
+
+    ![Konfigurera enkel inloggning](./media/jiramicrosoft-tutorial/reverseproxy1.png)
+
+    b. Ändra **bas-URL** i **systeminställningar** enligt proxy/belastningsutjämnare.
+
+    ![Konfigurera enkel inloggning](./media/jiramicrosoft-tutorial/reverseproxy2.png)
+
+10. När plugin-programmet har installerats, visas det i **användarinstallerade** tillägg delen av **Hantera tillägg** avsnittet. Klicka på **konfigurera** att konfigurera nya plugin-programmet.
 
     ![Konfigurera enkel inloggning](./media/jiramicrosoft-tutorial/addon13.png)
 
-10. Utför följande steg på konfigurationssidan:
+11. Utför följande steg på konfigurationssidan:
 
     ![Konfigurera enkel inloggning](./media/jiramicrosoft-tutorial/addon52.png)
 

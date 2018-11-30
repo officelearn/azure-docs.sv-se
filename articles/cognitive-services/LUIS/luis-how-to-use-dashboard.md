@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/01/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 6a4e8dbee34402f57d3e697e93d10573aaf10998
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 0daf25b3c7edc69ada57fb3ce2b8dbb7e50e5aed
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212824"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335018"
 ---
 # <a name="application-dashboard"></a>Instrumentpanel för program
 Appinstrumentpanelen kan du övervaka din app på en snabb titt. Den **instrumentpanelen** visas när du öppnar en app genom att klicka på namnet på programmet på **Mina appar** sedan väljer **instrumentpanelen** från övre panelen. 
@@ -26,15 +26,7 @@ Appinstrumentpanelen kan du övervaka din app på en snabb titt. Den **instrumen
 > * Använd LUIS slutpunktsnyckeln för alla endpoint begäranden, inklusive LUIS [API](https://aka.ms/luis-endpoint-apis) och bot
 > * Använd olika slutpunktsnyckeln för varje LUIS-app. Använd inte en enda slutpunkt-nyckel för alla appar. Slutpunktsnyckeln spåras på viktiga-nivå, inte på appnivå.  
 
-Den **instrumentpanelen** sidan ger dig en översikt över LUIS-app, inklusive den aktuella modellen tillstånd, samt [endpoint](luis-glossary.md#endpoint) användning över tid. <!--The following image shows the **Dashboard** page.-->
-
-<!-- TBD: Get a working screen shot
-![The Dashboard](./media/luis-how-to-use-dashboard/dashboard.png)
--->
-
-<!-- TBD: IS THIS STILL TRUE?
-At the top of the **Dashboard** page, a contextual notification bar constantly displays notifications to update you on the required or recommended actions appropriate for the current state of your app. It also provides useful tips and alerts as needed. A detailed description of the data reported on the **Dashboard** page follows.
--->
+Den **instrumentpanelen** sidan ger dig en översikt över LUIS-app, inklusive den aktuella modellen tillstånd, samt [endpoint](luis-glossary.md#endpoint) användning över tid. 
   
 ## <a name="app-status"></a>Appstatus
 Instrumentpanelen visar programmets utbildning och Publiceringsstatus, inklusive datum och tid när appen senast tränas och publiceras.  
@@ -49,7 +41,6 @@ Instrumentpanelen visar det totala antalet avsikter och entiteter taggade yttran
 ## <a name="endpoint-hits"></a>Slutpunkten träffar
 Instrumentpanelen visar de totala endpoint träffar som LUIS-app tar emot och kan du visa når inom en period som du anger. Det totala antalet träffar som visas är summan av slutpunkten träffar som använder en [slutpunktsnyckeln](./luis-concept-keys.md#endpoint-key) och slutpunkten når som använder en [redigering nyckeln](./luis-concept-keys.md#authoring-key).
 
-<!-- TBD: this image is old but I don't have a new one based on usage -->
 ![Slutpunkten träffar](./media/luis-how-to-use-dashboard/dashboard-endpointhits.png)
 
 > [!NOTE] 

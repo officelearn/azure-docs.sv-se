@@ -1,6 +1,6 @@
 ---
 title: Börja använda PIM - Azure | Microsoft Docs
-description: Lär dig hur du kommer igång med Azure AD Privileged Identity Management (PIM) i Azure-portalen.
+description: Lär dig hur du aktiverar och komma igång med Azure AD Privileged Identity Management (PIM) i Azure-portalen.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,31 +10,112 @@ ms.service: active-directory
 ms.component: pim
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/27/2018
+ms.date: 11/09/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 5b3bff27821964648713b02589c941c99e3eb03d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 95582fb62f19dcc34aa03a6550f4dbc46257cf7f
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190097"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52494348"
 ---
 # <a name="start-using-pim"></a>Börja använda PIM
 
 Med Azure Active Directory (Azure AD) Privileged Identity Management (PIM), som du kan hantera, kontrollera och övervaka åtkomst inom din organisation. Det här omfånget inkluderar åtkomst till Azure-resurser, Azure AD och andra Microsoft onlinetjänster som Office 365 eller Microsoft Intune.
 
-Den här artikeln visar hur du lägger till appen Azure AD PIM på instrumentpanelen på Azure-portalen.
+Den här artikeln beskriver hur du aktiverar och börja använda PIM.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+Om du vill använda PIM måste du ha en av följande licenser:
+
+- Azure AD Premium P2
+- Enterprise Mobility + Security (EMS) E5
+
+Mer information finns i [prenumerationskraven för att använda PIM](subscription-requirements.md).
 
 ## <a name="first-person-to-use-pim"></a>Första personen som använder PIM
 
-Om du är den första personen som använder PIM i din katalog så tilldelas du automatiskt den [säkerhetsadministratör](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) och [privilegierad rolladministratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) roller i katalogen. Endast privilegierade rolladministratörer kan hantera rolltilldelningar för användare i Azure AD-katalogen. Dessutom kan du välja att köra [Säkerhetsguiden.](pim-security-wizard.md) som från grunden lär dig hur du identifierar och tilldelar.
+Om du är den första personen som använder PIM i din katalog så tilldelas du automatiskt den [säkerhetsadministratör](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) och [privilegierad Rolladministratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) roller i katalogen. Endast privilegierade rolladministratörer kan hantera rolltilldelningar för användare i Azure AD-katalogen. Dessutom kan du välja att köra den [säkerhetsguiden](pim-security-wizard.md) som vägleder dig genom den första upplevelsen för identifiering och tilldelning.
 
-## <a name="add-pim-tile-to-the-dashboard"></a>Lägg till PIM-panel på instrumentpanelen
+## <a name="enable-pim"></a>Aktivera PIM
+
+Om du vill börja använda PIM i din katalog, måste du först aktivera PIM.
+
+1. Logga in på den [Azure-portalen](https://portal.azure.com/) som Global administratör för din katalog.
+
+    Du måste vara en Global administratör med ett organisationskonto (till exempel @yourdomain.com), inte ett Microsoft-konto (till exempel @outlook.com), för att aktivera PIM för en katalog.
+
+1. Klicka på **alla tjänster** och hitta den **Azure AD Privileged Identity Management** service.
+
+    ![Azure AD Privileged Identity Management i alla tjänster](./media/pim-getting-started/pim-all-services-find.png)
+
+1. Klicka för att öppna PIM-Snabbstart.
+
+1. I listan klickar du på **Samtyck till PIM**.
+
+    ![Samtyck till PIM](./media/pim-getting-started/consent-pim.png)
+
+1. Klicka på **verifiera min identitet** verifiera din identitet med Azure MFA. Du ombeds välja ett konto.
+
+    ![Välj ett konto](./media/pim-getting-started/pick-account.png)
+
+1. Om det krävs mer information för verifiering, får du guidas genom processen. Mer information finns i [få hjälp med tvåstegsverifiering](https://go.microsoft.com/fwlink/p/?LinkId=708614).
+
+    ![Mer information krävs](./media/pim-getting-started/more-information-required.png)
+
+    Du kan till exempel bli ombedd att tillhandahålla verifiering via telefon.
+
+    ![Ytterligare säkerhetskontroll](./media/pim-getting-started/additional-security-verification.png)
+
+1. När du har slutfört verifieringen, klickar du på den **godkänna** knappen.
+
+1. I det meddelande som visas, klickar du på **Ja** samtycker till att PIM-tjänsten.
+
+    ![Samtycka till PIM-meddelande](./media/pim-getting-started/consent-pim-message.png)
+
+## <a name="sign-up-pim-for-azure-ad-roles"></a>Registrera PIM för Azure AD-roller
+
+När du har aktiverat PIM för din katalog, kommer du behöva registrera PIM att hantera Azure AD-roller.
+
+1. Öppna **Azure AD Privileged Identity Management**.
+
+1. Klicka på **Azure AD-roller**.
+
+    ![Registrera PIM för Azure AD-roller](./media/pim-getting-started/sign-up-pim-azure-ad-roles.png)
+
+1. Klicka på **registrera**.
+
+1. I det meddelande som visas, klickar du på **Ja** att registrera PIM att hantera Azure AD-roller.
+
+    ![Registrera PIM för Azure AD-roller meddelande](./media/pim-getting-started/sign-up-pim-message.png)
+
+    När registrering är klar aktiveras Azure AD-alternativ. Du kan behöva uppdatera portalen.
+
+    Information om hur du identifierar och välj de Azure-resurserna att skydda med PIM finns [identifiera Azure-resurser för att hantera i PIM](pim-resource-roles-discover-resources.md).
+
+## <a name="navigate-to-your-tasks"></a>Gå till dina uppgifter
+
+Du kan utföra dina identitetshanteringsaktiviteter när PIM har ställts in.
+
+![Toppnivåaktiviteter för PIM - skärmbild](./media/pim-getting-started/pim-quickstart-tasks.png)
+
+| Uppgift + hantera | Beskrivning |
+| --- | --- |
+| **Mina roller**  | Visar en lista över tillgängliga och aktiva roller som är tilldelade till dig. Här kan du aktivera tilldelade berättigade roller. |
+| **Mina begäranden** | Visar väntande förfrågningar om att aktivera kvalificerade rolltilldelningar. |
+| **Programåtkomst** | Gör det möjligt för dig att minska potentiella fördröjningar och Använd en roll omedelbart efter aktiveringen. |
+| **Godkänna förfrågningar** | Visar en lista över förfrågningar om att aktivera berättigade roller av användare i din katalog som du är gjorda för att godkänna. |
+| **Granska åtkomst** | Visar en lista över aktiva åtkomstgranskningar som du har tilldelats slutföra, oavsett om du granskar åtkomst åt dig själv eller någon annan. |
+| **Azure AD-roller** | Visar en instrumentpanel och inställningar för privilegierade rolladministratörer att hantera rolltilldelningar för Azure AD-katalog. Instrumentpanelen är inaktiverad för alla som inte är en privilegierad rolladministratör. De här användarna har åtkomst till en särskild instrumentpanel som heter My view (Min vy). Instrumentpanelen My view (Min vy) visar endast information om användaren som har åtkomst till instrumentpanelen, inte hela klientorganisationen. |
+| **Azure-resurser** | Visar en instrumentpanel och inställningar för privilegierade rolladministratörer att hantera rolltilldelningar i Azure-resurs. Instrumentpanelen är inaktiverad för alla som inte är en privilegierad rolladministratör. De här användarna har åtkomst till en särskild instrumentpanel som heter My view (Min vy). Instrumentpanelen My view (Min vy) visar endast information om användaren som har åtkomst till instrumentpanelen, inte hela klientorganisationen. |
+
+## <a name="add-a-pim-tile-to-the-dashboard"></a>Lägga till en PIM-panel på instrumentpanelen
 
 Om du vill göra det enklare att öppna PIM, bör du lägga till en PIM-panel på instrumentpanelen för Azure-portalen.
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com/) som Global administratör för din katalog.
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Klicka på **alla tjänster** och hitta den **Azure AD Privileged Identity Management** service.
 
@@ -50,23 +131,7 @@ Om du vill göra det enklare att öppna PIM, bör du lägga till en PIM-panel p�
 
     ![Snabbstart för PIM-panel](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
 
-## <a name="navigate-to-your-tasks"></a>Gå till dina uppgifter
-
-Du kan använda det här bladet för att utföra dina identitetshanteringsaktiviteter när PIM har ställts in.
-
-![Toppnivåaktiviteter för PIM - skärmbild](./media/pim-getting-started/pim-quickstart-tasks.png)
-
-| Uppgift + hantera | Beskrivning |
-| --- | --- |
-| **Mina roller**  | Visar en lista över tillgängliga och aktiva roller som är tilldelade till dig. Här kan du aktivera tilldelade berättigade roller. |
-| **Mina begäranden** | Visar väntande förfrågningar om att aktivera kvalificerade rolltilldelningar. |
-| **Programåtkomst** | Gör det möjligt för dig att minska potentiella fördröjningar och Använd en roll omedelbart efter aktiveringen. |
-| **Godkänna förfrågningar** | Visar en lista över förfrågningar om att aktivera berättigade roller av användare i din katalog som du är gjorda för att godkänna. |
-| **Granska åtkomst** | Visar en lista över aktiva åtkomstgranskningar som du har tilldelats slutföra, oavsett om du granskar åtkomst åt dig själv eller någon annan. |
-| **Azure AD-katalogroller** | Visar en instrumentpanel och inställningar för privilegierade rolladministratörer att hantera rolltilldelningar för Azure AD-katalog. Instrumentpanelen är inaktiverad för alla som inte är en privilegierad rolladministratör. De här användarna har åtkomst till en särskild instrumentpanel som heter My view (Min vy). Instrumentpanelen My view (Min vy) visar endast information om användaren som har åtkomst till instrumentpanelen, inte hela klientorganisationen. |
-| **Azure-resurser** | Visar en instrumentpanel och inställningar för privilegierade rolladministratörer att hantera rolltilldelningar i Azure-resurs. Instrumentpanelen är inaktiverad för alla som inte är en privilegierad rolladministratör. De här användarna har åtkomst till en särskild instrumentpanel som heter My view (Min vy). Instrumentpanelen My view (Min vy) visar endast information om användaren som har åtkomst till instrumentpanelen, inte hela klientorganisationen. |
-
 ## <a name="next-steps"></a>Nästa steg
 
-- [Aktivera mitt Azure AD-katalogroller i PIM](pim-how-to-activate-role.md)
-- [Aktivera Mina roller för Azure-resurs i PIM](pim-resource-roles-activate-your-roles.md)
+- [Tilldela Azure AD-katalogroller i PIM](pim-how-to-add-role-to-user.md)
+- [Identifiera Azure-resurser du hanterar i PIM](pim-resource-roles-discover-resources.md)

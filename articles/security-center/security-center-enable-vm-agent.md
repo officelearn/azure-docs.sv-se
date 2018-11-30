@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 74a6c0c4a66de75dd9e50d7b81e7e6ae7bf7519a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 7a059cd5c22306c42adc4c7c8fcc4e52c3ebcd00
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244618"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313579"
 ---
 # <a name="enable-vm-agent-in-azure-security-center"></a>Aktivera VM-Agent i Azure Security Center
 VM-agenten måste installeras på virtuella datorer (VM) för att [Aktivera datainsamling](security-center-enable-data-collection.md).  Azure Security Center kan du se vilka virtuella datorer som kräver VM-agenten och rekommenderar att du aktiverar VM-agenten på de virtuella datorerna.
@@ -40,7 +40,7 @@ VM-agenten installeras som standard för virtuella datorer som distribueras frå
 ## <a name="see-also"></a>Se också
 I följande avsnitt kan du lära dig mer om Security Center:
 
-* [Ange säkerhetsprinciper i Azure Security Center](security-center-policies.md): Här får du lära dig hur du ställer in säkerhetsprinciper för prenumerationer och resursgrupper i Azure.
+* [Ange säkerhetsprinciper i Azure Security Center](security-center-azure-policy.md): Här får du lära dig hur du ställer in säkerhetsprinciper för prenumerationer och resursgrupper i Azure.
 * [Hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md): Här får du lära dig hur du kan skydda resurserna i Azure med hjälp av rekommendationer.
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md): Här kan du läsa om hur du övervakar dina Azure-resursers hälsa.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md): Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.

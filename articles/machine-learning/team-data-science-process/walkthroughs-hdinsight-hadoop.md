@@ -2,25 +2,21 @@
 title: Använda Hive på Azure HDInsight Hadoop data science genomgångar | Microsoft Docs
 description: Exempel på Team Data Science Process som går genom att använda Hive på Azure HDInsight Hadoop för att göra förutsägelseanalyser.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: deguhath
-ms.openlocfilehash: 2aa64d6dc144e85e1a0f03b8548fa47dba91a2eb
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: eae56eda72d775205a231e2c6482a1c0686d9251
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393167"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445932"
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Använda Hive på Azure HDInsight Hadoop data science genomgångar 
 

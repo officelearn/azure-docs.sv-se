@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 3986b07c3568c3dcbb4077361d38f74d658458cd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5392cf5463dd0b11d1ce53856c8e4e2e788892b0
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38603072"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442429"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Hur du skapar och använda grupper för att hantera utvecklarkonton i Azure API Management
+
 I API Management används grupper för att hantera hur produkter visas för utvecklare. Produkter görs först synliga för grupper och sedan utvecklare i dessa grupper kan visa och prenumerera på produkter som är associerade med grupper. 
 
 API Management har följande systemgrupper som inte kan ändras:
@@ -34,6 +35,8 @@ Utöver dessa systemgrupper kan administratörer skapa anpassade grupper eller [
 Den här guiden beskriver hur administratörer av en API Management-instans kan lägga till nya grupper och koppla dem till produkter och utvecklare.
 
 Förutom att skapa och hantera grupper i publisher-portalen, kan du skapa och hantera grupper med hjälp av API Management REST API [grupp](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) entitet.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -84,10 +87,10 @@ Det här avsnittet visar hur du associera grupper med medlemmar.
 1. Välj den **grupper** fliken till vänster på skärmen.
 2. Välj **medlemmar**.
 
-    ![Lägg till medlem](./media/api-management-howto-create-groups/groups005.png)
+    ![Lägg till en medlem](./media/api-management-howto-create-groups/groups005.png)
 3. Tryck på **+ Lägg till** och välj en medlem.
 
-    ![Lägg till medlem](./media/api-management-howto-create-groups/groups006.png)
+    ![Lägg till en medlem](./media/api-management-howto-create-groups/groups006.png)
 4. Tryck på **Välj**.
 
 När kopplingen har lagts till mellan utvecklare och gruppen, kan du visa den i den **användare** fliken.

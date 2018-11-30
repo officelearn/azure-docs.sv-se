@@ -1,5 +1,5 @@
 ---
-title: Azure AI-galleriet experiment | Microsoft Docs
+title: Azure AI-galleriet experiment – Azure Machine Learning Studio | Microsoft Docs
 description: Upptäcka och dela experiment i Azure AI-galleriet.
 services: machine-learning
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.openlocfilehash: 43e5cc14ac98b85dd50391380033834cf642b1a9
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 66b5e30a26c57676bdd65b4861d34ca90c0c25af
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264479"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317474"
 ---
 # <a name="discover-experiments-in-azure-ai-gallery"></a>Identifiera experiment i Azure AI-galleriet
 
-[Azure AI-galleriet](http://gallery.cortanaintelligence.com) har en mängd olika [experiment](https://gallery.cortanaintelligence.com/experiments) som har utvecklats i [Azure Machine Learning Studio](https://studio.azureml.net). Experiment sträcker sig från snabb proof of concept-experiment som visar en specifik machine learning-teknik för att fullständigt har utvecklat lösningar för problem med komplexa machine learning.
+[Azure AI-galleriet](http://gallery.cortanaintelligence.com) har olika [experiment](https://gallery.cortanaintelligence.com/experiments) som har utvecklats i [Azure Machine Learning Studio](https://studio.azureml.net). Experiment sträcker sig från snabb proof of concept-experiment som visar en specifik machine learning-teknik för att fullständigt har utvecklat lösningar för problem med komplexa machine learning.
 
 > [!NOTE]
 > En ***experimentera*** är en arbetsyta i Machine Learning Studio som du kan använda för att skapa en prediktiv analysmodell. Du kan skapa modellen genom att ansluta data med olika analytiska moduler. Du kan prova olika idéer gör testkörningar och slutligen distribuerar din modell som en webbtjänst i Azure. Ett exempel på hur du skapar en grundläggande experiment finns i [självstudie om maskininlärning: skapa ditt första experiment i Azure Machine Learning Studio](create-experiment.md). En mer omfattande genomgång av hur du skapar en lösning för förutsägelseanalys, se [genomgång: utveckla en förutsägelseanalys för kreditriskbedömning i Azure Machine Learning](walkthrough-develop-predictive-solution.md).

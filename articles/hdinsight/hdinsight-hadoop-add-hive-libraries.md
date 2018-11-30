@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: f9788c82e74b47d4550640a1069f6d97487eecc6
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 79ee129390c6b364ec65e8ae1e893e98f358751e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035313"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497098"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Lägga till anpassade Apache Hive-bibliotek när du skapar HDInsight-kluster
 
-Lär dig mer om att läsa in Apache Hive-bibliotek på HDInsight i förväg. Det här dokumentet innehåller information om hur du använder en skriptåtgärd för att läsa in bibliotek när klustret skapas före. Bibliotek som har lagts till med hjälp av stegen i det här dokumentet är tillgängliga globalt i Hive - behöver inte använda [JAR-Lägg till](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) att läsa in dem.
+Lär dig att läsa in i förväg [Apache Hive](https://hive.apache.org/) bibliotek på HDInsight. Det här dokumentet innehåller information om hur du använder en skriptåtgärd för att läsa in bibliotek när klustret skapas före. Bibliotek som har lagts till med hjälp av stegen i det här dokumentet är tillgängliga globalt i Hive - behöver inte använda [JAR-Lägg till](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) att läsa in dem.
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
@@ -93,4 +93,4 @@ När klustret har skapats har du ska kunna använda JAR-filer som har lagts till
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om hur du arbetar med Hive [använda Hive med HDInsight](hadoop/hdinsight-use-hive.md)
+Läs mer om hur du arbetar med Hive [använda Apache Hive med HDInsight](hadoop/hdinsight-use-hive.md)

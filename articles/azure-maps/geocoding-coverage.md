@@ -8,16 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 3ab0edf4483763c1048b7026175ddce821624ac0
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 664d52a96f1e724502f82f5f72567f87c74e716b
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821114"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444264"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Täckning för geokodning för Azure Maps
 
 När du söker efter en plats med Azure Maps söktjänsten tar sökorden och returnerar latitud och longitud koordinater, en process som kallas geokodning. Maps har dock inte samma grad av information och Precision för alla regioner och länder/regioner. Använd den här artikeln för att avgöra vilken typ av platser som du kan på ett tillförlitligt sätt söka efter i varje region. 
+
+Möjligheten att geokoda i ett land är beroende av väg data täckning och geokodning precisionen för tjänsten geokodning. Följande kategoriseringar används anger geokodning supportnivå i varje land/region.
+* **Upplysningar** -adresser data kan matchas mot en latitud/longitud koordinat inom adress kolli (egenskapen eller gränsen). Kallas ibland ”uttag' korrekt. Det här är den högsta nivån av precision som är tillgängliga för adresser. 
+* **Inhyser siffror** -adresser är interpolerade till en latitud/longitud koordinat på Gata.
+* **Gatuadress nivå** -adresser ska matchas med latitud/longitud-koordinaten för gata som innehåller adressen. Gatuadress kan inte bearbetas.
+* **Stadsnivå** -stad platsnamn stöds.
 
 ## <a name="americas"></a>Nord- och Sydamerika
 
@@ -52,6 +58,7 @@ När du söker efter en plats med Azure Maps söktjänsten tar sökorden och ret
 | Guadeloupe|                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guam                                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guatemala                                           |                 |                |       ✓      |      ✓     |          ✓         |
+| Guyana        |                |             |           |      ✓     |                 |
 | Haiti                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Honduras                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Jamaica                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -101,6 +108,7 @@ När du söker efter en plats med Azure Maps söktjänsten tar sökorden och ret
 | Heardön och McDonaldöarna                   |                 |                |              |      ✓     |          ✓         |
 | Hongkong SAR                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indonesien                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Indien       |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Japan                                               |                 |                |              |      ✓     |          ✓         |
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 42bd8ef95ac1b55e76fe1cf0702b79de91832741
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: aca81bd529fe6151dce7aba6754874355189fc59
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870187"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444400"
 ---
 # <a name="usage-data-for-luis-service-from-azure-cloud-shell"></a>Användningsdata för LUIS-tjänsten från Azure Cloud Shell
 Azure-portalen kan du använda PowerShell-cmdlets för att arbeta med LUIS-resurser. 
@@ -32,7 +32,7 @@ När du har ett lagringskonto och har autentiserats kan köra du PowerShell-cmdl
 ## <a name="open-cloud-shell"></a>Öppna Cloud Shell
 När du använder Azure portal cloudshell är du alltid den mest aktuella versionen av PowerShell. 
 
-Använd den **starta Cloud Shell** knappen för att öppna Cloud Shell eller öppna en webbläsare med [ https://shell.azure.com ](https://shell.azure.com). 
+Använd den **starta Cloud Shell** knappen för att öppna Cloud Shell eller öppna en webbläsare med [ https://shell.azure.com ](https://shell.azure.com). Välj Power Shell som miljön. Om du inte har ett Azure Storage-konto, måste du skapa en. 
 
 <a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><image src="https://shell.azure.com/images/launchcloudshell.png" /></a>
 

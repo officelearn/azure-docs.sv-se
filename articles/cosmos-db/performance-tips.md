@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 3e724301d235db49ab9332dedc877d7315460ecc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 91da40613e940b3dd577362273cf14e68d019f26
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256178"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442501"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Prestandatips för Azure Cosmos DB och .NET
 
@@ -104,7 +104,7 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
     Azure Cosmos DB begär görs över HTTPS/REST i Gateway-läge och har utsatts för Standardgränsen för anslutning per värdnamn eller IP-adress. Du kan behöva ställa in MaxConnections på ett högre värde (100-1000) så att klientbiblioteket kan använda flera samtidiga anslutningar till Azure Cosmos DB. I .NET SDK 1.8.0 och senare, standardvärdet för [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) är 50 och du kan ange om du vill ändra värdet i [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx)på ett högre värde.   
 4. **Justering parallella frågor partitionerade samlingar**
 
-     SQL .NET SDK version 1.9.0 och högre support parallella frågor, som gör det möjligt att fråga en partitionerad samling parallellt (se [arbeta med SDK: erna](sql-api-partition-data.md#working-with-the-azure-cosmos-db-sdks) och de relaterade [kodexempel](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) för mer information). Parallella frågor är utformade för att förbättra svarstid och dataflöde över sin seriella motsvarighet. Parallella frågor ange två parametrar som användare kan justera för att skräddarsy den efter deras krav, (a) MaxDegreeOfParallelism: att styra det maximala antalet partitioner sedan kan efterfrågas parallellt och (b) MaxBufferedItemCount: att styra antalet före hämtade resultat.
+     SQL .NET SDK version 1.9.0 och högre support parallella frågor, som gör det möjligt att fråga en partitionerad samling parallellt. Mer information finns i [kodexempel](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) gäller när du arbetar med SDK: erna. Parallella frågor är utformade för att förbättra svarstid och dataflöde över sin seriella motsvarighet. Parallella frågor ange två parametrar som användare kan justera för att skräddarsy den efter deras krav, (a) MaxDegreeOfParallelism: att styra det maximala antalet partitioner sedan kan efterfrågas parallellt och (b) MaxBufferedItemCount: att styra antalet före hämtade resultat.
 
     (a) ***justering MaxDegreeOfParallelism\:***  parallell fråga fungerar genom att fråga flera partitioner parallellt. Dock hämtas data från en enskild partitionerade samla in seriellt med avseende på frågan. Så, antalet partitioner att ställa in MaxDegreeOfParallelism har högsta risken för att uppnå de flesta högpresterande frågan, förutsatt att alla andra system villkor är desamma. Om du inte vet hur många partitioner kan du ange MaxDegreeOfParallelism till ett stort antal och minsta (antal partitioner, tillhandahålls användarindata) som MaxDegreeOfParallelism väljs automatiskt.
 
@@ -159,7 +159,7 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
 
     - För ASP.NET-webbprogram distribueras på Azure, detta kan göras genom att välja den **plattform som 64-bitars** i den **programinställningar** på Azure portal.
 
-## <a name="indexing-policy"></a>Indexeringsprincip
+## <a name="indexing-policy"></a>Indexeringspolicy
  
 1. **Undanta oanvända sökvägar från indexering för snabbare skrivningar**
 
@@ -172,7 +172,7 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
     ```
 
-    Mer information finns i [Azure Cosmos DB indexeringsprinciper](indexing-policies.md).
+    Mer information finns i [Azure Cosmos DB indexeringsprinciper](index-policy.md).
 
 ## <a name="throughput"></a>Dataflöde
 <a id="measure-rus"></a>

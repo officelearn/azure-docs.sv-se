@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 86a047fe291c7872fe275ba7246b9f3e59044723
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6a0a2dec6beeecca3779f4b047d3b5fe6295a1e6
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236831"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495302"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Använda Apache Spark REST API för att skicka fjärrstyrda jobb till ett HDInsight Spark-kluster
 
-Lär dig hur du använder Livy, Apache Spark REST API, som används för att skicka fjärrstyrda jobb till ett Azure HDInsight Spark-kluster. Detaljerad dokumentation finns i [ http://livy.incubator.apache.org/ ](http://livy.incubator.apache.org/).
+Lär dig hur du använder [Apache Livy](https://livy.incubator.apache.org/), [Apache Spark](https://spark.apache.org/) REST API, som används för att skicka fjärrstyrda jobb till ett Azure HDInsight Spark-kluster. Detaljerad dokumentation finns i [ http://livy.incubator.apache.org/ ](http://livy.incubator.apache.org/).
 
 Du kan använda Livy för att köra interaktiv Spark-gränssnitt eller skicka batch-jobb som ska köras på Spark. Den här artikeln berättar om hur du använder Livy för att skicka batchjobb. Kodfragmenten i den här artikeln använder cURL för att göra REST API-anrop till Livy Spark-slutpunkten.
 
@@ -28,8 +28,8 @@ Du kan använda Livy för att köra interaktiv Spark-gränssnitt eller skicka ba
 
 * [cURL](http://curl.haxx.se/). Den här artikeln använder cURL för att demonstrera hur du gör REST API-anrop mot ett HDInsight Spark-kluster.
 
-## <a name="submit-a-livy-spark-batch-job"></a>Skicka ett batch-jobb med Livy Spark
-Innan du skickar in ett batch-jobb, måste du överföra JAR-filen för programmet i klusterlagringen kopplat till klustret. Du kan använda kommandoradsverktyget [**AzCopy**](../../storage/common/storage-use-azcopy.md) till att göra detta. Det finns olika andra klienter som du kan använda för att överföra data. Du kan hitta mer information om dem i [Ladda upp data för Hadoop-jobb i HDInsight](../hdinsight-upload-data.md).
+## <a name="submit-an-apache-livy-spark-batch-job"></a>Skicka ett Apache Spark för Livy batch-jobb
+Innan du skickar in ett batch-jobb, måste du överföra JAR-filen för programmet i klusterlagringen kopplat till klustret. Du kan använda kommandoradsverktyget [**AzCopy**](../../storage/common/storage-use-azcopy.md) till att göra detta. Det finns olika andra klienter som du kan använda för att överföra data. Du kan hitta mer information om dem på [överföra data för Apache Hadoop-jobb i HDInsight](../hdinsight-upload-data.md).
 
     curl -k --user "<hdinsight user>:<user password>" -v -H <content-type> -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
 
@@ -164,7 +164,7 @@ HDInsight 3.5-kluster och inaktivera användning av lokala sökvägar till åtko
 
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>Skicka Livy jobb för ett kluster i Azure-nätverk
 
-Om du ansluter till ett HDInsight Spark-kluster i Azure Virtual Network kan kan du ansluta direkt till Livy i klustret. I detta fall är URL: en för Livy slutpunkten är `http://<IP address of the headnode>:8998/batches`. Här kan **8998** är den port som Livy körs på klustrets huvudnod. Mer information om att komma åt tjänster på icke-offentlig portar finns i [portar som används av Hadoop-tjänster på HDInsight](../hdinsight-hadoop-port-settings-for-services.md).
+Om du ansluter till ett HDInsight Spark-kluster i Azure Virtual Network kan kan du ansluta direkt till Livy i klustret. I detta fall är URL: en för Livy slutpunkten är `http://<IP address of the headnode>:8998/batches`. Här kan **8998** är den port som Livy körs på klustrets huvudnod. Mer information om att komma åt tjänster på icke-offentlig portar finns i [portar som används av Apache Hadoop-tjänster på HDInsight](../hdinsight-hadoop-port-settings-for-services.md).
 
 ## <a name="troubleshooting"></a>Felsökning
 
@@ -182,7 +182,7 @@ Här följer några problem som kan uppstå när du använder Livy skicka Fjärr
 
 ## <a name="next-step"></a>Nästa steg
 
-* [Livy REST API-dokumentation](http://livy.incubator.apache.org/docs/latest/rest-api.html)
+* [Apache Livy REST API-dokumentation](http://livy.incubator.apache.org/docs/latest/rest-api.html)
 * [Hantera resurser för Apache Spark-klustret i Azure HDInsight](apache-spark-resource-manager.md)
 * [Följa och felsöka jobb som körs i ett Apache Spark-kluster i HDInsight](apache-spark-job-debugging.md)
 

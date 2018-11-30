@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/08/2018
 ms.author: magoedte
-ms.openlocfilehash: 124488d13d1d303743900ab1de41768633e4f6e0
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 028179fb7718587ec2c277e1c3feb1569e76510d
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715728"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335750"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Vanliga och frågor svar om Azure Monitor för virtuella datorer (förhandsversion)
 Den här Microsoft-FAQ är en lista över vanliga frågor om Azure Monitor för virtuella datorer. Om du har ytterligare frågor om lösningen går du till den [diskussionsforum](https://feedback.azure.com/forums/34192--general-feedback) och ställa frågor. När en fråga är vanliga vi lägga till det i den här artikeln så att den finns snabbt och enkelt.
@@ -40,7 +40,7 @@ Om du väljer att använda metoden skriptbaserade stegen beskrivs i den [onboard
 Om du redan samlar in data från dina virtuella datorer, kan du redan ha konfigurerat det till rapportdata till en befintlig Log Analytics-arbetsyta.  Så länge arbetsytan är i något av våra regioner som stöds, kan du aktivera Azure Monitor för virtuella datorer till den befintliga arbetsytan.  Om arbetsytan som du redan använder inte är i något av våra regioner som stöds måste du inte att publicera till Azure Monitor för virtuella datorer just nu.  Vi arbetar aktivt för att stödja fler regioner.
 
 >[!NOTE]
->Vi konfigurerar prestandaräknare för den arbetsyta som påverkar alla virtuella datorer som rapporterar till arbetsytan, oavsett om du har valt att publicera dem till Azure Monitor för virtuella datorer. Mer information om hur prestandaräknare är konfigurerade för arbetsytan finns i vår [dokumentation](../../log-analytics/log-analytics-data-sources-performance-counters.md). Information om de räknare som konfigurerats för Azure Monitor för virtuella datorer finns i vår [dokumentation om](vminsights-onboard.md#performance-counters-enabled).  
+>Vi konfigurerar prestandaräknare för den arbetsyta som påverkar alla virtuella datorer som rapporterar till arbetsytan, oavsett om du har valt att publicera dem till Azure Monitor för virtuella datorer. Mer information om hur prestandaräknare är konfigurerade för arbetsytan finns i vår [dokumentation](../../azure-monitor/platform/data-sources-performance-counters.md). Information om de räknare som konfigurerats för Azure Monitor för virtuella datorer finns i vår [dokumentation om](vminsights-onboard.md#performance-counters-enabled).  
 
 ## <a name="why-did-my-vm-fail-to-onboard"></a>Varför min virtuella dator kunde inte publicera?
 När onboarding en Azure-dator från Azure-portalen, genomförs följande steg:

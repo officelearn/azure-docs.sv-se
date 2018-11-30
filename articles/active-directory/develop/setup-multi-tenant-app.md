@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: 0007afaf1a961b578b68925fc554cd0195bd5621
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: fe7d305110d8d78c0550741419bc35a0c4a4498e
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44724090"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423583"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>Så här konfigurerar du ett nytt program för flera innehavare
 
@@ -31,4 +31,4 @@ Här är en lista över rekommenderade avsnitt för mer information om program f
 - Mer information lär du dig [hur ett program med flera innehavare har konfigurerats och kodade slutpunkt till slutpunkt](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview), inklusive hur du registrerar, använda ”vanliga”-slutpunkten, implementera ”användare” och ”admin” ge samtycke, hur du implementerar mer avancerade flerskiktade scenarier
 
 ## <a name="next-steps"></a>Nästa steg
-[AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

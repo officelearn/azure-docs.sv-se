@@ -9,22 +9,22 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: f963ae53e1396b1ef6279f2bd6502e5ab0cd23a1
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: ac287f2ee50501d703b7d7b79a436ecb5335d1bd
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034565"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497396"
 ---
 # <a name="install-published-application---streamsets-data-collector"></a>Installera publicerad program – StreamSets Data Collector
 
-Den här artikeln beskrivs hur du installerar och kör den [StreamSets Data Collector för HDInsight](https://streamsets.com/) publicerade Apache Hadoop-program på Azure HDInsight. En översikt över HDInsight-programplattform och en lista över tillgängliga oberoende programvaruleverantör (ISV) publicerade program finns i [installera Hadoop-program från tredje part](hdinsight-apps-install-applications.md). Anvisningar om hur du installerar ett eget program finns i [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).
+Den här artikeln beskrivs hur du installerar och kör den [StreamSets Data Collector för HDInsight](https://streamsets.com/) publicerade [Apache Hadoop](https://hadoop.apache.org/) på Azure HDInsight. En översikt över HDInsight-programplattform och en lista över tillgängliga oberoende programvaruleverantör (ISV) publicerade program finns i [installera Apache Hadoop-program för tredje parts](hdinsight-apps-install-applications.md). Anvisningar om hur du installerar ett eget program finns i [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-streamsets-data-collector"></a>Om StreamSets Data Collector
 
 StreamSets Data Collector distribueras ovanpå ett Azure HDInsight-program. StreamSets Data Collector ger en komplett integrerad utvecklingsmiljö (IDE) inmatningspipelines kan du utforma, testa, distribuera och hantera any-to-any. Dessa pipelines nät batchdata och ta med olika omvandlingar i strömmen, allt utan att skriva anpassad kod.
 
-StreamSets Data Collector kan du skapa dataflöden med hjälp av ett stort antal Big Data-komponenter, till exempel HDFS, Kafka, Solr, Hive, HBASE och Kudu. När StreamSets Data Collector körs på en edge-server eller i ditt Hadoop-kluster kan få du realtidsövervakning för såväl data avvikelser som flow åtgärder. Den här övervakning innefattar tröskelbaserade aviseringar, avvikelseidentifiering och automatisk reparation av felposter.
+StreamSets Data Collector kan du skapa dataflöden med ett stort antal Big Data-komponenter som [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), [Apache Kafka](https://kafka.apache.org/), [Apache Solr](https://lucene.apache.org/solr/), [ Apache Hive](https://hive.apache.org/), [Apache HBase](https://hbase.apache.org/), och [Apache Kudu](https://kudu.apache.org/). När StreamSets Data Collector körs på en edge-server eller i ditt Hadoop-kluster kan få du realtidsövervakning för såväl data avvikelser som flow åtgärder. Den här övervakning innefattar tröskelbaserade aviseringar, avvikelseidentifiering och automatisk reparation av felposter.
 
 StreamSets Data Collector är utformad för att isolera varje steg i en pipeline logiskt så att du kan uppfylla nya affärsbehov genom att släppa nya processorer och anslutningar utan kodning och med minimal avbrottstid.
 
@@ -46,7 +46,7 @@ Om du vill installera den här appen på ett nytt HDInsight-kluster eller ett be
 
 ## <a name="install-the-streamsets-data-collector-published-application"></a>Installera StreamSets Data Collector publicerad program
 
-Stegvisa instruktioner om hur du installerar det här och andra tillgängliga ISV-program finns [installera Hadoop-program från tredje part](hdinsight-apps-install-applications.md).
+Stegvisa instruktioner om hur du installerar det här och andra tillgängliga ISV-program finns [installera Apache Hadoop-program för tredje parts](hdinsight-apps-install-applications.md).
 
 ## <a name="launch-streamsets-data-collector"></a>Starta StreamSets Data Collector
 

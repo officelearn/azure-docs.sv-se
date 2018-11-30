@@ -14,12 +14,12 @@ ms.component: compliance
 ms.date: 11/15/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: c1ae6e8c67ab42207aea73932bb2e887db727f16
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 5a68657a0aaedb389ccaaacebb890583ab6292ee
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263392"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307856"
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Skapa en åtkomstgranskning för medlemmar i gruppen eller programmet åtkomst med Azure AD
 
@@ -77,7 +77,7 @@ Den här artikeln beskriver hur du skapar en ny åtkomstgranskning för medlemma
 1. Använd den **granskaren inte svarar** listan för att ange vad som händer för användare som inte har setts över av den inom granskningsperioden. Den här inställningen påverkar inte användare som har granskats av granskarna manuellt. Om den slutliga granskare beslut neka, bort användarens åtkomst.
 
     - **Ingen ändring** -lämna användarens åtkomst har inte ändrats
-    - **Ta bort programåtkomst** -ta bort användarens åtkomst
+    - **Ta bort åtkomst** -ta bort användarens åtkomst
     - **Bevilja åtkomst** -godkänna användarens åtkomst
     - **Anta rekommendationerna** – ta systemets rekommendation neka eller godkänna användaren är fortsatt åtkomst
 

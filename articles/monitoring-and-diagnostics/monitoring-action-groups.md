@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 11/26/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 3ce7c5111fa176bb7fa734f54084b9e14e7afbef
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1b66f40594d0dd578e2e5680fb0d5bb0f82f1241
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016054"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311814"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure portal
 ## <a name="overview"></a>Översikt ##
@@ -76,6 +76,8 @@ Du kan ha upp till 1 000 e poståtgärder i en åtgärdsgrupp. Se den [begränsa
 **ITSM** – du kan ha upp till 10 ITSM-åtgärder i en åtgärd grupp ITSM-åtgärden kräver en ITSM-anslutningen. Lär dig hur du skapar en [ITSM-anslutningen](../log-analytics/log-analytics-itsmc-overview.md).
 
 **Logic App** – du kan ha upp till 10 Logic App-åtgärder i en åtgärdsgrupp
+
+**Funktionen App** -funktionstangenterna för Funktionsappar som har konfigurerats som åtgärder läses via API-funktioner, som för närvarande kräver v2 funktionsappar att konfigurera appinställningen ”AzureWebJobsSecretStorageType” till ”filer”, se [ Ändringar för hantering av nycklar i Functions V2]( https://aka.ms/funcsecrets) för mer information.
 
 **Runbook** -du kan ha upp till 10 Runbook-åtgärder i en åtgärd grupp referera till den [Azure-prenumerationstjänsten](../azure-subscription-service-limits.md) för gränser för Runbook-nyttolaster
 

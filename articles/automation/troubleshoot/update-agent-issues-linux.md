@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 20bd2fe8877c635b0f55bb4f904658a595658518
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: adaeb3087fca57a4a868f4525d588e014ff36fcf
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828713"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335835"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Förstå Linux-agenten kontrollera resultaten i hantering av uppdateringar
 
-Det kan finnas många orsaker till din dator inte visas **redo** i hantering av uppdateringar. Du kan kontrollera hälsotillståndet för en Hybrid Worker-agent för att fastställa det underliggande problemet i hantering av uppdateringar. Den här artikeln beskrivs hur du kör Felsökaren från Azure-portalen och offline-scenarier.
+Det kan finnas många orsaker till din Azure-dator inte visas **redo** i hantering av uppdateringar. Du kan kontrollera hälsotillståndet för en Hybrid Worker-agent för att fastställa det underliggande problemet i hantering av uppdateringar. Den här artikeln beskrivs hur du kör Felsökaren från Azure-portalen och offline-scenarier.
 
 ## <a name="start-the-troubleshooter"></a>Starta felsökaren
 
@@ -54,7 +54,8 @@ OS-kontroll verifierar om Hybrid Runbook Worker kör något av följande operati
 
 ### <a name="oms-agent"></a>OMS-agenten
 
-Den här kontroller säkerställer att OMS-agenten för Linux är installerad. Anvisningar för hur du installerar den finns i [installera agenten för Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md#install-the-agent-for-linux).
+Den här kontroller säkerställer att OMS-agenten för Linux är installerad. Anvisningar för hur du installerar den finns i [installera agenten för Linux](../../log-analytics//log-analytics-quick-collect-linux-computer.md#install-the-agent-for-linux
+).
 
 ### <a name="oms-agent-status"></a>Status för OMS-Agent
 

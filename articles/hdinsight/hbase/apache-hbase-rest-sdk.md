@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: af3b87fbe79624143b6c2b7e0a3c50852e532524
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 89c74b0c2144776d3bbc8a87f660b546ad40987f
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042129"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495414"
 ---
-# <a name="use-the-hbase-net-sdk"></a>Använda SDK för HBase
+# <a name="use-the-net-sdk-for-apache-hbase"></a>Använd .net SDK för Apache HBase
 
-[HBase](apache-hbase-overview.md) tillhandahåller två primära sätt att arbeta med dina data: [Hive-frågor och Hbase's RESTful API-anrop](apache-hbase-tutorial-get-started-linux.md). Du kan arbeta direkt med en REST-API med hjälp av den `curl` kommando eller ett liknande verktyg.
+[Apache HBase](apache-hbase-overview.md) tillhandahåller två primära sätt att arbeta med dina data: [Apache Hive-frågor och Hbase's RESTful API-anrop](apache-hbase-tutorial-get-started-linux.md). Du kan arbeta direkt med en REST-API med hjälp av den `curl` kommando eller ett liknande verktyg.
 
 För C# och .NET-program, den [Microsoft HBase REST-klientbiblioteket för .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/) ger ett klientbibliotek utöver HBase REST-API.
 
@@ -37,7 +37,7 @@ var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdins
 client = new HBaseClient(credentials);
 ```
 
-Ersätt KLUSTERNAMN med ditt HDInsight HBase klustrets namn och användarnamn och lösenord med Hadoop-autentiseringsuppgifterna som angetts för klustret skapas. Hadoop-Standardanvändarnamnet är **admin**.
+Ersätt KLUSTERNAMN med ditt HDInsight HBase klustrets namn och användarnamn och lösenord med Apache Hadoop-autentiseringsuppgifterna som angetts för klustret skapas. Hadoop-Standardanvändarnamnet är **admin**.
 
 ## <a name="create-a-new-table"></a>Skapa en ny tabell
 
@@ -113,7 +113,7 @@ set.rows.Add(row);
 await client.StoreCellsAsync("RestSDKTable", set);
 ```
 
-HBase implementerar BigTable, så dataformatet ser ut som följande:
+HBase implementerar [molnet BigTable](https://cloud.google.com/bigtable/), så dataformatet ser ut som följande:
 
 ![Användare med rollen kluster](./media/apache-hbase-rest-sdk/table.png)
 
@@ -189,4 +189,4 @@ finally
 ## <a name="next-steps"></a>Nästa steg
 
 * [Kom igång med Apache HBase-exempel i HDInsight](apache-hbase-tutorial-get-started-linux.md)
-* Skapa ett program för slutpunkt till slutpunkt med [analysera Twitter-åsikter i realtid med HBase](../hdinsight-hbase-analyze-twitter-sentiment.md)
+* Skapa ett program för slutpunkt till slutpunkt med [analysera Twitter-åsikter i realtid med Apache HBase](../hdinsight-hbase-analyze-twitter-sentiment.md)

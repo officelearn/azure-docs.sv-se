@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: edddc40b17adde685f875dfaa6b20879c6e61b15
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: edfd2e9e03aefa4833c8472a43d4857f08b95780
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259164"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495481"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Vanliga frågor om SQL Server som körs på Windows-datorer i Azure
 
@@ -71,16 +71,48 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Hur kan jag installera min licensierad version av SQL Server på en Azure-dator?**
 
-   Det finns två sätt att göra detta. Du kan etablera en av de [avbildningar av virtuella datorer som har stöd för licenser](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), som kallas också bring-your-own-license (BYOL). Ett annat alternativ är att kopiera SQL Server-installationsmediet till en Windows Server-dator och installera SQL Server på den virtuella datorn. Men om du installerar SQL Server manuellt, det finns inga portalintegrering och SQL Server IaaS Agent-tillägget stöds inte, så funktioner som automatisk säkerhetskopiering och automatisk uppdatering fungerar inte i det här scenariot. Därför rekommenderar vi för att använda en galleriavbildningar BYOL. Om du vill använda BYOL eller din egen SQL Server-media på en Azure virtuell dator, måste du ha [License Mobility genom Software Assurance på Azure](https://azure.microsoft.com/pricing/license-mobility/). Mer information finns i [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prisvägledning för virtuella SQL Server Azure-datorer).
+   Det finns två sätt att göra detta. Du kan etablera en av de [avbildningar av virtuella datorer som har stöd för licenser](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), som kallas också bring-your-own-license (BYOL). Ett annat alternativ är att kopiera SQL Server-installationsmediet till en Windows Server-dator och installera SQL Server på den virtuella datorn. Men om du installerar SQL Server manuellt, det finns inga portalintegrering och SQL Server IaaS Agent-tillägget stöds inte, så funktioner som automatisk säkerhetskopiering och automatisk uppdatering fungerar inte i det här scenariot. Därför bör du använda en av galleriavbildningar BYOL. Om du vill använda BYOL eller din egen SQL Server-media på en Azure virtuell dator, måste du ha [License Mobility genom Software Assurance på Azure](https://azure.microsoft.com/pricing/license-mobility/). Mer information finns i [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prisvägledning för virtuella SQL Server Azure-datorer).
 
-1. **Kan jag ändra en virtuell dator om du vill använda min egen SQL Server-licens om den har skapats från en användningsbaserad galleriavbildningar?**
-
-   Nej. Du kan inte byta från betala per sekund licensing till att använda din egen licens. Skapa en ny Azure-dator med någon av de [BYOL-avbildningar](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), och sedan migrera dina databaser till den nya servern med hjälp av standard [för datamigrering](virtual-machines-windows-migrate-sql.md).
 
 1. **Måste jag betala till SQL Server på en Azure VM-licens om den används endast för vänteläge/redundans?**
 
-   Om du har Software Assurance och använda License Mobility enligt beskrivningen i [VM vanliga frågor om licensiering](https://azure.microsoft.com/pricing/licensing-faq/) och du inte behöver betala för att licensiera en SQL-Server som deltar som en passiv sekundär replik i en distribution med hög tillgänglighet. I annat fall måste betala att licensiera den.
+   Om du har Software Assurance och använda License Mobility enligt beskrivningen i Virtual Machine vanliga frågor om licensiering,] (https://azure.microsoft.com/pricing/licensing-faq/) och du inte behöver betala för att licensiera en SQL-Server som deltar som en passiv sekundär replik i en distribution med hög tillgänglighet. I annat fall måste betala att licensiera den.
 
+1. **Kan jag ändra en virtuell dator om du vill använda min egen SQL Server-licens om den har skapats från en användningsbaserad galleriavbildningar?**
+
+   Ja. Du kan flytta enkelt flytta mellan två licensieringsmodeller finns, oavsett den avbildning som ursprungligen har distribuerats. Mer information finns i [ändra så att licensieringsmodellen för en SQL-VM](virtual-machines-windows-sql-ahb.md).
+
+1. **Bör jag använda BYOL-avbildningar eller SQL VM RP för att skapa den nya SQL VM?**
+
+   Bring-your-own-license (BYOL)-avbildningar är bara tillgängliga för EA-kunder. Andra kunder som har Software Assurance ska använda SQL VM-resursprovidern för att skapa en SQL-VM med [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/licensing-faq/). 
+
+1. **Byta licensieringsmodellerna kräver inget driftstopp för SQL Server?**
+
+   Nej. [Ändra så att licensieringsmodellen](virtual-machines-windows-sql-ahb.md) kräver inte någon avbrottstid för SQL Server när ändringen är omedelbart verksam och inte kräver en omstart av den virtuella datorn. 
+
+1. **CSP-prenumerationer kan aktivera Azure Hybrid-förmånen?**
+
+   Ja. [Ändra så att licensieringsmodellen](virtual-machines-windows-sql-ahb.md) är tillgänglig för CSP-prenumerationer. 
+
+1. **Medför ytterligare kostnader när du registrerar den virtuella datorn med den nya providern för SQL VM-resurs?**
+
+   Nej. Resursprovidern SQL VM kan bara ytterligare hanterbarhet för SQL Server på virtuella Azure-datorer med inga ytterligare avgifter. 
+
+1. **Finns SQL VM-resursprovidern för alla kunder?**
+ 
+   Ja. Alla kunder kan registrera med den nya SQL-VM-resursprovidern. Dock bara kunder med Software Assurance-förmån kan aktivera den [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (eller BYOL) på en SQL Server VM. 
+
+1. **Vad händer med _* Microsoft.SqlVirtualMachine_* resursen om den Virtuella datorresursen flyttats eller tagits bort?** 
+
+   När Microsoft.Compute/VirtualMachine resursen tas bort eller flyttas, och sedan den associerade resursen Microsoft.SqlVirtualMachine meddelas att asynkront replikeras igen.
+
+1. **Vad händer med den virtuella datorn om _* Microsoft.SqlVirtualMachine_* resursen tas bort?**
+
+   Resursen Microsoft.Compute/VirtualMachine påverkas inte när Microsoft.SqlVirtualMachine resursen tas bort. Som standard men licensiering ändringarna tillbaka till den ursprungliga källan för avbildningen. 
+
+1. **Är det möjligt att registrera lokal distribuerade SQL Server-datorer med SQL VM-resursprovidern?**
+
+   Ja. Om du har distribuerat SQL Server från din egen media, kan du registrera din SQL-VM med resursprovidern att hämta de hanterbarhet fördelarna med SQL IaaS-tillägget. Du kan dock inte att konvertera till PAYG-en lokal distribuerade SQL-VM. 
 
 ## <a name="administration"></a>Administration
 

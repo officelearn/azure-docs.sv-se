@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 555b64a87236f1f3b80497abf9fc7d34fca596a0
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: da35f88550bb7bd1a4543f03936dcd52ddd926d9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715965"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308367"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers-preview"></a>Felsökning Azure Monitor för behållare (förhandsgranskning)
 
@@ -99,7 +99,7 @@ I tabellen nedan sammanfattas kända fel kan uppstå när du använder Azure Mon
 | Felmeddelanden  | Åtgärd |  
 | ---- | --- |  
 | Felmeddelande `No data for selected filters`  | Det kan ta lite tid att upprätta övervakning dataflöde för nyligen skapade kluster. Låt minst 10 – 15 minuter innan data visas för klustret. |   
-| Felmeddelande `Error retrieving data` | Medan Azure Kubenetes Service-kluster att konfigurera för hälso- och prestandaövervakning, upprättas en anslutning mellan kluster och Azure Log Analytics-arbetsyta. En Log Analytics-arbetsyta används för att lagra alla övervakningsdata för klustret. Det här felet kan uppstå när Log Analytics-arbetsytan har tagits bort eller tappas bort. Kontrollera om din arbetsyta är tillgänglig genom att granska [hantera åtkomst](../../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json#workspace-information). Om arbetsytan saknas, behöver du re publicera ditt kluster med Azure Monitor för behållare. Att re publicera behöver du [inaktivera](/container-insights-optout.md?toc=%2fazure%2fmonitoring%2ftoc.json) övervakningens för klustret och [aktivera](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json#enable-monitoring-for-a-new-cluster) igen för att Azure Monitor för behållare. |  
+| Felmeddelande `Error retrieving data` | Medan Azure Kubenetes Service-kluster att konfigurera för hälso- och prestandaövervakning, upprättas en anslutning mellan kluster och Azure Log Analytics-arbetsyta. En Log Analytics-arbetsyta används för att lagra alla övervakningsdata för klustret. Det här felet kan uppstå när Log Analytics-arbetsytan har tagits bort eller tappas bort. Kontrollera om din arbetsyta är tillgänglig genom att granska [hantera åtkomst](../../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json#workspace-information). Om arbetsytan saknas, behöver du re publicera ditt kluster med Azure Monitor för behållare. Att re publicera behöver du [inaktivera](container-insights-optout.md) övervakning för klustret och [aktivera](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json#enable-monitoring-for-a-new-cluster) Azure Monitor för behållare igen. |  
 | `Error retrieving data` När du lägger till Azure Monitor för behållare via az aks cli | När onboarding med `az aks cli`, mycket sällan Azure Monitor för behållare kanske inte korrekt integrerats. Kontrollera om lösningen har publicerats. Gör detta genom att gå till Log Analytics-arbetsytan och se om lösningen är tillgänglig genom att välja **lösningar** från fönstret till vänster. För att lösa problemet måste du distribuera lösningen igen genom att följa anvisningarna [så här distribuerar du Azure Monitor för behållare](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json) |  
 
 För att diagnosticera problemet, har vi lagt till ett felsökning skript som är tillgängliga [här](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script).  

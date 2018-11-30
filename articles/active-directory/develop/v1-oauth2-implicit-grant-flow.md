@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ccc5aa116d2f01b601e6b6b9aad456110b764856
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 90c636d57189518cb95291510f3e83ef8e7a8a75
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985734"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422039"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Förstå implicit beviljande av OAuth2 flödet i Azure Active Directory (AD)
 
@@ -34,7 +34,7 @@ OAuth2-implicit beviljande är kända för att bevilja med den längsta listan �
 
 Den quintessential [OAuth2-auktoriseringskodbeviljande](https://tools.ietf.org/html/rfc6749#section-1.3.1) är auktoriseringsbeviljande som använder två separata slutpunkter. Auktoriseringsslutpunkten används för användarens interaktion fas, vilket resulterar i en auktoriseringskod. Tokenslutpunkten används sedan av klienten för utbyte av koden för en åtkomsttoken och ofta en uppdateringstoken. Webbprogram krävs för att ge sina egna program autentiseringsuppgifter till tokenslutpunkten, så att auktoriseringsservern kan autentisera klienten.
 
-Den [OAuth2-implicit beviljande](https://tools.ietf.org/html/rfc6749#section-1.3.2) är en variant av andra auktoriseringsbeviljanden. Det gör att en klient att hämta en åtkomsttoken (och id_token, när du använder [OpenId Connect](http://openid.net/specs/openid-connect-core-1_0.html)) direkt från auktoriseringsslutpunkten utan att kontakta tokenslutpunkten eller autentisera klienten. Den här variant har utformats för JavaScript-baserade program som körs i en webbläsare: i den ursprungliga OAuth2-specifikationen token returneras i ett URI-fragment. Som tillgängliggör token bitarna till JavaScript-koden i klienten, men det garanterar att de inte inkluderas i omdirigeringar mot servern. Returnerar token via webbläsaren omdirigeras direkt från slutpunkten för auktorisering. Det har även fördelen med att ta bort eventuella krav för skriptkörning över flera ursprungsanrop, vilket är nödvändigt om JavaScript-program som krävs för att kontakta tokenslutpunkten.
+Den [OAuth2-implicit beviljande](https://tools.ietf.org/html/rfc6749#section-1.3.2) är en variant av andra auktoriseringsbeviljanden. Det gör att en klient att hämta en åtkomsttoken (och id_token, när du använder [OpenId Connect](https://openid.net/specs/openid-connect-core-1_0.html)) direkt från auktoriseringsslutpunkten utan att kontakta tokenslutpunkten eller autentisera klienten. Den här variant har utformats för JavaScript-baserade program som körs i en webbläsare: i den ursprungliga OAuth2-specifikationen token returneras i ett URI-fragment. Som tillgängliggör token bitarna till JavaScript-koden i klienten, men det garanterar att de inte inkluderas i omdirigeringar mot servern. Returnerar token via webbläsaren omdirigeras direkt från slutpunkten för auktorisering. Det har även fördelen med att ta bort eventuella krav för skriptkörning över flera ursprungsanrop, vilket är nödvändigt om JavaScript-program som krävs för att kontakta tokenslutpunkten.
 
 En viktig egenskap för OAuth2-implicit beviljande är det faktum att till exempel flödar uppdateringstoken som aldrig gå tillbaka till klienten. Nästa avsnitt visar hur detta inte är nödvändigt och i själva verket är ett säkerhetsproblem.
 

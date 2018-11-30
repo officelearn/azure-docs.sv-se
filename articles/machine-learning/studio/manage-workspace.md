@@ -1,5 +1,5 @@
 ---
-title: Hantera en Machine Learning-arbetsyta | Microsoft Docs
+title: Hantera en Machine Learning-arbetsyta – Azure Machine Learning Studio | Microsoft Docs
 description: Hantera åtkomst till Azure Machine Learning-arbetsytor och distribuera och hantera ML API-webbtjänster
 services: machine-learning
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
-ms.openlocfilehash: 80a9c92c80d82555c5bf8f75a615095647eb1dc9
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: c470d10b933b31d4cfe151fb541c2182562a2805
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264955"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314112"
 ---
 # <a name="manage-an-azure-machine-learning-workspace"></a>Hantera en Azure Machine Learning-arbetsyta
 

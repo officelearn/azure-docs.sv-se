@@ -1,25 +1,21 @@
 ---
 title: Plattformar och verktyg för datavetenskap team projekt – Azure | Microsoft Docs
 description: Specificeras och beskriver de data- och resurserna som är tillgängliga för företag standardiserat Team Data Science Process.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: deguhath
-ms.openlocfilehash: 5cfe86414473f352673f39850a34f8ef265c91f5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 5df2cbabeb704453d71a0ac1db14c618dae352d2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258909"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446457"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plattformar och verktyg för dataforskningsprojekt
 
@@ -152,4 +148,4 @@ Om du använder Linux (CentOS) datorer för att köra git-kommandon måste du l�
 
 Fullständig slutpunkt till slutpunkt genomgång som visar alla steg i processen för **specifika scenarier** tillhandahålls också. De visas och som är kopplad till miniatyrbilder beskrivningarna i den [exempel genomgångar](walkthroughs.md) avsnittet. De visar hur du kombinerar molnlösningar, lokala verktyg och tjänster i ett arbetsflöde eller en pipeline för att skapa ett intelligenta program. 
 
-Exempel kör stegen i Team Data Science Process som använder Azure Machine Learning Studio finns i den [med Azure ML](https://aka.ms/datascienceprocess) Utbildningsväg.
+Exempel kör stegen i Team Data Science Process som använder Azure Machine Learning Studio finns i den [med Azure ML](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) Utbildningsväg.

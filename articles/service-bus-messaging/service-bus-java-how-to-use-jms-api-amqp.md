@@ -1,6 +1,6 @@
 ---
 title: Hur du använder AMQP 1.0 med Service Bus-API för Java | Microsoft Docs
-description: Hur du använder Java Message Service (JMS) med Azure Service Bus och Message Queuing Protodol AMQP (Advanced) 1.0.
+description: Hur du använder Java Message Service (JMS) med Azure Service Bus och AMQP Advanced Message Queuing Protocol () 1.0.
 services: service-bus-messaging
 documentationcenter: java
 author: spelluru
@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: spelluru
-ms.openlocfilehash: 9a223c67e0c1f2e71d2953be63924a114e7420af
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: fbd74b227afd2191616100d74c7864eacf015add
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018238"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308078"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Hur du använder Java Message Service (JMS) API med Service Bus och AMQP 1.0
 AMQP Advanced Message Queuing Protocol () 1.0 är ett effektivt, pålitligt meddelandeprotokoll på trådnivå som du kan använda för att skapa robusta och plattformsöverskridande meddelandeprogram.
@@ -66,7 +66,7 @@ queue.QUEUE = queue1
 #### <a name="setup-jndi-context-and-configure-the-connectionfactory"></a>Konfigurera JNDI kontext och konfigurera ConnectionFactory
 
 Den **ConnectionString** refereras till i version som är tillgänglig i den ”delade åtkomstprinciper” i den [Azure-portalen](https://portal.azure.com) under **primär anslutningssträng**
-```
+```java
 // The connection string builder is the only part of the azure-servicebus SDK library
 // we use in this JMS sample and for the purpose of robustly parsing the Service Bus 
 // connection string. 
@@ -89,7 +89,7 @@ Destination queue = (Destination) context.lookup("QUEUE");
 Posten som används för att definiera ett mål i Qpid egenskaper filprovidern JNDI har följande format:
 
 Skapa målkön för producenten- 
-```
+```java
 String queueName = "queueName";
 Destination queue = (Destination) queueName;
 
@@ -103,7 +103,7 @@ MessageProducer producer = session.createProducer(queue);
 ```
 
 Skapa en målkö för konsument- 
-```
+```java
 String queueName = "queueName";
 Destination queue = (Destination) queueName;
 
@@ -297,7 +297,7 @@ public class JmsQueueQuickstart {
 ```
 
 ### <a name="run-the-application"></a>Köra programmet
-Skicka den **Connection String** från den delade programåtkomst principer för att köra programmet.
+Skicka den **Connection String** från den delade åtkomstprinciper för att köra programmet.
 Nedan visas resultatet av formuläret genom att köra programmet:
 
 ```

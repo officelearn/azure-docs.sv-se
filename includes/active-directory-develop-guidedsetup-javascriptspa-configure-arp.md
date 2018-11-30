@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 66021fa8140da2faae4ecab07c98b0df4ea5297a
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 9a9f3cd2668f0e78441548592f38ade8ddc0fe46
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142470"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52331504"
 ---
 ## <a name="add-the-applications-registration-information-to-your-app"></a>Lägg till programmets registreringsinformation i din app
 
@@ -47,7 +47,8 @@ Konfigurera den `Redirect URL` fältet med URL-Adressen för din index.html-sida
 
 ```javascript
 var applicationConfig = {
-    clientID: "[Enter the application Id here]",
+    clientID: "Enter_the_Application_Id_here",
+    authority: "https://login.microsoftonline.com/common",
     graphScopes: ["user.read"],
     graphEndpoint: "https://graph.microsoft.com/v1.0/me"
 };

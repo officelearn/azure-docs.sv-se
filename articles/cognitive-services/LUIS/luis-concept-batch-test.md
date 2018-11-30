@@ -8,96 +8,44 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 10/24/2018
 ms.author: diberry
-ms.openlocfilehash: a35135d6d19ba10e1fd7473053be747715202440
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 44abadc653c4679f37152e6592c882475b139bdd
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637263"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333912"
 ---
 # <a name="batch-testing-in-luis"></a>Batch testa i LUIS
 
 Batch testning validerar din [active](luis-concept-version.md#active-version) tränade modellen att mäta dess prognosens noggrannhet kan förbättras. Ett batch-test kan du visa det arbete du utfört varje avsikt och entiteten i din aktuella tränade modellen i ett diagram. Granska resultaten av batch för att vidta lämpliga åtgärder för att förbättra noggrannhet, som att lägga till fler exempel yttranden till en avsikt om din app ofta inte kan identifiera rätt avsikten.
 
 ## <a name="group-data-for-batch-test"></a>Gruppera data för batch-test
+
 Det är viktigt att yttranden som används för att testa batch har LUIS. Om du har en datauppsättning för yttranden dela yttranden i tre grupper: yttranden som lagts till i en avsikt, yttranden som togs emot från den publicerade slutpunkten och yttranden som används för att testa batch LUIS när den har installerats. 
 
 ## <a name="a-dataset-of-utterances"></a>En datauppsättning för yttranden
+
 Skicka en kommandofil av yttranden som kallas en *datauppsättning*, för att testa batch. Datauppsättningen är en JSON-formaterad fil som innehåller högst 1 000 märkta **icke dubblett** yttranden. Du kan testa upp till 10 datauppsättningar i en app. Om du vill testa mer, ta bort en datauppsättning och sedan lägga till en ny.
 
 |**Regler**|
 |--|
 |* Inga dubbla yttranden|
-|Inga underordnade hierarkisk entitet|
 |1000 yttranden eller mindre|
 
 * Dubbletter anses exakta strängen matchar, inte matchningar som är tokeniserad först. 
 
 ## <a name="entities-allowed-in-batch-tests"></a>Entiteter som tillåts i batch-tester
-Entiteter är enkel, hierarkisk föräldrar och sammansatta. Alla entiteter av de här typerna visas i filtret batch test entiteter även om det finns inga motsvarande entiteter i batchfilen.
 
+Alla anpassade entiteter i modellen visas i filtret batch test entiteter även om det finns inga motsvarande entiteter i batch-fildata.
 
 <a name="json-file-with-no-duplicates"></a>
 <a name="example-batch-file"></a>
+
 ## <a name="batch-file-format"></a>Batch-filformat
+
 Kommandofilen består av yttranden. Varje uttryck måste ha en förväntade avsikt förutsägelse tillsammans med eventuella [datorn lärt dig entiteter](luis-concept-entity-types.md#types-of-entities) du förväntar dig att identifieras. 
-
-Följande är ett exempel på en batchfil med korrekt syntax:
-
-```JSON
-[
-  {
-    "text": "Are there any janitorial jobs currently open?",
-    "intent": "GetJobInformation",
-    "entities": 
-    [
-        {
-            "entity": "Job",
-            "startPos": 14,
-            "endPos": 23
-        }
-    ]
-  },
-  {
-    "text": "I would like a fullstack typescript programming with azure job",
-    "intent": "GetJobInformation",
-    "entities": 
-    [
-        {
-            "entity": "Job",
-            "startPos": 15,
-            "endPos": 46
-        }
-    ]
-  },
-  {
-    "text": "Is there a database position open in Los Colinas?",
-    "intent": "GetJobInformation",
-    "entities": 
-    [
-        {
-            "entity": "Job",
-            "startPos": 11,
-            "endPos": 18
-        }
-    ]
-  },
-  {
-    "text": "Please find database jobs open today in Seattle",
-    "intent": "GetJobInformation",
-    "entities": 
-    [
-        {
-            "entity": "Job",
-            "startPos": 12,
-            "endPos": 19
-        }
-    ]
-  }
-]
-```
 
 ## <a name="batch-syntax-template"></a>Mall för batch-syntax
 
@@ -125,24 +73,27 @@ Använd följande mall för att starta kommandofilen:
 ]
 ```
 
-Batchfilen använder den **startPos** och **endPos** egenskaper att notera i början och slutet av en entitet. Värdena får är nollbaserat och inte börja eller sluta på ett blanksteg. 
-
-Detta skiljer sig från frågeloggar som använder startIndex och endIndex egenskaper. 
+Batchfilen använder den **startPos** och **endPos** egenskaper att notera i början och slutet av en entitet. Värdena får är nollbaserat och inte börja eller sluta på ett blanksteg. Detta skiljer sig från frågeloggar som använder startIndex och endIndex egenskaper. 
 
 
 ## <a name="common-errors-importing-a-batch"></a>Vanliga fel som importerar en batch
+
 Vanliga fel är: 
 
 > * Fler än 1 000 yttranden
-> * Ett uttryck JSON-objekt som inte har en egenskap för entiteter
+> * Ett uttryck JSON-objekt som inte har en egenskap för entiteter. Egenskapen kan vara tomma matriser.
 > * Ord som är märkt i flera entiteter
+> * Entiteten etikett börjar eller slutar på ett blanksteg.
 
 ## <a name="batch-test-state"></a>Batch testtillstånd
+
 LUIS spårar tillståndet för varje datauppsättning senaste testet. Detta inkluderar storleken (antal yttranden i batchen) för senaste körning datum och senaste resultat (antal har förväntade yttranden).
 
 <a name="sections-of-the-results-chart"></a>
+
 ## <a name="batch-test-results"></a>Testresultat för batch
-Testresultat för batch är ett punktdiagram som kallas en matris med fel. Det här diagrammet är en 4-vägs-jämförelse av yttranden i filen och den aktuella modellen förväntade avsikten och entiteter. 
+
+Testresultat för batch är ett punktdiagram som kallas en matris med fel. Det här diagrammet är en 4-vägs-jämförelse av yttranden i kommandofilen och förväntade syftet för den aktuella modellen och entiteter. 
 
 Data som pekar på den **falskt positivt** och **falska negativa** avsnitt visar fel, som bör undersökas. Om alla datapunkter som finns på den **sanna positiva** och **SANT negativt** avsnitt, och sedan din app är perfekt för den här datauppsättningen.
 
@@ -153,11 +104,13 @@ Det här diagrammet hjälper dig att hitta yttranden som beräknar LUIS felaktig
 ![Batch-testning](./media/luis-concept-batch-test/batch-testing.png)
 
 ## <a name="errors-in-the-results"></a>Fel i resultaten
+
 Fel i batch-testet visar avsikter som inte är förväntad som anges i kommandofilen. Fel indikeras i de två red avsnitten i diagrammet. 
 
 Avsnittet falskt positivt anger att ett uttryck matchade en avsikt eller enhet när den inte får ha. Det falska negativt anger ett uttryck inte matchade en avsikt eller enhet när den ska ha. 
 
 ## <a name="fixing-batch-errors"></a>Åtgärda fel
+
 Om det uppstår fel i testet med batch kan du kan antingen lägga till flera uttryck i ett intent och/eller märka mer yttranden med entiteten för att göra diskriminering avsikter LUIS. Om du har lagt till yttranden och märkta dem och fortfarande få förutsägelse fel i testet med batch kan du lägga till en [frasen lista](luis-concept-feature.md) funktionen med domänspecifika ordförråd för att LUIS Lär dig snabbare. 
 
 ## <a name="next-steps"></a>Nästa steg

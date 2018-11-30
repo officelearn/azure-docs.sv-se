@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/27/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: abfd65920348bd51a9923d0a7c74f0f980a01540
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 275ee95261b168b0da7f0a4638679fe38fc0581b
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567833"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443906"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka C#-moduler för Azure IoT Edge
 
@@ -60,7 +60,7 @@ Gör följande för att skapa en IoT Edge-modul som baseras på .NET Core 2.1 me
 5. Ange ett namn för din lösning. 
 6. Välj **C#-modul** som mall för den första modulen i lösningen.
 7. Ange ett namn för din modul. Välj ett namn som är unikt i ditt behållarregister. 
-8. Ange namnet på modulens avbildningslagringsplatsen. VS Code autopopulates modulen namnet med **localhost:5000**. Ersätt den med din egen information i registret. Om du använder en lokal Docker-register för testning, sedan **localhost** är bra. Om du använder Azure Container Registry kan du sedan använda inloggningsserver från din registerinställningar. Det ser ut som inloggningsserver  **\<registernamn\>. azurecr.io**. Ersätt endast localhost-delen av strängen; ta inte bort modulens namn.
+8. Ange namnet på modulens avbildningslagringsplatsen. VS Code autopopulates modulen namnet med **localhost:5000**. Ersätt den med din egen information i registret. Om du använder en lokal Docker-register för testning, sedan **localhost** är bra. Om du använder Azure Container Registry kan du sedan använda inloggningsserver från din registerinställningar. Det ser ut som inloggningsserver  **\<registernamn\>. azurecr.io**. Ersätt endast localhost-delen av strängen; ta inte bort modulens namn. Den sista strängen ut \<registernamn\>.azurecr.io/\<modulename\>.
 
    ![Ange lagringsplatsen för Docker-avbildningen](./media/how-to-develop-csharp-module/repository.png)
 
@@ -78,6 +78,8 @@ Det finns fyra objekt inne i lösningen:
    >Miljö-filen skapas endast om du anger en avbildningslagringsplatsen för modulen. Om du har godkänt localhost för att testa och felsöka lokalt, behöver du inte deklarera miljövariabler. 
 
 * En **deployment.template.json** filen visar en lista över dina nya modulen tillsammans med ett exempel **tempSensor** modul som simulerar data som du kan använda för testning. Mer information om hur distribution manifest work finns i [Lär dig hur du använder distribution manifest för att distribuera moduler och upprätta vägar](module-composition.md). 
+* En **deployment.debug.template.json** filen behållare felsökningsversionen modulens avbildningar, med rätt behållare alternativ.
+
 
 ## <a name="develop-your-module"></a>Utveckla din modell
 
@@ -91,9 +93,22 @@ C#-stöd i VS Code är optimerat för plattformsoberoende .NET Core-utveckling. 
 
 IoT Edge C#-modul är en .net Core program. Och det är beroende av Azure IoT C#-enhets-SDK. Eftersom IoT C#-modulen kräver miljöinställningar att starta och köra, i modulen standardkoden du initiera en **ModuleClient** med miljöinställningar och Indatanamnet. Du måste också skicka eller dirigera meddelanden till indata-kanaler. Din standard C#-modul som endast innehåller en indatakanal och namnet är **indata1**.
 
-### <a name="setup-iot-edge-simulator-for-single-module-app"></a>Konfigurera IoT Edge-simulator för enkel modulen app
+### <a name="setup-iot-edge-simulator-for-iot-edge-solution"></a>Konfigurera IoT Edge-simulator för IoT Edge-lösning
 
-1. För att konfigurera och starta simulatorn i VS Code kommandopalett skriver och välj **Azure IoT Edge: starta IoT Edge Hub Simulator för enkel modulen**. Du måste också ange Indatanamn för din enda modulen program skriver **indata1** och tryck på RETUR. Kommandot utlöser **iotedgehubdev** CLI och starta IoT Edge-simulatorn och en testning verktyget modulen behållare. Du kan se utdata nedan i den integrerade terminalen om simulatorn startades i läget för enskild modulen. Du kan också se en `curl` kommando för att skicka meddelande via. Du ska använda det senare.
+I en utvecklingsdator måste starta du IoT Edge-simulator istället för att installera IoT Edge-daemon för säkerhet för att köra din IoT Edge-lösning. 
+
+1. I enhetsutforskare till vänster, högerklickar du på din IoT Edge enhets-ID, Välj **installationsprogrammet IoT Edge-simulatorn** att starta simulatorn med enhetens anslutningssträng.
+
+2. Du kan se IoT Edge simulatorn har har konfigurerats i integrerade terminalen.
+
+### <a name="setup-iot-edge-simulator-for-single-module-app"></a>Konfigurera IoT Edge-simulator för enkel modulen app
+I en utvecklingsdator måste starta du IoT Edge-simulator istället för att installera IoT Edge-daemon för säkerhet för att köra din IoT Edge-lösning. 
+
+1. I enhetsutforskare till vänster, högerklickar du på din IoT Edge enhets-ID, Välj **installationsprogrammet IoT Edge-simulatorn** att starta simulatorn med enhetens anslutningssträng.
+
+2. Du kan se IoT Edge simulatorn har har konfigurerats i integrerade terminalen.
+
+3. I VS Code kommandopaletten, skriver du och väljer **Azure IoT Edge: starta IoT Edge Hub Simulator för enkel modulen**. Du måste också ange Indatanamn för din enda modulen program skriver **indata1** och tryck på RETUR. Kommandot utlöser **iotedgehubdev** CLI och starta IoT Edge-simulatorn och en testning verktyget modulen behållare. Du kan se utdata nedan i den integrerade terminalen om simulatorn startades i läget för enskild modulen. Du kan också se en `curl` kommando för att skicka meddelande via. Du ska använda det senare.
 
    ![Konfigurera IoT Edge-simulator för enkel modulen app](media/how-to-develop-csharp-module/start-simulator-for-single-module.png)
 
@@ -103,7 +118,7 @@ IoT Edge C#-modul är en .net Core program. Och det är beroende av Azure IoT C#
 
    Den **edgeHubDev** behållare utgör kärnan i lokal IoT Edge-simulatorn. Det kan köras på utvecklingsdatorn utan IoT Edge security daemon och ange miljöinställningar för ursprunglig modul appen eller modulen behållare. Den **inkommande** behållare exponeras restAPIs för att överbrygga meddelanden att rikta indatakanal på din modul.
 
-2. I VS Code kommandopaletten, skriver du och väljer **Azure IoT Edge: ange autentiseringsuppgifter för modulen användarinställningar** att ställa in modulen miljöinställningar i `azure-iot-edge.EdgeHubConnectionString` och `azure-iot-edge.EdgeModuleCACertificateFile` i användarinställningarna. Du hittar dessa miljöinställningar refereras till i **.vscode** > **launch.json** och [användarinställningar för VS Code](https://code.visualstudio.com/docs/getstarted/settings).
+4. I VS Code kommandopaletten, skriver du och väljer **Azure IoT Edge: ange autentiseringsuppgifter för modulen användarinställningar** att ställa in modulen miljöinställningar i `azure-iot-edge.EdgeHubConnectionString` och `azure-iot-edge.EdgeModuleCACertificateFile` i användarinställningarna. Du hittar dessa miljöinställningar refereras till i **.vscode** > **launch.json** och [användarinställningar för VS Code](https://code.visualstudio.com/docs/getstarted/settings).
 
 ### <a name="build-module-app-and-debug-in-launch-mode"></a>Skapa modulen app och Felsök i Start-läge
 
@@ -144,7 +159,7 @@ IoT Edge C#-modul är en .net Core program. Och det är beroende av Azure IoT C#
 
 ## <a name="build-module-container-for-debugging-and-debug-in-attach-mode"></a>Skapa modulen behållare för felsökning och felsökning i Koppla läge
 
-Standardlösningen innehåller två moduler, en är en modul för simulerad temperatur sensorn och den andra är pipe-modul C#. Simulerade temperatursensorn ser till att skicka meddelanden till pipe-modulen C# och meddelanden är skickas till IoT Hub. Det finns flera Docker-filer för olika behållartyper i modulmappen som du skapade. Använd någon av dessa filer som slutar med tillägget **.debug** att skapa din modul för testning. För närvarande C# moduler support felsökning endast i Linux amd64-behållare i Koppla läge.
+Standardlösningen innehåller två moduler, en är en modul för simulerad temperatur sensorn och den andra är pipe-modul C#. Simulerade temperatursensorn ser till att skicka meddelanden till pipe-modulen C# och meddelanden är skickas till IoT Hub. Det finns flera Docker-filer för olika behållartyper i modulmappen som du skapade. Använd någon av dessa filer som slutar med tillägget **.debug** att skapa din modul för testning. Som standard **deployment.debug.template.json** innehåller felsökningsversionen för avbildningen. För närvarande C# moduler support felsökning endast i Linux amd64-behållare i Koppla läge. Du kan swtich din standard-plattform för Azure IoT Edge i statusfältet för VS Code.
 
 ### <a name="setup-iot-edge-simulator-for-iot-edge-solution"></a>Konfigurera IoT Edge-simulator för IoT Edge-lösning
 
@@ -156,28 +171,24 @@ I en utvecklingsdator måste starta du IoT Edge-simulator istället för att ins
 
 ### <a name="build-and-run-container-for-debugging-and-debug-in-attach-mode"></a>Skapa och köra behållare för felsökning och felsökning i Koppla läge
 
-1. I VS Code, navigerar du till den `deployment.template.json` filen. Uppdatera dina C#-modulen bild-URL genom att lägga till **.debug** i slutet.
+1. Navigera till `program.cs`. Lägg till en brytpunkt i den här filen.
 
-   ![Lägg till *** .debug till din avbildningsnamn](./media/how-to-develop-csharp-module/image-debug.png)
-
-2. Navigera till `program.cs`. Lägg till en brytpunkt i den här filen.
-
-3. I VS Code-Utforskaren, Välj den `deployment.template.json` klickar du på filen för din lösning på snabbmenyn **bygga och köra IoT Edge-lösning i simulatorn**. Du kan titta på behållaren för modulen loggar i samma fönster. Du kan också navigera till Docker-Utforskaren kan du titta på status för container.
+2. I VS Code-Utforskaren, Välj den `deployment.debug.template.json` klickar du på filen för din lösning på snabbmenyn **bygga och köra IoT Edge-lösning i simulatorn**. Du kan titta på behållaren för modulen loggar i samma fönster. Du kan också navigera till Docker-Utforskaren kan du titta på status för container.
 
    ![Titta på variabler](media/how-to-develop-csharp-module/view-log.png)
 
-4. Gå till felsökningsvyn VS Code. Välj debug-konfigurationsfil för. Alternativnamn debug bör likna **ModuleName fjärrfelsökning (.NET Core)**
+3. Gå till felsökningsvyn VS Code. Välj debug-konfigurationsfil för. Alternativnamn debug bör likna **ModuleName fjärrfelsökning (.NET Core)**
 
    ![Välj konfiguration](media/how-to-develop-csharp-module/debug-config.png)
 
-5. Välj **Starta felsökning** eller välj **F5**. Välj processen för att ansluta till.
+4. Välj **Starta felsökning** eller välj **F5**. Välj processen för att ansluta till.
 
-6. I VS Code Felsöka vyn visas variabler i den vänstra panelen.
+5. I VS Code Felsöka vyn visas variabler i den vänstra panelen.
 
-7. Stoppa felsökningssessionen genom klicka på stoppknappen eller tryck på **SKIFT + F5**. I VS Code kommandopaletten, och Skriv Välj **Azure IoT Edge: stoppa IoT Edge-simulatorn**.
+6. Stoppa felsökningssessionen genom klicka på stoppknappen eller tryck på **SKIFT + F5**. I VS Code kommandopaletten, och Skriv Välj **Azure IoT Edge: stoppa IoT Edge-simulatorn**.
 
     > [!NOTE]
-    > Det här exemplet visar hur du felsöker .NET Core IoT Edge-moduler i behållare. Den är baserad på felsökningsversionen av `Dockerfile.debug`, som innehåller Visual Studio .NET Core kommandoradsverktyget felsökare (VSDBG) i en behållaravbildning när du skapar den. När du felsöker dina C#-moduler, rekommenderar vi att du direkt använda eller anpassa `Dockerfile` utan VSDBG för produktionsklara IoT Edge-moduler.
+    > Det här exemplet visar hur du felsöker .NET Core IoT Edge-moduler i behållare. Den är baserad på felsökningsversionen av `Dockerfile.debug`, som innehåller Visual Studio .NET Core kommandoradsverktyget felsökare (VSDBG) i en behållaravbildning när du skapar den. När du felsöker din C# moduler, rekommenderar vi att du använder Dockerfile utan VSDBG direkt för produktionsklara IoT Edge-moduler.
 
 
 ## <a name="next-steps"></a>Nästa steg

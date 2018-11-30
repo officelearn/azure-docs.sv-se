@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 58992c80344902674b2b21a71b07925c752911a4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: eb0fa1edaadddfe055f3fc53a6d232e5a1293490
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230959"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424943"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Vanliga frågor och svar om Azure Multi-Factor Authentication
 
@@ -212,7 +212,7 @@ Be dem att följa den här proceduren för att ta bort kontot från mobilappen, 
 
 0x800434D4L felet uppstår vid försök att logga in på ett icke-webbläsarbaserade program som installerats på en lokal dator som inte fungerar med konton som kräver tvåstegsverifiering.
 
-En lösning för det här felet är att ha en separat användare konton för admin-relaterade och åtgärder för icke-administratörer. Senare kan länka du postlådor mellan ditt administratörskonto och icke-administratörskontot så att du kan logga in till Outlook med ditt administratörskonto. För mer information om den här lösningen kan du lära dig hur du [och ge en administratör kunna öppna och visa innehållet i en användares postlåda](http://help.outlook.com/141/gg709759.aspx?sl=1).
+En lösning för det här felet är att ha en separat användare konton för admin-relaterade och åtgärder för icke-administratörer. Senare kan länka du postlådor mellan ditt administratörskonto och icke-administratörskontot så att du kan logga in till Outlook med ditt administratörskonto. För mer information om den här lösningen kan du lära dig hur du [och ge en administratör kunna öppna och visa innehållet i en användares postlåda](https://help.outlook.com/141/gg709759.aspx?sl=1).
 
 ## <a name="next-steps"></a>Nästa steg
 

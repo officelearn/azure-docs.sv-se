@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 7fb69fd52c03300ee554fd903cba1670f2aa2421
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 10b2b6e67c22efaf1dcab2cfe8abdd42b7576dbc
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318613"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426075"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrera fjärrskrivbordsgateway infrastruktur med Network Policy Server (NPS)-tillägget och Azure AD
 
@@ -359,7 +359,7 @@ Utföra avancerade felsöka alternativ genom att granska loggfilerna NPS databas
 
 En beskrivning av dessa loggfiler, se [tolka NPS loggfilerna](https://technet.microsoft.com/library/cc771748.aspx). Posterna i loggfilerna kan vara svårt att tolka utan att importera dem till ett kalkylblad eller en databas. Du hittar flera IAS Parser online som hjälper dig att tolka loggfilerna. 
 
-Bilden nedan visar utdata i en sådan nedladdningsbara [shareware programmet](http://www.deepsoftware.com/iasviewer). 
+Bilden nedan visar utdata i en sådan nedladdningsbara [shareware programmet](https://www.deepsoftware.com/iasviewer). 
 
 ![Shareware-app](./media/howto-mfa-nps-extension-rdg/image35.png)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: e7bb7f0c4cb63390b91012e071589611991a2866
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4bd2b72596912d968ad6fc323ce32e620336d932
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068340"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316998"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Avancerat skydd med Azure Security Center
 
@@ -99,12 +99,12 @@ Så här genererar en avisering om ofarliga Windows Defender ATP test:
 
 3. Om kommandot lyckas visas en ny avisering på instrumentpanelen i Azure Security Center och Windows Defender ATP-portalen. Den här aviseringen kan ta några minuter innan den visas.
 
-4. Om du vill granska aviseringen i Security Center går du till **säkerhetsaviseringar** >  **misstänkt Powershell-kommandorad**.
+4. Om du vill granska aviseringen i Security Center går du till **säkerhetsaviseringar** >  **misstänkt Powershell-kommandorad**.
 
 5. I fönstret undersökning markerar du länken som leder till Windows Defender ATP-portalen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Ange säkerhetsprinciper i Azure Security Center](security-center-policies.md): Lär dig hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper.
+- [Ange säkerhetsprinciper i Azure Security Center](security-center-azure-policy.md): Lär dig hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper.
 - [Hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md): Lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
 - [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md): Lär dig hur du övervakar dina Azure-resursers hälsa.

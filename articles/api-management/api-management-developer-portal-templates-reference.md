@@ -1,6 +1,6 @@
 ---
-title: Azure API Management Developer portal mallar | Microsoft Docs
-description: Lär dig hur du anpassar innehållet i developer portalens sidor med en uppsättning mallar i Azure API Management.
+title: Azure API Management utvecklarportalsmallar | Microsoft Docs
+description: Lär dig mer om att anpassa innehållet på utvecklarportalens sidor med en uppsättning mallar i Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,20 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 540e9804d2ee84c050531f5287d4c4b8922ae999
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 0f339984a9db1a337f97e6db24571004cc34f679
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
-ms.locfileid: "26128757"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445488"
 ---
-# <a name="developer-portal-templates"></a>Developer portal mallar
+# <a name="developer-portal-templates"></a>Utvecklarportalsmallar
 
-Azure API Management ger dig möjlighet att anpassa innehållet i developer portalens sidor med hjälp av en uppsättning mallar som konfigurerar deras innehåll. Med hjälp av [DotLiquid](http://dotliquidmarkup.org/) syntax och redigeringsprogram, t.ex [DotLiquid för Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), och en angiven uppsättning lokaliserade [String resurser](api-management-template-resources.md#strings), [glyf resurser](api-management-template-resources.md#glyphs), och [sidan kontroller](api-management-page-controls.md), du har stor flexibilitet för att konfigurera innehåll för sidorna som du vill använda dessa mallar.  
+Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarportalens sidor med en uppsättning mallar som konfigurerar sitt innehåll. Med hjälp av [DotLiquid](http://dotliquidmarkup.org/) syntax och redigeringsprogram, till exempel [DotLiquid för Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), och en angiven uppsättning lokaliserade [sträng resurser](api-management-template-resources.md#strings), [tecken resurser](api-management-template-resources.md#glyphs), och [sidan kontroller](api-management-page-controls.md), har bra möjlighet att konfigurera innehållet i sidorna som du vill med hjälp av dessa mallar.  
   
-Mer information om hur du arbetar med mallar finns [hur du anpassar API Management developer-portalen med hjälp av mallar](api-management-developer-portal-templates.md).  
+Mer information om hur du arbetar med mallar finns i [hur du anpassar utvecklarportalen API Management med hjälp av mallar](api-management-developer-portal-templates.md).  
 
-##  <a name="DeveloperPortalTemplates"></a>Developer portal mallar  
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+##  <a name="DeveloperPortalTemplates"></a> Utvecklarportalsmallar  
   
 -   [API:er](api-management-api-templates.md)  
     -   [API-lista](api-management-api-templates.md#APIList)  
@@ -37,7 +39,7 @@ Mer information om hur du arbetar med mallar finns [hur du anpassar API Manageme
         -   [C#](api-management-api-templates.md#CSharp)  
         -   [Java](api-management-api-templates.md#Stub)  
         -   [JavaScript](api-management-api-templates.md#JavaScript)  
-        -   [Objective C](api-management-api-templates.md#ObjectiveC)  
+        -   [Mål-C](api-management-api-templates.md#ObjectiveC)  
         -   [PHP](api-management-api-templates.md#PHP)  
         -   [Python](api-management-api-templates.md#Python)  
         -   [Ruby](api-management-api-templates.md#Ruby)  
@@ -45,7 +47,7 @@ Mer information om hur du arbetar med mallar finns [hur du anpassar API Manageme
     -   [Produktlista](api-management-product-templates.md#ProductList)  
     -   [Produkten](api-management-product-templates.md#Product)  
 -   [Program](api-management-application-templates.md)  
-    -   [Programlista](api-management-application-templates.md#ProductList)  
+    -   [Lista över program](api-management-application-templates.md#ProductList)  
     -   [Programmet](api-management-application-templates.md#Application)  
 -   [Problem](api-management-issue-templates.md)  
     -   [Problemet lista](api-management-issue-templates.md#IssueList)  
@@ -56,7 +58,7 @@ Mer information om hur du arbetar med mallar finns [hur du anpassar API Manageme
     -   [Uppdatera kontoinformation](api-management-user-profile-templates.md#UpdateAccountInfo)  
 -   [Sidor](api-management-page-templates.md)  
     -   [Logga in](api-management-page-templates.md#SignIn)  
-    -   [Registrera sig](api-management-page-templates.md#SignUp)  
+    -   [Registrera dig](api-management-page-templates.md#SignUp)  
     -   [Det gick inte att hitta sidan](api-management-page-templates.md#PageNotFound)
 
 ## <a name="next-steps"></a>Nästa steg  

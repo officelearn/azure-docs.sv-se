@@ -1,5 +1,5 @@
 ---
-title: Använd exemplen på datauppsättningar i Machine Learning Studio | Microsoft Docs
+title: Använd exemplen på datauppsättningar – Azure Machine Learning Studio | Microsoft Docs
 description: Beskrivningar av de datauppsättningar som används i exemplet modeller som ingår i Machine Learning Studio. Du kan använda dessa exempel på datauppsättningar för dina experiment.
 services: machine-learning
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 79775e287f398b22866c78fb8bb03c5959246976
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 57d9e1c7b501b67a441dc3490356261fa29ebb7d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262296"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308842"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Använd exemplen på datauppsättningar i Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets

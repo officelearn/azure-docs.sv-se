@@ -1,6 +1,6 @@
 ---
-title: Importera data till Machine Learning Studio från datakällor online | Microsoft Docs
-description: Så här att importera dina utbildningsdata Azure Machine Learning Studio från olika källor som online.
+title: Importera data till Machine Learning Studio från online-datakällor – Azure | Microsoft Docs
+description: Den här artikeln beskrivs stödet för import av online-data från olika källor och den information som krävs för att flytta data från dessa källor till en Azure Machine Learning Studio experimentera.
 keywords: Importera data, dataformat, datatyper, datakällor, utbildningsdata
 services: machine-learning
 documentationcenter: ''
@@ -17,15 +17,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 6412d431b0258d681d8d9bd8cb3a88798a0d81cd
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 89e2414b32dfb3cc6773d09dcdc3e711e56492ef
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262907"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315039"
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Importera data till Azure Machine Learning Studio från olika datakällor online med modulen Importera data
-Den här artikeln beskrivs stödet för import av online-data från olika källor och information som behövs för att flytta data från dessa källor till ett Azure Machine Learning-experiment.
+Den här artikeln beskrivs stödet för import av online-data från olika källor och den information som krävs för att flytta data från dessa källor till en Azure Machine Learning Studio experimentera.
 
 > [!NOTE]
 > Den här artikeln innehåller allmän information om den [importdata] [ import-data] modulen. Mer detaljerad information om vilka typer av data som du kan komma åt format, parametrar och svar på vanliga frågor finns i avsnittet med modulen referens för den [importdata] [ import-data] modulen.

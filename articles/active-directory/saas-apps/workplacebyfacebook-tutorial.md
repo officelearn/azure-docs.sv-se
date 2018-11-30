@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 1f83dd64c7f6773ddb8956e6ebbc37b8c55aacec
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2e072a27087f90bddd3f7c416904758e40c2f6b9
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423879"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425198"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Självstudier: Azure Active Directory-integration med arbetsplats med Facebook
 
@@ -62,7 +62,7 @@ Om du vill konfigurera integreringen av arbetsplats av Facebook till Azure AD, s
 
 **Utför följande steg för att lägga till arbetsplatsen av Facebook från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
@@ -140,7 +140,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
    > [!NOTE] 
    > Som en del av SAML-autentiseringsprocessen utnyttjar arbetsplats frågesträngar för upp till 2,5 kB i storlek för att skicka parametrar till Azure AD.
 
-1. I den **företagets instrumentpanelen**går du till den **autentisering** fliken.
+1. I den **Administrationspanel**går du till den **Security** fliken **autentisering**.
 
 1. Under **SAML-autentisering**väljer **SSO endast** från den nedrullningsbara listan.
 

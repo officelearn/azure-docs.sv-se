@@ -10,16 +10,16 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: cd57e9a90b07447392fbff48017bb29f002ad29e
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 8a180dfada9da92e0b8ed69373a20602b3b0a177
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035959"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495594"
 ---
-# <a name="use-batch-transcription"></a>Använda batch avskrift
+# <a name="why-use-batch-transcription"></a>Varför använda Batch avskrift?
 
-Batch avskrift är perfekt om du har stora mängder ljud i lagring. Med hjälp av REST-API, kan du pekar på ljudfiler genom signatur för delad åtkomst (SAS) URI och ta emot avskrifter asynkront.
+Batch avskrift är perfekt om du har stora mängder ljud i lagring. Med hjälp av dedikerad REST-API, kan du pekar på ljudfiler genom en signatur för delad åtkomst (SAS) URI och ta emot avskrifter asynkront.
 
 ## <a name="the-batch-transcription-api"></a>Batch-avskrift API
 
@@ -36,16 +36,16 @@ API: et för Batch avskrift erbjuder asynkron tal till text-avskrift, tillsamman
 
 API: et för Batch avskrift stöder följande format:
 
-Namn| Kanal  |
-----|----------|
-MP3-filen |   Mono   |   
-MP3-filen |  Stereo  | 
-WAV |   Mono   |
-WAV |  Stereo  |
-Opus|   Mono   |
-Opus|  Stereo  |
+| Format | Codec | Bithastighet | Samplingshastighet |
+|--------|-------|---------|-------------|
+| WAV | PCM | 16-bitars | 8 eller 16 kHz, mono, stereo |
+| MP3-FILEN | PCM | 16-bitars | 8 eller 16 kHz, mono, stereo |
+| OGG | OPUS | 16-bitars | 8 eller 16 kHz, mono, stereo |
 
-Delar upp kanalen vänster och höger under utskrift för stereo ljudströmmar batch avskrift. De två JSON-filerna med resultatet skapas var och en från en enda kanal. Tidsstämplar per uttryck gör att utvecklare kan skapa en ordnad slutlig avskrift. Utdata från en kanal, inklusive egenskaper för att konfigurera filter mot olämpligt språk och skiljetecken-modellen illustreras i följande JSON-exempel:
+> [!NOTE]
+> API: et för Batch avskrift kräver en S0-nyckel (betala nivå). Det fungerar inte med en kostnadsfri (f0)-nyckel.
+
+Delar upp kanalen vänster och höger under utskrift för stereo ljudströmmar Batch avskrift API. De två JSON-filerna med resultatet skapas var och en från en enda kanal. Tidsstämplar per uttryck gör att utvecklare kan skapa en ordnad slutlig avskrift. I följande JSON-exempel visas utdata för en kanal, includuing egenskaper för att ställa in filter mot olämpligt språk och skiljetecken-modell.
 
 ```json
 {
@@ -62,6 +62,16 @@ Delar upp kanalen vänster och höger under utskrift för stereo ljudströmmar b
 
 > [!NOTE]
 > API för Batch-avskrift använder en REST-tjänst för att begära avskrifter, deras status och associerade resultat. Du kan använda API: T från alla språk. I nästa avsnitt beskrivs hur API: et används.
+
+### <a name="query-parameters"></a>Frågeparametrar
+
+Dessa parametrar kan ingå i frågesträngen för REST-begäran.
+
+| Parameter | Beskrivning | Obligatoriskt / valfritt |
+|-----------|-------------|---------------------|
+| `ProfanityFilterMode` | Anger hur du hanterar svordomar i igenkänningsresultat. Godkända värden är `none` som inaktiverar svordomar filtrering, `masked` som ersätter svordomar med asterisker `removed` som tar bort alla svordomar från resultatet, eller `tags` som lägger till ”svordomar”-taggar. Standardinställningen är `masked`. | Valfri |
+| `PunctuationMode` | Anger hur du hanterar skiljetecken i igenkänningsresultat. Godkända värden är `none` som inaktiverar skiljetecken, `dictated` vilket medför att explicit skiljetecken `automatic` som gör att avkodaren handlar om skiljetecken, eller `dictatedandautomatic` vilket medför processens skiljetecken eller automatiskt. | Valfri |
+
 
 ## <a name="authorization-token"></a>Autentiseringstoken
 

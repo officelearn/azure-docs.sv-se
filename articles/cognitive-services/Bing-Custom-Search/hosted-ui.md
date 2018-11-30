@@ -3,19 +3,19 @@ title: Webbplatssökning, använda värdbaserade Gränssnittet Bing Custom Searc
 titlesuffix: Azure Cognitive Services
 description: Beskriver hur du konfigurerar Bing Custom Search finns Användargränssnittet.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: v-brapel
-ms.openlocfilehash: 77845cb60dac707326acdb08b0198f8725a36f62
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.author: aahi
+ms.openlocfilehash: c71597cf540cca67b9558ce28d20ce1d21ae0243
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48813982"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424994"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Konfigurera din värdbaserade användargränssnitt
 
@@ -29,7 +29,7 @@ Följ dessa steg om du vill konfigurera en värdbaserad Användargränssnittet f
   
 2. Klicka på en anpassad Sökinstans. Om du vill skapa en instans, [skapar din första Bing Custom Search-instans](quick-start.md).  
 
-3. Klicka på den **finns Användargränssnittet** fliken.  
+3. Klicka på fliken för **värdbaserat användargränssnitt**.  
   
 4. Välj en layout.
   
@@ -43,7 +43,7 @@ Följ dessa steg om du vill konfigurera en värdbaserad Användargränssnittet f
   - Mörk
   - Skyline blå
 
-  Klicka på alla teman och se vilket tema som fungerar bäst med ditt webbprogram. Om du behöver att finjustera färgtema vill bättre integrera med din webbapp klickar du på **Anpassa tema**. Inte alla konfigurationer av färg gäller för alla layoutteman. Om du vill ändra en färg, ange färgens RGB HEX-värdet (till exempel #366eb8) i motsvarande textruta. Eller, klicka på färgknappen och klickar på nyans som passar dig. 
+  Klicka på alla teman och se vilket tema som fungerar bäst med ditt webbprogram. Om du behöver finjustera färgtemat så att det bättre integrerar med din webbapp klickar du på **Anpassa tema**. Alla färgkonfigurationer finns inte för alla layoutteman. Om du vill ändra en färg anger du färgens RGB HEX-värde (till exempel #366eb8) i motsvarande textruta. Eller, klicka på färgknappen och klickar på nyans som passar dig. 
   
   När du har ändrat en färg att se hur ändringen påverkar förhandsversion exemplet till höger. Du kan alltid Klicka **Återställ till standard** att gå tillbaka till sidan för det valda temat.
 
@@ -105,7 +105,7 @@ Följ dessa steg om du vill konfigurera en värdbaserad Användargränssnittet f
 > [!NOTE]
 > När du gör ändringar i anpassade värdbaserade UI-konfigurationen ger till höger en visuell referens för ändringar som görs. Visade sökresultaten är inte faktiska resultat för din instans.
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 ## <a name="consume-custom-ui"></a>Använd anpassat gränssnitt
 
@@ -143,5 +143,5 @@ För ytterligare information, inklusive anpassade konfigurations-ID går du till
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Använda decoration markörer för att markera text](./hit-highlighting.md)
-- [Sidan webbsidor](./page-webpages.md)
+- [Använda dekorationsmarkörer för att markera text](./hit-highlighting.md)
+- [Webbsidor för sida](./page-webpages.md)

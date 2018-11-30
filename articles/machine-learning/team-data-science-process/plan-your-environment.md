@@ -2,25 +2,21 @@
 title: Identifiera scenarier och planera din analytics-process - Azure | Microsoft Docs
 description: Planera för avancerad analys genom att fundera över ett antal viktiga frågor.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 421520dd-7728-4d29-889c-ebe6a0a6fb07
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: 949bd8337ced7aa12d4354a46f6ee887a1922a7c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: b61f6c12aaa94fc61063e8d3bd7e339f1548781c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227747"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446432"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Så här identifierar du scenarier och planerar för avancerade analyser vid databearbetning
 Vilka resurser bör du planera att inkludera när du konfigurerar en miljö för att göra avancerade analyser på en datauppsättning? Den här artikeln tyder på ett antal frågor som hjälper dig att identifiera aktiviteter och resurser som är relevanta ditt scenario. Anvisningar för förutsägande analyser beskrivs i [vad är Team Data Science Process (TDSP)?](overview.md). Var och en av de här stegen kräver specifika resurser för uppgifterna som är relevanta för din specifika scenario. Viktiga frågor för att identifiera ditt scenario avse datalogistik, egenskaper, kvaliteten på datauppsättningar, och de verktyg och språk du föredrar att göra analysen.

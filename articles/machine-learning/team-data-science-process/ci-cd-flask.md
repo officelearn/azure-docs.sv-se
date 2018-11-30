@@ -1,26 +1,22 @@
 ---
 title: 'DevOps för artificiell intelligens (AI)-program: skapa pipeline för kontinuerlig integrering på Azure med Docker, Kubernetes och Python Flask-program'
 description: 'DevOps för artificiell intelligens (AI)-program: skapa pipeline för kontinuerlig integrering på Azure med Docker och Kubernetes'
-services: machine-learning, team-data-science-process
-documentationcenter: ''
-author: jainr
-manager: deguhath
+services: machine-learning
+author: marktab
+manager: cgronlun
 editor: cgronlun
-ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
-ms.author: jainr
-ms.openlocfilehash: fb162c45b8bd53fd4d994e0eb83a38438873d627
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.author: tdsp
+ms.custom: (previous author=jainr, ms.author=jainr)
+ms.openlocfilehash: c232680d5d1bf0eb761ff974ebf6608b67922f33
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094405"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496750"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>DevOps för artificiell intelligens (AI)-program: skapa pipeline för kontinuerlig integrering på Azure med Docker och Kubernetes
 Det finns ofta två strömmar av arbete, Dataexperter att skapa machine learning-modeller och App-utvecklare att bygga programmet och göra den tillgänglig att slutanvändare kan använda för ett AI-program. I den här artikeln visar vi hur du implementerar en kontinuerlig integrering (CI) / kontinuerlig leverans (CD) pipeline för ett AI-program. AI-program är en kombination av programkoden inbäddad med en tränats machine learning (ML)-modell. Vi hämtar en pretrained modell från en privat Azure blob storage-konto, det kan vara ett AWS S3-konto i den här artikeln. Vi använder en enkel python flask-webbapp för artikeln.
@@ -55,7 +51,7 @@ Pipeline-arkitekturen anges nedan.
 1. Utvecklare arbeta i IDE med sina programkoden.
 2. De kan koppla koden till källkontroll för valfri (Azure DevOps har bra stöd för olika käll-kontroller)
 3. Data Science fungerar separat, om hur du utvecklar sin modell.
-4. När glada, de publicerar modellen till en modell, använder vi i det här fallet blob storage-kontot. Detta kan enkelt ersättas med Azure ML Workbench modellhanteringstjänsten via sina REST-API: er.
+4. När glada, de publicerar modellen till en modell, använder vi i det här fallet blob storage-kontot. 
 5. En version har startats i Azure DevOps utifrån genomförandet i GitHub.
 6. Azure DevOps-Build pipeline hämtar den senaste modellen från Blob-behållare och skapar en behållare.
 7. Azure DevOps skickar avbildningen till lagringsplatsen för privat avbildning i Azure Container Registry

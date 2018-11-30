@@ -1,7 +1,19 @@
-
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: crdun
+ms.openlocfilehash: eded2d6a9f2c270a2b3ccca296277b0a016733fd
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440484"
+---
 1. Öppna projektet i Android Studio.
 
-2. I **Projektutforskaren** i Android Studio öppnar den `ToDoActivity.java` och Lägg till följande importuttryck:
+2. I **Projektutforskaren** Android Studio, öppna den `ToDoActivity.java` filen och Lägg till följande importuttryck:
 
     ```java
     import java.util.concurrent.ExecutionException;
@@ -50,9 +62,9 @@
     Den här koden skapar en metod för att hantera autentiseringsprocessen Google. En dialogruta visas ID för den autentiserade användaren. Du kan bara fortsätta på en lyckad autentisering.
 
     > [!NOTE]
-    > Om du använder en identitetsleverantör än Google, ändra värdet som skickas till den **inloggning** metod för att ett av följande värden: _MicrosoftAccount_, _Facebook_, _Twitter_, eller _windowsazureactivedirectory_.
+    > Om du använder en identitetsprovider än Google, ändrar du värdet som skickas till den **inloggning** metod till något av följande värden: _MicrosoftAccount_, _Facebook_, _Twitter_, eller _windowsazureactivedirectory_.
 
-4. I den **onCreate** metod, Lägg till följande kodrad efter den kod som instantierar den `MobileServiceClient` objekt.
+4. I den **onCreate** metoden Lägg till följande rad med kod efter den kod som skapar en instans av den `MobileServiceClient` objekt.
 
     ```java
     authenticate();
@@ -80,7 +92,7 @@
     }
     ```
 
-6. För att säkerställa omdirigering fungerar som förväntat, lägger du till följande fragment av `RedirectUrlActivity` till `AndroidManifest.xml`:
+6. Lägg till följande kodavsnitt för att säkerställa att omdirigeringen fungerar som förväntat, `RedirectUrlActivity` till `AndroidManifest.xml`:
 
     ```xml
     <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
@@ -94,7 +106,7 @@
     </activity>
     ```
 
-7. Lägg till `redirectUriScheme` till `build.gradle` för din Android-App.
+7. Lägg till `redirectUriScheme` till `build.gradle` på din Android-App.
 
     ```gradle
     android {
@@ -111,7 +123,7 @@
     }
     ```
 
-8. Lägg till `com.android.support:customtabs:23.0.1` till beroenden i din `build.gradle`:
+8. Lägg till `com.android.support:customtabs:23.0.1` i beroenden i din `build.gradle`:
 
     ```gradle
     dependencies {
@@ -120,9 +132,9 @@
     }
     ```
 
-9. Från den **kör** -menyn klickar du på **kör app** att starta appen och logga in med ditt valda identitetsleverantör.
+9. Från den **kör** -menyn klickar du på **kör app** att starta programmet och logga in med din valda identitetsprovider.
 
 > [!WARNING]
-> URL-schemat som nämns är skiftlägeskänslig. Se till att alla förekomster av `{url_scheme_of_you_app}` används på samma sätt.
+> URL-schema som tidigare nämnts är skiftlägeskänsligt. Se till att alla förekomster av `{url_scheme_of_you_app}` används på samma sätt.
 
-När du har loggat in, appen körs utan fel och du ska kunna skicka frågor till backend-tjänsten och göra uppdateringar till data.
+När du har loggat in, appen bör köras utan fel och du ska kunna skicka frågor till backend-tjänsten och gör uppdateringar till data.

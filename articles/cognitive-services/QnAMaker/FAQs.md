@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 11/27/2018
 ms.author: tulasim
-ms.openlocfilehash: 2e4a5d9b7ee2a1a88bcfe819be6540385458108f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 28153e71ba6f2336398517454a81cfce39b93956
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622371"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496345"
 ---
 # <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -25,7 +25,7 @@ ms.locfileid: "51622371"
 
 Alla borttagningar är permanent, inklusive frågor och svar-par, filer, URL: er, anpassade frågor och svar, kunskapsbaser eller Azure-resurser. Kontrollera att du exporterar kunskapsbasen från den **inställningar** sidan innan du tar bort någon del av kunskapsbasen. 
 
-### <a name="why-is-my-urlsfiles-is-not-extracting-question-answer-pairs"></a>Varför är min URL: er / filerna inte extrahera frågor svar par?
+### <a name="why-is-my-urlsfiles-not-extracting-question-answer-pairs"></a>Varför är min URL: er / filerna inte extrahering frågor svar par?
 
 Det är möjligt att QnA Maker inte kan automatiskt extrahera frågor och svar (frågor och svar) innehåll från giltiga URL: er med vanliga frågor och svar. I sådana fall kan du klistra in frågor och svar om innehållet i en txt-fil och se om verktyget kan mata in den. Alternativt kan du redigeringsmässigt lägga till innehåll kunskapsbasen via den [QnA Maker portal](https://qnamaker.ai).
 
@@ -41,13 +41,13 @@ Du har inte skapat några QnA Maker-tjänster i Azure ännu. Läs [här](./How-T
 
 Delning fungerar på nivån för QnA Maker-tjänsten, det vill säga kommer alla kunskapsbaser i tjänsten att delas. Läs [här](./How-To/collaborate-knowledge-base.md) så samarbeta med en kunskapsbas.
 
-### <a name="can-you-share-a-kb-with-a-contributor-that-is-not-in-the-same-aad-tenant-to-modify-a-kb"></a>Kan du dela en KB med deltagare som inte är i samma AAD-klientorganisation, att ändra ett KB? 
+### <a name="can-you-share-a-knowledge-base-with-a-contributor-that-is-not-in-the-same-aad-tenant-to-modify-a-knowledge-base"></a>Kan du dela en kunskapsbas med deltagare som inte är i samma AAD-klientorganisation, att ändra en kunskapsbas? 
 
 Dela baseras på Azure rollbaserad åtkomstkontroll (RBAC). Om du kan dela _alla_ resurs i Azure med en annan användare, kan du också dela QnA Maker.
 
-### <a name="if-you-have-an-app-service-plan-with-5-qnamaker-kbs-can-you-assign-readwrite-rights-to-5-different-users-so-each-of-them-can-access-only-1-qnamaker-kb"></a>Om du har en App Service-Plan med 5 QnAMaker KB-artiklar. Kan du tilldela Läs/Skriv-behörighet till 5 olika användare så att var och en av dem kan komma åt endast 1 QnAMaker KB?
+### <a name="if-you-have-an-app-service-plan-with-5-qnamaker-knowledge-bases-can-you-assign-readwrite-rights-to-5-different-users-so-each-of-them-can-access-only-1-qnamaker-knowledge-base"></a>Om du har en App Service-Plan med 5 QnAMaker kunskapsbaser. Kan du tilldela Läs/Skriv-behörighet till 5 olika användare så att var och en av dem kan komma åt endast 1 QnAMaker kunskapsbas?
 
-Du kan dela hela QnAMaker tjänsten, inte för enskilda KB-artiklar.
+Du kan dela hela QnAMaker tjänsten, inte för enskilda kunskapsbaser.
 
 ### <a name="how-can-i-change-the-default-message-when-no-good-match-is-found"></a>Hur kan jag ändra standardmeddelandet när ingen bra matchning hittas?
 
@@ -65,8 +65,7 @@ Standardmeddelandet är en del av inställningarna i din App service.
 
 ### <a name="why-is-my-sharepoint-link-not-getting-extracted"></a>Varför är min SharePoint-länken inte komma extrahera?
 
-Verktyget Parsar endast offentliga URL: er och har inte stöd för autentiserad datakällor just nu. Du kan också ladda ned filen och använda alternativet ladda upp filer för att extrahera frågor och svar.
-
+Se [datakällans platser](./Concepts/data-sources-supported.md#data-source-locations) för mer information.
 
 ### <a name="the-updates-that-i-made-to-my-knowledge-base-are-not-reflected-on-publish-why-not"></a>Uppdateringar som jag gjorde på min kunskapsbas inte visas publicera. Varför inte?
 
@@ -94,9 +93,13 @@ Uppdatera din app service när på varningsikonen är bredvid versionsvärdet f�
 
 Uppdatera dina endpoint-nycklar om du misstänker att de har komprometterats.
 
-### <a name="can-i-use-the-same-azure-search-resource-for-kbs-using-multiple-languages"></a>Kan jag använda samma Azure Search-resurs för KB-artiklar med flera språk?
+### <a name="can-i-use-the-same-azure-search-resource-for-knowledge-bases-using-multiple-languages"></a>Kan jag använda samma Azure Search-resurs för kunskapsbaser med flera språk?
 
-Om du vill använda flera språk och flera KB-artiklar, måste användaren skapa en QnA Maker-resurs för varje språk. Detta skapar en separat Azure search-tjänster per språk. Blanda olika språk KB-artiklar i en enda Azure search-tjänsten resulterar i degraderat relevans med resultat.
+Om du vill använda flera språk och flera kunskapsbaser, har användaren att skapa en QnA Maker-resurs för varje språk. Detta skapar en separat Azure search-tjänster per språk. Blanda kunskapsbaser för olika språk i en enda Azure search-tjänst resulterar i degraderat relevans med resultat.
+
+### <a name="how-can-i-change-the-name-of-the-azure-search-resource-used-by-qna-maker"></a>Hur kan jag ändra namnet på Azure Search-resurs som används av QnA Maker?
+
+Namnet på resursen för Azure Search är resursnamnet QnA Maker med vissa slumpmässiga bokstäver som tillägg i slutet. På så sätt blir det svårt att skilja mellan flera Sök efter resurser för QnA Maker. Skapa en separat Azure Search-tjänst (namngivning av det sätt som du vill) och ansluter den till din QnA Service. Stegen är liknande de steg som du behöver göra att [uppgradera ett Azure Search](How-To/upgrade-qnamaker-service.md#upgrade-azure-search-service).
 
 ## <a name="integrate-with-other-services-including-bots"></a>Integrera med andra tjänster som exempel robotar
 

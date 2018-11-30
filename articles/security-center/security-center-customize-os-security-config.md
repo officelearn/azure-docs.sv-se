@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 11/26/2018
 ms.author: rkarlin
-ms.openlocfilehash: 925f45f8d251882cfc8acf4b04902cea45451dd4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 91ee57ccd676d1d5e806e3f22eed3389d0fe5e73
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007271"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334201"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Anpassa OS-säkerhetskonfigurationer i Azure Security Center (förhandsversion)
 
@@ -32,7 +32,7 @@ Azure Security Center övervakar säkerhetskonfigurationer genom att använda en
 Organisationer kan genom att anpassa regler kan styra vilka konfigurationsalternativ passar bättre för deras miljö. Du kan ange en princip för anpassad bedömning och tillämpa den på alla tillämpliga datorer i prenumerationen.
 
 > [!NOTE]
-> - Anpassning av OS-säkerhetskonfiguration är för närvarande tillgänglig för Windows Server 2008, 2008 R2, 2012 och 2012 R2 operating system.
+> - Anpassning av OS-säkerhetskonfiguration är för närvarande tillgänglig för Windows Server 2008, 2008 R2, 2012, 2012 R2 och 2016 operating system.
 > - Det gäller konfigurationen för alla virtuella datorer och datorer som är anslutna till alla arbetsytor under den valda prenumerationen.
 > - Operativsystemanpassning security configuration är endast tillgänglig på Security Center standard-nivån.
 >
@@ -60,7 +60,7 @@ Om du vill anpassa den OS standardkonfigurationen för säkerhet i Security Cent
 3.  Klicka på raden i den prenumeration som du vill anpassa och **redigera inställningar för**.
 
 4. Välj **redigera säkerhetskonfigurationerna**.  
-    
+
     ![Fönstret ”Redigera säkerhetskonfigurationerna”](media/security-center-customize-os-security-config/blade.png)
 
 5. Följ stegen för att hämta, redigera och ladda upp den ändrade filen.

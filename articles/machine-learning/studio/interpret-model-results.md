@@ -1,5 +1,5 @@
 ---
-title: Tolka modellresultat i Machine Learning | Microsoft Docs
+title: Tolka modellresultat i Machine Learning Studio – Azure | Microsoft Docs
 description: Hur du väljer den optimala parameteruppsättning för en algoritm med och visualisera poängsätta modell utdata.
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 7fe481619da217238cc790acac212857566d01f3
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: c06b05989270b4199e5d97ca399a1411b73a702b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264989"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310277"
 ---
-# <a name="interpret-model-results-in-azure-machine-learning"></a>Tolka modellresultat i Azure Machine Learning
+# <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Tolka modellresultat i Azure Machine Learning Studio
 Det här avsnittet förklarar hur du visualiserar och tolka förutsagda resultaten i Azure Machine Learning Studio. När du har tränats en modell och göra förutsägelser ovanpå det. (”poängsätts modellen”), måste du förstå och tolka resultatet förutsägelse.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]

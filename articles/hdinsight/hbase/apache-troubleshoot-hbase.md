@@ -8,14 +8,14 @@ ms.author: nitinver
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 7/7/2017
-ms.openlocfilehash: e25a2dcaf9b7c820f5d7e0312fb2cb55fc558882
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 771f01f18c5cb54a0458d624a65ec1a69345cadd
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593907"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317236"
 ---
-# <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>Felsöka HBase med Azure HDInsight
+# <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Felsöka Apache HBase med Azure HDInsight
 
 Läs mer om de viktigaste problemen och sina lösningar när du arbetar med Apache HBase-nyttolaster i Apache Ambari.
 
@@ -30,7 +30,7 @@ Hål kanske på grund av regionerna som är offline, så åtgärda tilldelningar
 Utför följande steg för att göra regionerna som inte tilldelats till normalt läge:
 
 1. Logga in på HDInsight HBase-kluster med hjälp av SSH.
-2. Om du vill ansluta med ZooKeeper-shell, kör den `hbase zkcli` kommando.
+2. Om du vill ansluta med Apache ZooKeeper-shell, kör den `hbase zkcli` kommando.
 3. Kör den `rmr /hbase/regions-in-transition` kommando eller `rmr /hbase-unsecure/regions-in-transition` kommando.
 4. Avslutar den `hbase zkcli` shell, Använd den `exit` kommando.
 5. Öppna Apache Ambari UI, och sedan starta om tjänsten aktiv HBase Master.
@@ -46,7 +46,7 @@ En möjlig orsak för timeout-problem när du använder den `hbck` kommandot kan
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 
 1. Logga in på HDInsight HBase-kluster med hjälp av SSH.
-2. Om du vill ansluta med ZooKeeper-shell, kör den `hbase zkcli` kommando.
+2. Om du vill ansluta med Apache ZooKeeper-shell, kör den `hbase zkcli` kommando.
 3. Kör den `rmr /hbase/regions-in-transition` eller `rmr /hbase-unsecure/regions-in-transition` kommando.
 4. Avsluta den `hbase zkcli` shell, Använd den `exit` kommando.
 5. Starta om tjänsten aktiv HBase Master i Ambari UI.
@@ -56,7 +56,7 @@ En möjlig orsak för timeout-problem när du använder den `hbck` kommandot kan
 
 ### <a name="issue"></a>Problem
 
-Den lokala Hadoop Distributed File System (HDFS) har fastnat i felsäkert läge på HDInsight-kluster.
+Den lokala Apache Hadoop Distributed File System (HDFS) har fastnat i felsäkert läge på HDInsight-kluster.
 
 ### <a name="detailed-description"></a>Detaljerad beskrivning
 
@@ -211,7 +211,7 @@ HDInsight-klustret har skalats ned till en mycket få noder. Antalet noder som �
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 
-Om du vill ansluta Phoenix, måste du ange IP-adressen för en aktiv ZooKeeper-nod. Kontrollera som ZooKeeper-tjänsten till vilken sqlline.py försöker ansluta är igång.
+Om du vill ansluta med Apache Phoenix, måste du ange IP-adressen för en aktiv Apache ZooKeeper-nod. Kontrollera som ZooKeeper-tjänsten till vilken sqlline.py försöker ansluta är igång.
 1. Logga in på HDInsight-kluster med hjälp av SSH.
 2. Ange följande kommando:
                 
@@ -247,7 +247,7 @@ Om du vill ansluta Phoenix, måste du ange IP-adressen för en aktiv ZooKeeper-n
    ```apache
            ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189) 
    ```
-6. Utför följande steg för att starta om tjänsten HMaster på alla ZooKeeper-noder i Ambari UI:
+6. Utför följande steg för att starta om tjänsten HMaster på alla ZooKeeper-noder i Apache Ambari UI:
 
     1. I den **sammanfattning** avsnittet i HBase, gå till **HBase** > **aktiv HBase Master**. 
     2. I den **komponenter** avsnittet, starta om tjänsten HBase Master.
@@ -331,7 +331,7 @@ Det här är ett känt problem med tjänsten HMaster. Allmän kluster startåtg�
   
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 
-1. I Ambari UI, går du till **HBase** > **Peeringkonfigurationer**. Lägg till följande inställning i anpassade hbase-site.xml-filen: 
+1. I Apache Ambari UI, går du till **HBase** > **Peeringkonfigurationer**. Lägg till följande inställning i anpassade hbase-site.xml-filen: 
 
    ```apache
    Key: hbase.master.namespace.init.timeout Value: 2400000  
@@ -344,9 +344,9 @@ Det här är ett känt problem med tjänsten HMaster. Allmän kluster startåtg�
 
 ### <a name="issue"></a>Problem
 
-En omstart av fel på en regionsserver kan förhindras genom följande säkerhetsmetoder. Vi rekommenderar att du pausar arbetsbelastning aktivitet när du planerar att starta om HBase regionservrar. Om ett program fortsätter att ansluta med regionservrar när shutdown pågår, blir omstarten region server långsammare med flera minuter. Det är också en bra idé att först tömma alla tabeller. En referens för hur du tömma tabeller finns [HDInsight HBase: hur du kan förbättra HBase-kluster omstart tid genom att rensa tabellerna](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
+En omstart av fel på en regionsserver kan förhindras genom följande säkerhetsmetoder. Vi rekommenderar att du pausar arbetsbelastning aktivitet när du planerar att starta om HBase regionservrar. Om ett program fortsätter att ansluta med regionservrar när shutdown pågår, blir omstarten region server långsammare med flera minuter. Det är också en bra idé att först tömma alla tabeller. En referens för hur du tömma tabeller finns [HDInsight HBase: hur du kan förbättra Apache HBase-kluster omstart tid genom att rensa tabellerna](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
 
-Om du har initierat omstarten på HBase regionservrar från Ambari UI kan se du direkt att regionservrar fungerar korrekt, men de inte startas om direkt. 
+Om du har initierat omstarten på HBase regionservrar från Apache Ambari UI kan se du direkt att regionservrar fungerar korrekt, men de inte startas om direkt. 
 
 Här är vad som händer i bakgrunden: 
 

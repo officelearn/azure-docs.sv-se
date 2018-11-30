@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: da98873b133d69d78271494b991b67caea1d5a11
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 7fd201dd7c766880b1ed892abe3900b523d75145
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283078"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307482"
 ---
-# <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Ansluta till Kafka på HDInsight via Azure-nätverk
+# <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Ansluta till Apache Kafka på HDInsight via Azure-nätverk
 
-Lär dig mer om att ansluta direkt till Kafka på HDInsight med Azure Virtual Network. Det här dokumentet innehåller information om hur du ansluter till Kafka med följande konfigurationer:
+Lär dig mer om att ansluta direkt till Apache Kafka på HDInsight med Azure Virtual Network. Det här dokumentet innehåller information om hur du ansluter till Kafka med följande konfigurationer:
 
 * Från resurser i ett lokalt nätverk. Den här anslutningen har upprättats med hjälp av en VPN-enhet (programvara eller maskinvara) i det lokala nätverket.
 * Med hjälp av en VPN-klientprogrammet från en utvecklingsmiljö.
@@ -37,7 +37,7 @@ HDInsight tillåter inte direkt anslutning till Kafka via offentligt internet. K
     4. Konfigurera vidarebefordran mellan DNS-servern i varje nätverk.
     5. Skapa en Kafka på HDInsight-kluster i det virtuella nätverket.
 
-    Mer information finns i den [Anslut till Kafka från ett lokalt nätverk](#on-premises) avsnittet. 
+    Mer information finns i den [Anslut till Apache Kafka från ett lokalt nätverk](#on-premises) avsnittet. 
 
 * Ansluta enskilda datorer till det virtuella nätverket med en VPN-gateway och VPN-klienten. Om du vill aktivera den här konfigurationen måste du utföra följande uppgifter:
 
@@ -47,7 +47,7 @@ HDInsight tillåter inte direkt anslutning till Kafka via offentligt internet. K
     4. Konfigurera Kafka för IP-annonsering. Den här konfigurationen gör att klienten kan ansluta med broker IP-adresser i stället för domännamn.
     5. Ladda ned och använda VPN-klienten på utvecklingssystemet.
 
-    Mer information finns i den [Anslut till Kafka med en VPN-klient](#vpnclient) avsnittet.
+    Mer information finns i den [Anslut till Apache Kafka med en VPN-klient](#vpnclient) avsnittet.
 
     > [!WARNING]
     > Den här konfigurationen rekommenderas endast för utveckling på grund av följande begränsningar:
@@ -57,7 +57,7 @@ HDInsight tillåter inte direkt anslutning till Kafka via offentligt internet. K
 
 Mer information om hur du använder HDInsight i ett virtuellt nätverk finns i [utöka HDInsight med hjälp av Azure Virtual Networks](../hdinsight-extend-hadoop-virtual-network.md).
 
-## <a id="on-premises"></a> Ansluta till Kafka från ett lokalt nätverk
+## <a id="on-premises"></a> Ansluta till Apache Kafka från ett lokalt nätverk
 
 Om du vill skapa ett Kafka-kluster som kommunicerar med ditt lokala nätverk, följer du stegen i den [ansluta HDInsight till det lokala nätverket](./../connect-on-premises-network.md) dokumentet.
 
@@ -73,7 +73,7 @@ De här stegen skapar följande konfiguration:
 
 För att kontrollera att en Kafka-klient kan ansluta till klustret från en lokal plats, använder du stegen i den [exempel: Python-klienten](#python-client) avsnittet.
 
-## <a id="vpnclient"></a> Anslut till Kafka med en VPN-klient
+## <a id="vpnclient"></a> Anslut till Apache Kafka med en VPN-klient
 
 Använd stegen i det här avsnittet för att skapa följande konfiguration:
 
@@ -237,7 +237,7 @@ Använd stegen i det här avsnittet för att skapa följande konfiguration:
 
 ### <a name="configure-kafka-for-ip-advertising"></a>Konfigurera Kafka för IP-annonsering
 
-Som standard returnerar Zookeeper domännamnet för asynkrona meddelandeköer i Kafka till klienter. Den här konfigurationen fungerar inte med VPN-klientprogrammet som den inte kan använda namnmatchning för entiteter i det virtuella nätverket. Använd följande steg för att konfigurera Kafka att annonsera IP-adresser i stället för domännamn för den här konfigurationen:
+Som standard returnerar Apache Zookeeper domännamnet för asynkrona meddelandeköer i Kafka till klienter. Den här konfigurationen fungerar inte med VPN-klientprogrammet som den inte kan använda namnmatchning för entiteter i det virtuella nätverket. Använd följande steg för att konfigurera Kafka att annonsera IP-adresser i stället för domännamn för den här konfigurationen:
 
 1. Via en webbläsare går du till https://CLUSTERNAME.azurehdinsight.net. Ersätt __CLUSTERNAME__ med namnet på Kafka på HDInsight-klustret.
 
@@ -371,7 +371,7 @@ Mer information om hur du skapar ett virtuellt Azure nätverk med punkt-till-pla
 
 * [Konfigurera en punkt-till-plats-anslutning med Azure PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
-Se följande dokument för mer information om arbete med Kafka på HDInsight:
+Mer information om hur du arbetar med Apache Kafka på HDInsight finns i följande dokument:
 
-* [Kom igång med Kafka på HDInsight](apache-kafka-get-started.md)
-* [Använda spegling med Kafka i HDInsight](apache-kafka-mirroring.md)
+* [Kom igång med Apache Kafka på HDInsight](apache-kafka-get-started.md)
+* [Använda spegling med Apache Kafka på HDInsight](apache-kafka-mirroring.md)

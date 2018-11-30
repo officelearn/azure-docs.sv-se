@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: 8315647afec0166b41ce7a75f491077edd56db46
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: fd13cb25fbe3696bf67615ef956f478b7c355547
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036268"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422060"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Hantera Azure Blob Storage-resurser med Storage Explorer
 ## <a name="overview"></a>Översikt
@@ -29,7 +29,7 @@ Du kan använda Blob Storage för att exponera data offentligt eller lagra progr
 ## <a name="prerequisites"></a>Förutsättningar
 Du behöver följande för att slutföra stegen i den här artikeln:
 
-* [Hämta och installera Storage Explorer](http://www.storageexplorer.com)
+* [Hämta och installera Storage Explorer](https://www.storageexplorer.com)
 * [Ansluta till ett Azure-lagringskonto eller en Azure-lagringstjänst](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Skapa en blobcontainer
@@ -213,7 +213,7 @@ Följande steg illustrerar hur du hanterar blobar (och mappar) inom en blob-beh�
      3. Välj **Ja** i bekräftelsedialogen.
 
 ## <a name="next-steps"></a>Nästa steg
-* Visa [viktig information och videor för den senaste Storage Explorer-versionen](http://www.storageexplorer.com).
+* Visa [viktig information och videor för den senaste Storage Explorer-versionen](https://www.storageexplorer.com).
 * Läs mer om hur du [skapar program med Azure-blobbar, tabeller köer och filer](https://azure.microsoft.com/documentation/services/storage/).
 
 [0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png

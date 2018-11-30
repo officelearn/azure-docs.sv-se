@@ -14,36 +14,36 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d8264f896b7c6cac8fc46616ab3ee579c5acb8b7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d291d7ecd5ee9b8bf5645296ef345ac436f1d047
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621657"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495908"
 ---
 # <a name="azure-data-factory---customer-case-studies"></a>Azure Data Factory - kundfallstudier
-Data Factory är en molnbaserad information management-tjänst som automatiserar rörelser och transformering av data. Kunder mellan många branscher använder Data Factory och andra Azure-tjänster för att skapa deras analytics pipelines och lösa sina affärsproblem.  Lär dig direkt från våra kunder hur och varför de använder Data Factory.
+Data Factory är en molnbaserad information management-tjänst som automatiserar flytt och omvandling av data. Kunder i många branscher använda Data Factory och andra Azure-tjänster och skapa sina analytics-pipelines som du kan lösa sina affärsproblem.  Lär dig direkt från våra kunder hur och varför de använder Data Factory.
 
 ## <a name="milliman"></a>Milliman
-[Övre Actuarial fast omvandlar insurance bransch](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20096)
+[Främsta Actuarial företaget transformerar försäkringsbranschen](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20096)
 
 ## <a name="rockwell-automation"></a>Rockwell Automation
-[Industriell Automation fast minskar kostnaderna för upp till 90 procent med stordata lösningar](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18356)
+[Industriell Automation företaget att minska kostnaderna upp till 90 procent med big data-lösningar](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18356)
 
 ## <a name="ziosk"></a>Ziosk
-[Vilka spel du vill gå med den burger? Ziosk kanske redan vet.](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)
+[Vilka spel som du vill gå med den burger? Ziosk kanske redan vet.](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)
 
-## <a name="alaska-airlines"></a>Alaska flygbolagen
-[Flygbolag använder surfplattor molntjänster kan erbjuda mer intressant relä underhållning](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19357)
+## <a name="alaska-airlines"></a>Alaska Airlines
+[Flygbolag använder surfplattor, molntjänster för att erbjuda mer engagerande pågående underhållning](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19357)
 
-## <a name="tacoma-public-schools"></a>Tacoma offentliga skolorna
-[Förutsäga student annullerad risker, öka vilket priser med molnet analytics](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20703)
+## <a name="tacoma-public-schools"></a>Tacoma offentliga skolor
+[Förutse student annullerad riskerna, öka examinering priserna med molnbaserade analyser](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20703)
 
-## <a name="real-madrid-fc"></a>Verklig Madrid FC
-[Verklig Madrid ger stadium närmare till 450 miljoner fläktar i världen, med Microsoft Cloud](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20522)
+## <a name="real-madrid-fc"></a>Real Madrid FC
+[Real Madrid tar arenan närmare 450 miljoner fans över hela världen med Microsoft Cloud](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20522)
 
 ## <a name="pier-1-imports"></a>Pier 1 Imports
-[Söka efter en bättre anslutning med kunder via molnet Machine Learning](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
+[Hitta en bättre anslutning med kunder via molnet Machine Learning](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
 ## <a name="microsoft-studio"></a>Microsoft Studio
-[Leverera episka Xbox inträffar genom att analysera hundratals miljarder spelhändelser varje dag](https://customers.microsoft.com/en-us/story/xboxunlimited)
+[Levererar episka Xbox-upplevelser genom att analysera hundratals miljarder spelhändelser varje dag](https://customers.microsoft.com/en-us/story/xboxunlimited)

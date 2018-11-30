@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: 3163d4d61dba958cdf71dd0470b943bba69b0191
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d2f3c2ba6849540f90117ef127e25030ff56b569
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237206"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427173"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Backend-hälsotillstånd, diagnostikloggar och mått för Application Gateway
 
@@ -95,7 +95,7 @@ Följande kodavsnitt visar ett exempel på svaret:
 
 ## <a name="diagnostic-logging"></a>Diagnostikloggar
 
-Du kan använda olika typer av loggar i Azure för att hantera och felsöka programgatewayer. Du kan komma åt vissa av de här loggarna via portalen. Alla loggar kan extraheras från Azure Blob storage och visas i olika verktyg, till exempel [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel och Power BI. Du kan läsa mer om de olika typerna av loggar i listan nedan:
+Du kan använda olika typer av loggar i Azure för att hantera och felsöka programgatewayer. Du kan komma åt vissa av de här loggarna via portalen. Alla loggar kan extraheras från Azure Blob storage och visas i olika verktyg, till exempel [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Excel och Power BI. Du kan läsa mer om de olika typerna av loggar i listan nedan:
 
 * **Aktivitetsloggen**: du kan använda [Azure-aktivitetsloggar](../monitoring-and-diagnostics/insights-debugging-with-events.md) (tidigare känt som driftloggar och granskningsloggar) att visa alla åtgärder som skickas till din Azure-prenumeration och deras status. Aktivitetsloggposter samlas in som standard, och du kan visa dem i Azure Portal.
 * **Åtkomstlogg**: du kan använda den här loggfilen för att visa mönster i databasåtkomst Application Gateway och analysera viktiga information, inklusive anroparens IP, begärd URL, svarsfördröjning, returkod och byte in och ut. En åtkomstlogg samlas in var 300 sekund. Den här loggfilen innehåller en post per instans av Application Gateway. Application Gateway-instans kan identifieras av egenskapen instanceId.
@@ -303,7 +303,7 @@ Du kan visa och analysera aktivitetsloggdata med någon av följande metoder:
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Visa och analysera åtkomst, prestanda och loggar från brandväggen
 
-Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) kan samla in prestandaräknare och händelseloggen filerna från Blob storage-kontot. Där finns visualiseringar och kraftfulla sökfunktioner när du ska analysera dina loggar.
+Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) kan samla in prestandaräknare och händelseloggen filerna från Blob storage-kontot. Där finns visualiseringar och kraftfulla sökfunktioner när du ska analysera dina loggar.
 
 Du kan också ansluta till ditt lagringskonto och hämta JSON-loggposter för åtkomst- och prestandaloggar. När du har laddat ned JSON-filerna kan du konvertera dem till CSV-format och visa dem i Excel, Power BI eller något annat verktyg för visualisering av data.
 
@@ -379,7 +379,7 @@ Om du vill veta mer om webhooks och hur du kan använda dem med aviseringar, bes
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Visualisera prestandaräknare och händelseloggar genom att använda [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md).
+* Visualisera prestandaräknare och händelseloggar genom att använda [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md).
 * [Visualisera dina Azure-aktivitetsloggen med Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blogginlägg.
 * [Visa och analysera Azure-aktivitetsloggar i Power BI med mera](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blogginlägg.
 

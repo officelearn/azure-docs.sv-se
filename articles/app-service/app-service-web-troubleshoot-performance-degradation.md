@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: b1ae61b5372fa1061448c02e7b5c589a167888c9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 6ea0037611c1712e341bab601bdf14c2d742d1f8
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237221"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311593"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Felsöka långsam prestandaproblem med webbappar i Azure App Service
 Den här artikeln hjälper dig att felsöka långsam prestandaproblem med webbappar i [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -127,22 +127,10 @@ Om du har åtkomst till webb-programmets källkod kan du samla in information so
 
 Detaljerade anvisningar om hur du konfigurerar ditt program för loggning finns i [aktivera diagnostikloggning för webbappar i Azure App Service](web-sites-enable-diagnostic-log.md).
 
-#### <a name="use-the-azure-app-service-support-portal"></a>Använda portalen för Azure App Service-stöd
-Web Apps ger dig möjlighet att felsöka problem som är relaterade till webbappen genom att titta på http-loggar, händelseloggar, bearbeta skärmbilder med mera. Du kan komma åt den här informationen med hjälp av vår Support-portalen på **http://&lt;ditt appnamn >.scm.azurewebsites.net/Support**
+#### <a name="use-the-diagnostics-tool"></a>Använda diagnostikverktyget för
+App Service tillhandahåller en intelligent och interaktiv upplevelse för att hjälpa dig att felsöka ditt webbprogram med krävs ingen konfiguration. När du stöter på problem med ditt webbprogram, påpeka diagnostikverktyget fel att guida dig till rätt information för att enkelt och snabbt felsöka och lösa problemet.
 
-Azure App Service-supportportalen tillhandahåller tre separata flikar för att stödja de tre stegen i ett vanligt scenario för felsökning:
-
-1. Se aktuella beteendet
-2. Analysera genom att samla in diagnostikinformation och köra de inbyggda analysverktyg
-3. Minimera
-
-Om problemet sker just nu, klickar du på **analysera** > **diagnostik** > **diagnostisera nu** att skapa en diagnostisk session för dig, som samlar in HTTP-loggar, event viewer-loggfilerna, minnesdumpar, PHP felloggarna och PHP-processen rapporten.
-
-När data har samlats in, support portal körs en analys på data och ger dig en HTML-rapport.
-
-Om du vill hämta data, som standard lagras den i mappen D:\home\data\DaaS.
-
-Läs mer på Azure App Service-supportportalen [nya uppdateringar att stöd för Webbplatstillägg för Azure Websites](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites).
+Om du vill få åtkomst till App Service-diagnostik, navigera till din App Service-app eller en App Service Environment i den [Azure-portalen](https://portal.azure.com). I det vänstra navigeringsfönstret klickar du på **diagnostisera och lösa problem**.
 
 #### <a name="use-the-kudu-debug-console"></a>Använda Kudu-Felsökningskonsolen
 Web Apps levereras med ett Felsökningskonsolen som du kan använda för felsökning, utforska, ladda upp filer, samt JSON-slutpunkter för att hämta information om din miljö. Den här konsolen kallas den *Kudu-konsolen* eller *instrumentpanelen SCM* för din webbapp.

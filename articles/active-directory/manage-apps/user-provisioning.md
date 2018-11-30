@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 935fef5ea988908787ae04688985606acec41bfd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ac58c6b951a03b403375fdc17dcd45f8e624deac
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387285"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311461"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatisera etablering och avetablering för SaaS-program med Azure Active Directory
 
@@ -255,7 +255,7 @@ SaaS-program måste dock för B2B-användare för att kunna logga in på SaaS-pr
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>Stöder automatisk användaretablering till SaaS-appar fungerar med dynamiska grupper i Azure AD?
 
-Ja. När konfigurerad att ”synkronisera enbart tilldelade användare och grupper”, Azure AD-tjänst för användaretablering kan etablera eller användares användare i ett SaaS-program baserat på huruvida de är medlemmar i en [dynamisk grupp](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule]). Dynamiska grupper kan även användas med alternativet ”Synkronisera alla användare och grupper”.
+Ja. När konfigurerad att ”synkronisera enbart tilldelade användare och grupper”, Azure AD-tjänst för användaretablering kan etablera eller användares användare i ett SaaS-program baserat på huruvida de är medlemmar i en [dynamisk grupp](../users-groups-roles/groups-create-rule.md). Dynamiska grupper kan även användas med alternativet ”Synkronisera alla användare och grupper”.
 
 Användning av dynamiska grupper kan dock påverka prestandan för slutpunkt till slutpunkt-användare från Azure AD-etablering till SaaS-program. När du använder dynamiska grupper Tänk på dessa varningar och rekommendationer:
 

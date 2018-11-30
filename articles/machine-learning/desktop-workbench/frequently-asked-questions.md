@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4785f87515663831b1177c6c0958d3d965351797
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 45cf987d9af7b7dd0e8f05056b49ba56835603e7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996578"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313953"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Vanliga och frågor svar om Azure Machine Learning
 
@@ -171,4 +171,4 @@ Våra förhandsversion produkter och tjänster är bäst från communityn för �
 
 **Hur relaterar Azure Machine Learning till Microsoft Cognitive Toolkit?**
 
-Den [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/) är en av många ramverk som stöds av våra nya verktyg och tjänster. Cognitive Toolkit är ett enhetligt djupinlärningsverktyg som gör det möjligt att förbruka och kombinera populära maskininlärningsmodeller inklusive Feed-Forward djupa Neurala nätverk, Konvolutionella nät Sequence-Sequence och återkommande nätverk. Mer information om Microsoft Cognitive Toolkit, Besök vår [produktdokumentationen](https://docs.microsoft.com/cognitive-toolkit/). 
+Den [Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/) är en av många ramverk som stöds av våra nya verktyg och tjänster. Cognitive Toolkit är ett enhetligt djupinlärningsverktyg som gör det möjligt att förbruka och kombinera populära maskininlärningsmodeller inklusive Feed-Forward djupa Neurala nätverk, Konvolutionella nät Sequence-Sequence och återkommande nätverk. Mer information om Microsoft Cognitive Toolkit, Besök vår [produktdokumentationen](https://docs.microsoft.com/cognitive-toolkit/). 

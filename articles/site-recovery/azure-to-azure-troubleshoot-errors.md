@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: sujayt
-ms.openlocfilehash: 040ace1eab4062c011ed82a59e7f5bfb789c256b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 7d11460fd1db5ba92725567a41aaaeab9e752adb
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945747"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308140"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Felsöka problem med Azure till Azure VM-replikering
 
@@ -150,28 +150,36 @@ Eftersom SuSE Linux använder symlinks för att underhålla en lista över certi
 
 För Site Recovery-replikering till arbete, utgående anslutning till specifika URL: er eller IP-intervall krävs från den virtuella datorn. Om den virtuella datorn finns bakom en brandvägg eller använder regler för nätverkssäkerhetsgrupper (NSG) för att styra utgående anslutningar, kan du står inför ett av de här problemen.
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151037-br"></a>Problem 1: Det gick inte att registrera Azure-dator med Site Recovery (151037) </br>
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problem 1: Det gick inte att registrera Azure-dator med Site Recovery (151195) </br>
 - **Möjlig orsak** </br>
-  - Du använder NSG för att styra utgående åtkomst på den virtuella datorn och de obligatoriska IP-adressintervall inte godkänd för utgående åtkomst.
-  - Du använder brandväggsverktyg från tredje part och nödvändiga IP-intervallen/webbadresserna är inte godkänd.
+  - Det går inte att upprätta anslutning till site recovery-slutpunkter på grund av DNS-matchningsfel.
+  - Detta visas oftare vid nytt skydd när du har misslyckats under den virtuella datorn men DNS-servern kan inte nås från regionen för Haveriberedskap.
+  
+- **Lösning**
+   - Om du använder anpassade DNS Se till att är DNS-servern tillgänglig från regionen för Haveriberedskap. Kontrollera om du har en anpassad DNS går du till den virtuella datorn > Disaster Recovery-nätverket > DNS-servrar. Försök att öppna DNS-servern från den virtuella datorn. Om den inte är tillgänglig sedan när du gör det tillgängligt genom att antingen växling över DNS-server eller skapa verksamhetsspecifika plats mellan DR-nätverk och DNS.
+  
+    ![COM-fel](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
+ 
 
+### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problem 2: Site Recovery-konfigurationen misslyckades (151196)
+- **Möjlig orsak** </br>
+  - Att går inte ansluta till Office 365-autentisering och identitet IP4-slutpunkter.
 
 - **Lösning**
-   - Om du använder brandväggsproxy för att styra utgående nätverksanslutning på den virtuella datorn, kan du kontrollera att nödvändiga webbadresser eller datacentrets IP-intervall är godkänd. Mer information finns i [proxy vägledning i brandväggen](https://aka.ms/a2a-firewall-proxy-guidance).
-   - Om du använder NSG-regler för att styra utgående nätverksanslutning på den virtuella datorn, se till att datacentrets IP-intervall är godkänd. Mer information finns i [network grupp säkerhetsvägledning](azure-to-azure-about-networking.md).
-   - Godkänna [de URL: erna](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) eller [krävs för IP-intervall](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), följer du stegen i den [vägledningsdokumentet nätverk om](azure-to-azure-about-networking.md).
+  - Azure Site Recovery krävs åtkomst till Office 365-IP-intervall för autentisering.
+    Om du använder Azure Network security group (NSG) regler/brandväggsproxy för att styra utgående nätverksanslutning på den virtuella datorn, kontrollerar du att du tillåter kommunikation till IP-intervall för O365. Skapa en [Azure Active Directory (AAD) tjänsttagg](../virtual-network/security-overview.md#service-tags) baserat NSG-regel för att tillåta åtkomst till alla IP-adresser för AAD
+        - Om nya adresser läggs till Azure Active Directory (AAD) i framtiden, måste du skapa nya NSG-regler.
 
-### <a name="issue-2-site-recovery-configuration-failed-151072"></a>Problem 2: Site Recovery-konfigurationen misslyckades (151072)
+
+### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problem 3: Site Recovery-konfigurationen misslyckades (151197)
 - **Möjlig orsak** </br>
-  - Att går inte ansluta till Site Recovery-Tjänsteslutpunkter
-
+  - Att går inte ansluta till Azure Site Recovery-Tjänsteslutpunkter.
 
 - **Lösning**
-   - Om du använder brandväggsproxy för att styra utgående nätverksanslutning på den virtuella datorn, kan du kontrollera att nödvändiga webbadresser eller datacentrets IP-intervall är godkänd. Mer information finns i [proxy vägledning i brandväggen](https://aka.ms/a2a-firewall-proxy-guidance).
-   - Om du använder NSG-regler för att styra utgående nätverksanslutning på den virtuella datorn, se till att datacentrets IP-intervall är godkänd. Mer information finns i [network grupp säkerhetsvägledning](https://aka.ms/a2a-nsg-guidance).
-   - Godkänna [de URL: erna](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) eller [krävs för IP-intervall](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), följer du stegen i den [vägledningsdokumentet nätverk om](site-recovery-azure-to-azure-networking-guidance.md).
+  - Azure Site Recovery krävs för åtkomst till [Site Recovery IP-intervall](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) beroende på regionen. Kontrollera att som krävs för ip-intervall som är tillgängliga från den virtuella datorn.
+    
 
-### <a name="issue-3-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>Problem 3: A2A-replikeringen misslyckades när nätverkstrafiken som går via en lokal proxyserver (151072)
+### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>Problem 4: A2A-replikeringen misslyckades när nätverkstrafiken som går via en lokal proxyserver (151072)
  - **Möjlig orsak** </br>
    - De anpassade proxyinställningarna är ogiltiga och mobilitetstjänstagenten för ASR identifieras inte automatiskt proxyinställningar från Internet Explorer
 

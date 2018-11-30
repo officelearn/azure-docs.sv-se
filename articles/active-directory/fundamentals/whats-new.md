@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1377280cf3b7272d710b47322b9b27ff8cb36327
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: dc4e421808ab0f79070224edea4b75f527affaf0
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51707171"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426245"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
->Håll dig informerad om när du ska gå tillbaka till den här sidan för uppdateringar genom att lägga till detta [URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us/) till din ![RSS-ikonen](./media/whats-new/feed-icon-16x16.png) feed läsare.
+>Håll dig informerad om när du ska gå tillbaka till den här sidan för uppdateringar genom att kopiera och klistra in den här URL: `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` i din ![RSS-ikonen](./media/whats-new/feed-icon-16x16.png) feed läsare.
 
 Azure AD får förbättringar med jämna mellanrum. Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den här artikeln information om:
 
@@ -148,7 +148,7 @@ Att komma åt den här funktionen och mer information finns i [Azure Active Dire
 **Tjänstekategori:** Mina appar  
 **Produkt-funktionen:** SSO
 
-Kolla in den nya distributionsplanen som är tillgänglig för Mina appar åtkomstpanelen (http://aka.ms/deploymentplans).
+Kolla in den nya distributionsplanen som är tillgänglig för Mina appar åtkomstpanelen (https://aka.ms/deploymentplans).
 Mina appar åtkomstpanelen ger användare en och samma plats för att hitta och komma åt sina appar. Portalen innehåller också användare med självbetjäning möjligheter som begär åtkomst till appar och grupper, eller hantera åtkomst till dessa resurser å andras vägnar.
 
 Mer information finns i [vad är portalen Mina appar?](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)

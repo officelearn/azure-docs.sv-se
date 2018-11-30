@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 46ce112f420a6534140d293332e7ca7efc2def94
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 5b90519120e64a905073eec6b73e4ced64fe4f64
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975694"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496049"
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Använd skriptåtgärd till att installera externa Python-paket för Jupyter notebook i Apache Spark-kluster i HDInsight
 > [!div class="op_single_selector"]
@@ -23,7 +23,7 @@ ms.locfileid: "51975694"
 >
 >
 
-Lär dig hur du använder skriptåtgärder för att konfigurera ett Apache Spark-kluster på HDInsight (Linux) för att använda externa, communityn har bidragit med **python** paket som inte är inkluderat out-of the box i klustret.
+Lär dig hur du använder skriptåtgärder för att konfigurera en [Apache Spark](https://spark.apache.org/) -kluster i HDInsight (Linux) för att använda externa communityn har bidragit med **python** paket som inte är inkluderat out-of the box i klustret.
 
 > [!NOTE]
 > Du kan också konfigurera en Jupyter-anteckningsbok med hjälp av `%%configure` magic att använda externa paket. Anvisningar finns i [använda externa paket med Jupyter notebooks i Apache Spark-kluster på HDInsight](apache-spark-jupyter-notebook-use-external-packages.md).
@@ -45,13 +45,13 @@ Du måste ha följande:
    > 
    > 
    
-   ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>Stöd för öppen källkod-programvara som används i HDInsight-kluster
+## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>Stöd för öppen källkod-programvara som används i HDInsight-kluster
 
-Microsoft Azure HDInsight-tjänsten använder ett ekosystem med öppen källkod-tekniker som skapats på rätt sätt runt Hadoop. Microsoft Azure tillhandahåller en allmän supportnivå för tekniker med öppen källkod. Mer information finns i den **supportens omfattning** delen av den [stöd för vanliga frågor och svar för Azure-webbplats](https://azure.microsoft.com/support/faq/). Tjänsten HDInsight ger en extra nivå av stöd för inbyggda komponenterna.
+Microsoft Azure HDInsight-tjänsten använder ett ekosystem med öppen källkod-tekniker som skapats på rätt sätt runt Apache Hadoop. Microsoft Azure tillhandahåller en allmän supportnivå för tekniker med öppen källkod. Mer information finns i den **supportens omfattning** delen av den [stöd för vanliga frågor och svar för Azure-webbplats](https://azure.microsoft.com/support/faq/). Tjänsten HDInsight ger en extra nivå av stöd för inbyggda komponenterna.
 
 Det finns två typer av öppen källkod-komponenter som är tillgängliga i HDInsight-tjänsten:
 
-* **Inbyggda komponenterna** -komponenterna är förinstallerade på HDInsight-kluster och tillhandahåller huvudfunktionerna i klustret. Till exempel YARN ResourceManager, Hive-frågespråket (HiveQL) och Mahout-biblioteket som hör till den här kategorin. En fullständig lista över komponenter i serverkluster finns i [Nyheter i Hadoop-klusterversionerna från HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
+* **Inbyggda komponenterna** -komponenterna är förinstallerade på HDInsight-kluster och tillhandahåller huvudfunktionerna i klustret. Till exempel Apache Hadoop YARN ResourceManager, Apache Hive-frågespråket (HiveQL) och Mahout-biblioteket som hör till den här kategorin. En fullständig lista över komponenter i serverkluster finns i [vad är nytt i Apache Hadoop-klusterversionerna från HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
 * **Anpassade komponenter** -du, som en användare i klustret, kan installera eller använda i din arbetsbelastning någon komponent som är tillgänglig i diskussionsgruppen eller skapats av dig.
 
 > [!WARNING]
@@ -96,21 +96,21 @@ Det finns två typer av öppen källkod-komponenter som är tillgängliga i HDIn
 * [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenarier
-* [Spark med BI: Utföra interaktiv dataanalys med hjälp av Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
-* [Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark med Machine Learning: Använda Spark i HDInsight för att förutsäga resultatet av en livsmedelskontroll](apache-spark-machine-learning-mllib-ipython.md)
-* [Webbplatslogganalys med Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark med BI: utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: använda Spark i HDInsight för att förutse matinspektionsresultat](apache-spark-machine-learning-mllib-ipython.md)
+* [Webbplatslogganalys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Skapa och köra program
 * [Skapa ett fristående program med hjälp av Scala](apache-spark-create-standalone-application.md)
-* [Köra jobb via fjärranslutning på ett Spark-kluster med Livy](apache-spark-livy-rest-interface.md)
+* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Verktyg och tillägg
 * [Använda externa paket med Jupyter notebooks i Apache Spark-kluster i HDInsight](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Använda HDInsight Tools-plugin för IntelliJ IDEA till att skapa och skicka Spark Scala-appar](apache-spark-intellij-tool-plugin.md)
-* [Använda HDInsight Tools-plugin för IntelliJ IDEA till att felsöka Spark-program via fjärranslutning](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Använda Zeppelin-anteckningsböcker med ett Spark-kluster i HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernlar som är tillgängliga för Jupyter Notebook i Spark-klustret för HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Använda HDInsight Tools-Plugin för IntelliJ IDEA till att felsöka Apache Spark-program via fjärranslutning](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Använda Apache Zeppelin-anteckningsböcker med Apache Spark-kluster på HDInsight](apache-spark-zeppelin-notebook.md)
+* [Kernlar som är tillgängliga för Jupyter notebook i Apache Spark-kluster för HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Installera Jupyter på datorn och ansluta till ett HDInsight Spark-kluster](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>Hantera resurser

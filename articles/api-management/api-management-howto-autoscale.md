@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 1d996469c01640a70b68d70e8c24c617e0defd64
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: a01e50debf11daf2f1163a56726f5574f7e3e379
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40250845"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444810"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Skala automatiskt en Azure API Management-instans  
 
@@ -32,6 +32,8 @@ Om du vill följa stegen från den här artikeln, måste du:
 + Har en Azure API Management-instans. Mer information finns i [skapa en Azure API Management-instans](get-started-create-service-instance.md).
 + Förstå begreppet [kapacitet för en Azure API Management-instans](api-management-capacity.md).
 + Förstå [manuell skalning av en Azure API Management-instans](upgrade-and-scale.md), inklusive kostnaden konsekvenser.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="azure-api-management-autoscale-limitations"></a>Begränsningar för automatisk skalning av Azure API Management
 

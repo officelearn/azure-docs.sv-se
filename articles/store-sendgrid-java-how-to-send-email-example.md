@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
-ms.openlocfilehash: 400c8ac229e00e818e336f1c47b126d3e8a2d155
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c2f2a6e5f2dd551cfb300d333081874fef2f405c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253847"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421955"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Hur du skickar e-post med SendGrid från Java i en Azure-distribution
 I följande exempel visas hur du kan använda SendGrid för att skicka e-post från en webbsida i Azure. Exempelprogrammet uppmanas användaren för e-värden, enligt följande skärmbild.
@@ -32,7 +32,7 @@ Resulterande e-postmeddelandet ser ut ungefär som i följande skärmbild.
 
 Du behöver göra följande för att använda koden i det här avsnittet:
 
-1. Hämta de javax.mail JAR-filer, till exempel från <http://www.oracle.com/technetwork/java/javamail/index.html>.
+1. Hämta de javax.mail JAR-filer, till exempel från <https://www.oracle.com/technetwork/java/javamail/index.html>.
 2. Lägg till för att din Java build path.
 3. Om du använder Eclipse för att skapa den här Java-program, kan du inkludera SendGrid-bibliotek i din distribution programfilen (WAR) med hjälp av Eclipses distributionsfunktion sammansättningen. Om du inte använder Eclipse för att skapa den här Java-program, kontrollera biblioteken är inkluderade i samma Azure-roll som ditt Java-program och har lagts till i klassökvägen i ditt program.
 
@@ -45,7 +45,7 @@ Följande kod visar hur du skapar ett webbformulär om du vill hämta användard
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
         pageEncoding="ISO-8859-1" %>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
     <html>
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -101,7 +101,7 @@ Följande kod, som anropas när du har slutfört formuläret i emailform.jsp, sk
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
         pageEncoding="ISO-8859-1" import="javax.activation.*, javax.mail.*, javax.mail.internet.*, java.util.Date, java.util.Properties" %>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
     <html>
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">

@@ -1,6 +1,6 @@
 ---
-title: Skapa experiment utifrån Machine Learning-exempel – Azure | Microsoft Docs
-description: Lär dig hur du använder exempelexperiment för maskininlärning för att skapa nya experiment med Azure AI-galleriet och Microsoft Azure Machine Learning.
+title: Skapa Machine Learning Studio-experiment utifrån exempel – Azure | Microsoft Docs
+description: Lär dig hur du använder exempelexperiment för maskininlärning för att skapa nya experiment med Azure AI-galleriet och Azure Machine Learning Studio.
 keywords: machine learning examples, sample experiment, machine learning sample, AI examples
 services: machine-learning
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/05/2018
-ms.openlocfilehash: 7bb6f054b81b21783cecb15c3b5caa9bcf6f77cd
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 568732c5a1d2abbb9f304b624d885b2a3c692706
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264298"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306688"
 ---
 # <a name="create-machine-learning-experiments-from-working-examples-in-azure-ai-gallery"></a>Skapa Machine Learning-experiment utifrån exempel i Azure AI-galleriet
 

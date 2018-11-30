@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 843b03ce33d1897e2e985ac832f883e1fae12960
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: dd876462559ac10fc0463c64413bf11eabbc88a1
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959051"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443533"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Hur du använder Azure API Management med virtuella nätverk
 Azure-nätverk (Vnet) kan du placera någon av dina Azure-resurser i ett icke-internet-dirigerbara nätverk som du styr åtkomst till. Dessa nätverk kan sedan anslutas till ditt lokala nätverk med olika VPN-teknologier. Läs mer om Azure Virtual Networks börjar med den här informationen: [Azure översikt över Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -27,7 +27,8 @@ Azure API Management kan distribueras i virtuella nätverk (VNET), så att den k
 
 > [!NOTE]
 > Azure API Management har stöd för både klassiska och Azure Resource Manager-nätverk.
->
+
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -38,7 +39,6 @@ Om du vill utföra stegen som beskrivs i den här artikeln, måste du ha:
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 + En APIM-instansen. Mer information finns i [skapa en Azure API Management-instans](get-started-create-service-instance.md).
-+ VNET-anslutning är tillgängligt på Premium- och Developer nivåerna endast. Växla till en av de här nivåerna genom att följa anvisningarna i den [uppgradera och skala](upgrade-and-scale.md#upgrade-and-scale) avsnittet.
 
 ## <a name="enable-vpn"> </a>Aktivera anslutning mellan virtuella nätverk
 

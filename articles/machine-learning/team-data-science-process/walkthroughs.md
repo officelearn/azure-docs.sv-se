@@ -2,25 +2,21 @@
 title: Genomgångar kör Team Data Science Process på Azure | Microsoft Docs
 description: Hur du kombinerar molnet och lokala verktyg och tjänster i ett arbetsflöde eller en pipeline för att skapa ett intelligenta program.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: aa63d5a5-25ee-4c4b-9a4c-7553b98d7f6e
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: deguhath
-ms.openlocfilehash: 86024316344ccbce87f48adbc0598c94e61c5e6d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 28586d960bab75704a0aae6e39517ae83a74d60e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253575"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495889"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Genomgångar kör Team Data Science Process
 
@@ -32,7 +28,6 @@ Dessa **slutpunkt till slutpunkt genomgång** visar stegen i Team Data Science P
 Här följer korta beskrivningar av vad de här exemplen genomgången du lär dig på respektive plattform:
 
 
-- [Azure Machine Learning Workbench](walkthroughs-aml-with-tdsp.md) dessa genomgången självstudier och exempel visar hur du skapar Team Data Science strukturerade projekt med Azure Machine Learning Workbench och bearbetning av naturligt språk och klassificering.
 - [Genomgångar för HDInsight Spark med PySpark och Scala](walkthroughs-spark.md) dessa genomgångar använda PySpark och Scala på ett Azure Spark-kluster för att göra förutsägelseanalyser.
 - [HDInsight Hadoop-genomgångar med Hive](walkthroughs-hdinsight-hadoop.md) dessa genomgångar använda Hive med HDInsight Hadoop-kluster för att göra förutsägelseanalyser.
 - [Azure Data Lake genomgångar med hjälp av U-SQL](walkthroughs-azure-data-lake.md) dessa genomgångar använda U-SQL med Azure Data Lake för att göra förutsägelseanalyser.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 2ec8d53b0d8da3a7d643362abf58d3a5d4b42e74
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 27bfd3176ecad847f9bba2a62abd66b55484443b
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42060931"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443023"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Hur du distribuerar en Azure API Management-tjänstinstans till flera Azure-regioner
 
@@ -26,11 +26,10 @@ Azure API Management har stöd för distribution i flera regioner, vilket gör d
 
 En ny Azure API Management-tjänst från början bara innehåller en [enhet] [ unit] i en enda Azure-region, den primära regionen. Ytterligare regioner kan enkelt läggas till via Azure-portalen. En API Management gateway-servern har distribuerats till varje region och anrop trafik dirigeras till närmaste gatewayen. Om en region går offline dirigeras trafiken automatiskt till nästa närmaste gatewayen.
 
-> [!IMPORTANT]
-> Distribution i flera regioner är endast tillgänglig i den **[Premium] [ Premium]** nivå.
-
 > [!NOTE]
 > Azure API Management replikerar endast API gateway-komponenten i olika regioner. Komponenten service management finns bara i den primära regionen. Vid ett strömavbrott i den primära regionen är tillämpa konfigurationsändringar på en Azure API Management-tjänstinstans inte möjligt - inklusive inställningar eller principer för uppdateringar.
+
+[!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
 ## <a name="add-region"> </a>Distribuera en API Management-tjänstinstans till en ny region
 

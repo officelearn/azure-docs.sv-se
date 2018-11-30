@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: bdcc0510503e48caf70f4f0d91d7602d767ca9ab
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: e060075fbcf6a5083e51b753e119cb5471129a79
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092486"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308486"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Säkerhetskopiering och återställning i Azure SQL Data Warehouse
 Lär dig hur säkerhetskopiering och återställning fungerar i Azure SQL Data Warehouse. Användningsdata warehouse ögonblicksbilder till recovery eller kopiera ditt informationslager till en tidigare återställningspunkt i den primära regionen. Användningsdata warehouse geo-redundanta säkerhetskopieringar att återställa till en annan geografisk region. 
@@ -68,7 +68,7 @@ SQL Data Warehouse utför en geo-säkerhetskopia en gång per dag för att en [k
 GEO-säkerhetskopiering är aktiverat som standard. Om ditt informationslager är Gen1, kan du [avanmäla dig](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) om du vill. Du kan inte välja bort geo-säkerhetskopiering för Gen2 eftersom dataskydd är en inbyggd garanteras.
 
 > [!NOTE]
-> Om du behöver ett kortare Återställningspunktmål för geo-säkerhetskopiering kan rösta på den här funktionen [här](https://feedback.azure.com/forums/307516-sql-data-warehouse). Du kan också skapa en återställningspunkt för användardefinierade och återställa från den nyligen skapade återställningspunkten till ett nytt datalager i en annan region. När du har återställt ha datalagret online och kan pausa på obestämd tid för att spara beräkningskostnader. Pausad databasen medför avgifter för lagring till Azure Premium Storage-kostnad. och sedan pausa. Om du behöver en aktiv kopia av datalagret, kan du återuppta som tar bara några minuter.
+> Om du behöver ett kortare Återställningspunktmål för geo-säkerhetskopiering kan rösta på den här funktionen [här](https://feedback.azure.com/forums/307516-sql-data-warehouse). Du kan också skapa en återställningspunkt för användardefinierade och återställa från den nyligen skapade återställningspunkten till ett nytt datalager i en annan region. När du har återställt ha datalagret online och kan pausa på obestämd tid för att spara beräkningskostnader. Pausad databasen medför avgifter för lagring till Azure Premium Storage-kostnad. och sedan pausa.<!-- should this be removed or is something missing? --> Om du behöver en aktiv kopia av datalagret, kan du återuppta som tar bara några minuter.
 >
 
 

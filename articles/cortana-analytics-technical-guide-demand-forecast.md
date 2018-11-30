@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: e18e1fb3e97dd9f846ee71be4f0fbb66aeca3d88
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 88f6a27d4092e638403c641d72916ed9d2540708
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238870"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427071"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Teknisk guide till lösningsmallen Cortana Intelligence för begäran Prognostisera i energi
 ## <a name="overview"></a>**Översikt**
@@ -159,14 +159,14 @@ När Datageneratorn startas pipelinen börjar hämta hydrerat och de olika kompo
 Det här avsnittet beskrivs hur du ställer in Power BI-instrumentpanelen för att visualisera dina data i realtid från Azure stream analytics (het sökväg), samt förutspå resultaten från Azure machine learning-(kall sökväg).
 
 ### <a name="setup-hot-path-dashboard"></a>Konfigurera heta sökvägen instrumentpanel
-Följande steg hjälper dig hur du visualisera data i realtid utdata från Stream Analytics-jobb som genererades vid tidpunkten för distribution. En [Power BI online](http://www.powerbi.com/) konto krävs för att utföra följande steg. Om du inte har ett konto, kan du [skapar ett](https://powerbi.microsoft.com/pricing).
+Följande steg hjälper dig hur du visualisera data i realtid utdata från Stream Analytics-jobb som genererades vid tidpunkten för distribution. En [Power BI online](https://www.powerbi.com/) konto krävs för att utföra följande steg. Om du inte har ett konto, kan du [skapar ett](https://powerbi.microsoft.com/pricing).
 
 1. Lägg till Power BI-utdata i Azure Stream Analytics (ASA).
 
    * Du måste följa anvisningarna i [Azure Stream Analytics och Power BI: en instrumentpanel för analys i realtid för realtid för strömmande data](stream-analytics/stream-analytics-power-bi-dashboard.md) att konfigurera utdata för din Azure Stream Analytics-jobb som Power BI-instrumentpanel .
    * Leta upp stream analytics-jobbet i din [Azure-portalen](https://portal.azure.com). Namnet på jobbet ska vara: YourSolutionName + ”streamingjob” + slumpmässigt nummer + ”asapbi” (dvs. demostreamingjob123456asapbi).
    * Lägg till en Power BI-utdata för ASA-jobbet. Ange den **utdata Alias** som **'PBIoutput'**. Ange din **Datamängdsnamn** och **tabellnamn** som **'EnergyStreamData'**. När du har lagt till utdata, klickar du på **”Start”** längst ned på sidan för att starta Stream Analytics-jobbet. Du bör få ett bekräftelsemeddelande (till exempel ”från stream analytics-jobbet myteststreamingjob12345asablob lyckades”).
-2. Logga in på [Power BI online](http://www.powerbi.com)
+2. Logga in på [Power BI online](https://www.powerbi.com)
 
    * På den vänstra panelen datauppsättningar avsnitt i Min arbetsyta bör du kunna se en ny datauppsättning som visar på den vänstra panelen för Power BI. Det här är den strömmande data som du push-överfört från Azure Stream Analytics i föregående steg.
    * Kontrollera att den ***visualiseringar*** fönstret är öppet och visas på höger sida av skärmen.
@@ -207,7 +207,7 @@ I kalla sökvägen datapipeline är viktigt målet att hämta prognosen för eft
    * I frigörs fönster, ersätter **”Server”** och **”databas”** med din egen och databasnamn och sedan på **”OK”**. Kontrollera att du anger porten 1433 för servernamnet, (**YourSolutionName.database.windows.net, 1433**). Ignorera varningsmeddelanden som visas på skärmen.
    * I nästa frigörs fönstret, ser du två alternativ i det vänstra fönstret (**Windows** och **databasen**). Klicka på **”databas”**, Fyll i din **”användarnamn”** och **”Password”** (detta är det användarnamn och lösenord som du angav när du först distribueras lösningen och skapat en Azure SQL-databas). I ***väljer vilken nivå dessa inställningar ska tillämpas***, kontrollera nivån databasalternativ. Klicka sedan på **”Anslut”**.
    * Stäng fönstret när du är interaktiva tillbaka till föregående sida. Ett meddelande POP ut – Klicka på **tillämpa**. Klicka slutligen på den **spara** för att spara ändringarna. Power BI-filen har nu upprätta anslutningen till servern. Om dina visualiseringar är tomma, kontrollera att du radera markeringarna på visualiseringar i visualisera alla data genom att klicka på raderingsikonen i det övre högra hörnet av seriemönstren. Använd uppdateringsknappen ska visa nya data på visualiseringar. Första gången se du bara seed-data på dina visualiseringar som data factory schemaläggs för uppdatering var tredje timme. När 3 timmar Se nya förutsägelser som visas i dina visualiseringar när du uppdaterar data.
-3. (Valfritt) Publicera instrumentpanelen kalla sökvägen till [Power BI online](http://www.powerbi.com/). Observera att det här steget en Power BI-konto (eller Office 365-konto).
+3. (Valfritt) Publicera instrumentpanelen kalla sökvägen till [Power BI online](https://www.powerbi.com/). Observera att det här steget en Power BI-konto (eller Office 365-konto).
 
    * Klicka på **”publicera”** och några sekunder senare ett fönster visas med ”publicering till Power BI lyckades”! med en grön bockmarkering. Klicka på länken nedan ”öppna demoprediction.pbix i Powerbi”. Detaljerade anvisningar finns i [publicera från Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
    * Att skapa en ny instrumentpanel: Klicka på den **+** logga bredvid den **instrumentpaneler** avsnitt i det vänstra fönstret. Ange namnet ”begäran prognoser Demo” för den här nya instrumentpanelen.

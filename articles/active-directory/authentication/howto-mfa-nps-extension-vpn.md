@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 0754b13704810816b1650010a00185031ca41f5d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f08bf6a65a93c31d76c5b336cc6ef433153d71c4
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297579"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423125"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrera din VPN-infrastruktur med Azure MFA med hjälp av NPS-tillägget för Azure
 
@@ -438,7 +438,7 @@ En relaterad händelse från Azure Multi-Factor Authentication-loggen visas här
 
 Om du vill göra avancerad felsökning, loggfilerna NPS databasen format där NPS-tjänsten är installerad. Loggfilerna skapas i den _%SystemRoot%\System32\Logs_ mapp som kommaavgränsad textfiler. En beskrivning av loggfilerna finns i [tolka NPS loggfilerna](https://technet.microsoft.com/library/cc771748.aspx). 
 
-Posterna i dessa loggfiler är svåra att tolka om du inte exporterar dem till ett kalkylblad eller en databas. Du hittar många tjänsten IAS (Internet Authentication) online verktyg för analys som hjälper dig att tolka loggfilerna. Utdata i en sådan nedladdningsbara [shareware programmet](http://www.deepsoftware.com/iasviewer) visas här: 
+Posterna i dessa loggfiler är svåra att tolka om du inte exporterar dem till ett kalkylblad eller en databas. Du hittar många tjänsten IAS (Internet Authentication) online verktyg för analys som hjälper dig att tolka loggfilerna. Utdata i en sådan nedladdningsbara [shareware programmet](https://www.deepsoftware.com/iasviewer) visas här: 
 
 ![Shareware-program](./media/howto-mfa-nps-extension-vpn/image49.png)
 

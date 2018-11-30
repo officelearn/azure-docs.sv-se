@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/23/2018
+ms.date: 11/27/2018
 ms.author: ergreenl
-ms.openlocfilehash: 0dc4019d2b3f33bfc92d73aeadadc0c64ecaab3b
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: cac1814057b5adbb75d9484b332bd3f8aaa31a18
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158524"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446866"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Aktivera Azure Active Directory Domain Services med Azure portal
 
@@ -42,6 +42,22 @@ Den administrativa gruppen skapas automatiskt i Azure AD-katalogen. Den här gru
 
 3. När du är klar klickar du på **OK** att gå vidare till den **sammanfattning** i guiden.
 
+## <a name="configure-synchronization"></a>Konfigurera synkronisering
+
+Azure AD Domain Services tillåter antingen fullständig synkronisering av alla användare och grupper som är tillgängliga i Azure AD eller kan du välja begränsade synkronisering att synkronisera endast specifika grupper. Om du väljer den fullständiga synkroniseringen, kommer du att **inte** kan du välja begränsade synkronisering vid ett senare tillfälle. Mer information om begränsade synkronisering, på den [Azure AD Domain Services omfattar synkronisering artikeln](active-directory-ds-scoped-synchronization.md).
+
+### <a name="full-synchronization"></a>Fullständig synkronisering
+
+1. För fullständig synkronisering, klickar du på ”OK” längst ned på skärmen som fullständig redan väljs.
+    ![Fullständig synkronisering](./media\active-directory-domain-services-admin-guide\create-sync-all.PNG)
+
+### <a name="scoped-synchronization"></a>Begränsade synkronisering
+
+1. Växla synkroniseringsknappen ”Databasomfattande” och en grupper-sida visas. Från den här, kan du se vilka grupper har redan markerats som ska synkroniseras till din hanterade domän.
+    ![Begränsade synkronisering](media\active-directory-domain-services-admin-guide\create-sync-scoped.PNG)
+2. Klicka på **Välj grupper** i det övre navigeringsfältet. Härifrån kan visas gruppväljare för en på sidan. Används för att markera fler grupper som ska synkroniseras med Azure AD Domain Services. När du är klar klickar du på **Välj** att Stäng Väljaren för gruppen och lägga till dessa grupper i den markerade listan.
+    ![Begränsade synkronisering Välj grupper](media\active-directory-domain-services-admin-guide\create-sync-scoped-groupselect.PNG)
+3. Klicka på **OK** att flytta till sammanfattningssidan.
 
 ## <a name="deploy-your-managed-domain"></a>Distribuera din hanterade domän
 

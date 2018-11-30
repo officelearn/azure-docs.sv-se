@@ -1,9 +1,22 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: cynthn
+ms.openlocfilehash: 0ee40c3ad692deccbc185fa7f8e51dd25eeaf95d
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440467"
+---
 ### <a name="number-of-fault-domains-per-region"></a>Antalet feldomäner per region
 
 | Region              | Max antal feldomäner  |
 |---------------------|-------------------------|
 | Östra USA             | 3                       |
-| Östra USA 2           | 3                       |
+| USA, östra 2           | 3                       |
 | Västra USA             | 3                       |
 | Västra USA 2           | 2                       |
 | Centrala USA          | 3                       |
@@ -25,8 +38,8 @@
 | Södra Indien         | 2                       |
 | Indien, centrala       | 2                       |
 | Indien, västra          | 2                       |
-| Centrala Korea       | 2                       |
-| Sydkorea         | 2                       |
+| Sydkorea, centrala       | 2                       |
+| Sydkorea, södra         | 2                       |
 |                     |                         |
 | Östra Australien      | 2                       |
 | Sydöstra Australien | 2                       |

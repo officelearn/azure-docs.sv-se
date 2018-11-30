@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: e2cd03f28e4a3cd8176f6126817c61508697af94
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e39829d4fa08e466f98930becc831c6f4b551aed
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007798"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315842"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>Hög tillgänglighet för dina data med Apache Kafka på HDInsight
 
-Lär dig hur du konfigurerar partitionsrepliker för Kafka-ämnen med hänsyn till underliggande rackkonfigurationer för maskinvara. Den här konfigurationen garanterar tillgängligheten för data som lagras i Apache Kafka på HDInsight.
+Lär dig hur du konfigurerar partitionsrepliker för Apache Kafka-ämnen att dra nytta av underliggande rackkonfigurationer för maskinvara. Den här konfigurationen garanterar tillgängligheten för data som lagras i Apache Kafka på HDInsight.
 
-## <a name="fault-and-update-domains-with-kafka"></a>Fel- och uppdateringsdomäner med Kafka
+## <a name="fault-and-update-domains-with-apache-kafka"></a>Fel- och uppdateringsdomäner med Apache Kafka
 
 En feldomän är en logisk gruppering av underliggande maskinvara i ett Azure-datacenter. Varje feldomän delar en gemensam strömkälla och nätverksbrytare. De virtuella datorer och hanterade diskar som implementerar noderna i ett HDInsight-kluster är fördelade mellan dessa feldomäner. Den här arkitekturen begränsar de potentiella problemen vid fysiska maskinvarufel.
 
@@ -44,15 +44,15 @@ Du får bästa möjliga tillgänglighet för dina Kafka-data om du balanserar om
 
 Om du måste använda en region som bara har två feldomäner ska du använda replikeringsfaktorn 4, så att replikerna fördelas jämnt mellan de två feldomänerna.
 
-I dokumentet [Start with Kafka on HDInsight](apache-kafka-get-started.md) (Kom igång med Kafka i HDInsight) ges ett exempel på hur du skapar ämnen och ställer in replikeringsfaktorn.
+Ett exempel på hur du skapar ämnen och ställer in replikeringsfaktorn finns i den [Kom igång med Apache Kafka på HDInsight](apache-kafka-get-started.md) dokumentet.
 
 ## <a name="how-to-rebalance-partition-replicas"></a>Så balanserar du om partitionsrepliker
 
-Använd [verktyget för ombalansering av Kafka-partitioner](https://github.com/hdinsight/hdinsight-kafka-tools) till att balansera om valda ämnen. Du måste köra det här verktyget från en SSH-session till huvudnoden för ditt Kafka-kluster.
+Använd den [verktyget för ombalansering av Apache Kafka-partitioner](https://github.com/hdinsight/hdinsight-kafka-tools) att balansera om valda ämnen. Du måste köra det här verktyget från en SSH-session till huvudnoden för ditt Kafka-kluster.
 
 Mer information om hur du ansluter till HDInsight via SSH finns i dokumentet [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skalbarhet för Kafka i HDInsight](apache-kafka-scalability.md)
-* [Spegling med Kafka i HDInsight](apache-kafka-mirroring.md)
+* [Skalbarhet för Apache Kafka på HDInsight](apache-kafka-scalability.md)
+* [Spegling med Apache Kafka på HDInsight](apache-kafka-mirroring.md)

@@ -15,12 +15,12 @@ ms.date: 10/19/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: ad0ab8790c9d66dbba87d466e9661ef8cf33eef3
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 89852e90daa548dc82455cb6317d367b7423ba65
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456906"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425216"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Aktivera fjärråtkomst till SharePoint med Azure AD Application Proxy
 
@@ -119,7 +119,7 @@ Det enklaste sättet för dig att ställa in SPN: er är att följa de SPN-forma
 1. Bläddra till platsen med SPN från en annan dator.
  När du gör, cachelagras relevanta uppsättningen med Kerberos-biljetter på datorn. Dessa biljetter innehåller SPN för målwebbplatsen som du bläddrat till.
 
-2. Du kan hämta SPN-namnet för den platsen med hjälp av verktyget [Klist](http://web.mit.edu/kerberos/krb5-devel/doc/user/user_commands/klist.html). Kör följande kommando i ett kommandofönster som körs i samma kontext som den användare som anropade webbplatsen i webbläsaren:
+2. Du kan hämta SPN-namnet för den platsen med hjälp av verktyget [Klist](https://web.mit.edu/kerberos/krb5-devel/doc/user/user_commands/klist.html). Kör följande kommando i ett kommandofönster som körs i samma kontext som den användare som anropade webbplatsen i webbläsaren:
 ```
 Klist
 ```

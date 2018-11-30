@@ -15,12 +15,12 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: bcdc665c59a900d4c57d03140654fffec26af0eb
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 7f653eca0c768cc35df039cbd51153484710d80a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706763"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422261"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Felsöka SAML-baserad enkel inloggning till program i Azure Active Directory
 
@@ -75,7 +75,7 @@ Att lösa problemet utan att installera MyApps säker inloggning tillägget:
     - En uppgift som identifierar orsaken till problemet.
 2.  Gå tillbaka till Azure AD och hitta den **testa enkel inloggning** bladet.
 3.  I textrutan ovan **få vägledning för lösning**, klistra in ett felmeddelande.
-3.  Klicka på **få vägledning för lösning** ska visas stegen för att lösa problemet. Riktlinjerna kan kräva information från SAML-begäran eller SAML-svar. Om du inte använder MyApps säker inloggning tillägget, kanske du behöver ett verktyg som [Fiddler](http://www.telerik.com/fiddler) att hämta SAML-begäran och svaret.
+3.  Klicka på **få vägledning för lösning** ska visas stegen för att lösa problemet. Riktlinjerna kan kräva information från SAML-begäran eller SAML-svar. Om du inte använder MyApps säker inloggning tillägget, kanske du behöver ett verktyg som [Fiddler](https://www.telerik.com/fiddler) att hämta SAML-begäran och svaret.
 4.  Kontrollera mål i SAML-begäran som motsvarar SAML enkel inloggning för tjänstens URL hämtas från Azure Active Directory
 5.  Kontrollera utfärdaren i SAML-begäran är samma ID som du har konfigurerat för programmet i Azure Active Directory. Azure AD använder utfärdaren för att hitta ett program i din katalog.
 6.  Kontrollera AssertionConsumerServiceURL där programmet förväntas ta emot SAML-token från Azure Active Directory. Du kan konfigurera det här värdet i Azure Active Directory, men det är inte obligatoriskt om det är en del av SAML-begäran.
@@ -90,7 +90,7 @@ Att lösa problemet:
 1. Om programmet är i Azure AD-galleriet kan du kontrollera att du har följt alla steg för att integrera programmet med Azure AD. Integreringsanvisningar för ditt program finns i den [lista över självstudier för integrering av SaaS-program](../saas-apps/tutorial-list.md).
 2. Hämta SAML-svar.
     - Om den Mina appar skyddat inloggningstillägg installeras från den **testa enkel inloggning** bladet klickar du på **hämta SAML-svar**.
-    - Om tillägget inte är installerad, använda ett verktyg som [Fiddler](http://www.telerik.com/fiddler) att hämta SAML-svar. 
+    - Om tillägget inte är installerad, använda ett verktyg som [Fiddler](https://www.telerik.com/fiddler) att hämta SAML-svar. 
 3. Lägg märke till de här elementen i svaret SAML-token:
     - Unik identifierare för användaren för NameID-värde och format
     - Anspråk som utfärdats i token

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 8bf87f9d1d1ab6da4b034890f1fbe058199eca41
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4f86dee539e3cc5a90db828ed11dbd225a00555d
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007152"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334643"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på en Linux-dator i Azure med Azure Active Directory-autentisering (förhandsversion)
 
@@ -39,7 +39,7 @@ Det finns många fördelar med att använda Azure AD-autentisering för att logg
 
 - **Kan samarbeta:** With Role-Based åtkomstkontroll (RBAC), kan du ange vem som kan logga in på en viss virtuell dator som en vanlig användare eller med administratörsbehörighet. När användare ansluta till eller lämnar ditt team kan uppdatera du RBAC-principen för den virtuella datorn att bevilja åtkomst efter behov. Den här upplevelsen är mycket enklare än att behöva Skrubba virtuella datorer för att ta bort onödiga offentliga SSH-nycklar. När medarbetare lämnar organisationen och användarkontot inaktiveras eller tas bort från Azure AD kan har de inte längre åtkomst till dina resurser.
 
-### <a name="supported-azure-regions-and-linux-distributions"></a>Azure-regioner och Linux-distributioner som stöds
+## <a name="supported-azure-regions-and-linux-distributions"></a>Azure-regioner och Linux-distributioner som stöds
 
 Följande Linux-distributioner stöds för närvarande i förhandsversionen av den här funktionen:
 

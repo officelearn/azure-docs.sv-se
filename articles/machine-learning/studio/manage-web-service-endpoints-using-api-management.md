@@ -1,5 +1,5 @@
 ---
-title: Lär dig hur du hanterar AzureML-webbtjänster som använder API Management | Microsoft Docs
+title: Hantera Machine Learning Studio-webbtjänster som använder API Management – Azure | Microsoft Docs
 description: En guide som visar hur du hanterar AzureML-webbtjänster som använder API Management.
 keywords: Machine learning api management
 services: machine-learning
@@ -17,16 +17,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: bc0c8f40c8e2fb75e95e1745b53332aa8e4588ca
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0a262b2f8716c6d950dc84793a88277f62c3e6a9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265227"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308247"
 ---
-# <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>Lär dig hur du hanterar AzureML-webbtjänster som använder API Management
+# <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Hantera Azure Machine Learning Studio-webbtjänster som använder API Management
 ## <a name="overview"></a>Översikt
-Den här guiden visar hur du snabbt kommer igång med att använda API Management för att hantera dina AzureML-webbtjänster.
+Den här guiden visar hur du snabbt kommer igång med att använda API Management för att hantera dina Azure Machine Learning Studio-webbtjänster.
 
 ## <a name="what-is-azure-api-management"></a>Vad är Azure API Management?
 Azure API Management är en Azure-tjänst som låter dig hantera REST API-slutpunkter genom att definiera användaråtkomst, begränsning av nätverksbandbredd och instrumentpanelen för övervakning. Klicka på [här](https://azure.microsoft.com/services/api-management/) för information om Azure API Management. Klicka på [här](../../api-management/api-management-get-started.md) en guide om hur du kommer igång med Azure API Management. Den här andra guiden som den här guiden är baserad på omfattar flera ämnen, t.ex. meddelande-konfigurationer, priserna för nivån, hantering av svar, autentisering av användare, skapa produkter, developer prenumerationer och användning dashboarding.

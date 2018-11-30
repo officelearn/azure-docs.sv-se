@@ -9,26 +9,26 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b7b93ca9c8638451d23a27edeed823e593a95b23
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 62499c35fd71d83f80a60e0511e6a27ce0109275
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035653"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495869"
 ---
-# <a name="access-apache-yarn-application-logs-on-windows-based-hdinsight"></a>Åtkomst Apache YARN-programloggar på Windows-baserade HDInsight
-Det här dokumentet beskriver hur du kommer åt loggarna för Apache YARN-program som har gått ut på en Windows-baserade Hadoop-kluster i Azure HDInsight
+# <a name="access-apache-hadoop-yarn-application-logs-on-windows-based-hdinsight"></a>Åtkomst Apache Hadoop YARN-programloggar på Windows-baserade HDInsight
+Det här dokumentet beskriver hur du kommer åt loggarna för [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) program som har gått ut på en Windows-baserade Apache Hadoop-kluster i Azure HDInsight
 
 > [!IMPORTANT]
-> Informationen i det här dokumentet gäller endast för Windows-baserade HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Information om åtkomst till YARN-loggar i Linux-baserade HDInsight-kluster finns i [åtkomst Apache YARN-programloggar på Linux-baserat Hadoop i HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+> Informationen i det här dokumentet gäller endast för Windows-baserade HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Information om åtkomst till YARN-loggar i Linux-baserade HDInsight-kluster finns i [åtkomst Apache Hadoop YARN-programloggar på Linux-baserade Apache Hadoop på HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 >
 
 
 ### <a name="prerequisites"></a>Förutsättningar
-* Ett Windows-baserade HDInsight-kluster.  Se [skapa Windows-baserade Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+* Ett Windows-baserade HDInsight-kluster.  Se [skapa Windows-baserade Apache Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="yarn-timeline-server"></a>YARN Timeline Server
-Den <a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline Server</a> visar allmän information om slutförda program samt som ramverksspecifik programinformation via två olika gränssnitt. Närmare bestämt:
+Den <a href="http://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">Apache Hadoop YARN Timeline Server</a> visar allmän information om slutförda program samt som ramverksspecifik programinformation via två olika gränssnitt. Närmare bestämt:
 
 * Lagring och hämtning av information om allmänna program på HDInsight-kluster har varit aktiverat med version 3.1.1.374 eller högre.
 * Ramverksspecifik information PROGRAMKOMPONENTEN för tidslinje-servern är inte tillgänglig på HDInsight-kluster.
@@ -53,7 +53,7 @@ YARN stöder flera programmeringsmodeller genom Frikoppling resurshantering frå
 * En behållare ger kontext för en grundläggande enheten för arbete. 
 * Arbete som görs inom ramen för en behållare utförs på enskild worker-noden som behållaren har tilldelats. 
 
-Mer information finns i [YARN begrepp][YARN-concepts].
+Mer information finns i [Apache Hadoop YARN begrepp][YARN-concepts].
 
 Programloggar (och associerade behållarloggarna) är avgörande felsöker problematiska Hadoop-program. YARN tillhandahåller ett ramverk som är bra för att samla in, sammanställa och lagra programloggar med den [Log aggregering] [ log-aggregation] funktionen. Funktionen Log aggregering gör åtkomst till programloggarna mer deterministisk, eftersom den sammanställer loggar över alla behållare på en underordnad nod och lagrar dem som en sammansatt loggfil per arbetsnod på standardfilsystemet när ett program har slutförts. Ditt program kan använda hundratals eller tusentals behållare, men loggar för alla behållare som körs på en enda arbetsnod sammanställs till en fil, vilket resulterar i en fil per arbetsnod som används av ditt program. Log aggregering är aktiverat som standard på HDInsight-kluster (version 3.0 och senare), och sammanställda loggfiler finns i standardbehållaren för ditt kluster på följande plats:
 

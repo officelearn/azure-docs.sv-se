@@ -9,34 +9,27 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 11/20/2018
-ms.openlocfilehash: 08510961616d2be8eac9b6a19063d5f0d613321f
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 11/27/2018
+ms.openlocfilehash: 91d0f3565db484504a67a3b6ae0989b9291cd24f
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263306"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446440"
 ---
 # <a name="prepare-data-for-modeling-with-azure-machine-learning"></a>Förbereda data för modellering med Azure Machine Learning
- 
-I den här artikeln får du lära dig om användningsfall och unika funktioner i Azure Machine Learning Data Prep SDK. Förberedelse av data är den viktigaste delen av machine learning-arbetsflöde. Verkliga data delas ofta inkonsekvent eller kan inte användas som träningsdata utan betydande rengöring och omvandling. Korrigering och avvikelser i rådata och skapa nya funktioner som är relevanta för problemet du försöker lösa, ökar modellens precision.
+
+I den här artikeln får du lära dig om användningsfall och unika funktioner i Azure Machine Learning Data Prep SDK. Förberedelse av data är den viktigaste delen av machine learning-arbetsflöde. Verkliga data delas ofta inkonsekvent eller kan inte användas som träningsdata utan betydande rengöring och omvandling. Korrigering och avvikelser i rådata och skapa nya funktioner som är relevanta för problemet du försöker lösa, ökar modellens precision. SDK: N är avsett att vara vana vid andra vanliga data prep-bibliotek, samtidigt som erbjuder fördelar för viktiga scenarier och underhålla samverkan med de andra bibliotek.
 
 Du kan förbereda dina data i Python med hjälp av den [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk).
 
 ## <a name="azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning Dataförberedelser SDK
 
-Den [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) är ett Python-bibliotek som innehåller:
-+ Många vanliga verktyg som används för att förbearbetning data
-+ Automatiserad funktionsframställning och transformeringar som härletts från exempel
+Den [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) är ett Python-bibliotek som erbjuder:
 
-SDK: N är liknande grundläggande funktioner som populära bibliotek som **Pandas** och **PySpark**, erbjuder ännu mer flexibilitet. Pandas är vanligtvis mest användbara på mindre datamängder (< 2 – 5 GB) innan minne kapacitetsbegränsningar påverkar prestanda. Däremot PySpark är vanligtvis för stordata program, men innebär en belastning som gör att arbeta med små datauppsättningar som är mycket långsammare.
-
-Azure Machine Learning Data Prep SDK erbjuder:
-- Praktiska och bekvämlighet när du arbetar med små datauppsättningar
-
-- Skalbarhet för moderna program för stordata
-
-- Möjligheten att använda och skalar upp samma kod för båda användningsfall
+* Intelligent tidsbesparande omvandlingar, som Fuzzy gruppering, härleds genom Kolumnexempel, automatisk delning, Smart Läs fil och ojämna högra bearbetning av schemat.
+* Ett enda API som fungerar på små data lokalt eller stora mängder data i molnet, med **par till kodändringar**.
+* Möjligheten att skala mer effektivt på en enda dator genom att använda en strömmande metod för att bearbeta data i stället för att läsa in i minnet.
 
 ### <a name="install-the-sdk"></a>Installera SDK:n
 
@@ -57,9 +50,12 @@ import azureml.dataprep as dprep
 Läs mer om moduler och funktioner i den här SDK, i den [Data Prep SDK referensdokument](https://aka.ms/data-prep-sdk).
 
 I följande exempel beskrivs några av de unika funktionerna i SDK, inklusive:
-+ Automatisk identifiering
-+ Automatiska funktioner
-+ Sammanfattande statistik
+
+* Automatisk identifiering
+* Intelligent transformeringar
+* Sammanfattande statistik
+* Funktioner för Cross-miljö
+
 
 #### <a name="automatic-file-type-detection"></a>Automatisk identifiering
 
@@ -69,7 +65,7 @@ Använd den `smart_read_file()` funktionen för att läsa in data utan att behö
 dataflow = dprep.smart_read_file(path="<your-file-path>")
 ```
 
-#### <a name="automated-feature-engineering"></a>Automatiska funktioner
+#### <a name="intelligent-transforms"></a>Intelligent transformeringar
 
 Använda SDK för att dela och härleda kolumner efter både exempel och inferens att automatisera funktionsframställning. Anta att du har ett fält i ditt dataflöde-objekt som kallas `datetime` med värdet `2018-09-15 14:30:00`.
 
@@ -130,6 +126,7 @@ Om du vill se detaljerade exempel-kod för varje steg för förberedelse, Använ
 ![Processen att förbereda data](./media/concept-data-preparation/data-prep-process.png)
 
 ## <a name="next-steps"></a>Nästa steg
+
 Granska en [exempel notebook](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/tutorials/getting-started/getting-started.ipynb) för förberedelse av data med hjälp av Azure Machine Learning Data Prep SDK.
 
 Azure Machine Learning Data Prep SDK [referensdokumentation](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py).

@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 08/27/2018
+ms.date: 11/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 59dab4651366c3ad6579e0da660baee0c653d1a3
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 534714accb504e4ce487950fef028ab675c46a87
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666010"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496408"
 ---
 # <a name="activate-my-azure-ad-directory-roles-in-pim"></a>Aktivera mitt Azure AD-katalogroller i PIM
 
@@ -32,7 +32,7 @@ Den här artikeln är för administratörer som behöver aktivera sina Azure AD 
 
 När du behöver utföra på en Azure AD directory-roll kan du begära aktivering med hjälp av den **Mina roller** navigeringsalternativet i PIM.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Öppna **Azure AD Privileged Identity Management**. Information om hur du lägger till PIM-panelen på instrumentpanelen finns i [börja använda PIM](pim-getting-started.md).
 
@@ -70,9 +70,25 @@ När du behöver utföra på en Azure AD directory-roll kan du begära aktiverin
 
 1. Klicka på **aktivera**.
 
-    Om rollen inte kräver godkännande, har nu aktiverats och att rollen visas i listan över aktiva roller. Om den [rollen kräver godkännande](./azure-ad-pim-approval-workflow.md) för att aktivera, visas ett meddelande i det övre högra hörnet i webbläsaren som informerar dig om begäran väntar på godkännande.
+    Om rollen inte kräver godkännande, aktiveras den och har lagts till i listan över aktiva roller. Om du vill använda rollen direkt, följer du stegen i nästa avsnitt.
+
+    Om den [rollen kräver godkännande](./azure-ad-pim-approval-workflow.md) för att aktivera, visas ett meddelande i det övre högra hörnet i webbläsaren som informerar dig om begäran väntar på godkännande.
 
     ![Förfrågan väntar på meddelande](./media/pim-how-to-activate-role/directory-roles-activate-notification.png)
+
+## <a name="use-a-role-immediately-after-activation"></a>Använd en roll omedelbart efter aktiveringen
+
+När du aktiverar en roll i PIM tar minst 10 minuter innan du kan få åtkomst till önskade administrativa portalen eller utföra funktioner inom en viss administrativa arbetsbelastning. Om du vill framtvinga en uppdatering av dina behörigheter kan du använda den **programåtkomst** sidan enligt beskrivningen i följande steg.
+
+1. Öppna Azure AD Privileged Identity Management.
+
+1. Klicka på den **programåtkomst** sidan.
+
+    ![PIM-programåtkomst](./media/pim-how-to-activate-role/pim-application-access.png)
+
+1. Klicka på den **Azure Active Directory** länk för att återaktivera portalen på den **alla användare** sidan.
+
+    När du klickar på den här länken ogiltigförklara den aktuella token och tvinga Azure portal för att hämta en ny token som ska innehålla dina uppdaterade behörigheter.
 
 ## <a name="view-the-status-of-your-requests"></a>Visa status för dina begäranden
 
@@ -85,20 +101,6 @@ Du kan visa statusen för väntande förfrågningar om att aktivera.
 1. Klicka på **Mina förfrågningar** att se en lista över dina önskemål.
 
     ![Azure AD-katalogroller - Mina begäranden](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
-
-## <a name="use-a-role-immediately-after-activation"></a>Använd en roll omedelbart efter aktiveringen
-
-På grund av cachelagring, görs inte aktiveringar direkt i Azure portal utan att en uppdatering. Om du vill minska risken för fördröjningar när du har aktiverat en roll kan du använda den **programåtkomst** i portalen. Program som nås från den här sidan söka efter nya rolltilldelningar omedelbart.
-
-1. Öppna Azure AD Privileged Identity Management.
-
-1. Klicka på den **programåtkomst** sidan.
-
-    ![PIM-programåtkomst](./media/pim-how-to-activate-role/pim-application-access.png)
-
-1. Klicka på **Azure Active Directory** att öppna portalen på den **alla användare** sidan.
-
-    När du klickar på den här länken, du tvingar fram en uppdatering och det är en kontroll för nya Azure AD-rolltilldelningar.
 
 ## <a name="deactivate-a-role"></a>Inaktivera en roll
 
@@ -131,6 +133,14 @@ Om du inte behöver aktivering av en roll som kräver godkännande kan avbryta d
     När du klickar på Avbryt avbryts begäran. Om du vill aktivera rollen igen och måste du skicka en ny begäran om aktivering.
 
    ![Avbryta väntande begäran](./media/pim-how-to-activate-role/directory-role-cancel.png)
+
+## <a name="troubleshoot"></a>Felsöka
+
+### <a name="permissions-not-granted-after-activating-a-role"></a>Behörigheter som beviljas inte efter aktivering av en roll
+
+När du aktiverar en roll i PIM tar minst 10 minuter innan du kan få åtkomst till önskade administrativa portalen eller utföra funktioner inom en viss administrativa arbetsbelastning. Om du vill framtvinga en uppdatering av dina behörigheter kan du använda den **programåtkomst** sidan enligt beskrivningen tidigare i [Använd en roll omedelbart efter aktiveringen](#use-a-role-immediately-after-activation).
+
+För ytterligare felsökning, se [felsökning förhöjd behörighet](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx).
 
 ## <a name="next-steps"></a>Nästa steg
 

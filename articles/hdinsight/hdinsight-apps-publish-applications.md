@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4206301296c94bd0d24743854756ac6dd1d712dd
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c8b54631f0d37e0e90135dd9e23ff85591cead1b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014338"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495372"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicera ett HDInsight-program på Azure Marketplace
 Du kan installera ett Azure HDInsight-program på ett Linux-baserade HDInsight-kluster. I den här artikeln lär du dig hur du publicerar ett HDInsight-program på Azure Marketplace. Allmän information om hur du publicerar på Azure Marketplace finns i [publicera ett erbjudande på Azure Marketplace](../marketplace/marketplace-publishers-guide.md).
@@ -102,6 +102,6 @@ Publicera ett HDInsight-program:
 * Lär dig hur du [installera HDInsight-program](hdinsight-apps-install-applications.md) i dina kluster.
 * Lär dig hur du [installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md) och distribuerar ett Opublicerat HDInsight-program till HDInsight.
 * Lär dig hur du [använder skriptåtgärd för att anpassa Linux-baserade HDInsight-kluster](hdinsight-hadoop-customize-cluster-linux.md) och lägga till fler program. 
-* Lär dig hur du [skapa Linux-baserade Hadoop-kluster i HDInsight med hjälp av Azure Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+* Lär dig hur du [skapa Linux-baserade Apache Hadoop-kluster i HDInsight med hjälp av Azure Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 * Lär dig hur du [använder en tom edge-nod i HDInsight](hdinsight-apps-use-edge-node.md) för att komma åt HDInsight-kluster, testa HDInsight-program och vara värd för HDInsight-program.
 

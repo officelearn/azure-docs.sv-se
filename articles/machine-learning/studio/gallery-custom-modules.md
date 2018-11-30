@@ -1,5 +1,5 @@
 ---
-title: Azure AI-galleriet anpassade moduler | Microsoft Docs
+title: Azure AI-galleriet anpassade moduler – Azure Machine Learning Studio | Microsoft Docs
 description: Upptäck anpassade machine learning-moduler i Azure AI-galleriet.
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-ms.openlocfilehash: 9ca07adecaa8d6e8b51d20014c95d4147a4a5eb8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: a504bcfbbcd70c1d6fc8402d4c232e7e8a5476b0
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263511"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313749"
 ---
-# <a name="discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Identifiera anpassade machine learning-moduler i Azure AI-galleriet
+# <a name="machine-learning-studio-discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Machine Learning Studio: Identifiera anpassade machine learning-moduler i Azure AI-galleriet
 
 [Azure AI-galleriet](http://gallery.cortanaintelligence.com) tillhandahåller flera [anpassade moduler](https://gallery.cortanaintelligence.com/customModules) som utöka funktionerna hos Azure Machine Learning Studio. Du kan importera modulerna som ska användas i experiment, så att du kan utveckla mer avancerade lösningar för förutsägelseanalys.
 

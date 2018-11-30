@@ -4,11 +4,11 @@ Microsoft och eventuella bidragsgivares ge dig en licens för Microsoft-dokument
 
 Microsoft, Windows, Microsoft Azure och/eller andra Microsoft-produkter och tjänster som nämns i dokumentationen kan vara varumärken eller registrerade varumärken som tillhör Microsoft i USA och i andra länder.
 Licenserna för det här projektet ger dig inte behörighet att använda alla Microsoft-namn, logotyper eller varumärken.
-Microsofts allmänna riktlinjer för varumärken finns på [ http://go.microsoft.com/fwlink/?LinkID=254653 ](https://go.microsoft.com/fwlink/?LinkID=254653).
+Microsofts allmänna riktlinjer för varumärken finns på [ https://go.microsoft.com/fwlink/?LinkID=254653 ](httpss://go.microsoft.com/fwlink/?LinkID=254653).
 
 Sekretessinformation finns på [https://privacy.microsoft.com/en-us/](https://privacy.microsoft.com/en-us/)
 
 Microsoft och eventuella bidragsgivare rättigheter, enligt deras respektive upphovsrätt, patent eller varumärken, vare sig indirekt, via estoppel eller på annat sätt.
 
-Go-gopher har konfigurerats av [Renee French](http://reneefrench.blogspot.com/).
+Go-gopher har konfigurerats av [Renee French](https://reneefrench.blogspot.com/).
 Designen är licensierad under den [Creative Commons 3.0 upphovsrätter licens](https://creativecommons.org/licenses/by/3.0/us/).

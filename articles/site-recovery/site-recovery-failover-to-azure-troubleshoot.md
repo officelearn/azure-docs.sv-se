@@ -1,18 +1,25 @@
 ---
-title: Felsöka redundans till Azure | Microsoft Docs
-description: Den här artikeln beskriver hur du felsöker vanliga problem under redundans till Azure med Azure Site Recovery.
+title: Felsöka redundans till Azure fel | Microsoft Docs
+description: Den här artikeln beskrivs olika sätt att felsöka vanliga fel i redundansväxel till Azure
+services: site-recovery
+documentationcenter: ''
 author: ponatara
 manager: abhemraj
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
+ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
-ms.author: ponatara
-ms.openlocfilehash: 420d061b34734c7b5997f5cdd58fe7faaee9cb82
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 11/27/2018
+ms.author: mayg
+ms.openlocfilehash: 1e7486dc646843c473cfb355445e194893934a1a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236764"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447154"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Felsök fel när du växlar en virtuell dator till Azure
 
@@ -22,7 +29,7 @@ Du får något av följande fel när du gör redundans för en virtuell dator ti
 
 Det gick inte att skapa en redundansväxlade virtuella datorn i Azure site Recovery. Det kan inträffa på grund av något av följande orsaker:
 
-* Det finns inte tillräckligt många tillgängliga för att skapa den virtuella datorn: du kan kontrollera tillgänglig kvot genom att gå till prenumeration -> användning och kvoter. Du kan öppna en [ny supportbegäran](https://aka.ms/getazuresupport) att öka kvoten.
+* Det finns inte tillräckligt många tillgängliga för att skapa den virtuella datorn: du kan kontrollera tillgänglig kvot genom att gå till prenumeration -> användning och kvoter. Du kan öppna en [ny supportbegäran](http://aka.ms/getazuresupport) att öka kvoten.
 
 * Du försöker att redundansväxling för virtuella datorer av olika storlekar i samma tillgänglighetsuppsättning. Se till att du väljer samma storleksfamilj för alla virtuella datorer i samma tillgänglighetsuppsättning. Ändra storlek genom att gå till inställningarna för beräkning och nätverk för den virtuella datorn och försök att redundansväxla.
 
@@ -30,7 +37,7 @@ Det gick inte att skapa en redundansväxlade virtuella datorn i Azure site Recov
 
 ## <a name="failover-failed-with-error-id-28092"></a>Det gick inte att Redundansväxla med fel-ID 28092
 
-Site Recovery kunde inte skapa ett nätverksgränssnitt för den redundansväxlade virtuella datorn. Kontrollera att du har tillräckligt många tillgängliga för att skapa nätverksgränssnitt i prenumerationen. Du kan kontrollera tillgänglig kvot genom att gå till prenumeration -> användning och kvoter. Du kan öppna en [ny supportbegäran](https://aka.ms/getazuresupport) att öka kvoten. Om du har tillräckligt många så det kan vara ett tillfälligt problem, försök igen. Om problemet kvarstår trots upprepade försök, ska du lämna en kommentar i slutet av det här dokumentet.  
+Site Recovery kunde inte skapa ett nätverksgränssnitt för den redundansväxlade virtuella datorn. Kontrollera att du har tillräckligt många tillgängliga för att skapa nätverksgränssnitt i prenumerationen. Du kan kontrollera tillgänglig kvot genom att gå till prenumeration -> användning och kvoter. Du kan öppna en [ny supportbegäran](http://aka.ms/getazuresupport) att öka kvoten. Om du har tillräckligt många så det kan vara ett tillfälligt problem, försök igen. Om problemet kvarstår trots upprepade försök, ska du lämna en kommentar i slutet av det här dokumentet.  
 
 ## <a name="failover-failed-with-error-id-70038"></a>Det gick inte att Redundansväxla med fel-ID 70038
 
@@ -38,7 +45,37 @@ Det gick inte att skapa en misslyckad över klassisk virtuell dator i Azure site
 
 * En av resurser, till exempel ett virtuellt nätverk som krävs för den virtuella datorn skapas finns inte. Skapa det virtuella nätverket som angavs under inställningarna för beräkning och nätverk för den virtuella datorn eller ändra inställningen till ett virtuellt nätverk som redan finns och försök att redundansväxla.
 
-## <a name="unable-to-connectrdpssh---vm-connect-button-grayed-out"></a>Det går inte att ansluta/RDP/SSH - knappen är nedtonad för VM-anslutning
+## <a name="failover-failed-with-error-id-170010"></a>Det gick inte att Redundansväxla med fel-ID 170010
+
+Det gick inte att skapa en redundansväxlade virtuella datorn i Azure site Recovery. Det kan inträffa eftersom en intern aktivitet för hydrering misslyckades för den lokala virtuella datorn.
+
+Om du vill ta fram en dator i Azure, kräver Azure-miljön några av drivrutinerna i startavbildningen starta tillstånd och -tjänster som DHCP är i tillståndet autostart. Därför hydrering aktivitet, vid tidpunkten för växling vid fel, konverterar starttyp för **atapi, intelide, storflt, vmbus och storvsc drivrutiner** Start början. Det konverterar också starttypen för några tjänster som DHCP till autostart. Den här aktiviteten kan misslyckas på grund av problem med miljön. Så här ändrar du starttypen för drivrutiner manuellt i stegen nedan:
+
+1. [Ladda ned](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) nr hydrering skript och kör det som följer. Det här skriptet kontrollerar om virtuell dator kräver hydrering.
+
+    `.\Script-no-hydration.ps1`
+
+    Det ger följande resultat om hydrering krävs:
+
+        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
+
+        This system doesn't meet no-hydration requirement.
+
+    Om den virtuella datorn uppfyller Nej hydrering, ger skriptet resultatet ”systemet uppfyller Nej hydrering”. I det här fallet alla drivrutiner och tjänster som är i tillståndet som krävs av Azure och hydrering på den virtuella datorn är inte obligatoriskt.
+
+2. Kör skriptet Nej-hydrering-set på följande sätt om den virtuella datorn inte uppfyller kravet på Nej hydrering.
+
+    `.\Script-no-hydration.ps1 -set`
+    
+    Detta konverterar starttyp för drivrutiner och ger resultatet som den här:
+    
+        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0 
+
+        Updating registry:  REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc   start =  0 
+
+        This system is now no-hydration compatible. 
+
+## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>Det går inte att ansluta/RDP/SSH till den redundansväxlade virtuella datorn på grund av nedtonad knappen Anslut på den virtuella datorn
 
 Om den **Connect** knappen på den redundansväxlade virtuella datorn i Azure är nedtonad och du inte är ansluten till Azure via en Express Route eller plats-till-plats-VPN-anslutning, sedan
 

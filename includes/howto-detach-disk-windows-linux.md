@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: cynthn
+ms.openlocfilehash: 343ffb8daf19711d6c2a61b819ece92448146446
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52331510"
+---
 När du inte längre behöver en datadisk som är ansluten till en virtuell dator kan du enkelt koppla bort den. När du kopplar bort en disk tar du bort den från den virtuella datorn, men du tar inte bort den från Azure-lagringskontot.
 
 Om du vill använda befintliga data på disken igen kan du ansluta den igen till samma virtuella dator, eller till en annan.  

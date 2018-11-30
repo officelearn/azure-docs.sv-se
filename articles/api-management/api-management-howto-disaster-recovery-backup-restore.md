@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: e729d163428723d099157ad62d1c89a7ed917900
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 1653cfe0f75914fa321771a70284602cab75330d
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711437"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444876"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Implementera haveriberedskap med hjälp av service-säkerhetskopiering och återställning i Azure API Management
 
@@ -32,8 +32,8 @@ Den här guiden visar hur du autentiserar Azure Resource Manager-förfrågningar
 > Processen för att säkerhetskopiera och återställa en API Management-tjänstinstans för haveriberedskap kan också användas för att replikera API Management-tjänstinstanser för scenarier, till exempel mellanlagring.
 >
 > Varje säkerhetskopiering upphör att gälla efter 30 dagar. Om du försöker återställa en säkerhetskopia när 30-dagars giltighetsperiod har gått ut, återställningen misslyckas med ett `Cannot restore: backup expired` meddelande.
->
->
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="authenticating-azure-resource-manager-requests"></a>Autentiserande Azure Resource Manager-begäranden
 

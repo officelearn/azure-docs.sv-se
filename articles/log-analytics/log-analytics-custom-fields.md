@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: fdac7d1fd7fbcea28d6ce8e614e4968f168566ba
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3e1acb714cfc1c059f8d02240c2a6d49be9f4971
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010595"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335290"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Anpassade fält i Log Analytics
 Den **anpassade fält** funktion i Log Analytics kan du utöka befintliga poster i Log Analytics genom att lägga till egna sökbara fält.  Anpassade fält fylls i automatiskt från data som extraheras från andra egenskaper i samma post.
@@ -81,7 +81,7 @@ Du kan visa en lista över alla anpassade fält i hanteringsgruppen från den **
 Det finns två sätt att ta bort ett anpassat fält.  Först är det **ta bort** alternativ för varje fält när du visar den fullständiga listan enligt beskrivningen ovan.  Det andra sättet är att hämta en post och klicka på knappen till vänster om fältet.  Menyn har ett alternativ för att ta bort det anpassade fältet.
 
 ## <a name="sample-walkthrough"></a>Exempelgenomgång
-Följande avsnitt beskriver ett komplett exempel för att skapa ett anpassat fält.  Det här exemplet extraherar tjänstnamnet i Windows-händelser som indikerar att en tjänst som ändrar tillstånd.  Detta är beroende av händelser som skapats av Service Control Manager i systemloggen på Windows-datorer.  Om du vill följa det här exemplet måste du vara [samla in händelser med Information om systemloggen](log-analytics-data-sources-windows-events.md).
+Följande avsnitt beskriver ett komplett exempel för att skapa ett anpassat fält.  Det här exemplet extraherar tjänstnamnet i Windows-händelser som indikerar att en tjänst som ändrar tillstånd.  Detta är beroende av händelser som skapats av Service Control Manager i systemloggen på Windows-datorer.  Om du vill följa det här exemplet måste du vara [samla in händelser med Information om systemloggen](../azure-monitor/platform/data-sources-windows-events.md).
 
 Vi anger du följande fråga för att returnera alla händelser från Service Control Manager som har händelse-ID 7036 som är den händelse som anger en tjänst som startar eller stoppar.
 
@@ -141,5 +141,5 @@ Vi kan nu använda det anpassade fältet som någon annan post-egenskap.  För a
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [loggsökningar](log-analytics-queries.md) att skapa frågor med hjälp av anpassade fält för kriterier.
-* Övervaka [anpassade loggfiler](log-analytics-data-sources-custom-logs.md) som du tolkas med anpassade fält.
+* Övervaka [anpassade loggfiler](../azure-monitor/platform/data-sources-custom-logs.md) som du tolkas med anpassade fält.
 

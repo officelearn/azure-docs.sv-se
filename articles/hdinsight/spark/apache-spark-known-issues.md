@@ -9,19 +9,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: c364f9d06d29a601dfb9598bb568e7a6218d0a6f
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 8c3e3fa6dee41725c95be6f820440f6be50c53e6
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013810"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496495"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Kända problem med Apache Spark-kluster i HDInsight
 
 Det här dokumentet håller reda på om kända problem för den offentliga förhandsversionen för HDInsight Spark.  
 
-## <a name="livy-leaks-interactive-session"></a>Livy läcker interaktiva sessionen
-När Livy startas om (från Ambari eller på grund av omstart av huvudnod 0 VM) med en interaktiv session fortfarande lever, har en interaktiv jobbet session läckts. Nya jobb kan därför ha fastnat i tillståndet accepterad.
+## <a name="apache-livy-leaks-interactive-session"></a>Apache Livy läcker interaktiva sessionen
+När [Apache Livy](https://livy.incubator.apache.org/) startar om (från [Apache Ambari](https://ambari.apache.org/) eller på grund av omstart av huvudnod 0 VM) med en interaktiv session fortfarande lever en interaktiv jobbet session har läckts. Nya jobb kan därför ha fastnat i tillståndet accepterad.
 
 **Lösning:**
 
@@ -33,7 +33,7 @@ Använd följande procedur för att lösa problemet:
    
         yarn application –list
    
-    Standardnamn för jobbet kommer att Livy om jobb startades med en interaktiv session Livy med ingen explicit namnen har angetts. Livy-sessionen är igång genom att Jupyter-anteckningsbok Jobbnamnet börjar med remotesparkmagics_ *. 
+    Standardnamn för jobbet kommer att Livy om jobb startades med en interaktiv session Livy med ingen explicit namnen har angetts. För den Livy-sessionen som startas av [Jupyter Notebook](https://jupyter.org/), Jobbnamnet börjar med remotesparkmagics_ *. 
 3. Kör följande kommando för att avsluta jobben. 
    
         yarn application –kill <Application ID>
@@ -112,20 +112,20 @@ När Spark-kluster har slut på resurser, når Spark och PySpark kernlar i Jupyt
 * [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenarier
-* [Spark med BI: Utföra interaktiv dataanalys med hjälp av Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
-* [Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark med Machine Learning: Använda Spark i HDInsight för att förutsäga resultatet av en livsmedelskontroll](apache-spark-machine-learning-mllib-ipython.md)
-* [Webbplatslogganalys med Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark med BI: utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: använda Spark i HDInsight för att förutse matinspektionsresultat](apache-spark-machine-learning-mllib-ipython.md)
+* [Webbplatslogganalys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Skapa och köra program
 * [Skapa ett fristående program med hjälp av Scala](apache-spark-create-standalone-application.md)
-* [Köra jobb via fjärranslutning på ett Spark-kluster med Livy](apache-spark-livy-rest-interface.md)
+* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Verktyg och tillägg
 * [Använda HDInsight Tools-plugin för IntelliJ IDEA till att skapa och skicka Spark Scala-appar](apache-spark-intellij-tool-plugin.md)
-* [Använda HDInsight Tools-plugin för IntelliJ IDEA till att felsöka Spark-program via fjärranslutning](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Använda Zeppelin-anteckningsböcker med ett Spark-kluster i HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernlar som är tillgängliga för Jupyter Notebook i Spark-klustret för HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Använda HDInsight Tools-Plugin för IntelliJ IDEA till att felsöka Apache Spark-program via fjärranslutning](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Använda Apache Zeppelin-anteckningsböcker med Apache Spark-kluster på HDInsight](apache-spark-zeppelin-notebook.md)
+* [Kernlar som är tillgängliga för Jupyter notebook i Apache Spark-kluster för HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Använda externa paket med Jupyter-anteckningsböcker](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installera Jupyter på datorn och ansluta till ett HDInsight Spark-kluster](apache-spark-jupyter-notebook-install-locally.md)
 

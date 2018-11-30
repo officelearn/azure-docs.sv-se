@@ -1,3 +1,16 @@
+---
+author: vhorne
+ms.service: dns
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: victorh
+ms.openlocfilehash: f7fa018225d82e2db4a3c51b333aea6fcb9a1514
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52331511"
+---
 ### <a name="record-names"></a>Registrera namn
 
 DNS-poster i Azure anges med relativa namn. Ett *fullständigt kvalificerat* domännamn (FQDN), inkluderar zonnamnet, medan ett *relativt* namn inte gör det. Det relativa postnamnet ”www” i zonen ”contoso.com” skapar till exempel det fullständigt kvalificerade postnamnet ”www.contoso.com”.

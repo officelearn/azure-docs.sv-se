@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4e5561c4846889f53723ed8df82d7c6268aee180
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1a053f92433b6091f0d77439399e8419a58df185
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241624"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495144"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Skapa Apache Hadoop-kluster i HDInsight med hjälp av Resource Manager-mallar
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -32,7 +32,7 @@ Om du vill följa anvisningarna i den här artikeln behöver du:
 ### <a name="resource-manager-templates"></a>Mallar för Resurshanteraren
 En Resource Manager-mallen gör det enkelt att skapa följande resoruces för ditt program i en enda, samordnad åtgärd:
 * HDInsight-kluster och deras beroende resurser (till exempel standardkontot för lagring)
-* Andra resurser (till exempel Azure SQL Database att använda Apache Sqoop)
+* Andra resurser (till exempel Azure SQL Database för att använda [Apache Sqoop](http://sqoop.apache.org/))
 
 I mallen definierar du de resurser som behövs för programmet. Du kan även ange distributionsparametrarna för att ange värden för olika miljöer. Mallen består av JSON och uttryck som används för att skapa värden för din distribution.
 

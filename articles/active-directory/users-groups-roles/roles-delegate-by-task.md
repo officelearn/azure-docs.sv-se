@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: b4704e9f078b248ef1835babb3b63c378b011c4e
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: bd63e8379051864a19c473779625a925446185f2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516310"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445029"
 ---
 # <a name="administrator-roles-by-identity-task-in-azure-active-directory"></a>Administratörsroller för identiteten aktiviteten i Azure Active Directory
 
@@ -107,7 +107,7 @@ Läsa alla konfigurationen | Katalogläsare | Standard-användarrollen ([finns i
 Aktivitet | Minst Privilegierade roller | Ytterligare roller
 ---- | --------------------- | ----------------
 Skapa Azure AD Domain Services-instans | Global administratör | 
-Utföra alla Azure AD Domain Services-uppgifter | Azure AD DC-administratörsgruppen ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
+Utföra alla uppgifter i Azure AD Domain Services | Azure AD DC-administratörsgruppen ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
 Läsa alla konfigurationen | Läsare på Azure-prenumeration som innehåller AD DS-tjänsten | 
 
 ## <a name="devices"></a>Enheter
@@ -147,7 +147,7 @@ Tilldela licens | Användarkonto-administratör |
 Skapa grupp | Användarkonto-administratör | 
 Skapa, uppdatera eller ta bort åtkomstgranskning för en grupp eller en app | Användarkonto-administratör | 
 Hantera förfallodatum | Användarkonto-administratör | 
-Hantera gruppinställningar | Användarkonto-administratör | 
+Hantera gruppinställningar | Global administratör | 
 Läsa alla konfigurationen (utom dolda medlemskap) | Katalogläsare | Standard-användarrollen ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 Läsa dolda medlemskap | Gruppmedlem | Gruppägare, lösenordsadministratör, Exchange-administratör, SharePoint-administratör, Teams administratör, användarkonto-administratör
 Läsa medlemskap i grupper med dolda medlemskap | Supportavdelningsadministratör | Användarkontoadministratören, Teams-administratör

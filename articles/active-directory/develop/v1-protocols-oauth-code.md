@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b7b8ccf7e84239db4eef0914346c453a2f205f91
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c4a18fa022304e7ccfb4503cf2e02650555d6d7b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237901"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425130"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Bevilja åtkomst till Azure Active Directory-webbprogram med hjälp av kod grant-flöde för OAuth 2.0
 
@@ -60,7 +60,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | response_type |obligatorisk |Måste innehålla `code` för auktoriseringskodsflödet. |
 | redirect_uri |Rekommenderas |Redirect_uri för din app, där autentiseringssvar kan skickas och tas emot av din app. Det måste exakt matcha en av redirect_uris som du registrerade i portalen, men det måste vara url-kodas. För interna & mobila appar, bör du använda standardvärdet för `urn:ietf:wg:oauth:2.0:oob`. |
 | response_mode |valfri |Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app. Kan vara `query`, `fragment`, eller `form_post`. `query` innehåller koden som en frågesträngsparameter på din omdirigerings-URI. Om du ska få en ID-token med hjälp av det implicita flödet, du kan inte använda `query` som angetts på den [OpenID-specifikationen](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Om du ska få enbart koden, kan du använda `query`, `fragment`, eller `form_post`. `form_post` Kör ett INLÄGG som innehåller koden omdirigerings-URI. Standardvärdet är `query` för ett kodflöde.  |
-| state |Rekommenderas |Ett värde i begäran som returneras också i token-svaret. Ett slumpmässigt genererat unikt värde som normalt används för [att förhindra attacker med förfalskning av begäran](http://tools.ietf.org/html/rfc6749#section-10.12). Tillstånd används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
+| state |Rekommenderas |Ett värde i begäran som returneras också i token-svaret. Ett slumpmässigt genererat unikt värde som normalt används för [att förhindra attacker med förfalskning av begäran](https://tools.ietf.org/html/rfc6749#section-10.12). Tillstånd används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
 | resurs | Rekommenderas |App-ID URI för mål-webb-API (säker resurs). För att hitta URI: N för App-ID i Azure Portal, klickar du på **Azure Active Directory**, klickar du på **programregistreringar**, Öppna programmets **inställningar** sidan och klicka sedan på  **Egenskaper för**. Det kan också vara en extern resurs som `https://graph.microsoft.com`. Detta är nödvändigt i en av auktorisering eller tokenbegäranden. Om du vill kontrollera att färre authentication placeras anvisningarna den begäran om godkännande för att kontrollera medgivande tas emot från användaren. |
 | omfång | **ignoreras** | För v1 Azure AD-appar, scope statiskt konfigureras i Azure Portal under programmen **inställningar**, **nödvändiga behörigheter**. |
 | fråga |valfri |Ange vilken typ av interaktion från användaren som krävs.<p> Giltiga värden är: <p> *logga in*: användaren bör bli ombedd att autentiseras på nytt. <p> *select_account*: användaren uppmanas att välja ett konto att avbryta enkel inloggning på. Användaren kan välja ett befintligt inloggade konto, ange sina autentiseringsuppgifter för ett konto som är sparade eller välja att använda ett annat konto helt och hållet. <p> *godkänna*: användargodkännande har beviljats, men behöver uppdateras. Användaren ska uppmanas att godkänna. <p> *admin_consent*: en administratör ska uppmanas att ge samtycke åt alla användare i organisationen |
@@ -102,7 +102,7 @@ error=access_denied
 
 | Parameter | Beskrivning |
 | --- | --- |
-| fel |Ett felvärde kod som definierats i avsnittet 5.2 av den [OAuth 2.0 auktorisering Framework](http://tools.ietf.org/html/rfc6749). I nästa tabell beskrivs felkoder som returnerar Azure AD. |
+| fel |Ett felvärde kod som definierats i avsnittet 5.2 av den [OAuth 2.0 auktorisering Framework](https://tools.ietf.org/html/rfc6749). I nästa tabell beskrivs felkoder som returnerar Azure AD. |
 | error_description |En mer detaljerad beskrivning av felet. Det här meddelandet är inte avsedd att vara slutanvändarens eget. |
 | state |Statusvärdet är ett slumpmässigt genererat, icke återanvändas värde som skickas i begäran och returnerades i svaret att förhindra attacker med förfalskning (CSRF) av begäran. |
 
@@ -175,7 +175,7 @@ Ett lyckat svar kan se ut så här:
 | Parameter | Beskrivning |
 | --- | --- |
 | access_token |Den begärda [åtkomsttoken](access-tokens.md) som en signerad JSON Web Token (JWT). Appen kan använda den här token för att autentisera till den säkra resursen, till exempel ett webb-API. |
-| token_type |Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är ägar. Läs mer om ägar-token, [OAuth2.0 auktorisering Framework: ägar-Token användning (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
+| token_type |Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är ägar. Läs mer om ägar-token, [OAuth2.0 auktorisering Framework: ägar-Token användning (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) |
 | expires_in |Hur länge den åtkomst-token är giltig (i sekunder). |
 | expires_on |Den tid då den åtkomst-token upphör att gälla. Datumet visas som hur många sekunder en från 1970-01-01T0:0:0Z UTC tills de upphör att gälla. Det här värdet används för att fastställa livslängd för cachelagrade token. |
 | resurs |App-ID URI för webb-API (säker resurs). |
@@ -235,7 +235,7 @@ I följande tabell visas de HTTP-statuskoder som utfärdande-slutpunkten returne
 | temporarily_unavailable |Servern är tillfälligt för upptagen för att hantera begäran. |Gör om begäran. Klientprogrammet kan förklara för användaren att svaret är försenad på grund av ett tillfälligt tillstånd. |
 
 ## <a name="use-the-access-token-to-access-the-resource"></a>Använd åtkomsttoken för åtkomst till resursen
-Nu när du har skaffat har en `access_token`, du kan använda token i begäranden till webb-API: er, genom att inkludera den i den `Authorization` rubrik. Den [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) specifikationen förklarar hur du använder ägar-token i HTTP-begäranden att komma åt skyddade resurser.
+Nu när du har skaffat har en `access_token`, du kan använda token i begäranden till webb-API: er, genom att inkludera den i den `Authorization` rubrik. Den [RFC 6750](https://www.rfc-editor.org/rfc/rfc6750.txt) specifikationen förklarar hur du använder ägar-token i HTTP-begäranden att komma åt skyddade resurser.
 
 ### <a name="sample-request"></a>Exempelbegäran
 ```
@@ -258,7 +258,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 | Parameter | Beskrivning |
 | --- | --- |
 | authorization_uri |URI: N (fysiska slutpunkt) av auktoriseringsservern. Det här värdet används också som en lookup-nyckel för att få mer information om servern från en slutpunkt för identifiering. <p><p> Klienten måste verifiera att auktoriseringsservern är betrodd. När resursen skyddas av Azure AD, det är tillräckligt för att verifiera att URL: en börjar med https://login.microsoftonline.com eller ett annat värdnamn som har stöd för Azure AD. En klientspecifik resurs ska alltid returnera en klientspecifik auktorisering URI. |
-| fel |Ett felvärde kod som definierats i avsnittet 5.2 av den [OAuth 2.0 auktorisering Framework](http://tools.ietf.org/html/rfc6749). |
+| fel |Ett felvärde kod som definierats i avsnittet 5.2 av den [OAuth 2.0 auktorisering Framework](https://tools.ietf.org/html/rfc6749). |
 | error_description |En mer detaljerad beskrivning av felet. Det här meddelandet är inte avsedd att vara slutanvändarens eget. |
 | resursid |Returnerar den unika identifieraren för resursen. Klientprogrammet kan använda den här identifieraren som värde för den `resource` parametern när det begär en token för resursen. <p><p> Det är viktigt för klientprogram att verifiera det här värdet, annars en skadlig tjänsten kanske kan orsaka en **höjning av privilegier** attack <p><p> Den rekommenderade strategin för att förhindra ett angrepp är att kontrollera att den `resource_id` matchar basen för web API-URL som används. Till exempel om https://service.contoso.com/data används, den `resource_id` kan vara htttps://service.contoso.com/. Klientprogrammet måste avvisa en `resource_id` som börjar inte med den grundläggande Webbadressen om det inte finns en tillförlitligt alternativa sätt att kontrollera id. |
 

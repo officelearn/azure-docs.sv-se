@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 69c77896f894201d1419aaef33470a02ac45ff91
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: d044b1ad18df6eee1235e881038bbb9734a999ff
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986296"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317355"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Snabbstart: Logga in användare och hämta en åtkomsttoken från ett JavaScript-program
 
@@ -36,24 +36,24 @@ I den här snabbstarten får du lära dig hur du använder ett kodexempel som vi
 > #### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
 >
 > 1. Logga in på den [Azure-portalen](https://portal.azure.com/) att registrera ett program.
-> 1. Om ditt konto får du tillgång till fler än en klient, Välj ditt konto i övre högra hörnet och ange din portal session med önskade Azure AD-klient.
-> 1. I det vänstra navigeringsfönstret väljer du den **Azure Active Directory** tjänsten och välj sedan **appregistreringar (förhandsversion) > Ny registrering**.
+> 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
+> 1. I det vänstra navigeringsfönstret väljer du **Azure Active Directory**-tjänsten och sedan **Appregistreringar (förhandsversion) > Ny registrering**.
 > 1. När den **registrera ett program** visas, ange ett namn för ditt program.
 > 1. Under **stöds kontotyper**väljer **konton alla organisationskatalog och personliga Microsoft-konton**.
 > 1. Välj den **Web** plattform under den **omdirigerings-URI** avsnittet och ange värdet `http://localhost:30662/`.
-> 1. När du är klar väljer **registrera**.  I appen **översikt** sidan, Skriv ned den **(klient)-ID: T** värde.
+> 1. När det är klart väljer du **Registrera**.  I appen **översikt** sidan, Skriv ned den **(klient)-ID: T** värde.
 > 1. Den här snabbstarten krävs det [flöde beviljat med Implicit](v2-oauth2-implicit-grant-flow.md) aktiveras. I det vänstra navigeringsfönstret för det registrerade programmet, väljer **autentisering**.
 > 1. I **avancerade inställningar**under **Implicit beviljande**, aktivera båda **ID-token** och **åtkomsttoken** kryssrutorna. ID-token och åtkomsttoken krävs eftersom den här appen måste du logga in användare och anropa ett API.
 > 1. Välj **Spara**.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Steg 1: Konfigurera ditt program i Azure portal
+> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Steg 1: Konfigurera din app i Azure-portalen
 > För kodexempel för den här snabbstarten ska fungera måste du Lägg till en omdirigerings-URI som `http://localhost:30662/` och aktivera **Implicit beviljande**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Gör dessa ändringar för mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerat](media/quickstart-v2-javascript/green-check.png) ditt program har konfigurerats med dessa attribut.
+> > ![Redan konfigurerad](media/quickstart-v2-javascript/green-check.png) Programmet konfigureras med de här attributen.
 
 #### <a name="step-2-download-the-project"></a>Steg 2: Ladda ned projektet
 
@@ -66,7 +66,7 @@ Extrahera zip-filen till en lokal mapp, till exempel **C:\Azure-Samples**.
 #### <a name="step-3-configure-your-javascript-app"></a>Steg 3: Konfigurera JavaScript-app
 
 > [!div renderon="docs"]
-> Redigera `index.html` och Ersätt `Enter_the_Application_Id_here` under `applicationConfig` med program-ID för den app som du just registrerade.
+> Redigera `index.html` och ange den `clientID` och `authority` värden under `applicationConfig`.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Redigera `index.html` och Ersätt `applicationConfig` med:
@@ -74,13 +74,25 @@ Extrahera zip-filen till en lokal mapp, till exempel **C:\Azure-Samples**.
 ```javascript
 var applicationConfig = {
     clientID: "Enter_the_Application_Id_here",
+    authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
     graphScopes: ["user.read"],
     graphEndpoint: "https://graph.microsoft.com/v1.0/me"
 };
 ```
+> [!div renderon="docs"]
+>
+> Där:
+> - `Enter_the_Application_Id_here` – är **program-ID (klient)** för programmet som du har registrerat.
+> - `Enter_the_Tenant_Info_Here` – är inställt på något av följande alternativ:
+>   - Om ditt program stöder **Endast konton i den här organisationskatalogen** ska du ersätta värdet med **klient-ID** eller **klientnamn** (till exempel contoso.microsoft.com)
+>   - Om ditt program stöder **Konton i valfri organisationskatalog** ersätter du värdet med `organizations`
+>   - Om ditt program stöder **Konton i en valfri organisationskatalog och personliga Microsoft-konton** ersätter du värdet med `common`
+>
+> > [!TIP]
+> > För att hitta värdena för **program-ID (klient)**, **katalog-ID (klient)** och **Kontotyper som stöds** går du till appens **översiktssida** i Azure-portalen.
+
 > [!NOTE]
->Om du använder [Node.js](https://nodejs.org/en/download/), *server.js* fil har konfigurerats för servern för att påbörja avlyssning av port 30662.
-> Om du använder [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), kodexemplet *.csproj* fil har konfigurerats för servern för att påbörja avlyssning av port 30662.
+> Servern är konfigurerad för att lyssna på port 30662 i den *server.js* fil i [Node.js](https://nodejs.org/en/download/) projekt och *.csproj* fil i [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)projekt.
 >
 
 #### <a name="step-4-run-the-project"></a>Steg 4: Kör projektet
@@ -121,7 +133,7 @@ npm install msal
 Snabbstartskoden visar också hur du initierar biblioteket:
 
 ```javascript
-var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, null, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
+var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, applicationConfig.authority, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
 ```
 
 > |Var  |  |

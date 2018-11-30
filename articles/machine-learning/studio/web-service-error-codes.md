@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning REST API-felkoder | Microsoft Docs
+title: Azure Machine Learning Studio REST API-felkoder | Microsoft Docs
 description: Dessa felkoder kan returneras av en åtgärd på en Azure Machine Learning-webbtjänst.
 keywords: ''
 services: machine-learning
@@ -17,16 +17,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 92e85f123cc19d579a86d5cdedfaaf1df8c24e4c
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 274fbced61318a6617b04ea3092e8e2f96a10940
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263248"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314909"
 ---
-# <a name="machine-learning-rest-api-error-codes"></a>Machine Learning REST API-felkoder
+# <a name="machine-learning-studio-rest-api-error-codes"></a>Machine Learning Studio REST API-felkoder
  
-Följande felkoder kan returneras av en åtgärd på en Azure Machine Learning-webbtjänst.
+Följande felkoder kan returneras av en åtgärd på en Azure Machine Learning Studio-webbtjänst.
  
 ## <a name="badargument-http-status-code-400"></a>BadArgument (HTTP-statuskod 400)
  

@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
-ms.openlocfilehash: 233296a825653938da158fc70952c7fe7931498c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a2c66894270a537239c5328eff0acdc4b8339994
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261833"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443550"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Prestandatips för Azure Cosmos DB och Async Java
 
@@ -53,7 +53,7 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
 
 4. **Justering parallella frågor partitionerade samlingar**
 
-    Azure Cosmos DB SQL Async Java SDK har stöd för parallella frågor, som gör det möjligt att fråga en partitionerad samling parallellt (se [arbeta med SDK: erna](sql-api-partition-data.md#working-with-the-azure-cosmos-db-sdks) och de relaterade [kodexempel](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples) för mer information). Parallella frågor är utformade för att förbättra svarstid och dataflöde över sin seriella motsvarighet.
+    Azure Cosmos DB SQL Async Java SDK har stöd för parallella frågor, som gör det möjligt att fråga en partitionerad samling parallellt. Mer information finns i [kodexempel](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples) gäller när du arbetar med SDK: erna. Parallella frågor är utformade för att förbättra svarstid och dataflöde över sin seriella motsvarighet.
 
     (a) ***justering setMaxDegreeOfParallelism\:***  parallella frågor arbete genom att fråga flera partitioner parallellt. Dock hämtas data från en enskild partitionerad samling seriellt med avseende på frågan. Så Använd setMaxDegreeOfParallelism kan ange hur många partitioner som har högsta risken för att uppnå de flesta högpresterande frågan, under förutsättning att alla andra system villkor är desamma. Om du inte vet hur många partitioner, du kan använda setMaxDegreeOfParallelism för att ange ett högre värde och systemet väljer minst (antal partitioner, tillhandahålls användarindata) som högsta grad av parallellitet. 
 

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 1521bba188fcd7d8bade88196fe687929f414f93
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8f7edecf1abd1f01a2f40f1420a6a85224271239
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283520"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423509"
 ---
 # <a name="tutorial-6-group-and-extract-related-data"></a>Självstudiekurs 6: Gruppera och extrahera relaterade data
 I den här självstudien lägger du till en sammansatt entitet för att paketera olika typer av extraherade data i en enda innehållande entiteten. Genom att paketera data extrahera klientprogrammet enkelt relaterade data i olika datatyper.
@@ -97,7 +97,7 @@ Extraherade data från slutpunkten bör innehålla den här informationen och re
 ]
 ```
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. På den **avsikter** väljer **MoveEmployee** avsikt. 
 

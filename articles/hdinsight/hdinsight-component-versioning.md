@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: fca83090e6713e4360bd19d49c7fd6b9147fd6ea
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 2ae0450be420edeb4ef18d0c9e5ca6e1dacaf50d
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219740"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497016"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Vad är Apache Hadoop-komponenter och versioner som är tillgängliga med HDInsight?
 
-Läs mer om Apache Hadoop-ekosystemet komponenter och versioner i Microsoft Azure HDInsight, samt Enterprise Security Package. Lär dig även att kontrollera komponenten-versioner som Hadoop i HDInsight. 
+Lär dig mer om den [Apache Hadoop](https://hadoop.apache.org/) ekosystem komponenter och versioner i Microsoft Azure HDInsight, samt Enterprise Security Package. Lär dig även att kontrollera komponenten-versioner som Hadoop i HDInsight. 
 
 Varje HDInsight-version är en molndistribution av en version av Hortonworks Data Platform (HDP).
 
@@ -58,7 +58,7 @@ Komponent-versioner som är associerade med HDInsight-klusterversioner som lista
 
 ## <a name="check-for-current-hadoop-component-version-information"></a>Sök efter aktuell versionsinformation för Hadoop-komponent
 
-Hadoop-ekosystemet komponenten versioner som är associerade med HDInsight-kluster-versioner kan ändra med uppdateringar till HDInsight. Att kontrollera Hadoop-komponenter och kontrollera vilka versioner som används för ett kluster, kan du använda Ambari REST API. Den **GetComponentInformation** kommandot hämtar information om tjänstens komponenter. Mer information finns i [Ambari dokumentation][ambari-docs].
+Hadoop-ekosystemet komponenten versioner som är associerade med HDInsight-kluster-versioner kan ändra med uppdateringar till HDInsight. Att kontrollera Hadoop-komponenter och kontrollera vilka versioner som används för ett kluster, kan du använda Ambari REST API. Den **GetComponentInformation** kommandot hämtar information om tjänstens komponenter. Mer information finns i [Apache Ambari dokumentation][ambari-docs].
 
 Ett annat sätt att kontrollera vilken komponentversion är att logga in i ett kluster med hjälp av fjärrskrivbord och granska innehållet i katalogen C:\apps\dist\ för Windows-kluster.
 
@@ -117,8 +117,8 @@ Företagssäkerhet är ett valfritt paket som du kan lägga till i ditt HDInsigh
 
     Mer information finns i:
 
-    - [En introduktion till Hadoop-säkerhet med domänanslutna HDInsight-kluster](./domain-joined/apache-domain-joined-introduction.md)
-    - [Planera Azure-domänanslutna Hadoop-kluster i HDInsight](./domain-joined/apache-domain-joined-architecture.md)
+    - [En introduktion till Apache Hadoop-säkerhet med domänanslutna HDInsight-kluster](./domain-joined/apache-domain-joined-introduction.md)
+    - [Planera Azure-domänanslutna Apache Hadoop-kluster i HDInsight](./domain-joined/apache-domain-joined-architecture.md)
     - [Konfigurera domänansluten testmiljö](./domain-joined/apache-domain-joined-configure.md)
     - [Konfigurera domänanslutna HDInsight-kluster med Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
@@ -129,7 +129,7 @@ Företagssäkerhet är ett valfritt paket som du kan lägga till i ditt HDInsigh
 
     Mer information finns i:
 
-    - [Konfigurera Hive-policyer i domänanslutna HDInsight](./domain-joined/apache-domain-joined-run-hive.md)
+    - [Konfigurera Apache Hive-policyer i domänanslutna HDInsight](./domain-joined/apache-domain-joined-run-hive.md)
 
 - Visa granskningsloggar för att övervaka åtkomst och konfigurerade principer. 
 
@@ -151,7 +151,7 @@ Information om priser och SLA för Enterprise Security Package finns i [HDInsigh
 ## <a name="hdinsight-windows-retirement"></a>Dra tillbaka HDInsight Windows
 Microsoft Azure HDInsight version 3.3 har den senaste versionen av HDInsight på Windows. Slutdatum för HDInsight på Windows är den 31 juli 2018. Om du har alla HDInsight-kluster på Windows 3.3 eller tidigare, måste du migrera till HDInsight i Linux (HDInsight version 3.5 eller senare) före den 31 juli 2018. Migrera till Linux-operativsystem kan du behålla möjligheten att skapa eller ändra storlek på dina HDInsight-kluster. Stöd för HDInsight version 3.3 på Windows upphörde den 27 juni 2016.
 
-Från och med HDInsight version 3.4 har släppt Microsoft HDInsight endast på Linux-operativsystem. Därför kan är vissa komponenter i HDInsight tillgängliga för Linux endast. Dessa inkluderar Apache Ranger, Kafka, Interactive Query, Spark, HDInsight-program, och Azure Data Lake Store som det primära filsystemet. Framtida versioner av HDInsight är endast tillgängliga på Linux-operativsystem. Det tillkommer ingen framtida versioner av HDInsight på Windows. 
+Från och med HDInsight version 3.4 har släppt Microsoft HDInsight endast på Linux-operativsystem. Därför kan är vissa komponenter i HDInsight tillgängliga för Linux endast. Dessa inkluderar [Apache Ranger](https://ranger.apache.org/), [Apache Kafka](https://kafka.apache.org/), interaktiv fråga [Apache Spark](https://spark.apache.org/), HDInsight-program och Azure Data Lake Store som det primära filsystemet. Framtida versioner av HDInsight är endast tillgängliga på Linux-operativsystem. Det tillkommer ingen framtida versioner av HDInsight på Windows. 
 
 ## <a name="faqs"></a>Vanliga frågor och svar
 
@@ -264,8 +264,8 @@ I tabellerna nedan listas standard-storlekar för virtuella datorer (VM) för HD
 > - Worker kallas *Region* för HBase typ av kluster.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Installationen av kluster för Hadoop, Spark och mer på HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
-- [Arbeta i Hadoop på HDInsight från Windows PC](hdinsight-hadoop-windows-tools.md)
+- [Installationen av kluster för Apache Hadoop, Spark och mer på HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
+- [Arbeta i Apache Hadoop på HDInsight från Windows PC](hdinsight-hadoop-windows-tools.md)
 
 [Supported HDInsight versions]:(#supported-hdinsight-versions)
 

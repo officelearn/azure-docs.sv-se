@@ -9,21 +9,21 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: e132ceb857b05f24664c93729dd43d75b5a19ac2
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1e01a3db2c0ca1f9024afb3faecf677ac4e3131b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015068"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52494475"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Alternativ för beräkningskontexter för ML-tjänster på HDInsight
 
 ML-tjänster på Azure HDInsight styr hur anropen genom att ställa in beräkningskontexten. Den här artikeln beskrivs de alternativ som är tillgängliga för att ange om och hur körning parallelliseras över kärnor för kantnoden eller HDInsight-kluster.
 
-Edge-nod i ett kluster är ett bra ställe att ansluta till klustret och köra R-skript. Med en kantnod har du möjlighet att köra parallelliserad distribuerade functions av RevoScaleR över kärnor i noden gränsservern. Du kan också köra dem mellan noderna i klustret med hjälp av Revoscaler's Hadoop Map Reduce eller Spark compute-sammanhang.
+Edge-nod i ett kluster är ett bra ställe att ansluta till klustret och köra R-skript. Med en kantnod har du möjlighet att köra parallelliserad distribuerade functions av RevoScaleR över kärnor i noden gränsservern. Du kan också köra dem mellan noderna i klustret med hjälp av Revoscaler's Hadoop Map Reduce eller Apache Spark compute-sammanhang.
 
 ## <a name="ml-services-on-azure-hdinsight"></a>ML-tjänster på Azure HDInsight
-[ML-tjänster på Azure HDInsight](r-server-overview.md) innehåller de senaste funktionerna för R-baserad analys. Den kan använda data som lagras i ett HDFS-behållare i din [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob storage") storage-konto, ett Data Lake store eller lokala Linux-filsystem. Eftersom ML Services bygger på R med öppen källkod, kan R-baserade program som du skapar installera 8000 + R med öppen källkod paket. De kan också använda rutiner i [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), Microsofts big data analytics paket som ingår i ML-tjänster.  
+[ML-tjänster på Azure HDInsight](r-server-overview.md) innehåller de senaste funktionerna för R-baserad analys. Den kan använda data som lagras i en Apache Hadoop HDFS-behållare i din [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob storage") storage-konto, ett Data Lake store eller lokala Linux-filsystem. Eftersom ML Services bygger på R med öppen källkod, kan R-baserade program som du skapar installera 8000 + R med öppen källkod paket. De kan också använda rutiner i [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), Microsofts big data analytics paket som ingår i ML-tjänster.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Compute-sammanhang för en kantnod
 I allmänhet körs ett R-skript som körs i klustret för ML-tjänster på gränsnoden inom interpret R på noden. Undantagen är de steg som anropar en funktion för RevoScaleR. RevoScaleR-anrop körs i en beräkningsmiljö som bestäms av hur du ställer in beräkningskontexten RevoScaleR.  När du kör ditt R-skript från en kantnod, är de möjliga värdena för beräkningskontexten:
@@ -52,7 +52,7 @@ Vilket av de tre alternativen du väljer som tillhandahåller parallelliserad k�
 - Upprepad analyser är snabbare om data är lokala och om den tillhör XDF.
 - Det är bättre att strömma små mängder data från en datakälla för text. Om mängden data som är större, konvertera du den till XDF före analysen.
 - Arbetet med att kopiera eller strömmande data till gränsnoden för analys blir svårhanterligt för mycket stora mängder data.
-- Spark är snabbare än Map Reduce för analys i Hadoop.
+- ApacheSpark är snabbare än Map Reduce för analys i Hadoop.
 
 I följande avsnitt erbjuda med dessa principer kan vissa allmänna råden för att välja en beräkningskontext.
 
@@ -60,10 +60,10 @@ I följande avsnitt erbjuda med dessa principer kan vissa allmänna råden för 
 * Om mängden data som ska analyseras är liten och inte kräver upprepad analys, sedan strömma den direkt i analysis rutinmässig med *lokala* eller *localpar*.
 * Om mängden data som ska analyseras är små eller medelstora och analys av upprepade krävs, sedan kopiera den till det lokala filsystemet, importera den till XDF och analysera dem via *lokala* eller *localpar*.
 
-### <a name="hadoop-spark"></a>Hadoop Spark
+### <a name="apache-spark"></a>Apache Spark
 * Om mängden data som ska analyseras är stor kan sedan importera den till en Spark DataFrame med **RxHiveData** eller **RxParquetData**, eller till XDF i HDFS (såvida inte lagring är ett problem), och analysera den med hjälp av Spark-beräkning kontext.
 
-### <a name="hadoop-map-reduce"></a>Hadoop Map Reduce
+### <a name="apache-hadoop-map-reduce"></a>Apache Hadoop Map Reduce
 * Använda Map Reduce-beräkningskontexten endast om du får ett oöverstigliga problem med Spark-beräkningskontexten eftersom det är vanligtvis långsammare.  
 
 ## <a name="inline-help-on-rxsetcomputecontext"></a>Infogad hjälp på rxSetComputeContext
@@ -76,7 +76,7 @@ Du kan även gå till den [distribuerade översikt över](https://docs.microsoft
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du lärt dig om de alternativ som är tillgängliga för att ange om och hur körning parallelliseras över kärnor för kantnoden eller HDInsight-kluster. Mer information om hur du använder ML-tjänster med HDInsight-kluster finns i följande avsnitt:
 
-* [Översikt över ML-tjänster för Hadoop](r-server-overview.md)
-* [Kom igång med ML-tjänster för Hadoop](r-server-get-started.md)
+* [Översikt över ML-tjänster för Apache Hadoop](r-server-overview.md)
+* [Kom igång med ML-tjänster för Apache Hadoop](r-server-get-started.md)
 * [Alternativ för Azure Storage för ML-tjänster på HDInsight](r-server-storage.md)
 

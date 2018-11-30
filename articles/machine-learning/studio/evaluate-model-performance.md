@@ -1,6 +1,6 @@
 ---
-title: Utvärderar du modellens prestanda i Machine Learning | Microsoft Docs
-description: Beskriver hur du utvärderar du modellens prestanda i Azure Machine Learning.
+title: Utvärdera modellprestanda – Azure Machine Learning Studio | Microsoft Docs
+description: Den här artikeln visar hur du utvärderar prestanda för en modell i Azure Machine Learning Studio och ger en kort förklaring av mått som är tillgängliga för den här uppgiften.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 98704f00c6b086772d9e0440ace79c3ca713f13a
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: de013f8deb5e64077aad96bd34d64135f981166d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261608"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311509"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning"></a>Så här utvärderar du modellens prestanda i Azure Machine Learning
 Den här artikeln visar hur du utvärderar prestanda för en modell i Azure Machine Learning Studio och ger en kort förklaring av mått som är tillgängliga för den här uppgiften. Tre vanliga scenarier för övervakad inlärning visas: 
@@ -39,7 +39,7 @@ Azure Machine Learning har stöd för utvärdering av modellen via två av dess 
 ## <a name="evaluation-vs-cross-validation"></a>Jämfört med utvärdering Korsvalidering
 Utvärdering och mellan verifiering är standard sätt att mäta prestanda i din modell. De båda generera utvärderingsmått som du kan kontrollera eller jämföra med de andra modeller.
 
-[Utvärdera modellen] [ evaluate-model] förväntar sig en poängsatta datauppsättning som indata (eller 2 om du vill jämföra prestanda för 2 olika modeller). Det innebär att du behöver att träna modellen med den [träna modell] [ train-model] modulen och göra förutsägelser om vissa datauppsättning med hjälp av den [Poängmodell] [ score-model]modulen innan du kan utvärdera resultaten. Utvärderingen baseras på poängsatta etiketter/troliga tillsammans med SANT etiketterna, som matats ut av den [Poängmodell] [ score-model] modulen.
+[Utvärdera modellen] [ evaluate-model] förväntar sig en poängsatta datauppsättning som indata (eller 2 om du vill jämföra prestanda för två olika modeller). Det innebär att du behöver att träna modellen med den [träna modell] [ train-model] modulen och göra förutsägelser om vissa datauppsättning med hjälp av den [Poängmodell] [ score-model]modulen innan du kan utvärdera resultaten. Utvärderingen baseras på poängsatta etiketter/troliga tillsammans med SANT etiketterna, som matats ut av den [Poängmodell] [ score-model] modulen.
 
 Du kan också använda mellan verifieringen för att utföra ett antal träna poäng utvärdera åtgärder (10 vikningar) automatiskt på olika delmängder av indata. Indata är indelat i 10 delar, där är ett reserverat för testning, och de andra 9 för utbildning. Den här processen upprepas 10 gånger och utvärderingsmått är ett genomsnitt. På så sätt kan bestämma hur väl en modell skulle generalisera till nya datauppsättningar. Den [Kontrollera modellen] [ cross-validate-model] modulen tar ett omdöme modellen och vissa taggade datauppsättning och matar ut utvärderingsresultat av var och en av de 10 vikningar, förutom genomsnittlig resultaten.
 
@@ -66,7 +66,7 @@ Figur 1. Utvärderar en regressionsmodell.
 ### <a name="inspecting-the-evaluation-results"></a>Kontrollera utvärderingsresultaten
 När du har kört experimentet som du kan klicka på utdataporten för den [utvärdera modell] [ evaluate-model] modul och välj *visualisera* att se utvärderingsresultaten. Utvärderingsmått som är tillgängliga för regressionsmodeller är: *innebära absoluta fel*, *rot innebära absoluta fel*, *relativa absoluta fel*,  *Relativ cirkels fel*, och *Bestämningskoefficient*.
 
-Termen ”error” här representerar skillnaden mellan det förväntade och värdet true. Det absoluta värdet eller kvadraten av denna skillnad beräknas vanligtvis att samla in den totala storleken på fel i alla instanser som skillnaden mellan det förväntade och SANT värdet kan vara negativt i vissa fall. Felmått mäta förutsägande prestanda i en regressionsmodell när det gäller medelvärdet skillnader mellan dess förutsägelser från värdet true. Nedre felvärdena gör modellen är bättre att göra förutsägelser. En övergripande mått har fel 0 betyder att modellen passar data perfekt.
+Termen ”error” här representerar skillnaden mellan det förväntade och värdet true. Det absoluta värdet eller kvadraten av denna skillnad beräknas vanligtvis att samla in den totala storleken på fel i alla instanser som skillnaden mellan det förväntade och SANT värdet kan vara negativt i vissa fall. Felmått mäta förutsägande prestanda i en regressionsmodell när det gäller medelvärdet skillnader mellan dess förutsägelser från värdet true. Nedre felvärdena gör modellen är bättre att göra förutsägelser. Ett övergripande fel mått noll innebär att modellen passar data perfekt.
 
 Bestämningskoefficient, som även kallas R cirkels, är också ett standardiserat sätt att mäta hur väl modellen passar data. Den kan tolkas som variation som beskrivs i modellen. En högre andel är bättre i detta fall där 1 anger en perfekt passning.
 
@@ -75,7 +75,7 @@ Bestämningskoefficient, som även kallas R cirkels, är också ett standardiser
 Figur 2. Linjär Regression Utvärderingsmått.
 
 ### <a name="using-cross-validation"></a>Med hjälp av plattformsoberoende verifiering
-Som vi nämnde tidigare kan du utföra upprepade utbildning, bedömning och utvärderingar som automatiskt med den [Kontrollera modellen] [ cross-validate-model] modulen. Allt du behöver i det här fallet är en datauppsättning, en omdöme modell och en [Kontrollera modellen] [ cross-validate-model] modulen (se bilden nedan). Observera att du måste ange etikettkolumnen till *pris* i den [Kontrollera modellen] [ cross-validate-model] modulens egenskaper.
+Som vi nämnde tidigare kan du utföra upprepade utbildning, bedömning och utvärderingar som automatiskt med den [Kontrollera modellen] [ cross-validate-model] modulen. Allt du behöver i det här fallet är en datauppsättning, en omdöme modell och en [Kontrollera modellen] [ cross-validate-model] modulen (se bilden nedan). Du måste ange etikettkolumnen *pris* i den [Kontrollera modellen] [ cross-validate-model] modulens egenskaper.
 
 ![Verifiera en regressionsmodell mellan](./media/evaluate-model-performance/3.png)
 
@@ -88,7 +88,7 @@ När experimentet har körts kan du inspektera utvärderingsresultaten genom att
 Figur 4. Korsvalidering resultatet av en regressionsmodell.
 
 ## <a name="evaluating-a-binary-classification-model"></a>Utvärderar en binär Klassificeringsmodell
-I ett scenario med binär klassificering en målvariabel har bara två möjliga resultat, till exempel: {0, 1} eller {FALSKT, SANT}, {negativt, positivt}. Anta att du får en datauppsättning som är olämpligt för barn anställda med några demografiska och anställning variabler och att du uppmanas att förutsäga inkomstnivå, en binär variabel med värdena {”< = 50K” ”, > 50K”}. Med andra ord klassen negativt representerar de medarbetare som gör mindre än eller lika med 50K per år och klassen positivt representerar alla andra anställda. Som i scenariot regression skulle vi tränar en modell, bedöma vissa data och utvärdera resultaten. Den största skillnaden här är valet av Azure Machine Learning beräknar mått- och utdata. För att visa intäkter på förutsägelse scenario kan vi använder den [vuxet](http://archive.ics.uci.edu/ml/datasets/Adult) datauppsättning för att skapa ett Azure Machine Learning-experiment och utvärdera prestanda för en tvåklassförhöjt logistic regression-modellen, en binär som används ofta klassificerare.
+I ett scenario med binär klassificering en målvariabel har bara två möjliga resultat, till exempel: {0, 1} eller {FALSKT, SANT}, {negativt, positivt}. Anta att du får en datauppsättning som är olämpligt för barn anställda med några demografiska och anställning variabler och att du uppmanas att förutsäga inkomstnivå, en binär variabel med värdena {”< = 50 K” ”, > 50 K”}. Med andra ord klassen negativt representerar de medarbetare som gör mindre än eller lika med 50 K per år och klassen positivt representerar alla andra anställda. Som i scenariot regression skulle vi tränar en modell, bedöma vissa data och utvärdera resultaten. Den största skillnaden här är valet av Azure Machine Learning beräknar mått- och utdata. För att visa intäkter på förutsägelse scenario kan vi använder den [vuxet](http://archive.ics.uci.edu/ml/datasets/Adult) datauppsättning för att skapa ett Azure Machine Learning-experiment och utvärdera prestanda för en tvåklassförhöjt logistic regression-modellen, en binär som används ofta klassificerare.
 
 ### <a name="creating-the-experiment"></a>Skapa experimentet
 Lägg till följande moduler i din arbetsyta i Azure Machine Learning Studio:
@@ -116,7 +116,7 @@ Därför är det bra att beräkna ytterligare mått som samlar in mer specifika 
 
 Figur 6. Binär klassificering Felmatris.
 
-Går tillbaka till klassificeringsproblem intäkter, vill vi skulle ställa flera utvärderingsfrågor som hjälper oss att förstå prestanda för klassificerarna används. En mycket naturliga frågan är ”: från personer som modellen förutse till att tjäna > 50 K (TP + FP), hur många har klassificerats korrekt (TP)”? Den här frågan besvaras genom att titta på den **Precision** av modellen, vilket är den positiva identifieringar som klassificerats korrekt: TP/(TP+FP). En annan vanlig fråga är ”utanför alla hög tjäna anställda med inkomst > 50 k (TP + FN), hur många klassificeraren klassificera korrekt (TP)”. Hittar du faktiskt den **återkalla**, eller true positiva identifieringar: TP/(TP+FN) för klassificerarna. Du kanske märker att det finns en uppenbar säkerhetsaspekten precision och återkallande. Till exempel får en relativt belastningsutjämnade datauppsättning, skulle en klassificerare som beräknar huvudsakligen positivt instanser, finns en hög återkallande, men en i stället Låg precision som många av instanserna i negativt skulle klassificeras vilket resulterar i ett stort antal falska positiva identifieringar. Om du vill se ett diagram över hur de här två måtten varierar, kan du klicka på ”PRECISION/återkallande' kurvan i utvärderingssidan resultatet utdata (överst till vänster en del av bild 7).
+Går tillbaka till klassificeringsproblem intäkter, vill vi skulle ställa flera utvärderingsfrågor som hjälper oss att förstå prestanda för klassificerarna används. En mycket naturliga frågan är ”: från personer som modellen förutse till att tjäna > 50 K (TP + FP), hur många har klassificerats korrekt (TP)”? Den här frågan besvaras genom att titta på den **Precision** av modellen, vilket är den positiva identifieringar som klassificerats korrekt: TP/(TP+FP). En annan vanlig fråga är ”utanför alla hög tjäna anställda med inkomst > 50 k (TP + FN), hur många klassificeraren klassificera korrekt (TP)”. Hittar du faktiskt den **återkalla**, eller true positiva identifieringar: TP/(TP+FN) för klassificerarna. Du kanske märker att det finns en uppenbar säkerhetsaspekten precision och återkallande. Till exempel får en relativt belastningsutjämnade datauppsättning, skulle en klassificerare som beräknar huvudsakligen positivt instanser, finns en hög återkallande, men en i stället Låg precision som många av instanserna i negativt skulle klassificeras vilket resulterar i ett stort antal falska positiva identifieringar. Om du vill se ett diagram över hur de här två måtten varierar, kan du klicka på den **PRECISION/återkallande** kurvan i utvärderingssidan resultatet utdata (övre vänstra del av bild 7).
 
 ![Utvärderingsresultat av binär klassificering](./media/evaluate-model-performance/7.png)
 

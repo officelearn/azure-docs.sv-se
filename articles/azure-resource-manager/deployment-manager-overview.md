@@ -11,20 +11,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: a5a2300bd0b768b4a29b01e75f9558c4923ac11c
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: eea981800147f24025e01826f7550a95041c107f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395140"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427309"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>Aktivera säker distribution metoder med Azure Deployment Manager (privat förhandsversion)
 
 För att distribuera tjänsten i många regioner och kontrollera att den körs som förväntat i varje region, kan du använda Distributionshanteraren för Azure för att samordna en stegvis distribution av tjänsten. Precis som för alla Azure-distribution, du definierar resurser för din tjänst i [Resource Manager-mallar](resource-group-authoring-templates.md). När du har skapat mallarna använda Deployment Manager för att beskriva topologin för din tjänst och hur den ska distribueras.
 
-Deployment Manager är en funktion i Resource Manager. Det utökar din funktioner under distributionen. Använd Deployment Manager när du har en komplex tjänst som måste distribueras till flera regioner. Av mellanlagring för distribution av tjänsten, kan du hitta potentiella problem innan den har distribuerats till alla regioner. Om du inte behöver extra säkerhetsåtgärder för en stegvis distribution kan använda standarden [distributionsalternativ](resource-group-template-deploy-portal.md) för Resource Manager. Deployment Manager integreras sömlöst med alla befintliga verktyg från tredje part som har stöd för Resource Manager-distributioner, till exempel kontinuerlig integrering och kontinuerlig leverans (CI/CD)-erbjudanden. 
+Deployment Manager är en funktion i Resource Manager. Det utökar din funktioner under distributionen. Använd Deployment Manager när du har en komplex tjänst som måste distribueras till flera regioner. Genom att mellanlagra distribution av tjänsten kan du upptäcka potentiella problem innan den har distribuerats till alla regioner. Om du inte behöver extra säkerhetsåtgärder för en stegvis distribution kan använda standarden [distributionsalternativ](resource-group-template-deploy-portal.md) för Resource Manager. Deployment Manager integreras sömlöst med alla befintliga verktyg från tredje part som har stöd för Resource Manager-distributioner, till exempel kontinuerlig integrering och kontinuerlig leverans (CI/CD)-erbjudanden. 
 
-Azure Deployment Manager är i privat förhandsversion. För att använda Azure Deployment Manager måste slutföra den [fyllt i registreringsformuläret](https://aka.ms/admsignup). Hjälp dig förbättra funktionen genom att tillhandahålla [feedback](https://aka.ms/admfeedback).
+Distributionshanteraren i Azure finns i en privat förhandsgranskning. För att använda Azure Deployment Manager måste slutföra den [fyllt i registreringsformuläret](https://aka.ms/admsignup). Hjälp dig förbättra funktionen genom att tillhandahålla [feedback](https://aka.ms/admfeedback).
 
 Om du vill använda Deployment Manager, måste du skapa fyra filer:
 
@@ -34,6 +34,8 @@ Om du vill använda Deployment Manager, måste du skapa fyra filer:
 * Parameterfilen för distribution
 
 Du kan distribuera mallen topologin innan du distribuerar mallen distributionen.
+
+Azure Deployment Manager REST API-referensen finns [här](https://docs.microsoft.com/rest/api/deploymentmanager/).
 
 ## <a name="supported-locations"></a>Platser som stöds
 

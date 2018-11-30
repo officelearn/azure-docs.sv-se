@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: b9a5658c91a44289442f48993118e996bf2691c2
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 181a8ad7291a8e8a0aa2a8373985c8747bd4569b
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164055"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446831"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db"></a>Globala data-distribution med Azure Cosmos DB
 
@@ -22,7 +22,7 @@ Dagens program kräver för att vara tillgängliga och alltid online. Instanser 
 
 Azure Cosmos DB är en grundläggande Azure-tjänst och den är tillgänglig i alla [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/) som standard. Microsoft fungerar Azure-datacenter i 54 + regioner över hela världen och fortsätter att expandera regionala närvaro för att möta de växande behov av kunderna. När du skapar ett Azure Cosmos-konto kan bestämma du vilken region som den ska distribueras i. Microsoft Driver Azure Cosmos DB-tjänsten 24/7, så du kan fokusera på dina program.
 
-Du kan konfigurera databaserna och globalt distribuerad och vara tillgängligt i alla Azure-regioner. Om du vill minska svarstiden, bör du placera data närmare till där användarna finns. Välja regionerna som krävs beror på global räckvidden för ditt program och var dina användare finns. Azure Cosmos DB replikerar data i ditt konto transparent till alla regioner som är associerat med ditt konto till alla regioner som är associerat med ditt konto. Det ger en enskild systemavbildning av globalt distribuerade Azure Cosmos-databasen och behållare som ditt program kan läsa och skriva till lokalt. Med Azure Cosmos DB kan du lägga till eller ta bort de regioner som är associerade med ditt konto när som helst. Ditt program behöver inte pausas eller omdistribueras om du vill lägga till eller ta bort en region. Det fortsätter att ha hög tillgänglighet när som helst på grund av flera funktioner som tjänsten tillhandahåller.
+Du kan konfigurera databaserna och globalt distribuerad och vara tillgängligt i alla Azure-regioner. Om du vill minska svarstiden, bör du placera data närmare till där användarna finns. Välja regionerna som krävs beror på global räckvidden för ditt program och var dina användare finns. Azure Cosmos DB replikerar data i ditt konto transparent till alla regioner som är associerat med ditt konto. Det ger en enskild systemavbildning av globalt distribuerade Azure Cosmos-databasen och behållare som ditt program kan läsa och skriva till lokalt. Med Azure Cosmos DB kan du lägga till eller ta bort de regioner som är associerade med ditt konto när som helst. Ditt program behöver inte pausas eller omdistribueras om du vill lägga till eller ta bort en region. Det fortsätter att ha hög tillgänglighet när som helst på grund av flera funktioner som tjänsten tillhandahåller.
 
 ## <a name="key-benefits-of-global-distribution"></a>Viktiga fördelar med global distribution
 

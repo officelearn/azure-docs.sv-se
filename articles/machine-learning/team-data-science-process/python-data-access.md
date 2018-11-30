@@ -2,25 +2,21 @@
 title: Få åtkomst till datauppsättningar med Machine Learning Python-klientbiblioteket | Microsoft Docs
 description: Installera och använda Python-klientbiblioteket för att komma åt och hantera Azure Machine Learning-data på ett säkert sätt från en lokal Python-miljö.
 services: machine-learning
-documentationcenter: python
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 9ab42272-c30c-4b7e-8e66-d64eafef22d0
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: 496ffdcb5cc2e7b208a53dc8c1d8ba4c0818945f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 43812b68b10f9e4f8510d24cb08c8bb368b3b8f8
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719978"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445777"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Åtkomst till datauppsättningar med Python med hjälp av Python-klientbiblioteket i Azure Machine Learning
 Förhandsversionen av Microsoft Azure Machine Learning Python-klientbiblioteket aktivera säker åtkomst till dina Azure Machine Learning-datauppsättningar från en lokal Python-miljö och möjliggör skapandet och hanteringen av datauppsättningar i en arbetsyta.

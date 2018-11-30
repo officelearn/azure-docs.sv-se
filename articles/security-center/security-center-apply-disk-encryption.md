@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d78e5ba030a8b68b99a92be8a830a365c2870c1f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c8a2caf2826069824a993294f4eba514ea870d9c
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235895"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307383"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Tillämpa diskkryptering i Azure Security Center
 Azure Security Center rekommenderar att du installerar diskkryptering om du har Windows- eller Linux VM-diskar som inte är krypterade med Azure Disk Encryption. Diskkryptering kan du kryptera din Windows- och Linux IaaS VM-diskar.  Kryptering rekommenderas både för OS- och datavolymer på den virtuella datorn.
@@ -56,7 +56,7 @@ Det här dokumentet visade hur du implementerar Security Center-rekommendationen
 
 I följande avsnitt kan du lära dig mer om Security Center:
 
-* [Ange säkerhetsprinciper i Azure Security Center](security-center-policies.md) – Lär dig hur du ställer in säkerhetsprinciper.
+* [Ange säkerhetsprinciper i Azure Security Center](security-center-azure-policy.md) – Lär dig hur du ställer in säkerhetsprinciper.
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md) – Lär dig att övervaka hälsotillståndet hos dina Azure-resurser.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md) – Lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.

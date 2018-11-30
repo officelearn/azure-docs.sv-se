@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 4c1696fc373975eb9857c40366829fbe6a535911
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 33a5b6e894c9c2b74f4c85ee96d59c0313a4bbe2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391886"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446984"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Auktorisera konton med hjälp av Azure Active Directory i Azure API Management
 
@@ -32,10 +32,12 @@ Den här artikeln visar hur du aktiverar åtkomst till utvecklarportalen för an
 - Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
 - Importera och publicera en Azure API Management-instans. Mer information finns i [importera och publicera](import-and-publish.md).
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Auktorisera konton med hjälp av Azure AD
 
 1. Logga in på [Azure Portal](https://portal.azure.com). 
-1. Markera ![arrow](./media/api-management-howto-aad/arrow.png).
+1. Välj ![arrow](./media/api-management-howto-aad/arrow.png).
 1. Typ **api** i sökrutan.
 1. Välj **API Management-tjänster**.
 1. Välj API Management-tjänstinstansen.
@@ -52,7 +54,7 @@ Den här artikeln visar hur du aktiverar åtkomst till utvecklarportalen för an
    ![Steg för att lägga till en identitetsprovider i Azure portal](./media/api-management-howto-aad/api-management-with-aad001.png)  
 1. Öppna en annan flik i webbläsaren. 
 1. Gå till [Azure-portalen](https://portal.azure.com).
-1. Markera ![arrow](./media/api-management-howto-aad/arrow.png).
+1. Välj ![arrow](./media/api-management-howto-aad/arrow.png).
 1. Typ **active**. Den **Azure Active Directory** visas fönstret.
 1. Välj **Azure Active Directory**.
 1. Under **hantera**väljer **appregistreringar**.

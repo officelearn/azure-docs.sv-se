@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: f424abd339bda6c29079e3d286cbe96593f16f52
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 287a0986d921798bc7735e5a75d279f010712b16
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040048"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335631"
 ---
 # <a name="prebuilt-domain-reference"></a>Fördefinierad domänreferens
 Den här referensen innehåller information om den [fördefinierade domäner](luis-how-to-use-prebuilt-domains.md), som är färdiga samlingar med avsikter och entiteter som LUIS erbjuder.
@@ -27,27 +27,27 @@ LUIS erbjuder 20 fördefinierade domäner.
 
 | Fördefinierade domän | Beskrivning | Språk som stöds |
 | ---------------- |-----------------------|:------:|
-| Kalender | Kalender-domänen innehåller avsikt och entiteter för att lägga till, tar bort, eller redigera en avtalad tid, kontrollerar tillgängligheten för deltagare och hitta information om en kalenderhändelse.| sv-SE<br/> zh-CN |
-| Kamera | Kamera domänen tillhandahåller avsikter och entiteter för att ta bilder, spela in videor och broadcasting video till ett program.| sv-SE |
-| Kommunikation | Skicka meddelanden och telefonsamtal.| sv-SE <br/> zh-CN |
-| underhållning  | Hantering av frågor som rör musik, filmer och TV.| sv-SE |
-| Händelser | Biljetter för konserter, festivaler, Sportspel och Komedi för bokning visas.| sv-SE |
-| Lämplighet | Hantering av begäranden som rör spårning lämplighet aktiviteter.| sv-SE |
-| Spel | Hantering av begäranden som rör en game part i spelet.| sv-SE |
-| HomeAutomation | Styra smart home enheter som tangentsektionen och installationer.| sv-SE<br/> zh-CN |
-| MovieTickets | Ärenden hos filmer på en film theater för bokning.| sv-SE |
-| Musik | Spela musik på en musikspelare.| sv-SE<br/> zh-CN |
-| Obs! | Obs domänen innehåller avsikter och entiteter relaterade till att skapa, redigera och söka efter information.| sv-SE<br/> zh-CN |
-| OnDevice | OnDevice domänen innehåller avsikter och entiteter relaterade till att styra enheten.| sv-SE<br/> zh-CN |
-| Platser  | Hantering av frågor som rör platser som företag, institutioner, restauranger, offentliga blanksteg och adresser.| sv-SE<br/> zh-CN |
-| Påminnelse | Hantering av begäranden som rör skapa, redigera och söka efter påminnelser.| sv-SE<br/> zh-CN |
-| RestaurantReservation | Hantering av begäranden för att hantera restaurang reservationer.| sv-SE<br/> zh-CN |
-| Taxi | Hantering av bokningar för en taxi.| sv-SE<br/> zh-CN |
-| Översätt | Översätter text till ett mål-språk.| sv-SE<br/> zh-CN |
-| TV | Kontrollera TV-apparater.| sv-SE |
-| Samhällsservice  | Hantering av begäranden som är vanliga i många domäner, t.ex. ”hjälp”, ”upprepa”, ”börja om”.| sv-SE |
-| Väder | Få väderprognoser och prognoser.| sv-SE<br/> zh-CN |
-| Webb | Navigera till en webbplats.| sv-SE<br/> zh-CN |
+| Kalender | Kalender-domänen innehåller avsikt och entiteter för att lägga till, tar bort, eller redigera en avtalad tid, kontrollerar tillgängligheten för deltagare och hitta information om en kalenderhändelse.| en-US<br/> zh-CN |
+| Kamera | Kamera domänen tillhandahåller avsikter och entiteter för att ta bilder, spela in videor och broadcasting video till ett program.| en-US |
+| Kommunikation | Skicka meddelanden och telefonsamtal.| en-US <br/> zh-CN |
+| underhållning  | Hantering av frågor som rör musik, filmer och TV.| en-US |
+| Händelser | Biljetter för konserter, festivaler, Sportspel och Komedi för bokning visas.| en-US |
+| Lämplighet | Hantering av begäranden som rör spårning lämplighet aktiviteter.| en-US |
+| Spel | Hantering av begäranden som rör en game part i spelet.| en-US |
+| HomeAutomation | Styra smart home enheter som tangentsektionen och installationer.| en-US<br/> zh-CN |
+| MovieTickets | Ärenden hos filmer på en film theater för bokning.| en-US |
+| Musik | Spela musik på en musikspelare.| en-US<br/> zh-CN |
+| Obs! | Obs domänen innehåller avsikter och entiteter relaterade till att skapa, redigera och söka efter information.| en-US<br/> zh-CN |
+| OnDevice | OnDevice domänen innehåller avsikter och entiteter relaterade till att styra enheten.| en-US<br/> zh-CN |
+| Platser  | Hantering av frågor som rör platser som företag, institutioner, restauranger, offentliga blanksteg och adresser.| en-US<br/> zh-CN |
+| Påminnelse | Hantering av begäranden som rör skapa, redigera och söka efter påminnelser.| en-US<br/> zh-CN |
+| RestaurantReservation | Hantering av begäranden för att hantera restaurang reservationer.| en-US<br/> zh-CN |
+| Taxi | Hantering av bokningar för en taxi.| en-US<br/> zh-CN |
+| Översätt | Översätter text till ett mål-språk.| en-US<br/> zh-CN |
+| TV | Kontrollera TV-apparater.| en-US |
+| Samhällsservice  | Hantering av begäranden som är vanliga i många domäner, t.ex. ”hjälp”, ”upprepa”, ”börja om”.| en-US |
+| Väder | Få väderprognoser och prognoser.| en-US<br/> zh-CN |
+| Webb | Navigera till en webbplats.| en-US<br/> zh-CN |
 
 Mer information om varje domän finns i avsnitten som följer.
 
@@ -68,7 +68,7 @@ Kalender-domänen innehåller avsikter och entiteter relaterade till kalenderpos
 | Entitetsnamn | Beskrivning | Exempel |
 | ---------------- |-----------------------|----|
 | Plats | Platsen för kalenderobjekt, möte eller avtalad tid. Adresser, orter och regioner är bra exempel på platser.| 209 Nashville gymmet <br/><br/>897 pannkaka house<br/><br/>Garage|
-| Ämne | Rubriken på ett möte eller en avtalad tid.| tandläkartiden <br/><br/>Lunch med Julia<br/><br/>Parti-, avtalad tid|
+| Subjekt | Rubriken på ett möte eller en avtalad tid.| tandläkartiden <br/><br/>Lunch med Julia<br/><br/>Parti-, avtalad tid|
 
 ## <a name="camera"></a>Kamera 
 Kamera domänen innehåller avsikter och entiteter relaterade med användning av en kamera. Avsikter täcker ta ett foto, selfie, skärmbild eller video och sänder video till ett program.

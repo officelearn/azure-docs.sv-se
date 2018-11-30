@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 11/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a3bce69236586bcd0a250c47f1129ac0d94e8b26
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ef8b621b41bb43c46ef728e28d3b312ac49f1da3
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231490"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308791"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konton och behörigheter
 
@@ -39,7 +39,10 @@ Azure AD Connect använder 3-konton för att kunna synkronisera information frå
 
 Förutom dessa tre konton som används för att köra Azure AD Connect, måste du också följande ytterligare konton att installera Azure AD Connect.  Dessa är:
 
-- **Administratörskontot för AD DS Enterprise**: används för att installera Azure AD Connect
+- **Lokalt administratörskonto**: administratör som installerar Azure AD Connect och vem som har behörighet som lokal administratör på datorn.
+
+- **Administratörskontot för AD DS Enterprise**: du kan också används för att skapa kontot ”AD DS-koppling” ovan.
+
 - **Azure AD globala administratörskonto**: används för att skapa konto för Azure AD-koppling och konfigurera Azure AD.
 
 - **SQL-SA-kontot (valfritt)**: används för att skapa ADSync-databas när du använder den fullständiga versionen av SQL Server.  Den här SQL-servern kan vara lokal eller fjärransluten till Azure AD Connect-installationen.  Det här kontot kan vara samma konto som företagsadministratör.  Distribuera databasen nu utförs out of band av SQL-administratören och installeras sedan av Azure AD Connect-administratören med databasägarrättigheter.  Information om den här finns [installera Azure AD Connect med SQL-delegerade administratörsbehörigheter](how-to-connect-install-sql-delegation.md)

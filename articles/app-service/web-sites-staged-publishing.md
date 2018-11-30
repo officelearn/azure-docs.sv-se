@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: 47b67a6a3475b7f159a14825b168bbf0049db9b8
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: cb7b114836c83338f71c85f59299ecf1dc4613a9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291155"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317627"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurera mellanlagringsmiljöer i Azure App Service
 <a name="Overview"></a>
@@ -169,7 +169,7 @@ Om några fel har identifierats i produktion efter en växling, återställa pla
 <a name="Warm-up"></a>
 
 ## <a name="custom-warm-up-before-swap"></a>Anpassade värma upp innan växling
-Vissa appar kan kräva anpassade värma upp åtgärder. Den `applicationInitialization` konfigurationselementet i web.config kan du ange anpassade initieringen åtgärder som ska utföras innan en begäran tas emot. Växlingen väntar för den här anpassade värma upp att slutföra. Här är ett exempel web.config-fragment.
+När du använder [Auto-Swap](#Auto-Swap), vissa appar kan kräva anpassade värma upp åtgärder. Den `applicationInitialization` konfigurationselementet i web.config kan du ange anpassade initieringen åtgärder som ska utföras innan en begäran tas emot. Växlingen väntar för den här anpassade värma upp att slutföra. Här är ett exempel web.config-fragment.
 
     <system.webServer>
         <applicationInitialization>

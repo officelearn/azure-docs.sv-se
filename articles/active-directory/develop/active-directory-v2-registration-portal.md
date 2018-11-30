@@ -17,12 +17,12 @@ ms.date: 08/28/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: bebabad4c7beb27022e12e5d48b77d88fc054fc2
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 0a9ec2e84197729f98fbf90bac53b505a8c99a19
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190123"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427355"
 ---
 # <a name="app-registration-reference"></a>Referens för registrering av appar
 Det här dokumentet ger kontext och beskrivningar av olika funktioner i den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).
@@ -37,7 +37,7 @@ Den här listan innehåller alla dina program som har registrerats för användn
 Den här listan innehåller alla dina program som har registrerats för eget bruk med Microsoft-konto. De är inte aktiverade för användning med Azure Active Directory. Det här är hittar du alla program som tidigare hade registrerats med MSA-utvecklarportalen på `https://account.live.com/developers/applications`. Alla funktioner som du tidigare har utförts på `https://account.live.com/developers/applications` nu kan utföras i den här nya portalen `https://apps.dev.microsoft.com`.
 
 ## <a name="application-secrets"></a>Programhemligheter
-Hemligheter är autentiseringsuppgifter som tillåter programmet att utföra tillförlitlig [klientautentisering](http://tools.ietf.org/html/rfc6749#section-2.3) med Azure AD. I OAuth och OpenID Connect, en programhemlighet ofta kallas en `client_secret`. I version 2.0-protokollet, alla program som tar emot en säkerhetstoken på en webbplats för adresserbara (med hjälp av en `https` schema) måste använda en programhemlighet för att identifiera sig för Azure AD vid inlösen av den säkerhetstoken. Alla interna klienter som tar emot token på en enhet kommer dessutom att tillåts inte från att använda en programhemlighet för klientautentisering. Detta minskar sannolikheten för lagringen av hemligheter i osäkert miljöer.
+Hemligheter är autentiseringsuppgifter som tillåter programmet att utföra tillförlitlig [klientautentisering](https://tools.ietf.org/html/rfc6749#section-2.3) med Azure AD. I OAuth och OpenID Connect, en programhemlighet ofta kallas en `client_secret`. I version 2.0-protokollet, alla program som tar emot en säkerhetstoken på en webbplats för adresserbara (med hjälp av en `https` schema) måste använda en programhemlighet för att identifiera sig för Azure AD vid inlösen av den säkerhetstoken. Alla interna klienter som tar emot token på en enhet kommer dessutom att tillåts inte från att använda en programhemlighet för klientautentisering. Detta minskar sannolikheten för lagringen av hemligheter i osäkert miljöer.
 
 Varje app kan innehålla två giltiga programhemligheter vid en given tidpunkt. Genom att två hemligheter, har du möjligheten att utföra regelbundna nyckelförnyelse över programmets hela miljön. När du har migrerat hela ditt program till en ny hemlighet, kan du ta bort den gamla hemligheten och etablera en ny.
 

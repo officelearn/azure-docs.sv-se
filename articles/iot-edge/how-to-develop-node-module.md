@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 92746b37d6c7577691b46bf34a00f607ad707ff9
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 51c2154f4132340e00b8fddcfaeb6e999519c48f
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569047"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446712"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-nodejs-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och Felsök Node.js-moduler för Azure IoT Edge
 
@@ -65,7 +65,7 @@ Följande steg visar hur du skapar en IoT Edge-modul baserat på Node.js med hj�
 6. Ange ett namn för din lösning. 
 7. Välj **Node.js-modulen** som mall för den första modulen i lösningen.
 8. Ange ett namn för din modul. Välj ett namn som är unikt i ditt behållarregister. 
-9. Ange avbildningslagringsplatsen för modulen. VS Code autopopulates modulen namn, så du behöver bara ersätta **localhost:5000** med din egen information i registret. Om du använder en lokal Docker-register för testning, är det bra med localhost. Om du använder Azure Container Registry kan du sedan använda inloggningsserver från din registerinställningar. Det ser ut som inloggningsserver  **\<registernamn\>. azurecr.io**. Ersätt endast localhost-delen av strängen; ta inte bort modulens namn.
+9. Ange avbildningslagringsplatsen för modulen. VS Code autopopulates modulen namn, så du behöver bara ersätta **localhost:5000** med din egen information i registret. Om du använder en lokal Docker-register för testning, är det bra med localhost. Om du använder Azure Container Registry kan du sedan använda inloggningsserver från din registerinställningar. Det ser ut som inloggningsserver  **\<registernamn\>. azurecr.io**. Ersätt endast localhost-delen av strängen; ta inte bort modulens namn. Den sista strängen ut \<registernamn\>.azurecr.io/\<modulename\>.
 
    ![Ange lagringsplatsen för Docker-avbildningen](./media/how-to-develop-node-module/repository.png)
 
@@ -80,6 +80,7 @@ I lösningen har du tre objekt:
    >Miljö-filen skapas endast om du anger en avbildningslagringsplatsen för modulen. Om du har godkänt localhost för att testa och felsöka lokalt, behöver du inte deklarera miljövariabler. 
 
 * En **deployment.template.json** filen visar en lista över dina nya modulen tillsammans med ett exempel **tempSensor** modul som simulerar data som du kan använda för testning. Mer information om hur distribution manifest work finns i [förstå hur IoT Edge-moduler kan användas, konfigurerats och återanvändas](module-composition.md).
+* En **deployment.debug.template.json** filen behållare felsökningsversionen modulens avbildningar, med rätt behållare alternativ.
 
 ## <a name="develop-your-module"></a>Utveckla din modell
 
@@ -92,6 +93,14 @@ Visual Studio Code har stöd för Node.js. Läs mer om [hur du arbetar med Node.
 ## <a name="launch-and-debug-module-code-without-container"></a>Starta och felsöka modulen kod utan behållare
 
 IoT Edge Node.js-modulen beror på Azure IoT Node.js enhets-SDK. I modul standardkoden du initiera en **ModuleClient** miljöinställningar Indatanamnet, vilket innebär att IoT Edge Node.js-modulen kräver miljöinställningar att starta och köra och du måste också skicka eller dirigera meddelanden att inkommande kanaler. Din standard Node.js-modulen innehåller endast en indatakanal och namnet är **indata1**.
+
+### <a name="setup-iot-edge-simulator-for-iot-edge-solution"></a>Konfigurera IoT Edge-simulator för IoT Edge-lösning
+
+I en utvecklingsdator måste starta du IoT Edge-simulator istället för att installera IoT Edge-daemon för säkerhet för att köra din IoT Edge-lösning. 
+
+1. I enhetsutforskare till vänster, högerklickar du på din IoT Edge enhets-ID, Välj **installationsprogrammet IoT Edge-simulatorn** att starta simulatorn med enhetens anslutningssträng.
+
+2. Du kan se IoT Edge simulatorn har har konfigurerats i integrerade terminalen.
 
 ### <a name="setup-iot-edge-simulator-for-single-module-app"></a>Konfigurera IoT Edge-simulator för enkel modulen app
 
@@ -152,12 +161,7 @@ I en utvecklingsdator måste starta du IoT Edge-simulator istället för att ins
 
 ### <a name="build-and-run-container-for-debugging-and-debug-in-attach-mode"></a>Skapa och köra behållare för felsökning och felsökning i Koppla läge
 
-1. I VS Code, navigerar du till den `deployment.template.json` filen. Uppdatera din modulen bild-URL genom att lägga till **.debug** i slutet.
-
-2. Ersätt createOptions för Node.js-modulen i **deployment.template.json** med nedan innehåll och spara den här filen: 
-    ```json
-    "createOptions": "{\"ExposedPorts\":{\"9229/tcp\":{}},\"HostConfig\":{\"PortBindings\":{\"9229/tcp\":[{\"HostPort\":\"9229\"}]}}}"
-    ```
+1. I VS Code, navigerar du till den `deployment.debug.template.json` filen. I snabbmenyn, klickar du på **bygga och köra IoT Edge-lösning i simulatorn**. Du kan titta på behållaren för modulen loggar i samma fönster. Du kan också navigera till Docker-Utforskaren kan du titta på status för container.
 
 3. Gå till felsökningsvyn VS Code. Välj debug-konfigurationsfil för. Alternativnamn debug bör likna **ModuleName fjärrfelsökning (Node.js)** eller **ModuleName fjärrfelsökning (Node.js i Windows-behållare)**, beroende på din Behållartyp på utvecklingsdator.
 

@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d40b82b5beac2da78038e303cb50402d6fa0be7a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: b8d8223647d42213eff53c2ff8310bed0cfe6cdb
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566032"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446746"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka C-moduler för Azure IoT Edge
 
@@ -59,7 +59,7 @@ Gör följande för att skapa en IoT Edge-modul som baseras på Azure IoT C SDK 
 
 7. Ange ett namn för din modul. Välj ett namn som är unikt i ditt behållarregister. 
 
-8. Ange namnet på modulens avbildningslagringsplatsen. VS Code autopopulates modulen namnet med **localhost:5000**. Ersätt den med din egen information i registret. Om du använder en lokal Docker-register för testning, sedan **localhost** är bra. Om du använder Azure Container Registry kan du sedan använda inloggningsserver från din registerinställningar. Det ser ut som inloggningsserver  **\<registernamn\>. azurecr.io**. Ersätt endast localhost-delen av strängen; ta inte bort modulens namn. 
+8. Ange namnet på modulens avbildningslagringsplatsen. VS Code autopopulates modulen namnet med **localhost:5000**. Ersätt den med din egen information i registret. Om du använder en lokal Docker-register för testning, sedan **localhost** är bra. Om du använder Azure Container Registry kan du sedan använda inloggningsserver från din registerinställningar. Det ser ut som inloggningsserver  **\<registernamn\>. azurecr.io**. Ersätt endast localhost-delen av strängen; ta inte bort modulens namn. Den sista strängen ut \<registernamn\>.azurecr.io/\<modulename\>.
 
    ![Ange lagringsplatsen för Docker-avbildningen](./media/how-to-develop-c-module/repository.png)
 
@@ -87,20 +87,11 @@ När du är redo att anpassa mallen C med din egen kod kan använda den [Azure I
 
 Det finns flera Docker-filer för olika behållartyper i varje modul-mapp. Använd någon av dessa filer som slutar med tillägget **.debug** att skapa din modul för testning. För närvarande stöder C moduler felsökning endast i Linux amd64-behållare.
 
-1. I VS Code, navigerar du till den `deployment.template.json` filen. Uppdatera din modulen bild-URL genom att lägga till **.debug** i slutet.
-
-    ![Lägg till *** .debug till din avbildningsnamn](./media/how-to-develop-c-module/image-debug.png)
-
-2. Ersätt C modulen createOptions i **deployment.template.json** med nedan innehåll och spara den här filen: 
-    
-    ```json
-    "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
-    ```
-
+1. I VS Code, navigerar du till den `deployment.debug.template.json` filen. Den här filen innehåller felsökningsversionen modulens avbildningar med rätt alternativ för att skapa. 
 2. Ange i kommandopaletten VS Code och kör kommandot **Azure IoT Edge: Build and Push IoT Edge-lösningen**.
-3. Välj den `deployment.template.json` -filen för din lösning från kommandopaletten. 
+3. Välj den `deployment.debug.template.json` -filen för din lösning från kommandopaletten. 
 4. I Azure IoT Hub Device Explorer högerklickar du på en IoT Edge-enhets-ID. Välj sedan **skapa distribution för enskild enhet**. 
-5. Öppna din lösning **config** mapp. Välj sedan den `deployment.json` filen. Välj **Välj Edge-distribution Manifest**. 
+5. Öppna din lösning **config** mapp. Välj sedan den `deployment.debug.amd64.json` filen. Välj **Välj Edge-distribution Manifest**. 
 
 Distributionen har skapats med en distributions-ID i en terminal för VS Code-integrerade visas.
 

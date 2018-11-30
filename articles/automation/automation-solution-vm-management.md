@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fa1fa65315f38d0ce2900b738b70ca3718b0c00e
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: a664ec3643100f4bf477fbc58070ae966088d3af
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285109"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426058"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning i Azure Automation
 
@@ -32,7 +32,7 @@ Följande är begränsningar i den aktuella lösningen:
 - Den här lösningen är tillgängligt i Azure och AzureGov för alla regioner som stöder en Log Analytics-arbetsyta, ett Azure Automation-konto och aviseringar. AzureGov regioner stöder för närvarande inte e-postfunktioner.
 
 > [!NOTE]
-> Om du använder lösningen för klassiska virtuella datorer kan kommer sedan alla dina virtuella datorer att behandlas sekventiellt per molntjänst. Bearbetning av parallella jobb stöds fortfarande över olika molntjänster.
+> Om du använder lösningen för klassiska virtuella datorer kan kommer sedan alla dina virtuella datorer att behandlas sekventiellt per molntjänst. Virtuella datorer är fortfarande bearbetas parallellt över olika molntjänster.
 >
 > Azure Cloud Solution Provider (Azure CSP)-prenumerationer stöder endast Azure Resource Manager-modellen, icke - Azure Resource Manager-tjänster är inte tillgängliga i programmet. När lösningen Starta/Stoppa körs kan du få fel eftersom den innehåller cmdletar för att hantera klassiska resurser. Läs mer om CSP i [tillgängliga tjänster i CSP-prenumerationer](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
 

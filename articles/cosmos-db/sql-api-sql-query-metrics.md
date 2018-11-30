@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
-ms.openlocfilehash: 9358e0a712f820671edec518b1cc93ecee5302ad
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: c330171f0c85bce6451b8f342203e2eeeccb3c5a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162548"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425150"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Justera prestanda för frågor med Azure Cosmos DB
 
@@ -218,7 +218,7 @@ Se [global distribution i Azure Cosmos DB](tutorial-global-distribution-sql-api.
 I avsnittet om frågan körningsstatistik förklarar hur du hämtar servertid för körning av frågor ( `totalExecutionTimeInMs`), så att du kan skilja mellan tid i frågekörning och tid i nätverket överföring.
 
 ### <a name="indexing-policy"></a>Indexeringspolicy
-Se [konfigurera indexeringsprincip](indexing-policies.md) för indexering sökvägar, typer, och lägen och hur de påverkar Frågekörningen. Som standard indexprincip använder hash-indexering för strängar, vilket är effektiva för likhetsfrågor, men inte för intervallet frågor/order by-frågor. Om du behöver omfångsfrågor för strängar, rekommenderar vi att ange intervallet Indextypen för alla strängar. 
+Se [konfigurera indexeringsprincip](index-policy.md) för indexering sökvägar, typer, och lägen och hur de påverkar Frågekörningen. Som standard indexprincip använder hash-indexering för strängar, vilket är effektiva för likhetsfrågor, men inte för intervallet frågor/order by-frågor. Om du behöver omfångsfrågor för strängar, rekommenderar vi att ange intervallet Indextypen för alla strängar. 
 
 ## <a name="query-execution-metrics"></a>Fråga körningsstatistik
 Du kan få detaljerad statistik om frågekörning genom att skicka in den valfria `x-ms-documentdb-populatequerymetrics` rubrik (`FeedOptions.PopulateQueryMetrics` i .NET SDK). Det värde som returneras i `x-ms-documentdb-query-metrics` har följande nyckel / värde-par som avsett för avancerad felsökning av Frågekörningen. 
@@ -276,6 +276,6 @@ Här är några exempelfrågor och så här tolkar du några av mätvärdena som
 ## <a name="next-steps"></a>Nästa steg
 * Läs om stöds SQL frågeoperatorer och nyckelorden i [SQL-fråga](how-to-sql-query.md). 
 * Läs om begäransenheter i [programbegäran](request-units.md).
-* Läs om indexeringsprincip i [indexeringsprincip](indexing-policies.md) 
+* Läs om indexeringsprincip i [indexeringsprincip](index-policy.md) 
 
 

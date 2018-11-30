@@ -2,25 +2,21 @@
 title: Azure Machine Learning-Avvikelseidentifiering API | Microsoft Docs
 description: 'API: T för avvikelseidentifiering är ett exempel som skapats med Microsoft Azure Machine Learning som identifierar avvikelser i tidsseriedata med numeriska värden som är jämnt fördelade i tid.'
 services: machine-learning
-documentationcenter: ''
-author: alokkirpal
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 52fafe1f-e93d-47df-a8ac-9a9a53b60824
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 06/05/2017
-ms.author: alok
-ms.openlocfilehash: 0b99aeb2ffdb78e472cdc0e11d0efaf91feb3e4a
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.author: tdsp
+ms.custom: (previous author=alokkirpal, ms.author=alok)
+ms.openlocfilehash: 485cf6af9f019bc43ee862627db8549240690247
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394501"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443941"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning-Avvikelseidentifiering API
 ## <a name="overview"></a>Översikt
@@ -123,7 +119,7 @@ Mer detaljerad information om dessa indataparametrar visas i tabellen nedan:
 | Indataparametrar | Beskrivning | Standardinställningen | Typ | Giltigt intervall | Föreslagna intervall |
 | --- | --- | --- | --- | --- | --- |
 | detectors.historywindow |Historik (i antal datapunkter) som används för avvikelseidentifiering poäng beräkning |500 |heltal |10-2000 |Time series-beroende |
-| detectors.spikesdips | Om du vill kontrollera endast toppar, dalar eller båda |Både |Räkna upp |Båda, toppar, dalar |Både |
+| detectors.spikesdips | Om du vill kontrollera endast toppar, dalar eller båda |Båda |Räkna upp |Båda, toppar, dalar |Båda |
 | bileveldetector.sensitivity |Känslighet för dubbelriktad nivåändring detektor. |3.25 |double |Ingen |3,25-5 (färre värden innebära känsligare) |
 | trenddetector.sensitivity |Känslighet för positivt trend detektor. |3.25 |double |Ingen |3,25-5 (färre värden innebära känsligare) |
 | tspikedetector.sensitivity |Känslighet för TSpike detektor |3 |heltal |1-10 |3-5 (färre värden innebära känsligare) |
@@ -162,7 +158,7 @@ Mer detaljerad information om dessa indataparametrar visas i tabellen nedan:
 | preprocess.aggregationFunc |Funktion som används för att sammanställa data i den angivna AggregationInterval |medelvärde |Räkna upp |Mean, sum, längd |Gäller inte |
 | preprocess.replaceMissing |Värden som används för att sedan imputera data som saknas |lkv (senaste kända värdet) |Räkna upp |noll, lkv, medelvärde |Gäller inte |
 | detectors.historywindow |Historik (i antal datapunkter) som används för avvikelseidentifiering poäng beräkning |500 |heltal |10-2000 |Time series-beroende |
-| detectors.spikesdips | Om du vill kontrollera endast toppar, dalar eller båda |Både |Räkna upp |Båda, toppar, dalar |Både |
+| detectors.spikesdips | Om du vill kontrollera endast toppar, dalar eller båda |Båda |Räkna upp |Båda, toppar, dalar |Båda |
 | bileveldetector.sensitivity |Känslighet för dubbelriktad nivåändring detektor. |3.25 |double |Ingen |3,25-5 (färre värden innebära känsligare) |
 | postrenddetector.sensitivity |Känslighet för positivt trend detektor. |3.25 |double |Ingen |3,25-5 (färre värden innebära känsligare) |
 | negtrenddetector.sensitivity |Känslighet för försämringen detektor. |3.25 |double |Ingen |3,25-5 (färre värden innebära känsligare) |

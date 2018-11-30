@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/6/2018
 ms.author: tylerfox
-ms.openlocfilehash: 4bf46501a75b9dd5be7ae1b446a0db90c20be559
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 936e53ca328b0f54bfd75e7b3d4f6747b0037669
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235266"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495170"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell kan användas för att styra och automatisera distributionen och hanteringen av dina arbetsbelastningar i Azure. I den här artikeln får du lära dig hur du hanterar Apache Hadoop-kluster i Azure HDInsight med hjälp av Azure PowerShell. Listan över HDInsight PowerShell-cmdlets, se [cmdlet-referens för HDInsight](https://msdn.microsoft.com/library/azure/dn479228.aspx).
+Azure PowerShell kan användas för att styra och automatisera distributionen och hanteringen av dina arbetsbelastningar i Azure. I den här artikeln får du lära dig hur du hanterar [Apache Hadoop](https://hadoop.apache.org/) kluster i Azure HDInsight med hjälp av Azure PowerShell. Listan över HDInsight PowerShell-cmdlets, se [cmdlet-referens för HDInsight](https://msdn.microsoft.com/library/azure/dn479228.aspx).
 
 **Förutsättningar**
 
@@ -80,12 +80,12 @@ Klusterskalning funktionen kan du ändra antalet arbetarnoder som används av et
 
 Effekten av att ändra antalet datanoder som för varje typ av kluster som stöds av HDInsight:
 
-* Hadoop
+* Apache Hadoop
 
     Du kan smidigt öka antalet arbetarnoder i ett Hadoop-kluster som körs utan att påverka alla väntande eller pågående jobb. Också du kan skicka nya jobb medan åtgärden pågår. Fel i en åtgärd för skalning hanteras ett smidigt sätt så att klustret finns alltid kvar i funktionsdugligt tillstånd.
 
     När ett Hadoop-kluster skalas genom att minska antalet datanoder några tjänster i klustret startas om. Startar om tjänster gör allt körs och väntande jobb misslyckas vid skalning åtgärden slutfördes. Du kan dock skicka jobb när åtgärden har slutförts.
-* HBase
+* Apache HBase
 
     Du kan smidigt lägga till eller ta bort noder till HBase-kluster medan den körs. Regionservrar balanseras automatiskt inom ett par minuter efter att du skalar igen. Du kan dock också manuellt balansera regionservrar genom att logga in till huvudnod i kluster och kör sedan följande kommandon från en kommandotolk:
 
@@ -95,7 +95,7 @@ Effekten av att ändra antalet datanoder som för varje typ av kluster som stöd
     >balancer
     ```
 
-* Storm
+* Apache Storm
 
     Du kan smidigt lägga till eller ta bort datanoder till ditt Storm-kluster medan den körs. Men när en installationen har slutförts åtgärdens skalning, behöver du balansera om topologin.
 
@@ -207,25 +207,25 @@ $resourceGroupName = $cluster.ResourceGroup
 
 
 ## <a name="submit-jobs"></a>Skicka jobb
-**Att skicka MapReduce-jobb**
+**Skicka Apache Hadoop MapReduce-jobb**
 
-Se [kör MapReduce-exemplen som ingår i HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
+Se [kör Apache Hadoop MapReduce-exemplen som ingår i HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
-**Att skicka Hive-jobb**
+**Att skicka Apache Hive-jobb**
 
-Se [köra Hive-frågor med hjälp av PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
+Se [kör Apache Hive-frågor med hjälp av PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 
-**Att skicka Pig-jobb**
+**Skicka Apache Pig-jobb**
 
-Se [köra Pig-jobb med hjälp av PowerShell](hadoop/apache-hadoop-use-pig-powershell.md).
+Se [kör Apache Pig-jobb med hjälp av PowerShell](hadoop/apache-hadoop-use-pig-powershell.md).
 
-**Skicka Sqoop jobb**
+**Skicka Apache Sqoop jobb**
 
-Se [använda Sqoop med HDInsight](hadoop/hdinsight-use-sqoop.md).
+Se [Använd Apache Sqoop med HDInsight](hadoop/hdinsight-use-sqoop.md).
 
-**Skicka Oozie-jobb**
+**Skicka Apache Oozie-jobb**
 
-Se [Använd Oozie med Hadoop för att definiera och köra ett arbetsflöde i HDInsight](hdinsight-use-oozie.md).
+Se [Använd Apache Oozie med Apache Hadoop för att definiera och köra ett arbetsflöde i HDInsight](hdinsight-use-oozie.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Ladda upp data till Azure Blob storage
 Mer information finns i [Överföra data till HDInsight][hdinsight-upload-data].
@@ -236,7 +236,7 @@ Mer information finns i [Överföra data till HDInsight][hdinsight-upload-data].
 * [Administrera HDInsight med ett kommandoradsgränssnitt][hdinsight-admin-cli]
 * [Skapa HDInsight-kluster][hdinsight-provision]
 * [Överföra data till HDInsight][hdinsight-upload-data]
-* [Skicka Hadoop-jobb programmässigt][hdinsight-submit-jobs]
+* [Skicka Apache Hadoop-jobb programmässigt][hdinsight-submit-jobs]
 * [Kom igång med Azure HDInsight][hdinsight-get-started]
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/

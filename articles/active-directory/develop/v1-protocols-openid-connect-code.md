@@ -17,16 +17,16 @@ ms.date: 04/17/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a830527f65cdbd485ef57ea43e4564363f3ca98b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3b60a659700b1e464f4d8f70516a2ceaa0f08b6b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967769"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423753"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Bevilja åtkomst till webbprogram med hjälp av OpenID Connect och Azure Active Directory
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) är en enkel Identitetslagret som bygger på OAuth 2.0-protokollet. OAuth 2.0 definierar metoder för att skaffa och använda [ **åtkomsttoken** ](access-tokens.md) att komma åt skyddade resurser, men de inte definierar standardmetoder för att tillhandahålla identitetsinformation. OpenID Connect implementerar autentisering som en utökning av OAuth 2.0-auktoriseringsprocessen. Hittar du information om användaren i form av en [ `id_token` ](id-tokens.md) som verifierar användarens identitet och ger grundläggande profilinformation om användaren.
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) är en enkel Identitetslagret som bygger på OAuth 2.0-protokollet. OAuth 2.0 definierar metoder för att skaffa och använda [ **åtkomsttoken** ](access-tokens.md) att komma åt skyddade resurser, men de inte definierar standardmetoder för att tillhandahålla identitetsinformation. OpenID Connect implementerar autentisering som en utökning av OAuth 2.0-auktoriseringsprocessen. Hittar du information om användaren i form av en [ `id_token` ](id-tokens.md) som verifierar användarens identitet och ger grundläggande profilinformation om användaren.
 
 OpenID Connect är vår rekommendation om du skapar ett webbprogram som finns på en server och kan nås via en webbläsare.
 
@@ -96,7 +96,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | nonce |obligatorisk |Ett värde som ingår i den begäran som skapats av appen, som ingår i den resulterande `id_token` som ett anspråk. Appen kan sedan att verifiera det här värdet om du vill lösa token repetitionsattacker. Värdet är vanligtvis en slumpmässig, unik sträng eller ett GUID som kan användas för att fastställa ursprunget för begäran. |
 | redirect_uri |Rekommenderas |Redirect_uri för din app, där autentiseringssvar kan skickas och tas emot av din app. Det måste exakt matcha en av redirect_uris som du registrerade i portalen, men det måste vara url-kodas. |
 | response_mode |valfri |Anger den metod som ska användas för att skicka den resulterande authorization_code tillbaka till din app. Värden som stöds är `form_post` för *HTTP formuläret post* och `fragment` för *URL fragment*. För webbprogram, bör du använda `response_mode=form_post` så säkraste överföringen av token för ditt program. Standardvärdet för alla flöden, inklusive en id_token är `fragment`.|
-| state |Rekommenderas |Ett värde i begäran som returneras i token-svaret. Det kan vara en sträng med innehåll som du önskar. Ett slumpmässigt genererat unikt värde som normalt används för [att förhindra attacker med förfalskning av begäran](http://tools.ietf.org/html/rfc6749#section-10.12). Tillstånd används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
+| state |Rekommenderas |Ett värde i begäran som returneras i token-svaret. Det kan vara en sträng med innehåll som du önskar. Ett slumpmässigt genererat unikt värde som normalt används för [att förhindra attacker med förfalskning av begäran](https://tools.ietf.org/html/rfc6749#section-10.12). Tillstånd används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
 | fråga |valfri |Anger vilken typ av interaktion från användaren som krävs. De enda giltiga värdena är för närvarande ”inloggning”, ”ingen” och ”godkänna”. `prompt=login` Tvingar användaren att ange sina autentiseringsuppgifter på begäran, vilket eliminerar enkel inloggning. `prompt=none` är motsatsen - ser till att användaren inte visas med den interaktiva prompten alls. Om begäran inte kan slutföras tyst via enkel inloggning, returnerar slutpunkten ett fel. `prompt=consent` utlösare OAuth godkänner dialogrutan när användaren loggar in, ber användaren att bevilja behörigheter till appen. |
 | login_hint |valfri |Kan användas för att fylla förväg adressfältet användarnamn/e-post i inloggningssidan för användaren, om du känner till sina användarnamn i tid. Appar som ofta använda den här parametern under omautentisering som redan har extraherats användarnamnet från en tidigare logga in med den `preferred_username` anspråk. |
 
@@ -117,7 +117,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 | Parameter | Beskrivning |
 | --- | --- |
 | id_token |Den `id_token` som appen har begärt. Du kan använda den `id_token` att verifiera användarens identitet och starta en session med användaren. |
-| state |Ett värde i begäran som returneras också i token-svaret. Ett slumpmässigt genererat unikt värde som normalt används för [att förhindra attacker med förfalskning av begäran](http://tools.ietf.org/html/rfc6749#section-10.12). Tillstånd används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
+| state |Ett värde i begäran som returneras också i token-svaret. Ett slumpmässigt genererat unikt värde som normalt används för [att förhindra attacker med förfalskning av begäran](https://tools.ietf.org/html/rfc6749#section-10.12). Tillstånd används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
 
 ### <a name="error-response"></a>Felsvar
 

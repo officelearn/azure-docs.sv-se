@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 0811f0e115545a37b6c570c436900a8548adae61
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3a65b66619351462fcd9c77c3fb9b935cf99ebcc
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006370"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496460"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Komma igång med ML-tjänster på Azure HDInsight
 
-Med Azure HDInsight kan du skapa ett ML-tjänstkluster. Med det här alternativet kan R-skript använda Spark och MapReduce till att köra distribuerade beräkningar. I den här artikeln får du lära dig att skapa ett ML-tjänstkluster på HDInsight och sedan köra ett R-skript som visar hur du använder Spark för distribuerade R-beräkningar.
+Med Azure HDInsight kan du skapa ett ML-tjänstkluster. Det här alternativet kan R-skript att använda [Apache Spark](https://spark.apache.org/) och [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) att köra distribuerade beräkningar. I den här artikeln får du lära dig att skapa ett ML-tjänstkluster på HDInsight och sedan köra ett R-skript som visar hur du använder Spark för distribuerade R-beräkningar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -37,7 +37,7 @@ Med Azure HDInsight kan du skapa ett ML-tjänstkluster. Med det här alternative
 
     * **Klusternamn**: Namnet på HDInsight-klustret.
     * **Prenumeration**: Välj den prenumeration som du vill använda.
-    * **Användarnamn för klusterinloggning** och **Lösenord för klusterinloggning**: Inloggningen vid åtkomst till klustret via HTTPS. Du kan använda dessa autentiseringsuppgifter för att få åtkomst till tjänster som Ambari-webbgränssnittet eller REST API.
+    * **Användarnamn för klusterinloggning** och **Lösenord för klusterinloggning**: Inloggningen vid åtkomst till klustret via HTTPS. Du kan använda dessa autentiseringsuppgifter för åtkomst till tjänster, till exempel Apache Ambari-Webbgränssnittet eller REST API.
     * **Secure Shell-användarnamn (SSH)**: Den inloggning som används vid åtkomst till klustret via SSH. Som standard är lösenordet detsamma som lösenordet för klusterinloggning.
     * **Resursgrupp**: Resursgruppen som klustret ska skapas i.
     * **Plats**: Azure-region som klustret ska skapas i.

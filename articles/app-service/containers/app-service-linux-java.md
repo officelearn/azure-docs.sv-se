@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: a6752f9127a176eef9fd03e7ffddfa7450772def
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 8d15aeb92911a26a9a42a0449a24e8c0fee4467b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037696"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497336"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide för App Service på Linux
 
@@ -28,6 +28,10 @@ Den här guiden innehåller viktiga begrepp och instruktioner för Java-utveckla
 ## <a name="logging-and-debugging-apps"></a>Loggning och felsökning av appar
 
 Prestandarapporter trafik visualiseringar och hälsa kontroller är tillgängliga för eeach app via Azure-portalen. Se den [översikt över Azure App Service-diagnostik](/azure/app-service/app-service-diagnostics) för mer information om hur du använder dessa diagnostiska verktyg.
+
+## <a name="application-performance-monitoring"></a>Prestandaövervakning av program
+
+Se [verktyg med Java-appar i Azure App Service på Linux för programprestandaövervakning](how-to-java-apm-monitoring.md) till anvisningar att konfigurera New Relic och AppDynamics med Java-appar som körs på App Service i Linux.
 
 ### <a name="ssh-console-access"></a>SSH-konsolåtkomst 
 
@@ -124,7 +128,7 @@ Du kan också konfigurera appinställningen med App Service-Maven-pluginprogramm
 </appSettings> 
 ```
 
-## <a name="secure-application"></a>Skydda program
+## <a name="secure-applications"></a>Säkra program
 
 Java-program som körs i App Service för Linux har samma uppsättning [säkerhetsmetoder](/azure/security/security-paas-applications-using-app-services) som andra program. 
 
@@ -168,7 +172,7 @@ För programnivå datakällor:
 
 1. Lägg till en `context.xml` filen, om det inte finns i ditt webbprogram och lägga till den i `META-INF` för WAR-filen när projektet har skapats.
 
-2. I den här filen lägger du till en `Context` sökvägspost att länka datakällan till en JNDI-adress. den
+2. I den här filen lägger du till en `Context` sökvägspost att länka datakällan till en JNDI-adress.
 
     ```xml
     <Context>
@@ -192,7 +196,7 @@ För programnivå datakällor:
 
 För delade resurser på servernivå:
 
-1. Kopiera innehållet i `/usr/local/tomcat/conf` till `/home/tomcat` instans på din App Service på Linux med SSH om du inte har en konfiguration för det redan.
+1. Kopiera innehållet i `/usr/local/tomcat/conf` till `/home/tomcat/conf` instans på din App Service på Linux med SSH om du inte har en konfiguration för det redan.
 
 2. Lägg till kontext till din `server.xml`
 
@@ -231,7 +235,7 @@ För delade resurser på servernivå:
 
     3. Ansluta till den lokala tunneltrafik porten med SFTP-klienten och ladda upp filer till den `/home/tomcat/lib` mapp.
 
-5. Starta om App Service på Linux-programmet. Tomcat återställs `CATALINA_HOME` till `/home/tomcat` och använda den uppdaterade konfigurationen och klasser.
+5. Starta om App Service på Linux-programmet. Tomcat återställs `CATALINA_HOME` till `/home/tomcat/conf` och använda den uppdaterade konfigurationen och klasser.
 
 ## <a name="docker-containers"></a>Docker-containrar
 

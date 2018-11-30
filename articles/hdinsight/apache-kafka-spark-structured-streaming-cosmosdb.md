@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 159d3d1576ab3a38baaba94594b3abf04ef3ad56
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: b1a4354db23cdfdc6201decbb793a3f9a3ad8206
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287990"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496161"
 ---
-# <a name="use-apache-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>Använda Apache Spark Structured Streaming med Kafka och Azure Cosmos DB
+# <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Använda Apache Spark Structured Streaming med Apache Kafka och Azure Cosmos DB
 
-Lär dig hur du använder Apache Spark Structured Streaming för att läsa data från Apache Kafka på Azure HDInsight och lagra data i Azure Cosmos DB.
+Lär dig hur du använder [Apache Spark](https://spark.apache.org/) [Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) att läsa data från [Apache Kafka](https://kafka.apache.org/) på Azure HDInsight och sedan lagra data i Azure Cosmos DB.
 
-Azure Cosmos DB är en globalt distribuerad databas för flera datamodeller. Det här exemplet används en SQL API-databasmodell. Mer information finns i den [Välkommen till Azure Cosmos DB](../cosmos-db/introduction.md) dokumentet.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) är en globalt distribuerad databas för flera datamodeller. Det här exemplet används en SQL API-databasmodell. Mer information finns i den [Välkommen till Azure Cosmos DB](../cosmos-db/introduction.md) dokumentet.
 
 Apache Spark Structured Streaming är en bearbetningsmotor för dataströmmar som bygger på Apache Spark SQL. Med den kan du uttrycka strömmande beräkningar på samma sätt som batchberäkningar av statiska data. Läs mer om Structured Streaming, den [Structured Streaming Programming Guide](https://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) på Apache.org.
 
@@ -143,7 +143,7 @@ Dokumentet slutpunkt och primära nyckelinformationen som genereras liknar följ
 > [!IMPORTANT]
 > Spara slutpunkt och nyckelvärden, eftersom de behövs i Jupyter-anteckningsböcker.
 
-## <a name="get-the-kafka-brokers"></a>Hämta Kafka asynkrona meddelandeköer
+## <a name="get-the-apache-kafka-brokers"></a>Hämta Apache Kafka-meddelandeköer
 
 Koden i det här exemplet ansluter till Kafka broker värdar i Kafka-klustret. Använd följande PowerShell- eller Bash-exempel för att hitta adresserna till de två Kafka broker värdarna:
 
@@ -201,12 +201,12 @@ När filerna har överförts, väljer den __Stream-taxi-data-till-kafka.ipynb__ 
 
 ## <a name="process-taxi-data-using-spark-structured-streaming"></a>Bearbeta taxi-data med Spark Structured Streaming
 
-Jupyter Notebook-startsidan, väljer du den __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ posten. Följ stegen i anteckningsboken för att strömdata från Kafka och Azure Cosmos DB med Spark Structured Streaming.
+Från den [Jupyter Notebook](https://jupyter.org/) startsida, väljer den __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ posten. Följ stegen i anteckningsboken för att strömdata från Kafka och Azure Cosmos DB med Spark Structured Streaming.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du använder Spark Structured Streaming, finns i följande dokument att lära dig mer om hur du arbetar med Spark, Kafka och Azure Cosmos DB:
+Nu när du har lärt dig hur du använder Apache Spark Structured Streaming, finns i följande dokument att lära dig mer om hur du arbetar med Apache Spark, Apache Kafka och Azure Cosmos DB:
 
-* [Använda Apache Spark-strömning (DStream) med Kafka](hdinsight-apache-spark-with-kafka.md).
+* [Hur du använder Apache Spark-strömning (DStream) med Apache Kafka](hdinsight-apache-spark-with-kafka.md).
 * [Börja med Jupyter Notebook och Apache Spark i HDInsight](spark/apache-spark-jupyter-spark-sql.md)
 * [Välkommen till Azure Cosmos DB](../cosmos-db/introduction.md)

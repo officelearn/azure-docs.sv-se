@@ -1,6 +1,6 @@
 ---
-title: Felsöka omtrimning av en klassiska Azure Machine Learning-webbtjänst | Microsoft Docs
-description: Identifiera och åtgärda vanliga problem uppstod när du träna modellen för en Azure Machine Learning-webbtjänst.
+title: Felsöka omtrimning av en Machine Learning Studio klassisk webbtjänst – Azure | Microsoft Docs
+description: Identifiera och åtgärda vanliga problem uppstod när du träna modellen för en Azure Machine Learning Studio-webbtjänst.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 49a76729d38662667328632c83e98a1211438a98
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 1105b81d0f8ba80bd76bcdf140fe79b9e8a7102d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261709"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307210"
 ---
-# <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-classic-web-service"></a>Felsöka omtrimning av en klassiska Azure Machine Learning-webbtjänst
+# <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-studio-classic-web-service"></a>Felsöka omtrimning av en klassisk Azure Machine Learning Studio-webbtjänst
 ## <a name="retraining-overview"></a>Omtränings översikt
 När du distribuerar ett förutsägelseexperiment som en bedömning av webbtjänsten är en statisk modell. När nya data blir tillgängliga eller när användaren av API: et har sina egna data, måste vara modellkomponenten modellen. 
 

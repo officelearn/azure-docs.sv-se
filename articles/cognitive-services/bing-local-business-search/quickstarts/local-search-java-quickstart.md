@@ -10,12 +10,12 @@ ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 62e3f68f388a8463013b0c9f70e97506b62203e1
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 533e8b30bf59010f71df477b96b5441c83c34be7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974707"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307116"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Snabbstart: Skicka en fråga till den lokala företag i Bing med hjälp av Java
 
@@ -27,7 +27,7 @@ Det här exempelprogrammet hämtar lokala svarsdata från API: et för sökfråg
 
 * Den [Kit(JDK) för Java-utveckling](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API:er för Bing-sökresultat. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten. Du behöver en åtkomstnyckel som tillhandahållits när du aktiverar din kostnadsfria utvärderingsversion.
+Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API:er för Bing-sökresultat. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten. Du behöver en åtkomstnyckel som tillhandahållits när du aktiverar din kostnadsfria utvärderingsversion.  Se även [Cognitive Services priser – API för Bing Search](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Det här exempelprogrammet hämtar lokala svarsdata från frågan för en *hotell i Bellevue*.
 

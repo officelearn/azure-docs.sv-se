@@ -1,5 +1,5 @@
 ---
-title: Använda Import/Export-Data i Azure Machine Learning-webbtjänster | Microsoft Docs
+title: Använda Import/Export-Data i Azure Machine Learning Studio-webbtjänster | Microsoft Docs
 description: Lär dig hur du använder modulerna importera Data och exportera Data för att skicka och ta emot data från en webbtjänst.
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 3fa33572e60a43c66eca404e426232f9864a294e
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: ee7d0fb4792983099dc6192de8f85338daee357f
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264649"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306955"
 ---
-# <a name="deploying-azure-ml-web-services-that-use-data-import-and-data-export-modules"></a>Distribuera Azure ML-webbtjänster som använder moduler för dataimport och dataexport
+# <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Distribuera Azure Machine Learning Studio-webbtjänster som använder moduler för dataimport och dataexport
 
 När du skapar ett förutsägbart experiment kan du vanligtvis lägga till en web service indata och utdata. När du distribuerar experimentet kan konsumenter skicka och ta emot data från webbtjänsten via in- och utdata. För vissa program, en konsument data finnas i en datafeed eller redan finns i en extern datakälla, till exempel Azure Blob storage. I dessa fall kan behöver de inte läsa och skriva data med hjälp av web service indata och utdata. De kan i stället använda BES Batch Execution Service () för att läsa data från datakällan med hjälp av en modul för importera Data och skriva bedömnings resultaten till en annan plats med hjälp av en modul för Exportera Data.
 

@@ -2,25 +2,21 @@
 title: Företag förstå steget i Team Data Science Process-livscykel – Azure | Microsoft Docs
 description: Mål, uppgifter och slutprodukter för företag förstå steg i dina data science-projekt
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: deguhath
-ms.openlocfilehash: 00dc359fc171afe470b1dfe8f38d0951085ec580
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 3d2a6bf5a7e4766ca6205c413dd27fa9a69c16b7
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228308"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446729"
 ---
 # <a name="business-understanding"></a>Förståelse för verksamheten
 

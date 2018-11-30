@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
 ms.author: daveba
-ms.openlocfilehash: 4bf77cd34ba985dfcfa568db0543150c0510c406
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 86d2f013567d768437e589df366c5c131e1bcf50
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300106"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421922"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Skapa, visa eller ta bort en Användartilldelad hanterad identitet med hjälp av REST API-anrop
 
@@ -44,8 +44,6 @@ I den här artikeln får du lära dig hur du skapar, lista och ta bort en Använ
 
 Om du vill skapa en hanterad Användartilldelad identitet, ditt konto måste den [hanterad Identitetsdeltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rolltilldelning.
 
-Använd följande CURL-begäran till Azure Resource Manager-API för att skapa en hanterad Användartilldelad identitet. Ersätt den `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<USER ASSIGNED IDENTITY NAME>`,`<LOCATION>`, och `<ACCESS TOKEN>` värdena med dina egna värden:
-
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 ```bash
@@ -54,31 +52,61 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 ation": "<LOCATION>"}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
 ```
 
+```HTTP
+PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
+s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview HTTP/1.1
+```
+
+**Begärandehuvuden**
+
+|Begärandehuvud  |Beskrivning  |
+|---------|---------|
+|*Innehållstyp*     | Krävs. Ange `application/json`.        |
+|*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken.        |
+
+**Brödtext i begäran**
+
+|Namn  |Beskrivning  |
+|---------|---------|
+|location     | Krävs. Resursplats.        |
+
 ## <a name="list-user-assigned-managed-identities"></a>Lista användartilldelade hanterade identiteter
 
 Om du vill lista/läsa en hanterad Användartilldelad identitet, ditt konto måste den [hanterade Identitetsoperatör](/azure/role-based-access-control/built-in-roles#managed-identity-operator) eller [hanterad Identitetsdeltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rolltilldelning.
 
-Använd följande CURL-begäran till Azure Resource Manager-API för att lista användartilldelade hanterade identiteter. Ersätt den `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, och `<ACCESS TOKEN>` värdena med dina egna värden:
-
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview' -H "Authorization: Bearer <ACCESS TOKEN>"
 ```
+
+```HTTP
+GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview HTTP/1.1
+```
+
+|Begärandehuvud  |Beskrivning  |
+|---------|---------|
+|*Innehållstyp*     | Krävs. Ange `application/json`.        |
+|*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken.        |
+
 ## <a name="delete-a-user-assigned-managed-identity"></a>Ta bort en hanterad Användartilldelad identitet
 
 Om du vill ta bort en hanterad Användartilldelad identitet måste ditt konto måste den [hanterad Identitetsdeltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rolltilldelning.
 
-Använd följande CURL-begäran till Azure Resource Manager-API för att ta bort en hanterad Användartilldelad identitet. Ersätt den `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, och `<ACCESS TOKEN>` parametervärdena med dina egna värden:
-
 > [!NOTE]
-> Tar bort en hanterad Användartilldelad identitet raderas inte referensen från alla resurser som den tilldelats. Ta bort en Användartilldelad hanteras från en virtuell dator med hjälp av CURL Se [ta bort en Användartilldelad identitet från en Azure VM](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm).
+> Tar bort en hanterad Användartilldelad identitet raderas inte referensen från alla resurser som den tilldelats. För att ta bort en Användartilldelad hanteras identiteten från en virtuell dator med CURL i [ta bort en Användartilldelad identitet från en Azure VM](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm).
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview' -X DELETE -H "Authorization: Bearer <ACCESS TOKEN>"
 ```
 
+```HTTP
+DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourceGroups/TestRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview HTTP/1.1
+```
+|Begärandehuvud  |Beskrivning  |
+|---------|---------|
+|*Innehållstyp*     | Krävs. Ange `application/json`.        |
+|*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken.        |
+
 ## <a name="next-steps"></a>Nästa steg
 
 Information om hur du tilldelar en hanterad Användartilldelad identitet till en Azure VM/VMSS med CURL i, [konfigurera hanterade identiteter för Azure-resurser på en Azure-dator med hjälp av REST API-anrop](qs-configure-rest-vm.md#user-assigned-managed-identity) och [konfigurera hanteras identiteter för Azure-resurser på en VM-skalningsuppsättning med hjälp av REST API-anrop](qs-configure-rest-vmss.md#user-assigned-managed-identity).
-
-

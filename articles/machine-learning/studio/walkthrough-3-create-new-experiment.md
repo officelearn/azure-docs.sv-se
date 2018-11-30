@@ -1,5 +1,5 @@
 ---
-title: 'Steg 3: Skapa ett nytt Machine Learning-experiment | Microsoft Docs'
+title: 'Steg 3: Skapa ett nytt experiment i Machine Learning Studio – Azure | Microsoft Docs'
 description: 'Steg 3 i utveckla en förutsägelselösning genomgång: skapa en ny träningsexperiment i Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 47126006c96b1bfefe90b030805aac1d6af6c0db
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: a6f12c536cfc18ed0be55ec1755c7fe5179006ba
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262255"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317536"
 ---
-# <a name="walkthrough-step-3-create-a-new-azure-machine-learning-experiment"></a>Genomgång steg 3: Skapa ett nytt Azure Machine Learning-experiment
+# <a name="walkthrough-step-3-create-a-new-azure-machine-learning-studio-experiment"></a>Genomgång steg 3: Skapa ett nytt Azure Machine Learning Studio-experiment
 Det här är det tredje steget i den här genomgången [utveckla en lösning för förutsägelseanalys i Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
 1. [Skapa en Machine Learning-arbetsyta](walkthrough-1-create-ml-workspace.md)

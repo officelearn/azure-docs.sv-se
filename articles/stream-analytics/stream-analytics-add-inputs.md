@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: 219fe9e8f91f9b02e64b3b44ab4301f77820561f
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: b3b7b7374b02210f44fde408f28fd0378bf9bd12
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648963"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310862"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Förstå indata för Azure Stream Analytics
 
@@ -27,7 +27,7 @@ Stream Analytics har förstaklassintegrering från tre typer av resurser som ind
 
 Dessa indata resurser kan finnas i samma Azure-prenumeration som Stream Analytics-jobb, eller från en annan prenumeration.
 
-Du kan använda den [Azure-portalen](stream-analytics-quick-create-portal.md#configure-input-to-the-job), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/New-AzureRmStreamAnalyticsInput), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input), och [Visual Studio](stream-analytics-tools-for-visual-studio-install.md)att skapa, redigera och testa indata för Stream Analytics-jobbet.
+Du kan använda den [Azure-portalen](stream-analytics-quick-create-portal.md#configure-job-input), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/New-AzureRmStreamAnalyticsInput), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input), och [Visual Studio](stream-analytics-tools-for-visual-studio-install.md)att skapa, redigera och testa indata för Stream Analytics-jobbet.
 
 ## <a name="stream-and-reference-inputs"></a>Referens och Stream-indata
 Den har används av Stream Analytics-jobb och behandlas i realtid allteftersom data pushas till en datakälla. Indata är indelade i två typer: strömma indata och referera till datainmatningar.

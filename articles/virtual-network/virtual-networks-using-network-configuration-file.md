@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: 5267ce5c50e8a57843f0bc54165289b38013ad91
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2baae0a1932bdcb7fa5e29ac06dd8ae7a7020a30
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986123"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421852"
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Konfigurera ett virtuellt nätverk (klassisk) med en nätverkskonfigurationsfil
 > [!IMPORTANT]
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-distributionsmodellen.
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-distributionsmodellen.
 
 Du kan skapa och konfigurera ett virtuellt nätverk (klassisk) med en nätverkskonfigurationsfil med klassiska kommandoradsgränssnittet (CLI) eller Azure PowerShell. Du kan inte skapa eller ändra ett virtuellt nätverk via Azure Resource Manager-distributionsmodellen med hjälp av en nätverkskonfigurationsfil. Du kan inte använda Azure-portalen att skapa eller ändra ett virtuellt nätverk (klassisk) med en nätverkskonfigurationsfil, men du kan använda Azure-portalen för att skapa ett virtuellt nätverk (klassisk), utan att använda en nätverkskonfigurationsfil.
 
@@ -134,7 +134,7 @@ Du kan använda PowerShell eller klassiska CLI för att importera en nätverksko
 
 ### <a name="azure-classic-cli"></a>Klassisk Azure CLI
 
-1. [Installera Azure CLI för klassiska](/cli/azure/install-cli-version-1.0.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Slutför de återstående stegen från Kommandotolken klassiska CLI.
+1. [Installera Azure CLI för klassiska](/cli/azure/install-classic-cli). Slutför de återstående stegen från Kommandotolken klassiska CLI.
 2. Logga in på Azure genom att ange den `azure login` kommando.
 3. Kontrollera att du befinner dig i asm-läge genom att ange den `azure config mode asm` kommando.
 4. Ändra katalog- och filnamn i följande kommando vid behov, kör sedan kommandot för att importera nätverkskonfigurationsfilen:

@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: sngun
-ms.openlocfilehash: c6c63b7b66114a8c35986b443bda78442b8edd7a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f0792e220b27ec564c124f610d0616d0873e2d68
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237748"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447018"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Prestandatips för Azure Cosmos DB och Java
 
@@ -81,7 +81,7 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
 
 4. **Justering parallella frågor partitionerade samlingar**
 
-    Azure Cosmos DB SQL Java SDK-version 1.9.0 och högre support parallella frågor, som gör det möjligt att fråga en partitionerad samling parallellt (se [arbeta med SDK: erna](sql-api-partition-data.md#working-with-the-azure-cosmos-db-sdks) och de relaterade [kodexempel](https://github.com/Azure/azure-documentdb-java/tree/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples) för Mer information). Parallella frågor är utformade för att förbättra svarstid och dataflöde över sin seriella motsvarighet.
+    Azure Cosmos DB SQL Java SDK-version 1.9.0 och högre support parallella frågor, som gör det möjligt att fråga en partitionerad samling parallellt. Mer information finns i [kodexempel](https://github.com/Azure/azure-documentdb-java/tree/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples) gäller när du arbetar med SDK: erna. Parallella frågor är utformade för att förbättra svarstid och dataflöde över sin seriella motsvarighet.
 
     (a) ***justering setMaxDegreeOfParallelism\:***  parallella frågor arbete genom att fråga flera partitioner parallellt. Dock hämtas data från en enskild partitionerad samling seriellt med avseende på frågan. Därför använder [setMaxDegreeOfParallelism](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options.setmaxdegreeofparallelism) anges att ange hur många partitioner som har högsta risken för att uppnå de mest högpresterande fråga, alla andra system villkor är desamma. Om du inte vet hur många partitioner, du kan använda setMaxDegreeOfParallelism för att ange ett högre värde och systemet väljer minst (antal partitioner, tillhandahålls användarindata) som högsta grad av parallellitet. 
 
@@ -112,7 +112,7 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
 
     Du kan också ange sida storlek med den [setPageSize metoden](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options_base.setpagesize#com_microsoft_azure_documentdb__feed_options_base_setPageSize_Integer).
 
-## <a name="indexing-policy"></a>Indexeringsprincip
+## <a name="indexing-policy"></a>Indexeringspolicy
  
 1. **Undanta oanvända sökvägar från indexering för snabbare skrivningar**
 

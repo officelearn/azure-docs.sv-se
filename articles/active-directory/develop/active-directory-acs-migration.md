@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: da114cc343d04165d5a6a2137aeb2b675258230a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 805270fa4cc051929ecb1362f2d3cd4455a17a60
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015340"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423389"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Så här: migrera från Azure Access Control Service
 
@@ -113,7 +113,7 @@ Från och med November 2017 är alla komponenter i Access Control fullständigt 
 
 Här är schemat för avvecklar Access Control-komponenter:
 
-- **November 2017**: Azure AD-administratören användarupplevelsen i den klassiska Azure-portalen [har dragits tillbaka](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Nu hantering av namnområdet för åtkomstkontroll är tillgängligt på en ny, dedikerad URL: `http://manage.windowsazure.com?restoreClassic=true`. Använd denna URl att visa dina befintliga namnområden, aktivera och inaktivera namnområden och ta bort namnområden, om du vill.
+- **November 2017**: Azure AD-administratören användarupplevelsen i den klassiska Azure-portalen [har dragits tillbaka](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Nu hantering av namnområdet för åtkomstkontroll är tillgängligt på en ny, dedikerad URL: `https://manage.windowsazure.com?restoreClassic=true`. Använd denna URl att visa dina befintliga namnområden, aktivera och inaktivera namnområden och ta bort namnområden, om du vill.
 - **Den 2 april 2018**: Azure klassiska portal helt dras tillbaka, vilket innebär att hantering av åtkomstkontroll namnområden är inte längre tillgänglig via alla URL: er. Du kan nu inaktivera eller aktivera, ta bort eller räkna upp dina Access Control-namnområden. Access Control-hanteringsportalen kommer dock att helt funktionella och finns på `https://\<namespace\>.accesscontrol.windows.net`. Alla andra komponenter i Access Control fortsätta att fungera normalt.
 - **7 november 2018**: alla åtkomstkontroll komponenter permanent stänga. Detta inkluderar Access Control-hanteringsportalen, management-tjänsten, STS och token omvandling regeln motorn. Nu kan alla förfrågningar som skickas till Access Control (finns på \<namnområde\>. accesscontrol.windows.net) misslyckas. Du bör har migrerat alla befintliga appar och tjänster till andra tekniker bra före denna tidpunkt.
 
@@ -139,7 +139,7 @@ Varje Microsoft-molntjänst som accepterar token som utfärdas av Access Control
 | Azure Backup | [Uppgradera Azure Backup-agenten](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
-<!-- Azure RemoteApp deprecated in favor of Citrix: http://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->
+<!-- Azure RemoteApp deprecated in favor of Citrix: https://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->
 <!-- Exchange push notifications are moving, customers don't need to move -->
 <!-- Retail federation services are moving, customers don't need to move -->
 <!-- Azure StorSimple: TODO -->

@@ -1,6 +1,6 @@
 ---
-title: 'Skydda API: er med klienten certifikatautentisering i API Management - Azure API Management | Microsoft Docs'
-description: 'Lär dig hur du skyddar åtkomsten till API: er som använder klientcertifikat'
+title: 'Skydda API: er med klienten certifikatautentisering i API Management – Azure API Management | Microsoft Docs'
+description: 'Lär dig hur du skyddar åtkomsten till API: er med klientcertifikat'
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,20 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: apimpm
-ms.openlocfilehash: 841825923819bdb257e5b5983071d999cca805e9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3307ea391734828cb83c927e8df8aca79685279a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26406751"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441544"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Hur du skyddar API: er med klienten certifikatautentisering i API Management
 
-API Management ger möjlighet att säker åtkomst till API: er (d.v.s. klient till API-hantering) använder klientcertifikat. För närvarande kan du kontrollera tumavtrycket för ett klientcertifikat mot ett önskat värde. Du kan också kontrollera tumavtrycket mot befintliga certifikat har överförts till API-hantering.  
+API Management ger möjlighet att säkra åtkomst till API: er (d.v.s. klient till API Management) med hjälp av klientcertifikat. För närvarande kan du kontrollera tumavtrycket för ett certifikat mot ett önskat värde. Du kan också kontrollera tumavtrycket mot befintliga certifikat som har överförts till API Management.  
 
-Information om hur du skyddar åtkomsten till backend-tjänst för en API som använder klientcertifikat (d.v.s. API-hantering till backend-) finns [säkra backend-tjänster som använder klienten certifikatautentisering](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
+Information om hur du skyddar åtkomst till backend-tjänst i ett API som använder klientcertifikat (t.ex, API Management till backend-server) finns i [hur du skyddar backend-tjänster med hjälp av klienten certifikatautentisering](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
 
-## <a name="checking-the-expiration-date"></a>Kontroll av förfallodatum
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+## <a name="checking-the-expiration-date"></a>Kontrollera utgångsdatumet
 
 Nedan principer kan konfigureras för att kontrollera om certifikatet har upphört att gälla:
 
@@ -54,7 +56,7 @@ Nedan principer kan konfigureras för att kontrollera utfärdare och ämnet för
 </choose>
 ```
 
-## <a name="checking-the-thumbprint"></a>Kontrollera certifikatets tumavtryck
+## <a name="checking-the-thumbprint"></a>Kontrollera tumavtrycket
 
 Nedan principer kan konfigureras för att kontrollera tumavtrycket för ett klientcertifikat:
 
@@ -68,9 +70,9 @@ Nedan principer kan konfigureras för att kontrollera tumavtrycket för ett klie
 </choose>
 ```
 
-## <a name="checking-a-thumbprint-against-certificates-uploaded-to-api-management"></a>Kontrollerar ett tumavtryck mot certifikat har överförts till API-hantering
+## <a name="checking-a-thumbprint-against-certificates-uploaded-to-api-management"></a>Kontrollerar ett tumavtryck mot certifikat har överförts till API Management
 
-I följande exempel visas hur du kontrollerar tumavtrycket för ett klientcertifikat mot certifikat har överförts till API-hantering: 
+I följande exempel visas hur du kontrollerar tumavtrycket för ett certifikat mot certifikat som har överförts till API Management: 
 
 ```
 <choose>
@@ -85,6 +87,6 @@ I följande exempel visas hur du kontrollerar tumavtrycket för ett klientcertif
 
 ## <a name="next-step"></a>Nästa steg
 
-*  [Så här säkrar du backend-tjänster som använder klienten certifikatautentisering](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
-*  [Hur man överför certifikat](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
+*  [Hur du skyddar backend-tjänster med hjälp av klienten certifikatautentisering](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
+*  [Ladda upp certifikat](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
 

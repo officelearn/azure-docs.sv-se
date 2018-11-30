@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 639795824bf75bb99d34f12d4dfc4e0695341986
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: f3da1a8cef5abc8fd30a0dc7760005ad5fff5446
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868420"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335377"
 ---
 # <a name="copy-an-transactionally-consistent-copy-of-an-azure-sql-database"></a>Kopiera en transaktionsmässigt konsekvent kopia av en Azure SQL database
 
@@ -26,6 +26,9 @@ Azure SQL Database erbjuder flera metoder för att skapa en transaktionsmässigt
 ## <a name="overview"></a>Översikt
 
 En databaskopia är en ögonblicksbild av källdatabasen vid tidpunkten för kopiera begäran. Du kan välja samma server eller en annan server, dess tjänstnivå och beräkningsstorleken eller en annan beräkningsstorleken inom samma tjänstnivå (edition). När kopieringen är klar, blir det en fullt fungerande databas för oberoende. Nu kan du uppgradera eller nedgradera den till en utgåva. Inloggningar, användare och behörigheter kan hanteras oberoende av varandra.  
+
+> [!NOTE]
+> [Automatisk säkerhetskopiering av databaser](sql-database-automated-backups.md) används när du skapar en databaskopia.
 
 ## <a name="logins-in-the-database-copy"></a>Inloggningar i databaskopian
 

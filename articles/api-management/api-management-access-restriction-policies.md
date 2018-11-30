@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 4dd54a4a4985a33bc14022d7f722bdf83224c4aa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 10023d34a245f9493cfe244882dbdc1351a78513
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240859"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447222"
 ---
 # <a name="api-management-access-restriction-policies"></a>API Management-principer för begränsning av åtkomst
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -133,6 +133,10 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 -   **Princip-scope:** produkt  
   
 ##  <a name="LimitCallRateByKey"></a> Begränsa anropsfrekvensen av nyckel  
+
+> [!IMPORTANT]
+> Den här funktionen är inte tillgänglig i den **förbrukning** nivå för API Management.
+
  Den `rate-limit-by-key` princip förhindrar API-användningstoppar på basis av per nyckel genom att begränsa anropsfrekvensen till ett angivet antal per angiven tidsperiod. Nyckeln kan ha en godtycklig sträng-värde och anges vanligtvis med en principuttryck. Valfritt steg villkor kan läggas till ange vilka begäranden som ska räknas mot gränsen. När den här principen aktiveras anroparen får en `429 Too Many Requests` Svarets statuskod.  
   
  Mer information och exempel på den här principen kan du se [avancerad begränsning av förfrågningar med Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
@@ -285,6 +289,10 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 -   **Princip-scope:** produkt  
   
 ##  <a name="SetUsageQuotaByKey"></a> Ange användningskvot av nyckel  
+
+> [!IMPORTANT]
+> Den här funktionen är inte tillgänglig i den **förbrukning** nivå för API Management.
+
  Den `quota-by-key` principen tvingar fram en förnyas eller livslängd anrop volym och/eller bandbredd kvoten på basis av per nyckel. Nyckeln kan ha en godtycklig sträng-värde och anges vanligtvis med en principuttryck. Valfritt steg villkor kan läggas till ange vilka begäranden som ska räknas mot kvoten. Om flera principer skulle öka samma nyckelvärde, ökas den bara en gång per begäran. När anropet gränsen har nåtts anroparen får en `403 Forbidden` Svarets statuskod.
   
  Mer information och exempel på den här principen kan du se [avancerad begränsning av förfrågningar med Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  

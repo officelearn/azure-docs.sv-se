@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 11/28/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 229c0a6afee893a4a8eb5cd62a1d25266ee8fc3e
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 68d5742f5da542d5146997390e470180cf8c5776
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977190"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620701"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-objekt tillgängliga för Azure Stack
 
@@ -53,7 +53,6 @@ Microsoft Azure Stack har stöd för följande virtuella datorer i Azure Marketp
 |  | Namn på konfigurationsobjekt | Beskrivning | Utgivare |
 | --- | --- | --- | --- |
 | ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Lösningar i företagsklass som är enkla att distribuera, kostnadseffektiva, programfokuserade och användarcentrerade. Dessa avbildningar uppdateras regelbundet med de senaste uppdateringarna. **Viktig information: avbildningar ned innan den 18 januari 2018 måste tas bort och ersättas med de senaste versionerna.** | Microsoft |
-| ![Fjärrskrivbordstjänster](media/azure-stack-marketplace-azure-items/remotedesktopservicesdeployment.png) | [Distribution av Fjärrskrivbordstjänster (RDS)](https://azuremarketplace.microsoft.com/marketplace/apps/rds.remote-desktop-services-basic-deployment) | Skapa en grundläggande distribution av Remote Desktop Services (RDS). **Ladda ned den senaste Windows Server 2016 Datacenter-avbildningen.** | Microsoft |
 | ![Utvärderingsversionen av SharePoint Server 2013](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Utvärderingsversionen av SharePoint Server 2013](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013 utvärderingsversion på Windows Server 2012 Datacenter och Visual Studio 2017 community edition. | Microsoft |
 | ![SharePoint Server 2016-utvärderingsversion](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016-utvärderingsversion](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Microsoft SharePoint Server 2016 utvärderingsversion på Windows Server 2016 Datacenter. | Microsoft |
 | ![SQL Server 2014 SP2 på Windows Server 2012 R2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP2 på Windows Server 2012 R2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQL2014SP2-WS2012R2) | SQL Server 2014 servicepack 2. **Obligatorisk nedladdning:** SQL IaaS-tillägget. | Microsoft |

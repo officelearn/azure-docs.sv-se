@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 11/29/2018
 ms.author: anwestg
-ms.openlocfilehash: aa745d827db7633dc9f8601f65fa31dfadbb4076
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: cd16bf400c5a5e5a07c7e2dc459d801e6fc810b9
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614063"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635381"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Lägga till en App Service-resursprovider i Azure Stack
 
@@ -202,17 +202,17 @@ Distribuera App Service-resursprovider genom att följa dessa steg:
 
     ![App Service-hantering](media/azure-stack-app-service-deploy/image12.png)
 
-   >[!IMPORTANT]
-   >Om du distribuerar till ett befintligt virtuellt nätverk och använda en intern IP-adress för att ansluta till din filserver, måste du lägga till en utgående säkerhetsregel. Regeln gör det möjligt för SMB-trafik mellan worker-undernät och filservern.  Gör detta genom att gå till WorkersNsg i Admin Portal och Lägg till en utgående säkerhetsregel med följande egenskaper:<br>
-    >  - Källa: alla
-    >  - Käll-portintervall: *
-    >  - Mål: IP-adresser
-    >  - Mål-IP-adressintervall: intervall av IP-adresser för din filserver
-    >  - Målportintervall: 445
-    >  - Protokoll: TCP
-    >  - Åtgärd: Tillåt
-    >  - Prioritet: 700
-    >  - Namn: Outbound_Allow_SMB445
+    Om du distribuerar till ett befintligt virtuellt nätverk och använda en intern IP-adress för att ansluta till din filserver, måste du lägga till en utgående säkerhetsregel. Regeln gör det möjligt för SMB-trafik mellan worker-undernät och filservern.  Gör detta genom att gå till WorkersNsg i Admin Portal och Lägg till en utgående säkerhetsregel med följande egenskaper:
+
+    - Källa: alla
+    - Käll-portintervall: *
+    - Mål: IP-adresser
+    - Mål-IP-adressintervall: intervall av IP-adresser för din filserver
+    - Målportintervall: 445
+    - Protokoll: TCP
+    - Åtgärd: Tillåt
+    - Prioritet: 700
+    - Namn: Outbound_Allow_SMB445
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Testköra App Service på Azure Stack
 

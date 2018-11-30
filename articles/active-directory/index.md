@@ -158,7 +158,7 @@ ms.locfileid: "50413085"
                                                             <a href="devices/index.yml"><i>Mer information &gt;</i></a><br>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="/azure/active-directory-domain-services/index">Domain Services</a></h3>
+                                                        <h3><a href="/azure/active-directory-domain-services/index">Domäntjänster</a></h3>
                                                         <p>
                                                             <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started">Aktivera Azure AD Domain Services</a><br>
                                                             <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal">Ansluta Windows Server-VM till hanterad domän</a><br>

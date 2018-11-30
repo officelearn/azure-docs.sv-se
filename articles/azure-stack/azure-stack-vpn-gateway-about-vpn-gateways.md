@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: d94b7f7f2f032278f71053e5de8bb2935af01f3f
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 860f1181a84ef87fe0e66c2746b76b800a326354
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300157"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496205"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Om VPN gateway för Azure Stack
 
@@ -117,6 +117,10 @@ Följande tabell visar gateway-typerna och beräknat aggregerat dataflöde efter
 *Obs! (1)* -VPN-dataflöde är inte garanterad genomströmning för anslutningar mellan platser över Internet. Det är det högsta möjliga genomflöde måttet.  
 *Obs! (2)* -Max tunnlar är det totala antalet per Azure Stack-distribution för alla prenumerationer.  
 *Obs! (3)* -BGP-routning stöds inte för en grundläggande SKU.
+
+>[!NOTE]
+>Du kan skapa bara en plats-till-plats VPN-anslutning mellan två Azure Stack-distributioner.  Detta beror på en begränsning i den plattform som tillåter bara en enda VPN-anslutning till samma IP-adress.  Eftersom Azure Stack utnyttjar gateway för flera innehavare som använder en enda offentlig IP-adress för alla VPN-gatewayer i Azure Stack-system, kan det finnas bara en VPN-anslutning mellan två Azure Stack-system.  Den här begränsningen gäller även för att ansluta fler än en plats-till-plats-VPN-anslutningar till VPN-Gateway som använder en IP-adress.  Azure Stack tillåter inte fler än en lokal nätverksgateway-resurs som ska skapas med samma IP-adress.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

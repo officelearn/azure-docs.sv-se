@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: How to
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 1fbda6c0351287b9bc7574d100c0862b172a0aed
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 3021fafe7d74f71450eec9b3720c974b04ada224
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651550"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426935"
 ---
 # <a name="schedule-your-first-test"></a>Schemalägg din första test
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Schemalägga ett test i validering som en (VaaS)-tjänstportalen för din Azure Stack-lösning. En lösning för VaaS representerar en Azure Stack-lösning med en viss maskinvara struktur (BoM). Du kan schemalägga ett test för att kontrollera att maskinvaran kan köra Azure Stack.
 

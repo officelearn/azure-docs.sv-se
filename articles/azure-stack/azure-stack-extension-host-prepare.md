@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 11/09/2018
+ms.date: 11/27/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.openlocfilehash: 049e859f1d736e7c06ac5d40e33d91d1540c3d9e
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8de810e689a00f081df82365eca00131453a6db5
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514374"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447122"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Förbereda för tillägget för värd för Azure Stack
 
@@ -121,8 +121,6 @@ Använda en dator som kan ansluta till Azure Stack privilegierad slutpunkt för 
     }
     ```
 
-
-
 ### <a name="update-dns-configuration"></a>Uppdatera DNS-konfiguration
 
 > [!Note]  
@@ -131,8 +129,8 @@ Om enskilda värd A-poster har konfigurerats för att publicera Azure Stack-slut
 
 | IP-adress | Värdnamn | Typ |
 |----|------------------------------|------|
-| \<IP &GT; | Adminhosting. <Region>.<FQDN> | A |
-| \<IP &GT; | Som är värd för. <Region>.<FQDN> | A |
+| \<IP &GT; | *. Adminhosting. \<Region >. \<FQDN > | A |
+| \<IP &GT; | *. Som är värd för. \<Region >. \<FQDN > | A |
 
 Allokerade IP-adresser kan hämtas med hjälp av privilegierad slutpunkt genom att köra cmdlet **Get-AzureStackStampInformation**.
 

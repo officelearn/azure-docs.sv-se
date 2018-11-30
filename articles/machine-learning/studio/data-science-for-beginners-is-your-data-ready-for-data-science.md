@@ -1,5 +1,5 @@
 ---
-title: Är dina data klara för datavetenskap? -Utvärdering av Azure Machine Learning | Microsoft Docs
+title: Är dina data klara för datavetenskap? -Utvärdering av Azure Machine Learning Studio | Microsoft Docs
 description: Fyra villkor som måste uppfylla för att vara klara för datavetenskap. Den här videon har konkreta exempel som hjälper med grundläggande data utvärdering.
 keywords: relevanta data, utvärdera data, förbereda data, Datakriterier, data som är redo
 services: machine-learning
@@ -17,12 +17,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: d762b0b82364293bb8a946dec575ac099dcd9172
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 5e7949edb13bfec72fa7d80d86d2e77214ceaa37
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263258"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316216"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Är dina data klara för datavetenskap?
 ## <a name="video-2-data-science-for-beginners-series"></a>Video 2: Datavetenskap för nybörjare-serien

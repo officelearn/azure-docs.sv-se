@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
-ms.openlocfilehash: cdc6e082207b9128be3e3005305510f3ee493850
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0cb75c1acb731432ed524560698e3355699b2500
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427849"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422093"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Hur du skickar e-post med SendGrid från Java
 Den här guiden visar hur du utför vanliga programmeringsspråk uppgifter med e-posttjänsten SendGrid på Azure. Exemplen är skrivna i Java. Scenarier som omfattas är **konstruera e-post**, **skicka e-postmeddelande**, **att lägga till bilagor**, **med hjälp av filter**, och **uppdatera egenskaperna för**. Mer information om SendGrid och skicka e-post finns i den [nästa steg](#next-steps) avsnittet.
@@ -34,13 +34,13 @@ SendGrid är en [molnbaserade e-posttjänsten] som ger tillförlitliga [transakt
 * Vidarebefordran av kundfrågor
 * E-postmeddelanden från ditt program
 
-Mer information finns i <http://sendgrid.com>.
+Mer information finns i <https://sendgrid.com>.
 
 ## <a name="create-a-sendgrid-account"></a>Skapa ett SendGrid-konto
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="how-to-use-the-javaxmail-libraries"></a>Så här: använda javax.mail-bibliotek
-Hämta javax.mail-bibliotek, till exempel från <http://www.oracle.com/technetwork/java/javamail> och importera dem till din kod. Vid en hög nivå är processen för att använda biblioteket javax.mail skicka e-post via SMTP att göra följande:
+Hämta javax.mail-bibliotek, till exempel från <https://www.oracle.com/technetwork/java/javamail> och importera dem till din kod. Vid en hög nivå är processen för att använda biblioteket javax.mail skicka e-post via SMTP att göra följande:
 
 1. Ange SMTP-värden, inklusive SMTP-servern, vilket för SendGrid är smtp.sendgrid.net.
 
@@ -184,13 +184,13 @@ Nu när du har lärt dig grunderna för den e-posttjänsten SendGrid kan du föl
 * SendGrid API-dokumentation: <https://sendgrid.com/docs/API_Reference/index.html>
 * SendGrid specialerbjudande för Azure-kunder: <https://sendgrid.com/windowsazure.html>
 
-[http://sendgrid.com]: https://sendgrid.com
-[http://sendgrid.com/pricing.html]: http://sendgrid.com/pricing.html
+[https://sendgrid.com]: https://sendgrid.com
+[https://sendgrid.com/pricing.html]: https://sendgrid.com/pricing.html
 [http://www.sendgrid.com/azure.html]: https://www.sendgrid.com/windowsazure.html
-[http://sendgrid.com/features]: https://sendgrid.com/features
-[http://www.oracle.com/technetwork/java/javamail]: http://www.oracle.com/technetwork/java/javamail/index.html
+[https://sendgrid.com/features]: https://sendgrid.com/features
+[https://www.oracle.com/technetwork/java/javamail]: https://www.oracle.com/technetwork/java/javamail/index.html
 [Filter Settings]: https://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
 [SendGrid API documentation]: https://sendgrid.com/docs/API_Reference/index.html
-[http://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
+[https://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
 [molnbaserade e-posttjänsten]: https://sendgrid.com/email-solutions
 [transaktionsbaserad e-postleverans]: https://sendgrid.com/transactional-email

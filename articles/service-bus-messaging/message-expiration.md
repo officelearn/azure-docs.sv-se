@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 11/29/2018
 ms.author: spelluru
-ms.openlocfilehash: e2efe2bfb26fa7a14a9e80c26fba1322f82cb0eb
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c5df5f43c4f01013cc44a2497203947f303f3e81
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856929"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634837"
 ---
 # <a name="message-expiration-time-to-live"></a>Förfallodatum för meddelanden (Time to Live)
 
@@ -26,7 +26,7 @@ Nyttolasten i ett meddelande eller ett kommando eller en förfrågan som ett med
 
 För utveckling och test-miljöer som köer och ämnen används ofta i samband med partiella körningar av program eller program delar kan är det också önskvärt för tvinnad testmeddelanden automatiskt vara skräpinsamlats så att nästa testkörning kan Starta ren.
 
-Förfallodatum för alla enskilda meddelanden kan kontrolleras genom att ange den [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) Systemegenskapen som anger en relativ varaktighet. Förfallodatum blir ett absolut ögonblick när meddelandet är i kö till entiteten. Då den [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) egenskapen tar på värdet [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive).
+Förfallodatum för alla enskilda meddelanden kan kontrolleras genom att ange den [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) Systemegenskapen som anger en relativ varaktighet. Förfallodatum blir ett absolut ögonblick när meddelandet är i kö till entiteten. Då den [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) egenskapen tar på värdet [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive). Inställningen time to live (TTL) på en asynkrona meddelanden upprätthålls inte när ingen klient inte lyssnar aktivt.
 
 Senaste den **ExpiresAtUtc** omedelbar, meddelanden blir inte berättigade för hämtning. Förfallodatum påverkar inte meddelanden som för närvarande är låsta för leverans. Dessa meddelanden hanteras fortfarande normalt. Om låset upphör att gälla eller meddelandet överges, tar förfallodatum börjar gälla omedelbart.
 
@@ -44,15 +44,37 @@ Kombinationen av [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.tim
 
 Anta exempelvis att en webbplats som kräver att tillförlitligt köra jobb på en skala begränsad serverdel och som ibland upplevelser trafik toppar eller vill isoleras mot tillgänglighet avsnitt av den serverdelen. I vanliga fall serversidan hanteraren för skickade användardata skickar informationen till en kö och därefter tar emot ett svar som bekräftar lyckade hanteringen av transaktionen i en kö för meddelandesvar. Om det finns ett trafikstopp och backend-hanteraren kan inte behandla dess eftersläpning för objekt i tid, returneras jobb som har upphört att gälla i kön för obeställbara meddelanden. Den interaktiva användaren kan bli meddelad att den begärda åtgärden kan ta lite längre tid än vanligt begäran kan sedan placeras på en annan kö för bearbetning av banor där eventuell bearbetning resultatet skickas till användaren via e-post. 
 
+
 ## <a name="temporary-entities"></a>Tillfällig entiteter
 
 Service Bus-köer, ämnen och prenumerationer kan skapas som tillfällig enheter som tas bort automatiskt när de inte har använts under en angiven tidsperiod.
  
 Automatisk rensning är användbart i utvecklings- och scenarier där entiteter skapas dynamiskt och inte rensas efter användning på grund av vissa avbrott i testning eller felsökning kör. Det är också användbart när ett program skapar dynamiska entiteter, till exempel en svarskö för att ta emot svar tillbaka till en process som webbservern eller till ett annat relativt kortvarig objekt där det är svårt att på ett tillförlitligt sätt att rensa upp dessa entiteter när objektet instans försvinner.
 
-Funktionen är aktiverad med hjälp av den [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues) egenskapen, som anger den varaktighet som en entitet måste vara inaktiv (som inte används) innan den tas bort automatiskt. Minimilängden är 5 minuter.
+Funktionen är aktiverad med hjälp av den [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues) egenskapen. Den här egenskapen anges till den varaktighet som en entitet måste vara inaktiv (som inte används) innan den tas bort automatiskt. Det minsta värdet för den här egenskapen är 5.
  
-Den **autoDeleteOnIdle** egenskapen måste anges via en Azure Resource Manager-åtgärd eller via .NET Framework-klienten [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API: er. Det kan inte ställas in via portalen.
+Den **autoDeleteOnIdle** egenskapen måste anges via en Azure Resource Manager-åtgärd eller via .NET Framework-klienten [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API: er. Du kan inte ange den i portalen.
+
+## <a name="idleness"></a>Idleness
+
+Här är vad som anses idleness för entiteter (köer, ämnen och prenumerationer):
+
+- Köer
+    - Inga skickar  
+    - Inte tar emot  
+    - Inga uppdateringar till kön  
+    - Inga schemalagda meddelanden  
+    - Inga Bläddra/peek 
+- Ämnen  
+    - Inga skickar  
+    - Inga uppdateringar till ämnet  
+    - Inga schemalagda meddelanden 
+- Prenumerationer
+    - Inte tar emot  
+    - Inga uppdateringar till prenumerationen  
+    - Inga nya regler för prenumerationen  
+    - Inga Bläddra/peek  
+ 
 
 
 ## <a name="next-steps"></a>Nästa steg

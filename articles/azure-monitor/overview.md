@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 6a3e33fe74199f0b9c02c6924d5e5e41b37f385c
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: d1b7b5baeba88ec0209abff60e9327031afa8b66
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820978"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633783"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
@@ -57,7 +57,7 @@ Azure Monitor kan samla in data från olika källor. Du kan se övervakningsdata
 
 När du skapar en Azure-prenumeration och börja lägga till resurser, till exempel virtuella datorer och webbappar, startar Azure Monitor insamling av data.  [Aktivitetsloggar](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) registrera när resurser skapas eller ändras. [Mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md) talar om hur resursen fungerar och de resurser som den förbrukar. 
 
-Utöka dina data som du samlar in i den faktiska användningen av resurser genom att [aktiverar diagnostik](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) och [att lägga till en agent](../log-analytics/log-analytics-agent-windows.md) att beräkna resurser. Detta samlar in telemetri för den interna åtgärden på resursen och gör att du kan konfigurera olika [datakällor](../log-analytics/log-analytics-data-sources.md) att samla in loggar och mått från Windows och Linux gästoperativsystemet. 
+Utöka dina data som du samlar in i den faktiska användningen av resurser genom att [aktiverar diagnostik](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) och [att lägga till en agent](../azure-monitor/platform/agent-windows.md) att beräkna resurser. Detta samlar in telemetri för den interna åtgärden på resursen och gör att du kan konfigurera olika [datakällor](../azure-monitor/platform/agent-data-sources.md) att samla in loggar och mått från Windows och Linux gästoperativsystemet. 
 
 [Lägga till en instrumentationspaket i ditt program](../application-insights/app-insights-azure-web-apps.md)att aktivera Application Insights för att samla in detaljerad information om ditt program, inklusive sidvisningar, programförfrågningar och undantag. Ytterligare kontrollera tillgängligheten för ditt program genom att konfigurera en [tillgänglighetstestet](../application-insights/app-insights-monitor-web-app-availability.md) att simulera trafik för användare.
 
@@ -86,7 +86,7 @@ Azure Monitor VM insights övervakar dina Azure-datorer (VM) i stor skala genom 
 ![VM-insikter](media/overview/vm-insights.png)
 
 ### <a name="monitoring-solutions"></a>Övervakningslösningar
-[Övervakningslösningar](../azure-monitor/insights/solutions.md) är paketerade uppsättningar av logik som ger insikter för ett visst program eller tjänst i Azure Monitor. De samla in data till Log Analytics tillsammans med andra övervakningsdata med [frågor](../log-analytics/log-analytics-queries.md) för analys och [vyer](../log-analytics/log-analytics-view-designer.md) för visualisering. Övervakningslösningar är [tillgängliga från Microsoft](../azure-monitor/insights/solutions-inventory.md) och partners att tillhandahålla övervakning för olika Azure-tjänster och andra program.
+[Övervakningslösningar](../azure-monitor/insights/solutions.md) är paketerade uppsättningar av logik som ger insikter för ett visst program eller tjänst i Azure Monitor. De samla in data till Log Analytics tillsammans med andra övervakningsdata med [frågor](../log-analytics/log-analytics-queries.md) för analys och [vyer](../azure-monitor/platform/view-designer.md) för visualisering. Övervakningslösningar är [tillgängliga från Microsoft](../azure-monitor/insights/solutions-inventory.md) och partners att tillhandahålla övervakning för olika Azure-tjänster och andra program.
 
 ![Övervakningslösningar](media/overview/solutions-overview.png)
 
@@ -115,7 +115,7 @@ Automatisk skalning kan du har rätt mängd resurser som körs för att hantera 
 ![Instrumentpanel](media/overview/dashboard.png)
 
 ### <a name="views"></a>Vyer
-[Vyer i Azure Monitor](../log-analytics/log-analytics-view-designer.md) visuellt presentera loggdata i Log Analytics.  Varje vy innehåller en enda panel som vidare till en kombination av visualiseringar som stapeldiagram och linjediagram utöver listor som summerar kritiska data.  Övervakningslösningar innehåller vyer som summerar data för ett visst program och du kan skapa egna vyer för att presentera data från en Log Analytics-loggsökning. Vyer kan läggas till Azure-instrumentpaneler som andra element i Azure Monitor.
+[Vyer i Azure Monitor](../azure-monitor/platform/view-designer.md) visuellt presentera loggdata i Log Analytics.  Varje vy innehåller en enda panel som vidare till en kombination av visualiseringar som stapeldiagram och linjediagram utöver listor som summerar kritiska data.  Övervakningslösningar innehåller vyer som summerar data för ett visst program och du kan skapa egna vyer för att presentera data från en Log Analytics-loggsökning. Vyer kan läggas till Azure-instrumentpaneler som andra element i Azure Monitor.
 
 ![Log Analytics-vy](media/overview/view.png)
 

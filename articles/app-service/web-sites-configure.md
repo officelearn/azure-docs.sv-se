@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: cf3a6fe24082a10db6a5b1267b70435d9e36b720
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 73d2da542c4f7da0933187d800f562de76bfb3e6
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115530"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443516"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Konfigurera webbappar i Azure App Service
 
@@ -78,6 +78,8 @@ Det här avsnittet innehåller namn/värde-par som webbappen ska läsas in på s
 
 Appinställningar är alltid krypterade när lagrade (krypterat i vila).
 
+Appinställningar kan lösas från Key Vault med [Key Vault refererar till](app-service-key-vault-references.md).
+
 ### <a name="connection-strings"></a>Anslutningssträngar
 Anslutningssträngar för länkade resurser. 
 
@@ -93,6 +95,8 @@ För PHP, Python, Java och Node-program, kommer att finnas inställningarna som 
 Exempel: om en anslutningssträng för MySql med namnen `connectionstring1`, den kan nås via miljövariabeln `MYSQLCONNSTR_connectionString1`.
 
 Anslutningssträngar krypteras alltid när lagras (krypterat i vila).
+
+Anslutningssträngar kan lösas från Key Vault med [Key Vault refererar till](app-service-key-vault-references.md).
 
 ### <a name="default-documents"></a>Standarddokument
 Standarddokument är den webbsida som visas på rot-URL för en webbplats.  Den första matchande filen i listan används. 

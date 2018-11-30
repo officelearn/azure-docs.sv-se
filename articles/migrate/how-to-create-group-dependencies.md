@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 352ff105f5cd443fba74e05ebce22c14f08e63a0
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: d79513569b53d2b8958f44fbfac3839c91caaff8
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823681"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634310"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Förfina grupper med beroendemappning för grupp
 
@@ -39,7 +39,7 @@ Om du vill använda visualisering av beroenden, måste du koppla en Log Analytic
 > Du kan inte ändra arbetsytan som är kopplad till ett migreringsprojekt.
 
 ### <a name="download-and-install-the-vm-agents"></a>Hämta och installera VM-agenterna
-Om du vill visa beroenden för en grupp som du behöver hämta och installera agenter på varje lokal dator som ingår i gruppen. Dessutom, om du har datorer som saknar Internetanslutning måste du ladda ned och installera [Log Analytics gateway](../log-analytics/log-analytics-oms-gateway.md) på dem.
+Om du vill visa beroenden för en grupp som du behöver hämta och installera agenter på varje lokal dator som ingår i gruppen. Dessutom, om du har datorer som saknar Internetanslutning måste du ladda ned och installera [Log Analytics gateway](../azure-monitor/platform/gateway.md) på dem.
 
 1. I **översikt**, klickar du på **hantera** > **grupper**går du till den nödvändiga gruppen.
 2. I listan över datorer, i den **beroendeagenten** kolumnen, klickar du på **kräver installation** att se information om hur du hämtar och installerar agenterna.

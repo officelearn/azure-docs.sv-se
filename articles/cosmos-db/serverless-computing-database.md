@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 39b071c258a7aab3f8f0287ef2ce581a8f1b333e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 5787f72f2bc93c5dff05c6764639a4c46efe1a4f
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623170"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582793"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Databas utan Server databehandling med Azure Cosmos DB och Azure Functions
 
@@ -124,7 +124,7 @@ Azure Functions erbjuder möjligheten att skapa skalbara lagringsenheter arbets-
 
 Azure Cosmos DB är den rekommendera databasen för din serverlös databehandling arkitektur av följande skäl:
 
-* **Omedelbar åtkomst till alla dina data**: du har detaljerad åtkomst till varje värde som lagras eftersom Azure Cosmos DB [indexerar automatiskt](indexing-policies.md) alla data som standard och gör dessa index omedelbart tillgänglig. Det innebär att du ska kunna ständigt fråga, uppdatera, och Lägg till nya objekt i databasen och ha omedelbar åtkomst via Azure Functions.
+* **Omedelbar åtkomst till alla dina data**: du har detaljerad åtkomst till varje värde som lagras eftersom Azure Cosmos DB [indexerar automatiskt](index-policy.md) alla data som standard och gör dessa index omedelbart tillgänglig. Det innebär att du ska kunna ständigt fråga, uppdatera, och Lägg till nya objekt i databasen och ha omedelbar åtkomst via Azure Functions.
 
 * **Schemalös**. Azure Cosmos DB är schemalös - så att det är unikt kan hantera alla data utdata från en Azure-funktion. Den här ”hanterar allt”-metoden gör det enkelt att skapa en mängd funktioner som alla utdata till Azure Cosmos DB.
 

@@ -1,6 +1,6 @@
 ---
-title: Så här ökar du samtidighet på en Azure Machine Learning-webbtjänst | Microsoft Docs
-description: Lär dig mer om att öka parallellkörningen av en Azure Machine Learning-webbtjänst genom att lägga till ytterligare slutpunkter.
+title: Skala en Machine Learning Studio-webbtjänst - Azure | Microsoft Docs
+description: Lär dig mer om att öka parallellkörningen av en Azure Machine Learning Studio-webbtjänst genom att lägga till ytterligare slutpunkter.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -17,16 +17,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.openlocfilehash: 6e827c88d840a111ef3bebfb8f2b2f116c02643e
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 3077afc99e7879b14c36e16cdbed8afb3a07bdb3
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264870"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312189"
 ---
 # <a name="scaling-an-azure-machine-learning-web-service-by-adding-additional-endpoints"></a>Skala en Azure Machine Learning-webbtjänst genom att lägga till ytterligare slutpunkter
 > [!NOTE]
-> Det här avsnittet beskrivs tekniker som kan användas till en **klassiska** Machine Learning-webbtjänster. 
+> Det här avsnittet beskrivs tekniker som kan användas till en **klassiska** Machine Learning-webbtjänst. 
 > 
 > 
 

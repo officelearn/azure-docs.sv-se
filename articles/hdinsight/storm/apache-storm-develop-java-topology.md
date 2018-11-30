@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 8eb5a2429db26c987e9a6a40130e25c8034a210b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5f07f462fc33761f7d29944594491a72f283cd31
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011654"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582572"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Skapa ett Apache Storm-topologi i Java
 
-Lär dig hur du skapar en Java-baserad topologi för Apache Storm. Du skapar en Storm-topologi som implementerar ett word-count-program. Du kan använda Maven för att bygga och paketera projektet. Sedan får du lära dig hur du definierar topologin med hjälp av som framework.
+Lär dig hur du skapar en Java-baserad topologi för [Apache Storm](http://storm.apache.org/). Du skapar en Storm-topologi som implementerar ett word-count-program. Du använder [Apache Maven](https://maven.apache.org/) att bygga och paketera projektet. Sedan får du lära dig hur du definierar topologin med hjälp av som framework.
 
 När du har slutfört stegen i det här dokumentet, kan du distribuera topologin till Apache Storm på HDInsight.
 
@@ -30,7 +30,7 @@ När du har slutfört stegen i det här dokumentet, kan du distribuera topologin
 
 * [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks)
 
-* [Maven (https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi): Maven är ett projekt build-system för Java-projekt.
+* [Apache Maven (https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi): Maven är ett projekt build-system för Java-projekt.
 
 * En textredigerare eller IDE.
 
@@ -534,7 +534,7 @@ public class WordCountTopology {
 
 ### <a name="configure-logging"></a>Konfigurera loggning
 
-Storm använder Apache Log4j för att logga information. Om du inte konfigurerar loggning genererar topologin diagnostisk information. Skapa en fil med namnet för att styra vad loggas `log4j2.xml` i den `resources` directory. Använd följande XML som innehållet i filen.
+Storm använder [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) att logga information. Om du inte konfigurerar loggning genererar topologin diagnostisk information. Skapa en fil med namnet för att styra vad loggas `log4j2.xml` i den `resources` directory. Använd följande XML som innehållet i filen.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -559,7 +559,7 @@ Den här XML konfigurerar en ny loggare för den `com.microsoft.example` klass s
 
 Den `<Root level="error">` avsnittet konfigurerar loggning rotnivå (allt inte i `com.microsoft.example`) att endast logga information om felet.
 
-Läs mer om hur du konfigurerar loggning för Log4j, [ http://logging.apache.org/log4j/2.x/manual/configuration.html ](http://logging.apache.org/log4j/2.x/manual/configuration.html).
+Läs mer om hur du konfigurerar loggning för Log4j 2 [ http://logging.apache.org/log4j/2.x/manual/configuration.html ](http://logging.apache.org/log4j/2.x/manual/configuration.html).
 
 > [!NOTE]
 > Storm-version 0.10.0 och högre användning Log4j 2.x. Används för äldre versioner av storm Log4j 1.x, som används av ett annat format för konfigurationen av loggen. Information om konfigurationen av äldre finns [ http://wiki.apache.org/logging-log4j/Log4jXmlFormat ](http://wiki.apache.org/logging-log4j/Log4jXmlFormat).
@@ -588,7 +588,7 @@ Det finns ett 5-sekundersintervall intervall mellan utsläpp av ord och antal. D
 
 ## <a name="convert-the-topology-to-flux"></a>Konvertera topologin till som
 
-Som är en ny ramverk tillgänglig med Storm 0.10.0 och högre, där du kan avgränsa konfigurationen från implementering. Dina komponenter definieras fortfarande i Java, men topologin definieras med hjälp av en YAML-fil. Du kan paketera en topologi standarddefinition med ditt projekt eller använda en fristående fil när du skickar in topologin. När du skickar in topologin till Storm, kan du använda miljövariabler eller konfigurationsfiler för att fylla i värden i topologidefinitionen YAML.
+[Som](http://storm.apache.org/releases/2.0.0-SNAPSHOT/flux.html) är ett nytt ramverk tillgänglig med Storm 0.10.0 och högre, där du kan avgränsa konfigurationen från implementering. Dina komponenter definieras fortfarande i Java, men topologin definieras med hjälp av en YAML-fil. Du kan paketera en topologi standarddefinition med ditt projekt eller använda en fristående fil när du skickar in topologin. När du skickar in topologin till Storm, kan du använda miljövariabler eller konfigurationsfiler för att fylla i värden i topologidefinitionen YAML.
 
 YAML-fil som definierar vilka komponenter som ska användas för topologin och data kan flöda mellan dem. Du kan inkludera en YAML-fil som en del av jar-filen eller du kan använda en extern YAML-fil.
 
@@ -762,23 +762,23 @@ Mer information om som finns i [som framework (https://storm.apache.org/releases
 
     När topologin startar, bör du märka att tiden mellan utgivna batchar har ändrats för att återspegla värdet i newtopology.yaml. Så att du kan se att du kan ändra din konfiguration via en YAML-fil utan att kompilera om topologin.
 
-Mer information om dessa och andra funktioner i ramen som finns i [som (https://storm.apache.org/releases/1.0.6/flux.html)](https://storm.apache.org/releases/1.0.6/flux.html).
+Mer information om dessa och andra funktioner i ramen som finns i [som (http://storm.apache.org/releases/current/flux.html)](http://storm.apache.org/releases/current/flux.html).
 
 ## <a name="trident"></a>Trident
 
-Trident är en abstraktion på hög nivå som tillhandahålls av Storm. Det stöder tillståndskänsliga bearbetning. Viktig fördel med Trident är att det garanterar att varje meddelande som anger topologin bearbetas bara en gång. Utan att använda Trident garanterar topologin endast att meddelanden bearbetas minst en gång. Det finns även andra skillnader, till exempel inbyggda komponenter som kan användas istället för att skapa bultar. I själva verket ersätts bultar med mindre-generisk komponenter, till exempel filter, projektioner och funktioner.
+[Trident](http://storm.apache.org/releases/current/Trident-API-Overview.html) är en abstraktion på hög nivå som tillhandahålls av Storm. Det stöder tillståndskänsliga bearbetning. Viktig fördel med Trident är att det garanterar att varje meddelande som anger topologin bearbetas bara en gång. Utan att använda Trident garanterar topologin endast att meddelanden bearbetas minst en gång. Det finns även andra skillnader, till exempel inbyggda komponenter som kan användas istället för att skapa bultar. I själva verket ersätts bultar med mindre-generisk komponenter, till exempel filter, projektioner och funktioner.
 
 Trident program kan skapas med hjälp av Maven-projekt. Du använder samma grundläggande steg som visas tidigare i den här artikeln – endast koden är olika. Heller Trident kan inte (för närvarande) användas som Framework.
 
-Mer information om Trident finns i den [Trident API-översikt](http://storm.apache.org/documentation/Trident-API-Overview.html).
+Mer information om Trident finns i den [Trident API-översikt](http://storm.apache.org/releases/current/Trident-API-Overview.html).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har lärt dig hur du skapar en Storm-topologi med hjälp av Java. Nu lära dig hur du:
+Du har lärt dig hur du skapar ett Apache Storm-topologi med hjälp av Java. Nu lära dig hur du:
 
 * [Distribuera och hantera Apache Storm-topologier i HDInsight](apache-storm-deploy-monitor-topology.md)
 
 * [Utveckla C#-topologier för Apache Storm på HDInsight med Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)
 
-Du hittar flera exempel Storm-topologier genom att besöka [exempeltopologier för Storm på HDInsight](apache-storm-example-topology.md).
+Du hittar flera exempel Apache Storm-topologier genom att besöka [exempeltopologier för Apache Storm på HDInsight](apache-storm-example-topology.md).
 

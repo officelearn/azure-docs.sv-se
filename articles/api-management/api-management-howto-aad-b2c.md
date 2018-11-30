@@ -13,22 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: fbba1d9b4bdf1536ed596e9a78e53116fe824027
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 1e2d809ed476b1789736f0d61dfea528b090da50
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232927"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447137"
 ---
 > [!WARNING]
 > Integrering med Azure Active Directory B2C är tillgängligt i den [Developer, Standard och Premium](https://azure.microsoft.com/pricing/details/api-management/) nivåerna endast.
 
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Hur du auktorisera konton med hjälp av Azure Active Directory B2C i Azure API Management
+
 ## <a name="overview"></a>Översikt
 Azure Active Directory B2C är en identitetshanteringslösning för molnet för konsumentinriktade webb- och mobilprogram. Du kan använda den för att hantera åtkomst till din developer-portalen. Den här guiden visar konfigurationen som krävs i API Management-tjänsten att integrera med Azure Active Directory B2C. Information om hur du aktiverar åtkomst till utvecklarportalen genom att använda klassiska Azure Active Directory finns i [Hur du auktorisera konton med Azure Active Directory].
 
 > [!NOTE]
 > Du måste ha en Azure Active Directory B2C-klient för att skapa ett program i för att slutföra stegen i den här guiden. Du måste dessutom ha registrering och inloggning från principer som är redo. Mer information finns i [översikt över Azure Active Directory B2C].
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="authorize-developer-accounts-by-using-azure-active-directory-b2c"></a>Auktorisera konton med hjälp av Azure Active Directory B2C
 

@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
-ms.openlocfilehash: f58fd08e8cffed6d2920f318aa74bcf9682c29dc
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: ee338e2011a7b86a069bd42a028d65b23a123037
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820536"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427105"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Hur du använder den e-posttjänsten SendGrid från PHP
 
@@ -418,9 +418,9 @@ Mer information finns också i [PHP Developer Center](https://azure.microsoft.co
 [https://sendgrid.com]: https://sendgrid.com
 [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
 [special offer]: https://www.sendgrid.com/windowsazure.html
-[Packaging and Deploying PHP Applications for Azure]: http://msdn.microsoft.com/library/windowsazure/hh674499(v=VS.103).aspx
+[Packaging and Deploying PHP Applications for Azure]: https://msdn.microsoft.com/library/windowsazure/hh674499(v=VS.103).aspx
 [http://swiftmailer.org/download]: http://swiftmailer.org/download
-[curl function]: http://php.net/curl
+[curl function]: https://php.net/curl
 [molnbaserade e-posttjänsten]: https://sendgrid.com/email-solutions
 [transaktionsbaserad e-postleverans]: https://sendgrid.com/transactional-email
 [sendgrid-php-bibliotek]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1

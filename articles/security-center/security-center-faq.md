@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: 16291e4f4915dd6328a2015407fa06dc8f62fba1
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 10ff2118ade13980250608bf4bc238e8ff2f9c64
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011892"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312994"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Security Center
 Den här vanliga frågor och svar innehåller frågor och svar om Azure Security Center, en tjänst som hjälper dig att förhindra, upptäcka och svara på hot med ökad insyn i och kontroll över säkerheten hos dina Microsoft Azure-resurser.
@@ -250,7 +250,7 @@ Säkerhetsprinciperna i Azure Security Center enhet säkerhetsrekommendationer o
 ### <a name="who-can-modify-a-security-policy"></a>Vem som kan ändra en säkerhetsprincip för?
 Om du vill ändra en säkerhetsprincip måste du vara en administratör eller ägare eller deltagare i den aktuella prenumerationen.
 
-Läs hur du konfigurerar en säkerhetsprincip i [ange säkerhetsprinciper i Azure Security Center](security-center-policies.md).
+Läs hur du konfigurerar en säkerhetsprincip i [ange säkerhetsprinciper i Azure Security Center](security-center-azure-policy.md).
 
 ### <a name="what-is-a-security-recommendation"></a>Vad är en säkerhetsrekommendation?
 Azure Security Center analyserar säkerhetstillståndet hos dina Azure-resurser. När eventuella säkerhetsproblem identifieras visas skapas rekommendationer. Via rekommendationerna får du genom processen att konfigurera nödvändig kontroll. Några exempel:
@@ -283,7 +283,7 @@ Security Center är en Azure-tjänst som ständigt övervakar kundens Azure-milj
 Azure Security Center övervakar följande Azure-resurser:
 
 * Virtuella datorer (VM) (inklusive [molntjänster](../cloud-services/cloud-services-choose-me.md))
-* Azure Virtual Networks
+*  Azure Virtual Networks
 * Azure SQL-tjänst
 * Azure-lagringskonto
 * Azure Web Apps (i [Apptjänstmiljö](../app-service/environment/intro.md))

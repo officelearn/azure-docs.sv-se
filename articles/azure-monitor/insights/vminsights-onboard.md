@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 7b6752196d3512ab3ede4f5e339d681948e732e8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 93cbb9a891f83eed623f095f208319c9071e287e
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853769"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635551"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Hur att publicera Azure övervakar för virtuella datorer (förhandsversion)
 Den här artikeln beskriver hur du ställer in Azure Monitor för virtuella datorer för att övervaka hälsotillståndet för operativsystemet för dina Azure-datorer och skalningsuppsättningar för virtuella datorer och virtuella datorer i din miljö, inklusive identifiering och mappning av programberoenden som kan vara baserad på dem.  
@@ -38,8 +38,8 @@ Innan du börjar bör du kontrollera att du förstår följande enligt beskrivni
 Log Analytics-arbetsytan i följande regioner är för närvarande:
 
   - Västra centrala USA  
-  - USA, östra  
-  - Europa, västra  
+  - Östra USA  
+  - Västra Europa  
   - Sydostasien<sup>1</sup>  
 
 <sup>1</sup> den här regionen stöder för närvarande inte funktionen Health i Azure Monitor för virtuella datorer   
@@ -61,7 +61,7 @@ Konfigurera din arbetsyta för den skala scenariot överblick över [installatio
 
 I följande tabell visas de Windows- och Linux-operativsystem som stöds med Azure Monitor för virtuella datorer.  En fullständig lista med information om Linux-operativsystem högre och den lägre versionen och kernel-versioner som stöds finns senare i det här avsnittet.
 
-|OS-version |Prestanda |Kartor |Hälsa |  
+|Operativsystemversion |Prestanda |Kartor |Hälsa |  
 |-----------|------------|-----|-------|  
 |Windows Server 2016 1803 | X | X | X |
 |Windows Server 2016 | X | X | X |  
@@ -88,7 +88,7 @@ I följande tabell visas de Windows- och Linux-operativsystem som stöds med Azu
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 
-| OS-version | Kernel-version |
+| Operativsystemversion | Kernel-version |
 |:--|:--|
 | 7.0 | 3.10.0-123 |
 | 7.1 | 3.10.0-229 |
@@ -99,7 +99,7 @@ I följande tabell visas de Windows- och Linux-operativsystem som stöds med Azu
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
-| OS-version | Kernel-version |
+| Operativsystemversion | Kernel-version |
 |:--|:--|
 | 6.0 | 2.6.32-71 |
 | 6.1 | 2.6.32-131 |
@@ -114,7 +114,7 @@ I följande tabell visas de Windows- och Linux-operativsystem som stöds med Azu
 
 #### <a name="ubuntu-server"></a>Ubuntu Server
 
-| OS-version | Kernel-version |
+| Operativsystemversion | Kernel-version |
 |:--|:--|
 | Ubuntu 18.04 | Kernel 4.15. * |
 | Ubuntu 16.04.3 | Kernel 4.15. * |
@@ -122,7 +122,7 @@ I följande tabell visas de Windows- och Linux-operativsystem som stöds med Azu
 | 14.04 | 3.13.\*<br>4.4.\* |
 
 #### <a name="oracle-enterprise-linux-6-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux 6 med Unbreakable Enterprise Kernel
-| OS-version | Kernel-version
+| Operativsystemversion | Kernel-version
 |:--|:--|
 | 6.2 | Oracle 2.6.32-300 (UEK R1) |
 | 6.3 | Oracle 2.6.39-200 (UEK R2) |
@@ -132,14 +132,14 @@ I följande tabell visas de Windows- och Linux-operativsystem som stöds med Azu
 
 #### <a name="oracle-enterprise-linux-5-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux 5 med Unbreakable Enterprise Kernel
 
-| OS-version | Kernel-version
+| Operativsystemversion | Kernel-version
 |:--|:--|
 | 5.10 | Oracle 2.6.39-400 (UEK R2) |
 | 5.11 | Oracle 2.6.39-400 (UEK R2) |
 
 #### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
-| OS-version | Kernel-version
+| Operativsystemversion | Kernel-version
 |:--|:--|
 |12 SP2 | 4.4. * |
 |12 SP3 | 4.4. * |
@@ -151,13 +151,13 @@ I följande tabell beskrivs de anslutna källor som har stöd för funktionen ka
 
 | Ansluten källa | Stöds | Beskrivning |
 |:--|:--|:--|
-| Windows-agenter | Ja | Förutom den [Log Analytics-agenten för Windows](../../log-analytics/log-analytics-agent-overview.md), Windows-agenter kräver Microsoft Dependency agenten. Se [Operativsystem som stöds](#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
-| Linux-agenter | Ja | Förutom den [Log Analytics-agenten för Linux](../../log-analytics/log-analytics-agent-overview.md), kräver Microsoft Dependency agenten för Linux-agenter. Se [Operativsystem som stöds](#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
+| Windows-agenter | Ja | Förutom den [Log Analytics-agenten för Windows](../../azure-monitor/platform/log-analytics-agent.md), Windows-agenter kräver Microsoft Dependency agenten. Se [Operativsystem som stöds](#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
+| Linux-agenter | Ja | Förutom den [Log Analytics-agenten för Linux](../../azure-monitor/platform/log-analytics-agent.md), kräver Microsoft Dependency agenten för Linux-agenter. Se [Operativsystem som stöds](#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
 | System Center Operations Manager-hanteringsgrupp | Nej | |  
 
 Beroendeagenten kan hämtas från följande plats.
 
-| Fil | OS | Version | SHA-256 |
+| Fil | Operativsystem | Version | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.1 | 55030ABF553693D8B5112569FB2F97D7C54B66E9990014FC8CC43EFB70DE56C6 |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.1 | 43C75EF0D34471A0CBCE5E396FFEEF4329C9B5517266108FA5D6131A353D29FE |
@@ -205,7 +205,7 @@ Sammanfattas anges de steg som du behöver utföra för att förkonfigurera Log 
 Om du inte har en Log Analytics-arbetsyta kan du granska de tillgängliga metoderna som föreslås den [krav](#log-analytics) avsnitt för att skapa en.  
 
 #### <a name="enable-performance-counters"></a>Aktivera prestandaräknare
-Om Log Analytics-arbetsytan som refereras av lösningen inte är konfigurerat för att samla in prestandaräknare som krävs av lösningen redan kan måste de vara aktiverat. Detta kan åstadkommas manuellt enligt [här](../../log-analytics/log-analytics-data-sources-performance-counters.md), eller genom att hämta och köra ett PowerShell-skript som är tillgängliga från [Azure Powershell-galleriet](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
+Om Log Analytics-arbetsytan som refereras av lösningen inte är konfigurerat för att samla in prestandaräknare som krävs av lösningen redan kan måste de vara aktiverat. Detta kan åstadkommas manuellt enligt [här](../../azure-monitor/platform/data-sources-performance-counters.md), eller genom att hämta och köra ett PowerShell-skript som är tillgängliga från [Azure Powershell-galleriet](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
  
 #### <a name="install-the-servicemap-and-infrastructureinsights-solutions"></a>Installera ServiceMap och InfrastructureInsights lösningar
 Den här metoden innehåller en JSON-mall som anger konfigurationen för att aktivera lösningskomponenter till Log Analytics-arbetsytan.  
@@ -531,9 +531,9 @@ Failed: (0)
 ## <a name="enable-for-hybrid-environment"></a>Aktivera för hybridmiljö
 Det här avsnittet beskrivs hur du publicera virtuella datorer eller fysiska datorer som värd ditt datacenter eller andra molnmiljö för övervakning av Azure Monitor för virtuella datorer.  
 
-I Azure Monitor för virtuella datorer kartan beroendeagenten överföra inte några data själva och det kräver inte ändringar i brandväggar eller portar. Kartdata överförs alltid genom Log Analytics-agenten i Azure Monitor-tjänsten, antingen direkt eller via den [OMS-gatewayen](../../log-analytics/log-analytics-oms-gateway.md) om din IT-säkerhetsprinciper inte tillåter att datorer i nätverket att ansluta till Internet.
+I Azure Monitor för virtuella datorer kartan beroendeagenten överföra inte några data själva och det kräver inte ändringar i brandväggar eller portar. Kartdata överförs alltid genom Log Analytics-agenten i Azure Monitor-tjänsten, antingen direkt eller via den [OMS-gatewayen](../../azure-monitor/platform/gateway.md) om din IT-säkerhetsprinciper inte tillåter att datorer i nätverket att ansluta till Internet.
 
-Granska kraven och distributionsmetoder för den [Log Analytics Linux och Windows-agenten](../../log-analytics/log-analytics-agent-overview.md).  
+Granska kraven och distributionsmetoder för den [Log Analytics Linux och Windows-agenten](../../azure-monitor/platform/log-analytics-agent.md).  
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -591,7 +591,7 @@ Filer för beroendeagenten placeras i följande kataloger:
 | Binära lagringsfiler | /var/opt/microsoft/dependency-agent/storage |
 
 ### <a name="enable-performance-counters"></a>Aktivera prestandaräknare
-Om Log Analytics-arbetsytan som refereras av lösningen inte är konfigurerat för att samla in prestandaräknare som krävs av lösningen redan kan måste de vara aktiverat. Detta kan åstadkommas manuellt enligt [här](../../log-analytics/log-analytics-data-sources-performance-counters.md), eller genom att hämta och köra ett PowerShell-skript som är tillgängliga från [Azure Powershell-galleriet](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
+Om Log Analytics-arbetsytan som refereras av lösningen inte är konfigurerat för att samla in prestandaräknare som krävs av lösningen redan kan måste de vara aktiverat. Detta kan åstadkommas manuellt enligt [här](../../azure-monitor/platform/data-sources-performance-counters.md), eller genom att hämta och köra ett PowerShell-skript som är tillgängliga från [Azure Powershell-galleriet](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
  
 ### <a name="onboard-azure-monitor-for-vms"></a>Publicera Azure Monitor för virtuella datorer
 Den här metoden innehåller en JSON-mall som anger konfigurationen för att aktivera lösningskomponenter till Log Analytics-arbetsytan.  

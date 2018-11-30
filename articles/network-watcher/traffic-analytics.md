@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 2b057a94022077aa210b1e4ebb6122eaf350a40b
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: dd07ed66b630f541ed3e2001dffdebed150bb71a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457416"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443040"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -53,9 +53,39 @@ Trafikanalys undersöker raw NSG-flödesloggar och samlar in minskade loggarna g
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
-Du kan använda trafikanalys för NSG: er i någon av följande regioner: västra centrala USA, östra USA, östra USA 2, norra centrala USA, södra centrala USA, centrala USA, västra USA, västra USA 2, centrala, Västeuropa, Nordeuropa, Storbritannien, västra, Storbritannien, södra, östra Japan, centrala Indien , Östra Australien, sydöstra Australien och Sydostasien. 
+Du kan använda trafikanalys för NSG: er i någon av de följande regionerna som stöds:
 
-Log analytics-arbetsytan måste finnas i det västra centrala USA, östra USA, Västeuropa, södra Storbritannien, centrala Kanada, östra Japan, Indien, centrala Australien, sydöstra Australien eller regionen Sydostasien.
+* Centrala Kanada
+* Västra centrala USA
+* Östra USA
+* USA, östra 2
+* Norra centrala USA
+* Södra centrala USA
+* Centrala USA
+* Västra USA
+* Västra USA 2
+* Västra Europa
+* Norra Europa
+* Södra Brasilien
+* Storbritannien, västra
+* Storbritannien, södra
+* Östra Australien
+* Sydöstra Australien
+* Sydostasien
+* Indien, centrala
+* Södra Indien
+* Östra Japan 
+
+Log Analytics-arbetsytan måste finnas i följande regioner:
+* Centrala Kanada
+* Västra centrala USA
+* Östra USA
+* Västra Europa
+* Storbritannien, södra
+* Sydöstra Australien
+* Sydostasien
+* Indien, centrala
+* Östra Japan
 
 ## <a name="prerequisites"></a>Förutsättningar
 

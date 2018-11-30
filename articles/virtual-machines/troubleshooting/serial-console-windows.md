@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 0a4a31a4905de38de444604c8ffdf4d4a2e632d4
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: e4deb40f2c9dfb080739f4426129223b152baea9
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515870"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335665"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Seriekonsol för virtuell dator för Windows
 
@@ -133,7 +133,7 @@ Som standard har alla prenumerationer seriell konsolåtkomst är aktiverad för 
 > Om du vill aktivera eller inaktivera seriekonsol för en prenumeration, måste du ha skrivbehörighet till prenumerationen. Dessa behörigheter omfattar, men är inte begränsad till administratörer eller ägare. Anpassade roller kan också ha skrivbehörighet.
 
 ### <a name="subscription-level-disable"></a>Prenumerationsnivå inaktivera
-Seriell konsol kan inaktiveras för en hel prenumeration via den [inaktivera konsolen REST API-anrop](https://docs.microsoft.com/rest/api/serialconsole/console/console_disableconsole). Du kan använda den **prova** funktionen som är tillgängliga på den här API-dokumentationssidan inaktiverar och aktiverar Seriell konsol för en prenumeration. Ange ditt prenumerations-ID för **subscriptionId**, ange ”standard” för **standard**, och välj sedan **kör**. Azure CLI-kommandon är ännu inte tillgängliga.
+Seriell konsol kan inaktiveras för en hel prenumeration via den [inaktivera konsolen REST API-anrop](/rest/api/serialconsole/console/disableconsole). Du kan använda den **prova** funktionen som är tillgängliga på den här API-dokumentationssidan inaktiverar och aktiverar Seriell konsol för en prenumeration. Ange ditt prenumerations-ID för **subscriptionId**, ange ”standard” för **standard**, och välj sedan **kör**. Azure CLI-kommandon är ännu inte tillgängliga.
 
 ![Testa REST-API](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 

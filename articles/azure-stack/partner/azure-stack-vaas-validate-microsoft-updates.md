@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 7fcc7d5a1d87fe93d32772dbbb84f1d3c91d5631
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8e0009bf0fc34d3e0d22755d93d941b85db62ffd
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648793"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334473"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Verifiera programuppdateringar från Microsoft
 
@@ -36,7 +36,7 @@ Microsoft släpper regelbundet uppdateringar av Azure Stack-programvaran. De hä
 
 Uppdatera verifieringar använder samma arbetsflöde som **Paketvalideringen**. Följ anvisningarna på [skapar ett arbetsflöde för Paketvalideringen](azure-stack-vaas-validate-oem-package.md#create-a-package-validation-workflow).
 
-## <a name="run-tests"></a>Kör tester
+## <a name="run-tests"></a>Kör test
 
 Uppdatera verifieringar använder samma arbetsflöde som **Paketvalideringen**. Följ anvisningarna på [köra Paketvalideringen testar](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests).
 

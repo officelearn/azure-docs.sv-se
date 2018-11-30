@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2018
+ms.date: 11/23/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: cc6af421551ba8ca973c15455daebf58c317d6f5
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 9afce9c6d4ed4d6dc6fbe5bcfcfedc33bdd7cfdf
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976493"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314685"
 ---
 # <a name="azure-stack-1809-update"></a>Uppdatering av Azure Stack 1809
 
@@ -88,7 +88,7 @@ Den här uppdateringen innehåller följande förbättringar för Azure Stack:
 - Infrastruktur-säkerhetskopieringstjänsten flyttas från den [infrastruktur för offentliga nätverk](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-infrastructure-network) till den [offentliga VIP-nätverket](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-vip-network). Kunder måste se till att tjänsten har åtkomst till lagringsplatsen för säkerhetskopian från det offentliga VIP-nätverket.  
 
 > [!IMPORTANT]  
-> Om du har en brandvägg som inte tillåter anslutningar från det offentliga VIP-nätverket till filservern innebär ändringen infrastruktur säkerhetskopieringar att misslyckas med ”fel 53 inte gick att hitta nätverkssökvägen”. Det här är en viktig ändring som har ingen rimlig lösning. Baserat på feedback från kunder, återgår Microsoft den här ändringen i en snabbkorrigering. Granska den [efter uppdatering i avsnittet steg](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-update-1809#post-update-steps) för mer information om tillgängliga snabbkorrigeringar för 1809. När snabbkorrigeringen är tillgänglig kan du se till att använda den när du har uppdaterat till 1809 endast om din nätverksprinciper inte tillåter det offentliga VIP-nätverket att få åtkomst till resurser i infrastrukturen. i 1811, kommer den här ändringen tillämpas på alla system. Om du har installerat snabbkorrigeringen i 1809, det finns ingen ytterligare åtgärd krävs.  
+> Om du har en brandvägg som inte tillåter anslutningar från det offentliga VIP-nätverket till filservern innebär ändringen infrastruktur säkerhetskopieringar att misslyckas med ”fel 53 inte gick att hitta nätverkssökvägen”. Det här är en viktig ändring som har ingen rimlig lösning. Baserat på feedback från kunder, återgår Microsoft den här ändringen i en snabbkorrigering. Granska den [efter uppdatering i avsnittet steg](#post-update-steps) för mer information om tillgängliga snabbkorrigeringar för 1809. När snabbkorrigeringen är tillgänglig kan du se till att använda den när du har uppdaterat till 1809 endast om din nätverksprinciper inte tillåter det offentliga VIP-nätverket att få åtkomst till resurser i infrastrukturen. i 1811, kommer den här ändringen tillämpas på alla system. Om du har installerat snabbkorrigeringen i 1809, det finns ingen ytterligare åtgärd krävs.  
 
 ### <a name="common-vulnerabilities-and-exposures"></a>Common Vulnerabilities and Exposures
 
@@ -173,7 +173,7 @@ Klicka på föregående länkarna för mer information om dessa säkerhetsrisker
 > Förbereda distributionen av Azure Stack för tillägget värd som aktiveras av nästa uppdateringspaketet. Förbered datorn med hjälp av nedanstående procedur, [förbereda för tillägget för värd för Azure Stack](azure-stack-extension-host-prepare.md).
 
 Installera alla tillämpliga snabbkorrigeringar efter installationen av uppdateringen. Visa mer information i följande artiklar i kunskapsbasen, samt våra [Servicing princip](azure-stack-servicing-policy.md).  
-- [KB 4471993 – Azure Stack snabbkorrigering Azure Stack snabbkorrigering 1.1809.3.96](https://support.microsoft.com/help/4471993/)  
+- [KB 4477849 – Azure Stack snabbkorrigering Azure Stack snabbkorrigering 1.1809.6.102](https://support.microsoft.com/help/4477849/)  
 
 ## <a name="known-issues-post-installation"></a>Kända problem (efter installationen)
 
@@ -226,7 +226,7 @@ Här följer efter installation kända problem för den här build-versionen.
    
   Kör den [Test AzureStack](azure-stack-diagnostic-test.md) cmdlet för att kontrollera hälsotillståndet för rollinstanser för infrastruktur och skala enhet noder. Om inga problem har identifierats av [Test-AzureStack](azure-stack-diagnostic-test.md), du kan ignorera dessa aviseringar. Om ett problem har identifierats, kan du försöker starta rollinstansen infrastruktur eller nod med hjälp av administrationsportalen eller PowerShell.
 
-  Det här problemet löses i senast [1809 snabbkorrigering versionen](https://support.microsoft.com/help/4471993/), så var noga med att installera snabbkorrigeringen om du upplever problemet. 
+  Det här problemet löses i senast [1809 snabbkorrigering versionen](https://support.microsoft.com/help/4477849/), så var noga med att installera snabbkorrigeringen om du upplever problemet. 
 
 <!-- 1264761 - IS ASDK -->  
 - Du kan se aviseringar för den **hälsotillstånd controller** komponent som har följande information:  

@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: 7470783ba3ebac652c83c397ba2bbe683023c657
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 23702c12f5ec538da4b980ed42fe2282dea69409
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041593"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582232"
 ---
-# <a name="overview-of-spark-structured-streaming"></a>Översikt över Apache Spark Structured Streaming
+# <a name="overview-of-apache-spark-structured-streaming"></a>Översikt över Apache Spark Structured Streaming
 
-Spark Structured Streaming kan du implementera skalbara, högt dataflöde, feltoleranta program för bearbetning av dataströmmar. Strukturerad direktuppspelning bygger på Spark SQL-motor och förbättrat konstruktioner från Spark SQL-dataramar och datauppsättningar så du kan skriva streaming frågar på samma sätt som du skulle skriva frågor för batch.  
+[Apache Spark](https://spark.apache.org/) Structured Streaming gör det möjligt att implementera skalbara, högt dataflöde, feltoleranta program för bearbetning av dataströmmar. Strukturerad direktuppspelning bygger på Spark SQL-motor och förbättrat konstruktioner från Spark SQL-dataramar och datauppsättningar så du kan skriva streaming frågar på samma sätt som du skulle skriva frågor för batch.  
 
-Strukturerad direktuppspelning program körs i HDInsight Spark-kluster och Anslut till strömmande data från Kafka, en TCP-socket (för felsökning), Azure Storage eller Azure Data Lake Store. Dessa två alternativ, som förlitar sig på externa lagringstjänster, kan du bevaka nya filer som läggs till i lagring och bearbeta deras innehåll som om de har strömmas. 
+Strukturerad direktuppspelning program körs i HDInsight Spark-kluster och Anslut till strömmande data från [Apache Kafka](https://kafka.apache.org/), TCP-socket (för felsökning), Azure Storage eller Azure Data Lake Store. Dessa två alternativ, som förlitar sig på externa lagringstjänster, kan du bevaka nya filer som läggs till i lagring och bearbeta deras innehåll som om de har strömmas. 
 
 Strukturerad direktuppspelning skapar en tidskrävande fråga som du kan använda åtgärder för inkommande data, till exempel val, projektion, aggregering, fönsterhantering och koppla strömmande DataFrame med referensen dataramar. Nu ska du matar ut resultaten till file storage (Azure Storage-Blobbar eller Data Lake Store) eller till alla datalager genom att använda anpassad kod (till exempel SQL-databas eller Power BI). Strukturerad direktuppspelning ger också utdata till konsolen för att felsöka lokalt och i en InMemory-tabell så att du kan se de data som genereras för felsökning i HDInsight. 
 
@@ -39,7 +39,7 @@ I Structured Streaming data anländer till systemet och omedelbart matas in i en
 
 Data i resultatet tabeller får bara innehålla de data som är nytt sedan senast gången frågan bearbetades (*lägga till*), eller tabellen kan inte helt uppdateras varje gång det finns nya data, så tabellen innehåller alla utdata eftersom strömmande frågan började (*fullständig läge*).
 
-### <a name="append-mode"></a>Lägga till
+### <a name="append-mode"></a>Tilläggsläge
 
 Lägg till läget endast de rader som läggs till i resultattabellen eftersom den senaste körningen av frågan finns i resultattabellen och skrivs till extern lagring i. Till exempel kopierar den enklaste frågan bara alla data från indatatabellen till resultattabellen utan ändringar. Varje gång som ett intervall för utlösare går ut den nya data har bearbetats och rader som representerar den nya data visas i resultattabellen. 
 
@@ -105,7 +105,7 @@ Starta direktuppspelning frågan och kör tills en uppsägning signal tas emot.
 
     val query = streamingOutDF.start()  
 
-### <a name="view-the-results"></a>Visa resultaten
+### <a name="view-the-results"></a>Visa resultatet
 
 När frågan körs i samma SparkSession, du kan köra en SparkSQL fråga mot den `temps` tabellen där resultatet av frågan lagras. 
 
@@ -124,7 +124,7 @@ Den här frågan ger resultat som liknar följande:
 |{u'start': u 2016-07-26T07:00:00.000Z', u'end'...  |95 |   96.980971 | 99 |
 |{u'start': u 2016-07-26T08:00:00.000Z', u'end'...  |95 |   96.965997 | 99 |  
 
-Mer information om Spark-strukturerad Stream-API, tillsammans med indata källor, åtgärder och utdata egenskaperna det stöder, finns i [Spark Structured Streaming Programming Guide](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html).
+Mer information om Spark-strukturerad Stream-API, tillsammans med indata källor, åtgärder och utdata egenskaperna det stöder, finns i [Apache Spark Structured Streaming Programming Guide](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html).
 
 ## <a name="checkpointing-and-write-ahead-logs"></a>Kontrollpunkter och Skriv-ahead-loggar
 
@@ -132,14 +132,14 @@ För att leverera elasticitet och feltolerans Structured Streaming förlitar sig
 
 ## <a name="deploying-spark-streaming-applications"></a>Distribuera Spark Streaming program
 
-Du vanligtvis skapa ett Spark Streaming-program lokalt i en JAR-fil och sedan distribuera den till Apache Spark på HDInsight genom att kopiera JAR-filen till standardlagring kopplat till ditt HDInsight-kluster. Du kan starta programmet med LIVY REST API: erna från ditt kluster med hjälp av en POST-åtgärd. Brödtexten i INLÄGGET innehåller ett JSON-dokument som innehåller sökvägen till din JAR, namnet på klassen vars main-metoden definierar och kör programmet strömmande och eventuellt resurskraven för jobbet (till exempel antalet executors, minne och kärnor) , och kräver att alla konfigurationsinställningar programkoden.
+Du vanligtvis skapa ett Spark Streaming-program lokalt i en JAR-fil och sedan distribuera den till Apache Spark på HDInsight genom att kopiera JAR-filen till standardlagring kopplat till ditt HDInsight-kluster. Du kan börja med den [Apache Livy](https://livy.incubator.apache.org/) REST API: er som tillgängliga från ditt kluster med hjälp av en POST-åtgärd. Brödtexten i INLÄGGET innehåller ett JSON-dokument som innehåller sökvägen till din JAR, namnet på klassen vars main-metoden definierar och kör programmet strömmande och eventuellt resurskraven för jobbet (till exempel antalet executors, minne och kärnor) , och kräver att alla konfigurationsinställningar programkoden.
 
 ![Distribuera ett Spark Streaming-program](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 
-Status för alla program kan också kontrolleras med en GET-begäran mot en LIVY-slutpunkt. Slutligen kan avsluta du ett program som körs genom att utfärda en DELETE-begäran mot slutpunkten LIVY. Mer information om LIVY-API: et finns [fjärrstyrda jobb med LIVY](apache-spark-livy-rest-interface.md)
+Status för alla program kan också kontrolleras med en GET-begäran mot en LIVY-slutpunkt. Slutligen kan avsluta du ett program som körs genom att utfärda en DELETE-begäran mot slutpunkten LIVY. Mer information om LIVY-API: et finns [fjärrstyrda jobb med Apache LIVY](apache-spark-livy-rest-interface.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa ett Apache Spark-kluster i HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
-* [Spark Structured Streaming Programming Guide](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
-* [Starta Spark-jobb via fjärranslutning med LIVY](apache-spark-livy-rest-interface.md)
+* [Apache Spark-strukturerad strömning Programmeringsguide](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
+* [Starta Apache Spark-jobb via fjärranslutning med Apache LIVY](apache-spark-livy-rest-interface.md)

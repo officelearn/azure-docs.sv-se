@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: cwatson
-ms.openlocfilehash: 37e43e4bb8b2aea21e0fa396dd197ca41793469d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: e20faa36f14e681b6eb81203024e79a649f47c95
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394173"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582561"
 ---
 # <a name="avoid-getting-charged-for-your-azure-free-account"></a>Undvika att debiteras för kostnadsfritt Azure-konto
 
@@ -62,6 +62,6 @@ Din kostnadsfria tjänster och kvantiteter upphör att gälla i slutet av 12 må
 
 När dina kostnadsfria tjänster och kvantiteter ska upphöra att gälla, debiterar Azure du betala per användning för alla tjänster som du använder. Du kan använda Azure-portalen för att ta bort resurser för de tjänster som du inte använder. Om du inte planerar att använda valfri Azure-tjänst, kan du [avbryta prenumerationen](billing-how-to-cancel-azure-subscription.md).
 
-## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

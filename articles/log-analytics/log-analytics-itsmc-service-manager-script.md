@@ -15,21 +15,21 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 10eeb7a94bd6b2513dc36d0d8a1829eddb452835
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 2bbcfc95895ca925b585ab15d4a2edf404eb162f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040058"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634854"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Skapa Service Manager-webbapp med hjälp av automatiserade skript
 
-Använd följande skript för att skapa webbappen för Service Manager-instans. Mer information om Service Manager-anslutningen finns här: [Service Manager-webbapp](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Använd följande skript för att skapa webbappen för Service Manager-instans. Mer information om Service Manager-anslutningen finns här: [Service Manager-webbapp](../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
 Kör skriptet genom att tillhandahålla följande nödvändiga data:
 
 - Prenumerationsinformation för Azure
-- Resursgruppsnamn
+- Namn på resursgrupp
 - Plats
 - Service Manager server-information (namn, domän, användarnamn och lösenord)
 - Plats-namnprefixet för din webbapp
@@ -323,4 +323,4 @@ if(!$err)
 
 ```
 ## <a name="next-steps"></a>Nästa steg
-[Konfigurera hybridanslutningen](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
+[Konfigurera hybridanslutningen](../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).

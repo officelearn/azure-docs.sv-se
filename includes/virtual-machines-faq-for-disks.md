@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: dadff0dc501c20ef525fdfb7578cb391f29b3302
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 56a36e61bb9938ceb7e3cdaf2676c24c037b1d16
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264310"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52585850"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
 
@@ -136,6 +136,10 @@ Nej, när den nya disken skapas det är en fullständig fristående kopia av blo
 **Kan jag byta namn på en hanterad eller ohanterad disk när den har skapats?**
 
 För hanterade diskar du kan inte byta namn på dem. Du kan dock byta namn på en ohanterad disk så länge den inte är för närvarande ansluten till en virtuell Hårddisk eller virtuell dator.
+
+**Kan jag använda GBT partitionering på en Disk i Azure?**
+
+GBT partitionering kan användas på datadiskar, inte OS-diskar. OS-diskar måste använda partitionstypen MBR.
 
 ## <a name="standard-ssd-disks"></a>Standard SSD-diskar
 
@@ -300,7 +304,7 @@ Partitionstypen som stöds av Azure för en operativsystemdisk är master boot r
 
 **Vad är den största sidblobens storlek som stöds?**
 
-Största sidblobens storlek som stöds av Azure är 8 TiB (8191 GiB). Den maximala blogg sidstorleken när ansluten till en virtuell dator som data eller operativsystemdiskar är 4 TiB (4095 GiB).
+Största sidblobens storlek som stöds av Azure är 8 TiB (8191 GiB). Maximal sidblobens storlek när ansluten till en virtuell dator som data eller operativsystemdiskar är 4 TiB (4095 GiB).
 
 **Måste jag använda en ny version av Azure-verktyg för att skapa, ansluta, ändra storlek på och ladda upp diskar som är större än 1 TiB?**
 

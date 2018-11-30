@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: 611f7ccf9ef701bf589a8f9450f8f02695357224
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 327873d228fe92a9da495f802c97eb73612caef9
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291189"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632491"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET change Feed Processor SDK: Ladda ned och viktig information
 > [!div class="op_single_selector"]
@@ -42,6 +42,9 @@ ms.locfileid: "52291189"
 ## <a name="release-notes"></a>Viktig information
 
 ### <a name="v2-builds"></a>v2-versioner
+
+### <a name="a-name224224"></a><a name="2.2.4"/>2.2.4
+* Har lagts till ny egenskap ChangeFeedProcessorOptions.StartContinuation stöd från ändringen feed från begäran fortsättningstoken. Detta används bara när lånsamling är tom eller ett lån har inte angetts ContinuationToken. ContinuationToken används för lån i lånsamling som har angetts ContinuationToken, och ChangeFeedProcessorOptions.StartContinuation ignoreras.
 
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
 * Stöd har lagts till för att använda anpassade store för att bevara fortsättning token per partition.

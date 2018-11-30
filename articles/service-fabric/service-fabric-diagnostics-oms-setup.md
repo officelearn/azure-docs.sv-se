@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 88b956fbe283dd39dfc51d6127b32b6f031e8b85
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 2cdc9f780e0d9ddb6e688e53208e5597b000aa56
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291138"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632780"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Konfigurera Log Analytics för ett kluster
 
@@ -128,4 +128,4 @@ Du kan också lägga till andra lösningar eller göra andra ändringar Log Anal
 ## <a name="next-steps"></a>Nästa steg
 * [Distribuera Log Analytics-agenten](service-fabric-diagnostics-oms-agent.md) till noderna kan samla in prestandaräknare och samla in loggar för dina behållare och docker-stats
 * Bekanta dig med den [loggsökning och frågor](../log-analytics/log-analytics-log-searches.md) funktioner som erbjuds som en del av Log Analytics
-* [Använd View Designer för att skapa anpassade vyer i Log Analytics](../log-analytics/log-analytics-view-designer.md)
+* [Använd View Designer för att skapa anpassade vyer i Log Analytics](../azure-monitor/platform/view-designer.md)

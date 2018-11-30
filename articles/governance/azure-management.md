@@ -1,5 +1,5 @@
 ---
-title: Azure-hantering
+title: Översikt över Azure Management
 description: Översikt över hanteringsområdena för Azure-program och resurser med länkar till innehåll på Azure-hanteringsverktyg.
 author: DCtheGeek
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.openlocfilehash: 268526277dc935ccffc30120f2bb170ad3ff3ef1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 180b0cb9f52858d9b0f079ea711fd5ccab738ecf
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978239"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582324"
 ---
 # <a name="management-in-azure"></a>Hantering i Azure
 
@@ -43,7 +43,7 @@ Styrning i Azure implementeras främst genom två tjänster. [Azure Policy](../a
 
 ## <a name="secure"></a>Skydda
 
-Hantering av säkerhet för dina program, resurser och data innefattar en kombination av bedöma hot, samla in och analysera säkerhetsdata och att säkerställa att dina program och resurser är utformade och konfigurerade på ett säkert sätt. Säkerhetsövervakning och hotanalys tillhandahålls av [Azure Security Center](../security-center/security-center-intro.md), som ger enhetlig säkerhetshantering och avancerat skydd mot hot i olika hybridmolnarbetsbelastningar. Du bör även läsa [Introduktion till Azure-säkerhet](../security/azure-security.md) för mer utförlig information om säkerhet i Azure och för att få hjälp med att konfigurera Azure-resurser på ett säkert sätt.
+Hantering av säkerhet för dina program, resurser och data innefattar en kombination av bedöma hot, samla in och analysera säkerhetsdata och att säkerställa att dina program och resurser är utformade och konfigurerade på ett säkert sätt. Säkerhetsanalys för säkerhetsövervakning och hotanalys tillhandahålls av Azure Security Center, som innehåller enhetlig säkerhetshantering och Avancerat skydd mot hot i olika hybridmolnarbetsbelastningar. Du bör även läsa [Introduktion till Azure-säkerhet](../security/azure-security.md) för mer utförlig information om säkerhet i Azure och för att få hjälp med att konfigurera Azure-resurser på ett säkert sätt.
 
 ## <a name="protect"></a>Skydda
 

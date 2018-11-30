@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 966f05fba96cc829c3a11331e2a66609705f6f4f
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 58f4827910d863aef14171574d40e4b3acfc04d9
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037725"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498684"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Aktivera heap dumps för Apache Hadoop-tjänster på Linux-baserat HDInsight
 
@@ -39,7 +39,7 @@ Du kan också aktivera heap dumps för kartan och minska processer som körts av
 
 ## <a name="configuration"></a>Förstå heap dump konfiguration
 
-Heapdumpar aktiveras genom att skicka alternativ (ibland kallas innebär, eller parametrar) till JVM när en tjänst har startats. Du kan ändra shell-skript som används för att starta tjänsten om du vill skicka dessa alternativ för de flesta Hadoop-tjänster.
+Heapdumpar aktiveras genom att skicka alternativ (ibland kallas innebär, eller parametrar) till JVM när en tjänst har startats. För de flesta [Apache Hadoop](https://hadoop.apache.org/) tjänster, som du kan ändra shell-skript som används för att starta tjänsten om du vill skicka dessa alternativ.
 
 I varje skript finns en export för  **\* \_OPTS**, som innehåller de alternativ som skickas till i JVM. Till exempel i den **hadoop env.sh** skript och raden som börjar med `export HADOOP_NAMENODE_OPTS=` innehåller alternativ för tjänsten NameNode.
 
@@ -49,7 +49,7 @@ Mappa och minska processer är något annorlunda, eftersom de här åtgärderna 
 * **mapreduce.Admin.Reduce.child.Java.opts**
 
 > [!NOTE]
-> Vi rekommenderar att du använder Apache Ambari för att ändra inställningar för både skript och mapred site.xml, som Ambari referens replikering av ändringar över noder i klustret. Se den [med hjälp av Ambari](#using-ambari) för specifika steg.
+> Vi rekommenderar att du använder [Apache Ambari](https://ambari.apache.org/) om du vill ändra inställningar för både skript och mapred site.xml som Ambari hantera replikering av ändringar över noder i klustret. Se den [med hjälp av Apache Ambari](#using-apache-ambari) för specifika steg.
 
 ### <a name="enable-heap-dumps"></a>Aktivera heap dumps
 
@@ -77,11 +77,11 @@ Du kan även utlösa ett skript när en **OutOfMemoryError** inträffar. Till ex
     -XX:OnOutOfMemoryError=/path/to/script
 
 > [!NOTE]
-> Eftersom Hadoop är ett distribuerat system, måste alla skript som används placeras på alla noder i klustret som tjänsten körs på.
+> Eftersom Apache Hadoop är ett distribuerat system, måste alla skript som används placeras på alla noder i klustret som tjänsten körs på.
 > 
 > Skriptet måste också vara på en plats som kan nås av det konto som tjänsten körs som och ange behörighet att köra. Du kan till exempel vill lagra skript i `/usr/local/bin` och använda `chmod go+rx /usr/local/bin/filename.sh` får läs-och körbehörighet.
 
-## <a name="using-ambari"></a>Med Ambari
+## <a name="using-apache-ambari"></a>Med Apache Ambari
 
 Om du vill ändra konfigurationen för en tjänst, använder du följande steg:
 

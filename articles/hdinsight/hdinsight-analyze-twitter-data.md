@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 39db03170d6a9c9d481b1448b54bdbd52e205921
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 85bd9e93fbd4c5ab5c0d2388d19334bc2cd3cb9e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037303"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497528"
 ---
-# <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Analysera Twitter-data med Hive i HDInsight
+# <a name="analyze-twitter-data-using-apache-hive-in-hdinsight"></a>Analysera Twitter-data med Apache Hive i HDInsight
 Sociala webbplatser är en av större Drivande faktorer för big data-införande. Offentliga API: er som tillhandahålls av webbplatser som Twitter är en bra källa till data för att analysera och förstå populära trender.
-I de här självstudierna kommer du få tweets med ett Twitter API för strömning och sedan använda Apache Hive på Azure HDInsight till att hämta en lista över Twitter-användare som skickade de flesta tweets som innehåller ett visst ord.
+I de här självstudierna kommer du få tweets med ett Twitter API för strömning och sedan använda [Apache Hive](https://hive.apache.org/) på Azure HDInsight för att hämta en lista över Twitter-användare som skickade ut det mesta tweets som innehåller ett visst ord.
 
 > [!IMPORTANT]
-> Stegen i det här dokumentet kräver ett Windows-baserade HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Anvisningar om specifika till ett Linux-baserade kluster finns i [analysera Twitter-data med Hive i HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
+> Stegen i det här dokumentet kräver ett Windows-baserade HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Anvisningar om specifika till ett Linux-baserade kluster finns i [analysera Twitter-data med Apache Hive i HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar de här självstudierna måste du ha:
@@ -243,7 +243,7 @@ I den här självstudien använder du Windows PowerShell för att göra-webbtjä
 Du kan kontrollera utdatafilen, som en valideringsproceduren **/tutorials/twitter/data/tweets.txt**, på Azure Blob storage med hjälp av en Azure storage explorer eller Azure PowerShell. En Windows PowerShell-exempelskript för att lista filer, se [använda Blob storage med HDInsight][hdinsight-storage-powershell].
 
 ## <a name="create-hiveql-script"></a>Skapa HiveQL-skript
-Med Azure PowerShell kan du köra flera HiveQL-instruktioner en i taget eller paketera HiveQL-instruktionen i en skriptfil. I de här självstudierna skapar du en HiveQL-skript. Skriptfilen måste överföras till Azure Blob storage. I nästa avsnitt ska du köra skriptfilen med hjälp av Azure PowerShell.
+Med Azure PowerShell kan du köra flera [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) instruktioner som i en tid eller ett paket HiveQL-instruktionen i en skriptfil. I de här självstudierna skapar du en HiveQL-skript. Skriptfilen måste överföras till Azure Blob storage. I nästa avsnitt ska du köra skriptfilen med hjälp av Azure PowerShell.
 
 > [!NOTE]
 > Hive-skriptfilen och en fil som innehåller 10 000 tweets har laddats upp i en offentlig blobbehållare. Du kan hoppa över det här avsnittet om du vill använda de uppladdade filerna.
@@ -454,7 +454,7 @@ Du är klar med alla förberedelse. Nu har du anropar Hive-skriptet och kontroll
 Du kan använda följande Windows PowerShell-skript för att köra Hive-skriptet. Du behöver du ange den första variabeln.
 
 > [!NOTE]
-> Om du vill använda tweets och HiveQL-skript som du laddade upp i de sista två avsnitten, inställd $hqlScriptFile ”/ tutorials/twitter/twitter.hql”. Om du vill använda de som har överförts till en offentlig blob du inställd $hqlScriptFile ”wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql”.
+> Att använda tweets och [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) skript som du laddade upp i de sista två avsnitten genom att ange $hqlScriptFile ”/ tutorials/twitter/twitter.hql”. Om du vill använda de som har överförts till en offentlig blob du inställd $hqlScriptFile ”wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql”.
 
 ```powershell
 #region variables and constants
@@ -532,16 +532,16 @@ Write-Host "==================================" -ForegroundColor Green
 > [!NOTE]
 > Hive-tabell använder \001 som fältavgränsaren. Avgränsaren visas inte i utdata.
 
-När analysresultaten har placerats i Azure Blob storage, kan du exportera data till en Azure SQL database/SQL server, exportera data till Excel med Power Query eller Anslut ditt program till data med hjälp av Hive ODBC-drivrutinen. Mer information finns i [Använd Sqoop med HDInsight][hdinsight-use-sqoop], [analysera flygförseningsdata med HDInsight][hdinsight-analyze-flight-delay-data], [ Ansluta Excel till HDInsight med Power Query][hdinsight-power-query], och [ansluta Excel till HDInsight med Microsoft Hive ODBC-drivrutin][hdinsight-hive-odbc].
+När analysresultaten har placerats i Azure Blob storage, kan du exportera data till en Azure SQL database/SQL server, exportera data till Excel med Power Query eller Anslut ditt program till data med hjälp av Hive ODBC-drivrutinen. Mer information finns i [Använd Apache Sqoop med HDInsight][hdinsight-use-sqoop], [analysera flygförseningsdata med HDInsight][hdinsight-analyze-flight-delay-data], [ Ansluta Excel till HDInsight med Power Query][hdinsight-power-query], och [ansluta Excel till HDInsight med Microsoft Hive ODBC-drivrutin][hdinsight-hive-odbc].
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien har vi sett hur du kan omvandla en Ostrukturerade JSON-datauppsättning till en strukturerade Hive-tabell för att fråga, utforska och analysera data från Twitter med hjälp av HDInsight på Azure. Du kan läsa mer här:
+I den här självstudien har vi sett hur du kan omvandla en Ostrukturerade JSON-datauppsättning till en strukturerade Apache Hive-tabell att fråga, utforska och analysera data från Twitter med hjälp av HDInsight på Azure. Du kan läsa mer här:
 
 * [Kom igång med HDInsight][hdinsight-get-started]
 * [Analysera flygförseningsdata med HDInsight][hdinsight-analyze-flight-delay-data]
 * [Ansluta Excel till HDInsight med Power Query][hdinsight-power-query]
 * [Ansluta Excel till HDInsight med Microsoft Hive ODBC-drivrutin][hdinsight-hive-odbc]
-* [Använda Sqoop med HDInsight][hdinsight-use-sqoop]
+* [Använd Apache Sqoop med HDInsight][hdinsight-use-sqoop]
 
 [curl]: http://curl.haxx.se
 [curl-download]: http://curl.haxx.se/download.html

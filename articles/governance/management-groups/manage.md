@@ -5,17 +5,17 @@ author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2018
+ms.date: 11/20/2018
 ms.author: rithorn
-ms.openlocfilehash: 627ef0123f05e768dd8a83c197b25da7f161a37c
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.topic: conceptual
+ms.openlocfilehash: 10dfa9812a0546f3a8c57e28227851b6f72657fc
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853004"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582425"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Hantera dina resurser med hanteringsgrupper
 
@@ -272,12 +272,26 @@ Använd kommandot update för att flytta en hanteringsgrupp med Azure CLI.
 az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
 ```
 
+## <a name="audit-management-groups-using-activity-logs"></a>Granska hantering av grupper med hjälp av aktivitetsloggar
+
+För att spåra hanteringsgrupper via den här API: et måste använda den [klient aktivitet Log API](/rest/api/monitor/tenantactivitylogs). Det är för närvarande inte möjligt att använda PowerShell, CLI eller Azure-portalen för att spåra aktivitet om grupper.
+
+1. Som Innehavaradministratör för Azure AD-klient [utöka behörighet](../../role-based-access-control/elevate-access-global-admin.md) sedan tilldela en läsarroll för granskning användaren definitionsområdet `/providers/microsoft.insights/eventtypes/management`.
+1. Som granskning användare, anropa den [klient aktivitet Log API](/rest/api/monitor/tenantactivitylogs) att se hanteringsaktiviteter för gruppen. Du kan filtrera baserat på Resursprovidern **Microsoft.Management** för all aktivitet för management-grupp.  Exempel:
+
+```xml
+GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
+```
+
+> [!NOTE]
+> För att enkelt anropa detta API från kommandoraden, försök [ARMClient](https://github.com/projectkudu/ARMClient).
+
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hanteringsgrupper finns:
+Läs mer om hanteringslösningar här:
 
-- [Organisera dina resurser med Azure-hanteringsgrupper](overview.md)
 - [Skapa hanteringsgrupper för att organisera Azure-resurser](create.md)
-- [Installera Azure Powershell-modulen](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [Granska specifikationerna för REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [Installera Azure CLI-tillägg](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)
+- [Så här ändrar, raderar och hanterar du dina hanteringsgrupper](manage.md)
+- [Granska av hanteringsgrupper i Azure PowerShell-modulen för resurser](https://aka.ms/mgPSdocs)
+- [Granska hanteringsgrupper i REST-API](https://aka.ms/mgAPIdocs)
+- [Granska av hanteringsgrupper i Azure CLI](https://aka.ms/mgclidoc)

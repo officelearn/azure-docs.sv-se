@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.openlocfilehash: a1b21afb02cffe608ece8687359a021c84b05e1e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 951292a34f59fd143a7997571513a3c852bbce81
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014303"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497992"
 ---
-# <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>Analysera loggar i Application Insights telemetry med Spark på HDInsight
+# <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>Analysera loggar i Application Insights telemetry med Apache Spark i HDInsight
 
-Lär dig hur du använder Spark på HDInsight för att analysera telemetridata som Application Insights.
+Lär dig hur du använder [Apache Spark](https://spark.apache.org/) på HDInsight för att analysera telemetridata som Application Insights.
 
 [Visual Studio Application Insights](../../application-insights/app-insights-overview.md) är en analystjänst som övervakar dina webbprogram. Telemetridata som genereras av Application Insights kan exporteras till Azure Storage. När data finns i Azure Storage, användas HDInsight för att analysera den.
 
@@ -26,7 +26,7 @@ Lär dig hur du använder Spark på HDInsight för att analysera telemetridata s
 
 * Ett program som är konfigurerad för att använda Application Insights.
 
-* Liknar processen med att skapa en Linux-baserade HDInsight-kluster. Mer information finns i [skapa Spark på HDInsight](apache-spark-jupyter-spark-sql.md).
+* Liknar processen med att skapa en Linux-baserade HDInsight-kluster. Mer information finns i [skapa Apache Spark i HDInsight](apache-spark-jupyter-spark-sql.md).
 
   > [!IMPORTANT]
   > Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Linux. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -362,14 +362,14 @@ Lägg till Azure Storage-konto till ett befintligt kluster genom att använda in
 
 ## <a name="next-steps"></a>Nästa steg
 
-Fler exempel på hur du använder Spark för att arbeta med data och tjänster i Azure finns i följande dokument:
+Fler exempel på hur du använder Apache Spark för att arbeta med data och tjänster i Azure finns i följande dokument:
 
-* [Spark med BI: Utföra interaktiv dataanalys med hjälp av Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
-* [Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark med Machine Learning: Använda Spark i HDInsight för att förutsäga resultatet av en livsmedelskontroll](apache-spark-machine-learning-mllib-ipython.md)
-* [Webbplatslogganalys med Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark med BI: utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: använda Spark i HDInsight för att förutse matinspektionsresultat](apache-spark-machine-learning-mllib-ipython.md)
+* [Webbplatslogganalys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 Information om att skapa och köra Spark-program finns i följande dokument:
 
 * [Skapa ett fristående program med hjälp av Scala](apache-spark-create-standalone-application.md)
-* [Köra jobb via fjärranslutning på ett Spark-kluster med Livy](apache-spark-livy-rest-interface.md)
+* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med Livy](apache-spark-livy-rest-interface.md)

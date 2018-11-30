@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 4fc38d033181b60f105fd016a3fa968acd9d9177
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 4255b70746eb1d307617a66714301fa7f8609a77
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828761"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634276"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Översikt över Azure övervakningsagenter 
 Microsoft Azure tillhandahåller flera olika sätt att samla in olika typer av data från virtuella datorer som kör Microsoft Windows och Linux som ligger i Azure, ditt datacenter eller andra molnleverantörer. Det finns tre typer av agenter som kan övervaka en virtuell dator:
@@ -77,5 +77,5 @@ Du kan behöva en kombination av dessa agenter att övervaka din virtuella dator
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [översikt över Log Analytics-agenten](../../log-analytics/log-analytics-agent-overview.md) att granska krav och metoder som stöds för att distribuera agenten till datorer som finns i Azure, i ditt datacenter eller andra molnmiljö.
+- Se [översikt över Log Analytics-agenten](../../azure-monitor/platform/log-analytics-agent.md) att granska krav och metoder som stöds för att distribuera agenten till datorer som finns i Azure, i ditt datacenter eller andra molnmiljö.
 

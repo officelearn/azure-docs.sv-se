@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 11/28/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: bc6d615409f3c2d0f46286d2ad2ba20c32574afd
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: c7e9c841e7a1d73fcdedd99e210eefb1e52bbf3e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091730"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498746"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Avgöra när du ska använda Azure Blobs, Azure Files eller Azure-diskar
 
@@ -42,7 +42,7 @@ I följande tabell jämförs Azure Files med Azure Blobs.
 |Slutpunkter|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |Kataloger|Ostrukturerad namnrymd|SANT katalogobjekt|  
 |Skiftlägeskänslighet i namn|Skiftlägeskänsligt|Skiftlägeskänsliga, men bevarar användningsfall|  
-|Kapacitet|Upp till 500 TiB-behållare|5 TiB-filresurser|  
+|Kapacitet|Upp till 2 PiB konto gräns |5 TiB-filresurser|  
 |Dataflöde|Upp till 60 MiB/s per blockblob|Upp till 60 MiB/s per resurs|  
 |Objektstorlek|Upp till ungefär 4,75 TiB per blockblob|Upp till 1 TiB per fil|  
 |Fakturerade kapacitet|Baserat på skrivna byte|Baserat på filstorlek|  
@@ -57,7 +57,7 @@ I följande tabell jämförs Azure Files med Azure-diskar.
 ||||  
 |-|-|-|  
 |**Attributet**|**Azure-diskar**|**Azure Files**|  
-|Omfång|Exklusivt för en enskild virtuell dator|Delad åtkomst över flera virtuella datorer|  
+|Scope|Exklusivt för en enskild virtuell dator|Delad åtkomst över flera virtuella datorer|  
 |Ögonblicksbilder och kopiera|Ja|Ja|  
 |Konfiguration|Ansluten vid start av den virtuella datorn|Ansluta till efter den virtuella datorn har startats|  
 |Autentisering|Inbyggd|Konfigurera med net use|  

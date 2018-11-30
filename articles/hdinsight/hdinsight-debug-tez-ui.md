@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ecb613dd2f624b9e0910a0ddcdf931f4b266aa96
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: c96e195d425cff640a4961e34305c1af447f6f28
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036591"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499427"
 ---
 # <a name="use-the-apache-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Använda Apache Tez-Användargränssnittet för att felsöka Tez-jobb på Windows-baserade HDInsight
-Tez UI kan användas för att felsöka Hive-jobb som använder Tez som motorn för körning. Tez UI visualisera jobbet som ett diagram över anslutna objekt kan öka detaljnivån i varje objekt och hämta statistik och loggningsinformation.
+Den [Apache TEZ](https://tez.apache.org/) Användargränssnittet kan användas för att felsöka [Apache Hive](https://hive.apache.org/) jobb som använder Tez som motorn för körning. Tez UI visualisera jobbet som ett diagram över anslutna objekt kan öka detaljnivån i varje objekt och hämta statistik och loggningsinformation.
 
 > [!IMPORTANT]
 > Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Windows. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -32,7 +32,7 @@ Tez UI kan användas för att felsöka Hive-jobb som använder Tez som motorn f�
 * En Windows-baserade fjärrskrivbord-klienten.
 
 ## <a name="understanding-apache-tez"></a>Förstå Apache Tez
-Tez är ett utökningsbart ramverk för att bearbeta i Apache Hadoop och ger högre hastigheter än med traditionella MapReduce-bearbetning. Du kan aktivera Tez genom att inkludera följande text som en del av en Hive-fråga:
+Tez är ett utökningsbart ramverk för att bearbeta i Apache Hadoop och ger högre hastigheter än med traditionella [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) bearbetning. Du kan aktivera Tez genom att inkludera följande text som en del av en Hive-fråga:
 
     set hive.execution.engine=tez;
 
@@ -134,6 +134,6 @@ Använd följande steg för att köra en Hive-fråga som använder Tez.
     ![Uppgiftsinformation](./media/hdinsight-debug-tez-ui/taskdetails.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har lärt dig hur du använder vyn Tez, Läs mer om [med hjälp av Hive på HDInsight](hadoop/hdinsight-use-hive.md).
+Nu när du har lärt dig hur du använder den [Apache TEZ](https://tez.apache.org/) visa, Lär dig mer om [med Apache Hive på HDInsight](hadoop/hdinsight-use-hive.md).
 
-Mer detaljerad teknisk information om Tez finns i den [Tez-sidan på Hortonworks](http://hortonworks.com/hadoop/tez/).
+Mer detaljerad teknisk information om Tez finns i den [Apache Tez-sidan på Hortonworks](http://hortonworks.com/hadoop/tez/).

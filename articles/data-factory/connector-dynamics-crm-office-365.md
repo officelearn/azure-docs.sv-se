@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: ce3c494dc0b8c962c8dae0af38d3cb5476cdf48b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: d58e72c4487a3ab6d7b562fd328098d98761da5e
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406183"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620344"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiera data från och till Dynamics 365 (Common Data Service) eller Dynamics CRM med hjälp av Azure Data Factory
 
@@ -43,7 +43,10 @@ För Dynamics 365 mer specifikt kan stöds följande programtyper:
 - Dynamics 365 for Project Service Automation
 - Dynamics 365 för marknadsföring
 
-Andra program som typer t.ex. Operations och ekonomi, personal, etc. stöds inte.
+Andra programtyper t.ex. finans och åtgärder, personal, etc. stöds inte av den här anslutningen.
+
+>[!TIP]
+>Kopiera data från **Dynamics 365 Finance and Operations**, du kan använda den [Dynamics AX-anslutning](connector-dynamics-ax.md).
 
 ## <a name="get-started"></a>Kom igång
 

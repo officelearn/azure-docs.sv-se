@@ -9,14 +9,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 3cd27438247b801e384b80d96ba288896b4c5aae
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d422b56acd56f87cb855c5e045e3a91666eee571
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234230"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499403"
 ---
-# <a name="create-a-spark-machine-learning-pipeline"></a>Skapa en Spark-maskininlärningspipeline
+# <a name="create-an-apache-spark-machine-learning-pipeline"></a>Skapa ett Apache Spark-machine learning-pipeline
 
 Apache Spark skalbar machine learning-biblioteket (MLlib) ger funktioner för modellering till en distribuerad miljö. Spark-paket [ `spark.ml` ](http://spark.apache.org/docs/latest/ml-pipeline.html) är en uppsättning avancerade API: er som bygger på dataramar. Dessa API: er för att skapa och finjustera praktiska machine learning pipelines.  *Spark-maskininlärning* refererar till den här MLlib DataFrame-baserat API inte äldre RDD-baserade pipelinen API.
 
@@ -131,4 +131,4 @@ Den `model` objekt kan nu användas för att göra förutsägelser. Det fullstä
 
 ## <a name="see-also"></a>Se också
 
-* [Datavetenskap med Scala och Spark på Azure](../../machine-learning/team-data-science-process/scala-walkthrough.md)
+* [Datavetenskap med Scala och Apache Spark på Azure](../../machine-learning/team-data-science-process/scala-walkthrough.md)

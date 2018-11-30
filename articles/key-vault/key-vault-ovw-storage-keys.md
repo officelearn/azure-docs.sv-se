@@ -1,6 +1,6 @@
 ---
 ms.assetid: ''
-title: Azure Key Vault-Lagringskontonycklar
+title: Azure Key Vault hanteras lagringskonto – CLI
 description: Lagringskontonycklar ge en seemless integrering mellan Azure Key Vault och viktiga baserat åtkomst till Azure Storage-konto.
 ms.topic: conceptual
 services: key-vault
@@ -9,14 +9,14 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: e62c599d82f488bf1fc30ce503c271084c5ae59d
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: e110a24af6a0d49ea949db6bc30ab344c81d0f48
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300231"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619290"
 ---
-# <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault-Lagringskontonycklar
+# <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault hanteras lagringskonto – CLI
 
 > [!NOTE]
 > [Azure storage stöder nu AAD auktorisering](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). Vi rekommenderar att du använder Azure Active Directory för autentisering och auktorisering till lagring som användarna inte behöver bekymra sig om roterar sina nycklar för Lagringskonto.

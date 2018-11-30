@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 1bcdac43eea41a044e920c14310a9f3cd4df793b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 34d42f9987303c1381584ae4b2991a8f30a67ed5
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285445"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52618967"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Felsökning av anslutningsproblem för utgående SMTP i Azure
 
@@ -44,7 +44,7 @@ När en prenumeration med användningsbaserad betalning eller Microsoft Partner 
 > Microsoft förbehåller sig rätten att återkalla det här undantaget om det fastställs att en överträdelse av tjänstvillkoren har inträffat.
 
 ## <a name="msdn-azure-pass-azure-in-open-education-bizspark-and-free-trial"></a>MSDN, Azure-Pass, Azure i Open, Education, BizSpark och kostnadsfri utvärderingsversion
-Om du har skapat en MSDN, Azure-Pass, Azure i Open, Education, BizSpark eller kostnadsfri utvärderingsversion prenumeration efter 15 November 2017 har du tekniska begränsningar att blockera e-postmeddelande som skickas från virtuella datorer inom dessa prenumerationer direkt till e-providers. Begränsningarna är klar för att förhindra missbruk. Förfrågningar om att ta bort den här begränsningen kan beviljas.
+Om du har skapat en MSDN, Azure-Pass, Azure i öppen, Education, BizSpark, Azure-sponsring, Azure Student, kostnadsfri utvärderingsversion eller alla Visual Studio-prenumeration efter 15 November 2017 kan har du tekniska begränsningar att blockera e-post som skickas från virtuella datorer inom dessa prenumerationer direkt till e-providers. Begränsningarna är klar för att förhindra missbruk. Förfrågningar om att ta bort den här begränsningen kan beviljas.
 
 Om du använder dessa typer av prenumerationer är du rekommenderas att använda SMTP-relätjänster, enligt beskrivningen tidigare i den här artikeln.
 

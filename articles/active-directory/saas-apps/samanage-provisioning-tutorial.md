@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: e5a69fa2ee9a8c4baaeb6586627c7a9a3c9ba4a8
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 53b78231dba4f525410f53dc1ae60901c67f043d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347961"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634514"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Samanage för automatisk användaretablering
 
@@ -141,7 +141,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
     ![Samanage etablering](./media/samanage-provisioning-tutorial/ProvisioningStatus.png)
 
-15. Ange användare och/eller grupper som du vill kan etableras på Samanage genom att välja de önskade värdena i **omfång** i den **inställningar** avsnittet.
+15. Ange användare och/eller grupper som du vill kan etableras på Samanage genom att välja de önskade värdena i **omfång** i den **inställningar** avsnittet. När du väljer den **synkronisera alla användare och grupper** alternativet bör du överväga att begränsningarna enligt beskrivningen i den **Connector begränsningar** nedan.
 
     ![Samanage etablering](./media/samanage-provisioning-tutorial/ScopeSync.png)
 
@@ -153,6 +153,10 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 Den här åtgärden startar den första synkroniseringen av alla användare och grupper som angetts i **omfång** i den **inställningar** avsnittet. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som den Azure AD-etableringtjänsten körs. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsrapporten som beskriver alla åtgärder som utförs av den Azure AD-etableringtjänsten på Samanage.
 
 Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
+
+## <a name="connector-limitations"></a>Begränsningar för anslutningen
+
+* Om den **synkronisera alla användare och grupper** är markerat och ett standardvärde har konfigurerats för Samanage **roller** attributet, se till att det önskade värdet under den **standardvärde om null (är valfritt)** fältet uttrycks i formatet **{”displayName”: ”roll”}** där roll är önskat standardvärde.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

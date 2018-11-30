@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 506bbcf31833b20a6ee06e85fbad166d1f0b80e2
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 44a2cb196e1a89b0abe229f478c0b76b146aa268
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567153"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620633"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarguide för Azure Functions JavaScript
 
@@ -70,8 +70,6 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 ```
 
 ### <a name="exporting-an-async-function"></a>Exportera en async-funktion
-När du använder JavaScript [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) deklarationen eller annars returneras ett JavaScript [löftet](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) (inte tillgängligt med Functions v1.x), du uttryckligen behöver inte anropa den [ `context.done` ](#contextdone-method) återanrop för att signalera att funktionen har slutförts. Funktionen har slutförts när exporterade async-funktion/löftet har slutförts.
-
 När du använder den [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) deklarationen eller vanlig JavaScript [löften](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) i version 2.x av Functions-körning, du behöver inte explicit anropa den [ `context.done` ](#contextdone-method) återanrop för att signalera att funktionen har slutförts. Funktionen har slutförts när exporterade async-funktion/löftet har slutförts. För funktioner som riktar in sig på version 1.x-körningen, måste du fortfarande anropa [ `context.done` ](#contextdone-method) när koden är klar körs.
 
 I följande exempel är en enkel funktion som loggar den utlöstes och omedelbart är slutfört.

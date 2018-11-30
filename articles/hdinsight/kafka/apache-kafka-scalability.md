@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: 9ad7330960540e0bddc0130736265df402d582ff
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1df23a35e16d4ba3562ebbc9d89a7a8003afc784
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009341"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498940"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>Konfigurera lagring och skalbarhet för Apache Kafka på HDInsight
 
-Lär dig hur du konfigurerar antalet hanterade diskar som används av Apache Kafka på HDInsight.
+Lär dig hur du konfigurerar antalet hanterade diskar som används av [Apache Kafka](https://kafka.apache.org/) på HDInsight.
 
 Kafka på HDInsight använder den lokala disken för virtuella datorer i HDInsight-klustret. Eftersom Kafka är mycket i/o-stor används [Azure hanterade diskar](../../virtual-machines/windows/managed-disks-overview.md) för att tillhandahålla hög genomströmning och ger mer lagringsutrymme per nod. Om traditionella virtuella hårddiskar (VHD) användes för Kafka skulle varje nod vara begränsad till 1 TB. Du kan använda flera diskar med hanterade diskar för att uppnå 16 TB för varje nod i klustret.
 
@@ -53,11 +53,11 @@ Du hittar en fullständig mall som visar hur du konfigurerar hanterade diskar p�
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se följande dokument för mer information om arbete med Kafka på HDInsight:
+Mer information om hur du arbetar med Apache Kafka på HDInsight finns i följande dokument:
 
-* [Använd MirrorMaker för att skapa en replik av Kafka på HDInsight](apache-kafka-mirroring.md)
-* [Använda Apache Storm med Kafka på HDInsight](../hdinsight-apache-storm-with-kafka.md)
-* [Använda Apache Spark med Kafka på HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Ansluta till Kafka via ett trådlöst Azure-nätverk](apache-kafka-connect-vpn-gateway.md)
+* [Använd MirrorMaker för att skapa en replik av Apache Kafka på HDInsight](apache-kafka-mirroring.md)
+* [Använda Apache Storm med Apache Kafka på HDInsight](../hdinsight-apache-storm-with-kafka.md)
+* [Använda Apache Spark med Apache Kafka på HDInsight](../hdinsight-apache-spark-with-kafka.md)
+* [Anslut till Apache Kafka via ett Azure-nätverk](apache-kafka-connect-vpn-gateway.md)
 
-* [HDInsight-blogg om hanterade diskar med Kafka](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/)
+* [HDInsight-blogg om hanterade diskar med Apache Kafka](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/)

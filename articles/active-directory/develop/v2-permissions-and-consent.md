@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: da8eebb2fc6b87b8916e944495679b45aa34dbf2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5283782188eaebe3997b6de31b087da74cf10486
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960336"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620140"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Behörigheter och godkännande i Azure Active Directory v2.0-slutpunkten
 
@@ -64,13 +64,13 @@ En app begär oftast behörigheterna genom att ange omfång i begäranden till v
 
 Microsoft identity-plattformen stöder två typer av behörigheter: **delegerade behörigheter** och **programbehörigheter**.
 
-- **Delegerade behörigheter** som används av appar som har en inloggad användare finns. För dessa appar godkänner användaren eller administratören behörigheter att app-begäranden och appen är delegerad behörighet att agera som den inloggade användaren att göra anrop till målresursen. Vissa delegerade behörigheter kan vara godkänts av icke-administratörer, men vissa högre privilegier behörigheter kräver [administratörens godkännande](v2-permissions-and-consent.md#admin-restricted-scopes).  
+* **Delegerade behörigheter** som används av appar som har en inloggad användare finns. För dessa appar kan användaren eller administratören godkänner behörigheter att app-begäranden och appen är delegerad behörighet att agera som den inloggade användaren att göra anrop till målresursen. Vissa delegerade behörigheter kan vara godkänts av icke-administratörer, men vissa högre privilegier behörigheter kräver [administratörens godkännande](v2-permissions-and-consent.md#admin-restricted-scopes). Läs vilken administratör roller kan godkänna delegerade behörigheter i [behörigheter för administratör i Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
-- **Programbehörigheter** som används av appar som körs utan en inloggad användare finns, till exempel appar som körs som Bakgrundstjänster eller daemon.  Behörigheter för programmet kan bara vara [samtyckt av en administratör](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). 
+* **Programbehörigheter** som används av appar som körs utan en inloggad användare finns, till exempel appar som körs som Bakgrundstjänster eller daemon.  Behörigheter för programmet kan bara vara [samtyckt av en administratör](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
 _Gällande behörigheter_ är de behörigheter som din app har vid begäranden till målresursen. Det är viktigt att förstå skillnaden mellan den delegerade och behörigheter för program som din app har beviljats och dess gällande behörigheter vid anrop till målresursen.
 
-- För delegerade behörigheter i _gällande behörigheter_ för din app är minst Privilegierade skärningspunkten för de delegerade behörigheter som appen har beviljats (via medgivande) och privilegier för den inloggade användaren. Din app kan aldrig ha fler behörigheter än den inloggade användaren. Inom organisationer kan behörigheter för den inloggade användaren fastställas med en princip eller av medlemskap i en eller flera administratörsroller. Läs mer om administratörsroller [Tilldela administratörsroller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+- För delegerade behörigheter i _gällande behörigheter_ för din app är minst Privilegierade skärningspunkten för de delegerade behörigheter som appen har beviljats (via medgivande) och privilegier för den inloggade användaren. Din app kan aldrig ha fler behörigheter än den inloggade användaren. Inom organisationer kan behörigheter för den inloggade användaren fastställas med en princip eller av medlemskap i en eller flera administratörsroller. Läs vilken administratör roller kan godkänna delegerade behörigheter i [behörigheter för administratör i Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
   Anta exempelvis att din app har beviljats den _User.ReadWrite.All_ delegerad behörighet. Den här behörigheten ger i princip din app behörighet att läsa och uppdatera profilen för alla användare i en organisation. Om den inloggade användaren är en global administratör, kommer din app att kunna uppdatera profilen för alla användare i organisationen. Men om den inloggade användaren inte har någon administratörsroll, kommer appen endast kunna uppdatera profilen för den inloggade användaren. Den kommer inte att kunna uppdatera profilerna för andra användare i organisationen, eftersom den användare som den har behörighet att agera på uppdrag åt inte har den behörigheten.
   
 - För behörigheter för programmet, den _gällande behörigheter_ för din app kommer att nivån fullständig behörigheter underförstådd av behörigheten. Exempelvis kan en app som har den _User.ReadWrite.All_ programbehörigheten kan uppdatera profilen för alla användare i organisationen. 
@@ -93,7 +93,7 @@ Den `profile` omfång kan användas med den `openid` omfång och alla andra. Den
 
 ### <a name="offlineaccess"></a>offline_access
 
-Den [ `offline_access` omfång](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) ger din appåtkomst till resurser å användarens vägnar en längre tid. På sidan work medgivande visas det här omfånget som ”åt dina data när som helst”-behörighet. På personliga Microsoft-konto medgivande sidan visas den som ”åt din information när som helst”-behörighet. När en användare godkänner den `offline_access` omfattning, din app kan ta emot uppdaterings-tokens från token v2.0-slutpunkten. Uppdateringstoken är långlivade. Din app kan hämta nya åtkomsttoken som äldsta förfaller.
+Den [ `offline_access` omfång](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) ger din appåtkomst till resurser å användarens vägnar en längre tid. På sidan work medgivande visas det här omfånget som ”åt dina data när som helst”-behörighet. På personliga Microsoft-konto medgivande sidan visas den som ”åt din information när som helst”-behörighet. När en användare godkänner den `offline_access` omfattning, din app kan ta emot uppdaterings-tokens från token v2.0-slutpunkten. Uppdateringstoken är långlivade. Din app kan hämta nya åtkomsttoken som äldsta förfaller.
 
 Om din app inte begär det `offline_access` omfattning, det inte tar emot uppdateringstoken. Detta innebär att när du har löst in en auktoriseringskod i den [OAuth 2.0-auktoriseringskodflödet](active-directory-v2-protocols.md), får du endast en åtkomsttoken från den `/token` slutpunkt. Åtkomsttoken är giltig för en kort tid. Åtkomsttoken upphör vanligtvis i en timme. AT att punkt, din app måste därefter skickas användarna tillbaka till den `/authorize` slutpunkten för att få en ny auktoriseringskod. Under den här omdirigering, beroende på typen av app måste behöva användaren ange sina autentiseringsuppgifter igen eller godkänna igen behörigheter.
 

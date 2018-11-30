@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: 97f6339e5c9532250245a97a81dade12db139e98
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 09ecd46837a12f5f1a8278b1644dc099701bcd00
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227375"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584731"
 ---
 # <a name="billing-and-cost-management-automation-scenarios"></a>Fakturerings- och automation hanteringsscenarier
 
@@ -122,4 +122,4 @@ Dessa API: er tillhandahåller en liknande uppsättning data men har olika målg
 
 - Information om hur du programmässigt få insikt i din Azure-användning med Azure API: er finns i [översikt över Azure Consumption-API: et](billing-consumption-api-overview.md) och [Azure Billing API-översikt](billing-usage-rate-card-overview.md).
 - Jämförelse mellan din faktura med detaljerade dagliga användningsfil och kostnadshanteringsrapporter i Azure portal finns [förstå fakturan för Microsoft Azure](billing-understand-your-bill.md)
-- Om du har fler frågor, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.
+- Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

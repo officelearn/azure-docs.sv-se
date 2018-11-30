@@ -10,12 +10,12 @@ ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: f5917cd7a5e4fcc2733765f642ad0958092372c1
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: ab9e04b8a9eb4290891b3c7d55f8262c4ba64d44
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616222"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584054"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Skapa och distribuera avbildningsklassificeringsmodeller med Azure Machine Learning
 
@@ -37,7 +37,7 @@ När du skapar och distribuerar den här modellen med AMLPCV, gå igenom följan
 7. Webbtjänsten distribution
 8. Webbtjänsten belastningstest
 
-[CNTK](https://www.microsoft.com/cognitive-toolkit/) används som deep learning-ramverk utbildning utförs lokalt på en GPU-baserade dator som den ([Deep learning virtuell dator för datavetenskap](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), och distributionen använder Azure ML driftsättning CLI.
+[CNTK](https://docs.microsoft.com/cognitive-toolkit/) används som deep learning-ramverk utbildning utförs lokalt på en GPU-baserade dator som den ([Deep learning virtuell dator för datavetenskap](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), och distributionen använder Azure ML driftsättning CLI.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -175,7 +175,7 @@ display(annotation_ui.ui)
 
 ## <a name="augment-images"></a>Utöka avbildningar
 
-Den [ `augmentation` modulen](https://docs.microsoft.com/python/api/cvtk.augmentation) tillhandahåller funktioner för att utöka en dataset-objektet med alla transformeringar som beskrivs i den [imgaug](https://github.com/aleju/imgaug) biblioteket. Bildfiler kan grupperas i en enda pipeline, vilket innebär alla transformeringar i pipelinen tillämpas samtidigt varje avbildning. 
+Den [ `augmentation` modulen](/python/api/cvtk/cvtk.augmentation.augmentation) tillhandahåller funktioner för att utöka en dataset-objektet med alla transformeringar som beskrivs i den [imgaug](https://github.com/aleju/imgaug) biblioteket. Bildfiler kan grupperas i en enda pipeline, vilket innebär alla transformeringar i pipelinen tillämpas samtidigt varje avbildning. 
 
 Om du vill använda olika tokenomvandling separat eller i något annat sätt, kan du definiera flera pipelines och skickar dem till den *augment_dataset* funktion. Mer information och exempel på bild tokenomvandling finns i den [imgaug dokumentation](https://github.com/aleju/imgaug).
 

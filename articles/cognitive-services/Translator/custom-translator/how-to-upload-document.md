@@ -9,16 +9,18 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: bb84a3ddfba54c47cdf91aa72889a960722cdbd3
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3a0adb4b761121334e93f2b8d2d764ff3ab495e2
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627566"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633256"
 ---
-# <a name="upload-a-document"></a>Överför ett dokument
+# <a name="upload-a-document"></a>Ladda upp ett dokument
 
 I [anpassad Translator](https://portal.customtranslator.azure.ai), du kan ladda upp parallella dokument för att träna din översättningsmodeller. [Parallell dokument](what-are-parallel-documents.md) är par av dokument där en är en översättning av de andra. Ett dokument i paret innehåller meningar i källspråket och det andra dokumentet innehåller dessa meningar översättas till mål-språk.
+
+Innan du laddar upp dokument, granska de [dokumentera format och naming convention vägledning](document-formats-naming-convention.md) för att kontrollera att filen formatet stöds i anpassade Translator.
 
 ## <a name="how-to-upload-document"></a>Hur du överför dokument?
 

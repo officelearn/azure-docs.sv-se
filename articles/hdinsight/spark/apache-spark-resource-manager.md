@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 166d52322504e57e01a4bd798252fc956c1a3e44
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3536fb21d50dd54ec71615eba25c2d60fc727f34
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014592"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583303"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Hantera resurser för Apache Spark-kluster i Azure HDInsight 
 
-Lär dig hur du kommer åt gränssnitt som Ambari UI, YARN-Användargränssnittet och Spark-Historikserver som är kopplade till ditt Spark-kluster och hur du ställer in klusterkonfigurationen för optimala prestanda.
+Lär dig hur du kommer åt gränssnitt som [Apache Ambari](https://ambari.apache.org/) Användargränssnittet [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) Användargränssnittet och Spark-Historikserver som är associerade med din [Apache Spark](https://spark.apache.org/) kluster, och hur du finjustera klusterkonfigurationen för optimala prestanda.
 
 **Krav:**
 
@@ -26,7 +26,7 @@ Lär dig hur du kommer åt gränssnitt som Ambari UI, YARN-Användargränssnitte
 
 ## <a name="open-the-ambari-web-ui"></a>Öppna Ambari-webbgränssnittet
 
-Apache Ambari används för att övervaka klustret och gör ändringar i konfigurationen. Mer information finns i [hantera Hadoop-kluster i HDInsight med hjälp av Azure portal](../hdinsight-administer-use-portal-linux.md#open-the-ambari-web-ui)
+Apache Ambari används för att övervaka klustret och gör ändringar i konfigurationen. Mer information finns i [hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure portal](../hdinsight-administer-use-portal-linux.md#open-the-apache-ambari-web-ui)
 
 ## <a name="open-the-spark-history-server"></a>Öppna Spark-Historikserver
 
@@ -158,19 +158,19 @@ Starta Användargränssnittet för Yarn som visas i början av artikeln. Kluster
 
 ### <a name="for-data-analysts"></a>För dataanalytiker
 
-* [Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark med Machine Learning: Använda Spark i HDInsight för att förutsäga resultatet av en livsmedelskontroll](apache-spark-machine-learning-mllib-ipython.md)
-* [Webbplatslogganalys med Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
-* [Application Insight-telemetridataanalys i HDInsight](apache-spark-analyze-application-insight-logs.md)
+* [Apache Spark med Machine Learning: använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: använda Spark i HDInsight för att förutse matinspektionsresultat](apache-spark-machine-learning-mllib-ipython.md)
+* [Webbplatslogganalys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Application Insight telemetri dataanalys med hjälp av Apache Spark i HDInsight](apache-spark-analyze-application-insight-logs.md)
 * [Använda Caffe på Azure HDInsight Spark för distribuerade djupinlärning](apache-spark-deep-learning-caffe.md)
 
-### <a name="for-spark-developers"></a>För Spark-utvecklare
+### <a name="for-apache-spark-developers"></a>För Apache Spark-utvecklare
 
 * [Skapa ett fristående program med hjälp av Scala](apache-spark-create-standalone-application.md)
-* [Köra jobb via fjärranslutning på ett Spark-kluster med Livy](apache-spark-livy-rest-interface.md)
+* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med Livy](apache-spark-livy-rest-interface.md)
 * [Använda HDInsight Tools-plugin för IntelliJ IDEA till att skapa och skicka Spark Scala-appar](apache-spark-intellij-tool-plugin.md)
-* [Använda HDInsight Tools-plugin för IntelliJ IDEA till att felsöka Spark-program via fjärranslutning](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Använda Zeppelin-anteckningsböcker med ett Spark-kluster i HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernlar som är tillgängliga för Jupyter Notebook i Spark-klustret för HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Använda HDInsight Tools-Plugin för IntelliJ IDEA till att felsöka Apache Spark-program via fjärranslutning](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Använda Apache Zeppelin-anteckningsböcker med Apache Spark-kluster på HDInsight](apache-spark-zeppelin-notebook.md)
+* [Kernlar som är tillgängliga för Jupyter notebook i Apache Spark-kluster för HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Använda externa paket med Jupyter-anteckningsböcker](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installera Jupyter på datorn och ansluta till ett HDInsight Spark-kluster](apache-spark-jupyter-notebook-install-locally.md)

@@ -10,14 +10,14 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 27a4bccfbac73c7c8c902a59fdd4cafe0c420c31
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1d13e2ccbbc1d5c1bc80dffc260a3759fe378d7d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635042"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634548"
 ---
-# <a name="install-and-run-containers"></a>Installera och köra behållare
+# <a name="install-and-run-containers"></a>Installera och köra containrar
 
 Skapa behållare är en metod för distribution av programvara där ett program eller tjänst kommer som en behållaravbildning. Konfiguration och beroenden för programmet eller tjänsten ingår i behållaravbildningen. Behållaravbildningen kan sedan distribueras på en behållarvärd med lite eller ingen ändring. Behållare är isolerade från varandra och det underliggande operativsystemet, med mindre avtryck än en virtuell dator. Behållare kan instansieras behållaravbildningar för kortsiktig uppgifter och tas bort när den inte längre behövs.
 
@@ -58,9 +58,6 @@ Utför följande steg för att skapa och hämta information från en Ansikts-res
 
 1. Skapa en Ansikts-resurs i Azure-portalen.  
    Om du vill använda Ansikts-behållare, måste du först skapa en motsvarande Ansikts-resurs i Azure-portalen. Mer information finns i [Snabbstart: skapa ett Cognitive Services-konto i Azure portal](../cognitive-services-apis-create-account.md).
-
-   > [!IMPORTANT]
-   > Ansikts-resursen måste använda F0 prisnivån.
 
 1. Hämta slutpunktsnyckeln för URL: en och -prenumeration för Azure-resursen.  
    När Azure-resursen har skapats måste du använda slutpunktsnyckeln för URL: en och -prenumeration från den här resursen för att skapa en instans av motsvarande Ansikts-behållaren. Du kan kopiera URL: en och prenumeration slutpunktsnyckeln från respektive sidorna Snabbstart och nycklar för Ansikts-resursen på Azure-portalen.

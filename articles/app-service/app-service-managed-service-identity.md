@@ -9,28 +9,32 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: fb9b50ecb16bd37d005403a14ea11c6d89f50dfe
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7319dc02d07ef1e100b39dbe138870676578fd69
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983658"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634293"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Hur du använder hanterade identiteter för App Service och Azure Functions
 
 > [!NOTE] 
-> App Service i Linux och Web App for Containers stöder för närvarande inte hanterade identiteter.
+> Hanterad identitet stöd för App Service på Linux och Web App for Containers förhandsvisas just nu.
 
 > [!Important] 
 > Hanterade identiteter för App Service och Azure Functions fungerar inte som förväntat om din app migreras över prenumerationer/klienter. Appen måste du skaffa en ny identitet som kan göras genom att inaktivera och återaktivera funktionen. Se [tar bort en identitet](#remove) nedan. Underordnade resurser måste också ha åtkomstprinciper har uppdaterats för att använda den nya identiteten.
 
 Det här avsnittet visar hur du skapar en hanterad identitet för App Service och Azure Functions och hur du använder den för att komma åt andra resurser. En hanterad identitet från Azure Active Directory kan din app för att enkelt komma åt andra AAD-skyddade resurser, till exempel Azure Key Vault. Identiteten hanteras av Azure-plattformen och kräver inte att etablera eller rotera hemligheter. Mer information om hanterade identiteter i AAD finns i [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md).
 
-## <a name="creating-an-app-with-an-identity"></a>Skapa en app med en identitet
+Ditt program kan beviljas två typer av identiteter: 
+- En **systemtilldelade identiteter** är kopplad till ditt program och tas bort om din app har tagits bort. En app kan bara ha en systemtilldelad identitet. Stöd för systemtilldelade identiteter är allmänt tillgänglig för Windows-appar. 
+- En **Användartilldelad identitet** är ett fristående Azure-resurs som kan tilldelas till din app. En app kan ha flera användartilldelade identiteter. Stöd för användartilldelade identiteter är i förhandsversion för alla typer av appar.
 
-Skapa en app med en identitet som kräver ytterligare en egenskap anges för programmet.
+## <a name="adding-a-system-assigned-identity"></a>Att lägga till en systemtilldelad identitet
+
+Skapa en app med en automatiskt genererad identitet kräver ytterligare en egenskap anges för programmet.
 
 ### <a name="using-the-azure-portal"></a>Använda Azure Portal
 
@@ -42,9 +46,9 @@ Om du vill konfigurera en hanterad identitet i portalen måste du först skapa e
 
 3. Välj **hanterad identitet**.
 
-4. Växeln **registreras med Azure Active Directory** till **på**. Klicka på **Spara**.
+4. I den **systemtilldelad** fliken, växla **Status** till **på**. Klicka på **Spara**.
 
-![Hanterad identitet i App Service](media/app-service-managed-service-identity/msi-blade.png)
+![Hanterad identitet i App Service](media/app-service-managed-service-identity/msi-blade-system.png)
 
 ### <a name="using-the-azure-cli"></a>Använda Azure CLI
 
@@ -94,7 +98,7 @@ Följande steg beskriver hur du skapar en webbapp och tilldela den en identitet 
     New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
     ```
 
-3. Kör den `identity assign` kommando för att skapa identiteten för det här programmet:
+3. Kör den `Set-AzureRmWebApp -AssignIdentity` kommando för att skapa identiteten för det här programmet:
 
     ```azurepowershell-interactive
     Set-AzureRmWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
@@ -111,7 +115,10 @@ Alla resurser av typen `Microsoft.Web/sites` kan skapas med en identitet genom a
 }    
 ```
 
-Detta informerar du Azure att skapa och hantera identiteten för ditt program.
+> [!NOTE] 
+> Ett program kan ha både systemtilldelade och användartilldelade identiteter på samma gång. I det här fallet den `type` egenskapen skulle vara `SystemAssigned,UserAssigned`
+
+Att lägga till typen systemtilldelade meddelar Azure att skapa och hantera identiteten för ditt program.
 
 En webbapp kan till exempel se ut så här:
 ```json
@@ -139,12 +146,100 @@ En webbapp kan till exempel se ut så här:
 När webbplatsen har skapats, har följande ytterligare egenskaper:
 ```json
 "identity": {
+    "type": "SystemAssigned",
     "tenantId": "<TENANTID>",
     "principalId": "<PRINCIPALID>"
 }
 ```
 
 Där `<TENANTID>` och `<PRINCIPALID>` har ersatts med GUID. Egenskapen tenantId identifierar vilka AAD-klient som tillhör identiteten. PrincipalId är en unik identifierare för programmets ny identitet. I AAD har tjänstens huvudnamn samma namn som du gav till din App Service eller Azure Functions-instans.
+
+
+## <a name="adding-a-user-assigned-identity-preview"></a>Att lägga till en Användartilldelad identitet (förhandsversion)
+
+> [!NOTE] 
+> Användartilldelade identiteter finns för närvarande i förhandsversion. Sovreign moln stöds inte ännu.
+
+Skapa en app med en Användartilldelad identitet kräver att du skapar identitet och sedan lägga till dess resursidentifierare i din appkonfiguration.
+
+### <a name="using-the-azure-portal"></a>Använda Azure Portal
+
+> [!NOTE] 
+> Den här portalmiljö distribueras och ännu kanske inte tillgänglig i alla regioner.
+
+Du måste först att skapa en resurs för Användartilldelad identitet.
+
+1. Skapa en resurs för användartilldelade hanterad identitet enligt [instruktionerna](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
+
+2. Skapa en app i portalen som vanligt. Navigera till den i portalen.
+
+3. Om du använder en funktionsapp, gå till **plattformsfunktioner**. För andra typer av appar, rulla ned till den **inställningar** i det vänstra navigeringsfönstret.
+
+4. Välj **hanterad identitet**.
+
+5. I den **användaren tilldelats (förhandsversion)** fliken **Lägg till**.
+
+6. Sök efter den identitet som du skapade tidigare och markera den. Klicka på **Lägg till**.
+
+![Hanterad identitet i App Service](media/app-service-managed-service-identity/msi-blade-user.png)
+
+### <a name="using-an-azure-resource-manager-template"></a>Med en Azure Resource Manager-mall
+
+En Azure Resource Manager-mall kan användas för att automatisera distributionen av dina Azure-resurser. Läs mer om att distribuera till App Service och Functions i [automatisera resursdistribution i App Service](../app-service/app-service-deploy-complex-application-predictably.md) och [automatisera resursdistribution i Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
+
+Alla resurser av typen `Microsoft.Web/sites` kan skapas med en identitet genom att inkludera följande block i resursdefinitionen, ersätta `<RESOURCEID>` med resurs-ID för den önskade identitet:
+```json
+"identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+        "<RESOURCEID>": {}
+    }
+}    
+```
+
+> [!NOTE] 
+> Ett program kan ha både systemtilldelade och användartilldelade identiteter på samma gång. I det här fallet den `type` egenskapen skulle vara `SystemAssigned,UserAssigned`
+
+Lägg till den användartilldelade typ och en cotells Azure för att skapa och hantera identiteten för ditt program.
+
+En webbapp kan till exempel se ut så här:
+```json
+{
+    "apiVersion": "2016-08-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('appName')]",
+    "location": "[resourceGroup().location]",
+    "identity": {
+        "type": "UserAssigned"
+    },
+    "properties": {
+        "name": "[variables('appName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "hostingEnvironment": "",
+        "clientAffinityEnabled": false,
+        "alwaysOn": true
+    },
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+    ]
+}
+```
+
+När webbplatsen har skapats, har följande ytterligare egenskaper:
+```json
+"identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+        "<RESOURCEID>": {
+            "principalId": "<PRINCIPALID>",
+            "clientId": "<CLIENTID>"
+        }
+    }
+}
+```
+
+Där `<PRINCIPALID>` och `<CLIENTID>` har ersatts med GUID. PrincipalId är en unik identifierare för det identitet som används för AAD-administration. ClientId är en unik identifierare för programmets ny identitet som används för att ange vilken identitet som ska användas under runtime-anrop.
+
 
 ## <a name="obtaining-tokens-for-azure-resources"></a>Hämta token för Azure-resurser
 
@@ -186,9 +281,10 @@ Den **MSI_ENDPOINT** är en lokal URL som din app kan begära token. För att f�
 > [!div class="mx-tdBreakAll"]
 > |Parameternamn|I|Beskrivning|
 > |-----|-----|-----|
-> |resurs|Fråga|AAD resurs-URI för resursen för som en token ska hämtas.|
-> |API-versionen|Fråga|Versionen av token API: et som ska användas. ”2017-09-01” är för närvarande den enda versionen som stöds.|
-> |hemlighet|Sidhuvud|Värdet för miljövariabeln MSI_SECRET.|
+> |resurs|Söka i data|AAD resurs-URI för resursen för som en token ska hämtas.|
+> |API-versionen|Söka i data|Versionen av token API: et som ska användas. ”2017-09-01” är för närvarande den enda versionen som stöds.|
+> |hemlighet|Huvud|Värdet för miljövariabeln MSI_SECRET.|
+> |clientid|Söka i data|(Valfritt) ID för Användartilldelad identitet som ska användas. Om det utelämnas används systemtilldelad identitet.|
 
 
 En lyckad svar med 200 OK innehåller en JSON-texten med följande egenskaper:
@@ -241,7 +337,7 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
 
 <a name="token-js"></a>I Node.JS:
 ```javascript
-const rp = require('request-promise');
+const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
     var options = {
         uri: `${process.env["MSI_ENDPOINT"]}/?resource=${resource}&api-version=${apiver}`,
@@ -265,7 +361,7 @@ $accessToken = $tokenResponse.access_token
 
 ## <a name="remove"></a>Ta bort en identitet
 
-En identitet kan tas bort genom att inaktivera funktionen med hjälp av portalen, PowerShell eller CLI på samma sätt som den skapades. Detta görs i protokollet REST/ARM-mall genom att ange att typen ”None”:
+En systemtilldelad identitet kan tas bort genom att inaktivera funktionen med hjälp av portalen, PowerShell eller CLI på samma sätt som den skapades. Användartilldelade identiteter kan tas bort separat. Om du vill ta bort alla identiteter i protokollet REST/ARM-mall görs detta genom att ange att typen ”None”:
 
 ```json
 "identity": {
@@ -273,7 +369,7 @@ En identitet kan tas bort genom att inaktivera funktionen med hjälp av portalen
 }    
 ```
 
-Ta bort identiteten på så vis tas även bort huvudkontot från AAD. Systemtilldelade identiteter tas automatiskt bort från AAD när appresursen tas bort.
+Ta bort en automatiskt genererad identitet i det här sättet kommer också ta bort den från AAD. Systemtilldelade identiteter tas automatiskt bort från AAD när appresursen tas bort.
 
 > [!NOTE] 
 > Det finns också en programinställningen som kan ställas in WEBSITE_DISABLE_MSI, vilket bara inaktiverar den lokala token-tjänsten. Men den lämnar identiteten på plats och verktyg fortfarande visas den hanterade identitet som ”on” eller ”aktiverad”. Användning av den här inställningen är därför inte rekommenderas.

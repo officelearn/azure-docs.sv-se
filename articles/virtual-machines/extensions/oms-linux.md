@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: roiyz
-ms.openlocfilehash: dc0d7857dbbbdc862878201ba9d47632d2b5affd
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4c35820daa9cc25f40dfa0034d9ce632ece235a7
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404859"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633413"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Logga Analytics tillägg för virtuell dator för Linux
 
@@ -219,7 +219,7 @@ Tillägget utförande-utdatan loggas till följande fil:
 | 51 | Det här tillägget stöds inte på den Virtuella datorns operativsystem | |
 | 55 | Det går inte att ansluta till Log Analytics-tjänsten eller paket som krävs saknas eller dpkg Pakethanteraren är låst| Kontrollera att datorn är ansluten till Internet eller att en giltig HTTP-proxy har angetts. Dessutom kan kontrollera för arbetsyte-ID och kontrollera curl och tar är installerade. |
 
-Ytterligare information kan hittas på den [felsökningsguide för Log Analytics-agenten för Linux](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
+Ytterligare information kan hittas på den [felsökningsguide för Log Analytics-agenten för Linux](../../azure-monitor/platform/vmext-troubleshoot.md).
 
 ### <a name="support"></a>Support
 

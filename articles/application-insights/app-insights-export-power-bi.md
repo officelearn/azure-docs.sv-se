@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 71d5c26c8c41c470e188291dea4a4dab2811a67e
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 6e19735f604fdcd6d6642814e776fd9987d11fde
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963123"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499507"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Powerbi-flöde från Application Insights
 [Power BI](http://www.powerbi.com/) är en uppsättning verktyg för business som hjälper dig att analysera data och dela insikter. Omfattande instrumentpaneler är tillgängliga på varje enhet. Du kan kombinera data från många källor, inklusive Analytics-frågor från [Azure Application Insights](app-insights-overview.md).
@@ -109,7 +109,6 @@ Om du minskar den datauppsättning som kommer från analysfråga som inte uppfyl
    * Ersätt  **https://management.azure.com/subscriptions/...**
    * med,  **https://api.applicationinsights.io/beta/apps/...**
 3. Slutligen uppdatera autentiseringsuppgifterna till basic och Använd din API-nyckel.
- �
 
 **Befintligt skript**
  ```

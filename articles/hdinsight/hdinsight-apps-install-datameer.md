@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 97d99aa59c490cf2dcdd4a69f32411a051942d36
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 9e9ccb1ba3d19e0240df869dfea1e27ac4124c34
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037812"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498769"
 ---
 # <a name="install-published-application---datameer"></a>Installera publicerad program – Datameer
 
-Den här artikeln beskrivs hur du installerar och kör den [Datameer](https://www.datameer.com/) publicerade Apache Hadoop-program på Azure HDInsight. En översikt över HDInsight-programplattform och en lista över tillgängliga oberoende programvaruleverantör (ISV) publicerade program finns i [installera Hadoop-program från tredje part](hdinsight-apps-install-applications.md). Anvisningar om hur du installerar ett eget program finns i [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).
+Den här artikeln beskrivs hur du installerar och kör den [Datameer](https://www.datameer.com/) publicerade [Apache Hadoop](https://hadoop.apache.org/) på Azure HDInsight. En översikt över HDInsight-programplattform och en lista över tillgängliga oberoende programvaruleverantör (ISV) publicerade program finns i [installera Apache Hadoop-program för tredje parts](hdinsight-apps-install-applications.md). Anvisningar om hur du installerar ett eget program finns i [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-datameer"></a>Om Datameer
 
@@ -34,7 +34,7 @@ Om du vill installera den här appen på ett nytt HDInsight-kluster eller ett be
 
 ## <a name="install-the-datameer-published-application"></a>Installera Datameer publicerad program
 
-Stegvisa instruktioner om hur du installerar det här och andra tillgängliga ISV-program finns [installera Hadoop-program från tredje part](hdinsight-apps-install-applications.md).
+Stegvisa instruktioner om hur du installerar det här och andra tillgängliga ISV-program finns [installera Apache Hadoop-program för tredje parts](hdinsight-apps-install-applications.md).
 
 ## <a name="launch-datameer"></a>Starta Datameer
 

@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: b978adcdcc025c24746167ef5ab92aebe94aca8b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 44ed4075af290e3253b3d8f090c289ceba9750a6
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016241"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584187"
 ---
-# <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Konfigurera HBase-kluster-replikering i Azure-nätverk
+# <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Konfigurera replikering för Apache HBase-kluster i Azure-nätverk
 
-Lär dig hur du ställer in HBase-replikering inom ett virtuellt nätverk, eller mellan två virtuella nätverk i Azure.
+Lär dig hur du ställer in [Apache HBase](http://hbase.apache.org/) replikering inom ett virtuellt nätverk eller mellan två virtuella nätverk i Azure.
 
 Kluster-replikering använder en käll-push-metod. Ett HBase-kluster kan vara en källa eller ett mål eller det uppfyller båda rollerna samtidigt. Replikering är asynkrona. Målet för replikering är slutlig konsekvens. När källan får redigerar du en kolumnfamilj när replikering har aktiverats, sprids redigera till alla målkluster. När data replikeras från ett kluster till ett annat, spåras källklustret och alla kluster som redan har förbrukat data, för att förhindra replikering slingor.
 
@@ -46,16 +46,16 @@ Innan du börjar följa de här självstudierna måste du ha en Azure-prenumerat
 
 Du har tre alternativ:
 
-- Två HBase-kluster i en Azure-nätverk.
-- Två HBase-kluster i två olika virtuella nätverk i samma region.
-- Två HBase-kluster i två olika virtuella nätverk i två olika regioner (geo-replikering).
+- Två Apache HBase-kluster i en Azure-nätverk.
+- Två Apache HBase-kluster i två olika virtuella nätverk i samma region.
+- Två Apache HBase-kluster i två olika virtuella nätverk i två olika regioner (geo-replikering).
 
 Den här artikeln tar upp den geo-replikering.
 
 För att du ställer in miljöer, vi har skapat några [Azure Resource Manager-mallar](../../azure-resource-manager/resource-group-overview.md). Om du föredrar att ställa in miljöer genom att använda andra metoder, se:
 
-- [Skapa Hadoop-kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
-- [Skapa HBase-kluster i Azure-nätverk](apache-hbase-provision-vnet.md)
+- [Skapa Apache Hadoop-kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
+- [Skapa Apache HBase-kluster i Azure-nätverk](apache-hbase-provision-vnet.md)
 
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>Konfigurera två virtuella nätverk i två olika regioner
 
@@ -256,9 +256,9 @@ Du kan ansluta till två DNS-virtuella datorer med SSH och pinga den DNS-servern
 sudo service bind9 status
 ```
 
-## <a name="create-hbase-clusters"></a>Skapa HBase-kluster
+## <a name="create-apache-hbase-clusters"></a>Skapa Apache HBase-kluster
 
-Skapa ett HBase-kluster i var och en av de två virtuella nätverk med följande konfiguration:
+Skapa en [Apache HBase](http://hbase.apache.org/) kluster i var och en av de två virtuella nätverk med följande konfiguration:
 
 - **Resursgruppens namn**: Använd samma resursgruppnamn som du skapade de virtuella nätverken.
 - **Typ av kluster**: HBase
@@ -274,7 +274,7 @@ För att säkerställa miljön är rätt konfigurerad, måste du kunna pinga den
 
 När du replikerar ett kluster måste du ange de tabeller som du vill replikera. I det här avsnittet ska läsa du in data i källklustret. I nästa avsnitt aktiverar du replikering mellan två kluster.
 
-Skapa en **kontakter** tabellen och infoga data i tabellen, följ instruktionerna på [självstudier för HBase: komma igång med Apache HBase i HDInsight](apache-hbase-tutorial-get-started-linux.md).
+Skapa en **kontakter** tabellen och infoga data i tabellen, följ instruktionerna på [självstudier för Apache HBase: komma igång med Apache HBase i HDInsight](apache-hbase-tutorial-get-started-linux.md).
 
 ## <a name="enable-replication"></a>Aktivera replikering
 
@@ -293,7 +293,7 @@ Följande steg beskriver hur du anropar åtgärdsskriptet skriptet från Azure-p
   3.  **HEAD**: se till att det här alternativet väljs. Ta bort andra nodtyper.
   4. **Parametrar**: exempelparametrarna i följande aktiverar replikering för alla befintliga tabeller och sedan kopiera alla data från källklustret till målklustret:
 
-          -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
+          -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     
     >[!note]
     >
@@ -317,7 +317,7 @@ Valfria argument:
 |-su-och--src-ambari-användare | Anger ett administratörsanvändarnamn för Ambari på källan HBase-kluster. Standardvärdet är **admin**. |
 |-du--dst-ambari-användare | Anger ett administratörsanvändarnamn för Ambari på mål HBase-kluster. Standardvärdet är **admin**. |
 |-t,--tabell lista | Anger tabellerna som ska replikeras. Till exempel:--Tabellista = ”tabell1; tabell2; tabell 3”. Om du inte anger tabeller, replikeras alla befintliga HBase-tabeller.|
-|-m, – dator | Anger huvudnoden där skriptåtgärd körs. Värdet är antingen **hn1** eller **hn0**. Eftersom den **hn0** Huvudnoden är vanligtvis ju mer upptagen, bör du använda **hn1**. Använd det här alternativet när du kör skriptet $0 som en skriptåtgärd från HDInsight-portalen eller Azure PowerShell.|
+|-m, – dator | Anger huvudnoden där skriptåtgärd körs. Värdet är antingen **hn0** eller **hn1** och bör vara den valda baserat på vilket är den aktiva huvudnoden. Använd det här alternativet när du kör skriptet $0 som en skriptåtgärd från HDInsight-portalen eller Azure PowerShell.|
 |-cp, - copydata | Gör det möjligt att migrera befintliga data i tabellerna där replikering har aktiverats. |
 |-rpm, -replikera-phoenix-metadata | Aktiverar replikering på Phoenix systemtabeller. <br><br>*Använd det här alternativet med försiktighet.* Vi rekommenderar att du återskapar Phoenix tabeller på repliken kluster innan du använder det här skriptet. |
 |-h, – hjälp | Visar användningsinformation. |
@@ -332,19 +332,19 @@ I följande lista visas ibland allmän användning och deras parameterinställni
 
 - **Aktivera replikering för alla tabeller mellan två kluster**. Det här scenariot kräver inte kopiera eller migrera befintliga data i tabeller och den använder inte Phoenix tabeller. Använd följande parametrar:
 
-        -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>  
+        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>  
 
 - **Aktivera replikering på specifika tabeller**. Om du vill aktivera replikering på tabell1 och tabell2 tabell 3 måste du använda följande parametrar:
 
-        -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3"
+        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3"
 
 - **Aktivera replikering på specifika tabeller och kopiera den befintliga informationen**. Om du vill aktivera replikering på tabell1 och tabell2 tabell 3 måste du använda följande parametrar:
 
-        -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata
+        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata
 
 - **Aktivera replikering för alla tabeller och replikera Phoenix metadata från källan till målet**. Phoenix metadata replikering är inte exakt. Du kan använda den med försiktighet. Använd följande parametrar:
 
-        -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta
+        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta
 
 ## <a name="copy-and-migrate-data"></a>Kopiera och migrera data
 
@@ -379,7 +379,7 @@ Den `print_usage()` delen av den [skriptet](https://github.com/Azure/hbase-utils
 
 Inaktivera replikering med ett annat skript åtgärdsskriptet från [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh). Du kan följa samma steg som beskrivs i [Aktivera replikering](#enable-replication) att anropa skriptåtgärden. Använd följande parametrar:
 
-    -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari password> <-all|-t "table1;table2;...">  
+    -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> <-all|-t "table1;table2;...">  
 
 Den `print_usage()` delen av den [skriptet](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh) har en detaljerad förklaring av parametrarna.
 
@@ -387,20 +387,20 @@ Den `print_usage()` delen av den [skriptet](https://raw.githubusercontent.com/Az
 
 - **Inaktivera replikering på alla tabeller**:
 
-        -m hn1 -s <source cluster DNS name> -sp Mypassword\!789 -all
+        -m hn1 -s <source hbase cluster name> -sp Mypassword\!789 -all
   eller
 
-        --src-cluster=<source cluster DNS name> --dst-cluster=<destination cluster DNS name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
+        --src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
 
 - **Inaktivera replikering på angivna tabellerna (tabell1 tabell2 och tabell 3)**:
 
-        -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari password> -t "table1;table2;table3"
+        -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du ställer in HBase-replikering inom ett virtuellt nätverk, eller mellan två virtuella nätverk. Om du vill veta mer om HDInsight och HBase kan du läsa följande artiklar:
+I den här självstudien har du lärt dig hur du konfigurerar Apache HBase-replikering inom ett virtuellt nätverk, eller mellan två virtuella nätverk. Om du vill veta mer om HDInsight och Apache HBase kan du läsa följande artiklar:
 
 * [Kom igång med Apache HBase i HDInsight](./apache-hbase-tutorial-get-started-linux.md)
-* [HDInsight HBase-översikt](./apache-hbase-overview.md)
-* [Skapa HBase-kluster i Azure-nätverk](./apache-hbase-provision-vnet.md)
+* [HDInsight Apache HBase-översikt](./apache-hbase-overview.md)
+* [Skapa Apache HBase-kluster i Azure-nätverk](./apache-hbase-provision-vnet.md)
 

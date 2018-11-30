@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: c3bdad6f1c199dda867370126eb7dcf5c296a12d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 853bf9cfce458e6f112101b1382dd5bfd5df202d
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230435"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499122"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapacitetsplanering för HDInsight-kluster
 
@@ -61,7 +61,7 @@ För ett kluster med noder 48 rekommenderar vi 4 till 8 storage-konton. Även om
 
 ## <a name="choose-a-cluster-type"></a>Välj en typ av kluster
 
-Klustertypen anger arbetsbelastningen i ditt HDInsight-kluster är konfigurerad för att köras, till exempel Hadoop, Storm, Kafka och Spark. En detaljerad beskrivning av de tillgängliga typerna finns i [introduktion till Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Varje typ av kluster har en specifik distributionstopologi som innehåller kraven för storlek och antalet noder.
+Klustertypen anger arbetsbelastningen i ditt HDInsight-kluster är konfigurerad för att köras som [Apache Hadoop](https://hadoop.apache.org/), [Apache Storm](https://storm.apache.org/), [Apache Kafka](https://kafka.apache.org/), eller [ Apache Spark](https://spark.apache.org/). En detaljerad beskrivning av de tillgängliga typerna finns i [introduktion till Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Varje typ av kluster har en specifik distributionstopologi som innehåller kraven för storlek och antalet noder.
 
 ## <a name="choose-the-vm-size-and-type"></a>Välj VM-storlek och typ
 
@@ -79,7 +79,7 @@ VM-storlek och typ bestäms av CPU-belastningen ström, RAM-storleken och svarst
 
 ## <a name="choose-the-cluster-scale"></a>Välj skala för kluster
 
-Skala ett kluster bestäms av antalet Virtuella noder. För samtliga klustertyper finns nodtyper som har en specifik skala och nodtyper som har stöd för skalbar. Ett kluster kan exempelvis kräva exakt tre ZooKeeper-noder eller två huvudnoder. Arbetsnoder som gör databearbetning i ett distribuerat sätt dra nytta av utskalning, genom att lägga till ytterligare arbetsnoder.
+Skala ett kluster bestäms av antalet Virtuella noder. För samtliga klustertyper finns nodtyper som har en specifik skala och nodtyper som har stöd för skalbar. Ett kluster kan till exempel kräva exakt tre [Apache ZooKeeper](https://zookeeper.apache.org/) noder eller två huvudnoder. Arbetsnoder som gör databearbetning i ett distribuerat sätt dra nytta av utskalning, genom att lägga till ytterligare arbetsnoder.
 
 Beroende på din typ av kluster, ökar antalet arbetsnoder lägger till ytterligare beräkningskapacitet (till exempel fler kärnor), men kan också lägga till den totala mängden minne som krävs att stödja minnesintern lagring av data som bearbetas hela klustret. Precis som med valet av VM-storlek och typ, är att välja rätt kluster skalan vanligtvis nått empiriskt, med simulerade arbetsbelastningar eller kontrollvärde frågor.
 
@@ -90,7 +90,7 @@ Du kan skala ut klustret för att möta toppefterfrågan belastningen och sedan 
 Du debiteras för ett kluster livslängd. Om det finns endast specifika tidpunkter som du behöver dina kluster vara igång och körs, kan du [Skapa kluster på begäran med Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). Du kan också skapa PowerShell-skript som etablerar eller ta bort ditt kluster och sedan schemalägger du dessa skript med hjälp av [Azure Automation](https://azure.microsoft.com/services/automation/).
 
 > [!NOTE]
-> När ett kluster tas bort så raderas även dess standard Hive-metaarkiv. Använda extern metadatalagring till exempel Azure-databas eller Oozie för att bevara metaarkiv för nästa återskapar för klustret.
+> När ett kluster tas bort så raderas även dess standard Hive-metaarkiv. Använda extern metadatalagring som Azure Database för att bevara metaarkiv för nästa nytt skapa ett kluster eller [Apache Oozie](https://oozie.apache.org/).
 <!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
 ### <a name="isolate-cluster-job-errors"></a>Isolera kluster jobbfel
@@ -109,5 +109,5 @@ Men det finns vissa fast kvotgränser, till exempel en enskild Azure-prenumerati
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurera kluster i HDInsight med Hadoop, Spark, Kafka med mera](hdinsight-hadoop-provision-linux-clusters.md): Lär dig att installera och konfigurera kluster i HDInsight med Hadoop, Spark, Kafka, Interactive Hive, HBase, ML-tjänster eller Storm.
+* [Konfigurera kluster i HDInsight med Apache Hadoop, Spark, Kafka med mera](hdinsight-hadoop-provision-linux-clusters.md): Lär dig att installera och konfigurera kluster i HDInsight med Apache Hadoop, Spark, Kafka, Interactive Hive, HBase, ML-tjänster eller Storm.
 * [Övervaka klusterprestanda](hdinsight-key-scenarios-to-monitor.md): Lär dig mer om viktiga scenarier för att övervaka ditt HDInsight-kluster som kan påverka din klustrets kapacitet.

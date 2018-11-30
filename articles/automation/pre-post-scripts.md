@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 245cbd86ae43560e4e41f4b97350f9a5857e1b25
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d84596b586ea54dd4a64faf46b32226862d83198
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956633"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584629"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Hantera skript före och efter (förhandsversion)
 
@@ -220,8 +220,6 @@ if ($summary.Type -eq "Error")
 ## <a name="known-issues"></a>Kända problem
 
 * Du kan inte skicka objekt eller matriser till parametrar när du använder skript före och efter. Runbook misslyckas.
-* Runbooks som inte har publicerats visas som kan väljas när du väljer ett i förväg eller post skript. Runbooks som publiceras bör väljas som Opublicerat runbooks inte kan anropas och kommer att misslyckas.
-* Datorer som har lagts till i en distribution med hjälp av [dynamiska grupper (förhandsversion)](automation-update-management.md#using-dynamic-groups) är inte just nu en del av den **SoftwareUpdateConfigurationRunContext** parameter som skickades till skript före och efter.
 
 ## <a name="next-steps"></a>Nästa steg
 

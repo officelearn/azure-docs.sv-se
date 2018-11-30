@@ -5,17 +5,17 @@ author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 11/20/2018
 ms.author: rithorn
-ms.openlocfilehash: 6a45ffa13ead40b72fd1a0a3c2696a6e6829a4d5
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.topic: conceptual
+ms.openlocfilehash: 699a9b7a371a004213419567d0672f56b5365598
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956416"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620122"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Skapa hanteringsgrupper för resursorganisationen och hantering
 
@@ -29,7 +29,7 @@ Du kan skapa hanteringsgruppen med hjälp av portalen, PowerShell eller Azure CL
 
 ### <a name="create-in-portal"></a>Skapa i portalen
 
-1. Logga in på [Azure Portal](http://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Välj **alla tjänster** > **hanteringsgrupper**.
 
@@ -76,8 +76,8 @@ az account management-group create --name 'Contoso'
 
 Läs mer om hanteringslösningar här:
 
-- [Organisera dina resurser med Azure-hanteringsgrupper](overview.md)
+- [Skapa hanteringsgrupper för att organisera Azure-resurser](create.md)
 - [Så här ändrar, raderar och hanterar du dina hanteringsgrupper](manage.md)
-- [Installera Azure PowerShell-modulen](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [Granska specifikationerna för REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [Installera Azure CLI-tillägg](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)
+- [Granska av hanteringsgrupper i Azure PowerShell-modulen för resurser](https://aka.ms/mgPSdocs)
+- [Granska hanteringsgrupper i REST-API](https://aka.ms/mgAPIdocs)
+- [Granska av hanteringsgrupper i Azure CLI](https://aka.ms/mgclidoc)

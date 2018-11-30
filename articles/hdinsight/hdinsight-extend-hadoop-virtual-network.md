@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 62502e946922928b8b4179d38ce9f9ae55f9930d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 308527bce2048921c2af65aa78a12d8ef2c2bed2
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238989"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497777"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Utöka Azure HDInsight med hjälp av Azure Virtual Network
 
@@ -25,7 +25,7 @@ Lär dig hur du använder HDInsight med en [Azure Virtual Network](../virtual-ne
 
 * Ansluta HDInsight till data som lagras i ett virtuellt Azure-nätverk.
 
-* Direkt åtkomst till Apache Hadoop-tjänster som inte är tillgängliga offentligt över internet. Till exempel Kafka-API: er eller HBase Java-API.
+* Direkt åtkomst till [Apache Hadoop](https://hadoop.apache.org/) tjänster som inte är tillgänglig offentligt över internet. Till exempel [Apache Kafka](https://kafka.apache.org/) API: er eller [Apache HBase](https://hbase.apache.org/) Java API.
 
 > [!WARNING]
 > Informationen i det här dokumentet kräver kunskap om TCP/IP-nätverk. Om du inte är bekant med TCP/IP-nätverk, bör du samarbeta med någon som innan du gör ändringar i produktionsnätverk.
@@ -171,11 +171,11 @@ Om du vill aktivera namnmatchningen mellan det virtuella nätverket och resurser
 
 Mer information finns i den [namnmatchning för virtuella datorer och Rollinstanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) dokumentet.
 
-## <a name="directly-connect-to-hadoop-services"></a>Ansluta direkt till Hadoop-tjänster
+## <a name="directly-connect-to-apache-hadoop-services"></a>Ansluta direkt till Apache Hadoop-tjänster
 
 Du kan ansluta till klustret på https://CLUSTERNAME.azurehdinsight.net. Den här adressen använder en offentlig IP-adress som kanske inte kan nås om du har använt NSG: er för att begränsa inkommande trafik från internet. Dessutom när du distribuerar klustret i ett virtuellt nätverk du har åtkomst till den med hjälp av privata slutpunkt https://CLUSTERNAME-int.azurehdinsight.net. Den här slutpunkten motsvarar en privat IP-adress i virtuellt nätverk för åtkomst till klustret.
 
-Använd följande steg när du ansluter till Ambari och andra webbsidor via det virtuella nätverket:
+Använd följande steg för att ansluta till Apache Ambari och andra webbsidor via det virtuella nätverket:
 
 1. Använd någon av följande metoder för att identifiera de interna fullständigt kvalificerade domännamn (FQDN) för noderna i HDInsight:
 
@@ -316,7 +316,7 @@ Om du tänker använda ett nätverk **virtuell installation brandväggen** för 
 * 11000-11999
 * 14000-14999
 
-En lista över portar för specifika tjänster finns i den [portar som används av Hadoop-tjänster på HDInsight](hdinsight-hadoop-port-settings-for-services.md) dokumentet.
+En lista över portar för specifika tjänster finns i den [portar som används av Apache Hadoop-tjänster på HDInsight](hdinsight-hadoop-port-settings-for-services.md) dokumentet.
 
 Mer information om brandväggsregler för virtuella installationer finns på [virtuella utrustningsscenario](../virtual-network/virtual-network-scenario-udr-gw-nva.md) dokumentet.
 
@@ -660,8 +660,8 @@ När du har slutfört de här stegen kan du ansluta till resurser i det virtuell
 ## <a name="next-steps"></a>Nästa steg
 
 * Slutpunkt till slutpunkt-exempel på hur du konfigurerar HDInsight för att ansluta till ett lokalt nätverk finns i [ansluta HDInsight till ett lokalt nätverk](./connect-on-premises-network.md).
-* Konfigurera Hbase-kluster i Azure-nätverk, finns i [skapa HBase-kluster i HDInsight i Azure Virtual Network](hbase/apache-hbase-provision-vnet.md).
-* Konfigurera HBase-geo-replikering finns i [Konfigurera replikering av HBase-kluster i Azure-nätverk](hbase/apache-hbase-replication.md).
+* Konfigurera Apache Hbase-kluster i Azure-nätverk, finns i [skapa Apache HBase-kluster i HDInsight i Azure Virtual Network](hbase/apache-hbase-provision-vnet.md).
+* Konfigurerar Apache HBase-geo-replikering finns i [Konfigurera replikering för Apache HBase-kluster i Azure-nätverk](hbase/apache-hbase-replication.md).
 * Mer information om virtuella Azure-nätverk finns i den [översikt över Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
 * Mer information om nätverkssäkerhetsgrupper finns i [Nätverkssäkerhetsgrupper](../virtual-network/security-overview.md).

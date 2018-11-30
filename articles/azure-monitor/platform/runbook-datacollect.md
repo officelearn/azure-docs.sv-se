@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 1472e6cf05485b942c93f632c147fcb0b0311c61
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 87ceb682f35626c5bf468afd83a2f4a35901ef2b
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828745"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632355"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Samla in data i Log Analytics med en Azure Automation-runbook
-Du kan samla in en betydande mängd data i Log Analytics från olika källor, inklusive [datakällor](../../log-analytics/log-analytics-data-sources.md) på agenter och även [data som samlas in från Azure](../../log-analytics/log-analytics-azure-storage.md).  Det finns en scenarier om när du behöver samla in data som inte är tillgängliga via dessa källor som standard.  I dessa fall kan du använda den [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) att skriva data till Log Analytics från en REST API-klient.  En vanlig metod att utföra den här Datasamlingen med hjälp av en runbook i Azure Automation.   
+Du kan samla in en betydande mängd data i Log Analytics från olika källor, inklusive [datakällor](../../azure-monitor/platform/agent-data-sources.md) på agenter och även [data som samlas in från Azure](../../log-analytics/log-analytics-azure-storage.md).  Det finns en scenarier om när du behöver samla in data som inte är tillgängliga via dessa källor som standard.  I dessa fall kan du använda den [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) att skriva data till Log Analytics från en REST API-klient.  En vanlig metod att utföra den här Datasamlingen med hjälp av en runbook i Azure Automation.   
 
 Den här självstudien beskriver steg för att skapa och schemalägga en runbook i Azure Automation för att skriva data till Log Analytics.
 
@@ -212,7 +212,7 @@ Varje gång du startar en runbook [skapas ett jobb](../../automation/automation-
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Använd [Vydesigner](../../log-analytics/log-analytics-view-designer.md) att skapa en vy som visar data som du har lagrat i Log Analytics-databasen.
+- Använd [Vydesigner](../../azure-monitor/platform/view-designer.md) att skapa en vy som visar data som du har lagrat i Log Analytics-databasen.
 - Paketera din runbook i en [hanteringslösning](../../azure-monitor/insights/solutions-creating.md) att distribuera till kunder.
 - Läs mer om [Log Analytics](https://docs.microsoft.com/azure/log-analytics/).
 - Läs mer om [Azure Automation](https://docs.microsoft.com/azure/automation/).

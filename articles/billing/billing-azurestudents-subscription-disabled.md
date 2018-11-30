@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 03/01/2018
 ms.author: cwatson
 ROBOTS: NOINDEX
-ms.openlocfilehash: d7bf1d06c598dd7e548c109f68d0996c0be2b6b8
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: c8d78d51425ea5a5fc2f3b326710b3c2ad5a6a06
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391376"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581858"
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>Varför är min Azure för studenter-prenumeration som är inaktiverad och hur jag återaktivera den?
 
@@ -57,6 +57,6 @@ Din Azure för studenter-kredit upphör att gälla i slutet av 12 månader. När
 
 Om du av misstag har avbrutit din Azure för studenter-prenumeration, du kan återaktivera den genom att kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). När du skulle vilja återaktivera har du fortfarande åtkomst till de återstående kredit och kostnadsfria tjänster i 12 månader från din registrering datum.
 
-## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du fortfarande behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

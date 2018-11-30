@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 769d810eb20b70a955560e6bf2a5b533ea6e55f0
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: f27b80a99dbe65d628453c5222ef4fcdf7e0f982
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395533"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580396"
 ---
 # <a name="view-all-your-billing-accounts-in-azure-portal"></a>Visa alla fakturering konton i Azure-portalen  
 
@@ -41,7 +41,6 @@ För personliga fakturering konton som du kan hantera och visa alla kostnader p�
 
     ![Skärmbild som visar listan över fakturering konton](./media/billing-view-all-accounts/billing-list-of-accounts.png)
 
- 
-## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

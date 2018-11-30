@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: c3e0bd338c38165d3a372f60e12ff5ddaa05d2a0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 899792be583f3b2e2a16e42472fcdf87bf751893
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248290"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635500"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Komma igång med Azure Queue storage och Visual Studio-anslutna tjänster (WebJob-projekt)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -35,45 +35,55 @@ Om du vill skriva en funktion som WebJobs SDK anropar när ett kömeddelande tas
 ### <a name="string-queue-messages"></a>Sträng-Kömeddelanden
 I följande exempel kön innehåller meddelandet sträng så **QueueTrigger** tillämpas på en strängparameter med namnet **logMessage** som innehåller innehållet i kömeddelandet. Funktionen [skriver ett loggmeddelande till instrumentpanelen](#how-to-write-logs).
 
-        public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
-        {
-            logger.WriteLine(logMessage);
-        }
+```csharp
+public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
+{
+    logger.WriteLine(logMessage);
+}
+```
 
 Förutom **sträng**, parametern kan vara en bytematris en **CloudQueueMessage** objekt eller en POCO som du definierar.
 
 ### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(vanlig gamla CLR-objekt](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) meddelanden i kö
 I följande exempel innehåller kömeddelandet JSON för en **BlobInformation** objekt som innehåller en **BlobName** egenskapen. SDK: N deserializes automatiskt objektet.
 
-        public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobInfo, TextWriter logger)
-        {
-            logger.WriteLine("Queue message refers to blob: " + blobInfo.BlobName);
-        }
+```csharp
+public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobInfo, TextWriter logger)
+{
+    logger.WriteLine("Queue message refers to blob: " + blobInfo.BlobName);
+}
+```
 
 SDK: N använder den [Newtonsoft.Json NuGet-paketet](http://www.nuget.org/packages/Newtonsoft.Json) att serialisera och deserialisera meddelanden. Om du skapar Kömeddelanden i ett program som inte använder WebJobs-SDK kan du skriva kod som i följande exempel för att skapa en POCO-kömeddelande som SDK: N kan parsa.
 
-        BlobInformation blobInfo = new BlobInformation() { BlobName = "log.txt" };
-        var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
-        logQueue.AddMessage(queueMessage);
+```csharp
+BlobInformation blobInfo = new BlobInformation() { BlobName = "log.txt" };
+var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
+logQueue.AddMessage(queueMessage);
+```
 
 ### <a name="async-functions"></a>Async-funktioner
 Följande async-funktion [skriver en logg till instrumentpanelen](#how-to-write-logs).
 
-        public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
-        {
-            await logger.WriteLineAsync(logMessage);
-        }
+```csharp
+public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
+{
+    await logger.WriteLineAsync(logMessage);
+}
+```
 
 Async-funktioner kan ta en [annullering token](http://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken), enligt följande exempel som kopierar en blob. (En förklaring av den **queueTrigger** platshållaren finns i den [Blobar](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) avsnittet.)
 
-        public async static Task ProcessQueueMessageAsyncCancellationToken(
-            [QueueTrigger("blobcopyqueue")] string blobName,
-            [Blob("textblobs/{queueTrigger}",FileAccess.Read)] Stream blobInput,
-            [Blob("textblobs/{queueTrigger}-new",FileAccess.Write)] Stream blobOutput,
-            CancellationToken token)
-        {
-            await blobInput.CopyToAsync(blobOutput, 4096, token);
-        }
+```csharp
+public async static Task ProcessQueueMessageAsyncCancellationToken(
+    [QueueTrigger("blobcopyqueue")] string blobName,
+    [Blob("textblobs/{queueTrigger}",FileAccess.Read)] Stream blobInput,
+    [Blob("textblobs/{queueTrigger}-new",FileAccess.Write)] Stream blobOutput,
+    CancellationToken token)
+{
+    await blobInput.CopyToAsync(blobOutput, 4096, token);
+}
+```
 
 ## <a name="types-the-queuetrigger-attribute-works-with"></a>Typer av attributet QueueTrigger fungerar med
 Du kan använda **QueueTrigger** med följande typer:
@@ -109,30 +119,32 @@ Om du vill arbeta direkt med API: et för Azure storage, du kan också lägga ti
 
 I följande exempel skriver alla dessa metadata till en INFO programloggen. I det här exemplet innehålla både logMessage och queueTrigger du innehållet i kömeddelandet.
 
-        public static void WriteLog([QueueTrigger("logqueue")] string logMessage,
-            DateTimeOffset expirationTime,
-            DateTimeOffset insertionTime,
-            DateTimeOffset nextVisibleTime,
-            string id,
-            string popReceipt,
-            int dequeueCount,
-            string queueTrigger,
-            CloudStorageAccount cloudStorageAccount,
-            TextWriter logger)
-        {
-            logger.WriteLine(
-                "logMessage={0}\n" +
-            "expirationTime={1}\ninsertionTime={2}\n" +
-                "nextVisibleTime={3}\n" +
-                "id={4}\npopReceipt={5}\ndequeueCount={6}\n" +
-                "queue endpoint={7} queueTrigger={8}",
-                logMessage, expirationTime,
-                insertionTime,
-                nextVisibleTime, id,
-                popReceipt, dequeueCount,
-                cloudStorageAccount.QueueEndpoint,
-                queueTrigger);
-        }
+```csharp
+public static void WriteLog([QueueTrigger("logqueue")] string logMessage,
+    DateTimeOffset expirationTime,
+    DateTimeOffset insertionTime,
+    DateTimeOffset nextVisibleTime,
+    string id,
+    string popReceipt,
+    int dequeueCount,
+    string queueTrigger,
+    CloudStorageAccount cloudStorageAccount,
+    TextWriter logger)
+{
+    logger.WriteLine(
+        "logMessage={0}\n" +
+        "expirationTime={1}\ninsertionTime={2}\n" +
+        "nextVisibleTime={3}\n" +
+        "id={4}\npopReceipt={5}\ndequeueCount={6}\n" +
+        "queue endpoint={7} queueTrigger={8}",
+        logMessage, expirationTime,
+        insertionTime,
+        nextVisibleTime, id,
+        popReceipt, dequeueCount,
+        cloudStorageAccount.QueueEndpoint,
+        queueTrigger);
+}
+```
 
 Här är en exempellogg som skrivits av exempelkoden:
 
@@ -151,22 +163,24 @@ En funktion som körs i ett kontinuerligt Webbjobb kan acceptera en **Cancellati
 
 I följande exempel visas hur du kontrollerar om nära förestående WebJob avslutning i en funktion.
 
-    public static void GracefulShutdownDemo(
-                [QueueTrigger("inputqueue")] string inputText,
-                TextWriter logger,
-                CancellationToken token)
+```csharp
+public static void GracefulShutdownDemo(
+            [QueueTrigger("inputqueue")] string inputText,
+            TextWriter logger,
+            CancellationToken token)
+{
+    for (int i = 0; i < 100; i++)
     {
-        for (int i = 0; i < 100; i++)
+        if (token.IsCancellationRequested)
         {
-            if (token.IsCancellationRequested)
-            {
-                logger.WriteLine("Function was cancelled at iteration {0}", i);
-                break;
-            }
-            Thread.Sleep(1000);
-            logger.WriteLine("Normal processing for queue message={0}", inputText);
+            logger.WriteLine("Function was cancelled at iteration {0}", i);
+            break;
         }
+        Thread.Sleep(1000);
+        logger.WriteLine("Normal processing for queue message={0}", inputText);
     }
+}
+```
 
 **Obs:** instrumentpanelen kanske inte korrekt visar status och utdata för funktioner som har stängts av.
 
@@ -178,37 +192,43 @@ Om du vill skriva en funktion som skapar ett nytt meddelande i kön, använder d
 ### <a name="string-queue-messages"></a>Sträng-Kömeddelanden
 Följande kodexempel för icke-async skapar ett nytt meddelande i kön i kön med namnet ”outputqueue” med samma innehåll som tas emot i kön med namnet ”inputqueue” kömeddelandet. (Vid asynkron functions använder **IAsyncCollector<T>**  som du ser senare i det här avsnittet.)
 
-        public static void CreateQueueMessage(
-            [QueueTrigger("inputqueue")] string queueMessage,
-            [Queue("outputqueue")] out string outputQueueMessage )
-        {
-            outputQueueMessage = queueMessage;
-        }
+```csharp
+public static void CreateQueueMessage(
+    [QueueTrigger("inputqueue")] string queueMessage,
+    [Queue("outputqueue")] out string outputQueueMessage )
+{
+    outputQueueMessage = queueMessage;
+}
+```
 
 ### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(vanlig gamla CLR-objekt](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) meddelanden i kö
 Om du vill skapa ett kömeddelande som innehåller en POCO i stället för en sträng, skicka POCO-typ som en output-parameter till den **kö** attributkonstruktör.
 
-        public static void CreateQueueMessage(
-            [QueueTrigger("inputqueue")] BlobInformation blobInfoInput,
-            [Queue("outputqueue")] out BlobInformation blobInfoOutput )
-        {
-            blobInfoOutput = blobInfoInput;
-        }
+```csharp
+public static void CreateQueueMessage(
+    [QueueTrigger("inputqueue")] BlobInformation blobInfoInput,
+    [Queue("outputqueue")] out BlobInformation blobInfoOutput )
+{
+    blobInfoOutput = blobInfoInput;
+}
+```
 
 SDK: N Serialiserar automatiskt objekt till JSON. Ett kömeddelande skapas alltid, även om objektet är null.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>Skapa flera meddelanden eller i async-funktioner
 Om du vill skapa flera meddelanden, göra parametertypen för den utgående kön **ICollector<T>**  eller **IAsyncCollector<T>**, enligt följande exempel.
 
-        public static void CreateQueueMessages(
-            [QueueTrigger("inputqueue")] string queueMessage,
-            [Queue("outputqueue")] ICollector<string> outputQueueMessage,
-            TextWriter logger)
-        {
-            logger.WriteLine("Creating 2 messages in outputqueue");
-            outputQueueMessage.Add(queueMessage + "1");
-            outputQueueMessage.Add(queueMessage + "2");
-        }
+```csharp
+public static void CreateQueueMessages(
+    [QueueTrigger("inputqueue")] string queueMessage,
+    [Queue("outputqueue")] ICollector<string> outputQueueMessage,
+    TextWriter logger)
+{
+    logger.WriteLine("Creating 2 messages in outputqueue");
+    outputQueueMessage.Add(queueMessage + "1");
+    outputQueueMessage.Add(queueMessage + "2");
+}
+```
 
 Varje meddelande i kön skapas direkt när den **Lägg till** metoden anropas.
 
@@ -228,15 +248,17 @@ Om du vill göra en del arbete i din funktion innan du använder ett WebJobs-SDK
 
 I följande exempel tar ett inkommande kö-meddelande och skapar ett nytt meddelande med samma innehåll i en utgående kö. Könamn utdata har angetts av kod i brödtexten till funktionen.
 
-        public static void CreateQueueMessage(
-            [QueueTrigger("inputqueue")] string queueMessage,
-            IBinder binder)
-        {
-            string outputQueueName = "outputqueue" + DateTime.Now.Month.ToString();
-            QueueAttribute queueAttribute = new QueueAttribute(outputQueueName);
-            CloudQueue outputQueue = binder.Bind<CloudQueue>(queueAttribute);
-            outputQueue.AddMessage(new CloudQueueMessage(queueMessage));
-        }
+```csharp
+public static void CreateQueueMessage(
+    [QueueTrigger("inputqueue")] string queueMessage,
+    IBinder binder)
+{
+    string outputQueueName = "outputqueue" + DateTime.Now.Month.ToString();
+    QueueAttribute queueAttribute = new QueueAttribute(outputQueueName);
+    CloudQueue outputQueue = binder.Bind<CloudQueue>(queueAttribute);
+    outputQueue.AddMessage(new CloudQueueMessage(queueMessage));
+}
+```
 
 Den **IBinder** gränssnitt kan också användas med den **tabell** och **Blob** attribut.
 
@@ -249,13 +271,15 @@ Ett meddelande i kön som innehåller en sträng **queueTrigger** är en platsh�
 
 I följande exempel används **Stream** objekt att läsa och skriva BLOB-objekt. Kömeddelandet är namnet på en blob finns i behållaren textblobs. En kopia av blobben med ”-nya” sist i namnet skapas i samma behållare.
 
-        public static void ProcessQueueMessage(
-            [QueueTrigger("blobcopyqueue")] string blobName,
-            [Blob("textblobs/{queueTrigger}",FileAccess.Read)] Stream blobInput,
-            [Blob("textblobs/{queueTrigger}-new",FileAccess.Write)] Stream blobOutput)
-        {
-            blobInput.CopyTo(blobOutput, 4096);
-        }
+```csharp
+public static void ProcessQueueMessage(
+    [QueueTrigger("blobcopyqueue")] string blobName,
+    [Blob("textblobs/{queueTrigger}",FileAccess.Read)] Stream blobInput,
+    [Blob("textblobs/{queueTrigger}-new",FileAccess.Write)] Stream blobOutput)
+{
+    blobInput.CopyTo(blobOutput, 4096);
+}
+```
 
 Den **Blob** attributet konstruktorn tar en **blobPath** parameter som anger namnet på behållare och blobnamn. Läs mer om den här platshållaren [hur du använder Azure blob storage med WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
@@ -263,31 +287,37 @@ När attributet decorates en **Stream** objekt, en annan konstruktorparametern a
 
 I följande exempel används en **CloudBlockBlob** objekt att ta bort en blob. Kömeddelandet är namnet på blobben.
 
-        public static void DeleteBlob(
-            [QueueTrigger("deleteblobqueue")] string blobName,
-            [Blob("textblobs/{queueTrigger}")] CloudBlockBlob blobToDelete)
-        {
-            blobToDelete.Delete();
-        }
+```csharp
+public static void DeleteBlob(
+    [QueueTrigger("deleteblobqueue")] string blobName,
+    [Blob("textblobs/{queueTrigger}")] CloudBlockBlob blobToDelete)
+{
+    blobToDelete.Delete();
+}
+```
 
 ### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(vanlig gamla CLR-objekt](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) meddelanden i kö
 För en POCO lagras som JSON i kömeddelandet, kan du använda platshållare som namnge egenskaperna för objektet i den **kö** attributets **blobPath** parametern. Du kan också använda könamn metadata-egenskap som platshållare. Se [hämta kön eller kön meddelande metadata](#get-queue-or-queue-message-metadata).
 
 I följande exempel kopierar en blob till en ny blob med ett annat tillägg. Kömeddelandet är en **BlobInformation** objekt som innehåller **BlobName** och **BlobNameWithoutExtension** egenskaper. Egenskapsnamnen används som platshållare i blob-sökvägen för den **Blob** attribut.
 
-        public static void CopyBlobPOCO(
-            [QueueTrigger("copyblobqueue")] BlobInformation blobInfo,
-            [Blob("textblobs/{BlobName}", FileAccess.Read)] Stream blobInput,
-            [Blob("textblobs/{BlobNameWithoutExtension}.txt", FileAccess.Write)] Stream blobOutput)
-        {
-            blobInput.CopyTo(blobOutput, 4096);
-        }
+```csharp
+public static void CopyBlobPOCO(
+    [QueueTrigger("copyblobqueue")] BlobInformation blobInfo,
+    [Blob("textblobs/{BlobName}", FileAccess.Read)] Stream blobInput,
+    [Blob("textblobs/{BlobNameWithoutExtension}.txt", FileAccess.Write)] Stream blobOutput)
+{
+    blobInput.CopyTo(blobOutput, 4096);
+}
+```
 
 SDK: N använder den [Newtonsoft.Json NuGet-paketet](http://www.nuget.org/packages/Newtonsoft.Json) att serialisera och deserialisera meddelanden. Om du skapar Kömeddelanden i ett program som inte använder WebJobs-SDK kan du skriva kod som i följande exempel för att skapa en POCO-kömeddelande som SDK: N kan parsa.
 
-        BlobInformation blobInfo = new BlobInformation() { BlobName = "boot.log", BlobNameWithoutExtension = "boot" };
-        var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
-        logQueue.AddMessage(queueMessage);
+```csharp
+BlobInformation blobInfo = new BlobInformation() { BlobName = "boot.log", BlobNameWithoutExtension = "boot" };
+var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
+logQueue.AddMessage(queueMessage);
+```
 
 Om du vill göra en del arbete i din funktion innan du binder en blob till ett objekt kan du kan använda attributet i brödtexten till funktionen, som visas i [använder WebJobs-SDK-attribut i brödtexten i en funktion](#use-webjobs-sdk-attributes-in-the-body-of-a-function).
 
@@ -316,19 +346,21 @@ Skadliga kön heter *{originalqueuename}*-skadliga. Du kan skriva en funktion du
 
 I följande exempel på **CopyBlob** funktionen kommer att misslyckas när ett kömeddelande innehåller namnet på en blob som inte finns. När det sker så flyttas meddelandet från kön copyblobqueue till copyblobqueue poison kön. Den **ProcessPoisonMessage** loggar skadliga meddelandet.
 
-        public static void CopyBlob(
-            [QueueTrigger("copyblobqueue")] string blobName,
-            [Blob("textblobs/{queueTrigger}", FileAccess.Read)] Stream blobInput,
-            [Blob("textblobs/{queueTrigger}-new", FileAccess.Write)] Stream blobOutput)
-        {
-            blobInput.CopyTo(blobOutput, 4096);
-        }
+```csharp
+public static void CopyBlob(
+    [QueueTrigger("copyblobqueue")] string blobName,
+    [Blob("textblobs/{queueTrigger}", FileAccess.Read)] Stream blobInput,
+    [Blob("textblobs/{queueTrigger}-new", FileAccess.Write)] Stream blobOutput)
+{
+    blobInput.CopyTo(blobOutput, 4096);
+}
 
-        public static void ProcessPoisonMessage(
-            [QueueTrigger("copyblobqueue-poison")] string blobName, TextWriter logger)
-        {
-            logger.WriteLine("Failed to copy blob, name=" + blobName);
-        }
+public static void ProcessPoisonMessage(
+    [QueueTrigger("copyblobqueue-poison")] string blobName, TextWriter logger)
+{
+    logger.WriteLine("Failed to copy blob, name=" + blobName);
+}
+```
 
 Följande bild visar konsolens utdata från dessa funktioner när ett skadligt meddelande bearbetas.
 
@@ -337,21 +369,23 @@ Följande bild visar konsolens utdata från dessa funktioner när ett skadligt m
 ### <a name="manual-poison-message-handling"></a>Hantering av manuell skadligt meddelande
 Du kan hämta hur många gånger meddelandet har hämtats för bearbetning genom att lägga till en **int** parameter med namnet **dequeueCount** till din funktion. Du kan kontrollera antalet ta i Funktionskoden och utföra egna skadliga meddelandehantering när antalet överskrider ett tröskelvärde som du ser i följande exempel.
 
-        public static void CopyBlob(
-            [QueueTrigger("copyblobqueue")] string blobName, int dequeueCount,
-            [Blob("textblobs/{queueTrigger}", FileAccess.Read)] Stream blobInput,
-            [Blob("textblobs/{queueTrigger}-new", FileAccess.Write)] Stream blobOutput,
-            TextWriter logger)
-        {
-            if (dequeueCount > 3)
-            {
-                logger.WriteLine("Failed to copy blob, name=" + blobName);
-            }
-            else
-            {
-            blobInput.CopyTo(blobOutput, 4096);
-            }
-        }
+```csharp
+public static void CopyBlob(
+    [QueueTrigger("copyblobqueue")] string blobName, int dequeueCount,
+    [Blob("textblobs/{queueTrigger}", FileAccess.Read)] Stream blobInput,
+    [Blob("textblobs/{queueTrigger}-new", FileAccess.Write)] Stream blobOutput,
+    TextWriter logger)
+{
+    if (dequeueCount > 3)
+    {
+        logger.WriteLine("Failed to copy blob, name=" + blobName);
+    }
+    else
+    {
+        blobInput.CopyTo(blobOutput, 4096);
+    }
+}
+```
 
 ## <a name="how-to-set-configuration-options"></a>Hur du ställer in konfigurationsalternativ
 Du kan använda den **JobHostConfiguration** Skriv för att ange följande konfigurationsalternativ:
@@ -363,24 +397,26 @@ Du kan använda den **JobHostConfiguration** Skriv för att ange följande konfi
 ### <a name="set-sdk-connection-strings-in-code"></a>Ange anslutningssträngar för SDK i koden
 Ange anslutningssträngar för SDK i koden kan du använda din egen anslutning sträng namn i konfigurationsfiler eller miljövariabler, som visas i följande exempel.
 
-        static void Main(string[] args)
-        {
-            var _storageConn = ConfigurationManager
-                .ConnectionStrings["MyStorageConnection"].ConnectionString;
+```csharp
+static void Main(string[] args)
+{
+    var _storageConn = ConfigurationManager
+        .ConnectionStrings["MyStorageConnection"].ConnectionString;
 
-            var _dashboardConn = ConfigurationManager
-                .ConnectionStrings["MyDashboardConnection"].ConnectionString;
+    var _dashboardConn = ConfigurationManager
+        .ConnectionStrings["MyDashboardConnection"].ConnectionString;
 
-            var _serviceBusConn = ConfigurationManager
-                .ConnectionStrings["MyServiceBusConnection"].ConnectionString;
+    var _serviceBusConn = ConfigurationManager
+        .ConnectionStrings["MyServiceBusConnection"].ConnectionString;
 
-            JobHostConfiguration config = new JobHostConfiguration();
-            config.StorageConnectionString = _storageConn;
-            config.DashboardConnectionString = _dashboardConn;
-            config.ServiceBusConnectionString = _serviceBusConn;
-            JobHost host = new JobHost(config);
-            host.RunAndBlock();
-        }
+    JobHostConfiguration config = new JobHostConfiguration();
+    config.StorageConnectionString = _storageConn;
+    config.DashboardConnectionString = _dashboardConn;
+    config.ServiceBusConnectionString = _serviceBusConn;
+    JobHost host = new JobHost(config);
+    host.RunAndBlock();
+}
+```
 
 ### <a name="configure-queuetrigger--settings"></a>Konfigurera inställningar för QueueTrigger
 Du kan konfigurera följande inställningar som gäller för meddelandehantering kö:
@@ -391,15 +427,17 @@ Du kan konfigurera följande inställningar som gäller för meddelandehantering
 
 I följande exempel visas hur du konfigurerar dessa inställningar:
 
-        static void Main(string[] args)
-        {
-            JobHostConfiguration config = new JobHostConfiguration();
-            config.Queues.BatchSize = 8;
-            config.Queues.MaxDequeueCount = 4;
-            config.Queues.MaxPollingInterval = TimeSpan.FromSeconds(15);
-            JobHost host = new JobHost(config);
-            host.RunAndBlock();
-        }
+```csharp
+static void Main(string[] args)
+{
+    JobHostConfiguration config = new JobHostConfiguration();
+    config.Queues.BatchSize = 8;
+    config.Queues.MaxDequeueCount = 4;
+    config.Queues.MaxPollingInterval = TimeSpan.FromSeconds(15);
+    JobHost host = new JobHost(config);
+    host.RunAndBlock();
+}
+```
 
 ### <a name="set-values-for-webjobs-sdk-constructor-parameters-in-code"></a>Ange värden för WebJobs SDK konstruktor parametrar i kod
 Vill ibland du ange en kö, ett blobnamn eller behållare eller en tabell i kod i stället för hårdkoda ge den namnet. Du kanske exempelvis vill ange namnet på kön för **QueueTrigger** i en konfiguration av fil- eller miljö variabel.
@@ -408,54 +446,62 @@ Du kan göra det genom att skicka in en **NameResolver** objekt till den **JobHo
 
 Anta exempelvis att du vill använda en kö med namnet logqueuetest i testmiljön och en namngiven logqueueprod i produktion. I stället för ett hårdkodat könamn som du vill ange namnet på en post i den **appSettings** samling som skulle ha faktiska könamnet. Om den **appSettings** nyckeln är logqueue, din funktion bör se ut som i följande exempel.
 
-        public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
-        {
-            Console.WriteLine(logMessage);
-        }
+```csharp
+public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
+{
+    Console.WriteLine(logMessage);
+}
+```
 
 Din **NameResolver** klassen kan sedan hämta könamn från **appSettings** som visas i följande exempel:
 
-        public class QueueNameResolver : INameResolver
-        {
-            public string Resolve(string name)
-            {
-                return ConfigurationManager.AppSettings[name].ToString();
-            }
-        }
+```csharp
+public class QueueNameResolver : INameResolver
+{
+    public string Resolve(string name)
+    {
+        return ConfigurationManager.AppSettings[name].ToString();
+    }
+}
+```
 
 Du skickar den **NameResolver** klassen i till den **JobHost** objekt som visas i följande exempel.
 
-        static void Main(string[] args)
-        {
-            JobHostConfiguration config = new JobHostConfiguration();
-            config.NameResolver = new QueueNameResolver();
-            JobHost host = new JobHost(config);
-            host.RunAndBlock();
-        }
+```csharp
+static void Main(string[] args)
+{
+    JobHostConfiguration config = new JobHostConfiguration();
+    config.NameResolver = new QueueNameResolver();
+    JobHost host = new JobHost(config);
+    host.RunAndBlock();
+}
+```
 
 **Obs:** kö, tabell och blobnamn har åtgärdats varje gång som en funktion, men blob-behållarnamn löses bara när programmet startas. Du kan inte ändra namnet när jobbet körs.
 
 ## <a name="how-to-trigger-a-function-manually"></a>Hur du utlöser en funktion manuellt
 Utlös en funktion manuellt genom att använda den **anropa** eller **CallAsync** metoden på den **JobHost** objekt och **NoAutomaticTrigger** attribut i funktionen, som visas i följande exempel.
 
-        public class Program
-        {
-            static void Main(string[] args)
-            {
-                JobHost host = new JobHost();
-                host.Call(typeof(Program).GetMethod("CreateQueueMessage"), new { value = "Hello world!" });
-            }
+```csharp
+public class Program
+{
+    static void Main(string[] args)
+    {
+        JobHost host = new JobHost();
+        host.Call(typeof(Program).GetMethod("CreateQueueMessage"), new { value = "Hello world!" });
+    }
 
-            [NoAutomaticTrigger]
-            public static void CreateQueueMessage(
-                TextWriter logger,
-                string value,
-                [Queue("outputqueue")] out string message)
-            {
-                message = value;
-                logger.WriteLine("Creating queue message: ", message);
-            }
-        }
+    [NoAutomaticTrigger]
+    public static void CreateQueueMessage(
+        TextWriter logger,
+        string value,
+        [Queue("outputqueue")] out string message)
+    {
+        message = value;
+        logger.WriteLine("Creating queue message: ", message);
+    }
+}
+```
 
 ## <a name="how-to-write-logs"></a>Hur du skriver loggar
 Instrumentpanelen visar loggar på två platser: sidan för Webbjobbet, och på sidan för ett särskilt WebJob-anrop.
@@ -476,15 +522,17 @@ Du kan inaktivera loggning genom att ange strängen som instrumentpanelen till n
 
 I följande exempel visar flera olika sätt att skriva loggar:
 
-        public static void WriteLog(
-            [QueueTrigger("logqueue")] string logMessage,
-            TextWriter logger)
-        {
-            Console.WriteLine("Console.Write - " + logMessage);
-            Console.Out.WriteLine("Console.Out - " + logMessage);
-            Console.Error.WriteLine("Console.Error - " + logMessage);
-            logger.WriteLine("TextWriter - " + logMessage);
-        }
+```csharp
+public static void WriteLog(
+    [QueueTrigger("logqueue")] string logMessage,
+    TextWriter logger)
+{
+    Console.WriteLine("Console.Write - " + logMessage);
+    Console.Out.WriteLine("Console.Out - " + logMessage);
+    Console.Error.WriteLine("Console.Error - " + logMessage);
+    logger.WriteLine("TextWriter - " + logMessage);
+}
+```
 
 WebJobs SDK instrumentpanelen för utdata från den **TextWriter** objekt visar upp när du gå till sidan för en viss fungera anrop och välj **växla utdata**:
 

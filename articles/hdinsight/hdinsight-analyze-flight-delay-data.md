@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3e792eb9ab2e2902bfc9c84db7c1c344fb0cf67f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 93929df86057b48e132048a0879bc7347402652a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622354"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497743"
 ---
-# <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analysera flygförseningsdata med hjälp av Hive i HDInsight
-Hive ger dig möjlighet att köra Apache Hadoop MapReduce-jobb via en SQL-liknande skriptspråk som kallas  *[HiveQL][hadoop-hiveql]*, som kan tillämpas gentemot sammanfatta, fråga och analysera stora mängder data.
+# <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>Analysera flygförseningsdata med hjälp av Apache Hive i HDInsight
+[Apache Hive](https://hive.apache.org/) ger dig möjlighet att köra [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) via ett SQL-liknande skriptspråk som kallas *[HiveQL] [ hadoop-hiveql]*, som kan tillämpas gentemot sammanfatta, fråga och analysera stora mängder data.
 
 > [!IMPORTANT]
-> Stegen i det här dokumentet kräver ett Windows-baserade HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Anvisningar som fungerar med en Linux-baserat kluster finns i [analysera flygförseningsdata med hjälp av Hive i HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
+> Stegen i det här dokumentet kräver ett Windows-baserade HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Anvisningar som fungerar med en Linux-baserat kluster finns i [analysera flygförseningsdata med hjälp av Apache Hive i HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
 
 En av de största fördelarna med Azure HDInsight är uppdelning av lagring och beräkning. HDInsight använder Azure Blob storage för lagring av data. Ett typiskt jobb omfattar tre delar:
 
@@ -44,7 +44,7 @@ Den viktigaste delen av kursen visar hur du använder en Windows PowerShell-skri
 I bilagorna hittar du instruktionerna för överföringen flygförseningsdata, skapa/överföra en Hive-frågesträng och förbereda Azure SQL-databasen för Sqoop jobbet.
 
 > [!NOTE]
-> Stegen i det här dokumentet är specifika för Windows-baserade HDInsight-kluster. Anvisningar som fungerar med en Linux-baserat kluster finns i [analysera flygförseningsdata med Hive i HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
+> Stegen i det här dokumentet är specifika för Windows-baserade HDInsight-kluster. Anvisningar som fungerar med en Linux-baserat kluster finns i [analysera flygförseningsdata med Apache Hive i HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
 
 ### <a name="prerequisites"></a>Förutsättningar
 Innan du börjar den här självstudiekursen behöver du följande:
@@ -76,7 +76,7 @@ I följande tabell visas de filer som används i den här självstudien:
 
 ## <a name="create-cluster-and-run-hivesqoop-jobs"></a>Skapa kluster och köra Hive/Sqoop jobb
 Hadoop MapReduce är batchbearbetning. Det mest kostnadseffektiva sättet att köra ett Hive-jobb är att skapa ett kluster för jobbet och tar bort jobbet när jobbet har slutförts. Följande skript täcker hela processen.
-Läs mer om att skapa ett HDInsight-kluster och köra Hive-jobb, [skapa Hadoop-kluster i HDInsight] [ hdinsight-provision] och [använda Hive med HDInsight] [hdinsight-use-hive].
+Läs mer om att skapa ett HDInsight-kluster och köra Hive-jobb, [skapa Apache Hadoop-kluster i HDInsight] [ hdinsight-provision] och [använda Apache Hive med HDInsight] [hdinsight-use-hive].
 
 **Du kör Hive-frågor med Azure PowerShell**
 
@@ -237,10 +237,10 @@ Läs mer om att skapa ett HDInsight-kluster och köra Hive-jobb, [skapa Hadoop-k
 - - -
 
 ## <a id="appendix-a"></a>Bilaga A – ladda upp flygförseningsdata till Azure Blob storage
-Ladda upp datafilen och HiveQL skriptfiler (se [bilaga B](#appendix-b)) kräver lite planering. Tanken är att lagra datafiler och HiveQL filen innan du skapar ett HDInsight-kluster och köra Hive-jobb. Du kan välja mellan två alternativ:
+Ladda upp datafilen och [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) skriptfiler (se [bilaga B](#appendix-b)) kräver lite planering. Tanken är att lagra datafiler och HiveQL filen innan du skapar ett HDInsight-kluster och köra Hive-jobb. Du kan välja mellan två alternativ:
 
 * **Använd samma Azure Storage-konto som används av HDInsight-klustret som standardfilsystem.** Eftersom HDInsight-klustret ska ha åtkomst lagringskontonyckeln, behöver du inte göra några ytterligare ändringar.
-* **Använd ett annat Azure Storage-konto från standardfilsystemet för HDInsight-kluster.** Om så är fallet, måste du ändra skapas en del av Windows PowerShell-skript finns i [skapa HDInsight-kluster och köra Hive/Sqoop jobb](#runjob) länkar lagringskontot som ett ytterligare lagringskonto. Anvisningar finns i [skapa Hadoop-kluster i HDInsight][hdinsight-provision]. HDInsight-klustret vet sedan åtkomstnyckeln för lagringskontot.
+* **Använd ett annat Azure Storage-konto från standardfilsystemet för HDInsight-kluster.** Om så är fallet, måste du ändra skapas en del av Windows PowerShell-skript finns i [skapa HDInsight-kluster och köra Apache Hive/Sqoop jobb](#runjob) länkar lagringskontot som ett ytterligare lagringskonto. Anvisningar finns i [skapa Apache Hadoop-kluster i HDInsight][hdinsight-provision]. HDInsight-klustret vet sedan åtkomstnyckeln för lagringskontot.
 
 > [!NOTE]
 > Blob storage-sökvägen för datafilen är svårt kodad i skriptfilen HiveQL. Du måste uppdatera dem enlighet med detta.
@@ -359,7 +359,7 @@ Sökvägen självstudier/flightdelay/data är den virtuella mapp som du skapade 
 - - -
 
 ## <a id="appendix-b"></a>Bilaga B – skapa och ladda upp en HiveQL-skript
-Med Azure PowerShell kan du köra flera HiveQL-instruktioner en i taget eller paketera HiveQL-instruktionen i en skriptfil. Det här avsnittet visar hur du skapar en HiveQL-skript och ladda upp skriptet till Azure Blob storage med hjälp av Azure PowerShell. Hive kräver HiveQL-skript som ska lagras i Azure Blob storage.
+Med Azure PowerShell kan du köra flera [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) instruktioner som i en tid eller ett paket HiveQL-instruktionen i en skriptfil. Det här avsnittet visar hur du skapar en HiveQL-skript och ladda upp skriptet till Azure Blob storage med hjälp av Azure PowerShell. Hive kräver HiveQL-skript som ska lagras i Azure Blob storage.
 
 HiveQL-skript kommer att utföra följande:
 
@@ -369,7 +369,7 @@ HiveQL-skript kommer att utföra följande:
 4. **Skapa tabellen fördröjningar**. Är det bra att rensa data innan du vidare bearbetning. Den här frågan skapar en ny tabell *fördröjningar*, från tabellen delays_raw. Observera att TEMP-kolumner (som tidigare nämnts) inte kopieras och att den **delsträngen** funktion används för att ta bort citationstecken som hämtas från data.
 5. **Compute genomsnittligt väder fördröjning och grupper resultaten efter stad namn.** Det kommer också matar ut resultaten till Blob storage. Observera att frågan tar bort apostrofer från data och undantar rader där värdet för **weather_delay** är null. Detta är nödvändigt eftersom Sqoop, senare i den här självstudiekursen kan inte hantera dessa värden utan problem som standard.
 
-En fullständig lista över HiveQL-kommandon finns i [Hive datadefinitionsspråket][hadoop-hiveql]. Varje kommando HiveQL måste sluta med ett semikolon.
+En fullständig lista över HiveQL-kommandon finns i [Apache Hive-datadefinitionsspråket][hadoop-hiveql]. Varje [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) kommandot måste sluta med ett semikolon.
 
 **Du skapar en skriptfil för HiveQL**
 
@@ -712,13 +712,13 @@ En fullständig lista över HiveQL-kommandon finns i [Hive datadefinitionsspråk
 5. Verifiera utdata från skriptet. Kontrollera att skriptet har körts.
 
 ## <a id="nextsteps"></a>Nästa steg
-Nu förstå du hur du överför en fil till Azure Blob storage, hur du fyller i en Hive-tabell med hjälp av data från Azure Blob storage, hur du kör Hive-frågor och hur du använder Sqoop för att exportera data från HDFS till en Azure SQL database. Mer information finns i följande artiklar:
+Nu när du förstår hur du överför en fil till Azure Blob storage, hur du fyller i en Apache Hive-tabell med hjälp av data från Azure Blob storage, hur du kör Hive-frågor och hur du använder Sqoop för att exportera data från [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) till en Azure SQL -databasen. Mer information finns i följande artiklar:
 
 * [Kom igång med HDInsight][hdinsight-get-started]
-* [Använda Hive med HDInsight][hdinsight-use-hive]
-* [Använda Oozie med HDInsight][hdinsight-use-oozie]
-* [Använda Sqoop med HDInsight][hdinsight-use-sqoop]
-* [Använda Pig med HDInsight][hdinsight-use-pig]
+* [Använda Apache Hive med HDInsight][hdinsight-use-hive]
+* [Använda Apache Oozie med HDInsight][hdinsight-use-oozie]
+* [Använd Apache Sqoop med HDInsight][hdinsight-use-sqoop]
+* [Använda Apache Pig med HDInsight][hdinsight-use-pig]
 * [Utveckla Java MapReduce-program för HDInsight][hdinsight-develop-mapreduce]
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/

@@ -1,6 +1,6 @@
 ---
-title: Linux VM-agent och tillägg i Azure | Microsoft Docs
-description: Ger en översikt över agent och tillägg och hur du installerar agenten med hjälp av den klassiska distributionsmodellen på en Linux-VM.
+title: Linux VM-agenten och tillägg i Azure | Microsoft Docs
+description: Ger en översikt över agenten och tillägg och hur du installerar agenten använder den klassiska distributionsmodellen på en Linux-VM.
 services: virtual-machines-linux
 documentationcenter: ''
 author: squillace
@@ -17,15 +17,15 @@ ms.workload: infrastructure-services
 ms.date: 03/02/2017
 ms.author: rasquill
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 17a6cea5c10902b0c2b86b481ab2c9f4441a3cc1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f3a39f97b3f1eee842e4ca620ceb67b4d02fd0a0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30842252"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498373"
 ---
-# <a name="about-the-virtual-machine-agent-and-extensions-for-linux"></a>Om den virtuella datorns agent och tillägg för Linux
+# <a name="about-the-virtual-machine-agent-and-extensions-for-linux"></a>Om VM-agenten och tillägg för Linux
 > [!IMPORTANT]
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../resource-manager-deployment-model.md). Den här artikeln täcker den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Information om VM-agenter och tillägg med Resource Manager finns [här](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Information om VM-agenter och tillägg med Resource Manager finns i [här](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-agents-and-extensions](../../../../includes/virtual-machines-common-classic-agents-and-extensions.md)]

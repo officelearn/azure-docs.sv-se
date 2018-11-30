@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: cwatson
-ms.openlocfilehash: 9b30e5a47b49b707c9efc53add9af44502201641
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: c5b41d86133bbcafcc61423b4d60e59846edc2f2
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52273684"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580923"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Förstå villkoren på din Microsoft Azure användningsdebitering 
 
@@ -88,5 +88,6 @@ Om det finns en avgift på din detaljerad användning-fil som du vill ha mer inf
 ## <a name="external"></a>Vad gäller externa tjänstavgifter?
 Externa tjänster (även kallat Marketplace-order) tillhandahålls av oberoende tjänsteleverantörer och faktureras separat. Kostnaderna som visas inte på fakturan som Azure. Mer information finns i [förstå din Azure externa tjänstavgifter](billing-understand-your-azure-marketplace-charges.md).
 
-## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
-Om du fortfarande behöver hjälp, [supporten](https://portal.azure.com/?) att lösa problemet snabbt.
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
+
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

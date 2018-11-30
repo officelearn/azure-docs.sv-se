@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/9/2017
 ms.author: jeedes
-ms.openlocfilehash: 53cec59841fbda49e4e410f069882ea76996f9fb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1b6527207793558c132be4cf004b7d6fdde14a90
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428299"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584119"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Självstudier: Azure Active Directory-integration med MobileIron
 
@@ -60,7 +60,7 @@ För att konfigurera integrering av MobileIron i Azure AD, som du behöver lägg
 
 **Utför följande steg för att lägga till MobileIron från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -106,22 +106,21 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
  
     ![Enkel inloggning för dialogrutan](./media/mobileiron-tutorial/tutorial_mobileiron_samlbase.png)
 
-1. På den **MobileIron domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+1. På den **MobileIron domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
 
     ![MobileIron domän och URL: er med enkel inloggning för information](./media/mobileiron-tutorial/tutorial_mobileiron_url.png)
 
-    a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://www.mobileiron.com/<key>`
+    1. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://www.mobileiron.com/<key>`
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
+    1. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
 
-1. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+1. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![MobileIron domän och URL: er som enkel inloggning](./media/mobileiron-tutorial/tutorial_mobileiron_url1.png)
 
-    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<host>.mobileiron.com/user/login.html`
+    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<host>.mobileiron.com/user/login.html`
     
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL. Du får du värdet för nyckeln och värden från den administrativa MobileIron som beskrivs senare i självstudien-portalen.
+    > [!NOTE]  Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL. Du får du värdet för nyckeln och värden från den administrativa MobileIron som beskrivs senare i självstudien-portalen.
 
 1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
@@ -174,13 +173,13 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Dialogrutan användare](./media/mobileiron-tutorial/create_aaduser_04.png)
 
-    a. I den **namn** skriver **BrittaSimon**.
+    1. I den **namn** skriver **BrittaSimon**.
 
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
+    1. I den **användarnamn** skriver användarens Britta Simon e-postadress.
 
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    1. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
 
-    d. Klicka på **Skapa**.
+    1. Klicka på **Skapa**.
   
 ### <a name="create-a-mobileiron-test-user"></a>Skapa en MobileIron testanvändare
 
@@ -199,13 +198,13 @@ När det gäller MobileIron är etablering en manuell aktivitet.
 
     ![Konfigurera enkel inloggning för användaren Lägg till knapp](./media/mobileiron-tutorial/tutorial_mobileiron_useradd.png)
 
-    a. I **e-postadress** text, ange den e-postadressen för användaren som brittasimon@contoso.com.
+    1. I **e-postadress** text, ange den e-postadressen för användaren som brittasimon@contoso.com.
 
-    b. I **Förnamn** text, ange först namnet på användaren som Britta.
+    1. I **Förnamn** text, ange först namnet på användaren som Britta.
 
-    c. I **efternamn** text anger efternamn för användaren som Simon.
+    1. I **efternamn** text anger efternamn för användaren som Simon.
     
-    d. Klicka på **Klar**.  
+    1. Klicka på **Klar**.  
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

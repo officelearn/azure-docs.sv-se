@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 3230692208d27ebac073e257266c885b5e03095c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: b320696a56855baaa4af10177d25dfe9973ee73a
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233641"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635449"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Anslutningsappar för Azure Logic Apps
 
@@ -74,7 +74,7 @@ Här är inbyggda åtgärder för att arbeta med data utdata och deras format:
 
 |   |   | 
 |---|---| 
-| ![Inbyggda ikon][data-operations-icon]<br/>**Dataåtgärder** | Utför åtgärder med data: <p>- **Compose**: skapa ett enda utflöde från flera inmatningar med olika typer. <br>- **Skapa CSV tabell**: skapa en Semikolonavgränsade--värden (CSV)-tabell från en matris med JSON-objekt. <br>- **Skapa HTML-tabell**: skapa en HTML-tabell från en matris med JSON-objekt. <br>- **Filtermatris**: skapa en matris från objekten i en annan matris som uppfyller dina kriterier. <br>- **Ansluta till**: skapa en sträng från alla objekt i en matris och avgränsa de objekt med angiven avgränsare. <br>- **Parsa JSON**: skapa användarvänliga tokens från egenskaperna och deras värden i JSON innehåll så att du kan använda dessa egenskaper i arbetsflödet. <br>- **Välj**: skapa en matris med JSON-objekt genom att omvandla objekt eller värden i en annan matris och mappa dessa objekt till angivna egenskaperna. | 
+| [![Inbyggda ikonen][data-operations-icon]<br/>**dataåtgärder**][data-operations-doc] | Utför åtgärder med data: <p>- **Compose**: skapa ett enda utflöde från flera inmatningar med olika typer. <br>- **Skapa CSV tabell**: skapa en Semikolonavgränsade--värden (CSV)-tabell från en matris med JSON-objekt. <br>- **Skapa HTML-tabell**: skapa en HTML-tabell från en matris med JSON-objekt. <br>- **Filtermatris**: skapa en matris från objekten i en annan matris som uppfyller dina kriterier. <br>- **Ansluta till**: skapa en sträng från alla objekt i en matris och avgränsa de objekt med angiven avgränsare. <br>- **Parsa JSON**: skapa användarvänliga tokens från egenskaperna och deras värden i JSON innehåll så att du kan använda dessa egenskaper i arbetsflödet. <br>- **Välj**: skapa en matris med JSON-objekt genom att omvandla objekt eller värden i en annan matris och mappa dessa objekt till angivna egenskaperna. | 
 | ![Inbyggda ikon][date-time-icon]<br/>**Datum tid** | Utför åtgärder med tidsstämplar som är: <p>- **Lägg till tid**: lägga till det angivna antalet enheter till en tidsstämpel. <br>- **Konvertera tidszon**: konvertera en tidsstämpel från källtidszonen tidszon mål. <br>- **Aktuell tid**: returnerar den aktuella tidsstämpeln som en sträng. <br>- **Hämta framtida tid**: returnerar den aktuella tidsstämpeln plus de angivna tidsenheterna. <br>- **Hämta tidigare tid**: returnerar den aktuella tidsstämpeln minus de angivna tidsenheterna. <br>- **Subtrahera från tiden**: ta bort ett antal tidsenheter från en tidsstämpel. |
 | [![Inbyggda ikonen][variables-icon]<br/>**variabler**][variables-doc] | Utför åtgärder med variabler: <p>- **Lägga till en matrisvariabel**: Infoga ett värde som det sista objektet i en matris som lagras av en variabel. <br>- **Lägga till strängvariabeln**: Infoga ett värde som det sista tecknet i en sträng som lagras av en variabel. <br>- **Minska variabel**: minskar en variabel med ett konstant värde. <br>- **Inkrementera variabeln**: öka en variabel med ett konstant värde. <br>- **Initiera variabel**: skapa en variabel och deklarera dess datatyp och ursprungligt värde. <br>- **Ange variabel**: tilldela ett annat värde till en befintlig variabel. |
 |  |  | 
@@ -193,6 +193,7 @@ Om du vill göra anpassade API Apps eller kopplingar offentliga för allmän anv
 [switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Ordna åtgärder i fall som är tilldelade unika värden. Kör bara fallet vars värde matchar resultatet från ett uttryck, objekt eller token. Om det finns inga matchningar, kör du standard-fall"
 [terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Stoppa eller Avbryt ett arbetsflöde som är aktivt som körs för din logikapp"
 [until-doc]: ../logic-apps/logic-apps-control-flow-loops.md#until-loop "Upprepa åtgärder tills det angivna villkoret är SANT eller vissa tillstånd har ändrats"
+[data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "Utföra åtgärder, till exempel filtrera matriser eller skapar CSV och HTML-tabeller"
 [variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "Utför åtgärder med variabler, till exempel starta, set, öka, minska, och lägga till i variabeln sträng eller matris"
 
 <!--Managed API doc links-->

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: bryanla
-ms.openlocfilehash: 4b7192b0c406d2c5df42e3bb3e604f26c56c7bd4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d4d2ce4dcda9ea72d4a33ee363efd3519c2118aa
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235198"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635840"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Kom igång med Key Vault-certifikat
 Följande scenarier beskriver flera av de primära användningarna av Key Vault-certifikat management-tjänsten, inklusive de ytterligare steg som krävs för att skapa din första certifikatet i ditt nyckelvalv.
@@ -51,14 +51,14 @@ Certifikat består av tre relaterade resurser som länkas samman som ett Key Vau
 
 **Steg 3** -A Contoso admin, tillsammans med Contoso-anställda (Key Vault-användare) som äger certifikat, beroende på ca: N, kan få ett certifikat från administratören eller direkt från kontot med CA: N.  
 
--   Starta en åtgärd med Lägg till autentiseringsuppgifter till ett nyckelvalv av [ställa in en certifikatutfärdare](/rest/api/keyvault/setcertificateissuer) resurs. En certifikatutfärdare är en entitet som representeras i Azure Key Vault (KV) som en CertificateIssuer resurs. Används för att ange information om källan för ett certifikat för KV; Utfärdarens namn, leverantör, autentiseringsuppgifter och andra administrativa uppgifter.
+-   Starta en åtgärd med Lägg till autentiseringsuppgifter till ett nyckelvalv av [ställa in en certifikatutfärdare](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) resurs. En certifikatutfärdare är en entitet som representeras i Azure Key Vault (KV) som en CertificateIssuer resurs. Används för att ange information om källan för ett certifikat för KV; Utfärdarens namn, leverantör, autentiseringsuppgifter och andra administrativa uppgifter.
     -   t.ex. MyDigiCertIssuer  
         -   Leverantör  
         -   Autentiseringsuppgifter – autentiseringsuppgifter för CA: N. Varje Certifikatutfärdare har sina egna specifika data.  
 
      Mer information om hur du skapar konton med CA-providrar finns i relaterade inlägg på den [Key Vault-bloggen](https://aka.ms/kvcertsblog).  
 
-**Steg 3.1** – Ställ in [certifikat kontakter](/rest/api/keyvault/setcertificatecontacts) för meddelanden. Det här är kontakten för Key Vault-användaren. Key Vault påtvingar inte det här steget.  
+**Steg 3.1** – Ställ in [certifikat kontakter](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) för meddelanden. Det här är kontakten för Key Vault-användaren. Key Vault påtvingar inte det här steget.  
 
 Obs! – den här processen via steg 3.1 är en onetime åtgärd.  
 
@@ -83,7 +83,7 @@ Obs! – den här processen via steg 3.1 är en onetime åtgärd.
       -   Information om förnyelse - > t.ex. 90 dagar innan certifikatet går ut  
 
   - Process för att skapa ett certifikat är vanligtvis en asynkron åtgärd och omfattar avsökning nyckelvalvet för status för åtgärd för att skapa certifikatet.  
-[Åtgärd för hämtning av certifikat](https://docs.microsoft.com/rest/api/keyvault/getcertificateoperation)  
+[Åtgärd för hämtning av certifikat](/rest/api/keyvault/getcertificateoperation/getcertificateoperation)  
       -   Status: slutfört, misslyckades. information om fel eller avbruten  
       -   På grund av hur lång tid att skapa kan en avbrottsåtgärd initieras. Knappen Avbryt kanske eller kanske inte effektiva.  
 

@@ -7,16 +7,16 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 3616183b5ea34b8a14712d2c449de87950443111
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 724e6c57f10fb85b4b91c2236d17a64899953d67
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954514"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581943"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Förbättra prestanda för Apache Spark-arbetsbelastningar med Azure HDInsight-i/o-Cache (förhandsversion)
 
-I/o-Cache är en cachelagring tjänst för Azure HDInsight som förbättrar prestandan för Apache Spark-jobb. I/o-Cache fungerar även med Tez och Hive-arbetsbelastningar, som kan köras på Spark-kluster. I/o-Cache används en öppen källkod och cachelagring komponent som kallas RubiX. RubiX är en lokal diskcache för användning med big data analytics motorer som kommer åt data från molnlagringssystem. RubiX är unika bland cachelagring system, eftersom den använder Solid-State-hårddiskar (SSD) i stället för att reservera operativ minne för cachelagring. I/o-Cache-tjänsten startar och hanterar RubiX Metadata servrar på varje worker-nod i klustret. Den konfigurerar också alla tjänster i klustret för transparent användning av RubiX cache.
+I/o-Cache är en cachelagring tjänst för Azure HDInsight som förbättrar prestandan för Apache Spark-jobb. I/o-Cache fungerar även med [Apache TEZ](https://tez.apache.org/) och [Apache Hive](https://hive.apache.org/) arbetsbelastningar, som kan köras på [Apache Spark](https://spark.apache.org/) kluster. I/o-Cache används en öppen källkod och cachelagring komponent som kallas RubiX. RubiX är en lokal diskcache för användning med big data analytics motorer som kommer åt data från molnlagringssystem. RubiX är unika bland cachelagring system, eftersom den använder Solid-State-hårddiskar (SSD) i stället för att reservera operativ minne för cachelagring. I/o-Cache-tjänsten startar och hanterar RubiX Metadata servrar på varje worker-nod i klustret. Den konfigurerar också alla tjänster i klustret för transparent användning av RubiX cache.
 
 De flesta SSD ger mer än 1 GByte per sekund av bandbredd. Den här bandbredd, kompletterat med operativsystemet InMemory-fil-cache, ger tillräckligt med bandbredd för att läsa in stordata bearbetningsmotorer beräkning, till exempel Apache Spark. Operativ minne lämnas tillgänglig för Apache Spark kan bearbeta mycket minne-beroende aktiviteter, till exempel shuffles. Om du har exklusiv användning av operativsystem minne kan Apache Spark att uppnå optimal Resursanvändning.  
 
@@ -52,7 +52,7 @@ Azure HDInsight-i/o-Cache är inaktiverat som standard i en förhandsversion. I/
   
 Du kan få utrymme diskfel kör Spark-jobb när du har aktiverat i/o-Cache. Dessa fel inträffa Spark använder också lokalt diskutrymme för att lagra data under blandning av åtgärder. Spark får slut på utrymme för SSD när i/o-cachen aktiverad och minskar utrymmet för Spark-lagring. Mängden utrymme som används av i/o-Cache standard till hälften av de totalt SSD-utrymmet. Diskutrymmesanvändning för i/o-Cache kan konfigureras i Ambari. Om det uppstår fel utrymme på disken kan minska mängden SSD-utrymme som används för i/o-cachen och starta om tjänsten. Om du vill ändra utrymmet Ställ in för i/o-Cache, gör du följande:
 
-1. I Ambari, väljer du den **HDFS** tjänsten till vänster.
+1. I Apache Ambari, väljer du den **HDFS** tjänsten till vänster.
 
 1. Välj den **Peeringkonfigurationer** och **Avancerat** flikar.
 

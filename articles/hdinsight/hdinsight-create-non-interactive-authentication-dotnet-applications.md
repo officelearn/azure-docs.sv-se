@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 495806d47839d471976cd8dff112a1db0b072db9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 2351e0cdeb6fd17efbe70fdebb12e6c9776c1fa1
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006115"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498331"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Skapa en icke-interaktiv autentisering .NET HDInsight-program
 Du kan köra ditt Microsoft .NET Azure HDInsight-program under programmets egen identitet (icke-interaktivt) eller under identiteten för den inloggade användaren av programmet (interaktivt). Den här artikeln visar hur du skapar en icke-interaktiv autentisering .NET-program för att ansluta till Azure och hantera HDInsight. Ett exempel på ett interaktivt program, se [Anslut till Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -43,7 +43,7 @@ Tilldela din Azure AD-program en [rollen](../role-based-access-control/built-in-
 ## <a name="develop-an-hdinsight-client-application"></a>Utveckla ett HDInsight-klientprogram
 
 1. Skapa ett C#-konsolprogram
-2. Lägg till följande NuGet-paket:
+2. Lägg till följande [NuGet](https://www.nuget.org/) paket:
 
         Install-Package Microsoft.Azure.Common.Authentication -Pre
         Install-Package Microsoft.Azure.Management.HDInsight -Pre

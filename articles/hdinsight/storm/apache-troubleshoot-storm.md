@@ -9,16 +9,16 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 99ceeea33d3e2d9af798d5eb4161b0c16afc952d
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: b2f80b2d66de9e5f270c7b062c57d0efc3ab0f36
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011382"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499349"
 ---
-# <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Felsöka Storm med Azure HDInsight
+# <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Felsöka Apache Storm med Azure HDInsight
 
-Läs mer om de viktigaste problemen och sina lösningar för att arbeta med Apache Storm-nyttolaster i Apache Ambari.
+Lär dig mer om de viktigaste problemen och sina lösningar för att arbeta med [Apache Storm](https://storm.apache.org/) nyttolaster i [Apache Ambari](https://ambari.apache.org/).
 
 ## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Hur kommer jag åt Storm-Användargränssnittet på ett kluster?
 Har du två alternativ för att komma åt Användargränssnittet för Storm från en webbläsare:
@@ -39,7 +39,7 @@ Exempel:
 
 ## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>Hur jag överföra kontrollpunktsinformation för Storm event hub från en topologi till en annan?
 
-När du utvecklar topologier som läser från Azure Event Hubs med hjälp av HDInsight Storm event hub-kanalen .jar-filen måste du distribuera en topologi som har samma namn på ett nytt kluster. Du måste dock behålla kontrollpunktsdata som har utförts till Apache ZooKeeper på det gamla klustret.
+När du utvecklar topologier som läser från Azure Event Hubs med hjälp av HDInsight Storm event hub-kanalen .jar-filen måste du distribuera en topologi som har samma namn på ett nytt kluster. Men du måste behålla kontrollpunktsdata som har bekräftats att [Apache ZooKeeper](https://zookeeper.apache.org/) på det gamla klustret.
 
 ### <a name="where-checkpoint-data-is-stored"></a>Kontrollpunktsdata ska lagras
 Kontrollpunktsdata för förskjutningar lagras av event hub kanal i ZooKeeper i två rot-sökvägar:
@@ -122,20 +122,20 @@ Storm arbetsnoder kör följande tjänster:
 Mer information om hur du använder Storm event hub spout .jar-filerna med topologin finns i följande resurser.
  
 ### <a name="java-based-topology"></a>Java-baserad topologi
-[Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology) (Bearbeta händelser från Azure Event Hubs med Storm i HDInsight (Java))
+[Bearbeta händelser från Azure Event Hubs med Apache Storm i HDInsight (Java)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology)
  
 ### <a name="c-based-topology-mono-on-hdinsight-34-linux-storm-clusters"></a>C#-baserad topologi (Mono på Storm för HDInsight 3.4 + Linux-kluster)
-[Process events from Azure Event Hubs with Storm on HDInsight (C#)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology) (Bearbeta händelser från Azure Event Hubs med Storm i HDInsight (C#))
+[Bearbeta händelser från Azure Event Hubs med Apache Storm på HDInsight (C#)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
  
-### <a name="latest-storm-event-hub-spout-binaries-for-hdinsight-35-linux-storm-clusters"></a>Senaste Storm event hub-kanalen binärfiler för HDInsight 3.5 + Linux Storm-kluster
+### <a name="latest-apache-storm-event-hub-spout-binaries-for-hdinsight-35-linux-storm-clusters"></a>Senaste Apache Storm event hub-kanalen binärfiler för HDInsight 3.5 + Linux Storm-kluster
 Läs hur du använder den senaste Storm event hub-kanal som fungerar med HDInsight 3.5 + Linux Storm-kluster i mvn-lagringsplatsen [readme-filen](https://github.com/hdinsight/mvn-repo/blob/master/README.md).
  
 ### <a name="source-code-examples"></a>Kodexempel för källa
 Se [exempel](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) på hur du kan läsa och skriva från Azure Event Hub med ett Apache Storm-topologi (skrivna i Java) på ett Azure HDInsight-kluster.
  
-## <a name="how-do-i-locate-storm-log4j-configuration-files-on-clusters"></a>Hur hittar jag Storm Log4J konfigurationsfiler på kluster?
+## <a name="how-do-i-locate-storm-log4j-2-configuration-files-on-clusters"></a>Hur hittar jag Storm Log4J 2 konfigurationsfiler på kluster?
  
-Identifiera Apache Log4J konfigurationsfiler för Storm-tjänster.
+Identifiera [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) konfigurationsfiler för Storm-tjänster.
  
 ### <a name="on-head-nodes"></a>På huvudnoderna
 Nimbus Log4J-konfigurationen läses från usr/hdp/\<HDP version\>/storm/log4j2/cluster.xml.

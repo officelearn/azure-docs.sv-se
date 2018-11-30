@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: feb94f450621e999da01f77f0b5550258377d6c9
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 4ba1e325ec978114016682aaee35be35a20ec028
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038271"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499131"
 ---
 # <a name="install-published-application---dataiku-dds"></a>Installera publicerad program – Dataiku DDS
 
-Den här artikeln beskrivs hur du installerar och kör den [Dataiku DDS](https://www.dataiku.com/) publicerade Apache Hadoop-program på Azure HDInsight. En översikt över HDInsight-programplattform och en lista över tillgängliga oberoende programvaruleverantör (ISV) publicerade program finns i [installera Hadoop-program från tredje part](hdinsight-apps-install-applications.md). Anvisningar om hur du installerar ett eget program finns i [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).
+Den här artikeln beskrivs hur du installerar och kör den [Dataiku DDS](https://www.dataiku.com/) publicerade [Apache Hadoop](https://hadoop.apache.org/) på Azure HDInsight. En översikt över HDInsight-programplattform och en lista över tillgängliga oberoende programvaruleverantör (ISV) publicerade program finns i [installera Hadoop-program från tredje part](hdinsight-apps-install-applications.md). Anvisningar om hur du installerar ett eget program finns i [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-dataiku-dss"></a>Om Dataiku DSS
 
@@ -26,9 +26,9 @@ Dataiku [Data Science Studio (DSS)](https://www.dataiku.com/dss/features/connect
 
 Du kan använda DSS för att implementera en komplett lösning för analytiska, från och med datainmatning, förberedelse och bearbetning. En DSS-lösning kan även innehålla utbildning och tillämpa machine learning-modeller, visualisering och sedan operationalisera.
 
-Du kan installera DSS på HDInsight med Hadoop- eller Spark-kluster. Du kan installera DSS på befintliga kluster som körs eller när du skapar nya kluster. DSS har också stöd för Azure Blob storage som en anslutning för läsning av data.
+Du kan installera DSS på HDInsight med hjälp av [Apache Hadoop](https://hadoop.apache.org/) eller [Apache Spark](https://spark.apache.org/) kluster. Du kan installera DSS på befintliga kluster som körs eller när du skapar nya kluster. DSS har också stöd för Azure Blob storage som en anslutning för läsning av data.
 
-Du kan använda DSS för att skapa projekt, som sedan kan generera MapReduce eller Spark-jobb. Dessa jobb körs som vanlig MapReduce eller Spark-jobb i HDInsight, så du kan skala kluster på begäran.
+Du kan använda DSS för att skapa projekt, som sedan kan generera [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) eller Spark-jobb. Dessa jobb körs som vanlig MapReduce eller Spark-jobb i HDInsight, så du kan skala kluster på begäran.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -40,7 +40,7 @@ Om du vill installera den här appen på ett nytt HDInsight-kluster eller ett be
 
 ## <a name="install-the-dataiku-dss-published-application"></a>Installera Dataiku DSS publicerad program
 
-Stegvisa instruktioner om hur du installerar det här och andra tillgängliga ISV-program finns [installera Hadoop-program från tredje part](hdinsight-apps-install-applications.md).
+Stegvisa instruktioner om hur du installerar det här och andra tillgängliga ISV-program finns [installera Apache Hadoop-program för tredje parts](hdinsight-apps-install-applications.md).
 
 ## <a name="launch-dataiku-dss"></a>Starta Dataiku DSS
 

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-ms.date: 10/09/2018
+ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4362a6b936c52319f6f6fc625370733f3c84e361
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 74b2cea8e3adfb6689d4ac7049e7892f8f0ecf4a
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158864"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582641"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologier för Azure AD Connect
 Den här artikeln beskrivs olika lokala och Azure Active Directory (Azure AD)-topologier som använder Azure AD Connect-synkronisering som viktiga integrationslösning. Den här artikeln innehåller konfigurationer för både stöds och som inte stöds.
@@ -84,7 +84,9 @@ Du hittar mer information finns i [förstå standardkonfigurationen](concept-azu
 
 Mer än ett Azure AD Connect-synkroniseringsservern är ansluten till en enda Azure AD-klient stöds inte. Undantaget är att använda en [mellanlagring server](#staging-server).
 
-### <a name="multiple-forests-separate-topologies"></a>Flera skogar, separat topologier
+Den här topologin skiljer sig från den som visas nedan i som **flera synkroniseringsservrar** är ansluten till en enda Azure AD klient stöds inte.
+
+### <a name="multiple-forests-single-sync-server-users-are-represented-in-only-one-directory"></a>Flera skogar, enskild synkroniseringsserver användare representeras i endast en katalog
 ![Alternativet för att representera användare bara en gång i alla kataloger](./media/plan-connect-topologies/MultiForestUsersOnce.png)
 
 ![Presentation av flera skogar och separata topologier](./media/plan-connect-topologies/MultiForestSeparateTopologies.png)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: yashar
-ms.openlocfilehash: 9c3976a5fa98049de03f2a65b71f1fc927947142
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 44d23cf38eb1dca9ade94c5a8fd0ae495300be44
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307834"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582199"
 ---
 # <a name="prepay-for-suse-software-plans-from-azure-reservations"></a>Betala i förskott för SUSE programvaruplaner från Azure-reservationer
 
@@ -40,11 +40,11 @@ Du kan köpa planer för SUSE-programvara i Azure-portalen. Att köpa en plan:
     |:------------|:--------------|
     |Namn        |Namnet på det här köpet.|
     |Prenumeration|Den prenumeration som används för att betala för den här planen. Betalningsmetoden för prenumerationen debiteras startavgifter för reservationen. Prenumerationstypen måste vara ett företagsavtal (erbjudandets nummer: MS-AZR-0017P) eller Betala per användning (erbjudandets nummer: MS-AZR-0003P). För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning. Får en Betala per användning-prenumeration faktureras avgifterna från kreditkortet eller enligt fakturabetalningsmetoden.|
-    |Omfång       |Omfånget kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer: <ul><li>Enstaka prenumeration - plan rabatt tillämpas på SUSE Linux-användning i den här prenumerationen. </li><li>Delad – tillämpas plan rabatt på SUSE Linux-användning i alla prenumerationer i din faktureringskontexten. För företagskunder, den delade omfattningen registreringen och innehåller alla prenumerationer (utom prenumerationer för utveckling och testning) i registreringen. För kunder med användningsbaserad betalning är den delade omfattningen alla betala per användning-prenumerationer som skapas av kontoadministratören.</li></ul>|
-    |Programprenumeration     |Välj SUSE Linux-plan. Hjälp med att identifiera vad du kan köpa finns i [förstå hur SUSE Linux Enterprise software reservationsrabatten tillämpas](../../billing/billing-understand-suse-reservation-charges.md).|
+    |Scope       |Omfånget kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer: <ul><li>Enstaka prenumeration - plan rabatt tillämpas på SUSE Linux-användning i den här prenumerationen. </li><li>Delad – tillämpas plan rabatt på SUSE Linux-användning i alla prenumerationer i din faktureringskontexten. För företagskunder, den delade omfattningen registreringen och innehåller alla prenumerationer (utom prenumerationer för utveckling och testning) i registreringen. För kunder med användningsbaserad betalning är den delade omfattningen alla betala per användning-prenumerationer som skapas av kontoadministratören.</li></ul>|
+    |Programprenumeration     |Välj SUSE Linux-plan. Om du vill ha hjälp med att bestämma vad du ska köpa kan du läsa mer om [SUSE Linux Enterprise-programvara och hur reservationsrabatt tillämpas](../../billing/billing-understand-suse-reservation-charges.md).|
     |Storlek på virtuell dator     |SUSE Linux priserna beror på antalet virtuella processorer på den virtuella datorn. Välj det alternativ som representerar antalet virtuella processorer på din SUSE Linux-datorer.|
     |Period        |Ett eller tre år.|
-    |Antal    |Antalet virtuella datorer som du köper det här SUSE Linux-plan för. Antalet är antalet SUSE Linux-instanser som kan få fakturering rabatten som körs.|
+    |Kvantitet    |Antalet virtuella datorer som du köper det här SUSE Linux-plan för. Antalet är antalet SUSE Linux-instanser som kan få fakturering rabatten som körs.|
 1. Välj **Köp**.
 1. Välj **visa den här reservationen** att se status för ditt köp.
 
@@ -56,7 +56,7 @@ SUSE Linux planer erbjuder instans storlek flexibilitet som reserverade VM-insta
 
 ## <a name="cancellation-and-exchanges-not-allowed"></a>Annulleringen och utbyten inte tillåtet
 
-Du kan inte avbryta eller byta en SUSE-plan som du har köpt. Kontrollera din användning för att kontrollera att du köper rätt plan. Hjälp med att identifiera vad du kan köpa finns i [förstå hur SUSE Linux Enterprise software reservationsrabatten tillämpas](../../billing/billing-understand-suse-reservation-charges.md).
+Du kan inte avbryta eller byta en SUSE-plan som du har köpt. Kontrollera din användning för att försäkra dig om att du köper rätt plan. Om du vill ha hjälp med att bestämma vad du ska köpa kan du läsa mer om [SUSE Linux Enterprise-programvara och hur reservationsrabatt tillämpas](../../billing/billing-understand-suse-reservation-charges.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -70,6 +70,6 @@ Mer information finns i följande artiklar:
 - [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](../../billing/billing-understand-reserved-instance-usage.md)
 - [Förstå användningen av reserverade för din Enterprise-registrering](../../billing/billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har fler frågor, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

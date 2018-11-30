@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: d6355926c8fac62b01c36d28265842b1233ce213
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5dd027c886e8102e77ddefe93817daee0e1ec29b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666953"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584161"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Sammanfattning av kundens datafunktioner
 
@@ -39,9 +39,9 @@ Mer information finns i [hantera enhetsregistreringar](how-to-manage-enrollments
 
 Det är också möjligt att utföra delete-åtgärder för registreringar och av Registreringsposter med hjälp av REST API: er:
 
-* Du kan använda för att ta bort registreringsinformation för en enskild enhet [Enhetsregistrering – ta bort](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/delete).
-* Om du vill ta bort registreringsinformation för en grupp av enheter, kan du använda [grupp för registrering av enheter – ta bort](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollmentgroup/delete).
-* Du kan använda för att ta bort information om enheter som har etablerats [registreringstillstånd - ta bort registreringstillstånd](https://docs.microsoft.com/rest/api/iot-dps/registrationstate/deleteregistrationstate).
+* Du kan använda för att ta bort registreringsinformation för en enskild enhet [Enhetsregistrering – ta bort](/rest/api/iot-dps/deleteindividualenrollment/deleteindividualenrollment).
+* Om du vill ta bort registreringsinformation för en grupp av enheter, kan du använda [grupp för registrering av enheter – ta bort](/rest/api/iot-dps/deleteenrollmentgroup/deleteenrollmentgroup).
+* Du kan använda för att ta bort information om enheter som har etablerats [registreringstillstånd - ta bort registreringstillstånd](/rest/api/iot-dps/deletedeviceregistrationstate/deletedeviceregistrationstate).
 
 ## <a name="exporting-customer-data"></a>Exportera kunddata
 
@@ -53,9 +53,9 @@ Läs mer om hur du hanterar registreringar [hantera enhetsregistreringar](how-to
 
 Det är också möjligt att utföra exportåtgärder för registreringar och av Registreringsposter med hjälp av REST API: er:
 
-* Du kan använda för att exportera registreringsinformationen för en enskild enhet, [Enhetsregistrering – Get](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/get).
-* Om du vill exportera registreringsinformation för en grupp av enheter, kan du använda [grupp för registrering av enhet - Get](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollmentgroup/get).
-* Om du vill exportera information om enheter som redan har etablerats kan du använda [registreringstillstånd - Get-registreringstillstånd](https://docs.microsoft.com/rest/api/iot-dps/registrationstate/getregistrationstate).
+* Du kan använda för att exportera registreringsinformationen för en enskild enhet, [Enhetsregistrering – Get](/rest/api/iot-dps/getindividualenrollment/getindividualenrollment).
+* Om du vill exportera registreringsinformation för en grupp av enheter, kan du använda [grupp för registrering av enhet - Get](/rest/api/iot-dps/getenrollmentgroup/getenrollmentgroup).
+* Om du vill exportera information om enheter som redan har etablerats kan du använda [registreringstillstånd - Get-registreringstillstånd](/rest/api/iot-dps/getdeviceregistrationstate/getdeviceregistrationstate).
 
 > [!NOTE]
 > När du använder Microsoft enterprise services genererar Microsoft viss information som kallas systemgenererade loggar. Vissa systemgenererade loggar i Device Provisioning-tjänsten är inte tillgänglig eller exportera av innehavaradministratörer. Dessa loggar utgör faktiska åtgärder i tjänsten och diagnostiska data som är relaterade till enskilda enheter.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 35d1fa5f8963d007b1d8b59ccf0f1dec7abafa09
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 146ea6431516f7b78d23cd4b36aff43110639e83
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402243"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633103"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnostisera vanliga scenarier med Service Fabric
 
@@ -142,6 +142,6 @@ Kontrollera dessa länkar för en fullständig lista över prestandaräknare på
 * [Konfigurera aviseringar i AI](../application-insights/app-insights-alerts.md) meddelas om ändringar i prestanda och användning
 * [Smart identifiering i Application Insights](../application-insights/app-insights-proactive-diagnostics.md) utför en proaktiv analys av telemetri som skickas till AI att varna dig om potentiella prestandaproblem
 * Läs mer om Log Analytics [avisering](../log-analytics/log-analytics-alerts.md) att underlätta identifiering och diagnostik.
-* Log Analytics tillhandahåller en gateway (HTTP framåt Proxy) som kan användas för att skicka data till Log Analytics för lokala kluster. Läs mer om att [ansluter datorer utan Internetåtkomst till Log Analytics med Log Analytics-gateway](../log-analytics/log-analytics-oms-gateway.md)
+* Log Analytics tillhandahåller en gateway (HTTP framåt Proxy) som kan användas för att skicka data till Log Analytics för lokala kluster. Läs mer om att [ansluter datorer utan Internetåtkomst till Log Analytics med Log Analytics-gateway](../azure-monitor/platform/gateway.md)
 * Bekanta dig med den [loggsökning och frågor](../log-analytics/log-analytics-log-searches.md) funktioner som erbjuds som en del av Log Analytics
 * Få en mer detaljerad översikt över Log Analytics och den erbjuder, läsa [vad är Log Analytics?](../operations-management-suite/operations-management-suite-overview.md)

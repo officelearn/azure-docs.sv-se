@@ -10,14 +10,14 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 2ba7039fe42e3b5638b99161e12e9888bc852f87
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 67dbf3bdf6631785fc876283847e36349e857a77
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635046"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634650"
 ---
-# <a name="install-and-run-containers"></a>Installera och köra behållare
+# <a name="install-and-run-containers"></a>Installera och köra containrar
 
 Skapa behållare är en metod för distribution av programvara där ett program eller tjänst kommer som en behållaravbildning. Konfiguration och beroenden för programmet eller tjänsten ingår i behållaravbildningen. Behållaravbildningen kan sedan distribueras på en behållarvärd med lite eller ingen ändring. Behållare är isolerade från varandra och det underliggande operativsystemet, med mindre avtryck än en virtuell dator. Behållare kan instansieras behållaravbildningar för kortsiktig uppgifter och tas bort när den inte längre behövs.
 
@@ -60,9 +60,6 @@ Utför följande steg för att skapa och hämta information från en Azure-resur
 
 1. Skapa en Azure-resurs i Azure-portalen.  
    Om du vill identifiera Text-behållare måste du först skapa en resurs med motsvarande visuellt i Azure-portalen. Mer information finns i [Snabbstart: skapa ett Cognitive Services-konto i Azure portal](../cognitive-services-apis-create-account.md).
-
-   > [!IMPORTANT]
-   > Visuellt resursen måste använda F0 prisnivån.
 
 1. Hämta slutpunktsnyckeln för URL: en och -prenumeration för Azure-resursen.  
    När Azure-resursen har skapats måste du använda slutpunktsnyckeln för URL: en och -prenumeration från den här resursen för att skapa en instans av behållaren motsvarande identifiera Text. Du kan kopiera URL: en och prenumeration slutpunktsnyckeln från respektive sidorna Snabbstart och nycklar för visuellt innehåll resursen på Azure-portalen.

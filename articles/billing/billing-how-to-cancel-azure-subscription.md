@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: cwatson
-ms.openlocfilehash: dfce0a97812cb958e4fb299d0225b42a7aa8f68f
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: de5fd6e52ab93132920b1c98188cbea92b9900b5
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276308"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584357"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Avbryta din prenumeration för Azure
 
@@ -58,6 +58,6 @@ Om du avbryter prenumerationen med användningsbaserad betalning av misstag kan 
 
 Om prenumerationen inte är betala per användning, kontakta supporten inom 90 dagar efter uppsägning att återaktivera din prenumeration.
 
-## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har fler frågor, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 03/01/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 53f729e23ced00bd0acb5674308f8c610bff8868
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ce39e3ffce0b7721bde84254c7e5a35ec28465dc
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005384"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583167"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>Distribuera och hantera Apache Storm-topologier i Windows-baserade HDInsight
 
-Storm-instrumentpanelen kan du enkelt distribuera och köra Apache Storm-topologier i HDInsight-klustret med hjälp av webbläsaren. Du kan också använda instrumentpanelen för att övervaka och hantera topologier som körs. Om du använder Visual Studio, tillhandahåller HDInsight Tools för Visual Studio liknande funktioner i Visual Studio.
+Den [Apache Storm](http://storm.apache.org/) instrumentpanel kan du enkelt distribuera och köra Apache Storm-topologier till dina HDInsight-kluster med hjälp av webbläsaren. Du kan också använda instrumentpanelen för att övervaka och hantera topologier som körs. Om du använder Visual Studio, tillhandahåller HDInsight Tools för Visual Studio liknande funktioner i Visual Studio.
 
 Storm-instrumentpanelen och funktionerna som Storm i HDInsight-verktyg beroende Storm REST API, som kan användas för att skapa egna övervakning och lösningar för hantering.
 
@@ -88,7 +88,7 @@ Att välja en länk från den **Topology summary** avsnittet visar följande inf
 
   * **Balansera om**: justerar topologins parallellitet. Du bör balansera om topologier som körs när du har ändrat antalet noder i klustret. Detta gör att topologin kan justera parallelliteten och kompensera för ökat eller minskat antalet noder i klustret.
 
-      Mer information finns i [Förstå parallellitet i en Storm-topologi](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+      Mer information finns i [förstå parallellitet i en Apache Storm-topologi](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
   * **Avsluta**: avslutar en Storm-topologi efter en angiven tidsgräns.
 
@@ -118,7 +118,7 @@ Att välja en kanal från den **Spouts** eller **Bolts** avsnitt visar följande
 
 ## <a name="hdinsight-tools-for-visual-studio"></a>HDInsight Tools för Visual Studio
 
-HDInsight-verktyg kan användas för att skicka C#- eller topologier för Storm-kluster. Följande steg använder ett exempelprogram. Information om hur du skapar dina egna topologier med hjälp av HDInsight-verktyg finns i [utveckla C#-topologier med HDInsight Tools för Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
+Den [HDInsight Tools](https://azure.microsoft.com/resources/videos/hdinsight-tools-for-visual-studio/) kan användas för att skicka C# eller hybridtopologier till ditt Storm-kluster. Följande steg använder ett exempelprogram. Information om hur du skapar dina egna topologier med hjälp av HDInsight-verktyg finns i [utveckla C#-topologier med HDInsight Tools för Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 
 Använd följande steg för att distribuera ett exempel till ditt Storm på HDInsight-kluster, visa och hantera topologin.
 
@@ -159,7 +159,7 @@ Använd följande steg för att distribuera ett exempel till ditt Storm på HDIn
 
 Storm-Användargränssnittet är byggt på REST API, så att du kan utföra liknande övervaknings- och funktioner med hjälp av REST-API. Du kan använda REST API för att skapa anpassade verktyg för att hantera och övervaka Storm-topologier.
 
-Mer information finns i [Storm UI REST API](https://github.com/apache/storm/blob/0.9.3-branch/STORM-UI-REST-API.md). Följande information gäller med hjälp av REST-API med Apache Storm på HDInsight.
+Mer information finns i [Apache Storm UI REST API](https://github.com/apache/storm/blob/0.9.3-branch/STORM-UI-REST-API.md). Följande information gäller med hjälp av REST-API med Apache Storm på HDInsight.
 
 ### <a name="base-uri"></a>Bas-URI
 
@@ -174,7 +174,7 @@ REST API-begäranden måste använda **grundläggande autentisering**, så att d
 
 ### <a name="return-values"></a>Returvärden
 
-Information som returneras från REST-API: et kan bara användas från inom klustret eller virtuella datorer i samma virtuella nätverk med Azure som klustret. Till exempel det fullständigt kvalificerade domännamnet (FQDN) returneras för Zookeeper-servrar är inte tillgänglig från Internet.
+Information som returneras från REST-API: et kan bara användas från inom klustret eller virtuella datorer i samma virtuella nätverk med Azure som klustret. Till exempel det fullständigt kvalificerade domännamnet (FQDN) returneras för [Apache ZooKeeper](https://zookeeper.apache.org/) servrar är inte tillgänglig från Internet.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -182,9 +182,9 @@ Nu när du har lärt dig att distribuera och övervaka topologier med hjälp av 
 
 * [Utveckla C#-topologier med HDInsight Tools för Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)
 
-* [Utveckla Java-baserade topologier med Maven](apache-storm-develop-java-topology.md)
+* [Utveckla Java-baserade topologier med Apache Maven](apache-storm-develop-java-topology.md)
 
-En lista över flera exempeltopologier finns i [exempeltopologier för Storm på HDInsight](apache-storm-example-topology.md).
+En lista över flera exempeltopologier finns i [exempeltopologier för Apache Storm på HDInsight](apache-storm-example-topology.md).
 
 [hdinsight-dashboard]: ./media/apache-storm-deploy-monitor-topology/dashboard-link.png
 [storm-dashboard-submit]: ./media/apache-storm-deploy-monitor-topology/submit.png

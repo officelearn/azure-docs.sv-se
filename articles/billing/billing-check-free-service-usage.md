@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: cwatson
-ms.openlocfilehash: df049a87763f3aae8da2db153f876b88ed39b988
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: cb3584101dea4dc8d8d888632175415480a6a1b3
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47390246"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581536"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Kontrollera användningen av kostnadsfria tjänster ingår kostnadsfritt Azure-konto 
 
@@ -68,7 +68,6 @@ Användningsfilen innehåller användningsinformation för både kostnadsfria oc
 
 ![Skärmbild som visar användningen av kostnadsfria tjänster](./media/billing-check-usage-of-free-services/free-services-usage-csv.png)
 
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
-
-Om du behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

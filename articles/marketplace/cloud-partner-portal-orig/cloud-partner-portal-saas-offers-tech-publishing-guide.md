@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7430e57ceaec8a280c17f1276d503919a9703182
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7e648d6d3bd8d8ac14fb3f9723f4667c1cc33ac6
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228903"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620191"
 ---
 <a name="saas-application-technical-publishing-guide"></a>SaaS-program Technical publicera Guide
 ===========================================
@@ -32,7 +32,7 @@ En översikt över alla andra Marketplace-erbjudanden, finns det [Marketplace Pu
 <a name="what-are-pre-requisites-for-publishing-a-saas-app"></a>Vilka är kraven för att publicera en SaaS-App?
 -------------------------------------------------
 
-Publiceringsportal ger rollbaserad åtkomst till portalen så att flera personer att samarbeta för att publicera ett erbjudande. Mer information finns i [hantera användare](./cloud-partner-portal-manage-users.md). 
+Den [Cloud Partner Portal](https://cloudpartner.azure.com) ger rollbaserad åtkomst till portalen så att flera personer att samarbeta för att publicera ett erbjudande. Mer information finns i [hantera användare](./cloud-partner-portal-manage-users.md). 
 
 Innan ett erbjudande kan publiceras åt en utgivare konto, ett för individer med *ägare* rollen behöva samtycker till att följa den [användningsvillkor](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft PrivacyStatement](https://www.microsoft.com/privacystatement/default.aspx), och [Microsoft Azure Certified ProgramAgreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
@@ -58,7 +58,7 @@ SaaS-App-erbjudandet består av fem delar, som beskrivs i följande tabell:
 
 ### <a name="creating-a-new-offer"></a>Skapa ett nytt erbjudande
 
-När du loggar in på partnerportalen i molnet, väljer du den **nytt erbjudande** objekt i den vänstra menyraden, som visar en meny med tillgängliga erbjudanden. Följande bild visar ett exempel på sådana erbjudanden:
+När du loggar in på den [Cloud Partner Portal](https://cloudpartner.azure.com)väljer den **nytt erbjudande** objekt i den vänstra menyraden, som visar en meny med tillgängliga erbjudanden. Följande bild visar ett exempel på sådana erbjudanden:
 
 ![Nya SaaS-erbjudande](media/cpp-creating-saas-offers/saas-new-offer.png)
 
@@ -154,7 +154,7 @@ I följande tabell beskrivs de marknadsföring fält:
 
 | **Erbjudandet fält** | **Beskrivning**                                                                                                          |
 |------------------| ------------------------------------------------------------------------------------------------------------------------ |
-| Logotyper            | Om du är en **sälj via Azure** SaaS-appen, bör du ge alla bilder med logotyper. Om du bara en lista, krävs endast 2 logotyper. Alla logotyper som laddades upp i Cloud Partner Portal använder följande riktlinjer:     <br/> – Håll nere antalet primära och sekundära färger på din logotyp. Azure-designen har en enkel färgpalett.     <br/> -Undvik att använda svart eller vitt som bakgrundsfärgen för din logotyp. Temafärger i Azure-portalen är svart och vit. Använd istället en färg som gör din logotyp framstående i Azure Portal. Vi rekommenderar enkla primärfärger. Om du använder en genomskinlig bakgrund, se till att logotypen och texten inte är svart, vit eller blå.     <br/> – Använd inte en toning bakgrund på logotypen.     <br/> -Undvik att placera text, även företaget eller varumärke namn på logotypen. Utseendet och känslan av din logotyp måste vara ”fast” och Undvik toningar.    <br/> -Med logobilden bör inte vara har sträckts ut.                   |
+| Logotyper            | Om du är en **sälj via Azure** SaaS-appen, bör du ge alla bilder med logotyper. Om du bara en lista, krävs endast 2 logotyper. Alla logotyper laddades upp i den [Cloud Partner Portal](https://cloudpartner.azure.com) bör använda följande riktlinjer:     <br/> – Håll nere antalet primära och sekundära färger på din logotyp. Azure-designen har en enkel färgpalett.     <br/> -Undvik att använda svart eller vitt som bakgrundsfärgen för din logotyp. Temafärger i Azure-portalen är svart och vit. Använd istället en färg som gör din logotyp framstående i Azure Portal. Vi rekommenderar enkla primärfärger. Om du använder en genomskinlig bakgrund, se till att logotypen och texten inte är svart, vit eller blå.     <br/> – Använd inte en toning bakgrund på logotypen.     <br/> -Undvik att placera text, även företaget eller varumärke namn på logotypen. Utseendet och känslan av din logotyp måste vara ”fast” och Undvik toningar.    <br/> -Med logobilden bör inte vara har sträckts ut.                   |
 | Videoklipp           | Kan du lägga till länkar för videor i ditt erbjudande. Du kan använda länkar till YouTube eller Vimeo videor som visas tillsammans med ditt erbjudande till kunder. Du måste också ange en miniatyrbild av videon med en png-bild av 1 280 x 720 bildpunkter. Du kan ha högst fyra videor per erbjudandet. |
 | Dokument        | Kan du lägga till marknadsföring dokument till ditt erbjudande. Alla dokument måste vara i PDF-format och du kan ha högst tre dokument per erbjudandet.                                                                                                                                                      |
 | Skärmbilder      | Kan du lägga till skärmdumpar av ditt erbjudande. Det finns högst fem skärmbilder som kan läggas till per erbjudandet. Maximal avbildningens storlek är 1 280 x 720 bildpunkter.                                                                                                                                             |

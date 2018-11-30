@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 220fc7b2b0ce3a4c5fd943c35952a345379a1b91
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 77872ab809f4375523a91f4ebc9b24f8606e6c94
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284224"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619833"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory-direktautentisering: Vanliga frågor och svar
 
@@ -34,7 +34,7 @@ Granska [den här guiden](https://docs.microsoft.com/azure/security/azure-ad-cho
 
 Direktautentisering är en kostnadsfri funktion. Du behöver inte några betald utgåvor av Azure AD för att använda den.
 
-## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>Finns direktautentisering i den [Microsoft Azure Tyskland](http://www.microsoft.de/cloud-deutschland) och [Microsoft Azure Government-molnet](https://azure.microsoft.com/features/gov/)?
+## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpswwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>Finns direktautentisering i den [Microsoft Azure Tyskland](https://www.microsoft.de/cloud-deutschland) och [Microsoft Azure Government-molnet](https://azure.microsoft.com/features/gov/)?
 
 Nej. Direktautentisering är endast tillgängligt i den globala instansen av Azure AD.
 
@@ -44,7 +44,7 @@ Ja. Alla funktioner för villkorlig åtkomst, inklusive Azure Multi-Factor Authe
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Stöder direktautentisering ”alternativa ID” som användarnamn, i stället för ”userPrincipalName”?
 
-Ja. Har stöd för direktautentisering `Alternate ID` som användarnamn när du konfigurerade i Azure AD Connect. Mer information finns i [anpassad installation av Azure AD Connect](how-to-connect-install-custom.md). Inte alla Office 365-program som stöder `Alternate ID`. Finns det specifika programmet dokumentation support-instruktionen.
+Ja, har stöd för direktautentisering `Alternate ID` som användarnamn när du konfigurerade i Azure AD Connect. Azure AD Connect som en förutsättning, som behövs för att synkronisera lokala Active Directory `UserPrincipalName` attributet Azure AD. Mer information finns i [anpassad installation av Azure AD Connect](how-to-connect-install-custom.md). Inte alla Office 365-program som stöder `Alternate ID`. Finns det specifika programmet dokumentation support-instruktionen.
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>Synkronisering av lösenordshash fungera som reserv för direktautentisering?
 
@@ -119,6 +119,10 @@ Om du migrerar från AD FS (eller andra tekniker för federation) till direktaut
 
 Ja. Miljöer med Multi-Forest stöds om det finns skogsförtroenden mellan dina Active Directory-skogar och om routning är korrekt konfigurerad.
 
+## <a name="does-pass-through-authentication-provide-load-balancing-across-multiple-authentication-agents"></a>Tillhandahåller direktautentisering belastningsutjämning över flera Autentiseringsagenter?
+
+Nej, genom att installera flera Autentiseringsagenter för vidarekoppling säkerställer endast [hög tillgänglighet](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability). Det ger inte deterministisk belastningsutjämning mellan agenter för autentisering. Alla Autentiseringsagenten kan (slumpmässigt) bearbeta en viss användare logga in begäran.
+
 ## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>Hur många direkt Autentiseringsagenter jag behöver installera?
 
 Installera flera Autentiseringsagenter för vidarekoppling säkerställer [hög tillgänglighet](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability). Men det ger inte deterministisk belastningsutjämning mellan agenter för autentisering.
@@ -149,6 +153,22 @@ Kör Azure AD Connect-guiden och ändrar användarens inloggningsmetod från dir
 ## <a name="what-happens-when-i-uninstall-a-pass-through-authentication-agent"></a>Vad händer när jag för att avinstallera en Autentiseringsagenten för direktautentisering?
 
 Om du avinstallerar en Agent för autentisering av direkt från en server gör servern att sluta ta emot inloggningsförfrågningar. Om du vill undvika att skada funktionen för användare logga in på din klient, kontrollera att du har en annan Autentiseringsagenten körs innan du avinstallerar en Autentiseringsagenten för direktautentisering.
+
+## <a name="i-have-an-older-tenant-that-was-originally-setup-using-ad-fs--we-recently-migrated-to-pta-but-now-are-not-seeing-our-upn-changes-synchronizing-to-azure-ad--why-are-our-upn-changes-not-being-synchronized"></a>Jag har en äldre klient som ursprungligen installationen med hjälp av AD FS.  Vi har nyligen har migreras till PTA men nu kan inte se våra UPN-ändringar synkroniseras med Azure AD.  Varför är vår UPN ändras inte synkroniseras?
+
+S: under följande omständigheter ändringarna lokala UPN kan inte längre synkronisera när:
+
+- Azure AD-klienten skapades före den 15 juni-2015
+- Inledningsvis har federerat med Azure AD-klienten med hjälp av AD FS för autentisering
+- Du har växlat till att hanterade användare som använder PTA-autentisering
+
+Det beror på att standardbeteendet för klienter som har skapats innan den 15 juni-2015 var att blockera UPN ändringar.  Om du vill ta bort blockering UPN ändringar måste du köra följande PowerShell-cmdlt:  
+
+`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers-Enable $True`
+
+Klienter som skapats efter den 15 juni-2015 har standardbeteendet för synkronisering av UPN-ändringar.   
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 - [Aktuella begränsningar](how-to-connect-pta-current-limitations.md): Läs mer om vilka scenarier som stöds och vilka som inte är.

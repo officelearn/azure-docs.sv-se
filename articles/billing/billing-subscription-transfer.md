@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 66ad7c4eb07946daa278589e4a1a819f12315270
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a841ae168119546e8be32ce6f614656f775709ee
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276382"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583320"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Överföra ägarskapet för en Azure-prenumeration till ett annat konto
 
@@ -175,6 +175,6 @@ För att godkänna en prenumerationsöverföring, anges ett kreditkort eller lik
 
 Om du inte kan överföra äganderätten till prenumerationen kan du migrera dina resurser manuellt. Se [flytta resurser till ny resursgrupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md).
 
-## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du fortfarande behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 9885783428b51a71fee8733a9d054e82eca0f2f9
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: cead67bf18dcd0ea7b5c1479588083884dab475f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828717"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632967"
 ---
 # <a name="configure-service-map-in-azure"></a>Konfigurera Tjänstkarta i Azure
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Du kan använda den för att visa dina servrar som du tänker på dem, sammankopplat system som levererar viktiga tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar i alla TCP-anslutna arkitekturer utan konfiguration som krävs, än installation av en agent.
@@ -133,8 +133,8 @@ Tjänstkarta hämtar data från Microsoft Dependency agenten. Beroendeagenten ä
 
 | Ansluten källa | Stöds | Beskrivning |
 |:--|:--|:--|
-| Windows-agenter | Ja | Service Map analyserar och samlar in data från Windows-datorer. <br><br>Förutom den [Log Analytics-agenten för Windows](../../log-analytics/log-analytics-agent-overview.md), Windows-agenter kräver Microsoft Dependency agenten. Se [Operativsystem som stöds](#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
-| Linux-agenter | Ja | Service Map analyserar och samlar in data från Linux-datorer. <br><br>Förutom den [Log Analytics-agenten för Linux](../../log-analytics/log-analytics-agent-overview.md), kräver Microsoft Dependency agenten för Linux-agenter. Se [Operativsystem som stöds](#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
+| Windows-agenter | Ja | Service Map analyserar och samlar in data från Windows-datorer. <br><br>Förutom den [Log Analytics-agenten för Windows](../../azure-monitor/platform/log-analytics-agent.md), Windows-agenter kräver Microsoft Dependency agenten. Se [Operativsystem som stöds](#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
+| Linux-agenter | Ja | Service Map analyserar och samlar in data från Linux-datorer. <br><br>Förutom den [Log Analytics-agenten för Linux](../../azure-monitor/platform/log-analytics-agent.md), kräver Microsoft Dependency agenten för Linux-agenter. Se [Operativsystem som stöds](#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
 | System Center Operations Manager-hanteringsgrupp | Ja | Service Map analyserar och samlar in data från Windows och Linux-agenter i en ansluten [System Center Operations Manager-hanteringsgrupp](../../log-analytics/log-analytics-om-agents.md). <br><br>En direktanslutning från System Center Operations Manager-agentdatorn till Log Analytics krävs. |
 | Azure Storage-konto | Nej | Tjänstkarta samlar in data från agentdatorer, så det finns inga data från den för att samla in från Azure Storage. |
 
@@ -153,7 +153,7 @@ Om du är en System Center Operations Manager-kund med en hanteringsgrupp som ä
 - Om System Center Operations Manager-agenter kan komma åt Internet för att ansluta till Log Analytics, krävs ingen ytterligare konfiguration.  
 - Om System Center Operations Manager-agenter inte kan komma åt Log Analytics via Internet, måste du konfigurera Log Analytics-gatewayen ska fungera med System Center Operations Manager.
   
-Om din Windows- eller Linux-datorer inte kan ansluta direkt till tjänsten, måste du konfigurera Log Analytics-agenten för att ansluta till Log Analytics-arbetsytan med hjälp av gatewayen. Mer information om hur du distribuerar och konfigurerar Log Analytics-gateway finns [ansluter datorer utan Internetåtkomst med Log Analytics-gateway](../../log-analytics/log-analytics-oms-gateway.md).  
+Om din Windows- eller Linux-datorer inte kan ansluta direkt till tjänsten, måste du konfigurera Log Analytics-agenten för att ansluta till Log Analytics-arbetsytan med hjälp av gatewayen. Mer information om hur du distribuerar och konfigurerar Log Analytics-gateway finns [ansluter datorer utan Internetåtkomst med Log Analytics-gateway](../../azure-monitor/platform/gateway.md).  
 
 ### <a name="management-packs"></a>Hanteringspaket
 När Tjänstkarta har aktiverats i Log Analytics-arbetsytan kan vidarebefordras ett hanteringspaket på 300 KB till alla Windows-servrar i den arbetsytan. Om du använder System Center Operations Manager-agenter i en [ansluten hanteringsgrupp](../../log-analytics/log-analytics-om-agents.md), Tjänstkarta-hanteringspaket distribueras från System Center Operations Manager. 
@@ -230,7 +230,7 @@ Beroendeagenten kan installeras manuellt på Windows-datorer genom att köra `In
 
 Använd följande steg för att installera beroendeagenten på varje Windows-dator:
 
-1.  Installera agenten för Log Analytics för Windows följa en av metoderna som beskrivs i [översikt över Log Analytics-agenten](../../log-analytics/log-analytics-agent-overview.md).
+1.  Installera agenten för Log Analytics för Windows följa en av metoderna som beskrivs i [översikt över Log Analytics-agenten](../../azure-monitor/platform/log-analytics-agent.md).
 2.  Ladda ned Windows-agenten och kör den med hjälp av följande kommando: 
     
     `InstallDependencyAgent-Windows.exe`
@@ -258,7 +258,7 @@ Beroende-agenten är installerad på Linux-datorer från `InstallDependencyAgent
 
 Använd följande steg för att installera beroendeagenten på varje Linux-dator:
 
-1.  Installera Log Analytics-agenten följa en av metoderna som beskrivs i [översikt över Log Analytics-agenten](../../log-analytics/log-analytics-agent-overview.md).
+1.  Installera Log Analytics-agenten följa en av metoderna som beskrivs i [översikt över Log Analytics-agenten](../../azure-monitor/platform/log-analytics-agent.md).
 2.  Installera beroendeagenten för Linux som rot genom att köra följande kommando:
     
     `sh InstallDependencyAgent-Linux64.bin`
@@ -390,7 +390,7 @@ Om din beroende agentinstallationen har genomförts, men du inte ser din server 
 
         Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
 
-Fick du en rad olika händelser i resultaten? Är data de senaste? I så fall är din Log Analytics-agenten fungerar på rätt sätt och kommunicera med Log Analytics. Om inte, kontrollera agent på servern: [Log Analytics-agenten för felsökning av Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) eller [Log Analytics-agenten för Linux-felsökning](../../log-analytics/log-analytics-agent-linux-support.md).
+Fick du en rad olika händelser i resultaten? Är data de senaste? I så fall är din Log Analytics-agenten fungerar på rätt sätt och kommunicera med Log Analytics. Om inte, kontrollera agent på servern: [Log Analytics-agenten för felsökning av Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) eller [Log Analytics-agenten för Linux-felsökning](../../azure-monitor/platform/agent-linux-troubleshoot.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>Servern visas i Service Map men innehåller inga processer
 Om servern i Tjänstkarta visas, men den har ingen process eller anslutningen data, som anger att beroendeagenten är installerat och körs, men kerneldrivrutinen lästes inte in. 

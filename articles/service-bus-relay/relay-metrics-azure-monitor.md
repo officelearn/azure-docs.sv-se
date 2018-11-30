@@ -12,20 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 11/28/2018
 ms.author: spelluru
-ms.openlocfilehash: 2c7c2af6903b7c6e2951f15ad74295ae7eb4758d
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 5ca4535afb44238380cb6db55953072598130fae
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821794"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582368"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Azure Relay-mått i Azure Monitor (förhandsversion)
-
 Azure Relay-mått ger dig tillståndet för resurser i din Azure-prenumeration. Med en omfattande uppsättning mätvärden, kan du utvärdera den övergripande hälsan för dina Relay-resurser, inte bara på namnområdesnivå, utan även på enhetsnivå. Statistiken kan vara viktigt eftersom de hjälper dig att övervaka status för Azure Relay. Mått kan också hjälpa till att felsöka problem med grundorsaken utan att behöva kontakta Azure-supporten.
 
 Azure Monitor innehåller enhetligt användargränssnitt för övervakning över olika Azure-tjänster. Mer information finns i [övervakning i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) och [hämta Azure Monitor-mått med .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) i GitHub.
+
+> [!IMPORTANT]
+> Den här artikeln gäller enbart för funktionen Hybridanslutningar i Azure Relay, inte till WCF-relä. 
 
 ## <a name="access-metrics"></a>Åtkomst-mått
 
@@ -39,7 +41,7 @@ Du kan övervaka mått med tiden i den [Azure-portalen](https://portal.azure.com
 
 ![][1]
 
-Du kan också komma åt mått direkt via namnområdet. Ditt namnområde för att göra det, och klicka sedan på **mått (Peview)**. 
+Du kan också komma åt mått direkt via namnområdet. Ditt namnområde för att göra det, och klicka sedan på **mått (förhandsgranskning)**. 
 
 För mätvärden som stöd för dimensioner, måste du filtrera med önskad dimension-värde.
 

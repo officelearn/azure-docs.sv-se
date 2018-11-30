@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 11/30/2018
 ms.author: celested
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: 942151c0ce2a3a79dbdce9b90adea721456f920f
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 2f9cefa31b007cae715ff2ea98bccb3112babbef
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288483"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619800"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Ramverket för medgivande för Azure Active Directory
 
@@ -39,23 +39,29 @@ Följande steg visar hur samtycke upplevelse fungerar för både programutveckla
 
 1. Anta att du har ett webbprogram för klienten som behöver begära särskild behörighet för att få åtkomst till en resurs/API. Du får lära dig hur du gör denna konfiguration i nästa avsnitt, men i stort sett Azure-portalen för att deklarera behörighetsbegäranden vid konfigurationen. De blir en del av programmets Azure AD-registrering som andra konfigurationsinställningar:
 
-  ![Behörigheter för andra program](./media/quickstart-v1-integrate-apps-with-azure-ad/requiredpermissions.png)
+    ![Behörigheter för andra program](./media/quickstart-v1-integrate-apps-with-azure-ad/requiredpermissions.png)
 
 1. Överväg att behörigheter för ditt program har uppdaterats, programmet körs och en användare kommer att använda den för första gången. Programmet måste först, att hämta en auktoriseringskod från Azure Active Directorys `/authorize` slutpunkt. Auktoriseringskoden kan sedan användas för att få en ny tillgång och uppdatera token.
 
 1. Om användaren inte är autentiserad och Azure Active Directorys `/authorize` endpoint uppmanar användaren att logga in.
 
-  ![Användaren eller administratören logga in på Azure AD](./media/quickstart-v1-integrate-apps-with-azure-ad/usersignin.png)
+    [Användaren eller administratören logga in på Azure AD](./media/quickstart-v1-integrate-apps-with-azure-ad/usersignin.png)
 
 1. När användaren har loggat in avgör Azure AD om användaren behöver en samtyckessida visas. Det här fastställs baserat på om användaren (eller organisationens administratör) har redan gett samtycke för programmet. Om medgivande inte redan har getts, Azure AD efterfrågar medgivande och visar de behörigheter som krävs ska fungera. Uppsättningen behörigheter som visas i dialogrutan för medgivande överensstämmer med de som valts i den **delegerade behörigheter** i Azure-portalen.
 
-  ![Användarupplevelsen för medgivande](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
+    ![Användarupplevelsen för medgivande](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
 1. När användaren ger ditt medgivande, returneras en auktoriseringskod till programmet, som har löst in att hämta en åtkomsttoken och uppdatera token. Mer information om det här flödet finns i [webb-API-apptyp](web-api.md).
 
-1. Som administratör kan också samtycker du till ett programs delegerade behörigheter för alla användare i din klient. Administratörs godkännande förhindrar att godkännande i dialogrutan visas för varje användare i klienten och kan göras i den [Azure-portalen](https://portal.azure.com) av användare med administratörsrollen. Från den **inställningar** sidan för ditt program, Välj **nödvändiga behörigheter** och klicka på den **bevilja** knappen.
+1. Som administratör kan också samtycker du till ett programs delegerade behörigheter för alla användare i din klient. Administratörs godkännande förhindrar att godkännande i dialogrutan visas för varje användare i klienten och kan göras i den [Azure-portalen](https://portal.azure.com) av användare med administratörsrollen. Läs vilken administratör roller kan godkänna delegerade behörigheter i [behörigheter för administratör i Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
-  ![Bevilja behörigheter för explicit administratörens godkännande](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
+    **Om du vill godkänna en app delegerade behörigheter**
+
+    1. Gå till den **inställningar** sidan för ditt program
+    1. Välj **behörigheter som krävs för**.
+    1. Klicka på den **bevilja** knappen.
+
+    ![Bevilja behörigheter för explicit administratörens godkännande](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
 
   > [!IMPORTANT]
   > Bevilja uttryckliga medgivande med hjälp av den **bevilja** knappen krävs för närvarande för enkelsidigt program (SPA) som använder ADAL.js. Annars misslyckas programmet när åtkomsttoken begärs.

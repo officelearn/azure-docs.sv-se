@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: cwatson
-ms.openlocfilehash: a33a360d25930f1468f1c9240be2d0f306d682c7
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 87f6437f836d46fc24ae016823a1b091bcd81943
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585755"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582068"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Förstå användningen av Azure reservation för din Enterprise-registrering
 
@@ -34,7 +34,7 @@ Anta att du kör en Standard_D1_v2 Windows virtuell dator i östra USA och din r
 | Fält | Värde |
 |---| --- |
 |ReservationId |8f82d880-d33e-4e0d-bcb5-6bcb5de0c719|
-|Antal |1|
+|Kvantitet |1|
 |SKU | Standard_D1|
 |Region | usaöstra |
 
@@ -60,7 +60,7 @@ Anta att du kör en SQL-databas Gen 4 i östra USA och din reservation informati
 | Fält | Värde |
 |---| --- |
 |ReservationId |8244e673-83e9-45ad-B54B-3f5295d37cae|
-|Antal |2|
+|Kvantitet |2|
 |Produkt| SQL Database Gen 4 (2 kärnor)|
 |Region | usaöstra |
 
@@ -86,14 +86,14 @@ Din användning av Azure reservation även visas i sammanfattningen för använd
 Om du vill veta mer om Azure reservationer, finns i följande artiklar:
 
 - [Vad är Azure reservationer?](billing-save-compute-costs-reservations.md)
-- [Förskottsbetala för virtuella datorer med Azure reserverade VM-instanser](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Betala i förskott för beräkningsresurser för SQL-databas med Azure SQL Database reserverad kapacitet](../sql-database/sql-database-reserved-capacity.md) 
+- [Förskottsbetala för Virtual Machines med Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Förskottsbetala för SQL Database-beräkningsresurser med reserverad kapacitet för Azure SQL Database](../sql-database/sql-database-reserved-capacity.md) 
 - [Hantera Azure Reservations](billing-manage-reserved-vm-instance.md)
 - [Förstå hur reservationsrabatten tillämpas](billing-understand-vm-reservation-charges.md)
 - [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
 - [Kostnader för Windows-programvara ingår inte i reservationer](billing-reserved-instance-windows-software-costs.md)
 
-## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har fler frågor, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

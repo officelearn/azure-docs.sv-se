@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 0ee34d99c78eb090514385de16cd77d04ddca4e4
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 32e95c9098999305d4c48d5c43fae5ef6d3ac36e
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267706"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619783"
 ---
 # <a name="get-started-with-queries-in-log-analytics"></a>Kom igång med frågor i Log Analytics
 
@@ -138,7 +138,7 @@ SecurityEvent
 ## <a name="specify-a-time-range"></a>Ange ett tidsintervall
 
 ### <a name="time-picker"></a>Tidsväljare
-Tidsväljare är i det övre vänstra hörnet, vilket betyder att vi frågar endast poster från de senaste 24 timmarna. Det här är tidsintervallet standard tillämpas på alla frågor. Om du vill hämta bara poster från den senaste timmen, Välj _senaste timmen_ och kör frågan igen.
+Tidsväljare är bredvid knappen Kör och visar vi frågar endast poster från de senaste 24 timmarna. Det här är tidsintervallet standard tillämpas på alla frågor. Om du vill hämta bara poster från den senaste timmen, Välj _senaste timmen_ och kör frågan igen.
 
 ![Tidväljaren](media/get-started-queries/timepicker.png)
 
@@ -226,14 +226,14 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>Summera efter en time-kolumn
 Gruppera resultat kan också baseras på en time-kolumn eller en annan kontinuerligt mervärde. Helt enkelt sammanfatta `by TimeGenerated` dock skulle skapa grupper för varje enskild millisekund under tidsintervallet, eftersom dessa är unika värden. 
 
-För att skapa grupper baserat på kontinuerlig värden, det är bäst att bryta intervallet i hanterbara enheter med hjälp av **bin**. Följande fråga analyserar *Perf* poster som mäter ledigt minne (*tillgängliga megabyte*) på en specifik dator. Den beräknar medelvärdet för varje om 1 timme under de senaste 2 dagarna:
+För att skapa grupper baserat på kontinuerlig värden, det är bäst att bryta intervallet i hanterbara enheter med hjälp av **bin**. Följande fråga analyserar *Perf* poster som mäter ledigt minne (*tillgängliga megabyte*) på en specifik dator. Den beräknar medelvärdet för varje om 1 timme under de senaste 7 dagarna:
 
 ```Kusto
 Perf 
-| where TimeGenerated > ago(2d)
+| where TimeGenerated > ago(7d)
 | where Computer == "ContosoAzADDS2" 
 | where CounterName == "Available MBytes" 
-| summarize count() by bin(TimeGenerated, 1h)
+| summarize avg(CounterValue) by bin(TimeGenerated, 1h)
 ```
 
 Om du vill göra den tydligare utdatan väljer du för att visa den som ett tidsdiagram som visar mängden tillgängligt minne över tid:

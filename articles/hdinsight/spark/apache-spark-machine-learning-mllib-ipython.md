@@ -10,19 +10,19 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e553833f8b9a5daab5c454cea628acdda0320e76
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f9ee5946d9748388cc1f606d89d4edeacb0b9c02
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257647"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498095"
 ---
-# <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Använd Spark MLlib att skapa en machine learning-program och analysera en datauppsättning
+# <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Använda Apache Spark MLlib för att skapa en machine learning-program och analysera en datauppsättning
 
-Lär dig hur du använder Spark [MLlib](https://spark.apache.org/mllib/) att skapa en machine learning-programmet utför enkla förutsägande analys på en öppen datauppsättning. Från Sparks inbyggda machine learning-bibliotek, det här exemplet används *klassificering* via logistic regression. 
+Lär dig använda Apache Spark [MLlib](https://spark.apache.org/mllib/) att skapa en machine learning-programmet utför enkla förutsägande analys på en öppen datauppsättning. Från Sparks inbyggda machine learning-bibliotek, det här exemplet används *klassificering* via logistic regression. 
 
 > [!TIP]
-> Det här exemplet är också tillgängligt som en Jupyter-anteckningsbok i ett kluster med Spark (Linux) som du skapar i HDInsight. Notebook-upplevelsen kan du köra Python-kodavsnitt från anteckningsboken själva. Om du vill följa vägledningen i en bärbar dator, skapa ett Spark-kluster och starta en Jupyter-anteckningsbok (`https://CLUSTERNAME.azurehdinsight.net/jupyter`). Kör sedan anteckningsboken **Spark Machine Learning – förutsägande analys mat inspektion data med hjälp av MLlib.ipynb** under den **Python** mapp.
+> Det här exemplet är också tillgängligt som en [Jupyter Notebook](https://jupyter.org/) på ett Spark (Linux)-kluster som du skapar i HDInsight. Notebook-upplevelsen kan du köra Python-kodavsnitt från anteckningsboken själva. Om du vill följa vägledningen i en bärbar dator, skapa ett Spark-kluster och starta en Jupyter-anteckningsbok (`https://CLUSTERNAME.azurehdinsight.net/jupyter`). Kör sedan anteckningsboken **Spark Machine Learning – förutsägande analys mat inspektion data med hjälp av MLlib.ipynb** under den **Python** mapp.
 >
 >
 
@@ -47,7 +47,7 @@ I det här exemplet använder du Spark för att utföra vissa förutsägande ana
 
 I stegen nedan kan du utveckla en modell för att se vad som krävs för att lyckat eller misslyckat mat-kontroll.
 
-## <a name="create-a-spark-mllib-machine-learning-app"></a>Skapa en Spark MLlib machine learning-app
+## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Skapa en Apache Spark MLlib machine learning-app
 
 1. Skapa en Jupyter-anteckningsbok med PySpark-kerneln. Instruktioner finns i [Skapa en Jupyter-anteckningsbok](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
@@ -178,7 +178,7 @@ Låt oss börja att få en uppfattning om vad som innehåller datauppsättningen
     SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
     ```
 
-    Den `%%sql` magic följt av `-o countResultsdf` garanterar att utdata från frågan sparas lokalt på Jupyter-servern (vanligtvis huvudnoden i klustret). Utdata sparas som en [Pandas](http://pandas.pydata.org/) dataframe med det angivna namnet **countResultsdf**. Mer information om `%%sql`-funktionen, samt andra användbara funktioner hos PySpark-kerneln, finns i [Kernlar som är tillgängliga i Jupyter-anteckningsböcker med HDInsight Spark-kluster](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+    Den `%%sql` magic följt av `-o countResultsdf` garanterar att utdata från frågan sparas lokalt på Jupyter-servern (vanligtvis huvudnoden i klustret). Utdata sparas som en [Pandas](http://pandas.pydata.org/) dataframe med det angivna namnet **countResultsdf**. Mer information om den `%%sql` funktionen, samt andra användbara funktioner hos PySpark-kerneln, finns i [Kernlar som är tillgängliga i Jupyter-anteckningsböcker med Apache Spark HDInsight-kluster](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
     Utdata är:
 
@@ -385,19 +385,19 @@ När du har kört programmet bör du stänga ned anteckningsboken för att frig�
 * [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenarier
-* [Spark med BI: Utföra interaktiv dataanalys med hjälp av Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
-* [Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Webbplatslogganalys med Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark med BI: utföra interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Webbplatslogganalys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Skapa och köra program
 * [Skapa ett fristående program med hjälp av Scala](apache-spark-create-standalone-application.md)
-* [Köra jobb via fjärranslutning på ett Spark-kluster med Livy](apache-spark-livy-rest-interface.md)
+* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Verktyg och tillägg
 * [Använda HDInsight Tools-plugin för IntelliJ IDEA till att skapa och skicka Spark Scala-appar](apache-spark-intellij-tool-plugin.md)
-* [Använda HDInsight Tools-plugin för IntelliJ IDEA till att felsöka Spark-program via fjärranslutning](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Använda Zeppelin-anteckningsböcker med ett Spark-kluster i HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernlar som är tillgängliga för Jupyter Notebook i Spark-klustret för HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Använda HDInsight Tools-Plugin för IntelliJ IDEA till att felsöka Apache Spark-program via fjärranslutning](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Använda Apache Zeppelin-anteckningsböcker med Apache Spark-kluster på HDInsight](apache-spark-zeppelin-notebook.md)
+* [Kernlar som är tillgängliga för Jupyter notebook i Apache Spark-kluster för HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Använda externa paket med Jupyter-anteckningsböcker](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installera Jupyter på datorn och ansluta till ett HDInsight Spark-kluster](apache-spark-jupyter-notebook-install-locally.md)
 

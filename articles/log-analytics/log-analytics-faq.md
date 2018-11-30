@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 88df62b6e8c4eb519c51d82763634cf7d6d14418
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 4c31831aedefabc285c92861e9010b242cacf0d7
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262660"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635789"
 ---
 # <a name="log-analytics-faq"></a>Vanliga frågor och svar om Log Analytics
 Den här Microsoft-FAQ är en lista över vanliga frågor om Log Analytics i Microsoft Azure. Om du har ytterligare frågor om Log Analytics kan du gå till den [diskussionsforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) och ställa frågor. När en fråga är vanliga vi lägga till det i den här artikeln så att den finns snabbt och enkelt.
@@ -160,7 +160,7 @@ A. Nej, det går inte för närvarande att läsa från valfri tabeller eller beh
 
 A. Log Analytics-tjänsten bygger på Azure. Log Analytics-IP-adresser som tillhör den [IP-intervall i Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653).
 
-Eftersom tjänstdistributioner görs, ändra faktiska IP-adresserna för Log Analytics-tjänsten. DNS-namn ska tillåtas via brandväggen finns dokumenterade i [krav på](log-analytics-agent-overview.md#network-firewall-requirements).
+Eftersom tjänstdistributioner görs, ändra faktiska IP-adresserna för Log Analytics-tjänsten. DNS-namn ska tillåtas via brandväggen finns dokumenterade i [krav på](../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements).
 
 ### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>F. Jag bara använder ExpressRoute för att ansluta till Azure. Använder Mina Log Analytics-trafik min ExpressRoute-anslutning?
 
@@ -198,9 +198,22 @@ Under **Azure Log Analytics (OMS)**, ta bort alla arbetsytor som visas.
 
 ### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>F: Varför får jag ett fel när jag försöker flytta Min arbetsyta från en Azure-prenumeration till en annan?
 
-S: Om du använder Azure-portalen kan du kontrollera att endast arbetsytan har valts för flytten. Markera inte lösningarna – flyttas automatiskt när arbetsytan har flyttats. 
+S: Om du vill flytta en arbetsyta till en annan prenumeration eller resursgrupp du måste först ta bort länken till Automation-konto på arbetsytan. Tar bort länken ett Automation-konto kräver borttagning av dessa lösningar om de är installerade på arbetsytan: uppdateringshantering, ändringsspårning eller starta/stoppa VM under kontorstid tas bort. När dessa lösningar har tagits bort, ta bort länken till Automation-kontot genom att välja **länkad arbetsytor** i det vänstra fönstret i Automation-kontot resursen och klicka på **ta bort arbetsytans länk** i menyfliksområdet.
+ > Ta bort lösningar behöver installeras på arbetsytan och Automation-länk till arbetsytan måste räknas efter flytten.
 
 Se till att du har behörighet i både Azure-prenumerationer.
+
+### <a name="q-why-am-i-getting-an-error-when-i-try-to-update-a-savedsearch"></a>F: Varför får jag ett fel när jag försöker uppdatera en SavedSearch?
+
+S: du behöver lägga till ”etag' i brödtexten i API: et eller i Azure Resource Manager-mallens egenskaper:
+```
+"properties": {
+   "etag": "*",
+   "query": "SecurityEvent | where TimeGenerated > ago(1h) | where EventID == 4625 | count",
+   "displayName": "An account failed to log on",
+   "category": "Security"
+}
+```
 
 ## <a name="agent-data"></a>Agentinformationen
 ### <a name="q-how-much-data-can-i-send-through-the-agent-to-log-analytics-is-there-a-maximum-amount-of-data-per-customer"></a>F. Hur mycket data kan jag skicka via agenten till Log Analytics? Finns det en maximal mängd data per kund?

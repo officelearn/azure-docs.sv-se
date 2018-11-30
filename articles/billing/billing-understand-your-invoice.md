@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: cwatson
-ms.openlocfilehash: de5cb85e751ad1d0c25ea31b185a3266eb9de05d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 50909a51786bf6118c4fb867f2482c93bf59c28e
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275409"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581570"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Förstå villkoren på din faktura för Microsoft Azure
 
@@ -114,5 +114,6 @@ I följande tabell beskrivs kolumnrubrikerna för användning avgifter visas på
 ## <a name="how-do-i-make-sure-that-the-charges-in-my-invoice-are-correct"></a>Hur gör jag till att kostnader på min faktura är korrekta?
 Om det finns en avgift på fakturan som du vill ha mer information på, se [förstå fakturan för Microsoft Azure.](billing-understand-your-bill.md)
 
-## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
-Om du fortfarande behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
+
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

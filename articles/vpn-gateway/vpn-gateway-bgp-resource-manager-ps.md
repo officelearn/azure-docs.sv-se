@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
-ms.openlocfilehash: 4eb62786522dd1ad7cbf1d5668a4c4493028733c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 97b33ed76776ae00c109e891b3d91638080ed778
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684349"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632593"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Så här konfigurerar du BGP på Azure VPN gateway med PowerShell
 Den här artikeln vägleder dig igenom stegen för att aktivera BGP på en plats-till-plats (S2S) VPN-anslutning för flera platser och en VNet-till-VNet-anslutning med hjälp av Resource Manager-distributionsmodellen och PowerShell.
@@ -167,7 +167,7 @@ $BGPPeerIP5 = "10.52.255.254"
 Några saker att tänka på angående lokala gateway-parametrar:
 
 * Den lokala nätverksgatewayen kan vara i samma eller en annan plats och resursgrupp som VPN-gateway. Det här exemplet visar dem i olika resursgrupper på olika platser.
-* Den minsta möjliga prefix deklarera för den lokala nätverksgatewayen är värdadressen för din BGP-Peer-IP-adress på VPN-enheten. I det här fallet är det en /32 prefixet för ”10.52.255.254/32”.
+* Prefixet måste du deklarera för den lokala nätverksgatewayen är värdadress din BGP-Peer-IP-adress på VPN-enheten. I det här fallet är det en /32 prefixet för ”10.52.255.254/32”.
 * Du måste använda olika BGP ASN-nummer mellan ditt lokala nätverk och virtuella Azure-nätverket som en påminnelse. Om de är likadana, måste du ändra din VNet ASN om den lokala VPN-enheten redan använder ASN att peer-kopplas med andra BGP-grannar.
 
 Innan du fortsätter kontrollerar du att du fortfarande är ansluten till Prenumeration 1.

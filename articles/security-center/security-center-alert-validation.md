@@ -3,7 +3,7 @@ title: Aviseringsverifiering i Azure Security Center | Microsoft Docs
 description: I det här dokumentet får du hjälp med att verifiera säkerhetsaviseringar i Azure Security Center.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: f8f17a55-e672-4d86-8ba9-6c3ce2e71a57
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2017
-ms.author: yurid
-ms.openlocfilehash: 5ac1e03fda90e12b6edbe28a66fdd488a34ea54b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 2c0bb2a68eaaa8183463efbdc2848567ab67d1b9
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240062"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619752"
 ---
 # <a name="alerts-validation-in-azure-security-center"></a>Aviseringsverifiering i Azure Security Center
 I det här dokumentet får du hjälp med att verifiera systemet är rätt konfigurerat för aviseringar från Azure Security Center.
@@ -43,7 +43,7 @@ När du granskar den här aviseringen ska du se till att fältet Argument Auditi
 
 
 > [!NOTE]
-> Titta på videoklippet [Alert Validation in Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Alert-Validation-in-Azure-Security-Center) (aviseringsverifiering i Azure Security Center) för en demonstration av den här funktionen. 
+> Titta på videoklippet [Alert Validation in Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Alert-Validation-in-Azure-Security-Center) (aviseringsverifiering i Azure Security Center) för en demonstration av den här funktionen.
 
 ## <a name="see-also"></a>Se också
 I den här artikeln förklaras processen för aviseringsverifiering. Nu när du är bekant med den här verifieringen kan du titta på följande artiklar:
@@ -51,7 +51,6 @@ I den här artikeln förklaras processen för aviseringsverifiering. Nu när du 
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Lär dig hur du hanterar aviseringar och åtgärdar säkerhetsincidenter i Security Center.
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md). Lär dig att övervaka hälsotillståndet för dina Azure-resurser.
 * [Förstå säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Läs mer om de olika typerna av säkerhetsaviseringar.
-* [Felsökningsguide för Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Lär dig hur du felsöker vanliga problem i Security Center. 
+* [Felsökningsguide för Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Lär dig hur du felsöker vanliga problem i Security Center.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md). Här finns vanliga frågor om att använda tjänsten.
 * [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/). Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
-

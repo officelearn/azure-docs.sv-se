@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 7ead955be3835f4ce3e602fe27a06c00d014195c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 984c74c44cb5149e0c4af83ea8ca4d88e67877ae
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262207"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584782"
 ---
 # <a name="azure-database-security-overview"></a>Översikt över Azure database-säkerhet
 
@@ -199,7 +199,7 @@ SQL avancerade Threat Protection (ATP) tillhandahåller en uppsättning avancera
 - Åtkomst från ett potentiellt skadligt program 
 - Brute force Azure database för PostgreSQL-autentiseringsuppgifter 
 
-[Azure Database for MySQL Advanced Threat Protection](/mysql/concepts-data-access-and-security-threat-protection.md) skyddar liknar PostgreSQL Avancerat skydd.  
+[Azure Database for MySQL Advanced Threat Protection](../mysql/concepts-data-access-and-security-threat-protection.md) skyddar liknar PostgreSQL Avancerat skydd.  
 
 ## <a name="centralized-security-management"></a>Centraliserad säkerhetshantering
 
@@ -220,7 +220,7 @@ Security Center stöder rollbaserad åtkomst.
 
 Dessutom beräknas resultatet känslighet för SQL-frågor, så att frågor som hämtar känsliga data kan granskas uttryckligen och data kan skyddas. Mer information om SQL Information Protection finns i Azure SQL Database-Dataidentifiering och klassificering.
 
-Du kan konfigurera [SQL Information Protection-principer](/security-center/security-center-info-protection-policy.md) i Azure Security Center.
+Du kan konfigurera [SQL Information Protection-principer](../security-center/security-center-info-protection-policy.md) i Azure Security Center.
 
 ## <a name="azure-marketplace"></a>Azure Marketplace
 

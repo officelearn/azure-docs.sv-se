@@ -1,104 +1,118 @@
 ---
-title: IoT DevKit till molnet – ansluta IoT DevKit AZ3166 till Remote Monitoring IoT lösningsaccelerator | Microsoft Docs
-description: I de här självstudierna lär du dig hur du skickar status för sensorer på IoT DevKit AZ3166 till Remote Monitoring IoT solution accelerator för övervakning och visualisering.
+title: Ansluta IoT DevKit till lösningsacceleratorn för fjärrövervakning – Azure | Microsoft Docs
+description: I den här guiden du lära dig hur du skickar telemetri från sensorer på IoT DevKit AZ3166 enheten den att lösningsacceleratorn för fjärrövervakning för övervakning och visualisering.
 author: isabelcabezasm
 manager: ''
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.devlang: c
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: 32742b2a680370f443051e2d86f90d94e8632850
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7f67868f6220ab2940aa8ac4d4bf24f82191cc22
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720590"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620259"
 ---
-# <a name="connect-mxchip-iot-devkit-az3166-to-the-iot-remote-monitoring-solution-accelerator"></a>Ansluta MXChip IoT DevKit AZ3166 till IoT-Remote Monitoring solution accelerator
+# <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Anslut en enhet med IoT DevKit till lösningsacceleratorn för fjärrövervakning
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Du kommer lära dig hur du kör en exempelapp på din IoT DevKit att skicka sensordata till utvecklingsacceleratorn.
+Den här guiden visar hur du kör ett exempelprogram på enheten IoT DevKit. Exempelkoden skickar telemetri från sensorer på enheten DevKit till utvecklingsacceleratorn.
 
-Den [MXChip IoT DevKit](https://aka.ms/iot-devkit) är en allt-i-ett Arduino kompatibla tavla med omfattande kringutrustning och sensorer. Du kan utveckla för den med hjälp av [Azure IoT Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) i Visual Studio Code. Och det levereras med en växande [projekt catalog](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) att guida dig prototyp Internet of Things (IoT) lösningar som utnyttjar Microsoft Azure-tjänster.
+Den [IoT DevKit](https://aka.ms/iot-devkit) är en allt-i-ett Arduino kompatibla tavla med omfattande kringutrustning och sensorer. Du kan utveckla för den med hjälp av [Azure IoT Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) i Visual Studio Code. Den [projekt catalog](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) innehåller exempelprogram som hjälper dig att skapa prototyper IoT-lösningar.
 
-## <a name="what-you-need"></a>Vad du behöver
+## <a name="prerequisites"></a>Förutsättningar
 
-Gå igenom den [Kom igång-guiden](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) och **Slutför i följande avsnitt**:
+Följ den [IoT DevKet komma igång-guide](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) och gå igenom följande avsnitt:
 
 * Förbered maskinvaran
 * Konfigurera Wi-Fi
 * Börja använda DevKit
 * Förbereda utvecklingsmiljön
 
-## <a name="open-the-remote-monitoring-sample-in-vs-code"></a>Öppna exemplet fjärrövervakning i VS Code
+## <a name="open-the-sample"></a>Öppna exemplet
 
-1. Kontrollera att din IoT DevKit är **inte ansluten** till datorn. Starta VS Code först och sedan ansluta DevKit till din dator.
+Öppna exemplet fjärrövervakning i VS Code:
 
-2. Klicka på `F1` att öppna kommandopaletten, typ och väljer **IoT Workbench: exempel**. Välj sedan **IoT DevKit** som tavla.
+1. Kontrollera att din IoT DevKit inte till din dator. Starta VS Code först och sedan ansluta DevKit till din dator.
 
-3. Hitta **fjärrövervakning** och klicka på **öppna exemplet**. Ett nytt VS Code-fönster öppnas med projektmapp, till exempel i den.
+1. Klicka på `F1` att öppna kommandopaletten, typ och väljer **IoT Workbench: exempel**. Välj sedan **IoT DevKit** som tavla.
+
+1. Hitta **fjärrövervakning** och klicka på **öppna exemplet**. En ny VS Code-fönstret öppnas med projektmappen:
+
   ![IoT Workbench, Välj exempel för fjärrövervakning](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-example.png)
 
-## <a name="configure-iot-hub-device-connection-string"></a>Konfigurera anslutningssträngen för IoT Hub-enhet
+## <a name="configure-the-device"></a>Konfigurera enheten
 
-1. Växla IoT DevKit till **konfigurationsläge**. Gör så här:
-   * Håll ned knappen **A**.
-   * Push- och släpp den **återställa** knappen.
+Konfigurera anslutningssträngen för IoT Hub-enhet på enheten DevKit:
 
-2. På skärmen visas DevKit ID och ”Configuration”.
-   
-  ![IoT DevKit konfigurationsläge](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/devkit-configuration-mode.png)
+1. Växla IoT DevKit till **konfigurationsläge**:
 
-3. Klicka på `F1` att öppna kommandopaletten, typ och väljer **IoT Workbench: enhet > Config Enhetsinställningar**.
+    * Håll ned knappen **A**.
+    * Push- och släpp den **återställa** knappen.
 
-4. Klistra in anslutningssträngen som du kopierade Klicka `Enter` att konfigurera den.
+1. Skärmen visar DevKit-ID och `Configuration`.
 
-## <a name="build-and-upload-the-device-code"></a>Skapa och överföra kod för enhet
+    ![IoT DevKit konfigurationsläge](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/devkit-configuration-mode.png)
 
-1. Klicka på `F1` att öppna kommandopaletten, typ och väljer **IoT Workbench: enhet > enheten ladda upp**.
-  ![IoT Workbench: Enhet – > Överför](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-device-upload.png)
+1. Tryck på **F1** att öppna kommandopaletten, typ och väljer **IoT Workbench: enhet > Config Enhetsinställningar**.
 
-1. VS Code och sedan startar när koden kompileras och ladda upp koden till din DevKit.
-  ![IoT Workbench: Enhet – > laddats upp](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-device-uploaded.png)
+1. Klistra in anslutningssträngen som du kopierade tidigare och tryck på **RETUR** att konfigurera enheten.
 
-DevKit startar om och börjat köra koden.
+## <a name="build-the-code"></a>Skapa koden
 
-## <a name="test-the-project"></a>Testa projektet
+Att skapa och överföra kod för enheten:
+
+1. Tryck på **F1**”** att öppna kommandopaletten, typ och väljer **IoT Workbench: enhet > enheten överför**:
+
+    ![IoT Workbench: Enhet – > Överför](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-device-upload.png)
+
+1. VS Code kompilerar och laddar upp koden till enheten DevKit:
+
+    ![IoT Workbench: Enhet – > laddats upp](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-device-uploaded.png)
+
+1. DevKit enheten startar om och kör den kod som du laddat upp.
+
+## <a name="test-the-sample"></a>Testa exemplet
+
+Om du vill kontrollera att det exempelprogram som du laddade upp till DevKit enheten fungerar, utför du följande steg:
 
 ### <a name="view-the-telemetry-sent-to-remote-monitoring-solution"></a>Visa telemetri som skickas till lösningen för fjärrövervakning
 
-När exempelappen körs, skickar DevKit sensordata via Wi-Fi till lösningen för fjärrövervakning. Följ dessa steg om du vill visa resultatet genom:
+När du kör exempelappen skickar DevKit enheten telemetri från sensorer data via Wi-Fi till utvecklingsacceleratorn. Visa telemetrin:
 
 1. Gå till instrumentpanelen för lösningen och klicka **enheter**.
 
-2. Klicka på namnet på enheten, på fliken höger ser du sensor status på DevKit i realtid.
-  ![Sensordata i Azure IoT Suite](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-dashboard.png)
+1. Klicka på namnet på enheten för DevKit enheten. Du kan se telemetrin från DevKit i realtid på fliken till höger:
 
-### <a name="send-a-c2d-message"></a>Skicka ett C2D-meddelande
+    ![Sensordata i Azure IoT Suite](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-dashboard.png)
 
-Remote Monitoring-lösningen kan du anropa fjärrmetod på enheten. Koden sxample publicerar tre metoder som du ser i den **metoden** avsnittet när sensorn har valts.
+### <a name="control-the-devkit-device"></a>Styra DevKit enheten
+
+Lösningsacceleratorn för fjärrövervakning kan du styra din enhet via fjärranslutning. Exempelkoden implementerar tre metoder som du ser i den **metoden** avsnittet när du väljer enheten på den **enheter** sidan:
 
 ![IoT DevKit metoder](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-methods.png)
 
-Låt oss försöka ändra färg på en av DevKit led: ar med hjälp av metoden ”LedColor”.
+Du kan ändra färg på en DevKit-led: ar med den **LedColor** metod:
 
-1. Välj namnet på enheten från listan över enheter och klicka på den **jobb**.
+1. Välj namnet på enheten från listan över enheter och klicka på den **jobb**:
 
-  ![Skapa ett jobb](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-job.png)
+    ![Skapa ett jobb](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-job.png)
 
-2. Konfigurera jobb enligt nedan och klicka på **tillämpa**.
-  * Välj jobb: **metoden Kör**
-  * Metodnamn: **LedColor**
-  * Jobbnamnet: **ChangeLedColor**
-  
-  ![Inställningar för](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-change-color.png)
+1. Konfigurera jobb med hjälp av följande värden och klicka på **tillämpa**:
 
-Några sekunder bör din DevKit ändra färg på RGB-LED (under knappen A).
+    * Välj jobb: **metoden Kör**
+    * Metodnamn: **LedColor**
+    * Jobbnamnet: **ChangeLedColor**
 
-![IoT DevKit red ledde](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-devkit-led.png)
+    ![Jobbinställningar](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-change-color.png)
+
+1. Efter några sekunder ändras färgen på RGB-LED (under knappen A) på din DevKit
+
+    ![IoT DevKit red ledde](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-devkit-led.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -110,15 +124,15 @@ Om du inte längre behöver lösningsaccelerator kan ta bort den från sidan eta
 
 ## <a name="problems-and-feedback"></a>Problem och feedback
 
-Om du får problem kan se [IoT DevKit vanliga frågor och svar](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) eller kontakta oss med hjälp av följande kanaler:
+Om du stöter på problem, se [IoT DevKit vanliga frågor och svar](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) eller kontakta oss med hjälp av följande kanaler:
 
 * [Gitter.IM](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [StackOverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du ansluter en DevKit enhet till din Azure IoT lösningsacceleratorn för fjärrövervakning och visualisera sensordata, är här nästa föreslagna steg:
+Nu när du har lärt dig hur du ansluter en enhet för DevKit till lösningsacceleratorn för fjärrövervakning, är här några nästa föreslagna steg:
 
-* [Azure IoT acceleratorer lösningsöversikt](https://docs.microsoft.com/azure/iot-suite/)
-* [Anpassa användargränssnittet](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)
+* [Azure IoT acceleratorer lösningsöversikt](https://docs.microsoft.com/azure/iot-accelerators/)
+* [Anpassa användargränssnittet](iot-accelerators-remote-monitoring-customize.md)
 * [Ansluta IoT DevKit till programmet Azure IoT Central](../iot-central/howto-connect-devkit.md)

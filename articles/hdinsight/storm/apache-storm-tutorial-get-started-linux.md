@@ -10,16 +10,16 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: d2181fb22079112c84e3e7c65575b12aa0c867ac
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 900180c9991932f4efaa07f9881e9f3f897cd99e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006557"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498264"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Kom igång med Apache Storm på HDInsight med storm starter-exempel
 
-Lär dig att använda Apache Storm på HDInsight med storm starter-exempel.
+Lär dig hur du använder [Apache Storm](http://storm.apache.org/) i HDInsight med storm starter-exempel.
 
 Apache Storm är ett skalbart, feltolerant och distribuerat system för beräkningar i realtid för bearbetning av dataströmmar. Du kan skapa ett molnbaserat Storm-kluster som utför analyser av stordata i realtid med Storm på Azure HDInsight.
 
@@ -34,7 +34,7 @@ Apache Storm är ett skalbart, feltolerant och distribuerat system för beräkni
 
 * **kunskap om SSH och SCP**. Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
-## <a name="create-a-storm-cluster"></a>Skapa ett Storm-kluster
+## <a name="create-an-apache-storm-cluster"></a>Skapa ett Apache Storm-kluster
 
 Använd följande steg om du vill skapa en Storm i HDInsight-klustret:
 
@@ -139,7 +139,7 @@ Genomför följande för att övervaka topologin med hjälp av Storm-användargr
 
     * **Deactivate**  (Inaktivera) – pausar en topologi som körs.
 
-    * **Rebalance** (Balansera) – justerar topologins parallellitet. Du bör balansera om topologier som körs när du har ändrat antalet noder i klustret. Ombalansering justerar parallelliteten och kompenserar för det ökade/minskade antalet noder i klustret. Mer information finns i [Förstå parallellitet i en Storm-topologi](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+    * **Rebalance** (Balansera) – justerar topologins parallellitet. Du bör balansera om topologier som körs när du har ändrat antalet noder i klustret. Ombalansering justerar parallelliteten och kompenserar för det ökade/minskade antalet noder i klustret. Mer information finns i [förstå parallellitet i en Apache Storm-topologi](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
     * **Kill** (Avsluta) – avslutar en Storm-topologi efter en angiven tidsgräns.
 
@@ -187,15 +187,15 @@ Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkr
 
 ## <a id="next"></a>Nästa steg
 
-I den här självstudien för Apache Storm har du lärt dig grunderna för att arbeta med Storm på HDInsight. Härnäst får du lära dig att [Utveckla Java-baserade topologier med Maven](apache-storm-develop-java-topology.md).
+I den här självstudien för Apache Storm har du lärt dig grunderna för att arbeta med Storm på HDInsight. Lär dig sedan hur du [utveckla Java-baserade topologier med Apache Maven](apache-storm-develop-java-topology.md).
 
 Om du redan är bekant med att utveckla Java-baserade topologier kan du läsa dokumentet [Distribuera och hantera Apache Storm-topologier i HDInsight](apache-storm-deploy-monitor-topology-linux.md).
 
-Om du är en .NET-utvecklare kan du skapa C#- eller C#/Java-hybridtopologier med Visual Studio. Mer information finns i [Utveckla C#-topologier för Apache Storm på HDInsight med Hadoop-verktyg för Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
+Om du är en .NET-utvecklare kan du skapa C#- eller C#/Java-hybridtopologier med Visual Studio. Mer information finns i [utveckla C# topologier för Apache Storm på HDInsight med hjälp av Apache Hadoop-verktyg för Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 
 Se följande exempel för exempeltopologier som kan användas med Storm på HDInsight:
 
-* [Exempeltopologier för Storm på HDInsight](apache-storm-example-topology.md)
+* [Exempeltopologier för Apache Storm på HDInsight](apache-storm-example-topology.md)
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html

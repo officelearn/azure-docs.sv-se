@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 49341b320df98bb08ee4f5c4ee061a51bec29ff2
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: bb8eb4eae192cf0dd3a3555a3b1209705dd83aaf
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686168"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583699"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Självstudie: Skapa och hantera budgetar för Azure
 
@@ -33,13 +33,15 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Budgetar är tillgängliga för alla Azure EA-kunder. Du måste ha läsbehörighet till en Azure-EA-prenumeration för att kunna skapa och hantera budgetar. Du kan skapa enskilda budgetar för EA-prenumerationer och resursgrupper. Du kan dock skapa budgetar för EA fakturering konton.
+Budgetar är tillgängliga för alla Azure EA-kunder. Du måste ha läsbehörighet till en Azure EA-prenumeration visa budgetar. För att skapa och hantera budgetar, måste du ha behörigheten deltagare. Du kan skapa enskilda budgetar för EA-prenumerationer och resursgrupper. Du kan dock skapa budgetar för EA fakturering konton.
 
 Följande Azure-behörigheter stöds per prenumeration för budgetar för användare och grupp:
 
 - Ägare – Kan skapa, ändra och ta bort budgetar för en prenumeration.
-- Deltagare – Kan skapa, ändra och ta bort sina egna budgetar. Kan ändra budgetbeloppet för budgetar som skapats av andra.
-- Läsare – Kan visa budgetar som de har behörighet till.
+- Deltagare och kostnadshantering deltagare – kan skapa, ändra eller ta bort egna budgetar. Kan ändra budgetbeloppet för budgetar som skapats av andra.
+- Läsare och kostnadshantering läsare – kan visa dig som de har behörighet att.
+
+Läs mer om att tilldela behörighet till Cost Management-data, [tilldela åtkomst till Cost Management data](assign-access-acm-data.md).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 

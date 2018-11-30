@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 11/28/2018
 ms.author: danlep
-ms.openlocfilehash: e060d8cf1ec16ac3c900180c01eb3384a56d5e13
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: e03a35b31c9089abe973c7e4388b508f668a3970
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713035"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619851"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuera behållarinstanser till en Azure-nätverk
 
@@ -73,7 +73,7 @@ Det undernät som du använder för behållargrupper får innehålla endast beh�
 
 En nätverksprofil är en mall för konfiguration av nätverk för Azure-resurser. Den anger vissa Nätverksegenskaper för resurs, till exempel det undernät som den ska distribueras. När du använder den [az container skapa] [ az-container-create] kommandot för att distribuera en behållargrupp till ett undernät (och därmed ett virtuellt nätverk), Azure skapar en nätverksprofil åt dig. Du kan sedan använda den nätverksprofilen för framtida distributioner till undernätet. 
 
-Om du vill använda en Resource Manager-mall, YAML-fil eller en programmatisk metod för att distribuera en behållargrupp till ett undernät, måste du ange den fullständiga resurs-ID för Resource Manager för en nätverksprofil. Du kan använda en profil som skapats tidigare med [az container skapa][az-container-create], eller skapa en profil med en Resource Manager-mall (se [referens](https://docs.microsoft.com/azure/templates/microsoft.network/networkprofiles)). Hämta ID för en tidigare skapad profil med den [az nätverket Profillista] [ az-network-profile-list] kommando. 
+Om du vill använda en Resource Manager-mall, YAML-fil eller en programmatisk metod för att distribuera en behållargrupp till ett undernät, måste du ange den fullständiga resurs-ID för Resource Manager för en nätverksprofil. Du kan använda en profil som skapats tidigare med [az container skapa][az-container-create], eller skapa en profil med en Resource Manager-mall (se [mallexemplet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet) och [referens](https://docs.microsoft.com/azure/templates/microsoft.network/networkprofiles)). Hämta ID för en tidigare skapad profil med den [az nätverket Profillista] [ az-network-profile-list] kommando. 
 
 I följande diagram, har grupper med flera behållare distribuerats till ett undernät som delegerats till Azure Container Instances. När du har distribuerat en behållargrupp till ett undernät kan distribuera du ytterligare behållargrupper till den genom att ange samma nätverksprofil.
 
@@ -296,6 +296,9 @@ az network vnet delete --resource-group $RES_GROUP --name aci-vnet
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
+Om du vill distribuera ett nytt virtuellt nätverk, undernät, nätverksprofil och behållargrupp med en Resource Manager-mall, [skapa en Azure container-grupp med virtuella nätverk](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
+).
 
 Flera virtuella nätverksresurser och funktioner beskrivs i den här artikeln, även om en kort stund. Azure Virtual Network-dokumentationen beskriver hur de här ämnena stor utsträckning:
 

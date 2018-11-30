@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 4a7777be01cc15ed5cc4c9c091230afe1ddfa897
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: dc1fe8a3d9a1f0da0a190275b4fbb8bd18fff610
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047450"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499147"
 ---
-# <a name="optimize-spark-jobs"></a>Optimera Spark-jobb
+# <a name="optimize-apache-spark-jobs"></a>Optimera Apache Spark-jobb
 
-Lär dig hur du optimerar Spark klusterkonfigurationen för en viss arbetsbelastning.  De vanligaste utmaningen är minnesbelastning på grund av felaktiga konfigurationer (särskilt fel storlek executors), långvariga åtgärder och uppgifter som resulterar i kartesiska åtgärder. Du kan påskynda jobb med lämpliga cachelagring och genom att [datasnedställning](#optimize-joins-and-shuffles). För bästa prestanda, övervaka och granska tidskrävande och resursintensiva Spark jobbkörningar.
+Lär dig hur du optimerar [Apache Spark](https://spark.apache.org/) klusterkonfigurationen för en viss arbetsbelastning.  De vanligaste utmaningen är minnesbelastning på grund av felaktiga konfigurationer (särskilt fel storlek executors), långvariga åtgärder och uppgifter som resulterar i kartesiska åtgärder. Du kan påskynda jobb med lämpliga cachelagring och genom att [datasnedställning](#optimize-joins-and-shuffles). För bästa prestanda, övervaka och granska tidskrävande och resursintensiva Spark jobbkörningar.
 
 I följande avsnitt beskrivs vanliga optimeringar för Spark-jobb och rekommendationer.
 
@@ -94,7 +94,7 @@ För referens visas Spark minne strukturen och vissa viktiga executor minne para
 
 ### <a name="spark-memory-considerations"></a>Krav på Spark-minne
 
-Om du använder YARN, styr YARN högsta summan av minne som används av alla behållare på varje nod i Spark.  Följande diagram visar viktiga objekt och deras relationer.
+Om du använder [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), och sedan YARN styr högsta summan av minne som används av alla behållare på varje nod i Spark.  Följande diagram visar viktiga objekt och deras relationer.
 
 ![YARN Spark minneshantering](./media/apache-spark-perf/yarn-spark-memory.png)
 
@@ -212,9 +212,9 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Felsöka Spark-jobb som körs på Azure HDInsight](apache-spark-job-debugging.md)
-* [Hantera resurser för en Spark-kluster i HDInsight](apache-spark-resource-manager.md)
-* [Använda Spark REST API för att skicka fjärrstyrda jobb till ett Spark-kluster](apache-spark-livy-rest-interface.md)
-* [Justering Spark](https://spark.apache.org/docs/latest/tuning.html)
-* [Hur du faktiskt finjustera din Apache Spark-jobb så fungerar de](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
+* [Felsöka Apache Spark-jobb som körs på Azure HDInsight](apache-spark-job-debugging.md)
+* [Hantera resurser för ett Apache Spark-kluster i HDInsight](apache-spark-resource-manager.md)
+* [Använda Apache Spark REST API för att skicka fjärrstyrda jobb till ett Apache Spark-kluster](apache-spark-livy-rest-interface.md)
+* [Justering av Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
+* [Hur du ställer in faktiskt din Apache Spark-jobb, så fungerar de](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 * [Kryo serialisering](https://github.com/EsotericSoftware/kryo)

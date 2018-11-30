@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: ddd78e2fad401add35bc246a64236e2679c33cbc
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: b8abf7a0dc85d20e9075b51b8d42a068cf56846f
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023553"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620531"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Fjärrkommunikation för tjänster i C# med Reliable Services
 
@@ -98,7 +98,7 @@ Tjänstgenereringen proxy är en enkel åtgärd, så att du kan skapa så många
 
 ### <a name="service-proxy-factory-lifetime"></a>Tjänsten proxylivslängden factory
 
-[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) är en fabrik som skapar proxy-instanser för olika fjärrkommunikation gränssnitt. Om du använder API: et `ServiceProxy.Create` för att skapa en proxy, ramverket skapar en singleton-tjänstproxy.
+[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) är en fabrik som skapar proxy-instanser för olika fjärrkommunikation gränssnitt. Om du använder API: et `ServiceProxyFactory.CreateServiceProxy` för att skapa en proxy, ramverket skapar en singleton-tjänstproxy.
 Det är bra att skapa ett manuellt när du behöver åsidosätta [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v1.client.iserviceremotingclientfactory) egenskaper.
 Skapande av Factory är en kostsam åtgärd. En service proxy fabrik underhåller internt cacheminne av klienten för kommunikation.
 Det är bra att cachelagra service proxy factory så länge som möjligt.

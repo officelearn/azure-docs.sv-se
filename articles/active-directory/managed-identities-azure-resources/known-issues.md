@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: fa872c184429e69eb46fb4da112c08ee9432f1c4
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 256f36ac56126fc76561a6dbe4281ac4975df6e4
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913996"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632797"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Vanliga frågor och kända problem med hanterade identiteter för Azure-resurser
 
@@ -43,18 +43,33 @@ Nej, hanterade identiteter för Azure-resurser ännu inte är integrerad med ADA
 
 Säkerhetsgräns identitetsinformationen är den resurs som den är ansluten till. Till exempel säkerhetsgräns för en virtuell dator med hanterade identiteter för Azure-resurser aktiverad, är den virtuella datorn. Kod som körs på den virtuella datorn kan anropa hanterade identiteter för Azure-resurser token för slutpunkt och begäran. Det är samma möjligheter med andra resurser som stöder hanterade identiteter för Azure-resurser.
 
+### <a name="what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request"></a>Vilka identity kommer IMDS standard om inte anger identiteten i begäran?
+
+- Om systemtilldelad hanterad identitet är aktiverad och ingen identitet har angetts i begäran, som IMDS standard i systemet som tilldelats hanterad identitet.
+- Om systemtilldelad hanterad identitet inte har aktiverats och finns bara en användare som tilldelats hanterad identitet, som IMDS standard till den enda användaren som tilldelats hanterad identitet. 
+- Om systemtilldelad hanterad identitet inte har aktiverats, och flera användare som tilldelats hanterade identiteter finns, sedan ange en hanterad identitet i begäran måste anges.
+
 ### <a name="should-i-use-the-managed-identities-for-azure-resources-vm-imds-endpoint-or-the-vm-extension-endpoint"></a>Ska jag använda de hanterade identiteterna för Azure-resurser VM IMDS slutpunkt eller VM-tillägget slutpunkten?
 
 När du använder hanterade identiteter för Azure-resurser med virtuella datorer, rekommenderar vi att du använder hanterade identiteter för Azure-resurser IMDS slutpunkt. Azure Instance Metadata Service är en REST-slutpunkt som är tillgängliga för alla virtuella IaaS-datorer skapas via Azure Resource Manager. Några av fördelarna med att använda hanterade identiteter för Azure-resurser över IMDS är:
-
-1. Alla operativsystem för Azure IaaS som stöds kan använda hanterade identiteter för Azure-resurser via IMDS. 
-2. Inte längre behöver du installera ett tillägg på den virtuella datorn att aktivera hanterade identiteter för Azure-resurser. 
-3. Certifikat som används av hanterade identiteter för Azure-resurser finns inte längre i den virtuella datorn. 
-4. IMDS slutpunkten är en välkänd icke-dirigerbara IP-adress som endast tillgängliga i den virtuella datorn. 
+    - Alla operativsystem för Azure IaaS som stöds kan använda hanterade identiteter för Azure-resurser via IMDS.
+    - Inte längre behöver du installera ett tillägg på den virtuella datorn att aktivera hanterade identiteter för Azure-resurser. 
+    - Certifikat som används av hanterade identiteter för Azure-resurser finns inte längre i den virtuella datorn.
+    - IMDS slutpunkten är en välkänd icke-dirigerbara IP-adress som endast tillgängliga i den virtuella datorn.
 
 Hanterade identiteter för VM-tillägg för Azure-resurser finns fortfarande som ska användas i dag; men framöver vi som standard IMDS-slutpunkten. Hanterade identiteter för Azure-resurser VM-tillägget kommer att inaktualiseras i januari 2019. 
 
 Läs mer på Azure Instance Metadata Service [IMDS dokumentation](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+
+### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>Hanterade identiteter återskapas automatiskt om jag flyttar en prenumeration till en annan katalog?
+
+Nej. Om du flyttar en prenumeration till en annan katalog, måste du manuellt återskapa dem och ge Azure RBAC-rolltilldelningar igen.
+    - För system tilldelade hanterade identiteter: inaktivera och återaktivera.
+    - För användare tilldelade hanterade identiteter: ta bort, skapa och koppla dem till resurser (t.ex. virtuella datorer)
+
+### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>Kan jag använda en hanterad identitet för att komma åt en resurs i en annan katalog/klient?
+
+Nej. Hanterade identiteter stöder för närvarande inte mellan directory scenarier. 
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Vad är Linux-distributioner som stöds?
 

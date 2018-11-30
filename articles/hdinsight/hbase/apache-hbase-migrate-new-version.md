@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 64b3762c40cc2e01944d78c546ebe267503526a7
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 71285ce3b1fb3cc592fc65b4ad96c6783de0c408
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049338"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499302"
 ---
-# <a name="migrate-an-hbase-cluster-to-a-new-version"></a>Migrera ett HBase-kluster till en ny version
+# <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Migrera ett Apache HBase-kluster till en ny version
 
-Jobb-baserade kluster som Spark och Hadoop, är enkelt att uppgradera – Se [uppgradera HDInsight-kluster till en nyare version](../hdinsight-upgrade-cluster.md):
+Jobb-baserade kluster som [Apache Spark](https://spark.apache.org/) och [Apache Hadoop](https://hadoop.apache.org/), är enkelt att uppgradera – Se [uppgradera HDInsight-kluster till en nyare version](../hdinsight-upgrade-cluster.md):
 
 1. Säkerhetskopiera data för tillfälliga (lokalt lagrad).
 2. Ta bort det befintliga klustret.
@@ -26,14 +26,14 @@ Jobb-baserade kluster som Spark och Hadoop, är enkelt att uppgradera – Se [up
 4. Importera tillfälliga data.
 5. Starta jobb och fortsätta bearbetningen på det nya klustret.
 
-Om du vill uppgradera ett HBase-kluster krävs några ytterligare steg, enligt beskrivningen i den här artikeln.
+Så här uppgraderar du en [Apache HBase](http://hbase.apache.org/) kluster några ytterligare steg krävs, enligt beskrivningen i den här artikeln.
 
 > [!NOTE]
 > Driftstopp under uppgraderingen bör vara minimal storleksordningen minuter. Det här driftstoppet orsakas av stegen för att tömma alla minnesinterna data och sedan tiden för att konfigurera och starta om tjänsterna på det nya klustret. Resultatet varierar beroende på antalet noder, mängden data och andra variabler.
 
-## <a name="review-hbase-compatibility"></a>Granska HBase-kompatibilitet
+## <a name="review-apache-hbase-compatibility"></a>Granska Apache HBase-kompatibilitet
 
-Kontrollera innan du uppgraderar HBase, HBase-versioner på käll- och -kluster är kompatibla. Mer information finns i [Hadoop-komponenter och versioner som är tillgängliga med HDInsight](../hdinsight-component-versioning.md).
+Kontrollera innan du uppgraderar Apache HBase, HBase-versioner på käll- och -kluster är kompatibla. Mer information finns i [Hadoop-komponenter och versioner som är tillgängliga med HDInsight](../hdinsight-component-versioning.md).
 
 > [!NOTE]
 > Vi rekommenderar starkt att du läser igenom kompatibilitetsöversikten version i den [HBase boken](https://hbase.apache.org/book.html#upgrading).
@@ -57,7 +57,7 @@ Här är ett exempel version kompatibilitetsöversikten, där Y anger kompatibil
 > [!NOTE]
 > Alla de senaste inkompatibiliteter beskrivas i HBase version viktig information.
 
-## <a name="upgrade-with-same-hbase-major-version"></a>Uppgradera med samma huvudversion för HBase
+## <a name="upgrade-with-same-apache-hbase-major-version"></a>Uppgradera med samma huvudversion för Apache HBase
 
 Följande scenario är för att uppgradera från HDInsight 3.4 till 3.6 (både levereras med Apache HBase 1.1.2) med samma huvudversion för HBase. Andra versionsuppgraderingar liknar varandra, så länge det finns inga kompatibilitetsproblem mellan käll- och versioner.
 
@@ -187,7 +187,7 @@ Följande scenario är för att uppgradera från HDInsight 3.4 till 3.6 (både l
     
 4. Stoppa inmatning för det gamla HBase-klustret.
 5. För att säkerställa att alla de senaste data i memstores har rensats, kör du föregående skript igen.
-6. Logga in på Ambari på det gamla klustret (https://OLDCLUSTERNAME.azurehdidnsight.net) och stoppa HBase-tjänsterna. När du uppmanas att bekräfta att du vill stoppa tjänsterna markerar du kryssrutan Aktivera underhållsläget för HBase. Läs mer om att ansluta till och använda Ambari [hantera HDInsight-kluster med hjälp av Ambari-Webbgränssnittet](../hdinsight-hadoop-manage-ambari.md).
+6. Logga in på [Apache Ambari](https://ambari.apache.org/) på det gamla klustret (https://OLDCLUSTERNAME.azurehdidnsight.net) och stoppa HBase-tjänsterna. När du uppmanas att bekräfta att du vill stoppa tjänsterna markerar du kryssrutan Aktivera underhållsläget för HBase. Läs mer om att ansluta till och använda Ambari [hantera HDInsight-kluster med hjälp av Ambari-Webbgränssnittet](../hdinsight-hadoop-manage-ambari.md).
 
     ![I Ambari, klicka på fliken tjänster, sedan HBase på den vänstra menyn och sedan stoppa under tjänståtgärder](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
 
@@ -211,9 +211,9 @@ Följande scenario är för att uppgradera från HDInsight 3.4 till 3.6 (både l
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om HBase och uppgradera HDInsight-kluster finns i följande artiklar:
+Mer information om [Apache HBase](http://hbase.apache.org/) och uppgradera HDInsight-kluster finns i följande artiklar:
 
 * [Uppgradera ett HDInsight-kluster till en nyare version](../hdinsight-upgrade-cluster.md)
-* [Övervaka och hantera Azure HDInsight med hjälp av Ambari-Webbgränssnittet](../hdinsight-hadoop-manage-ambari.md)
-* [Hadoop-komponenter och versioner](../hdinsight-component-versioning.md)
-* [Optimera konfigurationer med Ambari](../hdinsight-changing-configs-via-ambari.md#hbase-optimization-with-the-ambari-web-ui)
+* [Övervaka och hantera Azure HDInsight med hjälp av Apache Ambari-Webbgränssnittet](../hdinsight-hadoop-manage-ambari.md)
+* [Apache Hadoop-komponenter och versioner](../hdinsight-component-versioning.md)
+* [Optimera konfigurationer med Apache Ambari](../hdinsight-changing-configs-via-ambari.md#apache-hbase-optimization-with-the-ambari-web-ui)

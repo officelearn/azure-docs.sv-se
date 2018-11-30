@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/15/2018
 ms.author: roiyz
-ms.openlocfilehash: 8883111387bea4a78e81123f95201ed4826dcb1c
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: e36390bbdc243237c97d605d4721fc1ad2cbe0ea
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820349"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498875"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>NVIDIA GPU-drivrutinen tillägg för Linux
 
@@ -85,7 +85,7 @@ Alla inställningar är valfria. Standardinställningen är att inte uppdatera k
 | Namn | Beskrivning | Standardvärde | Giltiga värden | Datatyp |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Uppdatera kernel även om det inte krävs för installation av drivrutiner | false | SANT, FALSKT | boolesk |
-| driverVersion | NV: GRID drivrutinsversion<br> NC/ND: CUDA toolkit version. De senaste drivrutinerna för valt CUDA installeras automatiskt. | senaste | GRID: ”390.75”, ”390.57”, ”390.42”<br> CUDA: ”10.0.130”, ”9.2.88”, ”9.1.85” | sträng |
+| driverVersion | NV: GRID drivrutinsversion<br> NC/ND: CUDA toolkit version. De senaste drivrutinerna för valt CUDA installeras automatiskt. | senaste | GRID: ”410.71”, ”390.75”, ”390.57”, ”390.42”<br> CUDA: ”10.0.130”, ”9.2.88”, ”9.1.85” | sträng |
 | installCUDA | Installera CUDA toolkit. Detta gäller endast för NC/ND-serien virtuella datorer. | true | SANT, FALSKT | boolesk |
 
 

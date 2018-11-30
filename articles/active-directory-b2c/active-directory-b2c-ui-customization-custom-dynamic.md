@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4e7cc47bddf3663cbc1c8bb5c4470020a84073e4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 11a14bc8b593e5e7d81e9bdbd4ac4ee3b2bbecaa
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441659"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582895"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Konfigurera Användargränssnittet med dynamiskt innehåll med hjälp av anpassade principer
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Med hjälp av Azure Active Directory B2C (Azure AD B2C) anpassade principer, kan du skicka en parameter i en frågesträng. Du kan dynamiskt ändra sidinnehållet genom att skicka parametern i HTML-slutpunkten. Du kan till exempel ändra bakgrundsbilden på Azure AD B2C registrering eller inloggning sidan utifrån ett parametervärde som du skickar från dina webb- och mobilprogram. 
+Med hjälp av Azure Active Directory B2C (Azure AD B2C) anpassade principer, kan du skicka en parameter i en frågesträng. Genom att skicka parametern till HTML-slutpunkten kan du dynamiskt ändra sidinnehållet. Du kan till exempel ändra bakgrundsbilden på registrerings- eller inloggningssidan för Azure AD B2C baserat på en parameter som du skickar från ditt webb- eller mobilprogram. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln handlar om hur du anpassar användargränssnittet för Azure AD B2C med *dynamiskt innehåll* genom att använda anpassade principer. Kom igång genom att se [anpassning av Användargränssnittet i en anpassad princip](active-directory-b2c-ui-customization-custom.md). 
@@ -80,7 +80,7 @@ I den här genomgången ska du:
 
     ![Välj mall för webbprogram](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-create-project2.png)
 
-6. Välj **OK** att skapa projektet.
+6. Klicka på **OK** för att skapa projektet.
 
 ## <a name="step-2-create-mvc-view"></a>Steg 2: Skapa MVC-vy
 ### <a name="step-21-download-the-b2c-built-in-html5-template"></a>Steg 2.1: Ladda ned mallen B2C inbyggda HTML5
@@ -178,7 +178,7 @@ Leta upp den `<img>` element som innehåller den `ID` värdet *background_backgr
 
 3. I den **CORS** fönstret i den **tillåtna ursprung** gör något av följande:
 
-    * Ange URL eller URL: er som du vill tillåta JavaScript-anrop från.
+    * Ange URL eller URL: er som du vill tillåta JavaScript-anrop från. Du måste använda gemener i URL: er som du anger.
     * Ange en asterisk (*) om du vill ange att alla ursprungsdomäner accepteras.
 
 4. Välj **Spara**.

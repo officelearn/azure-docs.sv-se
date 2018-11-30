@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/09/2018
+ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 2fad3ad8bc6e1c0ca87038af6c461d863065fc95
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: ca2591f34a0aba598c12815de684ec6bb8fca929
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345971"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620361"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-preview-using-azure-data-factory-preview"></a>Kopiera data till och från Azure Data Lake Storage Gen2 förhandsversion med Azure Data Factory (förhandsversion)
 
@@ -29,7 +29,7 @@ Du kan kopiera data från alla dataarkiv till Data Lake Storage Gen2. Du kan ock
 
 Mer specifikt stöder den här anslutningen:
 
-- Kopiera data med hjälp av nyckeln.
+- Kopiera data med nyckel, tjänstens huvudnamn eller hanterade identiteter för Azure-resurser autentiseringar.
 - Kopiering av filer som- eller parsning eller generera filer med [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md).
 
 >[!TIP]
@@ -49,7 +49,15 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper har stöd för Data Lake Storage Gen2 länkade tjänsten:
+Azure Data Lake Storage Gen2 connector stöder följande typer av autentisering, finns i avsnittet motsvarande detaljer:
+
+- [Konto-nyckelautentisering](#account-key-authentication)
+- [Autentisering av tjänstens huvudnamn](#service-principal-authentication)
+- [Hanterade identiteter för autentisering av Azure-resurser](#managed-identity)
+
+### <a name="account-key-authentication"></a>Konto-nyckelautentisering
+
+Om du vill använda nyckelautentisering för storage-konto, stöds följande egenskaper:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -62,7 +70,7 @@ Följande egenskaper har stöd för Data Lake Storage Gen2 länkade tjänsten:
 
 ```json
 {
-    "name": "AzureDataLakeStorageLinkedService",
+    "name": "AzureDataLakeStorageGen2LinkedService",
     "properties": {
         "type": "AzureBlobFS",
         "typeProperties": {
@@ -71,6 +79,95 @@ Följande egenskaper har stöd för Data Lake Storage Gen2 länkade tjänsten:
                 "type": "SecureString", 
                 "value": "<accountkey>" 
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="service-principal-authentication"></a>Autentisering av tjänstens huvudnamn
+
+Följ dessa steg om du vill använda autentisering av tjänstens huvudnamn:
+
+1. Registrera en entitet för program i Azure Active Directory (Azure AD) genom att följa [registrera ditt program med en Azure AD-klient](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
+
+    - Program-ID:t
+    - Programnyckel
+    - Klient-ID:t
+
+2. Ge tjänstens huvudnamn rätt behörighet i Azure storage.
+
+    - **Som källa**, i Access (IAM) genom att ge minst **Storage Blob Data-läsare** roll.
+    - **Som mottagare**, i Access (IAM) genom att ge minst **Storage Blob Data-deltagare** roll.
+
+Dessa egenskaper stöds i den länkade tjänsten:
+
+| Egenskap  | Beskrivning | Krävs |
+|:--- |:--- |:--- |
+| typ | Type-egenskapen måste anges till **AzureBlobFS**. |Ja |
+| url | Slutpunkt för Data Lake Storage Gen2 med mönstret för `https://<accountname>.dfs.core.windows.net`. | Ja | 
+| servicePrincipalId | Ange programmets klient-ID. | Ja |
+| servicePrincipalKey | Ange programmets nyckel. Markera det här fältet som en **SecureString** ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| klient | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Hämta det håller musen i det övre högra hörnet i Azure Portal. | Ja |
+| connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller lokal Integration Runtime (om det är ditt datalager i ett privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
+
+**Exempel:**
+
+```json
+{
+    "name": "AzureDataLakeStorageGen2LinkedService",
+    "properties": {
+        "type": "AzureBlobFS",
+        "typeProperties": {
+            "url": "https://<accountname>.dfs.core.windows.net", 
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>" 
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="managed-identity"></a> Hanterade identiteter för autentisering av Azure-resurser
+
+En data factory kan associeras med en [hanterad identitet för Azure-resurser](data-factory-service-identity.md), som representerar den här specifika data factory. Du kan använda den här tjänstidentitet direkt för Blob storage-autentisering som är ungefär som att använda tjänstens huvudnamn. Det gör att den här avsedda factory ska kunna komma åt och kopiera data från/till ditt Blob storage.
+
+Följ dessa steg om du vill använda hanterade identiteter för Azure-resurser autentisering:
+
+1. [Hämta tjänstidentitet för datafabrik](data-factory-service-identity.md#retrieve-service-identity) genom att kopiera värdet för ”SERVICE IDENTITETSPROGRAM-ID” genererade tillsammans med din datafabrik.
+
+2. Ge rätt behörighet hanterad identitet i Azure storage. 
+
+    - **Som källa**, i Access (IAM) genom att ge minst **Storage Blob Data-läsare** roll.
+    - **Som mottagare**, i Access (IAM) genom att ge minst **Storage Blob Data-deltagare** roll.
+
+Dessa egenskaper stöds i den länkade tjänsten:
+
+| Egenskap  | Beskrivning | Krävs |
+|:--- |:--- |:--- |
+| typ | Type-egenskapen måste anges till **AzureBlobFS**. |Ja |
+| url | Slutpunkt för Data Lake Storage Gen2 med mönstret för `https://<accountname>.dfs.core.windows.net`. | Ja | 
+| connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller lokal Integration Runtime (om det är ditt datalager i ett privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
+
+**Exempel:**
+
+```json
+{
+    "name": "AzureDataLakeStorageGen2LinkedService",
+    "properties": {
+        "type": "AzureBlobFS",
+        "typeProperties": {
+            "url": "https://<accountname>.dfs.core.windows.net", 
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

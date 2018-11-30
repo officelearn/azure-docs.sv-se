@@ -10,12 +10,12 @@ ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 100d2a6163c6b2b7a7bf8a557e69e1082b48eaee
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: b985521fdcfc5ca67b6410719ad72c0962004df6
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979224"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499606"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Lokala företag i Bing v7-referens
 
@@ -155,7 +155,7 @@ Definierar information om en lokal företag, till exempel en restaurang eller ho
 |----------|-----------|----------|  
 |_typ|Typ-tips som kan anges till något av följande:<br /><br /><ul><li>Hotell</li><li>LocalBusiness<br /></li><li>Restaurang</ul><li>|Sträng|  
 |Adress|Postadress av där enheten är belägen.|[PostalAddress](#postaladdress)|  
-|entityPresentationInfo|Ytterligare information om entiteten, till exempel tips som du kan använda för att fastställa typen av entitetens. Till exempel om det är en restaurang eller hotell. Den `entityScenario` anges till ListItem.|[EntityPresentationInfo](#entitypresentationinfo)|  
+|entityPresentationInfo|Ytterligare information om entiteten, till exempel tips som du kan använda för att fastställa typen av entitetens. Till exempel om det är en restaurang eller hotell. Den `entityScenario` anges till ListItem.|[entityPresentationInfo](#entitypresentationinfo)|  
 |namn|Entitetsnamn.|Sträng|  
 |Telefon|Enhetens telefonnummer.|Sträng|  
 |url|URL till dess webbplats.<br /><br /> Använder denna URL tillsammans med entitetsnamn att skapa en hyperlänk som när du klickar på tar användaren till dess webbplats.|Sträng|  

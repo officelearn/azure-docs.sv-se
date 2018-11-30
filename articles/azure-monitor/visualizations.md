@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: 2fff332665652516e4ac25c4eb1a4612c15e2412
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 4200accee94840a8a4455308f24a857fd5d7034a
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824684"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632984"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisera data från Azure Monitor
 Den här artikeln innehåller en sammanfattning av de tillgängliga metoderna för att visualisera data som lagras i Azure Monitor. Detta inkluderar [mått i Azure-mått store](../azure-monitor/platform/data-collection.md#metrics) och [logga data i Log Analytics](../azure-monitor/platform/data-collection.md#logs). 
@@ -50,7 +50,7 @@ Visualiseringar, till exempel tabeller och diagram kan hjälpa dig att analysera
 - Begränsad sammanhangsberoende nedåt.
 
 ## <a name="azure-monitor-views"></a>Azure Monitor-vyer
-[Vyer i Azure Monitor](../log-analytics/log-analytics-view-designer.md) kan du skapa anpassade visualiseringar med loggdata som lagras i Log Analytics. De används av [övervakningslösningar](../azure-monitor/insights/solutions.md) att presentera information som samlas in.
+[Vyer i Azure Monitor](../azure-monitor/platform/view-designer.md) kan du skapa anpassade visualiseringar med loggdata som lagras i Log Analytics. De används av [övervakningslösningar](../azure-monitor/insights/solutions.md) att presentera information som samlas in.
 
 ![Visa](media/visualizations/view.png)
 
@@ -58,7 +58,7 @@ Visualiseringar, till exempel tabeller och diagram kan hjälpa dig att analysera
 - Omfattande visualiseringar för Log Analytics-data.
 - Exportera och importera vyer för att överföra dem till andra resursgrupper och prenumerationer.
 - Integrerar Log Analytics Hanteringsmodellen med arbetsytor och övervakar lösningar.
-- [Filter](../log-analytics/log-analytics-view-designer-filters.md) för anpassade parametrar.
+- [Filter](../azure-monitor/platform/view-designer-filters.md) för anpassade parametrar.
 - Interaktiv, har stöd för flera nivåer drill-i (vy som går till en annan vy)
 
 ### <a name="limitations"></a>Begränsningar
@@ -140,7 +140,7 @@ Du kan komma åt data i Azure-mått och Log Analytics via sina API med valfri RE
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig mer om den [data som samlas in av Azure Monitor](../azure-monitor/platform/data-collection.md).
 - Lär dig mer om [Azure-instrumentpaneler](../azure-portal/azure-portal-dashboards.md).
-- Lär dig mer om [vyer i Azure Monitor](../log-analytics/log-analytics-view-designer.md).
+- Lär dig mer om [vyer i Azure Monitor](../azure-monitor/platform/view-designer.md).
 - Lär dig mer om [arbetsböcker i Application Insights](../application-insights/app-insights-usage-workbooks.md).
 - Lär dig mer om [importera loggdata till Power BI](../log-analytics/log-analytics-powerbi.md).
 - Lär dig mer om den [Grafana Azure Monitor-plugin-programmet för datakällans](../monitoring-and-diagnostics/monitor-send-to-grafana.md).

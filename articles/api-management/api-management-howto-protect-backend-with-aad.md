@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 06350d30999cb056babbd001f98a6c3a5fdbac6c
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: cfe2620801f743831f77fb76f344c156676966d3
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577002"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635075"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Skydda ett API med hjälp av OAuth 2.0 med Azure Active Directory och API Management
 
@@ -100,8 +100,6 @@ Nu när du har registrerat två program som motsvarar API: et och Developer-kons
 
 > [!NOTE]
 > Om **Azure Active Directory** visas under behörigheter för andra program, Välj **Lägg till** att lägga till den i listan.
-> 
-> 
 
 ## <a name="enable-oauth-20-user-authorization-in-the-developer-console"></a>Aktivera OAuth 2.0-användarautentisering i Developer-konsolen
 
@@ -109,7 +107,7 @@ Nu kan du har skapat dina program i Azure AD och har beviljat rätt behörighete
 
 I det här exemplet är Developer Console-klientappen. Följande steg beskriver hur du aktiverar OAuth 2.0-användarautentisering i Developer-konsolen. 
 
-1. Bläddra till din API Management-instans.
+1. Bläddra till din API Management-instans i Azure-portalen.
 
 2. Välj **OAuth 2.0** > **lägga till**.
 
@@ -120,6 +118,9 @@ I det här exemplet är Developer Console-klientappen. Följande steg beskriver 
 5. För **typer av auktoriseringsbeviljanden**väljer **auktoriseringskod**.
 
 6. Ange den **URL för Auktoriseringsslutpunkt** och **Token slutpunkts-URL**. Hämtar dessa värden från den **slutpunkter** sida i Azure AD-klienten. Bläddra till den **appregistreringar** igen och välj **slutpunkter**.
+
+    >[!NOTE]
+    > Använd den **v1** här slutpunkter
 
 7. Kopiera den **slutpunkt för OAuth 2.0-auktorisering**, och klistra in den i den **URL för Auktoriseringsslutpunkt** textrutan.
 
@@ -154,6 +155,9 @@ Nästa steg är att aktivera OAuth 2.0-användarautentisering för ditt API. På
 5. Välj **Spara**.
 
 ## <a name="successfully-call-the-api-from-the-developer-portal"></a>Anropa API: et från developer-portalen
+
+> [!NOTE]
+> Det här avsnittet gäller inte för den **förbrukning** nivå, som inte stöder developer-portalen.
 
 Nu när OAuth 2.0-användarautentisering är aktiverat på den `Echo API`, Developer Console hämtar en åtkomsttoken för användaren, innan du anropar API: et.
 

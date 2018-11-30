@@ -1,22 +1,22 @@
 ---
 title: Skapa aviseringar med dynamiska tröskelvärden i Azure Monitor
 description: Skapa aviseringar med dynamiska tröskelvärden för maskininlärningsbaserade
-author: antonfrMSFT
+author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/27/2018
-ms.author: mbullwin
-ms.reviewer: antonfr
+ms.date: 11/29/2018
+ms.author: Yaniv.Lavi
+ms.reviewer: mbullwin
 ms.component: alerts
-ms.openlocfilehash: 1b47e3804d8be36e3c6c8c570fec06f542e8dbf2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: af9f85014ea16dd266c56a71f13b4dce2adccc9a
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233974"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619716"
 ---
-# <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-public-preview"></a>Aviseringar med dynamiska tröskelvärden i Azure Monitor (begränsad offentlig förhandsversion)
+# <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-private-preview"></a>Aviseringar med dynamiska tröskelvärden i Azure Monitor (begränsad privat förhandsversion)
 
 Aviseringar med dynamiska tröskelvärden är en förbättring av Azure mått aviseringar i Azure Monitor kan utnyttja avancerade funktioner för Machine Learning (ML) Läs mått historiska beteende för att automatiskt beräkna baslinjer och använda dem som tröskelvärden.
 

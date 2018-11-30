@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 325da912c8fc4e453df895976df970f8e0f56412
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 6cbcb42ee8c77ff0c8ded966b4f04af8815ca726
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614964"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633001"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Utöka aviseringar från Log Analytics till Azure-aviseringar
 Funktionen för säkerhetsvarningar i Azure Log Analytics ersätts av Azure-aviseringar. Som en del av denna övergång utökas aviseringar som du ursprungligen konfigurerades i Log Analytics till Azure. Om du inte vill vänta tills de flyttas automatiskt till Azure, kan du starta processen:
@@ -150,7 +150,7 @@ Om POST-begäran lyckas returnerar ett HTTP 200 OK-status, tillsammans med följ
 }
 ```
 
-Det här svaret anger aviseringarna har har utökats till Azure-aviseringar. Versionsegenskapen är endast för att kontrollera om aviseringar har utökats till Azure och har ingen relation till den [Log Analytics Search API](../log-analytics/log-analytics-api-alerts.md). Någon e-postadresser angivna med INLÄGGET begäran skickas en rapport när aviseringar har utökats till Azure har. Om alla aviseringar i den angivna arbetsytan har redan schemalagts för utsträckning, är svaret på din POST-begäran att försöket har tillåts inte (ett 403 statuskod). Om du vill visa felmeddelanden eller förstå om processen har fastnat, kan du skicka en GET-begäran. Om det finns ett felmeddelande, returneras den, tillsammans med den sammanfattande informationen.
+Det här svaret anger aviseringarna har har utökats till Azure-aviseringar. Versionsegenskapen är endast för att kontrollera om aviseringar har utökats till Azure och har ingen relation till den [Log Analytics Search API](../azure-monitor/platform/api-alerts.md). Någon e-postadresser angivna med INLÄGGET begäran skickas en rapport när aviseringar har utökats till Azure har. Om alla aviseringar i den angivna arbetsytan har redan schemalagts för utsträckning, är svaret på din POST-begäran att försöket har tillåts inte (ett 403 statuskod). Om du vill visa felmeddelanden eller förstå om processen har fastnat, kan du skicka en GET-begäran. Om det finns ett felmeddelande, returneras den, tillsammans med den sammanfattande informationen.
 
 ```json
 {

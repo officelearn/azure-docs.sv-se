@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 9aa90c5a99da70aa0803aad4894e928a422b8fcf
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 5f5143800c423bdbaac9994b55e500723018dce4
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712253"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634361"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Vanliga frågor för övergången från OMS-portalen till Azure-portalen för Log Analytics-användare
 Log Analytics används först en egen portal kallas OMS-portalen för att hantera konfigurationen och analysera insamlade data.  Alla funktioner från den här portalen har flyttats till Azure-portalen där den kommer att fortsätta att utvecklas.
@@ -84,7 +84,7 @@ Hantera inställningar för de flesta ansluten datakälla den i den **avancerade
 | System Center     | **Avancerade inställningar** menyn för arbetsytan. |
 | Office 365        | Se den [dokumentation för Office 365 hanteringslösning](../azure-monitor/insights/solution-office-365.md) konfigurationsinformation. |
 | Windows-telemetri | Inställningsmenyn för lösningen. Se [Windows Analytics i Azure-portalen](/windows/deployment/update/windows-analytics-azure-portal) konfigurationsinformation. |
-| ITSM-anslutningsprogram    | Se [ansluta ITSM-produkter/tjänster med IT Service Management Connector](../log-analytics/log-analytics-itsmc-connections.md) anvisningar om hur du ansluter din ITSM-tjänst med Log Analytics. |
+| ITSM-anslutningsprogram    | Se [ansluta ITSM-produkter/tjänster med IT Service Management Connector](../log-analytics/../azure-monitor/platform/itsmc-connections.md) anvisningar om hur du ansluter din ITSM-tjänst med Log Analytics. |
 
 ### <a name="data"></a>Data
 Hantera inställningar för de flesta den i den **avancerade inställningar** menyn för arbetsytan. I följande tabell innehåller information för varje avsnitt i den här menyn.
@@ -113,7 +113,7 @@ I OMS-portalen kan du installera lösningar från lösningsgalleriet och bort de
 Varningsregler baserat på Log Analytics-frågor hanteras nu i den [unified avisering upplevelse](../monitoring-and-diagnostics/alert-metric.md). Se [utöka aviseringar från Log Analytics i Azure Alerts](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) för information om hur du konfigurerar och använder aviseringar i Azure-portalen.
 
 ## <a name="how-do-i-access-my-dashboards"></a>Hur kommer jag åt mina instrumentpaneler?
-Den [min instrumentpanel](../log-analytics/log-analytics-dashboards.md) funktionen i Log Analytics är inaktuell. Den här funktionen har tillåtit dig att ha en privat samling av Vydesigner delar och ersätts av den inbyggda funktionen för Azure-instrumentpanelen. Du kan fortsätta att visualisera data i Log Analytics med hjälp av [Vydesigner](../log-analytics/log-analytics-view-designer.md) för delade vyer. Du kan även fästa visualiseringar från dessa vyer eller [enskilda frågor](../log-analytics/log-analytics-tutorial-dashboards.md) till Azure-instrumentpaneler.
+Den [min instrumentpanel](../log-analytics/../azure-monitor/platform/dashboards.md) funktionen i Log Analytics är inaktuell. Den här funktionen har tillåtit dig att ha en privat samling av Vydesigner delar och ersätts av den inbyggda funktionen för Azure-instrumentpanelen. Du kan fortsätta att visualisera data i Log Analytics med hjälp av [Vydesigner](../log-analytics/../azure-monitor/platform/view-designer.md) för delade vyer. Du kan även fästa visualiseringar från dessa vyer eller [enskilda frågor](../log-analytics/log-analytics-tutorial-dashboards.md) till Azure-instrumentpaneler.
 
 ## <a name="how-do-i-check-my-usage"></a>Hur kontrollerar jag min användning?
 Du kan nu enkelt visa och hantera din användning och kostnader för Log Analytics genom att välja **användning och uppskattade kostnader** i din arbetsyta.

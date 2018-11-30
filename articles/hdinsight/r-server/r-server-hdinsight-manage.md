@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 35b80223552181e44beac011f5fb541158466acc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bdb2e355b29306c8a78a3a773269baeee13fc9d1
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255412"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497546"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Hantera kluster för ML-tjänster på Azure HDInsight
 
@@ -33,7 +33,7 @@ Du kan aktivera flera samtidiga användare för ML-Services-kluster i HDInsight 
 
 ![Samtidig användare 1](./media/r-server-hdinsight-manage/concurrent-users-1.png)
 
-- **Användarnamn för klusterinloggning**: en HTTP-användare för autentisering via HDInsight-gatewayen som används till att skydda HDInsight-klustret du skapade. Den här HTTP-användaren används till att komma åt Ambari UI, YARN UI samt andra gränssnittskomponenter.
+- **Användarnamn för klusterinloggning**: en HTTP-användare för autentisering via HDInsight-gatewayen som används till att skydda HDInsight-klustret du skapade. Den här HTTP-användaren används för att komma åt Apache Ambari UI, Apache Hadoop YARN UI samt andra gränssnittskomponenter.
 - **Secure Shell (SSH)-användarnamn**: en SSH-användare för åtkomst till klustret via SSH. Den här användaren är en användare i Linux-systemet för alla huvudnoder, arbetsnoder och kantnoder. Du kan därmed använda SSH för åtkomst till alla noder i ett fjärrkluster.
 
 R Studio Server Community-versionen som används i ML-Services-kluster i HDInsight accepterar endast Linux-användarnamn och lösenord som en inloggning mekanism. Du kan inte skicka token. När du försöker få åtkomst till R Studio för första gången på ett kluster för ML-tjänster behöver du logga in två gånger.
@@ -52,7 +52,7 @@ Eftersom RStudio körs på klustrets kantnod ingår flera steg i detta:
 
 ### <a name="step-1-use-the-created-ssh-user-to-sign-in-to-the-edge-node"></a>Steg 1: Använd den skapade SSH-användaren för att logga in på kantnoden
 
-Följ anvisningarna på [Anslut till HDInsight (Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) att få åtkomst till kantnoden. Gränsnodsadressen till ML-Services-kluster i HDInsight är `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
+Följ anvisningarna på [Anslut till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) att få åtkomst till kantnoden. Gränsnodsadressen till ML-Services-kluster i HDInsight är `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
 
 ### <a name="step-2-add-more-linux-users-in-edge-node"></a>Steg 2: Lägg till fler Linux-användare på kantnoden
 
@@ -104,7 +104,7 @@ Du kan konfigurera åtkomst till HDInsight Spark-beräkningskontexten från en f
       consoleOutput= TRUE
     )
 
-Mer information finns i avsnittet ”med hjälp av Microsoft Machine Learning Server som en Hadoop Client” i [hur du använder RevoScaleR i en Spark-beräkningskontext](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)
+Mer information finns i avsnittet ”med hjälp av Microsoft Machine Learning Server som en Apache Hadoop Client” i [hur du använder RevoScaleR i ett Apache Spark-beräkningskontext](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)
 
 ## <a name="use-a-compute-context"></a>Använda en beräkningskontext
 
@@ -250,7 +250,7 @@ Om du fortfarande använder Spark-kontexten, det här kommandot returnerar värd
         nodename
     "wn3-mymlser"
 
-## <a name="access-data-in-hive-and-parquet"></a>Få åtkomst till data i Hive och Parquet
+## <a name="access-data-in-apache-hive-and-parquet"></a>Åtkomst till data i Apache Hive och Parquet
 
 HDInsight ML-tjänster kan direkt åtkomst till data i Hive och Parquet för användning av ScaleR-funktioner i Spark-beräkningskontexten. Dessa funktioner är tillgängliga via nya ScaleR-datakällafunktioner som heter RxHiveData och RxParquetData som fungerar med Spark SQL för att läsa in data direkt till en Spark DataFrame för analys av ScaleR.
 

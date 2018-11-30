@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 14a33a6480cdb2dbc19b912d51eebda386c55d75
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: d291a46eaac0f5e4023d343f700448d029765098
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713171"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634888"
 ---
 # <a name="manage-workspaces"></a>Hantera arbetsytor
 
@@ -52,7 +52,7 @@ Från förbrukning synsätt rekommenderar vi att du skapar så få arbetsytor so
 * Du är leverantör av hanterade tjänster och behöver Log Analytics-data för varje kund du hanterar isolerade från andra kunders data.
 * Du hanterar flera kunder och vill att varje kund / avdelning / affärsgrupp ska se sina egna data, men inte data från andra.
 
-När du använder Windows-agenter för att samla in data måste du [konfigurera varje agent så att den rapporterar till en eller flera arbetsytor](log-analytics-agent-windows.md).
+När du använder Windows-agenter för att samla in data måste du [konfigurera varje agent så att den rapporterar till en eller flera arbetsytor](../azure-monitor/platform/agent-windows.md).
 
 Om du använder System Center Operations Manager kan varje hanteringsgrupp för Operations Manager endast anslutas till en arbetsyta. Du kan installera Microsoft Monitoring Agent på datorer som hanteras av Operations Manager och låta agenten rapporten till både Operations Manager och en annan Log Analytics-arbetsyta.
 
@@ -239,7 +239,7 @@ Den nya dataplanen visas på menyfliken i OMS-portalen längst upp på webbsidan
 ![OMS-menyflikar](./media/log-analytics-manage-access/data-plan-changed.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* Se [översikt över Log Analytics-agenten](log-analytics-agent-overview.md) samla in data från datorer i ditt datacenter eller andra moln.
+* Se [översikt över Log Analytics-agenten](../azure-monitor/platform/log-analytics-agent.md) samla in data från datorer i ditt datacenter eller andra moln.
 * Om du vill konfigurera datainsamling från virtuella Azure-datorer läser du [Samla in data om Azure Virtual Machines](log-analytics-quick-collect-azurevm.md).  
 * [Lägg till Log Analytics-lösningar från lösningsgalleriet](../azure-monitor/insights/solutions.md) för att lägga till funktioner och samla in data.
 

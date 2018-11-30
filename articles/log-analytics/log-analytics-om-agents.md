@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 11/23/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: ebd5c06b8174c9838a398e97439671e4d3f4c518
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 8b061ad2926110e27524ededb5c33dffa5ea04b6
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713494"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635466"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Anslut Operations Manager till Log Analytics
 Att underhålla din investering i [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) och använder utökade funktioner med Log Analytics, du kan integrera Operations Manager med Log Analytics-arbetsytan. På så sätt kan du utnyttja möjligheterna i Log Analytics samtidigt som du använder Operations Manager till att:
@@ -37,7 +37,7 @@ Följande diagram visar anslutningen mellan hanteringsservrarna och agenterna i 
 
 ![oms-operations-manager-integration-diagram](./media/log-analytics-om-agents/oms-operations-manager-connection.png)
 
-Om din IT-säkerhetsprinciper inte tillåter att datorer i nätverket för att ansluta till Internet, kan hanteringsservrar konfigureras för att ansluta till Log Analytics-gatewayen till mottagning av konfigurationsinformation och skicka insamlade data, beroende på lösningarna aktiverad. Mer information och anvisningar om hur du konfigurerar din Operations Manager-hanteringsgrupp att kommunicera via en Log Analytics-gatewayen till Log Analytics-tjänsten finns i [ansluta datorer till Log Analytics med Log Analytics-gateway](log-analytics-oms-gateway.md).  
+Om din IT-säkerhetsprinciper inte tillåter att datorer i nätverket för att ansluta till Internet, kan hanteringsservrar konfigureras för att ansluta till Log Analytics-gatewayen till mottagning av konfigurationsinformation och skicka insamlade data, beroende på lösningarna aktiverad. Mer information och anvisningar om hur du konfigurerar din Operations Manager-hanteringsgrupp att kommunicera via en Log Analytics-gatewayen till Log Analytics-tjänsten finns i [ansluta datorer till Log Analytics med Log Analytics-gateway](../azure-monitor/platform/gateway.md).  
 
 ## <a name="prerequisites"></a>Förutsättningar 
 Granska följande krav innan du börjar.
@@ -49,10 +49,13 @@ Granska följande krav innan du börjar.
 
 >[!NOTE]
 >Ändringar i Azure API: er kommer att kunder inte kan konfigurera integrering mellan sina hanteringsgrupp och Log Analytics för första gången. För kunder som redan har integrerat deras hanteringsgruppen med tjänsten kan påverkas du inte om du inte behöver konfigurera om din befintliga anslutning.  
->Ett nytt management pack har släppts för varje version av Operations Manager:  
+>Ett nytt management pack har släppts för följande versioner av Operations Manager:
+>  
 >* Ladda ned hanteringspaketet från för System Center Operations Manager 1801 [här](https://www.microsoft.com/download/details.aspx?id=57173)  
 >* System Center 2016 – Operations Manager kan du hämta hanteringspaketet från [här](https://www.microsoft.com/download/details.aspx?id=57172)  
 >* För System Center Operations Manager 2012 R2 kan du ladda ned hanteringspaketet från [här](https://www.microsoft.com/download/details.aspx?id=57171)  
+>
+>Den här uppdateringen för management pack gäller inte för System Center Operations Manager 1807, vilket är en uppdaterad version från version 1801 och inte en fullständig version av produkten.   
 
 ### <a name="network"></a>Nätverk
 Informationen nedan listar konfigurationsinställningarna för proxy och brandvägg som krävs för att Operations Manager-agenten, hanteringsservrar och Operations-konsolen ska kunna kommunicera med Log Analytics. Trafik från varje komponent går ut från nätverket till Log Analytics-tjänsten.   

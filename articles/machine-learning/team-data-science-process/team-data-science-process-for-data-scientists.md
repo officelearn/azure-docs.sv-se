@@ -2,25 +2,21 @@
 title: Team Data Science Process för dataexperter | Microsoft Docs
 description: Ger vägledning för att förstå en analytics-arbetsbelastning med Team Data Science Process och Azure Machine Learning.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: deguhath
-ms.openlocfilehash: 80f006c4e8f051c3f744168be114f1c9fb3b1a0f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: ddf73f15dc7c269ba3bf9a2912c3713fd4e847f2
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092499"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497576"
 ---
 # <a name="team-data-science-process-for-data-scientists"></a>Tdsp för dataexperter
 
@@ -65,7 +61,7 @@ Du kan använda objekten i följande tabell för att vägleda dina egna självst
 | Använda Power BI för att visualisera resultat                                                         | [Power BI](https://powerbi.microsoft.com/guided-learning/)                                                                                     | Powerbi är Microsofts datavisualiseringsverktyg. Det är tillgängligt på flera plattformar från webben till mobila enheter och stationära datorer. I den här artikeln lär du dig att arbeta med utdata från den lösning som du har skapat genom att komma åt resultaten från Azure storage och skapa visualiseringar med Power BI.                                                                                                                                                                                                                                                                                                                             | [Slutför den här självstudien på Power BI.](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) Därefter ansluta Power BI till Blob CSV-filen skapas i ett experiment som kör.                                                                                                                                                                                                                                                                       |
 | Övervaka din lösning                                                                     | [Application Insights](../../application-insights/app-insights-overview.md)                                            | Det finns flera olika verktyg som du kan använda för att övervaka din end-lösning. Azure Application Insights gör det enkelt att integrera inbyggd övervakning i din lösning.                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | [Konfigurera Application Insights för att övervaka ett program](https://cmatskas.com/visual-studio-code-integration-with-azure-application-insights/).                                                                                                                                                                                                                                                                                                                  |
 |                                                                                           | [Azure Log Analytics](../../log-analytics/log-analytics-overview.md)                                                   | En annan metod för att övervaka program är att integrera den med din DevOps-process. Systemet Azure Log Analytics tillhandahåller en omfattande uppsättning funktioner som låter dig se dina analytiska lösningar när du har distribuerat.                                                                                                                                                                                                                                                                                                                                                                                                                       | [Slutföra den här självstudien](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-the-Analytics-portal) om hur du använder Azure Log Analytics.                                                                                                                                                                                                                                                                                                       |
-| Slutför den här utbildningsvägen                                                               | Fler projekt att testa                                                                                                                           | Grattis! Du har slutfört den här utbildningsvägen. Det finns mycket mer att lära dig. Ett mer avancerat exempel är att skapa en kund omsättning modell i Azure Machine Learning-tjänsten. [Testa den här](../desktop-workbench/scenario-churn-prediction.md).                                                                                                                                                                                                                                                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+| Slutför den här utbildningsvägen                                                               |                                                                                                                           | Grattis! Du har slutfört den här utbildningsvägen. Det finns mycket mer att lära dig.                                                                                                                                                                                                                                                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 
 ## <a name="next-steps"></a>Nästa steg
 [Team Data Science Process för utvecklare åtgärder](team-data-science-process-for-devops.md) den här artikeln handlar Developer-åtgärder (DevOps)-funktioner som är specifika för en avancerad analys och Cognitive Services-lösningsimplementering. 

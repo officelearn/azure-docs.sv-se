@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a5deccbe87bc8de6f6438259c2a43cc4618c24ab
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a4c429b1c54c6bf71175abbc763a178792281a0f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016717"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633154"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Anslut Konfigurationshanteraren till Log Analytics
 Du kan ansluta din miljö för System Center Configuration Manager till Azure Log Analytics att synkronisera enheten samlingsdata och referera till dessa samlingar i Log Analytics och Azure Automation.  
@@ -57,7 +57,7 @@ I följande procedur du bevilja den *deltagare* roll i Log Analytics-arbetsytan 
 6. Under den **tilldela åtkomst till** listrutan, Välj den Configuration Manager-program som skapats i AD tidigare och klicka sedan på **OK**.  
 
 ## <a name="download-and-install-the-agent"></a>Ladda ned och installera agenten
-I artikeln [ansluta Windows-datorer till Log Analytics-tjänsten i Azure](log-analytics-agent-windows.md) att förstå metoderna som är tillgängliga för att installera Microsoft Monitoring Agent på den dator där Configuration Manager-tjänsten anslutningen platssystemrollen.  
+I artikeln [ansluta Windows-datorer till Log Analytics-tjänsten i Azure](../azure-monitor/platform/agent-windows.md) att förstå metoderna som är tillgängliga för att installera Microsoft Monitoring Agent på den dator där Configuration Manager-tjänsten anslutningen platssystemrollen.  
 
 ## <a name="add-a-log-analytics-connection-to-configuration-manager"></a>Lägg till en Log Analytics-anslutning till Configuration Manager
 För att lägga till Log Analytics-anslutning, Configuration Manager-miljön måste ha en [tjänstanslutningspunkten](https://technet.microsoft.com/library/mt627781.aspx) konfigurerats för online-läge.

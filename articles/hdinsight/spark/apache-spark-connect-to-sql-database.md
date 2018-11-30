@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 1ae06fe9cc459d86bdd46d9b033a726339493dc5
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 603aa8d85d42167accd2a5e71c4ab3e5245f5d07
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164789"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499264"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Använda HDInsight Spark-kluster för att läsa och skriva data till Azure SQL database
 
-Lär dig hur du ansluter ett Apache Spark-kluster i Azure HDInsight med en Azure SQL database och sedan läsa, skriva och strömma data till SQL-databasen. Anvisningarna i den här artikeln använder en Jupyter-anteckningsbok för att köra kodfragmenten Scala. Du kan dock skapa ett fristående program i Scala och Python och utföra samma uppgifter. 
+Lär dig hur du ansluter ett Apache Spark-kluster i Azure HDInsight med en Azure SQL database och sedan läsa, skriva och strömma data till SQL-databasen. Anvisningarna i den här artikeln används en [Jupyter Notebook](https://jupyter.org/) att köra kodfragmenten Scala. Du kan dock skapa ett fristående program i Scala och Python och utföra samma uppgifter. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -32,9 +32,9 @@ Lär dig hur du ansluter ett Apache Spark-kluster i Azure HDInsight med en Azure
 
 * **SQL Server Management Studio**. Följ anvisningarna på [Använd SSMS för att ansluta och fråga data](../../sql-database/sql-database-connect-query-ssms.md).
 
-## <a name="create-a-jupyter-notebook"></a>Skapa en Jupyter-anteckningsbok
+## <a name="create-a-jupyter-notebook"></a>Skapa en Jupyter-anteckningsbok 
 
-Börja med att skapa en Jupyter-anteckningsbok som är associerade med Spark-klustret. Du kan använda den här anteckningsboken för att köra kodavsnitt som används i den här artikeln. 
+Börja med att skapa en [Jupyter Notebook](https://jupyter.org/) som är associerade med Spark-klustret. Du kan använda den här anteckningsboken för att köra kodavsnitt som används i den här artikeln. 
 
 1. Från den [Azure-portalen](https://portal.azure.com/), öppna ditt kluster.
 1. Välj **Jupyter-anteckningsbok** under **Klusterinstrumentpaneler** på höger sida.  Om du inte ser **Klusterinstrumentpaneler**, klickar du på **översikt** menyn till vänster på bladet. Ange administratörsautentiseringsuppgifterna för klustret om du uppmanas att göra det.
@@ -237,4 +237,4 @@ I det här avsnittet ska vi strömma data till den **hvactable** att du redan sk
 
 * [Använd HDInsight Spark-kluster för att analysera data i Data Lake Store](apache-spark-use-with-data-lake-store.md)
 * [Processen strukturerad direktuppspelning av händelser med hjälp av EventHub](apache-spark-eventhub-structured-streaming.md)
-* [Använda Apache Spark Structured Streaming med Kafka på HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)
+* [Använda Apache Spark Structured Streaming med Apache Kafka på HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)

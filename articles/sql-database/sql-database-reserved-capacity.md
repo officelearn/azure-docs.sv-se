@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: e9edbc2a3bbc878f7a3cf99a3ca6efb4e69797ad
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 05c237eb071b48f2373ecfd78eeab6f7bceb8c5c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394728"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584170"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Betala i förskott för beräkningsresurser för SQL-databas med Azure SQL Database reserverad kapacitet
 
@@ -51,12 +51,12 @@ Låt oss anta att du kör en generell användning, Gen5 – 16 vCore elastisk po
     |:------------|:--------------|
     |Namn        |Namnet på den här reservationen.| 
     |Prenumeration|Den prenumeration som används för att betala för SQL Database reserverad kapacitetsreservationen. Betalningsmetoden för prenumerationen debiteras startavgifter reservationens SQL-databas som reserverad kapacitet. Prenumerationstypen måste vara ett företagsavtal (erbjudandets nummer: MS-AZR-0017P) eller Betala per användning (erbjudandets nummer: MS-AZR-0003P). För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning. Får en Betala per användning-prenumeration faktureras avgifterna från kreditkortet eller enligt fakturabetalningsmetoden.|    
-    |Omfång       |VCore reservationsomfånget kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer: <ul><li>Enstaka prenumeration - vCore reservationsrabatten tillämpas på SQL Database-instanser i den här prenumerationen. </li><li>Delad – tillämpas vCore reservationsrabatten på SQL Database-instanser som körs i alla prenumerationer i din faktureringskontexten. För företagskunder, den delade omfattningen registreringen och innehåller alla prenumerationer (utom prenumerationer för utveckling och testning) i registreringen. För kunder med användningsbaserad betalning är den delade omfattningen alla betala per användning-prenumerationer som skapas av kontoadministratören.</li></ul>|
+    |Scope       |VCore reservationsomfånget kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer: <ul><li>Enstaka prenumeration - vCore reservationsrabatten tillämpas på SQL Database-instanser i den här prenumerationen. </li><li>Delad – tillämpas vCore reservationsrabatten på SQL Database-instanser som körs i alla prenumerationer i din faktureringskontexten. För företagskunder, den delade omfattningen registreringen och innehåller alla prenumerationer (utom prenumerationer för utveckling och testning) i registreringen. För kunder med användningsbaserad betalning är den delade omfattningen alla betala per användning-prenumerationer som skapas av kontoadministratören.</li></ul>|
     |Region      |Azure-regionen som omfattas av SQL-databasen reserverad kapacitet reservation.|    
     |Distributionstyp|Den SQL-resurstyp som du vill köpa reservationer för.|
     |Prestandanivå|Tjänstnivå för SQL Database-instanser.
     |Period        |Ett eller tre år.|
-    |Antal    |Antalet instanser som köpts i SQL-databasen reserverad kapacitet reservation. Antalet är antalet körda SQL Database-instanser som kan få fakturering rabatt. Till exempel om du kör 10 SQL Database-instanser i östra USA, skulle du ange antalet som 10 om du vill maximera förmån för alla datorer som körs. |
+    |Kvantitet    |Antalet instanser som köpts i SQL-databasen reserverad kapacitet reservation. Antalet är antalet körda SQL Database-instanser som kan få fakturering rabatt. Till exempel om du kör 10 SQL Database-instanser i östra USA, skulle du ange antalet som 10 om du vill maximera förmån för alla datorer som körs. |
 
 5. Granska kostnaden för SQL-databasen reserverad kapacitetsreservationen i den **kostnader** avsnittet.
 6. Välj **Köp**.
@@ -64,9 +64,9 @@ Låt oss anta att du kör en generell användning, Gen5 – 16 vCore elastisk po
 
 ## <a name="cancellations-and-exchanges"></a>Avbokningar och utbyten
 
-Om du behöver reserverad kapacitet reservation att avbryta din SQL-databas, det kan finnas 12% uppsägningsavgift. Återbetalningar baseras på lägsta priset för din inköpspriset eller aktuella priset för reservationen. Återbetalningar är begränsade till 50 000 per år. Återbetalning felmeddelandet är det återstående proportionella saldot minus 12% uppsägningsavgift. Om du vill begära ett avbrott, går du till reservationen i Azure-portalen och välj **återbetala** att skapa en supportbegäran.
+Om du behöver reserverad kapacitet reservation att avbryta din SQL-databas, det kan finnas 12% uppsägningsavgift. Återbetalningar baseras på det lägsta priset – antingen ditt inköpspris eller det aktuella priset för reservationen. Återbetalningar begränsas till 50 000 USD per år. Din återbetalning består av det återstående proportionellt beräknade saldot minus uppsägningsavgiften på 12 %. Om du vill begära ett avbrott, går du till reservationen i Azure-portalen och välj **återbetala** att skapa en supportbegäran.
 
-Om du vill ändra din SQL Database reserverad kapacitet reservation till en annan region, typen av distribution, prestandanivån eller termen kan byta du den för en annan reservation som är av samma eller högre värde. Termen startdatumet för den nya reservationen sprids inte från sker ett certifikatutbyte reservationen. 1 eller 3 år termen startar från när du skapar den nya reservationen. Om du vill begära en exchange, gå till reservationen i Azure-portalen och välj **Exchange** att skapa en supportbegäran.
+Om du vill ändra din SQL Database reserverad kapacitet reservation till en annan region, typen av distribution, prestandanivån eller termen kan byta du den för en annan reservation som är av samma eller högre värde. Startdatumet för den nya reservationens överförs inte från den utbytte reservationen. Perioden på 1 eller 3 år startar när du skapar den nya reservationen. Om du vill begära en exchange, gå till reservationen i Azure-portalen och välj **Exchange** att skapa en supportbegäran.
 
 ## <a name="vcore-size-flexibility"></a>flexibilitet för vCore-storlek
 
@@ -87,7 +87,7 @@ Om du vill veta mer om Azure reservationer, finns i följande artiklar:
 - [Förstå användningen av reserverade för din Enterprise-registrering](../billing/billing-understand-reserved-instance-usage-ea.md)
 - [Azure reservationer i programmet för Partner Center Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har fler frågor, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: 8f680b60a8f457e1a8619ac044798ff02df15694
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 9898a56991a44f3ac87fde4c34676943b1ab8341
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013657"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581909"
 ---
-# <a name="create-high-availability-spark-streaming-jobs-with-yarn"></a>Skapa hög tillgänglighet Spark Streaming jobb med YARN
+# <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Skapa hög tillgänglighet Apache Spark Streaming jobb med YARN
 
-Spark Streaming kan du implementera skalbara, högt dataflöde, feltoleranta program för bearbetning av dataströmmar. Du kan ansluta Spark Streaming program på ett HDInsight Spark-kluster till en mängd olika datakällor, till exempel Azure Event Hubs, Azure IoT Hub, Kafka, Flume, Twitter, ZeroMQ, raw TCP-sockets eller genom att övervaka HDFS-filsystemet för ändringar. Spark Streaming har stöd för feltolerans med garanti att en given händelse bearbetas exakt en gång, även med ett nodfel.
+[Apache Spark](https://spark.apache.org/) strömning gör det möjligt att implementera skalbara, högt dataflöde, feltoleranta program för bearbetning av dataströmmar. Du kan ansluta Spark Streaming program på ett HDInsight Spark-kluster till en mängd olika datakällor, till exempel Azure Event Hubs, Azure IoT Hub [Apache Kafka](https://kafka.apache.org/), [Apache Flume](https://flume.apache.org/), Twitter, [ ZeroMQ](http://zeromq.org/), raw TCP sockets, eller genom att övervaka den [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) filsystem för ändringar. Spark Streaming har stöd för feltolerans med garanti att en given händelse bearbetas exakt en gång, även med ett nodfel.
 
 Spark Streaming skapar långvariga jobb som du kan använda omvandlingar för data och skicka sedan resultatet till filsystem, databaser, instrumentpaneler och i konsolen. Spark Streaming bearbetar micro-batchar av data, genom att första samla in en batch med händelser under en definierad tidsintervall. Därefter skickas den batch på för bearbetning och utdata. Batch tidsintervall definieras vanligen i bråkdelar av en sekund.
 
@@ -54,7 +54,7 @@ Rdd har flera egenskaper som hjälper med hög tillgänglighet och feltolerant S
 
 Om du vill skapa ett program som bearbetar varje händelse en gång (och bara en gång), Överväg hur alla system i felpunkter starta om när du har ett problem och hur du kan undvika dataförlust. Exakt-när semantik kräver att ingen data går förlorad när som helst och den meddelandebehandling är kan startas om, oavsett där felet inträffade. Se [skapa Spark Streaming jobb med exakt-gång bearbetning av](apache-spark-streaming-exactly-once.md).
 
-## <a name="spark-streaming-and-yarn"></a>Spark-strömning och YARN
+## <a name="spark-streaming-and-apache-hadoop-yarn"></a>Spark-strömning och Apache Hadoop YARN
 
 I HDInsight, kluster work koordinerar *ännu en annan Resource Negotiator* (YARN). Designa hög tillgänglighet för Spark Streaming innehåller metoder för Spark Streaming och även för YARN-komponenter.  Ett exempel på en konfiguration med YARN visas nedan. 
 
@@ -120,8 +120,8 @@ Sammanfattningsvis med hjälp av kontrollpunkter, WAL + tillförlitlig mottagare
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Spark-strömning översikt](apache-spark-streaming-overview.md)
-* [Skapa Spark Streaming jobb med exakt-gång bearbetning](apache-spark-streaming-exactly-once.md)
-* [Långvariga Spark-Direktuppspelningsjobb på YARN](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
+* [Apache Spark-strömning översikt](apache-spark-streaming-overview.md)
+* [Skapa Apache Spark Streaming jobb med exakt-gång bearbetning](apache-spark-streaming-exactly-once.md)
+* [Långvariga Apache Spark-Direktuppspelningsjobb på YARN](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
 * [Structured Streaming: Feltoleranta semantik för fel](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
 * [Diskretiserade strömmar: En feltolerant modell för skalbar Stream bearbetning](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)

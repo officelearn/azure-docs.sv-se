@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 45d296b8867884a4c40dc10adc1f9aa83d7f9eab
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 14e89d5eab058b9fa42c20811df9c5ac0ceca44a
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715827"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633205"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Lösning för Office 365 i Azure (förhandsversion)
 
@@ -477,7 +477,7 @@ Du kan ta bort Office 365-hanteringslösning som använder processen i [ta bort 
 
 ## <a name="data-collection"></a>Datainsamling
 ### <a name="supported-agents"></a>Agenter som stöds
-Office 365-lösningen inte hämta data från någon av de [Log Analytics-agenter](../../log-analytics/log-analytics-data-sources.md).  Den hämtar data direkt från Office 365.
+Office 365-lösningen inte hämta data från någon av de [Log Analytics-agenter](../../azure-monitor/platform/agent-data-sources.md).  Den hämtar data direkt från Office 365.
 
 ### <a name="collection-frequency"></a>Insamlingsfrekvens
 Det kan ta några timmar innan data inledningsvis samlas in. När den börjar samla in, Office 365 skickar en [webhook-meddelande](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) med detaljerade data till Log Analytics varje gång en post skapas. Den här posten finns i Log Analytics inom ett par minuter efter mottagandet.
@@ -710,5 +710,5 @@ Följande tabell innehåller exempel på sökningar i loggen för uppdateringspo
 
 ## <a name="next-steps"></a>Nästa steg
 * Använd loggsökningar i [Log Analytics](../../log-analytics/log-analytics-queries.md) för att visa detaljerad uppdateringsinformation.
-* [Skapa dina egna instrumentpaneler](../../log-analytics/log-analytics-dashboards.md) att visa dina favorit Office 365-sökfrågor.
+* [Skapa dina egna instrumentpaneler](../../azure-monitor/platform/dashboards.md) att visa dina favorit Office 365-sökfrågor.
 * [Skapa aviseringar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) för att proaktivt aviseras om viktiga Office 365-aktiviteter.  

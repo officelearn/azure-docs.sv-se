@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 9fe4b3e49f8e3270f58929a5708a83ab02e2486c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 876a564c3cf5ee4b19d7f2530ecff1ed12bebe63
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255258"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581842"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-store"></a>Använd HDInsight Spark-kluster för att analysera data i Data Lake Store
 
-I den här självstudien använder du Jupyter-anteckningsbok som är tillgängliga med HDInsight Spark-kluster till ett jobb som läser data från ett Data Lake Store-konto.
+I den här självstudien använder du [Jupyter Notebook](https://jupyter.org/) tillgängliga med HDInsight Spark-kluster till ett jobb som läser data från ett Data Lake Store-konto.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -61,7 +61,7 @@ Om du har skapat ett HDInsight-kluster med Data Lake Store som ytterligare lagri
 
 ## <a name="use-an-hdinsight-spark-cluster-with-data-lake-store"></a>Använda ett HDInsight Spark-kluster med Data Lake Store
 
-1. På startsidan i [Azure-portalen](https://portal.azure.com/) klickar du på panelen för ditt Spark-kluster (om du har fäst det på startsidan). Du kan också navigera till ditt kluster under **Bläddra bland alla** > **HDInsight-kluster**.
+1. Från den [Azure-portalen](https://portal.azure.com/), på startsidan klickar du på panelen för Apache Spark-kluster (om du har Fäst det på startsidan). Du kan också navigera till ditt kluster under **Bläddra bland alla** > **HDInsight-kluster**.
 
 2. Klicka på **Snabblänkar** på Spark-klusterbladet och sedan på **Jupyter Notebook** på **Klusterinstrumentpanel**-bladet. Ange administratörsautentiseringsuppgifterna för klustret om du uppmanas att göra det.
 
@@ -115,7 +115,7 @@ Om du har skapat ett HDInsight-kluster med Data Lake Store som ytterligare lagri
             # Register the data fram as a table to run queries against
             hvacdf.registerTempTable("hvac")
 
-6. Eftersom du använder en PySpark-kernel kan du nu direkt köra en SQL-fråga för den tillfälliga tabellen **hvac** som du just skapade med den användbara `%%sql`-funktionen. Mer information om den användbara `%%sql`, samt andra mycket användbara funktioner hos PySpark-kerneln, finns i [Kernlar som är tillgängliga i Jupyter-anteckningsböcker med HDInsight Spark-kluster](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+6. Eftersom du använder en PySpark-kernel kan du nu direkt köra en SQL-fråga för den tillfälliga tabellen **hvac** som du just skapade med den användbara `%%sql`-funktionen. Mer information om den `%%sql` magic, samt andra användbara funktioner hos PySpark-kerneln, finns i [Kernlar som är tillgängliga i Jupyter-anteckningsböcker med Apache Spark HDInsight-kluster](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
         %%sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
@@ -134,5 +134,5 @@ Om du har skapat ett HDInsight-kluster med Data Lake Store som ytterligare lagri
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa ett fristående Scala programmet ska köras på Apache Spark-kluster](apache-spark-create-standalone-application.md)
-* [Använda HDInsight-verktyg i Azure Toolkit för IntelliJ för att skapa Spark-program för HDInsight Spark Linux-kluster](apache-spark-intellij-tool-plugin.md)
-* [Använda HDInsight-verktyg i Azure Toolkit för Eclipse för att skapa Spark-program för HDInsight Spark Linux-kluster](apache-spark-eclipse-tool-plugin.md)
+* [Använda HDInsight-verktyg i Azure Toolkit för IntelliJ för att skapa Apache Spark-program för HDInsight Spark Linux-kluster](apache-spark-intellij-tool-plugin.md)
+* [Använda HDInsight-verktyg i Azure Toolkit för Eclipse för att skapa Apache Spark-program för HDInsight Spark Linux-kluster](apache-spark-eclipse-tool-plugin.md)

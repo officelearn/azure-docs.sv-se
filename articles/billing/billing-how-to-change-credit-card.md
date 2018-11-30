@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 0db76d7133e28a0826d9ff07cefe02134cd95a47
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 69c24e08ce2434c39b8bb67cb53173f9ceaee51b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274489"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581451"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Lägga till, uppdatera eller ta bort ett kreditkort eller bankkort kort för Azure
 
@@ -102,6 +102,6 @@ Tyvärr stöder Azure för närvarande inte enstaka betalningar för kreditkort 
 
 Om du vill lägga till eller uppdatera skatte-ID, besök [ **profil** i Azure-Kontocenter](https://account.azure.com/Profile)och välj sedan **skatt post**. Det här skatte-ID:t används för att beräkna skattebefrielse och visas på fakturan.
 
-## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du fortfarande behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

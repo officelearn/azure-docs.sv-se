@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: caffa1f1a3684de3a7514e1ce1a4fe3014a7dbf8
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 95083ec1d909333596fd36ad998022778a4f9ec9
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706151"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582758"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory-direktautentisering: Snabbstart för
 
@@ -44,13 +44,13 @@ Se till att följande krav är uppfyllda.
 
 ### <a name="in-your-on-premises-environment"></a>I din lokala miljö
 
-1. Identifiera en server som kör Windows Server 2012 R2 eller senare för att köra Azure AD Connect. Lägg till servern i samma Active Directory-skog som användare vars lösenord du måste verifiera.
+1. Identifiera en server som kör Windows Server 2012 R2 eller senare för att köra Azure AD Connect. Om inte redan är aktiverad [Aktivera TLS 1.2 på servern](./how-to-connect-install-prerequisites.md#enable-tls-12-for-azure-ad-connect). Lägg till servern i samma Active Directory-skog som användare vars lösenord du måste verifiera.
 2. Installera den [senaste versionen av Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) på den server som anges i föregående steg. Om du redan har Azure AD Connect körs kan du kontrollera att versionen är 1.1.750.0 eller senare.
 
     >[!NOTE]
     >Azure AD Connect-versioner 1.1.557.0, 1.1.558.0, 1.1.561.0 och 1.1.614.0 har ett problem med synkronisering av lösenordshash. Om du _inte_ planerar att använda synkronisering av lösenordshash tillsammans med direktautentisering, läsa den [viktig information om Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#116470).
 
-3. Identifiera en eller flera ytterligare servrar (som kör Windows Server 2012 R2 eller senare) där du kan köra fristående Autentiseringsagenter. Dessa ytterligare servrar behövs för att garantera hög tillgänglighet för begäranden för att logga in. Lägg till servrar i samma Active Directory-skog som användare vars lösenord du måste verifiera.
+3. Identifiera en eller flera ytterligare servrar (som kör Windows Server 2012 R2 eller senare med TLS 1.2 aktiverat) där du kan köra fristående Autentiseringsagenter. Dessa ytterligare servrar behövs för att garantera hög tillgänglighet för begäranden för att logga in. Lägg till servrar i samma Active Directory-skog som användare vars lösenord du måste verifiera.
 
     >[!IMPORTANT]
     >I produktionsmiljöer rekommenderar vi att du har minst 3 Autentiseringsagenter som körs på din klient. Det finns en systemgränsen på 12 Autentiseringsagenter per klient. Och bästa praxis är att behandla alla servrar som kör Autentiseringsagenter som nivå 0-system (se [referens](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
@@ -85,7 +85,7 @@ Om du redan har installerat Azure AD Connect med hjälp av den [Snabbinstallatio
 ![Azure AD Connect: Ändra användarinloggning](./media/how-to-connect-pta-quick-start/changeusersignin.png)
 
 >[!IMPORTANT]
->Direktautentisering är en funktion på klientnivå. Att aktivera den påverkar inloggning för användare i _alla_ de hanterade domänerna i din klient. Om du växlar från Active Directory Federation Services (AD FS) till direktautentisering, bör du vänta minst 12 timmar innan du stänger av AD FS-infrastrukturen. Den här väntetid är att säkerställa att användarna kan hålla inloggning till Exchange ActiveSync under övergången. Kolla in vår detaljerad Distributionsguide som publicerats för mer hjälp om hur du migrerar från AD FS till direktautentisering [här](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
+>Direktautentisering är en funktion på klientnivå. Att aktivera den påverkar inloggning för användare i _alla_ de hanterade domänerna i din klient. Om du växlar från Active Directory Federation Services (AD FS) till direktautentisering, bör du vänta minst 12 timmar innan du stänger av AD FS-infrastrukturen. Den här väntetid är att säkerställa att användarna kan hålla inloggning till Exchange ActiveSync under övergången. Kolla in vår detaljerad distributionsplan som publicerats för mer hjälp om hur du migrerar från AD FS till direktautentisering [här](https://aka.ms/adfstoptadpdownload).
 
 ## <a name="step-3-test-the-feature"></a>Steg 3: Testa funktionen
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4fba078487f99347804362a888bcc2c33dde1ef
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 4fd36d58574b60e3e6351cba03c68b9217bc703d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715815"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632474"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Utforma och skapa en lösning i Azure (förhandsversion)
 > [!NOTE]
@@ -42,16 +42,16 @@ De vanligaste mönstret som en lösning för illustreras i följande diagram.  D
 
 
 ### <a name="data-sources"></a>Datakällor
-Det första steget när du utformar en lösning är att fastställa de data som du behöver från Log Analytics-databasen.  Dessa data kan samlas in av en [datakälla](../../log-analytics/log-analytics-data-sources.md) eller [en annan lösning]( solutions.md), eller din lösning kan behöva ange processen för att samla in den.
+Det första steget när du utformar en lösning är att fastställa de data som du behöver från Log Analytics-databasen.  Dessa data kan samlas in av en [datakälla](../../azure-monitor/platform/agent-data-sources.md) eller [en annan lösning]( solutions.md), eller din lösning kan behöva ange processen för att samla in den.
 
-Det finns ett antal sätt datakällor som kan samlas in i Log Analytics-databasen enligt beskrivningen i [datakällor i Log Analytics](../../log-analytics/log-analytics-data-sources.md).  Detta innefattar händelser till händelseloggen i Windows eller genereras av Syslog förutom prestandaräknare för både Windows och Linux-klienter.  Du kan också samla in data från Azure-resurser som samlas in av Azure Monitor.  
+Det finns ett antal sätt datakällor som kan samlas in i Log Analytics-databasen enligt beskrivningen i [datakällor i Log Analytics](../../azure-monitor/platform/agent-data-sources.md).  Detta innefattar händelser till händelseloggen i Windows eller genereras av Syslog förutom prestandaräknare för både Windows och Linux-klienter.  Du kan också samla in data från Azure-resurser som samlas in av Azure Monitor.  
 
 Om du kräver att data som inte kan nås via någon av de tillgängliga datakällorna så du kan använda den [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) där du kan skriva data till Log Analytics-databasen från alla klienter som kan anropa en REST-API.  Det vanligaste sättet för anpassad insamling i en lösning för hantering av är att skapa en [runbook i Azure Automation](../../automation/automation-runbook-types.md) som samlar in nödvändiga data från Azure eller externa resurser och använder Data Collector API för att skriva till den lagringsplats.  
 
 ### <a name="log-searches"></a>Loggsökningar
 [Loggsökningar](../../log-analytics/log-analytics-queries.md) används för att extrahera och analysera data i Log Analytics-databasen.  De används i vyer och aviseringar förutom tillåter användare att utföra ad hoc-analyser av data i databasen.  
 
-Du bör definiera alla frågor som du tror att användbara för användaren även om de inte används av alla vyer eller aviseringar.  Dessa är tillgängliga för dem som sparade sökningar i portalen och du kan även inkludera dem i en [Listfrågor för visualisering del](../../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) i den anpassade vyn.
+Du bör definiera alla frågor som du tror att användbara för användaren även om de inte används av alla vyer eller aviseringar.  Dessa är tillgängliga för dem som sparade sökningar i portalen och du kan även inkludera dem i en [Listfrågor för visualisering del](../../azure-monitor/platform/view-designer-parts.md#list-of-queries-part) i den anpassade vyn.
 
 ### <a name="alerts"></a>Aviseringar
 [Aviseringar i Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) identifiera problem med hjälp av [loggsökningar](#log-searches) mot data i databasen.  De meddela användaren eller köra automatiskt en åtgärd som svar. Du bör identifiera olika aviseringsvillkor för ditt program och inkludera motsvarande Varningsregler i din lösningsfilen.
@@ -61,9 +61,9 @@ Om problemet kan eventuellt åtgärdas med en automatiserad process, ska du vanl
 Om din lösning kräver externa funktioner som svar på en avisering så kan du använda en [webhook-svar](../../monitoring-and-diagnostics/alert-metric.md).  På så sätt kan du anropa en extern webbtjänst skickar information från aviseringen.
 
 ### <a name="views"></a>Vyer
-Vyer i Log Analytics används för att visualisera data från Log Analytics-databasen.  Varje lösning vanligtvis innehåller en enda vy med en [panelen](../../log-analytics/log-analytics-view-designer-tiles.md) som visas på användarens huvudinstrumentpanel.  Vyn kan innehålla valfritt antal [visualisering delar](../../log-analytics/log-analytics-view-designer-parts.md) att tillhandahålla olika visualiseringar av insamlade data för användaren.
+Vyer i Log Analytics används för att visualisera data från Log Analytics-databasen.  Varje lösning vanligtvis innehåller en enda vy med en [panelen](../../azure-monitor/platform/view-designer-tiles.md) som visas på användarens huvudinstrumentpanel.  Vyn kan innehålla valfritt antal [visualisering delar](../../azure-monitor/platform/view-designer-parts.md) att tillhandahålla olika visualiseringar av insamlade data för användaren.
 
-Du [skapa anpassade vyer med hjälp av Vydesigner](../../log-analytics/log-analytics-view-designer.md) som du senare kan exportera ska ingå i din lösningsfilen.  
+Du [skapa anpassade vyer med hjälp av Vydesigner](../../azure-monitor/platform/view-designer.md) som du senare kan exportera ska ingå i din lösningsfilen.  
 
 
 ## <a name="create-solution-file"></a>Skapa lösningsfil

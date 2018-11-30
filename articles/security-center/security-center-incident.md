@@ -3,7 +3,7 @@ title: Hantera säkerhetsaviseringar i Azure Security Center | Microsoft Docs
 description: I det här dokumentet beskrivs hur du hanterar säkerhetsincidenter med hjälp av funktionerna i Azure Security Center.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: e8feb669-8f30-49eb-ba38-046edf3f9656
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
-ms.author: yurid
-ms.openlocfilehash: f1cda4eb48235f9b72697eee77aac6a4e576aaf2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/29/2018
+ms.author: rkarlin
+ms.openlocfilehash: 40e46ed99684877e829068c209ab318913b79e2a
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258502"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633936"
 ---
 # <a name="handling-security-incidents-in-azure-security-center"></a>Hantera säkerhetsincidenter i Azure Security Center
 Sortering och undersökning av säkerhetsaviseringar kan ta lång tid för även de mest skickliga säkerhetsanalytiker och för många är det svårt att ens veta var man ska börja. Med hjälp av [analys](security-center-detection-capabilities.md) för att ansluta informationen mellan olika [säkerhetsaviseringar](security-center-managing-and-responding-alerts.md), kan Security Center förse dig med en enda vy av en attackkampanj och alla relaterade aviseringar – du kan snabbt förstå vilka åtgärder angriparen vidtog och vilka resurser som har påverkats.

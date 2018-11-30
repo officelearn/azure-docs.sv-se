@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 057c98d4bac87b4e43e5beb8268d3d3bdbe3ec85
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 6033a61351423e65490edfe0b0607f2395c80f86
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364269"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498353"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Rekommenderade säkerhetsmetoder för IaaS-arbetsbelastningar i Azure
 
@@ -41,7 +41,7 @@ Det första steget i att skydda dina virtuella datorer är att säkerställa att
 **Bästa praxis**: åtkomst till kontrollen virtuell dator.   
 **Information om**: Använd [Azure principer](../azure-policy/azure-policy-introduction.md) upprätta konventioner för resurser i din organisation och skapa anpassade principer. Använda dessa principer på resurser, till exempel [resursgrupper](../azure-resource-manager/resource-group-overview.md). Virtuella datorer som tillhör en resursgrupp ärver dess principer.
 
-Om din organisation har många prenumerationer, kanske du behöver ett sätt att effektivt hantera åtkomst, principer och efterlevnad för dessa prenumerationer. [Azure-hanteringsgrupper](../azure-resource-manager/management-groups-overview.md) ger en nivå av omfång över prenumerationer. Du organiserar prenumerationer till hanteringsgrupper (behållare) och tillämpa dina styrning villkor för dessa grupper. Alla prenumerationer i en hanteringsgrupp ärver automatiskt villkor som används för gruppen. Av hanteringsgrupper ger företagsklass i stor skala oavsett vilken typ av prenumerationer som du kan ha.
+Om din organisation har många prenumerationer, kanske du behöver ett sätt att effektivt hantera åtkomst, principer och efterlevnad för dessa prenumerationer. [Azure-hanteringsgrupper](../azure-resource-manager/management-groups-overview.md) ger en nivå av omfång över prenumerationer. Du organiserar prenumerationer till hanteringsgrupper (behållare) och tillämpa dina styrning villkor för dessa grupper. Alla prenumerationer i en hanteringsgrupp ärver automatiskt villkor som används för gruppen. Hanteringsgrupper tillhandahåller hantering i företagsklass i stor skala oavsett vilken typ av prenumeration du har.
 
 **Bästa praxis**: minska variationer i din installation och distribution av virtuella datorer.   
 **Information om**: Använd [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) mallar att stärka dina distributionsalternativ och gör det enklare att förstå och inventera de virtuella datorerna i din miljö.
@@ -51,7 +51,7 @@ Om din organisation har många prenumerationer, kanske du behöver ett sätt att
 
 - [Virtuell Datordeltagare](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): kan hantera virtuella datorer, men inte virtuella nätverks- eller kontot som de är anslutna.
 - [Klassisk virtuell Datordeltagare](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): kan hantera virtuella datorer som skapas med hjälp av den klassiska distributionsmodellen, men inte virtuella nätverks- eller kontot som de virtuella datorerna är anslutna.
-- [Säkerhetshanteraren](../role-based-access-control/built-in-roles.md#security-manager): hantera säkerhetskomponenter, säkerhetsprinciper och virtuella datorer.
+- [Säkerhetsadministratör](../role-based-access-control/built-in-roles.md#security-admin): I Security Center endast: kan visa säkerhetsprinciper, security tillstånd, redigera säkerhetsprinciper, Visa aviseringar och rekommendationer, avvisa aviseringar och rekommendationer.
 - [DevTest Labs-användare](../role-based-access-control/built-in-roles.md#devtest-labs-user): kan visa allt och ansluta, starta, starta om och stänga av virtuella datorer.
 
 Dina prenumerationsadministratörer och coadmins ska kan ändra den här inställningen, vilket gör dem administratörer av alla virtuella datorer i en prenumeration. Var noga med att du litar på alla prenumerationsadministratörer och coadmins ska logga in på någon av dina datorer.

@@ -13,41 +13,31 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/14/2018
+ms.date: 11/02/2018
 ms.author: cwatson
-ms.openlocfilehash: 21a573bd0276cc1afafab950e123ac13ee95f59d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: b9b1496c71e61fce815d225310c8beb57e8f9b19
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274729"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584578"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Förstå fakturan för Microsoft Azure
 Jämför din faktura med detaljerade dagliga användningsfil och kostnadshanteringsrapporter i Azure-portalen för att förstå fakturan för Azure.
 
->[!NOTE]
->Den här artikeln gäller inte för kunder med Enterprise Agreement (EA). Om du är en EA-kund [faktura dokumentationen hittar på Enterprise Portal.](https://ea.azure.com/helpdocs/understandingYourInvoice)  
+Den här artikeln gäller inte för Azure-kunder med ett Enterprise-avtal (EA-kunder). Om du är en EA-kund, se [förstå fakturan för Azure-kunder med ett Enterprise Agreement](billing-understand-your-bill-ea.md).  
 
-Om du vill ha en PDF-fil på din faktura och en kopia av din detaljerad daglig användning CSV Filhämtning, se [hämta din Azure-fakturering och daglig användningsdata](billing-download-azure-invoice-daily-usage-date.md). 
-
-Detaljerade villkor och beskrivningar av din faktura och detaljerad dagliga användningsfil finns i [Förstå villkoren på din Microsoft Azure-faktura](billing-understand-your-invoice.md) och [Förstå villkoren på Microsoft Azure detaljerad användning](billing-understand-your-usage.md). 
-
-Mer information om kostnadshanteringsrapporter finns [Kostnadshantering för Azure-portalen](https://docs.microsoft.com/azure/billing/billing-getting-started).
-
-> [!div class="nextstepaction"]
-> [Hjälp till att förbättra faktureringsdokument för Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
-
-## <a name="charges"></a>Hur gör jag till att kostnader på min faktura är korrekta?
+## <a name="charges"></a>Granska dina kostnader
 
 >[!VIDEO https://www.youtube.com/embed/3YegFD769Pk]
 
-Om det finns en avgift på fakturan som du vill veta mer på, finns det ett par alternativ.
+Om det finns en avgift på fakturan som du vill ha mer information om, kan du jämföra användning och kostnader med användningsfilen eller med Azure-portalen.
 
-### <a name="option-1-review-your-invoice-and-compare-the-usage-and-costs-with-the-detailed-usage-csv-file"></a>Alternativ 1: Granska din faktura och jämför användning och kostnader med detaljerad användning CSV-fil
+### <a name="option-1-compare-usage-and-costs-with-usage-file"></a>Alternativ 1: Jämför användning och kostnader med användningsfil
 
-Detaljerad användning CSV-filen visar dina kostnader per faktureringsperiod och daglig användning. Om du vill ha detaljerad användning CSV-filen, se [hämta din Azure-fakturering och daglig användningsdata](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date).
+Detaljerad användning CSV-filen visar dina kostnader per faktureringsperiod och daglig användning. Filen finns [hämta din Azure-fakturering och daglig användningsdata](billing-download-azure-invoice-daily-usage-date.md).
 
-Avgifter för användning visas på nivån mätaren. Följande villkor betyda samma sak i både fakturan och detaljerad användningsfil. Faktureringsperiod på fakturan motsvarar till exempel i den faktureringsperioden som visas i filen detaljerad användning.
+Avgifter för användning visas på nivån mätaren. Följande villkor betyda samma sak i både fakturan och detaljerad användningsfil. Till exempel är faktureringsperiod på fakturan samma som den faktureringsperioden som visas i filen detaljerad användning.
 
  | Faktura (PDF) | Detaljerad användning (CSV)|
  | --- | --- |
@@ -68,57 +58,47 @@ Den **instruktionen** delen av detaljerad användningsinformation CSV visas samm
 
 ![Avgifter för användning av CSV](./media/billing-understand-your-bill/2.png)
 
-Om du vill se en specifikation av den här avgiften per dag, går du till den **daglig användning** avsnittet i CSV-filen. Filtrera efter ”Scheduler” *Mätningskategori* och du kan se vilka dagar mätaren har använts och hur mycket förbrukades. Den *Resource* och *resursgrupp* informationen visas också för jämförelse. Den *förbrukade* värden bör lägga till vad som visas på fakturan.
+Om du vill se en daglig sammanställning av den här avgiften, går du till den **daglig användning** avsnittet i CSV-filen. Filtrera efter ”Scheduler” *Mätningskategori*. Du kan se vilka dagar mätaren har använts och hur mycket förbrukades. Den *Resource* och *resursgrupp* informationen visas också för jämförelse. Den *förbrukade* värden bör lägga till vad som visas på fakturan.
 
 ![Avsnittet för daglig användning i CSV-filen](./media/billing-understand-your-bill/3.png)
 
 För att få kostnaden per dag, multiplicera den *förbrukade* belopp för med den *Rate* värdet från den **instruktionen** avsnittet.
 
-Läs mer om fakturan i [förstå fakturan Azure](billing-understand-your-invoice.md).
+Du kan läsa mer här:
 
-Läs om var och en av kolumnerna i CSV-filen i [förstå Azure detaljerad användningsinformation](billing-understand-your-invoice.md).
+- [Förstå fakturan för Azure](billing-understand-your-invoice.md)
+- [Förstå Azure detaljerad användningsinformation](billing-understand-your-invoice.md)
 
-### <a name="option-2-review-your-invoice-and-compare-with-the-usage-and-costs-in-the-azure-portal"></a>Alternativ 2: Granska din faktura och jämför med användning och kostnader i Azure portal
+### <a name="option-2-compare-the-usage-and-costs-with-the-azure-portal"></a>Alternativ 2: Jämför användning och kostnader med Azure portal
 
-Azure-portalen kan också hjälpa dig att kontrollera dina kostnader. Azure-portalen ger en snabb översikt över din användning och avgifter på fakturan kostnadstabeller för hantering.
+Azure-portalen kan också hjälpa dig att kontrollera dina kostnader. Visa management kostnadstabeller för att få en snabb överblick över fakturerade användning och kostnader.
 
-Om du vill fortsätta med exemplet ovan finns det [prenumerationssidan](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), Välj din prenumeration och välj sedan **analys av kostnader**. Därifrån kan du ange tidsintervallet och se användning kostar Azure Scheduler-tjänsten.
+1. I Azure-portalen går du till [prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Välj prenumerationen > **analys av kostnader**. 
+1. Filtrera efter **Timespan**.
+1. Om du vill fortsätta i föregående exempel kan du se användning debiteras du för tjänsten Azure Scheduler.
 
-![Cost analysis-vyn i Azure-portalen](./media/billing-understand-your-bill/4.png)
+   ![Cost analysis-vyn i Azure-portalen](./media/billing-understand-your-bill/4.png)
 
-Se dagliga kostnadsdata i **KOSTNADSHISTORIK**, klickar du på raden.
+1. Välj den raden att se dagliga kostnadsdata.
 
-![KOSTNADSHISTORIK vyn i Azure-portalen](./media/billing-understand-your-bill/5.png)
+   ![KOSTNADSHISTORIK vyn i Azure-portalen](./media/billing-understand-your-bill/5.png)
 
 Mer information finns i [att undvika oväntade kostnader med Azure-fakturering och kostnadshantering](billing-getting-started.md#costs).
 
-## <a name="external"></a>Vad gäller externa tjänstavgifter?
-Externa tjänster (även kallat Azure Marketplace order) tillhandahålls av oberoende tjänsteleverantörer och faktureras separat. Kostnaderna som visas inte på fakturan för Azure. Mer information finns i [förstå din Azure externa tjänstavgifter](billing-understand-your-azure-marketplace-charges.md).
+## <a name="external"></a>Externa tjänster faktureras separat
 
-## <a name="payment"></a>Hur gör jag en betalning?
+Externa tjänster eller marketplace-avgifter är för resurser som har skapats av programvara från tredje part-leverantörer. Dessa resurser är tillgängliga för användning från Azure marketplace. Till exempel är en Barracuda brandvägg en Azure marketplace-resurs som erbjuds av tredje part. Alla avgifter för brandväggen och dess motsvarande mätare visas som externa tjänstavgifter.
 
-Om du har konfigurerat ett kreditkort eller bankkort krävs en som din betalningsmetod debiteras betalningen automatiskt inom 10 dagar efter det fakturering löpt ut. På kontoutdraget kreditkort radartikeln skulle säger **MSFT Azure**.
+Avgifterna för externa tjänster faktureras separat. Kostnaderna som visas inte på fakturan för Azure. Mer information finns i [förstå din Azure externa tjänstavgifter](billing-understand-your-azure-marketplace-charges.md).
 
-Om du [betala per fakturering](billing-how-to-pay-by-invoice.md), skicka betalningen till platsen som visas längst ned på fakturan. Mer hjälp [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+## <a name="resources-billed-by-usage-meters"></a>Resurser som debiteras enligt taxor för användning
 
-## <a name="how-do-i-check-the-status-of-a-payment-made-by-credit-card"></a>Hur jag för att kontrollera status för en betalning med kreditkort?
+Azure inte direkt faktura baserat på den resurs som kostnad. Avgifter för en resurs beräknas med hjälp av en eller flera mätare. Mätarnas används för att spåra användningen av en resurs under hela dess livslängd. Mätarnas används sedan för att beräkna fakturan.
 
-[Skapa ett supportärende](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) fråga efter statusen för din betalning. 
+Den har till exempel en eller flera mätnings-instanser som skapas när du skapar en enda Azure-resurs, t.ex. en virtuell dator. Mätarnas används för att spåra användningen av resursen över tid. Varje mätare som genererar användningsposter som används av Azure för att beräkna fakturan.
 
-## <a name="are-there-different-azure-customer-types-how-do-i-know-what-customer-type-i-am"></a>Finns det olika kundtyper för Azure? Hur vet jag vilka kundtyp jag?
-Det finns olika typer av Azure-kunder. För att bättre förstå din faktura och priser, se följande kundtyp beskrivningar.
-
-- **Enterprise**: företagskunder har registrerat ett Enterprise-avtal med Azure för att göra den förhandlade monetära åtaganden och få åtkomst till anpassad prissättning för Azure-resurser.
-- **Web Direct**: Web Direct-kunder har inte loggat något anpassade avtal med Azure. Dessa kunder har registrerat dig för Azure via azure.com och få offentliga internetuppkopplade priser för alla Azure-resurser.
-- **Molnleverantör**: Molntjänstleverantörer vanligen är ett företag som har rekryterats som slutkund kan skapa lösningar ovanpå Azure.
-
-## <a name="why-dont-i-see-the-cost-the-resource-i-have-created-in-my-bill"></a>Varför ser jag kostnaden resursen som jag har skapat på min faktura?
-Azure stöder inte faktura direkt baserat på resurskostnader. Debiteringen görs beroende av en eller flera värden som används för att spåra användningen av en resurs under hela dess livslängd. Mätarnas används sedan för att beräkna fakturan. Läs mer om Azure för Avläsning av nedan.
-
-## <a name="how-does-azure-charge-metering-work"></a>Hur debiterar Azure Avläsning av arbete?
-När sätta upp en enda Azure-resurs, till exempel en virtuell dator har en eller flera mätnings-instanser som skapas också. Mätarnas används för att spåra användningen av resursen över tid. Varje mätare som genererar användningsposter som sedan används av Azure i vår kostnaden för Avläsning av systemet för att beräkna fakturan. 
-
-En enskild virtuell dator som skapats i Azure kan till exempel ha följande taxor skapas för att spåra användningen:
+En enskild virtuell dator (VM) skapas i Azure kan till exempel ha följande taxor skapas för att spåra användningen:
 
 - Instanstimmar
 - IP-Adresstimmar
@@ -131,18 +111,35 @@ En enskild virtuell dator som skapats i Azure kan till exempel ha följande taxo
 - Standard-i/o-Block Blob-Write
 - Borttagning av standard-i/o – Blockblob
 
-När den virtuella datorn skapas, börjar var och en av mätarna som ovan avger användningsposter. Denna användning ska sedan användas i Azures Avläsning av systemet tillsammans med mätarens priset för att avgöra hur mycket kunden debiteras.
+När den virtuella datorn har skapats börjar var och en av dessa taxor avger användningsposter. Den här användningen och mätarens pris spåras i Azure för Avläsning av system.
 
-> [!Note]
-> Ovanstående exempel mätarna kan endast vara en delmängd av de mätare som skapat en virtuell dator som har skapats.
+## <a name="payment"></a>Betala fakturan
 
-## <a name="what-is-the-difference-between-azure-1st-party-charges-and-azure-marketplace-charges"></a>Vad är skillnaden mellan Azure debitering för 1 part och kostnader för Azure Marketplace?
-Azure 1 part debiteras för de resurser som direkt utvecklas och erbjuds av Azure. Azure Marketplace-avgifter är avsedda för resurser som har skapats av tredjeparts-programvaruleverantörer som kan användas via Azure marketplace. Till exempel är en brandvägg för Barracuda en Azure marketplace-resurs som erbjuds av tredje part. Alla avgifter för brandväggen och dess motsvarande mätare visas som marketplace-avgifter. 
+Om du har konfigurerat ett kreditkort eller bankkort krävs en som din betalningsmetod debiteras betalningen automatiskt inom 10 dagar efter det fakturering löpt ut. På kontoutdraget kreditkort radartikeln skulle säger **MSFT Azure**.
+
+Om du vill ändra det kreditkort eller bankkort kortet som debiteras [lägga till, uppdatera eller ta bort ett kreditkort eller bankkort kort för Azure](billing-how-to-change-credit-card.md).
+
+Om du [betala med faktura](billing-how-to-pay-by-invoice.md), skicka betalningen till platsen som visas längst ned på fakturan.
+
+Kontrollera statusen för din betalning [skapa ett supportärende](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
 
 ## <a name="tips-for-cost-management"></a>Tips för kostnadshantering
-- Beräkna kostnader med hjälp av den [priskalkylatorn](https://azure.microsoft.com/pricing/calculator/) och [totalkostnad för ägarskap Kalkylatorn](https://aka.ms/azure-tco-calculator), och få den [detaljerad information om priser för varje tjänst](https://azure.microsoft.com/pricing/).
+
+- Beräkna kostnader med hjälp av den:
+  - [Azures priskalkylator](https://azure.microsoft.com/pricing/calculator/)
+  - [Totalkostnad för ägarskap Kalkylatorn](https://aka.ms/azure-tco-calculator)
+  - [Detaljerad information om priser för varje tjänst](https://azure.microsoft.com/pricing/)
 - [Granska användning och kostnader regelbundet i Azure-portalen](billing-getting-started.md#costs).
 
-## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
+## <a name="learn-more"></a>Läs mer
 
-Om du fortfarande behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.
+- [Få dina Azure-faktura och uppgifter om daglig användning](billing-download-azure-invoice-daily-usage-date.md)
+- [Förstå villkoren på din faktura för Microsoft Azure](billing-understand-your-invoice.md)
+- [Förstå villkoren på Microsoft Azure detaljerad användning](billing-understand-your-usage.md)
+- [Kostnadshantering för Azure portal](https://docs.microsoft.com/azure/billing/billing-getting-started)
+- [Undvika oväntade kostnader med Azure-fakturering och kostnadshantering](billing-getting-started.md#costs)
+
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
+
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

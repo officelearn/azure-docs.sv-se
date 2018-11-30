@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 229c3eff0db4f3689f4e2e3fd457410ecccb8ba7
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 86d64ef0e9abab4368569c2f7c5ccd633660085c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041530"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583221"
 ---
-# <a name="overview-of-spark-streaming"></a>Översikt över Spark-strömning
+# <a name="overview-of-apache-spark-streaming"></a>Översikt över Apache Spark-strömning
 
-Spark Streaming ger dataströmbearbetning i HDInsight Spark-kluster, med en garanti för att alla inkommande händelser bearbetas exakt en gång, även om ett nodfel inträffar. Ett Spark-Stream är en tidskrävande jobb som tar emot inkommande data från en mängd olika källor, inklusive Azure Event Hubs, en Azure IoT Hub, Kafka, Flume, Twitter, ZeroMQ, raw TCP sockets, eller från övervakning HDFS-filsystem. Till skillnad från en process som enbart händelsedriven, ett Spark-Stream slår ihop indata i tidsfönster, till exempel en sektor i 2 sekunder, och sedan transformeringar varje batch med hjälp av kartan, minska, ansluta till och extrahera operations. Spark Stream skriver sedan transformerade data till filsystem, databaser, instrumentpaneler och i konsolen.
+[Apache Spark](https://spark.apache.org/) Streaming tillhandahåller data för strömbearbetning i HDInsight Spark-kluster med en garanti för att ange någon händelse bearbetas exakt en gång, även om ett nodfel inträffar. Ett Spark-Stream är en tidskrävande jobb som tar emot inkommande data från en mängd olika källor, inklusive Azure Event Hubs, Azure IoT Hub, [Apache Kafka](https://kafka.apache.org/), [Apache Flume](https://flume.apache.org/), Twitter, [ZeroMQ ](http://zeromq.org/), raw TCP sockets, eller från övervakning [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) filsystem. Till skillnad från en process som enbart händelsedriven, ett Spark-Stream slår ihop indata i tidsfönster, till exempel en sektor i 2 sekunder, och sedan transformeringar varje batch med hjälp av kartan, minska, ansluta till och extrahera operations. Spark Stream skriver sedan transformerade data till filsystem, databaser, instrumentpaneler och i konsolen.
 
 ![Stream bearbetning med HDInsight och Spark-strömning](./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png)
 
@@ -86,7 +86,7 @@ Starta direktuppspelning programmet och kör tills en uppsägning signal tas emo
     ssc.start()            
     ssc.awaitTermination()
 
-Information om Spark Stream API, tillsammans med de händelsekällor och transformationer output-åtgärder som stöds finns i [Spark Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html).
+Information om Spark Stream API, tillsammans med de händelsekällor och transformationer output-åtgärder som stöds finns i [Apache Spark Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html).
 
 Följande exempelprogrammet är självständig, så att du kan köra den inuti en [Jupyter Notebook](apache-spark-jupyter-notebook-kernels.md). Det här exemplet skapar en fingerad datakälla i klassen DummySource som matar ut värdet för en räknare och den aktuella tiden i millisekunder var femte sekund. Ett nytt StreamingContext objekt har ett batch-intervall på 30 sekunder. Varje gång en batch skapas strömmande programmet undersöker RDD produceras, konverterar RDD till en Spark DataFrame och skapar en temporär tabell över nu när dataramen.
 
@@ -211,10 +211,10 @@ Du vanligtvis skapa ett Spark Streaming-program lokalt i en JAR-fil och sedan di
 
 ![Distribuera ett Spark Streaming-program](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 
-Status för alla program kan också kontrolleras med en GET-begäran mot en LIVY-slutpunkt. Slutligen kan avsluta du ett program som körs genom att utfärda en DELETE-begäran mot slutpunkten LIVY. Mer information om LIVY-API: et finns [fjärrstyrda jobb med LIVY](apache-spark-livy-rest-interface.md)
+Status för alla program kan också kontrolleras med en GET-begäran mot en LIVY-slutpunkt. Slutligen kan avsluta du ett program som körs genom att utfärda en DELETE-begäran mot slutpunkten LIVY. Mer information om LIVY-API: et finns [fjärrstyrda jobb med Apache LIVY](apache-spark-livy-rest-interface.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa ett Apache Spark-kluster i HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
-* [Spark Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)
-* [Starta Spark-jobb via fjärranslutning med LIVY](apache-spark-livy-rest-interface.md)
+* [Apache Spark-strömning Programmeringsguide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)
+* [Starta Apache Spark-jobb via fjärranslutning med Apache LIVY](apache-spark-livy-rest-interface.md)

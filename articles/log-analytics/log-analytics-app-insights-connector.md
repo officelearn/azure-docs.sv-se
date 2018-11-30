@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 554159f0eb22f2aaa1e45e69de7741f8764be0b3
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 0e083668231d63a2bed669bc5d1a42a977d4b5e0
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711862"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635517"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Lösning för Application Insights-Anslutningsapp (förhandsversion)
 
@@ -44,7 +44,7 @@ Till skillnad från de flesta andra Log Analytics-lösningar, inte som samlas in
 
 | Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
-| [Windows-agenter](log-analytics-agent-windows.md) | Nej | Lösningen samlar inte in information från Windows-agenter. |
+| [Windows-agenter](../azure-monitor/platform/agent-windows.md) | Nej | Lösningen samlar inte in information från Windows-agenter. |
 | [Linux-agenter](log-analytics-quick-collect-linux-computer.md) | Nej | Lösningen samlar inte in information från Linux-agenter. |
 | [SCOM-hanteringsgrupp](log-analytics-om-agents.md) | Nej | Lösningen samlar inte in information från agenter i en ansluten SCOM-hanteringsgrupp. |
 | [Azure Storage-konto](log-analytics-azure-storage.md) | Nej | Lösningen gör inte samlingsinformation från Azure storage. |

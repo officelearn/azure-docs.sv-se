@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 3dd624d7de4c30bfd84421d691695b723bd12d1d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 19fd83f19a8eb8c24beeade650544fbe03ca5b6a
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274611"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580961"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription-after-getting-an-email-from-azure"></a>Lös passerat betalningsdatum balans för din Azure-prenumeration när du har fått ett e-postmeddelande från Azure
 
@@ -48,6 +48,6 @@ Om du är kontoadministratör, [Kontrollera vilken e-postadress används för av
 
 Tjänsten avbryts och dina resurser är inte längre tillgängliga. Dina Azure-data tas bort 90 dagar efter att tjänsten avslutas. Mer information finns i [Microsoft Trust Center – hur vi hanterar dina data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
-## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du fortfarande behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

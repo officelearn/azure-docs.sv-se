@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: cwatson
-ms.openlocfilehash: ab0b48f8c8579af8a3314bad14dafbe79f9a9781
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 77022b442a78c8d14284e06af4f156302c1e6ffc
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393748"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584408"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Skapa tjänster som ingår kostnadsfritt Azure-konto
 
@@ -34,6 +34,6 @@ Läs om Azure tjänsttillgänglighet per region i [produkttillgänglighet per re
 ## <a name="multiple-instances-of-services-can-be-created-within-allowed-limits"></a>Flera instanser av tjänster kan skapas överskrider den tillåtna gränsen
 Du kan skapa flera instanser av tjänster kostnadsfritt så länge summan av användningen ligger inom användningsgränsen. Till exempel får du 750 drifttimmar av en B1S Windows-dator kostnadsfria varje månad med din kostnadsfria Azure-konto. Du kan använda 750 timmar i vilken kombination som du vill. Du kan till exempel skapa 5 B1S Windows virtuella datorer och använda dem för 150 timmar. 
 
-## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

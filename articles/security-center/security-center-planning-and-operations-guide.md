@@ -3,7 +3,7 @@ title: Planering- och bruksanvisning för Security Center | Microsoft Docs
 description: I det här avsnittet får du hjälp med att planera inför införandet av Azure Security Center och med vad du bör tänka på i det dagliga arbetet.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: f984e4a2-ac97-40bf-b281-2f7f473494c4
@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/02/2018
-ms.author: yurid
-ms.openlocfilehash: 76d472ff75f66973b3e680d8a30d7691c1cd36dc
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.date: 11/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: f24baaf07f86722bc461cbb79e262f63b46c8a1f
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622575"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619957"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Planerings- och användningsguide för Azure Security Center
 Den här guiden riktar sig till IT-tekniker, IT-arkitekter, informationssäkerhetsanalytiker och molnadministratörer i organisationer där man planerar att börja använda Azure Security Center.
 
-    
+
 ## <a name="planning-guide"></a>Planeringsanvisningar
 Nedan följer ett antal anvisningar för hur du optimerar användningen av Security Center utifrån din organisations säkerhetskrav och molnhanteringsmodell. För att få ut mesta möjliga av Security Center är det viktigt att veta hur olika medarbetare och avdelningar i organisationen kommer att använda tjänsten så att kraven på säkerhet vid utvecklingsarbete, drift, övervakning, styrning och incidenthantering uppfylls. Tänk på följande när du planerar integreringen av Security Center:
 
@@ -40,7 +40,7 @@ I nästa avsnitt lär du dig hur du planerar för vart och ett av dessa områden
 
 > [!NOTE]
 > På vår sida med [vanliga frågor och svar om Azure Security Center](security-center-faq.md) finns en lista med ofta ställda frågor som kan vara bra att läsa i planerings- och utformningsfasen.
-> 
+>
 
 ## <a name="security-roles-and-access-controls"></a>Säkerhetsroller och åtkomstkontroll
 Beroende på hur stor din organisation är och hur den är uppbyggd kan olika medarbetare och avdelningar använda Security Center för att utföra olika säkerhetsrelaterade arbetsuppgifter. Följande diagram innehåller exempel på fiktiva personer och deras olika roller och ansvarsområden:
@@ -74,7 +74,7 @@ Med Security Center kan dessa medarbetare effektivt sköta sina respektive arbet
 **Sami (säkerhetsanalytiker)**
 
 * Undersöker attacker.
-* Arbetar med företagets molnansvarige för att åtgärda problemet 
+* Arbetar med företagets molnansvarige för att åtgärda problemet
 
 I Security Center används [rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md), vilket innebär att det finns [förinställda roller](../role-based-access-control/built-in-roles.md) som kan tilldelas användare, grupper och tjänster i Azure. När en användare öppnar Security Center ser de bara information om de resurser som de har åtkomst till. Detta betyder att användaren tilldelas rollen som ägare, deltagare eller läsare för den prenumeration eller resursgrupp som en resurs hör till. Förutom dessa roller finns två specifika roller i Security Center:
 
@@ -84,9 +84,9 @@ I Security Center används [rollbaserad åtkomstkontroll](../role-based-access-c
 Security Center-rollerna som beskrivs ovan har inte åtkomst till andra delar av Azure, till exempel lagring, webb och mobil eller IoT (sakernas internet).  
 
 > [!NOTE]
-> En användare måste vara minst en prenumerant, resursgruppägare eller deltagare för att kunna se Säkerhetscenter i Azure. 
-> 
-> 
+> En användare måste vara minst en prenumerant, resursgruppägare eller deltagare för att kunna se Säkerhetscenter i Azure.
+>
+>
 
 Med utgångspunkt i de fiktiva personer som beskrivs i diagrammet ovan krävs följande rollbaserade åtkomst:
 
@@ -118,8 +118,8 @@ När du planerar åtkomstkontroll med rollbaserad åtkomst (RBAC) för Security 
 
 > [!NOTE]
 > Vi rekommenderar att du ger användarna den roll som precis ger dem den behörighet de behöver för att kunna utföra sina arbetsuppgifter. De användare som till exempel endast behöver se information om säkerhetsstatusen på resurser men inte vidta några åtgärder, som att tillämpa rekommendationer eller ändra principer, bör få rollen som läsare.
-> 
-> 
+>
+>
 
 ## <a name="security-policies-and-recommendations"></a>Säkerhetsprinciper och säkerhetsrekommendationer
 En säkerhetsprincip definierar den önskade konfigurationen för arbetsbelastningarna och hjälper till att säkerställa efterlevnaden av företagets eller bestämmelsemässiga säkerhetskrav. I Security Center kan du definiera principer för dina Azure-prenumerationer, som kan skräddarsys efter arbetsbelastningstyp eller datakänslighet.
@@ -151,15 +151,15 @@ Om du vid ett senare tillfälle vill inaktivera datainsamlingen kan du göra det
 
 > [!NOTE]
 > Om du vill veta vilka virtuella datorer som stöds finns en lista bland våra [vanliga frågor och svar om Azure Security Center](security-center-faq.md).
-> 
+>
 
 ### <a name="workspace"></a>Arbetsyta
 
 En arbetsyta är en Azure-resurs som fungerar som en datacontainer. Du eller andra medlemmar i din organisation kan använda flera arbetsytor för att hantera olika uppsättningar av data som samlas in från alla eller delar av din IT-infrastruktur.
 
-Data som samlas in från Microsoft Monitoring Agent (för Azure Security Center) lagras i befintliga logganalysarbetsytor som är associerade med din Azure-prenumeration eller nya arbetsytor med hänsyn till den virtuella datorns geografiska plats. 
+Data som samlas in från Microsoft Monitoring Agent (för Azure Security Center) lagras i befintliga logganalysarbetsytor som är associerade med din Azure-prenumeration eller nya arbetsytor med hänsyn till den virtuella datorns geografiska plats.
 
-Du kan bläddra om du vill se en lista över dina logganalysarbetsytor, inklusive alla som skapats av Azure Security Center i Azure-portalen. En relaterad resursgrupp skapas för nya arbetsytor. Både följer namnkonventionen: 
+Du kan bläddra om du vill se en lista över dina logganalysarbetsytor, inklusive alla som skapats av Azure Security Center i Azure-portalen. En relaterad resursgrupp skapas för nya arbetsytor. Både följer namnkonventionen:
 
 * Arbetsyta: *DefaultWorkspace-[prenumerations-id]-[geo]*
 * Resursgrupp: *DefaultResourceGroup-[geo]*
@@ -168,7 +168,7 @@ För arbetsytor som skapats av Azure Security Center sparas data i 30 dagar. Fö
 
 > [!NOTE]
 > Microsoft arbetar hårt för att skydda sekretessen och säkerheten för dessa data. Microsoft följer strikta riktlinjer för efterlevnad och säkerhet – från kodning till driften av en tjänst. Mer information om datahantering och sekretess finns i [Datasäkerhet i Azure Security Center](security-center-data-security.md).
-> 
+>
 
 ## <a name="onboarding-non-azure-resources"></a>Publicera icke-Azure-resurser
 
@@ -195,7 +195,7 @@ Planera in att använda [Hotinformation](https://docs.microsoft.com/azure/securi
 ### <a name="monitoring-for-new-or-changed-resources"></a>Övervakning av nya och ändrade resurser
 De flesta miljöer i Azure är dynamiska, med nya resurser som skapas och försvinner, nya konfigurationer och ändringar och så vidare. Med Security Center har du bra insyn i de nya objektens säkerhetsstatus.
 
-När du lägger till nya resurser (virtuella datorer, SQL-databaser osv.) i Azure-miljön identifierar Security Center de här resurserna automatiskt och börjar övervaka deras säkerhet. Detta omfattar även arbetarroller och webbroller i PaaS. Om datainsamling har aktiverats i [säkerhetsprincipen](security-center-policies.md) aktiveras ytterligare övervakningsfunktioner för alla virtuella datorer automatiskt.
+När du lägger till nya resurser (virtuella datorer, SQL-databaser osv.) i Azure-miljön identifierar Security Center de här resurserna automatiskt och börjar övervaka deras säkerhet. Detta omfattar även arbetarroller och webbroller i PaaS. Om datainsamling har aktiverats i [säkerhetsprincipen](security-center-azure-policy.md) aktiveras ytterligare övervakningsfunktioner för alla virtuella datorer automatiskt.
 
 ![Huvuddelar](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-newUI.png)
 
@@ -214,7 +214,7 @@ Du bör även regelbundet övervaka befintliga resurser för att se om det görs
 
 ### <a name="hardening-access-and-applications"></a>Härdning av åtkomst och program
 
-Som en del av dina säkerhetsåtgärder bör du även vidta förebyggande åtgärder för att begränsa åtkomsten till virtuella datorer och kontrollera programmen som körs på virtuella datorer. Genom att låsa inkommande trafik till dina virtuella Azure-datorer minskar du exponeringen för attacker och samtidigt ger du enkel anslutningsåtkomst till virtuella datorer när det behövs. Använd funktionen [Just-in-time-åtkomst till virtuell dator](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) för att härda åtkomsten till dina virtuella datorer. 
+Som en del av dina säkerhetsåtgärder bör du även vidta förebyggande åtgärder för att begränsa åtkomsten till virtuella datorer och kontrollera programmen som körs på virtuella datorer. Genom att låsa inkommande trafik till dina virtuella Azure-datorer minskar du exponeringen för attacker och samtidigt ger du enkel anslutningsåtkomst till virtuella datorer när det behövs. Använd funktionen [Just-in-time-åtkomst till virtuell dator](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) för att härda åtkomsten till dina virtuella datorer.
 
 Du kan använda [anpassningsbara programkontroller](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) till att kontrollera vilka program som kan köras på din virtuella dator i Azure, vilket bland annat hjälper dig skydda dina virtuella datorer mot skadlig kod. Security Center använder Machine Learning för att analysera processerna som körs i den virtuella datorn och hjälper dig att tillämpa vitlisteregler med den här intelligensen.
 
@@ -228,11 +228,11 @@ Avsikten med den här artikeln är inte att hjälpa dig att skapa en egen incide
 
 > [!NOTE]
 > National Institute of Standards and Technology (NIST) har en [handbok för hantering av datasäkerhetsrelaterade incidenter](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) som kan vara till hjälp när du vill skapa en egen plan.
-> 
+>
 
 Du kan använda Security Center-aviseringar i följande faser:
 
-* **Identifiera**: Identifiera misstänkt aktivitet i en eller flera resurser. 
+* **Identifiera**: Identifiera misstänkt aktivitet i en eller flera resurser.
 * **Utvärdera**: Utför en första utvärdering för att få mer information om den misstänkta aktiviteten.
 * **Diagnostisera**: Gå igenom de tekniska rutinerna genom att utföra åtgärdsstegen för att åtgärda problemet.
 
@@ -251,9 +251,9 @@ När du har identifierat det drabbade systemet kan du köra [strategiböcker fö
 I videoklippet [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) (Använda Azure Security Center och Microsoft Operations Management Suite för incidenthantering) kan du se några demonstrationer som beskriver hur Security Center kan användas i var och en av dessa faser.
 
 > [!NOTE]
-> Läs [Använda Azure Security Center vid incidenthantering](security-center-incident-response.md) om du vill ha mer information om hur du ska använda Security Center-funktionerna för att få hjälp under incidenthanteringsprocessen. 
-> 
-> 
+> Läs [Använda Azure Security Center vid incidenthantering](security-center-incident-response.md) om du vill ha mer information om hur du ska använda Security Center-funktionerna för att få hjälp under incidenthanteringsprocessen.
+>
+>
 
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du planerar integreringen av Security Center. I följande avsnitt kan du lära dig mer om Security Center:
@@ -263,4 +263,3 @@ I det här dokumentet har du lärt dig hur du planerar integreringen av Security
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md) – Lär dig hur du övervakar dina partnerlösningars hälsostatus.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
 * [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
-

@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 1706364ca0281240b5b887bea219620c7b4add5e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c1fd0f462a3eb960e27b002f4f7c940a6bf978c8
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246845"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620582"
 ---
 # <a name="api-management-caching-policies"></a>API Management cachelagringsprinciperna
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -46,7 +46,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 ### <a name="policy-statement"></a>Principframställning  
   
 ```xml  
-<cache-lookup vary-by-developer="true | false" vary-by-developer-groups="true | false" downstream-caching-type="none | private | public" must-revalidate="true | false" allow-private-response-caching="@(expression to evaluate)">  
+<cache-lookup vary-by-developer="true | false" vary-by-developer-groups="true | false" cache-preference="prefer-external | external | internal" downstream-caching-type="none | private | public" must-revalidate="true | false" allow-private-response-caching="@(expression to evaluate)">  
   <vary-by-header>Accept</vary-by-header>  
   <!-- should be present in most cases -->  
   <vary-by-header>Accept-Charset</vary-by-header>  
@@ -68,7 +68,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 <policies>  
     <inbound>  
         <base />  
-        <cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="none" must-revalidate="true">  
+        <cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="none" must-revalidate="true" cache-preference="internal" >  
             <vary-by-query-parameter>version</vary-by-query-parameter>  
         </cache-lookup>           
     </inbound>  
@@ -112,14 +112,15 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 ### <a name="attributes"></a>Attribut  
   
-|Namn|Beskrivning|Krävs|Standard|  
-|----------|-----------------|--------------|-------------|  
-|Tillåt-privat--cachelagring av svar|När värdet `true`, tillåter cachelagring av begäranden som innehåller ingen auktoriseringsrubrik.|Nej|false|  
-|underordnad-cachelagring-type|Det här attributet måste anges till något av följande värden.<br /><br /> -Ingen - underordnade cachelagring är inte tillåtet.<br />-privat – underordnad privat cachelagring är tillåtet.<br />-offentliga - privata och delade underordnade cachelagring är tillåtet.|Nej|inga|  
-|måste revalidate|När underordnade cachelagring är aktiverat det här attributet aktiverar eller inaktiverar det `must-revalidate` cache-control-direktivet i gateway-svar.|Nej|true|  
-|variera med utvecklare|Ange `true` till cache svar per utvecklarnyckeln.|Ja||  
-|variera-av-developer-groups|Ange `true` till cache svar per användarroll.|Ja||  
-  
+| Namn                           | Beskrivning                                                                                                                                                                                                                                                                                                                                                 | Krävs | Standard           |
+|--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
+| Tillåt-privat--cachelagring av svar | När värdet `true`, tillåter cachelagring av begäranden som innehåller ingen auktoriseringsrubrik.                                                                                                                                                                                                                                                                        | Nej       | false             |
+| cache-inställningar               | Välj mellan följande värden för attributet:<br />- `internal` du använder inbyggda API Management-cache<br />- `external` du använder externa cache enligt beskrivningen i [använder ett externa Redis-cache i Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` använda externa cachen om konfigurerat eller interna cacheminnet annars. | Nej       | `prefer-external` |
+| underordnad-cachelagring-type        | Det här attributet måste anges till något av följande värden.<br /><br /> -Ingen - underordnade cachelagring är inte tillåtet.<br />-privat – underordnad privat cachelagring är tillåtet.<br />-offentliga - privata och delade underordnade cachelagring är tillåtet.                                                                                                          | Nej       | inga              |
+| måste revalidate                | När underordnade cachelagring är aktiverat det här attributet aktiverar eller inaktiverar det `must-revalidate` cache-control-direktivet i gateway-svar.                                                                                                                                                                                                                      | Nej       | true              |
+| variera med utvecklare              | Ange `true` till cache svar per utvecklarnyckeln.                                                                                                                                                                                                                                                                                                         | Ja      |                   |
+| variera-av-developer-groups       | Ange `true` till cache svar per användarroll.                                                                                                                                                                                                                                                                                                             | Ja      |                   |  
+
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
@@ -188,10 +189,10 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 ### <a name="attributes"></a>Attribut  
   
-|Namn|Beskrivning|Krävs|Standard|  
-|----------|-----------------|--------------|-------------|  
-|varaktighet|Time-to-live posternas cachelagrade anges i sekunder.|Ja|Gäller inte|  
-  
+| Namn             | Beskrivning                                                                                                                                                                                                                                                                                                                                                 | Krävs | Standard           |
+|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
+| varaktighet         | Time-to-live posternas cachelagrade anges i sekunder.                                                                                                                                                                                                                                                                                                   | Ja      | Gäller inte               |  
+
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
@@ -209,7 +210,8 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 ```xml  
 <cache-lookup-value key="cache key value"   
     default-value="value to use if cache lookup resulted in a miss"   
-    variable-name="name of a variable looked up value is assigned to" />  
+    variable-name="name of a variable looked up value is assigned to"  
+    cache-preference="prefer-external | external | internal" />  
 ```  
   
 ### <a name="example"></a>Exempel  
@@ -230,12 +232,13 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 ### <a name="attributes"></a>Attribut  
   
-|Namn|Beskrivning|Krävs|Standard|  
-|----------|-----------------|--------------|-------------|  
-|standard-värde|Ett värde som ska tilldelas till variabeln om viktiga Cachesökning resulterade i en missa. Om det här attributet inte anges, `null` tilldelas.|Nej|`null`|  
-|key|Cachelagra viktiga värde som ska användas i sökningen.|Ja|Gäller inte|  
-|variabeln-name|Namnet på den [sammanhangsvariabel](api-management-policy-expressions.md#ContextVariables) looked upp värdet kommer att tilldelas till, om sökningen lyckas. Om sökning resulterar i en missa, variabeln tilldelas värdet för den `default-value` attributet eller `null`, om den `default-value` attributet utelämnas.|Ja|Gäller inte|  
-  
+| Namn             | Beskrivning                                                                                                                                                                                                                                                                                                                                                 | Krävs | Standard           |
+|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
+| cache-inställningar | Välj mellan följande värden för attributet:<br />- `internal` du använder inbyggda API Management-cache<br />- `external` du använder externa cache enligt beskrivningen i [använder ett externa Redis-cache i Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` använda externa cachen om konfigurerat eller interna cacheminnet annars. | Nej       | `prefer-external` |
+| standard-värde    | Ett värde som ska tilldelas till variabeln om viktiga Cachesökning resulterade i en missa. Om det här attributet inte anges, `null` tilldelas.                                                                                                                                                                                                           | Nej       | `null`            |
+| key              | Cachelagra viktiga värde som ska användas i sökningen.                                                                                                                                                                                                                                                                                                                       | Ja      | Gäller inte               |
+| variabeln-name    | Namnet på den [sammanhangsvariabel](api-management-policy-expressions.md#ContextVariables) looked upp värdet kommer att tilldelas till, om sökningen lyckas. Om sökning resulterar i en missa, variabeln tilldelas värdet för den `default-value` attributet eller `null`, om den `default-value` attributet utelämnas.                                       | Ja      | Gäller inte               |  
+
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
@@ -251,7 +254,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 ### <a name="policy-statement"></a>Principframställning  
   
 ```xml  
-<cache-store-value key="cache key value" value="value to cache" duration="seconds" />  
+<cache-store-value key="cache key value" value="value to cache" duration="seconds" cache-preference="prefer-external | external | internal" />  
 ```  
   
 ### <a name="example"></a>Exempel  
@@ -272,11 +275,12 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 ### <a name="attributes"></a>Attribut  
   
-|Namn|Beskrivning|Krävs|Standard|  
-|----------|-----------------|--------------|-------------|  
-|varaktighet|Värdet cachelagras för det angivna duration-värde som anges i sekunder.|Ja|Gäller inte|  
-|key|Cachenyckel värdet lagras.|Ja|Gäller inte|  
-|värde|Värdet som ska cachelagras.|Ja|Gäller inte|  
+| Namn             | Beskrivning                                                                                                                                                                                                                                                                                                                                                 | Krävs | Standard           |
+|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
+| cache-inställningar | Välj mellan följande värden för attributet:<br />- `internal` du använder inbyggda API Management-cache<br />- `external` du använder externa cache enligt beskrivningen i [använder ett externa Redis-cache i Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` använda externa cachen om konfigurerat eller interna cacheminnet annars. | Nej       | `prefer-external` |
+| varaktighet         | Värdet cachelagras för det angivna duration-värde som anges i sekunder.                                                                                                                                                                                                                                                                                 | Ja      | Gäller inte               |
+| key              | Cachenyckel värdet lagras.                                                                                                                                                                                                                                                                                                                   | Ja      | Gäller inte               |
+| värde            | Värdet som ska cachelagras.                                                                                                                                                                                                                                                                                                                                     | Ja      | Gäller inte               |
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -291,7 +295,7 @@ Den `cache-remove-value` tar bort ett cachelagrade objekt som identifieras av de
   
 ```xml  
   
-<cache-remove-value key="cache key value"/>  
+<cache-remove-value key="cache key value" cache-preference="prefer-external | external | internal"  />  
   
 ```  
   
@@ -311,9 +315,10 @@ Den `cache-remove-value` tar bort ett cachelagrade objekt som identifieras av de
   
 #### <a name="attributes"></a>Attribut  
   
-|Namn|Beskrivning|Krävs|Standard|  
-|----------|-----------------|--------------|-------------|  
-|key|Nyckeln för det tidigare cachelagrade värdet som ska tas bort från cachen.|Ja|Gäller inte|  
+| Namn             | Beskrivning                                                                                                                                                                                                                                                                                                                                                 | Krävs | Standard           |
+|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
+| cache-inställningar | Välj mellan följande värden för attributet:<br />- `internal` du använder inbyggda API Management-cache<br />- `external` du använder externa cache enligt beskrivningen i [använder ett externa Redis-cache i Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` använda externa cachen om konfigurerat eller interna cacheminnet annars. | Nej       | `prefer-external` |
+| key              | Nyckeln för det tidigare cachelagrade värdet som ska tas bort från cachen.                                                                                                                                                                                                                                                                                        | Ja      | Gäller inte               |
   
 #### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  

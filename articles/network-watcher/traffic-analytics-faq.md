@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 69d2d80e40400cc7fa40aeb5a163dce5036905ab
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 451480f5046d5ed8a1bd7262fd8f6a800e66dfc7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402768"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582504"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga och frågor svar om trafikanalys
 
@@ -30,7 +30,7 @@ Trafikanalys kräver följande förutsättningar:
 
 - En Network Watcher aktiverat prenumeration.
 - Flödesloggar för Nätverkssäkerhetsgruppen (NSG) har aktiverats för NSG: er som du vill övervaka.
-- Ett Azure Storage-konto, att lagra rådata flog loggar.
+- Ett Azure Storage-konto, att lagra rådata flödesloggar.
 - En Azure Log Analytics-arbetsyta med läs- och skrivbehörighet.
 
 Ditt konto måste uppfylla ett av följande för att aktivera trafikanalys:
@@ -63,7 +63,38 @@ Om du inte ser några utdata, kontakta administratören för respektive prenumer
 
 ## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>Där Azure är regioner trafikanalys som är tillgängliga?
 
-Du kan använda trafikanalys för NSG: er i någon av följande stöds regioner: västra centrala USA, östra USA, östra USA 2, norra centrala USA, södra centrala USA, centrala USA, västra USA, västra USA 2, Västeuropa, Nordeuropa, Storbritannien, västra, Storbritannien, södra, Östra Australien, sydöstra Australien och Sydostasien. Log Analytics-arbetsytan måste finnas i det västra centrala USA, östra USA, Västeuropa, Storbritannien, södra, Australien, sydöstra Australien eller regionen Sydostasien.
+Du kan använda trafikanalys för NSG: er i någon av de följande regionerna som stöds:
+- Centrala Kanada
+- Västra centrala USA
+- Östra USA
+- USA, östra 2
+- Norra centrala USA
+- Södra centrala USA
+- Centrala USA
+- Västra USA
+- Västra USA 2
+- Västra Europa
+- Norra Europa
+- Södra Brasilien
+- Storbritannien, västra
+- Storbritannien, södra
+- Östra Australien
+- Sydöstra Australien 
+- Sydostasien
+- Indien, centrala
+- Södra Indien
+- Östra Japan
+
+Log Analytics-arbetsytan måste finnas i följande regioner:
+- Centrala Kanada
+- Västra centrala USA
+- Östra USA
+- Västra Europa
+- Storbritannien, södra
+- Sydöstra Australien
+- Sydostasien 
+- Indien, centrala
+- Östra Japan
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Kan jag aktivera flödet NSG: erna loggar för finnas i olika regioner än Min arbetsyta?
 
@@ -94,8 +125,8 @@ Välj en region som stöds. Om du väljer ett område som inte stöds visas felm
 Microsoft.Insights-providern måste vara registrerad för flow loggning för att fungera korrekt. Om du inte är säker på om Microsoft.Insights-providern är registrerad för din prenumeration ersätter *xxxxx-xxxxx-xxxxxx-xxxx* i följande kommando och kör följande kommandon från PowerShell:
 
 ```powershell-interactive
-**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>Jag har konfigurerat lösningen. Varför ser jag inte något på instrumentpanelen?

@@ -10,27 +10,27 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 9873347683fdfabd93083b44d034a8d9d5bcaeef
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f0b13480c06e154b85300f4a8a2f8a84db04c31b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297545"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582385"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication
 
-Nätverksprincipserver (NPS)-tillägget för Azure MFA lägger till funktioner för molnbaserad MFA till din infrastruktur för autentisering med hjälp av befintliga servrar. Med NPS-tillägget du kan lägga till telefonsamtal, textmeddelande eller app telefonverifiering till ditt befintliga autentiseringsflödet utan att behöva installera, konfigurera och underhålla nya servrar. 
+Nätverksprincipserver (NPS)-tillägget för Azure MFA lägger till funktioner för molnbaserad MFA till din infrastruktur för autentisering med hjälp av befintliga servrar. Med NPS-tillägget du kan lägga till telefonsamtal, textmeddelande eller app telefonverifiering till ditt befintliga autentiseringsflödet utan att behöva installera, konfigurera och underhålla nya servrar. 
 
 Det här tillägget har skapats för organisationer som vill skydda VPN-anslutningar utan att distribuera Azure MFA-servern. NPS-tillägget fungerar som ett kort mellan RADIUS- och molnbaserade Azure MFA för att tillhandahålla en andra faktor autentisering för federerade eller synkroniserade användare.
 
-När du använder NPS-tillägget för Azure MFA innehåller autentiseringsflödet följande komponenter: 
+När du använder NPS-tillägget för Azure MFA innehåller autentiseringsflödet följande komponenter: 
 
-1. **NAS/VPN-servern** tar emot förfrågningar från VPN-klienter och konverterar dem till RADIUS-förfrågningar till NPS-servrar. 
-2. **NPS-Server** ansluter till Active Directory för att utföra den primära autentiseringen för RADIUS-förfrågningar och vid en lyckad distribution, skickar begäran till några installerade tillägg.  
-3. **NPS-tillägget** utlöser en begäran om att Azure MFA för den sekundära autentiseringen. När tillägget tar emot svaret och om MFA-kontrollen utförs kan den är klar autentiseringsbegäran genom att tillhandahålla NPS-servern med säkerhetstoken som innehåller en MFA-anspråk kan utfärdas av Azure STS.  
+1. **NAS/VPN-servern** tar emot förfrågningar från VPN-klienter och konverterar dem till RADIUS-förfrågningar till NPS-servrar. 
+2. **NPS-Server** ansluter till Active Directory för att utföra den primära autentiseringen för RADIUS-förfrågningar och vid en lyckad distribution, skickar begäran till några installerade tillägg.  
+3. **NPS-tillägget** utlöser en begäran om att Azure MFA för den sekundära autentiseringen. När tillägget tar emot svaret och om MFA-kontrollen utförs kan den är klar autentiseringsbegäran genom att tillhandahålla NPS-servern med säkerhetstoken som innehåller en MFA-anspråk kan utfärdas av Azure STS.  
 4. **Azure MFA** kommunicerar med Azure Active Directory för att hämta användarens information och utför sekundära autentiseringen med hjälp av en verifieringsmetod som konfigurerats för användaren.
 
-Följande diagram illustrerar det här övergripande autentiseringsflödet för begäran: 
+Följande diagram illustrerar det här övergripande autentiseringsflödet för begäran: 
 
 ![Flödesdiagram för autentisering](./media/howto-mfa-nps-extension/auth-flow.png)
 
@@ -118,7 +118,7 @@ Det finns två faktorer som påverkar vilka autentiseringsmetoder är tillgängl
 
 När du distribuerar NPS-tillägget kan du använda dessa faktorer för att utvärdera vilka metoder är tillgängliga för användarna. Om RADIUS-klienten stöder PAP, men klienten UX saknar inmatningsfält för en Verifieringskod, sedan telefonsamtal och mobilappen är de två alternativ som stöds.
 
-Du kan [inaktivera stöds inte autentiseringsmetoder](howto-mfa-mfasettings.md#selectable-verification-methods) i Azure.
+Du kan [inaktivera stöds inte autentiseringsmetoder](howto-mfa-mfasettings.md#verification-methods) i Azure.
 
 ### <a name="register-users-for-mfa"></a>Registrera användare för MFA
 
@@ -212,15 +212,31 @@ Leta efter ett självsignerat certifikat som skapas av installationsprogrammet i
 
 Öppna PowerShell-Kommandotolken och kör följande kommandon:
 
-```
+``` PowerShell
 import-module MSOnline
 Connect-MsolService
-Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 
+Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1
 ```
 
 Dessa kommandon skriva ut alla certifikat som kopplar din klient till din instans av NPS-tillägget i PowerShell-sessionen. Leta efter certifikatet genom att exportera dina klientcertifikatet som en ”Base64-kodad x.509 (.cer)” fil utan den privata nyckeln och jämför den med i listan från PowerShell.
 
+Följande kommando skapar en fil med namnet ”npscertificate” på enhet ”c:” i formatet .cer.
+
+``` PowerShell
+import-module MSOnline
+Connect-MsolService
+Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertficicate.cer
+```
+
+När du har kört det här kommandot kan du gå till enhet C, letar du upp filen och dubbelklicka på den. Gå till information och rulla ”tumavtryck”, jämföra tumavtrycket för certifikatet som installerades på den här servern. Tumavtryck för certifikatet måste matcha.
+
 Giltigt-från- och -tills tidsstämplar som är i läsbara form, som kan användas för att filtrera bort uppenbara misfits om kommandot returnerar mer än ett certifikat.
+
+-------------------------------------------------------------
+
+### <a name="why-cant-i-sign-in"></a>Varför kan jag logga in?
+
+Kontrollera att lösenordet inte har gått ut. NPS-tillägget stöder inte ändring av lösenord som en del av arbetsflödet för inloggning. Kontakta din organisations IT-avdelning om du behöver ytterligare hjälp.
 
 -------------------------------------------------------------
 

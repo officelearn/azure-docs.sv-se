@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 29fc264a04111fbbe69c90ebd7250e25022c1217
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: c19769dda281f4346c23b823ea00eac83790b618
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274629"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582538"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Förhindra oväntade avgifter med Azure-fakturering och kostnadshantering
 
@@ -167,7 +167,8 @@ Om du vill se om du är kontoadministratören, går du till den [prenumerationsb
 
 Om du inte är kontoadministratören och sedan någon förmodligen gav dig delvis åtkomst via [Azure Active Directory rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md) (RBAC). Hantera prenumerationer och fakturering info, ändra [hitta kontoadministratören](billing-subscription-transfer.md#whoisaa) och be dem att utföra uppgifter eller [överföra prenumerationen till dig](billing-subscription-transfer.md).
 
-Om din kontoadministratör inte längre med din organisation och du behöver hantera fakturering, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
-## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
+Om din kontoadministratör inte längre med din organisation och du behöver hantera fakturering, [Kontakta oss](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-Om du behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
+
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

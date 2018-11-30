@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 2e14112220eeea1df094ff0c5844429fa3891a9b
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8337d6b353b6651a2699176813220ed7a7a0f879
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612813"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634803"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS-portalen som flyttar till Azure
 
@@ -84,7 +84,7 @@ Du är inte längre att kunna skapa nya arbetsytor med OMS-portalen. Följ riktl
 Aviseringar har [utökats till Azure-portalen](../monitoring-and-diagnostics/monitoring-alerts-extend.md). När processen är klar hanteringsåtgärder på aviseringar endast att vara tillgänglig i Azure portal. Befintliga aviseringar fortsätter att listas i OMS-portalen. Om du använder aviseringar programmässigt med hjälp av Log Analytics avisering REST API eller Log Analytics-avisering resursmall måste du använda åtgärdsgrupper istället för åtgärder i API-anrop, Azure Resource Manager-mallar och PowerShell-kommandon.
 
 ### <a name="alert-management-solution"></a>Lösning för aviseringshantering
-I stället för den [lösning för aviseringshantering](log-analytics-solution-alert-management.md), du kan använda [Azure Monitor unified aviseringar gränssnittet](../monitoring-and-diagnostics/monitoring-overview-alerts.md) att visualisera och hantera dina aviseringar. Den här nya upplevelsen aggregerar aviseringar från flera källor på Azure inklusive aviseringar från Log Analytics. Du kan se distributioner av dina aviseringar, dra nytta av automatisk gruppering av relaterade aviseringar via smart grupper och visa aviseringar över flera prenumerationer när de omfattande filtren har använts. Alla dessa funktioner är tillgängliga i förhandsversionen från och med 4 juni 2018. Lösning för aviseringshantering blir inte tillgänglig i Azure-portalen. 
+I stället för den [lösning för aviseringshantering](../azure-monitor/platform/alert-management-solution.md), du kan använda [Azure Monitor unified aviseringar gränssnittet](../monitoring-and-diagnostics/monitoring-overview-alerts.md) att visualisera och hantera dina aviseringar. Den här nya upplevelsen aggregerar aviseringar från flera källor på Azure inklusive aviseringar från Log Analytics. Du kan se distributioner av dina aviseringar, dra nytta av automatisk gruppering av relaterade aviseringar via smart grupper och visa aviseringar över flera prenumerationer när de omfattande filtren har använts. Alla dessa funktioner är tillgängliga i förhandsversionen från och med 4 juni 2018. Lösning för aviseringshantering blir inte tillgänglig i Azure-portalen. 
 
 Data som samlas in av lösning för aviseringshantering (poster med en typ av avisering) fortsätter att vara i Log Analytics som lösningen är installerad för arbetsytan. Från och med augusti 2018, kommer strömning av aviseringar från enhetlig aviseringar i arbetsytor att aktiveras, ersätter den här funktionen. Vissa ändringar av entitetsschemat förväntas och meddelas vid ett senare tillfälle.
 
@@ -98,7 +98,7 @@ Med hjälp av [mellan resurser frågor](log-analytics-cross-workspace-search.md)
 
 
 ## <a name="azure-network-security-group-analytics"></a>Azure Network Security Group Analytics
-Den [Azure Network Security Group Analytics-lösningen](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) kommer att ersättas med den nyligen lanserade [trafikanalys](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) som ger insyn i användar- och programaktiviteten i molnnätverk. Trafikanalys kan du granska din organisations nätverksaktivitet, säkra program och data, optimera prestanda för arbetsbelastningen och följ efterlevnad. 
+Den [Azure Network Security Group Analytics-lösningen](../azure-monitor/insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) kommer att ersättas med den nyligen lanserade [trafikanalys](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) som ger insyn i användar- och programaktiviteten i molnnätverk. Trafikanalys kan du granska din organisations nätverksaktivitet, säkra program och data, optimera prestanda för arbetsbelastningen och följ efterlevnad. 
 
 Den här lösningen analyserar NSG-Flödesloggar loggar och ger insikter om följande.
 

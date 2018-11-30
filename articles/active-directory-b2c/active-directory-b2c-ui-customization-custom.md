@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d4b4d99ac943749faaca8cd699b1455795b9c399
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 237d22054ecb4eea58494c1b5066eb8e00ecd2fc
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625802"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583457"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Anpassa användargränssnittet i ditt program med en anpassad princip i Azure Active Directory B2C
 
@@ -100,7 +100,7 @@ Om du vill skapa en offentlig behållare i Blob storage, gör du följande:
 Konfigurera Blob-lagring för Cross-Origin Resource Sharing genom att göra följande:
 
 1. I menyn, Välj **CORS**.
-2. För **tillåtna ursprung**, ange `your-tenant-name.b2clogin.com`. Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient. Till exempel `fabrikam.b2clogin.com`.
+2. För **tillåtna ursprung**, ange `your-tenant-name.b2clogin.com`. Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient. Till exempel `fabrikam.b2clogin.com`. Du måste använda gemener när du anger namnet på din klientorganisation.
 3. För **tillåtna metoder**, markerar du båda `GET` och `OPTIONS`.
 4. För **tillåtna huvuden**, anger du en asterisk (*).
 5. För **exponerade rubriker**, anger du en asterisk (*).

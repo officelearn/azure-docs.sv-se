@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6b06b8eb8d5e18acd3107ec5cccac79fc7be7edc
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 492087f7eeca8628ac6ac9a9e42f355a9356f1ce
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418185"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584714"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - Metodtips för migrering av data
 
@@ -25,20 +25,12 @@ Den här artikeln ger rekommendationer för migrering av data till Azure HDInsig
 Det finns två huvudsakliga alternativ för att migrera data från en lokal plats till Azure-miljön:
 
 1.  Överföra data över nätverket med TLS
-    1.  Via internet
-    2.  Express Route
-2.  Skicka data
-    1.  Import / Export service
-        - Interna SATA-hårddiskar eller SSD-enheter bara
-        - Krypterat i vila (AES-128 / AES-256)
-        - Importjobb kan ha upp till 10 diskar
-        - Tillgängliga i alla offentliga regioner & GA
-    1.  Data Box
-        - Upp till 80 TB data per Data box
-        - Krypterat i vila (AES-256)
-        - Använder NAS-protokoll och stöder vanliga verktyg för kopiering av data
-        - Motståndskraftig maskinvara
-        - Tillgängliga i USA endast & offentlig förhandsversion
+    1. Via internet - kan du överföra data till Azure storage via en vanliga Internetanslutning med någon av flera verktyg som: Azure Storage Explorer, AzCopy, Azure Powershell och Azure CLI.  Se [flytta data till och från Azure Storage](../../storage/common/storage-moving-data.md) för mer information.
+    2. Expressroute – ExpressRoute är en Azure-tjänst som låter dig skapa privata anslutningar mellan Microsofts datacenter och infrastruktur som finns lokalt eller i en delade miljö. ExpressRoute-anslutningar inte går via det offentliga Internet och är högre säkerhet, tillförlitlighet och hastighet med kortare svarstider än vanliga anslutningar via Internet. Mer information finns i [skapa och ändra en ExpressRoute-krets](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
+    1. Data Box online dataöverföring – Data Box Edge och Data Box-Gateway är online-data transfer produkter som fungerar som nätverks-storage-gatewayer för att hantera data mellan webbplatsen och Azure. Data Box Edge, en lokal nätverksenhet, överför data till och från Azure och använder AI-aktiverad (artificiell intelligens) gränsdatabearbetning för att bearbeta data. Data Box Gateway är en virtuell installation med lagringsgatewayfunktioner. Mer information finns i [Azure Data Box-dokumentation – Online överföra](https://docs.microsoft.com/azure/databox-online/).
+1.  Levererade data Offline
+    1. Import / Export-tjänsten – du kan skicka fysiska diskar till Azure och de kommer att överföras åt dig. Mer information finns i [vad är tjänsten Azure Import/Export?](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
+    1. Data rutan offline dataöverföring – Data Box Data Box-Disk, och Data Box tung enheter kan överföra stora mängder data till Azure när nätverket inte är ett alternativ. Dessa offlineenheter för dataöverföring skickas mellan din organisation och Azure-datacentret. De använder AES-kryptering för att skydda dina data i transit, och de genomgår en noggrann sanering efter uppladdning för att ta bort dina data från enheten. Mer information finns i [Azure Data Box-dokumentation – Offline överföra](https://docs.microsoft.com/azure/databox/).
 
 I följande tabell har ungefärliga data transfer varaktighet baserat på bandbredden som data volym och nätverk. Använd en Data box om migrering av data förväntas ta mer än tre veckor.
 

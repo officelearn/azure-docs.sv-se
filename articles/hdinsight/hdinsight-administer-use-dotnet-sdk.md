@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: a7c06d53e3823bd81707608f566f581fa44638fc
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 2371f52591db667498398daa889ebc14708a9674
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037770"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499217"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Hantera Apache Hadoop-kluster i HDInsight med hjälp av .NET SDK
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -228,7 +228,7 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 Detta kan även göras via portalen. Se [administrera HDInsight med hjälp av Azure portal][hdinsight-admin-portal].
 
 ## <a name="update-http-user-credentials"></a>Uppdatera HTTP-autentiseringsuppgifterna
-Det är på samma sätt som [Grant/revoke HTTP-åtkomst](#grant/revoke-access). Om klustret har beviljats HTTP-åtkomst, måste du först återkalla den.  Och sedan bevilja åtkomst med nya HTTP-autentiseringsuppgifterna.
+Det är på samma sätt som [Grant/revoke HTTP-åtkomst](#grant/revoke-access).  Om klustret har beviljats HTTP-åtkomst, måste du först återkalla den.  Och sedan bevilja åtkomst med nya HTTP-autentiseringsuppgifterna.
 
 ## <a name="find-the-default-storage-account"></a>Hitta standardkontot för lagring
 Följande kodfragment visar hur du hämtar standard lagringskontonamn och lagringskontonyckeln standard för ett kluster.
@@ -242,25 +242,25 @@ foreach (var key in results.Configuration.Keys)
 ```
 
 ## <a name="submit-jobs"></a>Skicka jobb
-**Att skicka MapReduce-jobb**
+**Skicka Apache Hadoop MapReduce-jobb**
 
-Se [kör Hadoop-MapReduce-exempel i HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
+Se [kör Apache Hadoop MapReduce-exempel i HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
 **Att skicka Apache Hive-jobb** 
 
-Se [kör Hive-frågor med .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
+Se [kör Apache Hive-frågor med .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
 **Skicka Apache Pig-jobb**
 
-Se [köra Pig-jobb med .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
+Se [kör Apache Pig-jobb med hjälp av .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
 
 **Skicka Apache Sqoop jobb**
 
-Se [använda Sqoop med HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
+Se [Använd Apache Sqoop med HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
 
 **Skicka Apache Oozie-jobb**
 
-Se [Använd Oozie med Hadoop för att definiera och köra ett arbetsflöde i HDInsight](hdinsight-use-oozie-linux-mac.md).
+Se [Använd Apache Oozie med Hadoop för att definiera och köra ett arbetsflöde i HDInsight](hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Ladda upp data till Azure Blob storage
 Mer information finns i [Överföra data till HDInsight][hdinsight-upload-data].

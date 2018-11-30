@@ -10,12 +10,12 @@ author: raymondlaghaeian
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 1d029a2ab214ba85932dad022e4c3cb862b8688a
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: d9328b293d38114d319d79e38b91b1b67e410d94
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713001"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581847"
 ---
 # <a name="how-to-deploy-models-from-azure-machine-learning-service-to-azure-kubernetes-service"></a>Hur du distribuerar modeller från Azure Machine Learning-tjänsten till Azure Kubernetes Service
 
@@ -127,7 +127,7 @@ print(aks_target.provisioning_errors)
 Om du har befintliga AKS-kluster i Azure-prenumerationen kan använda du det för att distribuera din avbildning. Följande kodfragment visar hur du kopplar ett kluster till din arbetsyta. 
 
 > [!IMPORTANT]
-> Endast AKS version 1.11.2 stöds.
+> Endast AKS version 1.11.3 stöds.
 
 ```python
 # Get the resource id from https://porta..azure.com -> Find your resource group -> click on the Kubernetes service -> Properties

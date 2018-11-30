@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 49a2c03664ba39a624871b24c0b86a968a67eddb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4a0fcb95ed34ed3d98c6b25b475c0866135897f3
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521531"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584680"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Visa status för Azure Import/Export-jobb
 
@@ -23,7 +23,6 @@ Den här artikeln innehåller information om hur du visar status för enheten oc
 Du kan spåra statusen för din importera eller exportera jobb från Azure-portalen. Klicka på den **Import/Export** fliken. En lista över dina jobb visas på sidan.
 
 ![Visa jobbstatus](./media/storage-import-export-service/jobstate.png)
-
 
 ## <a name="view-job-status"></a>Visa jobbstatus
 
@@ -74,7 +73,7 @@ Hur lång tid det tar för att bearbeta en import/export-jobbet varierar beroend
 -  Typ av utskriftsjobb och mängden data som kopieras
 -  Antal diskar i ett jobb. 
 
-Import/Export-tjänsten har inte något serviceavtal, men tjänsten strävar efter att utföra kopian i 7 till 10 dagar efter att diskarna tas emot. Utöver statusen på Azure Portal, kan REST API: er användas för att följa jobbförloppet. Procent färdigt parametern i den [lista jobb]() funktionsanropet API innehåller processen procent.
+Import/Export-tjänsten har inte något serviceavtal, men tjänsten strävar efter att utföra kopian i 7 till 10 dagar efter att diskarna tas emot. Utöver statusen på Azure Portal, kan REST API: er användas för att följa jobbförloppet. Procent färdigt parametern i den [lista jobb](/previous-versions/azure/dn529083(v=azure.100)) funktionsanropet API innehåller processen procent.
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -82,4 +81,3 @@ Import/Export-tjänsten har inte något serviceavtal, men tjänsten strävar eft
 * [Konfigurera verktyget WAImportExport](storage-import-export-tool-how-to.md)
 * [Överföra data med kommandoradsverktyget azcopy](storage-use-azcopy.md)
 * [Exempel på Azure Import Export REST API](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
-

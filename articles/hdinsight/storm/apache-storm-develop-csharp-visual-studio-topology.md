@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5dcc9dcada981a6a4174ce34748356d49582f598
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6f26ec6f1743a72a4a396ba245d80227f6f75913
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237578"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584289"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Utveckla C#-topologier för Apache Storm med hjälp av Data Lake-verktyg för Visual Studio
 
-Lär dig hur du skapar en C# Storm-topologi med hjälp av Azure Data Lake (Hadoop)-verktyg för Visual Studio. Det här dokumentet beskriver steg för steg genom processen att skapa ett Storm-projekt i Visual Studio, testa det lokalt och distribuera den till ett Apache Storm på Azure HDInsight-kluster.
+Lär dig hur du skapar en C# Apache Storm-topologi med hjälp av Azure Data Lake (Apache Hadoop)-verktyg för Visual Studio. Det här dokumentet beskriver steg för steg genom processen att skapa ett Storm-projekt i Visual Studio, testa det lokalt och distribuera den till ett Apache Storm på Azure HDInsight-kluster.
 
 Du också lära dig hur du skapar hybridtopologier som använder C# och Java-komponenter.
 
@@ -27,7 +27,7 @@ Du också lära dig hur du skapar hybridtopologier som använder C# och Java-kom
 
 Om du vill använda en C#-topologi med en Linux-baserat kluster måste du uppdatera Microsoft.SCP.Net.SDK NuGet-paketet används av projektet till version 0.10.0.6 eller senare. Paketversionen måste även matcha huvudversionen av Storm som är installerad på HDInsight.
 
-| HDInsight-version | Storm-version | Version för SCP.NET | Mono standardversion |
+| HDInsight-version | Apache Storm-version | Version för SCP.NET | Mono standardversion |
 |:-----------------:|:-------------:|:---------------:|:--------------------:|
 | 3.3 |0.10.x |0.10.x.x</br>(endast på Windows-baserade HDInsight) | Ej tillämpligt |
 | 3.4 | 0.10.0.x | 0.10.0.x | 3.2.8 |
@@ -97,7 +97,7 @@ namespace ConsoleApplication2
 }
 ```
 
-## <a name="storm-templates"></a>Storm-mallar
+## <a name="apache-storm-templates"></a>Apache Storm-mallar
 
 Data Lake tools för Visual Studio innehåller följande mallar:
 
@@ -119,7 +119,7 @@ Data Lake tools för Visual Studio innehåller följande mallar:
 
 I stegen i det här dokumentet använder du projekttyp grundläggande Storm-program för att skapa en topologi.
 
-### <a name="hbase-templates-notes"></a>HBase mallar anteckningar
+### <a name="apache-hbase-templates-notes"></a>Apache HBase mallar anteckningar
 
 HBase läsare och skrivare mallar använder HBase REST API, inte av HBase Java API, för att kommunicera med en HBase på HDInsight-kluster.
 
@@ -754,14 +754,14 @@ Fler sätt att arbeta med HDInsight och mer Storm på HDInsight-exempel finns i 
 **Apache Storm på HDInsight**
 
 * [Distribuera och övervaka topologier med Apache Storm på HDInsight](apache-storm-deploy-monitor-topology.md)
-* [Exempeltopologier för Storm på HDInsight](apache-storm-example-topology.md)
+* [Exempeltopologier för Apache Storm på HDInsight](apache-storm-example-topology.md)
 
 **Apache Hadoop på HDInsight**
 
-* [Använda Hive med Hadoop i HDInsight](../hadoop/hdinsight-use-hive.md)
-* [Använda Pig med Hadoop i HDInsight](../hadoop/hdinsight-use-pig.md)
-* [Använda MapReduce med Hadoop i HDInsight](../hadoop/hdinsight-use-mapreduce.md)
+* [Använda Apache Hive med Apache Hadoop i HDInsight](../hadoop/hdinsight-use-hive.md)
+* [Använda Apache Pig med Apache Hadoop på HDInsight](../hadoop/hdinsight-use-pig.md)
+* [Använda Apache Hadoop MapReduce med Apache Hadoop i HDInsight](../hadoop/hdinsight-use-mapreduce.md)
 
 **Apache HBase på HDInsight**
 
-* [Komma igång med HBase i HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Komma igång med Apache HBase på HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md)

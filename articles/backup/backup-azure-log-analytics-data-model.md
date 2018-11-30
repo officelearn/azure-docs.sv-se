@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32ce9cb456e302647e2e09db6ed549cd4795fed7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f9cdb11bad5d4aa94fdc083a0fc7dc6a2c5787cd
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448398"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635160"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics-datamodell för Azure Backup-data
 Använd Log Analytics-datamodell för att skapa rapporter. Med datamodellen, kan du skapa egna förfrågningar och instrumentpaneler eller anpassa Azure Backup-data, hur du vill.
@@ -281,4 +281,4 @@ Den här tabellen innehåller information om vault-relaterade fält.
 | ResourceType |Text |Resurstyp som data samlas in. Till exempel valv |
 
 ## <a name="next-steps"></a>Nästa steg
-När du granskar datamodellen för att skapa Azure Backup-rapporter kan du börja [skapar instrumentpanelen](../log-analytics/log-analytics-dashboards.md) i Log Analytics.
+När du granskar datamodellen för att skapa Azure Backup-rapporter kan du börja [skapar instrumentpanelen](../azure-monitor/platform/dashboards.md) i Log Analytics.

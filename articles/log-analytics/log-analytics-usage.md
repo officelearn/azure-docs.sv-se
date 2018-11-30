@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 01603655be9b6051be9b894da4e55338ff4df810
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e702e1f5eb1816b007317765e4c9a9f88bb99bfd
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262133"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635432"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analysera dataanvändning i Log Analytics
 
@@ -42,7 +42,12 @@ Om du vill utforska dina data i mer detalj klickar du på ikonen längst upp hö
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Felsökning varför användningen är större än förväntat
 Högre användning orsakas av en eller båda:
 - Mer data än förväntat skickas till Log Analytics
-- Mer noder än förväntat som skickar data till Log Analytics
+- Fler noder än förväntat skicka data till Log Analytics eller vissa noder skickar mer data än vanligt
+
+Låt oss ta en titt på hur vi kan läsa mer om båda dessa orsaker. 
+
+> [!NOTE]
+> Vissa fält av datatypen användning, medan fortfarande i schemat har ersatts och deras värden fylls inte längre. Det här är **datorn** samt relaterade fält till inmatning (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** och **AverageProcessingTimeMs**.
 
 ### <a name="data-volume"></a>Datavolym 
 På den **användning och uppskattade kostnader** kan den *datainmatning per lösning* diagrammet visar den totala mängden data som skickas och hur mycket som skickas av varje lösning. På så sätt kan du fastställa trender, till exempel om den övergripande dataanvändning (eller användning av en viss lösning) ökar, förblir oförändrad eller minskar. Frågan används för att generera detta är
@@ -60,7 +65,7 @@ Du kan öka detaljnivån ytterligare till Se datatrender för specifika datatype
 
 ### <a name="nodes-sending-data"></a>Noder som skickar data
 
-Om du vill undersand antalet noder som rapporterar data för den senaste månaden, använda
+För att förstå antalet noder som rapporterar data för den senaste månaden, använda
 
 `Heartbeat | where TimeGenerated > startofday(ago(31d))
 | summarize dcount(ComputerIP) by bin(TimeGenerated, 1d)    
@@ -69,16 +74,20 @@ Om du vill undersand antalet noder som rapporterar data för den senaste månade
 Om du vill se antalet händelser som matas in per dator
 
 `union withsource = tt *
-| summarize count() by Computer |sort by count_ nulls last`
+| summarize count() by Computer | sort by count_ nulls last`
 
-Använd den här frågan sparsamt eftersom det är dyrt att köra. Om du vill se vilka datatyper är sendng data till en specifik dator Använd:
+Använd den här frågan sparsamt eftersom det är dyrt att köra. Om du vill se antalet faktureringsbara händelser matas in per dator 
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize count() by Computer  | sort by count_ nulls last`
+
+Om du vill se vilka datatyper som fakturerbara skickar data till en specifik dator Använd:
 
 `union withsource = tt *
 | where Computer == "*computer name*"
-| summarize count() by tt |sort by count_ nulls last `
-
-> [!NOTE]
-> Vissa fält av datatypen användning medan fortfarande i schemat har gjorts inaktuell och kommer deras värden fylls inte längre. Det här är **datorn** samt relaterade fält till inmatning (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** och **AverageProcessingTimeMs**.
+| where _IsBillable == true 
+| summarize count() by tt | sort by count_ nulls last `
 
 Om du vill gå på djupet datakällan för en viss typ, är här några användbara exempelfrågor:
 

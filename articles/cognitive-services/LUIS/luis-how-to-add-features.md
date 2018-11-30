@@ -8,18 +8,22 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 32ef8ba2f6416e1b59fc98595f1b204e94bd2ead
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: feb51cd55801addaf5ce2486e5527542f794bbc5
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830998"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580969"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Använd frasen visar att boost signaler med ordlistan
 
 Du kan lägga till funktioner till din LUIS-app för att förbättra dess noggrannhet. Funktionerna bidrar LUIS genom att tillhandahålla tips att vissa ord och fraser är en del av en app domän ordförråd. 
+
+En [frasen lista](luis-concept-feature.md) innehåller en grupp med värden (ord eller fraser) som tillhör samma klass och måste behandlas på samma sätt (t.ex, namn på städer eller produkter). Vad LUIS lär sig om en av dem tillämpas automatiskt på alla andra program. Den här listan är inte en stängd lista entitet (exakt denna matchar) av ord som matchade.
+
+En lista med frasen lägger till vokabulär app-domänen som en signal för andra att LUIS om dessa ord.
 
 ## <a name="add-phrase-list"></a>Lägg till frasen lista
 
@@ -47,9 +51,6 @@ Du kan lägga till funktioner till din LUIS-app för att förbättra dess noggra
 
 > [!Note]
 > Du kan ta bort eller inaktivera en fras lista från verktygsfältet sammanhangsberoende på den **fras listor** sidan.
-
-## <a name="pattern-regular-expression-feature"></a>Funktionen för mönster (återkommande uttryck) 
-**Den här funktionen är inaktuell**. Nya funktioner i mönstret kan inte läggas till LUIS. Alla befintliga mönstret-funktioner som stöds till maj 2018. Bidra till standard LUIS-reguljärt uttryck matchar med en pull-begäran till den [identifierare fulltext Github-lagringsplatsen](https://github.com/Microsoft/Recognizers-Text). 
 
 ## <a name="next-steps"></a>Nästa steg
 

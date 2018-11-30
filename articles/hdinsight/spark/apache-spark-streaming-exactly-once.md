@@ -8,14 +8,14 @@ ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 6c39eb02e9610e0020ab2abe8a192dabf0b768d9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 78d18bfe0f47517067fbb053a2d7e076b15761a7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241330"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581008"
 ---
-# <a name="create-spark-streaming-jobs-with-exactly-once-event-processing"></a>Skapa Spark Streaming jobb med exakt-gång bearbetning
+# <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Skapa Apache Spark Streaming jobb med exakt-gång bearbetning
 
 Stream bearbetning program vidta olika metoder för hur de hanterar igen bearbetnings meddelanden efter några fel i systemet:
 
@@ -25,7 +25,7 @@ Stream bearbetning program vidta olika metoder för hur de hanterar igen bearbet
 
 Den här artikeln visar hur du konfigurerar Spark Streaming för att få exakt-bearbetning av en gång.
 
-## <a name="exactly-once-semantics-with-spark-streaming"></a>Exakt – en semantik med Spark Streaming
+## <a name="exactly-once-semantics-with-apache-spark-streaming"></a>Exakt – en semantik med Apache Spark-strömning
 
 Överväg först hur alla system i felpunkter starta om när du har ett problem och hur du kan undvika dataförlust. Ett program med Spark Streaming har:
 
@@ -41,11 +41,11 @@ Exakt-när semantik kräver att ingen data går förlorad när som helst och den
 
 Spark Streaming programmet läser händelser från måste vara *replayable*. Det innebär att i fall där meddelandet hämtades men sedan systemet misslyckades innan meddelandet kunde sparas eller bearbetas källa måste du ange samma meddelande igen.
 
-Ange replayable källor i Azure, både Azure Event Hubs och Kafka på HDInsight. Ett annat exempel på en replayable källa är en feltolerant filsystem som HDFS, Azure Storage-blobbar eller Azure Data Lake Store, där alla data förblir alltid och när som helst du igen kan läsa data i sin helhet.
+I Azure, både Azure Event Hubs och [Apache Kafka](https://kafka.apache.org/) på HDInsight ger replayable källor. Ett annat exempel på en replayable källa är en feltolerant filsystem som [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), Azure Storage-blobbar eller Azure Data Lake Store, där alla data förblir alltid och när som helst kan du uppdatera läser dessa data i sin helhet.
 
 ### <a name="reliable-receivers"></a>Tillförlitlig mottagare
 
-Datakällor i Spark Streaming Event Hubs och Kafka har *tillförlitlig mottagare*, där varje mottagare håller reda på förloppet läsning av källan. En tillförlitlig mottagare bevaras dess tillstånd till feltolerant lagring, antingen inom ZooKeeper eller i Spark Streaming kontrollpunkter som skrivs till HDFS. Om en sådan mottagare misslyckas och senare startas om, kan det ta över där den avbröts.
+Datakällor i Spark Streaming Event Hubs och Kafka har *tillförlitlig mottagare*, där varje mottagare håller reda på förloppet läsning av källan. En tillförlitlig mottagare kvarstår dess tillstånd till feltolerant lagring, antingen inom [Apache ZooKeeper](https://zookeeper.apache.org/) eller i Spark Streaming kontrollpunkter som skrivs till HDFS. Om en sådan mottagare misslyckas och senare startas om, kan det ta över där den avbröts.
 
 ### <a name="use-the-write-ahead-log"></a>Använd Write-Ahead loggen
 
@@ -89,5 +89,5 @@ Ett annat exempel är att använda en partitionerad filsystem, som Azure Storage
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Spark-strömning översikt](apache-spark-streaming-overview.md)
-* [Skapa högtillgängliga Spark Streaming jobb i YARN](apache-spark-streaming-high-availability.md)
+* [Apache Spark-strömning översikt](apache-spark-streaming-overview.md)
+* [Skapa högtillgängliga Apache Spark Streaming jobb i Apache Hadoop YARN](apache-spark-streaming-high-availability.md)

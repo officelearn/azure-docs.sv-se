@@ -5,15 +5,15 @@ services: virtual-machines-linux
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 11/08/2018
+ms.date: 11/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: eef61421de2a87750caac228d12888421f7442a8
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: df7d8815eeb588e4e99041844642b6721e25dad7
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51716282"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52585842"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distributioner och drivrutiner som stöds
 
@@ -34,7 +34,7 @@ Microsoft distribuerar NVIDIA GRID drivrutinen installationsprogram för NV och 
 
 | Distribution | Drivrutin |
 | --- | -- |
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3 eller 7.4<br/><br/>CentOS-baserade 7.3 eller 7.4 | NVIDIA GRID 6.2, drivrutinen gren R390|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3 eller 7.4<br/><br/>CentOS-baserade 7.3 eller 7.4 | NVIDIA GRID 7, drivrutinen gren R410|
 
 > [!WARNING] 
 > Installation av tredjepartsprogramvara på Red Hat-produkter kan påverka supportvillkoren för Red Hat. Läs [Knowledgebase-artikeln om Red Hat](https://access.redhat.com/articles/1067).

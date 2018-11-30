@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: f00c11881da7624809b1253361c17285666d9ba3
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 97e499612082d0d58cd75bb9f8854b8c4e0f669e
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715764"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635772"
 ---
 # <a name="views-in-management-solutions-preview"></a>Vyer i lösningar för hantering (förhandsversion)
 > [!NOTE]
 > Det här är preliminära dokumentationen för att skapa lösningar för hantering som för närvarande i förhandsversion. Ett schema som beskrivs nedan kan komma att ändras.    
 
 
-[Lösningar för hantering av](solutions.md) inkluderar vanligtvis en eller flera vyer för att visualisera data.  Den här artikeln beskriver hur du exporterar en vy som skapats av den [Vydesigner](../../log-analytics/log-analytics-view-designer.md) och inkludera den i en lösning.  
+[Lösningar för hantering av](solutions.md) inkluderar vanligtvis en eller flera vyer för att visualisera data.  Den här artikeln beskriver hur du exporterar en vy som skapats av den [Vydesigner](../../azure-monitor/platform/view-designer.md) och inkludera den i en lösning.  
 
 > [!NOTE]
 > Exemplen i den här artikeln använder parametrar och variabler som är obligatoriska eller vanligt att hanteringslösningar och beskrivs i [utforma och skapa en lösning i Azure](solutions-creating.md)
@@ -37,7 +37,7 @@ ms.locfileid: "51715764"
 Den här artikeln förutsätter att du redan är bekant med hur du [skapa en lösning för](solutions-creating.md) och strukturen för en lösningsfil.
 
 ## <a name="overview"></a>Översikt
-För att inkludera en vy i en lösning för hantering, skapar du en **resource** för den i den [lösningsfilen](solutions-creating.md).  Den JSON som beskriver den visa detaljerad konfiguration är komplex men och inte något att en typisk lösning författare skulle kunna skapa manuellt.  Den vanligaste metoden är att skapa en vy med hjälp av den [Vydesigner](../../log-analytics/log-analytics-view-designer.md), exportera det och sedan lägga till den detaljerade konfigurationen i lösningen.
+För att inkludera en vy i en lösning för hantering, skapar du en **resource** för den i den [lösningsfilen](solutions-creating.md).  Den JSON som beskriver den visa detaljerad konfiguration är komplex men och inte något att en typisk lösning författare skulle kunna skapa manuellt.  Den vanligaste metoden är att skapa en vy med hjälp av den [Vydesigner](../../azure-monitor/platform/view-designer.md), exportera det och sedan lägga till den detaljerade konfigurationen i lösningen.
 
 De grundläggande stegen för att lägga till en vy i en lösning är som följer.  Varje steg beskrivs mer ingående i avsnitten nedan.
 
@@ -46,7 +46,7 @@ De grundläggande stegen för att lägga till en vy i en lösning är som följe
 3. Lägg till Visa information.
 
 ## <a name="export-the-view-to-a-file"></a>Exportera vyn till en fil
-Följ anvisningarna på [Log Analytics-Vydesigner](../../log-analytics/log-analytics-view-designer.md) att exportera en vy till en fil.  Den exporterade filen kommer att i JSON-format med samma [element som lösningsfilen](solutions-solution-file.md).  
+Följ anvisningarna på [Log Analytics-Vydesigner](../../azure-monitor/platform/view-designer.md) att exportera en vy till en fil.  Den exporterade filen kommer att i JSON-format med samma [element som lösningsfilen](solutions-solution-file.md).  
 
 Den **resurser** element i Vyfilen har en resurs med en typ av **Microsoft.OperationalInsights/workspaces** som representerar Log Analytics-arbetsytan.  Det här elementet har ett underelement med en typ av **vyer** som representerar vyn och innehåller detaljerade konfigurationen.  Du kopierar informationen på det här elementet och kopiera den till din lösning.
 

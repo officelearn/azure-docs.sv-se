@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 36db8274c42477631a480d4721a4331202db6c09
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 0e90c043976fc1798f675f8bf480b02e0ed93536
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276553"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581926"
 ---
 # <a name="understand-your-azure-billing-for-external-service-charges"></a>Förstå din Azure-fakturering för externa tjänstavgifter
 Externa tjänster publiceras av tredje part programvaruleverantörer på Azure marketplace. SendGrid är till exempel en externa tjänster som du kan köpa i Azure, men inte har publicerats av Microsoft.
@@ -86,6 +86,7 @@ Om du vill avbryta beställningen extern tjänst tar du bort resurs i den [Azure
 
 ![Ta bort resurs](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
 
-## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
-Om du har fler frågor, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
+
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

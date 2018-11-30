@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: c5b05b4ce33222ee9dd84950066b3bd36ea315de
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: cab78d09038b8ab00c318b3ce615d99139e9b005
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824871"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634038"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ansluta Azure till ITSM-verktyg som använder IT Service Management Connector
 
@@ -84,10 +84,10 @@ För att skapa en anslutning, kommer du behöva Förbered ITSM-verktyg för att 
 
 Beroende på ITSM-produkten som du ansluter till, använder du följande steg:
 
-- [System Center Service Manager (SCSM)](log-analytics-itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
-- [ServiceNow](log-analytics-itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
-- [Provance](log-analytics-itsmc-connections.md#connect-provance-to-it-service-management-connector-in-azure)  
-- [Cherwell](log-analytics-itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-azure)
+- [System Center Service Manager (SCSM)](../azure-monitor/platform/itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
+- [ServiceNow](../azure-monitor/platform/itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
+- [Provance](../azure-monitor/platform/itsmc-connections.md#connect-provance-to-it-service-management-connector-in-azure)  
+- [Cherwell](../azure-monitor/platform/itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-azure)
 
 När du har förberedd ITSM-verktygen, följer du stegen nedan för att skapa en anslutning:
 
@@ -100,7 +100,7 @@ När du har förberedd ITSM-verktygen, följer du stegen nedan för att skapa en
 
     ![Lägga till ITSM-anslutningen](media/log-analytics-itsmc-overview/add-new-itsm-connection.png)
 
-4.  Ange anslutningsinställningarna enligt beskrivningen i [konfigurera ITSMC anslutningen med din artikel för ITSM-produkter/tjänster](log-analytics-itsmc-connections.md).
+4.  Ange anslutningsinställningarna enligt beskrivningen i [konfigurera ITSMC anslutningen med din artikel för ITSM-produkter/tjänster](../azure-monitor/platform/itsmc-connections.md).
 
     > [!NOTE]
 
@@ -291,7 +291,7 @@ ServiceDeskWorkItemType_s = ”ändra begäran”
     - Se till att du korrekt angett användarnamn, lösenord, klient-ID och klienthemlighet för var och en av anslutningarna.  
     - Kontrollera om du har tillräcklig behörighet i motsvarande ITSM-produkten för att upprätta anslutningen.  
  - För Service Manager-anslutningar  
-    - Kontrollera att webbappen har distribuerats och hybridanslutning har skapats. Gå till Webbappens URL som beskrivs i dokumentationen för att kontrollera anslutningen är upprättad med en lokal Service Manager-datorn genom den [hybridanslutning](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
+    - Kontrollera att webbappen har distribuerats och hybridanslutning har skapats. Gå till Webbappens URL som beskrivs i dokumentationen för att kontrollera anslutningen är upprättad med en lokal Service Manager-datorn genom den [hybridanslutning](../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  Om du inte komma har synkroniserats data från ServiceNow till Log Analytics, se till att ServiceNow instans inte är i viloläge. ServiceNow Dev instanser går ibland i viloläge när det är inaktivt under en lång period. Annars rapportera problemet.
 3.  Om Log Analytics-aviseringar utlöses men fungerar objekt skapas inte i ITSM-produkten eller konfigurationsobjekt är inte skapat/kopplad till arbetsobjekt eller allmän information, se ut på följande platser:
@@ -301,7 +301,7 @@ ServiceDeskWorkItemType_s = ”ändra begäran”
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Felsöka Service Manager Web App-distribution
 1.  Vid problem med distribution av webbappar, se till att du har tillräckliga behörigheter i prenumerationen som nämns skapa/distribuera resurser.
 2.  Om du får en **”objektreferens har inte anges till en instans av ett objekt”** fel när du kör den [skriptet](log-analytics-itsmc-service-manager-script.md), se till att du har angett giltiga värden under **Användarkonfiguration** avsnittet .
-3.  Om du inte skapa service bus relay-namnområde, kontrollerar du att nödvändiga resursprovidern har registrerats i prenumerationen. Om du inte är registrerad måste du manuellt skapa service bus relay-namnområde i Azure Portal. Du kan också skapa den samtidigt [skapade hybridanslutningen](log-analytics-itsmc-connections.md#configure-the-hybrid-connection) från Azure-portalen.
+3.  Om du inte skapa service bus relay-namnområde, kontrollerar du att nödvändiga resursprovidern har registrerats i prenumerationen. Om du inte är registrerad måste du manuellt skapa service bus relay-namnområde i Azure Portal. Du kan också skapa den samtidigt [skapade hybridanslutningen](../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection) från Azure-portalen.
 
 
 ## <a name="contact-us"></a>Kontakta oss
@@ -309,4 +309,4 @@ ServiceDeskWorkItemType_s = ”ändra begäran”
 För alla frågor eller feedback om IT Service Management Connector, kontaktar du oss på [ omsitsmfeedback@microsoft.com ](mailto:omsitsmfeedback@microsoft.com).
 
 ## <a name="next-steps"></a>Nästa steg
-[Lägga till ITSM-produkter/tjänster till IT Service Management Connector](log-analytics-itsmc-connections.md).
+[Lägga till ITSM-produkter/tjänster till IT Service Management Connector](../azure-monitor/platform/itsmc-connections.md).

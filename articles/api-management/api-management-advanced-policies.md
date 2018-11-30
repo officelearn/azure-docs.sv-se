@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 743ea02235780efb8c165d14f9386024248a4fca
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: a36ad31531e41782f5be457450737a74f476c543
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976782"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584884"
 ---
 # <a name="api-management-advanced-policies"></a>API Management avancerade principer
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -253,7 +253,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 -   **Princip-scope:** alla omfattningar
 
 ##  <a name="LimitConcurrency"></a> Gränsen för samtidighet
- Den `limit-concurrency` princip som förhindrar att inom klammerparenteserna principer körning med mer än det angivna antalet förfrågningar vid en given tidpunkt. Vid som överstiger det numret, misslyckas nya begäranden omedelbart med 429 för många begäranden-statuskoden.
+ Den `limit-concurrency` princip som förhindrar att inom klammerparenteserna principer körning med mer än det angivna antalet begäranden när som helst. Vid som överstiger det numret, misslyckas nya begäranden omedelbart med 429 för många begäranden-statuskoden.
 
 ###  <a name="LimitConcurrencyStatement"></a> Principframställning
 
@@ -876,7 +876,7 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
 
 ```xml
 
-<trace source="arbitrary string literal"/>
+<trace source="arbitrary string literal">
     <!-- string expression or literal -->
 </trace>
 

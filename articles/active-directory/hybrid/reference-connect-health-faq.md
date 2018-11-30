@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 264e7f3d885535304470c833e228660ba51fefc6
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 83ff526eb0bd0c51822fc52c90b958d50022a834
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312307"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497735"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Vanliga frågor och svar om Azure AD Connect Health
 Den här artikeln innehåller svar på vanliga frågor och svar (FAQ) om Azure Active Directory (Azure AD) Connect Health. Avsnittet täcker frågor om hur du använder tjänsten, inklusive fakturering modellen, funktioner, begränsningar och support.
@@ -62,7 +62,7 @@ Exempel:
 
 **F: kan Azure AD Connect Health stöd för Azure-molnet för Tyskland?**
 
-Azure AD Connect Health stöds inte i molnet för Tyskland undantag för den [synkroniseringsfunktionen fel rapporten](how-to-connect-health-sync.md#object-level-synchronization-error-report-preview). 
+Azure AD Connect Health stöds inte i molnet för Tyskland undantag för den [synkroniseringsfunktionen fel rapporten](how-to-connect-health-sync.md#object-level-synchronization-error-report). 
 
 | Roller | Funktioner | Stöds i tyska molnet |
 | ------ | --------------- | --- |

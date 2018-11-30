@@ -3,7 +3,7 @@ title: Hotinformationsrapporter i Azure Security Center | Microsoft Docs
 description: Det här dokumentet beskriver hur du använder hotinformationsrapporter i Azure Security Center i samband med en undersökning för att få fram mer information om en säkerhetsvarning.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 5662e312-e8c2-4736-974e-576eeb333484
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
-ms.author: yurid
-ms.openlocfilehash: f0c1588633f548b740e6b9f6a7a3121ef791500a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 90cf57e22c4bb86ed9a784731480bc3fb8d3025d
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234263"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619970"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Hotinformationsrapporter i Azure Security Center
 Det här dokumentet beskriver hur du kan lära dig mer om ett hot som genererat en säkerhetsvarning med hjälp av hotinformationsrapporter i Azure Security Center.
@@ -27,7 +27,7 @@ Det här dokumentet beskriver hur du kan lära dig mer om ett hot som genererat 
 ## <a name="what-is-a-threat-intelligence-report"></a>Vad är en hotinformationsrapport?
 Hotidentifieringen i Security Center sker genom övervakning av säkerhetsinformation från dina Azure-resurser, nätverket och anslutna partnerlösningar. Tjänsten analyserar den här informationen, och korrelerar ofta information från flera källor för att identifiera hot. Den här processen är en del av [identifieringsfunktionerna](security-center-detection-capabilities.md) i Security Center.
 
-När Security Center identifierar ett hot utlöses en [säkerhetsvarning](security-center-managing-and-responding-alerts.md), som innehåller detaljerad information om en viss händelse, inklusive förslag på åtgärder. Security Center hjälper incidenthanteringsteamet att undersöka och åtgärda hot genom att tillhandahålla hotinformationsrapporter med information om hotet som har identifierats, inklusive information som:
+När Security Center identifierar ett hot utlöses en [säkerhetsvarning](security-center-managing-and-responding-alerts.md), som innehåller detaljerad information om en viss händelse, inklusive förslag på åtgärder. För att hjälpa incidenter team, undersöka och åtgärda hot, Security Center innehåller en hotinformationsrapport som innehåller information om hotet som har identifierats, inklusive information som den:
 
 * Angriparens identitet eller associationer (om den här informationen är tillgänglig)
 * Angriparens mål
@@ -48,19 +48,19 @@ Security Center tillhandahåller tre typer av hotrapporter, som kan variera bero
 * **Kampanjrapport**: Fokuserar på information om specifika attackkampanjer.
 * **Hotsammanfattningsrapport**: Omfattar alla objekt i de föregående två rapporterna.
 
-Den här typen av information är mycket användbar under [incidenthanteringsprocessen](security-center-incident-response.md), där man genom kontinuerliga undersökningar försöker förstå attackens källa, angriparens avsikter och hur problemet kan åtgärdas.
+Den här typen av information är användbart vid de [incidenthantering](security-center-incident-response.md) processer, där det finns en pågående undersökning för att förstå orsaken angreppet, angriparens avsikter och vad du gör för att lösa problemet kan åtgärdas .
 
 ## <a name="how-to-access-the-threat-intelligence-report"></a>Hur kommer du åt hotinformationsrapporten?
-Du kan se aktuella aviseringar i rutan **Security alerts (Säkerhetsaviseringar)**. Öppna Azure Portal och följ stegen nedan om du vill ha mer information om varje typ av varning:
+Du kan se aktuella aviseringar i rutan **Security alerts (Säkerhetsaviseringar)**. Öppna Azure portal och följ stegen nedan för att se mer information om varje avisering:
 
 1. På instrumentpanelen i Security Center hittar du rutan **Security alerts (Säkerhetsaviseringar)**.
 2. Klicka på ikonen för att öppna bladet **Säkerhetsvarningar** som innehåller mer information om aviseringarna och klicka sedan på den säkerhetsvarning som du vill visa mer information om.
 
     ![Säkerhetsaviseringar](./media/security-center-threat-report/security-center-threat-report-fig1.png)
-3. I vårt exempel visar bladet **Suspicious process executed** (Misstänkt process körs) information om aviseringen, som du ser i bilden nedan:
+3. I det här fallet den **misstänkt process kördes** bladet visar detaljerna om aviseringen som visas i bilden nedan:
 
     ![Utförlig information om säkerhetsaviseringar](./media/security-center-threat-report/security-center-threat-report-fig2.png)
-4. Mängden information som är tillgänglig för varje säkerhetsvarning varierar beroende på typen av avisering. Fältet **RAPPORTER** innehåller en länk till hotinformationsrapporten. Klicka på länken så öppnas ett nytt webbläsarfönster med en PDF-fil.
+4. Mängden information som är tillgänglig för varje säkerhetsvarning varierar beroende på typen av avisering. I den **rapporter** fältet du har en länk till hotinformationsrapporten. Klicka på länken så öppnas ett nytt webbläsarfönster med en PDF-fil.
 
    ![Val av lagringsutrymme](./media/security-center-threat-report/security-center-threat-report-fig3.png)
 

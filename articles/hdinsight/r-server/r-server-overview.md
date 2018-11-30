@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 74d8629eb8fc29f3cb572be0b1ccb8b6149ab971
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1f53d87d6de76c0ff6954c9bd38d95e05981d822
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016292"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499473"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>Introduktion till ML-tjänster och funktioner för öppen källkod-R på HDInsight
 
@@ -27,7 +27,7 @@ Microsoft Machine Learning Server är tillgänglig som ett alternativ för distr
 
 ML-tjänster på HDInsight innehåller de senaste funktionerna för R-baserad analys på datauppsättningar med valfri storlek lästes in i Azure Blob eller Data Lake storage. Eftersom ML tjänster kluster bygger på öppen källkod R, kan de R-baserade program som du skapar utnyttja 8000 + open source-R-paket. Rutiner i ScaleR paket för Microsofts big data analytics är också tillgängliga.
 
-Edge-nod i ett kluster är ett bra ställe att ansluta till klustret och köra R-skript. Med en kantnod har alternativet att köra parallelliserad distribuerade funktionerna i ScaleR över kärnor i noden gränsservern. Du kan också köra dem mellan noderna i klustret med hjälp av Scaler's Hadoop Map Reduce eller Spark compute-sammanhang.
+Edge-nod i ett kluster är ett bra ställe att ansluta till klustret och köra R-skript. Med en kantnod har alternativet att köra parallelliserad distribuerade funktionerna i ScaleR över kärnor i noden gränsservern. Du kan också köra dem mellan noderna i klustret med hjälp av Scaler's Hadoop Map Reduce eller Apache Spark-beräkningskontext.
 
 Du kan hämta modeller eller förutsägelser som uppstår vid analys för lokal användning. De kan också ska operationaliseras någon annanstans i Azure, i synnerhet via [Azure Machine Learning Studio](http://studio.azureml.net) [webbtjänsten](../../machine-learning/studio/publish-a-machine-learning-web-service.md).
 
@@ -114,7 +114,7 @@ Om du bara använder rutiner från ScaleR-biblioteket i klustret kan behöver du
 
 I sådana fall kan ytterligare paket installeras med en skriptåtgärd när du har skapat klustret. Mer information finns i [hantera ML-tjänster i HDInsight-kluster](r-server-hdinsight-manage.md).
 
-### <a name="change-hadoop-mapreduce-memory-settings"></a>Ändra inställningarna för Hadoop MapReduce-minne
+### <a name="change-apache-hadoop-mapreduce-memory-settings"></a>Ändra inställningar för Apache Hadoop MapReduce-minne
 
 Ett kluster kan ändras om du vill ändra mängden minne som är tillgängliga för ML-tjänster när den körs ett MapReduce-jobb. Använd Apache Ambari UI som är tillgänglig via bladet för Azure portal för klustret om du vill ändra ett kluster. Anvisningar om hur du kommer åt Ambari UI för klustret finns i [hantera HDInsight-kluster med Ambari-Webbgränssnittet](../hdinsight-hadoop-manage-ambari.md).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: ed6a709418871ededc8ddfe06b0eb1ab3e4546e1
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 332939710517e99aaa77642dc5e67256b476bd66
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291087"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634583"
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Händelseanalys och visualisering med Log Analytics
  Log Analytics samlar in och analyserar telemetri från program och tjänster i molnet och ger analysverktyg som hjälper dig att maximera tillgänglighet och prestanda. Den här artikeln beskrivs hur du kör frågor i Log Analytics för att få insikter och felsöka vad som händer i ditt kluster. Följande vanliga frågor tas upp:
@@ -108,7 +108,7 @@ Kusto-frågespråket är kraftfullt. En annan värdefull fråga som du kan köra
 ## <a name="next-steps"></a>Nästa steg
 
 * Om du vill aktivera infrastrukturövervakning d.v.s. prestandaräknare, gå till [att lägga till Log Analytics-agenten](service-fabric-diagnostics-oms-agent.md). Agenten samlar in prestandaräknare och lägger till dem i din befintliga arbetsyta.
-* Log Analytics tillhandahåller en Gateway (HTTP framåt Proxy) som kan användas för att skicka data till Log Analytics för lokala kluster. Läs mer om att [ansluter datorer utan Internetåtkomst till Log Analytics med Log Analytics-gateway](../log-analytics/log-analytics-oms-gateway.md).
+* Log Analytics tillhandahåller en Gateway (HTTP framåt Proxy) som kan användas för att skicka data till Log Analytics för lokala kluster. Läs mer om att [ansluter datorer utan Internetåtkomst till Log Analytics med Log Analytics-gateway](../azure-monitor/platform/gateway.md).
 * Konfigurera [automatiserade aviseringar](../log-analytics/log-analytics-alerts.md) att underlätta identifiering och diagnostik.
 * Bekanta dig med funktionerna [loggsökning och frågor](../log-analytics/log-analytics-log-searches.md) i Log Analytics.
 * Få en mer detaljerad översikt över Log Analytics och den erbjuder, läsa [vad är Log Analytics?](../operations-management-suite/operations-management-suite-overview.md).

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 6f4f2f6a7999b2d26e198a11bb7cee27991a775b
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 81728e7963767cd90bf2486a35fbce55043a76f7
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711964"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633477"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Lösning för övervakning av behållare i Log Analytics
 
@@ -126,7 +126,7 @@ När du har installerat Docker, kan du använda följande inställningar för di
 
 **För alla värdar på grund av Linux-behållare utom CoreOS:**
 
-- Mer information och anvisningar om hur du installerar Log Analytics-agenten för Linux finns i [översikt över Log Analytics-agenten](log-analytics-agent-overview.md).
+- Mer information och anvisningar om hur du installerar Log Analytics-agenten för Linux finns i [översikt över Log Analytics-agenten](../azure-monitor/platform/log-analytics-agent.md).
 
 **För alla Linux-behållare-värdar, inklusive CoreOS:**
 
@@ -524,9 +524,9 @@ Mer information om konfigurationen av Docker-daemon med Windows-behållare finns
 
 #### <a name="install-windows-agents"></a>Installera Windows-agenter
 
-Om du vill aktivera behållarövervakning för Windows och Hyper-V, installera Microsoft Monitoring Agent (MMA) på Windows-datorer som är behållare-värdar. Datorer som kör Windows i din lokala miljö, se [ansluta Windows-datorer till Log Analytics](log-analytics-agent-windows.md). För virtuella datorer som körs i Azure och Anslut dem till Log Analytics med hjälp av den [tillägg för virtuell dator](log-analytics-quick-collect-azurevm.md).
+Om du vill aktivera behållarövervakning för Windows och Hyper-V, installera Microsoft Monitoring Agent (MMA) på Windows-datorer som är behållare-värdar. Datorer som kör Windows i din lokala miljö, se [ansluta Windows-datorer till Log Analytics](../azure-monitor/platform/agent-windows.md). För virtuella datorer som körs i Azure och Anslut dem till Log Analytics med hjälp av den [tillägg för virtuell dator](log-analytics-quick-collect-azurevm.md).
 
-Du kan övervaka Windows-behållare som körs på Service Fabric. Dock endast [virtuella datorer som körs i Azure](log-analytics-quick-collect-azurevm.md) och [datorer som kör Windows i din lokala miljö](log-analytics-agent-windows.md) stöds för närvarande för Service Fabric.
+Du kan övervaka Windows-behållare som körs på Service Fabric. Dock endast [virtuella datorer som körs i Azure](log-analytics-quick-collect-azurevm.md) och [datorer som kör Windows i din lokala miljö](../azure-monitor/platform/agent-windows.md) stöds för närvarande för Service Fabric.
 
 Du kan kontrollera att övervakningslösningen för behållare är korrekt inställda för Windows. Du kan kontrollera om det management pack var download korrekt genom att leta efter *ContainerManagement.xxx*. Filerna måste vara i mappen C:\Program Files\Microsoft Monitoring Agent\Agent\Health State\Management servicepack.
 
@@ -543,7 +543,7 @@ Behållarövervakning lösningen samlar in olika mått och loggfiler prestandada
 Data samlas in var tredje minut av följande typer av agenten.
 
 - [Log Analytics-agenten för Linux](log-analytics-quick-collect-linux-computer.md)
-- [Windows-agenten](log-analytics-agent-windows.md)
+- [Windows-agenten](../azure-monitor/platform/agent-windows.md)
 - [Log Analytics VM-tillägg](log-analytics-quick-collect-azurevm.md)
 
 

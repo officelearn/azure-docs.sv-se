@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: cwatson
-ms.openlocfilehash: ee73cb3164ce59136dd268853b8caa967a6f42e9
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 176e282a53c19e303fd06629a0045a79fd200dea
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393392"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580379"
 ---
 # <a name="understand-how-an-azure-reservation-discount-is-applied-to-sql-databases"></a>Förstå hur ett Azure reservationsrabatten tillämpas på SQL-databaser
 
@@ -28,7 +28,7 @@ Reserverade instanser av virtuella datorer, se [förstå Azure Reserved VM Insta
 
 ## <a name="reservation-discount-applied-to-sql-databases"></a>Reservationsrabatten tillämpas på SQL-databaser
 
- SQL Database rabatten reserverad kapacitet till att köra SQL-databaser per timme. Som du köper reservationen matchas till användningen av beräkning som genereras genom att köra SQL-databaser. För SQL-databaser som inte kör hela timmen, tillämpas reservationen automatiskt till andra SQL-databaser som matchar reservationen-attribut. Rabatten kan använda för SQL-databaser som körs samtidigt. Om du inte har SQL-databaser som körs under hela timmen som matchar reservationen attribut kan får du inte ut mesta möjliga av rabatten för den timmen.
+ SQL Database rabatten reserverad kapacitet till att köra SQL-databaser per timme. Som du köper reservationen matchas till användningen av beräkning som genereras genom att köra SQL-databaser. För SQL-databaser som inte körs under en hel timme tillämpas automatiskt reservationen på andra SQL-databaser som matchar reservationsattributen. Rabatten kan använda för SQL-databaser som körs samtidigt. Om du inte har SQL-databaser som körs under hela timmen som matchar reservationen attribut kan får du inte ut mesta möjliga av rabatten för den timmen.
 
 I följande exempel visas hur SQL-databas reserverad kapacitet rabatten gäller baserat på antalet kärnor som du köpt och när de körs.
 
@@ -47,14 +47,13 @@ För att förstå och visa tillämpningen av dina Azure-reservationer i fakturer
 Om du vill veta mer om Azure reservationer, finns i följande artiklar:
 
 - [Vad är Azure reservationer?](billing-save-compute-costs-reservations.md)
-- [Förskottsbetala för virtuella datorer med Azure reserverade VM-instanser](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Betala i förskott för beräkningsresurser för SQL-databas med Azure SQL Database reserverad kapacitet](../sql-database/sql-database-reserved-capacity.md)
+- [Förskottsbetala för Virtual Machines med Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Förskottsbetala för SQL Database-beräkningsresurser med reserverad kapacitet för Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 - [Hantera Azure Reservations](billing-manage-reserved-vm-instance.md)
 - [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
 - [Förstå användningen av reserverade för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
 - [Förstå användningen av reserverade för CSP-prenumerationer](https://docs.microsoft.com/partner-center/azure-reservations)
 
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
-
-Om du har fler frågor, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

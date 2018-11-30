@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 11/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6cbefe01632b37c225e0a5d4cd916c66f8c4524d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 9fc605ab45241280d9331ad7d515ba007a015daa
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274797"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583661"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Så här uppdaterar du Azure PowerShell-moduler i Azure Automation
 
@@ -63,7 +63,7 @@ Som tidigare nämnts kan den **uppdatera Azure-moduler** knappen är inte tillg�
 
 Du kan importera och köra den [uppdatering AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook att uppdatera Azure-moduler i ditt Automation-konto. Den här processen kan misslyckas om de versioner som du försöker importera från galleriet är inte kompatibel med Azure-tjänsterna för närvarande har distribuerats till mål-Azure-miljön. Du kan behöva du kontrollerar kompatibla versioner av moduler har angetts i runbook-parametrar.
 
-Använd den `AzureRmEnvironment` parameter för att skicka rätt miljö till runbooken.  Godkända värden är **AzureCloud**, **AzureChinaCloud**, **AzureGermanCloud**, och **AzureUSGovernmentCloud**. Dessa värden kan hämtas från att använda `Get-AzureRmEnvironment | select Name`. Om du inte skickar ett värde för den här parametern, runbooken som standard i Azures offentliga moln **AzureCloud**
+Använd den `AzureRmEnvironment` parameter för att skicka rätt miljö till runbooken.  Godkända värden är **AzureCloud**, **AzureChinaCloud**, **AzureGermanCloud**, och **azureusgovernment eller**. Dessa värden kan hämtas från att använda `Get-AzureRmEnvironment | select Name`. Om du inte skickar ett värde för den här parametern, runbooken som standard i Azures offentliga moln **AzureCloud**
 
 Om du vill använda en specifik version av Azure PowerShell-modulen i stället för den senaste tillgängliga på PowerShell-galleriet, skicka dessa versioner till den valfria `ModuleVersionOverrides` -parametern för den **uppdatering AzureModule** runbook. Exempel finns i den [uppdatering AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook. Azure PowerShell-moduler som inte nämns i den `ModuleVersionOverrides` parametern uppdateras med de senaste modulversionerna på PowerShell-galleriet. Om du skickar något till den `ModuleVersionOverrides` parameter, alla moduler som uppdateras med de senaste modulversionerna på PowerShell-galleriet. Det här beteendet är samma som den **uppdatera Azure-moduler** knappen.
 

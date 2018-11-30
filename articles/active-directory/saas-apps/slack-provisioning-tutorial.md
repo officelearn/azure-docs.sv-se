@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 83155e448f350618446fb22bf52e831b1cc8d499
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 74bfd49fd69353e95a275f31fa0bba9e9b558227
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636551"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632933"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Slack för automatisk användaretablering
 
@@ -113,6 +113,14 @@ Det här resultatet i någon grupp-objekt som tilldelats Slack i den **användar
 
 Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
 
+## <a name="connector-limitations"></a>Begränsningar för anslutningen
+
+  * När du konfigurerar Slack's **displayName** attributet, Tänk på följande: 
+  * Värden är inte helt unika (t.ex. 2 användare kan ha samma visningsnamn)
+  * Stöd för icke-engelska tecken, blanksteg, versaler. 
+  * Interpunktion som tillåts är punkter, understreck, bindestreck, apostrofer, hakparenteser (t.ex. **([{}])**) och avgränsare (t.ex. **, /;**).
+  * Uppdaterar endast om de två inställningarna är konfigurerade i Slacks arbetsplats/organisation - **profil synkronisering är aktiverat** och **användare kan inte ändra deras visningsnamn**.
+  * Slack's **användarnamn** attributet måste vara under 21 tecken och ha ett unikt värde. 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

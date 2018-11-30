@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: hrasheed
-ms.openlocfilehash: c1589ab2662c3cfb4485afbd73f3d69d50e3cefd
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6afb54caca572988c566ab7c6325d511e77fbd3e
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013640"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582096"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Felsöka Apache Spark-jobb som körs på Azure HDInsight
 
-I den här artikeln lär du dig att spåra och felsöka Spark-jobb som körs på HDInsight-kluster med YARN-Användargränssnittet, Spark-Användargränssnittet och Spark-Historikserver. Du startar ett Spark-jobb med hjälp av en bärbar dator som är tillgängliga med Spark-kluster **Machine learning: förutsägande analys mat inspektion data med hjälp av MLLib**. Du kan använda följande steg för att spåra ett program som du skickade med hjälp av någon annan metod, till exempel **spark-submit**.
+I den här artikeln får du lära att spåra och felsöka [Apache Spark](https://spark.apache.org/) HDInsight-jobb som körs på kluster med den [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) Användargränssnittet, Spark-Användargränssnittet och Spark-Historikserver. Du startar ett Spark-jobb med hjälp av en bärbar dator som är tillgängliga med Spark-kluster **Machine learning: förutsägande analys mat inspektion data med hjälp av MLLib**. Du kan använda följande steg för att spåra ett program som du skickade med hjälp av någon annan metod, till exempel **spark-submit**.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Du måste ha följande:
@@ -102,24 +102,24 @@ När ett jobb har slutförts sparas information om jobbet i Spark-Historikserver
 
 ## <a name="see-also"></a>Se också
 *  [Hantera resurser för Apache Spark-klustret i Azure HDInsight](apache-spark-resource-manager.md)
-*  [Felsöka Spark-jobb med hjälp av utökade Spark-Historikserver](apache-azure-spark-history-server.md)
+*  [Felsöka Apache Spark-jobb med hjälp av utökade Spark-Historikserver](apache-azure-spark-history-server.md)
 
 ### <a name="for-data-analysts"></a>För dataanalytiker
 
-* [Spark med Machine Learning: Använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark med Machine Learning: Använda Spark i HDInsight för att förutsäga resultatet av en livsmedelskontroll](apache-spark-machine-learning-mllib-ipython.md)
-* [Webbplatslogganalys med Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
-* [Application Insight-telemetridataanalys i HDInsight](apache-spark-analyze-application-insight-logs.md)
+* [Apache Spark med Machine Learning: använda Spark i HDInsight för analys av byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark med Machine Learning: använda Spark i HDInsight för att förutse matinspektionsresultat](apache-spark-machine-learning-mllib-ipython.md)
+* [Webbplatslogganalys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Application Insight telemetri dataanalys med hjälp av Apache Spark i HDInsight](apache-spark-analyze-application-insight-logs.md)
 * [Använda Caffe på Azure HDInsight Spark för distribuerade djupinlärning](apache-spark-deep-learning-caffe.md)
 
 ### <a name="for-spark-developers"></a>För Spark-utvecklare
 
 * [Skapa ett fristående program med hjälp av Scala](apache-spark-create-standalone-application.md)
-* [Köra jobb via fjärranslutning på ett Spark-kluster med Livy](apache-spark-livy-rest-interface.md)
+* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med Apache Livy](apache-spark-livy-rest-interface.md)
 * [Använda HDInsight Tools-plugin för IntelliJ IDEA till att skapa och skicka Spark Scala-appar](apache-spark-intellij-tool-plugin.md)
-* [Använda HDInsight Tools-plugin för IntelliJ IDEA till att felsöka Spark-program via fjärranslutning](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Använda Zeppelin-anteckningsböcker med ett Spark-kluster i HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernlar som är tillgängliga för Jupyter Notebook i Spark-klustret för HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Använda HDInsight Tools-Plugin för IntelliJ IDEA till att felsöka Apache Spark-program via fjärranslutning](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Använda Apache Zeppelin-anteckningsböcker med Apache Spark-kluster på HDInsight](apache-spark-zeppelin-notebook.md)
+* [Kernlar som är tillgängliga för Jupyter notebook i Apache Spark-kluster för HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Använda externa paket med Jupyter-anteckningsböcker](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installera Jupyter på datorn och ansluta till ett HDInsight Spark-kluster](apache-spark-jupyter-notebook-install-locally.md)
 

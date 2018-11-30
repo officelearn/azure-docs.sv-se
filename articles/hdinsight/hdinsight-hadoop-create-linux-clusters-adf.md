@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: 76651874951255d9b01efdc6e91892f6852d948d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 1e55da981daf29aca491c480d58f399bc681fd27
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036384"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499551"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Självstudie: Skapa på begäran Apache Hadoop-kluster i HDInsight med Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-I den här artikeln får du lära dig hur du skapar ett Apache Hadoop-kluster på begäran i Azure HDInsight med Azure Data Factory. Du sedan använda datapipelines i Azure Data Factory att köra Hive-jobb och ta bort klustret. I slutet av den här självstudiekursen, kan du se hur att utföra åtgärder för ett jobb för stordata som kör där skapa kluster, kör jobb och klustret borttagning utförs enligt ett schema.
+I den här artikeln får du lära dig hur du skapar en [Apache Hadoop](https://hadoop.apache.org/) kluster på begäran i Azure HDInsight med Azure Data Factory. Du sedan använda datapipelines i Azure Data Factory att köra Hive-jobb och ta bort klustret. I slutet av den här självstudiekursen, kan du se hur att utföra åtgärder för ett jobb för stordata som kör där skapa kluster, kör jobb och klustret borttagning utförs enligt ett schema.
 
 Den här självstudien omfattar följande uppgifter: 
 
@@ -43,7 +43,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="create-an-azure-storage-account"></a>Skapa ett Azure-lagringskonto
 
-I det här avsnittet skapar du ett lagringskonto som ska användas som standardlagringen för HDInsight-klustret som du skapar på begäran. Det här lagringskontot innehåller även exempel HiveQL-skript (**hivescript.hql**) som används för att simulera ett Hive-jobb som körs på klustret.
+I det här avsnittet skapar du ett lagringskonto som ska användas som standardlagringen för HDInsight-klustret som du skapar på begäran. Det här lagringskontot innehåller också exemplet [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) skript (**hivescript.hql**) att du använder för att simulera ett exempel [Apache Hive](https://hive.apache.org/) jobb som körs på klustret.
 
 Det här avsnittet använder en Azure PowerShell-skript för att skapa storage-konto och kopiera över filerna som krävs i lagringskontot. Azure PowerShell-exempelskriptet i det här avsnittet utför följande uppgifter:
 
@@ -338,7 +338,7 @@ Du kan också ta bort hela resursgruppen som du skapade för den här självstud
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln beskrivs hur du använder Azure Data Factory för att skapa HDInsight-kluster på begäran och köra Hive-jobb. Gå vidare till nästa artciel att lära dig hur du skapar HDInsight-kluster med anpassad konfiguration.
+I den här artikeln beskrivs hur du använder Azure Data Factory för att skapa på begäran HDInsight-kluster och kör [Apache Hive](https://hive.apache.org/) jobb. Gå vidare till nästa artciel att lära dig hur du skapar HDInsight-kluster med anpassad konfiguration.
 
 > [!div class="nextstepaction"]
 >[Skapa Azure HDInsight-kluster med anpassad konfiguration](hdinsight-hadoop-provision-linux-clusters.md)

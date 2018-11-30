@@ -3,7 +3,7 @@ title: Ansluta Azure Active Directory Identity Protection till Azure Security Ce
 description: Lär dig hur Azure Security Center kan integreras med Azure Active Directory Identity Protection.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 0d4b77c2-dba4-4e46-8f55-ab04ddd92496
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2018
-ms.author: yurid
-ms.openlocfilehash: 9c13bd671efee5bc07885320cbaa0bd090cc1390
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/29/2018
+ms.author: rkarlin
+ms.openlocfilehash: 2ed5791b352ee4b19f707e52bc6f8f78e1f0e5b5
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51226368"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635313"
 ---
 # <a name="connecting-azure-active-directory-identity-protection-to-azure-security-center"></a>Ansluta Azure Active Directory Identity Protection till Azure Security Center
 Det här dokumentet hjälper dig att konfigurera integrering mellan Azure Active Directory (AD) Identity Protection och Azure Security Center.
 
 ## <a name="why-connect-azure-ad-identity-protection"></a>Varför ska man ansluta Azure AD Identity Protection?
-[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) upptäcka potentiella problem som påverkar organisationens identiteter. När du är ansluten, kan du visa Azure AD Identity Protection-aviseringar i Security Center. Den här integrationen kan du visa, korrelera och undersöka alla säkerhetsaviseringar som är relaterade till dina hybridmolnarbetsbelastningar i Security Center. 
+[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) upptäcka potentiella problem som påverkar organisationens identiteter. När du är ansluten, kan du visa Azure AD Identity Protection-aviseringar i Security Center. Den här integrationen kan du visa, korrelera och undersöka alla säkerhetsaviseringar som är relaterade till dina hybridmolnarbetsbelastningar i Security Center.
 
 ## <a name="how-do-i-configure-this-integration"></a>Hur konfigurerar jag den här integreringen?
 Om din organisation använder redan Azure AD Identity Protection, följer du stegen nedan för att konfigurera integreringen:
@@ -42,13 +42,13 @@ Om din organisation använder redan Azure AD Identity Protection, följer du ste
 
 5. Klicka på **Anslut**.
 
-När du är klar med den här konfigurationen, Azure AD Identity Protection-lösning som visas i den **säkerhetslösningar** sidan under **anslutna lösningar**. 
+När du är klar med den här konfigurationen, Azure AD Identity Protection-lösning som visas i den **säkerhetslösningar** sidan under **anslutna lösningar**.
 
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du ansluter Azure AD Identity Protection till Security Center. I följande artiklar kan du lära dig mer om Security Center:
 
 * [Ansluta Microsoft Advanced Threat Analytics till Azure Security Center](security-center-ata-integration.md)
-* [Ange säkerhetsprinciper i Azure Security Center](security-center-policies.md) – Lär dig hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper.
+* [Ange säkerhetsprinciper i Azure Security Center](security-center-azure-policy.md) – Lär dig hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper.
 * [Hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md) – Lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md) – Lär dig hur du övervakar Azure-resursernas hälsa.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Lär dig hur du hanterar och åtgärdar säkerhetsaviseringar.
@@ -56,5 +56,3 @@ I det här dokumentet har du lärt dig hur du ansluter Azure AD Identity Protect
 - [Datasäkerhet i Azure Security Center](security-center-data-security.md) – Lär dig hur data hanteras och skyddas i Security Center.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
 * [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) – senaste nytt i Azure-säkerhet och information.
-
-

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 218fc33390575a3df96d0b7d7696b3085c38c8f2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e241317231f3c607c373cb8a54e4b5bf6601b8e7
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264200"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620769"
 ---
 > [!div class="op_single_selector"]
 > * [C i Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -56,7 +56,7 @@ När distributionsprocessen för lösningen för fjärrövervakning är klar kli
 > [!NOTE]
 > Om du har redan lagt till en enhet i din lösning, kan du hoppa över det här steget. Nästa steg kräver dock enhetens anslutningssträng. Du kan hämta anslutningssträngen för en enhet från den [Azure-portalen](https://portal.azure.com) eller med hjälp av den [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) CLI-verktyget.
 
-För en enhet att ansluta till lösningsaccelerator kan identifiera den sig för IoT Hub med giltiga autentiseringsuppgifter. Du har möjlighet att spara enhetens anslutningssträng som innehåller de här autentiseringsuppgifterna när du lägger till enheten lösningen. Du kan inkludera enhetens anslutningssträng i klientprogrammet senare i den här självstudien.
+För en enhet att ansluta till lösningsaccelerator kan identifiera den sig för IoT Hub med giltiga autentiseringsuppgifter. Du har möjlighet att spara enhetens anslutningssträng som innehåller de här autentiseringsuppgifterna när du lägger till enheten i lösningen. Du kan inkludera enhetens anslutningssträng i klientprogrammet senare i den här självstudien.
 
 Om du vill lägga till en enhet till din fjärrövervakningslösning utför du följande steg på den **enheter** sidan i lösningen:
 

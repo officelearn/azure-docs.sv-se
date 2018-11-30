@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 5522b076fdf3d4e339f5e170679f389259ff1359
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: ce9b3df5093d51eac0a151269b486b5f1310700c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713137"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584867"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API: er
 
@@ -286,7 +286,7 @@ Ljud skickas i brödtexten i HTTP `POST` begäran. Det måste vara i något av f
 | OGG | OPUS | 16-bitars | 16 kHz, mono |
 
 >[!NOTE]
->Formaten ovan stöds via REST-API och WebSocket i Speech-tjänsten. Den [tal SDK](/index.yml) för närvarande endast stöd för WAV formatera med PCM-codec.
+>Formaten ovan stöds via REST-API och WebSocket i Speech-tjänsten. Den [tal SDK](speech-sdk.md) för närvarande endast stöd för WAV formatera med PCM-codec.
 
 ### <a name="sample-request"></a>Exempelbegäran
 
@@ -433,8 +433,8 @@ Speech-tjänsten stöder 24-KHz ljuduppspelning tillsammans med 16 Khz utdata so
 
 | Nationell inställning | Språk   | Kön | Mappning |
 |--------|------------|--------|---------|
-| sv-SE  | Svenska | Kvinna | ”Microsoft Server tal Text till tal-röst (en-US, Jessa24kRUS)” |
-| sv-SE  | Svenska | Man   | ”Microsoft Server tal Text till tal-röst (en-US, Guy24kRUS)” |
+| en-US  | Svenska | Kvinna | ”Microsoft Server tal Text till tal-röst (en-US, Jessa24kRUS)” |
+| en-US  | Svenska | Man   | ”Microsoft Server tal Text till tal-röst (en-US, Guy24kRUS)” |
 
 Se en fullständig lista över tillgängliga röster [språk som stöds](language-support.md#text-to-speech).
 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/05/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a2678db223fc26a377de8daa79b85a9b8cda7a02
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: caa1b6f31325cd67aad106f7829bd32a5e7aeb53
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284956"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635823"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -69,7 +69,7 @@ I följande tabell visas en lista över operativsystem som stöds:
 |Operativsystem  |Anteckningar  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Stöder bara uppdatera utvärderingar.         |
-|Windows Server 2008 R2 SP1 och senare     |.NET framework 4.5.1 eller senare krävs. ([Hämta .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 eller senare krävs. ([Hämta WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 rekommenderas för ökad tillförlitlighet.  ([Hämta WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 och senare (inklusive Windows Server 2012 och 2016)    |.NET framework 4.5.1 eller senare krävs. ([Hämta .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 eller senare krävs. ([Hämta WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 rekommenderas för ökad tillförlitlighet.  ([Hämta WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 |CentOS 6 (x86/x64) och 7 (x64)      | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats. 'Yum' kräver klassificeringsbaserad uppdatering för att returnera säkerhetsdata som CentOS inte har direkt.         |
 |Red Hat Enterprise 6 (x86/x64) och 7 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) och 12 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
@@ -88,7 +88,7 @@ I följande tabell visas operativsystem som inte stöds:
 
 #### <a name="windows"></a>Windows
 
-Windows-agenter måste konfigureras för att kommunicera med en WSUS-server eller de måste ha åtkomst till Microsoft Update. Du kan använda hantering av uppdateringar med System Center Configuration Manager. Läs mer om integrationsscenarier i [integrera System Center Configuration Manager med uppdateringshantering](oms-solution-updatemgmt-sccmintegration.md#configuration). Den [Windows-agenten](../log-analytics/log-analytics-agent-windows.md) krävs. Agenten installeras automatiskt om du är onboarding virtuella Azure-datorer.
+Windows-agenter måste konfigureras för att kommunicera med en WSUS-server eller de måste ha åtkomst till Microsoft Update. Du kan använda hantering av uppdateringar med System Center Configuration Manager. Läs mer om integrationsscenarier i [integrera System Center Configuration Manager med uppdateringshantering](oms-solution-updatemgmt-sccmintegration.md#configuration). Den [Windows-agenten](../azure-monitor/platform/agent-windows.md) krävs. Agenten installeras automatiskt om du är onboarding virtuella Azure-datorer.
 
 #### <a name="linux"></a>Linux
 
@@ -148,7 +148,7 @@ Du kan granska följande information för att verifiera agentanslutning med Log 
 1. På Kontrollpanelen, öppna **Microsoft Monitoring Agent**. På den **Azure Log Analytics** fliken agenten visas följande meddelande: **The Microsoft Monitoring Agent har anslutits till Log Analytics**.
 2. Öppna Windows-händelseloggen. Gå till **program- och tjänstloggar\operations Manager** och Sök efter händelse-ID 3000 och 5002 för händelse-ID från källan **tjänstanslutning**. Dessa händelser anger att datorn har registrerats med Log Analytics-arbetsytan och tar emot konfigurationen.
 
-Om agenten inte kan kommunicera med Log Analytics och agenten är konfigurerad för att kommunicera med internet genom en brandvägg eller proxyserver, kontrollerar du att den brandväggen eller proxyservern har konfigurerats korrekt. Läs hur du kontrollerar att den brandväggen eller proxyservern har konfigurerats korrekt i [nätverkskonfiguration för Windows-agenten](../log-analytics/log-analytics-agent-windows.md) eller [nätverkskonfiguration för Linux-agenten](../log-analytics/log-analytics-agent-linux.md).
+Om agenten inte kan kommunicera med Log Analytics och agenten är konfigurerad för att kommunicera med internet genom en brandvägg eller proxyserver, kontrollerar du att den brandväggen eller proxyservern har konfigurerats korrekt. Läs hur du kontrollerar att den brandväggen eller proxyservern har konfigurerats korrekt i [nätverkskonfiguration för Windows-agenten](../azure-monitor/platform/agent-windows.md) eller [nätverkskonfiguration för Linux-agenten](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > Om dina Linux-system har konfigurerats för att kommunicera med en proxy eller Log Analytics-Gateway och är onboarding den här lösningen, uppdatera den *proxy.conf* behörigheter som ska tilldelas den gruppen omiuser läsbehörighet för filen med hjälp av den följande kommandon:
@@ -583,6 +583,6 @@ Vill du fortsätta till självstudien om hur du hanterar uppdateringar för din 
 > [Hantera uppdateringar och korrigeringar för virtuella datorer i Windows Azure](automation-tutorial-update-management.md)
 
 * Använd loggsökningar i [Log Analytics](../log-analytics/log-analytics-log-searches.md) att visa detaljerad uppdateringsinformation.
-* [Skapa aviseringar](../log-analytics/log-analytics-alerts.md) när kritiska uppdateringar har identifierats som saknade i datorer eller om en dator har automatisk uppdatering inaktiverat.
+* [Skapa aviseringar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) när kritiska uppdateringar har identifierats som saknade i datorer eller om en dator har automatisk uppdatering inaktiverat.
 
 * Läs hur du interagerar med uppdateringshantering via REST API i [Update konfigurationer](/rest/api/automation/softwareupdateconfigurations)

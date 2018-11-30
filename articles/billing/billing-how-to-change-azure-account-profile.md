@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a802db2f0013136314451cd59b9acfc3fb954a4
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 09ac7659487a81d68089a060bf038213722d4dbb
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274022"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580435"
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>Ändra profilinformationen Azure-konto, till exempel kontaktpersonens e-postadress, adress och telefonnummer
 
@@ -56,7 +56,7 @@ Läs hur du uppdaterar din faktureringsinformation i [ändra det kreditkort som 
 
 Vi kan inte ändra land för ett befintligt konto på grund av tekniska begränsningar. Du kan dock skapa ett konto i det önskade landet och sedan kontakta Azures support och migrera dina tjänster till det kontot.
 
-## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du fortfarande behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt. 
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

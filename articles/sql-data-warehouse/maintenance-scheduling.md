@@ -7,19 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 11/14/2018
+ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 9d26c1d923294a149a57ef28ca03e77dfc2e1c87
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: d626fd9b083b9ca2c55c286a1dd806620a639434
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711913"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498017"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Använda underhållsscheman för att hantera uppdateringar av tjänsten och underhåll
 
-Azure SQL Data Warehouse-underhåll och schemaläggning finns nu i förhandsversion. Den här funktionen integrerar Service Health planerat underhåll meddelanden, kontrollera Resource Health Monitor och Azure SQL Data Warehouse Underhåll schemaläggningstjänsten.
+Underhållsscheman är nu tillgänglig i alla regioner för Azure SQL Data Warehouse. Den här funktionen integrerar Service Health planerat underhåll meddelanden, kontrollera Resource Health Monitor och Azure SQL Data Warehouse Underhåll schemaläggningstjänsten.
 
 Du kan använda Underhåll schemaläggning för att välja ett tidsfönster när det är lämpligt att ta emot nya funktioner, uppgraderingar och uppdateringar. Du väljer en primär och en sekundär underhållsperiod inom en period på sju dagar. Ett exempel är en primär fönster för lördag 22:00 till söndag 01:00 och ett fönster för Onsdag 19:00 till 22:00. Om SQL Data Warehouse inte kan utföra underhåll under primära underhållsperiod, försöker underhållet igen under sekundära underhållsperiod.
 
@@ -51,6 +51,7 @@ Alla aktiva underhållshändelser visas i den **Service Health - planerat underh
 - [Läs mer](changing-maintenance-schedule.md) om hur du ändrar ett underhållsschema.
 - [Läs mer](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage) om att skapa, visa och hantera aviseringar med hjälp av Azure Monitor.
 - [Läs mer](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) om webhook-åtgärder för loggaviseringsregler.
+- [Läs mer](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups) skapa och hantera åtgärdsgrupper.
 - [Läs mer](https://docs.microsoft.com/azure/service-health/service-health-overview) om Azure Service Health.
 
 

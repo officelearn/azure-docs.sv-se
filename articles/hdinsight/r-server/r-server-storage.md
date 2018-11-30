@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 466cb9ea116030d3f6ee6b41809011dae9acc00b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 578479d43279dc1edb9edd24fd57d6841784166a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011212"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498142"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure Storage-lösningar för ML-tjänster på Azure HDInsight
 
@@ -26,7 +26,7 @@ ML-tjänster på HDInsight kan använda en mängd olika lagringslösningar för 
 
 Du har också möjlighet att få åtkomst till flera Azure storage-konton eller behållare med ditt HDInsight-kluster. Azure-fillagring är ett praktiskt data för användning på gränsnoden som gör att du kan montera en filresurs i Azure Storage, till exempel Linux-filsystem. Men Azure-filresurser kan monteras och används av alla system som har ett operativsystem, till exempel Windows eller Linux. 
 
-När du skapar ett Hadoop-kluster i HDInsight kan du ange antingen en **Azure storage** konto eller en **datasjölagringen**. En specifik storage-behållare från detta konto innehåller filsystemet för klustret som du skapar (t.ex, Hadoop Distributed File System). Mer information och riktlinjer finns:
+När du skapar ett Apache Hadoop-kluster i HDInsight kan du ange antingen en **Azure storage** konto eller en **datasjölagringen**. En specifik storage-behållare från detta konto innehåller filsystemet för klustret som du skapar (t.ex, Hadoop Distributed File System). Mer information och riktlinjer finns:
 
 - [Använda Azure storage med HDInsight](../hdinsight-hadoop-use-blob-storage.md)
 - [Använd Data Lake Store med Azure HDInsight-kluster](../hdinsight-hadoop-use-data-lake-store.md)
@@ -170,6 +170,6 @@ En stor fördel med Azure Files är att filresurserna kan monteras och används 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Översikt över ML-Services-kluster i HDInsight](r-server-overview.md)
-* [Kom igång med ML-Services-kluster i Hadoop](r-server-get-started.md)
+* [Kom igång med ML-tjänster på Apache Hadoop-kluster](r-server-get-started.md)
 * [Alternativ för beräkningskontexter för ML-tjänstkluster i HDInsight](r-server-compute-contexts.md)
 

@@ -2,19 +2,18 @@
 title: Hur du Azure Functions runtime versioner
 description: Azure Functions har stöd för flera versioner av körningen. Lär dig hur du anger runtime-versionen av en funktionsapp i Azure.
 services: functions
-documentationcenter: ''
 author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/05/2018
+ms.date: 11/26/2018
 ms.author: glenga
-ms.openlocfilehash: 6d89746c0a2d4642e5025789d352803195c0a3b9
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a0f66f5a1ba64c955fe0669d3ed215ee7c2895c0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886815"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498401"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Hur du Azure Functions runtime versioner
 
@@ -37,23 +36,13 @@ De värden som du kan ange i den `FUNCTIONS_EXTENSION_VERSION` appinställningen
 
 ## <a name="view-and-update-the-current-runtime-version"></a>Visa och uppdatera den aktuella runtime-versionen
 
-Använd följande procedur om du vill visa runtime-versionen som för närvarande används av en funktionsapp.
+Du kan ändra runtime-versionen som används av funktionsappen. På grund av potentialen i större ändringar, bör du bara ändra runtime-versionen för att du har skapat några funktioner i din funktionsapp. Även om körningsversion bestäms av den `FUNCTIONS_EXTENSION_VERSION` inställningen, bör du se den här ändringen i Azure-portalen och inte genom att ändra inställningen direkt. Det beror på portalen verifierar dina ändringar och gör andra relaterade ändringar efter behov.
 
-1. I den [Azure-portalen](https://portal.azure.com), bläddra till din funktionsapp.
+### <a name="from-the-azure-portal"></a>Från Azure portal
 
-1. Under **konfigurerats funktioner**, Välj **fungera appinställningar**.
+[!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
-    ![Välj funktionsappinställningar](./media/set-runtime-version/add-update-app-setting.png)
-
-1. I den **fungera appinställningar** fliken, leta upp den **körningsversion**. Observera den särskilda körningsversion och den begärda huvudversionen. I exemplet nedan anges versionen till `~2`.
-
-   ![Välj funktionsappinställningar](./media/set-runtime-version/function-app-view-version.png)
-
-1. Om du vill fästa funktionsappen till version 1.x-körningen, Välj **~ 1** under **körningsversion**. Den här växeln är inaktiverad när du har funktioner i din app.
-
-1. Om du har ändrat körningsversion gå tillbaka till den **översikt** och välj **starta om** starta om appen.  Funktionsappen startar om som körs på version 1.x-körningen och version 1.x-mallar används när du skapar funktioner.
-
-## <a name="view-and-update-the-runtime-version-using-azure-cli"></a>Visa och uppdatera runtime-versionen med hjälp av Azure CLI
+### <a name="view-and-update-the-runtime-version-using-azure-cli"></a>Med Azure CLI
 
 Du kan också visa och ange den `FUNCTIONS_EXTENSION_VERSION` från Azure CLI.
 

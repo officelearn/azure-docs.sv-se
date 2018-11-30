@@ -9,23 +9,23 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 302f2f96a7f17699411ab9fdbdb6ab1f9de149c8
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: e1512d63e83ee213513a3dcd4b858331684dc8a8
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277608"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497563"
 ---
-# <a name="access-apache-yarn-application-logs-on-linux-based-hdinsight"></a>Åtkomst Apache YARN-programloggar på Linux-baserat HDInsight
+# <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Åtkomst Apache Hadoop YARN-programloggar på Linux-baserat HDInsight
 
-Lär dig hur du kommer åt loggarna för Apache YARN (ännu en annan Resource Negotiator)-program på ett Apache Hadoop-kluster i Azure HDInsight.
+Lär dig att komma åt loggar för [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) (ännu en annan Resource Negotiator)-program på en [Apache Hadoop](https://hadoop.apache.org/) kluster i Azure HDInsight.
 
 > [!IMPORTANT]
 > Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Linux. Linux är det enda operativsystem som används på HDInsight version 3.6 eller senare. Mer information finns i [versionshantering för HDInsight](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="YARNTimelineServer"></a>YARN Timeline Server
 
-Den [Apache YARN Timeline Server](http://hadoop.apache.org/docs/r2.7.3/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) visar allmän information om slutförda program
+Den [Apache Hadoop YARN Timeline Server](http://hadoop.apache.org/docs/r2.7.3/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) visar allmän information om slutförda program
 
 YARN Timeline Server innehåller följande typ av data:
 
@@ -36,9 +36,9 @@ YARN Timeline Server innehåller följande typ av data:
 
 ## <a name="YARNAppsAndLogs"></a>YARN-program och loggfiler
 
-YARN stöder flera programmeringsmodeller (MapReduce som en av dem) genom Frikoppling resurshantering från schemaläggning/programövervakning. YARN använder en global *ResourceManager* (RM) per arbetsnod *NodeManagers* (NMs), och programspecifika *ApplicationMasters* (AMs). Programspecifika AM förhandlar resurser (processor, minne, disk, nätverk) för att köra ditt program med RM. RM fungerar med NMs att bevilja dessa resurser, som beviljas som *behållare*. AM ansvarar för att spåra förloppet för de behållare som tilldelats av RM. Ett program kan kräva många behållare beroende på typen av programmet.
+YARN stöder flera programmeringsmodeller ([Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) som en av dem) genom Frikoppling av resurshantering från schemaläggning/programövervakning. YARN använder en global *ResourceManager* (RM) per arbetsnod *NodeManagers* (NMs), och programspecifika *ApplicationMasters* (AMs). Programspecifika AM förhandlar resurser (processor, minne, disk, nätverk) för att köra ditt program med RM. RM fungerar med NMs att bevilja dessa resurser, som beviljas som *behållare*. AM ansvarar för att spåra förloppet för de behållare som tilldelats av RM. Ett program kan kräva många behållare beroende på typen av programmet.
 
-Varje program kan bestå av flera *program försök*. Om ett program inte kan skickas igen som ett nytt försök. Varje försök körs i en behållare. I en mening erbjuder ger kontext för grundläggande enheten för arbete som utförs av en YARN-program i en behållare. Allt arbete som görs inom ramen för en behållare utförs på enskild worker-noden som behållaren allokerades. Se [YARN begrepp] [ YARN-concepts] ytterligare referens.
+Varje program kan bestå av flera *program försök*. Om ett program inte kan skickas igen som ett nytt försök. Varje försök körs i en behållare. I en mening erbjuder ger kontext för grundläggande enheten för arbete som utförs av en YARN-program i en behållare. Allt arbete som görs inom ramen för en behållare utförs på enskild worker-noden som behållaren allokerades. Se [Apache Hadoop YARN begrepp] [ YARN-concepts] ytterligare referens.
 
 Programloggar (och associerade behållarloggarna) är avgörande felsöker problematiska Hadoop-program. YARN tillhandahåller ett ramverk som är bra för att samla in, sammanställa och lagra programloggar med den [Log aggregering] [ log-aggregation] funktionen. Funktionen Log aggregering gör åtkomst till programloggarna mer deterministisk. Den sammanställer loggar över alla behållare på en underordnad nod och lagrar dem som en sammansatt loggfil per arbetsnod. Loggen lagras på standardfilsystemet när ett program har slutförts. Ditt program kan använda hundratals eller tusentals behållare, men loggar för alla behållare som körs på en enda arbetsnod alltid räknas avgifter för en enskild fil. Så finns det bara 1 log per arbetsnod som används av ditt program. Log aggregering är aktiverat som standard på HDInsight-kluster version 3.0 och senare. Sammanställda loggfiler finns i Standardlagringsutrymmet för klustret. Följande är HDFS-sökvägen till loggarna:
 

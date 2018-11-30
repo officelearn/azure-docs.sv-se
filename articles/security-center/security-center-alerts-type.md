@@ -3,7 +3,7 @@ title: Säkerhetsaviseringar per typ i Azure Security Center | Microsoft Docs
 description: I den här artikeln beskrivs de olika typerna av säkerhetsaviseringar som är tillgängliga i Azure Security Center.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2018
-ms.author: yurid
-ms.openlocfilehash: 0573442568115fc872cc4cf4cf8c369cd635028e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.date: 11/29/2018
+ms.author: rkarlin
+ms.openlocfilehash: 24c6487ee7ec7d8398f933e29ca51cc9e390f47f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262122"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633273"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Förstå säkerhetsaviseringar i Azure Security Center
 Den här artikeln visar de olika typerna av säkerhetsaviseringar och meddelanden som är tillgängliga i Azure Security Center. Mer information om att hantera aviseringar och händelser finns i [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md).
 
-För avancerad identifiering rekommenderar vi att du uppgraderar till Azure Security Center Standard. En kostnadsfri 60-dagars utvärderingsversion är tillgänglig. Om du vill uppgradera väljer du **Prisnivå** i avsnittet om [säkerhetsprinciper](security-center-policies.md). Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
+För avancerad identifiering rekommenderar vi att du uppgraderar till Azure Security Center Standard. En kostnadsfri 60-dagars utvärderingsversion är tillgänglig. Om du vill uppgradera väljer du **Prisnivå** i avsnittet om [säkerhetsprinciper](security-center-azure-policy.md). Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
 
 > [!NOTE]
 > Security Center har för den begränsade förhandsversionen publicerat en ny uppsättning identifieringar som utnyttjar auditd-poster, ett gemensamt granskningsramverk för att upptäcka skadligt beteende på Linux-datorer. Skicka ett e-postmeddelande med dina prenumerations-id:n till [oss](mailto:ASC_linuxdetections@microsoft.com) för att ta del av förhandsversionen.
@@ -48,7 +48,7 @@ Azure Security Center kan använda beteendeanalyser för att identifiera resurse
 Security Center använder analyser för att identifiera resurser som har komprometterats, baserat på analysen av händelseloggar i virtuella datorer. Till exempel processgenereringshändelser och inloggningshändelser. Dessutom korreleras data med andra tecken för att hitta bevis på utbredda attacker.
 
 * **Körning av misstänkt process identifierad**: Angripare försöker oftast att köra skadlig kod utan identifiering genom att låtsas vara ofarliga processer. De här aviseringarna indikerar att körningen av en processen matchar ett av följande mönster:
-    * En process som är känd för att användas för skadliga syften kördes. Medan individuella kommandon kan verka ofarliga beräknas varningen baserat på en sammanställning av dessa kommandon.
+    * En process som är känd för att användas för skadliga syften kördes. Medan individuella kommandon kan verka ofarliga, beräknas varningen baserat på en sammanställning av dessa kommandon.
     * En process utfördes från en ovanligt plats.
     * En process utfördes från en plats som är vanlig för kända misstänkta filer.
     * En process utfördes från en misstänkt sökväg.
@@ -57,7 +57,7 @@ Security Center använder analyser för att identifiera resurser som har komprom
     * En process med ett misstänkt filnamnstillägg kördes.
     * En process med ett misstänkt dubbelt filnamnstillägg kördes.
     * En process med ett misstänkt höger-till-vänster (RLO)-tecken i filnamnet kördes.
-    * En process vars namn är mycket likt men skiljer sig från en process som ofta körs utfördes
+    * En process vars namn är processen liknar men skiljer sig från en ofta körs utfördes
     * En process vars namn motsvarar ett känt angriparverktyg utfördes.
     * En process med ett slumpmässigt namn kördes.
     * En process med ett misstänkt filnamnstillägg kördes.
@@ -82,7 +82,7 @@ Security Center använder analyser för att identifiera resurser som har komprom
 * **Misstänkt aktivitet för RDP-resurs**: Angripare siktar ofta in öppna hanteringsportar som RDP med råstyrkeattack. Dessa aviseringar tyder på misstänkt fjärrskrivbordsinloggning som anger:
     * Fjärrskrivbordsinloggningar har försökts.
     * Fjärrskrivbordsinloggningar försöktes med ogiltiga konton.
-    * Fjärrskrivbordsinloggningar försöktes, av vilka vissa lyckades logga in på datorn.
+    * Fjärrskrivbordsinloggningar försöktes, av vilka vissa har kunna logga in på datorn.
 * **Misstänkt aktivitet för SSH-resurs**: Angripare siktar ofta in öppna hanteringsportar som SSH med råstyrkeattack. Dessa aviseringar tyder på misstänkt SSH-inloggning som anger:
     * Misslyckade SSH-inloggningar har försökts.
     * SSH-inloggningar försöktes, av vilka vissa har genomförts.
@@ -96,15 +96,15 @@ Security Center använder analyser för att identifiera resurser som har komprom
 * **Skuggkopior av alla filer har tagits bort**: Den här varningen anger att skuggkopior har tagits bort.
 * **Misstänkta kommandon för att rensa filer**: Den här varningen anger en kombination av systeminformationskommandon som används för att utföra självrensning efter att potentiella hot har utförts.  Medan *systeminfo.exe* är ett legitimt Windows-verktyg, är det ovanligt att det körs två gånger i följd, följt av ett borttagningskommando på så sätt som har inträffat här.
 * **Skapande av misstänkt konto**: Den här varningen anger att ett konto har skapats som är snarlikt ett befintlig inbyggt konto med administratörsprivilegier. Den här tekniken kan användas av angripare för att skapa ett falskt konto utan att bli identifierade.
-* **Misstänkt aktivitet för skuggkopia av volym**: Den här varningen anger borttagningsaktivitet av skuggkopia på resursen. Skuggkopia av volym (VSC) är en viktig artefakt som lagrar ögonblicksbilder av data. Den här aktiviteten är ofta kopplad till Ransowmare, men den kan också vara legitim.
+* **Misstänkt aktivitet för skuggkopia av volym**: Den här varningen anger borttagningsaktivitet av skuggkopia på resursen. Skuggkopia av volym (VSC) är en viktig artefakt som lagrar ögonblicksbilder av data. Den här aktiviteten är kopplad till Ransowmare, men det kan också vara legitim.
 * **Persistence-metod för Windows-registret**: Den här varningen anger ett försök att spara en körbar fil i Windows-registret. Skadlig kod använder ofta en sådan metod för att överleva en omstart.
 * **Misstänkt ny brandväggsregel**: Den här varningen anger att en ny brandväggsregel har lagts till via *netsh.exe* för att tillåta trafik från en körbar fil på en misstänkt plats.
-* **Misstänkta XCOPY-körningar**: Den här varningen anger ett antal XCOPY-körningar som skulle kunna signalera att en av dina datorer har komprometterats och använts för att sprida skadlig kod.
-* **Undertryckning av juridisk information som visas för användare vid inloggning**: Den här varningen anger en ändring i registernyckeln som styr om en juridiska information visas för användarna när de loggar in. Det här är en vanlig aktivitet som utförs av angripare efter att de har komprometterat en värd.
+* **Misstänkta XCOPY-körningar**: den här varningen anger ett antal XCOPY-körningar som skulle kunna signalera att en av dina datorer har komprometterats och användes för att sprida skadlig kod.
+* **Undertryckning av juridisk information som visas för användare vid inloggning**: den här varningen anger en ändring i registernyckeln som styr om en juridiska information visas för användarna när de loggar in. Det här är en vanlig aktivitet som utförs av angripare efter att de har komprometterat en värd.
 * **Avvikande blandning av versaler och gemener i kommandoraden identifierad**: Den här varningen anger användning av en blandning av versaler och gemener i kommandoraden, vilket är en teknik som används av angripare för att komma undan skiftlägeskänsliga eller hash-baserade regler för datorn.
 * **Dold kommandorad**: Den här varningen anger att misstänkta indikatorer för döljande har upptäckts på kommandoraden.
 * **Flera domänkonton efterfrågas**: Angripare efterfrågar ofta AD-domänkonton samtidigt som de rekognoserar användare, domänadministratörskonton, domänkontrollanter och förtroenderelationer mellan domäner. Den här varningen anger att ett ovanligt antal distinkta domänkonton efterfrågades inom en kort tidsperiod.
-* **Möjlig lokala rekognoseringsaktivitet**: Den här varningen anger att en kombination av systeminformationskommandon som är associerade med rekognoseringsaktivitet har körts.  Även om *systeminfo.exe* är ett giltigt Windows-verktyg är det ovanligt att det körs två gånger i följd.
+* **Möjlig lokala rekognoseringsaktivitet**: den här varningen anger att en kombination av systeminformationskommandon som är associerade med rekognoseringsaktivitet har körts.  Även om *systeminfo.exe* är ett giltigt Windows-verktyg är det ovanligt att det körs två gånger i följd.
 * **Möjlig körningen av körbar keygen**: Den här varningen anger att en process vars namn är en indikation på att ett keygen-verktyg har körts. Dessa verktyg används vanligtvis för att motverka licensieringsmekanismer för programvaror men de laddas ofta ner tillsammans med andra skadliga program.
 * **Misstänkt körning via rundll32.exe**: Den här varningen anger att rundll32.exe användes för att köra en process med ett ovanligt namn vilket överensstämmer med namngivningsschemat för processen som används av angripare för att installera en förstastegsinstallation på en komprometterad värd.
 * **Misstänkt kombination av HTA och PowerShell**: Den här varningen anger att ett Microsoft Application-värd (HTA) håller på att starta PowerShell-kommandon. Det här är en teknik som används av angripare för att starta skadliga PowerShell-skript.
@@ -113,7 +113,7 @@ Security Center använder analyser för att identifiera resurser som har komprom
 * **Ett konto har skapats på flera värdar inom en 24-timmarsperiod**: Den här varningen anger att ett försök gjordes att skapa samma användarkonto på flera värdar vilket kan vara tecken på att en angripare flyttar sidled över nätverket efter att en eller flera nätverksentiteter har komprometterats.
 * **Misstänkt användning av CACLS till lägre säkerhetsläget för systemet**: Den här varningen anger att CACLS-listan (change access control list) har ändrats. Den här metoden används ofta av angripare för att ge fullständig åtkomst till systemfiler som ftp.exe, net.exe, wscript.exe o.s.v.
 * **Parametrar för misstänkt Kerberos Golden Ticket-attack**: Den här varningen anger att kommandoradsparametrar som är konsekventa med en Kerberos Golden Ticket-attack utfördes. En komprometterad krbtgt-nyckel kan användas av en angripare för att utge sig för att vara vilken användare de vill.
-* **Aktivering av registernyckeln WDigest UseLogonCredential**: Den här varningen anger att nyckeln har ändrats för att tillåta att autentiseringsuppgifter lagras i klartext i LSA-minnet, vilka sedan inhämtats från minnet.
+* **Aktivering av registernyckeln WDigest UseLogonCredential**: den här varningen anger att nyckeln har ändrats för att tillåta logga i autentiseringsuppgifter lagras i klartext i LSA-minnet, vilka sedan inhämtats från minnet.
 * **Potentiellt misstänkt användning av Telegram-verktyget**: Den här varningen anger installation av Telegram, en kostnadsfri molnbaserad snabbmeddelandetjänst som används av angripare för att överföra skadliga binärfiler till en annan dator, telefon eller surfplatta.
 * **Ny ASEP har skapats**: Den här varningen anger att en ny ASEP (Auto Start Extensibility Point) har skapats, vilket gör att processnamnet som identifieras i kommandoraden startas automatiskt och kan användas av en angripare för att uppnå beständighet.
 * **Ändringar i misstänkt Set-ExecutionPolicy och WinRM**: Den här varningen anger konfigurationsändringar vilka associeras med användning av den skadliga ChinaChopper webshell.
@@ -134,7 +134,7 @@ Security Center använder analyser för att identifiera resurser som har komprom
 * **Misstänkta kommandoradsargument**: Den här varningen anger misstänkta kommandoradsargument som har använts tillsammans med ett omvänt gränssnitt som används av aktivitetsgruppen HYDROGEN.
 * **Misstänkta autentiseringsuppgifter för dokument**: Den här varningen anger att ett misstänkt, vanligt förberäknat lösenords-hash som används av skadlig kod har använts för att köra en fil.
 * **Konstruktion av dynamisk PS-skript**: Den här varningen anger att ett PowerShell-skript har skapats dynamiskt. Angripare använder den här metoden för att progressivt skapa ett skript för att kunna komma undan ID-system.
-* **Metaploit-indikatorer**: Den här varningen anger en aktivitet som associeras med Metasploit-ramverket, vilket innehåller en mängd angriparfunktioner och -verktyg.
+* **Metasploit indikatorer**: den här varningen anger aktivitet som associeras med Metasploit-ramverket, vilket ger en mängd angriparfunktioner och verktyg.
 * **Misstänkt kontoaktivitet**: Den här varningen anger ett försök att ansluta till en dator med ett konto som nyligen har komprometterats.
 * **Skapande av konto**: Den här varningen anger skapandet av ett nytt konto på datorn.
 
@@ -146,7 +146,7 @@ Analysen där kraschen dumpar minnet är en metod som används för att identifi
 
 När programvara kraschar fångar en kraschdumpfil en del av minnet vid tidpunkten för kraschen. Kraschen kan ha orsakats av skadlig kod, allmänna program- eller systemproblem. Genom att analysera minnet i kraschdumpen kan Azure Security Center identifiera tekniker som utnyttjar sårbarheter i programvara, som kommer åt känsliga data och som ligger gömda på en komprometterad dator. Detta åstadkoms med minsta möjliga prestandapåverkan på de värdar där analysen utförs av Security Centers serverdel.
 
-* **Kodinmatning upptäckt**: Kodinmatning är inmatningen av körbara moduler i processer eller trådar som körs. Den här tekniken används av skadlig kod för att komma åt, dölja eller förhindra borttagningen av data (t.ex. persistence). Den här varningen anger att en inmatad modul finns i kraschdumpen. Legitima programutvecklare kan ibland utföra den här typen av kodinmatning för icke-skadliga ändamål, t.ex för att ändra eller utöka ett befintligt program eller en komponent i operativsystemet. För att skilja mellan skadlig och icke-skadlig inmatning av moduler kontrollerar Security Center om den inmatade modulen överensstämmer med en profil för misstänkt beteende. Resultatet av den här kontrollen anges i ”SIGNATURE”-fältet i varningen och avspeglas i varningens allvarlighetsgrad, varningsbeskrivningen och i stegen för att åtgärda varningen.
+* **Kodinmatning upptäckt**: Kodinmatning är inmatningen av körbara moduler i processer eller trådar som körs. Den här tekniken används av skadlig kod för åtkomst till data, dölja eller förhindra borttagningen (till exempel persistence). Den här varningen anger att en inmatad modul finns i kraschdumpen. Legitima programutvecklare kan ibland utföra den här typen av kodinmatning för icke-skadliga ändamål, t.ex för att ändra eller utöka ett befintligt program eller en komponent i operativsystemet. För att skilja mellan skadlig och icke-skadlig inmatning av moduler kontrollerar Security Center om den inmatade modulen överensstämmer med en profil för misstänkt beteende. Resultatet av den här kontrollen anges i ”SIGNATURE”-fältet i varningen och avspeglas i varningens allvarlighetsgrad, varningsbeskrivningen och i stegen för att åtgärda varningen.
 * **Misstänkt kodsegment**: Det misstänkta kodsegmentet varnar om att ett kodsegment har tilldelats med metoder som inte är standard, t.ex. sådana som används av reflekterande inmatning och processurholkning. Ytterligare egenskaper i kodsegmentet bearbetas för att ge ett sammanhang vad gäller funktioner och beteenden för det rapporterade kodsegmentet.
 * **Shellcode upptäckt**: Shellcode är nyttolasten som körs när skadlig kod har utnyttjat en sårbarhet i ett program. Den här aviseringen anger att en analys av kraschdumpfiler har identifierat körbar kod som uppvisar beteenden som vanligen utförs av skadliga nyttolaster. Icke-skadlig programvara kan uppvisa detta beteende, men det är inte typiskt i normala programutvecklingsrutiner.
 * **Modulkapning upptäckt**: Windows använder DLL:er (Dynamic Link Library) för att program ska kunna använda vanliga systemfunktioner i Windows. DLL-kapning inträffar när skadlig kod ändrar inläsningsordningen för DLL-filer för att läsa in skadliga nyttolaster i minnet, där godtycklig kod kan köras. Den här aviseringen anger att en analys av kraschdumpfiler har upptäckt en modul med ett liknande namn som har lästs in från två olika sökvägar. En av de inlästa sökvägarna kommer från en vanlig plats för binära Windows-systemfiler. Legitima programutvecklare ändrar ibland inläsningsordningen för DLL-filer av icke-skadliga skäl, till exempel för instrumentering eller för att utöka Windows OS- eller Windows-program. För att skilja mellan skadliga och potentiellt oskadliga ändringar av DLL-filernas inläsningsordning kontrollerar Security Center om en inläst modul överensstämmer med en misstänkt profil eller inte.
@@ -184,15 +184,15 @@ Resursanalysen i Security Center fokuserar på PaaS-tjänster (platform as a ser
 * **Brute force SQL credentials** (Nyckelsökningsattack mot SQL-autentiseringsuppgifter): Den här aviseringen utlöses när det sker ett onormalt stort antal misslyckade inloggningar med olika autentiseringsuppgifter. I vissa fall identifierar aviseringen pågående intrångstestning. I andra fall identifierar aviseringen ett nyckelsökningsangrepp.
 
 ## <a name="contextual-information"></a>Sammanhangsbaserad information
-Vid en undersökning måste analytiker tillhandahålla information om sammanhanget så att en bedömning av risken och lämpliga åtgärder kan vidtas.  Till exempel, om en nätverksavvikelse upptäcks är det svårt att bestämma vilka åtgärder som ska vidtas utan att förstå vad som sker på nätverket som helhet eller vilken resurs som är målet för attacken. För att hjälpa med som kan en säkerhetsincident omfatta artefakter, relaterade händelser och information som kan hjälpa utredaren. Tillgängligheten för ytterligare information kan variera beroende på vilken typ av hot som har upptäckts och konfigurationen av din miljö. För vissa säkerhetsincidenter kan sådan information vara otillgänglig.
+Vid en undersökning måste analytiker tillhandahålla information om sammanhanget så att en bedömning av risken och lämpliga åtgärder kan vidtas.  Till exempel, om en nätverksavvikelse upptäcks är det svårt att bestämma vilka åtgärder som ska vidtas utan att förstå vad som sker på nätverket som helhet eller vilken resurs som är målet för attacken. För att hjälpa med som omfatta en säkerhetsincident artefakter, relaterade händelser och information som kan hjälpa utredaren. Tillgängligheten för ytterligare information kan variera beroende på vilken typ av hot som har upptäckts och konfigurationen av din miljö. För vissa säkerhetsincidenter kan sådan information vara otillgänglig.
 
 Om ytterligare information är tillgänglig visas den i säkerhetsincidenten under listan över aviseringar. Detta kan innehålla information som:
 
 - Logga raderingshändelser
 - PNP-enhet ansluten från okänd källa
-- Aviseringar som inte medför åtgärd
+- Aviseringar som inte är användbara
 - Skapa nytt konto
-- Filen avkodas med certutil-verktyget 
+- Filen avkodas med certutil-verktyget
 
 ![Varning om onormal åtkomst](./media/security-center-alerts-type/security-center-alerts-type-fig20.png)
 

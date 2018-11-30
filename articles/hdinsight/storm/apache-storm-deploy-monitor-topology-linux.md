@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 6cb3102206174422a3d8b4a0fb18f989d875e093
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 61f5f0d0b9e88174f82e960eb5d92db99d0cae71
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259062"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582861"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Distribuera och hantera Apache Storm-topologier i Azure HDInsight 
 
-I det här dokumentet lär du dig grunderna för att hantera och övervaka Storm-topologier som körs på Storm i HDInsight-kluster.
+I det här dokumentet lär du dig grunderna för att hantera och övervaka [Apache Storm](http://storm.apache.org/) topologier som körs på Storm i HDInsight-kluster.
 
 > [!IMPORTANT]
 > Stegen i den här artikeln kräver ett Linux-baserade Storm på HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement). 
@@ -186,7 +186,7 @@ Att välja en länk från den **Topology summary** avsnittet visar följande inf
   * **Inaktivera**: pausar en topologi som körs.
   * **Balansera om**: justerar topologins parallellitet. Du bör balansera om topologier som körs när du har ändrat antalet noder i klustret. Den här åtgärden gör att topologin kan justera parallelliteten och kompensera för ökat eller minskat antalet noder i klustret.
 
-    Mer information finns i <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Förstå parallellitet i en Storm-topologi</a>.
+    Mer information finns i <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">förstå parallellitet i en Apache Storm-topologi</a>.
   * **Avsluta**: avslutar en Storm-topologi efter en angiven tidsgräns.
 * **Topology stats**: statistik om topologin. Om du vill ange en mer specifik tidsram för de övriga objekten på sidan i länkarna i den **fönstret** kolumn.
 * **Spouts**: kanaler som används av topologin. Använd länkarna i det här avsnittet om du vill visa mer information om specifika kanaler.
@@ -208,10 +208,10 @@ Att välja en kanal från den **Spouts** eller **Bolts** avsnitt visar följande
 
 Storm-Användargränssnittet är byggt på REST API, så att du kan utföra liknande övervaknings- och funktioner med hjälp av REST-API. Du kan använda REST API för att skapa anpassade verktyg för att hantera och övervaka Storm-topologier.
 
-Mer information finns i [Storm UI REST API](http://storm.apache.org/releases/current/STORM-UI-REST-API.html). Följande information gäller med hjälp av REST-API med Apache Storm på HDInsight.
+Mer information finns i [Apache Storm UI REST API](http://storm.apache.org/releases/current/STORM-UI-REST-API.html). Följande information gäller med hjälp av REST-API med Apache Storm på HDInsight.
 
 > [!IMPORTANT]
-> Storm REST API är inte allmänt tillgängliga via internet och måste användas med en SSH-tunnel till HDInsight-klustrets huvudnod. Mer information om hur du skapar och använder en SSH-tunnel finns i [Använd SSH-tunnlar för att komma åt Ambari-webbgränssnittet, resurshanteraren, JobHistory, NameNode, Oozie och andra web UIs](../hdinsight-linux-ambari-ssh-tunnel.md).
+> Storm REST API är inte allmänt tillgängliga via internet och måste användas med en SSH-tunnel till HDInsight-klustrets huvudnod. Mer information om hur du skapar och använder en SSH-tunnel finns i [använda SSH-tunnlar till Apache Ambari-webbgränssnittet, resurshanteraren, JobHistory, NameNode, Apache Oozie och andra web UIs](../hdinsight-linux-ambari-ssh-tunnel.md).
 
 ### <a name="base-uri"></a>Bas-URI
 
@@ -232,10 +232,10 @@ REST API-begäranden måste använda **grundläggande autentisering**, så att d
 
 ### <a name="return-values"></a>Returvärden
 
-Information som returneras från REST-API: et kan bara användas från i klustret. Till exempel är det fullständigt kvalificerade domännamnet (FQDN) som returneras för Zookeeper-servrar inte tillgänglig från Internet.
+Information som returneras från REST-API: et kan bara användas från i klustret. Till exempel det fullständigt kvalificerade domännamnet (FQDN) returneras för [Apache ZooKeeper](https://zookeeper.apache.org/) servrar kan inte nås från Internet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [utveckla Java-baserade topologier med Maven](apache-storm-develop-java-topology.md).
+Lär dig hur du [utveckla Java-baserade topologier med Apache Maven](apache-storm-develop-java-topology.md).
 
-En lista över flera exempeltopologier finns i [exempeltopologier för Storm på HDInsight](apache-storm-example-topology.md).
+En lista över flera exempeltopologier finns i [exempeltopologier för Apache Storm på HDInsight](apache-storm-example-topology.md).

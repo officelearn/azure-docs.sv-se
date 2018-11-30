@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 560d1c55b159ed817c0b080171862c28ebe73f3e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d0a38defe41ea7c4e0da32cb73cf2bd73fd80950
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952808"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498207"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Skapa en fullständig Linux-miljö med den klassiska Azure-CLI
 I den här artikeln skapar vi ett enkelt nätverk med en belastningsutjämnare och ett par med virtuella datorer som är användbara för utveckling och enkel databehandling. Vi går igenom processen kommandot av kommandot förrän du har två arbetar, säker virtuella Linux-datorer som du kan ansluta från var som helst på Internet. Du kan sedan gå vidare till mer komplexa nätverk och miljöer.
@@ -54,7 +54,7 @@ azure config mode arm
 
 I följande exempel, ersätter du exempel parameternamn med dina egna värden. Parametern exempelnamnen inkluderar `myResourceGroup`, `mystorageaccount`, och `myVM`.
 
-Skapa resursgruppen. I följande exempel skapas en resursgrupp med namnet `myResourceGroup` i den `westeurope` plats:
+Skapa resursgruppen. I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `westeurope`:
 
 ```azurecli
 azure group create -n myResourceGroup -l westeurope
@@ -279,7 +279,7 @@ azure config mode arm
 I följande exempel, ersätter du exempel parameternamn med dina egna värden. Parametern exempelnamnen inkluderar `myResourceGroup`, `mystorageaccount`, och `myVM`.
 
 ## <a name="create-resource-groups-and-choose-deployment-locations"></a>Skapa resursgrupper och välj distributionen platser
-Azure-resursgrupper är logiska distribution entiteter som innehåller konfigurationsinformation och metadata för att aktivera logiska hantering av resursdistributioner. I följande exempel skapas en resursgrupp med namnet `myResourceGroup` i den `westeurope` plats:
+Azure-resursgrupper är logiska distribution entiteter som innehåller konfigurationsinformation och metadata för att aktivera logiska hantering av resursdistributioner. I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `westeurope`:
 
 ```azurecli
 azure group create --name myResourceGroup --location westeurope

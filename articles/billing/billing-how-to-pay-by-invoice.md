@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 207cc6f114153bebea82bbd996b02f92782b248b
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: bea7f0e88a371474db907dd74f08bd74c0e7c9e1
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275108"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584374"
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Skicka en begäran om att betala Azure-prenumeration med faktura
 
@@ -50,6 +50,6 @@ Du kan ändra betalningssätt för din Azure-prenumeration till faktura genom at
 
 Vi skickar du en kredit om vi behöver göra en kreditkontroll på grund av mängden kredit som du behöver. När du skickar in programmet, kan det ta 5 – 7 dagar att bearbeta.
 
-## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du fortfarande behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

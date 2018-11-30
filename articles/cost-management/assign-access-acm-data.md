@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/09/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: ''
-ms.openlocfilehash: 0c34b44bb0dc5458bab842e62a88403db08dc07a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 3096a79737c816747f36956958f9a16f86b9715d
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275426"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582606"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Tilldela åtkomst till Cost Management-data
 
@@ -42,7 +42,7 @@ Om du vill visa kostnadsdata, måste en användare ha minst skrivskyddad åtkoms
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Aktivera åtkomst till kostnader i EA-portalen
 
-Fakturering kontoomfånget kräver den **DA visa debiteringar** alternativet **aktiverad** i EA-portalen. Alla omfång kräver den **AO visa debiteringar** alternativet **aktiverad** i EA-portalen.
+Området avdelning kräver den **DA visa debiteringar** alternativet **aktiverad** i EA-portalen. Alla omfång kräver den **AO visa debiteringar** alternativet **aktiverad** i EA-portalen.
 
 För att aktivera ett alternativ:
 
@@ -51,7 +51,7 @@ För att aktivera ett alternativ:
 3. För kostnadshantering scope som du vill ge åtkomst för att aktivera alternativet kostnad till **DA visa debiteringar** och/eller **AO visa debiteringar**.  
     ![Registrering fliken visar DA och AO vy debiterar alternativ](./media/assign-access-acm-data/ea-portal-enrollment-tab.png)
 
-När Visningsalternativ för kostnad är aktiverade, måste de flesta omfång också rollbaserad åtkomstkontroll (RBAC) behörighet konfigureras i Azure-portalen.
+När Visningsalternativ för kostnad är aktiverade, kräver de flesta omfång också rollbaserad åtkomstkontroll (RBAC) behörighet konfiguration i Azure-portalen.
 
 ## <a name="enterprise-administrator-role"></a>Enterprise-administratörsrollen
 
@@ -75,7 +75,7 @@ Det kan ta upp till 30 minuter innan den nya användaren kan komma åt data i Co
 
 ### <a name="assign-department-scope-access"></a>Tilldela avdelning begränsa åtkomsten
 
-Åtkomst till området avdelning kräver avdelning (DA visa debiteringar) administratörsåtkomst i EA-portalen. Avdelning administratörer har behörighet att visa kostnader och användningsdata som är associerat med en avdelning eller till flera avdelningar.  Data för avdelningen innehåller alla prenumerationer som hör till ett konto för enhetsregistreringshanterare som är länkade till avdelningen. Ingen åtgärd krävs i Azure-portalen.
+Åtkomst till området avdelning kräver avdelning (DA visa debiteringar) administratörsåtkomst i EA-portalen. Avdelning administratörer har behörighet att visa kostnader och användningsdata som är associerat med en avdelning eller till flera avdelningar. Data för avdelningen innehåller alla prenumerationer som hör till ett konto för enhetsregistreringshanterare som är länkade till avdelningen. Ingen åtgärd krävs i Azure-portalen.
 
 1. Logga in på EA-portalen på [ https://ea.azure.com ](https://ea.azure.com) med ett enterprise-administratörskonto.
 2. Välj **hantera** i den vänstra rutan.
@@ -89,7 +89,7 @@ Det kan ta upp till 30 minuter innan den nya användaren kan komma åt data i Co
 
 ## <a name="assign-enrollment-account-scope-access"></a>Tilldela registreringsåtkomst konto omfång
 
-Åtkomst till kontoomfånget registreringen kräver kontoåtkomst ägare (AO visa debiteringar) i EA-portalen. Ägare kan visa kostnader och användningsdata som är associerad med ett konto för enhetsregistreringshanterare. Konto för enhetsregistreringshanterare innehåller alla Azure-prenumerationer som är kopplad till registreringen. Ingen åtgärd krävs i Azure-portalen.
+Åtkomst till kontoomfånget registreringen kräver kontoåtkomst ägare (AO visa debiteringar) i EA-portalen. Ägare kan visa kostnader och användningsdata som är associerade med de prenumerationer som skapats från den registreringskontot. Ingen åtgärd krävs i Azure-portalen.
 
 1. Logga in på EA-portalen på [ https://ea.azure.com ](https://ea.azure.com) med ett enterprise-administratörskonto.
 2. Välj **hantera** i den vänstra rutan.
@@ -101,9 +101,11 @@ Det kan ta upp till 30 minuter innan den nya användaren kan komma åt data i Co
 8. Klicka på **Lägg till** att skapa kontot.  
     ![Lägg till konto box](./media/assign-access-acm-data/add-account.png)
 
+När du har slutfört stegen ovan, användarkontot blir ett konto för enhetsregistreringshanterare i Enterprise portal och kan skapa prenumerationer. Användaren kan komma åt data om kostnader och användning för prenumerationer som de skapar.
+
 ## <a name="assign-management-group-scope-access"></a>Tilldela åtkomst till hanteringsgruppen omfång
 
-Åtkomst till en grupp hanteringsomfång kräver minst Cost Management Reader (eller läsare) behörighet. Du kan konfigurera behörighet till hanteringsgrupp i Azure-portalen. Du måste ha minst behörigheten deltagare till hanteringsgruppen för att aktivera åtkomst för andra. Och du måste också har aktiverat den **AO visa debiteringar** i EA-portalen.
+Åtkomst till en grupp hanteringsomfång kräver minst behörigheten Cost Management Reader (eller läsare). Du kan konfigurera behörigheter för en hanteringsgrupp i Azure-portalen. Du måste minst ha behörigheten administratör för användaråtkomst (eller ägare) att aktivera åtkomst för andra hanteringsgruppen. Och du måste också har aktiverat den **AO visa debiteringar** i EA-portalen.
 
 1. Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com).
 2. Välj **alla tjänster** i sidopanelen, söker du efter _hanteringsgrupper_och välj sedan **hanteringsgrupper**.
@@ -119,7 +121,7 @@ Det kan ta upp till 30 minuter innan den nya användaren kan komma åt data i Co
 
 ## <a name="assign-subscription-scope-access"></a>Tilldela omfång prenumerationsåtkomst
 
-Åtkomst till en prenumeration måste minst Cost Management Reader (eller läsare) behörighet. Du kan konfigurera behörighet till en prenumeration på Azure-portalen. Du måste ha minst deltagarbehörighet för prenumerationen för att aktivera åtkomst för andra. Och du måste också har aktiverat den **AO visa debiteringar** i EA-portalen.
+Åtkomst till en prenumeration kräver minst behörigheten Cost Management Reader (eller läsare). Du kan konfigurera behörigheter till en prenumeration på Azure-portalen. Du måste minst ha behörigheten administratör för användaråtkomst (eller ägare) att aktivera åtkomst för andra prenumerationen. Och du måste också har aktiverat den **AO visa debiteringar** i EA-portalen.
 
 1. Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com).
 2. Välj **alla tjänster** i sidopanelen, söker du efter _prenumerationer_och välj sedan **prenumerationer**.
@@ -133,7 +135,7 @@ Det kan ta upp till 30 minuter innan den nya användaren kan komma åt data i Co
 
 ## <a name="assign-resource-group-scope-access"></a>Tilldela resursåtkomst grupp omfång
 
-Åtkomst till en resursgrupp måste minst Cost Management Reader (eller läsare) behörighet. Du kan konfigurera behörigheter för en resursgrupp i Azure-portalen. Du måste ha minst behörigheten deltagare till resursgruppen för att aktivera åtkomst för andra. Och du måste också har aktiverat den **AO visa debiteringar** i EA-portalen.
+Åtkomst till en resursgrupp kräver minst behörigheten Cost Management Reader (eller läsare). Du kan konfigurera behörigheter till en resursgrupp i Azure-portalen. Du måste minst ha behörigheten administratör för användaråtkomst (eller ägare) att aktivera åtkomst för andra resursgruppen. Och du måste också har aktiverat den **AO visa debiteringar** i EA-portalen.
 
 1. Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com).
 2. Välj **alla tjänster** i sidopanelen, söker du efter _resursgrupper_och välj sedan **resursgrupper**.

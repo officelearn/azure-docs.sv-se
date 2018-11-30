@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: andrl
-ms.openlocfilehash: cc4b165b4fa04e22c9c57547df1657a0c6fc4537
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b89830d566b36b0446836d8f32aee5756e2d0991
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263535"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498436"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Partitionering i Azure Cosmos DB
 
@@ -47,7 +47,6 @@ Frågor som har åtkomst till data i en enda partition är mer kostnadseffektiva
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [en partitionsnyckel](partitioning-overview.md#choose-partitionkey)
 * Lär dig mer om [partitioner](partition-data.md)
 * Lär dig mer om [etablerat dataflöde i Azure Cosmos DB](request-units.md)
 * Lär dig mer om [global distribution i Azure Cosmos DB](distribute-data-globally.md)

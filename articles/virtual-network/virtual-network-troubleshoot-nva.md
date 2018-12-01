@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 2a0f6b75c540f319848805e8a9bda7b166d5d709
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 13cec39278577a818ef43f1215fd2e6653f15ed2
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138667"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678448"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Virtuell installation nätverksproblem i Azure
 
 Det kan förekomma VM eller VPN-anslutningsproblem och fel när du använder en tredje part virtuell nätverksinstallation (NVA) i Microsoft Azure. Den här artikeln innehåller grundläggande steg för att hjälpa dig att validera grundläggande krav för Azure-plattformen för NVA-konfigurationer.
 
-Teknisk support för tredje parts nva: er och deras integrering med Azure-plattformen tillhandahålls av NVA-leverantören. Om du har en anslutning eller routningsproblem som inbegriper en NVA, bör du [Kontakta leverantören av NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) direkt.
+Teknisk support för tredje parts nva: er och deras integrering med Azure-plattformen tillhandahålls av NVA-leverantören. 
+
+> [!NOTE]
+> Om du har en anslutning eller routningsproblem som inbegriper en NVA, bör du [Kontakta leverantören av NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) direkt.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -37,6 +40,7 @@ Teknisk support för tredje parts nva: er och deras integrering med Azure-plattf
 - Udr: er på undernät för virtuella nätverk som dirigerar trafik från NVA
 - Routning tabeller och regler i NVA (till exempel från NIC1 till NIC2)
 - Spårning på NVA-nätverkskort för att verifiera ta emot och skicka nätverkstrafik
+- När du använder en Standard-SKU och en offentlig IP-adress måste det finnas en NSG som skapats och en regel för explicit för att tillåta trafik ska dirigeras till NVA.
 
 ## <a name="basic-troubleshooting-steps"></a>Grundläggande åtgärder för felsökning
 
@@ -73,6 +77,8 @@ Använd PowerShell
           Execute: $nic2 #and check for an expected output:
           EnableIPForwarding   : True
           NetworkSecurityGroup : null
+
+**Sök efter NSG när du använder Standard Pubilc IP-adress för SKU** när med hjälp av ett Standard-SKU och en offentlig IP-adress måste vara en NSG som skapats och en regel för explicit för att tillåta trafik till NVA.
 
 **Kontrollera om trafiken kan dirigeras till en NVA**
 

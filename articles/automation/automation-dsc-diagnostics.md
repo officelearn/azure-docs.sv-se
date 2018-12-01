@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: aa543ad119716b25b7f3ab00d49efb9fe6fb6c3f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 88805f26869ad75830cef1aa074cd90cb947e76f
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244244"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52681746"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-log-analytics"></a>Vidarebefordra Azure Automation-Tillståndskonfiguration rapporterar data till Log Analytics
 
@@ -197,4 +197,4 @@ Log Analytics ger större operativa insyn till dina Automation State Configurati
 - Information om priser finns i [priser för Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/)
 - Om du vill se ett exempel på hur du använder Azure Automation-Tillståndskonfiguration i en pipeline för kontinuerlig distribution, se [kontinuerlig distribution med hjälp av Azure Automation Tillståndskonfiguration och Chocolatey](automation-dsc-cd-chocolatey.md)
 - Läs mer om hur du konstruerar olika sökfrågor och granskar Automation State Configuration-loggar med Log Analytics i [Loggsökningar i Log Analytics](../log-analytics/log-analytics-log-searches.md)
-- Läs mer om Log Analytics och datakällsamling i [insamling av Azure storage-data i Log Analytics-översikten](../log-analytics/log-analytics-azure-storage.md)
+- Läs mer om Log Analytics och datakällsamling i [insamling av Azure storage-data i Log Analytics-översikten](../azure-monitor/platform/collect-azure-metrics-logs.md)

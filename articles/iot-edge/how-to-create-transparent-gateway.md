@@ -4,16 +4,16 @@ description: Använda en Azure IoT Edge-enhet som en transparent gateway som kan
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2018
+ms.date: 11/29/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a867122aef5dd9d2152bca3ac10c11459ffc03f5
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 55968393ff64d9eed1f5b384094a77d0d169dc5d
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568479"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52681202"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Konfigurera en IoT Edge-enhet kan fungera som en transparent gateway
 
@@ -258,7 +258,11 @@ Du kan kontrollera vilka moduler som körs på en enhet med kommandot `iotedge l
 6. I den **granska mallen** väljer **skicka**.
 
 ## <a name="route-messages-from-downstream-devices"></a>Skicka meddelanden från underordnade enheter
-IoT Edge-körningen kan dirigera meddelanden som skickas från underordnade enheter precis som meddelanden som skickas av moduler. På så sätt kan du utföra analyser i en modul som körs på gatewayen innan du skickar data till molnet. Den nedan väg skulle användas för att skicka meddelanden från en underordnad enhet med namnet `sensor` till ett Modulnamn `ai_insights`.
+IoT Edge-körningen kan dirigera meddelanden som skickas från underordnade enheter precis som meddelanden som skickas av moduler. På så sätt kan du utföra analyser i en modul som körs på gatewayen innan du skickar data till molnet. 
+
+För närvarande är det sätt som du vidarebefordra meddelanden som skickas av efterföljande enheter genom att skilja dem från meddelanden som skickas av moduler. Meddelanden som skickas av moduler som alla innehåller en systemegenskap som kallas **connectionModuleId** men inte meddelanden som skickas av efterföljande enheter. Du kan använda WHERE-satsen i vägen för att exkludera alla meddelanden som innehåller den Systemegenskapen. 
+
+Den nedan väg skulle användas för att skicka meddelanden från alla underordnade enheter till ett Modulnamn `ai_insights`.
 
 ```json
 {
@@ -269,7 +273,7 @@ IoT Edge-körningen kan dirigera meddelanden som skickas från underordnade enhe
 }
 ```
 
-Läs mer om meddelanderoutning [modulsammansättningen](./module-composition.md).
+Läs mer om meddelanderoutning [distribuerar moduler och upprätta vägar](./module-composition.md#declare-routes).
 
 [!INCLUDE [iot-edge-extended-ofline-preview](../../includes/iot-edge-extended-offline-preview.md)]
 

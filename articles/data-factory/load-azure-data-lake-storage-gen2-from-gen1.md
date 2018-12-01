@@ -9,18 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 953585ffcc5a40d9ae48055f68a1c1fa84db25cc
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 40cf8dcf6729d577c4fff694b0380833fccb142d
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249340"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679366"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-preview-with-azure-data-factory"></a>Kopiera data från Azure Data Lake Storage Gen1 till Gen2 (förhandsversion) med Azure Data Factory
 
-[Azure Data Lake Storage Gen2 (förhandsversion)](../storage/data-lake-storage/introduction.md) lägger till ett protokoll med hierarkiskt filsystem namnområde och säkerhet: funktioner i Azure Blob Storage, vilket gör det enkelt att ansluta analytics ramverk till ett lager för beständig lagring. I Data Lake Storage Gen2 (förhandsversion), alla egenskaper för lagring av objekt förblir när du lägger till fördelarna med ett gränssnitt filsystem.
+Azure Data Lake Storage Gen2 förhandsversion är en uppsättning funktioner för analys av stordata, inbyggda i [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). Det kan du samverka med dina data med paradigm för lagring av system- och båda fil.
 
 Om du använder Azure Data Lake Storage Gen1, kan du utvärdera den nya funktionen för Gen2 genom att kopiera data från Data Lake Storage Gen1 till Gen2 med Azure Data Factory.
 
@@ -75,17 +75,15 @@ Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory
     ![Azure Data Lake Storage Gen1 sidan källans datalager](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page-adls-gen1.png)
     
 4. I den **ange Azure Data Lake Storage Gen1 anslutning** gör du följande steg:
-   1. Välj Data Lake Storage Gen1 för namnet på kontot.
-   2. Ange eller verifiera den **klient**, och klicka på Slutför.
-   3. Välj **Nästa**.
+   1. Välj Data Lake Storage Gen1 för namnet på kontot och ange eller verifiera den **klient**.
+   2. Klicka på **Testanslutning** för att verifiera inställningarna kan sedan välja **Slutför**.
+   3. Du ser en ny anslutning skapas. Välj **Nästa**.
    
    > [!IMPORTANT]
-   > I den här genomgången ska använda du en hanterad identitet för Azure-resurser för att autentisera ditt Data Lake Storage Gen1e. Se till att ge MSI rätt behörighet i Azure Data Lake Storage Gen1 genom att följa [instruktionerna](connector-azure-data-lake-store.md#managed-identity).
+   > I den här genomgången ska använda du en hanterad identitet för Azure-resurser för att autentisera ditt Data Lake Storage Gen1. Se till att ge MSI rätt behörighet i Azure Data Lake Storage Gen1 genom att följa [instruktionerna](connector-azure-data-lake-store.md#managed-identity).
    
    ![Ange konto för Azure Data Lake Storage Gen1](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
-   
-   4. Du ser en ny anslutning skapas. Välj **Nästa**.
-   
+      
 5. I den **Välj indatafil eller mapp** sidan, bläddra till mappen och filen som du vill kopiera över. Välj mappen/filen, Välj **Välj**:
 
     ![Välj indatafil eller mapp](./media/load-azure-data-lake-storage-gen2-from-gen1/choose-input-folder.png)
@@ -101,7 +99,7 @@ Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory
 8. I den **ange Azure Data Lake Storage Gen2 anslutning** gör du följande steg:
 
    1. Välj din Data Lake Storage Gen2 kan kontot från ”lagringskontonamnet” nedrullningsbar listruta.
-   2. Välj **Nästa**.
+   2. Välj **Slutför** att skapa anslutningen. Välj sedan **Nästa**.
    
    ![Ange konto för Azure Data Lake Storage Gen2](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 

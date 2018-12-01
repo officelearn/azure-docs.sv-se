@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 11/30/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: 32dbef04febb1f3a0cdd8654fc5ec1c5c367439e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 1e3dbe04652be479a327ed9494299f89ef13492a
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820009"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679400"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Distribuera din app till Azure App Service med FTP/S
 
@@ -31,7 +31,7 @@ FTP/S-slutpunkten för din app är redan aktiv. Det krävs ingen konfiguration f
 
 I den [Azure-portalen](https://portal.azure.com), öppna appens [resurssida](../azure-resource-manager/resource-group-portal.md#manage-resources).
 
-För att öppna FTP-instrumentpanelen, klickar du på **kontinuerlig leverans (förhandsversion)** > **FTP** > **instrumentpanelen**.
+För att öppna FTP-instrumentpanelen, klickar du på **Deployment Center** > **FTP** > **instrumentpanelen**.
 
 ![Öppna FTP-instrumentpanelen](./media/app-service-deploy-ftp/open-dashboard.png)
 

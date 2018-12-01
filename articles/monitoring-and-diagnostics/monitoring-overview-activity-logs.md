@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 0f69a7f5e7aef4da798ec7c9ce3b7af3a456c00e
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 22c9aeaa9f02d91ea90083fae69f28fa5984c565
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613366"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680624"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Övervaka aktivitet om prenumeration med Azure-aktivitetsloggen
 
@@ -83,7 +83,7 @@ Du kan filtrera din aktivitetslogg av de här fälten i Azure-portalen:
 
 När du har definierat en uppsättning filter kan fästa du en fråga till instrumentpanelen i Azure att alltid hålla ett öga på specifika händelser.
 
-För ännu mer kraft du kan klicka på den **loggar** ikon som visar aktivitetsloggdata i den [Log Analytics Activity Log Analytics-lösningen](../log-analytics/log-analytics-activity.md). Bladet aktivitetslogg erbjuder en grundläggande filter/Bläddra-miljö på loggar, men Log Analytics kan du pivotera, fråga och visualisera dina data på ett mer kraftfulla sätt.
+För ännu mer kraft du kan klicka på den **loggar** ikon som visar aktivitetsloggdata i den [Log Analytics Activity Log Analytics-lösningen](../azure-monitor/platform/collect-activity-logs.md). Bladet aktivitetslogg erbjuder en grundläggande filter/Bläddra-miljö på loggar, men Log Analytics kan du pivotera, fråga och visualisera dina data på ett mer kraftfulla sätt.
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>Exportera aktivitetslogg till en Loggprofil
 En **Loggprofil** styr hur din aktivitetslogg exporteras. Med en logg-profil kan konfigurera du:

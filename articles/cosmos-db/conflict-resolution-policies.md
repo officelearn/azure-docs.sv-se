@@ -7,49 +7,49 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: 1b2a122cc8a04d4f0044ecb0fe0341357bc29c0f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 5506b27ce56ca7a83ce16aab818767a392d77430
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514833"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680302"
 ---
-# <a name="conflict-types-and-resolution-policies"></a>Konflikt typer och principer för lösning
+# <a name="conflict-types-and-resolution-policies"></a>Konflikttyper och matchningsprinciper
 
-Skriva regioner konflikter och konfliktlösning policys är tillämpbara om Cosmos-konto har konfigurerats med flera.
+Skriva regioner konflikter och konfliktlösning policys är tillämpbara om Azure Cosmos DB-kontot har konfigurerats med flera.
 
-För Cosmos-konton som har konfigurerats med flera Skriv-regioner kan update konflikter uppstå när flera skrivare samtidigt uppdaterar samma objekt i flera regioner. Uppdateringskonflikter indelas i följande tre typer.
+Uppdateringskonflikter kan inträffa när skrivare samtidigt uppdaterar samma objekt i flera regioner för Azure Cosmos DB-konton som har konfigurerats med flera Skriv-regioner. Uppdateringskonflikter indelas i följande tre typer.
 
-1. **Infoga konflikter:** dessa konflikter kan uppstå när ett program samtidigt infogar två eller flera objekt med samma unika index (till exempel ID-egenskap) från två eller fler regioner. I det här fallet alla skrivningar kan lyckas inledningsvis i deras respektive lokala regioner, men baserat på principen för konfliktlösning du väljer kan bara ett objekt med den ursprungliga ID strävar slutligen.
+* **Infoga konflikter**: dessa konflikter kan uppstå när ett program samtidigt infogar två eller flera objekt med samma unika index från två eller fler regioner. Exempelvis kan kan den här konflikt uppstå med en ID-egenskap. Alla skrivningar kan lyckas inledningsvis i deras respektive lokala regioner. Men baserat på principen för konfliktlösning du väljer kan bara ett objekt med den ursprungliga ID strävar slutligen.
 
-1. **Ersätt konflikter:** dessa konflikter kan uppstå när ett program uppdaterar ett enskilt objekt samtidigt från två eller fler regioner.
+* **Ersätt konflikter**: dessa konflikter kan uppstå när ett program uppdaterar ett enskilt objekt samtidigt från två eller fler regioner.
 
-1. **Ta bort konflikter:** dessa konflikter kan uppstå när ett program samtidigt tar bort ett objekt från en region och uppdaterar den från andra regioner.
+* **Ta bort konflikter**: dessa konflikter kan uppstå när ett program samtidigt tar bort ett objekt från en region och uppdaterar den från en annan region.
 
 ## <a name="conflict-resolution-policies"></a>Konfliktlösningsprinciper
 
-Cosmos DB erbjuder en flexibel principstyrda mekanism för att lösa Uppdateringskonflikter. Du kan välja mellan följande två konflikt upplösning principer för en Cosmos-behållare:
+Azure Cosmos DB erbjuder en flexibel principstyrda mekanism för att lösa Uppdateringskonflikter. Du kan välja mellan två konflikt upplösning principer på en Azure Cosmos DB-behållare:
 
-- **Senaste-Write-Wins (LWW):** den här principen som standard använder en systemdefinierade tidsstämpelsegenskapen (baserat på protokollet tidssynkronisering clock). Du kan också när du använder SQL-API, kan Cosmos DB du ange någon annan anpassad numeriska egenskap (kallas även ”konflikt upplösning sökväg”) för att användas för konfliktlösning.  
+- **Senaste skriva Wins (LWW)**: den här principen, som standard använder en systemdefinierade tidsstämpel-egenskapen. Den baseras på protokollet tidssynkronisering klockan. Om du använder Azure Cosmos DB SQL API kan ange du någon annan anpassad numeriska egenskap som ska användas för konfliktlösning. En anpassad numeriska egenskap kallas också konflikt upplösning sökvägen. 
 
-  Om två eller flera objekt konflikt på Infoga eller ersätt-åtgärder, blir det objekt som innehåller det högsta värdet för ”konflikt upplösning sökväg” ”vinnare”. Om flera objekt har samma numeriskt värde för konflikt upplösning sökvägen, bestäms den valda ”vinnare”-versionen av systemet. Alla regioner garanteras att Konvergera till en enda vinnare och slutar upp med identiska version av det allokerade objektet. Om det finns konflikter delete som ingår, wins över antingen infoga den borttagna versionen alltid eller ersätta konflikter, oavsett vilket värde sökvägens konflikt lösning.
+  Om två eller flera objekt konflikt på Infoga eller ersätt-åtgärder, blir objektet med det högsta värdet för vägen med konflikt upplösning vinnaren. Systemet avgör vinnaren om flera objekt har samma numeriskt värde för konflikt upplösning sökvägen. Alla regioner garanteras att Konvergera till en enda vinnare och slutar in med samma version av det allokerade objektet. När du ta bort konflikter ingår den borttagna versionen alltid wins infoga eller ersätta konflikter. Det här resultatet inträffar oavsett värdet för konflikt upplösning sökvägen.
 
   > [!NOTE]
-  > Senaste-Write-Wins är principen för konfliktlösning standard och den är tillgänglig för SQL, Table, MongoDB, Cassandra och Gremlin-API-konton.
+  > Senaste skriva Wins är standardprincipen för konfliktlösning. Den är tillgänglig för SQL, Azure Cosmos DB Table, MongoDB, Cassandra och Gremlin-API-konton.
 
-  Mer information finns i [exempel med LWW står i konflikt upplösning principer](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+  Mer information finns i [exempel som använder LWW står i konflikt upplösning principer](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
 
-- **Anpassad:** den här principen är utformat för programdefinierade semantik för avstämningen av konflikter. När du anger den här principen på din Cosmos-behållare, måste du också registrera en merge lagrade proceduren som anropas automatiskt om Uppdateringskonflikter upptäcks under en databastransaktion på servern. Systemet innehåller exakt en gång garanterar för körning av en merge-procedur som en del av protokollet åtagande.  
+- **Anpassad**: den här principen är utformat för programdefinierade semantik för avstämningen av konflikter. När du anger den här principen på din Azure Cosmos DB-behållare kan behöva du också registrera en merge lagrad procedur. Den här proceduren anropas automatiskt när konflikter upptäcks under en databastransaktion på servern. Systemet innehåller exakt en gång garanterar för körning av en merge-procedur som en del av protokollet åtagande.  
 
-  Om du konfigurerar din behållare med anpassade lösningsalternativet men antingen inte kan registreras en merge-procedur på behållaren, eller om proceduren merge genereras ett undantag vid körning, men skrivs det orsakar en konflikt till konflikter feed. Programmet måste manuellt lösa konflikter i konflikter-feeden. Mer information finns i [exempel på användning av anpassade principen och hur du använder konflikter feed](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+  Det finns två saker att komma ihåg att om du konfigurerar din behållare med alternativet för anpassad lösning. Om du inte kan registreras en merge-procedur på behållaren eller merge-procedur genereras ett undantag vid körning, har det är i konflikt skrivits till konflikter feed. Sedan ditt program måste manuellt lösa konflikter i konflikter feed. Mer information finns i [exempel på hur du använder den anpassade principen och hur du använder det orsakar en konflikt feed](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
 
   > [!NOTE]
   > Principen för anpassad konfliktlösning är endast tillgänglig för SQL-API-konton.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Därefter kan du lära dig hur du konfigurerar principer för lösning av konflikt med hjälp av följande artiklar:
+Lär dig hur du konfigurerar principer för lösning av konflikt. Se följande artiklar:
 
-* [Hur du använder principen för konfliktlösning LWW](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
-* [Hur du använder principen för anpassad konfliktlösning](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
-* [Hur du använder konflikter-feed](how-to-manage-conflicts.md#read-from-conflict-feed)
+* [Använd principen för konfliktlösning LWW](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
+* [Använd principen för anpassad konfliktlösning](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
+* [Använd det orsakar en konflikt feed](how-to-manage-conflicts.md#read-from-conflict-feed)

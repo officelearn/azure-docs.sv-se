@@ -9,35 +9,47 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: mjbrown
-ms.openlocfilehash: 0e4105d6f56a8eb45a83e970c85319cf25041781
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: f2b69af6300c6044f7b65d0478301cc6e7b875bb
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514782"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680578"
 ---
 # <a name="availability-and-performance-tradeoffs-for-various-consistency-levels-in-azure-cosmos-db"></a>Tillgänglighet och prestanda kompromisser för olika konsekvensnivåer i Azure Cosmos DB
 
-Distribuerade databaser som förlitar sig på replikering för hög tillgänglighet, svarstider, eller båda, se grundläggande förhållandet mellan läsningskontinuitet jämfört med tillgänglighet, svarstid och dataflöde. Azure Cosmos DB närmar sig datakonsekvens som ett spektrum av alternativ i stället för de två extremlägena stark och eventuell konsekvens. Cosmos DB gör det möjligt för utvecklare att välja mellan fem väldefinierade konsekvensmodeller från konsekvensspektrumet (starkast till svagast) – **stark**, **begränsad föråldring**, **session** , **konsekvent prefix**, och **eventuell**. Var och en av de fem konsekvensmodeller ger tillgänglighet och prestanda kompromisser och backas upp av omfattande serviceavtal.
+Distribuerade databaser som förlitar sig på replikering för hög tillgänglighet, låg latens eller båda måste göra kompromisser. Kompromisser är mellan läsningskontinuitet jämfört med tillgänglighet, svarstid och dataflöde. 
+
+Azure Cosmos DB närmar sig datakonsekvens som ett spektrum av alternativ. Den här metoden innehåller fler alternativ än två extremval med stark och slutlig konsekvens. Du kan välja mellan fem väldefinierade modeller på konsekvensspektrumet. Från starkast till svagast, modellerna är:
+
+- Stark 
+- Begränsad föråldring 
+- Session 
+- Konsekvent prefix 
+- Eventuell 
+
+Varje modell ger tillgänglighet och prestanda kompromisser och backas upp av ett omfattande SLA.
 
 ## <a name="consistency-levels-and-latency"></a>Konsekvensnivåer och svarstider
 
-- Den **läsfördröjning** för alla konsekvensnivåer garanteras att alltid vara mindre än 10 millisekunder i 99: e percentilen och backas upp av serviceavtalet. Genomsnittliga (vid den 50: e percentilen) Läs svarstiden är normalt 2 millisekunder eller mindre.
+- Lässvarstid för alla konsekvensnivåer garanteras alltid ska vara mindre än 10 millisekunder i 99: e percentilen. Den här lässvarstid backas upp av serviceavtalet. Den genomsnittliga läsfördröjning den 50: e percentilen är vanligtvis 2 millisekunder eller mindre. Azure Cosmos-konton som sträcker sig över flera regioner och är konfigurerade med stark konsekvens är ett undantag garantin.
 
-- Förutom de Cosmos-konton som sträcker sig över flera regioner och är konfigurerade med stark konsekvens i **skrivsvarstid** återstående konsekvent nivåer garanteras att alltid vara mindre än 10 millisekunder vid 99th : e percentilen. Den här skrivfördröjningen backas upp av serviceavtalet. Genomsnittligt antal (vid den 50: e percentilen) skrivåtgärder svarstiden är vanligtvis 5 millisekunder eller mindre.
+-  Skrivfördröjningen för de återstående konsekvensnivåerna garanteras alltid ska vara mindre än 10 millisekunder i 99: e percentilen. Den här skrivfördröjningen backas upp av serviceavtalet. Genomsnittligt antal skrivåtgärder svarstid, den 50: e percentilen är vanligtvis 5 millisekunder eller mindre.
 
-- För Cosmos-konton som har flera regioner som har konfigurerats med stark konsekvens (för närvarande i förhandsversion), den **skrivsvarstid** garanteras vara mindre än < (2 * tidszonsbevarande tid/RTT) + 10 millisekunder i 99: e percentilen. RTT mellan de två längst bort regioner som är associerade med ditt Cosmos-konto. Den exakta RTT svarstiden är en funktion av hastighet för ljus avståndet och exakta Azure nätverkets topologi. Azure-nätverk ger inte någon fördröjning serviceavtal för RTT mellan två regioner som Azure. Cosmos DB-replikeringsfördröjningar visas i Azure-portalen för ditt Cosmos-konto, så att du kan övervaka replikeringsfördröjningar mellan olika regioner som associeras med ditt Cosmos-konto.
+Vissa Azure-Cosmos-konton kan ha flera regioner som har konfigurerats med stark konsekvens. I det här fallet garanteras skrivfördröjningen vara mindre än två gånger fram och åter tid plus 10 millisekunder i 99: e percentilen. RTT mellan de olika områdena längst bort är associerad med ditt Azure Cosmos-konto. Det är lika med RTT mellan de två längst bort regioner som är associerade med ditt Azure Cosmos-konto. Det här alternativet är för närvarande i förhandsversion. 
+
+Den exakta RTT svarstiden är en funktion av hastighet ljus avståndet och Azure nätverkstopologin. Azure-nätverk ger inte någon fördröjning serviceavtal för RTT mellan två regioner som Azure. För ditt Azure Cosmos-konto visas replikeringsfördröjningar i Azure-portalen. Du kan använda Azure-portalen för att övervaka replikeringsfördröjningar mellan olika regioner som associeras med ditt konto.
 
 ## <a name="consistency-levels-and-throughput"></a>Konsekvensnivåer och dataflöde
 
-- För samma antal enheter för programbegäran ger session, konsekventa prefix och slutlig konsekvensnivåer cirka 2 X läsningsdataflöde jämfört med starka och begränsad föråldring.
+- Ange ungefär två gånger läsgenomströmning jämfört med starka och begränsad föråldring för samma antal enheter för programbegäran, session, konsekventa prefix och slutlig konsekvensnivåer.
 
-- Genomströmning för skrivning för begäransenheter är identiska för alla konsekvensnivåer för en viss typ av Skrivåtgärden infoga, Ersätt, upsert, ta bort osv.
+- För en viss typ av skrivåtgärd som infoga, Ersätt, upsert och ta bort, är genomströmning för skrivning för begäransenheter identiska för alla konsekvensnivåer.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Sedan kan du läsa mer om global distribution och allmän konsekvens kompromisser i distribuerade system med hjälp av följande artiklar:
+Läs mer om global distribution och allmän konsekvens kompromisser i distribuerade system. Se följande artiklar:
 
 * [Konsekvens kompromisser i moderna distribuerad databas systemdesign](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
 * [Hög tillgänglighet](high-availability.md)
-* [Cosmos DB-SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+* [Azure Cosmos DB-SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

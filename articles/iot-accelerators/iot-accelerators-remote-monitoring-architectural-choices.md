@@ -6,14 +6,14 @@ manager: camerons
 ms.author: timlav
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/12/2018
+ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 94641796fa77e03efc7158bc3aaf4bde9385c899
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 20af014e5a59cb526d5b96e543b10d5b2b6d6937
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824276"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679604"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Fjärråtkomst övervakning arkitektoniska val
 
@@ -25,7 +25,7 @@ Azure IoT Remote Monitoring solution accelerator är en öppen källkod, MIT-lic
 
 Lösningen för fjärrövervakning följer den rekommenderade [Azure IoT-Referensarkitektur](https://aka.ms/iotrefarchitecture).
 
-Den här artikeln beskriver fram arkitekturrelaterad eller teknisk valen som gjorts och alternativen som anses vara i varje delsystem fjärrövervakning. De tekniska alternativen Microsoft som gjorts i lösningen för fjärrövervakning är dock inte det enda sättet att implementera en IoT lösning för fjärrövervakning. Du bör se teknisk implementering som utgångspunkt för att skapa en lyckade tillämpning och du bör ändra den till:
+Den här artikeln beskriver viktiga fram arkitekturrelaterad eller teknisk valen som gjorts i varje delsystem fjärrövervakning. De tekniska alternativen Microsoft som gjorts i lösningen för fjärrövervakning är dock inte det enda sättet att implementera en IoT lösning för fjärrövervakning. Du bör se teknisk implementering som utgångspunkt för att skapa en lyckade tillämpning och du bör ändra den till:
 
 - Anpassa färdigheter som är tillgängliga och i din organisation.
 - Alla dina lodrät programbehov.
@@ -52,7 +52,8 @@ Azure IoT Hub används som molgatewayen fjärrövervakning lösning. [IoT Hub](h
 För IoT-enhetsanslutning, kan du använda:
 
 - Den [IoT Hub device SDK: er](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-device-sdks) att implementera ett internt klientprogram för din enhet. SDK: erna erbjuder omslutningar kring IoT Hub REST API och hanterar scenarier, t.ex nya försök.
-- Integrering med Azure IoT Edge i lösningsaccelerator att distribuera och hantera anpassade moduler som körs i behållare på dina enheter.
+- Integrering med Azure IoT Edge för att distribuera och hantera anpassade moduler som körs i behållare på dina enheter.
+- Integrering med automatisk enhetshantering i IoT Hub för att hantera anslutna enheter i grupp.
 
 ### <a name="stream-processing"></a>Strömbearbetning
 
@@ -62,7 +63,7 @@ För bearbetning av dataströmmen använder av lösningen för fjärrövervaknin
 
 För lagring använder lösningsacceleratorn för fjärrövervakning både Azure Time Series Insights och Azure Cosmos DB. Azure Time Series Insights lagrar meddelanden som skickas via IoT Hub från dina anslutna enheter. Solution accelerator använder Azure Cosmos DB för alla andra lagringsenheter, till exempel kall lagring, definitioner av regler, larm och konfigurationsinställningar.
 
-Azure Cosmos DB är den rekommendera Allmänt varma storage-lösningen för IoT-program även om lösningar, till exempel Azure Time Series Insights och Azure Data Lake är lämpliga för många användningsområden. Med Azure Time Series Insights kan du få djupare insikter om dina time series-sensordata genom att identifiera trender och avvikelser. Den här funktionen kan du utföra rotorsaksanalyser och undvika kostsamma avbrott.
+Azure Cosmos DB är den rekommendera Allmänt varma storage-lösningen för IoT-program. Lösningar som Azure Time Series Insights och Azure Data Lake är lämpliga för många användningsfall. Med Azure Time Series Insights kan du få djupare insikter om dina time series-sensordata genom att identifiera trender och avvikelser. Den här funktionen kan du utföra rotorsaksanalyser och undvika kostsamma avbrott.
 
 > [!NOTE]
 > Time Series Insights är inte tillgänglig för tillfället i Azure i Kina-molnet. Nya fjärrövervakning solution accelerator distributioner i Azure i Kina-molnet använder Cosmos DB för lagring av alla.

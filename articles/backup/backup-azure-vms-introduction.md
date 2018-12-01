@@ -9,15 +9,15 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/29/2018
 ms.author: markgal
-ms.openlocfilehash: ae02a1bcbf00a022cfd884b02141ce084f1fffa8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 806d68370921a7658066a9bad770b36b4e8e59bf
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232468"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680046"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planera din infrastruktur för VM-säkerhetskopiering i Azure
-Den här artikeln ger prestanda och resurs förslag på hur du planerar din infrastruktur för säkerhetskopiering av virtuell dator. Den definierar även viktiga aspekter av Backup-tjänsten; följande aspekter kan vara avgörande för att fastställa din arkitektur kapacitetsplanering och schemaläggning. Om du har [förberett din miljö](backup-azure-arm-vms-prepare.md), planering är nästa steg innan du börjar [att säkerhetskopiera virtuella datorer](backup-azure-arm-vms.md). Om du behöver mer information om virtuella Azure-datorer finns i den [dokumentation om Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/). 
+Den här artikeln ger prestanda och resurs förslag på hur du planerar din infrastruktur för säkerhetskopiering av virtuell dator. Den definierar även viktiga aspekter av Backup-tjänsten; följande aspekter kan vara avgörande för att fastställa din arkitektur kapacitetsplanering och schemaläggning. Om du har [förberett din miljö](backup-azure-arm-vms-prepare.md), planering är nästa steg innan du börjar [att säkerhetskopiera virtuella datorer](backup-azure-arm-vms.md). Om du behöver mer information om virtuella Azure-datorer finns i den [dokumentation om Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 > [!NOTE]
 > Den här artikeln är avsedd för hanterade och ohanterade diskar. Om du använder ohanterade diskar finns rekommendationer för lagringskonton. Om du använder [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md), du behöver bekymra dig om problem med prestanda eller resurs. Azure optimerar lagringsanvändningen åt dig.
@@ -96,7 +96,19 @@ Total tid för säkerhetskopiering på mindre än 24 timmar är giltig för inkr
 
 ### <a name="why-are-backup-times-longer-than-12-hours"></a>Varför är säkerhetskopieringstider som är längre än 12 timmar?
 
-Säkerhetskopieringen består av två faser: ta ögonblicksbilder och överföra ögonblicksbilderna till valvet. Backup-tjänsten optimerar för lagring. När du överför ögonblicksbilddata till ett valv, överför tjänsten endast inkrementella ändringar från tidigare ögonblicksbild.  Tjänsten beräknar kontrollsumma för block för att fastställa de inkrementella ändringarna. Om ett block ändras identifieras blocket som ett block som ska skickas till valvet. Sedan ytterligare tester för tjänsten i var och en av de identifierade blocken, söker efter möjligheter att minimera dataöverföring. När du har utvärderat alla ändrade block tjänsten slår samman ändringarna och skickar dem till valvet. I vissa äldre program är små, fragmenterade skrivningar inte optimala för lagring. Om ögonblicksbilden innehåller många små, fragmenterade skrivningar, är tjänsten extra tid för bearbetning av data som skrivits av programmen. För program som körs på den virtuella datorn, är det minsta rekommenderade programskrivningar blocket 8 KB. Om programmet använder ett block med mindre än 8 KB, sker prestanda vid säkerhetskopiering. Hjälp med justering ditt program för att förbättra prestanda vid säkerhetskopiering finns i [justering program för optimala prestanda med Azure storage](../virtual-machines/windows/premium-storage-performance.md). Även om artikeln på Säkerhetskopieringens prestanda använder Premium storage-exempel, gäller vägledningen för Standard storage-diskar.
+Säkerhetskopieringen består av två faser: ta ögonblicksbilder och överföra ögonblicksbilderna till valvet. Backup-tjänsten optimerar för lagring. När du överför ögonblicksbilddata till ett valv, överför tjänsten endast inkrementella ändringar från tidigare ögonblicksbild.  Tjänsten beräknar kontrollsumma för block för att fastställa de inkrementella ändringarna. Om ett block ändras identifieras blocket som ett block som ska skickas till valvet. Sedan ytterligare tester för tjänsten i var och en av de identifierade blocken, söker efter möjligheter att minimera dataöverföring. När du har utvärderat alla ändrade block tjänsten slår samman ändringarna och skickar dem till valvet. I vissa äldre program är små, fragmenterade skrivningar inte optimala för lagring. Om ögonblicksbilden innehåller många små, fragmenterade skrivningar, är tjänsten extra tid för bearbetning av data som skrivits av programmen. För program som körs på den virtuella datorn, är det minsta rekommenderade programskrivningar blocket 8 KB. Om programmet använder ett block med mindre än 8 KB, sker prestanda vid säkerhetskopiering. Hjälp med justering ditt program för att förbättra prestanda vid säkerhetskopiering finns i [justering program för optimala prestanda med Azure storage](../virtual-machines/windows/premium-storage-performance.md). Även om artikeln på Säkerhetskopieringens prestanda använder Premium storage-exempel, gäller vägledningen för Standard storage-diskar.<br>
+Det kan finnas flera orsaker till länge säkerhetskopieringstiden:
+  1. **Första säkerhetskopiering för en nyligen tillagd disk till en redan skyddad virtuell dator** <br>
+    Om en virtuell dator är redan som inkrementell säkerhetskopiering, när en ny diskarna läggs sedan säkerhetskopieringen kan gå miste om 1 dag SLA beroende på storleken på den nya disken.
+  2. **Fragmentering** <br>
+    Om kunden programmet är felaktigt konfigurerat som tar små fragmenterade skrivningar.<br>
+  3. **Kundens lagringskonto överbelastas** <br>
+      a. Om säkerhetskopian är schemalagd under kundens produktion program tidsperioden.  
+      b. Om det finns fler än 5 till 10 diskar från samma lagringskonto.<br>
+  4. **Konsekvens Check(CC) läge** <br>
+      För > 1TB diskar, om säkerhetskopieringen sker i CC-läge bero på som anges nedan:<br>
+        a. Den hantera disken flyttar som en del av kundens virtuella datorn startas om.<br>
+        b. Kunden främjar ögonblicksbild till grundläggande blob.<br>
 
 ## <a name="total-restore-time"></a>Totalt antal återställningstid
 

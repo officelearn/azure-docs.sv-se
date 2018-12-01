@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: 3af8aec6bb2fe08c4bd1ef65e4f272a6f85af50b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 6d2e87c50eba293df7c5130ea6bf192ed7f83277
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427445"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679825"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analysera video-och ljudfiler
 
@@ -33,7 +33,8 @@ Media Services stöder för närvarande följande inbyggda analyzer förinställ
 
 |**Förinställda namnet**|**Scenario**|**Detaljer**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Analysera ljud|Förinställningen gäller en fördefinierad uppsättning AI-baserade analysis-åtgärder, inklusive taltranskription. Förinställningen stöder för närvarande, bearbetning av innehåll med en enda ljudspår.<br/>Du kan ange språket för ljud nyttolasten i indata i BCP-47 formatet för ”språk tagg-regioner” (till exempel ”en-US”). Listan över språk som stöds är ”en-US”, ”en-GB”, ”es-ES”, ”es-MX”, fr-FR, it-IT, ja-JP, pt-BR, zh-CN. Om språket inte är har angetts eller värdet Null, ska automatisk språkidentifiering användas. Funktionen för identifiering av automatisk språk stöder för närvarande engelska, kinesiska, franska, tyska, italienska, japanska, spanska, ryska och portugisiska.|
+|**AudioAnalyzerPreset**|Analysera ljud|Förinställningen gäller en fördefinierad uppsättning AI-baserade analysis-åtgärder, inklusive taltranskription. Förinställningen stöder för närvarande, bearbetning av innehåll med en enda ljudspår.<br/>Du kan ange språket för ljud nyttolasten i indata i BCP-47 formatet för ”språk tagg-regioner” (till exempel ”en-US”). ”en-US”, ”en-GB”, ”es-ES”, ”es-MX”
+fr-FR, it-IT, ja-JP, pt-BR, zh-CN, de-DE, 'ar-t.ex ”., ru-RU,” Hej-IN ”. Om språket inte är har angetts eller värdet Null, ska automatisk språkidentifiering användas. Funktionen för identifiering av automatisk språk stöder för närvarande engelska, kinesiska, franska, tyska, italienska, japanska, spanska, ryska och portugisiska. Funktionen för automatisk identifiering fungerar bäst med ljudinspelningar med tydligt går tal. Om automatisk språkidentifiering inte kan hitta språket, kommer avskrift att återgå till engelska.|
 |**VideoAnalyzerPreset**|Analysera ljud och video|Extraherar insikter (omfattande metadata) från både ljud och video och matar ut en fil i JSON-format. Du kan ange om du bara vill lyfta ut kunskaper ljud vid bearbetning av en videofil. Mer information finns i [analysera video](analyze-videos-tutorial-with-api.md).|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset

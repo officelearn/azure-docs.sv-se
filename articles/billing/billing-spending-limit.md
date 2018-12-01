@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
-ms.openlocfilehash: a564e72cc695830edfa5092eddc1f4f9b80ba519
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b4f38d80bfddc342d83a3552efe5d4a60cf6350f
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583542"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680131"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Förstå utgiftsgränsen och om hur du tar bort den i Azure
 
@@ -29,7 +29,7 @@ Utgiftsgräns i Azure finns för att förhindra utgifter under din kredit. Alla 
 
 När din användning leder till avgifter som använt månatliga mängder som ingår i din prenumeration, inaktiveras de tjänster som du har distribuerat under resten av den aktuella faktureringsperioden. 
 
-Till exempel när du lägga alla krediten som ingår i prenumerationen molntjänster som du har distribuerat tas bort från produktionen och dina virtuella Azure-datorer stoppas och frigörs. Data i dina lagringskonton och databaser är tillgängliga i skrivskyddat läge.
+Till exempel när du lägga alla krediten som ingår i prenumerationen molntjänster som du har distribuerat tas bort från produktionen och dina virtuella Azure-datorer stoppas och frigörs. Data i dina lagringskonton är tillgängliga i skrivskyddat läge.
 
 I början av nästa faktureringsperiod om prenumeration erbjudandet omfattar krediter i flera månader aktiveras prenumerationen igen automatiskt. Du kan sedan distribuera dina molntjänster och har fullständig åtkomst till dina lagringskonton och databaser.
 

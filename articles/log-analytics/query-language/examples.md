@@ -10,17 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 9ef5af3f32e6734188d24c520cf0ff1df5044f40
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 486e485a78f767c4d75461558d06068a2e1c4525
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49071327"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682817"
 ---
 # <a name="log-analytics-query-examples"></a>Logga Analytics-fråga exempel
 Den här artikeln innehåller olika exempel på [frågor](../log-analytics-queries.md) med hjälp av den [Kusto språk](https://docs.microsoft.com/azure/kusto/query/) att hämta olika typer av data från Log Analytics. Olika metoder för att konsolidera och analysera data, så du kan använda de här exemplen för att identifiera olika strategier som du kan använda för dina egna behov.  

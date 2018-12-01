@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: e18b670b94962c0e7aa469402228fd4ed95d846b
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 9b9789979f6fa3beb606007ca252827c7a1599e0
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287259"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682290"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Skapa, visa och hantera klassiska måttaviseringar med Azure Monitor
 
@@ -42,7 +42,7 @@ Klassiska måttaviseringar i Azure Monitor är ett sätt att få ett meddelande 
 
 9. Om du använder Azure Automation kan välja du en runbook som ska köras när aviseringen utlöses.
 
-10. Välj **OK** att skapa aviseringen.
+10. Skapa aviseringen genom att välja **OK**.
 
 Inom några minuter, aviseringen är aktiv och utlöser som det beskrivits.
 
@@ -126,36 +126,9 @@ Detta avsnitt visar hur du använder PowerShell kommandon skapa, visa och hanter
     Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 
-8. Du kan använda den `Add-AlertRule` cmdlet för att skapa, uppdatera eller inaktivera en aviseringsregel. Du kan skapa e-post och webhook-egenskaper med hjälp av `New-AzureRmAlertRuleEmail` och `New-AzureRmAlertRuleWebhook`respektive. I cmdleten varningsregel tilldela dessa egenskaper som åtgärder för att den **åtgärder** egenskapen för regeln. I följande tabell beskrivs de parametrar och värden som används för att skapa en avisering med mått.
-
-    | Parameter | värde |
-    | --- | --- |
-    | Namn |simpletestdiskwrite |
-    | Platsen för den här aviseringsregeln |Östra USA |
-    | ResourceGroup |montest |
-    | TargetResourceId |/subscriptions/S1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-    | MetricName om aviseringen som har skapats |\PhysicalDisk (_Total) \Disk Diskskrivningar/sek. Se den `Get-MetricDefinitions` cmdlet om hur du hämtar exakt tjänstmåttets namn |
-    | Operator |GreaterThan |
-    | Tröskelvärdet (antal per sekund i för det här måttet) |1 |
-    | Fönsterstorlek (: mm: ss-format) |00:05:00 |
-    | Aggregator (statistik för mått, som använder Genomsnittligt antal i det här fallet) |Medel |
-    | anpassade e-postmeddelanden (Strängmatrisen) |'foo@example.com','bar@example.com' |
-    | Skicka e-post till ägare, deltagare och läsare |-SendToServiceOwners |
-
-9. Skapa en e poståtgärd
-
-    ```PowerShell
-    $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
-    ```
-
-10. Skapa en Webhook-åtgärd
-
-    ```PowerShell
-    $actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://example.com?token=mytoken
-    ```
+8. Klassiska Varningsregler kan inte längre skapas via PowerShell. Skapa en varningsregel som du behöver använda den nya [”Lägg till AzureRmMetricAlertRule'](https://docs.microsoft.com/powershell/module/azurerm.insights/add-azurermmetricalertrule?view=azurermps-6.13.0) kommando.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Skapa en klassisk måttavisering med en Resource Manager-mall](monitoring-enable-alerts-using-template.md).
 - [Har en klassisk måttavisering meddela en icke-Azure-system med en webhook](insights-webhooks-alerts.md).
-

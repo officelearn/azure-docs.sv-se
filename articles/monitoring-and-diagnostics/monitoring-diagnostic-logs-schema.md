@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 035b12c85720817501da9f4ad580aa8e7da8fdc4
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9691e139f8eedd18d3c382d3ea8741125a0e9680
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280535"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679638"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Tjänster som stöds, scheman och kategorier för Azure-diagnostikloggar
 
@@ -208,4 +208,4 @@ Schemat för resursdiagnostikloggar varierar beroende på resursen och log kateg
 * [Mer information om diagnostikloggar](monitoring-overview-of-diagnostic-logs.md)
 * [Stream resursdiagnostikloggar till **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Ändra resursdiagnostikinställningar med hjälp av Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx)
-* [Analysera loggar från Azure storage med Log Analytics](../log-analytics/log-analytics-azure-storage.md)
+* [Analysera loggar från Azure storage med Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md)

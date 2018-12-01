@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 3e8230ea7b2d6d0e44468bd90289ee82d5a82367
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 0226e5dc03c3f10b951a4e4cc1d97a999c952f3b
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715716"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678890"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Med Azure Monitor för virtuella datorer (förhandsversion) mappas och förstå programkomponenter
 Visa de identifierade programkomponenterna i Windows och Linux-datorer som körs i Azure som din miljö kan observeras på två sätt med Azure Monitor för virtuella datorer från en virtuell dator direkt eller i grupper med virtuella datorer från Azure Monitor. 
@@ -107,7 +107,7 @@ Funktionen karta innehåller en global vy över dina virtuella datorer och deras
 
 ![Azure Monitor Konsekvens karta: översikt](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-Från den **arbetsytan** Väljaren överst på sidan om du har mer än en Log Analytics-arbetsyta väljer du den arbetsyta som har aktiverats med lösningen och har virtuella datorer som rapporterar till den. Den **grupp** väljare returnerar prenumerationer, resursgrupper, [datorgrupper](../../log-analytics/log-analytics-computer-groups.md), och VM scale sets med datorer som är relaterade till den valda arbetsytan. Ditt val har endast gäller för funktionen kartan och inget prestanda eller kartan.
+Från den **arbetsytan** Väljaren överst på sidan om du har mer än en Log Analytics-arbetsyta väljer du den arbetsyta som har aktiverats med lösningen och har virtuella datorer som rapporterar till den. Den **grupp** väljare returnerar prenumerationer, resursgrupper, [datorgrupper](../../azure-monitor/platform/computer-groups.md), och VM scale sets med datorer som är relaterade till den valda arbetsytan. Ditt val har endast gäller för funktionen kartan och inget prestanda eller kartan.
 
 Kartan visas som standard de senaste 30 minuterna. Med hjälp av den **TimeRange** Väljaren, som du kan fråga efter historiska tidsintervall på upp till en timme att visa hur beroenden tittat tidigare (exempelvis under en incident eller innan en ändring inträffat).   
 

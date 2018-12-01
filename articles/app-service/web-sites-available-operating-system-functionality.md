@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
-ms.openlocfilehash: 7cf7078353de27c35a607fa8ef1921d6ed4b54b4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5ab54dcd94ebf0a1bad71613a8d749cef0de64f4
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247355"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678686"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funktioner för operativsystemet på Azure App Service
 Den här artikeln beskriver de funktioner för vanliga baslinje operativsystemet som är tillgänglig för alla Windows-appar som körs på [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Den här funktionen innehåller filen, nätverk, och åtkomst till behållarregistret, och diagnostikloggar och händelser. 
@@ -60,7 +60,12 @@ I grunden är är App Service en tjänst som körs på Azure PaaS (plattform som
 - En enhet för program som innehåller Azure cspkg Paketfiler som används uteslutande av App Service (och otillgängligt för kunder)
 - En ”användare”-enhet (C:\ enheten) vars storlek varierar beroende på storleken på den virtuella datorn. 
 
-Det är viktigt att övervaka din diskanvändning när programmet växer. Om diskkvoten har nåtts kan det ha negativa effekter i ditt program.
+Det är viktigt att övervaka din diskanvändning när programmet växer. Om diskkvoten har nåtts kan det ha negativa effekter i ditt program. Exempel: 
+
+- Appen kan genereras ett felmeddelande om att det finns inte tillräckligt med utrymme på disken.
+- Du kan se diskfel när du går till Kudu-konsolen.
+- Distribution från VSTS eller Visual Studio kan misslyckas med `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
+- Långsamma prestanda sjunka för din app.
 
 <a id="NetworkDrives"></a>
 

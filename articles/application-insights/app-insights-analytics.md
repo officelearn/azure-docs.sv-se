@@ -9,16 +9,15 @@ ms.assetid: 0a2f6011-5bcf-47b7-8450-40f284274b24
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6db98332fc7d896613a3318421e9a96bbb50cd15
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: e389ff0d664403704f120f5ff424b3d5d19baa8a
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159150"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682222"
 ---
 # <a name="analytics-in-application-insights"></a>Analys i Application Insights
 Analytics är kraftfullt Sök och fråga i Verktyg för [Application Insights](app-insights-overview.md). Analytics är ett Webbverktyg så att ingen installation krävs. Om du redan har konfigurerat Application Insights för en av dina appar så att du kan analysera din Apps data genom att öppna Analytics från din app [översiktsbladet](app-insights-dashboards.md).

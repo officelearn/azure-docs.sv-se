@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 10/27/2017
+ms.date: 11/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: caa1b4b3bf1f9b8fb1a34bd58dde04f13fbc6c88
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 367ecd4534a2221e996e706f8b4426ea6f70f213
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614574"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680505"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Kom igång med roller, behörigheter och säkerhet med Azure Monitor
 Många team behöver strikt reglera åtkomst till övervakningsdata och inställningar. Till exempel om du har som fungerar endast om hur du övervakar (support-tekniker, devops-tekniker) eller om du använder en leverantör av hanterade tjänster kan du behöva ge dem åtkomst till endast övervakningsdata samtidigt begränsa deras möjlighet att skapa, ändra, eller ta bort resurser. Den här artikeln visar hur du snabbt gäller en inbyggd övervakning RBAC-roll för en användare i Azure eller skapa en egen anpassad roll för en användare behöver begränsade behörigheter för övervakning. Det diskuterar sedan säkerhetsaspekter för dina Azure Monitor-relaterade resurser och hur du kan begränsa åtkomsten till den data de innehåller.
@@ -86,7 +86,7 @@ Om ovanstående inbyggda roller inte uppfyller de specifika behoven för ditt te
 | Microsoft.Insights/MetricDefinitions/Read |Läs måttdefinitionerna (lista över tillgängliga typer av mått för en resurs). |
 | Microsoft.Insights/Metrics/Read |Läsa måtten för en resurs. |
 | Microsoft.Insights/Register/Action |Registrera resursprovidern Azure Monitor. |
-| Microsoft.Insights/ScheduledQueryRules/[Read, Write, Delete] |Läs/Skriv/ta bort loggaviseringar för Application Insights. |
+| Microsoft.Insights/ScheduledQueryRules/[Read, Write, Delete] |Läs/Skriv/ta bort loggaviseringar i Azure Monitor. |
 
 
 
@@ -154,7 +154,7 @@ New-AzureRmRoleDefinition -Role $role
 > 
 
 ### <a name="limiting-access-to-monitoring-related-event-hubs"></a>Begränsa åtkomsten till relaterade till prestandaövervakning händelsehubbar
-Ett liknande mönster kan följas med event hubs, men först måste du skapa en dedikerad Listen auktoriseringsregeln. Om du vill bevilja åtkomst till ett program som behöver bara lyssna till relaterade till prestandaövervakning event hubs gör du följande:
+Ett liknande mönster kan följas med event hubs, men först måste du skapa en dedikerad Listen auktoriseringsregeln. Om du vill bevilja åtkomst till ett program som endast ska lyssna på relaterade till prestandaövervakning händelsehubbar kan du göra följande:
 
 1. Skapa en princip för delad åtkomst på den event Hub som har skapats för direktuppspelning övervakningsdata med endast Listen anspråk. Detta kan göras i portalen. Exempel: du kan anropa den ”monitoringReadOnly”. Om möjligt ska du ge nyckeln direkt till konsumenten och hoppa över nästa steg.
 2. Om användaren behöver för att kunna hämta den viktiga ad hoc, bevilja användaren listnycklar för åtgärden för den händelsehubben. Detta är också nödvändigt för användare som behöver för att kunna ange en diagnostikinställning eller loggprofilen strömma till event hubs. Du kan till exempel skapa en regel för RBAC:

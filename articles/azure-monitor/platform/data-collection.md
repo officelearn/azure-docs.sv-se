@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: 756e1426d417c47210e3b766d9d67ef1a70d2516
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 5f7c82143ab11787f5ce186623c1ed4903891c18
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334154"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680359"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Övervakning av data som samlas in av Azure Monitor
 [Azure Monitor](../../azure-monitor/overview.md) är en tjänst som hjälper dig att övervaka dina program och resurser som de förlitar sig på. Centrala för den här funktionen är lagring av telemetri och andra data från övervakade resurser. Den här artikeln innehåller en fullständig beskrivning av hur dessa data lagras och används av Azure Monitor.
@@ -137,13 +137,13 @@ Loggar som samlats in från Azure Monitor lagras i Log Analytics som samlar in t
 ### <a name="sources-of-log-data"></a>Källor för loggdata
 Log Analytics kan samla in data från olika källor både i Azure och lokala resurser. Följande: källor för data som skrivs till Log Analytics
 
-- [Aktivitetsloggar](../../log-analytics/log-analytics-activity.md) från Azure-resurser med information om sina konfigurationer och hälsa och [diagnostikloggar](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) som ger insikt i deras funktion.
+- [Aktivitetsloggar](../../azure-monitor/platform/collect-activity-logs.md) från Azure-resurser med information om sina konfigurationer och hälsa och [diagnostikloggar](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) som ger insikt i deras funktion.
 - Agenter på [Windows](../../log-analytics/log-analytics-windows-agent.md) och [Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) virtuella datorer som skickar telemetri från gästoperativsystem och program till Log Analytics enligt [datakällor](../../azure-monitor/platform/agent-data-sources.md) som du konfigurerar.
 - Programdata som samlas in av [Application Insights](https://docs.microsoft.com/azure/application-insights/).
 - Data som ger insikter om ett visst program eller tjänst från [övervakningslösningar](../insights/solutions.md) eller funktioner som Behållareinsikter, VM insikter eller Resource Group insikter.
 - Säkerhetsdata som samlas in av [Azure Security Center](https://docs.microsoft.com/azure/security-center/).
 - [Mått](#metrics) från Azure-resurser. På så sätt kan du kan lagra mätvärden under längre tid än 93 dagar och analysera dem med andra loggdata.
-- Telemetri som skrivs till [Azure Storage](../../log-analytics/log-analytics-azure-storage-iis-table.md).
+- Telemetri som skrivs till [Azure Storage](../../azure-monitor/platform/azure-storage-iis-table.md).
 - Anpassade data från alla REST API-klient som använder den [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) klienten eller från en [Azure Logic App](https://docs.microsoft.com/azure/logic-apps/) arbetsflöde.
 
 ![Komponenter i Log Analytics](media/data-collection/logs-overview.png)
@@ -170,7 +170,7 @@ Alla data från Log Analytics hämtas med hjälp av en [loggfråga](../../log-an
 ### <a name="metrics-to-logs"></a>Mått till loggar
 Du kan kopiera mått till Log Analytics för att utföra komplexa analyser med andra datatyper med hjälp av dess funktionsrikt frågespråk. Du kan även spara loggdata under längre perioder än mätvärden, där du kan utföra resursanvändningstrender. När mått eller några andra prestandadata lagras i Log Analytics, som data fungerar som en logg. Använda mått för att stödja nästan i realtid analys och varning när du använder loggar för trender och göra analyser med andra data.
 
-Du kan få vägledning för att samla in mått från Azure-resurser på [samla in Azure-tjänsteloggar och mått för användning i Log Analytics](../../log-analytics/log-analytics-azure-storage.md). Få vägledning för att samla in resurser mått från Azure PaaS-resurser på [konfigurera insamling av mätvärden för Azure PaaS-resurs med Log Analytics](../../log-analytics/log-analytics-collect-azurepass-posh.md).
+Du kan få vägledning för att samla in mått från Azure-resurser på [samla in Azure-tjänsteloggar och mått för användning i Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md). Få vägledning för att samla in resurser mått från Azure PaaS-resurser på [konfigurera insamling av mätvärden för Azure PaaS-resurs med Log Analytics](../../azure-monitor/platform/collect-azurepass-posh.md).
 
 ### <a name="logs-to-metrics"></a>Loggar till mått
 Enligt beskrivningen ovan, är mått snabbare än loggar, så du kan skapa aviseringar med kortare svarstider och till en lägre kostnad. Log Analytics samlar in en betydande mängd numeriska data som skulle vara lämplig för mått, men inte lagras i Azure-mått-databasen.  Ett vanligt exempel är prestandadata som samlats in från agenter och lösningar för hantering. Vissa av dessa värden kan kopieras till mått-databasen, när de är tillgängliga för aviseringar och analys med Metrics explorer.

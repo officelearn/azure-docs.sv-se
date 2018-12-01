@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 87ceb682f35626c5bf468afd83a2f4a35901ef2b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4cea2b7feb6d21a0566a4876414b2d75abc29959
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632355"
+ms.locfileid: "52681763"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Samla in data i Log Analytics med en Azure Automation-runbook
-Du kan samla in en betydande mängd data i Log Analytics från olika källor, inklusive [datakällor](../../azure-monitor/platform/agent-data-sources.md) på agenter och även [data som samlas in från Azure](../../log-analytics/log-analytics-azure-storage.md).  Det finns en scenarier om när du behöver samla in data som inte är tillgängliga via dessa källor som standard.  I dessa fall kan du använda den [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) att skriva data till Log Analytics från en REST API-klient.  En vanlig metod att utföra den här Datasamlingen med hjälp av en runbook i Azure Automation.   
+Du kan samla in en betydande mängd data i Log Analytics från olika källor, inklusive [datakällor](../../azure-monitor/platform/agent-data-sources.md) på agenter och även [data som samlas in från Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md).  Det finns en scenarier om när du behöver samla in data som inte är tillgängliga via dessa källor som standard.  I dessa fall kan du använda den [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) att skriva data till Log Analytics från en REST API-klient.  En vanlig metod att utföra den här Datasamlingen med hjälp av en runbook i Azure Automation.   
 
 Den här självstudien beskriver steg för att skapa och schemalägga en runbook i Azure Automation för att skriva data till Log Analytics.
 

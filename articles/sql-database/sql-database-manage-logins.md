@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/07/2018
-ms.openlocfilehash: f2627aab2598a706e717e8e1d18fd2f8c944835c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/29/2018
+ms.openlocfilehash: 56a121e8b8f7f929b16a0c3507d45402ff586b96
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161479"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682681"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Kontrollera och att bevilja åtkomst till databasen till SQL Database och SQL Data Warehouse
 
@@ -28,7 +28,7 @@ Efter konfigurationen av brandvägg regler kan du ansluta till Azure [SQL Databa
 >  Det här avsnittet gäller för Azure SQL-server och SQL Database och SQL Data Warehouse-databaser som skapats på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse. 
 
 > [!TIP]
-> En självstudiekurs finns i [skydda din Azure SQL Database](sql-database-security-tutorial.md).
+> En självstudiekurs finns i [skydda din Azure SQL Database](sql-database-security-tutorial.md). Den här självstudien gäller inte för **Azure SQL Database Managed Instance**.
 
 ## <a name="unrestricted-administrative-accounts"></a>Obegränsade administrativa konton
 Det finns två administrativa konton (**Serveradministratör** och **Active Directory-administratör**) som fungerar som administratörer. För att identifiera dessa administratörskonton för SQL-servern öppnar du Azure-portalen och går till egenskaperna för SQL-servern.
@@ -68,6 +68,10 @@ Om du behöver en genomgång av hur man skapar en databas, brandväggsregler på
 
 
 ## <a name="additional-server-level-administrative-roles"></a>Ytterligare administrativa roller på servernivå
+
+>[!IMPORTANT]
+>Det här avsnittet gäller inte för **Azure SQL Database Managed Instance** som dessa roller är specifika för **Azure SQL Database**.
+
 Förutom de administrativa roller på servernivå som diskuterats, erbjuder SQL Database två begränsade administrativa roller i huvuddatabasen där användarkonton kan läggas till som beviljar behörigheter att antingen skapa databaser eller hantera inloggningar.
 
 ### <a name="database-creators"></a>Databasskapare

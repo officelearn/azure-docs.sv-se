@@ -10,17 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: f8bef8c6ab5c0639f9a99eb2c0443c33d7b6d84e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 4ef1e302a305f683155139063891b838d8144008
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244068"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680471"
 ---
 # <a name="log-analytics-query-language"></a>Logga Analytics-frågespråket
 Log Analytics tillhandahåller Logginsamling och analys för Azure Monitor. Den bygger på Azure Data Explorer och använder en version av samma frågespråk. Den [språkdokumentation för Azure Data Explorer fråga](/azure/kusto/query) har alla detaljer för språket och ska vara din primära resurs för att skriva Log Analytics-frågor. Den här sidan innehåller länkar till andra resurser för att lära dig hur du skriver frågor och på skillnader med Log Analytics-implementering för språket.

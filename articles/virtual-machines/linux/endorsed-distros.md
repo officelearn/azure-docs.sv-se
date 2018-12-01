@@ -1,5 +1,5 @@
 ---
-title: Godkända distributioner av Linux | Microsoft Docs
+title: Linux-distributioner på Azure-godkända | Microsoft Docs
 description: Läs mer om Linux på Azure-godkända distributioner, däribland riktlinjer för Ubuntu, CentOS, Oracle och SUSE.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: szark
-ms.openlocfilehash: b39ae6b5546e9504b9f37504c486c941ab034399
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3c904dadcb01dc889b159dff9ce1b9114db8103e
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250007"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52681814"
 ---
-# <a name="linux-on-distributions-endorsed-by-azure"></a>Linux på distributioner som godkänts av Azure
+# <a name="linux-distributions-endorsed-on-azure"></a>På Azure-godkända Linux-distributioner
 Linux-avbildningar i Azure Marketplace erbjuder våra partner. Vi arbetar med flera Linux-communities för att lägga till ännu fler alternativ i listan över godkända Distribution. Under tiden för distributioner som inte är tillgängliga från Marketplace kan du kan alltid ta med din egen Linux genom att följa riktlinjerna i [skapa och ladda upp en virtuell hårddisk som innehåller operativsystemet Linux](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
 
 ## <a name="supported-distributions-and-versions"></a>Distributioner som stöds och versioner

@@ -9,18 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 558b426ea85decb0309390e36910eb18719e6e99
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 108ced5416eb7cd6826f4f96d4f62fd33e8f5653
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002535"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680862"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-preview-with-azure-data-factory"></a>Läs in data till Azure Data Lake Storage Gen2 (förhandsversion) med Azure Data Factory
 
-[Azure Data Lake Storage Gen2 (förhandsversion)](../storage/data-lake-storage/introduction.md) lägger till ett protokoll med hierarkiskt filsystem namnområde och säkerhet: funktioner i Azure Blob Storage, vilket gör det enkelt att ansluta analytics ramverk till ett lager för beständig lagring. I Data Lake Storage Gen2 (förhandsversion), alla egenskaper för lagring av objekt förblir när du lägger till fördelarna med ett gränssnitt filsystem.
+Azure Data Lake Storage Gen2 förhandsversion är en uppsättning funktioner för analys av stordata, inbyggda i [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). Det kan du samverka med dina data med paradigm för lagring av system- och båda fil.
 
 Azure Data Factory är en fullständigt hanterad molnbaserad dataintegreringstjänst. Du kan använda tjänsten för att fylla i sjön med data från ett stort utbud av lokala och molnbaserade datalager och spara tid när du skapar Analyslösningar. En detaljerad lista över kopplingar som stöds finns i tabellen med [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -76,14 +76,14 @@ Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory
     ![Sidan s3 källdatalager](./media/load-azure-data-lake-storage-gen2/source-data-store-page-s3.png)
     
 4. I den **ange Amazon S3 anslutning** gör du följande steg:
-   1. Ange den **Åtkomstnyckelns ID** värde.
-   2. Ange den **hemliga åtkomstnyckel** värde.
-   3. Klicka på **Testanslutning** för att verifiera inställningarna kan sedan välja **Slutför**.
+
+    1. Ange den **Åtkomstnyckelns ID** värde.
+    2. Ange den **hemliga åtkomstnyckel** värde.
+    3. Klicka på **Testanslutning** för att verifiera inställningarna kan sedan välja **Slutför**.
+    4. Du ser en ny anslutning skapas. Välj **Nästa**.
    
-   ![Ange Amazon S3-konto](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
-   
-   4. Du ser en ny anslutning skapas. Välj **Nästa**.
-   
+    ![Ange Amazon S3-konto](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
+      
 5. I den **Välj indatafil eller mapp** sidan, bläddra till mappen och filen som du vill kopiera över. Välj mappen/filen, Välj **Välj**:
 
     ![Välj indatafil eller mapp](./media/load-azure-data-lake-storage-gen2/choose-input-folder.png)
@@ -99,7 +99,7 @@ Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory
 8. I den **ange Azure Data Lake Storage anslutning** gör du följande steg:
 
    1. Välj din Data Lake Storage Gen2 kan kontot från ”lagringskontonamnet” nedrullningsbar listruta.
-   2. Välj **Nästa**.
+   2. Välj **Slutför** att skapa anslutningen. Välj sedan **Nästa**.
    
    ![Ange konto för Azure Data Lake Storage Gen2](./media/load-azure-data-lake-storage-gen2/specify-adls.png)
 

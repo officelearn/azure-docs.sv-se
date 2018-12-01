@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 025e447995d302c24ab2a7d1c8668857cb47ffdd
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 10648551728e4f3cb41b82433e4cd0d442f9daeb
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42058792"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679264"
 ---
 # <a name="auto-provisioning-concepts"></a>Automatisk etablering
 
@@ -64,6 +64,33 @@ Följande diagram sammanfattar de roller och Sekvenseringen av åtgärder vid en
 > [!NOTE]
 > Du kan också tillverkaren kan också utföra åtgärden ”registrera enhetsidentitet” med hjälp av Device Provisioning Service API: er (i stället för via operatorn). En detaljerad beskrivning av den här ordningsföljd och mycket mer, finns det [noll touch-enhetsregistrering med Azure IoT-video](https://youtu.be/cSbDRNg72cU?t=2460) (med början vid markörens 41:00)
 
+## <a name="roles-and-azure-accounts"></a>Roller och Azure-konton
+
+Hur varje roll har mappats till ett Azure-konto är scenario-beroende och det finns ett ganska stort antal scenarier som kan ingå. De vanliga mönster nedan bör bidra till en allmän förståelse om hur Allmänt roller mappas till ett Azure-konto.
+
+#### <a name="chip-manufacturer-provides-security-services"></a>Kretstillverkaren ger säkerhetstjänster
+
+I det här scenariot hanterar tillverkaren säkerhet för nivå 1-kunder. Det här scenariot kan föredras av dessa nivå-1-kunder eftersom de inte behöver hantera detaljerade säkerhet. 
+
+Tillverkaren introducerar säkerhet i Maskinvarusäkerhetsmoduler (HSM). Den här säkerhetsuppdateringen kan innehålla tillverkaren skaffa nycklar, certifikat, etc. från potentiella kunder som redan har DPS-instanser och registreringskonfiguration för grupper. Tillverkaren kan även skapa den här säkerhetsinformationen för sina kunder.
+
+I det här scenariot kan finnas det två Azure-konton som ingår:
+
+- **Kontot #1**: sannolikt delas mellan rollerna operator och utvecklare viss grad. Den här parten kan köpa HSM-kretsar från tillverkaren. Dessa kretsar är visade DPS-instanser som är associerade med kontot nr 1. Den här parten kan med DPS registreringar låna ut enheter till flera nivå två kunder genom att omkonfigurera Enhetsinställningar för registrering i DPS. Den här parten kan också ha IoT-hubbar som allokerats för slutanvändaren serverdelssystem att samverka med för att komma åt enhetstelemetri osv. I det senare fallet kanske du inte behövs ett andra konto.
+
+- **Kontot #2**: slutanvändare, nivå två kunder kan ha sina egna IoT-hubbar. Den part som är associerade med kontot nr 1 bara punkter lånade enheter till rätt hubben i det här kontot. Den här konfigurationen kräver länkar DPS och IoT hubs över Azure-konton kan du göra med Azure Resource Manager-mallar.
+
+#### <a name="all-in-one-oem"></a>Allt-i-ett OEM
+
+Tillverkaren kan vara en ”allt-i-ett OEM-tillverkare” där bara ett enda konto skulle behövas. Tillverkaren hanterar säkerhets- och etablering från slutpunkt till slutpunkt.
+
+Tillverkaren kan tillhandahålla ett molnbaserade program till kunder som köper enheter. Det här programmet skulle gränssnitt med IoT Hub som tilldelats av tillverkaren.
+
+Varuautomater eller automatiserade kaffe datorer representerar exemplen i det här scenariot.
+
+
+
+
 ## <a name="next-steps"></a>Nästa steg
 
 Du kan det vara bra att bokmärk den här artikeln som en referens som du gå igenom det motsvarande Snabbstart för automatisk etablering. 
@@ -71,7 +98,7 @@ Du kan det vara bra att bokmärk den här artikeln som en referens som du gå ig
 Börja med att du har slutfört snabbstarten ”ställa in automatisk etablering” som bäst passar föredrar management verktyg som vägleder dig genom ”Service konfigurationsfasen”:
 
 - [Konfigurera automatisk etablering med Azure CLI](quick-setup-auto-provision-cli.md)
-- [Konfigurera automatisk etablering med hjälp av Azure-portalen](quick-setup-auto-provision.md)
+- [Konfigurera automatisk etablering med Azure portal](quick-setup-auto-provision.md)
 - [Konfigurera automatisk etablering med en Resource Manager-mall](quick-setup-auto-provision-rm.md)
 
 Fortsätt sedan med en ”automatiskt etablera en simulerad enhet”-Snabbstart som passar din attesteringsmetod för enheten och Enhetsetableringstjänsten SDK/språkinställning. I den här snabbstarten gå igenom de olika faserna för ”enhetsregistrering” och ”enhetsregistrering och konfiguration”: 

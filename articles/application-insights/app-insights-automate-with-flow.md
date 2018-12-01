@@ -8,16 +8,15 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 65909e13c75ae4d2577ea29f562b841a1eb20477
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c53016c6e8760f2fef15c73f460886c46ac8a58c
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256433"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679213"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatisera Azure Application Insights processer med anslutningsappen för Microsoft Flow
 
@@ -35,7 +34,7 @@ I den här självstudien får du lära dig hur du skapar ett flöde som använde
 
 ### <a name="step-1-create-a-flow"></a>Steg 1: Skapa ett flöde
 1. Logga in på [Microsoft Flow](https://flow.microsoft.com), och välj sedan **Mina flöden**.
-1. Klicka på **skapa ett flöde från början**.
+2. Klicka på **skapa ett flöde från början**.
 
 ### <a name="step-2-create-a-trigger-for-your-flow"></a>Steg 2: Skapa en utlösare för flödet
 1. Välj **schema**, och välj sedan **schema – återkommande**.

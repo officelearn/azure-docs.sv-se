@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 926fc46a4afd4e434e9769802ac096347b4ce4f0
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: f204f01fae0bd01f9f2f0e242c63ec2070d6d195
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620089"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678057"
 ---
 # <a name="comparing-appsource-and-the-azure-marketplace"></a>Jämföra AppSource och Azure Marketplace
 Butiker i den [Azure Marketplace](https://azuremarketplace.microsoft.com) och [Microsoft AppSource](https://appsource.microsoft.com) fungerar unika kundbehov. Använd butiker till målkunder efter roll. Du kan erbjuda rätt lösning eller tjänst beroende på kunden.
@@ -29,7 +29,7 @@ Om du vill välja en butik, börja med att identifiera vilken målgrupp för dit
 
 | Azure Marketplace | AppSource |
 |:--- |:--- |
-| IT-proffs och utvecklare | Beslutsfattare |
+| IT-proffs och utvecklare | Företagsanvändare och beslutsfattare |
  
 I följande tabell beskrivs fördelarna med att använda en butik:
 

@@ -9,16 +9,15 @@ ms.assetid: 0b2deb30-6ea8-4bc4-8ed0-26765b85149f
 ms.service: application-insights
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1a031ede814a963f25f1a3a3fc9725d9e5670a8e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: f5179730223609def5ddb0e45317c2f986584139
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824650"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680488"
 ---
 # <a name="monitor-azure-web-app-performance"></a>Övervaka prestanda för Azure-webbappar
 På [Azure Portal](https://portal.azure.com) kan du konfigurera övervakning av programprestanda för dina [Azure-webbappar](../app-service/app-service-web-overview.md). [Azure Application Insights](app-insights-overview.md) instrumenterar din app så att den skickar telemetri om sina aktiviteter till Application Insights-tjänsten, där informationen lagras och analyseras. Där kan du använda diagram med mätvärden och sökverktyg för att diagnostisera problem, förbättra prestanda och utvärdera användningen.
@@ -43,9 +42,9 @@ Om du redan kör en webbapp i Azure har du redan tillgång till viss övervaknin
 
     ![Instrumentera din webbapp](./media/app-insights-azure-web-apps/create-resource.png)
 
-2. När din resurs har skapats väljer **kontrollera och uppdatera Application Insights-tillägget för webbappen** att kontrollera att tillägget är uppdaterad.
+2. Du kan välja hur du vill att application insights för att samla in data per plattform för ditt program när du har angett vilken resurs som ska användas.
 
-     ![Kontrollera och uppdatera webbplatstillägg](./media/app-insights-azure-web-apps/check-and-update.png)
+    ![Välj alternativ per plattform](./media/app-insights-azure-web-apps/choose-options.png)
 
 3. **Instrumentera din webbapp** när Application Insights har installerats.
 
@@ -64,7 +63,7 @@ Senare kan du skapa appen med Application Insights om du vill.
 
 *Hur tar jag bort Application Insights eller växlar till att skicka telemetri till en annan resurs?*
 
-* Öppna kontrollbladet för webbappen i Azure och öppna **Tillägg** under Utvecklingsverktyg. Ta bort Application Insights-tillägget. Välj Application Insights och skapa eller välj önskad resurs under Övervakning.
+* Öppna kontrollbladet för webbappen i Azure, och under inställningar, öppna **Application Insights**. Du kan stänga av Application Insights genom att klicka på **inaktivera** överst, eller välj en ny resurs i den **ändra din resurs** avsnittet.
 
 ## <a name="build-the-app-with-application-insights"></a>Skapa appen med Application Insights
 Application Insights kan tillhandahålla mer detaljerad telemetri genom installationen av ett SDK i din app. Mer specifikt kan du samla in spårningsloggar, [skriva anpassad telemetri](app-insights-api-custom-events-metrics.md) och få mer detaljerade undantagsrapporter.

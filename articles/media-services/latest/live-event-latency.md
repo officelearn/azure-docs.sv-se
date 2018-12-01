@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/16/2018
 ms.author: juliako
-ms.openlocfilehash: a74f2e53127b506f42ff49018c3df2985396646d
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: b167d3424d520cf8be515eec9d495164dd9785ab
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619832"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682103"
 ---
 # <a name="liveevent-latency-in-media-services"></a>LiveEvent svarstid i Media Services
 
@@ -43,7 +43,7 @@ LiveEvent liveEvent = new LiveEvent(
             streamOptions: new List<StreamOptionsFlag?>()
             {
                 // Set this to Default or Low Latency
-                // To use low latency optimally, you should tune your encoder settings down to 1 second GOP size instead of 2 seconds.
+                // To use low latency optimally, you should tune your encoder settings down to 1 second "Group Of Pictures" (GOP) length instead of 2 seconds.
                 StreamOptionsFlag.LowLatency
             }
         );
@@ -51,14 +51,23 @@ LiveEvent liveEvent = new LiveEvent(
 
 Se fullständiga exempel: [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
 
-## <a name="pass-through-liveevents-latency"></a>Direkt LiveEvents svarstid
+## <a name="liveevents-latency"></a>LiveEvents svarstid
 
-Tabellen nedan visar typiska resultat för svarstid (när LowLatency-flaggan är aktiverad) i Media Services, mätt från dess bidrag feeden når tjänsten när en spelare kan begära uppspelning.
+Följande tabeller visar vanliga resultat för svarstid (när LowLatency-flaggan är aktiverad) i Media Services, mätt från dess bidrag feeden når tjänsten när en tittare ser uppspelningen i spelaren. Om du vill använda med låg latens optimalt, bör du finjustera inställningarna encoder ned till 1 sekund ”grupp av bilder” (GOP) längd. När du använder en högre GOP-längd kan du minimera bandbreddsanvändning och minska bithastighet under samma bildfrekvens. Det är särskilt bra i videofilmer med mindre rörelse.
+
+### <a name="pass-through"></a>Direkt 
 
 ||2S GOP låg latens som aktiverats|1s GOP låg latens som aktiverats|
 |---|---|---|
 |BINDESTRECK i AMP|10-tal|8S|
 |HLS på interna iOS player|14s|10-tal|
+
+### <a name="live-encoding"></a>Live Encoding
+
+||2S GOP låg latens som aktiverats|1s GOP låg latens som aktiverats|
+|---|---|---|
+|BINDESTRECK i AMP|14s|10-tal|
+|HLS på interna iOS player|18s|13s|
 
 > [!NOTE]
 > Svarstiden slutpunkt till slutpunkt kan variera beroende på lokala nätverket eller genom att introducera ett CDN-cachelagring lager. Du bör testa dina exakta konfigurationer.

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 43812b68b10f9e4f8510d24cb08c8bb368b3b8f8
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: e81efb0a7977bbd50c63834f676b7cc75201dc68
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445777"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680693"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Åtkomst till datauppsättningar med Python med hjälp av Python-klientbiblioteket i Azure Machine Learning
 Förhandsversionen av Microsoft Azure Machine Learning Python-klientbiblioteket aktivera säker åtkomst till dina Azure Machine Learning-datauppsättningar från en lokal Python-miljö och möjliggör skapandet och hanteringen av datauppsättningar i en arbetsyta.
@@ -61,7 +61,7 @@ Om du måste ha git installerat på din dator kan du använda pip installera dir
 ## <a name="datasetAccess"></a>Använda Studio kodfragment för att komma åt datauppsättningar
 Python-klientbiblioteket ger dig programmatisk åtkomst till dina befintliga datauppsättningar från experiment som har körts.
 
-Du kan använda webbgränssnittet Studio för att generera kodfragment som innehåller all nödvändig information för att ladda ned och deserialisera datauppsättningar som pandas-DataFrame objekt på din dator för platsen.
+Du kan använda webbgränssnittet Studio för att generera kodfragment som innehåller all nödvändig information för att ladda ned och deserialisera datauppsättningar som pandas-DataFrame objekt på den lokala datorn.
 
 ### <a name="security"></a>Säkerhet för åtkomst till data
 Kodfragment som tillhandahålls av Studio för användning med Python-klientbiblioteket innehåller ditt arbetsyte-id och auktorisering token. Dessa ger full åtkomst till din arbetsyta och måste skyddas som ett lösenord.

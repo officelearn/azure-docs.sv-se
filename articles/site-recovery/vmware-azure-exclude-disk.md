@@ -1,17 +1,19 @@
 ---
 title: Undanta diskar från replikering för VMware-haveriberedskap till Azure med hjälp av Azure Site Recovery | Microsoft Docs
 description: Beskriver varför och hur du undantar VM-diskar från replikering för VMware-haveriberedskap till Azure.
-author: nsoneji
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.date: 10/11/2018
-ms.author: nisoneji
-ms.openlocfilehash: f8e5fd094e453088dab83c1967bc0733f91a2b98
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.author: ramamill
+ms.topic: conceptual
+ms.openlocfilehash: 12719d678372a84e3b19b3822d5f663458437963
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210595"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679349"
 ---
 # <a name="exclude-disks-from-replication-of-vmware-vms-to-azure"></a>Undanta diskar från replikering av virtuella VMware-datorer till Azure
 

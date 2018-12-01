@@ -13,26 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 33a5b6e894c9c2b74f4c85ee96d59c0313a4bbe2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: adbe33bedf23e37c2d3fd485965dea86edbd269a
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446984"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52681474"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Auktorisera konton med hjälp av Azure Active Directory i Azure API Management
 
 Den här artikeln visar hur du aktiverar åtkomst till utvecklarportalen för användare från Azure Active Directory (AD Azure). Den här guiden visar också hur du hanterar grupper med Azure AD-användare genom att lägga till externa grupper som innehåller användarna.
-
-> [!NOTE]
-> Azure AD-integrering är tillgängligt i den [Developer, Standard och Premium](https://azure.microsoft.com/pricing/details/api-management/) nivåerna endast.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
 - Importera och publicera en Azure API Management-instans. Mer information finns i [importera och publicera](import-and-publish.md).
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+[!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Auktorisera konton med hjälp av Azure AD
 

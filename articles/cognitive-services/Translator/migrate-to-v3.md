@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: 2f0b2984bf2390a9af0b824495b84c71d04aeac2
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: ce6446caf74e16f69369d5ee8ee7b6342870e826
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852851"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682608"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2 till V3-migrering
 
@@ -69,7 +69,7 @@ Metoden språk kräver inte autentisering; Du kan se alla språkinformation för
 
 Den autentiseringsnyckel som du använder för V2 kommer accepteras för V3. Du behöver inte skaffa en ny prenumeration. Du kommer att kunna blanda V2 och V3 i dina appar under yearlong migreringen, vilket gör det enklare för dig att släppa nya versioner medan du fortfarande migrerar från V2-XML till V3-JSON.
 
-## <a name="pricing-model"></a>Prissättningsmodell
+## <a name="pricing-model"></a>Prismodell
 
 Microsoft Translator V3 debiteras på samma sätt som V2 har prissätts; per tecken inklusive blanksteg. De nya funktionerna i V3 gör några ändringar i vilka tecken räknas för fakturering.
 
@@ -105,11 +105,33 @@ Global
 
 [Ordlista/exempel](reference/v3-0-dictionary-examples.md)
 
-## <a name="customization"></a>Anpassning
+## <a name="compatibility-and-customization"></a>Kompatibilitet och anpassning
 
-Microsoft Translator V3 använder neural maskinöversättning som standard. Det kan därför inte användas med Microsoft Translator Hub. Translator-hubben har endast stöd för äldre statistiska maskinöversättning. Anpassning av neural översättning är nu tillgänglig med hjälp av anpassade Translator. [Läs mer om hur du anpassar neural maskinöversättning](customization.md)
+Microsoft Translator V3 använder neural maskinöversättning som standard. Det kan därför inte användas med Microsoft Translator Hub. Translator-hubben har endast stöd för äldre statistiska maskinöversättning. Anpassning av neural översättning är nu tillgänglig med hjälp av anpassade Translator. [Läs mer om hur du anpassar neural maskinöversättning](custom-translator/overview.md)
 
 Neural översättning med text API V3 stöder inte användning av standard kategorier (SMT, tal, text, generalnn).
+
+| |Slutpunkt|    Dataskyddsförordningen för Processor|  Använd Translator Hub| Använda anpassade Translator (förhandsversion)|
+|:-----|:-----|:-----|:-----|:-----|
+|Translator Text API-Version 2| API.microsofttranslator.com|    Nej  |Ja    |Nej|
+|Translator Text API-Version 3| API.cognitive.microsofttranslator.com|  Ja|    Nej| Ja|
+
+**Translator Text API-Version 3**
+* Är allmänt tillgängliga och stöds fullt ut.
+* Dataskyddsförordningen som en processor och uppfyller alla krav för ISO 20001 och 20018 samt SOC 3-certifiering. 
+* Kan du anropa neuralt nätverk översättningssystem som du har anpassat med anpassade Translator (förhandsversion), den nya Translator NMT anpassning av funktionen. 
+* Ger inte åtkomst till anpassade översättningssystem som skapats med hjälp av Microsoft Translator Hub.
+
+Du använder Version 3 av API för textöversättning om du använder api.cognitive.microsofttranslator.com-slutpunkten.
+
+**Translator Text API-Version 2**
+* Är föråldrad. Det kommer att upphöra den 30 April 2019. 
+* Inte uppfyller alla ISO 20001,20018 och certifieringskrav för SOC 3. 
+* Tillåter inte att anropa neuralt nätverk översättningssystem som du har anpassat med funktionen Translator anpassning.
+* Ger åtkomst till anpassade översättningssystem som skapats med hjälp av Microsoft Translator Hub.
+* Du använder Version 2 av API för textöversättning om du använder api.microsofttranslator.com-slutpunkten.
+
+Ingen version av Translator API skapar en post för dina översättningar. Dina översättningar delas aldrig med vem som helst. Mer information om den [Translator Nej-spårning](http://www.aka.ms/NoTrace) webbsidan.
 
 
 ## <a name="links"></a>Länkar

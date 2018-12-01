@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 1af7a1d595b39878f3ed30591e8ad78e767e8cf7
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 5127b748111f993f95f940f4add81c42a032e038
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087499"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722096"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Storlekar för virtuella datorer stöds i Azure Stack
 
@@ -28,7 +28,7 @@ Den här artikeln innehåller de storlekar för virtuella datorer (VM) som är t
 
 ## <a name="general-purpose"></a>Generellt syfte
 
-Allmänna storlekar för Virtuella datorer ger ett balanserat förhållande för CPU och minne. De används för testning och utveckling, små till mellanstora databaser och låg till medelhög trafik webbservrar.
+Allmänna storlekar för Virtuella datorer ger ett balanserat förhållande för CPU och minne. De används för testning och utveckling, små till mellanstora databaser och låg till medelhög trafik webbservrar. Varje datadisk är 2300 IOPS för premium VM-storlekar, förutom grundläggande A-serien. För grundläggande A är datadiskstorleken 500 IOPS.
 
 ### <a name="basic-a"></a>Basic A
 

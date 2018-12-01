@@ -10,86 +10,98 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jansko
-ms.openlocfilehash: 222e37e38772b82e9d9849e3a955b865d43d3c63
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 0b1187083c14fc7c536f6a32f3a41957f53f299b
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957412"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679723"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Stöd för språk och din region för Translator Text API
 
-Translator Text API stöder följande språk för översättning till text. Neural maskinöversättning NMT är den nya standarden för AI-driven maskinöversättningar i hög kvalitet och är tillgänglig som standard med V3 av Translator Text API när ett neural system är tillgänglig. Neural maskinöversättning är tillgänglig i V2 med hjälp av kategorin ”generalnn”.
+Translator Text API stöder följande språk för översättning till text. Neural maskinöversättning NMT är den nya standarden för AI-driven maskinöversättningar i hög kvalitet och är tillgänglig som standard med V3 av Translator Text API när ett neural system är tillgänglig. 
 
 [Mer information om hur maskinöversättning fungerar](https://www.microsoft.com/translator/mt.aspx)
 
-| Språk    | Typ av översättning |Språkkod |
-|:----------- |:-------:|:-------------:|
-| Afrikaans      | Statistisk |`af`          |
-| Arabiska      | Neural | `ar`          |
-| Arabiska, Levantine    | Neural | `apc`
-| Bangla      | Neural |`bn`          |
-| Bosniska (latinsk)      | Statistisk |`bs`          |
-| Bulgariska     |  Neural |`bg`          |
-| Kantonesiska (traditionell)      | Statistisk |`yue`          |
-| Katalanska      | Statistisk |`ca`          |
-| Kinesiska, förenklad        |  Neural |`zh-Hans`          |
-| Kinesiska, traditionell        |  Neural |`zh-Hant`          |
-| Kroatiska      | Neural |`hr`          |
-| Tjeckiska        |  Neural |`cs`          |
-| Danska        |  Neural |`da`          |
-| Nederländska        |  Neural |`nl`          |
-| Svenska       |  Neural |`en`          |
-| Estniska      | Neural |`et`          |
-| Fijianska      | Statistisk |`fj`          |
-| Filippinska      | Statistisk |`fil`          |
-| Finska      | Neural |`fi`          |
-| Franska        |  Neural |`fr`          |
-| Tyska       |  Neural |`de`          |
-| Grekiska      | Neural |`el`          |
-| Haitiska      | Statistisk |`ht`          |
-| Hebreiska      | Neural |`he`          |
-| Hindi        |  Neural |`hi`          |
-| Hmong Daw      | Statistisk |`mww`          |
-| Ungerska      | Neural |`hu`          |
-| Isländska      |  Neural |`is`           |
-| Indonesiska      | Statistisk |`id`          |
-| Italienska        |  Neural |`it`          |
-| Japanska        |  Neural |`ja`          |
-| Kiswahili      | Statistisk |`sw`          |
-| Klingon      | Statistisk |`tlh`          |
-| Klingon (plqaD)      | Statistisk |`tlh-Qaak`          |
-| Koreanska        |  Neural |`ko`          |
-| Lettiska      | Neural |`lv`          |
-| Litauiska      | Neural |`lt`          |
-| Madagaskisk      | Statistisk |`mg`          |
-| Malajiska      | Statistisk |`ms`          |
-| Maltesiska      | Statistisk |`mt`          |
-| Norska        |  Neural |`nb`          |
-| Persiska      | Statistisk |`fa`          |
-| Polska        |  Neural |`pl`          |
-| Portugisiska        |  Neural |`pt`          |
-| Queretaro Otomi      | Statistisk |`otq`          |
-| Rumänska        |  Neural |`ro`          |
-| Ryska        |  Neural |`ru`          |
-| Samoa      | Statistisk |`sm`          |
-| Serbiska (kyrillisk)      | Statistisk |`sr-Cyrl`          |
-| Serbiska (latinsk)      | Statistisk |`sr-Latn`          |
-| Slovakiska     | Neural |`sk`          |
-| Slovenska      | Neural |`sl`          |
-| Spanska        |  Neural |`es`          |
-| Svenska        |  Neural |`sv`          |
-| Tahitian      | Statistisk |`ty`          |
-| Tamilska      | Statistisk |`ta`          |
-| Telugu   | Neural   | `te` |
-| Thai      | Neural |`th`          |
-| Tongan      | Statistisk |`to`          |
-| Turkiska       |  Neural |`tr`          |
-| Ukrainska      | Neural |`uk`          |
-| Urdu      | Statistisk |`ur`          |
-| Vietnamesiska      | Neural |`vi`          |
-| Walesiska      | Neural |`cy`          |
-| Yucatec Maya      | Statistisk |`yua`          |
+**V2 Translator API**
+
+> [!NOTE]
+> V2 upphörde den 30 April 2018 och kommer att upphöra den 30 April 2019.
+
+* Statistisk endast: inga neural system är tillgänglig för det här språket.
+* Neural tillgängliga: en neural system är tillgänglig. Använd parametern `category=generalnn` till neural systemet.
+* Neural standard: Neural är standard translation system. Använd parametern `category=smt` till statistiska systemet för användning med Microsoft Translator Hub.
+* Endast Neural: endast neural översättning är tillgänglig.
+
+**V3 Translator API** V3 Translator API är neural som standard och statistiska system är bara tillgängliga när det finns inga neural system. Anpassade Translator kan bara användas med neural språk. 
+
+|Språk|  Språkkod|  V2 API| V3-API|
+|:-----|:-----:|:-----|:-----|
+|Afrikaans| `af`    |Statistisk endast|  Neural|
+|Arabiska|    `ar`    |Neural tillgängliga|  Neural|
+|Arabiska, Levantine| `apc`   |Neural tillgängliga|  Neural|
+|Bangla|    `bn`    |Neural tillgängliga|  Neural|
+|Bosniska (latinsk)|   `bs`    |Statistisk endast|  Statistisk|
+|Bulgariska| `bg`    |Neural tillgängliga|  Neural|
+|Kantonesiska (traditionell)|   `yue`   |Statistisk endast|  Statistisk|
+|Katalanska|   `ca`    |Statistisk endast|  Statistisk|
+|Kinesiska, förenklad|    `zh-Hans`   |Neural standard |Neural|
+|Kinesiska, traditionell|   `zh-Hant`   |Neural standard |Neural|
+|Kroatiska|  `hr`    |Neural tillgängliga|  Neural|
+|Tjeckiska| `cs`    |Neural tillgängliga|  Neural|
+|Danska|    `da`    |Neural tillgängliga   |Neural|
+|Nederländska| `nl`    |Neural tillgängliga|  Neural|
+|Svenska|   `en`    |Neural tillgängliga|  Neural|
+|Estniska|  `et`    |Neural tillgängliga|  Neural|
+|Fijianska|    `fj`    |Statistisk endast|  Statistisk|
+|Filippinska|  `fil`   |Statistisk endast|  Statistisk|
+|Finska|   `fi`    |Neural tillgängliga|  Neural|
+|Franska|    `fr`    |Neural tillgängliga|  Neural|
+|Tyska|    `de`    |Neural tillgängliga|  Neural|
+|Grekiska| `el`    |Neural tillgängliga|  Neural|
+|Haitiska|    `ht`    |Statistisk endast   |Statistisk|
+|Hebreiska |`he`   |Neural tillgängliga   |Neural|
+|Hindi| `hi`    |Neural standard|    Neural|
+|Hmong Daw| `mww`   |Statistisk endast|  Statistisk|
+|Ungerska| `hu`    |Neural tillgängliga|  Neural|
+|Isländska| `is`    |Endast Neural|   Neural|
+|Indonesiska|    `id`    |Statistisk endast|  Statistisk|
+|Italienska|   `it`    |Neural tillgängliga|  Neural|
+|Japanska|  `ja`    |Neural tillgängliga|  Neural|
+|Kiswahili| `sw`    |Statistisk endast|  Statistisk|
+|Klingon|   `tlh`   |Statistisk endast|  Statistisk|
+|Klingon (plqaD)|   `tlh-Qaak`  |Statistisk endast|  Statistisk|
+|Koreanska |`ko`   |Neural tillgängliga|  Neural|
+|Lettiska|   `lv`    |Neural tillgängliga|  Neural|
+|Litauiska|    `lt`    |Neural tillgängliga|  Neural|
+|Madagaskisk|  `mg`    |Statistisk endast|  Statistisk|
+|Malajiska| `ms`    |Statistisk endast   |Statistisk|
+|Maltesiska|   `mt`    |Statistisk endast|  Statistisk|
+|Norska| `nb`    |Neural tillgängliga|  Neural|
+|Persiska|   `fa`    |Statistisk endast|  Statistisk|
+|Polska|    `pl`    |Neural tillgängliga|  Neural|
+|Portugisiska|    `pt`    |Neural tillgängliga|  Neural|
+|Queretaro Otomi|   `otq`   |Statistisk endast|  Statistisk|
+|Rumänska|  `ro`    |Neural tillgängliga|  Neural|
+|Ryska|   `ru`    |Neural tillgängliga|  Neural|
+|Samoa|    `sm`    |Statistisk endast|  Statistisk|
+|Serbiska (kyrillisk)|    `sr-Cyrl`   |Statistisk endast|  Statistisk|
+|Serbiska (latinsk)|   `sr-Latn`   |Statistisk endast   |Statistisk|
+|Slovakiska|    `sk`    |Neural tillgängliga|  Neural|
+|Slovenska| `sl`    |Neural tillgängliga|  Neural|
+|Spanska|   `es`    |Neural tillgängliga|  Neural|
+|Svenska|   `sv`    |Neural tillgängliga   |Neural|
+|Tahitian|  `ty`    |Statistisk endast|  Statistisk|
+|Tamilska| `ta`    |Statistisk endast|  Statistisk|
+|Telugu|    `te`    |Endast Neural|   Neural|
+|Thai|  `th`    |Neural tillgängliga|  Neural|
+|Tongan|    `to`    |Statistisk endast|  Statistisk|
+|Turkiska|   `tr`    |Neural tillgängliga   |Neural|
+|Ukrainska| `uk`    |Neural tillgängliga|  Neural|
+|Urdu|  `ur`    |Statistisk endast|  Statistisk|
+|Vietnamesiska|    `vi`    |Neural tillgängliga|  Neural|
+|Walesiska| `cy`    |Neural tillgängliga|  Neural|
+|Yucatec Maya|  `yua`   |Statistisk endast|  Statistisk|
 
 ## <a name="transliteration"></a>Translitteration
 
@@ -99,8 +111,8 @@ Metoden Transliterate stöder följande språk. I den ”till och från”, ”<
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabiska | Kundreskontra | Arabiska | <--> | Latin |
 |Bangla  | bn | Bengali | <--> | Latin |
-| Förenklad kinesiska | zh-Hans | Kinesiska, förenklad | <--> | Latin |
-| Förenklad kinesiska | zh-Hans | Kinesiska, förenklad | <--> | Kinesiska, traditionell |
+| Förenklad kinesiska | zh Hans | Kinesiska, förenklad | <--> | Latin |
+| Förenklad kinesiska | zh Hans | Kinesiska, förenklad | <--> | Kinesiska, traditionell |
 | Traditionell kinesiska | zh-Hant | Kinesiska, traditionell | <--> | Latin |
 | Traditionell kinesiska | zh-Hant | Kinesiska, traditionell | <--> | Kinesiska, förenklad |
 | Gujarati | Gu  | Gujarati | --> | Latin |

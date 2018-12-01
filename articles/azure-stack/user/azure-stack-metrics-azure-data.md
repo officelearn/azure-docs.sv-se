@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
-ms.openlocfilehash: b0cf2d7856a78bbe2aa531c6e872168e8e33b06a
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 45c06afd0d298c467d8f0a3a42b68bf1948c6ed3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44021819"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726754"
 ---
 # <a name="azure-monitor-on-azure-stack"></a>Azure Monitor på Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: integrerade Azure Stack-system*
 
 Den här artikeln innehåller en översikt över Azure Monitor-tjänsten i Azure Stack. Det diskuterar hur Azure Monitor och ytterligare information om hur du använder Azure Monitor på Azure Stack. 
 
@@ -125,7 +125,7 @@ I allmänhet kan du ändra dataspårning, vidarebefordran och hämtning med någ
  - [Azure Stack-portalen](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-use-portal)
  - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
  - [Plattformsoberoende kommandoraden Interface(CLI)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples)
- - [REST API](https://docs.microsoft.com/rest/api/monitor)
+ - [REST-API](https://docs.microsoft.com/rest/api/monitor)
  - [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
 ## <a name="next-steps"></a>Nästa steg

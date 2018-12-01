@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: erhopf
-ms.openlocfilehash: e7ba72c95959a0c31ca724f91f519ac705d669fb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f97b1ed30c3f8263c5c4c3465951bb7010466ac
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245791"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678295"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>Hur du registrerar dig för Translator Text API
 
@@ -48,6 +48,8 @@ När du registrerar dig för textöversättning kan få du en åtkomstnyckel fö
 
 - [Kodexempel på GitHub](https://github.com/MicrosoftTranslator)
 - [Microsoft Translator-Supportforum](https://www.aka.ms/TranslatorForum)
+
+Microsoft Translator Allmänt kan din första några begäranden gå innan den har verifierat kontostatus för prenumerationen. Om de första få Microsoft Translator-API-begärandena sedan lyckas anrop misslyckas visar felsvaret problemet. Logga API-svar så kan du se orsaken.
 
 ## <a name="pricing-options"></a>Prisalternativ
 

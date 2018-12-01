@@ -7,15 +7,14 @@ ms.author: maghan
 manager: kfile
 layout: LandingPage
 ms.service: power-bi-embedded
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 07/31/2018
-ms.openlocfilehash: f3cc56bb3a294cd06684a14c1898389d2093aa96
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 051b7d725a121b3160e8a572c5fab91e8289f44b
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391362"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678244"
 ---
 # <a name="power-bi-embedded-documentation"></a>Power BI Embedded-dokumentation
 
@@ -118,7 +117,7 @@ Lär dig hur du lägger till datavisualiseringar och interaktiva rapporter i app
                 <div class="card">
                     <div class="cardText">
                         <h3>Språk</h3>
-                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.powerbiembedded?view=azure-dotnet">.NET</a></p>
+                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.powerbiembedded?view=azure-dotnet">NET</a></p>
                         <p><a href="https://www.nuget.org/packages/Microsoft.PowerBI.Api/">Hämta .NET SDK</a></p>
                         <p><a href="https://microsoft.github.io/PowerBI-JavaScript/">JavaScript</a></p>
                         <p><a href="https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/">Nedladdning av JavaScript SDK</a></p>

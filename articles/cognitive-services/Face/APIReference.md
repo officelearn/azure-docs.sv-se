@@ -10,25 +10,23 @@ ms.component: face-api
 ms.topic: reference
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 283a042bb8ea32f8f6db9bebb211bc2762a3a4c1
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: be3e408b3f5f6393786a35108202d51ae871ea3b
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578084"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679740"
 ---
 # <a name="api-reference"></a>API-referens
 
-Microsofts Ansikts-API är ett molnbaserad API som ger de mest avancerade algoritmerna för ansiktsigenkänning och taligenkänning.
+Ansikts-API i Azure är ett moln-baserad API som ger algoritmer för ansiktsigenkänning och taligenkänning. Ansikts-API: er består av följande kategorier:
 
-Ansikts-API: er omfattar följande kategorier:
-
-- [Algoritmen API: erna för ansiktsigenkänning](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236): omfattar kärnfunktioner exempelvis [identifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [Sök liknande](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [verifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a), [identifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), och [grupp](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
-- [API: er för FaceList Management](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b): används för att hantera en FaceList för [Sök liknande](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
-- [LargePersonGroup Person Management API: er](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40): används för att hantera LargePersonGroup Personansikten för [identifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
-- [API: er för LargePersonGroup Management](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d): används för att hantera en LargePersonGroup datauppsättning för [identifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
-- [API: er för LargeFaceList Management](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc): används för att hantera en LargeFaceList för [Sök liknande](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
-- [PersonGroup Person Management API: er](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c): används för att hantera PersonGroup Personansikten för [identifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
-- [API: er för PersonGroup Management](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244): används för att hantera en PersonGroup datauppsättning för [identifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+- [Algoritmen API: erna för ansiktsigenkänning](https://docs.microsoft.com/rest/api/cognitiveservices/face/face): omfattar kärnfunktioner exempelvis [identifiering](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/detectwithstream), [Sök liknande](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/findsimilar), [verifiering](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/verifyfacetoface), [identifiering](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify), och [grupp](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/group).
+- [API: er för FaceList Management](https://docs.microsoft.com/rest/api/cognitiveservices/face/facelist): används för att hantera en FaceList för [Sök liknande](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/findsimilar).
+- [LargePersonGroup Person Management API: er](https://docs.microsoft.com/rest/api/cognitiveservices/face/largepersongroupperson): används för att hantera LargePersonGroup Personansikten för [identifiering](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
+- [API: er för LargePersonGroup Management](https://docs.microsoft.com/rest/api/cognitiveservices/face/largepersongroup): används för att hantera en LargePersonGroup datauppsättning för [identifiering](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
+- [API: er för LargeFaceList Management](https://docs.microsoft.com/rest/api/cognitiveservices/face/largefacelist): används för att hantera en LargeFaceList för [Sök liknande](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/findsimilar).
+- [PersonGroup Person Management API: er](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroupperson): används för att hantera PersonGroup Personansikten för [identifiering](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
+- [API: er för PersonGroup Management](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup): används för att hantera en PersonGroup datauppsättning för [identifiering](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
 
 <!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->

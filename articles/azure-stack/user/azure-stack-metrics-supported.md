@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
-ms.openlocfilehash: a9849b5c96b38fbfe6fa8ef4a69a1a2d4d6e6f2f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f8ef54393f3de00ae231c45c117e3a16a8d1aad1
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958082"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725615"
 ---
 # <a name="supported-metrics-with-azure-monitor-on-azure-stack"></a>Mått som stöds med Azure Monitor på Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: integrerade Azure Stack-system*
 
 Du kan hämta dina mått från Azure monitor på Azure Stack i samma som global Azure. Du kan skapa dina mått i portalen, kommer från REST API eller skicka frågor mot dem med PowerShell eller CLI.
 

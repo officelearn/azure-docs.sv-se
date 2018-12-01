@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 7e075434b8c785665d28a2981233fc17e2a1ceac
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726346"
 documentType: LandingData
 title: Azure Automation användardokumentation
 metadata:
@@ -10,16 +16,9 @@ metadata:
   manager: carmonm
   ms.service: automation
   ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 12/13/2017
   ms.author: gwallace
-  ms.openlocfilehash: b2b155480cd43ce8daa0b4916b244910f094a032
-  ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 01/11/2018
-  ms.locfileid: "27773833"
 abstract:
   description: Lär dig hur du använder Automation för att konfigurera och automatisera åtgärdsuppgifter i en hybridmiljö. Självstudier, API-referenser och annan dokumentation visar hur du kan automatisera processer, utföra uppdateringshantering, leverera önskad tillståndskonfiguration, spåra ändringar och samla inventering.
 sections:
@@ -63,6 +62,6 @@ sections:
     - title: Kommandorad
       html: <p><a href="/powershell/module/azurerm.automation">PowerShell</a></p>
     - title: Språk
-      html: <p><a href="/dotnet/api/microsoft.azure.management.automation">.NET</a></p>
+      html: <p><a href="/dotnet/api/microsoft.azure.management.automation">NET</a></p>
     - title: REST
       html: <p><a href="/rest/api/automation">Automation REST API</a></p>

@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 10ebb5f549aba42c4de74cec2c16ed63f90532a1
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 09db18f38cd64d462815793e3067b29fa0989cf9
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633749"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52719325"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Viktig information för Cognitive Services tal enheter SDK
 
@@ -24,7 +24,8 @@ Följande avsnitt lista över ändringar i de senaste versionerna.
 ## <a name="cognitive-services-speech-devices-sdk-110-2018-nov-release"></a>Cognitive Services tal enheter SDK 1.1.0: 2018-Nov versionen 
 
 * Uppdatera den [tal SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) komponenten till version 1.1.0. Mer information finns i dess [viktig](https://aka.ms/csspeech/whatsnew). 
-* Längst till fältet taligenkänningen har förbättrats med vår förbättrad ljud bearbetning-algoritm  
+* Längst till fältet taligenkänningen har förbättrats med vår förbättrad ljud bearbetning algoritm.
+* Exempelprogrammet lagt till stöd för kinesiska tal.
 
 ## <a name="cognitive-services-speech-devices-sdk-101-2018-oct-release"></a>Cognitive Services tal enheter SDK 1.0.1: 2018-okt versionen 
 

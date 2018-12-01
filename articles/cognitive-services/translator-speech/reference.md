@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: 1fc48687141ea8a7e8cb30d3438d81e8f1088e4f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: c7e14e2c2d6d38055304610c805a6bede10a6828
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340451"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679298"
 ---
 # <a name="translator-speech-api"></a>Translator Speech API
 
@@ -89,6 +89,9 @@ Observera att total filstorlek (byte 4-7) och storleken på ”data” (byte 40-
 
 När du har skickat rubriken WAV (RIFF), skickar klienten segment av ljuddata. Klienten kommer normalt att strömma fast storlek segment som representerar en fast giltighetstid (t.ex. stream 100 MS med ljud i taget).
 
+### <a name="signal-the-end-of-the-utterance"></a>Signal slutet av uttryck
+Translator Speech API returnerar avskriften och översättning av ljudströmmen som du skickar ljudet. Slutlig avskrift och sista översättningen översatta ljudet återgår till dig först efter slutet av uttryck. I vissa fall kanske du vill tvinga slutet av uttryck. Skicka 2,5 sekunders tystnad att tvinga slutet av uttryck. 
+
 ### <a name="final-result"></a>Slutresultatet
 En slutlig tal igenkänningsresultatet genereras i slutet av ett uttryck. Resultatet skickas till klienten med hjälp av ett WebSocket-meddelande av typen Text från tjänsten. Meddelandeinnehåll är JSON-serialisering för ett objekt med följande egenskaper:
 
@@ -149,7 +152,7 @@ Ett exempel slutresultat är följande:
 }
 ```
 
-### <a name="text-to-speech"></a>Text till tal
+### <a name="text-to-speech"></a>Text-till-tal
 När funktionen text till tal är aktiverad (se `features` parametern nedan), ett slutresultat följs av ljudet från talat översatt text. Ljuddata chunked och skickas från tjänsten till klienten som en sekvens av Websocket-meddelanden av typen Binary. En klient kan identifiera slutet på strömmen genom att kontrollera FIN-bitars för varje meddelande. Det sista binära meddelandet har dess FIN bit inställd på en till slutet av dataströmmen. Formatet på dataströmmen är beroende av värdet för den `format` parametern.
 
 ### <a name="closing-the-connection"></a>Stänga anslutningen

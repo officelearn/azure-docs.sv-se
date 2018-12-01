@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: c26421f848cf25e391589fa791f801e30fd14797
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d4eac6a2a0b4b9414fdf110c599ff557cabeede5
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50208909"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727111"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Konfigurera VMware-haveriberedskap i en miljö med flera innehavare med programmet Cloud Solution Provider (CSP)
 
@@ -72,9 +72,13 @@ Du kan nu skapa och hantera alla Site Recovery-åtgärder för klienten i Azure-
 
       ![Klientens prenumerationssidan för CSP](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
 
-      b) skapa en ny användare nu genom att ange relevant information och välja behörigheter eller genom att ladda upp en lista över användare i en CSV-fil.
+    b) skapa en ny användare nu genom att ange relevant information och välja behörigheter eller genom att ladda upp en lista över användare i en CSV-fil.
+    
     c) när du har skapat en ny användare, gå tillbaka till Azure-portalen. I den **prenumeration** väljer du prenumerationen som är relevanta.
-    d) Välj **åtkomstkontroll (IAM)**, och klicka sedan på **Lägg till**, lägga till en användare med den relevanta åtkomstnivån. De användare som har skapats via CSP-portalen visas automatiskt på sidan som öppnas när du klickar på åtkomstnivå.
+
+    d) Välj **åtkomstkontroll (IAM)**, och klicka sedan på **rolltilldelningar**.
+
+    e) Klicka på **Lägg till rolltilldelning** lägga till en användare med den relevanta åtkomstnivån. Användare som har skapats via CSP-portalen visas på fliken tilldelningar för rollen.
 
       ![Lägga till en användare](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
 

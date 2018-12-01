@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 11/16/2018
 ms.author: shvija
-ms.openlocfilehash: 76102e1238346cbbb8f5159d2ffcd94c788c16d6
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 0733d26839cbb2dc40f4dd99b60d6a5628cc1f1a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42056986"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727094"
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>Event Hubs Capture genomgång: Python
 
@@ -38,10 +38,9 @@ Det här exemplet används den [Azure Python SDK](https://azure.microsoft.com/de
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Python 2.7.x
-- En Azure-prenumeration
-- En aktiv [Event Hubs-namnområde och en händelsehubb](event-hubs-create.md)
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
+- En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+- En aktiv [Event Hubs-namnområde och en händelsehubb](event-hubs-create.md). 
+- Aktivera **avbilda** funktionen för event hub genom att följa instruktionerna från: [aktivera Event Hubs Capture i Azure Portal](event-hubs-capture-enable-through-portal.md)
 
 ## <a name="create-an-azure-blob-storage-account"></a>Skapa ett Azure Blob storage-konto
 1. Logga in på [Azure Portal][Azure portal].

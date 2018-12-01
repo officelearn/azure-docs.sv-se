@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 11/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 4c35820daa9cc25f40dfa0034d9ce632ece235a7
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 93e64aaa436b23390de328a9268dcfcb773c279f
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633413"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728173"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Logga Analytics tillägg för virtuell dator för Linux
 
@@ -39,13 +39,13 @@ Tillägget Log Analytics-agenten kan köras mot dessa Linux-distributioner.
 
 | Distribution | Version |
 |---|---|
-| CentOS Linux | 6 och 7 (x86/x64) |
-| Amazon Linux | 2017.09 | 
+| CentOS Linux | 6 (x86/x64) och 7 (x 64) |
+| Amazon Linux | 2017.09 (x64) | 
 | Oracle Linux | 6 och 7 (x86/x64) |
-| Red Hat Enterprise Linux Server | 6 och 7 (x86/x64) |
+| Red Hat Enterprise Linux Server | 6 (x86/x64) och 7 (x 64) |
 | Debian GNU/Linux | 8 och 9 (x86/x64) |
-| Ubuntu | 14.04 LTS, 16.04 LTS och 18.04 LTS (x86/x64) |
-| SUSE Linux Enterprise Server | 12 (x86/x64) |
+| Ubuntu | 14.04 LTS (x86/x64), 16.04 LTS (x86/x64) och 18.04 LTS (x64) |
+| SUSE Linux Enterprise Server | 12 (x 64) |
 
 >[!NOTE]
 >OpenSSL som är lägre än version 1.x stöds inte på valfri plattform och version 1.10 stöds bara på x86_64 plattformar (64-bitars).  
@@ -56,6 +56,8 @@ Följande tabell innehåller en mappning av versionen av Log Analytics VM-tillä
 
 | Log Analytics Linux VM-tilläggsversion | Paketversion för log Analytics-agenten | 
 |--------------------------------|--------------------------|
+| 1.8.11 | [1.8.1-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.8.1.256)| 
+| 1.8.0 | [1.8.0-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/1.8.0-256)| 
 | 1.7.9 | [1.6.1-3](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.1.3)| 
 | 1.6.42.0 | [1.6.0-42](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.0-42)| 
 | 1.4.60.2 | [1.4.4-210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 

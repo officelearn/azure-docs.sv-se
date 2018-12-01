@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/28/2018
+ms.date: 11/28/2018
 ms.author: dekapur
-ms.openlocfilehash: 80b331d32fe1e7bb4eb331bd981106968bc73bed
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: e4540076b29cf3cd51f03239a1868e18a41781d9
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163217"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726533"
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Skapa Service Fabric-kluster i Windows Server eller Linux
 Service Fabric-kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras. En dator eller virtuell dator som ingår i ett kluster kallas för en nod i klustret. Kluster kan skalas till tusentals noder. Om du lägger till nya noder i klustret, balanserar Service Fabric service partitionsrepliker och instanser i det större antalet noder. Övergripande förbättrar programmets prestanda och minskar konkurrensen för åtkomst till minnet. Om noderna i klustret inte som används effektivt, kan du minska antalet noder i klustret. Service Fabric balanserar igen partitionsrepliker och instanser över minskade antalet noder för att bättre utnyttja maskinvaran på varje nod.
@@ -35,7 +35,9 @@ Du kan skapa kluster på virtuella datorer som kör dessa operativsystem:
 * Windows Server 2012 R2
 * Windows Server 2016 
 * Windows Server 1709
+* Windows Server 1803
 * Linux Ubuntu 16.04
+* Red Hat Enterprise Linux 7.4 (förhandsversionsstöd för)
 
 > [!NOTE]
 > Om du vill distribuera Service Fabric i Windows Server 1709, Observera att (1) den inte är en lång sikt installationsbransch, så du kan behöva flytta versioner i framtiden, och (2) om du distribuerar behållare, fungerar behållare som bygger på Windows Server 2016 inte på Windows Server  1709, och vice versa (du måste återskapa dem för att distribuera dem).

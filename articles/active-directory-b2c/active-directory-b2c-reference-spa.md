@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/06/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b00eb1b2d25187dc50be53425ebae347edde33b4
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 20d1e39a2f2cda66f3b490000f48dd6c5fb72915
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344819"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727356"
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: Single page app logga in med hjälp av OAuth 2.0 implicit flöde
 
@@ -27,10 +27,10 @@ Många moderna appar innehåller en ensidesapp klientdel som främst är skriven
 
 Stöd för dessa program, Azure Active Directory B2C (Azure AD B2C) använder det implicita flödet för OAuth 2.0. Implicit beviljande flöde för OAuth 2.0-auktorisering beskrivs i [avsnittet 4.2 av OAuth 2.0-specifikationen](http://tools.ietf.org/html/rfc6749). I implicit flöde appen tar emot token direkt från Azure Active Directory (Azure AD) tillåta slutpunkt utan någon exchange server-till-server. Placera helt i JavaScript-klienter utan ytterligare sidomdirigeringar alla autentiseringslogiken och hantering av tar-session.
 
-Azure AD B2C utökar OAuth 2.0 standard implicit flöde som är högre än enkel autentisering och auktorisering. Azure AD B2C introducerar den [principparametern](active-directory-b2c-reference-policies.md). Med principparametern kan du använda OAuth 2.0 att lägga till användarupplevelser i din app, till exempel registrering, inloggning och profilhantering. I den här artikeln har visar vi hur du använder implicit flöde och Azure AD för att implementera var och en av dessa upplevelser i dina enkelsidigt program. För att hjälpa dig att komma igång, ta en titt på våra [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) och [Microsoft.NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) exempel.
+Azure AD B2C utökar OAuth 2.0 standard implicit flöde som är högre än enkel autentisering och auktorisering. Azure AD B2C introducerar den [principparametern](active-directory-b2c-reference-policies.md). Med principparametern kan du använda OAuth 2.0 att lägga till principer till din app, till exempel registrering, inloggning, och profilera management användarflöden. I den här artikeln har visar vi hur du använder implicit flöde och Azure AD för att implementera var och en av dessa upplevelser i dina enkelsidigt program. För att hjälpa dig att komma igång, ta en titt på våra [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) och [Microsoft.NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) exempel.
 
-I exemplet HTTP-begäranden i den här artikeln använder vi vår exempel Azure AD B2C-katalog **fabrikamb2c.onmicrosoft.com**. Vi använder också vår egen exempelprogrammet och principer. Du kan också försöka begäranden med hjälp av dessa värden eller ersätta dem med dina egna värden.
-Lär dig hur du [hämta egna Azure AD B2C-katalog, program och principer](#use-your-own-b2c-tenant).
+I exemplet HTTP-begäranden i den här artikeln använder vi vår exempel Azure AD B2C-katalog **fabrikamb2c.onmicrosoft.com**. Vi kan också använda vår egen exemplet och flöden. Du kan också försöka begäranden med hjälp av dessa värden eller ersätta dem med dina egna värden.
+Lär dig hur du [hämta din egen Azure AD B2C-katalog, program och användare flöden](#use-your-own-b2c-tenant).
 
 
 ## <a name="protocol-diagram"></a>Protokollet diagram
@@ -40,11 +40,11 @@ Det implicita flödet inloggning ser ut ungefär som följande bild. Varje steg 
 ![OpenID Connect spaltformat](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
 ## <a name="send-authentication-requests"></a>Skicka begäranden om autentisering
-När webbappen behöver autentisera användaren och kör en princip, dirigeras användaren till den `/authorize` slutpunkt. Det här är den interaktiva delen av flödet, där användaren vidtar åtgärder, beroende på principen. Användaren får ett ID-token från Azure AD-slutpunkten.
+När webbappen behöver autentisera användaren och kör ett användarflöde, dirigeras användaren till den `/authorize` slutpunkt. Det här är den interaktiva delen av flödet, där användaren vidtar åtgärder, beroende på användarflödet. Användaren får ett ID-token från Azure AD-slutpunkten.
 
-I den här begäran anger klienten i den `scope` parametern de behörigheter som krävs för att hämta från användaren. I den `p` parametern anger principen för att köra. I följande tre exempel (med radbrytningar för läsbarhet) varje används en annan princip. Få en bild för hur varje begäran fungerar, försök att klistra in begäran i en webbläsare och kör den.
+I den här begäran anger klienten i den `scope` parametern de behörigheter som krävs för att hämta från användaren. I den `p` parametern indikerar användarflödet att köra. I följande tre exempel (med radbrytningar för läsbarhet) varje används en annan användare-flöde. Få en bild för hur varje begäran fungerar, försök att klistra in begäran i en webbläsare och kör den.
 
-### <a name="use-a-sign-in-policy"></a>Använd en inloggningsprincip
+### <a name="use-a-sign-in-user-flow"></a>Använd en inloggning användarflödet
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -57,7 +57,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_in
 ```
 
-### <a name="use-a-sign-up-policy"></a>Använda en registreringsprincip
+### <a name="use-a-sign-up-user-flow"></a>Använd en registrerings användarflödet
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -70,7 +70,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_up
 ```
 
-### <a name="use-an-edit-profile-policy"></a>Använda en princip för Redigera-profil
+### <a name="use-an-edit-profile-user-flow"></a>Använda en Redigera profil användarflödet
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -92,12 +92,12 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | omfång |Krävs |En blankstegsavgränsad lista med omfattningar. Ett enda scope-värde som anger till Azure AD båda av de behörigheter som tas emot. Den `openid` omfång anger en behörighet att logga in användaren och hämta data om användaren i form av ID-token. (Du lär dig om detta fler senare i artikeln.) Den `offline_access` omfånget är valfritt för web apps. Det innebär att din app måste en uppdateringstoken för långlivade åtkomst till resurser. |
 | state |Rekommenderas |Ett värde i begäran som också returneras i token-svaret. Det kan vara en sträng med innehåll som du vill använda. Vanligtvis en slumpmässigt genererad, unika värdet används, att förhindra attacker med förfalskning av begäran. Tillstånd används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade som de var på sidan. |
 | nonce |Krävs |Ett värde i begäran (genereras av appen) som ingår i den resulterande ID-token som ett anspråk. Appen kan sedan att verifiera det här värdet om du vill lösa token repetitionsattacker. Värdet är vanligtvis en slumpmässig, unik sträng som kan användas för att fastställa ursprunget för begäran. |
-| p |Krävs |Principen för att köra. Det är namnet på en princip som skapas i din Azure AD B2C-klient. Namnet principvärdet måste inledas med **b2c\_1\_**. Mer information finns i [inbyggda principer för Azure AD B2C](active-directory-b2c-reference-policies.md). |
+| p |Krävs |Principen för att köra. Det är namnet på en princip (användarflödet) som skapas i din Azure AD B2C-klient. Namnet principvärdet måste inledas med **b2c\_1\_**. Mer information finns i [Azure AD B2C-användarflöden](active-directory-b2c-reference-policies.md). |
 | fråga |Valfri |Typ av interaktion från användaren som krävs. Det enda giltiga värdet är för närvarande `login`. Detta gör att användarna anger sina autentiseringsuppgifter i begäran. Enkel inloggning börjar inte gälla. |
 
-Nu kan uppmanas användaren att slutföra principens arbetsflöde. Detta kan handla om användaren skriver sitt användarnamn och lösenord, logga in med en sociala identitet, registrera dig för katalogen, eller en annan siffra steg. Användaråtgärder beror på hur principen som har definierats.
+Nu kan uppmanas användaren att slutföra principens arbetsflöde. Detta kan handla om användaren skriver sitt användarnamn och lösenord, logga in med en sociala identitet, registrera dig för katalogen, eller en annan siffra steg. Användaråtgärder beror på hur användarflödet har definierats.
 
-När användaren uppfyller principen, Azure AD tillbaka ett svar till din app på värdet som du använde för `redirect_uri`. Den använder den metod som beskrivs i den `response_mode` parametern. Svaret är exakt detsamma för alla användare åtgärd scenarion, oberoende av den princip som har utförts.
+När du är klar användarflödet Azure AD returnerar ett svar till din app på värdet som du använde för `redirect_uri`. Den använder den metod som beskrivs i den `response_mode` parametern. Svaret är exakt detsamma för alla användare åtgärd scenarion, oberoende av det användarflöde som kördes.
 
 ### <a name="successful-response"></a>Lyckat svar
 Ett lyckat svar som använder `response_mode=fragment` och `response_type=id_token+token` ser ut som följande, med radbrytningar för anpassning:
@@ -142,15 +142,15 @@ Ta emot ett ID-token är inte tillräckligt för att autentisera användaren. Du
 
 Många bibliotek med öppen källkod är tillgängliga för att verifiera JWTs, beroende på vilket språk du föredrar att använda. Överväg att utforska tillgängliga bibliotek med öppen källkod i stället för att implementera dina egna validering av logik. Du kan använda informationen i den här artikeln för att lära dig hur du använder dessa bibliotek korrekt.
 
-Azure AD B2C har en slutpunkt för OpenID Connect metadata. En app kan använda slutpunkten för att hämta information om Azure AD B2C vid körning. Informationen omfattar slutpunkter, token innehåll och nycklar för tokensignering. Det finns ett JSON-dokument för metadata för varje princip i din Azure AD B2C-klient. Till exempel finns metadatadokument för b2c_1_sign_in principen i fabrikamb2c.onmicrosoft.com klienten på:
+Azure AD B2C har en slutpunkt för OpenID Connect metadata. En app kan använda slutpunkten för att hämta information om Azure AD B2C vid körning. Informationen omfattar slutpunkter, token innehåll och nycklar för tokensignering. Det finns ett JSON-dokument för metadata för varje användarflöde i din Azure AD B2C-klient. Till exempel finns metadatadokument för b2c_1_sign_in användarflödet i fabrikamb2c.onmicrosoft.com klienten på:
 
 `https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
 
-En av egenskaperna för den här konfigurationsdokumentet är den `jwks_uri`. Värdet för samma princip skulle bli:
+En av egenskaperna för den här konfigurationsdokumentet är den `jwks_uri`. Värdet för samma användarflödet skulle bli:
 
 `https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`
 
-Att avgöra vilken princip som användes för att registrera en ID-token (och var du vill hämta metadata från), har du två alternativ. Först namnet på principen som ingår i den `acr` anspråk i `id_token`. Information om hur du Parsar anspråk från en ID-token som finns i den [tokenreferens för Azure AD B2C](active-directory-b2c-reference-tokens.md). Ett annat alternativ är att koda principen i värdet för den `state` parameter när du skickar ut begäran. Avkoda sedan den `state` parametern för att avgöra vilken princip som har använts. Någon av metoderna är giltig.
+Att fastställa vilka användarflödet har använts för att logga en ID-token (och var du vill hämta metadata från), har du två alternativ. Först userjourney-namnet som ingår i den `acr` anspråk i `id_token`. Information om hur du Parsar anspråk från en ID-token som finns i den [tokenreferens för Azure AD B2C](active-directory-b2c-reference-tokens.md). Ett annat alternativ är att koda användarflödet i värdet för den `state` parameter när du skickar ut begäran. Avkoda sedan den `state` parametern för att avgöra vilka användarflödet har använts. Någon av metoderna är giltig.
 
 När du har köpt metadatadokument från metadataslutpunkt OpenID Connect kan använda du de offentliga nycklarna för RSA-256 (som finns i den här slutpunkten) för att verifiera signaturen för ID-token. Det kan finnas flera tangenterna som anges i den här slutpunkten vid en given tidpunkt, var och en har identifierats av en `kid`. Rubriken för `id_token` innehåller också en `kid` anspråk. Anger vilka av dessa nycklar används för att logga ID-token. Mer information, inklusive lära dig mer om [verifiera token](active-directory-b2c-reference-tokens.md#token-validation), finns i den [tokenreferens för Azure AD B2C](active-directory-b2c-reference-tokens.md).
 <!--TODO: Improve the information on this-->
@@ -172,7 +172,7 @@ Mer information om anspråk i en ID-token finns i den [tokenreferens för Azure 
 När du har helt godkänt ID-token, kan du börja en session med användaren. I din app att använda anspråk i ID-token för att hämta information om användaren. Den här informationen kan användas för visning, poster, auktorisering och så vidare.
 
 ## <a name="get-access-tokens"></a>Få åtkomst-token
-Om det enda som web apps behöver köra principer, kan du hoppa över nästa avsnitt. Informationen i följande avsnitt gäller endast till web apps som måste göra autentiserade anrop till ett webb-API och som skyddas av Azure AD B2C.
+Om det enda som web apps behöver göra är att köra användarflöden, kan du hoppa över nästa avsnitt. Informationen i följande avsnitt gäller endast till web apps som måste göra autentiserade anrop till ett webb-API och som skyddas av Azure AD B2C.
 
 Nu när du är inloggad användaren till din ensidesapp, kan du hämta åtkomsttoken för anropande webb-API: er som skyddas av Azure AD. Även om du redan fått en token med hjälp av den `token` svarstypen, du kan använda den här metoden för att hämta token för ytterligare resurser utan att omdirigera användaren att logga in igen.
 
@@ -274,7 +274,7 @@ Slutför följande tre steg för att prova de här begärandena själv. Ersätt 
 
 1. [Skapa en Azure AD B2C-klient](active-directory-b2c-get-started.md). Använd namnet på din klient i begäranden.
 2. [Skapa ett program](active-directory-b2c-app-registration.md) att hämta ett program-ID och en `redirect_uri` värde. Inkludera en webbapp eller webb-API i din app. Du kan också skapa en programhemlighet.
-3. [Skapa principer](active-directory-b2c-reference-policies.md) att hämta din principnamn.
+3. [Skapa din användarflöden](active-directory-b2c-reference-policies.md) att hämta din användare namn för flödet.
 
 ## <a name="samples"></a>Exempel
 

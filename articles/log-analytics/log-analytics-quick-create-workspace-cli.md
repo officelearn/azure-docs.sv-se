@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptal
+ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: cef080707d6745459f27450c2c66f4aa2ea50ec7
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 38d67de63815037fdf6b6602154653dfd774032c
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710689"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728199"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Skapa en Log Analytics-arbetsyta med Azure CLI 2.0
 
@@ -128,7 +127,7 @@ Det kan ta några minuter att slutföra distributionen. När den är klar kan du
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har en arbetsyta som är tillgängliga kan du konfigurera insamling av övervakning av telemetri, köra loggsökningar för att analysera dessa data och lägga till en hanteringslösning för att ge ytterligare data och analytisk insikt.  
 
-* Om du vill aktivera insamling av data från Azure-resurser med Azure Diagnostics eller Azure storage, se [samla in Azure-tjänsteloggar och mått för användning i Log Analytics](log-analytics-azure-storage.md).  
+* Om du vill aktivera insamling av data från Azure-resurser med Azure Diagnostics eller Azure storage, se [samla in Azure-tjänsteloggar och mått för användning i Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md).  
 * Lägg till [System Center Operations Manager som en datakälla](log-analytics-om-agents.md) att samla in data från agenter som rapporterar Operations Manager-hanteringsgrupp och lagra den i Log Analytics-arbetsytan.  
 * Ansluta [Configuration Manager](log-analytics-sccm.md) att importera datorer som är medlemmar i samlingar i hierarkin.  
 * Granska den [hanteringslösningar](../azure-monitor/insights/solutions.md) tillgängliga och hur du lägger till eller ta bort en lösning från din arbetsyta.

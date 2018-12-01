@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 34c11c911b6c2ffbc4d4800cd7203a8d430814fb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 666e4c434d05bb953950893f32c262183055becd
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311253"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728182"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Skapa en virtuell nätverkspeering - olika distributionsmodeller och -prenumerationer
 
@@ -56,8 +56,8 @@ Den här självstudien använder olika konton för varje prenumeration. Om du an
     - **Plats**: *USA, östra*
 4. I den **Sök efter resurser** högst upp i portalen, Skriv *myVnetA*. Klicka på **myVnetA** när den visas i sökresultaten. Ett blad som visas för den **myVnetA** virtuellt nätverk.
 5. I den **myVnetA** bladet som visas, klickar du på **åtkomstkontroll (IAM)** i lodräta listan med alternativ på vänster sida av bladet.
-6. I den **myVnetA - åtkomstkontroll (IAM)** bladet som visas, klickar du på **+ Lägg till**.
-7. I den **Lägg till behörigheter** bladet som visas, Välj **nätverksdeltagare** i den **rollen** box.
+6. I den **myVnetA - åtkomstkontroll (IAM)** bladet som visas, klickar du på **+ Lägg till rolltilldelning**.
+7. I den **Lägg till rolltilldelning** bladet som visas, Välj **nätverksdeltagare** i den **rollen** box.
 8. I den **Välj** markerar användare b, eller ange användare BS e-postadress för att söka efter den. En lista över användare som visas är från samma Azure Active Directory-klient som det virtuella nätverket som du konfigurerar peering för. Klicka på användare b när den visas i listan.
 9. Klicka på **Spara**.
 10. Logga ut från portalen som UserA och sedan logga in som användare b.

@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fe35f26fe73661901fa85da65e353fe66adf5d47
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 538208c39d6436c15b95760133e00c980e2e8277
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094225"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727910"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Rollbaserad åtkomstkontroll i Azure Automation
 
@@ -274,12 +274,13 @@ I följande avsnitt beskrivs hur du konfigurerar RBAC för ditt Automation-konto
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) och öppna Automation-kontot från sidan Automation-konton.
 2. Klicka på den **åtkomstkontroll (IAM)** kontroll i det övre vänstra hörnet. Då öppnas det **åtkomstkontroll (IAM)** sidan där du kan lägga till nya användare, grupper och program för att hantera ditt Automation-kontot och visa befintliga roller som kan konfigureras för Automation-kontot.
+3. Klicka på den **rolltilldelningar** fliken.
 
    ![Knappen Åtkomst](media/automation-role-based-access-control/automation-01-access-button.png)
 
 #### <a name="add-a-new-user-and-assign-a-role"></a>Lägga till en ny användare och tilldela en roll
 
-1. Från den **åtkomstkontroll (IAM)** klickar du på **+ Lägg till** att öppna den **Lägg till behörigheter** sida där du kan lägga till en användare, grupp eller program och tilldela dem en roll.
+1. Från den **åtkomstkontroll (IAM)** klickar du på **+ Lägg till rolltilldelning** att öppna den **Lägg till rolltilldelning** sida där du kan lägga till en användare, grupp eller program och tilldela en roll till dem.
 
 2. Välj en roll i listan över tillgängliga roller. Du kan välja någon av de tillgängliga inbyggda rollerna som har stöd för ett Automation-konto eller en anpassad roll som du har definierat.
 

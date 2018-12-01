@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 17/07/2018
 ms.author: sedusch
-ms.openlocfilehash: 2f3b8371357403071e70dd2e351cd75dbd34f746
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 2a0934fa3bb46eebba02029a8292b9bee6b12c62
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40006639"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728233"
 ---
 # <a name="sap-lama-connector-for-azure"></a>SAP LaMa connector för Azure
 
@@ -87,13 +87,13 @@ Azure connector levereras från och med SAP LaMa 3.0 SP05. Vi rekommenderar att 
 Tjänstens huvudnamn har inte behörighet att komma åt dina Azure-resurser som standard. Du måste ge tjänstens huvudnamn behörighet att komma åt dem.
 
 1. Gå till https://portal.azure.com
-1. Öppna bladet resursgrupper
+1. Öppna resursbladet för grupper
 1. Välj den resursgrupp som du vill använda
 1. Klicka på åtkomstkontroll (IAM)
-1. Klicka på Lägg till
+1. Klicka på Lägg till rolltilldelning
 1. Välj rollen deltagare
 1. Ange namnet på programmet som du skapade ovan
-1. Klicka på OK
+1. Klicka på Spara
 1. Upprepa steg 3 till 8 för alla resursgrupper som du vill använda i SAP LaMa
 
 Öppna webbplatsen SAP LaMa och gå till infrastrukturen. Gå till fliken molnet chefer och klicka på Lägg till. Välj Microsoft Azure Cloud Adapter och klicka på Nästa. Ange följande information:

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: cwatson
-ms.openlocfilehash: 2380cd3712c47ca08e9b9b3597f09f4119238af3
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 53cecc845ed8bd15311e1bcec3ec9b36db8f5c2c
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581621"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727876"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Lägga till eller ändra Azure-prenumerationsadministratörer
 
@@ -42,10 +42,10 @@ Om du vill lägga till någon som administratör för en Azure-prenumeration til
 1. Besök [ **prenumerationer** i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 2. Välj den prenumeration som du vill ge åtkomst till.
 3. Välj **Åtkomstkontroll (IAM)** i listan.
-4. Välj **Lägg till**.
-   (Om knappen Lägg till saknas har du inte behörighet att lägga till behörigheter.)
+4. Välj **Lägg till rolltilldelning**.
+   (Om knappen Lägg till rollen tilldelning saknas, du har inte behörighet att lägga till behörigheter.)
 5. I rutan **Roll** väljer du **Ägare**. 
-6. I rutan **Bevilja åtkomst till** väljer du **Azure AD-användare, -grupp eller -program**. 
+6. I den **tilldela åtkomst till** väljer **Azure AD-användare, grupp eller tjänstens huvudnamn**. 
 7. I rutan **Välj** anger du e-postadressen till användaren du vill lägga till som ägare. Välj användaren och sedan **Spara**.
 
     ![Skärmbild som visar ägarrollen valt](./media/billing-add-change-azure-subscription-administrator/add-role.png)

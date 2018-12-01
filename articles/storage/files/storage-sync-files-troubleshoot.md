@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 507bbc9013d8b02084b639f8d9fac0c7d97503f4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0787d023676c707a987b4b69cb5601394db4bd3b
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014286"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728386"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -22,7 +22,7 @@ Den här artikeln är utformad för att hjälpa dig att felsöka och lösa probl
 
 1. [Azure Storage-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 2. [UserVoice för Azure Files](https://feedback.azure.com/forums/217298-storage/category/180670-files).
-3. Microsoft-supporten. Att skapa en ny supportbegäran i Azure-portalen på den **hjälpa** fliken den **hjälp + support** och välj sedan **ny supportbegäran**.
+3. Microsoft Support. Att skapa en ny supportbegäran i Azure-portalen på den **hjälpa** fliken den **hjälp + support** och välj sedan **ny supportbegäran**.
 
 ## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>Jag har problem med Azure File Sync på Min server (sync, cloud lagringsnivåer, etc.). Ta bort och återskapa min serverslutpunkt
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
@@ -96,8 +96,9 @@ Följande inbyggda roller har behörigheterna som krävs Microsoft Authorization
 Att fastställa om din användarroll konto har behörigheterna som krävs:  
 1. I Azure-portalen väljer du **resursgrupper**.
 2. Välj den resursgrupp där lagringskontot finns och välj sedan **åtkomstkontroll (IAM)**.
-3. Välj den **rollen** (till exempel ägare eller deltagare) för ditt konto.
-4. I den **Resursprovidern** väljer **Microsoft Authorization**. 
+3. Välj den **rolltilldelningar** fliken.
+4. Välj den **rollen** (till exempel ägare eller deltagare) för ditt konto.
+5. I den **Resursprovidern** väljer **Microsoft Authorization**. 
     * **Rolltilldelning** bör ha **Läs** och **skriva** behörigheter.
     * **Rolldefinitionen** bör ha **Läs** och **skriva** behörigheter.
 
@@ -239,7 +240,7 @@ Om du vill se de här felen, kör den **FileSyncErrorsReport.ps1** PowerShell-sk
 
 #### <a name="troubleshooting-per-filedirectory-sync-errors"></a>Felsöka per synkroniseringsfel för filen eller katalogen
 **ItemResults log - per-item synkroniseringsfel**  
-| HRESULT | HRESULT (decimal) | Felsträng | Problem | Åtgärd |
+| HRESULT | HRESULT (decimal) | Felsträng | Problem | Reparation |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80c80065 | -2134376347 | ECS_E_DATA_TRANSFER_BLOCKED | Filen har genererat permanenta fel under synkronisering och därför endast försök att synkronisera en gång per dag. Det underliggande felet finns i en tidigare händelselogg. | I agenter R2 (2.0) och senare, det ursprungliga felet i stället för den här visas. Uppgradera till den senaste agenten för att se det underliggande felet eller titta på tidigare händelseloggar för att hitta orsaken till det ursprungliga felet. |
 | 0x7B | 123 | ERROR_INVALID_NAME | Namnet på filen eller katalogen är ogiltig. | Byt namn på filen eller katalogen i fråga. Se [Azure Files riktlinjerna för namngivning](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) och listan med tecken som inte stöds nedan. |
@@ -248,7 +249,7 @@ Om du vill se de här felen, kör den **FileSyncErrorsReport.ps1** PowerShell-sk
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | En fil kan inte synkroniseras eftersom den inte används. Filen kommer att synkroniseras när den inte längre används. | Ingen åtgärd krävs. Azure File Sync skapas en tillfällig VSS-ögonblicksbild en gång om dagen på servern för att synkronisera filer som har öppna referenser. |
 | 0x20 | 32 | ERROR_SHARING_VIOLATION | En fil kan inte synkroniseras eftersom den inte används. Filen kommer att synkroniseras när den inte längre används. | Ingen åtgärd krävs. |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Fil- eller katalogändring kan inte synkroniseras än eftersom en beroende mapp inte har synkroniserats ännu. Det här objektet synkroniseras när de beroende ändringarna har synkroniserats. | Ingen åtgärd krävs. |
-| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | En fil ändrades under synkroniseringen och måste därför synkroniseras igen. | Ingen åtgärd krävs. |
+| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | En fil ändrades under synkroniseringen, så den behöver för att synkronisera igen. | Ingen åtgärd krävs. |
 
 #### <a name="handling-unsupported-characters"></a>Hantering av stöds inte tecken
 Om den **FileSyncErrorsReport.ps1** PowerShell-skript visar fel på grund av tecken som inte stöds (felkoder 0x7b och 0x8007007b), bör du ta bort eller byta namn på tecknen vid fel från respektive filnamnen. PowerShell kommer sannolikt att skriva ut dessa tecken som frågetecken eller tom rektanglar eftersom de flesta av dessa tecken har ingen standard visuell kodning. Den [Evaluation Tool](storage-sync-files-planning.md#evaluation-tool) kan användas för att identifiera tecken som inte stöds.
@@ -447,7 +448,7 @@ Det här felet kan inträffa om organisationen använder en avslutande SSL-proxy
     Restart-Service -Name FileSyncSvc -Force
     ```
 
-När det här registervärdet har angetts godkänner Azure File Sync-agenten alla lokalt betrodda SSL-certifikat vid överföring av data mellan servern och molntjänsten.
+Genom att ange det här registervärdet godtar Azure File Sync-agenten ett lokalt betrodda SSL-certifikat när data överförs mellan servern och Molntjänsten.
 
 <a id="-2147012894"></a>**Det gick inte att upprätta en anslutning till tjänsten.**  
 | | |
@@ -705,8 +706,9 @@ if ($fileShare -eq $null) {
 
 <a id="troubleshoot-rbac"></a>**Kontrollera Azure File Sync har åtkomst till lagringskontot.**  
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
-1. Klicka på **åtkomstkontroll (IAM)** på den vänstra innehållsförteckningen att navigera till listan över användare och program (*tjänsthuvudnamn*) som har åtkomst till ditt lagringskonto.
-2. Kontrollera **Hybrid Filsynkroniseringstjänstens** visas i listan med de **läsare och dataåtkomst** roll. 
+1. Klicka på **åtkomstkontroll (IAM)** på den vänstra innehållsförteckningen.
+1. Klicka på den **rolltilldelningar** fliken i listan med användare och program (*tjänsthuvudnamn*) som har åtkomst till ditt lagringskonto.
+1. Kontrollera **Hybrid Filsynkroniseringstjänstens** visas i listan med de **läsare och dataåtkomst** roll. 
 
     ![En skärmbild av Hybrid Filsynkroniseringstjänstens tjänstens huvudnamn i fliken access control i storage-konto](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 

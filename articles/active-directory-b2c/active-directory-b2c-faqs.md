@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8cec3d3695eaff8719757dd022951b969de99f6a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: bccbf5462668913f6f3025e8d2274c115d49457f
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010651"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727249"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Vanliga frågor (och svar FAQ) 
 Den här sidan får du svar på vanliga frågor om Azure Active Directory (Azure AD) B2C. Kontrollera tillbaka för uppdateringar.
@@ -34,7 +34,7 @@ I en Azure AD-klient, användare som tillhör klientorganisationen logga in med 
 
 I en Azure AD B2C-klient, de flesta appar vill att användaren ska logga in med valfri godtycklig e-postadress (till exempel joe@comcast.net, bob@gmail.com, sarah@contoso.com, eller jim@live.com). Den här typen av konto är ett lokalt konto.  Vi stöder också godtyckliga användarnamn som lokala konton (till exempel Johan, bob, sarah eller jim). Du kan välja något av dessa två typer av lokala konton när du konfigurerar identitetsprovidrar för Azure AD B2C i Azure-portalen. I din Azure AD B2C-klient klickar du på **identitetsprovidrar** och välj sedan **användarnamn** under lokala konton. 
 
-Användarkonton för program måste alltid skapas via en registreringsprincip registrering eller inloggning – i principen eller genom att använda Azure AD Graph API. Användarkonton som skapats i Azure-portalen används bara för att administrera klienten.
+Användarkonton för program måste alltid skapas via ett registrering användarflöde, registrera dig eller logga in användarflödet, eller med hjälp av Azure AD Graph API. Användarkonton som skapats i Azure-portalen används bara för att administrera klienten.
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Vilka leverantörer via sociala du stöder nu? Vilka som kommer att stödja i framtiden?
 Vi stöder för närvarande Facebook, Google +, LinkedIn, Amazon, Twitter (förhandsversion), WeChat (förhandsversion), Weibo (förhandsversion) och QT (förhandsversion). Vi lägger till stöd för andra populära sociala identitetsleverantörer baserat på kundernas behov.
@@ -79,8 +79,8 @@ Det finns för närvarande inget sätt att ändra den ”från”: i e-postmedde
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>Hur kan jag migrera min befintliga användarnamn, lösenord och profiler från min databas till Azure AD B2C?
 Du kan använda Azure AD Graph API för att skriva din Migreringsverktyg. Se den [användaren Migreringsguide](active-directory-b2c-user-migration.md) mer information.
 
-### <a name="what-password-policy-is-used-for-local-accounts-in-azure-ad-b2c"></a>Vilka lösenordsprincip används för lokala konton i Azure AD B2C?
-Lösenordsprinciper för lokala konton för Azure AD B2C bygger på principen för Azure AD. Azure AD B2C användarens registrering, registrering eller inloggning och lösenord och Återställ principer använder ”starka” lösenordssäkerhet och löper ut eventuella lösenord. Läs den [Azure AD-lösenordsprincip](https://msdn.microsoft.com/library/azure/jj943764.aspx) för mer information. Information om kontolåsningar och lösenord finns i [hanterar hot mot resurser och data i Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
+### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>Användarflödet vilka lösenord används för lokala konton i Azure AD B2C?
+Användarflödet för Azure AD B2C-lösenord för lokala konton baseras på principen för Azure AD. Azure AD B2C användarens registrering, registrering eller inloggning och lösenord för återställning av användarflöden använda ”starka” lösenordssäkerhet och inte går ut eventuella lösenord. Läs den [Azure AD-lösenordsprincip](https://msdn.microsoft.com/library/azure/jj943764.aspx) för mer information. Information om kontolåsningar och lösenord finns i [hanterar hot mot resurser och data i Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Kan jag använda Azure AD Connect för att migrera konsumentidentiteter som lagras på min lokala Active Directory till Azure AD B2C?
 Nej, Azure AD Connect är inte avsedd att fungera med Azure AD B2C. Överväg att använda den [Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) för användarmigrering.  Se den [användaren Migreringsguide](active-directory-b2c-user-migration.md) mer information.

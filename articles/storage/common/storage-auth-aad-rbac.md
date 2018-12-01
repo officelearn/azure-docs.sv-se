@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 5da34e8e79c0df88cfad0b398aa8e1c22f158489
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 5f558ea851d63b08885293efcff3fef600f2cc17
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428887"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726397"
 ---
 # <a name="manage-access-rights-to-azure-blob-and-queue-data-with-rbac-preview"></a>Hantera åtkomstbehörigheter till Azure Blob- och ködata med RBAC (förhandsversion)
 
@@ -61,15 +61,16 @@ I följande avsnitt visas hur du tilldelar en roll som omfattar storage-konto el
 Tilldela en inbyggd roll som beviljar åtkomst till alla behållare eller köer i lagringskontot i Azure portal:
 
 1. I den [Azure-portalen](https://portal.azure.com), navigera till ditt lagringskonto.
-2. Välj ditt lagringskonto och sedan **åtkomstkontroll (IAM)** att visa inställningar för åtkomstkontroll för kontot. Klicka på den **Lägg till** för att lägga till en ny roll.
+1. Välj ditt lagringskonto och sedan **åtkomstkontroll (IAM)** att visa inställningar för åtkomstkontroll för kontot. Välj den **rolltilldelningar** flik för att se en lista över rolltilldelningar.
 
     ![Skärmbild som visar behörighetsinställningar för lagring](media/storage-auth-aad-rbac/portal-access-control.png)
 
-3. I den **Lägg till behörigheter** fönstret Välj roll att tilldela till en Azure AD-identitet. Leta sedan för att hitta identiteten som du vill tilldela rollen. Exempelvis följande bild visar den **Storage Blob Data-läsare (förhandsgranskning)** roll som tilldelats till en användare.
+1. Klicka på den **Lägg till rolltilldelning** för att lägga till en ny roll.
+1. I den **Lägg till rolltilldelning** fönstret Välj roll att tilldela till en Azure AD-identitet. Leta sedan för att hitta identiteten som du vill tilldela rollen. Exempelvis följande bild visar den **Storage Blob Data-läsare (förhandsgranskning)** roll som tilldelats till en användare.
 
     ![Skärmbild som visar hur du tilldelar en RBAC-roll](media/storage-auth-aad-rbac/add-rbac-role.png)
 
-4. Klicka på **Spara**. Identiteten som du tilldelats rollen visas listan under rollen. Följande bild visar till exempel att de användare som har lagts till nu har läsbehörighet för alla blobbdata i lagringskontot.
+1. Klicka på **Spara**. Identiteten som du tilldelats rollen visas listan under rollen. Följande bild visar till exempel att användaren nu har läsbehörighet för alla blobbdata i lagringskontot.
 
     ![Skärmbild som visar listan över användare som har tilldelats en roll](media/storage-auth-aad-rbac/account-scoped-role.png)
 
@@ -78,17 +79,20 @@ Tilldela en inbyggd roll som beviljar åtkomst till alla behållare eller köer 
 Stegen för att tilldela en inbyggd roll som är begränsade till en behållare eller till en kö är liknande. Proceduren som visas här tilldelas en roll som är begränsade till en behållare, men du kan följa samma steg för att tilldela en roll som är begränsade till en kö: 
 
 1. I den [Azure-portalen](https://portal.azure.com)går du till ditt lagringskonto och visa den **översikt** för kontot.
-2. Välj under Blob Service, **Bläddra efter Blobar**. 
-3. Leta rätt på behållaren som du vill tilldela en roll och visa behållarens inställningar. 
-4. Välj **åtkomstkontroll (IAM)** att visa inställningar för åtkomstkontroll för behållaren.
-5. I den **Lägg till behörigheter** fönstret, Välj den roll som du vill tilldela till en Azure AD-identitet. Och sedan söka efter den identitet som du vill tilldela rollen.
-6. Klicka på **Spara**. Identiteten som du tilldelats rollen visas listan under rollen. Följande bild visar till exempel att användaren nu har läsbehörighet till data i behållare med namnet *exempelbehållaren*.
+1. Under Services väljer **Blobar**. 
+1. Leta rätt på behållaren som du vill tilldela en roll och visa behållarens inställningar. 
+1. Välj **åtkomstkontroll (IAM)** att visa inställningar för åtkomstkontroll för behållaren. Välj den **rolltilldelningar** flik för att se en lista över rolltilldelningar.
+
+    ![Skärmbild som visar hur behållarinställningar för åtkomstkontroll](media/storage-auth-aad-rbac/portal-access-control-container.png)
+1. Klicka på den **Lägg till rolltilldelning** för att lägga till en ny roll.
+1. I den **Lägg till rolltilldelning** fönstret, Välj den roll som du vill tilldela till en Azure AD-identitet. Och sedan söka efter den identitet som du vill tilldela rollen.
+1. Klicka på **Spara**. Identiteten som du tilldelats rollen visas listan under rollen. Följande bild visar till exempel att användaren nu har läsbehörighet till data i behållare med namnet *exempelbehållaren*.
 
     ![Skärmbild som visar listan över användare som har tilldelats en roll](media/storage-auth-aad-rbac/container-scoped-role.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om RBAC i [Kom igång med rollbaserad åtkomstkontroll](../../role-based-access-control/overview.md).
+- Läs mer om RBAC i [vad är rollbaserad åtkomstkontroll (RBAC)?](../../role-based-access-control/overview.md).
 - Om du vill lära dig mer om att tilldela och hantera RBAC-rolltilldelningar med Azure PowerShell, Azure CLI eller REST-API kan du läsa följande artiklar:
     - [Hantera rollbaserad åtkomstkontroll (RBAC) med Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
     - [Hantera rollbaserad åtkomstkontroll (RBAC) med Azure CLI](../../role-based-access-control/role-assignments-cli.md)

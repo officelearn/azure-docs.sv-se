@@ -5,16 +5,15 @@ services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: sujayt
-ms.openlocfilehash: 7d11460fd1db5ba92725567a41aaaeab9e752adb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 84875a47df1830a7f5aa439a17df233d8c93ba1c
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308140"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728250"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Felsöka problem med Azure till Azure VM-replikering
 
@@ -61,37 +60,37 @@ Eftersom SuSE Linux använder symlinks för att underhålla en lista över certi
 
       ``# cd /etc/ssl/certs``
 
-3. Kontrollera om Symantec CA: N rotcertifikatet finns.
+1. Kontrollera om Symantec CA: N rotcertifikatet finns.
 
       ``# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-4. Om Symantec CA: N rotcertifikatet inte finns, kör du följande kommando för att hämta filen. Kontrollera om några fel och följ rekommenderade åtgärden för nätverksfel.
+2. Om Symantec CA: N rotcertifikatet inte finns, kör du följande kommando för att hämta filen. Kontrollera om några fel och följ rekommenderade åtgärden för nätverksfel.
 
       ``# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-5. Kontrollera om Baltimore rot-CA-certifikat finns.
+3. Kontrollera om Baltimore rot-CA-certifikat finns.
 
       ``# ls Baltimore_CyberTrust_Root.pem``
 
-6. Hämta certifikatet om Baltimore rot-CA-certifikat inte hittas.  
+4. Hämta certifikatet om Baltimore rot-CA-certifikat inte hittas.  
 
     ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
-7. Kontrollera om det finns DigiCert_Global_Root_CA-certifikat.
+5. Kontrollera om det finns DigiCert_Global_Root_CA-certifikat.
 
     ``# ls DigiCert_Global_Root_CA.pem``
 
-8. Om DigiCert_Global_Root_CA inte hittas, kör du följande kommandon för att hämta certifikatet.
+6. Om DigiCert_Global_Root_CA inte hittas, kör du följande kommandon för att hämta certifikatet.
 
     ``# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt``
 
     ``# openssl x509 -in DigiCertGlobalRootCA.crt -inform der -outform pem -out DigiCert_Global_Root_CA.pem``
 
-9. Kör rehash skript för att uppdatera certifikatet ämne hashvärden för de nyligen hämtade certifikat.
+7. Kör rehash skript för att uppdatera certifikatet ämne hashvärden för de nyligen hämtade certifikat.
 
     ``# c_rehash``
 
-10. Kontrollera om ämnet hashar som symlinks skapas för certifikaten.
+8.  Kontrollera om ämnet hashar som symlinks skapas för certifikaten.
 
     - Kommando
 
@@ -120,11 +119,11 @@ Eftersom SuSE Linux använder symlinks för att underhålla en lista över certi
       ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
       -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
 
-11. Skapa en kopia av filen VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem med filename b204d74a.0
+9.  Skapa en kopia av filen VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem med filename b204d74a.0
 
     ``# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
 
-12. Skapa en kopia av filen Baltimore_CyberTrust_Root.pem med filename 653b494a.0
+10. Skapa en kopia av filen Baltimore_CyberTrust_Root.pem med filename 653b494a.0
 
     ``# cp Baltimore_CyberTrust_Root.pem 653b494a.0``
 

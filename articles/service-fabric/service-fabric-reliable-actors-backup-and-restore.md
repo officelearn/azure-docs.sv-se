@@ -1,5 +1,5 @@
 ---
-title: Säkerhetskopiera och återställa Azure Service Fabric aktörer | Microsoft Docs
+title: Säkerhetskopiera och återställa Azure Service Fabric actors | Microsoft Docs
 description: Lär dig hur du implementerar säkerhetskopiering och återställning i Azure Service Fabric-aktörer.
 services: service-fabric
 documentationcenter: .net
@@ -12,17 +12,22 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/19/2018
+ms.date: 10/29/2018
 ms.author: vturecek
-ms.openlocfilehash: c72aea9d104264243ef0654aea01e0a41f33ed6f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d5922e21dd464b8cbd0075e7bd2515ffa73607e6
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206874"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726941"
 ---
 # <a name="implement-reliable-actors-backup-and-restore"></a>Implementera Reliable Actors säkerhetskopiering och återställning
-I följande exempel visas en anpassad aktören tjänst Exponerar en metod att säkerhetskopiera aktören data genom att utnyttja fjärrkommunikation lyssnaren finns redan i `ActorService`:
+
+> [!NOTE]
+> Microsoft rekommenderar att du använder [regelbunden säkerhetskopiering och återställning](service-fabric-backuprestoreservice-quickstart-azurecluster.md) för att konfigurera säkerhetskopiering av Reliable Stateful services och Reliable Actors. 
+> 
+
+I följande exempel visas en anpassad actor-tjänst Exponerar en metod för säkerhetskopiering av aktör data genom att utnyttja fjärrkommunikation lyssnaren finns redan i `ActorService`:
 
 ```csharp
 public interface IMyActorService : IService
@@ -98,7 +103,7 @@ class MyActorServiceImpl extends ActorService implements MyActorService
 }
 ```
 
-I det här exemplet `IMyActorService` är ett kontrakt för fjärrkommunikation som implementerar `IService` (C#) och `Service` (Java) och sedan implementeras av `MyActorService`. Genom att lägga till avtalet remoting, metoder på `IMyActorService` är nu också tillgängliga för en klient genom att skapa en fjärrproxy via `ActorServiceProxy`:
+I det här exemplet `IMyActorService` är ett kontrakt, fjärrkommunikation som implementerar `IService` (C#) och `Service` (Java), och sedan implementeras av `MyActorService`. Genom att lägga till det här fjärrkommunikation kontraktet, metoder på `IMyActorService` finns nu också som en klient genom att skapa en proxy för fjärrkommunikation via `ActorServiceProxy`:
 
 ```csharp
 IMyActorService myActorServiceProxy = ActorServiceProxy.Create<IMyActorService>(
@@ -113,12 +118,12 @@ MyActorService myActorServiceProxy = ActorServiceProxy.create(MyActorService.cla
 myActorServiceProxy.backupActorsAsync();
 ```
 
-Mer information om Reliable Actors läsa följande:
+Mer information om Reliable Actors läsa följande artiklar:
 * [Aktören tillståndshantering](service-fabric-reliable-actors-state-management.md)
-* [Aktören livscykel och skräp samling](service-fabric-reliable-actors-lifecycle.md)
+* [Aktör livscykel och skräpinsamling samling](service-fabric-reliable-actors-lifecycle.md)
 * [Aktörer API-referensdokumentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Exempelkod för .NET](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java-exempelkod](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [.NET-exempelkod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Java-exempelkoden](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

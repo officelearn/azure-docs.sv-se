@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/19/2018
 ms.author: rafats
-ms.openlocfilehash: ed97a2c31897d1e5e61421ea489a35af377f4f37
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0d5243a1dd2a7c9244860da15d39f407b281e1e3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621453"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726805"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Skydda åtkomst till Azure Cosmos DB-data
 Den här artikeln innehåller en översikt över att skydda åtkomsten till data som lagras i [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -180,8 +180,8 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 För att lägga till läsåtkomst i Azure Cosmos DB-konto till ditt användarkonto har du en prenumerant som utför följande steg i Azure-portalen.
 
 1. Öppna Azure portal och välj ditt Azure Cosmos DB-konto.
-2. Klicka på den **åtkomstkontroll (IAM)** fliken och klicka sedan på **+ Lägg till**.
-3. I den **Lägg till behörigheter** fönstret i den **rollen** väljer **läsarroll för Cosmos DB-konto**.
+2. Klicka på den **åtkomstkontroll (IAM)** fliken och klicka sedan på **+ Lägg till rolltilldelning**.
+3. I den **Lägg till rolltilldelning** fönstret i den **rollen** väljer **läsarroll för Cosmos DB-konto**.
 4. I den **tilldela åtkomst till box**väljer **Azure AD-användare, grupp eller program**.
 5. Välj användaren, gruppen eller programmet i din katalog som du vill bevilja åtkomst.  Du kan söka i katalogen efter visningsnamn, e-postadress eller objektidentifierare.
     Den valda användaren, gruppen eller programmet visas i listan valda medlemmar.

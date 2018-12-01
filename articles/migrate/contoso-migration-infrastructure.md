@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/1/2018
 ms.author: raynew
-ms.openlocfilehash: 2210aaa5d4d0ba9d730e5aee97972565ea0c1090
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 32a489ee6266018ef1160a0870fe236cc6a72d36
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092990"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726992"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - distribuera en infrastruktur för migrering
 
@@ -256,8 +256,8 @@ Azure [rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/rol
 
 Contoso administratörer nu tilldelar roller till AD-grupper som de synkroniseras från en lokal plats.
 
-1. I den **ControlCobRG** resursgruppen, som han eller hon klickar **åtkomstkontroll (IAM)** > **Lägg till**.
-2. I **lägga till behörigheter** > **rollen**, > **deltagare**, de väljer den **ContosoCobRG** AD-grupp i listan. Gruppen visas sedan i den **valda medlemmar** lista. 
+1. I den **ControlCobRG** resursgruppen, som han eller hon klickar **åtkomstkontroll (IAM)** > **Lägg till rolltilldelning**.
+2. I **Lägg till rolltilldelning** > **rollen**, > **deltagare**, de väljer den **ContosoCobRG** AD-grupp i listan. Gruppen visas sedan i den **valda medlemmar** lista. 
 3. Upprepas de med samma behörigheter för andra resursgrupper (förutom för **ContosoAzureAdmins**), genom att lägga till behörigheterna som deltagare till AD-kontot som matchar resursgruppen.
 4. För den **ContosoAzureAdmins** AD-grupp, de tilldela den **ägare** roll.
 

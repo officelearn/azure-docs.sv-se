@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: cb8644ea4d949e81e4fb68bf572956bfe3444c0c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 04ed8e0e99f0aba4ca067700f8a651b6d6c52423
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997904"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727485"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Skapa en virtuell nätverkspeering - resurshanteraren, olika prenumerationer
 
@@ -58,7 +58,7 @@ Följande steg kan du använda olika konton för varje prenumeration. Om du anv�
     - **Plats**: *USA, östra*
 4. I den **Sök efter resurser** högst upp i portalen, Skriv *myVnetA*. Välj **myVnetA** när den visas i sökresultaten. 
 5. Välj **åtkomstkontroll (IAM)** från en lodrät lista över alternativ till vänster.
-6. Under **myVnetA - åtkomstkontroll (IAM)** väljer **+ Lägg till**.
+6. Under **myVnetA - åtkomstkontroll (IAM)** väljer **+ Lägg till rolltilldelning**.
 7. Välj **nätverksdeltagare** i den **rollen** box.
 8. I den **Välj** väljer *UserB*, eller ange användare BS e-postadress för att söka efter den.
 9. Välj **Spara**.

@@ -12,92 +12,97 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/25/2018
+ms.date: 10/23/2018
 ms.author: dekapur
-ms.openlocfilehash: 03dac03405588ba00a0f8ca5b127956c40853e36
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: a568fc6316211755fabc15ab3cf0227e3a87cb01
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868521"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727366"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista över Service Fabric-händelser 
 
-Service Fabric visar en primär uppsättning klusterhändelser om status för klustret som [Service Fabric-händelser](service-fabric-diagnostics-events.md). De bygger på åtgärder som utförs av Service Fabric på noderna och klustret eller beslut om gjorda av en kluster-ägaren /-operator. Dessa händelser kan nås genom att fråga den [EventStore](service-fabric-diagnostics-eventstore.md) i klustret eller via den operativa kanalen. På Windows-datorer måste är den operativa kanalen också kopplat till EventLog - så att du kan se Service Fabric-händelser i Loggboken. 
+Service Fabric visar en primär uppsättning klusterhändelser om status för klustret som [Service Fabric-händelser](service-fabric-diagnostics-events.md). De bygger på åtgärder som utförs av Service Fabric på noderna och klustret eller beslut om gjorda av en kluster-ägaren /-operator. Dessa händelser kan nås genom att konfigurera i flera olika sätt, inklusive konfiguration av [Log Analytics med klustret](service-fabric-diagnostics-oms-setup.md), eller skicka en fråga i [EventStore](service-fabric-diagnostics-eventstore.md). På Windows-datorer måste matas dessa händelser in EventLog - så att du kan se Service Fabric-händelser i Loggboken. 
 
->[!NOTE]
->En lista över Service Fabric händelser för kluster i versioner < 6.2, finns i följande avsnitt. 
+Här följer några egenskaper av dessa händelser
+* Varje händelse är kopplad till en specifik enhet i klustret t.ex. program, tjänst, Node, repliken.
+* Varje händelse som innehåller en uppsättning vanliga fält: EventInstanceId, EventName och kategori.
+* Varje händelse innehåller fält som knyter händelsen tillbaka till den enhet som den är associerad med. Händelsen ApplicationCreated skulle exempelvis ha fält som identifierar namnet på programmet som har skapat.
+* Händelser är strukturerade så att de kan användas i en mängd olika verktyg för att göra vidare analyser. Dessutom definieras relevant information om en händelse som olika egenskaper, till skillnad från en lång sträng. 
+* Händelser som är skrivna med olika delsystem i Service Fabric identifieras av Source(Task) nedan. Mer information finns på dessa undersystem i [arkitektur för Service Fabric](service-fabric-architecture.md) och [teknisk översikt över Service Fabric](service-fabric-technical-overview.md).
 
-Här är en lista över alla händelser i plattformen, sorterade efter den entitet som de mappas till.
+Här är en lista över dessa Service Fabric-händelser som är ordnade efter entitet.
 
 ## <a name="cluster-events"></a>Klusterhändelser
 
 **Uppgradera klusterhändelser**
 
-| EventId | Namn | Beskrivning |Källa (aktivitet) | Nivå | Version |
-| --- | --- | --- | --- | --- | --- |
-| 29627 | ClusterUpgradeStarted | En uppgradering av klustret har startats | CM | Information | 1 |
-| 29628 | ClusterUpgradeCompleted | En uppgradering av klustret har slutförts| CM | Information | 1 |
-| 29629 | ClusterUpgradeRollbackStarted | En uppgradering av klustret har startats för att återställa | CM | Information | 1 |
-| 29630 | ClusterUpgradeRollbackCompleted | En uppgradering av klustret har slutförts återtagning | CM | Information | 1 |
-| 29631 | ClusterUpgradeDomainCompleted | Uppgradering av en har slutförts under en uppgradering av klustret | CM | Information | 1 |
+Mer information om klusteruppgradering finns [här](service-fabric-cluster-upgrade-windows-server.md).
+
+| EventId | Namn | Kategori | Beskrivning |Källa (aktivitet) | Nivå | 
+| --- | --- | --- | --- | --- | --- | 
+| 29627 | ClusterUpgradeStarted | Uppgradera | En uppgradering av klustret har startats | CM | Information |
+| 29628 | ClusterUpgradeCompleted | Uppgradera | En uppgradering av klustret har slutförts | CM | Information | 
+| 29629 | ClusterUpgradeRollbackStarted | Uppgradera | En uppgradering av klustret har startats för att återställa  | CM | Varning | 
+| 29630 | ClusterUpgradeRollbackCompleted | Uppgradera | En uppgradering av klustret har slutförts återtagning | CM | Varning | 
+| 29631 | ClusterUpgradeDomainCompleted | Uppgradera | En uppgraderingsdomän har uppgraderats under en uppgradering av klustret | CM | Information | 
 
 ## <a name="node-events"></a>Noden händelser
 
 **Livscykelhändelser för noden** 
 
-| EventId | Namn | Beskrivning |Källa (aktivitet) | Nivå | Version |
-| --- | --- | ---| --- | --- | --- |
-| 18602 | NodeDeactivateCompleted | Inaktivering av en nod har slutförts | FM | Information | 1 |
-| 18603 | NodeUp | Klustret har identifierat en nod har startats | FM | Information | 1 |
-| 18604 | NodeDown | Klustret har identifierat en nod har avslutats |  FM | Information | 1 |
-| 18605 | NodeAddedToCluster | En ny nod har lagts till i klustret | FM | Information | 1 |
-| 18606 | NodeRemovedFromCluster | En nod har tagits bort från klustret | FM | Information | 1 |
-| 18607 | NodeDeactivateStarted | Inaktivering av en nod har startats | FM | Information | 1 |
-| 25620 | NodeOpening | En nod startas. Första steget i livscykeln för noden | FabricNode | Information | 1 |
-| 25621 | NodeOpenSucceeded | En nod har startats | FabricNode | Information | 1 |
-| 25622 | NodeOpenFailed | Det gick inte att starta en nod | FabricNode | Information | 1 |
-| 25623 | NodeClosing | En nod stängs av. Början av det sista steget i livscykeln för noden | FabricNode | Information | 1 |
-| 25624 | NodeClosed | En nod som har avslutats | FabricNode | Information | 1 |
-| 25625 | NodeAborting | En nod startas ungracefully stänga | FabricNode | Information | 1 |
-| 25626 | NodeAborted | En nod har ungracefully avslutats | FabricNode | Information | 1 |
+| EventId | Namn | Kategori | Beskrivning |Källa (aktivitet) | Nivå |
+| --- | --- | ---| --- | --- | --- | 
+| 18602 | NodeDeactivateCompleted | Dimensionsmåltypen | Inaktivering av en nod har slutförts | FM | Information | 
+| 18603 | NodeUp | Dimensionsmåltypen | Klustret har identifierat en nod har startats | FM | Information | 
+| 18604 | NodeDown | Dimensionsmåltypen | Klustret har identifierat en nod har avslutats. Under noden startas om visas en NodeDown händelse följt av en NodeUp-händelse |  FM | Fel | 
+| 18605 | NodeAddedToCluster | Dimensionsmåltypen |  En ny nod har lagts till i klustret och Service Fabric kan distribuera program till den här noden | FM | Information | 
+| 18606 | NodeRemovedFromCluster | Dimensionsmåltypen |  En nod har tagits bort från klustret. Service Fabric kommer inte längre distribuera program till den här noden | FM | Information | 
+| 18607 | NodeDeactivateStarted | Dimensionsmåltypen |  Inaktivering av en nod har startats | FM | Information | 
+| 25621 | NodeOpenSucceeded | Dimensionsmåltypen |  En nod har startats | FabricNode | Information | 
+| 25622 | NodeOpenFailed | Dimensionsmåltypen |  Det gick inte att starta och ansluta till ringen som en nod | FabricNode | Fel | 
+| 25624 | NodeClosed | Dimensionsmåltypen |  En nod som har avslutats | FabricNode | Information | 
+| 25626 | NodeAborted | Dimensionsmåltypen |  En nod har ungracefully avslutats | FabricNode | Fel | 
 
 ## <a name="application-events"></a>Programhändelser
 
 **Livscykelhändelser för program**
 
-| EventId | Namn | Beskrivning |Källa (aktivitet) | Nivå | Version |
-| --- | --- | ---| --- | --- | --- |
-| 29620 | ApplicationCreated | Ett nytt program har skapats | CM | Information | 1 |
-| 29625 | ApplicationDeleted | Ett befintligt program har tagits bort | CM | Information | 1 |
-| 23083 | ApplicationProcessExited | En process i ett program har avslutats | Som är värd för | Information | 1 |
+| EventId | Namn | Kategori | Beskrivning |Källa (aktivitet) | Nivå | 
+| --- | --- | --- | --- | --- | --- | 
+| 29620 | ApplicationCreated | Livscykel | Ett nytt program har skapats | CM | Information | 
+| 29625 | ApplicationDeleted | Livscykel | Ett befintligt program har tagits bort | CM | Information | 
+| 23083 | ApplicationProcessExited | Livscykel | En process i ett program har avslutats | Som är värd för | Information | 
 
 **Uppgradera programhändelser**
 
-| EventId | Namn | Beskrivning |Källa (aktivitet) | Nivå | Version |
-| --- | --- | ---| --- | --- | --- |
-| 29621 | ApplicationUpgradeStarted | En uppgradering av programmet har startats | CM | Information | 1 |
-| 29622 | ApplicationUpgradeCompleted | En uppgradering av programmet har slutförts | CM | Information | 1 |
-| 29623 | ApplicationUpgradeRollbackStarted | En uppgradering av programmet har startats för att återställa |CM | Information | 1 |
-| 29624 | ApplicationUpgradeRollbackCompleted | En uppgradering av programmet har slutförts återtagning | CM | Information | 1 |
-| 29626 | ApplicationUpgradeDomainCompleted | En domän-uppgraderingen har slutförts under en uppgradering av programmet | CM | Information | 1 |
+Mer information om programuppgraderingar finns [här](service-fabric-application-upgrade.md).
+
+| EventId | Namn | Kategori | Beskrivning |Källa (aktivitet) | Nivå | 
+| --- | --- | ---| --- | --- | --- | 
+| 29621 | ApplicationUpgradeStarted | Uppgradera | En uppgradering av programmet har startats | CM | Information | 
+| 29622 | ApplicationUpgradeCompleted | Uppgradera | En uppgradering av programmet har slutförts | CM | Information | 
+| 29623 | ApplicationUpgradeRollbackStarted | Uppgradera | En uppgradering av programmet har startats för att återställa |CM | Varning | 
+| 29624 | ApplicationUpgradeRollbackCompleted | Uppgradera | En uppgradering av programmet har slutförts återtagning | CM | Varning | 
+| 29626 | ApplicationUpgradeDomainCompleted | Uppgradera | En uppgraderingsdomän har uppgraderats under en uppgradering av programmet | CM | Information | 
 
 ## <a name="service-events"></a>Tjänsten-händelser
 
 **Livscykelhändelser för tjänsten**
 
-| EventId | Namn | Beskrivning |Källa (aktivitet) | Nivå | Version |
+| EventId | Namn | Kategori | Beskrivning |Källa (aktivitet) | Nivå | 
 | --- | --- | ---| --- | --- | --- |
-| 18657 | ServiceCreated | En ny tjänst skapades | FM | Information | 1 |
-| 18658 | ServiceDeleted | En befintlig tjänst har tagits bort | FM | Information | 1 |
+| 18657 | ServiceCreated | Livscykel | En ny tjänst skapades | FM | Information | 
+| 18658 | ServiceDeleted | Livscykel | En befintlig tjänst har tagits bort | FM | Information | 
 
 ## <a name="partition-events"></a>Partition händelser
 
 **Partition flytta händelser**
 
-| EventId | Namn | Beskrivning |Källa (aktivitet) | Nivå | Version |
+| EventId | Namn | Kategori | Beskrivning |Källa (aktivitet) | Nivå | 
 | --- | --- | ---| --- | --- | --- |
-| 18940 | PartitionReconfigured | En omkonfiguration av partitionen har slutförts | RA | Information | 1 |
+| 18940 | PartitionReconfigured | Livscykel | En omkonfiguration av partitionen har slutförts | RA | Information | 
 
 ## <a name="container-events"></a>Behållarhändelser
 
@@ -110,6 +115,12 @@ Här är en lista över alla händelser i plattformen, sorterade efter den entit
 | 23082 | ContainerExited | En behållare har avslutats - Kontrollera flaggan UnexpectedTermination | Som är värd för | Information | 1 |
 
 ## <a name="health-reports"></a>Hälsorapporter
+
+Den [Hälsomodellen för Service Fabric](service-fabric-health-introduction.md) tillhandahåller en omfattande, flexibel och utökningsbar health-utvärdering och rapportering. Starta Service Fabric version 6.2 skrivs hälsodata som plattform aktiviteter för att tillhandahålla historiska poster av hälsotillstånd. Om du vill behålla mängden health-händelser med låg skriver vi bara följande som Service Fabric-händelser:
+
+* Alla `Error` eller `Warning` hälsorapporter
+* `Ok` hälsorapporter vid övergångar
+* När en `Error` eller `Warning` hälsotillståndshändelse upphör att gälla. Detta kan användas för att avgöra hur lång tid en entitet har feltillstånd
 
 **Kluster rapporten hälsohändelser**
 
@@ -238,6 +249,7 @@ Här är en omfattande lista över händelser som tillhandahålls av Service Fab
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om övergripande [händelsegenerering på nivån plattform](service-fabric-diagnostics-event-generation-infra.md) i Service Fabric
+* Få en översikt över [diagnostik i Service Fabric](service-fabric-diagnostics-overview.md)
+* Mer information om EventStore i [översikt över Service Fabric-Eventstore](service-fabric-diagnostics-eventstore.md)
 * Ändra din [Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) konfiguration för att samla in mer loggar
 * [Konfigurera Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) att se din drift kanal-loggar

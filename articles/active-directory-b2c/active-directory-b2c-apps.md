@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7671a0a99e12463fcce5ff33fbcba7e8677dde05
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 91102b9fe57b2291ce1d1678b71b3a8b0b834864
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006202"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721977"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Typer av program som kan användas i Active Directory B2C
 
@@ -26,7 +26,7 @@ Alla program som använder Azure AD B2C måste registreras i din [Azure AD B2C-k
 * En **program-ID** som unikt identifierar ditt program.
 * En **svars-URL** som kan användas för att dirigera svar tillbaka till ditt program.
 
-Varje begäran som skickas till Azure AD B2C anger en **princip**. En princip styr beteendet i Azure AD. Du kan också använda dessa slutpunkter för att skapa ytterst anpassningsbara användarupplevelser. Exempel på vanliga principer är registrerings-, inloggnings- och profilredigeringsprinciper. Om du inte är bekant med principer bör du lära dig om [det expanderbara principramverket](active-directory-b2c-reference-policies.md) för Azure AD B2C innan du fortsätter.
+Varje begäran som skickas till Azure AD B2C anger en **användarflödet**, vilket är en princip som styr beteendet för Azure AD. Du kan också använda dessa slutpunkter för att skapa ytterst anpassningsbara användarupplevelser. Vi tillhandahåller en uppsättning användarflöden för att konfigurera vanliga principer, inklusive registrering, inloggning och profilredigeringsprinciper. Men du kan också skapa dina egna anpassade principer. Om du inte är bekant med principer bör du lära dig om [det expanderbara principramverket](active-directory-b2c-reference-policies.md) för Azure AD B2C innan du fortsätter.
 
 Interaktionen för alla program följer ett liknande övergripande mönster:
 

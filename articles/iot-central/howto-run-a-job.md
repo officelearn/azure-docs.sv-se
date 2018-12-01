@@ -8,12 +8,12 @@ ms.author: sahubbar
 ms.date: 09/15/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 35db7bf87c7b72fc31d820c9058b1df8415bd553
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ac5accc72369d811c0d36c4ef64cd8d523a061f3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031313"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724510"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Skapa och köra ett jobb i din Azure IoT Central-App
 
@@ -56,8 +56,13 @@ Det här avsnittet visar hur du skapar och kör ett jobb. Varje steg går igenom
 
 Om du vill stoppa ett jobb som körs för tillfället klickar du på namnet på det pågående jobbet som du vill stoppa. Välj den **stoppa** på panelen. Visas jobbets status har ändrats för att återspegla att jobbet har stoppats.
 
-> [!NOTE]
-> När ett jobb har stoppats kan inte startas om. Du måste skapa ett annat jobb med önskade åtgärder och enheter.
+   ![Stoppa jobb](./media/howto-run-a-job/stopjob.png)
+
+### <a name="run-a-stopped-job"></a>Kör ett stoppat jobb
+
+Om du vill köra ett jobb som har för närvarande stoppats klickar du på namnet på det stoppat jobb som du vill köra. Välj den **kör** på panelen. Du ser att jobbet har statusen har ändrats för att återspegla att jobbet körs nu igen.
+
+   ![Återupptagna jobb](./media/howto-run-a-job/resumejob.png)
 
 ## <a name="view-the-job-status"></a>Visa jobbets status
 

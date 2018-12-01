@@ -7,14 +7,14 @@ manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 11/26/2018
 ms.author: shvija
-ms.openlocfilehash: db177c3356d378317c41e0c91c10865db5e05992
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 8009a2ef3f89a359bc645485dd75b80cc5d0b868
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51286987"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722844"
 ---
 # <a name="receive-events-from-event-hubs-using-python"></a>Ta emot händelser från Event Hubs med hjälp av Python
 
@@ -30,11 +30,9 @@ Koden i den här självstudiekursen kommer från [dessa GitHub-exempel](https://
 
 För att slutföra den här självstudien, finns följande förhandskrav:
 
+- En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 - Python 3.4 och senare.
 - En befintlig Event Hubs-namnområde och event hub. Du kan skapa dessa enheter genom att följa instruktionerna i [i den här artikeln](event-hubs-create.md). 
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
 
 ## <a name="install-python-package"></a>Installera Python-paketet
 

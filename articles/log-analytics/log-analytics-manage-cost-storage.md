@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 8343c27693538480757a879e477ec77fba08de3d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 350c009f77bc37ae2201b1d5c3b701e89301b7aa
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958346"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721705"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Hantera kostnader genom att kontrollera datavolymer och kvarhållning i Log Analytics
 
@@ -73,7 +72,7 @@ Granska [Log Analytics-användning och uppskattade kostnader](log-analytics-usag
 ### <a name="manage-the-maximum-daily-data-volume"></a>Hantera maximal daglig datavolym 
 Följande steg beskriver hur du konfigurerar en gräns för att hantera mängden data som Log Analytics att mata in per dag.  
 
-1. Från arbetsytan, Välj **användning och uppskattade kostnader** i den vänstra rutan.
+1. Välj **Användning och beräknade kostnader** i det vänstra fönstret på arbetsytan.
 2. På den **användning och uppskattade kostnader** för den valda arbetsytan och klicka på **Datavolymhantering** högst upp på sidan. 
 5. Dagligt tak är **OFF** som standard – klickar du på **på** att aktivera den och ange sedan datavolymen i GB/dag.<br><br> ![Log Analytics konfigurera datagräns](media/log-analytics-manage-cost-storage/set-daily-volume-cap-01.png)
 
@@ -99,8 +98,8 @@ När aviseringen har definierats och gränsen har nåtts kan en avisering har ut
 ## <a name="change-the-data-retention-period"></a>Ändra kvarhållningsperioden för data 
 Följande steg beskriver hur du konfigurerar hur länge log data bevaras av i din arbetsyta.
  
-1. Från arbetsytan, Välj **användning och uppskattade kostnader** i den vänstra rutan.
-2. På den **användning och uppskattade kostnader** klickar du på **Datavolymhantering** högst upp på sidan.
+1. Välj **Användning och beräknade kostnader** i det vänstra fönstret på arbetsytan.
+2. På sidan **Användning och beräknade kostnader** klickar du på **Datavolymhantering** högst upp på sidan.
 5. Flytta skjutreglaget för att öka eller minska antalet dagar och klickar sedan på i fönstret **OK**.  Om du använder den *kostnadsfria* nivå, du kommer inte att kunna ändra kvarhållningsperioden för data och du måste uppgradera till betald nivå om du vill styra den här inställningen.<br><br> ![Ändra inställningen för kvarhållning av arbetsyta data](media/log-analytics-manage-cost-storage/manage-cost-change-retention-01.png)
 
 ## <a name="troubleshooting"></a>Felsökning

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: bf7f1f58250d94d821e6ec41266b518d7ebe105b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 25d5bd3b798af181b8dd4e7028dd4a531995d464
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427564"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682613"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Diagnostisk loggning för en grupp
 
@@ -132,7 +132,7 @@ Visa och analysera loggar. Mer information finns i [visa och analysera loggar](#
 Diagnostics-data kan vara:
 - [Skrivs till ett Azure Storage-konto](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), för granskning eller manuell granskning. Du kan ange kvarhållningstid (i dagar) med hjälp av resursdiagnostikinställningar.
 - [Strömma till en Event hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ska matas in av en tjänst från tredje part eller anpassade analytics-lösning, t.ex Power BI.
-- [Skrivs till Azure Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
+- [Skrivs till Azure Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
 
 ## <a name="log-categories"></a>Loggkategorier
 

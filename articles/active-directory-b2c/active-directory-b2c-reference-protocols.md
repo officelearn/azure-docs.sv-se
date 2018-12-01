@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/07/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6cfa3e0cb23f13b50c0fb7cd4f07a8d53c0f3186
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: fa6ae230a209d804f244d8bc46a3c6ac1abf6071
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340774"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725581"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: Protokoll för autentisering
 Azure Active Directory B2C (Azure AD B2C) erbjuder identitet som en tjänst för dina appar genom att stödja två protokoll av branschstandardtyp: OpenID Connect och OAuth 2.0. Tjänsten är standardkompatibla, men alla två implementeringen av dessa protokoll kan ha vissa skillnader. 
@@ -50,12 +50,12 @@ Nästan alla flöden som OAuth och OpenID Connect är fyra parter involverade i 
 
 * Den **resursservern** är där resursen eller data finns. Litar auktoriseringsservern för att autentisera och auktorisera OAuth-klienten på ett säkert sätt. Ägar-åtkomsttoken används också att se till att du kan få åtkomst till en resurs.
 
-## <a name="policies"></a>Principer
+## <a name="policies-and-user-flows"></a>Principer och användaren flöden
 Azure AD B2C-principer är utan tvekan, de viktigaste funktionerna i tjänsten. Azure AD B2C utökar OAuth 2.0 och OpenID Connect standardprotokoll genom att introducera principer. De här alternativen kan Azure AD B2C att utföra mycket mer än enkel autentisering och auktorisering. 
 
-Principer helt beskriver kundupplevelser för identitet, inklusive registrering, inloggning, och profilera redigering. Principer kan definieras i en administrativa Gränssnittet. De kan köras med hjälp av en särskild frågeparameter i HTTP-begäranden om autentisering. 
+Som hjälper dig att konfigurera de vanligaste uppgifterna för identitet, Azure AD B2C-portalen innehåller fördefinierade, konfigureras principer som kallas **användarflöden**. Användarflöden helt beskriver kundupplevelser för identitet, inklusive registrering, inloggning, och profilera redigering. Användarflöden kan definieras i en administrativa Gränssnittet. De kan köras med hjälp av en särskild frågeparameter i HTTP-begäranden om autentisering. 
 
-Principer kan inte standardfunktioner för OAuth 2.0 och OpenID Connect, så du bör ta dig tid att förstå hur de. Mer information finns i den [referensguiden för Azure AD B2C-princip](active-directory-b2c-reference-policies.md).
+Principer och användarflöden är inte standardfunktioner för OAuth 2.0 och OpenID Connect, så du bör ta dig tid att förstå hur de. Mer information finns i den [referensguiden för Azure AD B2C användaren flow](active-directory-b2c-reference-policies.md).
 
 ## <a name="tokens"></a>Token
 Azure AD B2C-implementeringen av OAuth 2.0 och OpenID Connect gör omfattande användning av ägar-token, inklusive ägar-token som representeras som JSON web token (JWTs). En ägartoken är en förenklad säkerhetstoken som ger ”ägar” åtkomst till en skyddad resurs.

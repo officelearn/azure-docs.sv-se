@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cec9e5bfea16e5ba11f8cd7324acf15188fb907a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: b5d3703f052ef47bcbacf0be04072357ee5b9986
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634329"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722606"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Om anpassning av användargränssnitt i Azure Active Directory B2C
 
@@ -23,13 +23,13 @@ Möjligheten att varumärken och anpassa användargränssnittet (UI) som använd
 
 Beroende på dina behov när det gäller dessa upplevelser kan anpassa du Användargränssnittet för ditt program på olika sätt. Exempel:
 
-- Om du använder [inbyggda principer](active-directory-b2c-reference-policies.md) för att ange lösenord för registrering eller inloggning, Återställ eller profilredigering upplevelser i ditt program, använder du den [Azure portal för att anpassa Användargränssnittet](tutorial-customize-ui.md).
+- Om du använder [användarflöden](active-directory-b2c-reference-policies.md) för att ange lösenord för registrering eller inloggning, Återställ eller profilredigering upplevelser i ditt program, använder du den [Azure portal för att anpassa Användargränssnittet](tutorial-customize-ui.md).
 - Om ger ut, dess tillhörande sidan för lösenordsåterställning och verifiering via e-post, använder anpassning likadant som används för en [Azure AD-inloggningssida](../active-directory/fundamentals/customize-branding.md).
 - Om kunder försöker redigera sin profil innan de loggar in, omdirigeras de till en sida som du anpassa med hjälp av samma steg som används för att anpassa inloggningssidan för Azure AD.
 - Om du använder [anpassade principer](active-directory-b2c-overview-custom.md) att ange lösenord för registrering eller inloggning, återställa eller -profilredigering i ditt program, som du använder [principfiler anpassa Användargränssnittet](active-directory-b2c-ui-customization-custom.md).
 - Om du vill ange dynamiskt innehåll baserat på en kunds beslut kan du använda [anpassade principer som kan ändra sidan innehåll](active-directory-b2c-ui-customization-custom-dynamic.md) beroende på en parameter som ska skickas som en frågesträng. Till exempel ändras bakgrundsbilden på sidan för Azure AD B2C registrering eller inloggning, baserat på en parameter som du skickar från dina webb- och mobilprogram.
 
-Azure AD B2C körs koden i din kunds webbläsare och använder en modern lösning som kallas [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/). Vid körning laddas innehåll från en URL som du anger i en princip. Du kan ange olika URL: er för olika sidor. När innehållet har lästs in från din URL, sammanfogningen görs med ett HTML-avsnitt infogas från Azure AD B2C och sedan visas för kunden.
+Azure AD B2C körs koden i din kunds webbläsare och använder en modern lösning som kallas [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/). Vid körning laddas innehåll från en URL som du anger i en användarflödet eller princip. Du kan ange olika URL: er för olika sidor. När innehållet har lästs in från din URL, sammanfogningen görs med ett HTML-avsnitt infogas från Azure AD B2C och sedan visas för kunden.
 
 Innan du börjar bör du granska följande riktlinjer:
 
@@ -118,6 +118,6 @@ För exempel på anpassning, ladda ned och granska dessa [exempel mallfiler](htt
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du använder inbyggda principer kan du börja anpassa Användargränssnittet med självstudiekursen: [anpassa användargränssnittet för dina program i Azure Active Directory B2C](tutorial-customize-ui.md).
+- Om du använder användarflöden kan du börja anpassa Användargränssnittet med självstudiekursen: [anpassa användargränssnittet för dina program i Azure Active Directory B2C](tutorial-customize-ui.md).
 - Om du använder anpassade principer kan du börja anpassa Användargränssnittet med artikeln: [anpassa användargränssnittet i ditt program med en anpassad princip i Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
 

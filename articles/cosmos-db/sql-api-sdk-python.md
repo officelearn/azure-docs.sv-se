@@ -9,19 +9,19 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-ms.date: 9/24/2018
+ms.date: 11/29/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 75b5fd2f586a9122aa1248ba88d7ceab59b13215
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 5b67f6bbb9ef2a8ee6bd42c89de56a0ff5a3024d
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269300"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724170"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-sdk-dotnet.md)
+> * [NET](sql-api-sdk-dotnet.md)
 > * [.NET-Ändringsfeed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
@@ -51,10 +51,28 @@ ms.locfileid: "48269300"
 
 ## <a name="release-notes"></a>Viktig information
 
+### <a name="a-name302302"></a><a name="3.0.2"/>3.0.2
+* Stöd har lagts till för MultiPolygon datatyp
+* Felkorrigering i sessionen läsa återförsöksprincip
+* Felkorrigering för felaktig utfyllnad problem vid avkodning base 64 strängar
+
+### <a name="a-name301301"></a><a name="3.0.1"/>3.0.1
+* Felkorrigering i LocationCache
+* Felkorrigering logik för omprövning av slutpunkt
+* Fast dokumentation
+
 ### <a name="a-name300300"></a><a name="3.0.0"/>3.0.0
 * Stöd för flera regioner skrivningar.
 * Namespace ändras till azure.cosmos.
 * Samling och dokument begrepp som bytt namn till behållare och objekt, document_client bytt namn till cosmos_client. 
+
+### <a name="a-name233233"></a><a name="2.3.3"/>2.3.3
+* Stöd har lagts till för proxy
+* Stöd har lagts till för att läsa ändringsfeed
+* Stöd har lagts till för samlingen kvot rubriker
+* Bugfix för stora sessionen tokens problemet
+* Bugfix för ReadMedia API
+* Bugfix i partitionen nyckelintervall cache
 
 ### <a name="a-name232232"></a><a name="2.3.2"/>2.3.2
 * Stöd har lagts till för standard återförsök på problem med anslutningen.
@@ -145,6 +163,9 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [3.0.2](#3.0.2) |Den 15 november 2018 |--- |
+| [3.0.1](#3.0.1) |04 oktober 2018 |--- |
+| [2.3.3](#2.3.3) |08 september 2018 |--- |
 | [2.3.2](#2.3.2) |08 maj 2018 |--- |
 | [2.3.1](#2.3.1) |Den 21 december 2017 |--- |
 | [2.3.0](#2.3.0) |Den 10 november 2017 |--- |

@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: log-analytics
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 77d47b1f4946a8539b58b9335b967321b6bbf2e9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 93fc2d78344bea1861ef0131b712ca65c35de0e4
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259878"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722623"
 ---
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Automatisera processer för Log Analytics med anslutningsappen för Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) kan du skapa automatiserade arbetsflöden med hundratals åtgärder för en mängd olika tjänster. Utdata från en åtgärd kan användas som indata till en annan så att du kan skapa integrering mellan olika tjänster.  Azure Log Analytics-anslutningsappen för Microsoft Flow kan du skapa arbetsflöden som innehåller data som hämtats av loggsökningar i Log Analytics.

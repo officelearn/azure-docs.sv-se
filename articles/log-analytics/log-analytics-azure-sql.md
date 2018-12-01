@@ -5,19 +5,18 @@ services: log-analytics
 ms.service: log-analytics
 ms.subservice: performance
 ms.custom: ''
-ms.devlang: na
 ms.topic: conceptual
 author: danimir
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/26/2018
 ms.author: v-daljep
-ms.openlocfilehash: 57faa347b2733ebf65757b02ee9395f94776cf10
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b2c8ed30e26f5408123fe77606ddfec67479bcad
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635398"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726159"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Övervaka Azure SQL Database med Azure SQL Analytics (förhandsversion)
 
@@ -29,7 +28,7 @@ Genom att använda mått som du samlar in med lösningen kan skapa du anpassade 
 
 Finns det inbäddade videoklippet för en praktisk översikt om hur du använder Azure SQL Analytics-lösningen och för vanliga Användningsscenarier:
 
->[!VIDEO https://youtu.be/j-NDkN4GIzg]
+>[!VIDEO https://www.youtube.com/embed/j-NDkN4GIzg]
 >
 
 ## <a name="connected-sources"></a>Anslutna källor
@@ -38,8 +37,8 @@ Azure SQL Analytics är ett moln endast övervakning lösning stödjande strömn
 
 | Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
-| [Azure Diagnostics](log-analytics-azure-storage.md) | **Ja** | Azure mått och loggfiler data skickas till Log Analytics direkt av Azure. |
-| [Azure Storage-konto](log-analytics-azure-storage.md) | Nej | Log Analytics läsa inte data från ett lagringskonto. |
+| [Azure Diagnostics](../azure-monitor/platform/collect-azure-metrics-logs.md) | **Ja** | Azure mått och loggfiler data skickas till Log Analytics direkt av Azure. |
+| [Azure Storage-konto](../azure-monitor/platform/collect-azure-metrics-logs.md) | Nej | Log Analytics läsa inte data från ett lagringskonto. |
 | [Windows-agenter](../azure-monitor/platform/agent-windows.md) | Nej | Direkta Windows-agenter används inte av lösningen. |
 | [Linux-agenter](log-analytics-quick-collect-linux-computer.md) | Nej | Direct Linux-agenter används inte av lösningen. |
 | [System Center Operations Manager-hanteringsgrupp](log-analytics-om-agents.md) | Nej | En direktanslutning från Operations Manager-agenten till Log Analytics används inte av lösningen. |

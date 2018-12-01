@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5ff4ddee3d8af15caf082be56a51b1aa0d36f02a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 10de56ac8945be4bb0920f95774b469d283f575b
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339985"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721382"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Token-referens
 
@@ -34,7 +34,7 @@ Ytterligare säkerhetsåtgärder på ägar-token, se [RFC 6750 avsnitt 5](http:/
 
 Många av de token som Azure AD B2C utfärdar implementeras som JSON web token (JWTs). En JWT är ett kompakt, URL-säkert sätt att överföra information mellan två parter. JWTs innehåller information som kallas anspråk. Det här är intyg om innehavaren och ämnet för token. Anspråk i JWTs är JSON-objekt som är kodade och serialiseras för överföring. Eftersom JWTs som utfärdats av Azure AD B2C är signerad, men krypteras inte, kan du enkelt granska innehållet i en JWT för att felsöka den. Det finns flera verktyg som kan göra detta, inklusive [jwt.ms](https://jwt.ms). Mer information om JWTs i [JWT-specifikationer](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
-### <a name="id-tokens"></a>ID-token
+### <a name="id-tokens"></a>ID-tokens
 
 Ett ID-token är en typ av säkerhetstoken som din app som tar emot från Azure AD B2C `/authorize` och `/token` slutpunkter. ID-token visas i form av [JWTs](#types-of-tokens), och de innehåller anspråk som du kan använda för att identifiera användare i din app. När ID-token är upptagna från den `/authorize` slutpunkt kan de görs det med hjälp av den [implicit flöde](active-directory-b2c-reference-spa.md), vilket ofta används för användare som loggar in till javascript-baserade webbprogram. När ID-token är upptagna från den `/token` slutpunkt kan de görs det med hjälp av den [kod flow](active-directory-b2c-reference-oidc.md), som ser till att den token som är dolda från webbläsaren. På så sätt kan token som skickas på ett säkert sätt i HTTP-begäranden för kommunikation mellan två komponenter i samma programmet eller tjänsten. Du kan använda anspråken i en ID-token som du vill. De används ofta att visa kontoinformation eller gör besluten om åtkomstkontroll i en app.  
 
@@ -58,7 +58,7 @@ CQhoFA
 
 ```
 
-### <a name="access-tokens"></a>Åtkomsttoken
+### <a name="access-tokens"></a>Åtkomsttokens
 
 En åtkomsttoken är också en typ av säkerhetstoken som din app som tar emot från Azure AD B2C `/authorize` och `/token` slutpunkter. Åtkomsttoken även visas i form av [JWTs](#types-of-tokens), och de innehåller anspråk som du kan använda för att identifiera de beviljade behörigheterna till dina API: er. Åtkomsttoken är signerade, men de för närvarande är krypterad inte. Åtkomsttoken ska användas för att ge åtkomst till API: er och resurs-servrar. Mer information om hur du [använder åtkomsttoken](active-directory-b2c-access-tokens.md). 
 
@@ -66,11 +66,11 @@ När ditt API får en åtkomst-token, måste den [källpaketets signatur](#token
 
 ### <a name="claims-in-id-and-access-tokens"></a>Anspråk i token-ID och åtkomst
 
-När du använder Azure AD B2C har detaljerad kontroll över innehållet i dina token. Du kan konfigurera [principer](active-directory-b2c-reference-policies.md) att skicka vissa uppsättningar av användardata i anspråk som din app kräver för driften. Dessa anspråk kan innehålla standardegenskaper, till exempel användarens `displayName` och `emailAddress`. De kan också innehålla [anpassade användarattribut](active-directory-b2c-reference-custom-attr.md) som du kan definiera i din B2C-katalog. Varje ID och tillgång till token som visas innehåller en viss uppsättning säkerhetsrelaterade anspråk. Dina program kan använda de här anspråken att på ett säkert sätt autentisera användare och förfrågningar.
+När du använder Azure AD B2C har detaljerad kontroll över innehållet i dina token. Du kan konfigurera [användarflöden](active-directory-b2c-reference-policies.md) och anpassade principer för att skicka vissa uppsättningar av användardata i anspråk som din app kräver för driften. Dessa anspråk kan innehålla standardegenskaper, till exempel användarens `displayName` och `emailAddress`. De kan också innehålla [anpassade användarattribut](active-directory-b2c-reference-custom-attr.md) som du kan definiera i din B2C-katalog. Varje ID och tillgång till token som visas innehåller en viss uppsättning säkerhetsrelaterade anspråk. Dina program kan använda de här anspråken att på ett säkert sätt autentisera användare och förfrågningar.
 
 Observera att anspråk i ID-token inte returneras i någon särskild ordning. Dessutom kan du introduceras nya anspråk i ID-token när som helst. Din app ska inte bryter när nya anspråk introduceras. Här följer de anspråk som du förväntar dig att finnas i ID och åtkomst-token som utfärdas av Azure AD B2C. Ytterligare anspråk bestäms av principer. Du bör testa i Granska anspråk i exemplet ID-token genom att klistra in den i [jwt.ms](https://jwt.ms). Mer information finns i den [OpenID Connect-specifikationen](http://openid.net/specs/openid-connect-core-1_0.html).
 
-| Namn | Begär | Exempelvärde | Beskrivning |
+| Namn | Begäran | Exempelvärde | Beskrivning |
 | --- | --- | --- | --- |
 | Målgrupp |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |En målgrupp anspråket identifierar den avsedda mottagaren av token. Målgruppen är appens program-ID, som tilldelats din app i portalen för registrering av appen för Azure AD B2C. Din app ska verifiera det här värdet och avvisa token om det inte matchar. Målgruppen är synonyma med resursen. |
 | Utfärdare |`iss` |`https://{tenantname}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Det här anspråket identifierar den säkerhetstokentjänst (STS) som skapar och returnerar token. Den identifierar också Azure AD-katalog där användaren autentiserades. Din app bör verifiera utfärdare anspråk så att token kom från Azure Active Directory v2.0-slutpunkten. |
@@ -81,7 +81,7 @@ Observera att anspråk i ID-token inte returneras i någon särskild ordning. De
 | Kod hash |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |En kod hash ingår i en ID-token endast när token utfärdas tillsammans med en OAuth 2.0-auktoriseringskod. En kod hash kan användas för att bekräfta en auktoriseringskod är äkta. Mer information om hur du utför den här verifieringen finns i den [OpenID Connect-specifikationen](http://openid.net/specs/openid-connect-core-1_0.html).  |
 | Åtkomst-token-hash |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |En åtkomst-token-hash som ingår i en ID-token endast när token utfärdas tillsammans med en OAuth 2.0-åtkomsttoken. En åtkomst-token-hash kan användas för att bekräfta en åtkomst-token är äkta. Mer information om hur du utför den här verifieringen finns i den [OpenID Connect-specifikation](http://openid.net/specs/openid-connect-core-1_0.html)  |
 | nonce |`nonce` |`12345` |En nonce är en strategi för att åtgärda token repetitionsattacker. Din app kan ange en nonce i en begäran om godkännande med hjälp av den `nonce` frågeparameter. Värdet du anger i begäran kommer avges ska ändras i den `nonce` anspråk för en endast ID-token. På så sätt kan din app för att kontrollera värden mot det värde som det angetts på begäran, som associerar appens session med en viss ID-token. Din app ska utföra den här verifieringen under verifieringsprocessen för ID-token. |
-| Ämne |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |Det här är huvudnamn som token kontrollerar information, t.ex användare av en app. Det här värdet kan inte ändras och det går inte att tilldela om eller återanvänds. Det kan användas för att utföra auktoriseringskontroller på ett säkert sätt, till exempel när token används för att komma åt en resurs. Som standard fylls anspråk för ämne med objekt-ID för användaren i katalogen. Mer information finns i [Azure Active Directory B2C: Token, session och konfiguration för enkel inloggning](active-directory-b2c-token-session-sso.md). |
+| Subjekt |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |Det här är huvudnamn som token kontrollerar information, t.ex användare av en app. Det här värdet kan inte ändras och det går inte att tilldela om eller återanvänds. Det kan användas för att utföra auktoriseringskontroller på ett säkert sätt, till exempel när token används för att komma åt en resurs. Som standard fylls anspråk för ämne med objekt-ID för användaren i katalogen. Mer information finns i [Azure Active Directory B2C: Token, session och konfiguration för enkel inloggning](active-directory-b2c-token-session-sso.md). |
 | Referens för autentisering kontext-klass |`acr` |Inte tillämpligt |Inte används för närvarande, utom när det gäller äldre principer. Mer information finns i [Azure Active Directory B2C: Token, session och konfiguration för enkel inloggning](active-directory-b2c-token-session-sso.md). |
 | Lita på framework-princip |`tfp` |`b2c_1_sign_in` |Det här är namnet på den princip som användes för att hämta ID-token. |
 | Autentisering |`auth_time` |`1438535543` |Det här kravet är den tid då en användare senast angivna autentiseringsuppgifter, som representeras i epoktid. |
@@ -150,7 +150,7 @@ Följande tokenlivslängder anges för att vidareutveckla dina kunskaper. De kan
 
 | Token | Livslängd | Beskrivning |
 | --- | --- | --- |
-| ID-token |En timma |ID-token gäller vanligtvis i en timme. Din webbapp kan använda den här livslängd för att underhålla en egen sessioner med användare (rekommenderas). Du kan också välja en annan session livslängd. Om din app behöver att hämta ett nytt ID-token, måste den helt enkelt skapa en ny inloggning-begäran till Azure AD. Om en användare har en giltig webbläsarsession med Azure AD, kan användaren inte krävas att ange autentiseringsuppgifter igen. |
+| ID-tokens |En timma |ID-token gäller vanligtvis i en timme. Din webbapp kan använda den här livslängd för att underhålla en egen sessioner med användare (rekommenderas). Du kan också välja en annan session livslängd. Om din app behöver att hämta ett nytt ID-token, måste den helt enkelt skapa en ny inloggning-begäran till Azure AD. Om en användare har en giltig webbläsarsession med Azure AD, kan användaren inte krävas att ange autentiseringsuppgifter igen. |
 | Uppdatera token |Upp till 14 dagar |En enda uppdateringstoken är giltig för upp till 14 dagar. En uppdateringstoken kan dock bli ogiltiga när som helst för en rad orsaker. Din app ska fortsätta att försöka använda en uppdateringstoken tills begäran misslyckas, eller din app ersätter uppdateringstoken med ett nytt lösenord. En uppdateringstoken kan också bli ogiltiga om 90 dagar har passerat sedan du senast angivna autentiseringsuppgifter. |
 | Auktoriseringskoder |Fem minuter |Auktoriseringskoder är avsiktligt tillfällig. De bör lösas omedelbart för åtkomsttoken, ID-token eller uppdateringstoken när de tas emot. |
 

@@ -9,15 +9,15 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/21/2018
+ms.date: 11/29/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4c58c1972fee782a93f9641d00376db916021f95
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4a1be3b948ca5571972179e08ba8b85657b0bb8d
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634497"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725173"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -52,6 +52,23 @@ SQL API Java SDK har stöd för synkrona åtgärder. Använd för asynkron suppo
 </table></br>
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* Stöd för flera regioner skrivning har lagts till för direkt-läge.
+* Stöd har lagts till för att hantera IOExceptions genereras som ServiceUnavailable undantag från en proxy.
+* Ett fel har åtgärdats i återförsöksprincipen för slutpunkt för identifiering.
+* Ett fel om du vill se till att null-pekare undantag inte utlöses i BaseDatabaseAccountConfigurationProvider har åtgärdats.
+* En bugg för att säkerställa att fråga Iteratorn inte returnerar null-värden.
+* En bugg så stora PartitionKey tillåts
+
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+* Stöd för flera regioner skrivning har lagts till för gateway-läge.
+
+### <a name="a-name11641164"></a><a name="1.16.4"/>1.16.4
+* Ett fel har åtgärdats i Läs partition nyckel intervall för en fråga.
+
+### <a name="a-name11631163"></a><a name="1.16.3"/>1.16.3
+* Ett fel vid konfigurationen fortsättning token huvudstorlek i DirectHttps läge har åtgärdats.
 
 ### <a name="a-name11621162"></a><a name="1.16.2"/>1.16.2
 * Lägga till strömmande misslyckas över support.
@@ -205,6 +222,10 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [2.1.1](#2.1.1) |Den 21 november 2018 |--- |
+| [2.0.0](#2.0.0) |Den 21 september 2018 |--- |
+| [1.16.4](#1.16.4) |Den 10 september 2018 |--- |
+| [1.16.3](#1.16.3) |09 september 2018 |--- |
 | [1.16.2](#1.16.2) |Den 29 juni 2018 |--- |
 | [1.16.1](#1.16.1) |16 maj 2018 |--- |
 | [1.16.0](#1.16.0) |Den 15 mars 2018 |--- |

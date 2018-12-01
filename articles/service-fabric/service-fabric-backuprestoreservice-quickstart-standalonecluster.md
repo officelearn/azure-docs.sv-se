@@ -1,5 +1,5 @@
 ---
-title: Regelbunden säkerhetskopiering och återställning i Azure Service Fabric (förhandsversion) | Microsoft Docs
+title: Regelbunden säkerhetskopiering och återställning i Azure Service Fabric | Microsoft Docs
 description: Använd Service Fabric regelbunden säkerhetskopiering och återställning av funktionen för att aktivera säkerhetskopiering av periodiska data för dina programdata.
 services: service-fabric
 documentationcenter: .net
@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/04/2018
+ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: bcbb8e60d14615d4bddb4a1efa5ecf1487aab093
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2ff7221a3742f59cdef2c5c7c220cc80148b94d0
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234688"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721569"
 ---
-# <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Regelbunden säkerhetskopiering och återställning i Azure Service Fabric (förhandsversion)
+# <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Regelbunden säkerhetskopiering och återställning i Azure Service Fabric
 > [!div class="op_single_selector"]
 > * [Kluster på Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Fristående kluster](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -31,20 +31,16 @@ Service Fabric är en distribuerad systemplattform som gör det enkelt att utvec
 
 Service Fabric replikerar tillståndet över flera noder så att tjänsten har hög tillgänglighet. Även om en nod i klustret misslyckas, fortsätter tjänsten att vara tillgängliga. I vissa fall, men är det fortfarande önskvärt service-data kan vara tillförlitlig mot bredare fel.
  
-Tjänsten kan till exempel vill säkerhetskopiera dess data för att skydda mot följande scenarier:
-- I händelse av permanent förlusten av en hela Service Fabric-kluster.
+En tjänst kan till exempel vill säkerhetskopiera data för att skydda mot följande scenarier:
+- Permanent förlust av ett helt Service Fabric-kluster.
 - Permanent förlust av en majoritet av replikeringar av en tjänstpartition
 - Administrativa fel där tillståndet hämtar eller förstörs. En administratör med tillräcklig behörighet för tar till exempel felaktigt bort tjänsten.
 - Buggar i tjänsten som orsaka skadade data. Det kan exempelvis ske när en kod tjänsteuppgraderingen börjar skriva felaktiga data till en tillförlitlig samling. I sådana fall kanske både koden och data återställas till ett tidigare tillstånd.
 - Offline databearbetning. Det kan vara praktiskt att ha offline bearbetning av data för business intelligence som sker separat från den tjänst som genererar data.
 
-Service Fabric tillhandahåller ett inbyggda API som tidpunkt [säkerhetskopierar och återställer](service-fabric-reliable-services-backup-restore.md). Utvecklare kan använda dessa API: er för att säkerhetskopiera tillståndet för tjänsten med jämna mellanrum. Administratörer kan utlösa en säkerhetskopia från utanför tjänsten vid en viss tidpunkt måste som innan du uppgraderar program, utvecklare även att exponera säkerhetskopiering (och återställa) som ett API från tjänsten. Att underhålla säkerhetskopiorna som är en ytterligare kostnad över detta. Du kanske vill göra 5 inkrementella säkerhetskopior varje halvtimme följt av en fullständig säkerhetskopia. När du har en fullständig säkerhetskopiering kan du ta bort tidigare inkrementella säkerhetskopior. Den här metoden kräver ytterligare kod som leder till extra kostnad under programutvecklingen.
+Service Fabric tillhandahåller ett inbyggda API som tidpunkt [säkerhetskopierar och återställer](service-fabric-reliable-services-backup-restore.md). Utvecklare kan använda dessa API: er för att säkerhetskopiera tillståndet för tjänsten med jämna mellanrum. Administratörer kan utlösa en säkerhetskopia från utanför tjänsten vid en viss tidpunkt måste som innan du uppgraderar program, utvecklare även att exponera säkerhetskopiering (och återställa) som ett API från tjänsten. Att underhålla säkerhetskopiorna som är en ytterligare kostnad över detta. Du kanske vill göra fem inkrementella säkerhetskopior varje halvtimme följt av en fullständig säkerhetskopia. När du har en fullständig säkerhetskopiering kan du ta bort tidigare inkrementella säkerhetskopior. Den här metoden kräver ytterligare kod som leder till extra kostnad under programutvecklingen.
 
 Säkerhetskopiering av programdata på regelbunden basis är ett grundläggande behov för att hantera ett distribuerat program och skydd mot förlust av data eller långvarig för tjänstens tillgänglighet. Service Fabric tillhandahåller ett valfritt säkerhetskopiering och återställning tjänst, där du kan konfigurera regelbunden säkerhetskopiering av tillståndskänsliga Reliable Services (inklusive Aktörstjänster) utan att behöva skriva ytterligare kod. Det underlättar också återställa utfört tidigare säkerhetskopior. 
-
-> [!NOTE]
-> Regelbunden säkerhetskopiering och återställning av funktionen är för närvarande i **förhandsversion** och stöds inte för produktionsarbetsbelastningar. 
->
 
 Service Fabric tillhandahåller en uppsättning API: er för att uppnå följande funktioner relaterade till periodiska säkerhetskopia och återställa funktionen:
 
@@ -58,7 +54,7 @@ Service Fabric tillhandahåller en uppsättning API: er för att uppnå följand
 - Kvarhållning av säkerhetskopior (kommande)
 
 ## <a name="prerequisites"></a>Förutsättningar
-* Service Fabric-kluster med Fabric version 6.2 och senare. Klustret ska vara konfigurerat på Windows Server. Se [artikeln](service-fabric-cluster-creation-for-windows-server.md) steg att ladda ned paket som krävs.
+* Service Fabric-kluster med Fabric version 6.2 och senare. Klustret ska ställas in på Windows Server. Referera till denna [artikeln](service-fabric-cluster-creation-for-windows-server.md) steg att ladda ned paket som krävs.
 * X.509-certifikat för kryptering av hemligheter som behövs för att ansluta till storage för lagring av säkerhetskopior. Se [artikeln](service-fabric-windows-cluster-x509-security.md) kunskaper om att hämta eller skapa ett självsignerat X.509-certifikat.
 * Service Fabric tillförlitliga tillståndskänsliga program som skapats med hjälp av Service Fabric SDK version 3.0 eller senare. För program som riktar in sig på .net Core 2.0, bör skapat programmet med hjälp av Service Fabric SDK version 3.1 eller senare.
 
@@ -109,12 +105,12 @@ Först måste du aktivera den _säkerhetskopiera och återställa tjänsten_ i k
 
 ## <a name="enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors"></a>Aktivera regelbunden säkerhetskopiering för tillförlitlig tillståndskänslig tjänst och Reliable Actors
 Låt oss gå igenom stegen för att aktivera regelbunden säkerhetskopiering för tillförlitlig tillståndskänslig tjänst och Reliable Actors. Dessa steg förutsätter
-- Att klustret har konfigurerats med _säkerhetskopiera och återställa tjänsten_.
+- Klustret har konfigurerats med _säkerhetskopiera och återställa tjänsten_.
 - En tillförlitlig tillståndskänslig tjänst har distribuerats på klustret. I den här snabbstartsguiden programmets Uri är `fabric:/SampleApp` och URI: N för tillförlitlig tillståndskänslig tjänst som hör till det här programmet är `fabric:/SampleApp/MyStatefulService`. Den här tjänsten har distribuerats med partition och partitions-ID är `23aebc1e-e9ea-4e16-9d5c-e91a614fefa7`.  
 
 ### <a name="create-backup-policy"></a>Skapa säkerhetskopieringsprincip
 
-Första steget är att skapa princip för säkerhetskopiering som beskriver schemat för säkerhetskopiering, mål-lagringskontot för säkerhetskopierade data, principnamn och högsta inkrementella säkerhetskopior som ska tillåtas innan du aktiverar fullständig säkerhetskopiering. 
+Första steget är att skapa princip för säkerhetskopiering som beskriver schemat för säkerhetskopiering, målstorleken för säkerhetskopierade data, principnamn, maximalt inkrementella säkerhetskopior som ska tillåtas innan du aktiverar fullständig säkerhetskopiering och kvarhållningsprincipen för lagring av säkerhetskopior. 
 
 Skapa filresurs för lagring av säkerhetskopior, och ge ReadWrite-åtkomst till den här filresursen för alla datorer i Service Fabric-noden. Det här exemplet förutsätter resursen med namnet `BackupStore` finns på `StorageServer`.
 
@@ -131,15 +127,21 @@ $StorageInfo = @{
     StorageKind = 'FileShare'
 }
 
+$RetentionPolicy = @{ 
+    RetentionPolicyType = 'Basic'
+    RetentionDuration =  'P10D'
+}
+
 $BackupPolicy = @{
     Name = 'BackupPolicy1'
     MaxIncrementalBackups = 20
     Schedule = $ScheduleInfo
     Storage = $StorageInfo
+    RetentionPolicy = $RetentionPolicy
 }
 
 $body = (ConvertTo-Json $BackupPolicy)
-$url = "http://localhost:19080/BackupRestore/BackupPolicies/$/Create?api-version=6.2-preview"
+$url = "http://localhost:19080/BackupRestore/BackupPolicies/$/Create?api-version=6.4"
 
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ```
@@ -155,7 +157,7 @@ $BackupPolicyReference = @{
 }
 
 $body = (ConvertTo-Json $BackupPolicyReference)
-$url = "http://localhost:19080/Applications/SampleApp/$/EnableBackup?api-version=6.2-preview"
+$url = "http://localhost:19080/Applications/SampleApp/$/EnableBackup?api-version=6.4"
 
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ``` 
@@ -173,7 +175,7 @@ Säkerhetskopieringar som är associerade med alla partitioner som hör till Rel
 Kör följande PowerShell-skript för att anropa HTTP-API för att räkna upp de säkerhetskopior som har skapats för alla partitioner i den `SampleApp` program.
 
 ```powershell
-$url = "http://localhost:19080/Applications/SampleApp/$/GetBackups?api-version=6.2-preview"
+$url = "http://localhost:19080/Applications/SampleApp/$/GetBackups?api-version=6.4"
 
 $response = Invoke-WebRequest -Uri $url -Method Get
 
@@ -220,10 +222,9 @@ CreationTimeUtc         : 2018-04-01T20:09:44Z
 FailureError            : 
 ```
 
-## <a name="preview-limitation-caveats"></a>Förhandsgranska begränsning / varningar
+## <a name="limitation-caveats"></a>Begränsningen / varningar
 - Inga Service Fabric inbyggd PowerShell-cmdletar.
 - Inget stöd för Service Fabric CLI.
--  Inget stöd för automatisk rensning av säkerhetskopiering. [Säkerhetskopiera kvarhållning skriptet](https://github.com/Microsoft/service-fabric-scripts-and-templates/tree/master/scripts/BackupRetentionScript) kan hänvisas till installationsprogrammet upp skriptbaserad externa automation för att rensa säkerhetskopieringar.
 - Inget stöd för Service Fabric-kluster på Linux.
 
 ## <a name="next-steps"></a>Nästa steg

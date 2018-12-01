@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: e4e0ff288b9d5539a0110fb157e32b4f23d06bb6
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 53f28d29b9667bb885a5c3d0da8d926f756f3427
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715704"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682085"
 ---
 # <a name="targeting-management-solutions-in-azure-preview"></a>Riktar in sig på lösningar i Azure (förhandsversion)
 När du lägger till en lösning för din prenumeration, distribueras den automatiskt som standard att alla Windows- och Linux-agenter är anslutna till Log Analytics-arbetsytan.  Du kanske vill hantera dina kostnader och begränsa mängden data som samlas in för en lösning genom att begränsa den till en viss uppsättning med agenter.  Den här artikeln beskriver hur du använder **Lösningsmål** som är en funktion som gör att du kan använda ett omfång för dina lösningar.
@@ -29,7 +29,7 @@ Det finns tre steg för att riktar in sig på en lösning som beskrivs i följan
 
 
 ### <a name="1-create-a-computer-group"></a>1. Skapa en datorgrupp
-Ange de datorer som du vill ska ingå i en omfattning genom att skapa en [datorgrupp](../../log-analytics/log-analytics-computer-groups.md) i Log Analytics.  Datorgruppen kan baserat på en loggsökning eller importeras från andra källor, till exempel Active Directory eller WSUS-grupper. Som [som beskrivs nedan](#solutions-and-agents-that-cant-be-targeted), bara datorer som är anslutna direkt till Log Analytics ska ingå i omfattningen.
+Ange de datorer som du vill ska ingå i en omfattning genom att skapa en [datorgrupp](../../azure-monitor/platform/computer-groups.md) i Log Analytics.  Datorgruppen kan baserat på en loggsökning eller importeras från andra källor, till exempel Active Directory eller WSUS-grupper. Som [som beskrivs nedan](#solutions-and-agents-that-cant-be-targeted), bara datorer som är anslutna direkt till Log Analytics ska ingå i omfattningen.
 
 När du har den datorgrupp som skapats i din arbetsyta och sedan ska du inkludera den i en scope-konfiguration som kan tillämpas på en eller flera lösningar.
  
@@ -75,4 +75,4 @@ Lösningsmål kan inte användas med följande lösningar trots att de passar de
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om lösningar för hantering, inklusive de lösningar som är tillgängliga för installation i miljön vid [lägga till Azure Log Analytics-hanteringslösningar till din arbetsyta](solutions.md).
-- Läs mer om hur du skapar datorgrupper i [datorgrupper i Log Analytics loggsökningar](../../log-analytics/log-analytics-computer-groups.md).
+- Läs mer om hur du skapar datorgrupper i [datorgrupper i Log Analytics loggsökningar](../../azure-monitor/platform/computer-groups.md).

@@ -9,16 +9,15 @@ ms.assetid: 05d6a9e0-77a2-4a35-9052-a7768d23a196
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: 2a5717f95e5e40fe04f4fa22eaedf168539e20f3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 01ba8b6d9ebef5d79b660638d60d5b745c624786
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309237"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725394"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Använd PowerShell för att ställa in aviseringar i Application Insights
 Du kan automatisera konfigurationen av [aviseringar](app-insights-alerts.md) i [Application Insights](app-insights-overview.md).
@@ -100,27 +99,27 @@ Samma regel kan användas för det mått som rapporteras med hjälp av den [mät
 ## <a name="metric-names"></a>Tjänstmåttets namn
 | Måttnamn | Skärmnamn | Beskrivning |
 | --- | --- | --- |
-| `basicExceptionBrowser.count` |Webbläsarundantag |Antal undantagsfel utan felhantering som har utlösts i webbläsaren. |
+| `basicExceptionBrowser.count` |Webbläsarundantag |Antal undantagsfel som utlösts i webbläsaren. |
 | `basicExceptionServer.count` |Serverundantag |Antal ohanterade undantag som utlöses av appen |
 | `clientPerformance.clientProcess.value` |Klientbehandlingstid |Tiden mellan ta emot de sista byten av ett dokument till dess att DOM har lästs. Asynkrona begäranden kan fortfarande vara under bearbetning. |
-| `clientPerformance.networkConnection.value` |Nätverksanslutningstid för sidhämtning |Tid som webbläsaren tar för att ansluta till nätverket. Kan vara 0 om cachelagrade. |
+| `clientPerformance.networkConnection.value` |Nätverket connect sidinläsningstiden |Tid som webbläsaren tar för att ansluta till nätverket. Kan vara 0 om cachelagrade. |
 | `clientPerformance.receiveRequest.value` |Tar emot svarstid |Tiden mellan webbläsaren skickar begäran till början på svar. |
-| `clientPerformance.sendRequest.value` |Tid för att skicka förfrågan |Åtgången tid för webbläsaren att skicka begäran. |
-| `clientPerformance.total.value` |Sidhämtningstid för webbläsare |Tiden från användarförfrågan till dess att DOM, formatmallar, skript och bilder har lästs in. |
-| `performanceCounter.available_bytes.value` |Ledigt minne |Fysiskt minne som är omedelbart tillgängligt för en process eller för systemanvändning. |
-| `performanceCounter.io_data_bytes_per_sec.value` |IO-frekvens för process |Totalt antal byte per sekund som har lästs och skrivits till filer, nätverk och enheter. |
+| `clientPerformance.sendRequest.value` |Skicka tid för begäran |Åtgången tid för webbläsaren att skicka begäran. |
+| `clientPerformance.total.value` |Webbsideinläsningar |Tiden från användarförfrågan till dess att DOM, formatmallar, skript och bilder har lästs in. |
+| `performanceCounter.available_bytes.value` |Tillgängligt minne |Fysiskt minne som är omedelbart tillgängligt för en process eller för systemanvändning. |
+| `performanceCounter.io_data_bytes_per_sec.value` |Behandlingstakten för i/o |Totalt antal byte per sekund som har lästs och skrivits till filer, nätverk och enheter. |
 | `performanceCounter.number_of_exceps_thrown_per_sec.value` |antal undantag |Undantag per sekund. |
 | `performanceCounter.percentage_processor_time.value` |Processoranvändning för process |Procentandelen av förfluten tid som alla processens trådar använda processorn för att köra instruktioner för hur program. |
-| `performanceCounter.percentage_processor_total.value` |Processortid |Den procentandel av tiden som processorn ägnat åt icke-inaktiva trådar. |
-| `performanceCounter.process_private_bytes.value` |Privata byte för process |Minne som har tilldelats exklusivt för att övervaka programprocesser. |
-| `performanceCounter.request_execution_time.value` |Körningstid för ASP.NET-begäran |Körningstid för de senaste förfrågningarna. |
-| `performanceCounter.requests_in_application_queue.value` |ASP.NET-begäranden i kö för körning |Programfrågeköns längd |
-| `performanceCounter.requests_per_sec.value` |ASP.NET-begärandehastighet |Hastigheten per sekund för alla förfrågningar till programmet från ASP.NET. |
+| `performanceCounter.percentage_processor_total.value` |Processortid |Procentandelen av tiden som processorn ägnat åt icke-inaktiva trådar. |
+| `performanceCounter.process_private_bytes.value` |Privata byte för process |Minne som tilldelats exklusivt för att övervaka programprocesser. |
+| `performanceCounter.request_execution_time.value` |Körningstid för ASP.NET-begäran |Körningstid för den senaste begäran. |
+| `performanceCounter.requests_in_application_queue.value` |ASP.NET-begäranden i kö för körning |Längden på programbegärandekön. |
+| `performanceCounter.requests_per_sec.value` |ASP.NET-begärandehastighet |Hastighet för alla förfrågningar till programmet per sekund från ASP.NET. |
 | `remoteDependencyFailed.durationMetric.count` |Beroendefel |Antal misslyckade anrop gjorda av serverprogrammet till externa resurser. |
-| `request.duration` |Serversvarstid  |Tid från det att en HTTP-förfrågning mottagits till dess att svaret har skickats. |
+| `request.duration` |Svarstid för servern |Tiden mellan ta emot en HTTP-begäran och slutför att svaret. |
 | `request.rate` |Förfrågningsfrekvens |Hastighet för alla förfrågningar till programmet per sekund. |
 | `requestFailed.count` |Misslyckade förfrågningar |Antal HTTP-begäranden som resulterade i en svarskoden > = 400 |
-| `view.count` |Sidvisning |Antal klientens användarbegäranden för en webbsida. Syntetisk trafik filtreras. |
+| `view.count` |Sidvisningar |Antal klientens användarbegäranden för en webbsida. Syntetisk trafik filtreras. |
 | {din anpassade Måttnamn} |{Måttnamnet} |Din måttvärde rapporteras av [TrackMetric](app-insights-api-custom-events-metrics.md#trackmetric) eller i den [mätningar av parametern för ett spårnings-anrop](app-insights-api-custom-events-metrics.md#properties). |
 
 Mått som skickas av flera telemetriska moduler:

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 13ba4d774cbc347830c32385ba4927a0df687159
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6170b69d213470b1f5b7e75c9b102e5e07c09209
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035478"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682902"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Vidarebefordra jobbstatus och jobbströmmar från Automation till Log Analytics
 
@@ -98,7 +98,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Log Analytics oc
 | SourceSystem | Hur Log Analytics insamlade data. Alltid *Azure* för Azure-diagnostik. |
 | ResultDescription |Beskriver jobbstatusen för runbook. Möjliga värden:<br>-Jobbet har startats<br>-Jobbet misslyckades<br>-Jobbet slutfördes |
 | CorrelationId |GUID som är korrelations-Id för runbook-jobbet. |
-| ResourceId |Anger Azure Automation-konto resurs-id för runbook. |
+| Resurs-ID |Anger Azure Automation-konto resurs-id för runbook. |
 | SubscriptionId | Azure-prenumerationen Id (GUID) för Automation-kontot. |
 | ResourceGroup | Namnet på resursgruppen för Automation-kontot. |
 | ResourceProvider | MICROSOFT. AUTOMATION |
@@ -121,7 +121,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Log Analytics oc
 | SourceSystem | Hur Log Analytics insamlade data. Alltid *Azure* för Azure-diagnostik. |
 | ResultDescription |Innehåller utdataströmmen från runbook. |
 | CorrelationId |GUID som är korrelations-Id för runbook-jobbet. |
-| ResourceId |Anger Azure Automation-konto resurs-id för runbook. |
+| Resurs-ID |Anger Azure Automation-konto resurs-id för runbook. |
 | SubscriptionId | Azure-prenumerationen Id (GUID) för Automation-kontot. |
 | ResourceGroup | Namnet på resursgruppen för Automation-kontot. |
 | ResourceProvider | MICROSOFT. AUTOMATION |
@@ -182,4 +182,4 @@ Log Analytics ger större ökar du synligheten för Automation-jobb och hjälper
 * Läs mer om hur du konstruerar olika sökfrågor och granskar jobbloggarna i Automation med Log Analytics i [Loggsökningar i Log Analytics](../log-analytics/log-analytics-log-searches.md).
 * Information om hur du skapar och hämta utdata och meddelanden från runbooks finns i [Runbook-utdata och meddelanden](automation-runbook-output-and-messages.md).
 * Läs mer om att köra runbook, hur du övervakar runbook-jobb och andra tekniska detaljer i [Spåra ett runbook-jobb](automation-runbook-execution.md).
-* Läs mer om Log Analytics och datakällsamling i [insamling av Azure storage-data i Log Analytics-översikten](../log-analytics/log-analytics-azure-storage.md).
+* Läs mer om Log Analytics och datakällsamling i [insamling av Azure storage-data i Log Analytics-översikten](../azure-monitor/platform/collect-azure-metrics-logs.md).

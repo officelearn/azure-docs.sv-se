@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: hrasheed
-ms.openlocfilehash: 77f1d0f9d1f9ad07b977750e7701b660781d63e5
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: c615188e5f198cb8707b12643e0942e8d8821983
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499383"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725190"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure-portalen
 
@@ -64,7 +64,7 @@ Du måste ange en Azure-prenumeration när du skapar ett HDInsight-kluster. Klus
     1. Logga in på [Azure Portal](https://portal.azure.com).
     2. Klicka på **resursgrupper** i den vänstra menyn Visa en lista över resursgrupper.
     3. Klicka på resursgruppen som du vill använda för att skapa ditt HDInsight-kluster.
-    4. Klicka på **åtkomstkontroll (IAM)**, och kontrollera att du (eller en grupp som du tillhör) ha minst deltagaråtkomst till resursgruppen.
+    4. Klicka på **åtkomstkontroll (IAM)** och **rolltilldelningar**, och kontrollera att du (eller en grupp som du tillhör) ha minst deltagaråtkomst till resursgruppen.
 
 Om du får felet NoRegisteredProviderFound eller MissingSubscriptionRegistration felet, se [felsöka vanliga Azure-distributionsfel med Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 
@@ -106,7 +106,7 @@ Om du får felet NoRegisteredProviderFound eller MissingSubscriptionRegistration
 * **Diagnosinställningar**: inställningarna på var du vill lagra mått som du kan undersöka **Support och felsökning**
     * **Resurshälsa**: se [översikt över hälsotillståndet för Azure-resurs](../service-health/resource-health-overview.md).
     * **Ny supportförfrågan**: gör att du kan skapa ett supportärende hos Microsoft support.
-
+    
 6. Klicka på **egenskaper**:
 
     Egenskaperna är:

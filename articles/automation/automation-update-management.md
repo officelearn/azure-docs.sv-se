@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 11/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: caa1b6f31325cd67aad106f7829bd32a5e7aeb53
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c6202ff6f00412a779fb62b7a3bcc3f30ecbb25a
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635823"
+ms.locfileid: "52682336"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -52,7 +52,7 @@ Lösningen rapporterar hur uppdaterad datorn är utifrån vilken källa du är k
 
 Du kan distribuera och installera programuppdateringar på datorer som kräver uppdateringarna genom att skapa en schemalagd distribution. Uppdateringar som klassificeras som *valfritt* ingår inte i distributionsomfattningen för Windows-datorer. Endast nödvändiga uppdateringar som ingår i distributionsomfattningen. 
 
-En schemalagd distribution definierar vilka måldatorer som får tillämpliga uppdateringar, antingen genom att uttryckligen ange datorer eller genom att välja en [datorgrupp](../log-analytics/log-analytics-computer-groups.md) som baseras på loggsökningar för en specifik uppsättning datorer. Du kan även ange ett schema för att godkänna och ange en viss tidsperiod under vilken du kan installera uppdateringar.
+En schemalagd distribution definierar vilka måldatorer som får tillämpliga uppdateringar, antingen genom att uttryckligen ange datorer eller genom att välja en [datorgrupp](../azure-monitor/platform/computer-groups.md) som baseras på loggsökningar för en specifik uppsättning datorer. Du kan även ange ett schema för att godkänna och ange en viss tidsperiod under vilken du kan installera uppdateringar.
 
 Uppdateringar installeras av runbooks i Azure Automation. Du kan inte visa dessa runbooks och runbooks kräver inte någon konfigurering. När en uppdateringsdistribution skapas, skapar ett schema som startar en masteruppdaterings-runbook vid den angivna tidpunkten för datorerna som ingår i uppdateringsdistributionen. Master-runbook startar en underordnad runbook på varje agent så att installera nödvändiga uppdateringar.
 
@@ -192,7 +192,7 @@ Om du vill köra en loggsökning som returnerar information om datorn, uppdateri
 
 ## <a name="install-updates"></a>Installera uppdateringar
 
-När uppdateringar utvärderas för alla Linux- och Windows-datorer i din arbetsyta, kan du installera nödvändiga uppdateringar genom att skapa en *uppdateringsdistribution*. En uppdateringsdistribution är en schemalagd installation av nödvändiga uppdateringar för en eller flera datorer. Du kan ange datum och tid för distributionen och en dator eller grupp av datorer som ska ingå i omfattningen för en distribution. Läs mer om datorgrupper i [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md) (Datorgrupper i Log Analytics).
+När uppdateringar utvärderas för alla Linux- och Windows-datorer i din arbetsyta, kan du installera nödvändiga uppdateringar genom att skapa en *uppdateringsdistribution*. En uppdateringsdistribution är en schemalagd installation av nödvändiga uppdateringar för en eller flera datorer. Du kan ange datum och tid för distributionen och en dator eller grupp av datorer som ska ingå i omfattningen för en distribution. Läs mer om datorgrupper i [Computer groups in Log Analytics](../azure-monitor/platform/computer-groups.md) (Datorgrupper i Log Analytics).
 
  När du inkluderar datorgrupper i din distribution utvärderas gruppmedlemskap bara en gång när schemat skapas. Efterföljande ändringar i en grupp syns inte. Att komma runt denna [dynamiska grupper](#using-dynamic-groups), dessa grupper har lösts vid tidpunkten för distribution och definieras av en fråga.
 
@@ -210,7 +210,7 @@ Om du vill skapa en ny uppdateringsdistribution, Välj **distribution av schemau
 | Namn |Unikt namn som identifierar uppdateringsdistributionen. |
 |Operativsystem| Linux eller Windows|
 | Grupper för att uppdatera (förhandsversion)|Definiera en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer ska ingå i din distribution. Mer information finns i [dynamiska grupper](automation-update-management.md#using-dynamic-groups)|
-| Datorer som ska uppdateras |Välj en sparad sökning, importerat gruppen, eller välja dator från listrutan och Välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**.</br> Mer om de olika metoderna för att skapa datorgrupper i Log Analytics finns i dokumentationen om [datorgrupper i Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
+| Datorer som ska uppdateras |Välj en sparad sökning, importerat gruppen, eller välja dator från listrutan och Välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**.</br> Mer om de olika metoderna för att skapa datorgrupper i Log Analytics finns i dokumentationen om [datorgrupper i Log Analytics](../azure-monitor/platform/computer-groups.md) |
 |Uppdatera klassificeringar|Välj de uppdateringsklassificeringar som du behöver|
 |Inkludera/exkludera uppdateringar|Då öppnas det **ta med eller undanta** sidan. Uppdateringar som ska inkluderas eller exkluderas visas på en separat flik. Mer information om hur inkludering hanteras finns [inkludering beteende](automation-update-management.md#inclusion-behavior) |
 |Schemainställningar|Välj tid att starta och välj antingen en gång eller återkommande för upprepningen|

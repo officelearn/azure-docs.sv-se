@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ca9f2fa249a3d9f4387d0fa45e3c5874eea26120
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2091fb75e07b9ed01394621af2d82c02f5598430
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625495"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721331"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Självstudier: Använda en Windows VM systemtilldelade hanterad identitet för åtkomst till Azure Storage via SAS-autentiseringsuppgifter
 
@@ -68,7 +68,7 @@ Azure Storage har inte inbyggt stöd för Azure AD-autentisering.  Du kan dock a
 
 1. Gå tillbaka till det lagringskonto som du nyss skapade.   
 2. Klicka på länken **Åtkomstkontroll (IAM)** på den vänstra panelen.  
-3. Klicka på **+Lägg till** högst upp på sidan om du vill lägga till en ny rolltilldelning för din virtuella dator
+3. Klicka på **+ Lägg till rolltilldelning** på sidan för att lägga till en ny rolltilldelning för den virtuella datorn
 4. Ställ in Lagringskontodeltagare som **Roll**, till höger på sidan.  
 5. I nästa listruta väljer du resursen Virtuell dator under **Tilldela behörighet till**.  
 6. Kontrollera sedan att rätt prenumeration visas i listrutan **Prenumeration**. Välj Alla resursgrupper under **Resursgrupper**.  

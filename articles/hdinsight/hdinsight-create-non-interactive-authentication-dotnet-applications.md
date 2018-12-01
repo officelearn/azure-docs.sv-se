@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2351e0cdeb6fd17efbe70fdebb12e6c9776c1fa1
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 899adc8d4fb26ac64cd3fbd7096a8b8387900517
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498331"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722300"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Skapa en icke-interaktiv autentisering .NET HDInsight-program
 Du kan köra ditt Microsoft .NET Azure HDInsight-program under programmets egen identitet (icke-interaktivt) eller under identiteten för den inloggade användaren av programmet (interaktivt). Den här artikeln visar hur du skapar en icke-interaktiv autentisering .NET-program för att ansluta till Azure och hantera HDInsight. Ett exempel på ett interaktivt program, se [Anslut till Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -34,11 +34,12 @@ Tilldela din Azure AD-program en [rollen](../role-based-access-control/built-in-
 **Att lägga till rollen ägare till Azure AD-programmet**
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. I den vänstra menyn väljer du **resursgrupp**.
+2. Välj **Resursgrupper** på den vänstra menyn.
 3. Välj den resursgrupp som innehåller HDInsight-klustret som du ska köra Hive-frågan senare i den här självstudien. Om du har ett stort antal resursgrupper kan använda du filtret för att hitta det du vill använda.
 4. På resursgruppmenyn, väljer **åtkomstkontroll (IAM)**.
-5. Under **användare**väljer **Lägg till**.
-6. Följ anvisningarna för att lägga till rollen ägare till din Azure AD-program. När du har lagt till rollen kan programmet finns under **användare**, med rollen ägare. 
+5. Välj den **rolltilldelningar** fliken för att se de aktuella rolltilldelningarna.
+6. Längst ned på sidan Välj **Lägg till rolltilldelning**.
+7. Följ anvisningarna för att lägga till rollen ägare till din Azure AD-program. När du har lagt till rollen kan visas programmet under rollen ägare. 
 
 ## <a name="develop-an-hdinsight-client-application"></a>Utveckla ett HDInsight-klientprogram
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 7f0334bdd1922c6ec410ca912ccfbf639e5c770f
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 6aa0ad6d13a7a75a0d9bfb520944c04cae11f1ab
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634446"
+ms.locfileid: "52682987"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Data samling information om lösningar i Azure
 Den här artikeln innehåller en lista över [hanteringslösningar](solutions.md) tillgängliga från Microsoft med länkar till deras detaljerad dokumentation.  Det innehåller även information om deras metod och frekvensen för insamling av data till Log Analytics.  Du kan använda informationen i den här artikeln för att identifiera de olika lösningarna som är tillgängliga och förstå datakrav för flödet och anslutningen för olika lösningar. 
@@ -41,7 +41,7 @@ Förklaringar av kolumnerna är följande:
 
 | **Lösning för hantering** | **Plattform** | **Microsoft övervakningsagent** | **Operations Manager-agent** | **Azure Storage** | **Operations Manager som krävs?** | **Operations Manager agent-data skickas via hanteringsgruppen** | **Insamlingsfrekvens** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| [Activity Log Analytics](../../log-analytics/log-analytics-activity.md) | Azure | | | | | | på meddelandet |
+| [Activity Log Analytics](../../azure-monitor/platform/collect-activity-logs.md) | Azure | | | | | | på meddelandet |
 | [AD-bedömning](../../azure-monitor/insights/ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 dagar |
 | [AD-replikeringsstatus](../../azure-monitor/insights/ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 dagar |
 | [Agenthälsa](solution-agenthealth.md) | Windows och Linux | &#8226; | &#8226; | | | &#8226; | 1 minut |
@@ -49,7 +49,7 @@ Förklaringar av kolumnerna är följande:
 | [Avisera Management](../../azure-monitor/platform/alert-management-solution.md) (Zabbix) |Linux |&#8226; | | | | |1 minut |
 | [Avisera Management](../../azure-monitor/platform/alert-management-solution.md) (Operations Manager) |Windows | |&#8226; | |&#8226; |&#8226; |3 minuter |
 | [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | Saknas |
-| [Application Insights-Anslutningsapp (förhandsversion)](../../log-analytics/log-analytics-app-insights-connector.md) | Azure | | | |  |  | på meddelandet |
+| [Application Insights-Anslutningsapp (förhandsversion)](../../azure-monitor/platform/app-insights-connector.md) | Azure | | | |  |  | på meddelandet |
 | [Automation Hybrid Worker](../../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | Saknas |
 | [Azure Application Gateway Analytics](../../azure-monitor/insights/azure-networking-analytics.md) | Azure |  |  |  |  |  | på meddelandet |
 | **Lösning för hantering** | **Plattform** | **Microsoft övervakningsagent** | **Operations Manager-agent** | **Azure Storage** | **Operations Manager som krävs?** | **Operations Manager agent-data skickas via hanteringsgruppen** | **Insamlingsfrekvens** |

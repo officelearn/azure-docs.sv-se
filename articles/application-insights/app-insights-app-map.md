@@ -9,17 +9,16 @@ ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 9b39eef5accec4764f61ab31dd894d368242ee3d
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 1ecdbdfb657d0372fea87c4260226f9de8ded9ce
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094658"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682511"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Programavbildning: Hantera distribuerade program
 
@@ -33,7 +32,7 @@ Komponenterna är oberoende av varandra distribuerbar delar av programmet distri
 * Komponenter som körs på valfritt antal instanser av server-rollen-behållare.
 * Komponenterna kan vara olika Application Insights-instrumenteringsnycklar (även om prenumerationer skiljer sig) eller olika roller som rapporterar till en enda Application Insights-instrumenteringsnyckeln. Förhandsgranskningsupplevelsen för kartan visar komponenterna oavsett hur de är konfigurerade.
 
-## <a name="composite-application-map"></a>Sammansatt programkarta
+## <a name="composite-application-map"></a>Sammansatt Programkarta
 
 Du kan se hela programmets topologi över flera nivåer av relaterade programkomponenter. Komponenterna kan vara olika Application Insights-resurser eller olika roller i en enskild resurs. Programkartan hittar komponenter av följande HTTP-beroendeanrop mellan servrar med Application Insights SDK installerad. 
 
@@ -75,7 +74,7 @@ Välj **går du till information om** att utforska transaktion slutpunkt till sl
 
 ![Skärmbild av transaktionsinformation för slutpunkt till slutpunkt](media/app-insights-app-map/end-to-end-transaction.png)
 
-### <a name="view-in-analytics"></a>Visa i analys
+### <a name="view-in-analytics"></a>Visa i Analytics
 
 Fråga och undersöka program data ytterligare klickar på **visa i analys**.
 

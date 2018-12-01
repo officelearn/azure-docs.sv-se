@@ -8,19 +8,18 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 83edc411-6886-4de1-aadd-33982147b9c3
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 7cf4613f2fdceca3e869473ed3ec7f47fb417fcb
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f35236f369cb1870c4bdfaab77582970b0684966
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277656"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720175"
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Importera Azure Log Analytics-data till Power BI
 
@@ -32,7 +31,7 @@ Om du vill importera data från en Log Analytics-arbetsytan till Power BI, skapa
 
 ![Log Analytics till Powerbi](media/log-analytics-powerbi/overview.png)
 
-## <a name="export-query"></a>Exportfråga
+## <a name="export-query"></a>Exportera fråga
 Börja med att skapa en [loggsökning](log-analytics-queries.md) som returnerar data från Log Analytics som du vill fylla i Power BI-datauppsättningen.  Sedan kan du exportera den frågan till [Power Query (M) språk](https://msdn.microsoft.com/library/mt807488.aspx) som kan användas av Power BI Desktop.
 
 1. Skapa loggsökningen i Log Analytics för att extrahera data för din datauppsättning.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 2ece5700965018a8a9a98e16a1577309a909b7b7
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: cfee8295fc344b1210010a463612fe7d10de280d
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335001"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682919"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Hur du diagrammet prestanda med Azure Monitor för virtuella datorer (förhandsversion)
 Azure Monitor för virtuella datorer innehåller en uppsättning prestandadiagram som är inriktade på flera nyckeltal (KPI: er) för att bestämma hur bra en virtuell dator fungerar. Diagrammen visar Resursanvändning under en viss tid så att du kan identifiera flaskhalsar, avvikelser, eller växla till ett perspektiv som lista varje dator om du vill visa resursanvändningen baserat på mått som har valts. Det finns ett stort antal element att överväga när du hanterar prestanda, fokuserar Azure Monitor för virtuella datorer på operativsystemet så som detta visas via processor, minne, nätverkskort och diskar. Prestanda kompletterar hälsotillstånd övervakningsfunktionen och hjälper till att exponera problem som indikerar ett möjligt system komponentfel, support justering och optimering för att uppnå effektivitet eller stöd för kapacitetsplanering.  
@@ -33,7 +33,7 @@ Från Azure Monitor ger funktionen prestanda en vy för flera virtuella datorer 
 
 ![VM insikter prestanda Top N listvy](./media/vminsights-performance/vminsights-performance-aggview-01.png)
 
-På den **Top N diagram** fliken om du har mer än en Log Analytics-arbetsyta, väljer arbetsytan aktiverad med lösningen från den **arbetsytan** Väljaren överst på sidan. Den **grupp** väljare returnerar prenumerationer, resursgrupper, [datorgrupper](../../log-analytics/log-analytics-computer-groups.md), och VM scale sets med datorer som är relaterade till den valda arbetsytan som du kan använda för att ytterligare filtrera resultat som visas i diagrammen på den här sidan och andra sidor. Ditt val har endast gäller för funktionen prestanda och inget hälsotillstånd eller kartan.  
+På den **Top N diagram** fliken om du har mer än en Log Analytics-arbetsyta, väljer arbetsytan aktiverad med lösningen från den **arbetsytan** Väljaren överst på sidan. Den **grupp** väljare returnerar prenumerationer, resursgrupper, [datorgrupper](../../azure-monitor/platform/computer-groups.md), och VM scale sets med datorer som är relaterade till den valda arbetsytan som du kan använda för att ytterligare filtrera resultat som visas i diagrammen på den här sidan och andra sidor. Ditt val har endast gäller för funktionen prestanda och inget hälsotillstånd eller kartan.  
 
 Som standard visar i diagrammen de senaste 24 timmarna. Med hjälp av den **TimeRange** Väljaren, som du kan fråga efter historiska tidsintervall på upp till 30 dagar att visa hur prestanda tittat i förflutna.   
 

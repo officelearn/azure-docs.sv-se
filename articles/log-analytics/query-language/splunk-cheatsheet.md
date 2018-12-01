@@ -10,17 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 5ea9790695b8afe7bd42b98b071869756b301350
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 61f0cff661c79f994a5b3c20646996f617a31b7e
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42447430"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52683072"
 ---
 # <a name="splunk-to-log-analytics"></a>Splunk till Log Analytics
 
@@ -39,7 +37,7 @@ I följande tabell jämförs begrepp och datastrukturer mellan Splunk och Log An
  | Datapost | händelse | rad |  Terminologi-ändring. |
  | Data-postattribut | Fältet |  Kolumn |  Detta är fördefinierade som en del av tabellstrukturen i Log Analytics. I Splunk har varje händelse en egen uppsättning fält. |
  | Typer | datatyp |  datatyp |  Log Analytics datatyper är mer explicit när de har angetts för kolumner. Båda har möjlighet att arbeta dynamiskt med datatyper och grovt jämföras uppsättning datatyper, inklusive stöd för JSON. |
- | Fråga och sökning  | sök | DocumentDB |  Konceptet är i princip detsamma mellan både Log Analytics och Splunk. |
+ | Fråga och sökning  | Sök | DocumentDB |  Konceptet är i princip detsamma mellan både Log Analytics och Splunk. |
  | Tidpunkt för händelsen inmatning | Systemtiden | ingestion_time() |  I Splunk hämtar varje händelse en system-tidsstämpel för den tid som händelsen har indexerats. Du kan definiera en princip med namnet ingestion_time som Exponerar en systemkolumn som kan refereras med funktionen ingestion_time() i Log Analytics. |
 
 ## <a name="functions"></a>Functions
@@ -57,11 +55,11 @@ I följande tabell anger funktioner i Log Analytics som motsvarar Splunk funktio
 | SUBSTR | substring() | (1)<br>Observera också att Splunk använder ett-baserade index. Log Analytics noterar nollbaserade index. |
 | tolower |  tolower() | (1) |
 | toupper | toupper() | (1) |
-| matchning | matchar regex |  (2)  |
+| Matchning | matchar regex |  (2)  |
 | Regex | matchar regex | I Splunk, `regex` en operator. I Log Analytics är det en relationella operator. |
 | searchmatch | == | I Splunk, `searchmatch` kan söka efter den exakta strängen.
 | slumpmässig | SLUMP()<br>rand(n) | Splunks funktionen returnerar ett tal från noll till 2<sup>31</sup>-1. Log Analytics returnerar en siffra mellan 0,0 och 1,0, eller om en parameter angavs, mellan 0 och n-1.
-| nu | Now() | (1)
+| nu | now() | (1)
 | relative_time | ToTimeSpan() | (1)<br>I Log Analytics är detsamma som Splunk's relative_time (datetimeVal, offsetVal) datetimeVal + totimespan(offsetVal).<br>Till exempel <code>search &#124; eval n=relative_time(now(), "-1d@d")</code> blir <code>...  &#124; extend myTime = now() - totimespan("1d")</code>.
 
 (1) i Splunk, funktionen anropas med den `eval` operator. I Log Analytics, det används som en del av `extend` eller `project`.<br>(2) i Splunk, funktionen anropas med den `eval` operator. I Log Analytics, det kan användas med den `where` operator.
@@ -80,7 +78,7 @@ I Splunk, kan du utelämna den `search` nyckelord och ange en ociterade sträng.
 | |  | |
 |:---|:---|:---|
 | Splunk | **Sök** | <code>search Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" earliest=-24h</code> |
-| Log Analytics | **Hitta** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
+| Log Analytics | **hitta** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
 | | |
 
 ### <a name="filter"></a>Filter

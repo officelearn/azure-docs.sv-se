@@ -8,14 +8,18 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 8aabcf342cde6de9fd4438014c9c400b28470e9b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 22f9375329a69aab000eb54e0b442959aef41766
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632678"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722927"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Utöka Log Analytics-aviseringar till Azure-aviseringar
+
+> [!NOTE]
+> Microsoft har redan slutfört den process som beskrivs i den här artikeln för offentliga versioner av Azure. Det gäller dock fortfarande för US government-versioner.  
+
 Tills nyligen med Azure Log Analytics sin egen avisering funktioner, vilket kan informera dig om villkor baserat på Log Analytics-data. Du har hanterat Varningsregler i Microsoft Operations Management Suite-portalen. Det nya aviseringsgränssnittet har nu integrerats aviseringar för olika tjänster i Microsoft Azure. Detta är tillgänglig **aviseringar** under Azure Monitor i Azure-portalen och har stöd för aviseringar från aktiviteten skrivloggar, statistik och loggar från både Log Analytics och Azure Application Insights. 
 
 ## <a name="benefits-of-extending-your-alerts"></a>Fördelar med att utöka dina aviseringar
@@ -28,10 +32,6 @@ Det finns flera fördelar med att skapa och hantera aviseringar i Azure portal, 
 
 ## <a name="process-of-extending-your-alerts"></a>Utöka dina aviseringar
 Processen att flytta aviseringar från Log Analytics i Azure Alerts inbegriper inte ändra aviseringens definition, fråga eller konfiguration på något sätt. Den enda ändringen som krävs är att i Azure måste du utföra alla åtgärder med hjälp av en åtgärdsgrupp. Om åtgärdsgrupper redan är kopplad till aviseringen, inkluderas de när utökad till Azure.
-
-> [!NOTE]
-> Microsoft aviseringar automatiskt skapade i offentligt moln instanser av Log Analytics till Azure-aviseringar startar för den 14 maj 2018 i en serie med återkommande tills slutförts. Om du har några problem med att skapa [åtgärdsgrupper](monitoring-action-groups.md), använda [dessa åtgärdssteg](monitoring-alerts-extend-tool.md#troubleshooting) att hämta åtgärdsgrupper som skapas automatiskt. Du kan använda de här stegen till 5 juli 2018. *Inte tillämpligt för Azure Government och nationellt molnanvändare av Log Analytics*. 
-> 
 
 När du schemalägger aviseringar i Log Analytics-arbetsytan utökas till Azure kan fortsätta de att fungera och inte i något sätt kompromettera din konfiguration. När schemalagts dina aviseringar kanske inte tillgänglig för ändring av tillfälligt, men du kan fortsätta att skapa nya Azure-aviseringar under den här tiden. Om du försöker redigera eller skapa aviseringar från Operations Management Suite-portalen, har du möjlighet att fortsätta att skapa dem från Log Analytics-arbetsytan. Du kan också välja att skapa dem från Azure-aviseringar i Azure-portalen.
 

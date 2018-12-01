@@ -4,16 +4,15 @@ description: Lär dig hur du tar bort ett Recovery Services-valv som konfigurera
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 6827bcc561ced0d346d79e60b3f2b2fde83bc2d8
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: c3e643052c3a4879f1b5cd91e5e58be508880ce5
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977063"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722266"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Ta bort ett Site Recovery Services-valv
 

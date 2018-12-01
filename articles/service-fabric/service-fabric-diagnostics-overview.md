@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 82c02c0212fd79d8847d374022b6ac8f862f042a
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 8d6865349f103278131a02c2385557fb53ee24f5
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291121"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720600"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Övervakning och diagnostik för Azure Service Fabric
 
@@ -40,9 +40,10 @@ Vi har också en självstudiekurs i hur du [in detta för .NET-program](service-
 ## <a name="platform-cluster-monitoring"></a>Övervakning av plattform (kluster)
 En användare har kontroll över vilken telemetri kommer från sina program eftersom en användare skriver koden själv, men vad om diagnostiken från Service Fabric-plattformen? Ett av målen för Service Fabric är att underhålla program motståndskraftig mot maskinvarufel. Det här målet uppnås via plattformens system services möjligheten att identifiera problem med infrastruktur och snabbt redundans arbetsbelastningar till andra noder i klustret. Men i detta fall, vad händer om systemtjänster själva har problem med? Eller om du i försök att distribuera eller flytta en arbetsbelastning kan reglerna för placering av tjänster har brutits? Service Fabric tillhandahåller diagnostik för dessa och mer att se till att du informeras om aktiviteter som äger rum i klustret. Några exempelscenarier för klusterövervakning är:
 
-* Service Fabric fungerar korrekt, när det gäller att placera dina program och nätverksbelastning lösning klustret? 
-* Användarens åtgärder vidtas på ditt kluster bekräftas och köras på som förväntat? T.ex. Skalning, växling vid fel, distributioner
-* Är Service Fabric att hålla reda på vilka noder som ingår i klustret och informera mig när ett problem i något?
+Service Fabric tillhandahåller en omfattande uppsättning händelser direkt ur lådan. Dessa [Service Fabric händelser](service-fabric-diagnostics-events.md) kan nås via EventStore eller användningskanal (händelse kanal som exponeras av plattformen). 
+* EventStore - EventStore är en funktion som erbjuds av plattformen som ger Service Fabric-plattformshändelser som är tillgängliga i Service Fabric Explorer och via REST-API. Du kan se en ögonblicksbild vy över vad som händer i klustret för varje entitet t.ex. nod, tjänst, program och utifrån händelsens tidpunkt. Du kan också läsa mer om EventStore på den [över EventStore](service-fabric-diagnostics-eventstore.md).    
+
+* Service Fabric händelser kanaler - på Windows Service Fabric är tillgängliga från en enda ETW-provider med en uppsättning relevanta `logLevelKeywordFilters` används för att välja mellan drift och Data & Messaging kanaler – detta är det sättet som vi skilja ut utgående Service Fabric-händelser som ska filtreras på efter behov. På Linux, Service Fabric händelser levereras via LTTng och placeras i en lagringstabell från där de kan filtreras efter behov. Dessa kanaler innehålla granskad, strukturerade händelser som kan användas för att bättre förstå datorernas tillstånd på klustret. Diagnostik är aktiverat som standard när kluster skapas, som skapar en Azure Storage-tabell där händelser från dessa kanaler skickas att fråga i framtiden. 
 
 Diagnostik som angetts är i form av en omfattande uppsättning händelser direkt ur lådan. Dessa [Service Fabric händelser](service-fabric-diagnostics-events.md) illustrera åtgärder som utförs av plattform på olika enheter, till exempel noder, program, tjänster, partitioner osv. I det sista exemplet ovan om en nod nedåt, plattformen skulle Generera en `NodeDown` händelse och du kan bli meddelad direkt genom din övervakning verktyg. Andra vanliga exempel är `ApplicationUpgradeRollbackStarted` eller `PartitionReconfigured` under en redundansväxling. **Samma händelser är tillgängliga på både Windows och Linux-kluster.**
 

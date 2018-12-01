@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 38839379f584b40cdbefad3e4cbb3bc47881c9a7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 1afd98026a2aad552258b636ba078ca4f9bd2d58
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094603"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723150"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta en Azure-SSIS integration runtime till ett virtuellt nätverk
 Anslut till din Azure-SSIS integration runtime (IR) till en Azure-nätverk i följande scenarier: 
@@ -198,19 +198,21 @@ Du måste konfigurera ett virtuellt nätverk innan du kan ansluta till en Azure-
 
 1. Ansluta till **MicrosoftAzureBatch** till den **klassisk virtuell Datordeltagare** roll för det virtuella nätverket. 
 
-    a. Välj **åtkomstkontroll (IAM)** på den vänstra menyn och välj **Lägg till** i verktygsfältet. 
+    a. Välj **åtkomstkontroll (IAM)** på den vänstra menyn och välj den **rolltilldelningar** fliken. 
 
     ![”Access control” och ”Lägg till” knappar](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
 
-    b. På den **Lägg till behörigheter** väljer **klassisk virtuell Datordeltagare** för **rollen**. Klistra in **ddbf3205-c6bd-46ae-8127-60eb93363864** i den **Välj** och väljer sedan **Microsoft Azure Batch** i listan över sökresultat. 
+    b. Välj **Lägg till rolltilldelning**.
 
-    ![Sökresultat på ”Lägg till behörigheter” sida](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
+    c. På den **Lägg till rolltilldelning** väljer **klassisk virtuell Datordeltagare** för **rollen**. Klistra in **ddbf3205-c6bd-46ae-8127-60eb93363864** i den **Välj** och väljer sedan **Microsoft Azure Batch** i listan över sökresultat. 
 
-    c. Välj **spara** att spara inställningarna och stänga sidan. 
+    ![Sökresultat på ”Lägg till rolltilldelning” sida](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
+
+    d. Välj **spara** att spara inställningarna och stänga sidan. 
 
     ![Spara inställningar för åtkomst](media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png)
 
-    d. Kontrollera att du ser **Microsoft Azure Batch** i listan över deltagare. 
+    e. Kontrollera att du ser **Microsoft Azure Batch** i listan över deltagare. 
 
     ![Bekräfta Azure Batch åtkomst](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
 

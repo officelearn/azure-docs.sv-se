@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7b460efbdc50c5b243c3ef78bad568b720e75e59
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: ffceb8fd6f1afcd054bfc4c4035fb2b8b93ed390
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635565"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720549"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Ange omdirigera URL: er till b2clogin.com för Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ Med hjälp av b2clogin.com ger dig ytterligare fördelar, till exempel:
 Överväg att dessa inställningar som kan behöva ändra när med hjälp av b2clogin.com:
 
 - Ange omdirigerings URL: er i din identitet provider-programmen kan använda b2clogin.com. 
-- Ange din Azure AD B2C-program att använda b2clogin.com för princip-referenser och token-slutpunkter. 
+- Ange din Azure AD B2C-program att använda b2clogin.com för användarreferenser för flödet och token-slutpunkter. 
 - Om du använder MSAL, måste du ange den **ValidateAuthority** egenskap `false`.
 - Se till att du ändrar någon **tillåtna ursprung** som du har definierat i CORS-inställningarna för [anpassning av användargränssnittet](active-directory-b2c-ui-customization-custom-dynamic.md).  
 
@@ -56,7 +56,7 @@ Du hittar information om konfiguration för Identitetsproviders i följande arti
 
 ## <a name="update-your-application"></a>Uppdatera ditt program
 
-Azure AD B2C-program förmodligen avser `login.microsoftonline.com` på flera platser, t.ex din princip-referenser och token-slutpunkter.  Se till att din auktoriseringsslutpunkt och tokenslutpunkten utfärdare har uppdaterats för att använda `your-tenant-name.b2clogin.com`.  
+Azure AD B2C-program förmodligen avser `login.microsoftonline.com` på flera platser, till exempel användarreferenser för flödet och token-slutpunkter.  Se till att din auktoriseringsslutpunkt och tokenslutpunkten utfärdare har uppdaterats för att använda `your-tenant-name.b2clogin.com`.  
 
 ## <a name="set-the-validateauthority-property"></a>Ange egenskapen ValidateAuthority
 

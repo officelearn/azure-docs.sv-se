@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 11/29/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 13edef4c02aff167316ccae2755a6ec1b58e2e89
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e7159a8e3acf45105a11cc4574f9474457bed3ea
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262626"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682664"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Liveuppspelning med Azure Media Services för att skapa dataströmmar med flera bithastigheter
 
@@ -214,18 +214,17 @@ Anger förinställningen som ska användas av livekodaren i den här kanalen. De
 
 Observera att om du behöver anpassade förinställningar, bör du kontakta amslived@microsoft.com.
 
-**Default720p** kommer koda videon till följande 7 lagren.
+**Default720p** kommer koda videon till följande 6 lagren.
 
 #### <a name="output-video-stream"></a>Utdata Video Stream
 | Bithastighet | Bredd | Höjd | MaxFPS | Profil | Utdatanamnet för Stream |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |Hög |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Huvud |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Huvud |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Huvud |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Huvud |Video_384x216_550kbps |
-| 350 |340 |192 |30 |Baslinje |Video_340x192_350kbps |
-| 200 |340 |192 |30 |Baslinje |Video_340x192_200kbps |
+| 2200 |960 |540 |30 |Hög |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Hög |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Hög |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Hög |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Hög |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Utdata ljud Stream
 

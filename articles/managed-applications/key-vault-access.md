@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 07/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: f091ba44a3170dcc4141829f2f4105d6e7993cdf
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: dcfbb7f3b1d110d4c1fdf22863d795c85152ec35
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035297"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725020"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Få åtkomst till Key Vault-hemlighet när du distribuerar Azure Managed Applications
 
@@ -29,7 +29,7 @@ När du vill skicka ett säkert värde (t.ex. ett lösenord) som en parameter un
 
    ![Välj principer för åtkomst](./media/key-vault-access/select-access-policies.png)
 
-1. Välj **Klicka om du vill visa avancerade åtkomstprinciper**.
+1. Välj **Click to show advanced access policies** (Klicka för att visa avancerade åtkomstprinciper).
 
    ![Visa avancerade åtkomstprinciper](./media/key-vault-access/advanced.png)
 
@@ -43,7 +43,7 @@ När du vill skicka ett säkert värde (t.ex. ett lösenord) som en parameter un
 
    ![Välj åtkomstkontroll](./media/key-vault-access/access-control.png)
 
-1. Välj **Lägg till**.
+1. Välj **Lägg till rolltilldelning**.
 
    ![Välj Lägg till](./media/key-vault-access/add-access-control.png)
 

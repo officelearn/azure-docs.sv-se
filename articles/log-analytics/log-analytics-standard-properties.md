@@ -9,17 +9,16 @@ editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: c43f8acf7f9278ca412bee9ad15f2d51541cd27b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 64b4ab95d4972848c6c0cf7130ec97c2be41ead0
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044339"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722928"
 ---
 # <a name="standard-properties-in-log-analytics-records"></a>Standardegenskaper i Log Analytics-poster
 Data i [Log Analytics](../log-analytics/log-analytics-queries.md) lagras som en uppsättning poster, var och en med en viss datatyp som har en unik uppsättning egenskaper. Många datatyper har standardegenskaper som är gemensamma för flera typer. Den här artikeln beskriver de här egenskaperna och innehåller exempel på hur du kan använda dem i frågor.

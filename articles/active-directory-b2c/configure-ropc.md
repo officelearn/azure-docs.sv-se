@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2ea9356f1292669f115d2bb482419435320f644c
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 1b07825bd3ff46267764467bba815c1097278084
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978833"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726295"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Konfigurera resursägarens lösenord autentiseringsuppgifter flöde i Azure AD B2C
 
@@ -35,14 +35,17 @@ Följande flöden stöds inte:
 - **Server-till-server**: identity protection systemet behöver en tillförlitlig IP-adress som samlats in från anroparen (intern klient) som en del av interaktionen. I ett API-anrop för serversidan används bara serverns IP-adress. Om ett dynamiskt tröskelvärde för misslyckade autentiseringar överskrids kan identity protection systemet identifiera en upprepad IP-adress som en angripare.
 - **Konfidentiellt klientflödet**: programmets klient-ID har verifierats, men programhemlighet har inte verifierats.
 
-##  <a name="create-a-resource-owner-policy"></a>Skapa en princip för resurs-ägare
+##  <a name="create-a-resource-owner-user-flow"></a>Skapa ett användarflöde för resurs-ägare
 
-1. Logga in på Azure Portal som global administratör för din Azure AD B2C-klient.
-2. Om du vill växla till din Azure AD B2C-klient, väljer du B2C-katalogen i det övre högra hörnet i portalen.
-3. Under **principer**väljer **Resursägaren principer**.
-4. Ange ett namn för principen, till exempel *ROPC_Auth*, och välj sedan **Programanspråk**.
-5. Välj Programanspråk som du behöver för ditt program, till exempel *visningsnamn*, *e-postadress*, och *identitetsprovider*.
-6. Välj **OK** och sedan **Skapa**.
+1.  Logga in på Azure Portal som global administratör för din Azure AD B2C-klient.
+2.  Om du vill växla till din Azure AD B2C-klient, väljer du B2C-katalogen i det övre högra hörnet i portalen.
+3.  Klicka på **användarflöden**, och välj **nytt användarflöde**.
+4.  Klicka på den **alla** fliken och markera **Resursägaren**.
+5.  Ange ett namn för användarflödet, till exempel *ROPC_Auth*.
+6.  Under **Programanspråk**, klickar du på **visa fler**.
+7.  Välj Programanspråk som du behöver för ditt program, till exempel visningsnamn, e-postadress och identitetsprovider.
+8.  Välj **OK** och sedan **Skapa**.
+9.  Klicka på **kör användarflödet**.
 
    Du ser därefter en slutpunkt som det här exemplet:
 
@@ -57,9 +60,9 @@ Följande flöden stöds inte:
 4. Lämna övriga värden som de är och välj sedan **skapa**.
 5. Välj det nya programmet och notera program-ID för senare användning.
 
-## <a name="test-the-policy"></a>Testa principen
+## <a name="test-the-user-flow"></a>Testa användarflödet
 
-Använd din favorit-API-program för utveckling för att generera ett API-anrop och granska svaret för att felsöka din princip. Skapa ett anrop som det här med informationen i följande tabell som en del av POST-begäran:
+Använd din favorit-API-program för utveckling för att generera ett API-anrop och granska svaret för att felsöka ditt användarflöde. Skapa ett anrop som det här med informationen i följande tabell som en del av POST-begäran:
 - Ersätt  *\<yourtenant.onmicrosoft.com >* med namnet på din B2C-klient.
 - Ersätt  *\<B2C_1A_ROPC_Auth >* med det fullständiga namnet på din resurs ägare autentiseringsuppgifter lösenordsprincip.
 - Ersätt  *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3 >* med program-ID från din registrering.

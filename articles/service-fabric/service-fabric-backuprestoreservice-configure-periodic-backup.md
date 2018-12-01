@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: eeaa0e9a940f16c2416418959c98cd17e4816afc
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 1a9034d7cbc276f35c5f01b06f6973553222d1c4
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387641"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722385"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Förstå periodiska konfiguration av säkerhetskopiering i Azure Service Fabric
 
@@ -110,6 +110,7 @@ En princip för säkerhetskopiering består av följande konfigurationer:
             ```
 
         2. _Skydda filresursen med användarnamn och lösenord_, där åtkomst till filresursen har angetts för specifika användare. Filspecifikationen dela lagring ger också möjlighet att ange sekundära användarnamn och sekundära lösenord för att ange autentiseringsuppgifter för hösten bak om autentiseringen misslyckas med primära användarnamn och lösenord som primär. I så fall, ange följande fält att konfigurera _filresursen_ baserat lagring av säkerhetskopior.
+
             ```json
             {
                 "StorageKind": "FileShare",
@@ -125,6 +126,17 @@ En princip för säkerhetskopiering består av följande konfigurationer:
 > [!NOTE]
 > Se till att lagringstillförlitlighet uppfyller eller överskrider tillförlitlighet kraven för säkerhetskopierade data.
 >
+
+* **Bevarandeprincip**: Anger principen om du vill behålla säkerhetskopior i det konfigurerade lagringsutrymmet. Endast grundläggande bevarandeprincip stöds.
+    1. **Grundläggande bevarandeprincip**: den här bevarandeprincip som tillåter för att säkerställa optimal lagringsanvändning genom att ta bort säkerhetskopior som krävs inga fler. `RetentionDuration` Du kan ange att ange det tidsintervall som krävs säkerhetskopior ska behållas i lagringen. `MinimumNumberOfBackups` är en valfri parameter som kan anges för att se till att det angivna antalet säkerhetskopior bevaras alltid oavsett den `RetentionDuration`. Exemplet nedan visar konfigurationen om du vill behålla säkerhetskopior under _10_ dagar och tillåter inte antalet säkerhetskopieringar under _20_.
+
+        ```json
+        {
+            "RetentionPolicyType": "Basic",
+            "RetentionDuration" : "P10D",
+            "MinimumNumberOfBackups": 20
+        }
+        ```
 
 ## <a name="enable-periodic-backup"></a>Aktivera regelbunden säkerhetskopiering
 När du har definierat principen för säkerhetskopiering för att uppfylla krav för säkerhetskopiering av data, principen för säkerhetskopiering ska kopplas korrekt antingen en _programmet_, eller _service_, eller en _partition_.
@@ -178,6 +190,13 @@ Principer för säkerhetskopiering kan inaktiveras när det finns inget behov av
 * Inaktiverar princip för säkerhetskopiering för en _service_ stoppar alla regelbundna säkerhetskopior som sker till följd av spridningen av den här säkerhetskopieringsprincipen till partitioner av den _service_.
 
 * Inaktiverar princip för säkerhetskopiering för en _partition_ stoppar alla regelbunden säkerhetskopiering sker på grund av principen för säkerhetskopiering på partitionen.
+
+* När du inaktiverar säkerhetskopiering för en entity(application/service/partition) `CleanBackup` kan anges till _SANT_ att ta bort alla säkerhetskopior i konfigurerade lagringsutrymmet.
+    ```json
+    {
+        "CleanBackup": true 
+    }
+    ```
 
 ## <a name="suspend--resume-backup"></a>Pausa och återuppta säkerhetskopiering
 Vissa situationen begära tillfälligt uppehåll i regelbunden säkerhetskopiering av data. I sådana fall, beroende på krav, inaktivera backup API kan användas på en _programmet_, _Service_, eller _Partition_. Regelbunden säkerhetskopiering inaktiveringen är transitiva över underträd med programmets hierarkin från det datum då den används. 

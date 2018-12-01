@@ -8,19 +8,18 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 08/13/2018
 ms.reviewer: mbullwin
 ms.author: nimolnar
-ms.openlocfilehash: f20963f030c9040b696f7d6a33b25bcee2dc517f
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f38c4a03a0d9b67b6ec8b20e489a6e4926d511c4
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40130295"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720237"
 ---
-# <a name="dependency-auto-collection"></a>Beroende Automatisk insamling
+# <a name="dependency-auto-collection"></a>Automatisk insamling för beroenden
 
 Nedan visas i listan över beroendeanrop som identifieras automatiskt som beroenden utan några ytterligare ändringar till din programkod för närvarande stöds. Det här består av utgående samtal till databaskommunikationsbibliotek, storage-klienter, loggning och mått bibliotek, samt inkommande anrop till ramverk för programmet och servrar. Dessa beroenden visualiseras i Application Insights [programkartan](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) och [transaktionsdiagnostik](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) vyer. Om din beroende finns inte i listan nedan, du kan fortfarande spåra den manuellt med en [spåra beroendeanropet](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 

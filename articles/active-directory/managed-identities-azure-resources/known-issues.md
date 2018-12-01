@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 256f36ac56126fc76561a6dbe4281ac4975df6e4
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b535939e200b533c06c97686897e283fb6cf57bc
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632797"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720192"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Vanliga frågor och kända problem med hanterade identiteter för Azure-resurser
 
@@ -113,9 +113,9 @@ När schemat exportfunktionen blir tillgängliga för hanterade identiteter för
 
 Om bladet konfiguration av virtuell dator inte visas på den virtuella datorn, sedan hanterade identiteter för Azure-resurser har inte aktiverats i portalen i din region ännu.  Kontrollera igen senare.  Du kan också aktivera hanterade identiteter för Azure-resurser för den virtuella datorn med [PowerShell](qs-configure-powershell-windows-vm.md) eller [Azure CLI](qs-configure-cli-windows-vm.md).
 
-### <a name="cannot-assign-access-to-virtual-machines-in-the-access-control-iam-blade"></a>Det går inte att tilldela åtkomst till virtuella datorer i bladet åtkomstkontroll (IAM)
+### <a name="cannot-assign-access-to-virtual-machines-in-the-access-control-iam-blade"></a>Det går inte att tilldela åtkomst till virtuella datorer i åtkomstkontroll (IAM)-bladet
 
-Om **VM** visas inte i Azure-portalen som ett alternativ för **tilldela åtkomst till** i **åtkomstkontroll (IAM)** > **Lägg till behörigheter**, och sedan hanterade identiteter för Azure-resurser inte har ännu aktiverats i portalen i din region. Kontrollera igen senare.  Du kan fortfarande välja identiteten för den virtuella datorn för rolltilldelningen genom att söka efter de hanterade identiteterna för Azure-resurser tjänstens huvudnamn.  Ange namnet på den virtuella datorn i den **Välj** fältet och tjänstens huvudnamn som visas i sökresultatet.
+Om **VM** visas inte i Azure-portalen som ett alternativ för **tilldela åtkomst till** i **åtkomstkontroll (IAM)** > **Lägg till roll tilldelning av**, och sedan hanterade identiteter för Azure-resurser inte har ännu aktiverats i portalen i din region. Kontrollera igen senare.  Du kan fortfarande välja identiteten för den virtuella datorn för rolltilldelningen genom att söka efter de hanterade identiteterna för Azure-resurser tjänstens huvudnamn.  Ange namnet på den virtuella datorn i den **Välj** fältet och tjänstens huvudnamn som visas i sökresultatet.
 
 ### <a name="vm-fails-to-start-after-being-moved-from-resource-group-or-subscription"></a>Virtuell dator inte kan startas efter flyttas från resursgrupp eller prenumeration
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2018
 ms.author: terrylan
-ms.openlocfilehash: caab7e3d15f6d82ee4daf6eb343601ff849bfde5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 6175ca26412dccf7ff6dfbce02df738ea8b6eb1a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298786"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721552"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Få insyn i klienttäckande för Azure Security Center
 Den här artikeln hjälper dig att komma igång genom att göra flera åtgärder och maximerar fördelarna Azure Security Center tillhandahåller. Utför dessa åtgärder kan du få insyn i alla Azure-prenumerationer som är länkade till din Azure Active Directory-klient och effektivt sätt hantera din organisations säkerhetsposition i stor skala genom att tillämpa säkerhetsprinciper på flera prenumerationer på ett aggregative sätt.
@@ -93,13 +93,16 @@ För att få insyn till alla prenumerationer, måste innehavaradministratörer d
 #### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Tilldela RBAC-roller till användare via Azure portal: 
 
 1. Logga in på [Azure Portal](https://portal.azure.com). 
-2. Om du vill visa hanteringsgrupper, Välj **alla tjänster** under Azure-huvudmenyn väljer **Hanteringsgrupper**.
-3.  Välj en hanteringsgrupp och klickar på **information**.
+1. Om du vill visa hanteringsgrupper, Välj **alla tjänster** under Azure-huvudmenyn väljer **Hanteringsgrupper**.
+1.  Välj en hanteringsgrupp och klickar på **information**.
 
     ![Hantering av grupper information skärmbild](./media/security-center-management-groups/management-group-details.PNG)
  
-4. Klicka på **åtkomstkontroll (IAM)** sedan **Lägg till**.
-5. Rollen för att tilldela och användaren och sedan klicka på **spara**.  
+1. Klicka på **åtkomstkontroll (IAM)** sedan **rolltilldelningar**.
+
+1. Klicka på **Lägg till rolltilldelning**.
+
+1. Rollen för att tilldela och användaren och sedan klicka på **spara**.  
    
    ![Lägg till Säkerhetsläsare rollskärmbilden](./media/security-center-management-groups/asc-security-reader.png)
 

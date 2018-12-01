@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 90c434a37d3209e0c11a04425c337ec6930cfd00
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 85e6dc8d72588ff64c0119a6c1944755ce5686f4
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025267"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720940"
 ---
 <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager-provkörning
 =================================
@@ -382,15 +382,13 @@ Klicka på Spara. Det sista steget är att hämta program-ID för den här regis
 Får vi använder programmet för att distribuera till prenumerationen, behöver vi lägga till programmet som deltagare för prenumerationen. Anvisningarna för dessa är som nedan:
 
 1. Gå till bladet prenumerationer och välj lämplig prenumeration som du använder för Test-enheten.
-2. Klicka på åtkomstkontroll (IAM).
-3. Tryck på + Lägg till i det nya bladet.
-4. Ange rollen som deltagare.
-5. Ange namnet på det AAD-programmet och välj AAD-program för att tilldela rollen.
-6. Klicka på Spara.
-
-![Lägg till ett nytt huvudnamn för åtkomstkontroll](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
-
-![Lägg till behörigheter](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Klicka på **åtkomstkontroll (IAM)**.
+1. Klicka på den **rolltilldelningar** fliken.  ![Lägg till ett nytt huvudnamn för åtkomstkontroll](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. Klicka på **Lägg till rolltilldelning**.
+1. Ange rollen som **deltagare**.
+1. Skriv namnet på Azure AD-programmet och Välj program att tilldela rollen.
+    ![Lägg till behörigheter](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Klicka på **Spara**.
 
 **Azure AD App Key -** *krävs* sista fältet är att generera en autentiseringsnyckel. Under nycklar, Lägg till en beskrivning av nyckeln, ange hur lång tid att aldrig upphöra, sedan väljer Spara. Det är **viktiga** för att förhindra att ett utgånget nyckel, vilket bryter din provkörning i produktion. Kopiera detta värde och klistra in den i din Test Drive-obligatoriskt.
 

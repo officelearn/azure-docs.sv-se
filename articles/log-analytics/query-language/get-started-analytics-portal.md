@@ -10,17 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 3bcc5368a99dc7c7c32381ca0226119d81fc2c0a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9d045fefaccc9bc155f80e7b40c340d6531a7dda
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978207"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52683055"
 ---
 # <a name="get-started-with-log-analytics-in-the-azure-portal"></a>Kom igång med Log Analytics i Azure portal
 

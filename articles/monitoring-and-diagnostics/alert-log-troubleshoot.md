@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: e2326f56ad367f744bc7895bc8c4bfd6f32d0310
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0612a7798d3cc2e43efc296bd2b749735e74f765
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264887"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720855"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Felsökning av aviseringar i Azure Monitor  
 ## <a name="overview"></a>Översikt
 Den här artikeln visar hur du löser vanliga problem som kan uppstå när du konfigurerar aviseringar i Azure monitor. Det ger också lösningar på vanliga frågor om funktioner eller konfigurationen av aviseringar. 
 
-Termen **Loggaviseringar** att beskriva aviseringar att fire baserat på en anpassad fråga i [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) eller [Application Insights](../application-insights/app-insights-analytics.md). Mer information om funktioner, terminologi och typer i [Loggaviseringar - översikt](monitor-alerts-unified-log.md).
+Termen **Loggaviseringar** beskriver aviseringar att fire baserat på en anpassad fråga i [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) eller [Application Insights](../application-insights/app-insights-analytics.md). Mer information om funktioner, terminologi och typer i [Loggaviseringar - översikt](monitor-alerts-unified-log.md).
 
 > [!NOTE]
 > Den här artikeln tar inte hänsyn fall när Azure-portalen visar och varningen aktiverades av regeln och ett meddelande som utförs av en tillhörande åtgärd-grupperna. Sådana fall finns information i artikeln på [åtgärdsgrupper](monitoring-action-groups.md).
@@ -35,8 +35,7 @@ Log avisering körs regelbundet frågan baserat på [Log Analytics](../log-analy
 För att minimera fördröjning för inmatning av data, systemet väntar och försöker aviseringsfrågan flera gånger om den hittar nödvändiga data inte matas ännu. Systemet har ett ökar exponentiellt väntetid som angetts. Vilka log aviseringar endast utlösare när data är tillgängliga så att de fördröjning kan bero på långsam logg för datainmatning. 
 
 ### <a name="incorrect-time-period-configured"></a>Felaktig tidsperiod konfigurerad
-Enligt beskrivningen i artikeln på [terminologi för loggaviseringar](monitor-alerts-unified-log.md#log-search-alert-rule---definition-and-types)tidpunkten period angiven i konfigurationen anger tidsintervall för frågan. Frågan returnerar bara de poster som har skapats i det här intervallet tid. Tidsperiod begränsar de data som hämtats för loggfråga att förhindra missbruk och kringgår alla tid-kommandon (t.ex. sedan) används i loggen frågan. 
-*Till exempel om hur lång tid har angetts till 60 minuter och frågan körs klockan 13:15, används bara de poster som har skapats mellan 12:15 PM och 1:15 för log-frågan. Om loggfråga använder ett tid-kommando som *sedan (1d)*, endast använder data mellan 12:15 PM och 1:15 i frågan eftersom tidsperioden är inställt på det här intervallet.*
+Enligt beskrivningen i artikeln på [terminologi för loggaviseringar](monitor-alerts-unified-log.md#log-search-alert-rule---definition-and-types)tidpunkten period angiven i konfigurationen anger tidsintervall för frågan. Frågan returnerar bara de poster som har skapats i det här intervallet tid. Tidsperiod begränsar de data som hämtats för loggfråga att förhindra missbruk och kringgår alla tid-kommandon (t.ex. *sedan*) används i loggen frågan. Till exempel om hur lång tid har angetts till 60 minuter och frågan körs klockan 13:15, används bara de poster som har skapats mellan 12:15 PM och 1:15 för log-frågan. Om loggfråga använder ett tid-kommando som *sedan (1d)*, frågan används fortfarande bara data mellan 12:15 PM och 1:15 eftersom hur lång tid är inställd på att interval.*
 
 Därför matchar Kontrollera den aktuella tidsperioden i konfigurationen din fråga. Till exempel som vi nämnt tidigare, om log frågan använder *sedan (1d)* enligt med grön markör sedan hur lång tid bör anges till 24 timmar eller 1 440 minuter (som anges i rött), så utförs av frågan som avsett.
 
@@ -77,12 +76,14 @@ Detaljerad nästa är några vanliga orsaker till varför en konfigurerade [logg
 ### <a name="alert-triggered-by-partial-data"></a>Varningen aktiverades av partiella data
 Är Log Analytics och Application Insights Analytics är föremål för inmatning fördröjningar och bearbetning. på grund av som, kan vid tidpunkten när angivna loggvarningsfråga körs – det finnas fall ingen information är tillgänglig eller bara vissa data som är tillgängliga. Mer information finns i [tid för inmatning av Data i Log Analytics](../log-analytics/log-analytics-data-ingestion-time.md).
 
-Beroende på hur regeln har konfigurerats, det kan finnas argumentantal firing om det finns inga eller partiella data i loggar vid tidpunkten för avisering körning. I sådana fall är det bäst att aviseringsfråga eller konfigurationsversion ändras. *Till exempel om varningsregel för loggen är konfigurerad för att utlösa när antalet analytics-frågan är mindre än (säga) 5. sedan när det finns ingen data (ingen post) eller ofullständiga resultat (en post) ska varningsregeln få utlöses. Där-som efter inmatning fördröjning när körs samma fråga i Analytics frågan med fullständig data kan ge resultatet som 10 poster.*
+Beroende på hur regeln har konfigurerats, det kan vara felaktigt firing om det finns inga eller partiella data i loggar vid tidpunkten för avisering körning. I sådana fall rekommenderar vi att du kan ändra aviseringsfråga eller konfiguration. 
+
+Exempel: om loggvarningsregel har konfigurerats för att utlösa när antalet resultat från en analytics-fråga är mindre än 5, sedan aviseringen utlöses när det finns inga data (ingen post) eller ofullständiga resultat (en post). Efter fördröjning inmatning av data kan dock samma fråga med fullständig data ger ett resultat av 10 poster.
 
 ### <a name="alert-query-output-misunderstood"></a>Aviseringsfråga utdata tror många
-För loggaviseringar tillhandahålls logiken för avisering av användaren via analytics-fråga. Den angivna analytics-frågan kan använda olika Big Data och matematiska funktioner för att skapa specifika konstruktioner. Tjänsten aviseringar ska köra kunden tillhandahåller frågan med intervall som angetts med data för tidsperiod som angetts. avisering service gör vissa ändringar i fråga tillhandahålls, baserat på den aviseringstyp som valts och samma kan närvara i avsnittet ”fråga för att köras” konfigurera signalen logik på skärmen som på bilden nedan: ![fråga som ska köras](./media/monitor-alerts-unified/LogAlertPreview.png)
+Du kan ange logiken för loggaviseringar i en analytics-fråga. Analytics-fråga kan använda olika stordata och matematiska funktioner.  Aviseringar tjänsten kör din fråga med intervall som angetts med data för en angiven tidsperiod. Aviseringar service gör små ändringar i angivna frågan baserat på den aviseringstyp som valts. Detta syns i avsnittet ”fråga för att köras” i *konfigurera signallogiken* skärmen som visas nedan: ![fråga som ska köras](./media/monitor-alerts-unified/LogAlertPreview.png)
  
-Vad som anges i **fråga som ska köras** avsnittet är vilka log avisering service körs; användare kan köra den angivna frågan samt timespan via [analysportalen](../log-analytics/log-analytics-log-search-portals.md) eller [API för textanalys](https://docs.microsoft.com/rest/api/loganalytics/) – Om de vill förstå innan du skapande av varning vilken aviseringsfråga utgående kan vara.
+Vad som visas i den **fråga som ska köras** rutan är varning Loggtjänsten körs. Du kan köra den angivna frågan samt timespan via [analysportalen](../log-analytics/log-analytics-log-search-portals.md) eller [API för textanalys](https://docs.microsoft.com/rest/api/loganalytics/) om du vill förstå vilka aviseringsfrågan utdata kan finnas innan du skapar aviseringen.
  
 ## <a name="next-steps"></a>Nästa steg
 

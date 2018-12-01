@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: 9d0cb566ffb8fbec4b99b0f0eeca79b21d1b0dde
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 2c5e99c16ed6ae0df9af4783fb6431edcbb6f100
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335137"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725411"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Felsök ögonblicksbilder på undantag i .NET-appar
 
@@ -202,7 +201,7 @@ Prenumerationsägare ska tilldela den `Application Insights Snapshot Debugger` r
 
 1. Gå till Application Insights-resurs i Azure-portalen.
 1. Klicka på **åtkomstkontroll (IAM)**.
-1. Klicka på den **+ Lägg till** knappen.
+1. Klicka på den **+ Lägg till rolltilldelning** knappen.
 1. Välj **Application Insights Snapshot Debugger** från den **roller** listrutan.
 1. Sök efter och ange ett namn för att lägga till.
 1. Klicka på den **spara** för att lägga till användaren till rollen.

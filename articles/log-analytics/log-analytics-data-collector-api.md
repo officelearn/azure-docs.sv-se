@@ -10,17 +10,16 @@ ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 497b5b9d33ab2dea37e1017fa2d5bf2d0db66a5f
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 881188e7dab0e50b5bc62258c87cb546020c8410
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007679"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723592"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Skicka data till Log Analytics med HTTP Data Collector API (förhandsversion)
 Den här artikeln visar hur du använder HTTP Data Collector API för att skicka data till Log Analytics från en REST API-klient.  Den beskriver hur du formatera data som samlas in från dina skript eller ett program, inkludera den i en begäran och få den begäran som auktoriserats av Log Analytics.  Exempel tillhandahålls för PowerShell, C# och Python.
@@ -472,4 +471,4 @@ post_data(customer_id, shared_key, body, log_type)
 ## <a name="next-steps"></a>Nästa steg
 - Använd den [Loggsöknings-API](log-analytics-queries.md) att hämta data från Log Analytics-databasen.
 
-- Läs mer om hur [skapa en datapipeline med Data Collector API](log-analytics-create-pipeline-datacollector-api.md) med Logic Apps-arbetsflöde till Log Analytics.
+- Läs mer om hur [skapa en datapipeline med Data Collector API](../azure-monitor/platform/create-pipeline-datacollector-api.md) med Logic Apps-arbetsflöde till Log Analytics.

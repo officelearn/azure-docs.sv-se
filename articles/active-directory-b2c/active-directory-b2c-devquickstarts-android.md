@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/06/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 716cf9e47cd71d003513066d390f9dccb5c83dcb
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 4a4b9863d8f74592a8d9a700c3dbc850cd867331
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344134"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725564"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure AD B2C: Logga in med ett Android-program
 
@@ -40,17 +40,17 @@ Därefter måste du skapa en app i B2C-katalogen. Det ger Azure AD den informati
 * Kopiera **program-ID:t** som har tilldelats din app. Du behöver det senare.
 * Konfigurera en intern klient **omdirigerings-URI** (t.ex. com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). Du behöver även detta senare.
 
-## <a name="create-your-policies"></a>Skapa principer
+## <a name="create-your-user-flows"></a>Skapa dina användarflöden
 
-I Azure AD B2C definieras varje användarupplevelse av en [princip](active-directory-b2c-reference-policies.md). Den här appen innehåller en identitetslösning: en kombinerad inloggning och registrering. Du behöver skapa den här principen, enligt beskrivningen i den [referensartikeln om principer](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Tänk på följande när du skapar principen:
+I Azure AD B2C definieras varje användarupplevelse av en [användarflödet](active-directory-b2c-reference-policies.md), vilket är en uppsättning principer som styr beteendet för Azure AD. Den här appen innehåller en identitetslösning: en kombinerad inloggning och registrering användarflödet. Du måste skapa det här användarflödet enligt beskrivningen i den [användaren flow referensartikeln](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). När du skapar användarflödet, måste du kontrollera att:
 
-* Välj den **visningsnamn** som ett registrerings attribut i din princip.
-* Välj det **visningsnamn** och **objekt-ID** som programmet gör anspråk på i varje princip. Du kan också välja andra anspråk.
-* Kopiera **namnet** på varje princip när du har skapat den. Det bör ha prefixet `b2c_1_`.  Du behöver principnamnet senare.
+* Välj den **visningsnamn** som ett registrerings attribut i ditt användarflöde.
+* Välj den **visningsnamn** och **objekt-ID** programanspråken i varje användarflödet. Du kan också välja andra anspråk.
+* Kopiera den **namn** av varje användarflöde när du har skapat. Det bör ha prefixet `b2c_1_`.  Du behöver userjourney-namnet senare.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-När du har skapat dina principer är det dags att bygga appen.
+När du har skapat din användarflöden, är du redo att skapa din app.
 
 ## <a name="download-the-sample-code"></a>Hämta exempelkoden
 
@@ -69,7 +69,7 @@ I exemplet är en ändring av exemplet som anges av [AppAuth](https://openid.git
 Du kan konfigurera kommunikation med Azure AD B2C genom att ange URI för identifiering eller genom att ange både auktoriseringsslutpunkt och tokenslutpunkten URI: er. I båda fallen behöver du följande information:
 
 * Klient-ID (t.ex. contoso.onmicrosoft.com)
-* Principnamn (t.ex. B2C\_1\_SignUpIn)
+* Userjourney-namnet (t.ex. B2C\_1\_SignUpIn)
 
 Om du väljer att automatiskt identifiera auktorisering och tokenslutpunkten URI: er, behöver du för hämtning av information från identifieringen URI. Identifieringen URI kan genereras genom att ersätta klienten\_-ID och principen\_namn i följande URL:
 
@@ -135,5 +135,5 @@ AuthorizationRequest req = new AuthorizationRequest.Builder(
 
 Finns det [AppAuth guide](https://openid.github.io/AppAuth-Android/) om hur du Slutför resten av processen. Om du behöver snabbt komma igång med en fungerande app kan du kolla [vårt exempel](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c). Följ stegen i den [README.md](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c/blob/master/README.md) att ange din egen Azure AD B2C-konfiguration.
 
-Vi är alltid öppen för feedback och förslag! Om du har problem med den här artikeln eller har rekommendationer för att förbättra det här innehållet, skulle vi uppskattar din feedback längst ned på sidan. Lägga till dem i för funktionsförfrågningar om [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+Vi är alltid öppna för återkoppling och förslag! Om du har problem med den här artikeln eller har rekommendationer för att förbättra det här innehållet, skulle vi uppskattar din feedback längst ned på sidan. För förfrågningar om ny funktionalitet, vänligen lägg till dem i [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
 

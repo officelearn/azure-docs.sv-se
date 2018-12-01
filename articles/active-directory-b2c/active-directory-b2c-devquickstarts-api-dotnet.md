@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/14/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2e93a8340699d1fcf68c53baa87990e799bc933d
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3283e7b0e0b7e20d4b8522f08ab2460504fa355f
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447599"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723439"
 ---
 # <a name="azure-active-directory-b2c-build-a-net-web-api"></a>Azure Active Directory B2C: Skapa ett .NET-webb-API
 
@@ -23,7 +23,7 @@ Med Azure Active Directory (Active AD) B2C kan du skydda ett webb-API med hjälp
 
 ## <a name="create-an-azure-ad-b2c-directory"></a>Skapa en Azure AD B2C-katalog
 
-Innan du kan använda Azure AD B2C måste du skapa en katalog eller klient. En katalog är en behållare för alla användare, appar, grupper och mer. Om du inte redan har en B2C-katalog [skapar du en](active-directory-b2c-get-started.md) innan du fortsätter den här guiden.
+Innan du kan använda Azure AD B2C måste du skapa en katalog eller klient. En katalog är en container för alla användare, appar, grupper och mer. Om du inte redan har en B2C-katalog [skapar du en](active-directory-b2c-get-started.md) innan du fortsätter den här guiden.
 
 > [!NOTE]
 > Klientprogrammet och webb-API:et måste använda samma Azure AD B2C-katalog.
@@ -39,17 +39,17 @@ Därefter måste du skapa en webb-API-app i B2C-katalogen. Det ger Azure AD den 
 * Ange en appidentifierare i **App-ID-URI**. Kopiera hela **App-ID-URI**. Du behöver det senare.
 * Lägg till behörigheter via menyn med **publicerade omfång**.
 
-## <a name="create-your-policies"></a>Skapa principer
+## <a name="create-your-user-flows"></a>Skapa dina användarflöden
 
-I Azure AD B2C definieras varje användarupplevelse av en [princip](active-directory-b2c-reference-policies.md). Du måste skapa en princip för att kommunicera med Azure AD B2C. Vi rekommenderar att du använder den kombinerade registrerings- och inloggningsprincipen som beskrivs i [referensartikeln för principer](active-directory-b2c-reference-policies.md). Se till att göra följande när du skapar en princip:
+I Azure AD B2C definieras varje användarupplevelse av en [användarflödet](active-directory-b2c-reference-policies.md). Du måste skapa ett användarflöde att kommunicera med Azure AD B2C. Vi rekommenderar att du använder användarflödet kombinerade registrerings-registreringen/logga in, enligt beskrivningen i den [användaren flow referensartikeln](active-directory-b2c-reference-policies.md). När du skapar ditt användarflöde, måste du kontrollera att:
 
-* Välj **Visningsnamn** och andra registreringsattribut i principen.
-* Välj **Visningsnamn** och **Objekt-ID** som programanspråk för varje princip. Du kan också välja andra anspråk.
-* Kopiera **namnet** på varje princip när du har skapat den. Du behöver principnamnet senare.
+* Välj **visningsnamn** och andra registreringsattribut i ditt användarflöde.
+* Välj **visningsnamn** och **objekt-ID** som Programanspråk för varje användarflöde. Du kan också välja andra anspråk.
+* Kopiera den **namn** av varje användarflöde när du har skapat. Du behöver userjourney-namnet senare.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-När du har skapat principen är det dags att skapa appen.
+När du har skapat användarflödet är redo du att skapa din app.
 
 ## <a name="download-the-code"></a>Ladda ned koden
 
@@ -63,20 +63,20 @@ När du har laddat ned exempelkoden öppnar du SLN-filen i Visual Studio för at
 
 ### <a name="update-the-azure-ad-b2c-configuration"></a>Uppdatera Azure AD B2C-konfigurationen
 
-Det här exemplet är konfigurerat att använda principerna och klient-ID:t för vår demoklientorganisation. Om du vill använda din egen klientorganisation måste du göra följande:
+Vårt exempel har konfigurerats för att använda användarflöden och klient-ID för vår demoklientorganisation. Om du vill använda din egen klientorganisation måste du göra följande:
 
 1. Öppna `web.config` i `TaskService`-projektet och ersätt värdena för
     * `ida:Tenant` med namnet på din klientorganisation
     * `ida:ClientId` med program-ID:t för ditt webb-API
-    * `ida:SignUpSignInPolicyId` med namnet på din registrerings- eller inloggningsprincip
+    * `ida:SignUpSignInPolicyId` med ditt ”registrering eller inloggning” flödet användarnamn
 
 2. Öppna `web.config` i `TaskWebApp`-projektet och ersätt värdena för
     * `ida:Tenant` med namnet på din klientorganisation
     * `ida:ClientId` med program-ID:t för din webbapp
     * `ida:ClientSecret` med den hemliga nyckeln för din webbapp
-    * `ida:SignUpSignInPolicyId` med namnet på din registrerings- eller inloggningsprincip
-    * `ida:EditProfilePolicyId` med namnet på din profilredigeringsprincip
-    * `ida:ResetPasswordPolicyId` med namnet på din lösenordsåterställningsprincip
+    * `ida:SignUpSignInPolicyId` med ditt ”registrering eller inloggning” flödet användarnamn
+    * `ida:EditProfilePolicyId` med ditt flöde användarnamn ”Redigera profil”
+    * `ida:ResetPasswordPolicyId` med ditt flöde användarnamn ”Återställ lösenord”
     * `api:ApiIdentifier` med "App-ID-URI"
 
 
@@ -169,7 +169,7 @@ public class TasksController : ApiController
 
 ### <a name="get-user-information-from-the-token"></a>Hämta användarinformation från token
 
-`TasksController` lagrar uppgifter i en databas där varje uppgift har en associerad användare som ”äger” uppgiften. Ägaren identifieras med hjälp av användarens **objekt-ID**. (Det är därför du måste lägga till objekt-ID:t som ett programanspråk i alla dina principer.)
+`TasksController` lagrar uppgifter i en databas där varje uppgift har en associerad användare som ”äger” uppgiften. Ägaren identifieras med hjälp av användarens **objekt-ID**. (Det är därför du måste lägga till objekt-ID som ett Programanspråk i alla dina användarflöden.)
 
 ```CSharp
 // Controllers\TasksController.cs
@@ -204,6 +204,6 @@ public IEnumerable<Models.Task> Get()
 
 Slutligen bygger du och kör både `TaskWebApp` och `TaskService`. Skapa några uppgifter i användarens att göra-lista och notera hur de finns kvar i API:et även om du stoppar och startar om klienten.
 
-## <a name="edit-your-policies"></a>Redigera dina principer
+## <a name="edit-your-user-flows"></a>Redigera din användarflöden
 
-När du har skyddat ett API med hjälp av Azure AD B2C kan du experimentera med registrerings- och inloggningsprincipen och se effekterna (eller avsaknaden av dem) i API:et. Du kan manipulera programanspråken i principerna och ändra användarinformationen som är tillgänglig i webb-API:et. Eventuella anspråk som du lägger till är tillgängliga för det .NET MVC-baserade webb-API:et i `ClaimsPrincipal`-objektet på det sätt som beskrivits tidigare i den här artikeln.
+När du har skyddat ett API med hjälp av Azure AD B2C kan kan du experimentera med din inloggning-i/registrering användarflödet och se effekterna (eller avsaknaden av dem) på API: et. Du kan manipulera programanspråken i användarflöden och ändra användarinformationen som är tillgänglig i webb-API. Eventuella anspråk som du lägger till är tillgängliga för det .NET MVC-baserade webb-API:et i `ClaimsPrincipal`-objektet på det sätt som beskrivits tidigare i den här artikeln.

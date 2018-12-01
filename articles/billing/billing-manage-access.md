@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: cwatson
-ms.openlocfilehash: 7a4e19ae5bf770949623f4cee7fa0d3033ccfa29
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 00b29ddf29ae334154d41eedd0bf9e66556e09ad
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582623"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720127"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Hantera åtkomst till faktureringsinformation för Azure
 
@@ -72,9 +72,10 @@ Billing Reader-funktionen är en förhandsversion och har stöd inte för icke-g
 
 1. Välj **åtkomstkontroll (IAM)**.
 1. Välj **rolltilldelningar** att visa alla rolltilldelningar för den här prenumerationen.
-1. Välj **Lägg till** > **Lägg till rolltilldelning**.
+1. Välj **Lägg till rolltilldelning**.
 1. I den **rollen** listrutan väljer du **Billing Reader**.
 1. I den **Välj** textrutan anger du namnet eller e-post för den användare som du vill lägga till.
+1. Välj användaren.
 1. Välj **Spara**.
 1. Efter en liten stund tilldelas användaren rollen Billing Reader prenumerationsområde.
 1. Billing Reader tar emot ett e-postmeddelande med en länk för att logga in.

@@ -8,12 +8,12 @@ ms.date: 09/25/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: adba2322bce5f0884cba51078e65feeaeaf193d9
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 5b503c1a96d0c0a5ce3d14e98622040116873045
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392709"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724663"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Åtgärda icke-kompatibla resurser med Azure Policy
 
@@ -123,7 +123,7 @@ Följ dessa steg om du vill lägga till en roll i tilldelningens hanterad identi
 
 1. Gå till resursen eller resurser överordnade behållaren (resursgrupp, prenumeration, hanteringsgrupp) som behöver rolldefinitionen la till manuellt.
 
-1. Klicka på den **åtkomstkontroll (IAM)** länka på resurssidan och klicka på **+ Lägg till** överst på sidan för kontroll av åtkomst.
+1. Klicka på den **åtkomstkontroll (IAM)** länka på resurssidan och klicka på **+ Lägg till rolltilldelning** överst på sidan för kontroll av åtkomst.
 
 1. Välj rätt roll som matchar en **roleDefinitionIds** från principdefinitionen. Lämna **tilldela åtkomst till** inställt på standardvärdet ”Azure AD användaren, gruppen eller programmet”. I den **Välj** rutan, klistra in eller Skriv delen av tilldelning av resurs-ID finns tidigare. När sökningen är klar klickar du på objektet med samma namn och välj id och klicka på **spara**.
 

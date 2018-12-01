@@ -7,26 +7,26 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 30bc3e0f1a8230bdbcad653c8c2db7dc078629bb
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 49f3f80832597b231aec812a4c1613da9897f72a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180356"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722453"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med OpenID Connect med hjälp av Azure Active Directory B2C
 
 >[!NOTE]
 > Den här funktionen är i offentlig förhandsversion. Använd inte funktionen i produktionsmiljöer.
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) är ett autentiseringsprotokoll som bygger på OAuth 2.0, som kan användas för säker inloggning av användare. De flesta identitetsleverantörer som använder detta protokoll, exempelvis [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md), stöds i Azure AD B2C. Den här artikeln förklarar hur du kan lägga till anpassad OpenID Connect Identitetsproviders i din inbyggda principer.
+[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) är ett autentiseringsprotokoll som bygger på OAuth 2.0, som kan användas för säker inloggning av användare. De flesta identitetsleverantörer som använder detta protokoll, exempelvis [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md), stöds i Azure AD B2C. Den här artikeln förklarar hur du kan lägga till anpassad OpenID Connect Identitetsproviders i dina användarflöden.
 
 ## <a name="add-the-identity-provider"></a>Lägg till identitetsleverantören.
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com/) som global administratör för din Azure AD B2C-klient.
+1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för din Azure AD B2C-klientorganisationen.
 2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. Välj **Identitetsprovidrar**, och klicka sedan på **Lägg till**.

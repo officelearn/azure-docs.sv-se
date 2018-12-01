@@ -14,12 +14,12 @@ ms.date: 11/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: adb53bb5722bff2374097626e8a3f1679ca00788
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 0c14055209c6094585e0d1df892fea24a3f3ea55
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633537"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721076"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -352,7 +352,7 @@ Du kan använda följande enhetsattribut.
  deviceCategory | ett giltigt enhetsnamn för kategori | (device.deviceCategory - eq ”BYOD”)
  deviceManufacturer | ett värde | (device.deviceManufacturer - eq ”Samsung”)
  deviceModel | ett värde | (device.deviceModel - eq ”iPad luften”)
- deviceOwnership | Personliga, företagets, okänt | (device.deviceOwnership - eq ”företagsägda”)
+ deviceOwnership | Privat, företag, okänt | (device.deviceOwnership - eq ”Company”)
  Domännamn | ett värde | (device.domainName - eq ”contoso.com”)
  enrollmentProfileName | Profil för registrering av Apple-enheter eller Windows Autopilot-profilnamn | (device.enrollmentProfileName - eq ”DEP iPhone”)
  isRooted | SANT FALSKT | (device.isRooted - eq SANT)
@@ -360,6 +360,9 @@ Du kan använda följande enhetsattribut.
  deviceId | en giltig enhets-ID för Azure AD | (device.deviceId - eq ”d4fe7726-5966-431c-b3b8-cddc8fdb717d”)
  objekt-ID | en giltig Azure AD objekt-ID |  (device.objectId - eq 76ad43c9-32c5-45e8-a272-7b58b58f596d ”)
  systemLabels | valfri sträng som matchar Intune enhetsegenskap för taggar Modern arbetsplats enheter | (device.systemLabels-innehåller ”M365Managed”)
+
+> [!Note]  
+> Du måste ange värdet till ”företag” för deviceOwnership när du skapar dynamiska grupper för enheter. På Intune visas ägarskap för enhet i stället som företagsenheter. Referera till [OwnerTypes](https://docs.microsoft.com/en-us/intune/reports-ref-devices#ownertypes) för mer information. 
 
 ## <a name="next-steps"></a>Nästa steg
 

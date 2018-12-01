@@ -5,22 +5,26 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: fcdaf10ad30cee0e7b79304ff21d67560522875c
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 90735ac04c95ee3d270853c18eddebd3f11dd8c1
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377805"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725972"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Övervakning, mått och aviseringar i ExpressRoute
 
- Den här artikeln hjälper dig att förstå ExpressRoute-övervakning, mått och aviseringar. Azure Monitor är en plats du behöver för alla mått, aviseringar, diagnostikloggar för alla Azure.
+Den här artikeln hjälper dig att förstå ExpressRoute-övervakning, mått och aviseringar. Azure Monitor är en plats du behöver för alla mått, aviseringar, diagnostikloggar för alla Azure.
+ 
+>[!NOTE]
+>Med hjälp av **klassiska mått** rekommenderas inte. 
+>
 
 ## <a name="circuit-metrics"></a>Kretsen mått
 
-Navigera till **mått**, klickar på sidan ExpressRoute för kretsen som du vill övervaka. Under **övervakning** du kan visa den **mått**. Välj BitsInPerSecond eller BitsOutPerSecond och aggregering. Du kan också kan du använda dela som visar mått per peering-typ.
+Navigera till **mått**, klickar på sidan ExpressRoute för kretsen som du vill övervaka. Under **övervakning**, du kan visa den **mått**. Välj BitsInPerSecond eller BitsOutPerSecond och aggregering. Du kan också kan du använda uppdelningen som visar mått per typ av peering.
 
 ![Kretsen mått](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
@@ -42,11 +46,10 @@ Du kan visa mått för privat, offentlig och Microsoft-peering i bitar per sekun
 
 2. Klicka på **+ Välj mål** och välj resursen som ExpressRoute-gateway-anslutning.
 
-  ![mål]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
+  ![Mål]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
 3. Definiera Aviseringsinformationen.
 
   ![Åtgärdsgrupp](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
-
 
 4. Definiera och lägga till åtgärdsgruppen.
 
@@ -61,9 +64,10 @@ Du kan visa mått för privat, offentlig och Microsoft-peering i bitar per sekun
 I den **aviseringsvillkoren**, kan du välja **aktivitetsloggen** för signaltyp och välj signalen.
 
   ![en annan](./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg)
-
+  
 ## <a name="next-steps"></a>Nästa steg
-* Konfigurera ExpressRoute-anslutningen.
+
+Konfigurera ExpressRoute-anslutningen.
   
   * [Skapa och ändra en krets](expressroute-howto-circuit-arm.md)
   * [Skapa och ändra peering-konfigurationen](expressroute-howto-routing-arm.md)

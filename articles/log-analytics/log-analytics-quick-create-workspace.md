@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptal
+ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c041437b610c56fd34667d9b8f3fe67080b3aafc
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e02b2591e145933979b5c69f9a6c0cf6f9b57b82
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419358"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52719886"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Skapa en Log Analytics-arbetsyta i Azure portal
 I Azure portal som du kan ställa in en Log Analytics-arbetsyta, vilket är en unik Log Analytics-miljö med en egen databas, datakällor och lösningar.  Stegen som beskrivs i den här artikeln krävs om du avser att samla in data från följande källor:
@@ -63,7 +62,7 @@ När informationen har verifierats och arbetsytan skapas, kan du spåra förlopp
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har en arbetsyta som är tillgängliga kan du konfigurera insamling av övervakning av telemetri, köra loggsökningar för att analysera dessa data och lägga till en hanteringslösning för att ge ytterligare data och analytisk insikt. 
 
-* Om du vill aktivera insamling av data från Azure-resurser med Azure Diagnostics eller Azure storage, se [samla in Azure-tjänsteloggar och mått för användning i Log Analytics](log-analytics-azure-storage.md).  
+* Om du vill aktivera insamling av data från Azure-resurser med Azure Diagnostics eller Azure storage, se [samla in Azure-tjänsteloggar och mått för användning i Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md).  
 * [Lägg till System Center Operations Manager som en datakälla](log-analytics-om-agents.md) att samla in data från agenter som rapporterar Operations Manager-hanteringsgrupp och lagra den i Log Analytics-arbetsytan. 
 * Ansluta [Configuration Manager](log-analytics-sccm.md) att importera datorer som är medlemmar i samlingar i hierarkin.  
 * Granska den [hanteringslösningar](https://docs.microsoft.com/azure/monitoring/monitoring-solutions-inventory?toc=%2fazure%2flog-analytics%2ftoc.json) tillgängliga och hur du lägger till eller ta bort en lösning från din arbetsyta.

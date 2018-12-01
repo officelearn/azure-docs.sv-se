@@ -9,16 +9,15 @@ ms.assetid: 7f13ea66-09dc-450f-b8f9-f40fdad239f2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6e19735f604fdcd6d6642814e776fd9987d11fde
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4a30e562b04a3414a1305604a521e0d659753142
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499507"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720413"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Powerbi-flöde från Application Insights
 [Power BI](http://www.powerbi.com/) är en uppsättning verktyg för business som hjälper dig att analysera data och dela insikter. Omfattande instrumentpaneler är tillgängliga på varje enhet. Du kan kombinera data från många källor, inklusive Analytics-frågor från [Azure Application Insights](app-insights-overview.md).
@@ -52,18 +51,18 @@ Installera [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
     ![Skärmbild av Power BI Desktop med Avancerad redigerare markerat](./media/app-insights-export-power-bi/power-bi-import-analytics-query.png)
 
-1. Du kan behöva ange autentiseringsuppgifter så att Power BI för att få åtkomst till Azure. Använd **organisationskonto** att logga in med ditt Microsoft-konto.
+5. Du kan behöva ange autentiseringsuppgifter så att Power BI för att få åtkomst till Azure. Använd **organisationskonto** att logga in med ditt Microsoft-konto.
    
     ![Skärmbild av Power BI frågeinställningar dialogrutan](./media/app-insights-export-power-bi/power-bi-import-sign-in.png)
 
     Om du vill verifiera autentiseringsuppgifterna kan använda den **Datakällsinställningar** menykommandot i frågeredigeraren. Glöm inte att ange de autentiseringsuppgifter som du använder för Azure, vilket kan skilja sig från dina autentiseringsuppgifter för Power BI.
-2. Välj en visualisering för din fråga och välj fält för x-axeln, y-axeln och segmentera dimension.
+6. Välj en visualisering för din fråga och välj fält för x-axeln, y-axeln och segmentera dimension.
    
     ![Skärmbild av Power BI Desktop visualisering alternativ](./media/app-insights-export-power-bi/power-bi-analytics-visualize.png)
-3. Publicera rapporten till din arbetsyta för Power BI-molnet. Därifrån kan du bädda in en synkroniserade version i andra webbsidor.
+7. Publicera rapporten till din arbetsyta för Power BI-molnet. Därifrån kan du bädda in en synkroniserade version i andra webbsidor.
    
     ![Skärmbild av Power BI Desktop med knappen Publicera markerat](./media/app-insights-export-power-bi/publish-power-bi.png)
-4. Uppdatera rapporten manuellt med intervall, eller ställa in en schemalagd uppdatering på alternativsidan.
+8. Uppdatera rapporten manuellt med intervall, eller ställa in en schemalagd uppdatering på alternativsidan.
 
 ### <a name="export-a-funnel"></a>Exportera en tratt
 1. [Gör din tratt](usage-funnels.md).

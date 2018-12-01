@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 569efa7fbbd111937f00ba3b1e28219c163e2221
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7bd84b42cfa61d199d70e02345f9229a45fd7704
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958167"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726176"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Hantera Azure Automation kör som-konton
 
@@ -358,11 +358,11 @@ Du förnyar certifikatet genom att göra följande:
 
 Om du vill styra inriktning för automation mot resurser i Azure Automation beviljas kör som-kontot som standard rättigheter som deltagare i prenumeration. Om du vill begränsa vad RunAs tjänstens huvudnamn kan göra kan du ta bort kontot från deltagarrollen för prenumerationen och lägga till den som deltagare till resursgrupper som du vill ange.
 
-I Azure-portalen väljer du **prenumerationer** och välj prenumerationen för ditt Automation-konto. Välj **åtkomstkontroll (IAM)** och söka efter tjänstens huvudnamn för ditt Automation-konto (det ser ut som \<AutomationAccountName\>_unique identifierare). Välj kontot och klicka på **ta bort** du tar bort den från prenumerationen.
+I Azure-portalen väljer du **prenumerationer** och välj prenumerationen för ditt Automation-konto. Välj **åtkomstkontroll (IAM)** och välj sedan den **rolltilldelningar** fliken. Sök efter tjänstens huvudnamn för ditt Automation-konto (det ser ut som \<AutomationAccountName\>_unique identifierare). Välj kontot och klicka på **ta bort** du tar bort den från prenumerationen.
 
 ![Deltagare i prenumeration](media/manage-runas-account/automation-account-remove-subscription.png)
 
-Om du vill lägga till tjänstens huvudnamn till en resursgrupp, Välj resursgruppen i Azure-portalen och välj **åtkomstkontroll (IAM)**. Välj **Lägg till**, öppnas den **Lägg till behörigheter** sidan. För **rollen**väljer **deltagare**. I den **Välj** text Skriv namnet på tjänstens huvudnamn för Kör som-kontot och väljer den i listan. Klicka på **Spara** för att spara ändringarna. Slutför de här stegen för de resursgrupper som du vill ge dina Azure Automation kör som tjänstens huvudnamn åtkomst till.
+Om du vill lägga till tjänstens huvudnamn till en resursgrupp, Välj resursgruppen i Azure-portalen och välj **åtkomstkontroll (IAM)**. Välj **Lägg till rolltilldelning**, öppnas den **Lägg till rolltilldelning** sidan. För **rollen**väljer **deltagare**. I den **Välj** text Skriv namnet på tjänstens huvudnamn för Kör som-kontot och väljer den i listan. Klicka på **Spara** för att spara ändringarna. Slutför de här stegen för de resursgrupper som du vill ge dina Azure Automation kör som tjänstens huvudnamn åtkomst till.
 
 ## <a name="misconfiguration"></a>Felaktig konfiguration
 

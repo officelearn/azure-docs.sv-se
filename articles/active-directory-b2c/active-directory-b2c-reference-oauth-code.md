@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d388242b4b0c882d60a83227a37af997b1ceb1f6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f39efcbc051bf57ab350357b020039eddd0f7c18
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282653"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720787"
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: OAuth 2.0-auktoriseringskodflöde
 Du kan använda OAuth 2.0-auktoriseringskod i appar som installerats på en enhet för att få åtkomst till skyddade resurser, till exempel webb API: er. Genom att använda den Azure Active Directory B2C (Azure AD B2C) implementering av OAuth 2.0, du kan lägga till registrering, inloggning och andra Identitetshantering uppgifter till dina appar och program. Den här artikeln är språkoberoende. I artikeln beskrivs hur du skickar och tar emot HTTP-meddelanden utan att använda alla bibliotek med öppen källkod.
@@ -27,15 +27,15 @@ Den här artikeln fokuserar på de **offentliga klienter** OAuth 2.0-auktoriseri
 > [!NOTE]
 > Lägg till Identitetshantering till en webbapp med hjälp av Azure AD B2C genom att använda [OpenID Connect](active-directory-b2c-reference-oidc.md) i stället för OAuth 2.0.
 
-Azure AD B2C utökar standard OAuth 2.0 flöden för att göra mer än enkel autentisering och auktorisering. Det introducerar den [principparametern](active-directory-b2c-reference-policies.md). Med inbyggda principer kan du använda OAuth 2.0 för att lägga till användarupplevelser i ditt program, till exempel registrering, inloggning och profilhantering. I den här artikeln visar vi dig hur du använder OAuth 2.0 och principer för att implementera var och en av dessa upplevelser i dina interna program. Vi visar också hur du hämtar åtkomsttoken för att komma åt webb API: er.
+Azure AD B2C utökar standard OAuth 2.0 flöden för att göra mer än enkel autentisering och auktorisering. Det introducerar den [användaren flow parametern](active-directory-b2c-reference-policies.md). Med användarflöden, du kan använda OAuth 2.0 att lägga till användarupplevelser i ditt program, till exempel registrering, inloggning och profilhantering. I den här artikeln visar vi dig hur du använder OAuth 2.0 och användaren flöden för att implementera var och en av dessa upplevelser i dina interna program. Vi visar också hur du hämtar åtkomsttoken för att komma åt webb API: er.
 
-I exemplet HTTP-begäranden i den här artikeln använder vi vår exempel Azure AD B2C-katalog **fabrikamb2c.onmicrosoft.com**. Vi använder våra exempelprogrammet och principer. Du kan också försöka begäranden med hjälp av dessa värden eller ersätta dem med dina egna värden.
-Lär dig hur du [hämta egna Azure AD B2C-katalog, program och principer](#use-your-own-azure-ad-b2c-directory).
+I exemplet HTTP-begäranden i den här artikeln använder vi vår exempel Azure AD B2C-katalog **fabrikamb2c.onmicrosoft.com**. Vi kan också använda våra exempel och flöden. Du kan också försöka begäranden med hjälp av dessa värden eller ersätta dem med dina egna värden.
+Lär dig hur du [hämta din egen Azure AD B2C-katalog, program och användare flöden](#use-your-own-azure-ad-b2c-directory).
 
 ## <a name="1-get-an-authorization-code"></a>1. Hämta en auktoriseringskod
-Auktoriseringskodsflödet börjar med klienten dirigera användare till den `/authorize` slutpunkt. Det här är den interaktiva delen av flödet, där användaren vidtar åtgärder. I den här begäran anger klienten i den `scope` parametern de behörigheter som krävs för att hämta från användaren. I den `p` parametern anger principen för att köra. I följande tre exempel (med radbrytningar för läsbarhet) varje används en annan princip.
+Auktoriseringskodsflödet börjar med klienten dirigera användare till den `/authorize` slutpunkt. Det här är den interaktiva delen av flödet, där användaren vidtar åtgärder. I den här begäran anger klienten i den `scope` parametern de behörigheter som krävs för att hämta från användaren. I den `p` parametern indikerar användarflödet att köra. I följande tre exempel (med radbrytningar för läsbarhet) varje används en annan användare-flöde.
 
-### <a name="use-a-sign-in-policy"></a>Använd en inloggningsprincip
+### <a name="use-a-sign-in-user-flow"></a>Använd en inloggning användarflödet
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -47,7 +47,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_in
 ```
 
-### <a name="use-a-sign-up-policy"></a>Använda en registreringsprincip
+### <a name="use-a-sign-up-user-flow"></a>Använd en registrerings användarflödet
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -59,7 +59,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_up
 ```
 
-### <a name="use-an-edit-profile-policy"></a>Använda en princip för Redigera-profil
+### <a name="use-an-edit-profile-user-flow"></a>Använda en Redigera profil användarflödet
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -78,13 +78,13 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | redirect_uri |Krävs |Omdirigerings-URI för din app, där autentiseringssvaren skickas och tas emot av din app. Det måste exakt matcha en av omdirigerings-URI: er som du registrerade i portalen, förutom att det måste vara URL-kodade. |
 | omfång |Krävs |En blankstegsavgränsad lista med omfattningar. Ett enda scope-värde som anger till Azure Active Directory (Azure AD) båda av de behörigheter som tas emot. Med klient-ID som omfattningen visar att din app behöver en åtkomsttoken som kan användas mot din egen tjänst eller webb-API, som representeras av samma klient-ID.  Den `offline_access` omfång visar att din app behöver en uppdateringstoken för långlivade åtkomst till resurser. Du kan också använda den `openid` omfattning att begära en ID-token från Azure AD B2C. |
 | response_mode |Rekommenderas |Den metod som används för att skicka resulterande Auktoriseringskoden tillbaka till din app. Det kan vara `query`, `form_post`, eller `fragment`. |
-| state |Rekommenderas |Ett värde i begäran som kan vara en sträng med innehåll som du vill använda. Vanligtvis är används ett slumpmässigt genererat unikt värde till att förhindra attacker med förfalskning av begäran. Tillståndet också används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade. Exempelvis kan användaren var på sidan eller den princip som kördes. |
-| p |Krävs |Den princip som körs. Det är namnet på en princip som skapas i din Azure AD B2C-katalog. Namnet principvärdet måste inledas med **b2c\_1\_**. Mer information om principer finns [inbyggda principer för Azure AD B2C](active-directory-b2c-reference-policies.md). |
+| state |Rekommenderas |Ett värde i begäran som kan vara en sträng med innehåll som du vill använda. Vanligtvis är används ett slumpmässigt genererat unikt värde till att förhindra attacker med förfalskning av begäran. Tillståndet också används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade. Exempelvis kan användaren var på sidan eller det användarflöde som kördes. |
+| p |Krävs |Användarflödet som körs. Det är namnet på ett användarflöde som skapas i din Azure AD B2C-katalog. Namnvärdet för användaren flow ska inledas med **b2c\_1\_**. Läs mer om användarflöden i [Azure AD B2C-användarflöden](active-directory-b2c-reference-policies.md). |
 | fråga |Valfri |Typ av interaktion från användaren som krävs. Det enda giltiga värdet är för närvarande `login`, vilket Tvingar användaren att ange sina autentiseringsuppgifter i begäran. Enkel inloggning börjar inte gälla. |
 
-Nu kan uppmanas användaren att slutföra principens arbetsflöde. Detta kan handla om användaren skriver sitt användarnamn och lösenord, logga in med en sociala identitet, registrera dig för katalogen, eller en annan siffra steg. Användaråtgärder beror på hur principen som har definierats.
+Nu uppmanas användaren att slutföra den användarflödet arbetsflöde. Detta kan handla om användaren skriver sitt användarnamn och lösenord, logga in med en sociala identitet, registrera dig för katalogen, eller en annan siffra steg. Användaråtgärder beror på hur användarflödet har definierats.
 
-När användaren uppfyller principen, Azure AD tillbaka ett svar till din app på värdet som du använde för `redirect_uri`. Den använder den metod som beskrivs i den `response_mode` parametern. Svaret är exakt detsamma för alla användare åtgärd scenarion, oberoende av den princip som har utförts.
+När du är klar användarflödet Azure AD returnerar ett svar till din app på värdet som du använde för `redirect_uri`. Den använder den metod som beskrivs i den `response_mode` parametern. Svaret är exakt detsamma för alla användare åtgärd scenarion, oberoende av det användarflöde som kördes.
 
 Ett lyckat svar som använder `response_mode=query` ser ut så här:
 
@@ -128,7 +128,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 | Parameter | Krävs? | Beskrivning |
 | --- | --- | --- |
-| p |Krävs |Den princip som användes för att hämta Auktoriseringskoden. Du kan inte använda en annan princip i den här begäran. Observera att du lägger till den här parametern till den *frågesträng*, inte i själva INLÄGGET. |
+| p |Krävs |Det användarflöde som användes för att hämta Auktoriseringskoden. Du kan inte använda en annan användarflödet i den här begäran. Observera att du lägger till den här parametern till den *frågesträng*, inte i själva INLÄGGET. |
 | client_id |Krävs |Program-ID som tilldelats din app i den [Azure-portalen](https://portal.azure.com). |
 | _typ av beviljande |Krävs |Typ av beviljande. För auktoriseringskodflödet beviljandetypen måste vara `authorization_code`. |
 | omfång |Rekommenderas |En blankstegsavgränsad lista med omfattningar. Ett enda scope-värde som anger till Azure AD båda av de behörigheter som tas emot. Med klient-ID som omfattningen visar att din app behöver en åtkomsttoken som kan användas mot din egen tjänst eller webb-API, som representeras av samma klient-ID.  Den `offline_access` omfång visar att din app behöver en uppdateringstoken för långlivade åtkomst till resurser.  Du kan också använda den `openid` omfattning att begära en ID-token från Azure AD B2C. |
@@ -192,7 +192,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_s
 
 | Parameter | Krävs? | Beskrivning |
 | --- | --- | --- |
-| p |Krävs |Den princip som användes för att hämta den ursprungliga uppdateringstoken. Du kan inte använda en annan princip i den här begäran. Observera att du lägger till den här parametern till den *frågesträng*, inte i själva INLÄGGET. |
+| p |Krävs |Det användarflöde som användes för att hämta den ursprungliga uppdateringstoken. Du kan inte använda en annan användarflödet i den här begäran. Observera att du lägger till den här parametern till den *frågesträng*, inte i själva INLÄGGET. |
 | client_id |Krävs |Program-ID som tilldelats din app i den [Azure-portalen](https://portal.azure.com). |
 | client_secret |Krävs |Client_secret som är kopplad till din client_id i den [Azure-portalen](https://portal.azure.com). |
 | _typ av beviljande |Krävs |Typ av beviljande. För den här delen i auktoriseringskodsflödet beviljandetypen måste vara `refresh_token`. |
@@ -240,5 +240,5 @@ Utför följande steg om du vill prova de här begärandena själv. Ersätt exem
 
 1. [Skapa en Azure AD B2C-katalog](active-directory-b2c-get-started.md). Använd namnet på din katalog i begäranden.
 2. [Skapa ett program](active-directory-b2c-app-registration.md) att hämta ett program-ID och omdirigerings-URI. Inkludera en intern klient i din app.
-3. [Skapa principer](active-directory-b2c-reference-policies.md) att hämta din principnamn.
+3. [Skapa din användarflöden](active-directory-b2c-reference-policies.md) att hämta din användare namn för flödet.
 

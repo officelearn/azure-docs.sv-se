@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2354bf02b47c9fbc74dbc0dab07e30ca321279cf
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: f517754a8076fc18ed29f7db49f6ff9bfc6c7b3d
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669902"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725768"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Översikt över användarkonton i Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Följande typer av konton är tillgängliga:
 
 - **Arbetskonto** – ett arbetskonto kan komma åt resurser i en klient och rollen kan hantera klienter med en administratör.
 - **Gästkonto** -ett gästkonto får bara innehålla ett Microsoft-konto eller en Azure Active Directory-användare som kan användas för att komma åt program eller hantera klienter. 
-- **Konsumentkonto** -ett konsumentkonto har skapats genom att gå via en registreringsprincip i ett Azure AD B2C-program eller med hjälp av Azure AD Graph API och används av användarna som är registrerade i Azure AD B2C. 
+- **Konsumentkonto** -ett konsumentkonto har skapats genom att gå via en registrering användarflödet i ett Azure AD B2C-program eller med hjälp av Azure AD Graph API och används av användarna som är registrerade i Azure AD B2C. 
 
 ## <a name="work-account"></a>Arbetskonto
 
@@ -73,7 +73,7 @@ Du kan också använda den [Microsoft Graph API](https://developer.microsoft.com
 
 ## <a name="consumer-user"></a>Konsument-användare
 
-Konsument-användaren kan logga in på program som skyddas av Azure AD B2C, men kan inte komma åt Azure-resurser, till exempel Azure portal.  Konsument-användaren kan använda ett lokalt konto eller externa konton, t.ex Facebook eller Twitter. Ett konsumentkonto skapas med hjälp av en [princip för registrering eller inloggning](../active-directory-b2c/active-directory-b2c-reference-policies.md).
+Konsument-användaren kan logga in på program som skyddas av Azure AD B2C, men kan inte komma åt Azure-resurser, till exempel Azure portal.  Konsument-användaren kan använda ett lokalt konto eller externa konton, t.ex Facebook eller Twitter. Ett konsumentkonto skapas med hjälp av en [registrering eller inloggning användarflödet](../active-directory-b2c/active-directory-b2c-reference-policies.md).
 
 Du kan ange de data som samlas in när ett användarkonto för konsument skapas med hjälp av anpassade användarattribut. Mer information finns i [definiera anpassade attribut i Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-reference-custom-attr.md).
 

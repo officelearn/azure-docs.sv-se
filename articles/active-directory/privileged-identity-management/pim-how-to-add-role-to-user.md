@@ -12,12 +12,12 @@ ms.workload: identity
 ms.component: pim
 ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 5f0b5d1695603a7cd2a3c7ac1dbc484e44257d88
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 2b099e1377536b46229b75f25d04ab2c1beb5c11
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249619"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724952"
 ---
 # <a name="assign-azure-ad-directory-roles-in-pim"></a>Tilldela Azure AD-katalogroller i PIM
 
@@ -125,13 +125,15 @@ Följ dessa steg om du vill tilldela rollen Administratör för användaråtkoms
 
 1. Välj din prenumeration.
 
-1. Välj **Åtkomstkontroll (IAM)** för att visa den aktuella listan med rolltilldelningar i omfånget för en prenumeration.
+1. Välj **Åtkomstkontroll (IAM)**.
+
+1. Välj **rolltilldelningar** att se den aktuella listan över rolltilldelningar prenumerationsområde.
 
    ![Åtkomstkontroll (IAM)-bladet för en prenumeration](./media/pim-how-to-add-role-to-user/ms-pim-access-control.png)
 
 1. Kontrollera om den **MS-PIM** tjänstens huvudnamn är tilldelad den **administratör för användaråtkomst** roll.
 
-1. Om inte, Välj **Lägg till** att öppna den **Lägg till behörigheter** fönstret.
+1. Om inte, Välj **Lägg till rolltilldelning** att öppna den **Lägg till rolltilldelning** fönstret.
 
 1. I den **rollen** listrutan, väljer den **administratör för användaråtkomst** roll.
 

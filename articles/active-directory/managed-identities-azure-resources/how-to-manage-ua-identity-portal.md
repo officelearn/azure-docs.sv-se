@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 2f2f338f7c4ddb885bc909f49815783e616b94c8
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: d54820acf8742ad2f95e8cc8527d9e252ffe3c30
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300463"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720143"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Skapa, visa, ta bort eller tilldela en roll till en Användartilldelad hanterad identitet med hjälp av Azure portal
 
@@ -69,18 +69,18 @@ Om du vill ta bort en hanterad Användartilldelad identitet måste ditt konto m�
 
 ![Ta bort Användartilldelad hanterad identitet](./media/how-to-manage-ua-identity-portal/delete-user-assigned-managed-identity-portal.png)
 
-## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>Tilldela en roll till en hanterad Användartilldelad identitet
+## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>Tilldela en roll till en hanterad Användartilldelad identitet 
 
 Om du vill tilldela en roll till en hanterad Användartilldelad identitet, ditt konto måste den [administratör för användaråtkomst](/azure/role-based-access-control/built-in-roles#user-access-administrator) rolltilldelning.
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är associerade med Azure-prenumeration för att lista de hanterade användartilldelade identiteterna.
 2. I sökrutan skriver *hanterade identiteter*, och under tjänster klickar du på **hanterade identiteter**.
 3. En lista över hanterade användartilldelade identiteter för din prenumeration returneras.  Välj den användartilldelade hanterade identitet som du vill tilldela en roll.
-4. Välj **åtkomstkontroll (IAM)** och välj sedan **Lägg till**.
+4. Välj **åtkomstkontroll (IAM)** och välj sedan **Lägg till rolltilldelning**.
 
    ![Användartilldelade hanterad identitet start](./media/how-to-manage-ua-identity-portal/assign-role-screenshot1.png)
 
-5. Konfigurera följande värden på bladet Lägg till behörigheter och klicka sedan på **spara**:
+5. Konfigurera följande värden i bladet Lägg till rollen tilldelning och klicka sedan på **spara**:
    - **Rollen** -roll att tilldela
    - **Tilldela åtkomst till** -resursen för att tilldela den användartilldelade hanterad identitet
    - **Välj** -medlemmen att tilldela åtkomst

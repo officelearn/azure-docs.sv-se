@@ -9,17 +9,16 @@ ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2017
 ms.reviewer: aruna
 ms.author: mbullwin
-ms.openlocfilehash: 016d13a08ea3fe591529ad6dd29b25534d9c603d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 358d17f29960983af1834e87f502331141fcff46
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303752"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726125"
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Viktig information för Developer Analytics Tools
 
@@ -212,7 +211,7 @@ Om du har ett ASP.NET-program med Application Insights SDK gör du följande ste
 3. Om du inte har registrerat dig med Application Insights, öppnas fönstret Sök i felsökningsläge session telemetri.
 4. Klicka på den **Search** så visas din lokala telemetri.
 
-![Uppladdningen är klar](./media/app-insights-release-notes-vsix/LocalSearch.png)
+![Överföringen är klar](./media/app-insights-release-notes-vsix/LocalSearch.png)
 
 ## <a name="version-42"></a>Version 4.2
 I den här versionen har vi lagt till funktioner som gör att söka efter data enklare i samband med händelser, med möjlighet att hoppa till kod från Datahändelser för mer och en smidig upplevelse att skicka in data till Application Insights. Det här tillägget uppdateras varje månad. Om du har feedback eller funktionsönskemål kan skicka den till aidevtools@microsoft.com.
@@ -229,7 +228,7 @@ Om du redan har en av dessa loggningsramverk som konfigurerats beskrivs i följa
 
 När du har loggning nätverkskort som är installerade, kör ditt program och se till att visa data i fliken diagnostikverktyg så här:
 
-![Spårningar](./media/app-insights-release-notes-vsix/Traces.png)
+![spårningar](./media/app-insights-release-notes-vsix/Traces.png)
 
 ### <a name="jump-to-or-find-the-code-where-the-telemetry-event-property-is-emitted"></a>Gå till eller hitta koden där egenskapen telemetri händelsen har genererats
 Med den nya versionen användaren kan klicka på valfritt värde i detalj och det görs en sökning efter en matchande sträng i den aktuella öppna lösningen. Resultaten visas i Visual Studio ”hitta” resultatlistan enligt nedan:

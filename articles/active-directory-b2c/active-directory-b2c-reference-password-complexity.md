@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b16ac10e10655bbc7e41d9336378228097ca19ff
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 88609f4daac176f082e7f4962d557267946ab98c
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014728"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724442"
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: Konfigurera komplexitetskrav för lösenord
 
@@ -26,22 +26,21 @@ Azure Active Directory B2C (Azure AD B2C) stöder ändring av komplexitetskrav f
 
 ## <a name="when-password-rules-are-enforced"></a>När lösenordsregler tillämpas
 
-Under registreringen eller återställning av lösenord, en användare måste ange ett lösenord som uppfyller reglerna komplexitet.  Lösenord tillämpas per princip.  Det är möjligt att ha en princip som kräver en 4-siffrig PIN-kod under registrering medan en annan princip kräver en åtta tecken lång sträng under registreringen.  Du kan till exempel använda en princip med olika lösenordskomplexitet för vuxna än för barn.
+Under registreringen eller återställning av lösenord, en användare måste ange ett lösenord som uppfyller reglerna komplexitet.  Lösenord tillämpas per användarflödet.  Det är möjligt att ha en policy som kräver en 4-siffrig PIN-kod under registrering medan en annan användarflödet kräver en åtta tecken lång sträng under registreringen.  Du kan till exempel använda ett användarflöde med olika lösenordskomplexitet för vuxna än för barn.
 
 Lösenordskomplexitet tillämpas aldrig under inloggning.  Användare uppmanas aldrig under inloggning för att ändra sina lösenord eftersom den inte uppfyller kravet på aktuell komplexitet.
 
-Här är typerna av principer där du kan konfigurera lösenordskomplexitet:
+Här är typerna av användarflöden där du kan konfigurera lösenordskomplexitet:
 
-* Princip för registrering eller inloggning
-* Principen för lösenordsåterställning
+* Registrering eller inloggning användarflödet
+* Användarflödet med återställning av lösenord
 * Anpassad princip ([konfigurera lösenordskomplexitet i anpassad princip för](active-directory-b2c-reference-password-complexity-custom.md))
 
 ## <a name="how-to-configure-password-complexity"></a>Så här konfigurerar du lösenordskomplexitet
 
-1. Öppna **principerna för registrering eller inloggning**.
-2. Välj en princip och klicka på **redigera**.
-3. Öppna **lösenordskomplexitet**.
-4. Ändra lösenordskomplexiteten för den här principen ska **enkel**, **starka**, eller **anpassad**.
+1. Öppna **användarflöden**.
+2. Välj ett användarflöde klicka sedan på **egenskaper**.
+3. Under **lösenordskomplexitet**, ändra lösenordskomplexiteten för det här användarflödet till **enkel**, **starka**, eller **anpassad**.
 
 ### <a name="comparison-chart"></a>Jämförelsetabell
 

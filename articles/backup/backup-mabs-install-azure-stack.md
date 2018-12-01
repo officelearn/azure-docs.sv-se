@@ -10,16 +10,15 @@ keywords: Azure backup server. skydda arbetsbelastningar; Säkerhetskopiera arbe
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: markgal
-ms.openlocfilehash: 5092a677bcbeac179e26fa0591b6a1cfbc3263d4
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 14379d82b4b60c0ea555388ac61c9c7b8fbe9e4f
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576705"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721450"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installera Azure Backup Server på Azure Stack
 
@@ -328,10 +327,10 @@ När du vet för Azure anslutningen och den Azure-prenumerationen kan kan du anv
 | Tillstånd för anslutning | Azure-prenumeration | Säkerhetskopiera till Azure | Säkerhetskopiera till disk | Återställa från Azure | Återställa från disk |
 | --- | --- | --- | --- | --- | --- |
 | Ansluten |Active |Behörig |Behörig |Behörig |Behörig |
-| Ansluten |Har upphört |Stoppad |Stoppad |Behörig |Behörig |
+| Ansluten |Har upphört att gälla |Stoppad |Stoppad |Behörig |Behörig |
 | Ansluten |Avetableras |Stoppad |Stoppad |Stoppat och Azure återställningspunkter tas bort |Stoppad |
 | Förlorad anslutning > 15 dagar |Active |Stoppad |Stoppad |Behörig |Behörig |
-| Förlorad anslutning > 15 dagar |Har upphört |Stoppad |Stoppad |Behörig |Behörig |
+| Förlorad anslutning > 15 dagar |Har upphört att gälla |Stoppad |Stoppad |Behörig |Behörig |
 | Förlorad anslutning > 15 dagar |Avetableras |Stoppad |Stoppad |Stoppat och Azure återställningspunkter tas bort |Stoppad |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Återställa från förlust av anslutning

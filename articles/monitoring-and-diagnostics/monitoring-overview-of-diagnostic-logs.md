@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 1fc1d3b4418b178921dc32ee834342b75fa31f20
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: fe564e9809a3621ca04e4dad75488fb255f7dc0e
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311083"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682953"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Samla in och använda loggdata från resurserna i Azure
 
@@ -40,7 +40,7 @@ Här följer några av de saker som du kan göra med diagnostikloggar:
 
 * Sparar dem till en [ **Lagringskonto** ](monitoring-archive-diagnostic-logs.md) för granskning eller manuell granskning. Du kan ange kvarhållning tid (i dagar) med **resursdiagnostikinställningar**.
 * [Stream att **Händelsehubbar** ](monitoring-stream-diagnostic-logs-to-event-hubs.md) för inmatning av en tjänst från tredje part eller anpassade analyslösning till exempel Power BI.
-* Analysera dem med [Log Analytics](../log-analytics/log-analytics-azure-storage.md)
+* Analysera dem med [Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md)
 
 Du kan använda ett lagringskonto eller Event Hubs-namnområde som inte är i samma prenumeration som det genererar loggar. Den användare som konfigurerar inställningen måste ha lämplig RBAC-åtkomst till båda prenumerationerna.
 
@@ -235,4 +235,4 @@ Att lägga till en diagnostikinställning öppnar vyn diagnostikinställningar, 
 
 * [Stream resursdiagnostikloggar till **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Ändra resursdiagnostikinställningar med hjälp av Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx)
-* [Analysera loggar från Azure storage med Log Analytics](../log-analytics/log-analytics-azure-storage.md)
+* [Analysera loggar från Azure storage med Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md)

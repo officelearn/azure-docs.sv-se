@@ -9,17 +9,16 @@ editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 8337d6b353b6651a2699176813220ed7a7a0f879
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5010426db97a9cd404d265d1ea9b319877eda1de
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634803"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723966"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS-portalen som flyttar till Azure
 
@@ -92,7 +91,7 @@ Data som samlas in av lösning för aviseringshantering (poster med en typ av av
 OMS-mobilappen kommer att sunsetted tillsammans med OMS-portalen. I stället för OMS-mobilappen, för att komma åt information om din IT-infrastruktur, instrumentpaneler och sparade frågor du kan komma åt Azure-portalen direkt från din webbläsare i din mobila enhet. Om du vill få aviseringar, bör du konfigurera [Azure-åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md) att ta emot meddelanden i form av SMS- eller en röstsamtal
 
 ## <a name="application-insights-connector-and-solution"></a>Application Insights-anslutningsprogram och lösning
-[Application Insights-anslutningsprogram](log-analytics-app-insights-connector.md) gör det möjligt att ta med Application Insights-data i Log Analytics-arbetsytan. Den här datadeduplicering krävdes för att tillhandahålla synlighet mellan infrastruktur-och programdata.
+[Application Insights-anslutningsprogram](../azure-monitor/platform/app-insights-connector.md) gör det möjligt att ta med Application Insights-data i Log Analytics-arbetsytan. Den här datadeduplicering krävdes för att tillhandahålla synlighet mellan infrastruktur-och programdata.
 
 Med hjälp av [mellan resurser frågor](log-analytics-cross-workspace-search.md), det finns inte längre behovet av att kopiera data. Därför måste gälla den befintliga Application Insights-lösningen upphör att. Från och oktober, kommer du inte att kunna länka ny Application Insights-resurser till Log Analytics-arbetsytor. Befintliga länkar och instrumentpaneler kommer fortsätta att fungera förrän den 15 januari 2019.
 

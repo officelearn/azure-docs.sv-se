@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 10/24/2018
 ms.author: celested
 ms.reviewer: tomfitz
-ms.openlocfilehash: b60be3db14a756407e62540bb89f3b0924597067
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 87e197821be7c7c72ca1704d6b0123d76d41b30f
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49960589"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721093"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Så här: använda portalen för att skapa en Azure AD-program och tjänstens huvudnamn som kan komma åt resurser
 
@@ -65,9 +65,9 @@ Du kan ange omfånget för den prenumerationen, resursgruppen eller resursen. Be
    Om du inte ser den prenumeration som du letar efter, väljer **globala prenumerationer filter**. Kontrollera att den prenumeration du vill har valts för portalen. 
 
 1. Välj **åtkomstkontroll (IAM)**.
-1. Välj **Lägg till**.
+1. Välj **Lägg till rolltilldelning**.
 
-   ![Välj Lägg till](./media/howto-create-service-principal-portal/select-add.png)
+   ![Välj Lägg till rolltilldelning](./media/howto-create-service-principal-portal/select-add.png)
 
 1. Välj den roll som du vill tilldela till programmet. Att tillåta program att köra åtgärder som att **omstart**, **starta** och **stoppa** instanser, väljer den **deltagare** roll. Som standard visas inte Azure AD-program i de tillgängliga alternativen. Sök efter namnet för att hitta ditt program, och markera den.
 

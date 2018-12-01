@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 9d3d1e5ba7ebc7e2afefb31df3be9f2a8f43e153
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 34a72bb38c87902648ad92261a70d6545f10d0fa
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685403"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723694"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Konfigurera Pacemaker på SUSE Linux Enterprise Server i Azure
 
@@ -527,10 +527,10 @@ Tilldela den anpassade rollen ”Linux avgränsningstecken agenten roll” som h
 1. Öppna bladet alla resurser
 1. Välj den virtuella datorn från den första noden i klustret
 1. Klicka på åtkomstkontroll (IAM)
-1. Klicka på Lägg till
+1. Klicka på Lägg till rolltilldelning
 1. Välj roll ”Linux avgränsningstecken agenten roll”
 1. Ange namnet på programmet som du skapade ovan
-1. Klicka på OK
+1. Klicka på Spara
 
 Upprepa stegen ovan för den andra noden i klustret.
 

@@ -1,15 +1,15 @@
 ---
 author: yashesvi
-ms.author: yashar
+ms.author: cwatson
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 09/05/2018
-ms.openlocfilehash: 40551fa60aa17e9a46d24ffdf17bb61a884a48f2
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.date: 11/30/2018
+ms.openlocfilehash: a35c3a9a6d914cf7e6620819b24e34d954f55c2d
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585848"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742425"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Förskottsbetala för virtuella datorer med Azure reserverade VM-instanser
 
@@ -32,7 +32,6 @@ Reserverade VM-instanser är tillgängliga för de flesta storlekar för Virtuel
 
 - Rabatten gäller inte för följande virtuella datorer:
   - Klassiska virtuella datorer och molntjänster
-  - Begränsade vCPU-storlekar
   - VM-serie: A-serien, Av2-serien och G-serien
   - Virtuella datorer i en förhandsversion: alla VM-serien och storlekar som är i förhandsversion
 - Moln: Reservationer är inte tillgängligt att köpa i Tyskland eller Kina regioner.

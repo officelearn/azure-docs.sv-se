@@ -2,42 +2,46 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/03/2016
+ms.date: 11/30/2018
 ms.author: patricka
-ms.openlocfilehash: bff2543ec48c66c10db697650def0077e3de28be
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 78abb190dccd27c5bf70dfe12f978e1118601815
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133053"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742472"
 ---
-Om du vill aktivera detaljerad lösenordsåterställning i ditt program måste du använda en **lösenordsåterställning** princip. Observera att alternativet för lösenordsåterställning för hela klientorganisationen beskrivs [här](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Den här principen beskriver hur kunderna går till för återställning av lösenord och innehållet i de token som programmet tar emot vid genomförda inloggningar.
+Om du vill aktivera detaljerad lösenordsåterställning i ditt program måste du använda en **lösenordsåterställning** användarflödet. Observera att alternativet för återställning av lösenord klienttäckande anges [här](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Det här användarflödet beskriver hur kunderna går till för återställning av lösenord och innehållet i de token som programmet tar emot vid genomförda inloggningar.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
-I principavsnittet i inställningar väljer du **Principer för lösenordsåterställning** och klickar på **+ Lägg till**.
+Under **hantera**väljer **användarflöden** och klicka på +**nytt användarflöde**.
 
-![Välj registrerings- eller inloggningsprinciper och klicka på Lägg till](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-policy.png)
+![Välj nytt användarflöde](media/active-directory-b2c-create-password-reset-policy/add-b2c-new-user-flow.png)
 
-Ange ett **namn** på principen för programmet. Ange till exempel `SSPR`.
+På den **rekommenderas** fliken **lösenordsåterställning**.
 
-Välj **Identitetsprovidrar** och markera **Återställ lösenord med e-postadress**. Klicka på **OK**.
+Ange ett användarflöde **namn** för programmet. Ange till exempel `SSPR`.
 
-![Välj återställning av lösenord med e-postadress som identitetsprovider och klicka på OK](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-identity-providers.png)
+Under **identitetsprovidrar**, kontrollera **Återställ lösenord med e-postadress**.
 
-Välj **Programanspråk**. Välj anspråk som du vill ska returneras i de auktoriseringstoken som skickas tillbaka till programmet efter en genomförd återställning av lösenord. Välj till exempel **Användarobjekt-id**.
+![Ange namn och väljer Återställ lösenord med e-postadress som identitetsprovider](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-identity-providers.png)
+
+Under **Programanspråk**, klickar du på **visa fler** och välj anspråk som du vill ska returneras i de auktoriseringstoken som skickas tillbaka till programmet efter en genomförd återställning av lösenord. Välj till exempel **Användarobjekt-id**.
+
+Klicka på **OK**.
 
 ![Välj några programanspråk och klicka på OK](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-application-claims.png)
 
-Klicka på **Skapa** för att lägga till principen. Principen visas i listan som **B2C_1_SSPR**. Prefixet **B2C_1_** läggs till i namnet.
+Klicka på **skapa** att lägga till användarflödet. Användarflödet har listats som **B2C_1_SSPR**. Prefixet **B2C_1_** läggs till i namnet.
 
-Öppna principen genom att välja **B2C_1_SSPR**. Kontrollera inställningarna i tabellen och klicka på **Kör nu**.
+Klicka på **kör användarflödet**. Kontrollera inställningarna i tabellen och klicka sedan på **kör användarflödet**.
 
-![Välj princip och kör den](media/active-directory-b2c-create-password-reset-policy/run-b2c-password-reset-policy.png)
+![Välj användarflödet och kör den](media/active-directory-b2c-create-password-reset-policy/add-b2c-sspr-run-user-flow.png)
 
 | Inställning      | Värde  |
 | ------------ | ------ |
-| **Program** | Contoso B2C-app |
+| **Programmet** | Contoso B2C-app |
 | **Välj svarswebbadress** | `https://localhost:44316/` |
 
 En ny webbläsarflik öppnas och du kan kontrollera hur lösenordsåterställningen fungerar.

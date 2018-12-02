@@ -2,48 +2,56 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/03/2016
+ms.date: 11/30/2018
 ms.author: patricka
-ms.openlocfilehash: 3485cc96ad1d9ab8f89facf33687a7ab2be43b1e
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: f23d2b02bc2a23c5333a48a50532c03f3aa6a031
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133846"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742452"
 ---
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
-I principavsnittet i inställningar väljer du **Registrerings- eller inloggningsprinciper** och klickar på **+ Lägg till**.
+Under **hantera**väljer **användarflöden** och klicka på +**nytt användarflöde**.
 
-![Välj registrerings- eller inloggningsprinciper och klicka på Lägg till](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-policy.png)
+![Välj nytt användarflöde](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-user-flow.png)
 
-Ange ett **namn** på principen för programmet. Ange till exempel `SiUpIn`.
+På den **rekommenderas** fliken **logga och logga in**.
 
-Välj **Identitetsprovidrar** och markera **Registrering via e-post**. Du kan också välja leverantörer via sociala nätverk om det redan har konfigurerats. Klicka på **OK**.
+![Välj logga in och logga in användarflödet](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-user-flow-type.png)
 
-![Välj Registrering via e-post och en identitetsprovider och klicka på OK](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-identity-providers.png)
+Ange ett användarflöde **namn** för programmet. Ange till exempel `SiUpIn`.
 
-Välj **Registreringsattribut**. Välj de attribut du vill samla in från konsumenten under registreringen. Välj till exempel **land/region**, **visningsnamn** och **postnummer**. Klicka på **OK**.
+Under **identitetsprovidrar** och kontrollera **e-postregistrering**. Du kan också välja leverantörer via sociala nätverk om det redan har konfigurerats.
 
-![Välj några attribut och klicka på OK](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-sign-up-attributes.png)
+Under **multifaktorautentisering**, väljer du antingen **aktiverad** eller **inaktiverad**.
 
-Välj **Programanspråk**. Välj anspråk som du vill ska returneras i de auktoriseringstoken som skickas tillbaka till programmet efter en genomförd registrering eller inloggning. Välj till exempel **visningsnamn**, **identitetsprovidrar**, **postnummer**, **ny användare** och **användarobjekt-id**.
+![Ange ett namn och välj e-postregistrering som identitetsprovider](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-name-identity-providers.png)
 
-![Välj några programanspråk och klicka på OK](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-application-claims.png)
+Under **användarattribut och anspråk**väljer **visa fler** att se en fullständig lista över attribut och anspråk som du kan välja bland.
 
-Klicka på **Skapa** för att lägga till principen. Principen visas i listan som **B2C_1_SiUpIn**. Prefixet **B2C_1_** läggs till i namnet.
+I den **samla in attributet** kolumn, Välj de attribut som du vill samla in från konsumenten under registreringen. Välj till exempel **land/region**, **visningsnamn** och **postnummer**.
 
-Öppna principen genom att välja **B2C_1_SiUpIn**. Kontrollera inställningarna i tabellen och klicka på **Kör nu**.
+I den **returnerar anspråk** kolumn, Välj anspråk som du vill ska returneras i de auktoriseringstoken som skickas tillbaka till programmet efter en lyckad registrering eller inloggning upplevelse. Välj till exempel **visningsnamn**, **identitetsprovidrar**, **postnummer**, **ny användare** och **användarobjekt-id**.
 
-![Välj princip och kör den](media/active-directory-b2c-create-sign-in-sign-up-policy/run-b2c-signup-signin-policy.png)
+Klicka på **OK**.
+
+![Välj vissa användarattribut och anspråk och klicka på OK-knapp](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-sign-up-all-attributes.png)
+
+Klicka på **skapa** att lägga till användarflödet. Användarflödet har listats som **B2C_1_SiUpIn**. Prefixet **B2C_1_** läggs till i namnet.
+
+Välj **kör användarflödet**. Kontrollera inställningarna i tabellen och klicka sedan på **kör användarflödet**.
+
+![Välj Kör användarflödet](media/active-directory-b2c-create-sign-in-sign-up-policy/run-user-flow-b2c-signup-signin.png)
 
 | Inställning      | Värde  |
 | ------------ | ------ |
-| **Program** | Contoso B2C-app |
-| **Välj svarswebbadress** | `https://localhost:44316/` |
+| **Programmet** | Contoso B2C-app |
+| **Svarswebbadress** | `https://localhost:44316/` |
 
 En ny webbläsarflik öppnas och du kan kontrollera hur registreringen eller inloggningen går till.
 
 > [!NOTE]
-> Det kan ta någon minut att skapa en princip och innan uppdateringarna börjar gälla.
+> Det tar till en minut för användare kan du skapa flöden och uppdateringar ska börja gälla.
 >

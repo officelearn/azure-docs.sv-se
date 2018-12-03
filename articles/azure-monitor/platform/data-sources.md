@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 201e9e2cb74f18e69d919ff16132cb889d1b6455
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: f242176ef77f2fd419f9e2e52354c73f74f74557
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635330"
+ms.locfileid: "52681559"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Datakällor i Azure Monitor
 Den här artikeln beskrivs datakällorna som samlas in av Azure Monitor för att övervaka hälsotillstånd och prestanda för dina resurser och program som körs på dem. Dessa resurser kan vara i Azure i en annan molnet eller lokalt.  Se [Data som samlas in av Azure Monitor](data-collection.md) mer information om hur dessa data lagras och hur du kan visa den.
@@ -63,7 +63,7 @@ De flesta Azure services genererar [plattform mått](data-collection.md#metrics)
 ### <a name="resource-diagnostic-logs"></a>Resursdiagnostikloggar
 Medan aktivitetsloggen innehåller information om åtgärder som utförs på en Azure-resurser, resursnivå [diagnostikloggar](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) ge insikter om driften av själva resursen.   Krav och innehållet i de här loggarna [varierar beroende på resurstyp](../../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
 
-Du kan inte visa diagnostikloggar direkt i Azure-portalen, men du kan [skicka dem till Azure storage för arkivering](../../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) och exportera dem till [Händelsehubb](../../event-hubs/event-hubs-about.md) för omdirigering till andra tjänster eller [in Analytics](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) för analys. Vissa resurser kan skriva direkt till Log Analytics medan andra innan du kan skriva till ett lagringskonto [importeras till Log Analytics](../../log-analytics/log-analytics-azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
+Du kan inte visa diagnostikloggar direkt i Azure-portalen, men du kan [skicka dem till Azure storage för arkivering](../../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) och exportera dem till [Händelsehubb](../../event-hubs/event-hubs-about.md) för omdirigering till andra tjänster eller [in Analytics](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) för analys. Vissa resurser kan skriva direkt till Log Analytics medan andra innan du kan skriva till ett lagringskonto [importeras till Log Analytics](../../azure-monitor/platform/azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 
 ### <a name="monitoring-solutions"></a>Övervakningslösningar
  [Övervakningslösningar](../../azure-monitor/insights/solutions.md) samla in data för att ge ytterligare insikter i driften av en viss tjänst eller ett program. De samla in data till Log Analytics där det kan vara analyseras med hjälp av den [frågespråket](../../log-analytics/log-analytics-queries.md) eller [vyer](../../azure-monitor/platform/view-designer.md) som vanligtvis ingår i lösningen.

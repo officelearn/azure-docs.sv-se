@@ -13,25 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 1e2d809ed476b1789736f0d61dfea528b090da50
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: dbf763b569ff513ff8ebc3669c6c8094a075704d
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447137"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680012"
 ---
-> [!WARNING]
-> Integrering med Azure Active Directory B2C är tillgängligt i den [Developer, Standard och Premium](https://azure.microsoft.com/pricing/details/api-management/) nivåerna endast.
-
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Hur du auktorisera konton med hjälp av Azure Active Directory B2C i Azure API Management
 
 ## <a name="overview"></a>Översikt
+
 Azure Active Directory B2C är en identitetshanteringslösning för molnet för konsumentinriktade webb- och mobilprogram. Du kan använda den för att hantera åtkomst till din developer-portalen. Den här guiden visar konfigurationen som krävs i API Management-tjänsten att integrera med Azure Active Directory B2C. Information om hur du aktiverar åtkomst till utvecklarportalen genom att använda klassiska Azure Active Directory finns i [Hur du auktorisera konton med Azure Active Directory].
 
 > [!NOTE]
 > Du måste ha en Azure Active Directory B2C-klient för att skapa ett program i för att slutföra stegen i den här guiden. Du måste dessutom ha registrering och inloggning från principer som är redo. Mer information finns i [översikt över Azure Active Directory B2C].
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+[!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
 ## <a name="authorize-developer-accounts-by-using-azure-active-directory-b2c"></a>Auktorisera konton med hjälp av Azure Active Directory B2C
 

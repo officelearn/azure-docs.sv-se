@@ -9,16 +9,15 @@ documentationcenter: monitoring-and-diagnostics
 ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: d1b7b5baeba88ec0209abff60e9327031afa8b66
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5ef451da3eae696c3506f25ee9458b3ad3286b07
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633783"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721190"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
@@ -137,7 +136,7 @@ Ofta har du kravet på att integrera Azure Monitor med andra system och för att
 ### <a name="logic-apps"></a>Logic Apps
 [Logic Apps](https://azure.microsoft.com/services/logic-apps) är en tjänst som gör det möjligt att automatisera uppgifter och affärsprocesser med hjälp av arbetsflöden som integreras med olika system och tjänster. Aktiviteter är tillgängliga som läsa och skriva mått och loggar i Azure Monitor, där du kan skapa arbetsflöden som integrerar med en mängd andra system.
 
-![Logikapp](../log-analytics/media/log-analytics-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
+![Logikapp](platform/media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
 ### <a name="api"></a>API
 Det finns flera API: er för att läsa och skriva mått och loggar till och från Azure Monitor förutom att komma åt varningar som genererats. Du kan också konfigurera och hämta aviseringar. Det ger dig i stort sett obegränsade möjligheter att skapa anpassade lösningar som integreras med Azure Monitor.

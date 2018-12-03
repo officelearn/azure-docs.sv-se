@@ -57,6 +57,22 @@ items:
     href: concepts-storage.md
   - name: Skala
     href: concepts-scale.md
+  - name: Bästa praxis
+    items:
+    - name: För klusteroperatörer
+      items:
+      - name: Flera innehavare och isolering av kluster
+        href: operator-best-practices-cluster-isolation.md
+      - name: Grundläggande funktioner för schemaläggning
+        href: operator-best-practices-scheduler.md
+      - name: Avancerade funktioner för schemaläggning
+        href: operator-best-practices-advanced-scheduler.md
+      - name: Autentisering och auktorisering
+        href: operator-best-practices-identity.md
+    - name: För programutvecklare
+      items:
+      - name: Resurshantering
+        href: developer-best-practices-resource-management.md
   - name: Kvoter och regionala begränsningar
     href: container-service-quotas.md
   - name: Migrera från ACS till AKS
@@ -188,6 +204,9 @@ items:
       href: spark-job.md
     - name: Använda GPU:er
       href: gpu-cluster.md
+    - name: Använda Azure Database for PostgreSQL
+      href: ../postgresql/concepts-aks.md
+      maintainContext: true
   - name: DevOps
     items:
     - name: Använd Ansible för att skapa AKS-kluster
@@ -246,9 +265,9 @@ items:
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
   - name: VANLIGA FRÅGOR OCH SVAR
     href: faq.md
-ms.openlocfilehash: 1bb1c6689831eb2057771c22aced1c8567bd22b0
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: fc7f58330bf5ca0819cf0da494e521324fd2a6ea
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51611530"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441680"

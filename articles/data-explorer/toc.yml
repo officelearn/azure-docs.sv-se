@@ -49,6 +49,8 @@ items:
   expanded: true
 - name: Instruktionsguider
   items:
+  - name: Ansluta från Databricks med hjälp av Python
+    href: connect-from-databricks.md
   - name: Skriva frågor
     href: write-queries.md
   - name: Mata in exempeldata
@@ -101,9 +103,9 @@ items:
     href: http://aka.ms/adecostestimator
   - name: Tjänstuppdateringar
     href: https://azure.microsoft.com/updates/?product=data-explorer
-ms.openlocfilehash: 70314ad2038e61583ea2d3cccad40062d423856b
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 904a61591935a7a1b648b1582e4f1ccdc155cf35
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276269"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425062"

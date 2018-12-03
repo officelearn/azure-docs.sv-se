@@ -3,7 +3,7 @@ items:
   href: /azure/hdinsight
 - name: Översikt
   items:
-  - name: Om Kafka på HDInsight
+  - name: Om Apache Kafka på HDInsight
     href: apache-kafka-introduction.md
   - name: Versionshantering för komponenter
     href: ../hdinsight-component-versioning.md
@@ -13,23 +13,23 @@ items:
     maintainContext: true
 - name: Snabbstarter
   items:
-  - name: Skapa ett Kafka-kluster – Portal
+  - name: Skapa ett Apache Kafka-kluster – portalen
     href: apache-kafka-get-started.md
-  - name: Skapa ett Kafka-kluster – PowerShell
+  - name: Skapa ett Apache Kafka-kluster – PowerShell
     href: apache-kafka-quickstart-powershell.md
-  - name: Skapa ett Kafka-kluster – Mall
+  - name: Skapa ett Apache Kafka-kluster – Mall
     href: apache-kafka-quickstart-resource-manager-template.md
 - name: Självstudier
   items:
-  - name: 1 – Använda Spark-strukturuppspelning
+  - name: 1 – Använd Apache Spark-strukturuppspelning
     href: ../hdinsight-apache-kafka-spark-structured-streaming.md
     maintainContext: true
-  - name: 2 – Skrivning/läsning från Kafka med Storm
+  - name: 2 – Skriv/läs från Apache Kafka med Apache Storm
     href: ../hdinsight-apache-storm-with-kafka.md
     maintainContext: true
-  - name: 3 – Använd Kafka-producent och konsument-API
+  - name: 3 – Använd Apache Kafka-producenten och konsument-API:et
     href: apache-kafka-producer-consumer-api.md
-  - name: 4 – Utveckla app med Kafka Streams-API
+  - name: 4 – Utveckla en app med Apache Kafka Streams-API:et
     href: apache-kafka-streams-api.md
 - name: Begrepp
   items:
@@ -44,26 +44,26 @@ items:
   items:
   - name: Aktivera funktionen för att skapa ämnen automatiskt
     href: apache-kafka-auto-create-topics.md
-  - name: Använd Kafka med IoT Hub
+  - name: Använda Apache Kafka med IoT Hub
     href: apache-kafka-connector-iot-hub.md
   - name: Installera HDInsight-appar
     href: ../hdinsight-apps-install-applications.md
     maintainContext: true
-  - name: Använda Kafka i ett virtuellt nätverk
+  - name: Använda Apache Kafka i ett virtuellt nätverk
     href: apache-kafka-connect-vpn-gateway.md
-  - name: Replikera Kafka-data
+  - name: Replikera Apache Kafka-data
     href: apache-kafka-mirroring.md
-  - name: Analysera Kafka-loggar
+  - name: Analysera Apache Kafka-loggar
     href: apache-kafka-log-analytics-operations-management.md
   - name: Skapa strömningspipelines
     items:
-    - name: Spark, Kafka och Azure Cosmos DB
+    - name: Apache Spark, Apache Kafka och Azure Cosmos DB
       href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
       maintainContext: true
-    - name: Kafka och Spark (DStream)
+    - name: Apache Kafka och Apache Spark (DStream)
       href: ../hdinsight-apache-spark-with-kafka.md
       maintainContext: true
-    - name: Använda Kafka med Azure Container Service
+    - name: Använda Apache Kafka med Azure Container Service
       href: apache-kafka-azure-container-services.md
   - name: Utveckla
     items:
@@ -143,10 +143,10 @@ items:
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
       maintainContext: true
-    - name: Hantera Hadoop-kluster
+    - name: Hantera Apache Hadoop-kluster
       href: ../hdinsight-administer-use-portal-linux.md
       items:
-      - name: Använda .NET SDK
+      - name: Använd .NET SDK
         href: ../hdinsight-administer-use-dotnet-sdk.md
         maintainContext: true
       - name: Använda Azure PowerShell
@@ -156,13 +156,13 @@ items:
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
       maintainContext: true
-    - name: Hantera kluster med Ambari-webbgränssnittet
+    - name: Hantera kluster med Apache Ambari-webbgränssnittet
       href: ../hdinsight-hadoop-manage-ambari.md
       items:
-      - name: Optimera kluster med Ambari-webbgränssnittet
+      - name: Optimera kluster med Apache Ambari-webbgränssnittet
         href: ../hdinsight-changing-configs-via-ambari.md
         maintainContext: true
-      - name: Använda Ambari REST API
+      - name: Använda Apache Ambari REST API
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
       maintainContext: true
@@ -172,7 +172,7 @@ items:
     - name: Lägga till lagringskonton
       href: ../hdinsight-hadoop-add-storage.md
       maintainContext: true
-    - name: Överföra data för Hadoop-jobb
+    - name: Ladda upp data för Apache Hadoop-jobb
       href: ../hdinsight-upload-data.md
       maintainContext: true
     - name: Flera HDInsight-kluster med Data Lake Store
@@ -196,10 +196,10 @@ items:
     - name: Felsöka ett långsamt eller felaktigt HDInsight-kluster
       href: ../hdinsight-troubleshoot-failed-cluster.md
       maintainContext: true
-    - name: Felsökning för HDFS
+    - name: Felsökning för Hadoop Distributed File System i Apache Hadoop
       href: ../hdinsight-troubleshoot-hdfs.md
       maintainContext: true
-    - name: Felsökning för YARN
+    - name: Felsökning för Apache Hadoop YARN
       href: ../hdinsight-troubleshoot-yarn.md
       maintainContext: true
     - name: Resurser
@@ -207,13 +207,13 @@ items:
       - name: Information om hur du använder HDInsight på Linux
         href: ../hdinsight-hadoop-linux-information.md
         maintainContext: true
-      - name: Minne och prestanda för Hadoop
+      - name: Minne och prestanda för Apache Hadoop
         href: ../hdinsight-hadoop-stack-trace-error-messages.md
         maintainContext: true
       - name: Få åtkomst till Hadoop YARN-programloggar på Linux
         href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
         maintainContext: true
-      - name: Aktivera heap dumps för Hadoop-tjänster
+      - name: Aktivera heap dumps för Apache Hadoop-tjänster
         href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
         maintainContext: true
     maintainContext: true
@@ -257,7 +257,7 @@ items:
     href: ../hdinsight-go-sdk-overview.md
   - name: REST
     href: /rest/api/hdinsight/
-  - name: REST (Spark)
+  - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
 - name: Resurser
   items:
@@ -274,9 +274,9 @@ items:
   - name: Windows-verktyg för HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 9b172aaedcab44b4557368c5d2a5bd6dfd010903
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 0b0fc56015adb5fcecd5bcd6ce501c828e694164
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155023"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495679"

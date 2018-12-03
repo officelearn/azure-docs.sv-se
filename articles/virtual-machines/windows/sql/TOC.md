@@ -1,6 +1,7 @@
 # Översikt
 ## [Om virtuella Windows SQL Server-datorer](virtual-machines-windows-sql-server-iaas-overview.md) 
- 
+## [Viktig information](virtual-machines-windows-sql-server-iaas-release-notes.md) 
+
 # Snabbstarter
 ## [Skapa en virtuell SQL-dator – portalen](quickstart-sql-vm-create-portal.md)
 ## [Skapa en virtuell SQL-dator – PowerShell](quickstart-sql-vm-create-powershell.md)
@@ -35,11 +36,12 @@
 #### [Automatisk – med mall](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 #### [Manuellt – krav](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [Manuellt – självstudie](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-#### [Belastningsutjämnare – Azure Portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
-#### [Belastningsutjämnare – Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+#### [Lastbalanserare – Azure Portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+#### [Lastbalanserare – Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [Flera regioner](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### Redundansklusterinstans
 #### [Konfigurera](virtual-machines-windows-portal-sql-create-failover-cluster.md)
+## [Ändra licensieringsmodell för SQL VM](virtual-machines-windows-sql-ahb.md)
 
 # Referens
 ## [Azure PowerShell](/powershell/azure/overview)

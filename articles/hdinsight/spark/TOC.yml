@@ -3,9 +3,9 @@ items:
   href: /azure/hdinsight
 - name: Översikt
   items:
-  - name: Om Spark på HDInsight
+  - name: Om Apache Spark i HDInsight
     href: apache-spark-overview.md
-  - name: Hadoop-komponenter på HDInsight
+  - name: Apache Hadoop-komponenter på HDInsight
     href: ../hdinsight-component-versioning.md
     maintainContext: true
   - name: HDInsight 4.0
@@ -13,19 +13,19 @@ items:
     maintainContext: true
 - name: Snabbstarter
   items:
-  - name: Skapa ett Spark-kluster – Portal
+  - name: Skapa ett Apache Spark-kluster – portalen
     href: apache-spark-jupyter-spark-sql-use-portal.md
-  - name: Skapa ett Spark-kluster – PowerShell
+  - name: Skapa ett Apache Spark-kluster – PowerShell
     href: apache-spark-jupyter-spark-sql-use-powershell.md
-  - name: Skapa ett Spark-kluster – Mall
+  - name: Skapa ett Apache Spark-kluster – Mall
     href: apache-spark-jupyter-spark-sql.md
 - name: Självstudier
   items:
-  - name: Köra frågor i ett Spark-kluster
+  - name: Köra frågor på ett Apache Spark-kluster
     href: apache-spark-load-data-run-query.md
-  - name: Använda VSCode för att köra Spark-frågor
+  - name: Använda VSCode för att köra Apache Spark-frågor
     href: ../hdinsight-for-vscode.md
-  - name: Använda IntelliJ för att köra Spark-frågor
+  - name: Använda IntelliJ för att köra Apache Spark-frågor
     href: apache-spark-intellij-tool-plugin.md
   - name: Analysera data med BI-verktyg
     href: apache-spark-use-bi-tools.md
@@ -33,7 +33,7 @@ items:
     href: apache-spark-eventhub-streaming.md
   - name: Skapa en maskininlärningsapp
     href: apache-spark-ipython-notebook-machine-learning.md
-  - name: Skapa en Spark-app i IntelliJ
+  - name: Skapa en Apache Spark-app i IntelliJ
     href: apache-spark-create-standalone-application.md
 - name: Gör så här för att
   items:
@@ -47,17 +47,17 @@ items:
       maintainContext: true
   - name: Utveckla
     items:
-    - name: Använda en interaktiv Spark Shell
+    - name: Använda ett interaktivt Apache Spark-gränssnitt
       href: apache-spark-shell.md
-    - name: Fjärrstyrda jobb med Livy
+    - name: Fjärrstyra jobb med Apache Livy
       href: apache-spark-livy-rest-interface.md
     - name: Skapa appar med Eclipse
       href: apache-spark-eclipse-tool-plugin.md
     - name: Skapa appar med IntelliJ
       href: apache-spark-intellij-tool-plugin.md
-    - name: Felsöka Spark-jobb via en fjärranslutning med IntelliJ genom SSH
+    - name: Felsöka Apache Spark-jobb via en fjärranslutning med IntelliJ genom SSH
       href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
-    - name: Felsöka Spark-jobb via en fjärranslutning med IntelliJ genom VPN
+    - name: Felsöka Apache Spark-jobb via en fjärranslutning med IntelliJ genom VPN
       href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
     - name: Skapa .NET HDInsight-program med icke-interaktiv autentisering
       href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
@@ -77,9 +77,9 @@ items:
     - name: PySpark för VSCode
       href: ../set-up-pyspark-interactive-environment.md
       maintainContext: true
-    - name: Felsöka Spark i IntelliJ
+    - name: Felsöka Apache Spark i IntelliJ
       href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
-  - name: Använda anteckningsböcker med Spark
+  - name: Använda anteckningsböcker med Apache Spark
     items:
     - name: Använda en lokal Jupyter Notebook
       href: apache-spark-jupyter-notebook-install-locally.md
@@ -89,7 +89,7 @@ items:
       href: apache-spark-jupyter-notebook-use-external-packages.md
     - name: Använda externa paket med Jupyter med skriptåtgärder
       href: apache-spark-python-package-installation.md
-    - name: Använda Zeppelin-anteckningsböcker
+    - name: Använda Apache Zeppelin-anteckningsböcker
       href: apache-spark-zeppelin-notebook.md
   - name: Använda med andra Azure-tjänster
     items:
@@ -97,7 +97,7 @@ items:
       href: apache-spark-use-with-data-lake-store.md
     - name: Ansluta till Azure SQL-databas
       href: apache-spark-connect-to-sql-database.md
-    - name: Implementera ett lambda-arkitektur med Spark och Cosmos DB
+    - name: Implementera en lambda-arkitektur med Apache Spark och Cosmos DB
       href: ../../cosmos-db/lambda-architecture.md
       maintainContext: true
   - name: Spark-strömning
@@ -106,20 +106,20 @@ items:
       href: apache-spark-streaming-overview.md
     - name: Översikt över strukturerad direktuppspelning
       href: apache-spark-structured-streaming-overview.md
-    - name: Skapa Spark-direktuppspelningsjobb med hög tillgänglighet i YARN
+    - name: Skapa Apache Spark-direktuppspelningsjobb med hög tillgänglighet i Apache Hadoop YARN
       href: apache-spark-streaming-high-availability.md
-    - name: Structured Streaming med Kafka
+    - name: Strukturerad direktuppspelning med Apache Kafka
       href: ../hdinsight-apache-kafka-spark-structured-streaming.md
       maintainContext: true
-    - name: Strukturerad direktuppspelning från Kafka till CosmosDB
+    - name: Strukturerad direktuppspelning från Apache Kafka till CosmosDB
       href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
       maintainContext: true
-    - name: Spark-strömning (DStream) med Kafka
+    - name: Spark-direktuppspelning (DStream) med Apache Kafka
       href: ../hdinsight-apache-spark-with-kafka.md
       maintainContext: true
-    - name: Skapa Spark-direktuppspelningsjobb med händelsebearbetning exakt en gång
+    - name: Skapa Apache Spark-direktuppspelningsjobb med händelsebearbetning exakt en gång
       href: apache-spark-streaming-exactly-once.md
-  - name: Spark och Machine Learning
+  - name: Apache Spark och Machine Learning
     items:
     - name: Förutse matinspektionsresultat
       href: apache-spark-machine-learning-mllib-ipython.md
@@ -129,11 +129,11 @@ items:
       href: apache-spark-deep-learning-caffe.md
     - name: Använda med Microsoft Cognitive Toolkit
       href: apache-spark-microsoft-cognitive-toolkit.md
-    - name: Skapa en Spark-maskininlärningspipeline
+    - name: Skapa en Apache Spark-maskininlärningspipeline
       href: apache-spark-creating-ml-pipelines.md
   - name: Analysera stordata
     items:
-    - name: Använda Spark för att läsa och skriva HBase-data
+    - name: Använda Apache Spark för att läsa och skriva Apache HBase-data
       href: ../hdinsight-using-spark-query-hbase.md
       maintainContext: true
     - name: Analysera loggar i Application Insights Telemetry
@@ -155,16 +155,16 @@ items:
     - name: Installera eller uppdatera Mono
       href: ../hdinsight-hadoop-install-mono.md
       maintainContext: true
-    - name: Lägga till Hive-bibliotek
+    - name: Lägga till Apache Hive-bibliotek
       href: ../hdinsight-hadoop-add-hive-libraries.md
       maintainContext: true
-    - name: Använd Giraph
+    - name: Använda Apache Giraph
       href: ../hdinsight-hadoop-giraph-install-linux.md
       maintainContext: true
     - name: Använd Hue
       href: ../hdinsight-hadoop-hue-linux.md
       maintainContext: true
-    - name: Använd Solr
+    - name: Använda Apache Solr
       href: ../hdinsight-hadoop-solr-install-linux.md
       maintainContext: true
     - name: Använda tomma kantnoder
@@ -206,18 +206,18 @@ items:
     - name: Begränsa åtkomst till data
       href: ../hdinsight-storage-sharedaccesssignature-permissions.md
       maintainContext: true
-    - name: Auktorisera användare för Ambari Views
+    - name: Auktorisera användare för Apache Ambari Views
       href: ../hdinsight-authorize-users-to-ambari.md
       maintainContext: true
   - name: Hantera
     items:
     - name: Hantera klusterresurser
       href: apache-spark-resource-manager.md
-    - name: Hantera Spark-program med hjälp av den utökade historikservern
+    - name: Hantera Apache Spark-program med hjälp av den utökade historikservern
       href: apache-azure-spark-history-server.md
-    - name: Konfigurera Spark-inställningar
+    - name: Konfigurera Apache Spark-inställningar
       href: apache-spark-settings.md
-    - name: Optimera Spark-jobb
+    - name: Optimera Apache Spark-jobb
       href: apache-spark-perf.md
     - name: Aktivera cachelagring med I/O-cache
       href: apache-spark-improve-performance-iocache.md
@@ -262,13 +262,13 @@ items:
       - name: Använda Azure Classic CLI
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
-    - name: Hantera kluster med Ambari-webbgränssnittet
+    - name: Hantera kluster med Apache Ambari-webbgränssnittet
       href: ../hdinsight-hadoop-manage-ambari.md
       items:
-      - name: Optimera kluster med Ambari-webbgränssnittet
+      - name: Optimera kluster med Apache Ambari-webbgränssnittet
         href: ../hdinsight-changing-configs-via-ambari.md
         maintainContext: true
-      - name: Använda Ambari REST API
+      - name: Använda Apache Ambari REST API
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
       maintainContext: true
@@ -278,13 +278,13 @@ items:
     - name: Lägga till lagringskonton
       href: ../hdinsight-hadoop-add-storage.md
       maintainContext: true
-    - name: Överföra data för Hadoop-jobb
+    - name: Ladda upp data för Apache Hadoop-jobb
       href: ../hdinsight-upload-data.md
       maintainContext: true
     - name: Flera HDInsight-kluster med Data Lake Store
       href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
-    - name: Importera och exportera data med Sqoop
+    - name: Importera och exportera data med Apache Sqoop
       href: ../hadoop/hdinsight-use-sqoop.md
       items:
       - name: Anslut med SSH
@@ -303,7 +303,7 @@ items:
     - name: Använd Oozie för arbetsflöden
       href: ../hdinsight-use-oozie-linux-mac.md
       maintainContext: true
-    - name: Använd tidsbaserade Oozie-koordinatorer
+    - name: Använda tidsbaserade Apache Oozie-koordinatorer
       href: ../hdinsight-use-oozie-coordinator-time.md
       maintainContext: true
     - name: Kluster- och tjänstportar samt URI:er
@@ -323,21 +323,21 @@ items:
       maintainContext: true
   - name: Felsöka
     items:
-    - name: Felsöka Spark-jobb
+    - name: Felsöka Apache Spark-jobb
       href: apache-spark-job-debugging.md
-    - name: Felsöka Spark-jobb via jobbdiagram
+    - name: Felsöka Apache Spark-jobb via jobbdiagram
       href: apache-azure-spark-history-server.md
-    - name: Använda IntelliJ för att felsöka Spark-jobb
+    - name: Använda IntelliJ för att felsöka Apache Spark-jobb
       href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
     - name: Felsöka ett långsamt eller felaktigt HDInsight-kluster
       href: ../hdinsight-troubleshoot-failed-cluster.md
       maintainContext: true
-    - name: Felsökning för Spark
+    - name: Felsökning för Apache Spark
       href: apache-troubleshoot-spark.md
-    - name: Felsökning för HDFS
+    - name: Felsökning för Hadoop Distributed File System i Apache Hadoop
       href: ../hdinsight-troubleshoot-hdfs.md
       maintainContext: true
-    - name: Felsökning för YARN
+    - name: Felsökning för Apache Hadoop YARN
       href: ../hdinsight-troubleshoot-yarn.md
       maintainContext: true
     - name: Kända problem
@@ -347,25 +347,25 @@ items:
       - name: Information om hur du använder HDInsight på Linux
         href: ../hdinsight-hadoop-linux-information.md
         maintainContext: true
-      - name: Minne och prestanda för Hadoop
+      - name: Minne och prestanda för Apache Hadoop
         href: ../hdinsight-hadoop-stack-trace-error-messages.md
         maintainContext: true
-      - name: Få åtkomst till Hadoop YARN-programloggar på Linux
+      - name: Få åtkomst till Apache Hadoop YARN-programloggar på Linux
         href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
         maintainContext: true
-      - name: Aktivera heap dumps för Hadoop-tjänster
+      - name: Aktivera heap dumps för Apache Hadoop-tjänster
         href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
         maintainContext: true
       - name: Förstå och lösa fel med WebHCat
         href: ../hdinsight-hadoop-templeton-webhcat-debug-errors.md
         maintainContext: true
-      - name: Hive-inställningar för att lösa fel med att minnet är slut
+      - name: Apache Hive-inställningar för att lösa fel där minnet är slut
         href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
         maintainContext: true
-      - name: Använd Ambari-vyer för att felsöka Tez-jobb
+      - name: Använda Apache Ambari-vyer för att felsöka Apache TEZ-jobb
         href: ../hdinsight-debug-ambari-tez-view.md
         maintainContext: true
-      - name: Optimera Hive-frågor
+      - name: Optimera Apache Hive-frågor
         href: ../hdinsight-hadoop-optimize-hive-query.md
         maintainContext: true
 - name: Företagsberedskap
@@ -384,7 +384,7 @@ items:
     - name: Konfigurera företagssäkerhet i HDInsight med Azure AD DS
       href: ../domain-joined/apache-domain-joined-configure-using-azure-adds.md
       maintainContext: true
-    - name: Konfigurera Hive-principer
+    - name: Konfigurera Apache Hive-principer
       href: ../domain-joined/apache-domain-joined-run-hive.md
       maintainContext: true
     - name: Hantera kluster med företagssäkerhet
@@ -426,13 +426,13 @@ items:
     href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
   - name: Go SDK
     href: ../hdinsight-go-sdk-overview.md
-  - name: .NET (HBase)
+  - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: .NET (Avro)
     href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST-API
     href: /rest/api/hdinsight/
-  - name: REST-API (Spark)
+  - name: REST API (Apache Spark)
     href: /rest/api/hdinsightspark/
 - name: Resurser
   items:
@@ -456,9 +456,9 @@ items:
   - name: Windows-verktyg för HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 53f7e70e9ce7442ab37008c1c6614eec0783fd85
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 35ef5face0f64b6766993eeb7f546923726bd166
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428291"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584340"

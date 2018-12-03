@@ -11,16 +11,16 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: af32abe1c61c44b14d0f70033aee54aa7eba7c8b
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6e4c5a47ea19a4308865de78f3a4c059a9f8ac79
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126249"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312409"
 ---
 # <a name="your-first-bing-search-query"></a>Din första Bing-sökfråga
 
-Innan du kan göra ditt första anrop måste du skaffa en prenumerationsnyckel för Cognitive Services. Information om hur du skaffar en nyckel finns i [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
+Innan du kan göra ditt första anrop måste du skaffa en prenumerationsnyckel för Cognitive Services. Information om hur du skaffar en nyckel finns i [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api). Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 För att få resultat från en webbsökning skickar du en GET-begäran till följande slutpunkt:  
 

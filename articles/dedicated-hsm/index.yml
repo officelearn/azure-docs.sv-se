@@ -1,0 +1,65 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 9eaed5c8d30d902700af25319d91b77aab645dbc
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52318018"
+documentType: LandingData
+title: Dokumentation om Dedikerad HSM i Azure
+metadata:
+  title: Dokumentation om Dedikerad HSM i Azure – Självstudier, API-referens | Microsoft Docs
+  meta.description: Learn how to use Azure Dedicated HSM to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
+  services: dedicated-hsm
+  author: barclayn
+  manager: mbaldwin
+  layout: LandingPage
+  ms.assetid: 
+  ms.service: dedicated-hsm
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/21/2018
+  ms.author: barclayn
+abstract:
+  description: Läs mer om dedikerade HSM-funktioner och om de gäller för din miljö.
+sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/dedicated-hsm/overview
+      html: <p>Läs mer om vad Dedikerad HSM i Azure handlar om.</p>
+      image:
+        src: media/index/i_article.svg
+      title: Översikt över Dedikerad HSM
+    - href: /azure/dedicated-hsm/faq
+      html: <p>Vanliga frågor och svar.</p>
+      image:
+        src: media/index/guide.svg
+      title: VANLIGA FRÅGOR OCH SVAR
+- title: Steg för steg-självstudier
+  items:
+  - type: paragraph
+    text: ''
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/cli.svg
+      text: Azure CLI
+      href: /azure/dedicated-hsm/tutorial-deploy-hsm-cli
+    - image:
+        src: media/index/logo_powershell.svg
+      text: PowerShell
+      href: /azure/dedicated-hsm/tutorial-deploy-hsm-powershell
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: VANLIGA FRÅGOR OCH SVAR
+      html: <p><a href="/dedicated-hsm/faq/">Vanliga frågor och svar</a></p>

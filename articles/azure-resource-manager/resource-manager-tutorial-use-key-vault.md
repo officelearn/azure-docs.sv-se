@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a3ca6422bf5335604e561b71db6c75a889a74586
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 0bcff6e0cec234f17b0aaab9828602eb4a194d85
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615763"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334218"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Självstudie: Integrera Azure Key Vault vid malldistribution i Resource Manager
 
@@ -93,7 +93,7 @@ Så här skapar du ett nyckelvalv:
     * **Nyckelvalvsnamn**: tilldela ett unikt namn. 
     * **Klient-ID**: mallfunktionen hämtar ditt klient-ID automatiskt.  Ändra inte standardvärdet
     * **Användar-ID för AD**: ange ditt användarobjekts-ID för Azure AD som du hämtade från föregående procedur.
-    * **Hemligt namn**: standardnamnet är **mAdminPassword**. Om du ändrar det hemliga namnet måste du uppdatera det hemliga namnet när du distribuerar den virtuella datorn.
+    * **Hemligt namn**: standardnamnet är **vmAdminPassword**. Om du ändrar det hemliga namnet måste du uppdatera det hemliga namnet när du distribuerar den virtuella datorn.
     * **Hemligt värde**: ange din hemlighet.  Hemligheten är det lösenord som används för att logga in på den virtuella datorn. Vi rekommenderar att du använder det genererade lösenordet som du skapade i föregående procedur.
     * **Jag godkänner villkoren ovan**: Välj.
 3. Välj **Redigera parametrar** högst upp för att ta en titt på mallen.

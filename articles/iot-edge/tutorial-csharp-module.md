@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/21/2018
+ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4c20ab78ba4da44d4746ef6f68674fe494392347
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 135de641458a1c3b193069b3d9bc94e88080eb55
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633996"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310294"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Självstudie: Utveckla en C# IoT Edge-modul och distribuera till den simulerade enheten
 
@@ -54,16 +54,31 @@ Utvecklingsresurser:
 
 
 ## <a name="create-a-container-registry"></a>Skapa ett containerregister
-I den här självstudien använder du Azure IoT Edge-tillägget för VS Code för att skapa en modul och skapa en **containeravbildning** från filerna. Sedan pushar du avbildningen till ett **register** som lagrar och hanterar dina avbildningar. Slutligen, distribuerar du din avbildning från ditt register så det kör på din IoT Edge-enhet.  
 
-Du kan använda valfritt Docker-kompatibelt register för den här självstudien. Två populära Docker-registertjänster som är tillgängliga i molnet är [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) och [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). I den här kursen använder vi Azure Container Registry. 
+I den här självstudien använder du Azure IoT Edge-tillägget för Visual Studio Code för att skapa en modul och skapa en **containeravbildning** från filerna. Sedan pushar du avbildningen till ett **register** som lagrar och hanterar dina avbildningar. Slutligen, distribuerar du din avbildning från ditt register så det kör på din IoT Edge-enhet.  
 
-1. I [Azure Portal](https://portal.azure.com) väljer du **Skapa en resurs** > **Behållare** > **Azure Container Registry**.
-2. Namnge ditt register, välj en prenumeration, välj en resursgrupp och ange SKU:n till **Basic**. 
-3. Välj **Skapa**.
-4. När du har skapat ditt containerregister går du till det och väljer **Åtkomstnycklar**. 
-5. Växla till **Administratörsanvändare** för att **Aktivera**.
-6. Kopiera värdena för **Inloggningsserver**, **Användarnamn** och **Lösenord**. Du kan använda dessa värden senare under kursen för att publicera Docker-avbildningen till registret och för att lägga till autentiseringsuppgifterna för registret i Azure IoT Edge-körningen. 
+Du kan använda valfritt Docker-kompatibelt register för att lagra dina containeravbildningar. Två populära Docker-registertjänster är [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) och [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). I den här kursen använder vi Azure Container Registry. 
+
+Om du inte redan har ett containerregister följer du dessa steg för att skapa ett nytt i Azure:
+
+1. I [Azure Portal](https://portal.azure.com) väljer du **Skapa en resurs** > **Container** > **Containerregister**.
+
+2. Skapa containerregistret genom att ange följande värden:
+
+   | Fält | Värde | 
+   | ----- | ----- |
+   | Registernamn | Ange ett unikt namn. |
+   | Prenumeration | Välj en prenumeration i listrutan. |
+   | Resursgrupp | Vi rekommenderar att du använder samma resursgrupp för alla testresurser som du skapar i snabbstarterna och självstudierna om IoT Edge. Till exempel **IoTEdgeResources**. |
+   | Plats | Välj en plats i närheten av dig. |
+   | Administratörsanvändare | Ändra värdet till **Aktivera**. |
+   | SKU | Välj **Grundläggande**. | 
+
+5. Välj **Skapa**.
+
+6. När du har skapat containerregistret går du till det och väljer **Åtkomstnycklar**. 
+
+7. Kopiera värdena för **Inloggningsserver**, **Användarnamn** och **Lösenord**. Du kan använda dessa värden senare i självstudien för att ge åtkomst till containerregistret. 
 
 ## <a name="create-an-iot-edge-module-project"></a>Skapa ett projekt för IoT Edge-modulen
 I följande steg skapas ett IoT Edge-modulprojekt baserat på .NET Core 2.0 SDK med hjälp av Visual Studio Code och Azure IoT Edge-tillägget.
@@ -76,21 +91,25 @@ Skapa en C#-lösningsmall som du kan anpassa med din egen kod.
 
 2. Ange och kör kommandot **Azure: Logga in** på kommandopaletten och följ anvisningarna för att logga in med ditt Azure-konto. Om du redan är inloggad kan du hoppa över det här steget.
 
-3. Skriv och kör kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning) på kommandopaletten. Ange följande information i kommandopaletten för att skapa din lösning: 
+3. Skriv och kör kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning) på kommandopaletten. Skapa lösningen genom att följ anvisningarna på kommandopaletten.
 
-   1. Välj den mapp där du vill skapa lösningen. 
-   2. Ange ett namn för din lösning eller välj standardnamnet **EdgeSolution**.
-   3. Välj **C# Module** som mall för modulen. 
-   4. Ersätt namnet på standardmodulen med **CSharpModule**. 
-   5. Ange det Azure-containerregister du skapade i föregående avsnitt som avbildningslagringsplats för den första modulen. Ersätt **localhost:5000** med det serverinloggningsvärde som du kopierade. Den slutliga strängen ser ut så här: \<registernamn\>.azurecr.io/csharpmodule.
-
+   | Fält | Värde |
+   | ----- | ----- |
+   | Välj mapp | Välj den plats på utvecklingsdatorn där Visual Studio Code ska skapa lösningsfilerna. |
+   | Ange ett namn på lösningen | Ange ett beskrivande namn för lösningen eller acceptera standardnamnet **EdgeSolution**. |
+   | Välj modulmall | Välj **C#-modul**. |
+   | Ange ett modulnamn | Ge modulen namnet **CSharpModule**. |
+   | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen har fyllts i från föregående steg. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen. Den slutliga strängen ser ut så här: \<registernamn\>.azurecr.io/csharpmodule. |
+ 
    ![Ange lagringsplatsen för Docker-avbildningen](./media/tutorial-csharp-module/repository.png)
 
-VS Code läser in arbetsytan för IoT Edge-lösningen. Lösningens arbetsyta innehåller fem komponenter på den högsta nivån. Du kommer inte att redigera mappen **\.vscode** eller filen **\.gitignore** i den här självstudiekursen. Mappen **modules** innehåller C#-koden för din modul samt Dockerfiles som används för att skapa modulen som en containeravbildning. Filen **\.env** lagrar dina autentiseringsuppgifter för containerregistret. Filen **deployment.template.json** innehåller informationen som IoT Edge-körningen använder för att distribuera moduler på en enhet. 
+VS Code läser in arbetsytan för IoT Edge-lösningen. Lösningens arbetsyta innehåller fem komponenter på den högsta nivån. Mappen **modules** innehåller C#-koden för din modul samt Dockerfiles som används för att skapa modulen som en containeravbildning. Filen **\.env** lagrar dina autentiseringsuppgifter för containerregistret. Filen **deployment.template.json** innehåller informationen som IoT Edge-körningen använder för att distribuera moduler på en enhet. Och filen **deployment.debug.template.json** innehåller felsökningsversionen av modulerna. Du kommer inte att redigera mappen **\.vscode** eller filen **\.gitignore** i den här självstudiekursen.
 
 Om du inte angav ett containerregister när du skapade lösningen, men accepterade standardvärdet localhost:5000, har du ingen \.env-fil. 
 
-   ![C#-lösningens arbetsyta](./media/tutorial-csharp-module/workspace.png)
+<!--
+   ![C# solution workspace](./media/tutorial-csharp-module/workspace.png)
+-->
 
 ### <a name="add-your-registry-credentials"></a>Lägg till autentiseringsuppgifter för registret
 
@@ -249,6 +268,29 @@ Miljöfilen lagrar autentiseringsuppgifterna för containerregistret och delar d
 
 11. Spara filen.
 
+12. I VS Code-utforskaren öppnar du filen **deployment.template.json** i arbetsytan för IoT Edge-lösningen. Den här filen instruerar **$edgeAgent** att distribuera två moduler: **tempSensor** och **CSharpModule**. Standardplattformen för din IoT Edge är inställd på **amd64** i VS Code-statusfältet, vilket innebär att **CSharpModule** är inställd på Linux amd64-versionen för avbildningen. Ändra standardplattformen i statusfältet från **amd64** till **arm32v7** eller **windows-amd64** om det är arkitekturen för din IoT Edge-enhet. 
+
+   Kontrollera att mallen har rätt modulnamn, inte standardnamnet **SampleModule** som du ändrade när du skapade IoT Edge-lösningen.
+
+   Läs mer om distributionsmanifest i avsnittet om att [förstå hur IoT Edge-moduler kan användas, konfigureras och återanvändas](module-composition.md).
+
+   Avsnittet **registryCredentials** i filen deployment.template.json lagrar dina autentiseringsuppgifter för Docker-registret. Själva användarnamns- och lösenordsparen lagras i .env-filen, som ignoreras av git.  
+
+13. Lägg till **CSharpModule**-modultvillingen till distributionsmanifestet. Infoga följande JSON-innehåll längst ned i avsnittet **modulesContent** efter **$edgeHub**-modultvillingen: 
+
+   ```json
+       "CSharpModule": {
+           "properties.desired":{
+               "TemperatureThreshold":25
+           }
+       }
+   ```
+
+   ![Lägga till modultvilling till distributionsmall](./media/tutorial-csharp-module/module-twin.png)
+
+14. Spara filen.
+
+
 ## <a name="build-your-iot-edge-solution"></a>Skapa din IoT Edge-lösning
 
 I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod i **CSharpModule** som filtrerar bort meddelanden där den rapporterade maskintemperaturen ligger under det godkända tröskelvärdet. Nu behöver du skapa lösningen som en containeravbildning och push-överföra den till ditt containerregister. 
@@ -260,26 +302,7 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod i **CSh
    ```
    Använd användarnamnet, lösenordet och inloggningsservern som du kopierade från Azure-containerregistret i det första avsnittet. Du kan också hämta dessa värden från avsnittet **Åtkomstnycklar** i ditt register i Azure Portal.
 
-2. I VS Code-utforskaren öppnar du filen deployment.template.json på arbetsytan för IoT Edge-lösningen. Den här filen instruerar **$edgeAgent** att distribuera två moduler: **tempSensor** och **CSharpModule**. En Linux amd64-version av avbildningen har angetts för **CSharpModule.image**-värdet. 
-
-   Kontrollera att mallen har rätt modulnamn, inte standardnamnet **SampleModule** som du ändrade när du skapade IoT Edge-lösningen.
-
-   Läs mer om distributionsmanifest i avsnittet om att [förstå hur IoT Edge-moduler kan användas, konfigureras och återanvändas](module-composition.md).
-
-3. Avsnittet **registryCredentials** i filen deployment.template.json lagrar dina autentiseringsuppgifter för Docker-registret. Själva användarnamns- och lösenordsparen lagras i .env-filen, som ignoreras av git.  
-
-4. Lägg till **CSharpModule**-modultvillingen till distributionsmanifestet. Infoga följande JSON-innehåll längst ned i avsnittet **modulesContent** efter **$edgeHub**-modultvillingen: 
-    ```json
-        "CSharpModule": {
-            "properties.desired":{
-                "TemperatureThreshold":25
-            }
-        }
-    ```
-
-4. Spara filen.
-
-5. I VS Code-utforskaren högerklickar du på filen deployment.template.json och väljer **Build and Push IoT Edge solution** (Skapa och skicka IoT Edge-lösning). 
+2. I VS Code-utforskaren högerklickar du på filen deployment.template.json och väljer **Build and Push IoT Edge solution** (Skapa och skicka IoT Edge-lösning). 
 
 När du instruerar Visual Studio Code att skapa din lösning hämtar den först information från distributionsmallen och genererar en .json-distributionsfil i en ny mapp med namnet **config**. Sedan körs två kommandon i en integrerad terminal: `docker build` och `docker push`. Dessa två kommandon skapar din kod, bäddar in CSharpModule.dll i en container och skickar sedan koden till det containerregister som du angav när du initierade lösningen. 
 

@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 8ad8f04b3afa7ed020eaba64d639fb4dbfbeee37
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 50a746510d758d12354ee81e7ceaf3993729262a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257528"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497402"
 ---
-# <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-template"></a>Snabbstart: Skapa ett Spark-kluster i HDInsight med hjälp av en mall
+# <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-template"></a>Snabbstart: Skapa ett Apache Spark-kluster i HDInsight med hjälp av en mall
 
-Lär dig hur du skapar ett Apache Spark-kluster i Azure HDInsight och hur du kör Spark SQL-frågor mot Hive-tabeller. Apache Spark möjliggör snabb dataanalys och databehandling i kluster med hjälp av minnesintern bearbetning. Mer information om Spark på HDInsight finns i [Översikt: Apache Spark på Azure HDInsight](apache-spark-overview.md).
+Lär dig hur du skapar ett [Apache Spark](https://spark.apache.org/)-kluster i Azure HDInsight och hur du kör Spark SQL-frågor mot [Apache Hive](https://hive.apache.org/)-tabeller. Apache Spark möjliggör snabb dataanalys och databehandling i kluster med hjälp av minnesintern bearbetning. Mer information om Spark på HDInsight finns i [Översikt: Apache Spark på Azure HDInsight](apache-spark-overview.md).
 
 I den här snabbstarten använder du en Resource Manager-mall för att skapa ett HDInsight Spark-kluster. Klustret använder Azure Storage Blobar som klusterlagring. Mer information om att använda Data Lake Storage Gen2 finns i [Snabbstart: Konfigurera kluster i HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
@@ -53,14 +53,14 @@ Skapa ett HDInsight Spark-kluster med hjälp av en Azure Resource Manager-mall. 
 Om du stöter på ett problem med att skapa HDInsight-kluster kan det bero på att du inte har rätt behörighet för att göra det. Mer information finns i [åtkomstkravkontrollen](../hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="install-intellijeclipse-for-spark-application"></a>Installera IntelliJ/Eclipse för programmet Spark
-Använd Azure Toolkit för tilläggen InteillJ/Eclipse för att utveckla Spark-program i Scala. Skicka dem sedan till ett Azure HDInsight Spark-klister direkt från IDE-miljon (Integrated Development Environment) i IntelliJ/Eclipse. Mer information finns i [Använd IntelliJ för att skriva/skicka Spark-program](./apache-spark-intellij-tool-plugin.md) och [Använd Eclipse för att skriva/skicka Spark-program](./apache-spark-eclipse-tool-plugin.md).
+Använd plugin-programmet Azure Toolkit for IntelliJ/Eclipse för att utveckla Spark-program i [Scala](https://www.scala-lang.org/) och sedan skicka dem till ett Azure HDInsight Spark-klister direkt från IntelliJ/Eclipse-IDE (Integrated Development Environment). Mer information finns i [Använd IntelliJ för att skriva/skicka Spark-program](./apache-spark-intellij-tool-plugin.md) och [Använd Eclipse för att skriva/skicka Spark-program](./apache-spark-eclipse-tool-plugin.md).
 
 ## <a name="install-vscode-for-pysparkhive-applications"></a>Installera VSCode för PySpark/hive-program
 Lär dig hur du använder Azure HDInsight Tools för Visual Studio Code (VSCode) för att skapa och skicka Hive-batchjobb, interaktiva Hive-frågor, PySpark-batchjobb och interaktiva PySpark-skript. Azure HDInsight-verktyg kan installeras på de plattformar som stöds av VSCode. Dessa omfattar Windows, Linux och macOS. Mer information finns i [Använd VSCode för att skriva/skicka PySpark-program](../hdinsight-for-vscode.md).
 
 ## <a name="create-a-jupyter-notebook"></a>Skapa en Jupyter-anteckningsbok
 
-Jupyter Notebook är en interaktiv anteckningsboksmiljö som stöder flera olika datorspråk. Du kan använda anteckningsboken för att interagera med dina data, kombinera kod med markdown-text och utföra enkla visualiseringar. 
+[Jupyter Notebook](https://jupyter.org/) är en interaktiv anteckningsboksmiljö som stöder flera olika datorspråk. Du kan använda anteckningsboken för att interagera med dina data, kombinera kod med markdown-text och utföra enkla visualiseringar. 
 
 1. Öppna [Azure-portalen](https://portal.azure.com).
 2. Välj **HDInsight-kluster** och välj sedan det kluster som du skapade.
@@ -126,6 +126,6 @@ Du kan också välja det resursgruppnamn som ska öppna resursgruppsidan och sed
 I den här snabbstarten har du lärt dig skapa ett HDInsight Spark-kluster och köra grundläggande Spark SQL-frågor. Gå vidare till nästa självstudier om du vill lära dig använda ett HDInsight Spark-kluster för att köra interaktiva frågor på exempeldata.
 
 > [!div class="nextstepaction"]
->[Kör interaktiva frågor i Spark](./apache-spark-load-data-run-query.md)
+>[Köra interaktiva frågor i Apache Spark](./apache-spark-load-data-run-query.md)
 
 

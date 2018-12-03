@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 11/11/2018
 ms.author: juliako
-ms.openlocfilehash: d2d648dd02426596e1c070ffd494458c68060085
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: a8d2cf577a6b637e910c283ba8c70d9ea4eedfbb
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613451"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334133"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-using-apis"></a>Självstudie: Ladda upp, koda och strömma videor med API:er
 
@@ -74,7 +74,7 @@ Exemplet utför följande åtgärder:
 6. Skapar en StreamingLocator.
 7. Skapar strömnings-URL:er.
 
-### <a name="start-using-media-services-apis-with-net-sdk"></a>Börja med att använda Media Services-API:er med .NET SDK
+### <a name="a-idstartusingdotnet-start-using-media-services-apis-with-net-sdk"></a><a id="start_using_dotnet" />Börja använda Media Services-API:er med .NET SDK
 
 Om du vill börja använda API:er för Media Services med .NET, måste du skapa ett **AzureMediaServicesClient**-objekt. När du skapar objektet måste du ange de autentiseringsuppgifter som krävs för att klienten ska kunna ansluta till Azure med hjälp av Azure AD. I den kod som du har klonat i början av artikeln skapade funktionen **GetCredentialsAsync** objektet ServiceClientCredentials baserat på de autentiseringsuppgifter som anges i den lokala konfigurationsfilen. 
 

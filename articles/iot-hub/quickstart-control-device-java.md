@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/22/2018
 ms.author: dobett
-ms.openlocfilehash: 172c3011221e04bfdb4a4f3ae1515fe0eb10065b
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 454c3961cb31e147f647095c0a3a71a6c65630f1
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515258"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422126"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Snabbstart: Kontrollera en enhet ansluten till en IoT Hub (Java)
 
@@ -69,9 +69,9 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
 1. Kör följande kommandon i Azure Cloud Shell för att lägga till IoT Hub CLI-tillägget och skapa enhetens identitet. 
 
-   **YourIoTHubName** : Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
+   **YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
-   **MyJavaDevice** : Det här är det namn som du angav för den registrerade enheten. Använd MyJavaDevice såsom det visas. Om du väljer ett annat namn för din enhet måste du även använda det namnet i hela artikeln, och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
+   **MyJavaDevice** : Det här värdet är det namn som du angav för den registrerade enheten. Använd MyJavaDevice såsom det visas. Om du väljer ett annat namn för din enhet måste du även använda det namnet i hela artikeln, och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -85,7 +85,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
-      -hub-name YourIoTHubName \
+      --hub-name YourIoTHubName \
       --device-id MyJavaDevice \
       --output table
     ```
@@ -100,7 +100,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
 Du måste också ha en _tjänstanslutningssträng_ för att kunna aktivera serverdelsprogrammet och ansluta till din IoT-hubb och hämta meddelanden. Följande kommando hämtar tjänstanslutningssträngen för din IoT-hubb:
    
-**YourIoTHubName** : Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
+**YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
 ```azurecli-interactive
 az iot hub show-connection-string --hub-name YourIoTHubName --output table

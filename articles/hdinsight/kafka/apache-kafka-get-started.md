@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 10/12/2018
-ms.openlocfilehash: 9edb85fcaa2c3f9c58cc74c55d52e4dbbf751727
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5b1768978425d3153f775e20a1a4c44a39794779
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014524"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315962"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Snabbstart: Skapa ett Apache Kafka-kluster på HDInsight
 
@@ -161,11 +161,11 @@ Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 ssuhuser@hn0-mykafk:~$
 ```
 
-## <a id="getkafkainfo"></a>Hämta information om värden i Zookeeper och Broker
+## <a id="getkafkainfo"></a>Hämta information om värden i Apache Zookeeper och Broker
 
-När du arbetar med Kafka måste du känna till *Zookeeper*- och *Broker*-värdarna. Dessa värdar används med Apache Kafka-API och många av de verktyg som levereras med Kafka.
+När du arbetar med Kafka måste du känna till *Apache Zookeeper*- och *Broker*-värdarna. Dessa värdar används med Apache Kafka-API och många av de verktyg som levereras med Kafka.
 
-I det här avsnittet hämtas information om värden från klustrets Ambari REST API.
+I det här avsnittet hämtar du värdinformation från om värden från Apache Ambari REST API på klustret.
 
 1. Installera verktyget `jq` genom att använda följande kommando från SSH-anslutningen till klustret. Det här verktyget används för att parsa JSON-dokument och är användbart när du ska hämta värdinformation:
    
@@ -249,7 +249,7 @@ Kafka lagrar dataströmmar i kategorier som kallas *ämnen*. Du kan hantera ämn
         > [!IMPORTANT] 
         > Apache Kafka har ingen information om Azure-feldomäner. När du skapar partitionsrepliker för ämnen kanske det inte distribueras repliker korrekt för hög tillgänglighet.
 
-        Garantera hög tillgänglighet med [verktyget för ombalansering av Kafka-partitioner](https://github.com/hdinsight/hdinsight-kafka-tools). Du måste köra det här verktyget från en SSH-anslutning till ditt Apache Kafka-klusters huvudnod.
+        Garantera hög tillgänglighet med hjälp av [verktyget för partitionsombalansering för Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Du måste köra det här verktyget från en SSH-anslutning till ditt Apache Kafka-klusters huvudnod.
 
         Om du vill ha bästa möjliga tillgänglighet för dina Apache Kafka-data måste du balansera om ämnets partitionsrepliker när:
 
@@ -311,7 +311,7 @@ Använd följande steg för att lagra poster i det testämne som du skapade tidi
 
 4. Använd __Ctrl + C__ om du vill stoppa konsumenten.
 
-Du kan också programmässigt skapa producenter och konsumenter. Om du vill se ett exempel på att använda denna API kan du läsa dokumentet [Kafka-producent och konsument-API med HDInsight](apache-kafka-producer-consumer-api.md).
+Du kan också programmässigt skapa producenter och konsumenter. Ett exempel på användning av detta API finns i dokumentet [Apache Kafka-producent- och konsument-API med HDInsight](apache-kafka-producer-consumer-api.md).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -331,5 +331,5 @@ Ta bort en resursgrupp med Azure Portal:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Använda Apache Spark med Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
+> [Använda Apache Spark med Apache Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
 

@@ -5,22 +5,19 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/27/2018
+ms.date: 11/28/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 894389ec07fb8e371a269f895473fe82985de7c3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e37d5b050c5ca957b59c1e0a60c88171c1fc4a23
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405979"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582249"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Självstudie: Filtrera inkommande trafik med Azure Firewall DNAT med hjälp av Azure-portalen
 
-Du kan konfigurera Azure Firewall Destination Network Address Translation (DNAT) att översätta och filtrera inkommande trafik till dina undernät. När du konfigurerar DNAT, ställs åtgärden för NAT-regelsamling in på **Destination Network Address Translation (DNAT)**. Varje regel i NAT-regelsamlingen kan sedan användas till att översätta brandväggens offentliga IP-adress och port till en privat IP-adress och port. DNAT-regler lägger implicit till en motsvarande nätverksregel för att tillåta den översatta trafiken. Du kan åsidosätta det här beteendet genom att uttryckligen lägga till en nätverksregelsamling med neka-regler som matchar den översatta trafiken. Mer information om regelbearbetningslogik för Azure Firewall finns i [Regelbearbetningslogik för Azure Firewall](rule-processing.md).
-
-> [!NOTE]
-> DNAT fungerar inte för port 80 och 22. Vi arbetar för att åtgärda detta inom en snar framtid. Under tiden kan du använda en annan port som målport i NAT-regler. Port 80 eller 22 kan fortfarande användas som den översatta porten. Du kan till exempel mappa offentlig ip:81 till privat ip:80.
+Du kan konfigurera Azure Firewall Destination Network Address Translation (DNAT) att översätta och filtrera inkommande trafik till dina undernät. När du konfigurerar DNAT ställs åtgärden för NAT-regelsamling in på **Dnat**. Varje regel i NAT-regelsamlingen kan sedan användas till att översätta brandväggens offentliga IP-adress och port till en privat IP-adress och port. DNAT-regler lägger implicit till en motsvarande nätverksregel för att tillåta den översatta trafiken. Du kan åsidosätta det här beteendet genom att uttryckligen lägga till en nätverksregelsamling med neka-regler som matchar den översatta trafiken. Mer information om regelbearbetningslogik för Azure Firewall finns i [Regelbearbetningslogik för Azure Firewall](rule-processing.md).
 
 I den här guiden får du lära dig att:
 
@@ -34,36 +31,40 @@ I den här guiden får du lära dig att:
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 För den här självstudien skapar du två peerkopplade virtuella nätverk:
+
 - **VN-Hub** – brandväggen finns i det här virtuella nätverket.
 - **VN-Spoke** – arbetsbelastningsservern finns i det här virtuella nätverket.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
+
 1. Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com).
-1. Klicka på startsidan för Azure Portal, klicka på **Resursgrupper** och sedan på **Lägg till**.
-2. I fältet **Resursgruppsnamn** anger du **RG-DNAT-Test**.
-3. I fältet **Prenumeration** väljer du din prenumeration.
-4. I fältet **Resursgruppsplats** väljer du en plats. Alla efterföljande resurser du skapar måste finnas på samma plats.
-5. Klicka på **Skapa**.
+2. Klicka på startsidan för Azure Portal, klicka på **Resursgrupper** och sedan på **Lägg till**.
+3. I fältet **Resursgruppsnamn** anger du **RG-DNAT-Test**.
+4. I fältet **Prenumeration** väljer du din prenumeration.
+5. I fältet **Resursgruppsplats** väljer du en plats. Alla efterföljande resurser du skapar måste finnas på samma plats.
+6. Klicka på **Skapa**.
 
 ## <a name="set-up-the-network-environment"></a>Konfigurera nätverksmiljön
+
 Skapa först de virtuella nätverken och peerkoppla dem sedan.
 
 ### <a name="create-the-hub-vnet"></a>Skapa det virtuella Hub-nätverket
+
 1. Klicka på **Alla tjänster** på startsidan i Azure Portal.
 2. Under **Nätverk** klickar du på **Virtuella nätverk**.
 3. Klicka på **Lägg till**.
 4. Som **Namn** anger du **VN-Hub**.
 5. I fältet **Adressutrymme** skriver du **10.0.0.0/16**.
-7. I fältet **Prenumeration** väljer du din prenumeration.
-8. I fältet **Resursgrupp** väljer du **Använd befintlig** och väljer sedan **RG-DNAT-Test**.
-9. Välj samma plats som tidigare i fältet **Plats**.
-10. Under **Undernät**, i fältet **Namn**, skriver du **AzureFirewallSubnet**.
+6. I fältet **Prenumeration** väljer du din prenumeration.
+7. I fältet **Resursgrupp** väljer du **Använd befintlig** och väljer sedan **RG-DNAT-Test**.
+8. Välj samma plats som tidigare i fältet **Plats**.
+9. Under **Undernät**, i fältet **Namn**, skriver du **AzureFirewallSubnet**.
 
      Brandväggen kommer att ligga i det här undernätet, och namnet på undernätet **måste** vara AzureFirewallSubnet.
      > [!NOTE]
-     > Den minsta storleken på undernätet AzureFirewallSubnet är /25.
-11. I fältet **Adressintervall** skriver du **10.0.1.0/24**.
-12. Använd övriga standardinställningar och klicka på **Skapa**.
+     > Den minsta storleken på AzureFirewallSubnet-undernätet är /26.
+10. I fältet **Adressintervall** skriver du **10.0.1.0/24**.
+11. Använd övriga standardinställningar och klicka på **Skapa**.
 
 ### <a name="create-a-spoke-vnet"></a>Skapa ett virtuellt spoke-nätverk
 
@@ -72,14 +73,14 @@ Skapa först de virtuella nätverken och peerkoppla dem sedan.
 3. Klicka på **Lägg till**.
 4. I fältet **Namn** anger du **VN-Spoke**.
 5. I fältet **Adressutrymme** skriver du **192.168.0.0/16**.
-7. I fältet **Prenumeration** väljer du din prenumeration.
-8. I fältet **Resursgrupp** väljer du **Använd befintlig** och väljer sedan **RG-DNAT-Test**.
-9. Välj samma plats som tidigare i fältet **Plats**.
-10. Under **Undernät**, i fältet **Namn** anger du **SN-Workload**.
+6. I fältet **Prenumeration** väljer du din prenumeration.
+7. I fältet **Resursgrupp** väljer du **Använd befintlig** och väljer sedan **RG-DNAT-Test**.
+8. Välj samma plats som tidigare i fältet **Plats**.
+9. Under **Undernät**, i fältet **Namn** anger du **SN-Workload**.
 
     Servern kommer att finnas i det här undernätet.
-1. I fältet **Adressintervall** skriver du **192.168.1.0/24**.
-2. Använd övriga standardinställningar och klicka på **Skapa**.
+10. I fältet **Adressintervall** skriver du **192.168.1.0/24**.
+11. Använd övriga standardinställningar och klicka på **Skapa**.
 
 ### <a name="peer-the-vnets"></a>Peerkoppla de virtuella nätverken
 
@@ -92,7 +93,7 @@ Peerkoppla nu de två virtuella nätverken.
 3. Klicka på **Lägg till**.
 4. Ange **Peer-HubSpoke** som namn.
 5. Välj **VN-Spoke** för det virtuella nätverket.
-7. Klicka på **OK**.
+6. Klicka på **OK**.
 
 #### <a name="spoke-to-hub"></a>Spoke till hub
 
@@ -140,14 +141,13 @@ Granska sammanfattningen och klicka sedan på **Skapa**. Det här kan ta några 
 
 När distributionen är klar antecknar du den privata IP-adressen för den virtuella datorn. Den används senare när du konfigurerar brandväggen. Klicka på namnet på den virtuella datorn. Under **Inställningar** klickar du på **Nätverk** för att hitta den privata IP-adressen.
 
-
 ## <a name="deploy-the-firewall"></a>Distribuera brandväggen
 
 1. På portalens startsida klickar du på **Skapa en resurs**.
 2. Klicka på **Nätverk**, och sedan efter **Aktuella** klickar du på **Visa alla**.
 3. Klicka på **Brandvägg** och sedan på **Skapa**. 
 4. På sidan **Skapa en brandvägg** använder du följande tabell till att konfigurera brandväggen:
-   
+
    |Inställning  |Värde  |
    |---------|---------|
    |Namn     |FW-DNAT-test|
@@ -157,13 +157,12 @@ När distributionen är klar antecknar du den privata IP-adressen för den virtu
    |Välj ett virtuellt nätverk     |**Använd befintlig**: VN-Hub|
    |Offentlig IP-adress     |**Skapa ny**. Den offentliga IP-adressen måste vara Standard SKU-typen.|
 
-2. Klicka på **Granska + skapa**.
-3. Granska sammanfattningen och klicka sedan på **Skapa** för att skapa brandväggen.
+5. Klicka på **Granska + skapa**.
+6. Granska sammanfattningen och klicka sedan på **Skapa** för att skapa brandväggen.
 
    Distributionen kan ta några minuter.
-4. När distributionen är klar går du till resursgruppen **RG-DNAT-Test** och klickar på brandväggen **FW-DNAT-test**.
-6. Skriv ned den privata IP-adressen. Du kommer att använda den senare när du skapar standardvägen.
-
+7. När distributionen är klar går du till resursgruppen **RG-DNAT-Test** och klickar på brandväggen **FW-DNAT-test**.
+8. Skriv ned den privata IP-adressen. Du kommer att använda den senare när du skapar standardvägen.
 
 ## <a name="create-a-default-route"></a>Skapa en standardväg
 
@@ -188,31 +187,29 @@ För undernätet **SN-Workload** ställer du in att den utgående standardvägen
 17. I fältet **Nästa hopptyp** väljer du **Virtuell installation**.
 
     Azure Firewall är egentligen en hanterad tjänst, men en virtuell installation fungerar i det här fallet.
-1. I fältet **Nästa hoppadress** skriver du brandväggens privata IP-adress som du skrev ned tidigare.
-2. Klicka på **OK**.
+18. I fältet **Nästa hoppadress** skriver du brandväggens privata IP-adress som du skrev ned tidigare.
+19. Klicka på **OK**.
 
-
-## <a name="configure-a-dnat-rule"></a>Konfigurera en DNAT-regel
+## <a name="configure-a-nat-rule"></a>Konfigurera en NAT-regel
 
 1. Öppna **RG-DNAT-Test** och klicka på brandväggen **FW-DNAT-test**. 
-1. På sidan **FW-DNAT-test**, under **Inställningar** klickar du på **Regler**. 
-2. Klicka på **Lägg till DNAT-regelsamling**. 
-3. I fältet **Namn** skriver du **RC-DNAT-01**. 
-1. I fältet **Prioritet** skriver du **200**. 
-6. Under **Regler**, i fältet **Namn**, skriver du **RL-01**. 
-7. I fältet **Källadresser** skriver du *. 
-8. I fältet **Måladresser** skriver du brandväggens offentliga IP-adress. 
-9. I fältet **Målportar** skriver du **3389**. 
-10. I fältet **Översatt adress** skriver du den privata IP-adressen för den virtuella datorn Srv-Workload. 
-11. I fältet **Översatt port** skriver du **3389**. 
-12. Klicka på **Lägg till**. 
+2. På sidan **FW-DNAT-test**, under **Inställningar** klickar du på **Regler**. 
+3. Klicka på **Lägg till NAT-regelsamling**. 
+4. I fältet **Namn** skriver du **RC-DNAT-01**. 
+5. I fältet **Prioritet** skriver du **200**. 
+6. Under **Regler**, i fältet **Namn**, skriver du **RL-01**.
+7. I fältet **Protokoll** väljer du **TCP**.
+8. I fältet **Källadresser** skriver du *. 
+9. I fältet **Måladresser** skriver du brandväggens offentliga IP-adress. 
+10. I fältet **Målportar** skriver du **3389**. 
+11. I fältet **Översatt adress** skriver du den privata IP-adressen för den virtuella datorn Srv-Workload. 
+12. I fältet **Översatt port** skriver du **3389**. 
+13. Klicka på **Lägg till**. 
 
 ## <a name="test-the-firewall"></a>Testa brandväggen
 
 1. Anslut ett fjärrskrivbord till brandväggens offentliga IP-adress. Du ska vara ansluten till den virtuella datorn **Srv-Workload**.
-3. Stäng fjärrskrivbordet.
-4. Ändra åtgärden för nätverksregelsamling **RC-Net-01** till **Neka**.
-5. Försök ansluta till brandväggens offentliga IP-adress igen. Den här gången borde det inte lyckas på grund av **Neka**-regeln.
+2. Stäng fjärrskrivbordet.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -1,6 +1,6 @@
 ---
 title: Distribuera ett containerprogram med CI/CD till ett Azure Service Fabric-kluster
-description: I den här självstudiekursen får du lära dig hur du ställer in kontinuerlig integrering och distribution för ett Azure Service Fabric-containerprogram med hjälp av Visual Studio Team Services (VSTS).
+description: I den här självstudiekursen får du lära dig hur du ställer in kontinuerlig integrering och distribution för ett Azure Service Fabric-containerprogram med hjälp av Visual Studio Azure DevOps.
 services: service-fabric
 documentationcenter: .net
 author: TylerMSFT
@@ -15,23 +15,23 @@ ms.workload: NA
 ms.date: 08/29/2018
 ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: a7cb139da2cdbfb187a62eeadc707f7206de8a34
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 06bc4be6ee485e61523d210b692c3fe2567cc62c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300208"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443499"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Självstudie: Distribuera ett containerprogram med CI/CD till ett Service Fabric-kluster
 
-Den här självstudiekursen är del två i en serie. Du får du lära dig hur du ställer in kontinuerlig integrering och distribution för ett Azure Service Fabric-containerprogram med hjälp av Visual Studio Team Services.  Ett befintligt Service Fabric-program krävs. Det som skapas i [Distribuera ett .NET-program i en Windows-container till Azure Service Fabric](service-fabric-host-app-in-a-container.md) används som exempel.
+Den här självstudiekursen är del två i en serie. Du får lära dig hur du konfigurerar kontinuerlig integrering och distribution för ett Azure Service Fabric-containerprogram med hjälp av Visual Studio och Azure DevOps.  Ett befintligt Service Fabric-program krävs. Det som skapas i [Distribuera ett .NET-program i en Windows-container till Azure Service Fabric](service-fabric-host-app-in-a-container.md) används som exempel.
 
 I del två i serien lär du dig hur du:
 
 > [!div class="checklist"]
 > * lägga till källkontroll i projektet
-> * Skapa en byggesdefinition i Team Services
-> * skapa en versionsdefinition i Team Services
+> * Skapa en byggesdefinition i Visual Studio Team Explorer
+> * Skapa en versionsdefinition i Visual Studio Team Explorer
 > * distribuera och uppgradera ett program automatiskt.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
@@ -43,23 +43,23 @@ Innan du börjar den här självstudien:
 
 ## <a name="prepare-a-publish-profile"></a>Förbered publiceringsprofil
 
-Nu när du har [distribuerat ett containerprogram](service-fabric-host-app-in-a-container.md) är du redo att konfigurera kontinuerlig integrering.  Börja med att förbereda en publiceringsprofil i programmet för användning med distributionsprocessen som körs i Team Services.  Publiceringsprofilen ska konfigureras med inriktning på det kluster som du skapade tidigare.  Starta Visual Studio och öppna ett befintligt Service Fabric-programprojekt.  I **Solution Explorer** högerklickar du på programmet och väljer **Publicera**.
+Nu när du har [distribuerat ett containerprogram](service-fabric-host-app-in-a-container.md) är du redo att konfigurera kontinuerlig integrering.  Börja med att förbereda en publiceringsprofil i programmet för användning med distributionsprocessen som körs i Azure DevOps Services.  Publiceringsprofilen ska konfigureras med inriktning på det kluster som du skapade tidigare.  Starta Visual Studio och öppna ett befintligt Service Fabric-programprojekt.  I **Solution Explorer** högerklickar du på programmet och väljer **Publicera**.
 
-Välj en målprofil inom programprojektet att använda för arbetsflödet för den kontinuerliga integreringen, till exempel molnet.  Specificera klusteranslutningsslutpunkten.  Markera kryssrutan **Uppgradera programmet** så att programmet uppgraderas för varje distribution i Team Services.  Klicka på hyperlänken **Spara** och spara inställningarna i profilen. Klicka sedan på **Avbryt** och stäng dialogrutan.
+Välj en målprofil inom programprojektet att använda för arbetsflödet för den kontinuerliga integreringen, till exempel molnet.  Specificera klusteranslutningsslutpunkten.  Markera kryssrutan **Uppgradera programmet** så att programmet uppgraderas för varje distribution i Azure DevOps.  Klicka på hyperlänken **Spara** och spara inställningarna i profilen. Klicka sedan på **Avbryt** och stäng dialogrutan.
 
 ![Push-profil][publish-app-profile]
 
-## <a name="share-your-visual-studio-solution-to-a-new-team-services-git-repo"></a>Dela Visual Studio-lösningen till en ny Team Services Git-lagringsplats
+## <a name="share-your-visual-studio-solution-to-a-new-azure-devops-git-repo"></a>Dela Visual Studio-lösningen till en ny Azure DevOps Git-lagringsplats
 
-Dela programkällfilerna till ett teamprojekt i Team Services så att du kan generera byggen.
+Dela programkällfilerna till ett teamprojekt i Azure DevOps så att du kan generera byggen.
 
 Skapa en ny lokal Git-lagringsplats för projektet genom att välja alternativet för att **lägga till källkontroll** -> **Git** i statusfältet i det nedre högra hörnet av Visual Studio.
 
-I vyn för **Push-överföring**  i **Team Explorer** väljer du knappen för att **publicera Git-lagringsplatsen** under alternativet för att **push-överföra till Visual Studio Team Services**.
+I vyn för **Push-överföring**  i **Team Explorer** väljer du knappen för att **publicera Git-lagringsplatsen** under alternativet för att **push-överföra till Azure DevOps**.
 
 ![Push-överföring med Git-lagringsplats][push-git-repo]
 
-Verifiera din e-postadress och välj ditt konto i listrutan **Team Services-domän**. Skriv in lagringsplatsens namn och välj **Publicera lagringsplats**.
+Verifiera din e-postadress och välj din organisation i listrutan **Konto**. Du kan behöva konfigurera en organisation om du inte redan har en. Skriv in lagringsplatsens namn och välj **Publicera lagringsplats**.
 
 ![Push-överföring med Git-lagringsplats][publish-code]
 
@@ -67,22 +67,22 @@ När du publicerar lagringsplatsen skapas ett nytt teamprojekt i kontot med samm
 
 ## <a name="configure-continuous-delivery-with-vsts"></a>Konfigurera kontinuerlig leverans med VSTS
 
-En byggesdefinition för Team Services beskriver ett arbetsflöde som består av en uppsättning byggesåtgärder som utförs i tur och ordning. Skapa en byggesdefinition som producerar ett Service Fabric-programpaket och andra artefakter att distribuera till ett Service Fabric-kluster. Ta reda på mer om [byggesdefinitioner för Team Services](https://www.visualstudio.com/docs/build/define/create). 
+En byggesdefinition för Azure DevOps beskriver ett arbetsflöde som består av en uppsättning byggesåtgärder som körs sekventiellt. Skapa en byggesdefinition som producerar ett Service Fabric-programpaket och andra artefakter att distribuera till ett Service Fabric-kluster. Läs mer om [byggesdefinitioner](https://www.visualstudio.com/docs/build/define/create) för Azure DevOps. 
 
-En versionsdefinition för Team Services beskriver ett arbetsflöde som distribuerar ett programpaket till ett kluster. När de används tillsammans utför byggesdefinitionen och versionsdefinitionen hela arbetsflödet med början på källfiler för att sluta med ett program som körs i klustret. Lär dig mer om [versionsdefinitioner för Team Services](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
+En versionsdefinition för Azure DevOps beskriver ett arbetsflöde som distribuerar ett programpaket till ett kluster. När de används tillsammans utför byggesdefinitionen och versionsdefinitionen hela arbetsflödet med början på källfiler för att sluta med ett program som körs i klustret. Läs mer om [versionsdefinitioner](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition) för Azure DevOps.
 
 ### <a name="create-a-build-definition"></a>Skapa en byggesdefinition
 
-Öppna en webbläsare och navigera till det nya teamprojektet på: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
+Öppna det nya teamprojektet genom att gå till https://dev.azure.com i en webbläsare och välja din organisation, följt av det nya projektet. 
 
-Välj fliken **Build and release** (Bygge och version), därefter **Builds** (Byggen) och klicka sedan på **New Pipeline** (Ny pipeline).
+Välj alternativet **Pipelines** i den vänstra panelen och klicka sedan på **Ny pipeline**.
 
 >[!NOTE]
 >Om du inte ser mallen för build-definition ska du se till att **funktionen för att skapa en ny YAML-pipeline** är avstängd. Den här funktionen har konfigurerats i avsnittet **Förhandsversionsfunktioner** i ditt DevOps-konto.
 
 ![Ny pipeline][new-pipeline]
 
-Välj **VSTS Git** som källa, teamprojektet **Voting** (Röstning), lagringsplatsen **Voting** och standardgrenen **master** eller manuella och schemalagda byggen.  Klicka sedan på **Fortsätt**.
+Välj **Azure Repos Git** som källa, teamprojektnamnet, projektets lagringsplats samt standardgrenen **master** eller manuella och schemalagda byggen.  Klicka sedan på **Fortsätt**.
 
 I **Select a template** (Välj en mall) väljer du mallen **Azure Service Fabric application with Docker support** (Azure Service Fabric-program med Docker-support) och klickar på **Apply** (Använd).
 
@@ -104,7 +104,7 @@ I **Container Registry Type** (Containerregistertyp) väljer du **Azure Containe
 
 ![Välj Docker Push images (Docker Push-överför avbildningar)][select-push-images]
 
-Under **Utlösare** aktiverar du kontinuerlig integrering genom att markera **Aktivera kontinuerlig integrering**. I **Branch filters** (Grenfilter) klickar du på **+ Lägg till** så får **Branch specification** (Grenspecifikation) standardvärdet **master**.
+På fliken **Utlösare** aktiverar du kontinuerlig integrering genom att markera **Aktivera kontinuerlig integrering**. I **Branch filters** (Grenfilter) klickar du på **+ Lägg till** så får **Branch specification** (Grenspecifikation) standardvärdet **master**.
 
 I **dialogrutan för att spara bygg-pipeline och kö** klickar du på **Save & queue** (Spara och köa) för att manuellt påbörja en version.
 
@@ -114,7 +114,7 @@ Byggen utlöser också vid push och incheckning. Om du vill kontrollera förlopp
 
 ### <a name="create-a-release-definition"></a>Skapa en versionsdefinition
 
-Välj fliken **Build & Release** (Bygge och version), fliken **Releases** (Versioner) och sedan **+New pipeline** (+ Ny pipeline).  I **Välj en mall** väljer du mallen **Azure Service Fabric Deployment** på listan och sedan **Använd**.
+Välj alternativet **Pipelines** i den vänstra panelen och välj sedan **Versioner** följt av **+ Ny pipeline**.  I **Välj en mall** väljer du mallen **Azure Service Fabric Deployment** på listan och sedan **Använd**.
 
 ![Välj versionsmall][select-release-template]
 
@@ -151,7 +151,7 @@ Kontrollera att distributionen har slutförts och programmet körs i klustret.  
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Genomför och push-överföring av ändringar utlöser en släppning
 
-För att kontrollera att pipelinen för den kontinuerliga integreringen fungerar genom att kontrollera kodändringar i Team Services.
+För att kontrollera att pipelinen för den kontinuerliga integreringen fungerar genom att kontrollera kodändringar i Azure DevOps.
 
 När du skriver koden spåras dina ändringar automatiskt av Visual Studio. Genomför ändringar av den lokala Git-lagringsplatsen genom att välja ikonen väntande ändringar (![Väntande åtgärder][pending]) från statusfältet i nederkant högra hörnet.
 
@@ -159,11 +159,11 @@ I vyn **Ändringar** i Team Explorer lägger du till ett meddelande som beskrive
 
 ![Genomför alla][changes]
 
-Välj statusfältikonen för de opublicerade ändringarna (![Opublicerade ändringar][unpublished-changes]) eller vyn Synkronisera i Team Explorer. Välj **Push** (Push-överföring) för att uppdatera koden i Team Services/TFS.
+Välj statusfältikonen för de opublicerade ändringarna (![Opublicerade ändringar][unpublished-changes]) eller vyn Synkronisera i Team Explorer. Välj **Push** (Push-överföring) för att uppdatera koden i Azure DevOps.
 
 ![Push-överföring av ändringar][push]
 
-När du skickar ändringar till Team Services via push-överföring utlöser ett bygge automatiskt.  När byggesdefinition har slutförts skapas en version automatiskt och börjar uppgradera programmet i klustret.
+När du skickar ändringar till Azure DevOps via push-överföring utlöses ett bygge automatiskt.  När byggesdefinition har slutförts skapas en version automatiskt och börjar uppgradera programmet i klustret.
 
 Om du vill kontrollera förloppet för bygget kan du byta till fliken **Builds** (Byggen) i **Team Explorer** i Visual Studio.  När du har kontrollerat att bygget körs rätt kan du definiera en versionsdefinition som distribuerar programmet till ett kluster.
 

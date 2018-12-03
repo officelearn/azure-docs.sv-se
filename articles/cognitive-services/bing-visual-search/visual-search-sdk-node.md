@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: 77b8f956ca2a6985121cb5dbfebc2755fa73a35c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: cca39fb16c47eb13887f6198833dafc64974d301
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685981"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444468"
 ---
 # <a name="quickstart-bing-visual-search-sdk-node"></a>Snabbstart: SDK för Visuell sökning i Bing, Node 
 
@@ -28,7 +28,15 @@ Kodscenarier dokumenteras under följande rubriker:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* En API-nyckel för Cognitive Services krävs för att autentisera SDK-anrop. Registrera dig för en [nyckel till en kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). Utvärderingsnyckeln gäller i sju dagar med ett anrop per sekund. Om du har produktionsscenarier [köper du en åtkomstnyckel](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Se även [prisinformationen](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* För den här snabbstarten behöver du starta en prenumeration på S9-prisnivån enligt [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Så här startar du en prenumeration på Azure-portalen:
+1. Ange ”BingSearchV7” i den textruta längst upp på Azure-portalen där det står `Search resources, services, and docs`.  
+2. Under Marketplace i den nedrullningsbara listan väljer du `Bing Search v7`.
+3. Ange `Name` för den nya resursen.
+4. Välj `Pay-As-You-Go`-prenumeration.
+5. Välj prisnivån `S9`.
+6. Starta prenumerationen genom att klicka på `Enable`.
 
 ## <a name="application-dependencies"></a>Programberoenden
 

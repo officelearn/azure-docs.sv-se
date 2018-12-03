@@ -9,22 +9,22 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: eac44d3b8daae27afec8aa24f4767bdb5dbf991a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a730f6ccba9f935855b233ca804a8180aa7f504b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239567"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580578"
 ---
-# <a name="tutorial-build-a-spark-machine-learning-application-in-hdinsight"></a>Självstudie: Skapa ett Spark-maskininlärningsprogram i HDInsight 
+# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>Självstudie: Skapa ett Apache Spark-maskininlärningsprogram i HDInsight 
 
-I den här självstudien får du lära dig att använda Jupyter Notebook för att skapa ett Apache Spark-machine learning-program för Azure HDInsight. 
+I den här självstudien lär du dig att använda [Jupyter Notebook](https://jupyter.org/) för att skapa ett [Apache Spark](https://spark.apache.org/)-maskininlärningsprogram för Azure HDInsight. 
 
 [MLib](https://spark.apache.org/docs/1.1.0/mllib-guide.html) är Sparks skalbara Machine Learning-bibliotek som består av vanliga algoritmer och verktyg, inklusive klassificering, regression, klustring, samarbetsfilter, dimensionsminskning samt underliggande optimeringsprimitiver.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
-> * Utveckla ett Spark-maskininlärningsprogram
+> * Utveckla ett Apache Spark-maskininlärningsprogram
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -190,7 +190,7 @@ Apache Spark-kluster i HDInsight innehåller Anaconda-bibliotek. Det innehåller
 
 I den här självstudiekursen lärde du dig att:
 
-* Utveckla ett Spark-maskininlärningsprogram
+* Utveckla ett Apache Spark-maskininlärningsprogram
 
 Gå vidare till nästa självstudie om du vill lära dig hur du använder IntelliJ IDEA för Spark-jobb. 
 

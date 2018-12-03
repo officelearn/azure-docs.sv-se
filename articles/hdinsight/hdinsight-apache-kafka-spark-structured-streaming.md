@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 83e277eceea2df746de6f6e9a33130989e2d874d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5f59f14f93b5bfc79c07b096a07ac109be0bedb6
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278369"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499099"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Självstudie: Använda Apache Spark Structured Streaming med Apache Kafka i HDInsight
 
-Den här självstudien visar hur du använder Apache Spark Structured Streaming till att läsa och skriva data med Apache Kafka i Azure HDInsight.
+Den här självstudien visar hur du använder [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) till att läsa och skriva data med [Apache Kafka](https://kafka.apache.org/) i Azure HDInsight.
 
 Apache Spark Structured Streaming är en bearbetningsmotor för dataströmmar som bygger på Apache Spark SQL. Med den kan du uttrycka strömmande beräkningar på samma sätt som batchberäkningar av statiska data. 
 
@@ -35,11 +35,11 @@ Kom ihåg att ta bort klustren för att undvika onödiga avgifter när du är kl
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Kunskaper om Jupyter Notebooks med Spark på HDInsight. Mer information finns i dokumentet [Load data and run queries with Spark on HDInsight](spark/apache-spark-load-data-run-query.md) (Läsa in data och köra frågor med Spark på HDInsight).
+* Kunskaper om [Jupyter Notebooks](https://jupyter.org/) med Spark på HDInsight. Mer information finns i dokumentet [Läsa in data och köra frågor med Apache Spark på HDInsight](spark/apache-spark-load-data-run-query.md).
 
 * Kunskaper i programmeringsspråket [Scala](https://www.scala-lang.org/). Koden som används i den här självstudien är skriven i Scala.
 
-* Om du vet hur man skapar Kafka-avsnitt. Mer information finns i dokumentet [Snabbstart för Kafka på HDInsight](kafka/apache-kafka-get-started.md).
+* Känna till hur man skapar Kafka-ämnen. Mer information finns i dokumentet [Snabbstart för Apache Kafka i HDInsight](kafka/apache-kafka-get-started.md).
 
 > [!IMPORTANT]
 > Stegen i det här dokumentet kräver en Azure-resursgrupp som innehåller både en Apache Spark på HDInsight och en Kafka på HDInsight-klustret. Båda dessa kluster finns i ett virtuellt Azure-nätverk, vilket innebär att Apache Spark-klustret kan kommunicera direkt med Kafka-klustret.
@@ -48,7 +48,7 @@ Kom ihåg att ta bort klustren för att undvika onödiga avgifter när du är kl
 >
 > Mer information om hur du använder HDInsight i ett virtuellt nätverk finns i dokumentet [Utöka HDInsight med hjälp av ett virtuellt nätverk](hdinsight-extend-hadoop-virtual-network.md).
 
-## <a name="structured-streaming-with-kafka"></a>Structured Streaming med Kafka
+## <a name="structured-streaming-with-apache-kafka"></a>Structured Streaming med Apache Kafka
 
 Apache Spark Structured Streaming är en bearbetningsmotor för dataströmmar som bygger på Apache Spark SQL-motorn. När du använder Structured Streaming kan du skriva strömningsfrågor på samma sätt som du skriver batch-frågor.
 
@@ -205,7 +205,7 @@ Ta bort en resursgrupp med Azure Portal:
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig att använda Spark Structured Streaming för att skriva och läsa data från Kafka i HDInsight. Via följande länk kan du lära dig att använda Storm med Kafka.
+I den här självstudien har du lärt dig att använda [Structured Streaming med Apache Spark](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) för att skriva och läsa data från [Apache Kafka](https://kafka.apache.org/) i HDInsight. Via följande länk kan du lära dig att använda [Apache Storm](https://storm.apache.org/) med Kafka.
 
 > [!div class="nextstepaction"]
-> [Använda Apache Storm med Kafka](hdinsight-apache-storm-with-kafka.md)
+> [Använda Apache Storm med Apache Kafka](hdinsight-apache-storm-with-kafka.md)

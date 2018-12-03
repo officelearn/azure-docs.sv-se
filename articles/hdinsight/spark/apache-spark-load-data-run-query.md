@@ -9,16 +9,16 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
 ms.date: 11/06/2018
-ms.openlocfilehash: 85afc16fe6bcae4e0a7218fa9f66bab3e947ec6b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f279d7ca40eac1764ec5549aecec36b0f62034e8
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244088"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495781"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Självstudie: Läsa in data och köra frågor i ett Apache Spark-kluster i Azure HDInsight
 
-I självstudien får du lära dig hur du skapar en dataram från en csv-fil och hur du kör interaktiva Spark SQL-frågor mot ett Apache Spark-kluster i Azure HDInsight. I Spark är en dataram en distribuerad datasamling som har ordnats i namngivna kolumner. Begreppsmässigt motsvarar dataramen en tabell i en relationsdatabas eller en dataram i R/Python.
+I den här självstudien lär du dig hur du skapar en dataram från en csv-fil och kör interaktiva Spark SQL-frågor mot ett [Apache Spark](https://spark.apache.org/)-kluster i Azure HDInsight. I Spark är en dataram en distribuerad datasamling som har ordnats i namngivna kolumner. Begreppsmässigt motsvarar dataramen en tabell i en relationsdatabas eller en dataram i R/Python.
  
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
@@ -99,10 +99,10 @@ Du kan också välja resursgruppnamnet för att öppna resursgruppsidan. Välj s
 
 I den här självstudiekursen lärde du dig att:
 
-* Skapa en Spark-dataram.
+* Skapa en Apache Spark-dataram.
 * Kör Spark SQL mot dataramen.
 
-Gå vidare till nästa artikel för att se hur de data som du har registrerat i Spark kan hämtas till ett BI-analysverktyg, som till exempel Power BI. 
+Gå vidare till nästa artikel för att se hur de data som du har registrerat i Apache Spark kan hämtas till ett BI-analysverktyg såsom Power BI. 
 > [!div class="nextstepaction"]
 > [Analysera data med BI-verktyg](apache-spark-use-bi-tools.md)
 

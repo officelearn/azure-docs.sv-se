@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 40f3f56c15956a93176a753f7c66f66df1b8f5f4
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: f8f7d43d4b42f5236c6c8d25c88314043053b0cc
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515734"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445726"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Snabbstart: Utforska och analysera kostnader med kostnadsanalys
 
@@ -84,17 +84,17 @@ Det finns även den **dagsvyn**, som visar kostnaderna för varje dag. Dagsvyn v
 
 ![Dagsvy](./media/quick-acm-cost-analysis/daily-view.png)
 
-Du kan **gruppera efter** för att välja en gruppkategori och ändra data som visas i diagrammet med total area längst upp. Med gruppering kan du snabbt se hur dina utgifter kategoriseras efter resurstyp. Här är en vy över Azure-tjänstkostnaderna för en vy över föregående månad.
+Du kan **gruppera efter** för att välja en gruppkategori och ändra data som visas i diagrammet med total area längst upp. Med gruppering kan du snabbt se hur dina utgifter kategoriseras efter gemensamma resurs- och användningsegenskaper såsom resursgrupp eller resurstaggar. Om du vill gruppera efter taggar väljer du den taggnyckel du vill gruppera efter så visas kostnaderna uppdelade efter varje värde för den taggen, med ett extra segment för resurser som inte har den taggen tillämpad. Observera att Cost Management endast stöder resurstaggar från det datum då taggarna tillämpades direkt på resursen. Resursgrupptaggar stöds inte i nuläget. Här är en vy över Azure-tjänstkostnaderna för en vy över föregående månad.
 
 ![Grupperad daglig ackumulerad vy](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
-Pivotdiagram under vyn Totalt längst upp visar vyer för olika grupperings- och filtreringskategorier. När du väljer en gruppkategori visas den fullständiga datamängden för vyn Totalt längst ned i vyn. Här är ett exempel för resursgrupper.
+Pivotdiagram under huvuddiagram visar olika grupperingar för att ge dig en bredare bild av de totala kostnaderna för den valda tidsperioden och filtren. Välj en egenskap eller en tagg för att visa samlade kostnader efter valfri dimension. Du kan visa en fullständig uppsättning data för totalvyn finns längst ned på skärmen genom att expandera rutan **Data** eller välja **Exportera > Ladda ned CSV** längst upp på skärmen. Här är ett exempel på datarutan för resursgrupper.
 
 ![Fullständiga data för aktuell vy](./media/quick-acm-cost-analysis/full-data-set.png)
 
-I föregående bild visas resursgruppnamn. Visning av taggar för resurser är inte tillgängligt i någon av vyerna, filtren eller grupperna för kostnadsanalys.
+I föregående bild visas resursgruppnamn. Du kan gruppera efter tagg för att visa totala kostnader per tagg, men det finns inte stöd för att visa alla taggar per resurs eller resursgrupp i någon av vyerna för kostnadsanalys.
 
-När du grupperar kostnader efter ett specifikt attribut visas de tio viktigaste kostnadsfaktorerna från högsta till lägsta. Om det finns fler än tio grupper visas de nio viktigaste grupperna plus gruppen **Others** (Övriga), där alla övriga grupper ingår.
+När du grupperar kostnader efter ett specifikt attribut visas de tio viktigaste kostnadsfaktorerna från högsta till lägsta. Om det finns fler än tio grupper visas de nio viktigaste grupperna plus gruppen **Others** (Övriga), där alla övriga grupper ingår. När du grupperar efter taggar kan det även hända att du ser en **Otaggad** grupp för kostnader som inte har taggnyckeln tillämpad. **Otaggad** är alltid är sist även om det finns fler otaggade kostnader än taggade kostnader. Om det finns minst 10 taggvärden ingår otaggade kostnader i **Andra**.
 
 *Klassiska* virtuella datorer (Azure Service Management eller ASM), nätverk och lagringsresurser delar inte detaljerad faktureringsinformation. De slås samman som **klassiska tjänster** när du grupperar kostnader.
 

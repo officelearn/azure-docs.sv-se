@@ -13,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/02/2018
+ms.date: 11/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2aca42c23cc213d5d7e451105052d5d5d697b77d
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: c8ab6b6e6bab7451de7d975dde644386fd4cb84e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979479"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311542"
 ---
 # <a name="hybrid-identity-and-microsoft-identity-solutions"></a>Hybrididentitet och Microsofts identitetslösningar
 [Microsoft Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)-hybrididentitetslösningar (Azure AD) gör det möjligt att synkronisera lokala katalogobjekt med Azure AD medan du fortfarande hanterar användarna lokalt. Det första beslutet att fatta när du planerar att synkronisera din lokala Windows Server Active Directory med Azure AD är huruvida du vill använda hanterade eller federerade identiteter. 
 
-- **Hanterade identiteter** – Användarkonton och grupper som synkroniseras från en lokal Active Directory och användarautentiseringen hanteras av Azure.   
+- **Hanterade identiteter** – Användarkonton och grupper synkroniseras från en lokal Active Directory, och användarautentiseringen hanteras av Azure.   
 - **Federerade identiteter** medger mer kontroll över användare genom att separera användarautentisering från Azure och delegera autentisering till en betrodd, lokal identitetsprovider. 
 
 Det finns flera alternativ för att konfigurera hybrididentitet. När du överväger vilken identitetsmodell som bäst passar organisationens behov bör du även ta med tid, befintlig infrastruktur, komplexitet och kostnad i beräkningen. Dessa faktorer är olika för varje organisation och kan ändras över tid. Men om dina krav ändras har du även flexibiliteten att växla till en annan identitetsmodell.
@@ -42,7 +42,7 @@ Hanterad identitet är den enklaste och snabbaste metoden, men dina användare b
 För de flesta organisationer som bara behöver ge användarna möjlighet att logga in på Office 365, SaaS-program och andra Azure AD-baserade resurser rekommenderas standardalternativet för synkronisering av hashlösenord. Om det inte fungerar för dig behöver du välja mellan direktautentisering och AD FS.
 
 > [!TIP]
-> Användarlösenord lagras i lokal Windows Server Active Directory i form av ett hashvärde som representerar den faktiska användarens lösenord. Ett hashvärde är ett resultat av en enkelriktad matematisk funktion (hashalgoritmen). Det finns ingen metod för att återställa resultatet av en envägsfunktion till versionen av ett lösenord med oformaterad text. Du kan inte använda en lösenordshash för att logga in på ditt lokala nätverk. När du väljer att synkronisera lösenord extraherar Azure AD Connect lösenordshasher från lokal Active Directory och tillämpar extra säkerhetsbearbetning på lösenordshashen innan den synkroniseras till Azure AD. Synkronisering av hashlösenord kan även användas tillsammans med tillbakaskrivning av lösenord för att aktivera självåterställning av lösenord i Azure AD. Dessutom kan du aktivera enkel inloggning (SSO) för användare på domänanslutna datorer som är anslutna till företagsnätverket. Med enkel inloggning behöver aktiverade användare bara ange ett användarnamn för att få säker åtkomst till molnresurser. 
+> Användarlösenord lagras i lokal Windows Server Active Directory i form av ett hashvärde som representerar den faktiska användarens lösenord. Ett hashvärde är ett resultat av en enkelriktad matematisk funktion (hashalgoritmen). Det finns ingen metod för att återställa resultatet av en envägsfunktion till versionen av ett lösenord med oformaterad text. Du kan inte använda en lösenordshash för att logga in på ditt lokala nätverk. När du väljer att synkronisera lösenords extraherar Azure AD Connect lösenordshasher från lokal Active Directory och tillämpar extra säkerhetsbearbetning på lösenordshashen innan den synkroniseras till Azure AD. Synkronisering av hashlösenord kan även användas tillsammans med tillbakaskrivning av lösenord för att aktivera självåterställning av lösenord i Azure AD. Dessutom kan du aktivera enkel inloggning (SSO) för användare på domänanslutna datorer som är anslutna till företagsnätverket. Med enkel inloggning behöver aktiverade användare bara ange ett användarnamn för att få säker åtkomst till molnresurser. 
 >
 
 ## <a name="pass-through-authentication"></a>Direktautentisering

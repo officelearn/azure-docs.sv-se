@@ -8,16 +8,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/18/2018
-ms.openlocfilehash: b0e8c4dabea6aeae8d93d64d97b598ec97b2d18a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: e734f11fb3f6a833b8c080deb57b9153c6c12dde
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52277100"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290696"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>Snabbstart: Mata in data med hjälp av .NET Standard SDK (förhandsversion) i Azure-datautforskaren
 
-Azure Data Explorer (ADX) är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. ADX tillhandahåller två klientbibliotek för .NET Standard: ett [bibliotek för inmatning](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard) och [ett databibliotek](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard). I biblioteken kan du mata in (läsa in) data i ett kluster och fråga data från din kod. I den här snabbstarten skapar du först en tabell och datamappning i ett testkluster. Sedan köar du inmatningen till klustret och verifierar resultaten.
+Azure Data Explorer (ADX) är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. ADX tillhandahåller två klientbibliotek för .NET Standard: ett [bibliotek för inmatning](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard) och [ett databibliotek](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard). I biblioteken kan du mata in (läsa in) data i ett kluster och fråga data från din kod. I den här snabbstarten skapar du först en tabell och datamappning i ett testkluster. Sedan köar du en inmatning till klustret och verifierar resultatet.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -75,14 +75,14 @@ var kustoConnectionStringBuilder =
 
 ## <a name="set-source-file-information"></a>Ange information om källfilen
 
-Ange konstanter för datakällfilen. Det här exemplet används en exempelfil som finns på Azure Blob Storage. I exempeldatauppsättningen **StormEvents** finns väderrelaterade data från [National Centers for Environmental Information](https://www.ncdc.noaa.gov/stormevents/).
+Ange sökvägen till källfilen. Det här exemplet används en exempelfil som finns på Azure Blob Storage. I exempeldatauppsättningen **StormEvents** finns väderrelaterade data från [National Centers for Environmental Information](https://www.ncdc.noaa.gov/stormevents/).
 
 ```csharp
 var blobPath = "https://kustosamplefiles.blob.core.windows.net/samplefiles/StormEvents.csv?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D";
 ```
 
 ## <a name="create-a-table-on-your-test-cluster"></a>Skapa en tabell i ditt testkluster
-Skapa en tabell som matchar schemat för data i filen `StormEvents.csv`. När den här koden körs returneras ett meddelande som ser ut ungefär så här: *Om du vill logga in öppnar du en webbläsare och går till sidan https://microsoft.com/devicelogin och anger koden F3W4VWZDM för att autentisera*. Följ stegen för att logga in och gå sedan tillbaka för att köra nästa kodblock. Efterföljande kodblock som upprättar en anslutning kräver att du loggar in igen.
+Skapa en tabell med namnet `StormEvents` som matchar schemat för data i filen `StormEvents.csv`.
 
 ```csharp
 var table = "StormEvents";
@@ -122,7 +122,7 @@ using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnecti
 
 ## <a name="define-ingestion-mapping"></a>Definiera mappning av inmatning
 
-Mappa inkommande CSV-data till kolumnnamnen och datatyperna som används när du skapade tabellen.
+Mappa inkommande CSV-data till de kolumnnamn som används när du skapade tabellen.
 Etablera ett [mappningsobjekt för CSV-kolumnen](/azure/kusto/management/tables#create-ingestion-mapping) på tabellen
 
 ```csharp
@@ -193,12 +193,12 @@ using (var ingestClient = KustoIngestFactory.CreateQueuedIngestClient(ingestConn
 
 ## <a name="validate-data-was-ingested-into-the-table"></a>Verifiera att data har matats in i tabellen
 
-Vänta fem till tio minuter medan den köade datainmatningen schemaläggs för inmatning och läser in data i ADX. Kör sedan följande kod för att hämta posterna i tabellen StormEvents.
+Vänta fem till tio minuter medan den köade datainmatningen schemaläggs för inmatning och läser in data i ADX. Kör sedan följande kod för att hämta posterna i tabellen `StormEvents`.
 
 ```csharp
 using (var cslQueryProvider = KustoClientFactory.CreateCslQueryProvider(kustoConnectionStringBuilder))
 {
-    var query = "StormEvents | count";
+    var query = $"{table} | count";
 
     var results = cslQueryProvider.ExecuteQuery<long>(query);
     Console.WriteLine(results.Single());
@@ -224,7 +224,7 @@ Kör följande kommando för att visa status för alla åtgärder för inmatning
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du planerar att följa våra andra snabbstarter och självstudier kan du spara alla resurser som du skapade. Om inte kör du följande kommando i din databas för att rensa tabellen StormEvents.
+Om du planerar att följa våra andra snabbstarter och självstudier kan du spara alla resurser som du skapade. Om inte kör du följande kommando i din databas för att rensa tabellen `StormEvents`.
 
 ```Kusto
 .drop table StormEvents

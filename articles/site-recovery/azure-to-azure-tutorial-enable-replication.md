@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/18/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: cff6d38867ef8ecaf1435fd4c4cc22fe63d70575
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 586e60316ba8bf4f485a151e77015fa3ed104df7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283254"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317423"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Konfigurera haveriberedskap för virtuella Azure-datorer till en sekundär Azure-region
 
@@ -131,7 +131,7 @@ Site Recovery hämtar en lista med de virtuella datorer som är kopplade till pr
 Site Recovery skapar standardinställningar och replikeringsprinciper för målregionen. Du kan ändra inställningarna efter behov.
 
 1. Klicka på **Inställningar** och visa inställningar för mål och replikering.
-2. Om du vill åsidosätta standardinställningarna för målet klickar du på **Anpassa** intill **resursgrupp, nätverk, lagring och tillgänglighetsuppsättningar**.
+2. Om du vill åsidosätta standardmålinställningarna för målet klickar du på **Anpassa** intill **Resursgrupp, nätverk, lagring och tillgänglighet**.
 
   ![Konfigurera inställningar](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
@@ -154,7 +154,14 @@ Site Recovery skapar standardinställningar och replikeringsprinciper för målr
       >
 
     - **Hanterade replikeringsdiskar (om den virtuella måldatorn använder hanterade diskar)**: Som standard skapar Site Recovery hanterade replikeringsdiskar i målregionen, som speglar den virtuella källdatorns hanterade diskar med samma lagringstyp (standard eller premium) som den virtuella källdatorns hanterade disk.
-    - **Tillgänglighetsuppsättningar för mål**: Som standard skapar Site Recovery en ny tillgänglighetsuppsättning i målregionen med suffixet ”asr”. Det går bara att lägga till tillgänglighetsuppsättningar om virtuella datorer ingår i en tillgänglighetsuppsättning i källregionen.
+    - **Tillgänglighetsuppsättningar för mål**: som standard skapar Azure Site Recovery en ny tillgänglighetsuppsättning i målregionen med namn som har suffixet ”asr” för de virtuella datorer som ingår i en tillgänglighetsuppsättning i källregionen. Om den tillgänglighetsuppsättning som skapades av Azure Site Recovery redan finns återanvänds den.
+    - **Tillgänglighetszoner för mål**: som standard tilldelar Site Recovery samma zonnummer som källregionen i målregionen om målregionen har stöd för tillgänglighetszoner. 
+
+    Om målregionen inte har stöd för tillgänglighetszoner konfigureras de virtuella måldatorerna som enskilda instanser som standard. Om det behövs kan du konfigurera sådana virtuella datorer att bli en del av tillgänglighetsuppsättningarna i målregionen genom att klicka på ”Anpassa”.
+
+    >[!NOTE]
+    >Du kan inte ändra tillgänglighetstypen enskild instans, tillgänglighetsuppsättningen eller tillgänglighetszonen efter att du har aktiverat replikering. Du måste inaktivera och aktivera replikering för att ändra tillgänglighetstypen.
+    >
 
 4. Om du vill anpassa inställningarna för replikeringsprincip klickar du på **Anpassa** intill **Replikeringsprincip** och ändrar följande inställningar efter behov:
 

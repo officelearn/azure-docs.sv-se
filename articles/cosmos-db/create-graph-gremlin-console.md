@@ -10,18 +10,18 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: e73b0e88a98c1b06216378078626b4338c598816
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 8e98c778c89a74b6c3c1cfa7dc7feb311c62b076
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422974"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499511"
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Skapa, ställ frågor och bläddra i grafen i Gremlin-konsolen
 
 > [!div class="op_single_selector"]
 > * [Gremlin-konsol](create-graph-gremlin-console.md)
-> * [.NET](create-graph-dotnet.md)
+> * [NET](create-graph-dotnet.md)
 > * [Java](create-graph-java.md)
 > * [Node.js](create-graph-nodejs.md)
 > * [Python](create-graph-python.md)
@@ -42,7 +42,7 @@ Du måste ha en Azure-prenumeration för att skapa ett Azure Cosmos DB-konto fö
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Du måste också installera [Gremlin-konsolen](http://tinkerpop.apache.org/). Använd version 3.2.5 eller senare.
+Du måste också installera [Gremlin-konsolen](http://tinkerpop.apache.org/). Använd version 3.2.5 eller senare. (För att använda Gremlin-konsolen på Windows måste du installera [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html).)
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
 

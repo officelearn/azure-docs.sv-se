@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
-ms.openlocfilehash: ac3de25773249119535ac6f3bd063ff6b9b7831e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: b3143a34590e41d0222b4e4aa6eeda07ee407e45
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295537"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311865"
 ---
 # <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-php"></a>Snabbstart: Skicka sökfrågor med REST API för bildsökning i Bing och PHP
 
@@ -31,6 +31,8 @@ Källkoden till det här exemplet finns [på GitHub](https://github.com/Azure-Sa
 * [PHP 5.6.x eller senare](http://php.net/downloads.php).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+
+Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 

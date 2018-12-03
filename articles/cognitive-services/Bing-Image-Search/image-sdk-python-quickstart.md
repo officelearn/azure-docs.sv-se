@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: 7afe19cf0167784a5c8b3e2751ec869a2664935d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a2a39049196e19d29d2b4d845b9cf756392013bf
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296625"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315043"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-python"></a>Snabbstart: Sök efter bilder med API för bildsökning i Bing och Python
 
@@ -24,6 +24,7 @@ Använd den här snabbstarten till att göra din första bildsökning med API f�
 Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image-search-quickstart.py) tillsammans med ytterligare felhantering och kommentarer.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
+Hämta en [Cognitive Services-åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/) under **Sök**.  Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 * [Python 2.7 eller 3.4](https://www.python.org/) och högre.
 

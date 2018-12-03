@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: bc168cf696d6280ce4c0e7cb46f90af4a2ad7aa0
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 075ce771b6fa92663f172734aabf57b089b294a9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686505"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316947"
 ---
 # <a name="quickstart-bing-news-search-sdk-with-node"></a>Snabbstart: SDK för nyhetssökning i Bing med Node
 
@@ -24,6 +24,7 @@ SDK för nyhetssökning i Bing innehåller funktionerna i REST API:et för nyhet
 [Källkoden till exemplen med SDK:t för nyhetssökning i Bing med Node](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/newsSearch.js) är tillgänglig på Git Hub.
 
 ## <a name="application-dependencies"></a>Programberoenden
+Hämta en [Cognitive Services-åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/) under **Sök**.  Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
 
 Så här skapar du ett konsolprogram med API för nyhetssökning i Bing:
 * Kör `npm install ms-rest-azure` i utvecklingsmiljön.

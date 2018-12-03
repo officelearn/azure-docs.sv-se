@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/12/2018
 ms.author: jroth
-ms.openlocfilehash: 905caa7d0de514ae9fd13cb058b2b7826b8b6abf
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 141a65032d3d97a7977bb3e725edb47b6f25d55c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003679"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496654"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Vad är SQL Server på Azure Virtual Machines? (Windows)
 
@@ -67,8 +67,13 @@ Följande tabell innehåller en matris med SQL Server-avbildningar som använder
 
 Tillgängliga Linux SQL Server-VM-avbildningar finns i [Översikt över SQL Server på Azure Virtual Machines (Linux)](../../linux/sql/sql-server-linux-virtual-machines-overview.md).
 
+> [!NOTE]
+> Det går nu att ändra så att licensieringsmodellen för en SQL Server VM som betalas per användning ska använda din egen licens. Mer information finns i avsnittet om att [ändra licensieringsmodellen för en virtuell SQL-dator](virtual-machines-windows-sql-ahb.md). 
+
 ### <a id="BYOL"></a> Bring your own license (BYOL)
 Du kan även använda din egen licens (Bring your own license, BYOL). I det här scenariot betalar du bara för den virtuella datorn utan ytterligare avgifter för SQL Server-licensiering.  När du använder din egen licens kan du spara pengar långsiktigt för kontinuerliga arbetsbelastningar under produktion. Kraven för att använda det här alternativet finns i [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md#byol) (Prisvägledning för virtuella SQL Server Azure-datorer).
+
+Om du vill använda din egen licens kan du antingen konvertera en befintlig virtuell SQL-dator med betala per användning eller distribuera en avbildning med det prefigerade **{BYOL}**. Mer information om hur du växlar licensieringsmodellen mellan betala per användning och BYOL finns i avsnittet om att [ändra licensieringsmodellen för en virtuell SQL-dator](virtual-machines-windows-sql-ahb.md). 
 
 | Version | Operativsystem | Utgåva |
 | --- | --- | --- |
@@ -77,7 +82,6 @@ Du kan även använda din egen licens (Bring your own license, BYOL). I det här
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2StandardWindowsServer2012R2) |
 | **SQL Server 2012 SP4** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4EnterpriseWindowsServer2012R2), [Standard  BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4StandardWindowsServer2012R2) |
 
-Namnen på avbildningarna föregås av **{BYOL}** i portalen.
 
 ### <a name="connect-to-the-vm"></a>Anslut till VM:en
 När du har skapat din virtuella SQL Server-dator ansluter du till den från ett program eller ett verktyg som SQL Server Management Studio (SSMS). Anvisningar finns i [Anslut till en virtuell SQL Server-dator på Azure](virtual-machines-windows-sql-connect.md).

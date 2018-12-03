@@ -2,21 +2,21 @@
 title: Kör en parallell arbetsbelastning – Azure Batch .NET
 description: Självstudie – Omkoda mediefiler parallellt med ffmpeg i Azure Batch med hjälp av klientbiblioteket Batch .NET
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 09/07/2018
-ms.author: danlep
+ms.date: 11/20/2018
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 02b715ade9a9a537f6bd0e476ada299140bff4bb
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 7e654e070ce64b0f5e7f9fb5734bf0ec1584dbf6
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815519"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423617"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Självstudie: Kör en parallell arbetsbelastning med Azure Batch med hjälp av .NET API
 
@@ -41,7 +41,7 @@ I den här självstudien konverterar du MP4-mediefiler parallellt till MP3-forma
 
 * Ett Batch-konto och ett länkat Azure Storage-konto. För att skapa dessa konton finns Batch-snabbstart med hjälp av [Azure-portalen](quick-create-portal.md) eller [Azure CLI](quick-create-cli.md).
 
-* [Windows 64-bitarsversionen av ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (.zip). Ladda ned zip-filen till din lokala dator. I den här självstudien behöver du bara zip-filen. Du behöver inte packa upp filen eller installera den lokalt. 
+* [Windows 64-bitarsversionen av ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (.zip). Ladda ned zip-filen till din lokala dator. I den här självstudien behöver du bara zip-filen. Du behöver inte packa upp filen eller installera den lokalt.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -71,7 +71,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial.git
 
 Gå till den katalog som innehåller filen med Visual Studio-lösningen `BatchDotNetFfmpegTutorial.sln`.
 
-Öppna lösningsfilen i Visual Studio och uppdatera strängarna med autentiseringsuppgifterna i `program.cs` med värdena för dina konton. Exempel:
+Öppna lösningsfilen i Visual Studio och uppdatera strängarna med autentiseringsuppgifterna i `Program.cs` med värdena för dina konton. Exempel:
 
 ```csharp
 // Batch account credentials
@@ -104,7 +104,7 @@ Skapa och kör programmet i Visual Studio eller på kommandoraden med kommandona
 Kör det. När du kör exempelappen ser utdata i konsolen ut ungefär så här. Under körningen uppstår det en paus vid `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` medan poolens beräkningsnoder startas. 
 
 ```
-Sample start: 12/12/2017 3:20:21 PM
+Sample start: 11/19/2018 3:20:21 PM
 
 Container [input] created.
 Container [output] created.
@@ -120,17 +120,15 @@ Monitoring all tasks for 'Completed' state, timeout in 00:30:00...
 Success! All tasks completed successfully within the specified timeout period.
 Deleting container [input]...
 
-Sample end: 12/12/2017 3:29:36 PM
+Sample end: 11/19/2018 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
-
 
 Gå till Batch-kontot i Azure-portalen för att övervaka poolen, beräkningsnoderna, jobbet och uppgifterna. Om du till exempel vill se en termisk karta över beräkningsnoderna i din pool klickar du på **Pooler** > *WinFFmpegPool*.
 
 När uppgifter körs ser den termiska kartan ut ungefär så här:
 
 ![Termisk karta för pool](./media/tutorial-parallel-dotnet/pool.png)
-
 
 Körningen tar normalt runt **10 minuter** om du kör programmet med standardkonfigurationen. Att skapa poolen är det som tar mest tid.
 
@@ -155,7 +153,7 @@ CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnection
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```
 
-Appen skapar ett [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient)-objekt för att skapa och hantera pooler, jobb och uppgifter i Batch-tjänsten. Batch-klienten i exemplet använder autentisering med delad nyckel. Batch har även stöd för autentisering via [Azure Active Directory](batch-aad-auth.md) när enskilda användare eller övervakade program ska autentiseras.
+Appen skapar ett [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient)-objekt för att skapa och hantera pooler, jobb och uppgifter i Batch-tjänsten. Batch-klienten i exemplet använder autentisering med delad nyckel. Batch har även stöd för autentisering via [Azure Active Directory](batch-aad-auth.md) när enskilda användare eller obevakade program ska autentiseras.
 
 ```csharp
 BatchSharedKeyCredentials sharedKeyCredentials = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
@@ -178,7 +176,7 @@ Sedan laddas filerna upp till containern för indata från den lokala mappen `In
 Två metoder i `Program.cs` hanterar uppladdningen av filerna:
 
 * `UploadResourceFilesToContainerAsync`: returnerar en samling ResourceFile-objekt och anropar `UploadResourceFileToContainerAsync` internt för att ladda upp varje fil som skickas i parametern `inputFilePaths`.
-* `UploadResourceFileToContainerAsync`: laddar upp varje fil som en blob till containern för indata. När filen har laddats upp hämtar den en signatur för delad åtkomst (SAS) för bloben och returnerar ett ResourceFile-objekt som representerar den. 
+* `UploadResourceFileToContainerAsync`: laddar upp varje fil som en blob till containern för indata. När filen har laddats upp hämtar den en signatur för delad åtkomst (SAS) för bloben och returnerar ett ResourceFile-objekt som representerar den.
 
 ```csharp
 string inputPath = Path.Combine(Environment.CurrentDirectory, "InputFiles");
@@ -198,9 +196,9 @@ Mer information om hur du laddar upp filer som blobar till ett lagringskonto med
 
 Därefter skapar exempelkoden en pool med beräkningsnoder i Batch-kontot med ett anrop till `CreatePoolIfNotExistAsync`. I den här definierade metoden används metoden [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) till att ange antalet noder, VM-storlek och en poolkonfiguration. Här anger ett [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration)-objekt en [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) till en Windows Server-avbildning som publicerats på Azure Marketplace. Batch har stöd för ett stort antal Linux- och Windows Server-avbildningar på Azure Marketplace samt för anpassade VM-avbildningar.
 
-Antalet noder och VM-storleken anges med definierade konstanter. Batch har stöd för dedikerade noder och [noder med låg prioritet](batch-low-pri-vms.md), och du kan använda en av eller båda typerna i dina pooler. Dedikerade noder är reserverade för din pool. Noder med låg prioritet erbjuds till ett reducerat pris från VM-överskottskapacitet i Azure. Noder med låg prioritet är inte tillgängliga om Azure inte har tillräckligt med kapacitet. Exemplet skapar som standard en pool som endast innehåller 5 noder med låg prioritet i storleken *Standard_A1_v2*. 
+Antalet noder och VM-storleken anges med definierade konstanter. Batch har stöd för dedikerade noder och [noder med låg prioritet](batch-low-pri-vms.md), och du kan använda en av eller båda typerna i dina pooler. Dedikerade noder är reserverade för din pool. Noder med låg prioritet erbjuds till ett reducerat pris från VM-överskottskapacitet i Azure. Noder med låg prioritet är inte tillgängliga om Azure inte har tillräckligt med kapacitet. Exemplet skapar som standard en pool som endast innehåller 5 noder med låg prioritet i storleken *Standard_A1_v2*.
 
-Programmet ffmpeg distribueras till beräkningsnoderna genom att en [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) läggs till i poolkonfigurationen. 
+Programmet ffmpeg distribueras till beräkningsnoderna genom att en [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) läggs till i poolkonfigurationen.
 
 Metoden [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync) skickar poolen till Batch-tjänsten.
 
@@ -208,7 +206,7 @@ Metoden [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync) s
 ImageReference imageReference = new ImageReference(
     publisher: "MicrosoftWindowsServer",
     offer: "WindowsServer",
-    sku: "2012-R2-Datacenter-smalldisk",
+    sku: "2016-Datacenter-smalldisk",
     version: "latest");
 
 VirtualMachineConfiguration virtualMachineConfiguration =
@@ -220,7 +218,7 @@ pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
     targetDedicatedComputeNodes: DedicatedNodeCount,
     targetLowPriorityComputeNodes: LowPriorityNodeCount,
-    virtualMachineSize: PoolVMSize,                                                
+    virtualMachineSize: PoolVMSize,
     virtualMachineConfiguration: virtualMachineConfiguration);
 
 pool.ApplicationPackageReferences = new List<ApplicationPackageReference>
@@ -234,7 +232,7 @@ await pool.CommitAsync();
 
 ### <a name="create-a-job"></a>Skapa ett jobb
 
-Ett Batch-jobb anger en pool för körning av uppgifter, samt valfria inställningar som en prioritet och ett schema för arbetet. I exemplet skapas ett jobb med ett anrop till `CreateJobAsync`. I den här definierade metoden används metoden [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) till att skapa ett jobb i din pool. 
+Ett Batch-jobb anger en pool för körning av uppgifter, samt valfria inställningar som en prioritet och ett schema för arbetet. I exemplet skapas ett jobb med ett anrop till `CreateJobAsync`. I den här definierade metoden används metoden [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) till att skapa ett jobb i din pool.
 
 Metoden [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudjob.commitasync) skickar jobbet till Batch-tjänsten. Från början har jobbet inga aktiviteter.
 
@@ -252,7 +250,7 @@ I exemplet skapas uppgifterna i jobbet med ett anrop till metoden `AddTasksAsync
 
 I exemplet skapas ett [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile)-objekt för MP3-filen när du kör kommandoraden. Varje uppgifts utdatafiler (i det här fallet en) laddas upp till en container i länkade lagringskontot med uppgiftsegenskapen [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles).
 
-Sedan lägger exemplet till uppgifter i jobbet med metoden [AddTaskAsync](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync), som placerar dem i kö för att köras på beräkningsnoderna. 
+Sedan lägger exemplet till uppgifter i jobbet med metoden [AddTaskAsync](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync), som placerar dem i kö för att köras på beräkningsnoderna.
 
 ```csharp
 for (int i = 0; i < inputFiles.Count; i++)
@@ -289,7 +287,7 @@ return tasks
 
 ### <a name="monitor-tasks"></a>Övervaka aktiviteter
 
-När Batch lägger till uppgifter i ett jobb placerar tjänsten dem automatiskt i kö och schemalägger dem för körning vid beräkningsnoder i den associerade poolen. Baserat på de inställningar du anger sköter Batch all köhantering, all schemaläggning, alla omförsök och all annan uppgiftsadministration åt dig. 
+När Batch lägger till uppgifter i ett jobb placerar tjänsten dem automatiskt i kö och schemalägger dem för körning vid beräkningsnoder i den associerade poolen. Baserat på de inställningar du anger sköter Batch all köhantering, all schemaläggning, alla omförsök och all annan uppgiftsadministration åt dig.
 
 Du kan övervaka aktivitetskörningen på många sätt. I det här exemplet definieras metoden `MonitorTasks` för att rapportera endast vid slutförande och vid uppgiftstillstånden för fel eller framgång. Koden i `MonitorTasks` anger en [ODATADetailLevel](/dotnet/api/microsoft.azure.batch.odatadetaillevel) så att endast minimalt med information om uppgifterna väljs. Sedan skapas en [TaskStateMonitor](/dotnet/api/microsoft.azure.batch.taskstatemonitor) som tillhandahåller hjälpkomponenter för övervakning av uppgiftstillstånd. I `MonitorTasks` väntar exemplet på att alla uppgifter ska nå `TaskState.Completed` inom en tidsgräns. Sedan avslutas jobbet och alla uppgifter som slutfördes men där det kan ha uppstått ett fel rapporteras, till exempel vid slutkoder skilda från noll.
 

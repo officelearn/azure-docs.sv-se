@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: 529dc37187f6709ecfa93bf3a6d71f053ba49103
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: d83c04946b67dd25bae306c2fa41a0864287bfc8
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008971"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499312"
 ---
-# <a name="tutorial-create-a-scala-maven-application-for-spark-in-hdinsight-using-intellij"></a>Självstudie: Skapa ett Scala Maven-program för Spark i HDInsight med IntelliJ
+# <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Självstudie: Skapa ett Scala Maven-program för Apache Spark i HDInsight med hjälp av IntelliJ
 
-I självstudien får du lära dig att skapa ett Spark-program som skrivits i Scala med Maven och IntelliJ IDEA. Artikeln använder Apache Maven som build-system och startar med en befintlig Maven-arketyp för Scala som tillhandahålls av IntelliJ IDEA.  Att skapa ett Scala-program i IntelliJ IDEA innefattar följande steg:
+I den här självstudien lär du dig att skapa ett [Apache Spark](https://spark.apache.org/)-program som skrivits i [Scala](https://www.scala-lang.org/) med hjälp av [Apache Maven](https://maven.apache.org/) med IntelliJ IDEA. Artikeln använder Apache Maven som build-system och startar med en befintlig Maven-arketyp för Scala som tillhandahålls av IntelliJ IDEA.  Att skapa ett Scala-program i IntelliJ IDEA innefattar följande steg:
 
 * Använd Maven som build-system.
 * Uppdatera POM-filen (Project Object Model) för att hantera Spark-modulens beroenden.
@@ -27,7 +27,7 @@ I självstudien får du lära dig att skapa ett Spark-program som skrivits i Sca
 * Kör programmet på ett Spark-kluster med Livy.
 
 > [!NOTE]
-> HDInsight tillhandahåller även ett plugin-verktyg i IntelliJ IDEA som underlättar processen med att skapa och skicka program till ett HDInsight Spark-kluster i Linux. Mer information finns i [Använda plugin-verktyg i HDInsight för IntelliJ IDEA till att skapa och skicka Spark-program](apache-spark-intellij-tool-plugin.md).
+> HDInsight tillhandahåller även ett plugin-verktyg i IntelliJ IDEA som underlättar processen med att skapa och skicka program till ett HDInsight Spark-kluster i Linux. Mer information finns i [Använda HDInsight-verktygsplugin för IntelliJ IDEA till att skapa och skicka Apache Spark-program](apache-spark-intellij-tool-plugin.md).
 > 
 
 I den här guiden får du lära dig att:
@@ -183,16 +183,16 @@ Använd följande steg för att installera plugin-programmet Scala:
        
         ![Skapa JAR-fil](./media/apache-spark-create-standalone-application/output.png)
 
-## <a name="run-the-application-on-the-spark-cluster"></a>Köra programmet på Spark-klustret
+## <a name="run-the-application-on-the-apache-spark-cluster"></a>Köra programmet på Apache Spark-klustret
 Om du vill köra programmet på klustret, kan du använda följande metoder:
 
-* **Kopiera programmets jar-fil till den Azure Storage Blob** som är associerad med klustret. Du kan använda kommandoradsverktyget [**AzCopy**](../../storage/common/storage-use-azcopy.md) till att göra detta. Det finns även andra klienter som du kan använda för att ladda upp data. Du kan hitta mer information om dem i [Ladda upp data för Hadoop-jobb i HDInsight](../hdinsight-upload-data.md).
-* **Använda Livy till att skicka ett programjobb via fjärranslutning** till Spark-klustret. Spark-kluster i HDInsight innehåller Livy som gör REST-slutpunkter tillgängliga, så att man kan skicka Spark-jobb via en fjärranslutning. Mer information finns i [Använda Livy till att skicka Spark-jobb via fjärranslutning med Spark-kluster i HDInsight](apache-spark-livy-rest-interface.md).
+* **Kopiera programmets jar-fil till den Azure Storage Blob** som är associerad med klustret. Du kan använda kommandoradsverktyget [**AzCopy**](../../storage/common/storage-use-azcopy.md) till att göra detta. Det finns även andra klienter som du kan använda för att ladda upp data. Det finns mer information om dem i [Ladda upp data för Apache Hadoop-jobb i HDInsight](../hdinsight-upload-data.md).
+* **Använd Apache Livy till att skicka ett programjobb via fjärranslutning** till Spark-klustret. Spark-kluster i HDInsight innehåller Livy som gör REST-slutpunkter tillgängliga, så att man kan skicka Spark-jobb via en fjärranslutning. Mer information finns i [Skicka Apache Spark-jobb via fjärranslutning med hjälp av Apache Livy med Spark-kluster i HDInsight](apache-spark-livy-rest-interface.md).
 
 ## <a name="next-step"></a>Nästa steg
 
-I den här artikeln har du lärt dig att skapa ett Spark Scala-program. Gå vidare till nästa artikel om du vill lära dig att köra programmet på ett HDInsight Spark-kluster med Livy.
+I den här artikeln har du lärt dig att skapa ett Apache Spark Scala-program. Gå vidare till nästa artikel om du vill lära dig att köra programmet på ett HDInsight Spark-kluster med Livy.
 
 > [!div class="nextstepaction"]
->[Köra jobb via fjärranslutning på ett Spark-kluster med Livy](./apache-spark-livy-rest-interface.md)
+>[Köra jobb via fjärranslutning på ett Apache Spark-kluster med hjälp av Apache Livy](./apache-spark-livy-rest-interface.md)
 

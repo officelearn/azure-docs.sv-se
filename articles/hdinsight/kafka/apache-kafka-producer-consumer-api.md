@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: 2a441e3cd90eba8fc2b1201671047cfcd9d277a6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 947eb76f84f865135e87803b53fa94e20eecb78c
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277740"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313844"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Självstudie: Använda Apache Kafka-producenten och konsument-API:er
 
-Lär dig att använda Kafka-producenten och konsument-API:er med Kafka i HDInsight.
+Lär dig att använda Apache Kafka-producenten och konsument-API:er med Kafka i HDInsight.
 
 Kafka-producentens API tillåter att program skickar dataströmmar till Kafka-klustret. Kafka-konsumentens API tillåter att program läser dataströmmar från klustret.
 
@@ -56,7 +56,7 @@ Följande miljövariabler kan konfigureras när du installerar Java och JDK på 
 
 ## <a name="set-up-your-deployment-environment"></a>Konfigurera din distributionsmiljö
 
-Den här självstudien kräver att Apache Kafka finns i HDInsight 3.6. Information om hur du skapar en Kafka på ett HDInsight-kluster finns i dokumentet [Starta med Kafka i HDInsight](apache-kafka-get-started.md).
+Den här självstudien kräver att Apache Kafka finns i HDInsight 3.6. Information om hur du skapar en Kafka på ett HDInsight-kluster finns i dokumentet [Starta med Apache Kafka i HDInsight](apache-kafka-get-started.md).
 
 ## <a name="understand-the-code"></a>Förstå koden
 
@@ -171,7 +171,7 @@ I den här koden är konsumenten konfigurerad att läsa från början av ämnet 
         read -p 'Enter your Kafka cluster name:' CLUSTERNAME
         ```
     
-    2. Använd följande kommandon för att hämta värdar för Kafka-meddelandeköer och Zookeeper. När du blir ombedd anger du lösenordet till klusterinloggningskontot (admin).
+    2. Använd följande kommandon för att hämta värdar för Apache Kafka-meddelandeköer och Apache Zookeeper. När du blir ombedd anger du lösenordet till klusterinloggningskontot (admin).
     
         ```bash
         export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
@@ -227,8 +227,8 @@ Poster som lagras i Kafka lagras i den ordning som de tas emot inom en partition
 
 ## <a name="next-steps"></a>Nästa steg
 
-I dokumentet har du lärt dig att använda Kafka-producenten och konsument-API:n med Kafka i HDInsight. Använd följande för att lära dig mer om att arbeta med Kafka:
+I det här dokumentet har du lärt dig att använda Apache Kafka-producent- och konsument-API:et med Kafka i HDInsight. Använd följande för att lära dig mer om att arbeta med Kafka:
 
-* [Analysera Kafka-loggar](apache-kafka-log-analytics-operations-management.md)
-* [Replikera data mellan Kafka-kluster](apache-kafka-mirroring.md)
-* [Kafka Streams-API med HDInsight](apache-kafka-streams-api.md)
+* [Analysera Apache Kafka-loggar](apache-kafka-log-analytics-operations-management.md)
+* [Replikera data mellan Apache Kafka-kluster](apache-kafka-mirroring.md)
+* [Apache Kafka Streams-API med HDInsight](apache-kafka-streams-api.md)

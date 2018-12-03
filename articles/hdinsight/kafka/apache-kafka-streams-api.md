@@ -9,21 +9,21 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: b22a701d9e876ca011381810e330fed60b7177d4
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8319376c597f16a5bfe1a357d74c59453b797e51
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278709"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495131"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Självstudie: Apache Kafka Streams-API
 
-Lär dig hur du skapar ett program som använder API: et Kafka Streams och kör den med Kafka på HDInsight. 
+Lär dig hur du skapar ett program som använder Apache Kafka Streams-API:et och kör det med Kafka i HDInsight. 
 
 Programmet som används i den här självstudien är en strömmande ordräkning. Den läser textdata från ett Kafka-ämne, extraherar enskilda ord och lagrar sedan ordet och antalet till ett annat Kafka-ämne.
 
 > [!NOTE]
-> Kafka-strömningsprocessen görs ofta med Apache Spark eller Storm. Kafka version 0.10.0 (i HDInsight 3.5 och 3.6) introducerade Kafka Streams-API. Med detta API kan du transformera dataströmmar mellan indata- och utdata-ämnen. I vissa fall kan detta vara ett alternativ till att skapa en strömmande Spark- eller Storm-lösning. 
+> Kafka-strömningsbearbetning görs ofta med Apache Spark eller Apache Storm. Kafka version 0.10.0 (i HDInsight 3.5 och 3.6) introducerade Kafka Streams-API. Med detta API kan du transformera dataströmmar mellan indata- och utdata-ämnen. I vissa fall kan detta vara ett alternativ till att skapa en strömmande Spark- eller Storm-lösning. 
 >
 > Mer information om Kafka Streams finns i dokumentationen [Intro to Streams](https://kafka.apache.org/10/documentation/streams/) (Introduktion till Streams) på Apache.org.
 
@@ -38,9 +38,9 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* En Kafka på HDInsight 3.6-klustret. Information om hur du skapar en Kafka på ett HDInsight-kluster finns i dokumentet [Starta med Kafka i HDInsight](apache-kafka-get-started.md).
+* En Kafka på HDInsight 3.6-klustret. Information om hur du skapar en Kafka på ett HDInsight-kluster finns i dokumentet [Starta med Apache Kafka i HDInsight](apache-kafka-get-started.md).
 
-* Utför stegen i dokumentet [Kafka Consumer and Producer API](apache-kafka-producer-consumer-api.md) (API för Kafka-konsument och -producent). Stegen i det här dokumentet använder exempelprogram och avsnitt som skapats i den här kursen.
+* Utför stegen i dokumentet [Apache Kafka-konsument- och producent-API](apache-kafka-producer-consumer-api.md). Stegen i det här dokumentet använder exempelprogram och avsnitt som skapats i den här kursen.
 
 ## <a name="set-up-your-development-environment"></a>Ställ in din utvecklingsmiljö
 
@@ -158,7 +158,7 @@ För att skapa och distribuera projektet till Kafka p HDInsight-klustret utför 
    
     Ersätt `sshuser` med SSH-användare för klustret och ersätt `clustername` med namnet på klustret. Ange lösenordet för SSH-användarkontot om du uppmanas till det. Mer information om hur du använder `scp` med HDInsight finns i [Använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="create-kafka-topics"></a>Skapa Kafka-ämnen
+## <a name="create-apache-kafka-topics"></a>Skapa Apache Kafka-ämnen
 
 1. Använd följande kommando för att öppna en SSH-anslutning till klustret:
 
@@ -175,7 +175,7 @@ För att skapa och distribuera projektet till Kafka p HDInsight-klustret utför 
     read -p 'Enter your Kafka cluster name:' CLUSTERNAME
     ```
 
-3. Använd följande kommandon för att hämta värdar för Kafka-meddelandeköer och Zookeeper. När du blir ombedd anger du lösenordet till klusterinloggningskontot (admin). Du uppmanas att ange lösenordet två gånger.
+3. Använd följande kommandon för att hämta värdar för Apache Kafka-meddelandeköer och Apache Zookeeper. När du blir ombedd anger du lösenordet till klusterinloggningskontot (admin). Du uppmanas att ange lösenordet två gånger.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
@@ -255,7 +255,7 @@ För att skapa och distribuera projektet till Kafka p HDInsight-klustret utför 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har lärt dig hur du använder Kafka Streams-API med Kafka på HDInsight. Använd följande för att lära dig mer om att arbeta med Kafka:
+I det här dokumentet har du lärt dig använda Apache Kafka Streams-API med Kafka i HDInsight. Använd följande för att lära dig mer om att arbeta med Kafka:
 
-* [Analysera Kafka-loggar](apache-kafka-log-analytics-operations-management.md)
-* [Replikera data mellan Kafka-kluster](apache-kafka-mirroring.md)
+* [Analysera Apache Kafka-loggar](apache-kafka-log-analytics-operations-management.md)
+* [Replikera data mellan Apache Kafka-kluster](apache-kafka-mirroring.md)

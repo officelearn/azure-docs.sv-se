@@ -4,21 +4,20 @@ description: Den här snabbstarten visar hur du kommer igång genom att skapa et
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 08/20/2018
+ms.date: 11/21/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-manager: kfile
-ms.openlocfilehash: 15f465bf2aaf7c8b3a4a49819548c8db0b2ea014
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7762a48fd34973872fe4d0b00906a03a18d52867
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958864"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311933"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure-portalen
 
-Den här snabbstarten visar hur du kommer igång med att skapa ett Stream Analytics-jobb. I den här snabbstarten definierar du ett Stream Analytics-jobb som läser exempelsensordata och filtrerar rader där medeltemperaturen är större än 100 för var 30:e sekund. I den här artikeln läser du data från bloblagringen, omvandlar data och skriver dessa data tillbaka till en annan container i samma bloblagring. Indata-filen som används i denna Snabbstart innehåller statiska data som endast är för illustration. I ett verkligt scenario använder du strömningsindata för en Stream Analytics-jobb.
+Den här snabbstarten visar hur du kommer igång med att skapa ett Stream Analytics-jobb. I den här snabbstarten definierar du ett Stream Analytics-jobb som läser realtidsbaserade strömningsdata och filtrerar meddelanden med en temperatur högre än 27. Stream Analytics-jobbet läser data från en IoT Hub-enhet, transformerar data och skriver data tillbaka till en container i bloblagring. De indata som används i den här snabbstarten genereras av en Raspberry Pi-onlinesimulator. 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -28,33 +27,54 @@ Den här snabbstarten visar hur du kommer igång med att skapa ett Stream Analyt
 
 ## <a name="prepare-the-input-data"></a>Förbereda indata
 
-Innan du definierar Stream Analytics-jobbet bör du förbereda de data som har konfigurerats som indata för jobbet. Förbered de indata som krävs för jobbet genom att köra följande steg:
+Innan du definierar Stream Analytics-jobbet bör du förbereda de data som senare konfigureras som jobbindata. Förbered de indata som krävs för jobbet genom att utföra följande steg:
 
-1. Ladda ned [exempelsensordata](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) från GitHub. Exempeldata innehåller sensorinformation i följande JSON-format:  
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-   ```json
-   {
-     "time": "2018-08-19T21:18:52.0000000",
-     "dspl": "sensorC",
-     "temp": 87,
-     "hmdt": 44
-   }
-   ```
-2. Logga in på [Azure-portalen](https://portal.azure.com/).  
+2. Välj **Skapa en resurs** > **Sakernas internet** > **IoT Hub**.
 
-3. Välj **Skapa en resurs** > **Lagring** > **Lagringskonto** i det övre vänstra hörnet i Azure-portalen. Fyll i sidan för Storage-kontojobb med ”asaquickstartstorage” som **Namn**, ”västra USA 2” som **Plats**, ”asaquickstart-resourcegroup” som **Resursgrupp** (använd samma resursgrupp som värd för lagringskontot som streamingjobbet för bättre prestanda). Återstående inställningar kan ha kvar standardvärdena.  
+3. I rutan **IoT-hubb** anger du följande information:
+   
+   |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
+   |---------|---------|---------|
+   |Prenumeration  | \<Din prenumeration\> |  Ange den prenumeration som du vill använda. |
+   |Resursgrupp   |   asaquickstart-resourcegroup  |   Välj **Skapa ny** och ange ett nytt resursgruppsnamn för ditt konto. |
+   |Region  |  \<Välj den region som är närmast dina användare\> | Välj en geografisk plats där du kan hantera din IoT-hubb. Använd den plats som är närmast dina användare. |
+   |IoT-hubbnamn  | MyASAIoTHub  |   Välj ett namn för din IoT-hubb.   |
 
-   ![Skapa lagringskonto](./media/stream-analytics-quick-create-portal/create-a-storage-account.png)
+   ![Skapa en IoT Hub](./media/stream-analytics-quick-create-portal/create-iot-hub.png)
 
-4. Från sidan **Alla resurser** letar du rätt på lagringskontot som du skapade i föregående steg. Öppna sidan **Översikt** och öppna sedan panelen **Blobar**.  
+4. Välj **Nästa: Ange storlek och skala**.
 
-5. Från sidan **Blob-tjänst** väljer du **Container**, anger ett **Namn** för containern, t.ex. *container1*, och ändrar **Offentlig åtkomstnivå** till Privat (ingen anonym åtkomst) > välj **OK**.  
+5. Välj **pris- och skalningsnivå**. För den här snabbstarten väljer du nivån **F1 – kostnadsfri** om den fortfarande är tillgänglig för din prenumeration. Mer information finns i [Prissättning för IoT-hubb](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-   ![Skapa en container](./media/stream-analytics-quick-create-portal/create-a-storage-container.png)
+   ![Bestäm storlek och skala för din IoT-hubb](./media/stream-analytics-quick-create-portal/iot-hub-size-and-scale.png)
 
-6. Gå till containern du skapade i föregående steg. Välj **Ladda upp** och ladda upp sensordata som du fick i det första steget.  
+6. Välj **Granska + skapa**. Gå igenom informationen om IoT-hubben och klicka på **Skapa**. Det kan ta några minuter innan IoT-hubben skapas. Du kan övervaka förloppet i **meddelandefönstret**.
 
-   ![Ladda upp exempeldata till blob](./media/stream-analytics-quick-create-portal/upload-sample-data-to-blob.png)
+7. I navigeringsmenyn för din IoT-hubb klickar du på **Lägg till** under **IoT-enheter**. Lägg till ett **Enhets-ID** och klicka på **Spara**.
+
+   ![Lägg till en enhet i din IoT-hubb](./media/stream-analytics-quick-create-portal/add-device-iot-hub.png)
+
+8. När enheten har skapats öppnar du enheten från listan över **IoT-enheter**. Kopiera **Anslutningssträng – primärnyckel** och spara den i en anteckningsfil för senare användning.
+
+   ![Kopiera anslutningssträngen för IoT-hubbenhet](./media/stream-analytics-quick-create-portal/save-iot-device-connection-string.png)
+
+## <a name="create-blob-storage"></a>Skala bloblagring
+
+1. Välj **Skapa en resurs** > **Lagring** > **Lagringskonto** i det övre vänstra hörnet i Azure-portalen.
+
+2. I fönsterrutan **Skapa lagringskonto** anger du namn, plats och resursgrupp för lagringskonto. Välj samma plats och resursgrupp som den IoT-hubb som du skapade. Klicka sedan på **Granska + skapa** för att skapa kontot.
+
+   ![Skapa lagringskonto](./media/stream-analytics-quick-create-portal/create-storage-account.png)
+
+3. När ditt lagringskonto har skapats väljer du panelen **Blobar** på panelen **Översikt**.
+
+   ![Översikt över lagringskonto](./media/stream-analytics-quick-create-portal/blob-storage.png)
+
+4. Från sidan **Blob Service** väljer du **Container** och anger ett namn för containern, till exempel *container1*. Låt **Offentlig åtkomstnivå** vara **Privat (ingen anonym åtkomst)** och välj **OK**.
+
+   ![Skapa blobcontainer](./media/stream-analytics-quick-create-portal/create-blob-container.png)
 
 ## <a name="create-a-stream-analytics-job"></a>Skapa ett Stream Analytics-jobb
 
@@ -68,47 +88,44 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som har k
 
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
    |---------|---------|---------|
-   |Jobbnamn   |  myasajob   |   Ange ett namn som identifierar Stream Analytics-jobbet. Stream Analytics-jobbets namn får enbart innehålla alfanumeriska tecken, bindestreck och understreck och måste vara mellan 3 och 63 tecken långt. |
+   |Jobbnamn   |  MyASAJob   |   Ange ett namn som identifierar Stream Analytics-jobbet. Stream Analytics-jobbets namn får enbart innehålla alfanumeriska tecken, bindestreck och understreck och måste vara mellan 3 och 63 tecken långt. |
    |Prenumeration  | \<Din prenumeration\> |  Välj den Azure-prenumeration som du vill använda för jobbet. |
-   |Resursgrupp   |   asaquickstart-resourcegroup  |   Välj **Skapa ny** och ange ett nytt resursgruppsnamn för ditt konto. |
+   |Resursgrupp   |   asaquickstart-resourcegroup  |   Använd samma resursgrupp som din IoT-hubb. |
    |Plats  |  \<Välj den region som är närmast dina användare\> | Välj den geografiska plats där du kan ha ditt Stream Analytics-jobb. Använd den plats som är närmast dina användare för att få bättre prestanda och minska kostnaderna för dataöverföring. |
    |Strömningsenheter  | 1  |   Strömningsenheter representerar de bearbetningsresurser som krävs för att köra ett jobb. Standardvärdet är 1. Mer information om skalning av strömningsenheter finns i artikeln om att [förstå och justera strömningsenheter](stream-analytics-streaming-unit-consumption.md).   |
    |Värdmiljö  |  Molnet  |   Stream Analytics-jobb kan distribueras till molnet eller edge. Med molnet kan du distribuera till Azure Cloud, och med Edge kan du distribuera till en IoT edge-enhet. |
 
-   ![Skapa jobb](./media/stream-analytics-quick-create-portal/create-job.png)
+   ![Skapa jobb](./media/stream-analytics-quick-create-portal/create-asa-job.png)
 
 5. Markera kryssrutan **Fäst på instrumentpanelen** så att jobbet placeras på instrumentpanelen, och klicka sedan på **Skapa**.  
 
-6. ”Distribution startas...” bör nu visas längst upp till höger i webbläsarfönstret. 
+6. Meddelandet *Distribution pågår...* bör nu visas längst upp till höger i webbläsarfönstret. 
 
-## <a name="configure-input-to-the-job"></a>Konfigurera indata för jobbet
+## <a name="configure-job-input"></a>Konfigurera jobbindata
 
-I det här avsnittet konfigurerar du blob-lagring som indata till Stream Analytics-jobbet. Skapa ett blob-lagringskonto innan du konfigurerar indata.  
-
-### <a name="add-the-input"></a>Lägga till indata 
+I det här avsnittet konfigurerar du en IoT-hubbenhetsinmatning till Stream Analytics-jobbet. Använd den IoT-hubb som du skapade i föregående avsnitt i snabbstarten.
 
 1. Gå till Stream Analytics-jobbet.  
 
-2. Välj **Indata** > **Lägga till Stream-indata** > **Blob-lagring**.  
+2. Välj **Indata** > **Lägg till Stream-indata** > **IoT-hubb**.  
 
-3. Fyll i följande värden på sidan **Blob Storage**:
+3. Fyll sodan **IoT-hubb** med följande värden:
 
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
    |---------|---------|---------|
-   |Inmatat alias  |  BlobInput   |  Ange ett namn som identifierar jobbets indata.   |
+   |Inmatat alias  |  IoTHubInput   |  Ange ett namn som identifierar jobbets indata.   |
    |Prenumeration   |  \<Din prenumeration\> |  Välj den Azure-prenumeration där det lagringskonto som du skapade finns. Lagringskontot kan vara i samma eller en annan prenumeration. I det här exemplet förutsätts att du har skapat lagringskontot i samma prenumeration. |
-   |Lagringskonto  |  myasastorageaccount |  Välj eller ange lagringskontots namn. Lagringskontonamn identifieras automatiskt om de skapas i samma prenumeration. |
-   |Container  | container1 | Välj namnet på containern som innehåller exempeldata. Containernamn identifieras automatiskt om de skapas i samma prenumeration. |
+   |IoT Hub  |  MyASAIoTHub |  Ange namnet på den IoT-hubb som du skapade i föregående avsnitt. |
 
 4. Låt standardvärdena stå kvar för övriga alternativ och välj **Spara** för att spara inställningarna.  
 
-   ![Konfigurera indata](./media/stream-analytics-quick-create-portal/configure-input.png)
+   ![Konfigurera indata](./media/stream-analytics-quick-create-portal/configure-asa-input.png)
  
-## <a name="configure-output-to-the-job"></a>Konfigurera utdata för jobbet
+## <a name="configure-job-output"></a>Konfigurera jobbutdata
 
 1. Gå till Stream Analytics-jobbet som du skapade tidigare.  
 
-2. Välj **Utdata > Lägg till > Blob-lagring**.  
+2. Välj **Utdata** > **Lägg till** > **Bloblagring**.  
 
 3. Fyll i följande värden på sidan **Blob Storage**:
 
@@ -118,11 +135,10 @@ I det här avsnittet konfigurerar du blob-lagring som indata till Stream Analyti
    |Prenumeration  |  \<Din prenumeration\>  |  Välj den Azure-prenumeration där det lagringskonto som du skapade finns. Lagringskontot kan vara i samma eller en annan prenumeration. I det här exemplet förutsätts att du har skapat lagringskontot i samma prenumeration. |
    |Lagringskonto |  asaquickstartstorage |   Välj eller ange lagringskontots namn. Lagringskontonamn identifieras automatiskt om de skapas i samma prenumeration.       |
    |Container |   container1  |  Välj en befintlig container som du skapade i ditt lagringskonto.   |
-   |Sökvägsmönster |   utdata  |  Ange ett namn som fungerar som sökväg i din befintliga container för utdata.   |
 
 4. Låt standardvärdena stå kvar för övriga alternativ och välj **Spara** för att spara inställningarna.  
 
-   ![Konfigurera utdata](./media/stream-analytics-quick-create-portal/configure-output.png)
+   ![Konfigurera utdata](./media/stream-analytics-quick-create-portal/configure-asa-output.png)
  
 ## <a name="define-the-transformation-query"></a>Definiera transformationsfrågan
 
@@ -131,43 +147,35 @@ I det här avsnittet konfigurerar du blob-lagring som indata till Stream Analyti
 2. Välj **Fråga** och uppdatera frågan på följande sätt:  
 
    ```sql
-   SELECT 
-   System.Timestamp AS OutputTime,
-   dspl AS SensorName,
-   Avg(temp) AS AvgTemperature
-   INTO
-     BlobOutput
-   FROM
-     BlobInput TIMESTAMP BY time
-   GROUP BY TumblingWindow(second,30),dspl
-   HAVING Avg(temp)>100
+   SELECT *
+   INTO BlobOutput
+   FROM IoTHubInput
+   HAVING Temperature > 27
    ```
 
-3. I det här exemplet läser frågan data från blobben och kopierar den till en ny fil i blobben. Välj **spara**.  
+3. I det här exemplet läser frågan data från IoT-hubben och kopierar dem till en ny fil i bloben. Välj **Spara**.  
 
-   ![Konfigurera jobbomvandling](./media/stream-analytics-quick-create-portal/configure-job-transformation.png)
+   ![Konfigurera jobbomvandling](./media/stream-analytics-quick-create-portal/add-asa-query.png)
 
-## <a name="configure-late-arrival-policy"></a>Konfigurera en princip för händelser som kommer sent
+## <a name="run-the-iot-simulator"></a>Köra IoT-simulatorn
 
-1. Gå till Stream Analytics-jobbet som du skapade tidigare.
+1. Öppna [Raspberry Pi Azure IoT-onlinesimulatorn](https://azure-samples.github.io/raspberry-pi-web-simulator/).
 
-2. Välj **Händelseordning** under **Konfigurera**.
+2. Ersätt platshållaren på rad 15 med Azure IoT Hub-enhetens anslutningssträng, som du sparade i föregående avsnitt.
 
-3. Ange **Händelser som kommer sent** till 20 dagar och välj **Spara**.
+3. Klicka på **Run** (Kör). Utdata bör visas de sensordata och meddelanden som skickas till din IoT-hubb.
 
-   ![Konfigurera en princip för händelser som kommer sent](./media/stream-analytics-quick-create-portal/configure-late-policy.png)
+   ![Raspberry Pi Azure IoT-onlinesimulator](./media/stream-analytics-quick-create-portal/ras-pi-connection-string.png)
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Starta Stream Analytics-jobbet och kontrollera utdata
 
 1. Återgå till jobböversiktssidan och välj **Starta**.
 
-2. Under **Starta jobb** väljer du **Anpassad** för fältet **Starttid**. Välj `2018-01-24` som startdatum, men ändra inte tiden. Det här startdatumet är valt eftersom det kommer före tidsstämpeln för händelsen från exempeldata. När du är klar väljer du **Starta**.
+2. Under **Starta jobb** väljer du **Nu** för fältet **Starttid för jobbutdata**. Starta sedan jobbet genom att välja **Starta**.
 
-   ![Starta jobbet](./media/stream-analytics-quick-create-portal/start-the-job.png)
+3. Efter några minuter går du till portalen och letar rätt på lagringskontot och den container som du har konfigurerat som utdata för jobbet. Nu kan du se utdatafilen i containern. Det tar några minuter för jobbet att starta första gången. När det har startats fortsätter det att köras medan data tas emot.  
 
-3. Efter några minuter går du till portalen och letar rätt på lagringskontot och den container som du har konfigurerat som utdata för jobbet. Välj sökvägen för utdata. Nu kan du se utdatafilen i containern. Det tar några minuter för jobbet att starta första gången. När det har startats fortsätter det att köras medan data tas emot.  
-
-   ![Transformerade utdata](./media/stream-analytics-quick-create-portal/transformed-output.png)
+   ![Transformerade utdata](./media/stream-analytics-quick-create-portal/check-asa-results.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

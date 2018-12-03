@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
-ms.openlocfilehash: 897e380092b029855ac6c986c1126ca4b2d657a9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 3819b476c5d3638f409b4195d6340920032d7b99
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296657"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307499"
 ---
 # <a name="quickstart-send-search-queries-using-the-bing-image-search-api-and-c"></a>Snabbstart: Skicka sökfrågor med API för bildsökning i Bing och C#
 
@@ -26,12 +26,13 @@ Använd den här snabbstarten för att skicka ditt första anrop till API:et fö
 Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) tillsammans med ytterligare kommentarer om hantering av fel och kodanteckningar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
-
 * Valfri version av [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket.
 * Om du använder Linux/Mac OS kan det här programmet köras med [Mono](http://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+
+Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 

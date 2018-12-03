@@ -7,12 +7,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/26/2018
 ms.author: dkshir
-ms.openlocfilehash: 2a72afe708c157fb2a19ac0bfcea2bea34f7b56f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a9784860cbc0b6d58f63fb22b7ad676048c8aee6
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625663"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584204"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Självstudie: Etablera din byggnad och övervaka arbetsvillkor med Azure Digital Twins
 
@@ -253,6 +253,10 @@ Om det övervakade villkoret uppfylls anger den användardefinierade funktionen 
 Om du inte vill utforska Azure Digital Twins nu kan du ta bort resurser som du har skapat i den här självstudien:
 
 1. På den vänstra menyn i [Azure-portalen](http://portal.azure.com) väljer du **Alla resurser**, väljer din Digital Twins-resursgrupp och **Ta bort**.
+
+    > [!TIP]
+    > Om det inträffade problem när du skulle ta bort Digital Twins-instansen finns det nu en tjänstuppdatering som åtgärdar det. Försök att ta bort instansen igen.
+
 2. Ta bort exempelprogrammen på datorn om det behövs.
 
 ## <a name="next-steps"></a>Nästa steg

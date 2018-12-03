@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Använda Azure Key Vault med virtuell Azure-dator i Python | Microsoft Docs
+title: Självstudie – Använda Azure Key Vault med virtuell Azure Windows-dator i Python | Microsoft Docs
 description: 'Självstudie: Konfigurera ett ASP.NET Core-program att läsa en hemlighet från Key Vault'
 services: key-vault
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 863f3a8c18eab5b42b5f1377ca0f91f9740c06e7
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 26b5b16e3eb016edbe53c3526e51c3aa44f307b5
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265980"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583592"
 ---
-# <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-python"></a>Självstudie: Använda Azure Key Vault med virtuell Azure-dator i Python
+# <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-python"></a>Självstudie: Använda Azure Key Vault med virtuell Azure Windows-dator i Python
 
 Azure Key Vault hjälper dig att skydda hemligheter, till exempel API-nycklar, databasanslutningssträngar som behövs för att komma åt dina program, tjänster samt IT-resurser.
 

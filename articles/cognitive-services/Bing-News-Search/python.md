@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: 2696401b15ceca86c7e7b7d33e7e7f7887f4b7dc
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 738b139cb2070f2244442311d3670757caac6541
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164345"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308825"
 ---
 # <a name="quickstart-for-bing-news-search-api-with-python"></a>Snabbstart för API:et för nyhetssökning i Bing med Python
 Den här genomgången demonstrerar ett enkelt exempel på anrop till API:et för nyhetssökning i Bing och efterbearbetning av det resulterande JSON-objektet. Mer information finns i [dokumentationen för nyhetssökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference).  
@@ -26,7 +26,7 @@ Du kan köra det här exemplet som en Jupyter Notebook på [MyBinder](https://my
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API:er för Bing-sökresultat**. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten. Du behöver den åtkomstnyckel som du fick när du aktiverade din kostnadsfria utvärderingsversion, eller så kan du använda en betald prenumerationsnyckel från instrumentpanelen i Azure.
+Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API:er för Bing-sökresultat**. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten. Du behöver den åtkomstnyckel som tillhandahålls när du aktiverar din kostnadsfria utvärderingsversion.  Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="running-the-walkthrough"></a>Köra genomgången
 Ställ först in `subscription_key` till din API-nyckel för Bing API-tjänsten.

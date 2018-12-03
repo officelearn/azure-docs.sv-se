@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 10/05/2018
-ms.openlocfilehash: 84529e1097678ba7a039ffaeec57a9293c93dafd
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 19e6693de673eae6fe0b885580975c4cefc35d60
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229647"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725156"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Autentisera och få åtkomst till resurser med hanterade identiteter i Azure Logic Apps
 
@@ -128,13 +128,13 @@ Följ dessa steg om du vill ge åtkomst till en annan Azure-resurs för din logi
 
 1. Gå till Azure-resursen som du vill tilldela åtkomst för din hanterade identitet i Azure-portalen. 
 
-1. Resursens menyn och välj **åtkomstkontroll (IAM)**, och välj **Lägg till**. 
+1. Resursens menyn och välj **åtkomstkontroll (IAM)**, och välj **Lägg till rolltilldelning**. 
 
-   ![Lägga till behörigheter](./media/create-managed-service-identity/add-permissions-logic-app.png)
+   ![Lägg till rolltilldelning](./media/create-managed-service-identity/add-permissions-logic-app.png)
 
-1. Under **Lägg till behörigheter**väljer den **rollen** du vill använda för identitet. 
+1. Under **Lägg till rolltilldelning**väljer den **rollen** du vill använda för identitet. 
 
-1. I den **tilldela åtkomst till** egenskap, väljer **Azure AD-användare, grupp eller program**, om inte redan är valt.
+1. I den **tilldela åtkomst till** egenskap, väljer **Azure AD-användare, grupp eller tjänstens huvudnamn**, om inte redan är valt.
 
 1. I den **Välj** box, från och med det första tecknet i logikappens namn, ange logikappens namn. När logikappen visas väljer du logikappen.
 

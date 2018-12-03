@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
-ms.openlocfilehash: b6d5122fce4db393e4b7bdb9b3556e49551d2c17
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 41ca3c0c4b80cb3d53a0910afaadd00166d8b9f7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163633"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315774"
 ---
 # <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>Snabbstart: Använda Ruby för att anropa API för webbsökning i Bing  
 
@@ -23,8 +23,9 @@ Använd den här snabbstarten för att göra ditt första anrop till API för we
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
+## <a name="prerequisites"></a>Nödvändiga komponenter
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
 * [Ruby 2.4 eller senare](https://www.ruby-lang.org/en/downloads/)

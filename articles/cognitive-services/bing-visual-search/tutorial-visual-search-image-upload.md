@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 2e65313207e2bb29ae269425012cc6c340261ba4
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b13f2e5c96ba50fc76d7bfae256e5fcc1c8b56ce
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888347"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443465"
 ---
 # <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Självstudie: Dela upp uppladdningen i Visuell sökning i Bing
 
@@ -23,6 +23,15 @@ Den här självstudien delar upp processen för att ladda upp en bild till Bing 
 
 Självstudien är avsedd för utvecklare som vill utforska innehållet i svaret från Visuell sökning i Bing. Den visar inte alla användnings- och visningskrav (till exempel finns det inte någon länk till Microsofts sekretesspolicy). Alla användningskrav finns i [Användnings- och visningskrav för Bing](./use-and-display-requirements.md).
 
+För den här självstudien behöver du starta en prenumeration på S9-prisnivån enligt [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Så här startar du en prenumeration på Azure-portalen:
+1. Ange ”BingSearchV7” i den textruta längst upp på Azure-portalen där det står `Search resources, services, and docs`.  
+2. Under Marketplace i den nedrullningsbara listan väljer du `Bing Search v7`.
+3. Ange `Name` för den nya resursen.
+4. Välj `Pay-As-You-Go`-prenumeration.
+5. Välj prisnivån `S9`.
+6. Starta prenumerationen genom att klicka på `Enable`.
 
 ## <a name="where-to-start"></a>Var ska vi börja?
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/17/2018
+ms.date: 11/26/2018
 ms.author: alkohli
-ms.openlocfilehash: c3766713c87dd721f7e4c9a90624192cdb402be9
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 78e56286e0dec3307c7481a6097c53a1362f57cc
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393838"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427530"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Självstudie: Kabelansluta och ansluta till Azure Data Box
 
@@ -30,7 +30,9 @@ I den här guiden får du lära dig att:
 Innan du börjar ska du kontrollera att:
 
 1. Du har slutfört [självstudien Beställa Azure Data Box](data-box-deploy-ordered.md).
-2. Du har fått din Data Box och att orderstatusen i portalen är **Levererad**. Det finns en adressetikett i den genomskinliga fickan som är fäst under den befintliga etiketten på enheten. Spara etiketten – du behöver den till returleveransen.
+2. Du har fått din Data Box och att orderstatusen i portalen är **Levererad**. 
+    - Det finns en adressetikett i den genomskinliga fickan som är fäst under den befintliga etiketten på enheten. Spara etiketten – du behöver den till returleveransen.
+    - Vissa regioner i Europa kan få enheten inpackad i en låda. Se till att packa upp enheten och spara lådan för returförsändelse.
 3. Du har läst [säkerhetsföreskrifterna för Data Box](data-box-safety.md).
 4. Du har fått en jordad strömkabel att använda med lagringsenheten på 100 TB.
 5. Du har en värddator som har de data du vill kopiera över till Data Box. Värddatorn måste

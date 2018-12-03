@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: edebd1361e39a338672b4249dd159e5c1d4078ce
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2df767ef92ca056535e2d70a53a1588c9e89c647
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294160"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316794"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-c"></a>Snabbstart: Sök efter bilder med API för bildsökning i Bing och C#
 
@@ -24,7 +24,6 @@ Använd den här snabbstarten till att göra din första bildsökning med API f�
 Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) tillsammans med ytterligare felhantering och kommentarer.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
-
 * Valfri version av [Visual Studio 2017](https://visualstudio.microsoft.com/vs/whatsnew/).
 * [Cognitive Image Search NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0).
 
@@ -32,6 +31,7 @@ Om du vill installera SDK:n för Bildsökning i Bing i Visual Studio, så använ
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
+Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
@@ -96,4 +96,4 @@ if (imageResults != null)
 * [Hämta en kostnadsfri åtkomstnyckel för Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [.NET-exempel för Azure Cognitive Services SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
 * [Dokumentation om Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [API-referens för Bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [API-referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

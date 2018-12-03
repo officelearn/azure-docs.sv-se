@@ -10,12 +10,12 @@ ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 69bcca7871d9bf4bebf64c0c0ae1b54cd8408927
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: f94e3b5a6070da5ef9510216abd3f52a958030c5
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684128"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311389"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-node"></a>Snabbstart: SDK för entitetssökning i Bing med Node
 
@@ -23,6 +23,7 @@ SDK för entitetssökning i Bing innehåller funktionerna i REST API:et för ent
 
 [Källkoden till exemplen med SDK:t för entitetssökning i Bing med C#](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js) är tillgänglig på GitHub.
 ## <a name="application-dependencies"></a>Programberoenden
+Hämta en [Cognitive Services-åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/) under **Sök**.  Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Så här skapar du ett konsolprogram med API för entitetssökning i Bing:
 * Kör `npm install ms-rest-azure` i utvecklingsmiljön.

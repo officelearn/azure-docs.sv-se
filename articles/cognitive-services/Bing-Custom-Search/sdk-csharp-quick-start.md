@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 09/06/2018
 ms.author: scottwhi
-ms.openlocfilehash: 6dc10bc2dedfe99573b5ad646461e66827c6df9e
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 7ac298ad5c5b93b5dce0ce2dd59ffe541888db88
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320177"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307771"
 ---
 # <a name="quickstart-using-the-bing-custom-search-sdk-with-c"></a>Snabbstart: Använda SDK:t för anpassad sökning i Bing med C#
 
@@ -27,7 +27,7 @@ Följande krävs för att slutföra den här snabbstarten:
 
 - En anpassad sökinstans som är redo att användas. Se sidan om att [skapa din första instans för anpassad sökning i Bing](quick-start.md).  
   
-- En prenumerationsnyckel. Du kan få en prenumerationsnyckel när du aktiverar din [kostnadsfria utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), eller så kan du använda en betald prenumerationsnyckel från instrumentpanelen i Azure (se [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).  
+- En prenumerationsnyckel. Du kan få en prenumerationsnyckel när du aktiverar din [kostnadsfria utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), eller så kan du använda en betald prenumerationsnyckel från instrumentpanelen i Azure (se [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).  Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
   
 - Visual Studio 2017 installerat. Om du inte redan har det kan du hämta **kostnadsfria** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).  
   

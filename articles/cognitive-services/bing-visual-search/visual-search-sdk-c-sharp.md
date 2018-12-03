@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 05/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: 4cb6e79b563ac0172f93b3a721b79c230a96a1d5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 25b01de47767e335d614aa0a8cf32c344c7305d8
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457994"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442854"
 ---
 # <a name="quickstart-bing-visual-search-sdk-c"></a>Snabbstart: SDK för Visuell sökning i Bing, C#
 
@@ -33,7 +33,16 @@ Kodscenarier dokumenteras under följande rubriker:
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Visual Studio 2017. Om det behövs kan du hämta den kostnadsfria community-versionen härifrån: https://www.visualstudio.com/vs/community/.
-* En API-nyckel för Cognitive Services krävs för att autentisera SDK-anrop. Registrera dig för en [nyckel till en kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). Utvärderingsnyckeln gäller i sju dagar med ett anrop per sekund. [Köp en åtkomstnyckel](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7) för produktionsscenarier. Se även [prisinformationen](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* För den här snabbstarten behöver du starta en prenumeration på S9-prisnivån enligt [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Så här startar du en prenumeration på Azure-portalen:
+1. Ange ”BingSearchV7” i den textruta längst upp på Azure-portalen där det står `Search resources, services, and docs`.  
+2. Under Marketplace i den nedrullningsbara listan väljer du `Bing Search v7`.
+3. Ange `Name` för den nya resursen.
+4. Välj `Pay-As-You-Go`-prenumeration.
+5. Välj prisnivån `S9`.
+6. Starta prenumerationen genom att klicka på `Enable`.
+
 * Möjlighet att köra .NET Core SDK, .Net Core 1.1-appar. Du kan hämta CORE, Framework och Runtime härifrån: https://www.microsoft.com/net/download/.
 
 ## <a name="application-dependencies"></a>Programberoenden

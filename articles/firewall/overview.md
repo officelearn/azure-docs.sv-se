@@ -6,14 +6,14 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 9/26/2018
+ms.date: 11/28/2018
 ms.author: victorh
-ms.openlocfilehash: 868c20e6f0244794299678214902adf3e6e95f14
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: b90496b0ccc6c8243c2d1b3ead1e7c4faa4801ec
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241420"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582064"
 ---
 # <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -67,7 +67,6 @@ Azure Firewall har följande kända problem:
 |Konflikt med Azure Security Center (ASC) Just-in-Time-funktionen (JIT)|Om åtkomst till en virtuell dator sker via JIT, och den är i ett undernät med en användardefinierad väg som pekar på Azure Firewall som en standard-gateway, fungerar inte ASC JIT. Det här är ett resultat av asymmetrisk routning – ett paket kommer in via den virtuella datorns offentliga IP-adress (JIT öppnade åtkomsten), men returnvägen är via brandväggen, som släpper paketet eftersom ingen session har upprättats i brandväggen.|Du kan kringgå problemet genom att placera de virtuella JIT-datorerna på ett separat undernät som inte har en användardefinierad väg till brandväggen.|
 |Nav och eker med global peering stöds inte|Med hjälp av nav och eker-modellen, där navet och brandväggen distribueras i en Azure-region, med ekrarna i en annan Azure-region. Anslutningar till navet via Global VNet-peering stöds inte.|Det här är avsiktligt. Läs mer i [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md#azure-firewall-limits) (Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar)|
 Nätverksfiltreringsregler för icke-TCP-/UDP-protokoll (till exempel ICMP) fungerar inte för Internetbunden trafik|Nätverksfiltreringsregler för icke-TCP-/UDP-protokoll fungerar inte med SNAT till din offentliga IP-adress. Icke-TCP-/UDP-protokoll stöds mellan ekerundernät och virtuella nätverk.|Azure Firewall använder Standard Load Balancer, [som för närvarande inte stöder SNAT för IP-protokoll](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations). Vi utforskar alternativ för att stödja det här scenariot i en framtida version.|
-|Destination NAT (DNAT) fungerar inte för port 80 och 22.|Målportsfältet i NAT-regelsamlingen kan inte innehålla port 80 eller port 22.|Vi arbetar för att åtgärda detta inom en snar framtid. Under tiden kan du använda en annan port som målport i NAT-regler. Port 80 eller 22 kan fortfarande användas som den översatta porten (till exempel kan du mappa offentligt ip:81 till privat ip:80).|
 |Saknat PowerShell- och CLI-stöd för ICMP|Azure PowerShell och CLI stöder inte ICMP som ett giltigt protokoll i nätverksregler.|Du kan fortfarande använda ICMP som protokoll via portalen och REST API. Vi jobbar på att lägga till ICMP i PowerShell och CLI snart.|
 |FQDN-taggar kräver att protokoll: port anges|Programregler med FQDN-taggar kräver port: protokoll-definition.|Du kan använda **https** som port: protokoll-värde. Vi jobbar på att göra det här fältet valfritt när FQDN-taggar används.|
 |Det går inte att flytta en brandvägg till en annan resursgrupp eller prenumeration.|Det går inte att flytta en brandvägg till en annan resursgrupp eller prenumeration.|Stöd för den här funktionen finns i vår planering. För att kunna flytta en brandvägg till en annan resursgrupp eller prenumeration måste du ta bort den aktuella instansen och återskapa den i den nya resursgruppen eller prenumerationen.|

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: 57e719c6ef75b08d8c188d2d2d344867bbf590b1
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: b58bfc5345e06f82b2550ea2a1a53443946f2096
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623109"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427463"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure AD Graph API
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
 Den här självstudien visar hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator för att få åtkomst till Azure AD Graph API för att hämta dess gruppmedlemskap. Hanterade identiteter för Azure-resurser hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden.  
 
@@ -155,7 +155,7 @@ För att slutföra de här stegen behöver du en SSH-klient. Om du använder Win
    }
    ```
 
-4. Med hjälp av objekt-ID:t för den virtuella datorns tjänsthuvudnamn (värdet du hämtade i tidigare steg) kan du fråga Azure AD Graph API för att hämta dess gruppmedlemskap. Ersätt `<OBJECT-ID>` med objekt-ID:t för den virtuella datorns tjänsthuvudnamn och `<ACCESS-TOKEN>` med det tidigare hämtade åtkomsttoken:
+4. Med hjälp av objekt-ID:t för den virtuella datorns tjänsthuvudnamn (värdet du hämtade i tidigare steg) kan du fråga Azure AD Graph API för att hämta dess gruppmedlemskap. Ersätt `<OBJECT-ID>` med objekt-ID:t för den virtuella datorns tjänsthuvudnamn och `<ACCESS-TOKEN>` med den tidigare hämtade åtkomsttoken:
 
    ```bash
    curl 'https://graph.windows.net/myorganization/servicePrincipals/<OBJECT-ID>/getMemberGroups?api-version=1.6' -X POST -d "{\"securityEnabledOnly\": false}" -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS-TOKEN>"

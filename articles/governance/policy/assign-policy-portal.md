@@ -1,5 +1,5 @@
 ---
-title: Skapa en principtilldelning för att identifiera icke-kompatibla resurser i Azure-miljön
+title: Skapa en principtilldelning för att identifiera icke-kompatibla resurser i Azure
 description: Den här artikeln beskriver stegen för att skapa en principdefinition för att identifiera icke-kompatibla resurser.
 services: azure-policy
 author: DCtheGeek
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 60b8663c5b465fecd3275def7d1e85f4511a23e9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ee22208f9f55840b80392ef2b0a9fce0da4c4db7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954270"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584697"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Skapa en principtilldelning för att identifiera icke-kompatibla resurser i Azure-miljön
 
@@ -35,7 +35,7 @@ I den här snabbstarten skapar du en principtilldelning och tilldelar principdef
 
 1. Välj **Tilldelningar** till vänster på sidan Azure Policy. En tilldelning är en princip som tilldelats ett specifikt område.
 
-   ![Välja tilldelningar](./media/assign-policy-portal/select-assignments.png)
+   ![Välj tilldelningar](./media/assign-policy-portal/select-assignments.png)
 
 1. Välj **Tilldela princip** längst upp på sidan **Princip – Tilldelningar**.
 
@@ -61,7 +61,7 @@ I den här snabbstarten skapar du en principtilldelning och tilldelar principdef
 
 1. **Tilldelningsnamn** fylls i automatiskt med namnet på principen som du valde, men du kan ändra det om du vill. I det här exemplet lämnar du *Granska virtuella datorer som inte använder hanterade diskar*. Du kan också lägga till en valfri **Beskrivning**. Beskrivningen innehåller information om den här principtilldelningen. **Assigned by** (Tilldelats av) anges automatiskt baserat på vem som är inloggad. Det här fältet är valfritt, så du kan ange anpassade värden.
 
-1. Lämna **Skapa en hanterad identitet** avmarkerat. Det _måste_ kontrolleras när principen eller initiativet som tilldelas omfattar en princip med effekten [deployIfNotExists](./concepts/effects.md#deployifnotexists). Eftersom principen som används för den här snabbstarten inte gör det kan du lämna det tomt. Mer information finns i avsnitten om [hanterade identiteter](../../active-directory/managed-identities-azure-resources/overview.md) och [hur reparationssäkerhet fungerar](./how-to/remediate-resources.md#how-remediation-security-works).
+1. Lämna **Skapa en hanterad identitet** avmarkerat. Det _måste_ kontrolleras när principen eller initiativet som tilldelas omfattar en princip med effekten [deployIfNotExists](./concepts/effects.md#deployifnotexists). Eftersom principen som används för den här snabbstarten inte gör det kan du lämna det tomt. Mer information finns i avsnitten [hanterade identiteter](../../active-directory/managed-identities-azure-resources/overview.md) och [hur reparationssäkerhet fungerar](./how-to/remediate-resources.md#how-remediation-security-works).
 
 1. Klicka på **Tilldela**.
 

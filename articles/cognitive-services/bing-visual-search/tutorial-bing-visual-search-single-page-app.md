@@ -10,16 +10,26 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: aahi
-ms.openlocfilehash: b493f65e47f5e4c932ed1229e4c00ee1af3cd5ab
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: fe7159e88bd70ba8af23909559264fa5f210ef10
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161862"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443911"
 ---
 # <a name="tutorial-visual-search-single-page-web-app"></a>Självstudie: Visuell sökning med en webbapp med en enda sida
 
 API:t Bing Visual Search ger en upplevelse som liknar avbildningsdetaljerna som visas på Bing.com/images. Med visuell sökning kan du ange en bild och få tillbaka insikter om bilden som visuellt likartade bilder, shoppingkällor, webbsidor som innehåller bilden och mycket mer. 
+
+För den här självstudien behöver du starta en prenumeration på S9-prisnivån enligt [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Så här startar du en prenumeration på Azure-portalen:
+1. Ange ”BingSearchV7” i den textruta längst upp på Azure-portalen där det står `Search resources, services, and docs`.  
+2. Under Marketplace i den nedrullningsbara listan väljer du `Bing Search v7`.
+3. Ange `Name` för den nya resursen.
+4. Välj `Pay-As-You-Go`-prenumeration.
+5. Välj prisnivån `S9`.
+6. Starta prenumerationen genom att klicka på `Enable`.
 
 Den här självstudiekursen kompletterar appen med en sida från självstudien Bildsökning i Bing (se [Enkelsidig webbapp](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md)). Den fullständiga källkoden för att starta den här självstudien finns i [Enkelsidig webbapp (källkod)](../Bing-Image-Search/tutorial-bing-image-search-single-page-app-source.md). Den slutliga källkoden för den här självstudien finns i [Visuell sökning med en webbapp med en enda sida](tutorial-bing-visual-search-single-page-app-source.md).
 

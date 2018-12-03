@@ -10,16 +10,16 @@ ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 29ee7cb4ee648d20b425939553ba31cd9ac150f0
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 4af90c0e1ffd6dbadcb31eb6141bc24f746d01f9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804199"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316420"
 ---
 # <a name="quickstart-your-first-spell-check-request"></a>Snabbstart: Din första stavningskontrollsförfrågan
 
-Innan du kan göra ditt första anrop måste du skaffa en prenumerationsnyckel för Cognitive Services. Information om hur du skaffar en nyckel finns i [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
+Hämta en [Cognitive Services-åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/) under **Sök**.  Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Om du vill kontrollera stavning och grammatikfel i en textsträng skickar du en GET-begäran till följande slutpunkt:  
   

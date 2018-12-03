@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/21/2018
-ms.openlocfilehash: 1f8537408325aff0ba3ec198ed0e2bb697134845
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 74cdaed91624e9d0602ce6a85ccc5cd341b9519e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036350"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496633"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Självstudie: Använda Apache Storm med Apache Kafka i HDInsight
 
-Den här självstudien visar hur du använder en Apache Storm-topologi till att läsa och skriva data med Apache Kafka i HDInsight. Självstudien visar även hur du bevarar data i den HDFS-kompatibla lagringen på Storm-klustret.
+Den här självstudien visar hur du använder en [Apache Storm](https://storm.apache.org/)-topologi till att läsa och skriva data med [Apache Kafka](https://kafka.apache.org/) i HDInsight. Självstudien visar även hur du bevarar data i den [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html)-kompatibla lagringen på Storm-klustret.
 
 I den här guiden får du lära dig att:
 
@@ -37,7 +37,7 @@ I den här guiden får du lära dig att:
 
 * Känna till hur man skapar Kafka-ämnen. Mer information finns i dokumentet [Snabbstart för Kafka i HDInsight](./kafka/apache-kafka-get-started.md).
 
-* Känna till hur man skapar och distribuerar Storm-lösningar (topologier). Mer specifikt gäller det topologier som använder Flux-ramverket. Mer information finns i dokumentet [Skapa en Storm-topologi i Java](./storm/apache-storm-develop-java-topology.md).
+* Känna till hur man skapar och distribuerar Storm-lösningar (topologier). Mer specifikt gäller det topologier som använder [Flux](https://storm.apache.org/releases/current/flux.html)-ramverket. Mer information finns i dokumentet [Skapa en Storm-topologi i Java](./storm/apache-storm-develop-java-topology.md).
 
 * [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) eller högre. HDInsight 3.5 eller högre kräver Java 8.
 
@@ -63,7 +63,7 @@ Följande miljövariabler kan konfigureras när du installerar Java och JDK på 
 
 ## <a name="storm-and-kafka"></a>Storm och Kafka
 
-Apache Storm tillhandahåller flera komponenter för att arbeta med Kafka. I den här självstudien används följande komponenter:
+Apache Storm tillhandahåller flera komponenter för att arbeta med Apache Kafka. I den här självstudien används följande komponenter:
 
 * `org.apache.storm.kafka.KafkaSpout`: Den här komponenten läser data från Kafka. Komponenten är beroende av följande komponenter:
 
@@ -82,7 +82,7 @@ Apache Storm tillhandahåller flera komponenter för att arbeta med Kafka. I den
 Dessa komponenter är tillgängliga i `org.apache.storm : storm-kafka`-paketet. Använd den paketversion som matchar Storm-versionen. För HDInsight 3.6 är Storm-versionen 1.1.0.
 Du måste också ha `org.apache.kafka : kafka_2.10`-paketet som innehåller ytterligare Kafka-komponenter. Använd den paketversion som matchar Kafka-versionen. För HDInsight 3.6 är Kafka-versionen 0.10.0.0.
 
-Följande XML är beroendedeklarationen i `pom.xml` för ett Maven-projekt:
+Följande XML är beroendedeklarationen i `pom.xml` för ett [Apache Maven](https://maven.apache.org/)-projekt:
 
 ```xml
 <!-- Storm components for talking to Kafka -->
@@ -369,7 +369,7 @@ Projektet innehåller en fil med namnet `dev.properties` som används för att s
 
 | Filen dev.properties | Beskrivning |
 | --- | --- |
-| `kafka.zookeeper.hosts` | Zookeeper-värdar för Kafka-klustret. |
+| `kafka.zookeeper.hosts` | [Apache ZooKeeper](https://zookeeper.apache.org/)-värdarna för Kafka-klustret. |
 | `kafka.broker.hosts` | Värdar för Kafka-meddelandeköer (arbetarnoder). |
 | `kafka.topic` | Kafka-ämnet som topologierna använder. |
 | `hdfs.write.dir` | Den katalog som Kafka-läsarens topologi skriver till. |
@@ -384,7 +384,7 @@ Följande diagram visar hur kommunikationen flödar mellan Storm och Kafka:
 ![Diagram över Storm- och Kafka-kluster i ett virtuellt Azure-nätverk](./media/hdinsight-apache-storm-with-kafka/storm-kafka-vnet.png)
 
 > [!NOTE]
-> Andra tjänster på klustret, till exempel SSH och Ambari, kan nås via Internet. Mer information om de offentliga portar som är tillgängliga med HDInsight finns i [Portar och URI:er som används av HDInsight](hdinsight-hadoop-port-settings-for-services.md).
+> Andra tjänster på klustret, till exempel SSH och [Apache Ambari](https://ambari.apache.org/), kan nås via Internet. Mer information om de offentliga portar som är tillgängliga med HDInsight finns i [Portar och URI:er som används av HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
 Om du vill skapa ett Azure Virtual Network och sedan skapa Kafka- och Storm-kluster i det, använder du följande steg:
 
@@ -637,8 +637,8 @@ Ta bort en resursgrupp med Azure Portal:
 
 ## <a name="next-steps"></a>Nästa steg
 
-I självstudien har du lärt dig att använda en Storm-topologi för att skriva till och läsa från Kafka i HDInsight. Du har också lärt dig hur du lagrar data till den HDFS-kompatibla lagring som används av HDInsight.
+I den här självstudien har du lärt dig att använda en [Apache Storm](https://storm.apache.org/)-topologi för att skriva till och läsa från [Apache Kafka](https://kafka.apache.org/) i HDInsight. Du har även lärt dig hur du lagrar data till den [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html)-kompatibla lagring som används av HDInsight.
 
-Mer information om hur du använder Kafka i HDInsight finns i dokumentet [Använda Kafka-producent och konsument-API](kafka/apache-kafka-producer-consumer-api.md).
+Mer information om hur du använder Kafka i HDInsight finns i dokumentet [Använda Apache Kafka-producent- och konsument-API](kafka/apache-kafka-producer-consumer-api.md).
 
 Mer information om att distribuera och övervaka topologier på Linux-baserat HDInsight finns i [Distribuera och hantera Apache Storm-topologier på Linux-baserat HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)

@@ -1,257 +1,201 @@
 ---
 title: 'Snabbstart: Hitta alternativa översättningar, C# – Translator Text-API'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten hittar du alternativa översättningar och exempel på termer i ett sammanhang med Translator Text-API:et med C#.
+description: I den här snabbstarten lär du dig att få alternativa översättningar för en term, och även användningsexempel för de alternativa översättningarna, med hjälp av .NET Core och Translator Text API.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/15/2018
+ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: e7a450838ab32d191ca8659a8e84e0104c76e3a5
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: d0921d67867e412ed1862c597297e27c2c56ae3b
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645464"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334541"
 ---
 # <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-c"></a>Snabbstart: Hitta alternativa översättningar med Translator Text REST API (C#)
 
-I den här snabbstarten hittar du information om möjliga alternativa översättningar för en term, och även användningsexempel för de alternativa översättningarna, med hjälp av Translator Text-API:et.
+I den här snabbstarten lär du dig att få alternativa översättningar för en term, och även användningsexempel för de alternativa översättningarna, med hjälp av .NET Core och Translator Text API.
+
+För den här snabbstarten krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator Text-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [Visual Studio 2017](https://www.visualstudio.com/downloads/) för att köra den här koden på Windows. (Den kostnadsfria Community Edition fungerar.)
+* [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
+* [Json.NET NuGet-paket](https://www.nuget.org/packages/Newtonsoft.Json/)
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) eller valfritt redigeringsprogram
+* En Azure-prenumerationsnyckel för Speech Service
 
-För att använda Translator Text-API:et behöver du även en prenumerationsnyckel. Mer information finns i [How to sign up for the Translator Text API](translator-text-how-to-signup.md) (Så här registrerar du dig för Translator Text-API:et).
+## <a name="create-a-net-core-project"></a>Skapa ett .NET Core-projekt
 
-## <a name="dictionary-lookup-request"></a>Begäran om att slå upp i ordlista
+Öppna en ny kommandotolk (eller en terminalsession) och kör följande kommandon:
 
-> [!TIP]
-> Hämta den senaste koden från [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
+```console
+dotnet new console -o alternate-sample
+cd alternate-sample
+```
 
-Följande hämtar alternativa översättningar för ett or med hjälp av metoden [Dictionary Lookup](./reference/v3-0-dictionary-lookup.md) (Slå upp i ordlista).
+Det första kommandot gör två saker. Det skapar ett nytt .NET-konsolprogram och en katalog med namnet `alternate-sample`. Det andra kommandot ändrar till katalogen för ditt projekt.
 
-1. Skapa ett nytt C#-projekt i din favoritutvecklingsmiljö.
-2. Lägg till koden nedan.
-3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
-4. Kör programmet.
+Därefter behöver du installera Json.Net. Från projektkatalogen kör du:
+
+```console
+dotnet add package Newtonsoft.Json --version 11.0.2
+```
+
+## <a name="add-required-namespaces-to-your-project"></a>Lägg till nödvändiga namnrymder i projektet
+
+Kommandot `dotnet new console` som du körde tidigare skapade ett nytt projekt, inklusive `Program.cs`. Den här filen är där du lägger programkoden. Öppna `Program.cs` och ersätt de befintliga using-instruktionerna. De här instruktionerna ser till att du har åtkomst till alla typer som krävs för att skapa och köra exempelappen.
 
 ```csharp
 using System;
 using System.Net.Http;
 using System.Text;
-// NOTE: Install the Newtonsoft.Json NuGet package.
 using Newtonsoft.Json;
-
-namespace TranslatorTextQuickStart
-{
-    class Program
-    {
-        static string host = "https://api.cognitive.microsofttranslator.com";
-        static string path = "/dictionary/lookup?api-version=3.0";
-        // Translate from English to French.
-        static string params_ = "&from=en&to=fr";
-
-        static string uri = host + path + params_;
-
-        // NOTE: Replace this example key with a valid subscription key.
-        static string key = "ENTER KEY HERE";
-
-        static string text = "great";
-
-        async static void Lookup()
-        {
-            System.Object[] body = new System.Object[] { new { Text = text } };
-            var requestBody = JsonConvert.SerializeObject(body);
-
-            using (var client = new HttpClient())
-            using (var request = new HttpRequestMessage())
-            {
-                request.Method = HttpMethod.Post;
-                request.RequestUri = new Uri(uri);
-                request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-                request.Headers.Add("Ocp-Apim-Subscription-Key", key);
-
-                var response = await client.SendAsync(request);
-                var responseBody = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.SerializeObject(JsonConvert.DeserializeObject(responseBody), Formatting.Indented);
-
-                Console.OutputEncoding = UnicodeEncoding.UTF8;
-                Console.WriteLine(result);
-            }
-        }
-
-        static void Main(string[] args)
-        {
-            Lookup();
-            Console.ReadLine();
-        }
-    }
-}
 ```
 
-## <a name="dictionary-lookup-response"></a>Svar på begäran om att slå upp i ordlista
+## <a name="create-a-function-to-get-alternate-translations"></a>Skapa en funktion för att få alternativa översättningar
 
-Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
-
-```json
-[
-  {
-    "normalizedSource": "great",
-    "displaySource": "great",
-    "translations": [
-      {
-        "normalizedTarget": "grand",
-        "displayTarget": "grand",
-        "posTag": "ADJ",
-        "confidence": 0.2783,
-        "prefixWord": "",
-        "backTranslations": [
-          {
-            "normalizedText": "great",
-            "displayText": "great",
-            "numExamples": 15,
-            "frequencyCount": 34358
-          },
-          {
-            "normalizedText": "big",
-            "displayText": "big",
-            "numExamples": 15,
-            "frequencyCount": 21770
-          },
-...
-        ]
-      },
-      {
-        "normalizedTarget": "super",
-        "displayTarget": "super",
-        "posTag": "ADJ",
-        "confidence": 0.1514,
-        "prefixWord": "",
-        "backTranslations": [
-          {
-            "normalizedText": "super",
-            "displayText": "super",
-            "numExamples": 15,
-            "frequencyCount": 12023
-          },
-          {
-            "normalizedText": "great",
-            "displayText": "great",
-            "numExamples": 15,
-            "frequencyCount": 10931
-          },
-...
-        ]
-      },
-...
-    ]
-  }
-]
-```
-
-## <a name="dictionary-examples-request"></a>Begäran om ordlisteexempel
-
-Följande hämtar sammanhangsbaserade exempel på hur du använder en term i en ordlista med hjälp av metoden [Dictionary Examples](./reference/v3-0-dictionary-examples.md) (Ordlisteexempel).
-
-1. Skapa ett nytt C#-projekt i din favoritutvecklingsmiljö.
-2. Lägg till koden nedan.
-3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
-4. Kör programmet.
+I klassen `Program` skapar du en funktion med namnet `AltTranslation`. Den här klassen kapslar in den kod som används för att anropa Dictionary-resursen och skriver ut resultatet till konsolen.
 
 ```csharp
-using System;
-using System.Net.Http;
-using System.Text;
-// NOTE: Install the Newtonsoft.Json NuGet package.
-using Newtonsoft.Json;
-
-namespace TranslatorTextQuickStart
+static void AltTranslation()
 {
-    class Program
-    {
-        static string host = "https://api.cognitive.microsofttranslator.com";
-        static string path = "/dictionary/examples?api-version=3.0";
-        // Translate from English to French.
-        static string params_ = "&from=en&to=fr";
-
-        static string uri = host + path + params_;
-
-        // NOTE: Replace this example key with a valid subscription key.
-        static string key = "ENTER KEY HERE";
-
-        static string text = "great";
-        static string translation = "formidable";
-
-        async static void Examples()
-        {
-            System.Object[] body = new System.Object[] { new { Text = text, Translation = translation } };
-            var requestBody = JsonConvert.SerializeObject(body);
-
-            using (var client = new HttpClient())
-            using (var request = new HttpRequestMessage())
-            {
-                request.Method = HttpMethod.Post;
-                request.RequestUri = new Uri(uri);
-                request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-                request.Headers.Add("Ocp-Apim-Subscription-Key", key);
-
-                var response = await client.SendAsync(request);
-                var responseBody = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.SerializeObject(JsonConvert.DeserializeObject(responseBody), Formatting.Indented);
-
-                Console.OutputEncoding = UnicodeEncoding.UTF8;
-                Console.WriteLine(result);
-            }
-        }
-
-        static void Main(string[] args)
-        {
-            Examples();
-            Console.ReadLine();
-        }
-    }
+  /*
+   * The code for your call to the translation service will be added to this
+   * function in the next few sections.
+   */
 }
 ```
 
-## <a name="dictionary-examples-response"></a>Svar på ordlisteexempel
+## <a name="set-the-subscription-key-host-name-and-path"></a>Ange prenumerationsnyckeln, värddatornamnet och sökvägen
 
-Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
+Lägg till följande rader i funktionen `AltTranslation`. Du ser då att `api-version` samt två ytterligare parametrar har lags till i `route`. Dessa parametrar används för att ange indata och utdata för översättning. I det här exemplet är dessa engelska (`en`) och spanska (`es`).
+
+```csharp
+string host = "https://api.cognitive.microsofttranslator.com";
+string route = "/dictionary/lookup?api-version=3.0&from=en&to=es";
+string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+```
+
+Sedan behöver vi skapa och serialisera det JSON-objekt som innehåller den text du vill översätta. Du kan skicka fler än ett objekt i `body`-matrisen.
+
+```csharp
+System.Object[] body = new System.Object[] { new { Text = @"Elephants" } };
+var requestBody = JsonConvert.SerializeObject(body);
+```
+
+## <a name="instantiate-the-client-and-make-a-request"></a>Instansiera klienten och göra en begäran
+
+Dessa rader instansierar `HttpClient` och `HttpRequestMessage`:
+
+```csharp
+using (var client = new HttpClient())
+using (var request = new HttpRequestMessage())
+{
+  // In the next few sections you'll add code to construct the request.
+}
+```
+
+## <a name="construct-the-request-and-print-the-response"></a>Konstruera begäran och skriva ut svaret
+
+I `HttpRequestMessage` gör du följande:
+
+* Deklarera HTTP-metoden
+* Konstruera begärande-URI
+* Infoga begärandetexten (serialiserat JSON-objekt)
+* Lägga huvuden som krävs
+* Göra en asynkron begäran
+* Skriva ut svaret
+
+Lägg till den här koden i `HttpRequestMessage`:
+
+```csharp
+// Set the method to POST
+request.Method = HttpMethod.Post;
+
+// Construct the full URI
+request.RequestUri = new Uri(host + route);
+
+// Add the serialized JSON object to your request
+request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
+
+// Add the authorization header
+request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+
+// Send request, get response
+var response = client.SendAsync(request).Result;
+var jsonResponse = response.Content.ReadAsStringAsync().Result;
+
+// Print the response
+Console.WriteLine(jsonResponse);
+Console.WriteLine("Press any key to continue.");
+```
+
+## <a name="put-it-all-together"></a>Färdigställa allt
+
+Det sista steget är att anropa `AltTranslation()` i funktionen `Main`. Leta upp `static void Main(string[] args)` och lägg till följande rader:
+
+```csharp
+AltTranslation();
+Console.ReadLine();
+```
+
+## <a name="run-the-sample-app"></a>Kör exempelappen
+
+Det var allt. Nu är du redo att köra exempelappen. Från kommandoraden (eller en terminalsession) går du till projektkatalogen och kör:
+
+```console
+dotnet run
+```
+
+## <a name="sample-response"></a>Exempelsvar
 
 ```json
 [
-  {
-    "normalizedSource": "great",
-    "normalizedTarget": "formidable",
-    "examples": [
-      {
-        "sourcePrefix": "You have a ",
-        "sourceTerm": "great",
-        "sourceSuffix": " expression there.",
-        "targetPrefix": "Vous avez une expression ",
-        "targetTerm": "formidable",
-        "targetSuffix": "."
-      },
-      {
-        "sourcePrefix": "You played a ",
-        "sourceTerm": "great",
-        "sourceSuffix": " game today.",
-        "targetPrefix": "Vous avez été ",
-        "targetTerm": "formidable",
-        "targetSuffix": "."
-      },
-...
-    ]
-  }
+    {
+        "displaySource": "elephants",
+        "normalizedSource": "elephants",
+        "translations": [
+            {
+                "backTranslations": [
+                    {
+                        "displayText": "elephants",
+                        "frequencyCount": 1207,
+                        "normalizedText": "elephants",
+                        "numExamples": 5
+                    }
+                ],
+                "confidence": 1.0,
+                "displayTarget": "elefantes",
+                "normalizedTarget": "elefantes",
+                "posTag": "NOUN",
+                "prefixWord": ""
+            }
+        ]
+    }
 ]
 ```
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Se till att ta bort all konfidentiell information från exempelappens källkod, till exempel prenumerationsnycklar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska exempelkoden för den här snabbstarten och andra, inklusive översättning och transkribering, samt andra Translator Text-exempelprojekt på GitHub.
+Utforska exempelkoden för den här snabbstarten och andra, inklusive transkribering och språkidentifiering, samt andra Translator Text-exempelprojekt på GitHub.
 
 > [!div class="nextstepaction"]
 > [Utforska C#-exempel på GitHub](https://aka.ms/TranslatorGitHub?type=&language=c%23)
+
+## <a name="see-also"></a>Se även
+
+* [Översätta text](quickstart-csharp-translate.md)
+* [Translitterera text](quickstart-csharp-transliterate.md)
+* [Identifiera språket efter indata](quickstart-csharp-detect.md)
+* [Hämta en lista över språk som stöds](quickstart-csharp-languages.md)
+* [Fastställa meningslängd utifrån indata](quickstart-csharp-sentences.md)

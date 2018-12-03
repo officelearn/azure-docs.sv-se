@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9f77beb8c51fb3a06045183433907e1c634fb45d
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7c7891d8a73142c78b1ca80027d685b93a062d06
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820281"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317916"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Skapa en butikslokaliserare med hjälp av Azure Maps
 
@@ -81,7 +81,7 @@ När vi tittar på skärmbilden över data kan vi göra följande observationer:
 * Vissa ytterligare kolumner innehåller metadata som hör till kaféer: ett telefonnummer, booleska kolumner för Wi-Fi-hotspot och rullstolshjälpmedel och butikens öppettider i 24-timmarsformat. Du kan skapa egna kolumner som innehåller metadata som är mer relevant för dina platsdata.
 
 > [!Note]
-> Azure Maps använder en sfärisk Mercato-projektion (EPSG:3857).
+> Azure Maps renderar data i den sfäriska Mercator-projektionen ”EPSG:3857” men läser data i ”EPSG:4325”, som använder WGS84-datumet. 
 
 Det finns många sätt att exponera datauppsättningen för programmet. En metod är att läsa in data i en databas och exponera en webbtjänst som frågar efter data och skickar resultatet till användarens webbläsare. Det här alternativet är perfekt för stora datauppsättningar eller för datauppsättningar som uppdateras ofta. Det här alternativet kräver mycket större utvecklingsarbete och har en högre kostnad. 
 

@@ -10,12 +10,12 @@ ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/19/2018
 ms.author: v-gedod
-ms.openlocfilehash: eeb8e6e0ac132ef2d927aa2de03817389230191e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 291a307d4fd7c0fa723b8b17c13b3ef13cdeb8de
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814499"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316828"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-java"></a>Snabbstart: SDK för entitetssökning i Bing med Java
 
@@ -24,7 +24,9 @@ SDK:t för entitetssökning i Bing tillhandhåller REST API-funktionerna för en
 [Källkoden till exemplen med SDK:t för entitetssökning i Bing med Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch) är tillgänglig på Git Hub. 
 
 ## <a name="application-dependencies"></a>Programberoenden
-Hämta en [Cognitive Services-åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/) under **Sök**. Installera SDK-beroenden för entitetssökningen i Bing med hjälp av Maven, Gradle eller något annat beroendehanteringssystem. Maven POM-filen kräver deklarationen:
+Hämta en [Cognitive Services-åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/) under **Sök**.  Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+
+Installera SDK-beroenden för entitetssökningen i Bing med hjälp av Maven, Gradle eller något annat beroendehanteringssystem. Maven POM-filen kräver deklarationen:
 ```
   <dependencies>
     <dependency>

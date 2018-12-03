@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d264160fb3f1c14db3379a314e60efdadb6905b5
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 19285bf7a1323e9698fe408566304d0596d1c983
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210422"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311275"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>Vad är rollbaserad åtkomstkontroll (Role-based access control, RBAC)?
 
@@ -101,7 +101,7 @@ Du kan skapa rolltilldelningar med hjälp av Azure-portalen, Azure CLI, Azure Po
 
 ## <a name="deny-assignments"></a>Avvisa tilldelning
 
-Tidigare var RBAC en tillåt endast-modell med inga nekanden, men nu har RBAC stöd för tilldelningsnekanden begränsad utsträckning. På samma sätt som en rolltilldelning binder ett *tilldelningsnekande* en uppsättning nekandeåtgärder till en användare, grupp eller tjänstens huvudnamn i ett visst omfång för att neka åtkomst. En rolltilldelning definierar en uppsättning åtgärder som är *tillåtna*, medan ett tilldelningsnekande definierar en uppsättning åtgärder som *inte tillåtna*. Med andra ord blockerar tilldelningsnekanden användare från att utföra angivna åtgärder, även om en rolltilldelning ger dem åtkomst. Tilldelningsnekanden åsidosätter rolltilldelningar.
+Tidigare var RBAC en tillåt endast-modell med inga nekanden, men nu har RBAC stöd för tilldelningsnekanden begränsad utsträckning. På samma sätt som en rolltilldelning binder ett *tilldelningsnekande* en uppsättning nekandeåtgärder till en användare, grupp eller tjänstens huvudnamn i ett visst omfång för att neka åtkomst. En rolltilldelning definierar en uppsättning åtgärder som är *tillåtna*, medan en nekandetilldelning definierar en uppsättning åtgärder som *inte är tillåtna*. Med andra ord blockerar tilldelningsnekanden användare från att utföra angivna åtgärder, även om en rolltilldelning ger dem åtkomst. Tilldelningsnekanden åsidosätter rolltilldelningar.
 
 För närvarande är tilldelningsnekanden **skrivskyddade** och kan bara ställas in av Azure. Även om det går inte att skapa egna tilldelningsnekanden kan du lista tilldelningsnekanden eftersom de kan påverka din gällande behörigheter. Om du vill hämta information om tilldelningsnekande måste du ha `Microsoft.Authorization/denyAssignments/read`-behörighet, vilket ingår i de flesta [inbyggda roller](built-in-roles.md#owner). Mer information finns i [Förstå tilldelningsnekanden](deny-assignments.md).
 

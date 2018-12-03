@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: dcd28d8e33045f4c0324f964a854e98dfe004321
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: e862000df1edc5101c0768f1f96c11953f1485c7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712423"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583286"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Självstudie: Analysera Apache Spark-data med Power BI i HDInsight 
 
-Lär dig att använda Microsoft Power BI till att visualisera data i Apache Spark-kluster i Azure HDInsight.
+Lär dig hur du använder [Microsoft Power BI](https://powerbi.microsoft.com/) till att visualisera data i ett [Apache Spark](https://spark.apache.org/)-kluster i [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
@@ -34,7 +34,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="verify-the-data"></a>Kontrollera datan
 
-Jupyter-anteckningsboken som du skapade i den [tidigare självstudien](apache-spark-load-data-run-query.md) innehåller kod för att skapa en `hvac`-tabell. Den här tabellen baseras på CSV-filen som finns tillgänglig i alla HDInsight Spark-kluster på **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Följ stegen nedan för att verifiera datan.
+Den [Jupyter Notebook](https://jupyter.org/)-anteckningsbok som du skapade i [föregående självstudie](apache-spark-load-data-run-query.md) innehåller kod för att skapa en `hvac`-tabell. Den här tabellen baseras på CSV-filen som finns tillgänglig i alla HDInsight Spark-kluster på **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Följ stegen nedan för att verifiera datan.
 
 1. Klistra in följande kod från Jupyter-anteckningsboken och tryck sedan på **SKIFT+RETUR**. Koden kontrollerar att tabellerna finns.
 
@@ -214,9 +214,9 @@ Ditt visuella objekt är fastsatt på instrumentpanelen. Du kan lägga till fler
 
 I den här självstudiekursen lärde du dig att:
 
-- Visualisera Spark-data med Power BI.
+- Visualisera Apache Spark-data med hjälp av Power BI.
 
-Gå vidare till nästa artikel för att se hur de data som du har registrerat i Spark kan hämtas till ett BI-analysverktyg som till exempel Power BI. 
+Gå vidare till nästa artikel för att se hur de data som du har registrerat i Spark kan hämtas till ett BI-analysverktyg, som till exempel Power BI. 
 > [!div class="nextstepaction"]
-> [Köra ett Spark-direktuppspelningsjobb](apache-spark-eventhub-streaming.md)
+> [Köra ett Apache Spark-strömningsjobb](apache-spark-eventhub-streaming.md)
 

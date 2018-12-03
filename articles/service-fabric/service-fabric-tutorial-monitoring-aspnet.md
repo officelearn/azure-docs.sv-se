@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: b592ac10d483bbf0ca058e87f819b8f67847c54e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 9bbff92b7706fd207894616b83580c4ddf85e5eb
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296116"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444792"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Självstudie: Övervaka och diagnostisera en ASP.NET Core-app för Service Fabric med Application Insights
 
@@ -79,6 +79,8 @@ Följ dessa steg för att konfigurera Application Insights för både VotingWeb-
 1. Högerklicka på tjänstnamnet och klicka på **Konfigurera Application Insights...**.
 
     ![Konfigurera AI](./media/service-fabric-tutorial-monitoring-aspnet/configure-ai.png)
+>[!NOTE]
+>Beroende på projekttypen kan du, när du högerklickar på tjänstens namn, behöva lägga till Lägg till -> Application Insights Telemetry ...
 
 2. Klicka på **Start Free** (Starta kostnadsfritt).
 3. Logga in på ditt konto (som du använde vid konfigurationen av din Azure-prenumeration) och välj den prenumeration där du skapade Application Insights-resursen. Resursen finns under *Befintlig Application Insights-resurs* i listrutan ”Resurs”. Klicka på **Registrera** för att lägga till Application Insights i din tjänst.

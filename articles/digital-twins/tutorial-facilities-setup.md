@@ -7,12 +7,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: bd1b53acb619130a84400c49aba0cb2b710ad7e3
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4491ec4661c93570893e5fafd5524715e0773d8c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616120"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582340"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Självstudie: Distribuera Azure Digital Twins och konfigurera en rumsligt graf
 
@@ -170,7 +170,11 @@ Spara och stäng filen provisionSample.yaml. I nästa självstudie lägger du ti
 Om du inte vill utforska Azure Digital Twins nu kan du ta bort resurser som du har skapat i den här självstudien:
 
 1. På den vänstra menyn i [Azure-portalen](http://portal.azure.com) väljer du **Alla resurser**, väljer din Digital Twins-resursgrupp och **Ta bort**.
-2. Ta bort exempelprogrammet på datorn om det behövs. 
+   
+    > [!TIP]
+    > Om det inträffade problem när du skulle ta bort Digital Twins-instansen finns det nu en tjänstuppdatering som åtgärdar det. Försök att ta bort instansen igen.
+
+1. Ta bort exempelprogrammet på datorn om det behövs. 
 
 
 ## <a name="next-steps"></a>Nästa steg

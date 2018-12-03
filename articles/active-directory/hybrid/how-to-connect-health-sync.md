@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eebeb8d1f27631e7ecb40072f78d6a04b5152a8f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9811c51485ec30e7fe692c52f4e65cefd93e5cb0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277145"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499070"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Övervaka Azure AD Connect-synkronisering med Azure AD Connect Health
 Följande dokumentation är specifik för övervakning av Azure AD Connect (Sync) med Azure AD Connect Health.  Information om övervakning av AD FS med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD FS](how-to-connect-health-adfs.md). Mer information om övervakning av Active Directory Domain Services med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD DS](how-to-connect-health-adds.md).
@@ -62,7 +62,7 @@ Den här funktion visar en grafisk trend över antalet ändringar som utvärdera
 
 ![Synkronisera svarstider](./media/how-to-connect-health-sync/syncobjectchanges02.png)
 
-## <a name="object-level-synchronization-error-report-preview"></a>Felrapport för synkronisering på objektnivå (förhandsgranskning)
+## <a name="object-level-synchronization-error-report"></a>Felrapport för synkronisering på objektnivå
 Denna funktion tillhandahåller en rapport om synkroniseringsfel som kan uppstå när identitetsdata synkroniseras mellan Windows Server AD och Azure AD med Azure AD Connect.
 
 * Rapporten avser fel registrerade av synkroniseringsklienten (Azure AD Connect version 1.1.281.0 eller senare)
@@ -74,7 +74,7 @@ Denna funktion tillhandahåller en rapport om synkroniseringsfel som kan uppstå
   * Lista över objekt med fel per kategori
   * Alla data om felen på en plats
   * Jämförelse sida vid sida av objekt med fel på grund av en konflikt
-  * Hämta felrapporten som en CVS-fil (kommer snart)
+  * Ladda ned felrapporten som en CSV-fil
 
 ### <a name="categorization-of-errors"></a>Kategorisering av fel
 Rapporten kategoriserar befintliga synkroniseringsfel i följande kategorier:

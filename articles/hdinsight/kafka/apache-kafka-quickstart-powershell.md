@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 04/16/2018
-ms.openlocfilehash: 8f552967dcf7e5c5d41d468914a2c829cad3dc96
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 8ac288a3b62b305ca45ba8ef2dcc6cdaf6aaf6bd
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010307"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309649"
 ---
-# <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Snabbstart: Skapa ett Kafka-kluster på HDInsight
+# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Snabbstart: Skapa ett Apache Kafka-kluster på HDInsight
 
-Kafka är en distribuerad direktuppspelningsplattform med öppen källkod. Den används ofta som en asynkron meddelandekö eftersom den innehåller funktioner som påminner om en publicera-prenumerera-meddelandekö. 
+[Apache Kafka](https://kafka.apache.org/) är en distribuerad strömningsplattform med öppen källkod. Den används ofta som en asynkron meddelandekö eftersom den innehåller funktioner som påminner om en publicera-prenumerera-meddelandekö. 
 
 I den här snabbstarten lär du dig hur du skapar ett [Apache Kafka](https://kafka.apache.org)-kluster med hjälp av Azure PowerShell. Du kommer också lära dig hur du kan använda de inkluderade verktygen för att skicka och ta emot meddelanden med Kafka.
 
@@ -27,7 +27,7 @@ I den här snabbstarten lär du dig hur du skapar ett [Apache Kafka](https://kaf
 > [!IMPORTANT]
 > Kafka-API:et kan endast användas av resurser i samma virtuella nätverk. I den här snabbstarten har du direkt åtkomst till klustret med SSH. Om du vill ansluta andra tjänster, nätverk eller virtuella datorer till Kafka måste du först skapa ett virtuellt nätverk och sedan skapa resurser i nätverket.
 >
-> Mer information finns i dokumentet [Anslut till Kafka via ett virtuellt nätverk](apache-kafka-connect-vpn-gateway.md).
+> Mer information finns i dokumentet [Anslut till Apache Kafka via ett virtuellt nätverk](apache-kafka-connect-vpn-gateway.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -95,9 +95,9 @@ $storageContext = New-AzureStorageContext `
 New-AzureStorageContainer -Name $containerName -Context $storageContext 
 ```
 
-## <a name="create-a-kafka-cluster"></a>Skapa ett Kafka-kluster
+## <a name="create-an-apache-kafka-cluster"></a>Skapa ett Apache Kafka-kluster
 
-Skapa en Kafka på HDInsight-klustret med [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster).
+Skapa en Apache Kafka på HDInsight-klustret med [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster).
 
 ```powershell
 # Create a Kafka 1.0 cluster
@@ -182,11 +182,11 @@ Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 ssuhuser@hn0-mykafk:~$
 ```
 
-## <a id="getkafkainfo"></a>Hämta information om värden i Zookeeper och Broker
+## <a id="getkafkainfo"></a>Hämta information om värden i Apache Zookeeper och Broker
 
-När du arbetar med Kafka måste du känna till *Zookeeper*- och *Broker*-värdarna. Dessa värdar används med Kafka-API och många av de verktyg som levereras med Kafka.
+När du arbetar med Kafka måste du känna till *Apache Zookeeper*- och *Broker*-värdarna. Dessa värdar används med Kafka-API och många av de verktyg som levereras med Kafka.
 
-I det här avsnittet hämtas information om värden från klustrets Ambari REST API.
+I det här avsnittet hämtar du värdinformation från om värden från Apache Ambari REST API på klustret.
 
 1. Installera verktyget `jq` genom att använda följande kommando från SSH-anslutningen till klustret. Det här verktyget används för att parsa JSON-dokument och är användbart när du ska hämta värdinformation:
    
@@ -241,7 +241,7 @@ I det här avsnittet hämtas information om värden från klustrets Ambari REST 
    
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
 
-## <a name="manage-kafka-topics"></a>Hantera Kafka-ämnen
+## <a name="manage-apache-kafka-topics"></a>Hantera Apache Kafka-ämnen
 
 Kafka lagrar dataströmmar i kategorier som kallas *ämnen*. Du kan hantera ämnena med verktyget `kafka-topics.sh`.
 
@@ -267,7 +267,7 @@ Kafka lagrar dataströmmar i kategorier som kallas *ämnen*. Du kan hantera ämn
         > [!IMPORTANT] 
         > Kafka har ingen information om Azure-feldomäner. När du skapar partitionsrepliker för ämnen kanske det inte distribueras repliker korrekt för hög tillgänglighet.
 
-        Garantera hög tillgänglighet med [verktyget för ombalansering av Kafka-partitioner](https://github.com/hdinsight/hdinsight-kafka-tools). Du måste köra det här verktyget från en SSH-anslutning till ditt Kafka-klusters huvudnod.
+        Garantera hög tillgänglighet med hjälp av [verktyget för partitionsombalansering för Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Du måste köra det här verktyget från en SSH-anslutning till ditt Kafka-klusters huvudnod.
 
         Om du vill ha bästa möjliga tillgänglighet för dina Kafka-data måste du balansera om ämnets partitionsrepliker när:
 
@@ -329,7 +329,7 @@ Använd följande steg för att lagra poster i det testämne som du skapade tidi
 
 4. Använd __Ctrl + C__ om du vill stoppa konsumenten.
 
-Du kan också programmässigt skapa producenter och konsumenter. Om du vill se ett exempel på att använda denna API kan du läsa dokumentet [Kafka-producent och konsument-API med HDInsight](apache-kafka-producer-consumer-api.md).
+Du kan också programmässigt skapa producenter och konsumenter. Ett exempel på användning av detta API finns i dokumentet [Apache Kafka-producent- och konsument-API med HDInsight](apache-kafka-producer-consumer-api.md).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -347,4 +347,4 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Använda Apache Spark med Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
+> [Använda Apache Spark med Apache Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)

@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 02/14/2018
 ms.author: v-gedod
-ms.openlocfilehash: 8e4343b053835c0fc2219373ad60f96c7b80636a
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 6e029b7e830b6ec157d03d17dc24e65282a9c742
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803349"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316811"
 ---
 # <a name="quickstart-bing-news-search-sdk-with-python"></a>Snabbstart: SDK för nyhetssökning i Bing med Python
 
@@ -24,6 +24,8 @@ SDK:t för nyhetssökning i Bing innehåller funktionerna i REST API:et för web
 [Källkoden till exemplen med SDK:t för nyhetssökning i Bing med Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py) är tillgänglig på Git Hub.
 
 ## <a name="application-dependencies"></a>Programberoenden
+Hämta en [Cognitive Services-åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/) under **Sök**.  Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+
 Installera Python om du inte redan har det. Detta SDK är kompatibelt med Python 2.7, 3.3, 3.4, 3.5 och 3.6.
 
 Den allmänna rekommendationen för Python-utveckling är att använda en [virtuell miljö](https://docs.python.org/3/tutorial/venv.html). Installera och initiera den virtuella miljön med [venv-modulen](https://pypi.python.org/pypi/virtualenv). Du måste installera virtualenv för Python 2.7.

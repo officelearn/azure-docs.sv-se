@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: 416557b11ebef953411fb6fabcddb72d08dcb5af
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 447c59d45e3b1614ce8dbddc56f9dba0dd156e90
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802992"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317066"
 ---
 # <a name="quickstart-bing-news-search-sdk-with-c"></a>Snabbstart: SDK för nyhetssökning i Bing med C#
 
@@ -24,6 +24,7 @@ SDK för nyhetssökning i Bing innehåller funktionerna i REST API:et för nyhet
 [Källkoden till exemplen med SDK:t för nyhetssökning i Bing med C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch) är tillgänglig på GitHub.
 
 ## <a name="application-dependencies"></a>Programberoenden
+Hämta en [Cognitive Services-åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/) under **Sök**.  Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).  
 
 Om du vill konfigurera ett konsolprogram med hjälp av SDK:n för nyhetssökning i Bing bläddrar du till alternativet `Manage NuGet Packages` från Solution Explorer i Visual Studio.  Lägg till paketet `Microsoft.Azure.CognitiveServices.Search.NewsSearch`.
 

@@ -9,12 +9,12 @@ ms.date: 10/19/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fc83546080111554446cb8f7b7ca97026f99e02e
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 95041ca77930d87bff6ea31e2eab89a6634cfcf5
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283442"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442972"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Självstudie: Lagra data på gränsen med SQL Server-databaser
 
@@ -56,9 +56,9 @@ I den här självstudien använder du Azure IoT Edge-tillägget för Visual Stud
 
 Du kan använda valfritt Docker-kompatibelt register för att lagra dina containeravbildningar. Två populära Docker-registertjänster är [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) och [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). I den här kursen använder vi Azure Container Registry. 
 
-1. I [Azure Portal](https://portal.azure.com) väljer du **Skapa en resurs** > **Container** > **Containerregister**.
+Om du inte redan har ett containerregister följer du dessa steg för att skapa ett nytt i Azure:
 
-    ![Skapa ett containerregister](./media/tutorial-deploy-function/create-container-registry.png)
+1. I [Azure Portal](https://portal.azure.com) väljer du **Skapa en resurs** > **Container** > **Containerregister**.
 
 2. Skapa containerregistret genom att ange följande värden:
 
@@ -75,7 +75,7 @@ Du kan använda valfritt Docker-kompatibelt register för att lagra dina contain
 
 6. När du har skapat containerregistret går du till det och väljer **Åtkomstnycklar**. 
 
-7. Kopiera värdena för **Inloggningsserver**, **Användarnamn** och **Lösenord**. Du kan använda dessa värden senare i självstudien för att ge åtkomst till containerregistret. 
+7. Kopiera värdena för **Inloggningsserver**, **Användarnamn** och **Lösenord**. Du kan använda dessa värden senare i självstudien för att ge åtkomst till containerregistret.  
 
 ## <a name="create-a-function-project"></a>Skapa ett funktionsprojekt
 
@@ -229,9 +229,9 @@ Ett [distributionsmanifest](module-composition.md) deklarerar vilka moduler IoT 
        "type": "docker",
        "status": "running",
        "restartPolicy": "always",
+       "env":{},
        "settings": {
            "image": "",
-           "environment": "",
            "createOptions": ""
        }
    }
@@ -239,50 +239,47 @@ Ett [distributionsmanifest](module-composition.md) deklarerar vilka moduler IoT 
 
    ![Lägga till en SQL Server-container](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
-5. Beroende på typen av Docker-containrar på din IoT Edge-enhet uppdaterar du **sql.settings**-parametrarna med följande kod:
-
+5. Beroende på typen av Docker-containrar på din IoT Edge-enhet uppdaterar du **sql**-modulparametrarna med följande kod:
    * Windows-containrar:
 
-        ```json
-        {
-            "image": "microsoft/mssql-server-windows-developer",
-            "environment": {
-                "ACCEPT_EULA": "Y",
-                "SA_PASSWORD": "Strong!Passw0rd"
-            },
-            "createOptions": {
-                "HostConfig": {
-                    "Mounts": [{"Target": "C:\\\\mssql","Source": "sqlVolume","Type": "volume"}],
-                    "PortBindings": {
-                        "1433/tcp": [{"HostPort": "1401"}]
-                    }
-                }
-            }
-        }
-        ```
- 
+      ```json
+      "env": {
+         "ACCEPT_EULA": {"value": "Y"},
+         "SA_PASSWORD": {"value": "Strong!Passw0rd"}
+       },
+       "settings": {
+          "image": "microsoft/mssql-server-windows-developer",
+          "createOptions": {
+              "HostConfig": {
+                  "Mounts": [{"Target": "C:\\\\mssql","Source": "sqlVolume","Type": "volume"}],
+                  "PortBindings": {
+                      "1433/tcp": [{"HostPort": "1401"}]
+                  }
+              }
+          }
+      }
+      ```
 
    * Linux-containrar:
 
-        ```json
-        {
-            "image": "mcr.microsoft.com/mssql/server:latest",
-            "environment": {
-                "ACCEPT_EULA": "Y",
-                "SA_PASSWORD": "Strong!Passw0rd"
-            },
-            "createOptions": {
-                "HostConfig": {
-                    "Mounts": [{"Target": "/var/opt/mssql","Source": "sqlVolume","Type": "volume"}],
-                    "PortBindings": {
-                        "1433/tcp": [{"HostPort": "1401"}]
-                    }
-                }
-            }
-        }
-        ```
-    
-    
+      ```json
+      "env": {
+         "ACCEPT_EULA": {"value": "Y"},
+         "SA_PASSWORD": {"value": "Strong!Passw0rd"}
+       },
+       "settings": {
+          "image": "mcr.microsoft.com/mssql/server:latest",
+          "createOptions": {
+              "HostConfig": {
+                  "Mounts": [{"Target": "/var/opt/mssql","Source": "sqlVolume","Type": "volume"}],
+                  "PortBindings": {
+                      "1433/tcp": [{"HostPort": "1401"}]
+                  }
+              }
+          }
+      }
+      ```
+
    >[!Tip]
    >Varje gång du skapar en SQL Server-container i en produktionsmiljö bör du [ändra standardlösenord för systemadministratören](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).
 

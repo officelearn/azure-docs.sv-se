@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 02/15/2018
 ms.author: rosh
-ms.openlocfilehash: 9784894ea9a9deb350171e0d19042eb65644093b
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 2c099f3520b697e8ec2f7ef39c4525298182a697
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225658"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307924"
 ---
 # <a name="quickstart-bing-video-search-sdk-with-python"></a>Snabbstart: SDK för videosökning i Bing med Python
 
@@ -25,6 +25,8 @@ SDK för bildsökning i Bing innehåller funktionerna i REST API:et för webbfr�
 
 
 ## <a name="application-dependencies"></a>Programberoenden
+Hämta en [Cognitive Services-åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/) under **Sök**.  Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+
 Installera Python om du inte redan har det. SDK är kompatibelt med Python 2.7, 3.3, 3.4, 3.5 och 3.6.
 
 Den allmänna rekommendationen för Python-utveckling är att använda en [virtuell miljö](https://docs.python.org/3/tutorial/venv.html). Installera och initiera den virtuella miljön med [venv-modulen](https://pypi.python.org/pypi/virtualenv). Installera virtualenv för Python 2.7.

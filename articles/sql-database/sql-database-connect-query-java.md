@@ -1,65 +1,66 @@
 ---
 title: Fråga Azure SQL Database med Java | Microsoft Docs
-description: Det här avsnittet visar hur du använder Java för att skapa ett program som ansluter till en Azure SQL Database och frågar den med hjälp av Transact-SQL-uttryck.
+description: Visar hur du använder Java för att skapa ett program som ansluter till en Azure SQL-databas och köra frågor mot den med hjälp av SQL-instruktioner.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
 ms.devlang: java
 ms.topic: quickstart
 author: ajlam
 ms.author: andrela
-ms.reviewer: ''
+ms.reviewer: v-masebo
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 2e8e47e8f2b61105a720c36d5b91a04df094c5d6
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 11/20/2018
+ms.openlocfilehash: afa975a593fd962050c9f894ec091d7f64579138
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912364"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52332621"
 ---
 # <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Snabbstart: Använda Java för att fråga en Azure SQL-databas
 
-Den här snabbstarten visar hur du använder [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) för att ansluta till en Azure SQL-databas och sedan använder Transact-SQL-uttryck för att köra frågor mot data.
+Den här artikeln visar hur du använder [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) för att ansluta till en Azure SQL-databas. Du kan sedan använda T-SQL-instruktioner för att köra frågor mot data.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att kunna slutföra den här snabbstarten behöver du följande:
+För att kunna slutföra det här exemplet behöver du följande:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- En [brandväggsregel på servernivå](sql-database-get-started-portal-firewall.md) för den offentliga IP-adressen till datorn som du använder för den här snabbstarten.
+- En [brandväggsregel på servernivå](sql-database-get-started-portal-firewall.md) för den offentliga IP-adressen till den dator som du använder
 
-- Du har installerat Java och relaterad programvara för ditt operativsystem:
+- Java-relaterad programvara installerad för ditt operativsystem:
 
-    - **MacOS**: Installera Homebrew och Java och installera sedan Maven. Se [Steg 1.2 och 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
-    - **Ubuntu**: Installera Java Development Kit och Maven. Se [Steg 1.2, 1.3 och 1.4](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
-    - **Windows**: Installera Java Development Kit och Maven. Se [steg 1.2 och 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).    
+  - **MacOS**, installera Homebrew och Java och sedan Maven. Se [steg 1.2 och 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
 
-## <a name="sql-server-connection-information"></a>Anslutningsinformation för en SQL-server
+  - **Ubuntu**, installera Java Development Kit och sedan Maven. Se [Steg 1.2, 1.3 och 1.4](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
+
+  - **Windows**, installera Java och sedan Maven. Se [steg 1.2 och 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).
+
+## <a name="get-database-connection"></a>Hämta databasanslutning
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-## <a name="create-maven-project-and-dependencies"></a>**Skapa Maven-projekt och beroenden**
-1. Skapa ett nytt Maven-projekt som du namnger **sqltest** från terminalen. 
+## <a name="create-the-project"></a>Skapa projektet
 
-   ```bash
-   mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
-   ```
+1. Skapa ett nytt Maven-projekt som du namnger *sqltest* från terminalen.
 
-2. Ange **Y** när du tillfrågas.
-3. Gå till katalogen för **sqltest** och öppna ***pom.xml*** med valfri textredigerare.  Lägg till **Microsoft JDBC-drivrutinen för SQL Server** i projektets beroenden med följande kod:
+    ```bash
+    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0" --batch-mode
+    ```
 
-   ```xml
-   <dependency>
-       <groupId>com.microsoft.sqlserver</groupId>
-       <artifactId>mssql-jdbc</artifactId>
-       <version>6.4.0.jre8</version>
-   </dependency>
-   ```
+1. Gå till katalogen för *sqltest* och öppna *pom.xml* med valfri textredigerare. Lägg till **Microsoft JDBC-drivrutinen för SQL Server** i projektets beroenden med hjälp av följande kod.
 
-4. Lägg även till följande egenskaper i projektet i filen ***pom.xml***.  Om du inte har ett avsnitt för egenskaper kan du lägga till efter beroendena.
+    ```xml
+    <dependency>
+        <groupId>com.microsoft.sqlserver</groupId>
+        <artifactId>mssql-jdbc</artifactId>
+        <version>7.0.0.jre8</version>
+    </dependency>
+    ```
+
+1. Lägg även till följande egenskaper i projektet i filen *pom.xml*. Om du inte har ett avsnitt för egenskaper kan du lägga till efter beroendena.
 
    ```xml
    <properties>
@@ -68,82 +69,89 @@ För att kunna slutföra den här snabbstarten behöver du följande:
    </properties>
    ```
 
-5. Spara och stäng ***pom.xml***.
+1. Spara och stäng *pom.xml*.
 
-## <a name="insert-code-to-query-sql-database"></a>Infoga kod för att fråga SQL-databas
+## <a name="add-code-to-query-database"></a>Lägga till kod i frågedatabas
 
-1. Du bör redan ha en fil med namnet ***App.java*** i ditt Maven-projekt som finns i: ...\sqltest\src\main\java\com\sqlsamples\App.Java
+1. Du bör redan ha en fil med namnet *App.java* i ditt Maven-projekt, som finns i:
 
-2. Öppna filen och ersätt innehållet med följande kod och lägg till lämpliga värden för server, databas, användare och lösenord.
+   *..\sqltest\src\main\java\com\sqldbsamples\App.java*
 
-   ```java
-   package com.sqldbsamples;
+1. Öppna filen och ersätt innehållet med följande kod. Lägg sedan till lämpliga värden för servern, databas, användare och lösenord.
 
-   import java.sql.Connection;
-   import java.sql.Statement;
-   import java.sql.PreparedStatement;
-   import java.sql.ResultSet;
-   import java.sql.DriverManager;
+    ```java
+    package com.sqldbsamples;
 
-   public class App {
+    import java.sql.Connection;
+    import java.sql.Statement;
+    import java.sql.PreparedStatement;
+    import java.sql.ResultSet;
+    import java.sql.DriverManager;
 
-    public static void main(String[] args) {
-    
-        // Connect to database
-           String hostName = "your_server.database.windows.net";
-           String dbName = "your_database";
-           String user = "your_username";
-           String password = "your_password";
-           String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
-           Connection connection = null;
+    public class App {
 
-           try {
-                   connection = DriverManager.getConnection(url);
-                   String schema = connection.getSchema();
-                   System.out.println("Successful connection - Schema: " + schema);
+        public static void main(String[] args) {
 
-                   System.out.println("Query data example:");
-                   System.out.println("=========================================");
+            // Connect to database
+            String hostName = "your_server.database.windows.net";
+            String dbName = "your_database";
+            String user = "your_username";
+            String password = "your_password";
+            String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;"
+                + "hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
+            Connection connection = null;
 
-                   // Create and execute a SELECT SQL statement.
-                   String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName " 
-                       + "FROM [SalesLT].[ProductCategory] pc "  
-                       + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
-                
-                   try (Statement statement = connection.createStatement();
-                       ResultSet resultSet = statement.executeQuery(selectSql)) {
+            try {
+                connection = DriverManager.getConnection(url);
+                String schema = connection.getSchema();
+                System.out.println("Successful connection - Schema: " + schema);
 
-                           // Print results from select statement
-                           System.out.println("Top 20 categories:");
-                           while (resultSet.next())
-                           {
-                               System.out.println(resultSet.getString(1) + " "
-                                   + resultSet.getString(2));
-                           }
+                System.out.println("Query data example:");
+                System.out.println("=========================================");
+
+                // Create and execute a SELECT SQL statement.
+                String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName "
+                    + "FROM [SalesLT].[ProductCategory] pc "  
+                    + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
+
+                try (Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(selectSql)) {
+
+                    // Print results from select statement
+                    System.out.println("Top 20 categories:");
+                    while (resultSet.next())
+                    {
+                        System.out.println(resultSet.getString(1) + " "
+                            + resultSet.getString(2));
+                    }
                     connection.close();
-                   }                   
-           }
-           catch (Exception e) {
-                   e.printStackTrace();
-           }
-       }
-   }
-   ```
+                }
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    ```
+
+   > [!NOTE]
+   > Kodexemplet använder exempeldatabasen **AdventureWorksLT** för SQL Azure.
 
 ## <a name="run-the-code"></a>Kör koden
 
-1. Kör följande kommandon i kommandotolken:
+1. Kör programmet i kommandotolken.
 
-   ```bash
-   mvn package
-   mvn -q exec:java "-Dexec.mainClass=com.sqldbsamples.App"
-   ```
+    ```bash
+    mvn package -DskipTests
+    mvn -q exec:java "-Dexec.mainClass=com.sqldbsamples.App"
+    ```
 
-2. Kontrollera att de 20 översta raderna returneras och stäng sedan programfönstret.
-
+1. Kontrollera att de 20 översta raderna returneras och stäng programfönstret.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Utforma din första Azure SQL Database](sql-database-design-first-database.md)
-- [Microsoft JDBC-drivrutin för SQL Server](https://github.com/microsoft/mssql-jdbc)
-- [Rapportera problem/ställ frågor](https://github.com/microsoft/mssql-jdbc/issues)
 
+- [Utforma din första Azure SQL Database](sql-database-design-first-database.md)  
+
+- [Microsoft JDBC-drivrutin för SQL Server](https://github.com/microsoft/mssql-jdbc)  
+
+- [Rapportera problem/ställ frågor](https://github.com/microsoft/mssql-jdbc/issues)  

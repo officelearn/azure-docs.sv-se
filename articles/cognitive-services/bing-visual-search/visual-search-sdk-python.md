@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
-ms.openlocfilehash: 935241d5574a59edfa256b74db3a0aeab2f7bf91
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9f2a6d9b75ccf704862d169b96ea1a1f2edb9815
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458113"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445695"
 ---
 # <a name="quickstart-bing-visual-search-sdk-python"></a>Snabbstart: SDK för visuell sökning i Bing, Python
 
@@ -30,8 +30,17 @@ Kodscenarier dokumenteras under följande rubriker:
 * [Taggar, åtgärder och actionType](#tags-actions)
 
 ## <a name="application-dependencies"></a>Programberoenden
-* En API-nyckel för Cognitive Services krävs för att autentisera SDK-anrop. Registrera dig för en [kostnadsfri utvärderingsversionsnyckel](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). Utvärderingsnyckeln gäller i sju dagar med ett anrop per sekund. [Köp en åtkomstnyckel](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7) för produktionsscenarier. Se också [prisinformationen](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
-* Om du inte har Python kan du installera det. SDK är kompatibelt med Python 2.7, 3.3, 3.4, 3.5 och 3.6.
+* För den här snabbstarten behöver du starta en prenumeration på S9-prisnivån enligt [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Så här startar du en prenumeration på Azure-portalen:
+1. Ange ”BingSearchV7” i den textruta längst upp på Azure-portalen där det står `Search resources, services, and docs`.  
+2. Under Marketplace i den nedrullningsbara listan väljer du `Bing Search v7`.
+3. Ange `Name` för den nya resursen.
+4. Välj `Pay-As-You-Go`-prenumeration.
+5. Välj prisnivån `S9`.
+6. Starta prenumerationen genom att klicka på `Enable`.
+ 
+* Installera Python om du inte redan har det. SDK är kompatibelt med Python 2.7, 3.3, 3.4, 3.5 och 3.6.
 * Den allmänna rekommendationen för Python-utveckling är att använda en [virtuell miljö](https://docs.python.org/3/tutorial/venv.html). Installera och initiera den virtuella miljön med [venv-modulen](https://pypi.python.org/pypi/virtualenv). Installera virtualenv för Python 2.7.
 ```
 python -m venv mytestenv
@@ -227,7 +236,7 @@ def search_image_binary_with_crop_area(client, sub_key, file_path):
 <a name="knowledge-req"></a>
 ## <a name="knowledgerequest-parameter"></a>KnowledgeRequest-parameter
 
-Följande kod skickar en avbildnings-url i parametern `knowledgeRequest` tillsammans med ett \"site:pinterest.com\"-filter. Därefter skrivs `imageInsightsToken`, antalet taggar, antalet åtgärder och den första actionType ut.
+Följande kod skickar en avbildnings-URL i parametern `knowledgeRequest` tillsammans med ett \"site:pinterest.com\"-filter. Därefter skrivs `imageInsightsToken`, antalet taggar, antalet åtgärder och den första actionType ut.
 ```
 def search_url_with_filters(client_in, sub_key):
 

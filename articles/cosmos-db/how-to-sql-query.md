@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: f9ec8ff1fbd5f6341d2d949d15d963f8abe15200
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 9496f88a24c92387418d5d9ae23bb7f2eaff2088
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52166622"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444454"
 ---
 # <a name="query-azure-cosmos-db-data-with-sql-queries"></a>Köra frågor mor Azure Cosmos DB-data med SQL-frågor
 
@@ -400,9 +400,18 @@ De unära operatorerna +,-, ~, och NOT stöds också och kan användas i frågor
 Utöver binära och unära operatorer tillåts även egenskapsreferenser. Till exempel returnerar `SELECT * FROM Families f WHERE f.isRegistered` det JSON-objekt som innehåller egenskapen `isRegistered`, där egenskapens värde är lika med JSON `true`-värdet. Alla övriga värden (false, null, Undefined, `<number>`, `<string>`, `<object>`, `<array>` osv.) leder till att källobjektet exkluderas från resultatet. 
 
 ### <a name="equality-and-comparison-operators"></a>Likhets- och jämförelseoperatorer
+
 I följande tabell visas resultatet av likhetsjämförelser i SQL API mellan två godtyckliga JSON-typer.
 
-| **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **Array** | | **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | | **Null** | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | Undefined | | **Boolean** | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | | **Number** | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | | **String** | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | | **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | | **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** |
+| **Op** | **Odefinierad** | **Null** | **Boolesk** | **Nummer** | **Sträng** | **Objekt** | **Matris** |
+|---|---|---|---|---|---|---|---|
+| **Odefinierad** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
+| **Null** | Undefined (Odefinierad) | **Ok** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
+| **Boolesk** | Undefined (Odefinierad) | Undefined (Odefinierad) | **Ok** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
+| **Nummer** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Ok** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
+| **Sträng** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Ok** | Undefined (Odefinierad) | Undefined (Odefinierad) |
+| **Objekt** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Ok** | Undefined (Odefinierad) |
+| **Matris** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Ok** |
 
 För andra jämförelseoperatorer såsom >, >=, !=, < och <= gäller följande regler:
 

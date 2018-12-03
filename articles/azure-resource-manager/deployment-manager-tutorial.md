@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/08/2018
+ms.date: 11/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 70a7829c14997287ed130b0b4300c7f5aa0f3a30
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: e4489fd9119bce0e38e14f536f41940b74205e95
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345580"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425011"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Självstudie: Använda Azure Deployment Manager med Resource Manager-mallar (privat förhandsgranskning)
 
@@ -41,6 +41,8 @@ Den här självstudien omfattar följande uppgifter:
 > * Distribuera den senare versionen
 > * Rensa resurser
 
+Azure Deployment Manager REST API-referensen finns [här](https://docs.microsoft.com/rest/api/deploymentmanager/).
+
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
@@ -50,12 +52,12 @@ För att kunna följa stegen i den här artikeln behöver du:
 * Viss erfarenhet av att utveckla [Azure Resource Manager-mallar](./resource-group-overview.md).
 * Distributionshanteraren i Azure finns i en privat förhandsgranskning. Om du vill registrera dig med Azure Deployment Manager fyller du i [registreringsbladet](https://aka.ms/admsignup). 
 * Azure PowerShell. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
-* Deployment Manager-cmdlets. För att installera dessa cmdlets i förhandsversionen behöver du den senaste versionen av PowerShellGet. Information om hur du skaffar den senaste versionen finns i [Installera PowerShellGet](/powershell/gallery/installing-psget). Stäng PowerShell-fönstret när du har installerat PowerShellGet. Öppna ett nytt PowerShell-fönster och använd följande kommando:
+* Deployment Manager-cmdlets. För att installera dessa cmdlets i förhandsversionen behöver du den senaste versionen av PowerShellGet. Information om hur du skaffar den senaste versionen finns i [Installera PowerShellGet](/powershell/gallery/installing-psget). Stäng PowerShell-fönstret när du har installerat PowerShellGet. Öppna ett nytt upphöjt PowerShell-fönster och använd följande kommando:
 
     ```powershell
     Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease
     ```
-* [Microsoft Azure Storage Explorer](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409). Azure Storage Explorer krävs inte, men det gör saker enklare.
+* [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Azure Storage Explorer krävs inte, men det gör saker enklare.
 
 ## <a name="understand-the-scenario"></a>Förstå scenariot
 
@@ -145,10 +147,10 @@ Senare i självstudien ska du distribuera en distribution. En användartilldelad
 Du måste skapa en användartilldelad hanterad identitet och konfigurera åtkomstkontrollen för din prenumeration.
 
 > [!IMPORTANT]
-> Den användartilldelade hanterade identiteten måste finnas på samma plats som [distributionen](#create-the-rollout-template). För närvarande kan Deployment Manager-resurser, inklusive distributionsresursen, endast skapas i regionen USA, centrala eller USA, östra 2.
+> Den användartilldelade hanterade identiteten måste finnas på samma plats som [distributionen](#create-the-rollout-template). För närvarande kan Deployment Manager-resurser, inklusive distributionsresursen, endast skapas i regionen USA, centrala eller USA, östra 2. Detta gäller dock bara för Deployment Manager-resurser (till exempel tjänsttopologi, tjänster, tjänstenheter, distribution och steg). Dina målresurser kan distribueras till alla Azure-regioner som stöds. I den självstudien distribueras till exempel Deployment Manager-resurser till USA, centrala, men tjänsterna distribueras till USA, östra och USA, västra. Den här begränsningen tas bort framöver.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Skapa en [användartilldelad hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md).
+2. Skapa en [användartilldelad hanterad identitet](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 3. Från portalen väljer du **Prenumerationer** på den vänstra menyn och väljer sedan din prenumeration.
 4. Välj **Åtkomstkontroll (IAM)** och sedan **Lägg till**
 5. Ange eller välj följande värden:
@@ -200,6 +202,9 @@ Följande skärmbild visar endast vissa delar av definitionerna av tjänsttopolo
 - **dependsOn**: Alla resurser för tjänsttopologin är beroende av resursen för artefaktkällan.
 - **artifacts** pekar på mallartefakterna.  Relativa sökvägar används här. Den fullständiga sökvägen skapas genom att artifactSourceSASLocation (definieras i artefaktkällan), artifactRoot (definieras i artefaktkällan) och templateArtifactSourceRelativePath (eller parametersArtifactSourceRelativePath) sammanfogas.
 
+> [!NOTE]
+> Namn på tjänstenheter får innehålla högst 31 tecken. 
+
 ### <a name="topology-parameters-file"></a>Topologiparameterfil
 
 Du skapar en parameterfil som används med topologimallen.
@@ -211,7 +216,7 @@ Du skapar en parameterfil som används med topologimallen.
     - **azureResourceLocation**: Om du inte är bekant med Azure-platser använder du **centralus** i den här självstudien.
     - **artifactSourceSASLocation**: Ange SAS-URI:n till rotkatalogen (blobcontainern) där filerna för tjänstenheterna och parametrarna lagras för distribution.  Se [Förbereda artefakterna](#prepare-the-artifacts).
     - **templateArtifactRoot**: Såvida du inte ändrar mappstrukturen för artefakterna använder du **templates/1.0.0.0** i den här självstudien.
-    - **tragetScriptionID**: Ange ditt prenumerations-ID för Azure.
+    - **targetScriptionID**: Ange ditt prenumerations-ID för Azure.
 
 > [!IMPORTANT]
 > Topologimallen och distributionsmallen delar vissa vanliga parametrar. Dessa parametrar måste ha samma värden. Dessa parametrar är: **namePrefix**, **azureResourceLocation** och **artifactSourceSASLocation** (båda artefaktkällorna delar samma lagringskonto i den här självstudien).
@@ -242,7 +247,7 @@ Namnen på resurserna definieras i variabelavsnittet. Kontrollera att namnet på
 
 Tre resurser definieras på rotnivå: en artefaktkälla, ett steg och en distribution.
 
-Artefaktkällans definition är identisk med den som anges i topologimallen.  Mer information finns i [Skapa mallen för tjänsttopologin](#create-the-service-topology-tempate).
+Artefaktkällans definition är identisk med den som anges i topologimallen.  Mer information finns i [Skapa mallen för tjänsttopologin](#create-the-service-topology-template).
 
 Följande skärmbild visar definitionen av wait-steget:
 
@@ -310,7 +315,7 @@ Azure PowerShell kan användas för att distribuera mallarna.
 
     **Visa dolda typer** måste väljas för att resurserna ska visas.
 
-3. Distribuera distributionsmallen:
+3. <a id="deploy-the-rollout-template"></a>Distribuera distributionsmallen:
 
     ```azurepowershell-interactive
     # Create the rollout
@@ -325,7 +330,7 @@ Azure PowerShell kan användas för att distribuera mallarna.
 
     ```azurepowershell-interactive
     # Get the rollout status
-    $rolloutname = "<Enter the Rollout Name>"
+    $rolloutname = "<Enter the Rollout Name>" # "adm0925Rollout" is the rollout name used in this tutorial
     Get-AzureRmDeploymentManagerRollout `
         -ResourceGroupName $resourceGroupName `
         -Name $rolloutName
@@ -365,7 +370,7 @@ När du har en ny version (1.0.0.1) av webbprogrammet kan du använda följande 
 
 1. Öppna CreateADMRollout.Parameters.json.
 2. Uppdatera **binaryArtifactRoot** till **binaries/1.0.0.1**.
-3. Distribuera om distributionen enligt anvisningarna i [Distribuera mallarna](#deploy-the-templates).
+3. Distribuera om distributionen enligt anvisningarna i [Distribuera mallarna](#deploy-the-rollout-template).
 4. Verifiera distributionen genom att följa anvisningarna i [Verifiera distributionen](#verify-the-deployment). Version 1.0.0.1 bör visas på webbsidan.
 
 ## <a name="clean-up-resources"></a>Rensa resurser

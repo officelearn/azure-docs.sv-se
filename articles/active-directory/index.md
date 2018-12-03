@@ -11,14 +11,14 @@ ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 10/29/2018
+ms.date: 11/30/2018
 ms.author: mtillman
-ms.openlocfilehash: 836204694fff6f39305e3ead4f85ddd47f447e10
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 38efd682c530e79bdea3747bd6f14faa10d399c4
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413085"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723354"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -51,11 +51,11 @@ ms.locfileid: "50413085"
                                                                     <h3><a href="fundamentals/index.yml">Lär dig grunderna</a></h3> 
                                                                     <p>
                                                                         <a href="fundamentals/active-directory-whatis.md">Vad är Azure AD?</a><br>
-                                                                        <a href="fundamentals/active-directory-get-started-premium.md">Registrera dig för Azure AD Premium</a><br>
-                                                                        <a href="fundamentals/active-directory-access-create-new-tenant.md">Öppna Azure AD och skapa en klient</a><br>
+                                                                        <a href="fundamentals/add-custom-domain.md">Lägga till ett anpassat domännamn</a><br>
+                                                                        <a href="fundamentals/customize-branding.md">Lägga till företagsanpassning</a><br>
                                                                         <a href="fundamentals/add-users-azure-active-directory.md">Skapa en grupp och lägga till medlemmar</a><br>
                                                                         <a href="fundamentals/active-directory-users-assign-role-azure-portal.md">Tilldela roller till användare</a><br>
-                                                                        <a href="fundamentals/license-users-groups.md">Tilldela licenser till användare</a><br>
+                                                                        <a href="fundamentals/active-directory-how-subscriptions-associated-directory.md">Associera en Azure-prenumeration</a><br>
                                                                         <a href="fundamentals/index.yml"><i>Mer information &gt;</i></a>
                                                                     </p>
                                                                 </div>
@@ -95,41 +95,41 @@ ms.locfileid: "50413085"
                                                     <div class="cardText">
                                                         <h3><a href="manage-apps/index.yml">Programhantering</a></h3>
                                                         <p>
-                                                            <a href="manage-apps/add-application-portal.md">Lägga till ett program</a><br>
-                                                            <a href="manage-apps/configure-single-sign-on-portal.md">Konfigurera enkel inloggning (SSO)</a><br>
+                                                            <a href="manage-apps/what-is-single-sign-on.md">Vad är enkel inloggning (SSO)?</a><br>
+                                                            <a href="manage-apps/configure-single-sign-on-portal.md">Konfigurera enkel inloggning</a><br>
                                                             <a href="manage-apps/application-proxy.md">Programproxy för lokala appar</a><br>
                                                             <a href="manage-apps/index.yml"><i>Mer information &gt;</i></a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="authentication/index.yml">Autentisering</a></h3>
                                                         <p>
-                                                            <a href="authentication/tutorial-mfa-applications.md">Aktivera MFA för Azure Portal</a><br>
-                                                            <a href="authentication/quickstart-sspr.md">Aktivera lösenordsåterställning via självbetjäning</a><br>
-                                                            <a href="authentication/concept-registration-mfa-sspr-converged.md">Konvergerad registrering för MFA och SSPR</a><br>
+                                                            <a href="authentication/concept-mfa-howitworks.md">Så här fungerar Azure MFA</a><br>
+                                                            <a href="authentication/concept-sspr-howitworks.md">Lösenordsåterställning via självbetjäning i Azure AD</a><br>
+                                                            <a href="authentication/concept-password-ban-bad.md">Azure AD-lösenordsskydd</a><br>
                                                             <a href="authentication/index.yml"><i>Mer information &gt;</i></a>
                                                             </p>
                                                         <br><br>
                                                         <h3><a href="b2b/index.yml">Business-to-Business (B2B)</a></h3>
                                                         <p>
-                                                            <a href="b2b/b2b-quickstart-add-guest-users-portal.md">Lägga till gästanvändare på portalen</a><br>
-                                                            <a href="b2b/b2b-tutorial-bulk-invite.md">Massinbjudan av gästanvändare</a><br>
-                                                            <a href="b2b/b2b-tutorial-require-mfa.md">Kräva MFA för gästanvändare</a><br>
+                                                            <a href="b2b/what-is-b2b.md">Vad är Azure AD B2B?</a><br>
+                                                            <a href="b2b/add-users-administrator.md">Lägga till gästanvändare på portalen</a><br>
+                                                            <a href="b2b/o365-external-user.md">B2B- och Office 365-delning</a><br>
                                                             <a href="b2b/index.yml"><i>Mer information &gt;</i></a>
                                                             </p>
                                                         <br><br>
                                                         <h3><a href="/azure/active-directory-b2c/index">Business-to-Customer (B2C)</a></h3>
                                                         <p>
+                                                            <a href="/azure/active-directory-b2c/active-directory-b2c-overview">Vad är Azure AD B2C?</a><br>
                                                             <a href="/azure/active-directory-b2c/tutorial-create-tenant">Skapa en Azure AD B2C-klient</a><br>
-                                                            <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">Aktivera en webbapp för autentisering</a><br>
-                                                            <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">Bevilja åtkomst till ett webb-API för ASP.NET</a><br>
+                                                            <a href="/azure/active-directory-b2c/active-directory-b2c-get-started-custom">Anpassade principer i Azure AD B2C</a><br>
                                                             <a href="/azure/active-directory-b2c/index"><i>Mer information &gt;</i></a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="conditional-access/index.yml">Villkorlig åtkomst</a></h3>
                                                         <p>
+                                                            <a href="conditional-access/overview.md">Vad är villkorsstyrd åtkomst?</a><br>
                                                             <a href="conditional-access/app-based-mfa.md">Kräva MFA för specifika appar</a><br>
-                                                            <a href="conditional-access/require-tou.md">Kräv att användningsvillkoren godkänns</a><br>
-                                                            <a href="conditional-access/app-sign-in-risk.md">Blockera åtkomst när en sessionsrisk identifieras</a><br>
+                                                            <a href="conditional-access/location-condition.md">Villkor baserade på plats</a><br>
                                                             <a href="conditional-access/index.yml"><i>Mer information &gt;</i></a>
                                                             </p>
                                                     </div>
@@ -145,40 +145,40 @@ ms.locfileid: "50413085"
                                                         <h3><a href="develop/index.yml">Utvecklare</a></h3>
                                                         <p>
                                                             <a href="develop/about-microsoft-identity-platform.md">Om Microsoft Identity-plattformen</a><br>
-                                                            <a href="develop/azure-ad-developers-guide.md">Plattform v1.0</a><br>
-                                                            <a href="develop/v2-overview.md">v2.0-plattform</a><br>
+                                                            <a href="develop/v2-oauth2-auth-code-flow.md">Beviljande av OAuth 2.0-kodflöde</a><br>
+                                                            <a href="develop/quickstart-register-app.md">Registrera en app med Microsoft-identitetsplattformen</a><br>
                                                             <a href="develop/index.yml"><i>Mer information &gt;</i></a>
                                                             </p>
                                                         <br><br>
                                                         <h3><a href="devices/index.yml">Enhetshantering</a></h3>
                                                         <p>
-                                                            <a href="devices/hybrid-azuread-join-managed-domains.md">Konfigurera anslutningshybrid för hanterade domäner</a><br>
-                                                            <a href="devices/hybrid-azuread-join-federated-domains.md">Konfigurera anslutningshybrid för federerade domäner</a><br>
-                                                            <a href="devices/azuread-joined-devices-frx.md">Konfigurera Windows 10 under första körningen</a><br>
+                                                            <a href="devices/overview.md">Vad är enhetshantering?</a><br>
+                                                            <a href="devices/hybrid-azuread-join-plan.md">Planera en Azure AD-hybridanslutning</a><br>
+                                                            <a href="devices/azureadjoin-plan.md">Planera en Azure AD-anslutning</a><br>
                                                             <a href="devices/index.yml"><i>Mer information &gt;</i></a><br>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="/azure/active-directory-domain-services/index">Domäntjänster</a></h3>
                                                         <p>
+                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-overview">Vad är Azure AD Domain Services?</a><br>
                                                             <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started">Aktivera Azure AD Domain Services</a><br>
-                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal">Ansluta Windows Server-VM till hanterad domän</a><br>
-                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap">Konfigurera säkert LDAP</a><br>
+                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy">Administrera grupprincip</a><br>
                                                             <a href="/azure/active-directory-domain-services/index"><i>Mer information &gt;</i></a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="users-groups-roles/index.yml">Företagsanvändare</a></h3>
                                                         <p>
-                                                            <a href="users-groups-roles/directory-assign-admin-roles.md">Tilldela administratörsroller</a><br>
-                                                            <a href="users-groups-roles/licensing-groups-assign.md">Tilldela licenser till grupper</a><br>
                                                             <a href="users-groups-roles/groups-create-rule.md">Skapa en dynamisk grupp</a><br>
+                                                            <a href="users-groups-roles/groups-settings-v2-cmdlets.md">PowerShell för Azure AD-grupper</a><br>
+                                                            <a href="users-groups-roles/directory-service-limits-restrictions.md">Azure AD-tjänstens begränsningar</a><br>
                                                             <a href="users-groups-roles/index.yml"><i>Mer information &gt;</i></a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="hybrid/index.yml">Hybrididentitet</a></h3>
                                                         <p>
-                                                            <a href="hybrid/how-to-connect-install-roadmap.md">Installera Azure AD Connect</a><br>
+                                                            <a href="hybrid/whatis-hybrid-identity.md">Vad är hybrididentitet?</a><br>
                                                             <a href="hybrid/how-to-connect-sso.md">Enkel inloggning med Azure AD Connect</a><br>
-                                                            <a href="hybrid/how-to-connect-fed-whatis.md">Azure AD Connect och federation</a><br>
+                                                            <a href="hybrid/how-to-connect-install-custom.md">Anpassad installation av Azure AD Connect</a><br>
                                                             <a href="hybrid/index.yml"><i>Mer information &gt;</i></a>
                                                         </p>
                                                     </div>
@@ -193,16 +193,16 @@ ms.locfileid: "50413085"
                                                     <div class="cardText">
                                                         <h3><a href="governance/index.yml">Identitetsstyrning</a></h3>
                                                         <p>
-                                                            <a href="governance/manage-user-access-with-access-reviews.md">Hantera användaråtkomst</a><br>
-                                                            <a href="governance/manage-guest-access-with-access-reviews.md">Hantera gäståtkomst</a><br>
-                                                            <a href="governance/active-directory-tou.md">Användningsvillkor</a><br>
+                                                            <a href="governance/create-access-review.md">Skapa en åtkomstgranskning</a><br>
+                                                            <a href="governance/perform-access-review.md">Starta en åtkomstgranskning</a><br>
+                                                            <a href="governance/active-directory-tou.md">Använda användningsvillkoren</a><br>
                                                             <a href="governance/index.yml"><i>Mer information &gt;</i></a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="identity-protection/index.yml">Identitetsskydd</a></h3>
                                                         <p>
-                                                            <a href="identity-protection/enable.md">Aktivera</a><br>
-                                                            <a href="identity-protection/playbook.md">Simulera riskhändelser</a><br>
+                                                            <a href="identity-protection/overview.md">Vad är identitetsskydd?</a><br>
+                                                            <a href="identity-protection/quickstart-sign-in-risk-policy.md">Blockera åtkomst när en sessionsrisk identifieras</a><br>
                                                             <a href="identity-protection/howto-unblock-user.md">Avblockera användare</a><br>
                                                             <a href="identity-protection/index.yml"><i>Mer information &gt;</i></a>
                                                         </p>
@@ -225,9 +225,9 @@ ms.locfileid: "50413085"
                                                         <br><br>
                                                         <h3><a href="reports-monitoring/index.yml">Rapporter och övervakning</a></h3>
                                                         <p>
-                                                            <a href="reports-monitoring/howto-find-activity-reports.md">Hitta aktivitetsrapporter</a><br>
-                                                            <a href="reports-monitoring/concept-activity-logs-in-azure-monitor.md">Använda Azure AD-loggar i Azure Monitor</a><br>
-                                                            <a href="reports-monitoring/concept-reporting-api.md">Programmässig åtkomst</a><br>
+                                                            <a href="reports-monitoring/concept-audit-logs.md">Granskningsloggar</a><br>
+                                                            <a href="reports-monitoring/concept-sign-ins.md">Inloggningsloggar</a><br>
+                                                            <a href="reports-monitoring/reference-sign-ins-error-codes.md">Referens för felkoder för inloggning</a><br>
                                                             <a href="reports-monitoring/index.yml"><i>Mer information &gt;</i></a>
                                                         </p>
                                                     </div>

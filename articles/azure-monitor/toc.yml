@@ -409,15 +409,15 @@ items:
       - name: Azure-aktivitetsloggar
         items:
         - name: Analytics
-          href: ../log-analytics/log-analytics-activity.md?toc=/azure/azure-monitor/toc.json
+          href: platform/collect-activity-logs.md
         - name: Samla in i olika prenumerationer
-          href: ../log-analytics/log-analytics-activity-logs-subscriptions.md?toc=/azure/azure-monitor/toc.json
+          href: platform/collect-activity-logs-subscriptions.md
       - name: Tjänstloggar och mått
-        href: ../log-analytics/log-analytics-azure-storage.md?toc=/azure/azure-monitor/toc.json
+        href: platform/collect-azure-metrics-logs.md
       - name: Diagnostik- eller loggdata från Azure Storage
-        href: ../log-analytics/log-analytics-azure-storage-iis-table.md?toc=/azure/azure-monitor/toc.json
+        href: platform/azure-storage-iis-table.md
       - name: Azure PaaS-resurser
-        href: ../log-analytics/log-analytics-collect-azurepass-posh.md?toc=/azure/azure-monitor/toc.json
+        href: platform/collect-azurepass-posh.md
       - name: Korrelera anpassade datakällor
         href: ../application-insights/app-insights-custom-data-correlation.md?toc=/azure/azure-monitor/toc.json
     - name: Samla anpassade data
@@ -425,7 +425,7 @@ items:
       - name: API för Log Analytics-datainsamlare
         href: ../log-analytics/log-analytics-data-collector-api.md?toc=/azure/azure-monitor/toc.json
       - name: Pipelineexempel för API för Log Analytics-datainsamlare
-        href: ../log-analytics/log-analytics-create-pipeline-datacollector-api.md?toc=/azure/azure-monitor/toc.json
+        href: platform/create-pipeline-datacollector-api.md
       - name: Programdata
         href: ../application-insights/app-insights-analytics-import.md?toc=/azure/azure-monitor/toc.json
       - name: REST-API för måttlager
@@ -453,7 +453,7 @@ items:
       - name: Diagnostikloggar till Event Hub
         href: ../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=/azure/azure-monitor/toc.json
       - name: Programdata till Log Analytics
-        href: ../log-analytics/log-analytics-app-insights-connector.md?toc=/azure/azure-monitor/toc.json
+        href: platform/app-insights-connector.md
       - name: Exportera programdata
         items:
         - name: Löpande export
@@ -719,7 +719,7 @@ items:
       - name: Utför åtgärder från sökresultat
         href: ../log-analytics/log-analytics-log-search-takeaction.md?toc=/azure/azure-monitor/toc.json
       - name: Datorgrupper
-        href: ../log-analytics/log-analytics-computer-groups.md?toc=/azure/azure-monitor/toc.json
+        href: platform/computer-groups.md
       - name: Flödesanslutning
         href: ../log-analytics/log-analytics-flow-tutorial.md?toc=/azure/azure-monitor/toc.json
       - name: Loggsöknings-API
@@ -1007,9 +1007,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Kodexempel
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: e73da33dd67d9fa4b7427ff82a5cedca9db018ba
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 9c1f8397ce9e88216eaff10cda9c3b2ebbc6e5bd
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633494"
+ms.locfileid: "52682936"

@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 40922080857563b86d538586b90513381edb5d89
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 9a20b8df1f0d9cddbde4c4886e11967bc8c04160
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381724"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842423"
 ---
 # <a name="define-a-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en OpenId Connect tekniska profilen i en anpassad princip för Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C har stöd för den [OpenId Connect](http://openid.net/2015/04/17/openid-connect-certification-program/) protokollet identitetsprovider. OpenID Connect 1.0 definierar en identity-läger ovanpå OAuth 2.0 och representerar avancerade i moderna autentiseringsprotokoll.  Med OpenId Connect baserat tekniska profilen som du kan federera med en OpenId Connect identitetsprovider, t.ex Azure AD så att du användare kan logga in med sina befintliga sociala eller företagsidentiteter.
+Azure Active Directory (Azure AD) B2C har stöd för den [OpenId Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) protokollet identitetsprovider. OpenID Connect 1.0 definierar en identity-läger ovanpå OAuth 2.0 och representerar avancerade i moderna autentiseringsprotokoll.  Med OpenId Connect baserat tekniska profilen som du kan federera med en OpenId Connect identitetsprovider, t.ex Azure AD så att du användare kan logga in med sina befintliga sociala eller företagsidentiteter.
 
 ## <a name="protocol"></a>Protokoll
 
@@ -73,7 +73,7 @@ Den tekniska profilen returnerar också anspråk som inte returnerade poskytovat
 
 ## <a name="metadata"></a>Metadata
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | client_id | Ja | Program-ID för identitetsprovidern. |
 | IdTokenAudience | Nej | Id_token målgrupp. Om anges kontrollerar om token är i ett anspråk som returnerades av identitetsprovidern och är lika med den som angetts i Azure AD B2C. |
@@ -92,7 +92,7 @@ Den tekniska profilen returnerar också anspråk som inte returnerade poskytovat
 
 Den **CryptographicKeys** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | client_secret | Ja | Klienthemlighet för identitetsprogram för providern. Den kryptografiska nyckeln krävs endast om den **response_types** metadata är inställd på `code`. Azure AD B2C gör i det här fallet ett annat anrop till byta auktoriseringskod för en åtkomsttoken. Om metadata är inställt på `id_token` du kan utelämna den kryptografiska nyckeln.  |  
 

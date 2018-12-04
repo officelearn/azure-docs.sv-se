@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c363056fc013cc8b8fd67fb9d656d3550d3bf5a2
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8c3684f93bbf5b9fe9f5ea9167396b9822e70c48
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139517"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841633"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Anpassa Användargränssnittet för en användarresa med anpassade principer
 
@@ -31,7 +31,7 @@ En smidig användarupplevelse är nyckeln för alla företag till konsument – 
 
 Azure AD B2C kan du anpassa den utseende och känslan av användarupplevelsen (UX) på olika sidor som hanteras och visas i Azure AD B2C med hjälp av dina anpassade principer.
 
-För detta ändamål, Azure AD B2C körs koden i din konsument webbläsare och använder den moderna och standard-metoden [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/) att läsa in anpassat innehåll från en specifik URL som du anger i en anpassad princip för att peka mot dina HTML5/CSS-mallar. CORS är en mekanism som gör att begränsade resurser, t.ex. teckensnitt, på en webbsida begäras från en annan domän utanför domänen som resursen har sitt ursprung.
+För detta ändamål, Azure AD B2C körs koden i din konsument webbläsare och använder den moderna och standard-metoden [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/) att läsa in anpassat innehåll från en specifik URL som du anger i en anpassad princip för att peka mot dina HTML5/CSS-mallar. CORS är en mekanism som gör att begränsade resurser, t.ex. teckensnitt, på en webbsida begäras från en annan domän utanför domänen som resursen har sitt ursprung.
 
 Jämfört med den gamla traditionell, där mallen sidor ägs av den information du hittar där du begränsad text och bilder, där det är begränsad kontroll över layout och känslan fanns leder till mer än problem med att uppnå en sömlös upplevelse CORS-sätt har stöd för HTML5 och CSS och gör att du kan:
 
@@ -69,10 +69,10 @@ För att säkerställa att allt fungerar som förväntat, måste du:
 - Använda absoluta URL-adresser som https://yourdomain/content för alla länkar och CSS-innehåll.
 
 > [!TIP]
-> Du kan använda webbplatsen för att kontrollera att du är värd för ditt innehåll på platsen har CORS aktiverat och testa CORS-förfrågningar, http://test-cors.org/. Tack vare den här platsen kan antingen skicka CORS-begäran till en fjärransluten server (för att testa om det finns stöd för CORS) eller skicka CORS-begäran till en testserver (för att utforska vissa funktioner i CORS).
+> Du kan använda webbplatsen för att kontrollera att du är värd för ditt innehåll på platsen har CORS aktiverat och testa CORS-förfrågningar, https://test-cors.org/. Tack vare den här platsen kan antingen skicka CORS-begäran till en fjärransluten server (för att testa om det finns stöd för CORS) eller skicka CORS-begäran till en testserver (för att utforska vissa funktioner i CORS).
 
 > [!TIP]
-> Webbplatsen http://enable-cors.org/ också utgör en mer än användbara resurser på CORS.
+> Webbplatsen https://enable-cors.org/ också utgör en mer än användbara resurser på CORS.
 
 Tack vare den här CORS-baserade metoden har slutanvändarna konsekventa erfarenheter mellan programmet och de sidor som hanteras av Azure AD B2C.
 
@@ -120,7 +120,7 @@ CORS (Cross-Origin Resource Sharing) måste aktiveras på din slutpunkt för Azu
 Om du vill kontrollera att den lagring som du är värd för ditt innehåll på har CORS aktiverat, fortsätter du med följande steg:
 
 1. Öppna en webbläsarsession och gå till sidan *unified.html* med hjälp av den fullständiga URL: en för dess plats i ditt storage-konto `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Till exempel https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
-2. Navigera till http://test-cors.org. Den här platsen kan du kontrollera att den sidan som du använder har CORS aktiverat.  
+2. Navigera till https://test-cors.org. Den här platsen kan du kontrollera att den sidan som du använder har CORS aktiverat.  
 <!--
 ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
 -->

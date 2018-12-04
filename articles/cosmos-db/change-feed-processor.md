@@ -2,18 +2,17 @@
 title: Arbeta med ändringsflödet processor-biblioteket i Azure Cosmos DB
 description: Med hjälp av Azure Cosmos DB-ändringen feed processor-biblioteket.
 author: rafats
-manager: kfile
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: rafats
-ms.openlocfilehash: 9d427a8001112e4994597b86579d85156f94a870
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: eee80563a838e6d453278735abf96fa5a6996f19
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629381"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835519"
 ---
 # <a name="using-the-azure-cosmos-db-change-feed-processor-library"></a>Med hjälp av Azure Cosmos DB-ändringen feed processor-biblioteket
 

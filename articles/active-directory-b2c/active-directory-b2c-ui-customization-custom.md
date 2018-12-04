@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 237d22054ecb4eea58494c1b5066eb8e00ecd2fc
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b0e24da86d253139a85e792bf3c59d777cf5db6a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583457"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833955"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Anpassa användargränssnittet i ditt program med en anpassad princip i Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ Utför stegen i [Kom igång med anpassade principer](active-directory-b2c-get-st
 
 Med hjälp av funktionen sida Användargränssnittet anpassning, kan du anpassa utseendet och känslan av en anpassad princip. Du kan även hålla varumärke och grafik konsekventa mellan programmet och Azure AD B2C.
 
-Så här fungerar det: Azure AD B2C körs koden i din kunds webbläsare och använder en modern lösning som kallas [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/). Först måste ange du en URL i den anpassade principen med anpassade HTML-innehåll. Azure AD B2C sammanfogar UI-element med HTML-innehåll som läses in från din URL och visar sedan sidan för kunden.
+Så här fungerar det: Azure AD B2C körs koden i din kunds webbläsare och använder en modern lösning som kallas [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). Först måste ange du en URL i den anpassade principen med anpassade HTML-innehåll. Azure AD B2C sammanfogar UI-element med HTML-innehåll som läses in från din URL och visar sedan sidan för kunden.
 
 ## <a name="create-your-html5-content"></a>Skapa din HTML5 innehåll
 
@@ -111,7 +111,7 @@ Konfigurera Blob-lagring för Cross-Origin Resource Sharing genom att göra föl
 
 Verifiera att du är redo genom att göra följande:
 
-1. Gå till den [www.test-cors.org](http://www.test-cors.org/) webbplats, och klistra in URL: en i den **Remote URL** box.
+1. Gå till den [www.test-cors.org](https://www.test-cors.org/) webbplats, och klistra in URL: en i den **Remote URL** box.
 2. Klicka på **skicka begäran**.  
     Om du får ett fel, se till att din [CORS-inställningar](#configure-cors) är korrekta. Du kan också behöva rensa webbläsarens cache eller öppna en privat-webbläsarsession genom att trycka på Ctrl + Skift + P.
 

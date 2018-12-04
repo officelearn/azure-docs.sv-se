@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2018
 ms.author: spelluru
-ms.openlocfilehash: c672634e79cbc0850edfe7f7fbdb0a880d5cf0d8
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 20412efac553458f3028f873bcc6d918a673f261
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51707137"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838825"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Hantera labb konton i Azure Lab Services 
 I Azure Lab Services är ett labbkonto en behållare för hanterade labbar som klassrum labs. En administratör konfigurerar ett testlabb-konto med Azure Lab Services och ger åtkomst till labbägare som kan skapa labb i kontot. Den här artikeln beskriver hur du skapar ett labbkonto, visa alla lab-konton eller ta bort ett labbkonto.
@@ -47,12 +47,8 @@ I Azure Lab Services är ett labbkonto en behållare för hanterade labbar som k
 ## <a name="add-a-user-to-the-lab-creator-role"></a>Lägga till en användare i rollen Labbskapare
 Om du vill konfigurera ett klassrumslabb i ett labbkonto måste användaren vara medlem i rollen **Lab Creator** i labbkontot. Det konto som du använde för att skapa labbkontot läggs automatiskt till i den här rollen. Om du planerar att använda samma användarkonto för att skapa ett klassrumslabb kan du hoppa över det här steget. Om du vill använda ett annat konto för att skapa ett klassrumslabb gör du följande: 
 
-1. På sidan **Labbkonto** väljer du **Åtkomstkontroll (IAM)** och klickar på **+ Lägg till** i verktygsfältet. 
-
-    ![Sidan Labbkonto](../media/tutorial-setup-lab-account/access-control.png)
-2. På sidan **Lägg till behörigheter** väljer du **Labbskapare** som **Roll**. Välj den användare som du vill lägga till rollen Labbskapare och välj **Spara**. 
-
-    ![Lägga till en användare i rollen Labbskapare](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
+1. På den **Labbkonto** väljer **åtkomstkontroll (IAM)**, och klicka på **+ Lägg till rolltilldelning** i verktygsfältet. 
+2. På sidan **Lägg till behörigheter** väljer du **Labbskapare** som **Roll**. Välj den användare som du vill lägga till rollen Labbskapare och välj **Spara**.
 
 ## <a name="specify-marketplace-images-available-to-lab-owners"></a>Ange Marketplace-avbildningar som är tillgängliga för labbägare
 Som labbkontoägare kan du ange Marketplace-avbildningar som labbskapare kan använda för att skapa labb i labbkontot. 
@@ -116,7 +112,7 @@ Följ anvisningarna i föregående avsnitt för att se en lista över labs i lab
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:
 
-- [Som labbägare kan du skapa och hantera labb](how-to-manage-classroom-labs.md)
-- [Som labbägare kan du konfigurera och publicera mallar](how-to-create-manage-template.md)
-- [Som labbägare kan du konfigurera och styra användningen av ett labb](how-to-configure-student-usage.md)
+- [Skapa och hantera labb som labbägare](how-to-manage-classroom-labs.md)
+- [Konfigurera och publicera mallar som labbägare](how-to-create-manage-template.md)
+- [Konfigurera och kontroller användning av ett labb som labbägare](how-to-configure-student-usage.md)
 - [Som en lab-användare åtkomst till labb för klassrum](how-to-use-classroom-lab.md)

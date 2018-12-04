@@ -4,14 +4,14 @@ description: Innehåller en översikt över kända problem i Azure Migrate-tjän
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: 0b2954ddfda0ab4c94ddf6176d76d8bcd937fa42
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 9303f20d84547dee62e7012e0dca50f47ad54083
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413341"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839593"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
@@ -19,9 +19,9 @@ ms.locfileid: "50413341"
 
 [Azure Migrate](migrate-overview.md) utvärderar lokala arbetsbelastningar för migrering till Azure. Använd den här artikeln för att felsöka problem när du distribuerar och använder Azure Migrate.
 
-### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Jag använder kontinuerlig identifieringen OVA, men virtuella datorer som har tagits bort i min lokala miljö är fortfarande visas i portalen.
+### <a name="i-am-using-the-ova-that-continuously-discovers-my-on-premises-environment-but-the-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Jag använder ova-filen som kontinuerligt identifierar min lokala miljö, men de virtuella datorerna som har tagits bort i min lokala miljö visas fortfarande i portalen.
 
-Installationen för identifiering av kontinuerlig installation endast samlar in prestandadata kontinuerligt, upptäcks inte varje konfigurationsändring i den lokala miljön (dvs. VM-tillägg, borttagning, disk tillägg osv.). Om det finns en konfigurationsändring i den lokala miljön kan du göra följande för att återspegla ändringarna i portalen:
+Identifiering av kontinuerlig installationen endast samlar in prestandadata kontinuerligt, upptäcks inte varje konfigurationsändring i den lokala miljön (dvs. VM-tillägg, borttagning, disk tillägg osv.). Om det finns en konfigurationsändring i den lokala miljön kan du göra följande för att återspegla ändringarna i portalen:
 
 - Tillägg av objekt (virtuella datorer, kärnor osv.): Om du vill återspegla dessa ändringar i Azure-portalen kan du stoppa identifieringen från installationen och sedan börja om igen. Då uppdateras ändringarna i Azure Migrate-projektet.
 
@@ -35,15 +35,36 @@ Det här problemet kan inträffa för användare som inte har åtkomst till Azur
 
 När e-postinbjudan tas emot måste du öppna e-postmeddelandet och klicka på länken i e-postmeddelandet att tacka ja till inbjudan. När det är klart måste du logga ut från Azure-portalen och logga in igen, uppdatering av webbläsaren fungerar inte. Du kan sedan försöka skapa migration-projekt.
 
+### <a name="i-am-unable-to-export-the-assessment-report"></a>Det går inte att exportera utvärderingsrapporten
+
+Om det inte går att exportera utvärderingsrapporten från portalen kan du prova att använda den nedan REST API för att få en nedladdnings-URL för utvärderingsrapporten.
+
+1. Installera *armclient* på datorn (om du inte har den redan installerats):
+
+a. Kör följande kommando i Kommandotolkens fönster för en administratör:  *@powershell - NoProfile - ExecutionPolicy kringgå - kommandot ”iex ((New-Object System.Net.WebClient). DownloadString('https://chocolatey.org/install.ps1')) ”& & Ställ in” PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin ”*
+
+b.In en Windows PowerShell-kommandotolk för administratör, kör du följande kommando: *choco installera armclient*
+
+2.  Hämta nedladdnings-URL för utvärderingsrapporten med hjälp av Azure Migrate REST API
+
+a.  I en Windows PowerShell-kommandotolk för administratör, kör du följande kommando: *armclient inloggning* öppnas Azure inloggningen popup där du måste logga in på Azure.
+
+b.  Kör följande kommando för att hämta nedladdnings-URL för utvärderingsrapporten (Ersätt URI-parametrar med relevanta värden, API-exemplet begär nedan) i samma PowerShell-fönstret
+
+       *armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02*
+
+Exempel på begäran och utdata:
+
+PS C:\WINDOWS\system32 > armclient INLÄGG https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2 018_12_16_21/downloadUrl? api-version = 2018-02-02 {” assessmentReportUrl ””:https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r”,” expirationTime ””: 2018-11-20T22:09:30.5681954 + 05:30 ”
+
+3. Kopiera URL: en från svaret och öppna den i en webbläsare för att hämta utvärderingsrapporten.
+4. När rapporten har hämtats, kan du använda Excel för att bläddra till mappen hämtade och öppna filen i Excel för att visa den.
+
 ### <a name="performance-data-for-disks-and-networks-adapters-shows-as-zeros"></a>Prestandadata för diskar och nätverk-kort som visar nollor
 
 Detta kan inträffa om statistikinställningen till nivå på vCenter-servern är inställt på mindre än tre. På nivån tre eller högre, lagrar vCenter VM prestandahistorik för beräkning, lagring och nätverk. För mindre än på tre lagrar inte vCenter lagring och nätverksdata, men processor- och data. I det här scenariot prestanda data visas som noll i Azure Migrate Azure Migrate ger storlek rekommendation för diskar och nätverk baserat på de metadata som samlas in från lokala datorer.
 
 Om du vill aktivera insamling av prestandadata för disk- och ändra nivån för statistikinställningar till tre. Sedan, vänta minst en dag för att identifiera din miljö och utvärdera den.
-
-### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>Jag installerade agenter och används visualiseringen av beroenden för att skapa grupper. Nu efter redundans, datorerna visa ”installera agenten” åtgärd i stället för ”Visa beroenden”
-* Post planerad eller oplanerad redundans lokala datorer är avstängda och motsvarande datorer skapas i Azure. De här datorerna erhållit en annan MAC-adress. De kan hämta en annan IP-adress baserat på om användaren har valt att behålla den lokala IP-adress eller inte. Om MAC- och IP-adresser skiljer sig åt Azure Migrate kopplar inte lokala datorer med Service Map beroendedata och ber användaren att installera agenter i stället för att visa beroenden.
-* Publicera redundanstest, lokala datorer är aktiverade som förväntat. Motsvarande datorer i Azure kunde få annan MAC-adress och kan hämta annan IP-adress. Om inte användaren blockerar utgående trafik för Log Analytics från dessa datorer, Azure Migrate kopplar inte lokala datorer med Service Map beroendedata och ber användaren att installera agenter i stället för att visa beroenden.
 
 ### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>Jag har angett en Azure geografi när du skapar ett migreringsprojekt hur tar jag reda på exakt Azure-regionen där de identifierade metadata lagras?
 
@@ -55,8 +76,8 @@ Du kan gå till den **Essentials** i avsnittet den **översikt** projektets att 
 
 ### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Distribution av Azure Migrate Collector misslyckades med fel: den angivna manifestfilen är ogiltig: Ogiltigt OVF manifest posten.
 
-1. Kontrollera om Azure Migrate Collector OVA-filen laddas ned korrekt genom att kontrollera hash-värdet. Referera till den [artikeln](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) Kontrollera hash-värde. Om hash-värdet inte matchar, hämta OVA-filen igen och försöker distribuera igen.
-2. Om det inte fungerar och om du använder VMware vSphere-klienten för att distribuera OVF, försök att distribuera det via vSphere-webbklienten. Om det fortfarande inte, försök att använda olika webbläsare.
+1. Kontrollera om Azure Migrate Collector OVA-filen laddas ned korrekt genom att kontrollera hash-värdet. Se [artikeln](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) för att kontrollera hash-värdet. Om hash-värdet inte matchar, hämta OVA-filen igen och försöker distribuera igen.
+2. Om det fortfarande inte fungerar, och du använder VMware vSphere-klienten för att distribuera OVT, provar du att distribuera den via vSphere-webbklienten. Om det fortfarande inte, försök att använda olika webbläsare.
 3. Om du använder vSphere-webbklienten och försök att distribuera den på vCenter Server 6.5, försöker distribuera ova-filen direkt på ESXi-värden genom att följa de stegen nedan:
   - Ansluta till ESXi-värden direkt (i stället för vCenter-Server) med hjälp av webbklienten (https:// <*vara värd för IP-adress*> /ui)
   - Gå till startsidan > inventering
@@ -128,7 +149,7 @@ Om problemet inträffar fortfarande i den senaste versionen kan bero det insamla
 3. Identifiera rätt portnummer för att ansluta till vCenter.
 4. Kontrollera slutligen om vCenter-servern är igång.
 
-## <a name="troubleshoot-dependency-visualization-issues"></a>Felsöka problem med beroende-visualisering
+## <a name="dependency-visualization-issues"></a>Visualisering beroendeproblem
 
 ### <a name="i-installed-the-microsoft-monitoring-agent-mma-and-the-dependency-agent-on-my-on-premises-vms-but-the-dependencies-are-now-showing-up-in-the-azure-migrate-portal"></a>Jag har installerat Microsoft Monitoring Agent (MMA) och beroendeagenten på min lokala virtuella datorer, men beroenden som nu visas i Azure Migrate-portalen.
 
@@ -159,7 +180,11 @@ Azure Migrate kan du visualisera beroenden för varaktighet för upp till en tim
 ### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>Jag kan inte visualisera beroenden för grupper med fler än 10 virtuella datorer?
 Du kan [visualisera beroenden för grupper](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) som har upp till 10 virtuella datorer, om du har en grupp med fler än 10 virtuella datorer, rekommenderar vi att dela upp gruppen i mindre grupper och visualisera beroenden.
 
-## <a name="troubleshoot-readiness-issues"></a>Felsöka beredskapsproblem
+### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>Jag installerade agenter och används visualiseringen av beroenden för att skapa grupper. Nu efter redundans, datorerna visa ”installera agenten” åtgärd i stället för ”Visa beroenden”
+* Post planerad eller oplanerad redundans lokala datorer är avstängda och motsvarande datorer skapas i Azure. De här datorerna erhållit en annan MAC-adress. De kan hämta en annan IP-adress baserat på om användaren har valt att behålla den lokala IP-adress eller inte. Om MAC- och IP-adresser skiljer sig åt Azure Migrate kopplar inte lokala datorer med Service Map beroendedata och ber användaren att installera agenter i stället för att visa beroenden.
+* Publicera redundanstest, lokala datorer är aktiverade som förväntat. Motsvarande datorer i Azure kunde få annan MAC-adress och kan hämta annan IP-adress. Om inte användaren blockerar utgående trafik för Log Analytics från dessa datorer, Azure Migrate kopplar inte lokala datorer med Service Map beroendedata och ber användaren att installera agenter i stället för att visa beroenden.
+
+## <a name="troubleshoot-azure-readiness-issues"></a>Felsökning av problem med Azure-beredskap
 
 **Problemet** | **Åtgärda**
 --- | ---
@@ -173,7 +198,6 @@ OS-bitar som inte stöds | Virtuella datorer med 32-bitars operativsystem kan st
 Kräver Visual Studio-prenumeration. | Datorerna som har en Windows-klient OS som körs inuti sig. som stöds bara i Visual Studio-prenumeration.
 Den virtuella datorn hittades inte för nödvändiga lagringsprestanda. | Lagringsprestanda (IOPS/dataflödet) krävs för datorn överskrider support för Azure virtuella datorer. Minska utrymmeskraven för datorn före migreringen.
 Den virtuella datorn hittades inte för nödvändig nätverksprestanda. | Nätverkets prestanda (in/ut) krävs för datorn överskrider support för Azure virtuella datorer. Minska nätverkskrav för datorn.
-Den virtuella datorn hittades inte i angivna prisnivån. | Överväg att minska VM-storleken innan du migrerar till Azure om prisnivån har angetts till Standard. Om den storlek nivån Basic kan du ändra utvärderingens prisnivå till Standard.
 Den virtuella datorn hittades inte i den angivna platsen. | Använd en annan målplats före migreringen.
 En eller flera olämpliga diskar. | En eller flera diskar som är anslutna till den virtuella datorn uppfyller inte kraven för Azure. För varje disk som är ansluten till den virtuella datorn, se till att storleken på disken är < 4 TB, om inte, minska storleken innan du migrerar till Azure. Se till att prestanda (IOPS/dataflödet) krävs för varje disk stöds av Azure [hanterade virtuella datordiskar](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits).   
 En eller flera oanvändbara nätverkskort. | Ta bort oanvända nätverkskort från datorn före migreringen.

@@ -14,12 +14,12 @@ ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 857d58d31565e413a207162202f1a680d7da7c65
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c07b87d88b884b22f44fe108bb28877cb30f973e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250741"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837179"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Ta över en ohanterad katalog som administratör i Azure Active Directory
 Den här artikeln beskrivs två sätt att ta över en DNS-domännamnet i en ohanterad katalog i Azure Active Directory (AD Azure). När en självbetjäningsanvändare registrerar sig för en molntjänst som använder Azure AD läggs de till i en ohanterad Azure AD-katalog baserat på e-postdomän. Mer information om självbetjäning eller ”viral” registrering för en tjänst finns i [vad är självbetjäningsregistrering för Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)
@@ -108,7 +108,11 @@ För [RMS för enskilda användare](/azure/information-protection/rms-for-indivi
 
 Nyckel och mallar flyttas inte när ohanterad klient är i en annan region. Ohanterad klient är till exempel i Europa och den klient som du äger är i nordamerikanska. 
 
-Även om RMS för enskilda användare är utformat för att stödja Azure AD-autentisering för att öppna skyddat innehåll, det inte förhindra att användarna även skyddar innehåll. Om användare skydda innehåll med RMS för enskild prenumeration och nyckel och mallar har inte flyttats, kommer innehållet inte att komma åt efter domän övertagande.    
+Även om RMS för enskilda användare är utformat för att stödja Azure AD-autentisering för att öppna skyddat innehåll, det inte förhindra att användarna även skyddar innehåll. Om användare skydda innehåll med RMS för enskild prenumeration och nyckel och mallar har inte flyttats, kommer innehållet inte att komma åt efter domän övertagande.
+
+#### <a name="more-information-about-power-bi"></a>Mer information om Power BI
+
+När du utför en extern gäller, Power BI-innehåll som har skapats innan övertagande placeras i en [Power BI-arkiverad arbetsyta](/power-bi/service-admin-power-bi-archived-workspace). Manuellt måste du migrera allt innehåll som du vill använda i den nya innehavaren.
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Azure AD PowerShell-cmdlets för alternativet ForceTakeover
 Du kan se dessa cmdletar som används i [PowerShell-exempel](#powershell-example).

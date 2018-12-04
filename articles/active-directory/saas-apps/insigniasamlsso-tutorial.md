@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 776ad8445c1968928a631ae1a401db4c65a6bb6d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: afc2d52044a294af0ead373dfce283d0ec994d1e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421261"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840630"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Självstudier: Azure Active Directory-integration med bröstknappar SAML SSO
 
@@ -60,7 +60,7 @@ Om du vill konfigurera integreringen av bröstknappar SAML SSO till Azure AD, so
 
 **Utför följande steg för att lägga till bröstknappar SAML SSO från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -120,7 +120,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
     b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<customername>.insigniailsusa.com/<uniqueid>`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [bröstknappar SAML SSO-klienten supportteamet](http://www.insigniasoftware.com/insignia/Techsupport.aspx) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [bröstknappar SAML SSO-klienten supportteamet](https://www.insigniasoftware.com/insignia/Techsupport.aspx) att hämta dessa värden. 
  
 
 1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
@@ -135,7 +135,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Bröstknappar SAML SSO-konfiguration](./media/insigniasamlsso-tutorial/tutorial_insigniasamlsso_configure.png) 
 
-1. Att konfigurera enkel inloggning på **bröstknappar SAML SSO** sida, som du behöver skicka de hämtade **certifikat (Base64)**, **URL: en för utloggning och SAML enkel inloggning för tjänst-URL** till [Bröstknappar SAML SSO-supportteamet](http://www.insigniasoftware.com/insignia/Techsupport.aspx). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **bröstknappar SAML SSO** sida, som du behöver skicka de hämtade **certifikat (Base64)**, **URL: en för utloggning och SAML enkel inloggning för tjänst-URL** till [Bröstknappar SAML SSO-supportteamet](https://www.insigniasoftware.com/insignia/Techsupport.aspx). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 > [!TIP]
 > Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -175,7 +175,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="create-an-insignia-saml-sso-test-user"></a>Skapa en testanvändare bröstknappar SAML SSO
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i bröstknappar biblioteket System. Arbeta med [bröstknappar biblioteket System supportteamet](http://www.insigniasoftware.com/insignia/Techsupport.aspx) att lägga till användare i bröstknappar biblioteket System-plattformen.
+I det här avsnittet skapar du en användare som kallas Britta Simon i bröstknappar biblioteket System. Arbeta med [bröstknappar biblioteket System supportteamet](https://www.insigniasoftware.com/insignia/Techsupport.aspx) att lägga till användare i bröstknappar biblioteket System-plattformen.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

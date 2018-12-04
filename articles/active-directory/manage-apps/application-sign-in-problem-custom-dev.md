@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 8ae8fa823b919ec4a67832e7c42088c994bd2d97
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2dade35b05a07b649282ae00bb6fee354adcd195
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357411"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845506"
 ---
 # <a name="problems-signing-in-to-an-custom-developed-application"></a>Problem vid inloggning i ett egenutvecklat program
 
@@ -32,7 +32,7 @@ Det finns flera fel som kan vara orsaken du inte kunna logga in på en app. Den 
 
 * Jämför den resurs som du ska få åtkomst till i kod med behörigheterna som är konfigurerade i den **krävs resurser** flik för att se till att du bara begära resurser som du har konfigurerat.
 
-* Se [Azure AD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory) för alla liknande fel eller problem.
+* Se [Azure AD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory) för alla liknande fel eller problem.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -42,4 +42,4 @@ Det finns flera fel som kan vara orsaken du inte kunna logga in på en app. Den 
 
 [Medgivande och ge behörighet till för Azure AD v2.0 konvergerat appar](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
-[Azure AD-StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory>)
+[Azure AD-StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory>)

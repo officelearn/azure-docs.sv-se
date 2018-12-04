@@ -18,12 +18,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: sureshja
 ms.custom: aaddev
-ms.openlocfilehash: b8dba999ac6523aad29aae40b528fd010fec0550
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 7a3c3e39792119d296c849c012d4798ec85a0e03
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687358"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845509"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>Så här: använda Azure AD Graph API
 
@@ -82,7 +82,7 @@ Observera följande funktioner och begränsningar i Azure AD Graph-Utforskaren:
 
 ## <a name="using-fiddler-to-write-to-the-directory"></a>Med hjälp av Fiddler för att skriva till katalogen
 
-Du kan använda Web-felsökare Fiddler för att prova skriva-åtgärder mot Azure AD-katalogen för den här snabbstartsguiden. Du kan till exempel hämta och överföra en användares profilfoto (som inte är möjligt med Azure AD Graph Explorer). Mer information och för att installera Fiddler Se [ http://www.telerik.com/fiddler ](http://www.telerik.com/fiddler).
+Du kan använda Web-felsökare Fiddler för att prova skriva-åtgärder mot Azure AD-katalogen för den här snabbstartsguiden. Du kan till exempel hämta och överföra en användares profilfoto (som inte är möjligt med Azure AD Graph Explorer). Mer information och för att installera Fiddler Se [ https://www.telerik.com/fiddler ](https://www.telerik.com/fiddler).
 
 I exemplet nedan använder du Fiddler Web felsökare för att skapa en ny säkerhetsgrupp 'MyTestGroup ”i Azure AD-katalogen.
 

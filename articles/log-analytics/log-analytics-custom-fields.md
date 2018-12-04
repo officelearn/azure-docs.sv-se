@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 62af45d8e093b985d8158b22e369307d8c288493
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: bc99048f4bea1f79bed2ae32d12a1961b188e7ec
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721314"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835836"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Anpassade fält i Log Analytics
 Den **anpassade fält** funktion i Log Analytics kan du utöka befintliga poster i Log Analytics genom att lägga till egna sökbara fält.  Anpassade fält fylls i automatiskt från data som extraheras från andra egenskaper i samma post.
@@ -45,9 +45,9 @@ I följande avsnitt finns proceduren för att skapa ett anpassat fält.  Längst
 > 
 
 ### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>Steg 1 – identifiera poster som har anpassat fält
-Det första steget är att identifiera de poster som får det anpassade fältet.  Du börjar med en [standard loggsökning](log-analytics-queries.md) och välj sedan en post för att fungera som den modell som Lär dig från Log Analytics.  När du anger att du kommer att extrahera data till ett anpassat fält i **fältet Extraheringsguiden** öppnas där du validerar och finjustera villkoret.
+Det första steget är att identifiera de poster som får det anpassade fältet.  Du börjar med en [standard loggsökning](../azure-monitor/log-query/log-query-overview.md) och välj sedan en post för att fungera som den modell som Lär dig från Log Analytics.  När du anger att du kommer att extrahera data till ett anpassat fält i **fältet Extraheringsguiden** öppnas där du validerar och finjustera villkoret.
 
-1. Gå till **Loggsökning** och använda en [frågan för att hämta poster](log-analytics-queries.md) som har anpassat fält.
+1. Gå till **Loggsökning** och använda en [frågan för att hämta poster](../azure-monitor/log-query/log-query-overview.md) som har anpassat fält.
 2. Markera en post som Log Analytics använder för att fungera som en modell för att extrahera data för att fylla i det anpassade fältet.  Du kan identifiera de data som du vill extrahera från den här posten och Log Analytics använder den här informationen för att bestämma logik för att fylla i det anpassade fältet för alla liknande poster.
 3. Klicka på knappen till vänster om alla textegenskap i posten och välj **extrahera fält från**.
 4. Den **fältet Extraheringsguiden öppnas**, och den post som du har valt visas i den **Huvudexemplet** kolumn.  Anpassat fält definieras för posterna med samma värden i de egenskaper som är markerade.  
@@ -139,6 +139,6 @@ Vi kan nu använda det anpassade fältet som någon annan post-egenskap.  För a
 ![Gruppera efter fråga](media/log-analytics-custom-fields/query-group.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [loggsökningar](log-analytics-queries.md) att skapa frågor med hjälp av anpassade fält för kriterier.
+* Lär dig mer om [loggsökningar](../azure-monitor/log-query/log-query-overview.md) att skapa frågor med hjälp av anpassade fält för kriterier.
 * Övervaka [anpassade loggfiler](../azure-monitor/platform/data-sources-custom-logs.md) som du tolkas med anpassade fält.
 

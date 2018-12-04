@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: cshoe
-ms.openlocfilehash: 9b2539d94c645f71b596e53429e6e0d8cc46b9ad
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: b071bfe83ba9ef653db2d6d1debad4e3dfa02580
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016751"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845934"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-utlösare och bindningar begrepp
 
@@ -231,6 +231,7 @@ Se språkspecifika exempel som visar användning av det returnera värdet:
 * [C#-skript (.csx)](#c-script-example)
 * [F#](#f-example)
 * [JavaScript](#javascript-example)
+* [Python](#python-example)
 
 ### <a name="c-example"></a>C#-exempel
 
@@ -291,7 +292,7 @@ public static Task<string> Run(WorkItem input, ILogger log)
 }
 ```
 
-### <a name="f-example"></a>F #-exempel
+### <a name="f-example"></a>F#exempel
 
 Här är utdata-bindning i den *function.json* fil:
 
@@ -304,7 +305,7 @@ Här är utdata-bindning i den *function.json* fil:
 }
 ```
 
-Här är F #-kod:
+Här är den F# kod:
 
 ```fsharp
 let Run(input: WorkItem, log: ILogger) =
@@ -334,6 +335,29 @@ module.exports = function (context, input) {
     context.log('Node.js script processed queue message', json);
     context.done(null, json);
 }
+```
+
+### <a name="python-example"></a>Python-exempel
+
+Här är utdata-bindning i den *function.json* fil:
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+Här är Python-kod:
+
+```python
+def main(input: azure.functions.InputStream) -> str:
+    return json.dumps({
+        'name': input.name,
+        'length': input.length,
+        'content': input.read().decode('utf-8')
+    })
 ```
 
 ## <a name="binding-datatype-property"></a>DataType-egenskapen för bindning
@@ -476,7 +500,7 @@ Du kan också skapa uttryck för delar av filnamnet, till exempel tillägget. L�
  
 ### <a name="binding-expressions---trigger-metadata"></a>Uttryck för bindning - utlösaren metadata
 
-Ange ytterligare metadatavärden förutom datanyttolasten som tillhandahålls av en utlösare (t.ex innehållet i kömeddelandet som en funktion som utlöses av), många utlösare. Dessa värden kan användas som indataparametrar i C# och F # eller egenskaper på den `context.bindings` objekt i JavaScript. 
+Ange ytterligare metadatavärden förutom datanyttolasten som tillhandahålls av en utlösare (t.ex innehållet i kömeddelandet som en funktion som utlöses av), många utlösare. Dessa värden kan användas som indataparametrar i C# och F# eller egenskaper på den `context.bindings` objekt i JavaScript. 
 
 Till exempel stöder en utlösare för Azure Queue storage följande egenskaper:
 
@@ -541,7 +565,7 @@ I följande exempel visas den *function.json* -filen för en webhook-funktion so
 }
 ```
 
-För detta ska fungera i C# och F # behöver du en klass som definierar de fält som ska avserialiseras, som i följande exempel:
+För detta ska fungera C# och F#, behöver du en klass som definierar de fält som ska avserialiseras, som i följande exempel:
 
 ```csharp
 using System.Net;

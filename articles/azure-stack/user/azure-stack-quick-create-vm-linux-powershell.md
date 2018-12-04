@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/07/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 09c719dd03f375127448851d0af9dada9238d1f1
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: a2dea792db39c753d0ea720c8e610a399401315f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377512"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840579"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Snabbstart: Skapa en Linux-server-dator med hjälp av PowerShell i Azure Stack
 
@@ -47,7 +47,7 @@ Du kan skapa en Ubuntu Server 16.04 LTS-dator med hjälp av Azure Stack PowerShe
 
 En resursgrupp är en logisk behållare där du kan distribuera och hantera Azure Stack-resurser. Från din development kit eller integrerade Azure Stack-system, kör du följande kodblock för att skapa en resursgrupp. Värden har tilldelats för alla variabler i det här dokumentet kan du kan använda dessa värden eller tilldela nya värden.
 
-```powershell
+```powershell  
 # Create variables to store the location and resource group names.
 $location = "local"
 $ResourceGroupName = "myResourceGroup"
@@ -61,7 +61,7 @@ New-AzureRmResourceGroup `
 
 Skapa ett lagringskonto och sedan skapa en lagringsbehållare för Ubuntu Server 16.04 LTS-avbildning.
 
-```powershell
+```powershell  
 # Create variables to store the storage account name and the storage account SKU information
 $StorageAccountName = "mystorageaccount"
 $SkuName = "Standard_LRS"
@@ -395,7 +395,7 @@ Från en klientsystem med SSH installerat använder du följande kommando för a
 ssh <Public IP Address>
 ```
 
-När du uppmanas, anger du azureuser som inloggad användare. Om du använde en lösenfras när du skapade SSH-nycklar, kommer du behöva ange lösenfrasen.
+När du uppmanas logga in som **azureuser**. Om du använde en lösenfras när du skapade SSH-nycklar, kommer du behöva ange lösenfrasen.
 
 ## <a name="install-the-nginx-web-server"></a>Installera NGINX-webbservern
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: b2a5050960eee55a7edbdc6048ee717e8345cb2e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1a179751cb8919e260c58564be6e14303f4d3f41
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420299"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845458"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-encompass"></a>Självstudier: Azure Active Directory-integration med Encompass
 
@@ -60,7 +60,7 @@ För att konfigurera integrering av Encompass i Azure AD, som du behöver lägga
 
 **Utför följande steg för att lägga till Encompass från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -115,7 +115,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.voxmobile.com/voxportal/ws/saml/consume`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare och svars-URL. Kontakta [Encompass supportteamet](http://www.voxmobile.com/contact/) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare och svars-URL. Kontakta [Encompass supportteamet](https://www.voxmobile.com/contact/) att hämta dessa värden.
 
 1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
@@ -129,7 +129,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Omfatta konfiguration](./media/encompass-tutorial/tutorial_encompass_configure.png) 
 
-1. Att konfigurera enkel inloggning på **Encompass** sida, som du behöver skicka de hämtade **Certificate(Base64), URL: en för utloggning och SAML enkel inloggning för tjänst-URL** till [Encompass supportteamet](http://www.voxmobile.com/contact/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **Encompass** sida, som du behöver skicka de hämtade **Certificate(Base64), URL: en för utloggning och SAML enkel inloggning för tjänst-URL** till [Encompass supportteamet](https://www.voxmobile.com/contact/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 > [!TIP]
 > Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -168,7 +168,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
   
 ### <a name="create-a-encompass-test-user"></a>Skapa en Encompass testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Encompass. Arbeta med [Encompass supportteamet](http://www.voxmobile.com/contact/) att lägga till användare i Encompass-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
+I det här avsnittet skapar du en användare som kallas Britta Simon i Encompass. Arbeta med [Encompass supportteamet](https://www.voxmobile.com/contact/) att lägga till användare i Encompass-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

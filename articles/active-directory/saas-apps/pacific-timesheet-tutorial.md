@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 051e39d0e7a58c79eb00bc3dfb73eaf5389617c8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8b821da194ce41fc419e769336eeeb5927306684
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448371"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843656"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pacific-timesheet"></a>Självstudier: Azure Active Directory-integration med Pacific tidrapporter
 
@@ -59,7 +59,7 @@ För att konfigurera integrering av Pacific tidrapporter i Azure AD, som du beh�
 
 **Utför följande steg för att lägga till Pacific tidrapporter från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
@@ -117,7 +117,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare och svars-URL. Kontakta [Pacific tidrapporter supportteamet](http://www.pacifictimesheet.com/support) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare och svars-URL. Kontakta [Pacific tidrapporter supportteamet](https://www.pacifictimesheet.com/support) att hämta dessa värden.
  
 1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
@@ -131,7 +131,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/pacific-timesheet-tutorial/tutorial_pacifictimesheet_configure.png) 
 
-1. Att konfigurera enkel inloggning på **Pacific tidrapporter** sida, som du behöver skicka de hämtade **certifikat (Base64)**, **SAML enkel inloggning för tjänst-URL**, och **SAML entitets-ID** till [Pacific tidrapporter supportteamet](http://www.pacifictimesheet.com/support). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **Pacific tidrapporter** sida, som du behöver skicka de hämtade **certifikat (Base64)**, **SAML enkel inloggning för tjänst-URL**, och **SAML entitets-ID** till [Pacific tidrapporter supportteamet](https://www.pacifictimesheet.com/support). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 > [!TIP]
 > Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -170,7 +170,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="creating-a-pacific-timesheet-test-user"></a>Skapa en testanvändare Pacific tidrapporter
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Pacific tidrapporter. Arbeta med [Pacific tidrapporter supportteamet](http://www.pacifictimesheet.com/support) att skapa en användare i programmet.
+I det här avsnittet skapar du en användare som kallas Britta Simon i Pacific tidrapporter. Arbeta med [Pacific tidrapporter supportteamet](https://www.pacifictimesheet.com/support) att skapa en användare i programmet.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

@@ -11,12 +11,12 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/26/2018
 ms.author: v-daljep
-ms.openlocfilehash: b2c8ed30e26f5408123fe77606ddfec67479bcad
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 84b5665f434bcf7cdb0ac58a74727244d4155835
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726159"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844557"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Övervaka Azure SQL Database med Azure SQL Analytics (förhandsversion)
 
@@ -185,7 +185,7 @@ Automatiserade aviseringar i lösningen baseras på skriva en Log Analytics-frå
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Skapa aviseringar för Azure SQL Database
 
-Du kan enkelt [skapa aviseringar](../monitoring-and-diagnostics/alert-metric.md) med data från Azure SQL Database-resurser. Här är några användbara [loggsökning](log-analytics-queries.md) frågor som du kan använda med en logg-avisering:
+Du kan enkelt [skapa aviseringar](../monitoring-and-diagnostics/alert-metric.md) med data från Azure SQL Database-resurser. Här är några användbara [loggsökning](../azure-monitor/log-query/log-query-overview.md) frågor som du kan använda med en logg-avisering:
 
 #### <a name="high-cpu-on-azure-sql-database"></a>Hög CPU i Azure SQL-databas
 
@@ -297,6 +297,6 @@ Medan lösningen kostar ingenting att använda gäller förbrukning av diagnosti
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Använd [Loggsökningar](log-analytics-queries.md) i Log Analytics för att visa detaljerad Azure SQL-data.
+- Använd [Loggsökningar](../azure-monitor/log-query/log-query-overview.md) i Log Analytics för att visa detaljerad Azure SQL-data.
 - [Skapa dina egna instrumentpaneler](../azure-monitor/platform/dashboards.md) visar Azure SQL-data.
 - [Skapa aviseringar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) när specifika Azure SQL-händelser inträffar.

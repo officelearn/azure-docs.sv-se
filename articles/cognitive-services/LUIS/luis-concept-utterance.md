@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/03/2018
 ms.author: diberry
-ms.openlocfilehash: 2b21102a5416c1fd7e2abb35be677c48ffc63263
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 1f86631d75ceec5fc013c21f74f03b9157c78b4a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638088"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836465"
 ---
 # <a name="utterances-in-luis"></a>Yttranden i LUIS
 
@@ -55,6 +55,10 @@ Lägg inte till ett stort antal yttranden i varje iteration av modellen. Lägg t
 LUIS skapar effektiva modeller med yttranden som väljs noggrant. Att lägga till för många uttryck är inte värdefulla eftersom förvirring.  
 
 Är det bättre att börja med ett par yttranden sedan [granska endpoint yttranden](luis-how-to-review-endoint-utt.md) för rätt avsikt extrahering av förutsägelser och entiteten.
+
+## <a name="punctuation-marks"></a>Skiljetecken
+
+LUIS går inte att Ignorera skiljetecken, som standard, eftersom alla klientprogram kan placera betydelse på dessa märken. Kontrollera att ditt exempel yttranden använder både interpunktion och inga skiljetecken för båda formaten för att returnera samma relativa poängen. Om skiljetecken har ingen specifik betydelse i klientprogrammet, bör du [Ignorerar skiljetecken](#ignoring-words-and-punctuation) med hjälp av mönster. 
 
 ## <a name="ignoring-words-and-punctuation"></a>Ignorerar ord och skiljetecken
 Om du vill ignorera vissa specifika ord eller skiljetecken i exempel-uttryck kan använda en [mönstret](luis-concept-patterns.md#pattern-syntax) med den _Ignorera_ syntax. 

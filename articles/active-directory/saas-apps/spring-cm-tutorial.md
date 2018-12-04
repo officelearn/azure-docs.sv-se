@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 034d7b61d4a02ac899c7215a042d47bc7938176d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 777586bc24c0962ec1f0ba3913397bfe26d0d0d5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438155"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841072"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Självstudier: Azure Active Directory-integration med SpringCM
 
@@ -59,7 +59,7 @@ För att konfigurera integrering av SpringCM i Azure AD, som du behöver lägga 
 
 **Utför följande steg för att lägga till SpringCM från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
@@ -189,7 +189,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 Om du vill aktivera Azure Active Directory-användare att logga in på SpringCM, måste de etableras i SpringCM. När det gäller SpringCM är etablering en manuell aktivitet.
 
 >[!NOTE]
->Mer information finns i [skapar och redigerar en SpringCM användare](http://knowledge.springcm.com/create-and-edit-a-springcm-user). 
+>Mer information finns i [skapar och redigerar en SpringCM användare](https://knowledge.springcm.com/create-and-edit-a-springcm-user). 
 
 **Om du vill konfigurera ett användarkonto till SpringCM, utför du följande steg:**
 
@@ -248,7 +248,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
- 
+ 
 När du klickar på panelen SpringCM i åtkomstpanelen du bör få automatiskt loggat in på ditt SpringCM program.
 
 Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 

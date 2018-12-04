@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 77c445920041653ffb72d31e1dcfe4c368fb6642
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 76b3d23a042fae452b25b0a707e3c7ff9bbda613
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915933"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838200"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Om nätverk i Azure till Azure replikering
 
@@ -60,10 +60,9 @@ Om du använder en IP-baserad brandväggsproxy eller NSG-regler för att styra u
 - Alla IP-adressintervall som motsvarar storage-konton i källregionen
     - Skapa en [Storage tjänsttagg](../virtual-network/security-overview.md#service-tags) baserat NSG-regel för källregionen.
     - Tillåta de här adresserna så att data kan skrivas till cachelagringskontot, från den virtuella datorn.
-- Alla IP-adressintervall för Office 365 [slutpunkter för autentisering och identitet IP V4](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
-    - Om nya adresser läggs till Office 365-intervall i framtiden, måste du skapa nya NSG-regler.
+- Skapa en [Azure Active Directory (AAD) tjänsttagg](../virtual-network/security-overview.md#service-tags) baserat NSG-regel för att tillåta åtkomst till alla IP-adresser för AAD
+    - Om nya adresser läggs till Azure Active Directory (AAD) i framtiden, måste du skapa nya NSG-regler.
 - Site Recovery service-slutpunkt IP-adresser – tillgänglig i en [XML-fil](https://aka.ms/site-recovery-public-ips) och beror på din målplatsen.
--  Du kan [ladda ned och använda det här skriptet](https://aka.ms/nsg-rule-script), för att automatiskt skapa nödvändiga regler i NSG: N.
 - Vi rekommenderar att du skapa de NSG-reglerna på ett test NSG och kontrollera att det inte finns några problem innan du skapar reglerna på en NSG i produktionsmiljön.
 
 
@@ -82,7 +81,7 @@ Site Recovery-IP-adressintervall är följande:
    Västra USA | 40.83.179.48 | 104.40.26.199
    Södra centrala USA | 13.84.148.14 | 104.210.146.250
    Centrala USA | 40.69.144.231 | 52.165.34.144
-   Östra USA 2 | 52.184.158.163 | 40.79.44.59
+   USA, östra 2 | 52.184.158.163 | 40.79.44.59
    Östra Japan | 52.185.150.140 | 138.91.1.105
    Västra Japan | 52.175.146.69 | 138.91.17.38
    Södra Brasilien | 191.234.185.172 | 23.97.97.36
@@ -96,8 +95,8 @@ Site Recovery-IP-adressintervall är följande:
    Storbritannien, södra | 51.140.43.158 | 51.140.189.52
    Storbritannien, södra 2 | 13.87.37.4| 13.87.34.139
    Storbritannien, norra | 51.142.209.167 | 13.87.102.68
-   Centrala Korea | 52.231.28.253 | 52.231.32.85
-   Sydkorea | 52.231.298.185 | 52.231.200.144
+   Sydkorea, centrala | 52.231.28.253 | 52.231.32.85
+   Sydkorea, södra | 52.231.298.185 | 52.231.200.144
    Frankrike, centrala | 52.143.138.106 | 52.143.136.55
    Frankrike, södra | 52.136.139.227 |52.136.136.62
 

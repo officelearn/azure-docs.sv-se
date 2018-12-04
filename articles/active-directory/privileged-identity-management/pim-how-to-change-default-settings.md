@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 09/21/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 77a57afda3859de4a246c15d3b5c0b4ba8e2a8c8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 87003a053823cfc257a3b6f41699feefadbbcc66
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039011"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835173"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Konfigurera Azure AD directory rollinställningar i PIM
 
@@ -50,7 +50,15 @@ Använd den **aktiveringar** skjutreglaget för att ange den maximala tiden, i t
 
 ## <a name="notifications"></a>Meddelanden
 
-Använd den **meddelanden** växel som anger om systemet skickar e-postmeddelanden till administratörer som bekräftar att de har aktiverat en roll. Detta kan vara användbart för identifiering av obehöriga eller otillåtna aktiveringar.
+Använd den **meddelanden** växel för att ange om administratörer ska ta emot e-postaviseringar när roller är aktiverade. Detta kan vara användbart för identifiering av obehöriga eller otillåtna aktiveringar.
+
+När värdet **aktivera**, skickas meddelanden till:
+
+- Privilegierad rolladministratör
+- Säkerhetsadministratör
+- Global administratör
+
+Mer information finns i [e-postmeddelanden i PIM](pim-email-notifications.md).
 
 ## <a name="incidentrequest-ticket"></a>Biljett för incident/begäran
 

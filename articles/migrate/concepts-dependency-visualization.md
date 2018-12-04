@@ -4,19 +4,18 @@ description: Översikt över utvärderingsberäkningar i Azure Migrate-tjänsten
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: 04ae28ca566e97570ec64e78d3408ea8bd1e3d42
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 9baf6ea70a8e9fa0dcd8ceefc9f58d7fa972767a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010328"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841973"
 ---
 # <a name="dependency-visualization"></a>Visualisering av beroenden
 
 Den [Azure Migrate](migrate-overview.md) tjänsterna utvärderar grupper av lokala datorer för migrering till Azure. Du kan använda beroendevisualiseringsfunktionen i Azure Migrate för att skapa grupper. Den här artikeln innehåller information om den här funktionen.
-
 
 ## <a name="overview"></a>Översikt
 
@@ -31,7 +30,13 @@ Azure Migrate använder den [Tjänstkarta](../operations-management-suite/operat
 
     ![Associera arbetsytan för Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
 
-- När du skapar en ny arbetsyta kan behöva du ange ett namn för arbetsytan. Arbetsytan skapas i en region i samma [Azure geografi](https://azure.microsoft.com/global-infrastructure/geographies/) som migration-projekt.
+- När du kopplar en arbetsyta, får du alternativet för att skapa en ny arbetsyta eller bifoga en befintlig:
+      - När du skapar en ny arbetsyta kan behöva du ange ett namn för arbetsytan. Arbetsytan skapas i en region i samma [Azure geografi](https://azure.microsoft.com/global-infrastructure/geographies/) som migration-projekt.
+      - När du ansluter en befintlig arbetsyta, kan du välja från alla tillgängliga arbetsytor i samma prenumeration som migration-projekt. Observera att endast dessa arbetsytor visas som har skapats i en region där [Tjänstkarta stöds](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). Se till att du har ”läsare” åtkomst till arbetsytan om du vill kunna bifoga en arbetsyta.
+
+  > [!NOTE]
+  > När du har kopplat en arbetsyta till ett projekt, kan du ändra den senare.
+
 - Arbetsytan associerade märks med nyckeln **migreringsprojektet**, och värdet **projektnamn**, som du kan använda för att söka i Azure-portalen.
 - Om du vill gå till arbetsytan som är kopplade till projektet, går du till **Essentials** avsnittet projektets **översikt** sidan och få åtkomst till arbetsytan
 

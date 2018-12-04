@@ -1,20 +1,19 @@
 ---
-title: Med hjälp av .NET-biblioteket för bulk-executor att utföra massimport och uppdateringsåtgärder i Azure Cosmos DB | Microsoft Docs
+title: Med hjälp av .NET-biblioteket för bulk-executor att utföra massimport och uppdateringsåtgärder i Azure Cosmos DB
 description: Massimport och uppdatera Azure Cosmos DB-dokument med hjälp av bulk executor .NET-biblioteket.
 services: cosmos-db
 author: tknandu
-manager: kfile
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: 04894fdd0ffff38ad129097ce839259f2993332c
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: adde24faa4bd0f15eb3a2700021e9ace14fcc6b4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363406"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840987"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Använd bulk executor .NET-biblioteket för att utföra massåtgärder i Azure Cosmos DB
 

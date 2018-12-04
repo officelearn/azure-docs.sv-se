@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 97c141b6e0c071a8cea27f9a873f28a6c5113a18
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.date: 12/03/2018
+ms.openlocfilehash: c8a100577ba4bc67d12c7376b5897f397d010d4d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394875"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844931"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt över Azure SQL Database Managed Instance resursbegränsningar
 
-Den här artikeln innehåller en översikt över resursgränser för Azure SQL Database Managed Instance och innehåller information hur du skapar begäran om att öka regionala standardprenumerationsgränserna. 
+Den här artikeln innehåller en översikt över resursgränser för Azure SQL Database Managed Instance och innehåller information hur du skapar begäran om att öka regionala standardprenumerationsgränserna.
 
 > [!NOTE]
 > Andra hanterad instans-begränsningar finns i [vCore-baserade inköpsmodellen](sql-database-managed-instance.md#vcore-based-purchasing-model) och [tjänstnivåer för hanterad instans](sql-database-managed-instance.md#managed-instance-service-tiers). Skillnaderna i funktioner som stöds och T-SQL-instruktioner finns i [funktionsskillnader](sql-database-features.md) och [T-SQL-instruktionen support](sql-database-managed-instance-transact-sql-information.md).
@@ -43,9 +43,9 @@ Azure SQL Database Managed Instance kan distribueras på två maskinvara generat
 
 ### <a name="service-tier-characteristics"></a>Tjänstens nivån egenskaper
 
-Hanterad instans har två tjänstnivåer - generell användning och affärskritisk (offentlig förhandsversion). Dessa nivåer ger olika funktioner som beskrivs i tabellen nedan:
+Hanterad instans har två tjänstnivåer - generell användning och affärskritisk. Dessa nivåer ger olika funktioner som beskrivs i tabellen nedan:
 
-| **Funktion** | **Generell användning** | **Alternativet affärskritisk (förhandsversion)** |
+| **Funktion** | **Generell användning** | **Affärskritisk** |
 | --- | --- | --- |
 | Antal virtuella kärnor\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
 | Minne | Gen4: 56GB - 156GB<br/>Gen5: 44GB – 440GB<br/>\*I proportion till antalet virtuella kärnor | Gen4: 56GB - 156GB <br/> Gen5: 44GB – 440GB<br/>\*I proportion till antalet virtuella kärnor |
@@ -53,7 +53,7 @@ Hanterad instans har två tjänstnivåer - generell användning och affärskriti
 | Maximalt lagringsutrymme per databas | Bestäms av den maximala lagringsstorleken per instans | Bestäms av den maximala lagringsstorleken per instans |
 | Maximalt antal databaser per instans | 100 | 100 |
 | Max databasfiler per instans | Upp till 280 | Obegränsat |
-| Förväntade maximala lagringsutrymmet IOPS | 500-5000 ([beror på data filstorlek](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)). | Beror på den underliggande SSD-hastigheten. |
+| I/o-genomströmning (ungefärlig) | 5000 IOPS per kärna med 200 000 högsta IOPS |
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
@@ -79,7 +79,7 @@ Stöds prenumerationstyper kan innehålla ett begränsat antal resurser per regi
 
 I följande tabell visas regionala standardgränser för stöds prenumerationer:
 
-|Prenumerationstyp| Maxantal undernät för hanterad instans | Maximalt antal instanser |Maxantal GP hanterade instanser *|Maxantal BC hanterade instanser *|
+|Typ av prenumeration| Maxantal undernät för hanterad instans | Maximalt antal instanser |Maxantal GP hanterade instanser *|Maxantal BC hanterade instanser *|
 | :---| :--- | :--- |:--- |:--- |
 |Användningsbaserad betalning|1 *|4 *|4 *|1 *|
 |CSP |1 *|4 *|4 *|1 *|
@@ -98,7 +98,7 @@ Dessa begränsningar kan utökas genom att skapa särskilda [supportförfrågan 
 
 [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) prenumerationer kan ha kombinationer av GP- och BC-instanser. Det finns dock vissa begränsningar avseende placeringen av instanserna i undernät.
 
-> [!Note] 
+> [!Note]
 > [Betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p/) och [Cloud Service Provider (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources) prenumerationstyper kan ha antingen en affärskritisk eller upp till 4 instanser för generell användning.
 
 I följande exempel beskriver distributionen fall med icke-tomma undernät och blandat GP och BC tjänstnivåer.
@@ -114,9 +114,10 @@ I följande exempel beskriver distributionen fall med icke-tomma undernät och b
 
 ## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Hämta en större kvot för SQL-hanterad instans
 
-Om du behöver fler hanterade instanser i din aktuella regioner kan skicka du supportbegäran för att utöka kvoten med hjälp av Azure portal. Så här initierar processen för att hämta en större kvot:
+Om du behöver fler hanterade instanser i din aktuella regioner kan skicka du supportbegäran för att utöka kvoten med hjälp av Azure portal.
+Så här initierar processen för att hämta en större kvot:
 
-1. Öppna **hjälp + support**, och klicka på **ny supportbegäran**. 
+1. Öppna **hjälp + support**, och klicka på **ny supportbegäran**.
 
    ![Hjälp och support](media/sql-database-managed-instance-resource-limits/help-and-support.png)
 2. På fliken grunderna för ny supportbegäran:
@@ -133,20 +134,20 @@ Om du behöver fler hanterade instanser i din aktuella regioner kan skicka du su
    - För **information**, ger ytterligare information om problemet, inklusive felmeddelanden.
    - För **filuppladdning**, bifoga en fil med mer information (upp till 4 MB).
 
-     ![Uppgifter om problem](media/sql-database-managed-instance-resource-limits/problem-details.png)
+     ![Probleminformation](media/sql-database-managed-instance-resource-limits/problem-details.png)
 
      > [!IMPORTANT]
      > En giltig begäran bör innehålla:
      > - Region i vilken prenumeration behöver gränsen ökas
      > - Nödvändigt antal instanser per tjänstnivå i befintliga undernät efter kvoten öka (om någon av de befintliga undernät måste utvidgas till
      > - Obligatoriskt antal nya undernät och Totalt antal instanser per tjänstnivå inom de nya undernäten (om du behöver distribuera hanterade instanser i nya undernät).
-     
+
 5. Klicka på **Nästa**.
 6. Ange önskad kontaktmetod (e-post eller telefon) och kontaktuppgifter på fliken kontaktuppgifter för ny supportbegäran.
 7. Klicka på **Skapa**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om Managed Instance finns i [vad är en hanterad instans?](sql-database-managed-instance.md). 
+- Mer information om Managed Instance finns i [vad är en hanterad instans?](sql-database-managed-instance.md).
 - Information om priser finns i [priser för SQL Database Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 - Information om hur du skapar din första hanterad instans finns [snabbstartsguiden](sql-database-managed-instance-get-started.md).

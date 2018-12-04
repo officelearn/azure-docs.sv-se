@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 16e3e73e00af1cc6c2c531575345f12c288f1b69
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 8459866aa192f2364ae52d0d5d68eace693e127e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853701"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832691"
 ---
 # <a name="manage-azure-marketplace-and-appsource-publisher-profile"></a>Hantera utgivarprofil ”Azure Marketplace” och ”AppSource”
 
@@ -27,7 +27,7 @@ Det här dokumentet är en genomgång för att visa och hantera användare i din
 
 Du har slutfört stegen för att bli en Azure Marketplace och AppSource utgivare vid den tidpunkten. Publisher-profil är registrerat på den **[Cloud Partner Portal](https://cloudpartner.azure.com/)** efter godkännande av ditt partner-begäran. Din utgivarprofil gäller för alla erbjudanden och SKU: er som publiceras från det konto som används under registreringen av partner.
 
-Om du inte har registrerat ditt företag som en molnpartner, se [Kom igång med partnerportalen i molnet](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal).
+Om du inte har registrerat ditt företag som en molnpartner, se [Kom igång med partnerportalen i molnet](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal).
 
 **Utgivarprofil**: din utgivarprofil särskiljer ditt företag på Azure Marketplace och AppSource. Den består av Publicerings-ID, namn och ägare email(s). En väl hanterad profilen kommer öka översyn och hjälper användarna att marketplace lätt kan identifiera och välja en lämplig erbjudandet.
 

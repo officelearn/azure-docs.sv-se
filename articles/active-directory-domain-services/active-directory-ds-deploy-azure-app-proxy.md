@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 96ef005f095e5ab774a88ec766080f647414a7ce
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 4621122d805f37be1578aa7b7c9ae059f3141c77
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155549"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840307"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Distribuera Azure AD Application Proxy på en Azure AD Domain Services-hanterad domän
 Azure Active Directory (AD) Application Proxy kan du stödja fjärranvändare genom att publicera lokala program som kan nås via internet. Med Azure AD Domain Services kan du nu – flytta äldre program som körs lokalt till Azure Infrastructure Services. Du kan sedan publicera dessa program med hjälp av Azure AD Application Proxy för att tillhandahålla säker fjärråtkomst till användare i din organisation.
@@ -42,7 +42,7 @@ Om du vill utföra åtgärderna i den här artikeln behöver du:
 ## <a name="task-1---enable-azure-ad-application-proxy-for-your-azure-ad-directory"></a>Uppgift 1 – Aktivera Azure AD Application Proxy för din Azure AD-katalog
 Utför följande steg om du vill aktivera Azure AD-programproxyn för Azure AD-katalogen.
 
-1. Logga in som administratör i den [Azure-portalen](http://portal.azure.com).
+1. Logga in som administratör i den [Azure-portalen](https://portal.azure.com).
 
 2. Klicka på **Azure Active Directory** att ta fram översikt över directory. Klicka på **företagsprogram**.
 

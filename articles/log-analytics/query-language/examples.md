@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.openlocfilehash: 486e485a78f767c4d75461558d06068a2e1c4525
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d5cad3869e74f33a2d1a56352c658bb9c8f23db6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682817"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835802"
 ---
 # <a name="log-analytics-query-examples"></a>Logga Analytics-fråga exempel
-Den här artikeln innehåller olika exempel på [frågor](../log-analytics-queries.md) med hjälp av den [Kusto språk](https://docs.microsoft.com/azure/kusto/query/) att hämta olika typer av data från Log Analytics. Olika metoder för att konsolidera och analysera data, så du kan använda de här exemplen för att identifiera olika strategier som du kan använda för dina egna behov.  
+Den här artikeln innehåller olika exempel på [frågor](../../azure-monitor/log-query/log-query-overview.md) med hjälp av den [Kusto språk](https://docs.microsoft.com/azure/kusto/query/) att hämta olika typer av data från Log Analytics. Olika metoder för att konsolidera och analysera data, så du kan använda de här exemplen för att identifiera olika strategier som du kan använda för dina egna behov.  
 
 Se den [Kusto-Språkreferens](https://docs.microsoft.com/azure/kusto/query/) mer information om andra nyckelord som används i exemplen. Gå igenom en [lektion om hur du skapar frågor](get-started-queries.md) om du är nybörjare till Log Analytics.
 

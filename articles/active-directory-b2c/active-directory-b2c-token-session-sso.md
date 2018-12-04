@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 456e32e2f5194417f004f80feef1852dd3d0befd
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: c93bc018aea92a63adac4889d9496356543c1e52
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723286"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842738"
 ---
 # <a name="token-session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Token, session och enkel inloggning-konfiguration i Azure Active Directory B2C
 
@@ -66,7 +66,7 @@ Följande egenskaper gör att kunderna kan välja efter behov:
 
 - **Utfärdaren (iss) anspråk** -den här egensapen identifierar den Azure AD B2C-klient som utfärdade token.
     - `https://<domain>/{B2C tenant GUID}/v2.0/` -Detta är standardvärdet.
-    - `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` – Det här värdet innehåller ID: N för både B2C-klient och användarflödet som används i token-begäran. Om din app eller -biblioteket måste Azure AD B2C ska vara kompatibel med den [OpenID Connect Discovery 1.0-specifikationen](http://openid.net/specs/openid-connect-discovery-1_0.html), Använd det här värdet.
+    - `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` – Det här värdet innehåller ID: N för både B2C-klient och användarflödet som används i token-begäran. Om din app eller -biblioteket måste Azure AD B2C ska vara kompatibel med den [OpenID Connect Discovery 1.0-specifikationen](https://openid.net/specs/openid-connect-discovery-1_0.html), Använd det här värdet.
 - **Anspråk för ämne (sub)** – den här egenskapen identifierar den entitet som token kontrollerar information.
     - **ObjectID** – den här egenskapen är standardvärdet. Fylls i objekt-ID för användaren i katalogen i den `sub` anspråk i token.
     - **Stöds inte** – den här egenskapen finns bara för bakåtkompatibilitet och vi rekommenderar att du växlar till **ObjectID** så fort du.

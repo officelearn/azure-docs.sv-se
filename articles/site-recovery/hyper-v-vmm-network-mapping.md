@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: cecc1df23ebed88db315e7de14ea850ba5297697
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 576194f0b85e95f07ab0370c4be7029d3b8aecb9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212989"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833898"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Förbereda nätverksmappning för haveriberedskap för virtuella Hyper-V-datorer till Azure
 
@@ -23,7 +23,7 @@ Den här artikeln hjälper dig att förstå och förbereda för nätverksmappnin
 
 ## <a name="prepare-network-mapping-for-replication-to-azure"></a>Förbereda nätverksmappning för replikering till Azure
 
-När du replikerar till Azure mappar nätverksmappningen mellan Virtuella datornätverk i en VMM-källservern och rikta in Azure-nätverk. Mappningen gör följande:
+När du replikerar till Azure mappar nätverksmappningen mellan Virtuella datornätverk i en VMM-källservern och rikta in Azure-nätverk. Mappning utför följande:
     -  **Nätverksanslutning**– ser till att replikerade virtuella Azure-datorer är anslutna till den mappade nätverksenheten. Alla datorer som redundansväxlar i samma nätverk kan ansluta till varandra, även om de inte över i olika återställningsplaner.
     - **Nätverksgateway**– om en nätverksgateway har konfigurerats på Azure-målnätverket kan virtuella datorer kan ansluta till andra lokala virtuella datorer.
 
@@ -37,7 +37,7 @@ Nätverksmappning fungerar på följande sätt:
 
 ## <a name="prepare-network-mapping-for-replication-to-a-secondary-site"></a>Förbereda nätverksmappning för replikering till en sekundär plats
 
-När du replikerar till en sekundär plats mappar nätverksmappningen mellan VM-nätverk på en VMM-källservern och Virtuella datornätverk på en målserver för VMM. Mappningen gör följande:
+När du replikerar till en sekundär plats mappar nätverksmappningen mellan VM-nätverk på en VMM-källservern och Virtuella datornätverk på en målserver för VMM. Mappning utför följande:
 
 - **Nätverksanslutning**– ansluter datorer till lämpliga nätverk efter redundansväxling. Replikerade virtuella datorn ansluts till målnätverket som är mappad till källnätverket.
 - **Optimal placering av Virtuella**– optimalt placerar repliken virtuella datorer på Hyper-V-värdservrar. Virtuella replikdatorerna placeras på värdar som har åtkomst till de mappade Virtuella datornätverk.

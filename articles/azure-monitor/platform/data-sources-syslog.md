@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: f2347601a775c0069c36d8ca453f677f6d0e1568
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 292def9303cf74142a55e1101fe6371476f9f09d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52337046"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845220"
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Syslog-datakällor i Log Analytics
 Syslog är ett protokoll för loggning av händelse som är gemensamma för Linux.  Program skickar meddelanden som kan lagras på den lokala datorn eller levereras till en Syslog-insamlare.  När OMS-agenten för Linux installeras konfigurerar den lokala Syslog-daemon för att vidarebefordra meddelanden till agenten.  Agenten skickar sedan meddelandet till Log Analytics där en motsvarande post skapas i OMS-databasen.  
@@ -207,6 +207,6 @@ I följande tabell innehåller olika exempel på loggfrågor som hämtar Syslog-
 | Syslog &#124; sammanfatta AggregatedValue = antal() efter lokal |Räkna Syslog-poster efter anläggning. |
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [loggsökningar](../../log-analytics/log-analytics-queries.md) att analysera data som samlas in från datakällor och lösningar.
+* Lär dig mer om [loggsökningar](../../azure-monitor/log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar.
 * Använd [anpassade fält](../../log-analytics/log-analytics-custom-fields.md) att parsa data från syslog-poster i enskilda fält.
 * [Konfigurera Linux-agenter](../../log-analytics/log-analytics-quick-collect-linux-computer.md) att samla in andra typer av data.

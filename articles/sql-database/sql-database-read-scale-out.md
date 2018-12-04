@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: deadbc8186d80b050fdb40879ecf29fd229c8709
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 12/03/2018
+ms.openlocfilehash: 6b694794da5eabaddf4d6f29203b7d6553ef4940
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465468"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844404"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Använd skrivskyddade repliker för att läsa in balansera skrivskyddad frågearbetsbelastningar (förhandsversion)
 
@@ -76,7 +76,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 
 ## <a name="enable-and-disable-read-scale-out"></a>Aktivera och inaktivera Lässkalning
 
-Lässkalning är aktiverat som standard i [Managed Instance](sql-database-managed-instance.md) affärskritisk tier(Preview). Funktionen ska vara explicit aktiverad i [databasen placeras på logisk server](sql-database-logical-servers.md) Premium och affärskritisk nivåer. Här beskrivs metoder för att aktivera och inaktivera Lässkalning.
+Lässkalning är aktiverat som standard i [Managed Instance](sql-database-managed-instance.md) nivån affärskritisk. Funktionen ska vara explicit aktiverad i [databasen placeras på logisk server](sql-database-logical-servers.md) Premium och affärskritisk nivåer. Här beskrivs metoder för att aktivera och inaktivera Lässkalning.
 
 ### <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Aktivera och inaktivera Lässkalning med hjälp av Azure PowerShell
 

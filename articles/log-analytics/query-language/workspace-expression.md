@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 63c6c231477a1c5abea15903b17843717e61f96a
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 2909f586ce102b319ca9dfeea191c7812e3f6b06
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679962"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842670"
 ---
 # <a name="workspace-expression-in-log-analytics-query"></a>Workspace() uttryck i Log Analytics-fråga
 
@@ -73,4 +73,4 @@ union
 ## <a name="next-steps"></a>Nästa steg
 
 - Se den [app uttryck](workspace-expression.md) att referera till Application Insights-app.
-- Läs om hur [Log Analytics-data](../../log-analytics/log-analytics-queries.md) lagras.
+- Läs om hur [Log Analytics-data](../../azure-monitor/log-query/log-query-overview.md) lagras.

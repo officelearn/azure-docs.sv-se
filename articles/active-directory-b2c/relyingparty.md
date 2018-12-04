@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8f56f287fde9e17d2a17298ca04eda63b69e3636
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: aaae119ec72a713adc2faa311dbcb6bd204035fd
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159932"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835105"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -28,8 +28,8 @@ I följande exempel visas en **RelyingParty** elementet i den *B2C_1A_signup_sig
 ```XML
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TrustFrameworkPolicy
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="https://www.w3.org/2001/XMLSchema"
   xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
   PolicySchemaVersion="0.3.0.0"
   TenantId="your-tenant.onmicrosoft.com"
@@ -124,7 +124,7 @@ Den **SingleSignOn** elementet innehåller i följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Omfång | Ja | Omfattning beteendet för enkel inloggning. Möjliga värden: `Suppressed`, `Tenant`, `Application`, eller `Policy`. Den `Suppressed` värdet anger att beteendet undertrycks. Till exempel när det gäller en enda session inloggnings-ingen session bibehålls för användaren och användaren uppge alltid ett val för identitets-provider. Den `TrustFramework` värdet anger att funktionen används för alla principer inom ramen för förtroende. Exempelvis kan en användare navigera genom två princip utbildning för ett förtroende-ramverk inte uppmanas att ange ett val för identitets-provider. Den `Tenant` värdet anger att funktionen används för alla principer i klienten. Exempelvis kan en användare navigera genom två princip utbildning för en klient inte uppmanas att ange ett val för identitets-provider. Den `Application` värdet anger att funktionen används för alla principer för program som gör begäran. En användare navigera genom två princip utbildning för ett program är till exempel inte ange ett val för identitets-provider. Den `Policy` värdet anger att problemet endast gäller för en princip. Till exempel en användare navigera genom två princip utbildning för ett förtroende-ramverk uppmanas att ange ett identitet providern val när du växlar mellan principer. |
+| Scope | Ja | Omfattning beteendet för enkel inloggning. Möjliga värden: `Suppressed`, `Tenant`, `Application`, eller `Policy`. Den `Suppressed` värdet anger att beteendet undertrycks. Till exempel när det gäller en enda session inloggnings-ingen session bibehålls för användaren och användaren uppge alltid ett val för identitets-provider. Den `TrustFramework` värdet anger att funktionen används för alla principer inom ramen för förtroende. Exempelvis kan en användare navigera genom två princip utbildning för ett förtroende-ramverk inte uppmanas att ange ett val för identitets-provider. Den `Tenant` värdet anger att funktionen används för alla principer i klienten. Exempelvis kan en användare navigera genom två princip utbildning för en klient inte uppmanas att ange ett val för identitets-provider. Den `Application` värdet anger att funktionen används för alla principer för program som gör begäran. En användare navigera genom två princip utbildning för ett program är till exempel inte ange ett val för identitets-provider. Den `Policy` värdet anger att problemet endast gäller för en princip. Till exempel en användare navigera genom två princip utbildning för ett förtroende-ramverk uppmanas att ange ett identitet providern val när du växlar mellan principer. |
 
 ## <a name="journeyinsights"></a>JourneyInsights
 

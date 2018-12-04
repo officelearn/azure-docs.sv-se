@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: c02dc274c5d22c16b2bda6d7896ee64c41d6e2ab
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 88388be1a0687c3e56fd39dde2f70e40cf578f2a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439002"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841055"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purelyhr"></a>Självstudier: Azure Active Directory-integration med PurelyHR
 
@@ -59,7 +59,7 @@ För att konfigurera integrering av PurelyHR i Azure AD, som du behöver lägga 
 
 **Utför följande steg för att lägga till PurelyHR från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
@@ -121,7 +121,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     I den **inloggnings-URL** textrutan skriver du värdet med följande mönster: `https://<companyID>.purelyhr.com/sso-initiate`
      
     > [!NOTE]
-    > Dessa värden är inte verkligt. Uppdatera dessa värden med de faktiska svars-URL och inloggnings-URL. Kontakta [PurelyHR klienten supportteamet](http://support.purelyhr.com/) att hämta dessa värden. 
+    > Dessa värden är inte verkligt. Uppdatera dessa värden med de faktiska svars-URL och inloggnings-URL. Kontakta [PurelyHR klienten supportteamet](https://support.purelyhr.com/) att hämta dessa värden. 
 
 1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 

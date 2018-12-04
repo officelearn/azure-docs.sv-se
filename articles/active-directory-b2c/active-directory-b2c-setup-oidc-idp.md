@@ -10,19 +10,21 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 49f3f80832597b231aec812a4c1613da9897f72a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e6fc9ded2b3509f9505d88f0ae7ccc790e47b0f2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722453"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842772"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med OpenID Connect med hjälp av Azure Active Directory B2C
 
 >[!NOTE]
 > Den här funktionen är i offentlig förhandsversion. Använd inte funktionen i produktionsmiljöer.
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) är ett autentiseringsprotokoll som bygger på OAuth 2.0, som kan användas för säker inloggning av användare. De flesta identitetsleverantörer som använder detta protokoll, exempelvis [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md), stöds i Azure AD B2C. Den här artikeln förklarar hur du kan lägga till anpassad OpenID Connect Identitetsproviders i dina användarflöden.
+
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) är ett autentiseringsprotokoll som bygger på OAuth 2.0, som kan användas för säker inloggning av användare. De flesta identitetsleverantörer som använder detta protokoll, exempelvis [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md), stöds i Azure AD B2C. Den här artikeln förklarar hur du kan lägga till anpassad OpenID Connect Identitetsproviders i dina användarflöden.
+
 
 ## <a name="add-the-identity-provider"></a>Lägg till identitetsleverantören.
 
@@ -39,13 +41,13 @@ Varje OpenID Connect identitetsleverantörer beskriver ett metadatadokument som 
 Om du vill tillåta användare att logga in, kräver identitetsprovidern utvecklare att registrera ett program i sin tjänst. Det här programmet har ett ID som kallas den **klient-ID** och en **klienthemlighet**. Kopiera värdena från identitetsprovidern och ange dem i motsvarande fält.
 
 > [!NOTE]
-> Klienthemlighet är valfritt. Men du måste ange en klienthemlighet om du vill använda den [auktoriseringskodflödet](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), som använder hemligheten för att utbyta koden för token.
+> Klienthemlighet är valfritt. Men du måste ange en klienthemlighet om du vill använda den [auktoriseringskodflödet](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), som använder hemligheten för att utbyta koden för token.
 
 Omfång definierar den information och behörigheter som du vill samla in från din anpassade identitetsprovider. OpenID Connect-förfrågningar måste innehålla den `openid` omfång värdet för att få ID-token från identitetsprovidern. Utan ID-token användare kan inte logga in på Azure AD B2C med hjälp av den anpassade identitetsprovidern. Andra scope kan läggas avgränsade med blanksteg. I den anpassade identitetsprovidern-dokumentationen för att se vad andra scope kan vara tillgängliga.
 
 Svarstypen beskriver vilken typ av information skickas tillbaka i det första anropet till den `authorization_endpoint` för den anpassade identitetsprovidern. Du kan använda följande svarstyper av:
 
-- `code`: Enligt den [auktoriseringskodflödet](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), returneras en kod till Azure AD B2C. Azure AD B2C fortsätter att anropa den `token_endpoint` att byta ut koden för token.
+- `code`: Enligt den [auktoriseringskodflödet](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), returneras en kod till Azure AD B2C. Azure AD B2C fortsätter att anropa den `token_endpoint` att byta ut koden för token.
 - `token`: En åtkomst-token returneras från den anpassade identitetsprovidern tillbaka till Azure AD B2C.
 - `id_token`: Ett ID-token som returneras från den anpassade identitetsprovidern tillbaka till Azure AD B2C.
 

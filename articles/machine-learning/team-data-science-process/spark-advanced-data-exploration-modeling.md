@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: tdsp
 ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: e0fa3d481e18cdb15095968e791bd9eee630f8af
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: fe7d3fb9a88b97eddf0708b7a5b2eefd09111542
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446338"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843435"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Avancerad datagranskning och modellering med Spark
 
-Den här genomgången använder HDInsight Spark att göra datagranskning och träna binär klassificering och regressionsmodeller med korsvalidering och finjustering optimering på ett urval av NYC Taxitransport resa och färdavgiften 2013 datauppsättning. Vi går igenom stegen i den [Data Science Process](https://aka.ms/datascienceprocess), slutpunkt till slutpunkt, använda ett HDInsight Spark-kluster för bearbetning och Azure BLOB för att lagra data och modeller. Processen utforskar och visualiserar data som tillkommit från en Azure Storage Blob och förbereder data för att skapa förutsägelsemodeller. Python har använts för att skriva kod till lösningen och för att visa relevanta områden. De här modellerna är build med hjälp av Spark MLlib verktygen till binär klassificering och regression modellering aktiviteter. 
+Den här genomgången använder HDInsight Spark att göra datagranskning och träna binär klassificering och regressionsmodeller med korsvalidering och finjustering optimering på ett urval av NYC Taxitransport resa och färdavgiften 2013 datauppsättning. Vi går igenom stegen i den [Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), slutpunkt till slutpunkt, använda ett HDInsight Spark-kluster för bearbetning och Azure BLOB för att lagra data och modeller. Processen utforskar och visualiserar data som tillkommit från en Azure Storage Blob och förbereder data för att skapa förutsägelsemodeller. Python har använts för att skriva kod till lösningen och för att visa relevanta områden. De här modellerna är build med hjälp av Spark MLlib verktygen till binär klassificering och regression modellering aktiviteter. 
 
 * Den **binär klassificering** uppgift är att förutsäga om ett tips betalas för resan. 
 * Den **regression** uppgift är att förutsäga mängden tips baserat på andra funktioner som tips. 

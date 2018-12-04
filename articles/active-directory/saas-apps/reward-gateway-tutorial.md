@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: d5cda8830b480e9ef9dff18cb3d7b99e1db55590
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0339889228c80cc3675fd7fde52e75cb84521ab6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442803"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840188"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Självstudier: Azure Active Directory-integrering med utmärkelse Gateway
 
@@ -59,7 +59,7 @@ För att konfigurera integrering av utmärkelse Gateway i Azure AD, som du behö
 
 **Utför följande steg för att lägga till utmärkelse Gateway från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
@@ -129,7 +129,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>` |
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare och svars-URL. Om du vill ha starta dessa värden hur du konfigurerar en Integration på utmärkelse Manager-portalen. Information finns på http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare och svars-URL. Om du vill ha starta dessa värden hur du konfigurerar en Integration på utmärkelse Manager-portalen. Information finns på https://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
  
 1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
@@ -139,7 +139,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/reward-gateway-tutorial/tutorial_general_400.png)
 
-1. Att konfigurera enkel inloggning på **utmärkelse Gateway** sida, börjar skapa en Integration på utmärkelse Manager-portalen. Använd hämtade metadata för att hämta ditt signeringscertifikat och överföra som under konfigurationen. Information finns på http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
+1. Att konfigurera enkel inloggning på **utmärkelse Gateway** sida, börjar skapa en Integration på utmärkelse Manager-portalen. Använd hämtade metadata för att hämta ditt signeringscertifikat och överföra som under konfigurationen. Information finns på https://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
 
 > [!TIP]
 > Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)

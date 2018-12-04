@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/11/2017
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 036378c5ed595ffbaeefad9407fba8519945cf5c
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 4275b734a30310c896c397a5ef9cc1b218d89476
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52337079"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842551"
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Windows-händelseloggen datakällor i Log Analytics
 Windows-händelseloggar är en av de vanligaste [datakällor](agent-data-sources.md) för att samla in data med hjälp av Windows-agenter eftersom många program skriva till händelseloggen i Windows.  Du kan samla in händelser från standard loggarna, t.ex System- och förutom att ange några anpassade loggar som skapats av program som du behöver övervaka.
@@ -76,6 +76,6 @@ I följande tabell innehåller olika exempel på sökningar i loggen som hämtar
 
 ## <a name="next-steps"></a>Nästa steg
 * Konfigurera Log Analytics för att samla in andra [datakällor](agent-data-sources.md) för analys.
-* Lär dig mer om [loggsökningar](../../log-analytics/log-analytics-queries.md) att analysera data som samlas in från datakällor och lösningar.  
+* Lär dig mer om [loggsökningar](../../azure-monitor/log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar.  
 * Använd [anpassade fält](../../log-analytics/log-analytics-custom-fields.md) att parsa händelseposter till enskilda fält.
 * Konfigurera [insamling av prestandaräknare](data-sources-performance-counters.md) från din Windows-agenter.

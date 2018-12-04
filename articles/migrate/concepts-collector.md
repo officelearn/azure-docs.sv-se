@@ -4,15 +4,15 @@ description: Innehåller information om insamlingsprogrammet i Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/28/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 81e6731068db84f02073f02c49bea9a8fb7c7c70
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 5a542ae23bf500125fd08338b2efd30dd42d9a8d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241199"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840919"
 ---
 # <a name="about-the-collector-appliance"></a>Om insamlingsprogrammet
 
@@ -20,21 +20,9 @@ ms.locfileid: "50241199"
 
 Azure Migrate Collector är en enkel installation som kan användas för att identifiera en lokal vCenter-miljö för utvärdering med den [Azure Migrate](migrate-overview.md) tjänsten före migreringen till Azure.  
 
-## <a name="discovery-methods"></a>Identifieringsmetoder
+## <a name="discovery-method"></a>Identifieringsmetod
 
-Det finns två alternativ för insamlaren enheten, identifiering av enstaka eller kontinuerlig identifiering.
-
-### <a name="one-time-discovery"></a>Engångsidentifiering
-
-Insamlingsprogrammet kommunicerar vid ett enstaka tillfälle med vCenter Server för att samla in metadata om de virtuella datorerna. Med den här metoden:
-
-- Installationen inte är kontinuerligt anslutna till Azure Migrate-projektet.
-- Ändringarna i den lokala miljön syns inte i Azure Migrate när identifieringen har slutförts. För att återspegla ändringar, måste du identifiera i samma miljö i samma projekt igen.
-- Vid insamling av prestandadata för en virtuell dator, installationen förlitar sig på historiska prestandadata som lagras i vCenter Server. Den samlar in prestandahistorik för den senaste månaden.
-- Vid insamling av prestandadata historiska måste du ange inställningar för statistik i vCenter Server till nivå 3. När nivån för tre kan behöva du vänta minst en dag för vCenter att samla in prestandaräknare. Vi rekommenderar därför att du kör identifieringen efter till minst en dag. Om du vill utvärdera miljön baserat på prestandadata för 1 vecka eller månad 1 kan behöva du vänta i enlighet med detta.
-- I den här identifieringsmetoden Azure Migrate samlar in genomsnittlig räknare för varje mått (snarare än högsta räknare), vilket kan resultera i under storlek. Vi rekommenderar att du använder alternativ för kontinuerlig identifiering för att få mer exakta ändrar storlek på resultaten.
-
-### <a name="continuous-discovery"></a>Kontinuerlig identifiering
+Tidigare fanns det två alternativ för insamlingsprogrammet, enstaka identifiering och kontinuerlig identifiering. Identifiering av enstaka modellen är nu inaktuellt eftersom det förlitade sig tidigare på statistikinställningarna för vCenter-Server för insamling av prestandadata (nödvändiga statistikinställningarna anges till nivå 3) och samlas även in genomsnittlig räknare (i stället för låg belastning), vilket resulterade i under storlek. Identifiering av kontinuerlig modellen säkerställer detaljerade datainsamling och leder till korrekt storlek på grund av samling av högsta räknare. Nedan visas hur det fungerar:
 
 Insamlingsprogrammet anslutna kontinuerligt till Azure Migrate-projektet och kontinuerligt samlar in prestandadata för virtuella datorer.
 
@@ -44,14 +32,16 @@ Insamlingsprogrammet anslutna kontinuerligt till Azure Migrate-projektet och kon
 - Den här modellen inte är beroende statistikinställningarna för vCenter-servern att samla in prestandadata.
 - Du kan stoppa kontinuerlig profilering vid när som helst från insamlaren.
 
-Observera att installationen bara samlar in prestandadata kontinuerligt, den identifierar inte någon konfigurationsändring i den lokala miljön (dvs. tillägg av virtuell dator, borttagning, disktillägg osv.). Om det finns en konfigurationsändring i den lokala miljön kan du göra följande för att återspegla ändringarna i portalen:
+**Direkt:** med kontinuerlig discovery-installation, när identifieringen har slutförts (det tar några timmar beroende på hur många virtuella datorer), kan du direkt skapa utvärderingar. Eftersom prestandadatainsamlingen startar när du startar identifieringen, om du letar efter direkt, du bör välja storlekskriteriet i utvärderingen som *som lokalt*. För prestandabaserade utvärderingar, är det bäst att vänta minst en dag efter att starta identifiering för att hämta storleksrekommendationer för tillförlitliga.
+
+Installationen endast samlar in prestandadata kontinuerligt, upptäcks inte varje konfigurationsändring i den lokala miljön (dvs. VM-tillägg, borttagning, disk tillägg osv.). Om det finns en konfigurationsändring i den lokala miljön kan du göra följande för att återspegla ändringarna i portalen:
 
 - Tillägg av objekt (virtuella datorer, kärnor osv.): Om du vill återspegla dessa ändringar i Azure-portalen kan du stoppa identifieringen från installationen och sedan börja om igen. Då uppdateras ändringarna i Azure Migrate-projektet.
 
 - Borttagning av virtuella datorer: På grund av hur installationen är utformad återspeglas inte borttagning av virtuella datorer även om du stoppar och startar identifieringen. Det beror på att data från efterföljande identifieringar läggs till äldre identifieringar och inte åsidosätts. I det här fallet kan du helt enkelt ignorera den virtuella datorn genom att ta bort den från gruppen och beräkna utvärderingen.
 
 > [!NOTE]
-> Identifiering av kontinuerlig funktioner finns i förhandsversion. Vi rekommenderar att du använder den här metoden eftersom den samlar in detaljerade prestandadata och resultat i korrekt storlek.
+> Identifiering av enstaka installationen är nu föråldrad eftersom den här metoden förlitade sig tidigare på vCenter-serverns statistikinställningarna för prestanda datatillgänglighet och samlas in genomsnittlig prestandaräknare som resulterade i under storleksändringar av virtuella datorer för migrering till Azure.
 
 ## <a name="deploying-the-collector"></a>Distribuera insamlaren
 
@@ -211,7 +201,7 @@ När installationen har konfigurerats, kan du köra identifiering. Så fungerar 
 
 ### <a name="collected-metadata"></a>Insamlade metadata
 
-Insamlingsprogrammet identifierar följande statiska metadata för virtuella datorer:
+Insamlingsprogrammet identifierar följande konfigurationsmetadata för varje virtuell dator. Konfigurationsinformationen för de virtuella datorerna finns en timme efter att du startar identifieringen.
 
 - Visningsnamn för virtuell dator (på vCenter-Server)
 - Virtuella datorns lager sökväg (värd/mappen på vCenter-Server)
@@ -224,26 +214,18 @@ Insamlingsprogrammet identifierar följande statiska metadata för virtuella dat
 
 #### <a name="performance-counters"></a>Prestandaräknare
 
-- **Identifiering av enstaka**: när prestandaräknare som samlas in för en enstaka identifiering, Tänk på följande:
+ Insamlaren samlar in följande prestandaräknare för varje virtuell dator från ESXi-värd med ett intervall på 20 sekunder. Dessa räknare är vCenter räknare och även om termer som säger medelvärde, 20 sekunder exemplen finns räknare i realtid. Prestandadata för de virtuella datorerna börjar bli tillgänglig i portalen två timmar efter identifieringen har startats. Vi rekommenderar starkt att vänta minst en dag innan du skapar prestandabaserad utvärderingar för att få korrekt rätt storleksrekommendationer. Om du letar efter direkt, du kan skapa utvärderingar med storlekskriteriet som *som lokalt* som inte ska undersöka prestandadata för rätt storleksändring.
 
-    - Det kan ta upp till 15 minuter att samla in och skicka konfigurationsmetadata till projektet.
-    - När configuration-data har samlats in, kan det ta upp till en timme för prestandadata som ska vara tillgänglig i portalen.
-    - När metadata är tillgänglig i portalen kan listan med virtuella datorer visas och du kan börja skapa grupper för utvärdering.
-- **Identifiering av kontinuerlig**: för kontinuerlig identifiering, Tänk på följande:
-    - Konfigurationsdata för den virtuella datorn är tillgänglig en timme efter att du börjar identifiering
-    - Prestandadata startar blir tillgänglig efter 2 timmar.
-    - När du har startat identifieringen vänta minst en dag att profilera miljön, innan du skapar utvärderingar.
-
-**Räknaren** | **Nivå** | **Nivå per enhet** | **Påverkan på utvärdering**
---- | --- | --- | ---
-CPU.Usage.Average | 1 | Ej tillämpligt | Rekommenderad storlek och kostnad  
-Mem.Usage.Average | 1 | Ej tillämpligt | Rekommenderad storlek och kostnad  
-virtualDisk.read.average | 2 | 2 | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
-virtualDisk.write.average | 2 | 2  | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
-virtualDisk.numberReadAveraged.average | 1 | 3 |  Beräknar diskens storlek, kostnaden för lagring, VM-storlek
-virtualDisk.numberWriteAveraged.average | 1 | 3 |   Beräknar diskens storlek, kostnaden för lagring, VM-storlek
-NET.Received.Average | 2 | 3 |  Beräknar storlek på virtuell dator                          |
-NET.Transmitted.Average | 2 | 3 | Beräknar storlek på virtuell dator     
+**Räknaren** |  **Påverkan på utvärdering**
+--- | ---
+CPU.Usage.Average | Rekommenderad storlek och kostnad  
+Mem.Usage.Average | Rekommenderad storlek och kostnad  
+virtualDisk.read.average | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
+virtualDisk.write.average | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
+virtualDisk.numberReadAveraged.average | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
+virtualDisk.numberWriteAveraged.average | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
+NET.Received.Average | Beräknar storlek på virtuell dator                          
+NET.Transmitted.Average | Beräknar storlek på virtuell dator     
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e689f93150d225d5b8c9ee9d5cfc422a1154c45a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 41f6027378e48b525345e29e1d1e08dd2c48aaa5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724561"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843758"
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: Webbinloggning med OpenID Connect
 OpenID Connect är ett autentiseringsprotokoll som bygger på OAuth 2.0, som kan användas på ett säkert sätt logga användare in webbprogram. Genom att använda den Azure Active Directory B2C (Azure AD B2C) implementeringen av OpenID Connect, du kan lägga ut registrering, inloggning och andra Identitetshantering upplevelser i dina webbprogram till Azure Active Directory (AD Azure). Den här guiden visar hur du gör på ett språkoberoende sätt. Den beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda någon av våra bibliotek med öppen källkod.
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) utökar OAuth 2.0 *auktorisering* protokoll för användning som en *autentisering* protokoll. På så sätt kan du utföra enkel inloggning med hjälp av OAuth. Det introducerar konceptet för en *ID-token*, vilket är en säkerhetstoken som gör att klienten att verifiera användarens identitet och få grundläggande profilinformation om användaren.
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) utökar OAuth 2.0 *auktorisering* protokoll för användning som en *autentisering* protokoll. På så sätt kan du utföra enkel inloggning med hjälp av OAuth. Det introducerar konceptet för en *ID-token*, vilket är en säkerhetstoken som gör att klienten att verifiera användarens identitet och få grundläggande profilinformation om användaren.
 
 Eftersom den utökar OAuth 2.0 kan också appar på ett säkert sätt hämta *åtkomsttoken*. Du kan använda access_tokens att komma åt resurser som skyddas av en [auktoriseringsservern](active-directory-b2c-reference-protocols.md#the-basics). Vi rekommenderar OpenID Connect om du skapar ett webbprogram som finns på en server och öppnas via en webbläsare. Om du vill lägga till Identitetshantering i dina mobila eller stationära program med hjälp av Azure AD B2C bör du använda [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) i stället för OpenID Connect.
 
@@ -120,7 +120,7 @@ error=access_denied
 | state |Se den fullständiga beskrivningen i den första tabellen i det här avsnittet. Om en `state` parametern ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att den `state` värden i begäran och svar är identiska. |
 
 ## <a name="validate-the-id-token"></a>Verifiera ID-token
-Bara få ett ID-token är inte tillräckligt för att autentisera användaren. Du måste verifiera signaturen för ID-token och verifiera anspråken i token enligt krav för din app. Azure AD B2C använder [JSON Web token (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) och kryptering med offentlig nyckel att signera token och kontrollera att de är giltiga.
+Bara få ett ID-token är inte tillräckligt för att autentisera användaren. Du måste verifiera signaturen för ID-token och verifiera anspråken i token enligt krav för din app. Azure AD B2C använder [JSON Web token (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) och kryptering med offentlig nyckel att signera token och kontrollera att de är giltiga.
 
 Det finns många bibliotek för öppen källkod som är tillgängliga för att verifiera JWTs, beroende på ditt språk för inställningar. Vi rekommenderar att utforska dessa alternativ i stället för att implementera dina egna validering av logik. Informationen här kan vara användbart i att använda dessa bibliotek normalt.
 
@@ -143,7 +143,7 @@ När du har verifierat signaturen för ID-token, finns det flera anspråk som du
 * Du bör verifiera den `aud` anspråk som ska se till att ID-token har utfärdats för din app. Dess värde bör vara program-ID för din app.
 * Du bör verifiera den `iat` och `exp` utger sig för att se till att ID-token inte har gått ut.
 
-Det finns också flera mer verifieringar som du bör utföra. Dessa beskrivs i detalj i de [OpenID Connect Core Spec](http://openid.net/specs/openid-connect-core-1_0.html).  Du kanske också vill validera ytterligare anspråk, beroende på ditt scenario. Vissa vanliga verifieringar är:
+Det finns också flera mer verifieringar som du bör utföra. Dessa beskrivs i detalj i de [OpenID Connect Core Spec](https://openid.net/specs/openid-connect-core-1_0.html).  Du kanske också vill validera ytterligare anspråk, beroende på ditt scenario. Vissa vanliga verifieringar är:
 
 * Se till att användaren/organisationen har registrerat dig för appen.
 * Se till att användaren har rätt auktorisering/privilegier.

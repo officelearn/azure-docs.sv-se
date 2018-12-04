@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/03/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 68d5742f5da542d5146997390e470180cf8c5776
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: adde29b0719f777bc6cf3ab86adbdeec4befddf0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620701"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842432"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-objekt tillgängliga för Azure Stack
 
@@ -236,7 +236,6 @@ Microsoft Azure Stack har stöd för följande virtuella datorer i Azure Marketp
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Kontrollera, övervaka och kryptera virtuella datorer med enkelt och tryggt. **Hämta alla CloudLink SecureVM-objekt.** | Dell EMC |
 | ![Spårare för avstängningshändelser SIEM](media/azure-stack-marketplace-azure-items/eventtracker.png) | [Spårare för avstängningshändelser SIEM](https://azuremarketplace.microsoft.com/marketplace/apps/eventtracker.eventtracker-siem)  | EventTracker SIEM är en omfattande säkerhet-plattform som ger avancerad säkerhetsverktyg med funktioner för granskning färdiga för efterlevnad. | Spårare för avstängningshändelser |
 | ![F5](media/azure-stack-marketplace-azure-items/f5.png) | [F5 Big-IP virtuella Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | Avancerade belastningsutjämning, GSLB, brandvägg, DNS, WAF och åtkomst till appen. | F5-nätverk |
-| ![FortiGate nästa generations brandvägg](media/azure-stack-marketplace-azure-items/fortinetsquare.png) | [FortiGate nästa generations brandvägg](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-fortigate-singlevm) | Brandväggsteknik som ger komplett innehålls- och skydd med ett omfattande paket med kraftfulla säkerhetsfunktioner. Programkontroll, antivirus, IPS, webbfiltrering och VPN, samt avancerade funktioner såsom sårbarhetshantering fungerar tillsammans att identifiera och undanröja de senaste invecklade säkerhetshoten. | Fortinet |
 | ![Hortonworks Data Platform (HDP) Sandbox](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) Sandbox](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Drivs av HDP 2,5 plattform med 100% öppen källkod för Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky Hybridmolnsäkerhet](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | Kaspersky Hybrid Cloud Security gör det möjligt för ett sömlöst styrd och anpassningsbar cybersäkerhet ekosystem. | Kaspersky Lab |
 | ![KEMP LoadMaster Load Balancer ADC innehåll växel](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster Load Balancer ADC innehåll växel](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Belastningsutjämnare för Layer 4-7 Application Delivery Controller (ADC), innehåll växel och Traffic Manager. | KEMP Technologies Inc. |

@@ -7,44 +7,30 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/26/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f26db8bcb50fa09a8d2829d477f90cac8c52533f
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 4a0dfcbba1867d4792a0e4a383ee097df0ea410b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337582"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835819"
 ---
-# <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: Inbyggda principer
+# <a name="azure-active-directory-b2c-user-flows"></a>Azure Active Directory B2C: Användarflöden
 
 
-Utökningsbart principramverk för Azure Active Directory (Azure AD) B2C är core styrkan hos tjänsten. Principer helt beskriver konsument identitetsupplevelser som registrering, inloggning och profilredigering. Till exempel kan du med en registreringsprincip styra beteenden genom att konfigurera följande inställningar:
+Utökningsbart principramverk för Azure Active Directory (Azure AD) B2C är core styrkan hos tjänsten. Principer helt beskriver konsument identitetsupplevelser som registrering, inloggning och profilredigering. Som hjälper dig att konfigurera de vanligaste uppgifterna för identitet, Azure AD B2C-portalen innehåller fördefinierade, konfigureras principer som kallas **användarflöden**. Exempelvis kan låter en registrering användarflödet dig styra beteenden genom att konfigurera följande inställningar:
 
 * Kontotyper (konton i sociala medier, till exempel Facebook) eller lokala konton, till exempel e-postadresser som användare kan använda för att registrera dig för programmet
 * Attribut (till exempel förnamn, postnummer och sko storlek) ska samlas in från konsumenten under registreringen
 * Användning av Azure Multi-Factor Authentication
 * Utseendet på alla sidor i registrera dig
-* Information (som manifest som anspråk i en token) som programmet tar emot när principen Kör har slutförts
+* Information (som manifest som anspråk i en token) som programmet tar emot när användarflödet kör har slutförts
 
-Du kan skapa flera principer för olika typer i din klient och använda dem i dina program, vid behov. Principer kan återanvändas i program. Den här flexibiliteten gör att utvecklare kan definiera och ändra konsument identitetsupplevelser med minimala kodändringar eller inga ändringar i koden.
+Du kan skapa flera användarflöden av olika typer i din klient och använda dem i dina program, vid behov. Användarflöden kan återanvändas i program. Den här flexibiliteten gör att utvecklare kan definiera och ändra konsument identitetsupplevelser med minimala kodändringar eller inga ändringar i koden.
 
-Principer kan användas via en enkel developer-gränssnittet. Programmets utlöser en princip med hjälp av en standard HTTP-autentiseringsbegäran (skicka en principparametern i begäran) och får en anpassad token som svar. Den enda skillnaden mellan begäranden som anropar en registreringsprincip och begäranden som anropar en inloggningsprincip är till exempel namnet på principen som används i ”p” för frågesträngparametern:
-
-```
-
-https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
-client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Application ID
-&redirect_uri=https%3A%2F%2Flocalhost%3A44321%2F    // Your registered Reply URL, url encoded
-&response_mode=form_post                            // 'query', 'form_post' or 'fragment'
-&response_type=id_token
-&scope=openid
-&nonce=dummy
-&state=12345                                        // Any value provided by your application
-&p=b2c_1_siup                                       // Your sign-up policy
-
-```
+Användarflöden kan användas via en enkel developer-gränssnittet. Programmets utlöser ett användarflöde med hjälp av en standard HTTP-autentiseringsbegäran (skicka en parameter för flödet av användaren i begäran) och får en anpassad token som svar. Till exempel är den enda skillnaden mellan begäranden som anropar en registrering användarflödet och begäranden som anropar en inloggning användarflödet userjourney-namnet som används i ”p” för frågesträngparametern:
 
 ```
 
@@ -56,49 +42,63 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 &scope=openid
 &nonce=dummy
 &state=12345                                        // Any value provided by your application
-&p=b2c_1_siin                                       // Your sign-in policy
+&p=b2c_1_siup                                       // Your sign-up user flow
 
 ```
 
-## <a name="create-a-sign-up-or-sign-in-policy"></a>Skapa en registrerings- eller inloggningsprincip
+```
 
-Den här principen hanterar upplevelser för registrering och inloggning i både konsument med en enda konfiguration. Konsumenter leds av rätt väg (registrera dig eller logga in) beroende på kontext. Här beskrivs också innehållet i de token som programmet tar emot vid genomförda registreringar eller inloggningar.  Ett kodexempel för den **registrering eller inloggning** principen är [tillgänglig här](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  Vi rekommenderar att du använder den här principen över en **registrering** princip eller en **inloggning** princip.  
+https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
+client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Application ID
+&redirect_uri=https%3A%2F%2Flocalhost%3A44321%2F    // Your registered Reply URL, url encoded
+&response_mode=form_post                            // 'query', 'form_post' or 'fragment'
+&response_type=id_token
+&scope=openid
+&nonce=dummy
+&state=12345                                        // Any value provided by your application
+&p=b2c_1_siin                                       // Your sign-in user flow
+
+```
+
+## <a name="create-a-sign-up-or-sign-in-user-flow"></a>Skapa ett användarflöde för registrerings- eller logga in
+
+Det här användarflödet hanterar upplevelser för registrering och inloggning i både konsument med en enda konfiguration. Konsumenter leds av rätt väg (registrera dig eller logga in) beroende på kontext. Här beskrivs också innehållet i de token som programmet tar emot vid genomförda registreringar eller inloggningar.  Ett kodexempel för den **registrering eller inloggning** användarflöde är [tillgänglig här](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  Vi rekommenderar att du använder det här användarflödet över en **registrering** användarflödet eller en **inloggning** användarflödet.  
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
-## <a name="create-a-sign-up-policy"></a>Skapa en registreringsprincip
+## <a name="create-a-sign-up-user-flow"></a>Skapa en registrering användarflödet
 
 [!INCLUDE [active-directory-b2c-create-sign-up-policy](../../includes/active-directory-b2c-create-sign-up-policy.md)]
 
-## <a name="create-a-sign-in-policy"></a>Skapa en inloggningsprincip
+## <a name="create-a-sign-in-user-flow"></a>Skapa en inloggning användarflödet
 
 [!INCLUDE [active-directory-b2c-create-sign-in-policy](../../includes/active-directory-b2c-create-sign-in-policy.md)]
 
-## <a name="create-a-profile-editing-policy"></a>Skapa en profilredigeringsprincip
+## <a name="create-a-profile-editing-user-flow"></a>Skapa en profil som redigera användarflödet
 
 [!INCLUDE [active-directory-b2c-create-profile-editing-policy](../../includes/active-directory-b2c-create-profile-editing-policy.md)]
 
-## <a name="create-a-password-reset-policy"></a>Skapa en princip för återställning av lösenord
+## <a name="create-a-password-reset-user-flow"></a>Skapa ett användarflöde för återställning av lösenord
 
 [!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
 
-## <a name="preview-policies"></a>Förhandsversion av principer
+## <a name="preview-user-flows"></a>Förhandsgranskning – användarflöden
 
-Allteftersom vi släpper nya funktioner, kanske vissa av dessa inte tillgänglig på befintliga principer.  Vi planerar att ersätta äldre versioner med senast av samma typ när dessa principer anger GA.  De befintliga principerna ändras inte och du behöver skapa nya principer för att kunna dra nytta av de här nya funktionerna.
+Allteftersom vi släpper nya funktioner, kanske vissa av dessa inte tillgänglig på befintliga principer eller användarflöden.  Vi planerar att ersätta äldre versioner med senast av samma typ när dessa användarflöden ange GA.  Din befintliga principer eller användarflöden ändras inte och du behöver skapa nya användarflöden för att kunna dra nytta av de här nya funktionerna.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-### <a name="how-do-i-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>Hur länkar jag en princip för registrering eller inloggning med en princip för återställning av lösenord?
-När du skapar en **registrering eller inloggning** princip (med lokala konton), som du ser en **har du glömt lösenordet?** länk på första sidan i miljön. Klicka på den här länken återställs inte utlösare ett lösenord automatiskt principen. 
+### <a name="how-do-i-link-a-sign-up-or-sign-in-user-flow-with-a-password-reset-user-flow"></a>Hur länkar jag en registrering eller inloggning användarflödet med ett användarflöde för återställning av lösenord?
+När du skapar en **registrering eller inloggning** användaren flöde (med lokala konton), visas en **har du glömt lösenordet?** länk på första sidan i miljön. Klicka på den här länken återställs inte utlösa ett lösenord automatiskt användarflödet. 
 
-I stället felkoden **`AADB2C90118`** returneras till din app. Din app behöver hantera felet genom att aktivera en specifik princip för lösenordsåterställning. Mer information finns i en [exempel som visar metoden för länkning principer](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
+I stället felkoden **`AADB2C90118`** returneras till din app. Din app behöver hantera felet genom att aktivera ett särskilt lösenordsåterställning användarflöde. Mer information finns i en [exempel som visar metoden för länkning användarflöden](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
 
-### <a name="should-i-use-a-sign-up-or-sign-in-policy-or-a-sign-up-policy-and-a-sign-in-policy"></a>Ska jag använda en princip för registrering eller inloggning eller en registreringsprincip och en inloggningsprincip?
-Vi rekommenderar att du använder en **registrering eller inloggning** princip över en **registrering** princip och en **inloggning** princip.  
+### <a name="should-i-use-a-sign-up-or-sign-in-user-flow-or-a-sign-up-user-flow-and-a-sign-in-user-flow"></a>Ska jag använda en registrering eller inloggning användarflödet eller en registrering användarflödet och logga in användarflödet?
+Vi rekommenderar att du använder en **registrering eller inloggning** användarflödet över en **registrering** användarflödet och en **inloggning** användarflödet.  
 
-Den **registrering eller inloggning** principen har fler funktioner än den **inloggning** princip. Dessutom kan du använda sidan anpassningar och har bättre stöd för lokalisering. 
+Den **registrering eller inloggning** användarflödet har fler funktioner än den **inloggning** användarflödet. Dessutom kan du använda sidan anpassningar och har bättre stöd för lokalisering. 
 
-Den **inloggning** princip rekommenderas om du inte behöver att hitta dina principer endast måste mindre anpassningsmöjligheter för anpassning och vill lösenord återställning som är inbyggda i den.
+Den **inloggning** användarflödet rekommenderas om du inte behöver du kanske lokalisera din användarflöden endast måste mindre anpassningsmöjligheter för anpassning och vill lösenord återställning som är inbyggda i den.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Token-, sessions- och konfiguration för enkel inloggning](active-directory-b2c-token-session-sso.md)

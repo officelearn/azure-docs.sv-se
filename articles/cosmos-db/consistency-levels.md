@@ -1,22 +1,20 @@
 ---
-title: Konsekvensnivåer i Azure Cosmos DB | Microsoft Docs
-description: Azure Cosmos DB har fem konsekvensnivåer för att belastningsutjämna slutlig konsekvens, tillgänglighet och svarstid kompromisser.
+title: Konsekvensnivåer i Azure Cosmos DB
+description: Azure Cosmos DB har fem konsekvensnivåer för att belastningsutjämna slutlig konsekvens, tillgänglighet och svarstid med de.
 keywords: slutlig konsekvens, azure cosmos db, azure, Microsoft azure
 services: cosmos-db
 author: aliuy
-manager: kfile
+ms.author: andrl
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2018
-ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 56ac0da521186d9e09b91e26719d7f57e0a56934
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 075f79707dda4683c288163ec7bfdbf9807e153f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681083"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834884"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Konsekvensnivåer i Azure Cosmos DB
 

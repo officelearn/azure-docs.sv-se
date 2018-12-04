@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 6959521b0f700a0afafef0950e9cb336488cc94b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7df615caf3ca1b8ca7dd7d4da876c840e20defd8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425314"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833133"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-efi-digital-storefront"></a>Självstudier: Azure Active Directory-integration med EFI digitala butik
 
@@ -60,7 +60,7 @@ För att konfigurera integrering av EFI digitala butik i Azure AD, som du behöv
 
 **Utför följande steg för att lägga till EFI digitala butik från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -122,7 +122,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning spara-knapp](./media/efidigitalstorefront-tutorial/tutorial_general_400.png)
 
-1. Att konfigurera enkel inloggning på **EFI digitala butik** sida, som du behöver skicka de hämtade **XML-Metadata för** till [EFI digitala butik supportteamet](http://www.efi.com/products/productivity-software/ecommerce-web-to-print/efi-digital-storefront/support/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **EFI digitala butik** sida, som du behöver skicka de hämtade **XML-Metadata för** till [EFI digitala butik supportteamet](https://www.efi.com/products/productivity-software/ecommerce-web-to-print/efi-digital-storefront/support/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 > [!TIP]
 > Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -162,7 +162,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="create-a-efi-digital-storefront-test-user"></a>Skapa en testanvändare EFI digitala butik
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i EFI digitala butik. Arbeta med [EFI digitala butik supportteamet](http://www.efi.com/products/productivity-software/ecommerce-web-to-print/efi-digital-storefront/support/) att lägga till användare i EFI digitala butik-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
+I det här avsnittet skapar du en användare som kallas Britta Simon i EFI digitala butik. Arbeta med [EFI digitala butik supportteamet](https://www.efi.com/products/productivity-software/ecommerce-web-to-print/efi-digital-storefront/support/) att lägga till användare i EFI digitala butik-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

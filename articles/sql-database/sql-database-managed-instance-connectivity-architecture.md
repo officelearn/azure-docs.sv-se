@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 08/16/2018
-ms.openlocfilehash: 312425d3ea02d15a992b9a694f09cb2be73b6221
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d0747e9e54a48ecccb7051ad4fe9998d86599ffe
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161598"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840749"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Azure SQL Database Managed Instance Anslutningsarkitektur 
 
@@ -66,7 +66,7 @@ Klienterna ansluter till hanterad instans med det värdnamn som har ett formulä
 
 Privata IP-adressen hör till den hanterade instansen interna belastningsutjämnaren (ILB) som dirigerar trafik till den hanterade instansen Gateway (GW). Eftersom flera hanterade instanser kan potentiellt körs i samma kluster, använder GW värdnamn för hanterad instans för att omdirigera trafik till rätt SQL-motor-tjänst. 
 
-Hanterings-och ansluta till Managed Instance med offentlig slutpunkt som mappar till extern belastningsutjämnare. Trafik dirigeras till noderna bara om togs emot på fördefinierade en uppsättning portar som används uteslutande av Managed Instance komponenterna. All kommunikation mellan komponenterna och Hanteringsplanet är ömsesidigt autentiserad-certifikat. 
+Hanterings-och ansluta till Managed Instance med [hanteringsslutpunkten](sql-database-managed-instance-management-endpoint.md) som mappar till extern belastningsutjämnare. Trafiken dirigeras till noderna endast om togs emot på en fördefinierad uppsättning portar som används uteslutande av Managed Instance komponenterna. Inbyggda brandväggen på noderna är konfigurerad för att tillåta trafik enbart från Microsoft specifika IP-intervall. All kommunikation mellan komponenterna och Hanteringsplanet är ömsesidigt autentiserad-certifikat. 
 
 ## <a name="next-steps"></a>Nästa steg 
 

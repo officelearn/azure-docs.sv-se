@@ -5,15 +5,15 @@ services: container-instances
 author: seanmck
 ms.service: container-instances
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 11/30/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: c17bdb5a81640a7162ae735a4633a31cdfffbb1d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 08bc344a20ade3d8bb0f7dd23a854fd03ddac006
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803519"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845815"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances och behållarinitierare
 
@@ -40,9 +40,9 @@ Azure Container Instances möjliggör en överlappande tillvägagångssättet f�
 
 Eftersom den underliggande infrastrukturen för container instances hanteras av Azure, behöver inte en orchestrator-plattformen rör sig själv med att hitta en lämplig värd-dator som du vill köra en enskild behållare. Elasticiteten i molnet säkerställer att en alltid är tillgänglig. Orchestrator kan i stället fokusera på de aktiviteter som förenklar utvecklingen av flera behållare arkitekturer, inklusive skalning och koordinerade uppgraderingar.
 
-## <a name="potential-scenarios"></a>Möjliga scenarier
+## <a name="scenarios"></a>Scenarier
 
-Orchestrator-integrering med Azure Container Instances är fortfarande framväxande, vi förväntar oss att några olika miljöer kan dyker upp:
+Orchestrator-integrering med Azure Container Instances är fortfarande framväxande, vi förväntar oss att några olika miljöer dyker upp:
 
 ### <a name="orchestration-of-container-instances-exclusively"></a>Orkestrering av behållare instanser exklusivt
 
@@ -54,13 +54,15 @@ För tidskrävande och stabil arbetsbelastningar och är samordna behållare i e
 
 I stället för att skala ut antalet virtuella datorer i klustret, och sedan distribuera ytterligare behållare till dessa datorer, orchestrator kan bara schemalägga ytterligare behållare i Azure Container Instances och ta bort dem när de är inte längre behövs.
 
-## <a name="sample-implementation-virtual-kubelet-for-kubernetes"></a>Exempel på implementering: Virtual Kubelet för Kubernetes
+## <a name="sample-implementation-virtual-nodes-for-azure-kubernetes-service-aks"></a>Exempel på implementering: virtuella noder för Azure Kubernetes Service (AKS)
 
-Den [Virtual Kubelet] [ aci-connector-k8s] projekt visar hur orchestration behållarplattformar kan integreras med Azure Container Instances.
+Snabbt skala arbetsbelastningar för program i en [Azure Kubernetes Service](../aks/intro-kubernetes.md) kluster (AKS), som du kan använda *virtuella noder* skapats dynamiskt i Azure Container Instances. För närvarande i förhandsversion, virtuella noder inte aktivera nätverkskommunikationen mellan poddar som körs i ACI och AKS-klustret. 
 
-Virtual Kubelet imiterar Kubernetes [kubelet] [ kubelet-doc] genom att registrera som en nod med obegränsad kapacitet och skicka skapandet av [poddar] [ pod-doc] som behållargrupper i Azure Container Instances.
+Virtuella noder har för närvarande stöd för Linux-behållare-instanser. Kom igång med virtuella noder med hjälp av den [Azure CLI](https://go.microsoft.com/fwlink/?linkid=2047538) eller [Azure-portalen](https://go.microsoft.com/fwlink/?linkid=2047545).
 
-Anslutningsappar för andra initierare kan byggas som integreras på samma sätt med plattformen primitiver att kombinera kraften hos orchestrator API snabbt och enkelt med hantering av behållare i Azure Container Instances.
+Virtuella noder med öppen källkod [Virtual Kubelet] [ aci-connector-k8s] att efterlikna Kubernetes [kubelet] [ kubelet-doc] genom att registrera som en nod med obegränsad kapacitet. Virtual Kubelet skickar skapandet av [poddar] [ pod-doc] som behållargrupper i Azure Container Instances.
+
+Se den [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) projekt fler exempel på att utöka Kubernetes-API i serverlös behållarplattformar.
 
 ## <a name="next-steps"></a>Nästa steg
 

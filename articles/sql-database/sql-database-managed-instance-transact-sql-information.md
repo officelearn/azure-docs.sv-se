@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 10/24/2018
-ms.openlocfilehash: 31b09818f901ecf957364ae77fd8c6e636b04342
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 12/03/2018
+ms.openlocfilehash: 489eccf1b73e7f5df76a3ce681b4479893a9e0ac
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712151"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843214"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL skillnader från SQL Server
 
@@ -145,7 +145,7 @@ Hanterad instans kan inte komma åt filer så det inte går att skapa kryptograf
 
 ### <a name="collation"></a>Sortering
 
-Server-sorteringen är `SQL_Latin1_General_CP1_CI_AS` och kan inte ändras. Se [sorteringar](https://docs.microsoft.com/sql/t-sql/statements/collations).
+Standardsortering för instansen är `SQL_Latin1_General_CP1_CI_AS` och kan anges som en parameter för skapandet. Se [sorteringar](https://docs.microsoft.com/sql/t-sql/statements/collations).
 
 ### <a name="database-options"></a>Databasalternativ
 
@@ -277,7 +277,8 @@ Länkade servrar i Managed Instance stöder ett begränsat antal mål:
 ### <a name="logins--users"></a>Inloggningar / användare
 
 - SQL-inloggningar som skapats `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, och `FROM SID` stöds. Se [skapa inloggningen](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
-- Windows-inloggningar som skapats med `CREATE LOGIN ... FROM WINDOWS` syntaxen stöds inte.
+- Azure Active Directory (AAD)-inloggningar som skapats med [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax eller [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) syntax som stöds (**förhandsversion**).
+- Windows-inloggningar som skapats med `CREATE LOGIN ... FROM WINDOWS` syntaxen stöds inte. Använd Azure Active Directory-inloggningar och användare.
 - Azure Active Directory (Azure AD)-användare som skapade instansen har [obegränsad administratörsprivilegier](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#unrestricted-administrative-accounts).
 - Icke-Azure Active Directory (Azure AD) på databasnivå administratörer kan skapas med `CREATE USER ... FROM EXTERNAL PROVIDER` syntax. Se [skapa användare... FRÅN EXTERN PROVIDER](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users)
 
@@ -333,7 +334,7 @@ Information om återställning instruktioner finns i [ÅTERSTÄLLA instruktioner
 Cross-instans service broker stöds inte:
 
 - `sys.routes` – Förutsättning: Välj sys.routes-adress. Adressen måste vara lokal på varje väg. Se [sys.routes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
-- `CREATE ROUTE` -Det går inte att `CREATE ROUTE` med `ADDRESS` än `LOCAL`. Se [skapa väg](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
+- `CREATE ROUTE` -Du kan inte använda `CREATE ROUTE` med `ADDRESS` än `LOCAL`. Se [skapa väg](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
 - `ALTER ROUTE` Det går inte att `ALTER ROUTE` med `ADDRESS` än `LOCAL`. Se [ALTER väg](https://docs.microsoft.com/sql/t-sql/statements/alter-route-transact-sql).  
 
 ### <a name="service-key-and-service-master-key"></a>Tjänsten nycklar och tjänstens huvudnyckel
@@ -427,12 +428,12 @@ Följande variabler, uppgifter och vyer returnerar olika resultat:
 
 Varje hanterad instans har till 35 TB lagring som är reserverade för diskutrymme för Azure Premium och varje databasfil placeras på en separat fysisk disk. Diskstorlekar kan vara 128 GB, 256 GB, 512 GB, 1 TB eller 4 TB. Outnyttjat utrymme på disken debiteras inte, men den totala summan av Azure Premium-diskstorlekar får inte överskrida 35 TB. I vissa fall kanske en hanterad instans som inte kräver 8 TB totalt överskrider 35 TB Azure begränsa lagringsstorleken, på grund av interna fragmentering.
 
-En hanterad instans kan till exempel ha en fil 1,2 TB i storlek som är placerade på en disk med 4 TB och 248 filer varje 1 GB i storlek som är placerade på separata 128 GB-diskar. I det här exemplet:
+En hanterad instans kan till exempel ha en fil 1,2 TB i storlek som placeras på en disk med 4 TB och 248 filer (varje 1 GB i storlek) som är placerade på separata 128 GB-diskar. I det här exemplet:
 
-- den totala diskstorleken för lagring är 1 x 4 TB + 248 x 128 GB = 35 TB.
+- Den totala allokerade disk lagringsstorleken är 1 x 4 TB + 248 x 128 GB = 35 TB.
 - Det totala reserverade utrymmet för databaser på instansen är 1 x 1.2 TB + 248 x 1 GB = 1,4 TB.
 
-Detta visar att under vissa omständigheter på grund av en särskild distribution av filer, en hanterad instans kan nå 35 TB reserverade för ansluten Azure Premium Disk när du kanske inte den ska.
+Detta visar som under vissa omständigheter på grund av en specifik distribution av filer, en hanterad instans kan nå 35 TB reserverade för ansluten Azure Premium Disk när du kanske inte den ska.
 
 I det här exemplet befintliga databaser fortsätter att fungera och kan växa utan problem, förutsatt att nya filer inte har lagts till. Men nya databaser kunde inte skapas eller återställas eftersom det inte finns tillräckligt med utrymme för nya diskenheter, även om den totala storleken på alla databaser inte når storleksgränsen för instansen. Felet som returneras är i så fall oklart.
 
@@ -443,7 +444,10 @@ Kontrollera att du tar bort ledande `?` från SAS-nyckeln som genereras med hjä
 
 ### <a name="tooling"></a>Verktyg
 
-SQL Server Management Studio och SQL Server Data Tools kan ha några problem vid anslutning till hanterad instans. Alla verktyg problem åtgärdas före den allmänt tillgängliga.
+SQL Server Management Studio (SSMS) och SQL Server Data Tools (SSDT) kan ha några problem vid anslutning till hanterad instans.
+
+- Med hjälp av Azure AD-inloggningar och användare (**förhandsversion**) med SSDT stöds inte för tillfället.
+- Skript för Azure AD-inloggningar och användare (**förhandsversion**) stöds inte i SSMS.
 
 ### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>Felaktig databasnamn i vissa vyer, loggar och meddelanden
 
@@ -451,7 +455,7 @@ Visa GUID databasidentifierare i stället för faktiska databasnamn flera system
 
 ### <a name="database-mail-profile"></a>Database mail-profilen
 
-Det kan vara endast en database mail-profilen och den måste anropas `AzureManagedInstance_dbmail_profile`. Det här är en tillfällig begränsning som kommer att tas bort snart.
+Det kan vara endast en database mail-profilen och den måste anropas `AzureManagedInstance_dbmail_profile`.
 
 ### <a name="error-logs-are-not-persisted"></a>Felloggar är inte beständiga
 
@@ -496,7 +500,7 @@ using (var scope = new TransactionScope())
 
 ### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>CLR-moduler och en stund länkade servrar kan inte referera till lokal IP-adress
 
-CLR-moduler som placerats i Managed Instance och länkade servrar/distribuerade frågor som refererar till aktuell instans någon gång det går inte att matcha IP-Adressen för den lokala instansen. Det här är ett tillfälligt fel.
+CLR-moduler som placerats i Managed Instance och länkade servrar/distribuerade frågor som refererar till aktuell instans någon gång det går inte att matcha IP-Adressen för den lokala instansen. Det här felet är ett övergående problem.
 
 **Lösning**: Använd kontext anslutningar i CLR-modulen om möjligt.
 

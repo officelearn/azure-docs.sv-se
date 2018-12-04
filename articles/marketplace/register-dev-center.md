@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: cc4e128cab3cad235462e29e65fa58002a103bcd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 393426678d9331837bdc3b73c4e491dbe7eae6fa
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855909"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834833"
 ---
 # <a name="register-in-dev-center"></a>Registrera i Dev Center  
 För att kontrollera att du inte är inloggad på ett konto för personliga webbläsaren kan öppna en ny Internet Explorer InPrivate- eller Chrome Incognito-webbläsarsession.  
@@ -171,7 +171,7 @@ Bank-och skatt krävs för alla kommersiella erbjudanden med hjälp av transact 
 > Gå till ”program” (https://developer.microsoft.com/dashboard/Account/Programs) och logga in på Dev Center-konto. Om du inte ser Azure som ett registrerat program, tittar du under ”rekommenderas program du” och sedan leta efter Azure för att välja ”Kom igång”.
 
 *   **Hur länkar jag min Dev Center-konto i min profil för utgivaren av partnerportalen i molnet?**
-> Det sista steget innan publicering kopplar du ditt Dev Center-konto till din Cloud Partner Portal [profil](https://cloudpartner.azure.com/#profile). Om ditt Dev Center-konto skiljer sig från ditt konto på [Cloud Partner Portal](https://cloudpartner.azure.com/#alloffers), Lägg till ditt Dev Center som en ny [användaren](https://cloudpartner.azure.com/#documentation/manage-users) i partnerportalen i molnet. Logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com/#alloffers) med ditt Dev Center-konto. Välj utgivarprofil på menyn längst upp till höger i webbläsaren. Välj länken Dev Center-konto.
+> Det sista steget innan publicering kopplar du ditt Dev Center-konto till din Cloud Partner Portal [profil](https://cloudpartner.azure.com/#profile). Om ditt Dev Center-konto skiljer sig från ditt konto på [Cloud Partner Portal](https://cloudpartner.azure.com/#alloffers), Lägg till ditt Dev Center som en ny [användaren](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-users) i partnerportalen i molnet. Logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com/#alloffers) med ditt Dev Center-konto. Välj utgivarprofil på menyn längst upp till höger i webbläsaren. Välj länken Dev Center-konto.
 
 *   **Varför avvisas mitt Dev Center-program?**
 > Det gick inte att kontakta dig via det telefonnummer som du har angett från tredje part vetting företaget (Duns & Bradstreet). Kontakta supporten på [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) startas granskningsprocess

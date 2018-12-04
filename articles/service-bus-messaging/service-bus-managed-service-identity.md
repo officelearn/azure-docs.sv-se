@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 5532c86271fa6a5f2b573e005993a68ac0a9e248
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 25d2db5dcf3979341fc104643f7178047c29483b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857082"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842840"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Hanterade identiteter för Azure-resurser med Service Bus 
 
@@ -53,10 +53,8 @@ När du har aktiverat funktionen, en ny tjänstidentitet skapas i Azure Active D
 
 Nästa [skapa ett namnområde för Service Bus-meddelanden](service-bus-create-namespace-portal.md) i någon av de Azure-regioner som har förhandsversionsstöd för RBAC: **östra USA**, **USA, Öst 2**, eller **Europa, västra** . 
 
-Gå till namnområdet **åtkomstkontroll (IAM)** på portalen och klicka sedan på **Lägg till** att lägga till den hantera identitet som den **ägare** roll. Du gör detta genom att söka efter namnet på webbprogrammet i den **Lägg till behörigheter** panelen **Välj** fältet och sedan klickar du på posten. Klicka sedan på **Spara**.
+Gå till namnområdet **åtkomstkontroll (IAM)** på portalen och klicka sedan på **Lägg till rolltilldelning** att lägga till den hantera identitet som den **ägare** roll. Du gör detta genom att söka efter namnet på webbprogrammet i den **Lägg till behörigheter** panelen **Välj** fältet och sedan klickar du på posten. Klicka sedan på **Spara**.
 
-![](./media/service-bus-managed-service-identity/msi2.png)
- 
 Hanterad identitet för webbprogrammets har nu tillgång till Service Bus-namnrymd och i kön du skapade tidigare. 
 
 ### <a name="run-the-app"></a>Kör appen

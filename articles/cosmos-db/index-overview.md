@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2018
 ms.author: mjbrown
-ms.openlocfilehash: c0525cfba16fb61f8388ae4d6a693be3bb71674c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0333bc5e95b74fc97cfff3d79adbe28aefff5d40
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629208"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834646"
 ---
 # <a name="indexing-in-azure-cosmos-db"></a>Indexering i Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Genom projicerar objekt i en behållare som JSON-dokument och som representerar 
 
 En pseudo-rotnod skapas som en överordnad till de faktiska noder för etiketter i dokumentet under. De kapslade datastrukturerna enhet hierarkin i trädet. Mellanliggande artificiella noder som är märkt med numeriska värden (exempelvis 0, 1,...) används för att representera uppräkningar och matrisen index.
 
-## <a name="index-paths"></a>Index sökvägar
+## <a name="index-paths"></a>Indexsökvägar
 
 Azure Cosmos DB-projekt objekt som JSON-dokument och index som träd. Du kan sedan finjustera för principer för sökvägar i trädet. Du kan välja att inkludera eller exkludera sökvägar från indexering. Detta kan erbjuda bättre skrivprestanda och sänka index-lagring för scenarier där frågemönstren är kända vidare. Mer information finns i [Index sökvägar](index-paths.md).
 
@@ -58,7 +58,7 @@ För en fråga för intervallet är GermanTax en användardefinierad funktion so
 
 Läs mer om indexering i följande artiklar:
 
-- [Indexeringsprincip](index-policy.md)
-- [Index-typer](index-types.md)
-- [Index sökvägar](index-paths.md)
+- [Indexeringspolicy](index-policy.md)
+- [Indextyper](index-types.md)
+- [Indexsökvägar](index-paths.md)
 - [Så här hanterar du indexeringsprincip](how-to-manage-indexing-policy.md)

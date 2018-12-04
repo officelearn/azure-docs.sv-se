@@ -7,16 +7,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/05/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
-ms.reviewer: ''
+ms.reviewer: kivenkat
 ms.custom: mvc
-ms.openlocfilehash: e82c3de4461e2d663496cd4ae4a98c10e7819466
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 0664316d73b1473ab52b08f8abead2ec33d121b6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025418"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836754"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Snabbstart: skapa en Linux-server-dator med Azure Stack-portalen
 
@@ -36,7 +36,7 @@ Du kan skapa en Ubuntu Server 16.04 LTS-dator med hjälp av Azure Stack-portalen
 
 * **En Linux-avbildning i Azure Stack marketplace**
 
-   I Azure Stack marketplace innehåller inte en Linux-avbildning som standard. Innan du kan skapa en Linux-server-dator måste du se till att Azure Stack-operatör kan den **Ubuntu Server 16.04 LTS** avbildning som du behöver. Operatören kan använda stegen som beskrivs i den [hämta marketplace-objekt från Azure till Azure Stack](../azure-stack-download-azure-marketplace-item.md) artikeln.
+   I Azure Stack marketplace har inte en Linux-avbildning som standard. Kontrollera att du har Azure Stack operatorn innehåller det **Ubuntu Server 16.04 LTS** bild i din marketplace. Operatören kan använda stegen som beskrivs i den [hämta marketplace-objekt från Azure till Azure Stack](../azure-stack-download-azure-marketplace-item.md) artikeln.
 
 * **Åtkomst till en SSH-klient**
 
@@ -97,11 +97,11 @@ Logga in på Azure Stack-portalen. Adressen för Azure Stack portal beror på vi
 
 ## <a name="connect-to-the-virtual-machine"></a>Ansluta till den virtuella datorn
 
-1. Klicka på **Connect** på sidan virtuell dator. Då visas en SSH-anslutningssträng som du behöver ansluta till den virtuella datorn. 
+1. Klicka på **Connect** på sidan virtuell dator. Du hittar den SSH-anslutningssträng som du behöver ansluta till den virtuella datorn. 
 
 2. Öppna PuTTY.
 
-3. På den **PuTTY-konfiguration** skärmen som du kommer att använda den **kategori** fönster för att rulla uppåt eller nedåt. Rulla ned till **SSH**, expandera **SSH**, och klicka sedan på **Auth**. Klicka på **Bläddra** och välj filen för privat nyckel som du sparade.
+3. PuTTY-konfigurationsskärmen du kommer att använda den **kategori** fönster för att rulla uppåt eller nedåt. Rulla ned till **SSH**, expandera **SSH**, och klicka sedan på **Auth**. Klicka på **Bläddra** och välj filen för privat nyckel som du sparade.
    ![Ansluta virtuell dator](media/azure-stack-quick-linux-portal/putty03.PNG)
 
 4. Rulla uppåt i den **kategori** , och klicka på **Session**.

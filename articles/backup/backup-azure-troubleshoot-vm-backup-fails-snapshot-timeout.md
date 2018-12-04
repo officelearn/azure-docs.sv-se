@@ -7,14 +7,14 @@ manager: cshepard
 keywords: Azure backup; VM-agenten; Nätverksanslutning;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 10/30/2018
+ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: d8b78551a762b4388344aaf3b44e7472127737ae
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 9f26a51a8da2c3fec3ff180dbc8c8de08bb0a93a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977122"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833881"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: problem med agenten eller -tillägget
 
@@ -156,11 +156,11 @@ Om undernätet inte har en väg för utgående Internettrafik, måste du dessuto
 #### <a name="solution"></a>Lösning
 VM-agenten kan vara skadad eller tjänsten har stoppats. Installera om den Virtuella datoragenten kan hämta den senaste versionen. Det hjälper också att starta om kommunikation med tjänsten.
 
-1. Avgör om Windows-gästagenttjänsten körs i VM-tjänsterna (services.msc). Försök att starta om Windows-gästagenttjänsten och påbörja säkerhetskopieringen.    
-2. Om Windows-gästagenttjänsten inte visas i tjänster på Kontrollpanelen, gå till **program och funktioner** att avgöra om tjänsten Windows-Gästagenten är installerad.
-4. Om Windows-Gästagenten visas i **program och funktioner**, avinstallera Windows-Gästagenten.
+1. Avgör om Windows Azure-gästagenttjänsten körs i VM-tjänsterna (services.msc). Försök att starta om Windows Azure-gästagenttjänsten och påbörja säkerhetskopieringen.    
+2. Om Windows Azure-gästagenttjänsten inte visas i tjänster på Kontrollpanelen, gå till **program och funktioner** att avgöra om tjänsten Windows Azure-Gästagenten är installerad.
+4. Om Windows Azure-Gästagentversionen som visas i **program och funktioner**, avinstallera Windows Azure-Gästagenten.
 5. Ladda ned och installera den [senaste versionen av agenten MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du måste ha administratörsbehörighet för att slutföra installationen.
-6. Kontrollera att Windows-Gästagenten tjänster visas i services.
+6. Kontrollera att tjänsten Windows Azure-Gästagentversionen visas i services.
 7. Köra en säkerhetskopiering på begäran:
     * I portalen, väljer **Säkerhetskopiera nu**.
 

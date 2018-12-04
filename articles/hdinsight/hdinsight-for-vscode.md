@@ -10,16 +10,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: 9603751db01eaffdf9fbe26164aed53017c5e23c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: fe186966dbddb5aa743e465f897aa5a1a0e07db1
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499530"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840222"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Använd Azure HDInsight Tools för Visual Studio Code
 
-Lär dig hur du använder den [Azure HDInsight Tools för Visual Studio Code](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) (VS Code) för att skapa och skicka [Apache Hive](https://hive.apache.org/) batch-jobb, interaktiva Apache Hive-frågor och PySpark-skript. Azure HDInsight-verktyg kan installeras på de plattformar som stöds av VS Code. Dessa omfattar Windows, Linux och macOS. Du hittar kraven för olika plattformar.
+Lär dig hur du använder Azure HDInsight Tools för Visual Studio Code (VS Code) för att skapa och skicka Apache Hive-batchjobb, interaktiva Hive-frågor och PySpark-skript för Apache Spark. Först kommer vi att beskriva hur du installerar HDInsight-verktygen i VS Code och sedan vi gå igenom hur du skickar in jobb för att Hive och Spark. 
+
+Azure HDInsight-verktyg kan installeras på de plattformar som stöds av VS Code, inklusive Windows, Linux och macOS. Nedan hittar du de nödvändiga förutsättningarna för olika plattformar.
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -411,7 +413,7 @@ HDInsight för VS Code har stöd för följande funktioner:
 
 ### <a name="create-and-running-applications"></a>Skapa och köra program
 * [Skapa ett fristående program med hjälp av Scala](spark/apache-spark-create-standalone-application.md)
-* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med Apache Livy](spark/apache-spark-livy-rest-interface.md)
+* [Köra jobb via fjärranslutning på ett Apache Spark-kluster med hjälp av Apache Livy](spark/apache-spark-livy-rest-interface.md)
 
 ### <a name="manage-resources"></a>Hantera resurser
 * [Hantera resurser för Apache Spark-klustret i Azure HDInsight](spark/apache-spark-resource-manager.md)

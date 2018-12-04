@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fa6ae230a209d804f244d8bc46a3c6ac1abf6071
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 19f3318c8bcaf634447285cab2951a89abf13a67
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725581"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837485"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: Protokoll för autentisering
 Azure Active Directory B2C (Azure AD B2C) erbjuder identitet som en tjänst för dina appar genom att stödja två protokoll av branschstandardtyp: OpenID Connect och OAuth 2.0. Tjänsten är standardkompatibla, men alla två implementeringen av dessa protokoll kan ha vissa skillnader. 
@@ -66,7 +66,7 @@ Vissa säkerhetstoken har inbyggda mekanismer som förhindrar att obehöriga per
 
 Om en ägartoken överförs utanför en säker kanal, kan en obehörig part använda en man-in-the-middle-attack för att hämta token och använda den för att få obehörig åtkomst till en skyddad resurs. Samma säkerhetsprinciper gäller när ägar-token lagras eller cachen för senare användning. Se alltid till att appen överför och lagrar ägar-token på ett säkert sätt.
 
-Ytterligare ägar-token-säkerhetsaspekter finns [RFC 6750 avsnitt 5](http://tools.ietf.org/html/rfc6750).
+Ytterligare ägar-token-säkerhetsaspekter finns [RFC 6750 avsnitt 5](https://tools.ietf.org/html/rfc6750).
 
 Mer information om olika typer av token som används i Azure AD B2C finns i [tokenreferens för Azure AD](active-directory-b2c-reference-tokens.md).
 

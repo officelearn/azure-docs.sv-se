@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/05/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 14e32bdfcde6969b820c0950d59bd5cf946a51e6
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: efdc1cda9b52b6b79a3ccdcfd16542f7cb4b891a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802329"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838556"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack-lagring: skillnader och överväganden
 
@@ -84,10 +84,10 @@ Azure Stack-storage stöder följande klientbibliotek:
 
 | Klientbibliotek | Azure Stack-version som stöds | Länk                                                                                                                                                                                                                                                                                                                                     | Slutpunkt-specifikation       |
 |----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| .NET           | Från 6.2.0 till 8.7.0.          | Nuget-paketet:<br>https://www.nuget.org/packages/WindowsAzure.Storage/<br> <br>GitHub-version:<br>https://github.com/Azure/azure-storage-net/releases                                                                                                                                                                                    | filen App.config              |
+| .NET           | Från 6.2.0 till 8.7.0.          | NuGet-paketet:<br>https://www.nuget.org/packages/WindowsAzure.Storage/<br> <br>GitHub-version:<br>https://github.com/Azure/azure-storage-net/releases                                                                                                                                                                                    | filen App.config              |
 | Java           | Från 4.1.0 till 6.1.0           | Maven-paketet:<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage<br> <br>GitHub-version:<br>https://github.com/Azure/azure-storage-java/releases                                                                                                                                                                    | Anslutningsinställningar för sträng      |
 | Node.js        | Från 1.1.0 till 2.7.0           | NPM-länk:<br>https://www.npmjs.com/package/azure-storage<br>(Till exempel: kör ”npm-installationsprogrammet azure-storage@2.7.0”)<br> <br>Github-version:<br>https://github.com/Azure/azure-storage-node/releases                                                                                                                                         | Instans tjänstedeklaration |
-| C++            | Från 2.4.0 till 3.1.0           | Nuget-paketet:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>GitHub-version:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | Anslutningsinställningar för sträng      |
+| C++            | Från 2.4.0 till 3.1.0           | NuGet-paketet:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>GitHub-version:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | Anslutningsinställningar för sträng      |
 | PHP            | Från 0.15.0 till 1.0.0          | GitHub-version:<br>https://github.com/Azure/azure-storage-php/releases<br> <br>Installera via Composer (se detaljer nedan)                                                                                                                                                                                                                  | Anslutningsinställningar för sträng      |
 | Python         | Från 0.30.0 till 1.0.0          | GitHub-version:<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | Instans tjänstedeklaration |
 | Ruby           | Från 0.12.1 till 1.0.1          | RubyGems paket:<br>Vanliga:<br>https://rubygems.org/gems/azure-storage-common/<br>BLOB: https://rubygems.org/gems/azure-storage-blob/<br>Kö: https://rubygems.org/gems/azure-storage-queue/<br>Tabell: https://rubygems.org/gems/azure-storage-table/<br> <br>GitHub-version:<br>https://github.com/Azure/azure-storage-ruby/releases | Anslutningsinställningar för sträng      |

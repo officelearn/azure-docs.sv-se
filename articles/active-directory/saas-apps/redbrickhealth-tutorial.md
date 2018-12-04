@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 11452dfb94a5a1c8cf4734b1ef21a44cccafbea1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bccc7abed9a86bcba74a5d994664a20313f3282a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430516"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833813"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redbrick-health"></a>Självstudier: Azure Active Directory-integrering med RedBrick Health
 
@@ -60,7 +60,7 @@ För att konfigurera integrering av RedBrick Health i Azure AD, som du behöver 
 
 **Utför följande steg för att lägga till RedBrick hälsa från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -110,7 +110,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![RedBrick hälsotillstånd domän och URL: er med enkel inloggning för information](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_url.png)
 
-    a. I den **identifierare** textrutan anger du ett URL: `http://www.redbrickhealth.com`
+    a. I den **identifierare** textrutan anger du ett URL: `https://www.redbrickhealth.com`
     
     b. I den **svars-URL** textrutan anger du ett URL: `https://sso-intg.redbrickhealth.com/sp/ACS.saml2`
     
@@ -205,7 +205,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
   
 ### <a name="create-a-redbrick-health-test-user"></a>Skapa en testanvändare RedBrick hälsotillstånd
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i RedBrick Health. Arbeta med [RedBrick hälsotillstånd supportteamet](https://home.redbrickhealth.com/contact/) att lägga till användare i RedBrick Health-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
+I det här avsnittet skapar du en användare som kallas Britta Simon i RedBrick Health. Arbeta med [RedBrick hälsotillstånd supportteamet](https://home.redbrickhealth.com/contact/) att lägga till användare i RedBrick Health-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

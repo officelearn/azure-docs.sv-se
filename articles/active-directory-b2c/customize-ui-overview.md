@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b5d3703f052ef47bcbacf0be04072357ee5b9986
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 94f7239bdcdc5ddc91f3ed8b49b59378309711e8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722606"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844965"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Om anpassning av användargränssnitt i Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ Beroende på dina behov när det gäller dessa upplevelser kan anpassa du Använ
 - Om du använder [anpassade principer](active-directory-b2c-overview-custom.md) att ange lösenord för registrering eller inloggning, återställa eller -profilredigering i ditt program, som du använder [principfiler anpassa Användargränssnittet](active-directory-b2c-ui-customization-custom.md).
 - Om du vill ange dynamiskt innehåll baserat på en kunds beslut kan du använda [anpassade principer som kan ändra sidan innehåll](active-directory-b2c-ui-customization-custom-dynamic.md) beroende på en parameter som ska skickas som en frågesträng. Till exempel ändras bakgrundsbilden på sidan för Azure AD B2C registrering eller inloggning, baserat på en parameter som du skickar från dina webb- och mobilprogram.
 
-Azure AD B2C körs koden i din kunds webbläsare och använder en modern lösning som kallas [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/). Vid körning laddas innehåll från en URL som du anger i en användarflödet eller princip. Du kan ange olika URL: er för olika sidor. När innehållet har lästs in från din URL, sammanfogningen görs med ett HTML-avsnitt infogas från Azure AD B2C och sedan visas för kunden.
+Azure AD B2C körs koden i din kunds webbläsare och använder en modern lösning som kallas [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). Vid körning laddas innehåll från en URL som du anger i en användarflödet eller princip. Du kan ange olika URL: er för olika sidor. När innehållet har lästs in från din URL, sammanfogningen görs med ett HTML-avsnitt infogas från Azure AD B2C och sedan visas för kunden.
 
 Innan du börjar bör du granska följande riktlinjer:
 

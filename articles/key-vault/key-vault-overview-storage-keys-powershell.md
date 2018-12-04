@@ -7,12 +7,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 11/28/2018
-ms.openlocfilehash: 280d3a7783d689c6174ecf6d2b29e52bdbc42417
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7effcc82a737fd2914f06a2c475cece94adc84f3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634667"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841803"
 ---
 # <a name="azure-key-vault-managed-storage-account---powershell"></a>Azure Key Vault hanteras lagringskonto – PowerShell
 
@@ -43,8 +43,10 @@ I följande exempel visar hur du kan låta Key Vault för att hantera dina lagri
 
 ## <a name="authorize-key-vault-to-access-to-your-storage-account"></a>Auktorisera Key Vault får tillgång till ditt storage-konto
 
-> [!TIP]
-> Azure AD innehåller varje registrerade program med en  **[tjänstens huvudnamn](/azure/active-directory/develop/developer-glossary#service-principal-object)**, som fungerar som programmets identitet. Tjänstens huvudnamn kan sedan få åtkomstbehörighet till andra Azure-resurser, till exempel Key Vault via rollbaserad åtkomstkontroll (RBAC). Det registreras förväg i alla Azure AD-klienter under program-ID ”cfa8b339-82a2-471a-a3c9-0fc0be7a4093” eftersom Key Vault är en Microsoft-program.
+> [!IMPORTANT]
+> En Azure AD-klient ger varje registrerade program med en  **[tjänstens huvudnamn](/azure/active-directory/develop/developer-glossary#service-principal-object)**, som fungerar som programmets identitet. Program-ID för tjänstens huvudnamn används när ger den behörighet att komma åt andra Azure-resurser via rollbaserad åtkomstkontroll (RBAC). Eftersom Key Vault är ett Microsoft-program, är den redan registrerad i alla Azure AD-klienter under samma program-ID, i varje Azure-molnet:
+> - Azure AD-klienter i Azure government-molnet använder program-ID `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
+> - Azure AD-klienter i offentliga Azure-molnet och alla andra använda program-ID `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
 
 Innan Key Vault kan komma åt och hantera dina lagringskontonycklar, måste du godkänna åtkomsten ditt storage-konto. Key Vault-programmet kräver behörighet att *lista* och *återskapa* nycklar för ditt lagringskonto. Dessa behörigheter aktiveras via den inbyggda RBAC-rollen [Tjänstroll som operatör Storage-konto nyckeln](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role). 
 
@@ -56,6 +58,7 @@ $resourceGroupName = "rgContoso"
 $storageAccountName = "sacontoso"
 $storageAccountKey = "key1"
 $keyVaultName = "kvContoso"
+$keyVaultSpAppId = "cfa8b339-82a2-471a-a3c9-0fc0be7a4093" # See "IMPORTANT" block above for information on Key Vault Application IDs
 
 # Authenticate your PowerShell session with Azure AD, for use with Azure Resource Manager cmdlets
 $azureProfile = Connect-AzureRmAccount
@@ -64,7 +67,7 @@ $azureProfile = Connect-AzureRmAccount
 $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName
 
 # Assign RBAC role "Storage Account Key Operator Service Role" to Key Vault, limiting the access scope to your storage account. For a classic storage account, use "Classic Storage Account Key Operator Service Role." 
-New-AzureRmRoleAssignment -ApplicationId “cfa8b339-82a2-471a-a3c9-0fc0be7a4093” -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storageAccount.Id
+New-AzureRmRoleAssignment -ApplicationId $keyVaultSpAppId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storageAccount.Id
 ```
 
 Vid lyckad rolltilldelningen, bör du se utdata som liknar följande exempel:
@@ -102,7 +105,6 @@ Observera att behörigheter för storage-konton är inte tillgängliga på ”å
 Med hjälp av samma PowerShell-session, skapa ett hanterat lagringskonto i din Key Vault-instans. Den `-DisableAutoRegenerateKey` växeln anger att inte återskapa lagringskontonycklarna.
 
 ```azurepowershell-interactive
-
 # Add your storage account to your Key Vault's managed storage accounts
 Add-AzureKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -DisableAutoRegenerateKey
 ```
@@ -129,8 +131,6 @@ Om du vill Key Vault för att återskapa dina lagringskontonycklar med jämna me
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)
-$accountName = $storage.StorageAccountName
-
 Add-AzureKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -RegenerationPeriod $regenPeriod
 ```
 

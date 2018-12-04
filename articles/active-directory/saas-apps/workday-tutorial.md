@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: chmutali
-ms.openlocfilehash: 78b9fe704c5c8a1f81da480787f1791e88bf4f72
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9c789f5fec9b31b53d316b23faad5c438b52137c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714726"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843350"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Självstudier: Azure Active Directory-integrering med Workday
 
@@ -114,7 +114,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://impl.workday.com/<tenant>/login-saml2.htmld`
 
-    b. I den **identifierare** textrutan anger du ett URL: `http://www.workday.com`
+    b. I den **identifierare** textrutan anger du ett URL: `https://www.workday.com`
 
 4. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg:
 
@@ -225,7 +225,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfiguration av SSO](./media/workday-tutorial/WorkdaySSOConfiguratio.png "SSO-konfiguration")
 
-    a.  I den **Service Provider-ID** textrutan typ **http://www.workday.com**.
+    a.  I den **Service Provider-ID** textrutan typ **https://www.workday.com**.
 
     b. Välj **inte Deflate SP-initierat autentiseringsbegäran**.
 

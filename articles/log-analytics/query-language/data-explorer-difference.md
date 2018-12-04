@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 65f3388074ff7a84c6e0516a64665019d5883ab1
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 0469ddb18014d36b33a42d1e7183bef9784d0dfb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913180"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843146"
 ---
 # <a name="log-analytics-query-language-differences"></a>Logga Analytics query language skillnader
 
-Medan [Log Analytics](../log-analytics-queries.md) bygger på [Azure Data Explorer](/azure//data-explorer) och använder den [samma frågespråket](/azure/kusto/query), versionen av språket har några skillnader. Den här artikeln identifierar element som skiljer sig mellan versionen av det språk som används för Datautforskaren och den version som används för Log Analytics-frågor.
+Medan [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) bygger på [Azure Data Explorer](/azure//data-explorer) och använder den [samma frågespråket](/azure/kusto/query), versionen av språket har några skillnader. Den här artikeln identifierar element som skiljer sig mellan versionen av det språk som används för Datautforskaren och den version som används för Log Analytics-frågor.
 
 ## <a name="data-explorer-elements-not-supported-in-log-analytics"></a>Data Explorer-element som inte stöds i Log Analytics
 I följande avsnitt beskrivs element i Data Explorer frågespråk som inte stöds av Log Analytics.

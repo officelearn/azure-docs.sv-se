@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 07/02/2018
 ms.author: panosper
-ms.openlocfilehash: 93c8d3302444c7d764849fe41d529bc06696243f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: c7f82e9fb286e53f9408e2134dbdc9c2b24ff267
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466179"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837706"
 ---
 # <a name="enable-custom-pronunciation"></a>Aktivera anpassad uttal
 Genom att använda anpassade uttal kan definiera du fonetiska, formulär och visning av ett ord eller en term. Det är användbart för att hantera anpassade villkor, till exempel produktnamn eller förkortningar. Allt du behöver är en uttal-fil (en enkel txt-fil).
@@ -61,7 +61,7 @@ Visningsformulär kan vara endast ett anpassat ord, en term, en förkortning ell
 >Vi rekommenderar inte att du använder den här funktionen att reformulate vanliga ord eller ändra talat formuläret. Är det bättre att köra avkodaren för att se om några ovanliga ord (till exempel förkortningar, teknisk ord eller främmande ord) felaktigt avkodas. Om de kan du lägga till dem till anpassade uttal av filen. I språkmodell, bör du alltid och endast använda Visningsformulär ett ord. 
 
 ## <a name="requirements-for-the-file-size"></a>Krav för filstorleken
-Storleken på txt-fil som innehåller uttal av poster är begränsad till 1 megabyte (MB). Vanligtvis behöver du inte ladda upp stora mängder data via den här filen. De flesta anpassade uttal filer är sannolikt bara några få kilobyte (KB-artiklar) i storlek. Kodning av txt-fil för alla språk bör vara UTF-8 BOM. ANSI är också tillåtet för på engelska.
+Storleken på txt-fil som innehåller uttal av poster är begränsad till 1 MB (1KB för den kostnadsfria nivån av nycklar). Vanligtvis behöver du inte ladda upp stora mängder data via den här filen. De flesta anpassade uttal filer är sannolikt bara några få kilobyte (KB-artiklar) i storlek. Kodning av txt-fil för alla språk bör vara UTF-8 BOM. ANSI är också tillåtet för på engelska.
 
 ## <a name="next-steps"></a>Nästa steg
 * Förbättra noggrannheten genom att skapa en [anpassad akustisk modell](how-to-customize-acoustic-models.md).

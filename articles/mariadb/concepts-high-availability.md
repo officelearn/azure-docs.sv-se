@@ -7,16 +7,16 @@ editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 2f06c9515c6ee79ea7475452b7000d1babdbecfe
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/03/2018
+ms.openlocfilehash: 043988066cae672225b850b57864bddb3155689c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956531"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833847"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mariadb"></a>Begrepp för hög tillgänglighet i Azure Database for MariaDB
-Tjänsten Azure Database for MariaDB tillhandahåller garanterat hög tillgänglighet. Ekonomisk servicenivåavtalet (SLA) är 99,99% vid allmän tillgänglighet. SERVICEAVTALET gäller inte för offentlig förhandsversion. Det är praktiskt taget ingen program driftstopp när du använder den här tjänsten.
+Tjänsten Azure Database for MariaDB tillhandahåller garanterat hög tillgänglighet. Ekonomisk servicenivåavtalet (SLA) är 99,99% vid allmän tillgänglighet. Det är praktiskt taget ingen program driftstopp när du använder den här tjänsten.
 
 ## <a name="high-availability"></a>Hög tillgänglighet
 Modell med hög tillgänglighet (HA) baseras på inbyggda mekanismer för redundans när en nod på servernivå avbrott inträffar. Ett avbrott för noden på servernivå kan inträffa på grund av ett maskinvarufel eller som svar på en tjänstdistribution.
@@ -34,4 +34,4 @@ Liknar modellen hög tillgänglighet när en Azure Database for MariaDB skalas u
 Under åtgärden sker ett avbrott i databasanslutningar. Klientprogrammen är frånkopplade och öppna ogenomförda transaktioner har avbrutits. När klientprogrammet försöker ansluta igen, eller gör en ny anslutning, dirigeras gatewayen anslutningen till den nya storlekar instansen.
 
 ## <a name="next-steps"></a>Nästa steg
-- En översikt över tjänsten finns i [Azure Database for MariaDB-översikt](overview.md)
+- En översikt över tjänsten finns i [Azure Database for MariaDB-översikt](overview.md)

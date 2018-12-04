@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 10de56ac8945be4bb0920f95774b469d283f575b
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 81927c4e69f36fbc4859ac2865bc15cbfacb17fb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721382"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843877"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Token-referens
 
@@ -30,9 +30,9 @@ En ägartoken är en förenklad säkerhetstoken som ger ”ägar” åtkomst til
 
 Om en ägartoken överförs utanför en säker kanal, kan en obehörig part använda en man-in-the-middle-attack för att hämta token och använda den för att få obehörig åtkomst till en skyddad resurs. Samma säkerhetsprinciper gäller när ägar-token lagras eller cachen för senare användning. Se alltid till att appen överför och lagrar ägar-token på ett säkert sätt.
 
-Ytterligare säkerhetsåtgärder på ägar-token, se [RFC 6750 avsnitt 5](http://tools.ietf.org/html/rfc6750).
+Ytterligare säkerhetsåtgärder på ägar-token, se [RFC 6750 avsnitt 5](https://tools.ietf.org/html/rfc6750).
 
-Många av de token som Azure AD B2C utfärdar implementeras som JSON web token (JWTs). En JWT är ett kompakt, URL-säkert sätt att överföra information mellan två parter. JWTs innehåller information som kallas anspråk. Det här är intyg om innehavaren och ämnet för token. Anspråk i JWTs är JSON-objekt som är kodade och serialiseras för överföring. Eftersom JWTs som utfärdats av Azure AD B2C är signerad, men krypteras inte, kan du enkelt granska innehållet i en JWT för att felsöka den. Det finns flera verktyg som kan göra detta, inklusive [jwt.ms](https://jwt.ms). Mer information om JWTs i [JWT-specifikationer](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
+Många av de token som Azure AD B2C utfärdar implementeras som JSON web token (JWTs). En JWT är ett kompakt, URL-säkert sätt att överföra information mellan två parter. JWTs innehåller information som kallas anspråk. Det här är intyg om innehavaren och ämnet för token. Anspråk i JWTs är JSON-objekt som är kodade och serialiseras för överföring. Eftersom JWTs som utfärdats av Azure AD B2C är signerad, men krypteras inte, kan du enkelt granska innehållet i en JWT för att felsöka den. Det finns flera verktyg som kan göra detta, inklusive [jwt.ms](https://jwt.ms). Mer information om JWTs i [JWT-specifikationer](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ### <a name="id-tokens"></a>ID-tokens
 
@@ -68,7 +68,7 @@ När ditt API får en åtkomst-token, måste den [källpaketets signatur](#token
 
 När du använder Azure AD B2C har detaljerad kontroll över innehållet i dina token. Du kan konfigurera [användarflöden](active-directory-b2c-reference-policies.md) och anpassade principer för att skicka vissa uppsättningar av användardata i anspråk som din app kräver för driften. Dessa anspråk kan innehålla standardegenskaper, till exempel användarens `displayName` och `emailAddress`. De kan också innehålla [anpassade användarattribut](active-directory-b2c-reference-custom-attr.md) som du kan definiera i din B2C-katalog. Varje ID och tillgång till token som visas innehåller en viss uppsättning säkerhetsrelaterade anspråk. Dina program kan använda de här anspråken att på ett säkert sätt autentisera användare och förfrågningar.
 
-Observera att anspråk i ID-token inte returneras i någon särskild ordning. Dessutom kan du introduceras nya anspråk i ID-token när som helst. Din app ska inte bryter när nya anspråk introduceras. Här följer de anspråk som du förväntar dig att finnas i ID och åtkomst-token som utfärdas av Azure AD B2C. Ytterligare anspråk bestäms av principer. Du bör testa i Granska anspråk i exemplet ID-token genom att klistra in den i [jwt.ms](https://jwt.ms). Mer information finns i den [OpenID Connect-specifikationen](http://openid.net/specs/openid-connect-core-1_0.html).
+Observera att anspråk i ID-token inte returneras i någon särskild ordning. Dessutom kan du introduceras nya anspråk i ID-token när som helst. Din app ska inte bryter när nya anspråk introduceras. Här följer de anspråk som du förväntar dig att finnas i ID och åtkomst-token som utfärdas av Azure AD B2C. Ytterligare anspråk bestäms av principer. Du bör testa i Granska anspråk i exemplet ID-token genom att klistra in den i [jwt.ms](https://jwt.ms). Mer information finns i den [OpenID Connect-specifikationen](https://openid.net/specs/openid-connect-core-1_0.html).
 
 | Namn | Begäran | Exempelvärde | Beskrivning |
 | --- | --- | --- | --- |
@@ -78,8 +78,8 @@ Observera att anspråk i ID-token inte returneras i någon särskild ordning. De
 | Förfallotid |`exp` |`1438539443` |Förfallotiden anspråk är den tid då token blir ogiltig, som representeras i epoktid. Din app ska använda detta anspråk för att kontrollera giltigheten för livslängd för token. |
 | Inte före |`nbf` |`1438535543` |Det här kravet är den tid då token blir giltigt, representeras i epoktid. Detta är vanligtvis samma som den tid som token utfärdats. Din app ska använda detta anspråk för att kontrollera giltigheten för livslängd för token. |
 | Version |`ver` |`1.0` |Det här är versionen av ID-token som definieras av Azure AD. |
-| Kod hash |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |En kod hash ingår i en ID-token endast när token utfärdas tillsammans med en OAuth 2.0-auktoriseringskod. En kod hash kan användas för att bekräfta en auktoriseringskod är äkta. Mer information om hur du utför den här verifieringen finns i den [OpenID Connect-specifikationen](http://openid.net/specs/openid-connect-core-1_0.html).  |
-| Åtkomst-token-hash |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |En åtkomst-token-hash som ingår i en ID-token endast när token utfärdas tillsammans med en OAuth 2.0-åtkomsttoken. En åtkomst-token-hash kan användas för att bekräfta en åtkomst-token är äkta. Mer information om hur du utför den här verifieringen finns i den [OpenID Connect-specifikation](http://openid.net/specs/openid-connect-core-1_0.html)  |
+| Kod hash |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |En kod hash ingår i en ID-token endast när token utfärdas tillsammans med en OAuth 2.0-auktoriseringskod. En kod hash kan användas för att bekräfta en auktoriseringskod är äkta. Mer information om hur du utför den här verifieringen finns i den [OpenID Connect-specifikationen](https://openid.net/specs/openid-connect-core-1_0.html).  |
+| Åtkomst-token-hash |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |En åtkomst-token-hash som ingår i en ID-token endast när token utfärdas tillsammans med en OAuth 2.0-åtkomsttoken. En åtkomst-token-hash kan användas för att bekräfta en åtkomst-token är äkta. Mer information om hur du utför den här verifieringen finns i den [OpenID Connect-specifikation](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | nonce |`nonce` |`12345` |En nonce är en strategi för att åtgärda token repetitionsattacker. Din app kan ange en nonce i en begäran om godkännande med hjälp av den `nonce` frågeparameter. Värdet du anger i begäran kommer avges ska ändras i den `nonce` anspråk för en endast ID-token. På så sätt kan din app för att kontrollera värden mot det värde som det angetts på begäran, som associerar appens session med en viss ID-token. Din app ska utföra den här verifieringen under verifieringsprocessen för ID-token. |
 | Subjekt |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |Det här är huvudnamn som token kontrollerar information, t.ex användare av en app. Det här värdet kan inte ändras och det går inte att tilldela om eller återanvänds. Det kan användas för att utföra auktoriseringskontroller på ett säkert sätt, till exempel när token används för att komma åt en resurs. Som standard fylls anspråk för ämne med objekt-ID för användaren i katalogen. Mer information finns i [Azure Active Directory B2C: Token, session och konfiguration för enkel inloggning](active-directory-b2c-token-session-sso.md). |
 | Referens för autentisering kontext-klass |`acr` |Inte tillämpligt |Inte används för närvarande, utom när det gäller äldre principer. Mer information finns i [Azure Active Directory B2C: Token, session och konfiguration för enkel inloggning](active-directory-b2c-token-session-sso.md). |

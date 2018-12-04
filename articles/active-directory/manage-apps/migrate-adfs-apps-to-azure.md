@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: b799a3947770b44752b599dbb2c47cbf1cfbcda2
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 647ff43d0b1e0dc52ccecd2dad709af969c61c15
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959068"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840681"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Flytta program från AD FS till Azure AD 
 
@@ -203,7 +203,7 @@ Om du vill tilldela användare i Azure AD-portalen går du till SaaS-appens sida
 
 ![Fönstret ”Lägg till tilldelning”](media/migrate-adfs-apps-to-azure/migrate7.png)
 
-För att kunna verifiera åtkomsten ska användarna se SaaS-appen i sin [åtkomstpanel](../user-help/active-directory-saas-access-panel-introduction.md) när de loggar in. Åtkomstpanelen finns på http://myapps.microsoft.com. Användaren i det här exemplet har tilldelats åtkomst till både Salesforce och ServiceNow.
+För att kunna verifiera åtkomsten ska användarna se SaaS-appen i sin [åtkomstpanel](../user-help/active-directory-saas-access-panel-introduction.md) när de loggar in. Åtkomstpanelen finns på https://myapps.microsoft.com. Användaren i det här exemplet har tilldelats åtkomst till både Salesforce och ServiceNow.
 
 ![Exempel på åtkomstpanel med Salesforce- och ServiceNow-appar](media/migrate-adfs-apps-to-azure/migrate8.png)
 

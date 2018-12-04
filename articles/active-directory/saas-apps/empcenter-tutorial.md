@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: e7e594619c3b7c1ebd34c802d53b3897046a9cd7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 722a5b90b9ca17197cb0a0d117e58a01108d0a9c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426844"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845050"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-empcenter"></a>Självstudier: Azure Active Directory-integration med EmpCenter
 
@@ -59,7 +59,7 @@ För att konfigurera integrering av EmpCenter i Azure AD, som du behöver lägga
 
 **Utför följande steg för att lägga till EmpCenter från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
@@ -119,7 +119,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | `https://<subdomain>.workforcehosting.com/<instancename>` |
 
     > [!NOTE] 
-    > Värdet är inte verkliga. Uppdatera värdet med faktiska inloggnings-URL: en. Kontakta [EmpCenter klienten supportteamet](http://www.workforcesoftware.com/services/customer-support/) att hämta värdet. 
+    > Värdet är inte verkliga. Uppdatera värdet med faktiska inloggnings-URL: en. Kontakta [EmpCenter klienten supportteamet](https://www.workforcesoftware.com/services/customer-support/) att hämta värdet. 
  
 1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
@@ -129,7 +129,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/empcenter-tutorial/tutorial_general_400.png)
 
-1. Att konfigurera enkel inloggning på **EmpCenter** sida, som du behöver skicka de hämtade **XML-Metadata för** till [EmpCenter supportteamet](http://www.workforcesoftware.com/services/customer-support/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **EmpCenter** sida, som du behöver skicka de hämtade **XML-Metadata för** till [EmpCenter supportteamet](https://www.workforcesoftware.com/services/customer-support/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 > [!TIP]
 > Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -168,7 +168,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="creating-an-empcenter-test-user"></a>Skapa en EmpCenter testanvändare
 
-För att aktivera Azure AD-användare att logga in på EmpCenter, måste de etableras i EmpCenter. När det gäller EmpCenter, behöver användarkontona som ska skapas av din [EmpCenter supportteamet](http://www.workforcesoftware.com/services/customer-support/).
+För att aktivera Azure AD-användare att logga in på EmpCenter, måste de etableras i EmpCenter. När det gäller EmpCenter, behöver användarkontona som ska skapas av din [EmpCenter supportteamet](https://www.workforcesoftware.com/services/customer-support/).
 
 > [!NOTE]
 > Du kan använda alla andra EmpCenter användare konto verktyg för att skapa eller API: er som tillhandahålls av EmpCenter för att etablera Azure Active Directory användarkonton.

@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 11/29/2018
-ms.openlocfilehash: eb296a436f6c09a4f592ba3a26ee1c3a0f8e18bb
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.date: 12/03/2018
+ms.openlocfilehash: 5046b1012e0074e9548cad050c16eef25c00cee0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678840"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845203"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Åtkomst till Azure Virtual Network-resurser från Azure Logic Apps med hjälp av integreringstjänstmiljöer (ISEs)
 
@@ -64,13 +64,15 @@ Skillnaden mellan ISE och icke-ISE-anslutningar är i de platser där utlösare 
 
 När du skapar en integration service-miljö (ISE) kan du välja ett Azure-nätverk var du *mata in* din miljö. Inmatning distribuerar en privat instans av Logic Apps-tjänsten till ditt virtuella nätverk. Den här åtgärden resulterar i en isolerad miljö där du kan skapa och köra dina logic apps på dedikerade resurser. När du skapar väljer dina logikappar din ISE som plats för dina appar. Dessa logic apps kan sedan direkt åtkomst till ditt virtuella nätverk och ansluta till resurser i nätverket. 
 
-För lokala system i ett virtuellt nätverk som är länkad till en ISE logikappar direkt åtkomst till dessa system med någon av dessa objekt: 
+För system som är anslutna till ett virtuellt nätverk, kan du mata in en ISE i det virtuella nätverket så att dina logikappar har direkt åtkomst dessa system med någon av dessa objekt: 
 
 * ISE-anslutning för systemet, till exempel SQL Server
+
 * HTTP-åtgärd 
+
 * Anpassad anslutningsapp
 
-För lokala system som inte är i ett virtuellt nätverk eller inte har ISE-anslutningsappar, som du kan ansluta till dessa system när du [konfigurera och använda den lokala datagatewayen](../logic-apps/logic-apps-gateway-install.md).
+För lokala system som inte är ansluten till ett virtuellt nätverk eller inte har ISE-anslutningsappar, som du kan ansluta till de system som skapats av [ställa in och använda den lokala datagatewayen](../logic-apps/logic-apps-gateway-install.md).
 
 Innan du kan välja ett Azure-nätverk för din miljö måste ställa du in behörigheter för rollbaserad åtkomstkontroll (RBAC) i det virtuella nätverket för Azure Logic Apps-tjänsten. Den här uppgiften kräver att du tilldelar den **Nätverksdeltagare** och **klassiska deltagare** roller till Azure Logic Apps-tjänsten.
 Om du vill konfigurera dessa behörigheter finns i [Anslut till Azure-nätverk från logikappar](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#vnet-access)

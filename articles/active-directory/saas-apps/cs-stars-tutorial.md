@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 74ecfe50170f35420d3cf5dc5531b0fe1046889d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 14b5f13070554328a47cd80185efb487d887a6d5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433858"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832919"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Självstudier: Azure Active Directory-integration med CS stjärnor
 
@@ -59,7 +59,7 @@ För att konfigurera integrering av CS stjärnor i Azure AD, som du behöver lä
 
 **Utför följande steg för att lägga till CS stjärnor från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
@@ -117,7 +117,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.csstars.com/enterprise/`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [CS stjärnor klienten supportteamet](http://www.marshclearsight.com/support/) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [CS stjärnor klienten supportteamet](https://www.marshclearsight.com/support/) att hämta dessa värden. 
  
 1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
@@ -127,7 +127,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/cs-stars-tutorial/tutorial_general_400.png) 
 <CS>
-1. Att konfigurera enkel inloggning på **CS stjärnor** sida, som du behöver skicka de hämtade **XML-Metadata för** till [CS stjärnor supportteam](http://www.marshclearsight.com/support/). 
+1. Att konfigurera enkel inloggning på **CS stjärnor** sida, som du behöver skicka de hämtade **XML-Metadata för** till [CS stjärnor supportteam](https://www.marshclearsight.com/support/). 
 <CE>
 
 > [!TIP]
@@ -169,7 +169,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i CS stjärnor.
 
-För att få en användare som skapats i CS stjärnor kan du behöva kontakta din [CS stjärnor supportteam](http://www.marshclearsight.com/support/).
+För att få en användare som skapats i CS stjärnor kan du behöva kontakta din [CS stjärnor supportteam](https://www.marshclearsight.com/support/).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

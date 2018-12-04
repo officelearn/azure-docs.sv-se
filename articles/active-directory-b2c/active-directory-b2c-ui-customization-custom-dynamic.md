@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 11a14bc8b593e5e7d81e9bdbd4ac4ee3b2bbecaa
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f078c1389e36b82f95b011ca1fbd7fbd1c4f895e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582895"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834246"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Konfigurera Användargränssnittet med dynamiskt innehåll med hjälp av anpassade principer
 
@@ -193,7 +193,7 @@ HTML5 mallen är redo att använda. Det är dock inte tillgängliga i den `Conte
 * Innehållsservern har aktiverats för CORS.
 
     >[!NOTE]
-    >Kontrollera att platsen där du är värd för ditt innehåll har aktiverat CORS och testa CORS-förfrågningar, gå till den [test cors.org](http://test-cors.org/) webbplats. 
+    >Kontrollera att platsen där du är värd för ditt innehåll har aktiverat CORS och testa CORS-förfrågningar, gå till den [test cors.org](https://test-cors.org/) webbplats. 
 
 * Hanteras innehållet är säkert över **HTTPS**.
 * Du använder *absoluta URL: er*, till exempel *https://yourdomain/content*, för alla länkar, CSS-innehåll och bilder.

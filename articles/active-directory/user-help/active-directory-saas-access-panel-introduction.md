@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: d9ed140d404387b94428cea5d925911806b62552
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 129f77ec9ea4d4e2633e1ea0b02795bc0df26433
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705864"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834714"
 ---
 # <a name="what-is-the-myapps-portal"></a>Vad är MyApps-portalen?
 
@@ -41,9 +41,9 @@ MyApps-portalen är separat från Azure-portalen. Det kräver inte du har en Azu
 
 ## <a name="access-the-myapps-portal"></a>Få åtkomst till MyApps-portalen
 
-Du kan komma åt MyApps-portalen genom att gå till `http://myapps.microsoft.com`.
+Du kan komma åt MyApps-portalen genom att gå till `https://myapps.microsoft.com`.
 
-Om du har anpassade anpassning som konfigurerats för din inloggningssida kan du läsa in anpassning genom att lägga till organisationens domän i URL: en (till exempel `http://myapps.microsoft.com/<your domain>.com`).
+Om du har anpassade anpassning som konfigurerats för din inloggningssida kan du läsa in anpassning genom att lägga till organisationens domän i URL: en (till exempel `https://myapps.microsoft.com/<your domain>.com`).
 
 Du kan använda alla aktiva eller verifierat domännamn som har konfigurerats i din Azure-portalen, som visas här: ![Wingtip Toys domännamn][2]  
 

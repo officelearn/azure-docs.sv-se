@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 0463a89b8c320b31929bf5e0322079088c2cdeab
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9cf5092dabf5649f4d063ce05dae169b90228378
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054139"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834102"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clearcompany"></a>Självstudier: Azure Active Directory-integration med ClearCompany
 
@@ -60,7 +60,7 @@ För att konfigurera integrering av ClearCompany i Azure AD, som du behöver lä
 
 **Utför följande steg för att lägga till ClearCompany från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -119,7 +119,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<companyname>.clearcompany.com`
     
     > [!NOTE] 
-    > Inloggnings-URL-värdet är inte en verkliga värdet. Uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [ClearCompany klienten supportteamet](http://www.clearcompany.com/support) att hämta det här värdet. 
+    > Inloggnings-URL-värdet är inte en verkliga värdet. Uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [ClearCompany klienten supportteamet](https://www.clearcompany.com/support) att hämta det här värdet. 
 
 5. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
@@ -133,7 +133,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![ClearCompany konfiguration](./media/clearcompany-tutorial/tutorial_clearcompany_configure.png) 
 
-8. Att konfigurera enkel inloggning på **ClearCompany** sida, som du behöver skicka de hämtade **Certificate(Base64)** och **SAML enkel inloggning för tjänst-URL** till [ ClearCompany supportteamet](http://www.clearcompany.com/support). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+8. Att konfigurera enkel inloggning på **ClearCompany** sida, som du behöver skicka de hämtade **Certificate(Base64)** och **SAML enkel inloggning för tjänst-URL** till [ ClearCompany supportteamet](https://www.clearcompany.com/support). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 > [!TIP]
 > Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -172,7 +172,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="create-a-clearcompany-test-user"></a>Skapa en ClearCompany testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i ClearCompany. Arbeta med [ClearCompany supportteamet](http://www.clearcompany.com/support) att lägga till användare i ClearCompany-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon i ClearCompany. Arbeta med [ClearCompany supportteamet](https://www.clearcompany.com/support) att lägga till användare i ClearCompany-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

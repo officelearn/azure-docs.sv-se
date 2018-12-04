@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5caa4940865ff0f0f684a8aa8c3164fee6f321b2
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 383b73d335c8993aa99109c7430d2292a3bfea4a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634463"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836448"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware Monitoring (förhandsversion) lösningen i Log Analytics
 
@@ -131,7 +131,7 @@ I den **VMware** instrumentpanelsvyn blad är ordnade efter:
 
 Klicka på ett blad för att öppna Log Analytics search fönstret som visar detaljerad information för bladet.
 
-Härifrån kan redigera du frågan om du vill ändra det efter något mer specifikt. Mer information om hur du skapar loggsökningar, finns i [hitta data med loggsökningar i Log Analytics](../../log-analytics/log-analytics-queries.md).
+Härifrån kan redigera du frågan om du vill ändra det efter något mer specifikt. Mer information om hur du skapar loggsökningar, finns i [hitta data med loggsökningar i Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
 
 #### <a name="find-esxi-host-events"></a>Hitta händelser för ESXi-värd
 En enda ESXi-värd genererar flera loggar, utifrån sina processer. VMware Monitoring-lösningen centraliserar dem och sammanfattar antalet händelser. Den här centraliserade vyn hjälper dig att förstå vilka ESXi-värden har ett stort antal händelser och vilka händelser inträffar oftast i din miljö.
@@ -206,6 +206,6 @@ Det kan finnas flera anledningar:
     d. Om filen inte finns eller är fel, användare och grupp-inställning vidta åtgärder med [förbereda en Linux-server](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd [Loggsökningar](../../log-analytics/log-analytics-queries.md) ha data i Log Analytics för att visa detaljerad VMware.
+* Använd [Loggsökningar](../../azure-monitor/log-query/log-query-overview.md) ha data i Log Analytics för att visa detaljerad VMware.
 * [Skapa dina egna instrumentpaneler](../../azure-monitor/platform/dashboards.md) som visar data för VMware-värd.
 * [Skapa aviseringar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) när specifika händelser för VMware-värd inträffar.

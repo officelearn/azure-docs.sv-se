@@ -5,14 +5,14 @@ author: nsoneji
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: bac995829e90fea35eebf5e5e57a0ffb85bbba0c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 49435665ae1e99dd2b9696e5e5bb048e438dcc4c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211833"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832964"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Konfigurera haveriberedskap för en flerskiktade IIS-baserade webbprogram
 
@@ -142,7 +142,7 @@ Om du har beroende av ett programspecifika som baseras på IP-adressen för de v
 
 1. Välj Recovery Services-valvet i Azure-portalen.
 2. Välj återställningsplan som du skapade för IIS-webbservergrupp.
-3. Välj **Redundanstest**.
+3. Välj **Testa redundans**.
 4. Välj återställningspunkten och Azure-nätverket om du vill börja testa redundansprocessen.
 5. Om den sekundära miljön är igång, kan du utföra verifieringar.
 6. När verifieringar har slutförts, för att rensa redundanstestmiljön, Välj **verifieringar slutföra**.
@@ -153,7 +153,7 @@ Mer information finns i [testa redundans till Azure i Site Recovery](site-recove
 
 1. Välj Recovery Services-valvet i Azure-portalen.
 1. Välj återställningsplan som du skapade för IIS-webbservergrupp.
-1. Välj **redundans**.
+1. Välj **Redundans**.
 1. Välj återställningspunkten för att starta redundansprocessen.
 
 Mer information finns i [redundans i Site Recovery](site-recovery-failover.md).

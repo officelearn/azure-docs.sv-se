@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: d99996bb4177a11342f0897d2cf69f82a5b81bf7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: db607da10898744441ac11bcb60fa63566cdfdd7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721236"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833966"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Med hjälp av System för domänerna Identity Management (SCIM) att automatiskt etablera användare och grupper från Azure Active Directory till program
 
@@ -163,7 +163,7 @@ För att utveckla dina egna webbtjänst som överensstämmer med SCIM-specifikat
   
   ![][3]
   
-2. [Express route-hanterare](http://expressjs.com/guide/routing.html) tillgängliga för parsning av node.js begäran objekt som representerar anrop (enligt specifikationen SCIM), görs till en node.js-webbtjänst.   
+2. [Express route-hanterare](https://expressjs.com/guide/routing.html) tillgängliga för parsning av node.js begäran objekt som representerar anrop (enligt specifikationen SCIM), görs till en node.js-webbtjänst.   
 
 ### <a name="building-a-custom-scim-endpoint"></a>Att skapa en anpassad SCIM-slutpunkt
 Med hjälp av CLI-bibliotek, kan utvecklare som använder dessa bibliotek ha sina tjänster i alla körbara vanliga språk infrastruktur-sammansättningen eller i Internet Information Services. Här är exempelkod som värd för en tjänst i en körbar sammansättning på adressen http://localhost:9000: 
@@ -359,7 +359,7 @@ Gruppera resurser identifieras av schema-ID http://schemas.microsoft.com/2006/11
 | jobTitle |rubrik |
 | e-post |e-postmeddelanden [typ eq ”arbete pågår”] .value |
 | mailNickname |externalId |
-| Manager |Manager |
+| ansvarig |ansvarig |
 | mobila |phoneNumbers [typ eq ”mobil”] .value |
 | objekt-ID |ID |
 | Postnummer |adresser typ eq ”arbete pågår” .postalCode |

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 04708806b9e1ba224e7b438f11c68dca82d6320e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 60beecc0895fbfb5d3af7817e8b76e0819c89a99
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448826"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835394"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Självstudier: Azure Active Directory-integrering med ScaleX Enterprise
 
@@ -59,7 +59,7 @@ Om du vill konfigurera integreringen av ScaleX Enterprise i Azure AD, som du beh
 
 **Utför följande steg för att lägga till ScaleX Enterprise från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
@@ -123,7 +123,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     I den **inloggnings-URL** textrutan skriver du värdet med följande mönster: `https://platform.rescale.com/saml2/<company id>/sso/`
      
     > [!NOTE] 
-    > Detta är inte de verkliga värden. Uppdatera dessa värden med faktiska identifierare, svars-URL eller inloggnings-URL. Kontakta [ScaleX Enterprise Client supportteamet](http://info.rescale.com/contact_sales) att hämta dessa värden. 
+    > Detta är inte de verkliga värden. Uppdatera dessa värden med faktiska identifierare, svars-URL eller inloggnings-URL. Kontakta [ScaleX Enterprise Client supportteamet](https://info.rescale.com/contact_sales) att hämta dessa värden. 
 
 1. Programmets ScaleX förväntar sig SAML-intyg i ett visst format, som kräver att du vill ändra anpassade attributmappningar i SAML-tokenattribut konfigurationen. Klicka på **visa och redigera alla andra användarattribut** kryssrutan för att öppna anpassat attribut inställningar.
 

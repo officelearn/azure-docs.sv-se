@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9f475c7bc373afd8a109873908bb583bc07708f1
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 9dbe88e1e179df4560d5094cf3f58ca770541323
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722555"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842280"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Logga in med ett iOS-program
 
@@ -39,7 +39,7 @@ Därefter måste du skapa en app i B2C-katalogen. Registreringen ger Azure AD de
 * Konfigurera en **omdirigerings-URI** med ett anpassat schema (till exempel com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). Du behöver den här URI: N senare.
 
 ## <a name="create-your-user-flows"></a>Skapa dina användarflöden
-I Azure AD B2C definieras varje användarupplevelse av en [användarflödet](active-directory-b2c-reference-policies.md). Den här appen innehåller en identitetslösning: en kombinerad inloggning och registrering. Skapa det här användarflödet enligt beskrivningen i den [användaren flow referensartikeln](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). När du skapar användarflödet, måste du kontrollera att:
+I Azure AD B2C definieras varje användarupplevelse av en [användarflödet](active-directory-b2c-reference-policies.md). Den här appen innehåller en identitetslösning: en kombinerad inloggning och registrering. Skapa det här användarflödet enligt beskrivningen i den [användaren flow referensartikeln](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). När du skapar användarflödet, måste du kontrollera att:
 
 * Under **registreringsattribut**, väljer du attributet **visningsnamn**.  Du kan välja samt andra attribut.
 * Under **Programanspråk**, Välj anspråk **visningsnamn** och **användarobjekt-ID**. Du kan välja andra anspråk också.

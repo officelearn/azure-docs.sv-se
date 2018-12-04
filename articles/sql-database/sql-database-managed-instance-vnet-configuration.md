@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 9d3f867dad40017e8e97ec4f5e370533b018263c
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: fcceecbd933980d0ab751fd5e377bbf810b9502e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181183"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837638"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Konfigurera ett virtuellt nätverk för Azure SQL Database Managed Instance
 
@@ -66,6 +66,9 @@ Om du vill skapa en hanterad instans, skapar du ett dedikerat undernät (hantera
 |hantering  |80, 443, 12000|TCP     |Alla              |Alla        |Tillåt |
 |. mi_subnet   |Alla           |Alla     |Alla              |MI – UNDERNÄT  |Tillåt |
 
+  > [!Note]
+  > Även om obligatoriska inkommande säkerhetsregler som tillåter trafik från _alla_ källa på portar 9000, 9003, 1438, 1440, 1452 portarna skyddas av inbyggda brandvägg. Detta [artikeln](sql-database-managed-instance-management-endpoint.md) visar hur du kan identifiera hantering slutpunktens IP-adress och kontrollera brandväggsregler. 
+
 ##  <a name="determine-the-size-of-subnet-for-managed-instances"></a>Avgör storleken på undernätet för hanterade instanser
 
 När du skapar en hanterad instans, tilldelar Azure ett antal virtuella datorer beroende på vilken nivå som du valde under etableringen. Eftersom de virtuella datorerna är kopplade till ditt undernät, kräver de IP-adresser. För att säkerställa hög tillgänglighet under normal drift och underhåll, kan Azure allokera fler virtuella datorer. Därför kan är antalet begärda IP-adresser i ett undernät större än antalet instanser som hanteras i det undernätet. 
@@ -73,7 +76,7 @@ När du skapar en hanterad instans, tilldelar Azure ett antal virtuella datorer 
 Enligt design, en hanterad instans måste ha minst 16 IP-adresser i ett undernät och använder upp till 256 IP-adresser. Du kan därmed använda nätmasker /28 /24 när du definierar dina IP-adressintervall för undernätet. 
 
 > [!IMPORTANT]
-> Storleken med 16 IP-adresser i undernätet är minst med begränsade möjligheter för att ytterligare Managed Instance-skala ut. Välja undernät med prefixet /27 eller under rekommenderas starkt. 
+> Storleken med 16 IP-adresser i undernätet är minst med begränsade möjligheter för att ytterligare Managed Instance-skala ut. Välja undernät med prefixet /27 eller under rekommenderas starkt. 
 
 Om du planerar att distribuera flera hanterade instanser i undernätet och behöver för att optimera på undernätets storlek, använder du parametrarna för att bilda en beräkning: 
 
@@ -84,7 +87,7 @@ Om du planerar att distribuera flera hanterade instanser i undernätet och behö
 **Exempel**: du planerar att ha tre generella och två företag kritiska hanterade instanser. Att innebär att du behöver 5 + 3 * 2 + 2 * 4 = 19 IP-adresser. När IP-intervall är definierade i potensen 2, måste IP-adressintervall 32 (2 ^ 5) IP-adresser. Du måste därför reservera undernätet med nätmask på/27. 
 
 > [!IMPORTANT]
-> Beräkningen ovan kommer att bli föråldrad med ytterligare förbättringar. 
+> Beräkningen ovan kommer att bli föråldrad med ytterligare förbättringar. 
 
 ## <a name="create-a-new-virtual-network-for-a-managed-instance"></a>Skapa ett nytt virtuellt nätverk för en hanterad instans
 

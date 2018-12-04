@@ -4,14 +4,14 @@ description: Beskriver hur du avgör stort antal lokala datorer med hjälp av Az
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 11/29/2018
 ms.author: raynew
-ms.openlocfilehash: b5685640a55e2ce52a202c341cb293fe9315ab14
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: b0965d50781ac3bb6c62338a2c6f17317306d249
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240196"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835547"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Upptäck och utvärdera en stor VMware-miljö
 
@@ -50,9 +50,12 @@ Om du distribuerar i en miljö organisationer, är här ett sätt att konfigurer
 
 ## <a name="plan-your-migration-projects-and-discoveries"></a>Planera ditt migreringsprojekt och identifieringar
 
-En enda Azure Migrate collector stöder identifiering från flera vCenter-servrar (efter varandra) och stöder flera migreringsprojekt identifieringen (efter varandra).
+Baserat på antalet virtuella datorer som du planerar att identifiera, kan du skapa flera projekt och distribuera flera enheter i din miljö. En apparat kan anslutas till en enda vCenter-Server och ett enda projekt (såvida inte du stoppar identifieringen och börja från grunden).
 
-Insamlaren vid enstaka identifiering fungerar i fire and -forget-modell, när identifiering är klar kan du använda samma insamlaren för att samla in data från en annan vCenter-Server eller skicka det till en annan migreringsprojekt. Vid kontinuerlig identifiering, är en enhet ansluten till ett enda projekt så att du inte kan använda samma insamlaren för att utlösa en andra identifiering.
+Du kan använda samma insamlaren för att samla in data från en annan vCenter-Server eller skicka den till en annan migreringsprojekt om av enstaka identifiering (inaktuellt nu), identifieringen fungerar i fire och Glöm modellen när identifiering är klart.
+
+> [!NOTE]
+> Identifiering av enstaka installationen är nu föråldrad eftersom den här metoden förlitade sig tidigare på vCenter-serverns statistikinställningarna för prestanda datatillgänglighet och samlas in genomsnittlig prestandaräknare som resulterade i under storleksändringar av virtuella datorer för migrering till Azure. Vi rekommenderar att flytta till den enstaka discovery-installationen.
 
 Planera dina upptäckter och utvärderingar som baseras på följande begränsningar:
 
@@ -65,7 +68,7 @@ Planera dina upptäckter och utvärderingar som baseras på följande begränsni
 Tänk på dessa överväganden:
 
 - När du gör en identifiering med hjälp av Azure Migrate collector kan du ange identifieringsomfånget till en vCenter Server-mapp, datacenter, kluster eller en värddator.
-- Om du vill göra mer än en identifiering, verifiera i vCenter Server som de virtuella datorerna som du vill identifiera i mappar, Datacenter, kluster eller värdar som har stöd för begränsning av 1 500 datorer.
+- Kontrollera i vCenter Server som de virtuella datorerna som du vill identifiera i mappar, Datacenter, kluster eller värdar som har stöd för begränsning av 1500 datorer om du vill göra mer än en identifiering från samma vCenter-servern.
 - Vi rekommenderar att för utvärdering, du behåller datorer med beroenden inom samma projekt och utvärdering. Kontrollera att beroende datorer finns i samma mapp, datacenter eller kluster för utvärdering i vCenter Server.
 
 Beroende på ditt scenario kan du dela upp dina identifieringar enligt nedan:
@@ -73,25 +76,26 @@ Beroende på ditt scenario kan du dela upp dina identifieringar enligt nedan:
 ### <a name="multiple-vcenter-servers-with-less-than-1500-vms"></a>Flera vCenter-servrar med mindre än 1 500 virtuella datorer
 Om du har flera vCenter-servrar i din miljö och det totala antalet virtuella datorer är mindre än 1500, kan du använda följande metod baserat på ditt scenario:
 
-**Enstaka identifiering:** använder en enda insamlare och en enda migration-projekt för att identifiera alla virtuella datorer mellan alla vCenter-servrar. Eftersom enstaka identifiering insamlaren identifierar en vCenter-Server i taget, kan du köra samma insamlaren mot alla vCenter-servrar, efter varandra och peka insamlaren på samma migreringsprojekt. När alla identifieringar är klar kan skapa du sedan utvärderingar för datorer.
-
 **Kontinuerlig identifiering:** vid kontinuerlig identifiering, en enhet kan anslutas till bara ett enda projekt. Så behöver du distribuera en installation för var och en av vCenter-servrar och skapa ett projekt för varje installation och utlösare identifieringar.
+
+**Enstaka identifiering (nu inaktuellt):** använder en enda insamlare och en enda migration-projekt för att identifiera alla virtuella datorer mellan alla vCenter-servrar. Eftersom enstaka identifiering insamlaren identifierar en vCenter-Server i taget, kan du köra samma insamlaren mot alla vCenter-servrar, efter varandra och peka insamlaren på samma migreringsprojekt. När alla identifieringar är klar kan skapa du sedan utvärderingar för datorer.
+
 
 ### <a name="multiple-vcenter-servers-with-more-than-1500-vms"></a>Flera vCenter-servrar med mer än 1 500 virtuella datorer
 
 Om du har flera vCenter-servrar med mindre än 1 500 virtuella datorer per vCenter-servern, men mer än 1 500 virtuella datorer mellan alla vCenter-servrar kan behöva du skapa flera migration-projekt (en migration-projekt kan innehålla endast 1 500 virtuella datorer). Du kan åstadkomma detta genom att skapa ett migreringsprojekt per vCenter-servern och dela identifieringar.
 
-**Enstaka identifiering:** du kan använda en enda insamlare för att identifiera varje vCenter-Server (efter varandra). Om du vill identifieringar att starta på samma gång, kan du också distribuera flera enheter och köra identifieringar parallellt.
-
 **Kontinuerlig identifiering:** måste du skapa flera insamlaren installationer (en för varje vCenter-Server) och ansluta varje enhet till en identifiering för projektet och utlöser därefter.
+
+**Enstaka identifiering (nu inaktuellt):** du kan använda en enda insamlare för att identifiera varje vCenter-Server (efter varandra). Om du vill identifieringar att starta på samma gång, kan du också distribuera flera enheter och köra identifieringar parallellt.
 
 ### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Mer än 1500 datorer i en enda vCenter-Server
 
 Om du har fler än 1 500 virtuella datorer i en enda vCenter-Server, måste du dela upp identifieringen i flera migreringsprojekt. Om du vill dela identifieringar, kan du utnyttja fältet omfång i installationen och anger värden, kluster, mapp eller datacenter som du vill identifiera. Exempel: Om du har två mappar i vCenter Server, en med 1000 virtuella datorer (Mapp1) och andra med 800 virtuella datorer (mapp2) du kan använda fältet omfattning för att dela upptäckter mellan dessa mappar.
 
-**Enstaka identifiering:** du kan använda samma insamlaren för att utlösa båda identifieringar. I den första identifieringen kan du ange Mapp1 som omfång och peka den första migreringsprojekt när den första identifieringen är klar, du kan använda samma insamlaren genom att ändra sitt omfång till Mapp2 och migrering projektinformation till andra migreringsprojekt och göra andra identifiering.
-
 **Kontinuerlig identifiering:** i det här fallet måste du skapa två insamlaren enheter, för den första insamlardatorn, ange omfång som mapp1 och ansluter den till det första migreringsprojektet. Du kan parallellt påbörja Upptäckten av Mapp2 med andra insamlingsprogrammet och ansluter den till andra migreringsprojekt.
+
+**Enstaka identifiering (nu inaktuellt):** du kan använda samma insamlaren för att utlösa båda identifieringar. I den första identifieringen kan du ange Mapp1 som omfång och peka den första migreringsprojekt när den första identifieringen är klar, du kan använda samma insamlaren genom att ändra sitt omfång till Mapp2 och migrering projektinformation till andra migreringsprojekt och göra andra identifiering.
 
 ### <a name="multi-tenant-environment"></a>Miljö för flera innehavare
 
@@ -120,14 +124,20 @@ Azure Migrate skapar en lokal virtuell dator som kallas för insamlarprogram. De
 Om du har flera projekt kan behöva du hämta insamlingsprogrammet bara en gång till vCenter Server. När du laddar ned och konfigurera installationen kan du köra den för varje projekt och anger du unika projekt-ID och nyckel.
 
 1. I Azure Migrate-projektet klickar du på **Komma igång** > **Identifiera och utvärdera** > **Identifiera datorer**.
-2. I **identifiera datorer**, finns det två alternativ för installationen, klicka på **hämta** för att ladda ned rätt program baserat på dina inställningar.
+2. I **identifiera datorer**, klickar du på **hämta** att ladda ned installationen.
 
-    a. **Engångsidentifiering:** Tillämpningen för den här modellen kommunicerar med vCenter Server för att samla in metadata om de virtuella datorerna. För insamling av prestandadata för de virtuella datorerna, förlitar den sig på historiska prestandadata som lagras i vCenter Server och samlar in prestandahistoriken för den senaste månaden. I den här modellen samlar Azure Migrate in genomsnittlig beräkning (jämfört med högsta beräkning) för varje mått, [läs mer](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Eftersom det är en enstaka identifiering återspeglas inte ändringar i den lokala miljön när identifieringen är klar. Om du vill att ändringarna ska återspeglas behöver göra en ny identifiering av samma miljö för samma projekt.
-
-    b. **Kontinuerlig identifiering:** Installation för den här modellen profilerar kontinuerligt den lokala miljön för att samla in användningsdata i realtid för varje virtuell dator. I den här modellen samlas högsta beräkningar in för varje mått (processoranvändning, minnesanvändning osv.). Den här modellen är inte beroende av statistikinställningarna för vCenter Server för insamling av prestandadata. Du kan stoppa kontinuerlig profileringen när som helst från programmet.
+    Azure Migrate-installationer kommunicerar med vCenter-servern och kontinuerligt Profilerar lokala-miljö för att samla in användningsdata i realtid för varje virtuell dator. Den samlar in högsta räknare för varje mått (processoranvändning, minnesanvändning osv.). Den här modellen är inte beroende av statistikinställningarna för vCenter Server för insamling av prestandadata. Du kan stoppa kontinuerlig profileringen när som helst från programmet.
 
     > [!NOTE]
-    > Funktionen kontinuerlig identifiering är i förhandsversion.
+    > Identifiering av enstaka installationen är nu föråldrad eftersom den här metoden förlitade sig tidigare på vCenter-serverns statistikinställningarna för prestanda datatillgänglighet och samlas in genomsnittlig prestandaräknare som resulterade i under storleksändringar av virtuella datorer för migrering till Azure.
+
+    **Direkt:** med kontinuerlig discovery-enheten när identifieringen är slutföra (tar några timmar beroende på hur många virtuella datorer), kan du direkt skapa utvärderingar. Eftersom prestandadatainsamlingen startar när du startar identifieringen, om du letar efter direkt, du bör välja storlekskriteriet i utvärderingen som *som lokalt*. För prestandabaserade utvärderingar, är det bäst att vänta minst en dag efter att starta identifiering för att hämta storleksrekommendationer för tillförlitliga.
+
+    Observera att installationen bara samlar in prestandadata kontinuerligt, den identifierar inte någon konfigurationsändring i den lokala miljön (dvs. tillägg av virtuell dator, borttagning, disktillägg osv.). Om det finns en konfigurationsändring i den lokala miljön kan du göra följande för att återspegla ändringarna i portalen:
+
+    - Tillägg av objekt (virtuella datorer, kärnor osv.): Om du vill återspegla dessa ändringar i Azure-portalen kan du stoppa identifieringen från installationen och sedan börja om igen. Då uppdateras ändringarna i Azure Migrate-projektet.
+
+    - Borttagning av virtuella datorer: På grund av hur installationen är utformad återspeglas inte borttagning av virtuella datorer även om du stoppar och startar identifieringen. Det beror på att data från efterföljande identifieringar läggs till äldre identifieringar och inte åsidosätts. I det här fallet kan du helt enkelt ignorera den virtuella datorn genom att ta bort den från gruppen och beräkna utvärderingen.
 
 3. I **kopiera projektautentiseringsuppgifterna**, kopiera-ID och nyckel för projektet. Du behöver dem när du konfigurerar insamlaren.
 
@@ -146,7 +156,17 @@ Kontrollera att OVA-filen är säker innan du distribuerar den:
 
 3. Se till att den genererade hashen matchar följande inställningar.
 
-#### <a name="one-time-discovery"></a>Engångsidentifiering
+#### <a name="continuous-discovery"></a>Kontinuerlig identifiering
+
+För OVA-version 1.0.10.4
+
+**Algoritm** | **Hash-värde**
+--- | ---
+MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
+SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
+SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
+
+#### <a name="one-time-discovery-deprecated-now"></a>Enstaka identifiering (nu inaktuellt)
 
 För OVA-version 1.0.9.15 (släppt på 10/23/2018)
 
@@ -188,16 +208,6 @@ MD5 | d5b6a03701203ff556fa78694d6d7c35
 SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
 SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
 
-#### <a name="continuous-discovery"></a>Kontinuerlig identifiering
-
-För OVA-version 1.0.10.4
-
-**Algoritm** | **Hash-värde**
---- | ---
-MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
-SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
-SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
-
 ### <a name="create-the-collector-vm"></a>Skapa den virtuella insamlardatorn
 
 Importera den nedladdade filen till vCenter Server:
@@ -221,37 +231,6 @@ Om du har flera projekt måste du identifiera-ID och nyckel för var och en. Du 
 1. I projektet, väljer **komma igång** > **identifiera och utvärdera** > **identifiera datorer**.
 2. I **kopiera projektautentiseringsuppgifterna**, kopiera-ID och nyckel för projektet.
     ![Kopiera projektautentiseringsuppgifterna](./media/how-to-scale-assessment/copy-project-credentials.png)
-
-### <a name="set-the-vcenter-statistics-level"></a>Ange statistiknivån
-
-Insamlingsprogrammet identifieras följande statiska metadata om de valda virtuella datorerna.
-
-1. VM-visningsnamn (på vCenter)
-2. Virtuella datorns lager sökväg (värd/mapp i vCenter)
-3. IP-adress
-4. MAC-adress
-5. Operativsystem
-5. Antal kärnor, diskar, nätverkskort
-6. Minnesstorlek, diskstorlekar
-7. Och prestandaräknarna för den virtuella datorn, disk och nätverk som anges i tabellen nedan.
-
-I följande tabell visas de exakta prestandaräknare som samlas in och visar också utvärderingsresultat som påverkas om en särskild räknare inte har samlats in för enstaka identifiering.
-
-För kontinuerlig identifiering samma prestandaräknare som samlas in i realtid (20 sekunder intervall), så det finns inga beroende på statistiknivå. Installationen sedan samlar upp 20 sekunder exemplen för att skapa en enskild datapunkt för varje kvart genom att välja det högsta värdet 20 sekunder exemplen och skickar det till Azure.
-
-|Räknare                                  |Nivå    |Nivå per enhet  |Utvärdering av påverkan                               |
-|-----------------------------------------|---------|------------------|------------------------------------------------|
-|CPU.Usage.Average                        | 1       |Ej tillämpligt                |Rekommenderad storlek och kostnad                    |
-|Mem.Usage.Average                        | 1       |Ej tillämpligt                |Rekommenderad storlek och kostnad                    |
-|virtualDisk.read.average                 | 2       |2                 |Diskens storlek, kostnaden för lagring och VM-storlek         |
-|virtualDisk.write.average                | 2       |2                 |Diskens storlek, kostnaden för lagring och VM-storlek         |
-|virtualDisk.numberReadAveraged.average   | 1       |3                 |Diskens storlek, kostnaden för lagring och VM-storlek         |
-|virtualDisk.numberWriteAveraged.average  | 1       |3                 |Diskens storlek, kostnaden för lagring och VM-storlek         |
-|NET.Received.Average                     | 2       |3                 |VM-storlek och nätverk kostnad                        |
-|NET.Transmitted.Average                  | 2       |3                 |VM-storlek och nätverk kostnad                        |
-
-> [!WARNING]
-> För enstaka identifiering om du precis har en högre nivå för statistik, ska det ta upp till en dag att generera prestandaräknare. Därför rekommenderar vi att du kör identifieringen efter en dag. Vänta minst en dag när du har startat identifieringen att profilera miljön och sedan skapa utvärderingar för identifiering av kontinuerlig-modellen.
 
 ### <a name="run-the-collector-to-discover-vms"></a>Kör insamlaren för att identifiera virtuella datorer
 
@@ -280,16 +259,41 @@ För varje typ av upptäckt du behöver utföra, kör insamlaren för att identi
 6.  I **ange migreringsprojekt**, ange ID och nyckel för projektet. Om du inte kopierade dem öppnar du Azure-portalen från den Virtuella insamlardatorn. På projektets **översikt** väljer **identifiera datorer** och kopierar värdena.  
 7.  I **visa insamlingsförloppet**, övervaka identifieringsprocessen och kontrollera att metadata som samlas in från de virtuella datorerna är i omfattningen. Insamlaren visar en ungefärlig identifieringstid.
 
-
 #### <a name="verify-vms-in-the-portal"></a>Verifiera virtuella datorer i portalen
 
-För engångsidentifiering beror identifieringstiden på hur många virtuella datorer du identifierar. Normalt tar 100 virtuella datorer när insamlaren är klar att köra det cirka en timme och datainsamling att slutföra. Du kan skapa utvärderingar (både prestandabaserade och som lokala utvärderingar) direkt när identifieringen är klar.
-
-För kontinuerlig identifiering (i förhandsversion) kommer insamlaren kontinuerligt profilera den lokala miljön och fortsätta skicka prestandadata med ett intervall på en timma. Du kan granska datorer i portalen en timme efter att identifieringen startades. Vi rekommenderar starkt att vänta minst en dag innan du skapar några prestandabaserade utvärderingar för de virtuella datorerna.
+Insamlaren kommer kontinuerligt profilera den lokala miljön och kommer fortsätta skicka prestandadata vid ett timmesintervall som. Du kan granska datorer i portalen en timme efter att identifieringen startades. Vi rekommenderar starkt att vänta minst en dag innan du skapar några prestandabaserade utvärderingar för de virtuella datorerna.
 
 1. I migrationsprojektet klickar du på **Hantera** > **Datorer**.
 2. Kontrollera att de virtuella datorer som du vill identifiera visas i portalen.
 
+### <a name="data-collected-from-on-premises-environment"></a>Data som samlas in från en lokal miljö
+
+Insamlingsprogrammet identifieras följande konfigurationsdata om de valda virtuella datorerna.
+
+1. VM-visningsnamn (på vCenter)
+2. Virtuella datorns lager sökväg (värd/mapp i vCenter)
+3. IP-adress
+4. MAC-adress
+5. Operativsystem
+5. Antal kärnor, diskar, nätverkskort
+6. Minnesstorlek, diskstorlekar
+7. Och prestandaräknarna för den virtuella datorn, disk och nätverk som anges i tabellen nedan.
+
+Insamlaren samlar in följande prestandaräknare för varje virtuell dator från ESXi-värd med ett intervall på 20 sekunder. Dessa räknare är vCenter räknare och även om termer som säger medelvärde, 20 sekunder exemplen finns räknare i realtid. Installationen sedan samlar upp 20 sekunder exemplen för att skapa en enskild datapunkt för varje kvart genom att välja det högsta värdet 20 sekunder exemplen och skickar det till Azure. Prestandadata för de virtuella datorerna börjar bli tillgänglig i portalen två timmar efter identifieringen har startats. Vi rekommenderar starkt att vänta minst en dag innan du skapar prestandabaserad utvärderingar för att få korrekt rätt storleksrekommendationer. Om du letar efter direkt, du kan skapa utvärderingar med storlekskriteriet som *som lokalt* som inte ska undersöka prestandadata för rätt storleksändring.
+
+**Räknaren** |  **Påverkan på utvärdering**
+--- | ---
+CPU.Usage.Average | Rekommenderad storlek och kostnad  
+Mem.Usage.Average | Rekommenderad storlek och kostnad  
+virtualDisk.read.average | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
+virtualDisk.write.average | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
+virtualDisk.numberReadAveraged.average | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
+virtualDisk.numberWriteAveraged.average | Beräknar diskens storlek, kostnaden för lagring, VM-storlek
+NET.Received.Average | Beräknar storlek på virtuell dator                          
+NET.Transmitted.Average | Beräknar storlek på virtuell dator     
+
+> [!WARNING]
+> Enstaka identifieringsmetod som förlitat sig på vCenter serverns statistik inställningar för insamling av prestandadata är nu föråldrad.
 
 ## <a name="next-steps"></a>Nästa steg
 

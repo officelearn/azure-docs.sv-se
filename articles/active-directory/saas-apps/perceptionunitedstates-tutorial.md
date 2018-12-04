@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 61fb9904e69f5269c345b733ef2396294c6c790a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8c29d054f2e4e9ff4b57785a57e5c6ea512623a6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448180"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840675"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Självstudier: Azure Active Directory-integrering med Perception USA (icke-UltiPro)
 
@@ -60,7 +60,7 @@ För att konfigurera integrering av Perception USA (icke-UltiPro) till Azure AD,
 
 **Utför följande steg för att lägga till Perception USA (icke-UltiPro) från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -209,7 +209,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
   
 ### <a name="create-a-perception-united-states-non-ultipro-test-user"></a>Skapa en testanvändare Perception USA (icke-UltiPro)
 
-I det här avsnittet skapar du en användare som kallas Britta Simon Perception United States (icke-UltiPro). Arbeta med [Perception USA (icke-UltiPro) supportteamet](http://www.ultimatesoftware.com/Contact/ContactUs) att lägga till användare i USA för Perception (icke-UltiPro)-plattformen.
+I det här avsnittet skapar du en användare som kallas Britta Simon Perception United States (icke-UltiPro). Arbeta med [Perception USA (icke-UltiPro) supportteamet](https://www.ultimatesoftware.com/Contact/ContactUs) att lägga till användare i USA för Perception (icke-UltiPro)-plattformen.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

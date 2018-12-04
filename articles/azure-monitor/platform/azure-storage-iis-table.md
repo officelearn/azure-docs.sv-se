@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 78ce4a2bc61d5ab343710bae9f567e6d2b15b7db
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: df5c52de14368896f77e48ebfd4ba7e4b4f38b67
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52684980"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837687"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Använda Azure blob storage för IIS och Azure table storage för händelser med Log Analytics
 
@@ -195,4 +195,4 @@ Granska följande skriptexempel, kopiera, ändra det efter behov, spara exemplet
 ## <a name="next-steps"></a>Nästa steg
 * [Samla in loggar och mått för Azure-tjänster](collect-azure-metrics-logs.md) för Azure-tjänster som stöds.
 * [Aktivera lösningar](../../azure-monitor/insights/solutions.md) att ge insikter i data.
-* [Använda sökfrågor](../../log-analytics/log-analytics-queries.md) att analysera data.
+* [Använda sökfrågor](../../azure-monitor/log-query/log-query-overview.md) att analysera data.

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b7b233532a526879e886950c3a0d8cfe169251a7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 679d812c239e0f626d2872d29bc9de7848399bc6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441510"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844608"
 ---
 # <a name="heading"></a>Exempeldata i Azure blob-behållare, SQL Server och Hive-tabeller
 
@@ -26,7 +26,7 @@ I följande artiklar beskrivs hur du sampla data som lagras i något av tre olik
 * [**SQL Server-data** ](sample-data-sql-server.md) samplas med både SQL och Python Programming språk. 
 * [**Hive-tabelldata** ](sample-data-hive.md) samplas med hjälp av Hive-frågor.
 
-Den här aktiviteten för sampling är ett steg i den [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Den här aktiviteten för sampling är ett steg i den [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 **Varför sampla data?**
 

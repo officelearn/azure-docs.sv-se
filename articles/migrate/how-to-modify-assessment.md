@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: raynew
-ms.openlocfilehash: d0cfab51b686b5b6eb9617d4424ac3f834de8d6f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 2423c4fde177ab50552af580a60c7a15550e5586
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241080"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840443"
 ---
 # <a name="customize-an-assessment"></a>Anpassa en utvärdering
 
@@ -26,7 +26,6 @@ ms.locfileid: "50241080"
     **Inställning** | **Detaljer** | **Standard**
     --- | --- | ---
     **Målplats** | Azure-platsen du vill migrera till.<br/><br/> För närvarande stöder Azure Migrate 30 regioner, bland andra: Australien, östra; Australien, sydöstra; Brasilien, södra; Kanada, centrala; Kanada, östra; Indien, centrala; USA, centrala; Kina, östra; Kina, norra; Asien, östra; USA, östra; Tyskland, centrala; Tyskland, nordöstra; USA, östra 2; Japan, östra; Japan, västra; Sydkorea, centrala; Sydkorea, södra; USA, norra centrala; Europa, norra; USA, södra centrala; Asien, sydöstra; Indien, södra; Storbritannien, södra; Storbritannien, västra; US Gov, Arizona; US Gov, Texas; US Gov, Virginia; USA, västra centrala; Europa, västra; Indien, västra; USA, västra och USA, västra 2. |  USA, västra 2 är standardplatsen.
-    **prisnivå** | Du kan ange [prisnivå (Basic/Standard)](../virtual-machines/windows/sizes-general.md) för Azure-måldatorerna. Om du planerar att migrera en produktionsmiljö, skulle du till exempel vilja överväga standardnivån. Om du å andra sidan har en miljö för utveckling och testning kanske du vill överväga Basic-nivån som har virtuella datorer med högre svarstider och lägre kostnader. | Som standard används [standardnivån](../virtual-machines/windows/sizes-general.md).
     **Lagringstyp** | Du kan använda den här egenskapen för att ange vilken typ av diskar som du vill tilldela i Azure. För som-on-premises som ändrar storlek, du vill kan du ange måldisktyp som Premium-hanterade diskar eller Standard-hanterade diskar. För prestandabaserade storleksändringar behöver ange du disk måltypen som automatisk, Premium-hanterade diskar eller Standard-hanterade diskar. När du anger lagringstypen som automatisk görs disk rekommendationen baserat på prestandadata för diskar (IOPS och dataflöde). Exempel: Om du vill uppnå en [instans VM SLA på 99,9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/), kan du ange lagringstypen som Premium-hanterade diskar som säkerställer att alla diskar i utvärderingen rekommenderas som Premium-hanterade diskar. Observera att Azure Migrate endast stöder hanterade diskar för migreringsutvärdering. | Standardvärdet är Premium-hanterade diskar (med storlekskriteriet som *som lokalt storlek*).
     **Reserverade instanser** |  Du kan också ange om du har [reserverade instanser](https://azure.microsoft.com/pricing/reserved-vm-instances/) i Azure så beräknar Azure Migrate kostnaden därefter. Reserverade instanser kan inte användas för landsbaserade regioner (Azure Government, Tyskland och Kina) och de är gäller endast för betala per användning-erbjudandet i Azure Migrate. | Standardvärdet för den här egenskapen är 3 års reserverade instanser.
     **Ändra storlek på kriterium** | Kriteriet som ska användas av Azure Migrate för att ställa in rätt storlek på virtuella datorer för Azure. Du kan antingen göra en *prestandabaserad* storleksändring eller ändra storlek på de virtuella datorerna *som lokalt*, utan att överväga prestandahistorik. | Standardalternativet är prestandabaserad storleksändring.

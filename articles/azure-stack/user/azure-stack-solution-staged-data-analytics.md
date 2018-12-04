@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/02/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: b4b81546a267e6fd082f83db8b23010f0742771f
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b043c5ebe4c2a02bd4d40ca4b2bb7d5f488f5747
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237916"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837349"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Självstudie: Skapa en lösning för dataanalys av mellanlagrade data med Azure och Azure Stack 
 
@@ -87,7 +87,7 @@ Storage-konto och blob behållare ska innehålla alla ursprungliga data som gene
 
     c.  Typ av konto: **Storage (general-purpose V1)**
 
-    d.  Plats: **västra USA**
+    d.  Plats: **USA, västra**
 
     e.  Replikering: **lokalt redundant lagring (LRS)**
 
@@ -252,7 +252,7 @@ Använd stegen och inställningar som beskrivs ovan för att skapa ett annat kon
 
 ## <a name="test-the-queue-triggered-function"></a>Funktion som utlöses av test kön
 
-1.  I Azure-portalen bläddrar du till funktionen. Expandera den **loggar** längst ned på sidan och se till att loggströmningen inte är pausad.
+1.  I Azure Stack-portalen bläddrar du till funktionen. Expandera den **loggar** längst ned på sidan och se till att loggströmningen inte är pausad.
 
 2.  Öppna Storage Explorer och Anslut till det lagringskonto som skapats i början av det här avsnittet.
 

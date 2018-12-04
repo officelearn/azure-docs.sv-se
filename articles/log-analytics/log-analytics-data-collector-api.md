@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 881188e7dab0e50b5bc62258c87cb546020c8410
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 8f12649a126cd618991dce0c98b3472a77acbb8c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723592"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841327"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Skicka data till Log Analytics med HTTP Data Collector API (förhandsversion)
 Den här artikeln visar hur du använder HTTP Data Collector API för att skicka data till Log Analytics från en REST API-klient.  Den beskriver hur du formatera data som samlas in från dina skript eller ett program, inkludera den i en begäran och få den begäran som auktoriserats av Log Analytics.  Exempel tillhandahålls för PowerShell, C# och Python.
@@ -200,7 +200,7 @@ Den här tabellen innehåller en fullständig uppsättning med statuskoder som k
 Att köra frågor mot data som skickats av den Log Analytics HTTP Data Collector API, söka efter poster med **typ** som är lika med den **LogType** värde som du angav läggas till med **_CL**. Exempel: Om du använde **MyCustomLog**, och du kommer att returnera alla poster med **typ = MyCustomLog_CL**.
 
 >[!NOTE]
-> Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-queries.md), och sedan frågan ovan skulle ändras till följande.
+> Om din arbetsyta har uppgraderats till den [nya Log Analytics-frågespråket](../azure-monitor/log-query/log-query-overview.md), och sedan frågan ovan skulle ändras till följande.
 
 > `MyCustomLog_CL`
 
@@ -469,6 +469,6 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- Använd den [Loggsöknings-API](log-analytics-queries.md) att hämta data från Log Analytics-databasen.
+- Använd den [Loggsöknings-API](../azure-monitor/log-query/log-query-overview.md) att hämta data från Log Analytics-databasen.
 
 - Läs mer om hur [skapa en datapipeline med Data Collector API](../azure-monitor/platform/create-pipeline-datacollector-api.md) med Logic Apps-arbetsflöde till Log Analytics.

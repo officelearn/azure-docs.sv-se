@@ -4,14 +4,14 @@ description: Lär dig hur du konfigurerar en Linux-huvudmålserver för återst�
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 415b50b94052e7d428ddfa55d5288c8954a3ff1a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e35a8cf720fffa3a3b4c7d9f1b83c2323041b1c4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212377"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833320"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installera en Linux-huvudmålserver för återställning efter fel
 När du växlar över dina virtuella datorer till Azure kan du återställa dit de virtuella datorerna till den lokala platsen. För att återställa, måste du återaktivera skyddet för den virtuella datorn från Azure till den lokala platsen. För den här processen behöver du ett lokala huvudmålservern tar emot trafiken. 
@@ -259,7 +259,7 @@ Använd följande steg för att skapa en kvarhållningsdisken:
     
     Välj **infoga** att börja redigera filen. Skapa en ny rad och Lägg till följande text. Redigera diskens multipath ID baserat på det markerade multipath ID från föregående kommando.
 
-    **/dev/mapper/ <Retention disks multipath id> /mnt/kvarhållning ext4 rw 0 0**
+     **/dev/mapper/ <Retention disks multipath id> /mnt/kvarhållning ext4 rw 0 0**
 
     Välj **Esc**, och skriv sedan **: wq** (skriva och avsluta) att Stäng editor-fönstret.
 

@@ -7,25 +7,25 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 588ce454248f0577a52515a4327d1e43013d34a5
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f8ebb282d3f6abbc37739891c0f7228bef110d82
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581807"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842687"
 ---
 # <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>Självstudie: Anpassa användargränssnittet i dina program i Azure Active Directory B2C
 
-För vanligare användarupplevelser, till exempel registrering, inloggning och profilredigering, du kan använda [inbyggda principer](active-directory-b2c-reference-policies.md) i Azure Active Directory (Azure AD) B2C. Informationen i den här självstudien hjälper dig att lära dig hur du [anpassa användargränssnittet (UI)](customize-ui-overview.md) av dessa upplevelser med din egen HTML och CSS-filer.
+För allt vanligare användarupplevelser, som registrering, inloggning och profilredigering, du kan använda [användarflöden](active-directory-b2c-reference-policies.md) i Azure Active Directory (Azure AD) B2C. Informationen i den här självstudien hjälper dig att lära dig hur du [anpassa användargränssnittet (UI)](customize-ui-overview.md) av dessa upplevelser med din egen HTML och CSS-filer.
 
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Skapa filer för anpassning av Användargränssnittet
-> * Skapa en princip för registrering och inloggning som använder filerna som
+> * Skapa ett användarflöde i registrera dig och logga in som använder filerna som
 > * Testa det anpassade Användargränssnittet
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
@@ -61,7 +61,7 @@ Du skapar ett Azure storage-konto och en behållare och placera grundläggande H
 
 ### <a name="enable-cors"></a>Aktivera CORS
 
- Azure AD B2C-kod i en webbläsare använder en modern och standard-metod för att läsa in anpassat innehåll från en URL som du anger i en princip. Cross-origin resource sharing (CORS) tillåter begränsade resurser på en webbsida att begäras från andra domäner.
+ Azure AD B2C-kod i en webbläsare använder en modern och standard-metod för att läsa in anpassat innehåll från en URL som du anger i ett användarflöde. Cross-origin resource sharing (CORS) tillåter begränsade resurser på en webbsida att begäras från andra domäner.
 
 1. I menyn, Välj **CORS**.
 2. För **tillåtna ursprung**, ange `https://your-tenant-name.b2clogin.com`. Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient. Till exempel `https://fabrikam.b2clogin.com`. Du måste använda gemener när du anger namnet på din klientorganisation.
@@ -137,9 +137,9 @@ I den här självstudien får lagra du de filer som du skapade i storage-konto s
 4. Kopiera URL: en för filen du laddade upp för att använda senare i självstudien.
 5. Upprepa steg 3 och 4 för den *style.css* fil.
 
-## <a name="create-a-sign-up-and-sign-in-policy"></a>Skapa en princip för registrering och inloggning
+## <a name="create-a-sign-up-and-sign-in-user-flow"></a>Skapa ett användarflöde för registrering och logga in
 
-För att slutföra stegen i den här självstudien måste du skapa ett testprogram och en princip för registrering eller inloggning i Azure AD B2C. Du kan använda de principer som beskrivs i den här kursen och andra användarupplevelser, till exempel profilredigering.
+För att slutföra stegen i den här självstudien måste du skapa ett flöde för test-program och registrera dig eller logga in användaren i Azure AD B2C. Du kan använda de principer som beskrivs i den här kursen och andra användarupplevelser, till exempel profilredigering.
 
 ### <a name="create-an-azure-ad-b2c-application"></a>Skapa ett Azure AD B2C-program
 
@@ -153,29 +153,34 @@ Kommunikation med Azure AD B2C sker via ett program som du skapar i din klient. 
 6. För **Webbapp / webb-API**väljer `Yes`, och ange sedan `https://jwt.ms` för den **svars-URL**.
 7. Klicka på **Skapa**.
 
-### <a name="create-the-policy"></a>Skapa principen
+### <a name="create-the-user-flow"></a>Skapa användarflödet
 
-Om du vill testa din anpassningsfiler, kan du skapa en inbyggd princip registrering eller inloggning som använder det program som du skapade tidigare.
+Om du vill testa din anpassningsfiler kan du skapa ett användarflöde för inbyggda registrerings- eller logga in som använder det program som du skapade tidigare.
 
-1. I din Azure AD B2C-klient väljer **registrerings-eller logga in**, och klicka sedan på **Lägg till**.
-2. Ange ett namn för principen. Till exempel *signup_signin*. Prefixet *B2C_1* läggs automatiskt till i namnet när principen har skapats.
-3. Välj **identitetsprovidrar**anger **e-post registrering** ett lokalt konto och klicka sedan på **OK**.
-4. Välj **registreringsattribut**, Välj de attribut som du vill samla in från kunden under registreringen. Till exempel **Land/Region**, **visningsnamn**, och **postnummer**, och klicka sedan på **OK**.
-5. Välj **Programanspråk**, välja anspråk som du vill ska returneras i de auktoriseringstoken som skickas tillbaka till programmet efter en lyckad registrering eller inloggning upplevelse. Välj exempelvis **visningsnamn**, **identitetsprovidern**, **postnummer**, **användare är ny** och **användarobjekt-ID** , och klicka sedan på **OK**.
-6. Välj **Page UI anpassning**väljer **enhetliga sidan för registrering eller inloggning**, och klicka på **Ja** för **Använd anpassad sida**.
-7. I **anpassad sida URI**, anger du Webbadressen för den *anpassade ui.html* filen du sparade tidigare och klicka sedan på **OK**.
-8. Klicka på **Skapa**.
+1. I din Azure AD B2C-klient väljer **användarflöden**, och klicka sedan på **nytt användarflöde**.
+2. På den **rekommenderas** fliken **logga och logga in**.
+3. Ange ett namn för användarflödet. Till exempel *signup_signin*. Prefixet *B2C_1* läggs automatiskt till i namnet när användarflödet har skapats.
+4. Under **identitetsprovidrar**väljer **e-post registrering**.
+5. Under **användarattribut och anspråk**, klickar du på **visa fler**.
+6. I den **samla in attributet** kolumn, Välj de attribut som du vill samla in från kunden under registreringen. Till exempel **Land/Region**, **visningsnamn**, och **postnummer**.
+7. I den **returnerar anspråk** kolumnen välja anspråk som du vill ska returneras i de auktoriseringstoken som skickas tillbaka till programmet efter en lyckad registrering eller inloggning upplevelse. Välj till exempel **visningsnamn**, **identitetsprovidrar**, **postnummer**, **ny användare** och **användarobjekt-id**.
+8. Klicka på **OK**.
+9. Klicka på **Skapa**.
+10. Under **anpassa**väljer **sidan layouter**. Välj **enhetliga sidan för registrering eller inloggning**, och klicka på **Ja** för **Använd anpassat sidinnehåll**.
+11. I **anpassad sida URI**, anger du Webbadressen för den *anpassade ui.html* -fil som du antecknade tidigare.
+12. Överst på sidan klickar du på **spara**.
 
-## <a name="test-the-policy"></a>Testa principen
+## <a name="test-the-user-flow"></a>Testa användarflödet
 
-1. I din Azure AD B2C-klient väljer **registrerings-eller logga in**, och markerar den princip som du skapade. Till exempel *B2C_1_signup_signin*.
-2. Se till att det program som du skapat är markerad i **Välj program**, och klicka sedan på **kör nu**.
+1. I din Azure AD B2C-klient väljer **användarflöden** och välj det användarflöde som du skapade. Till exempel *B2C_1_signup_signin*.
+2. Överst på sidan klickar du på **kör användarflödet**.
+3. Klicka på den **kör användarflödet** knappen.
 
-    ![Kör princip för registrering eller inloggning](./media/tutorial-customize-ui/signup-signin.png)
+    ![Kör registrering eller inloggning användarflödet](./media/tutorial-customize-ui/run-user-flow.png)
 
     Du bör se en sida som liknar följande exempel med de element som inriktade baserat på CSS-filen som du skapade:
 
-    ![Gruppolicy-resultat](./media/tutorial-customize-ui/run-now.png) 
+    ![Användaren flow resultat](./media/tutorial-customize-ui/run-now.png) 
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -183,7 +188,7 @@ I den här artikeln har du lärt dig hur du:
 
 > [!div class="checklist"]
 > * Skapa filer för anpassning av Användargränssnittet
-> * Skapa en princip för registrering och inloggning som använder filerna som
+> * Skapa ett användarflöde i registrera dig och logga in som använder filerna som
 > * Testa det anpassade Användargränssnittet
 
 > [!div class="nextstepaction"]

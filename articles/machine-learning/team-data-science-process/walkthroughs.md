@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: tdsp
 ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 28586d960bab75704a0aae6e39517ae83a74d60e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 13279771306fabd497acdf0d019a8cce2f70a93f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495889"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844117"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Genomgångar kör Team Data Science Process
 
@@ -42,5 +42,5 @@ En beskrivning av de viktigaste komponenterna som utgör Team Data Science Proce
 
 En beskrivning av livscykeln för Team Data Science Process som du kan använda för att strukturera dina dataforskningsprojekt finns [Team Data Science Process-livscykeln](lifecycle.md). Livscykeln beskrivs stegen, från början till slut att projekt vanligtvis följer när de utförs. 
 
-En översikt över avsnitt som vägleder dig genom de uppgifter som utgör datavetenskapsprocess i Azure finns i [Data Science Process](https://aka.ms/datascienceprocess). 
+En översikt över avsnitt som vägleder dig genom de uppgifter som utgör datavetenskapsprocess i Azure finns i [Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 20d1e39a2f2cda66f3b490000f48dd6c5fb72915
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 9e72eafc49167848996328774f7d18198667aa3d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727356"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845254"
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: Single page app logga in med hjälp av OAuth 2.0 implicit flöde
 
@@ -25,7 +25,7 @@ Många moderna appar innehåller en ensidesapp klientdel som främst är skriven
 * Många servrar för auktorisering och identitetsprovidrar har inte stöd för cross-origin resource sharing (CORS) begäranden.
 * Hela sidan webbläsaren omdirigeras från appen kan vara betydligt inkräktande användarupplevelsen.
 
-Stöd för dessa program, Azure Active Directory B2C (Azure AD B2C) använder det implicita flödet för OAuth 2.0. Implicit beviljande flöde för OAuth 2.0-auktorisering beskrivs i [avsnittet 4.2 av OAuth 2.0-specifikationen](http://tools.ietf.org/html/rfc6749). I implicit flöde appen tar emot token direkt från Azure Active Directory (Azure AD) tillåta slutpunkt utan någon exchange server-till-server. Placera helt i JavaScript-klienter utan ytterligare sidomdirigeringar alla autentiseringslogiken och hantering av tar-session.
+Stöd för dessa program, Azure Active Directory B2C (Azure AD B2C) använder det implicita flödet för OAuth 2.0. Implicit beviljande flöde för OAuth 2.0-auktorisering beskrivs i [avsnittet 4.2 av OAuth 2.0-specifikationen](https://tools.ietf.org/html/rfc6749). I implicit flöde appen tar emot token direkt från Azure Active Directory (Azure AD) tillåta slutpunkt utan någon exchange server-till-server. Placera helt i JavaScript-klienter utan ytterligare sidomdirigeringar alla autentiseringslogiken och hantering av tar-session.
 
 Azure AD B2C utökar OAuth 2.0 standard implicit flöde som är högre än enkel autentisering och auktorisering. Azure AD B2C introducerar den [principparametern](active-directory-b2c-reference-policies.md). Med principparametern kan du använda OAuth 2.0 att lägga till principer till din app, till exempel registrering, inloggning, och profilera management användarflöden. I den här artikeln har visar vi hur du använder implicit flöde och Azure AD för att implementera var och en av dessa upplevelser i dina enkelsidigt program. För att hjälpa dig att komma igång, ta en titt på våra [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) och [Microsoft.NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) exempel.
 
@@ -138,7 +138,7 @@ error=access_denied
 | state |Se den fullständiga beskrivningen i tabellen ovan. Om en `state` parametern ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att den `state` värden i begäran och svar är identiska.|
 
 ## <a name="validate-the-id-token"></a>Verifiera ID-token
-Ta emot ett ID-token är inte tillräckligt för att autentisera användaren. Du måste verifiera signaturen för ID-token och verifiera anspråken i token enligt krav för din app. Azure AD B2C använder [JSON Web token (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) och kryptering med offentlig nyckel att signera token och kontrollera att de är giltiga.
+Ta emot ett ID-token är inte tillräckligt för att autentisera användaren. Du måste verifiera signaturen för ID-token och verifiera anspråken i token enligt krav för din app. Azure AD B2C använder [JSON Web token (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) och kryptering med offentlig nyckel att signera token och kontrollera att de är giltiga.
 
 Många bibliotek med öppen källkod är tillgängliga för att verifiera JWTs, beroende på vilket språk du föredrar att använda. Överväg att utforska tillgängliga bibliotek med öppen källkod i stället för att implementera dina egna validering av logik. Du kan använda informationen i den här artikeln för att lära dig hur du använder dessa bibliotek korrekt.
 
@@ -161,7 +161,7 @@ När du har validerat signaturen för ID-token, Kräv verifiering av flera anspr
 * Verifiera den `aud` anspråk som ska se till att ID-token har utfärdats för din app. Dess värde bör vara program-ID för din app.
 * Verifiera den `iat` och `exp` utger sig för att se till att ID-token inte har gått ut.
 
-Flera mer verifieringar som du bör utföra beskrivs i detalj i de [OpenID Connect Core Spec](http://openid.net/specs/openid-connect-core-1_0.html). Du kanske också vill validera ytterligare anspråk, beroende på ditt scenario. Vissa vanliga verifieringar är:
+Flera mer verifieringar som du bör utföra beskrivs i detalj i de [OpenID Connect Core Spec](https://openid.net/specs/openid-connect-core-1_0.html). Du kanske också vill validera ytterligare anspråk, beroende på ditt scenario. Vissa vanliga verifieringar är:
 
 * Se till att användaren eller organisationen har registrerat dig för appen.
 * Se till att användaren har rätt behörighet och behörigheter.

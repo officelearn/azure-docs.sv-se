@@ -11,17 +11,17 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 86e60f339af3d6d467b68d5d3b27d77a9861add1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/03/2018
+ms.openlocfilehash: ff9011dda4a94f323b430a3860eadc8d970a23f7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244091"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838624"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Använda Azure Active Directory-autentisering för autentisering med SQL
 
-Azure Active Directory-autentisering är en mekanism för att ansluta till Azure [SQL Database](sql-database-technical-overview.md) och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) med hjälp av identiteter i Azure Active Directory (AD Azure). 
+Azure Active Directory-autentisering är en mekanism för att ansluta till Azure [SQL Database](sql-database-technical-overview.md), [Managed Instance](sql-database-managed-instance.md), och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) med hjälp av identiteter i Azure Active Directory (AD Azure). 
 
 > [!NOTE]
 > Det här avsnittet gäller för Azure SQL-servern, och för både SQL Database- och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse.
@@ -84,15 +84,7 @@ Följande medlemmar av Azure AD kan etableras i Azure SQL-server eller SQL Data 
 - Importerade medlemmar från andra Azure AD som är interna eller externa domänmedlemmar.
 - Active Directory-grupper skapas som säkerhetsgrupper.
 
-Azure AD-begränsningar som rör hanterade instansen:
-
-- Endast Azure AD-administratören kan skapa databaser, Azure AD-användare är begränsade till en enda databas och har inte denna behörighet
-- Databasen ägarskap:
-  - Azure AD-huvudnamn kan inte ändra ägarskap för databasen (ALTER AUTHORIZATION på databas) och kan inte anges som ägare.
-  - Ingen ägare har angetts för databaser som skapats av Azure AD-administratör (owner_sid fält i sys.sysdatabases är 0x1).
-- SQL Agent kan inte hanteras när du har loggat in med Azure AD-huvudkonton.
-- Azure AD-administratören kan inte personifieras med EXECUTE AS
-- DAC-anslutning stöds inte med Azure AD-huvudkonton.
+Azure AD-inloggningar och användare stöds som en förhandsversion av funktionen för [hanterade instanser](sql-database-managed-instance.md)
 
 Dessa systemfunktioner returnerar NULL-värden när den körs under Azure AD-huvudkonton:
 

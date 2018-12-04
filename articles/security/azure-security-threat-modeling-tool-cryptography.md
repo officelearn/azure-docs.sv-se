@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 4128d113535c67c0b440dc3fb275af05b5c1c1ae
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 79803a749b6d08c94bcbf5f3ca66aac8b7294fa3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306153"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844659"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Security ram: Kryptografi | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -172,8 +172,8 @@ ms.locfileid: "43306153"
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Enhetens OS - Windows IoT Core enhetsanslutning - SDK: er för Azure IoT-enheter |
-| **Referenser**              | [TPM på Windows IoT Core](https://developer.microsoft.com/windows/iot/docs/tpm), [konfigurera TPM på Windows IoT Core](https://developer.microsoft.com/windows/iot/win10/setuptpm), [Azure IoT Device SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
-| **Steg** | Symmetric eller certifikatets privata nycklar på ett säkert sätt i en maskinvara skyddad lagring som TPM eller smartkort-kretsar. Windows 10 IoT Core har stöd för användare med en TPM och det finns flera kompatibla TPM: er som kan användas: https://developer.microsoft.com/windows/iot/win10/tpm. Det rekommenderas att använda en inbyggd programvara eller diskret TPM. Programvara TPM bör endast användas för utveckling och testning. När en TPM är tillgänglig och nycklarna har etablerats i den koden som skapar token ska skrivas utan att hårdkoda känslig information i den. | 
+| **Referenser**              | [TPM på Windows IoT Core](https://developer.microsoft.com/windows/iot/docs/tpm), [konfigurera TPM på Windows IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/setuptpm), [Azure IoT Device SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
+| **Steg** | Symmetric eller certifikatets privata nycklar på ett säkert sätt i en maskinvara skyddad lagring som TPM eller smartkort-kretsar. Windows 10 IoT Core har stöd för användare med en TPM och det finns flera kompatibla TPM: er som kan användas: https://docs.microsoft.com/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm. Det rekommenderas att använda en inbyggd programvara eller diskret TPM. Programvara TPM bör endast användas för utveckling och testning. När en TPM är tillgänglig och nycklarna har etablerats i den koden som skapar token ska skrivas utan att hårdkoda känslig information i den. | 
 
 ### <a name="example"></a>Exempel
 ```

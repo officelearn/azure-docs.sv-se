@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 558df3fa70989aaf9ba182df3a918994c7dc9db6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1f1797cf3022285f81991eb15818b68df195de4b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243717"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834136"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Lägg till ägare och användare i Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -69,15 +69,11 @@ Följande steg vägleder dig genom processen att lägga till ägare eller använ
 3. Listan över labbar, Välj önskade labbet.
 4. På den labb-bladet och välj **konfiguration och principer**. 
 5. På den **konfiguration och principer** väljer **åtkomstkontroll (IAM)** på menyn till vänster. 
-6. Välj **Lägg till** i verktygsfältet för att lägga till en användare till en roll.
-
-    ![Lägga till användare](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
+6. Välj **Lägg till rolltilldelning** i verktygsfältet för att lägga till en användare till en roll.
 1. I den **Lägg till behörigheter** fönstret göra följande: 
     1. Välj en roll (till exempel: DevTest Labs-användare). Avsnittet [åtgärder som kan utföras i varje roll](#actions-that-can-be-performed-in-each-role) visar de olika åtgärder som kan utföras av användare i rollerna ägare, DevTest-användare och deltagare.
     2. Välj användaren som ska läggas till rollen. 
     3. Välj **Spara**. 
-
-        ![Lägg till användare i rollen](./media/devtest-lab-add-devtest-user/add-user.png) 
 11. När du återgår till den **användare** bladet användaren har lagts till.  
 
 ## <a name="add-an-external-user-to-a-lab-using-powershell"></a>Lägga till en extern användare i ett labb med hjälp av PowerShell

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: dbf21c7c22a9b3273a65f7e186a2ac02ccae6ba2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b933bc5f5ecb39c3462e4e9bd300f1e07fd718c0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436215"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838783"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Självstudier: Azure Active Directory-integrering med Symantec Web Security Service (VSS)
 
@@ -63,7 +63,7 @@ För att konfigurera integrering av Symantec Web Security Service (WSS) till Azu
 
 **Utför följande steg för att lägga till Symantec Web Security Service (VSS) från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -170,7 +170,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 I det här avsnittet skapar du en användare som kallas Britta Simon i Symantec Web Security Service (VSS). Motsvarande slutet användarnamnet kan skapas manuellt i WSS-portalen eller väntar du tills användare/grupper som etableras i Azure AD som ska synkroniseras med WSS portalen efter några minuter (~ 15 minuter). Användare måste skapas och aktiveras innan du använder enkel inloggning. Offentliga IP-adressen för den datorn för slutanvändaren som ska användas för att bläddra webbplatser måste också vara etablerade i Symantec Web Security Service (VSS)-portalen.
 
 > [!NOTE]
-> . [Klicka här](http://www.bing.com/search?q=my+ip+address&qs=AS&pq=my+ip+a&sc=8-7&cvid=29A720C95C78488CA3F9A6BA0B3F98C5&FORM=QBLH&sp=1) att hämta din dator är offentliga IP-adress.
+> . [Klicka här](https://www.bing.com/search?q=my+ip+address&qs=AS&pq=my+ip+a&sc=8-7&cvid=29A720C95C78488CA3F9A6BA0B3F98C5&FORM=QBLH&sp=1) att hämta din dator är offentliga IP-adress.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

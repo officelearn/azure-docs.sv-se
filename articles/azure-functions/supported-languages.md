@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/02/2018
 ms.author: glenga
-ms.openlocfilehash: 15d2e40127579fbd278cc3dc18653d782a515caa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5f55122b3bf4bb7160459d524b20dd1303cc0fd8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957320"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835428"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Språk som stöds i Azure Functions
 
@@ -37,11 +37,9 @@ Det finns tre nivåer av support:
 
 ### <a name="experimental-languages"></a>Experimentella språk
 
-Experimentella språk i version 1.x inte skalbarheten och stöder inte alla bindningar. Till exempel 1.x Python är långsam eftersom Functions-körningen körs *python.exe* med varje funktionsanrop. Och medan Python har stöd för HTTP-bindningar, den kan inte komma åt Begäranobjektet.
+Experimentella språk i version 1.x inte skalbarheten och stöder inte alla bindningar. Till exempel är experimentella stöd för PowerShell i 1.x begränsad till version 5.1, eftersom det är vad som är installerat som standard på de virtuella datorerna på vilka funktionsappar kör. Om du vill köra PowerShell-skript kan du överväga att [Azure Automation](https://azure.microsoft.com/services/automation/).
 
-Experimentella stöd för PowerShell i 1.x är begränsad till version 5.1, eftersom det är vad som är installerat som standard på de virtuella datorerna på vilka funktionsappar kör. Om du vill köra PowerShell-skript kan du överväga att [Azure Automation](https://azure.microsoft.com/services/automation/).
-
-Använd inte experimentella språk för sådant som du litar på, eftersom det finns inget officiella stöd för dessa. Bör inte att öppna supportärenden för problem med experimentella språk. 
+Använd inte experimentella funktioner för sådant som du litar på, eftersom det finns inget officiella stöd för dessa. Bör inte att öppna supportärenden för problem med experimentella språk. 
 
 Version 2.x-körningen stöder inte experimentella språk. Stöd för nya språk läggs endast när språket som kan användas i produktion. 
 
@@ -64,3 +62,6 @@ Om du vill veta mer om hur du använder ett av de allmänt tillgängliga eller p
 
 > [!div class="nextstepaction"]
 > [Java](functions-reference-java.md)
+
+> [!div class="nextstepaction"]
+> [Python](functions-reference-python.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: 5f7c82143ab11787f5ce186623c1ed4903891c18
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 3ea446a726634ead520b902bd00a54cd8ae32b70
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680359"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844132"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Övervakning av data som samlas in av Azure Monitor
 [Azure Monitor](../../azure-monitor/overview.md) är en tjänst som hjälper dig att övervaka dina program och resurser som de förlitar sig på. Centrala för den här funktionen är lagring av telemetri och andra data från övervakade resurser. Den här artikeln innehåller en fullständig beskrivning av hur dessa data lagras och används av Azure Monitor.
@@ -161,7 +161,7 @@ Uppgifter som du kan utföra med loggar som följande:
 - Komma åt mätvärden värden från en kommandorad eller anpassade program med hjälp av [PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) eller [REST API](https://dev.loganalytics.io/).
 
 ### <a name="viewing-log-data"></a>Visa loggdata
-Alla data från Log Analytics hämtas med hjälp av en [loggfråga](../../log-analytics/log-analytics-queries.md) som anger en viss uppsättning data. Frågor skrivs med den [Log Analytics-frågespråket](../../log-analytics/query-language/get-started-queries.md) som är ett funktionsrikt frågespråk för att snabbt hämta, konsolidera och analysera insamlade data. Använd den [sidan Log Analytics](../../log-analytics/log-analytics-log-search-portals.md) i Azure portal för att direkt analysera data i dina mått lagra och skapa diagram över värdena för flera mått med tiden. Du kan visa diagrammen interaktivt eller fästa dem på en instrumentpanel för att visa dem med andra visualiseringar. Du kan också hämta mått med hjälp av den [Azure monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+Alla data från Log Analytics hämtas med hjälp av en [loggfråga](../../azure-monitor/log-query/log-query-overview.md) som anger en viss uppsättning data. Frågor skrivs med den [Log Analytics-frågespråket](../../log-analytics/query-language/get-started-queries.md) som är ett funktionsrikt frågespråk för att snabbt hämta, konsolidera och analysera insamlade data. Använd den [sidan Log Analytics](../../log-analytics/log-analytics-log-search-portals.md) i Azure portal för att direkt analysera data i dina mått lagra och skapa diagram över värdena för flera mått med tiden. Du kan visa diagrammen interaktivt eller fästa dem på en instrumentpanel för att visa dem med andra visualiseringar. Du kan också hämta mått med hjälp av den [Azure monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 ![Logs](media/data-collection/logs.png)
 

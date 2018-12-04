@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: d79513569b53d2b8958f44fbfac3839c91caaff8
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 3b75e8607c85f79bb64c57c2154115c41ebe8366
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634310"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835530"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Förfina grupper med beroendemappning för grupp
 
@@ -32,8 +32,9 @@ Om du vill använda visualisering av beroenden, måste du koppla en Log Analytic
 
     ![Associera arbetsytan för Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
 
-- När du skapar en ny arbetsyta kan behöva du ange ett namn för arbetsytan. Arbetsytan skapas i samma prenumeration som migration-projekt och i en region i samma [Azure geografi](https://azure.microsoft.com/global-infrastructure/geographies/) som migration-projekt.
-- Den **Använd befintlig** alternativet visas endast arbetsytor som skapas i regioner där Tjänstkarta är tillgänglig. Om du har en arbetsyta i en region där Tjänstkarta inte är tillgänglig kan visas den inte i listrutan.
+- När du kopplar en arbetsyta, får du alternativet för att skapa en ny arbetsyta eller bifoga en befintlig:
+    - När du skapar en ny arbetsyta kan behöva du ange ett namn för arbetsytan. Arbetsytan skapas i en region i samma [Azure geografi](https://azure.microsoft.com/global-infrastructure/geographies/) som migration-projekt.
+    - När du ansluter en befintlig arbetsyta, kan du välja från alla tillgängliga arbetsytor i samma prenumeration som migration-projekt. Observera att endast dessa arbetsytor visas som har skapats i en region där [Tjänstkarta stöds](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). Se till att du har ”läsare” åtkomst till arbetsytan om du vill kunna bifoga en arbetsyta.
 
 > [!NOTE]
 > Du kan inte ändra arbetsytan som är kopplad till ett migreringsprojekt.
@@ -63,7 +64,6 @@ Installera agenten på en Linux-dator:
 2. Installera paketet med hjälp av argumentet--install.
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
-
 
 ### <a name="install-the-dependency-agent"></a>Installera beroendeagenten
 1. Installera beroendeagenten på en Windows-dator, dubbelklicka på installationsfilen och följ anvisningarna i guiden.

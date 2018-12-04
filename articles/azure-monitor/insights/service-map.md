@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: c25bc5d577096078694e3af0de74debe0f906251
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: dd7f76e20e43e24c31f5afd8c8d9eb97db04255f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828748"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843231"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Med lösningen Tjänstkarta i Azure
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Med Service Map, du kan visa dina servrar på det sätt som du tänker på dem: sammankopplat system som levererar viktiga tjänster. Service Map ser du anslutningarna mellan servrar, processer, svarstid för inkommande och utgående anslutningar, och portar i alla TCP-anslutna arkitekturer utan konfiguration måste installera en agent.
@@ -277,7 +277,7 @@ Den **uppdateringar för virtuella datorer** fönstret visar data från lösning
 ![Datorn ändringsspårning fönstret](media/service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Log Analytics-poster
-Tjänstkarta-datorn och processen inventeringsdata är tillgänglig för [search](../../log-analytics/log-analytics-queries.md) i Log Analytics. Du kan använda dessa data för scenarier som omfattar planering av migreringsaktiviteter, kapacitetsanalys, identifiering och prestandafelsökning för på begäran.
+Tjänstkarta-datorn och processen inventeringsdata är tillgänglig för [search](../../azure-monitor/log-query/log-query-overview.md) i Log Analytics. Du kan använda dessa data för scenarier som omfattar planering av migreringsaktiviteter, kapacitetsanalys, identifiering och prestandafelsökning för på begäran.
 
 En post skapas per timme för varje unika datornamn och processen, förutom de poster som genereras när en process eller datorn startas inte eller är publicerat till Tjänstkarta. Dessa poster har egenskaper i följande tabeller. Fält och värden i ServiceMapComputer_CL händelserna mappar till fält i resursen för datorer i Azure Resource Manager-API för ServiceMap. Fält och värden i ServiceMapProcess_CL händelserna mappar till fälten för Process-resurs i ServiceMap Azure Resource Manager API. Fältet ResourceName_s matchar namnfältet i motsvarande Resource Manager-resurs. 
 
@@ -353,7 +353,7 @@ För att underlätta för som IP-adressen för den fjärranslutna datorn för en
 |RemoteLatitude |Geoplats latitud.  Till exempel *47.68* |
 |RemoteLongitude |Geoplats longitud.  Till exempel *-122.12* |
 
-#### <a name="malicious-ip"></a>Skadlig IP
+#### <a name="malicious-ip"></a>Skadlig IP-adress
 Varje RemoteIp-egenskapen i *VMConnection* tabell kontrolleras mot en uppsättning IP-adresser med känd skadlig aktivitet. Om RemoteIp identifieras som skadlig följande egenskaper är ifyllda (de är tom, när den IP-Adressen inte anses vara skadlig) i följande egenskaper för posten:
 
 | Egenskap  | Beskrivning |
@@ -497,14 +497,14 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ## <a name="rest-api"></a>REST-API
 Alla data för server, process och beroenden i Tjänstkarta är tillgängligt via den [REST-API för Service Map](https://docs.microsoft.com/rest/api/servicemap/).
 
-## <a name="diagnostic-and-usage-data"></a>Diagnostik- och användningsdata
+## <a name="diagnostic-and-usage-data"></a>Diagnostik och användningsdata
 Microsoft samlar automatiskt in användnings- och data till din användning av tjänsten Tjänstkarta. Microsoft använder dessa data för att tillhandahålla och förbättra kvaliteten, säkerheten och integriteten för tjänsten Tjänstkarta. Data innehåller information om konfigurationen av din programvara, till exempel operativsystem och version, IP-adress, DNS-namn och namn på arbetsstation för att tillhandahålla korrekta och effektiva funktioner för felsökning. Microsoft samlar inte in namn, adresser eller annan kontaktinformation.
 
 Mer information om insamling och användning finns i den [sekretesspolicyn för Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om [loggsökningar](../../log-analytics/log-analytics-queries.md) i Log Analytics för att hämta data som samlas in av Tjänstkarta.
+Läs mer om [loggsökningar](../../azure-monitor/log-query/log-query-overview.md) i Log Analytics för att hämta data som samlas in av Tjänstkarta.
 
 
 ## <a name="troubleshooting"></a>Felsökning

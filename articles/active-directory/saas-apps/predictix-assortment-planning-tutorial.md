@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 1069b7f9bdc0301f840e796f49fdb4031d297cf2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a44812ccb89606416b2161a133adf2c781e81bd0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436248"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842041"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Självstudier: Azure Active Directory-integrering med Predictix sortimentet planering
 
@@ -60,7 +60,7 @@ För att konfigurera integrering av Predictix sortimentet planering i Azure AD, 
 
 **Om du vill lägga till Predictix sortimentet planera från galleriet, utför du följande steg:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -123,7 +123,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | `https://<sub-domain>.dev.ap.predictix.com`|
     
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [Predictix sortimentet Planning Client supportteamet](http://www.infor.com/support) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [Predictix sortimentet Planning Client supportteamet](https://www.infor.com/support) att hämta dessa värden. 
  
 
 
@@ -139,7 +139,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Planera konfiguration för Predictix sortimentet](./media/predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_configure.png) 
 
-1. Att konfigurera enkel inloggning på **Predictix sortimentet planera** sida, som du behöver skicka de hämtade **Certificate(Base64)**, **SAML entitets-ID**, **SAML Enkel inloggning för tjänst-URL**, och **URL: en för utloggning** till [Predictix sortimentet planera supportteamet](http://www.infor.com/support). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **Predictix sortimentet planera** sida, som du behöver skicka de hämtade **Certificate(Base64)**, **SAML entitets-ID**, **SAML Enkel inloggning för tjänst-URL**, och **URL: en för utloggning** till [Predictix sortimentet planera supportteamet](https://www.infor.com/support). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 > [!TIP]
 > Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -179,7 +179,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="create-a-predictix-assortment-planning-test-user"></a>Skapa en Predictix sortimentet planera testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon vid planering av Predictix sortimentet. Kontakta [Predictix sortimentet planera supportteamet](http://www.infor.com/contact/) att lägga till användare i Predictix sortimentet planera-plattformen.
+I det här avsnittet skapar du en användare som kallas Britta Simon vid planering av Predictix sortimentet. Kontakta [Predictix sortimentet planera supportteamet](https://www.infor.com/contact/) att lägga till användare i Predictix sortimentet planera-plattformen.
  > [!NOTE]
  > Azure Active Directory-kontoinnehavare tar emot ett e-postmeddelande och följer en länk för att bekräfta sina konton innan den blir aktiv.
 

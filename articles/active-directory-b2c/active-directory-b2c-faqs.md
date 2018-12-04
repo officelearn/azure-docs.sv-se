@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: bccbf5462668913f6f3025e8d2274c115d49457f
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 6957a18440dfc225c63a1b1843e2b47af8b841bf
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727249"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842959"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Vanliga frågor (och svar FAQ) 
 Den här sidan får du svar på vanliga frågor om Azure Active Directory (Azure AD) B2C. Kontrollera tillbaka för uppdateringar.
@@ -39,7 +39,7 @@ Användarkonton för program måste alltid skapas via ett registrering användar
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Vilka leverantörer via sociala du stöder nu? Vilka som kommer att stödja i framtiden?
 Vi stöder för närvarande Facebook, Google +, LinkedIn, Amazon, Twitter (förhandsversion), WeChat (förhandsversion), Weibo (förhandsversion) och QT (förhandsversion). Vi lägger till stöd för andra populära sociala identitetsleverantörer baserat på kundernas behov.
 
-Azure AD B2C har också lagt till stöd för [anpassade principer](active-directory-b2c-overview-custom.md).  Dessa [anpassade principer](active-directory-b2c-overview-custom.md) att en utvecklare att skapa sina egna princip som med alla identitetsprovider som stöder [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) eller SAML. 
+Azure AD B2C har också lagt till stöd för [anpassade principer](active-directory-b2c-overview-custom.md).  Dessa [anpassade principer](active-directory-b2c-overview-custom.md) att en utvecklare att skapa sina egna princip som med alla identitetsprovider som stöder [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) eller SAML. 
 
 Kom igång med anpassade principer genom att läsa vår [anpassad princip startpaket](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 

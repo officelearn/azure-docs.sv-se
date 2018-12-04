@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/17/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1db805efe7eaec77fcafeb169b3d99098b57f582
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 88cc884489c29f964d68908dd394f23b5b21790f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978986"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839406"
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Skapa en ASP.NET-webbapp med Azure Active Directory B2C registrering, inloggning, profilredigering och återställning av lösenord
 
@@ -51,27 +51,27 @@ Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och
 
 När du är klar har du både ett API och ett internt program i programinställningarna.
 
-## <a name="create-policies-on-your-b2c-tenant"></a>Skapa principer på din B2C-klient
+## <a name="create-user-flows-on-your-b2c-tenant"></a>Skapa användarflöden på din B2C-klient
 
-I Azure AD B2C definieras varje användarupplevelse av en [princip](active-directory-b2c-reference-policies.md). Det här kodexemplet innehåller tre identitetsupplevelser: **registrering och inloggning i**, **profilera redigera**, och **lösenordsåterställning**.  Du måste skapa en princip av varje typ. Mer information finns i [referensartikeln om principer](active-directory-b2c-reference-policies.md). För varje princip måste du välja Visa namnattributet eller anspråk och kopiera ned namnet på din princip för senare användning.
+I Azure AD B2C definieras varje användarupplevelse av en [användarflödet](active-directory-b2c-reference-policies.md). Användarflöden är fördefinierade principer som är tillgängliga i Azure AD B2C-portalen för att konfigurera de vanligaste identitetsupplevelser. Det här kodexemplet innehåller tre identitetsupplevelser: **registrering och inloggning i**, **profilera redigera**, och **lösenordsåterställning**.  Du behöver skapa ett användarflöde av varje typ, enligt beskrivningen i den [användaren flow referensartikeln](active-directory-b2c-reference-policies.md). För varje användarflödet Glöm inte att välja Visa namnattributet eller anspråk och kopiera ned namnet på ditt användarflöde för senare användning.
 
 ### <a name="add-your-identity-providers"></a>Lägg till dina Identitetsproviders
 
 Dina inställningar, Välj **Identitetsprovidrar** och välj registrering för användarnamn eller e-postregistrering.
 
-### <a name="create-a-sign-up-and-sign-in-policy"></a>Skapa en princip för registrering och inloggning
+### <a name="create-a-sign-up-and-sign-in-user-flow"></a>Skapa ett användarflöde för registrering och logga in
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
-### <a name="create-a-profile-editing-policy"></a>Skapa en profilredigeringsprincip
+### <a name="create-a-profile-editing-user-flow"></a>Skapa en profil som redigera användarflödet
 
 [!INCLUDE [active-directory-b2c-create-profile-editing-policy](../../includes/active-directory-b2c-create-profile-editing-policy.md)]
 
-### <a name="create-a-password-reset-policy"></a>Skapa en princip för återställning av lösenord
+### <a name="create-a-password-reset-user-flow"></a>Skapa ett användarflöde för återställning av lösenord
 
 [!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
 
-När du har skapat dina principer är du redo att skapa din app.
+När du har skapat din användarflöden är du redo att skapa din app.
 
 ## <a name="download-the-sample-code"></a>Hämta exempelkoden
 
@@ -83,16 +83,16 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 När du har laddat ned exempelkoden öppnar du SLN-filen i Visual Studio för att sätta igång. Lösningsfilen innehåller två projekt: `TaskWebApp` och `TaskService`. `TaskWebApp` är MVC-webbprogram som användaren interagerar med. `TaskService` är appens backend-webb-API som lagrar varje användares att göra-lista. I den här artikeln beskrivs bara `TaskWebApp`-programmet. Lär dig hur du skapar `TaskService` med Azure AD B2C finns i [våra .NET webb-api – självstudiekurs](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## <a name="update-code-to-use-your-tenant-and-policies"></a>Uppdatera kod för att använda din klient och principer
+## <a name="update-code-to-use-your-tenant-and-user-flows"></a>Uppdatera kod för att använda dina klient- och flöden
 
-Det här exemplet är konfigurerat att använda principerna och klient-ID:t för vår demoklientorganisation. Om du vill ansluta den till en egen klient, måste du öppna `web.config` i den `TaskWebApp` projektet och Ersätt följande värden:
+Vårt exempel har konfigurerats för att använda användarflöden och klient-ID för vår demoklientorganisation. Om du vill ansluta den till en egen klient, måste du öppna `web.config` i den `TaskWebApp` projektet och Ersätt följande värden:
 
 * `ida:Tenant` med namnet på din klientorganisation
 * `ida:ClientId` med program-ID:t för din webbapp
 * `ida:ClientSecret` med den hemliga nyckeln för din webbapp
-* `ida:SignUpSignInPolicyId` med namnet på din registrerings- eller inloggningsprincip
-* `ida:EditProfilePolicyId` med namnet på din profilredigeringsprincip
-* `ida:ResetPasswordPolicyId` med namnet på din lösenordsåterställningsprincip
+* `ida:SignUpSignInPolicyId` med ditt ”registrering eller inloggning” flödet användarnamn
+* `ida:EditProfilePolicyId` med ditt flöde användarnamn ”Redigera profil”
+* `ida:ResetPasswordPolicyId` med ditt flöde användarnamn ”Återställ lösenord”
 
 ## <a name="launch-the-app"></a>Starta appen
 Starta appen från Visual Studio. Gå till fliken att göra-lista och notera URL: en är: https://*YourTenantName*.b2clogin.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName* & client_id =*YourclientID*...
@@ -110,16 +110,16 @@ Börja genom att följa instruktionerna i följande artiklar om du vill lägga t
 * [Konfigurera Amazon som en IDP](active-directory-b2c-setup-amzn-app.md)
 * [Konfigurera LinkedIn som en IDP](active-directory-b2c-setup-li-app.md)
 
-När du lägger till identitetsprovidrarna som din B2C-katalog kan redigera var och en av dina tre principer att inkludera de nya IDP: er, enligt beskrivningen i den [referensartikeln om principer](active-directory-b2c-reference-policies.md). När du har sparat dina principer kan du köra appen igen.  Du bör se de nya IDP: er som har lagts till som inloggning och registreringsalternativ i var och en av din identitet inträffar.
+När du lägger till identitetsprovidrarna som din B2C-katalog kan redigera var och en av dina tre användarflöden att inkludera de nya IDP: er, enligt beskrivningen i den [användaren flow referensartikeln](active-directory-b2c-reference-policies.md). När du har sparat dina användarflöden kan köra appen igen.  Du bör se de nya IDP: er som har lagts till som inloggning och registreringsalternativ i var och en av din identitet inträffar.
 
-Du kan experimentera med dina principer och studera effekten på din exempelapp. Lägg till eller ta bort IDP: er, manipulera programanspråken eller ändra registreringsattribut. Experimentera tills du kan se hur principer, begäranden om autentisering och OWIN knyta ihop.
+Du kan experimentera med din användarflöden och studera effekten på din exempelapp. Lägg till eller ta bort IDP: er, manipulera programanspråken eller ändra registreringsattribut. Experimentera tills du kan se hur användarflöden begäranden om autentisering och OWIN knyta ihop.
 
 ## <a name="sample-code-walkthrough"></a>Kod exempelgenomgång
 I följande avsnitt visas hur programmet exempelkoden konfigureras. Du kan använda detta som en vägledning i din framtida apputveckling.
 
 ### <a name="add-authentication-support"></a>Lägg till stöd för autentisering
 
-Du kan nu konfigurera din app om du vill använda Azure AD B2C. Appen kan kommunicera med Azure AD B2C genom att skicka autentiseringsförfrågningar OpenID Connect. Begäranden bestämmer användarupplevelsen appen vill köra genom att ange principen. Du kan använda Microsofts OWIN-bibliotek för att skicka dessa begäranden, köra principer, hantera användarsessioner och mycket mer.
+Du kan nu konfigurera din app om du vill använda Azure AD B2C. Appen kan kommunicera med Azure AD B2C genom att skicka autentiseringsförfrågningar OpenID Connect. Begäranden bestämmer användarupplevelsen appen vill köra genom att ange användarflödet. Du kan använda Microsofts OWIN-bibliotek för att skicka dessa begäranden, köra användarflöden, hantera användarsessioner och mycket mer.
 
 #### <a name="install-owin"></a>Installera OWIN
 
@@ -207,11 +207,11 @@ public partial class Startup
 
 I `OpenIdConnectAuthenticationOptions` ovan, definierar vi en uppsättning återanropsfunktionerna för specifika meddelanden som tas emot av OpenID Connect-mellanprogram. Dessa beteenden definieras med hjälp av en `OpenIdConnectAuthenticationNotifications` objekt och lagras i den `Notifications` variabeln. I vårt exempel definierar vi tre olika återanrop beroende på händelsen.
 
-### <a name="using-different-policies"></a>Med hjälp av olika principer
+### <a name="using-different-user-flows"></a>Flöden med hjälp av en annan användare
 
-Den `RedirectToIdentityProvider` avisering utlöses när en begäran skickas till Azure AD B2C. I Återanropsfunktionen `OnRedirectToIdentityProvider`, vi checka in utgående anropet om vi vill använda en annan princip. För att göra en återställning av lösenord eller redigera en profil som du behöver använda motsvarande principen som principen i stället för ”registrering eller inloggning” standardprincipen för lösenordsåterställning.
+Den `RedirectToIdentityProvider` avisering utlöses när en begäran skickas till Azure AD B2C. I Återanropsfunktionen `OnRedirectToIdentityProvider`, vi checka in utgående anropet om vi vill använda en annan användare-flöde. För att göra en återställning av lösenord eller redigera en profil som du behöver använda motsvarande användarflödet som användarflödet i stället för standard ”registrering eller inloggning” användarflödet för lösenordsåterställning.
 
-I vårt exempel när en användare vill återställa lösenordet eller redigera profilen måste vi lägga till principen vi föredrar att använda till samma kontext som OWIN. Detta kan göras genom att göra följande:
+I vårt exempel när en användare vill återställa lösenordet eller redigera profilen måste vi lägga till användarflödet vi föredrar att använda till samma kontext som OWIN. Detta kan göras genom att göra följande:
 
 ```CSharp
     // Let the middleware know you are trying to use the edit profile policy
@@ -246,7 +246,7 @@ Den `AuthorizationCodeReceived` avisering utlöses när en auktoriseringskod tas
 
 ### <a name="handling-errors"></a>Hantera fel
 
-Den `AuthenticationFailed` avisering utlöses när autentiseringen misslyckas. Du kan hantera fel som du vill i dess motringningsmetoden. Dock bör du lägga till en kontroll för felkoden `AADB2C90118`. Under körningen av principen ”registrering eller inloggning” användaren har möjlighet att välja en **har du glömt lösenordet?** länk. I den här händelsen skickar Azure AD B2C appen den felkod som att din app ska göra en begäran i stället använda principen för lösenordsåterställning.
+Den `AuthenticationFailed` avisering utlöses när autentiseringen misslyckas. Du kan hantera fel som du vill i dess motringningsmetoden. Dock bör du lägga till en kontroll för felkoden `AADB2C90118`. Under körningen av ”registrering eller inloggning” användarflödet användaren har möjlighet att välja en **har du glömt lösenordet?** länk. I den här händelsen skickar Azure AD B2C appen den felkod som att din app ska göra en begäran i stället använda användarflödet för återställning av lösenord.
 
 ```CSharp
 /*
@@ -357,7 +357,7 @@ public void SignOut()
 }
 ```
 
-Förutom att explicit anropa en princip, kan du använda en `[Authorize]` tagg i dina domänkontrollanter som kör en princip om användaren inte har loggat in. Öppna `Controllers\HomeController.cs` och lägga till den `[Authorize]` tagg till kontrollanten anspråk.  OWIN väljer den senaste principen konfigureras när den `[Authorize]` tagg med samma namn.
+Förutom att explicit anropa ett användarflöde, kan du använda en `[Authorize]` tagg i dina domänkontrollanter som kör ett användarflöde om användaren inte har loggat in. Öppna `Controllers\HomeController.cs` och lägga till den `[Authorize]` tagg till kontrollanten anspråk.  OWIN väljer den senaste principen konfigureras när den `[Authorize]` tagg med samma namn.
 
 ```CSharp
 // Controllers\HomeController.cs

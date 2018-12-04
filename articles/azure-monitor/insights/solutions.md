@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: f056e30850168ec8a9179e1e11686f7221f6fded
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: a498c9251c305b4845cc911fc9a21fbdafda72fe
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715833"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832266"
 ---
 # <a name="management-solutions-in-azure"></a>Lösningar för hantering i Azure
 Lösningar för hantering av utnyttja tjänster i Azure för att ge ytterligare insikter i driften av ett visst program eller tjänst. Den här artikeln innehåller en kort översikt över lösningar för hantering i Azure och information om hur du använder och installeras.
@@ -104,5 +104,5 @@ Om du vill ta bort en installerad lösning, hitta det i den [listan över instal
 
 ## <a name="next-steps"></a>Nästa steg
 * Hämta en [lista med lösningar från Microsoft](solutions-inventory.md).
-* Lär dig hur du [skapa frågor](../../log-analytics/log-analytics-queries.md) att analysera data som samlas in av lösningar för hantering.
+* Lär dig hur du [skapa frågor](../../azure-monitor/log-query/log-query-overview.md) att analysera data som samlas in av lösningar för hantering.
 

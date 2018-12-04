@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 32692cbe7959650d5181c9e9dfcd7dd5ee55a46e
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 8bb95ae776c329e67e9f9936213a9f4c2a0c8f62
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024604"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842602"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Felsöka Azure AD B2C anpassade principer och Identitetsupplevelse
 
@@ -60,7 +60,7 @@ Fel utdrag: `Reason: User is currently logged as a user of 'yourtenant.onmicroso
     * Webbapp/webb API: Nej
     * Inbyggd klient: Nej
 
-* Om du vill spåra ett utbyte av meddelanden mellan klientens webbläsare och Azure AD B2C använder [Fiddler](http://www.telerik.com/fiddler). Det kan hjälpa dig få en indikation där användarresan misslyckas i orchestration-steg.
+* Om du vill spåra ett utbyte av meddelanden mellan klientens webbläsare och Azure AD B2C använder [Fiddler](https://www.telerik.com/fiddler). Det kan hjälpa dig få en indikation där användarresan misslyckas i orchestration-steg.
 
 * I **utvecklingsläge**, använda **Application Insights** att spåra aktivitet på resan Identitetsramverk användare. I **utvecklingsläge**, du kan se utbyten av anspråk mellan den Identitetsramverk och de olika Anspråksproviders som definieras av tekniska profiler, till exempel identitetsleverantörer, API-baserade tjänster i Azure AD B2C-användarkatalog och andra tjänster som Azure Multi-Factor Authentication.  
 

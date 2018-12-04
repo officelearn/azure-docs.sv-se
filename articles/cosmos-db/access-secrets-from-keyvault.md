@@ -1,20 +1,19 @@
 ---
-title: Använd Key Vault för att lagra och komma åt nycklar för Azure Cosmos DB | Microsoft Docs
+title: Använd Key Vault för att lagra och komma åt Azure Cosmos DB-nycklar
 description: Använda Azure Key Vault för att lagra och komma åt Azure Cosmos DB-anslutningssträngen, nycklar, URI'S.
 services: cosmos-db
 author: rafats
-manager: kfile
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: rafats
-ms.openlocfilehash: b090c1593b49bec4f51fea8d498860e8af8b2f4b
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: f5d494006ebafab37bd10591ad02671e192d73e8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053092"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837400"
 ---
 # <a name="use-key-vault-to-store-and-access-azure-cosmos-db-keys"></a>Använd Key Vault för att lagra och komma åt Azure Cosmos DB-nycklar
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: 10ff2118ade13980250608bf4bc238e8ff2f9c64
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 4db786723793ca309b8c0abe7c6ede848649576b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312994"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834612"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Security Center
 Den här vanliga frågor och svar innehåller frågor och svar om Azure Security Center, en tjänst som hjälper dig att förhindra, upptäcka och svara på hot med ökad insyn i och kontroll över säkerheten hos dina Microsoft Azure-resurser.
@@ -42,7 +42,7 @@ Security Center finns två nivåer:
 
 Den **kostnadsfria nivån** ger insyn i säkerhetsläget för din Azure-resurser, grundläggande säkerhetsprinciper, säkerhetsrekommendationer och integrering med säkerhetsprodukter och tjänster från partner.
 
-Den **standardnivån** lägger till Avancerat funktioner, inklusive hot intelligens, beteendeanalys, avvikelseidentifiering, säkerhetsincidenter och hotidentifiering attribution rapporter. Standardnivån är kostnadsfri de första 60 dagarna. Om du väljer att fortsätta att använda tjänsten efter 60 dagar, börjar vi automatiskt att debitera för tjänsten.  Om du vill uppgradera, Välj [prisnivå](https://docs.microsoft.com/azure/security-center/security-center-pricing) i säkerhetsprincipen.
+Den **standardnivån** lägger till Avancerat funktioner, inklusive hot intelligens, beteendeanalys, avvikelseidentifiering, säkerhetsincidenter och hotidentifiering attribution rapporter. Du kan starta en Standard tierfree-utvärderingsversion. Om du vill uppgradera, Välj [prisnivå](https://docs.microsoft.com/azure/security-center/security-center-pricing) i säkerhetsprincipen. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="permissions"></a>Behörigheter
 I Azure Security Center tillämpas [rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md), vilket innebär att det finns [förinställda roller](../role-based-access-control/built-in-roles.md) som kan ges till användare, grupper och tjänster i Azure.
@@ -133,7 +133,7 @@ Security Center kan inte identifiera i förväg att en agent är installerad.  S
 Om du tar bort tillägget Microsoft Monitoring Security Center kan inte samla in säkerhetsdata från den virtuella datorn och vissa säkerhetsrekommendationer och aviseringar är inte tillgängliga. Security Center anger att den virtuella datorn saknar tillägget och installerar om tillägget inom 24 timmar.
 
 ### <a name="how-do-i-stop-the-automatic-agent-installation-and-workspace-creation"></a>Hur förhindrar jag att agenten för automatisk installation och arbetsytan skapa?
-Du kan inaktivera automatisk etablering för dina prenumerationer i säkerhetsprincipen men detta rekommenderas inte. Stänga av Automatisk etablering gränser Security Center-rekommendationer och aviseringar. Automatisk etablering krävs för prenumerationer på prisnivån Standard. Inaktivera automatisk etablering:
+Du kan inaktivera automatisk etablering för dina prenumerationer i säkerhetsprincipen men detta rekommenderas inte. Stänga av Automatisk etablering gränser Security Center-rekommendationer och aviseringar. Inaktivera automatisk etablering:
 
 1. Om din prenumeration har konfigurerats för Standard-nivån, öppna säkerhetsprincipen för prenumerationen och välj den **kostnadsfri** nivå.
 
@@ -163,7 +163,8 @@ Du kanske vill välja bort automatisk etablering om följande gäller för dig:
 När migreringen är klar kan Security Center kan inte samla in säkerhetsdata från den virtuella datorn och vissa säkerhetsrekommendationer och aviseringar är inte tillgänglig. Om du avböjer bör du installera Microsoft Monitoring Agent manuellt. Se [rekommenderade steg när avanmäla](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
 
 ### <a name="what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning"></a>Vilka är de rekommenderade stegen när du väljer bort automatisk etablering?
-Du bör installera Microsoft Monitoring Agent manuellt så att Security Center kan samla in säkerhetsdata från dina virtuella datorer och tillhandahålla rekommendationer och aviseringar. Se [ansluta Windows-datorer till Log Analytics-tjänsten i Azure](../log-analytics/log-analytics-windows-agent.md) anvisningar för installation.
+
+Du bör installera tillägget Microsoft Monitoring Agent manuellt så att Security Center kan samla in säkerhetsdata från dina virtuella datorer och tillhandahålla rekommendationer och aviseringar. Se [agentinstallation för Windows VM](../virtual-machines/extensions/oms-windows.md) eller [agentinstallation för Linux VM](../virtual-machines/extensions/oms-linux.md) anvisningar för installation.
 
 Du kan ansluta agenten till en befintlig anpassad arbetsyta eller Security Center skapat arbetsyta. Om en anpassad arbetsyta inte har de ”säkerhet” eller ”SecurityCenterFree” lösningarna som är aktiverad, du måste använda en lösning. Om du vill använda, väljer du anpassad arbetsyta eller en prenumeration och tillämpa en prisnivå via den **säkerhetsprincip – prisnivå** bladet.
 
@@ -226,7 +227,7 @@ En lösning för Security Center är installerat på arbetsytan om det inte finn
 Om Microsoft Monitoring Agent är installerad direkt på den virtuella datorn (inte som en utökning av Azure), Security Center installera inte Microsoft Monitoring Agent och virtuella datorer är begränsad.
 
 ### <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>Security Center kan installeras lösningar i min befintliga Log Analytics-arbetsytor? Vad är fakturering effekterna?
-När Security Center identifierar att en virtuell dator är redan ansluten till en arbetsyta som du skapade, kan Security Center-lösningar i den här arbetsytan enligt din prisnivå. Lösningarna används endast för den relevanta virtuella Azure-datorer [lösningsmål](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting), så att faktureringen förblir densamma.
+När Security Center identifierar att en virtuell dator är redan ansluten till en arbetsyta som du skapade, kan Security Center-lösningar i den här arbetsytan enligt din prisnivå. Lösningarna används endast för den relevanta virtuella Azure-datorer [lösningsmål](../operations-management-suite/operations-management-suite-solution-targeting.md), så att faktureringen förblir densamma.
 
 - **Kostnadsfri nivå** – Security Center installerar 'SecurityCenterFree'-lösning på arbetsytan. Du debiteras inte för den kostnadsfria nivån.
 - **Standard-nivån** – Security Center installerar säkerhetslösningen för arbetsytan.
@@ -234,7 +235,7 @@ När Security Center identifierar att en virtuell dator är redan ansluten till 
    ![Lösningar på standardarbetsytan][4]
 
 ### <a name="i-already-have-workspaces-in-my-environment-can-i-use-them-to-collect-security-data"></a>Jag har redan arbetsytor i Min miljö, kan jag använda dem för att samla in säkerhetsdata?
-Om en virtuell dator har redan Microsoft Monitoring Agent installerad som en utökning av Azure kan använder Security Center den befintliga anslutna arbetsytan. En lösning för Security Center är installerat på arbetsytan om det inte finns redan och lösningen tillämpas endast på de relevanta virtuella datorerna via [lösningsmål](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting).
+Om en virtuell dator har redan Microsoft Monitoring Agent installerad som en utökning av Azure kan använder Security Center den befintliga anslutna arbetsytan. En lösning för Security Center är installerat på arbetsytan om det inte finns redan och lösningen tillämpas endast på de relevanta virtuella datorerna via [lösningsmål](../operations-management-suite/operations-management-suite-solution-targeting.md).
 
 När Security Center installeras Microsoft Monitoring Agent på virtuella datorer använder standard-arbetsytor som skapats av Security Center.
 

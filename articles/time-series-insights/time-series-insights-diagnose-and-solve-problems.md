@@ -10,12 +10,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 04/09/2018
-ms.openlocfilehash: 399c7b000360a73a9bab06b046be21c9d93a1c70
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: ef06e7b1abd66a2204ef982943fe24354bd7f122
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367142"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837451"
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Diagnostisera och lösa problem i din Time Series Insights-miljö
 
@@ -31,7 +31,7 @@ Den här artikeln beskriver några problem som kan uppstå i din Time Series Ins
 Det finns flera vanliga orsaker varför du inte kanske se dina data i den [Azure Time Series Insights Explorer](https://insights.timeseries.azure.com):
 
 ### <a name="possible-cause-a-event-source-data-is-not-in-json-format"></a>Möjlig orsak s: händelse källdata är inte i JSON-format
-Azure Time Series Insights har stöd för JSON-data. JSON-exempel finns [stöds JSON-former](time-series-insights-send-events.md#supported-json-shapes).
+Azure Time Series Insights har stöd för JSON-data. JSON-exempel finns [stöds JSON-former](./how-to-shape-query-json.md).
 
 ### <a name="possible-cause-b-event-source-key-is-missing-a-required-permission"></a>Möjlig orsak B: händelse källa nyckel saknas för en behörighet som krävs
 * För en IoT-hubb, måste du ange den nyckel som har **tjänsten ansluta** behörighet.
@@ -70,7 +70,7 @@ Anta exempelvis att den här miljön är mata in meddelanden från en event hub.
 
 I diagrammet visas är den dagliga ingångshändelser avgiften ~ 67,000 meddelanden. Priset motsvarar ungefär 46 meddelanden varje minut. Om varje event hub-meddelande är utplattad till en enda Time Series Insights-händelse, ser den här miljön ingen begränsning. Om varje event hub-meddelande är utplattad på 100 Time Series Insights-händelser ska sedan 4,600 händelser matas in varje minut. En S1 SKU-miljö som har en kapacitet på 3 kan endast 2 100 ingångshändelser varje minut (1 miljon händelser per dag = 700 händelser per minut på 3 enheter = 2 100 händelser per minut). Därför kan du se en fördröjning på grund av begränsning. 
 
-En översikt över hur förenkling logic fungerar, se [stöds JSON-former](time-series-insights-send-events.md#supported-json-shapes).
+En översikt över hur förenkling logic fungerar, se [stöds JSON-former](./how-to-shape-query-json.md).
 
 ### <a name="recommended-resolution-steps-for-excessive-throttling"></a>Rekommenderade Lösningssteg för långa begränsning
 Öka SKU-kapaciteten för din miljö för att åtgärda fördröjningen. Mer information finns i [så här skalar du din Time Series Insights-miljö](time-series-insights-how-to-scale-your-environment.md).

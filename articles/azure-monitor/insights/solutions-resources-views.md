@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 97e499612082d0d58cd75bb9f8854b8c4e0f669e
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 3807dcf9ea4625db72b0579e0609641e3aedb088
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635772"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845730"
 ---
 # <a name="views-in-management-solutions-preview"></a>Vyer i lösningar för hantering (förhandsversion)
 > [!NOTE]
@@ -90,7 +90,7 @@ Observera att du kan kopiera hela vyn resursen från den exporterade visa filen,
 * Variabler ska definieras i lösningen och används i egenskaperna.
 
 ### <a name="log-analytics-api-version"></a>Log Analytics-API-version
-Alla Log Analytics-resurser som definierats i en Resource Manager-mallen har en egenskap **apiVersion** som definierar versionen av API: et som resursen ska använda.  Den här versionen är olika för vyer med frågor som använder den [äldre system och det uppgraderade frågespråket](../../log-analytics/log-analytics-queries.md).  
+Alla Log Analytics-resurser som definierats i en Resource Manager-mallen har en egenskap **apiVersion** som definierar versionen av API: et som resursen ska använda.  Den här versionen är olika för vyer med frågor som använder den [äldre system och det uppgraderade frågespråket](../../azure-monitor/log-query/log-query-overview.md).  
 
  I följande tabell anger Log Analytics API-versioner för vyer i äldre och uppgraderade arbetsytor: 
 

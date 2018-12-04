@@ -3,16 +3,15 @@ title: Konfigurera virtuella nätverk och undernät-baserad åtkomst för ditt A
 description: Det här dokumentet beskriver de steg som krävs för att konfigurera en tjänstslutpunkt för virtuellt nätverk för Azure Cosmos DB.
 author: kanshiG
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 4e8891302346fa2655a4b1280b65fdd969f12909
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 73858cac4176c10ff8ce14347acb9b869471ebc2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620599"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838097"
 ---
 # <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>Få åtkomst till Azure Cosmos DB-resurser från virtuella nätverk
 

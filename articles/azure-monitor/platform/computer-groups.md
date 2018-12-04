@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 2b811029e2cadcb89238375e8fe50160a58b0c62
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 7575d55f65598d39a8ffe0c3802cf11fa7470180
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52685015"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837791"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Datorgrupper i Log Analytics loggsökningar
 
-Datorgrupper i Log Analytics kan du även agera omfång [loggsökningar](../../log-analytics/log-analytics-queries.md) till en viss uppsättning datorer.  Varje grupp har fyllts i med datorer som antingen med hjälp av en fråga som du definierar eller genom att importera grupper från olika källor.  När gruppen ingår i en loggsökning, är resultatet begränsade till poster som matchar datorerna i gruppen.
+Datorgrupper i Log Analytics kan du även agera omfång [loggsökningar](../../azure-monitor/log-query/log-query-overview.md) till en viss uppsättning datorer.  Varje grupp har fyllts i med datorer som antingen med hjälp av en fråga som du definierar eller genom att importera grupper från olika källor.  När gruppen ingår i en loggsökning, är resultatet begränsade till poster som matchar datorerna i gruppen.
 
 ## <a name="creating-a-computer-group"></a>Skapa en datorgrupp
 Du kan skapa en datorgrupp i Log Analytics med hjälp av någon av metoderna i följande tabell.  Information om varje metod finns i avsnitten nedan. 
@@ -136,5 +136,5 @@ En post skapas i Log Analytics-arbetsyta för varje datorgruppmedlemskap som ska
 | TimeGenerated |Datum och tid i datorgruppen skapades eller uppdaterades. |
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [loggsökningar](../../log-analytics/log-analytics-queries.md) att analysera data som samlas in från datakällor och lösningar.  
+* Lär dig mer om [loggsökningar](../../azure-monitor/log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar.  
 

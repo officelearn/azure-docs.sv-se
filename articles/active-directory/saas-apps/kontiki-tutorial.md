@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: e5f29a12de5f82fa13c0c61462db00b2906fdca7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e5733547aa9b8b8d0c5aa0ce033d00f8c94b3d21
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444461"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842857"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Självstudier: Azure Active Directory-integration med Kontiki
 
@@ -59,7 +59,7 @@ För att konfigurera integrering av Kontiki i Azure AD, som du behöver lägga t
 
 **Utför följande steg för att lägga till Kontiki från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
@@ -115,7 +115,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
      I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<companyname>.mc.eval.kontiki.com`
 
     > [!NOTE] 
-    > Det här värdet är inte verkliga. Uppdatera värdet med faktiska inloggnings-URL: en. Kontakta [Kontiki klienten supportteamet](http://customersupport.kontiki.com/enterprise/contactsupport.html) att hämta värdet. 
+    > Det här värdet är inte verkliga. Uppdatera värdet med faktiska inloggnings-URL: en. Kontakta [Kontiki klienten supportteamet](https://customersupport.kontiki.com/enterprise/contactsupport.html) att hämta värdet. 
  
 1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
@@ -125,7 +125,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/kontiki-tutorial/tutorial_general_400.png) 
 
-1. Att konfigurera enkel inloggning på **Kontiki** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Kontiki supportteamet](http://customersupport.kontiki.com/enterprise/contactsupport.html). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **Kontiki** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Kontiki supportteamet](https://customersupport.kontiki.com/enterprise/contactsupport.html). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 > [!TIP]
 > Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)

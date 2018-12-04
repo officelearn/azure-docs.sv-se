@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 9da64ebe675f9d481c7474a81fec294d50e49ce7
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8285632d8dea76763c65dd06e8be2d7494a47188
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215216"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839001"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replikera Azure Stack-datorer till Azure
 
@@ -207,8 +207,8 @@ Välj och kontrollera målresurserna.
 ### <a name="create-a-replication-policy"></a>Skapa replikeringsprincip
 
 1. Klicka på **förbereda infrastrukturen** > **replikeringsinställningar**.
-2. I **skapa replikeringsprincip**, ange ett principnamn.
-3. I **tröskelvärde för Replikeringspunktmål**, ange objektiva (RPO) återställningspunktgränsen.
+2. I **Skapa replikeringsprincip** anger du ett principnamn.
+3. I **Tröskelvärde för replikeringspunktmål** anger du gränsen för replikeringspunktmålet (RPO).
     - I enlighet med är tidpunkten inställd skapas återställningspunkter för replikerade data.
     - Den här inställningen påverkar inte replikering, vilket är kontinuerlig. Den kan bara utfärdar en avisering om tröskelvärdet gränsen har nåtts utan en återställningspunkt skapas.
 4. I **kvarhållning av återställningspunkt**, ange hur lång tid varje återställningspunkt sparas. Replikerade virtuella datorer kan återställas till valfri punkt i angivet tidsintervall.

@@ -6,40 +6,42 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
-ms.openlocfilehash: 8e4c86a3c9ff40f23a2a758b450d685b81dabc1a
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.reviewer: wfayed
+ms.openlocfilehash: 2a835e7cd9d4c45c1c39c3c135705cb4dff0e6fb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091908"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842194"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Tillämpa uppdateringar i Azure Stack
 
 *Gäller för: integrerade Azure Stack-system*
 
-Du kan använda Microsoft som en Azure Stack-operator, eller OEM-uppdateringspaket för Azure Stack med hjälp av Update-panelen i administratörsportalen. Du måste ladda ned uppdateringspaketet, importera paketfilerna till Azure Stack och sedan installera uppdateringspaketet. 
+Du kan använda den **uppdatera** panelen i administrationsportalen för att tillämpa Microsoft- eller OEM-uppdateringspaket för Azure Stack. Du måste ladda ned uppdateringspaketet, importera paketfilerna till Azure Stack och sedan installera uppdateringspaketet.
 
 ## <a name="download-the-update-package"></a>Ladda ned uppdateringspaketet
 
 När ett Microsoft- eller OEM-uppdateringspaket för Azure Stack är tillgänglig, ladda ned paketet till en plats som kan nås från Azure Stack och granska paketinnehållet. Ett uppdateringspaket som vanligtvis består av följande filer:
 
-- En självextraherande *PackageName*.exe-fil. Den här filen innehåller nyttolasten för uppdateringen, till exempel den senaste kumulativa uppdateringen för Windows Server.   
-- Motsvarande *PackageName*.bin-filer. Dessa filer innehåller komprimering för nyttolasten som är associerad med den *PackageName*.exe-fil. 
-- Någon Metadata.xml-fil. Den här filen innehåller viktig information om uppdateringen, till exempel utgivare, namn, krav, storlek och support sökväg URL.
+- En självextraherande `<PackageName>.exe` fil. Den här filen innehåller nyttolasten för uppdateringen, till exempel den senaste kumulativa uppdateringen för Windows Server.
+
+- Motsvarande `<PackageName>.bin` filer. Dessa filer innehåller komprimering för nyttolasten som är associerad med den *PackageName*.exe-fil.
+
+- En `Metadata.xml` fil. Den här filen innehåller viktig information om uppdateringen, till exempel utgivare, namn, krav, storlek och support sökväg URL.
 
 ## <a name="import-and-install-updates"></a>Importera och installera uppdateringar
 
 Följande procedur visar hur du importerar och installera uppdateringspaket i administratörsportalen.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Vi rekommenderar starkt att du meddela användare om eventuella underhållsåtgärder, och att du schemalägger normala underhållsfönster under tider utanför kontorstid så mycket som möjligt. Underhåll kan påverka både användaren arbetsbelastningar och åtgärder.
 
 1. I administratörsportalen kan väljer **alla tjänster**. Sedan, under den **DATA + lagring** kategori, väljer **lagringskonton**. (Eller börja skriva i filterrutan **lagringskonton**, och välj det.)
@@ -53,7 +55,7 @@ Följande procedur visar hur du importerar och installera uppdateringspaket i ad
 3. I storage-konto information under **Services**väljer **Blobar**.
  
     ![Visar hur du kommer till BLOB-objekt för storage-konto](media/azure-stack-apply-updates/ApplyUpdates3.png) 
- 
+ 
 4. Under **Blobtjänst**väljer **+ behållare** att skapa en behållare. Ange ett namn (till exempel *uppdatering 1709*), och välj sedan **OK**.
  
      ![Visar hur du lägger till en behållare i lagringskontot](media/azure-stack-apply-updates/ApplyUpdates4.png)
@@ -64,12 +66,12 @@ Följande procedur visar hur du importerar och installera uppdateringspaket i ad
 
 6. Under **ladda upp blob**, klicka på mappikonen, bläddra till den uppdateringspaketet .exe-fil och klicka sedan på **öppna** filen i Utforskaren.
   
-7. Under **ladda upp blob**, klickar du på **överför**. 
+7. Under **ladda upp blob**, klickar du på **överför**. 
   
     ![Visar var du vill ladda upp varje fil för registreringspaketet](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. Upprepa steg 6 och 7 för de *PackageName*.bin och Metadata.xml-filer. Importera inte filen kompletterande Notice.txt om ingår.
-9. När du är klar kan du granska meddelanden (klockikonen i det övre högra hörnet i portalen). Meddelanden ska indikera att överföringen är klar. 
+8. Upprepa steg 6 och 7 för de *PackageName*.bin och Metadata.xml-filer. Importera inte filen kompletterande Notice.txt om ingår.
+9. När du är klar kan du granska meddelanden (klockikonen i det övre högra hörnet i portalen). Meddelanden ska indikera att överföringen är klar. 
 10. Gå tillbaka till Update-panelen på instrumentpanelen. Panelen ska indikera att en uppdatering är tillgänglig. Klicka på panelen om du vill granska nyligen tillagda uppdateringspaketet.
 11. Om du vill installera uppdateringen, Välj det paket som har markerats som **redo** och antingen högerklicka på paketet och välj **Uppdatera nu**, eller klicka på den **Uppdatera nu** åtgärd i den övre delen .
 12. När du klickar på installera uppdateringspaketet du kan visa statusen i den **uppdatering körningsinformation** området. Härifrån kan du också klicka på **fullständig Hämtningsloggar** att ladda ned filerna.

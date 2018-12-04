@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4a4b9863d8f74592a8d9a700c3dbc850cd867331
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a5bf15289e91cc568524e8110702b5608118bc2d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725564"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833932"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure AD B2C: Logga in med ett Android-program
 
@@ -42,7 +42,7 @@ Därefter måste du skapa en app i B2C-katalogen. Det ger Azure AD den informati
 
 ## <a name="create-your-user-flows"></a>Skapa dina användarflöden
 
-I Azure AD B2C definieras varje användarupplevelse av en [användarflödet](active-directory-b2c-reference-policies.md), vilket är en uppsättning principer som styr beteendet för Azure AD. Den här appen innehåller en identitetslösning: en kombinerad inloggning och registrering användarflödet. Du måste skapa det här användarflödet enligt beskrivningen i den [användaren flow referensartikeln](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). När du skapar användarflödet, måste du kontrollera att:
+I Azure AD B2C definieras varje användarupplevelse av en [användarflödet](active-directory-b2c-reference-policies.md), vilket är en uppsättning principer som styr beteendet för Azure AD. Den här appen innehåller en identitetslösning: en kombinerad inloggning och registrering användarflödet. Du måste skapa det här användarflödet enligt beskrivningen i den [användaren flow referensartikeln](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). När du skapar användarflödet, måste du kontrollera att:
 
 * Välj den **visningsnamn** som ett registrerings attribut i ditt användarflöde.
 * Välj den **visningsnamn** och **objekt-ID** programanspråken i varje användarflödet. Du kan också välja andra anspråk.

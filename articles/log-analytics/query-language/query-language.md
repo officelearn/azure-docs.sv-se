@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: bwren
-ms.openlocfilehash: 4ef1e302a305f683155139063891b838d8144008
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 493c48fe87158ee357d98eb0b0d1bd2a4fad5b2f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680471"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843792"
 ---
 # <a name="log-analytics-query-language"></a>Logga Analytics-frågespråket
 Log Analytics tillhandahåller Logginsamling och analys för Azure Monitor. Den bygger på Azure Data Explorer och använder en version av samma frågespråk. Den [språkdokumentation för Azure Data Explorer fråga](/azure/kusto/query) har alla detaljer för språket och ska vara din primära resurs för att skriva Log Analytics-frågor. Den här sidan innehåller länkar till andra resurser för att lära dig hur du skriver frågor och på skillnader med Log Analytics-implementering för språket.
@@ -29,7 +29,7 @@ Log Analytics tillhandahåller Logginsamling och analys för Azure Monitor. Den 
 -  [Kom igång med frågor i Log Analytics](get-started-queries.md) är en lektion för att skriva frågor med Log Analytics-data.
 
 ## <a name="concepts"></a>Begrepp
-- [Analysera Log Analytics-data i Azure Monitor](../log-analytics-queries.md) ger en kort översikt över log frågar och beskriver hur Log Analytics-data är strukturerad.
+- [Analysera Log Analytics-data i Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) ger en kort översikt över log frågar och beskriver hur Log Analytics-data är strukturerad.
 - [Visa och analysera data i Log Analytics](../log-analytics-log-search-portals.md) förklarar portalerna där du skapar och kör Log Analytics-frågor.
 
 ## <a name="reference"></a>Referens

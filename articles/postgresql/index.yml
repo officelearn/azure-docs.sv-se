@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 928a251c00952b9b515d41c87821e3b3f821809f
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 0a9d8f08e32d925ea0c01bd372116b20dcb2638a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434610"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840741"
 documentType: LandingData
 title: Azure Database för PostgreSQL-dokumentation
 metadata:
@@ -12,14 +12,11 @@ metadata:
   title: Dokumentation om Azure PostgreSQL – självstudier, API-referens
   description: Azure Database för PostgreSQL är en relationsdatabastjänst i Microsoft-molnet som är utformad för utvecklare baserat på PostgreSQL-databasmotorn för öppen källkod.
   services: postgresql
-  author: czeumault
-  manager: carolz
+  author: rachel-msft
+  ms.author: raagyema
   ms.service: postgresql
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/23/2017
-  ms.author: carolz
+  ms.date: 11/30/2018
 abstract:
   description: Azure Database för PostgreSQL är en relationsdatabastjänst baserad på Postgres-databasmotorn för öppen källkod.  Det är en fullständigt hanterad databas som tjänst, för hantering av verksamhetskritiska arbetsbelastningar med förutsägbara prestanda, säkerhet, hög tillgänglighet och dynamisk skalbarhet.  Utveckla program med Azure Database för PostgreSQL och använd valfria verktyg för öppen källkod och plattform.  Lär dig hur du använder Azure Database med våra snabbstarter, självstudier och exempel.
 sections:
@@ -78,4 +75,4 @@ sections:
     - title: Kommandorad
       html: <p><a href="/cli/azure">Azure CLI</a></p>
     - title: REST
-      html: <p><a href="/rest/api/postgresql">REST API</a></p>
+      html: <p><a href="/rest/api/postgresql">REST-API</a></p>

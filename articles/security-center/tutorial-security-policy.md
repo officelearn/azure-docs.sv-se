@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center-självstudie – Definiera och utvärdera säkerhetsprinciper | Microsoft Docs
-description: Azure Security Center-självstudie – Definiera och utvärdera säkerhetsprinciper
+title: Redigera säkerhetsprinciper i Azure Policy | Microsoft Docs
+description: Redigera säkerhetsprinciper i Azure Policy.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -9,102 +9,160 @@ editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: fcd3c2a95cea0a838fc16149a0a74fad95ea3300
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
-ms.translationtype: HT
+ms.openlocfilehash: d6cc216f71efcd3b3973cd37349dd5145237f02f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027069"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839338"
 ---
-# <a name="tutorial-define-and-assess-security-policies"></a>Självstudie: Definiera och utvärdera säkerhetsprinciper
-Security Center hjälper till att säkerställa efterlevnaden av företagets eller bestämmelsemässiga säkerhetskrav med säkerhetsprinciper för att definiera den önskade konfigurationen för arbetsbelastningarna. När du definierar principer för dina Azure-prenumerationer och anpassar dem till typen av arbetsbelastning eller dina datas känslighet kan Security Center tillhandahålla säkerhetsrekommendationer för dina resurser för beräkning, program, nätverk, data och lagring samt identitet och åtkomst. I den här självstudien får du lära dig hur man:
+# <a name="edit-security-policies-in-azure-policy"></a>Redigera säkerhetsprinciper i Azure Policy
+Security Center kan du visa status för säkerhetsprinciper och hur de används för dina arbetsbelastningar. Azure Security Center tilldelar automatiskt dess [inbyggda säkerhetsprinciper](security-center-policy-definitions.md) på varje prenumeration som har publicerats. Du kan konfigurera dem i [Azure Policy](../azure-policy/azure-policy-introduction.md), eller med hjälp av REST-API, som även möjligt att ange principer över hanteringsgrupper och över flera prenumerationer. Mer information finns i [Integrera Security Center-säkerhetsprinciper med Azure Policy](security-center-azure-policy.md). I den här självstudien får du lära dig hur man:
 
 > [!div class="checklist"]
-> * Konfigurera säkerhetsprincip
+> * Konfigurera en säkerhetsprincip med hjälp av REST-API
 > * Utvärdera säkerheten för dina resurser
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/pricing/free-trial/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-För att gå igenom funktionerna i den här självstudien måste du ha standardnivån i Security Center. Du kan prova Security Center Standard utan kostnad under de första 60 dagarna. Snabbstarten för att [registrera Azure-prenumerationen till Security Center Standard](security-center-get-started.md) vägleder dig genom uppgraderingen till Standard.
+## <a name="prerequisites"></a>Förutsättningar
+För att gå igenom funktionerna i den här självstudien måste du ha standardnivån i Security Center. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). Snabbstarten för att [registrera Azure-prenumerationen till Security Center Standard](security-center-get-started.md) vägleder dig genom uppgraderingen till Standard.
 
-## <a name="configure-security-policy"></a>Konfigurera säkerhetsprincip
-Security Center skapar automatiskt en standardsäkerhetsprincip för var och en av dina Azure-prenumerationer. Säkerhetsprinciper består av rekommendationer som du kan slå på eller stänga av utifrån prenumerationens säkerhetskrav. För att göra ändringar i en standardsäkerhetsprincip måste du vara ägare, deltagare eller säkerhetsadministratör för prenumerationen.
+## <a name="configure-a-security-policy-using-the-rest-api"></a>Konfigurera en säkerhetsprincip med hjälp av REST-API
 
-1. På huvudmenyn i Security Center väljer du **Säkerhetsprincip**.
-2. Ange den Azure-prenumeration som du vill använda.
+Som en del av den interna integreringen med Azure Policy kan Azure Security Center du dra nytta Azure Policy REST API för att skapa principtilldelningar. Följande instruktioner vägleder dig genom skapandet av principtilldelningar, samt anpassning av befintliga tilldelningar. 
 
-  ![Säkerhetsprincip](./media/tutorial-security-policy/tutorial-security-policy-fig1.png)  
+Viktiga begrepp i Azure Policy: 
 
-3. Under **Compute och appar**, **Nätverk** och **Data** sätter du alla säkerhetskonfigurationer som ska övervakas till **På**. Security Center utvärderar kontinuerligt miljöns konfiguration och när det finns säkerhetsrisker genererar Security Center en säkerhetsrekommendation. Välj **Av** om säkerhetskonfigurationen inte är rekommenderad eller relevant. I till exempel en dev/test-miljö kanske du inte kräver samma säkerhetsnivå som för en produktionsmiljö. När du har valt de principer som gäller för din miljö klickar du på **Spara**.
+- En **principdefinition** är en regel 
 
-  ![Säkerhetskonfiguration](./media/tutorial-security-policy/tutorial-security-policy-fig6.png)  
+- En **initiativ** är en samling principdefinitioner (regler) 
 
-Vänta tills Security Center behandlar principerna och genererar rekommendationer. Vissa konfigurationer, som systemuppdateringar och OS-konfigurationer kan ta upp till 12 timmar, medan nätverkssäkerhetsgrupper och krypteringskonfigurationer kan utvärderas nästan omedelbart. När du ser rekommendationerna på Security Center-instrumentpanelen kan du fortsätta till nästa steg.
+- En **tilldelning** är ett program i ett initiativ eller en princip för ett visst område (hanteringsgruppen, prenumeration osv.) 
 
-## <a name="assess-security-of-resources"></a>Utvärdera säkerheten för resurser
-1. Enligt säkerhetsprinciperna vi har aktiverat tillhandahåller Security Center en uppsättning säkerhetsrekommendationer efter behov. Börja med att granska den virtuella datorn och rekommendationer för datorer. På Security Center-instrumentpanelen väljer du **Översikt** och sedan **Compute och appar**.
+Security Center har en inbyggd initiativ som innehåller alla dess säkerhetspolicys. För att kunna utvärdera Security Center-principerna på dina Azure-resurser, bör du skapa en tilldelning på hanteringsgruppen eller prenumerationen som du vill utvärdera.  
 
-  ![Compute](./media/tutorial-security-policy/tutorial-security-policy-fig2.png)
+Inbyggda initiativ har alla Security Center-principerna är aktiverade som standard. Du kan välja att inaktivera vissa principer från det inbyggda initiativet, till exempel kan du använda alla Security Center principer utom **Brandvägg för webbaserade program**, genom att ändra värdet för parametern för principens effekt till  **Inaktiverad**. 
 
-  Granska varje rekommendation genom att prioritera rekommendationer i rött (hög prioritet). Vissa av de här rekommendationerna har åtgärder som kan implementeras direkt från Security Center, som [problem med endpoint protection](https://docs.microsoft.com/azure/security-center/security-center-install-endpoint-protection). Andra rekommendationer har endast riktlinjer för att tillämpa åtgärden, till exempel om det saknas rekommendation för kryptering av disk.
+### <a name="api-examples"></a>API-exempel
 
-2. När du har gått igenom alla relevanta rekommendationer ska du fortsätta till nästa arbetsbelastning: nätverk. På instrumentpanelen för Security Center klickar du på **Översikt** och sedan på **Nätverk**.
+Ersätt dessa variabler i följande exempel:
 
-  ![Nätverk](./media/tutorial-security-policy/tutorial-security-policy-fig3.png)
+- **{omfång}**  anger du namnet på hanteringsgruppen eller prenumerationen du tillämpar principen till.
+- **{poicyAssignmentName}**  ange den [namn på relevanta principtilldelningen](#policy-names).
+- **{name}**  ange ditt namn eller namnet på den administratör som godkänts principändringen.
 
-  På sidan med nätverksrekommendationer finns en lista över säkerhetsproblem för nätverkskonfiguration, internetuppkopplade slutpunkter och nätverkstopologi. Precis som för **Compute och appar** tillhandahåller vissa nätverksrekommendationer integrerade åtgärder och vissa inte.
+Det här exemplet visar hur du tilldelar initiativet inbyggda Security Center på en prenumeration eller hanteringsgrupp
+ 
+    PUT  
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
 
-3. När du har gått igenom alla relevanta nätverksrekommendationer ska du gå vidare till nästa arbetsbelastning: lagring och data. På instrumentpanelen för Security Center klickar du på **Översikt** och sedan på **Data och lagring**.
+    Request Body (JSON) 
 
-  ![Dataresurser](./media/tutorial-security-policy/tutorial-security-policy-fig4.png)
+    { 
 
-  På sidan **Dataresurser** finns det rekommendationer för att aktivera granskning för Azure SQL-servrar och -databaser, aktivering av kryptering för SQL-databaser och aktivering av kryptering för ditt Azure-lagringskonto. Om du inte har dessa arbetsbelastningar visas inga rekommendationer. Precis som för **Compute och appar** tillhandahåller vissa rekommendationer för data och lagring integrerade åtgärder och vissa inte.
+      "properties":{ 
 
-4. När du har gått igenom alla relevanta rekommendationer för data och lagring ska du gå vidare till nästa arbetsbelastning: Identitet och åtkomst. På instrumentpanelen för Security Center klickar du på **Översikt** och sedan på **Identitet och åtkomst**.
+    "displayName":"Enable Monitoring in Azure Security Center", 
 
-  ![Identitet och åtkomst](./media/tutorial-security-policy/tutorial-security-policy-fig5.png)
+    "metadata":{ 
 
-  Sidan **Identitet och åtkomst** innehåller rekommendationer som:
+    "assignedBy":"{Name}" 
 
-   - Aktivera MFA för privilegierade konton för prenumerationen
-   - Ta bort externa konton med skrivbehörigheter från prenumerationen
-   - Ta bort externa privilegierade konton från prenumerationen
+    }, 
 
-## <a name="clean-up-resources"></a>Rensa resurser
-De andra snabbstarterna och självstudierna i den här samlingen bygger på den här snabbstarten. Om du tänker fortsätta med att arbeta med efterföljande snabbstarter och självstudier ska du fortsätta att köra Standard-nivån och ha automatisk etablering aktiverad. Om du inte tänker fortsätta eller vill återgå till den kostnadsfria nivån:
+    "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
 
-1. Återgå till huvudmenyn i Security Center och välj **Säkerhetsprincip**.
-2. Välj den prenumeration eller princip du vill ska återgå till den kostnadsfria nivån. **Säkerhetsprincip** öppnas.
-3. Under **PRINCIPKOMPONENTER** väljer du **Prisnivå**.
-4. Välj **Kostnadsfri** om du vill byta prenumeration från Standard-nivån till den kostnadsfria nivån.
-5. Välj **Spara**.
+    "parameters":{}, 
 
-Om du vill avaktivera automatisk etablering:
+    } 
 
-1. Återgå till huvudmenyn i Security Center och välj **Säkerhetsprincip**.
-2. Välj den prenumeration du vill avaktivera automatisk etablering för.
-3. Under **Säkerhetsprincip – Datainsamling** väljer du **Av** under **Registrering** för att inaktivera automatisk etablering.
-4. Välj **Spara**.
+    } 
 
->[!NOTE]
-> Inaktivering av automatisk etablering tar inte bort Microsoft Monitoring Agent från virtuella Azure-datorer där agenten har etablerats. Inaktivering av automatisk etablering begränsar säkerhetsövervakningen för dina resurser.
->
+Det här exemplet visar hur du tilldelar initiativet inbyggda Security Center på en prenumeration med följande principer inaktiverad: 
+
+- Systemuppdateringar (”systemUpdatesMonitoringEffect”) 
+
+- Säkerhetskonfigurationer (”systemConfigurationsMonitoringEffect”) 
+
+- Slutpunktsskydd (”endpointProtectionMonitoringEffect”) 
+
+ 
+      PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+
+      Request Body (JSON) 
+
+      { 
+
+        "properties":{ 
+
+      "displayName":"Enable Monitoring in Azure Security Center", 
+
+      "metadata":{ 
+
+      "assignedBy":"{Name}" 
+
+      }, 
+
+      "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+
+      "parameters":{ 
+
+      "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
+
+      "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
+
+      "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
+
+      }, 
+
+       } 
+
+      } 
+
+Det här exemplet visar hur du tar bort en tilldelning:
+
+    DELETE   
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+
+
+## Referens för namn <a name="policy-names"></a>
+
+|Principnamnet i Security Center|Principnamn som visas i Azure Policy |Parameternamn för principen effekt|
+|----|----|----|
+|SQL-kryptering |Övervaka okrypterade SQL-databas i Azure Security Center |sqlEncryptionMonitoringEffect| 
+|SQL-granskning |Övervaka ogranskad SQL-databas i Azure Security Center |sqlAuditingMonitoringEffect|
+|Systemuppdateringar |Övervaka systemuppdateringar som saknas i Azure Security Center |systemUpdatesMonitoringEffect|
+|Lagringskryptering |Granska blobbkryptering som saknas för lagringskonton |storageEncryptionMonitoringEffect|
+|JIT-nätverksåtkomst |Övervaka möjliga precis i tid JIT-nätverksåtkomst i Azure Security Center |jitNetworkAccessMonitoringEffect |
+|Anpassningsbara programkontroller |Övervaka möjliga tillåtna appar i Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
+|Nätverkssäkerhetsgrupper |Övervaka tillåten åtkomst till nätverk i Azure Security Center |networkSecurityGroupsMonitoringEffect| 
+|Säkerhetskonfigurationer |Övervaka OS-säkerhetsproblem i Azure Security Center |systemConfigurationsMonitoringEffect| 
+|Slutpunktsskydd |Övervaka saknad Endpoint Protection i Azure Security Center |endpointProtectionMonitoringEffect |
+|Diskkryptering |Övervaka okrypterade Virtuella Datordiskar i Azure Security Center |diskEncryptionMonitoringEffect|
+|Sårbarhetsbedömning |Övervaka säkerhetsrisker i virtuell dator i Azure Security Center |vulnerabilityAssesmentMonitoringEffect|
+|Brandvägg för webbaserade program |Övervaka oskyddat webbprogram i Azure Security Center |webApplicationFirewallMonitoringEffect |
+|Nästa generations brandvägg |Övervaka oskyddade nätverksslutpunkter i Azure Security Center| |
+
+
+
+
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien har du lärt dig om grundläggande principdefinition och säkerhetsbedömning för arbetsbelastningar med Security Center, som:
+I den här artikeln lärde du dig att redigera säkerhetsprinciper i Azure Policy. I följande artiklar kan du lära dig mer om Security Center:
 
-> [!div class="checklist"]
-> * Konfiguration av säkerhetsprincip för att garantera efterlevnad med ditt företag eller lagstadgade säkerhetskrav
-> * Säkerhetsbedömningar för dina resurser för beräkning, nätverk, SQL och lagring och program
+* [Planerings- och bruksanvisning för Azure Security Center](security-center-planning-and-operations-guide.md): Här får du lära dig att planera och vad du behöver tänka på när det gäller design när du ska börja använda Azure Security Center.
+* [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md): Lär dig hur du övervakar dina Azure-resursers hälsa.
+* [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md): Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
+* [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Lär dig hur du övervakar dina partnerlösningars hälsostatus.
+* [Få synlighet i hela klientorganisationen för Azure Security Center](security-center-management-groups.md): Lär dig hur du konfigurerar hanteringsgrupper för Azure Security Center.
+* [Vanliga frågor och svar om Azure Security Center](security-center-faq.md): Få svar på vanliga frågor om att använda tjänsten.
+* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/): Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
 
-Fortsätt till nästa självstudie för att lära dig att använda Security Center för att skydda dina resurser.
-
-> [!div class="nextstepaction"]
-> [Skydda dina resurser](tutorial-protect-resources.md)
+Mer information om Azure Policy finns i [Vad är Azure Policy?](../azure-policy/azure-policy-introduction.md)

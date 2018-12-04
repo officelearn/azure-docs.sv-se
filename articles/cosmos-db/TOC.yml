@@ -11,6 +11,8 @@ items:
     items:
     - name: .NET
       href: create-sql-api-dotnet.md
+    - name: .NET-förhandsgranskning
+      href: create-sql-api-dotnet-preview.md
     - name: Java
       href: create-sql-api-java.md
     - name: Node.js
@@ -164,8 +166,6 @@ items:
   items:
   - name: SQL API-dokument
     items:
-    - name: Introduktion
-      href: sql-api-introduction.md
     - name: Modelldokumentdata
       href: modeling-data.md
     - name: Självstudier
@@ -176,8 +176,12 @@ items:
           items:
           - name: .NET
             href: sql-api-get-started.md
+          - name: .NET-förhandsgranskning
+            href: sql-api-dotnet-get-started-preview.md
           - name: .NET Core
             href: sql-api-dotnetcore-get-started.md
+          - name: .NET Core-förhandsgranskning
+            href: sql-api-dotnet-core-get-started-preview.md
           - name: Java
             href: sql-api-java-get-started.md
           - name: Async Java
@@ -188,6 +192,8 @@ items:
           items:
           - name: .NET
             href: sql-api-dotnet-application.md
+          - name: .NET-förhandsgranskning
+            href: sql-api-dotnet-application-preview.md
           - name: Java
             href: sql-api-java-application.md
           - name: Node.js
@@ -222,8 +228,6 @@ items:
         href: sql-api-sql-query-metrics.md
       - name: Lagrade procedurer, utlösare och UDF:er
         href: programming.md
-      - name: SQL-datapartitionering
-        href: sql-api-partition-data.md
       - name: Datatyper
         items:
         - name: DateTime
@@ -453,6 +457,8 @@ items:
       href: how-to-configure-firewall.md
     - name: Konfigurera åtkomst till virtuella nätverk
       href: how-to-configure-vnet-service-endpoint.md
+    - name: Konfigurera resursdelning för korsande ursprung (CORS)
+      href: how-to-configure-cross-origin-resource-sharing.md
   - name: Företagsberedskap
     items:
     - name: Återställa data från en säkerhetskopia
@@ -577,9 +583,9 @@ items:
       href: use-cases.md
     - name: Appar för sociala medier
       href: social-media-apps.md
-ms.openlocfilehash: be2c50fb19746f15d879ada3ccbdc4366a4c4763
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: b3094d99c13b228a4a4165a1a1a49a97a7517cb0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262541"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833728"

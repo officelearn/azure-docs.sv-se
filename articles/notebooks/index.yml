@@ -1,0 +1,74 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 1be098bb098befecf29863bfe2d0d5220edddb01
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52852444"
+documentType: LandingData
+title: Dokumentation om Azure Notebooks
+metadata:
+  title: Dokumentation om Azure Notebooks – Snabbstarter, självstudier, guider | Microsoft Docs
+  description: Lär dig hur du skapar, kör och delar Jupyter Notebooks via den värdbaserade tjänsten Azure Notebooks.
+  services: notebooks
+  author: kraigb
+  manager: douge
+  ms.service: notebooks
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 12/04/2018
+  ms.author: kraigb
+abstract:
+  description: Azure Notebooks är en kostnadsfri värdbaserad tjänst som används för att utveckla och köra Jupyter Notebooks i molnet utan installation. Jupyter (tidigare IPython) är ett projekt med öppen källkod som gör att du enkelt kan kombinera markdown-text, körbar kod (Python, R, och F#), beständiga data, grafik och visualiseringar på en enda delbar arbetsyta som kallas en notebook-fil.
+sections:
+- title: Snabbstarter på 5 minuter
+  items:
+  - type: paragraph
+    text: Lär dig att arbeta med Azure Notebooks med hjälp av dessa snabbstarter.
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 2
+    items:
+    - href: /azure/notebooks/quickstart-create-share-jupyter-notebook
+      html: <p>Lär dig att skapa och köra en Jupyter Notebook i Azure Notebooks och sedan dela notebook-filen med andra.</p>
+      image:
+        src: media/index/Azure_AddNotebook.svg
+      title: Skapa och dela en notebook-fil
+    - href: /azure/notebooks/quickstart-clone-jupyter-notebook
+      html: <p>Lär dig hur du klonar en Jupyter Notebook från en GitHub-lagringsplats och kör den i ditt Azure Notebooks-konto.</p>
+      image:
+        src: media/index/Azure_ClonePage.svg
+      title: Skapa en notebook-fil
+    - href: /azure/notebooks/quickstart-migrate-local-jupyter-notebook
+      html: <p>Lär dig hur du överför en Jupyter Notebook till Azure Notebooks från din lokala dator eller en webbadress och sedan delar den för att samarbeta med andra.</p>
+      image:
+        src: media/index/Azure_MigrateNotebook.svg
+      title: Migrera en lokal Jupyter Notebook
+    - href: /azure/notebooks/quickstart-create-jupyter-notebook-project-environment
+      html: <p>Lär dig hur du konfigurerar ett Azure Notebooks-projekt med en specifik uppsättning installerade paket och startskript.</p>
+      image:
+        src: media/index/Azure_CustomEnvironment.svg
+      title: Skapa ett projekt med en anpassad miljö
+    - href: /azure/notebooks/quickstart-sign-in-azure-notebooks
+      html: <p>Lär dig mer om att logga in på Azure Notebooks och ange ett användar-ID, vilket ger dig möjlighet att komma åt sparade projekt och dela notebook-filer med andra.</p>
+      image:
+        src: media/index/Azure_UserAccount.svg
+      title: Logga in och ange ett användar-ID
+- title: Steg för steg-självstudier
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/notebooks/tutorial-create-run-jupyter-notebook">Lär dig hur du skapar en notebook-fil från början till slut.</a>
+- title: Exempel
+  items:
+  - type: paragraph
+    text: 'Använd följande exempel för att arbeta med Notebooks:'
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/notebooks/azure-notebooks-samples">Exempel på Jupyter Notebooks</a>

@@ -109,7 +109,7 @@ ms.locfileid: "52723354"
                                                             <a href="authentication/index.yml"><i>Mer information &gt;</i></a>
                                                             </p>
                                                         <br><br>
-                                                        <h3><a href="b2b/index.yml">Business-to-Business (B2B)</a></h3>
+                                                        <h3><a href="b2b/index.yml">Företag till företag (B2B)</a></h3>
                                                         <p>
                                                             <a href="b2b/what-is-b2b.md">Vad är Azure AD B2B?</a><br>
                                                             <a href="b2b/add-users-administrator.md">Lägga till gästanvändare på portalen</a><br>
@@ -117,7 +117,7 @@ ms.locfileid: "52723354"
                                                             <a href="b2b/index.yml"><i>Mer information &gt;</i></a>
                                                             </p>
                                                         <br><br>
-                                                        <h3><a href="/azure/active-directory-b2c/index">Business-to-Customer (B2C)</a></h3>
+                                                        <h3><a href="/azure/active-directory-b2c/index">Företag till konsument (B2C)</a></h3>
                                                         <p>
                                                             <a href="/azure/active-directory-b2c/active-directory-b2c-overview">Vad är Azure AD B2C?</a><br>
                                                             <a href="/azure/active-directory-b2c/tutorial-create-tenant">Skapa en Azure AD B2C-klient</a><br>
